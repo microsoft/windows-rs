@@ -11,26 +11,28 @@ fn main() {
     }
 }
 
-// trait IUnknown{
-//     unsafe fn QueryInterface(&self, interface: &GUID, result: *mut *mut VOID) -> HRESULT;
-//     fn AddRef(&self)->u32;
-//     fn Release(&self)->u32;
-// }
+#[repr(C)]
+struct Color{
+    a:u8,
+    r:u8,
+    g:u8,
+    b:u8,
+}
 
-// trait IInspectable : IUnknown{
-//     fn GetIids(&self) -> HRESULT;
-//     fn GetRuntimeClassName(&self) -> HRESULT;
-//     fn GetTrustLevel(&self) -> HRESULT;
-// }
-
-// trait IColorsStatics : IInspectable{
-//     fn get_AliceBlue(&self) -> HRESULT;
-// }
+#[repr(C)]
+struct IColorsStatics{
+    QueryInterface: extern "stdcall" fn(*const *const IColorsStatics, interface: &GUID, result: *mut *mut VOID) -> HRESULT,
+    AddRef: extern "stdcall" fn(*const *const IColorsStatics)->u32,
+    Release: extern "stdcall" fn(*const *const IColorsStatics)->u32,
+    GetIids: extern fn(),
+    GetRuntimeClassName: extern fn(),
+    GetTrustLevel: extern fn(),
+    get_AliceBlue:extern "stdcall"  fn(*const *const IColorsStatics, value: &mut Color) -> HRESULT
+}
 
 fn run() -> std::io::Result<()> {
     unsafe {
         let hr = RoInitialize(ApartmentType::MultiThreaded);
-        println!("{:#x}", hr);
         assert!(hr == 0);
 
         let mut hstring: HSTRING = std::ptr::null_mut();
@@ -49,6 +51,22 @@ fn run() -> std::io::Result<()> {
         let hr = RoGetActivationFactory(hstring, &guid_IColorsStatics, &mut factory);
         println!("{:#x}", hr);
         assert!(hr == 0);
+
+        let ptr = factory as *const *const IColorsStatics;
+
+        let count = ((*(*ptr)).AddRef)(ptr);
+        println!("ref {}", count);
+        let count = ((*(*ptr)).Release)(ptr);
+        println!("ref {}", count);
+
+        let mut color = Color{a:0,r:0,g:0,b:0};
+
+        let hr = ((*(*ptr)).get_AliceBlue)(ptr, &mut color);
+        assert!(hr == 0);
+        assert!(color.a == 255);
+        assert!(color.r == 240);
+        assert!(color.g == 248);
+        assert!(color.b == 255);
     }
     Ok(())
 }
