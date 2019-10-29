@@ -30,7 +30,10 @@ struct IColorsStatics{
     get_AliceBlue:extern "stdcall"  fn(*const *const IColorsStatics, value: &mut Color) -> HRESULT
 }
 
-fn run() -> std::io::Result<()> {
+struct Colors;
+
+impl Colors{
+    fn alice_blue() -> Result<Color>{
     unsafe {
         let hr = RoInitialize(ApartmentType::MultiThreaded);
         assert!(hr == 0);
@@ -63,10 +66,19 @@ fn run() -> std::io::Result<()> {
 
         let hr = ((*(*ptr)).get_AliceBlue)(ptr, &mut color);
         assert!(hr == 0);
-        assert!(color.a == 255);
-        assert!(color.r == 240);
-        assert!(color.g == 248);
-        assert!(color.b == 255);
+        Ok(color)
     }
+    }
+}
+
+fn run() -> std::io::Result<()> {
+    
+    let color = Colors::alice_blue()?;
+
+    assert!(color.a == 255);
+    assert!(color.r == 240);
+    assert!(color.g == 248);
+    assert!(color.b == 255);
+    
     Ok(())
 }
