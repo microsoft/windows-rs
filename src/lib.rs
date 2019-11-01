@@ -1,9 +1,17 @@
 // #![allow(unused_variables)]
 // #![allow(dead_code)]
 
+extern crate proc_macro;
+use proc_macro::TokenStream;
+
 mod runtime;
 use runtime::*;
 use std::io::*;
+
+#[proc_macro_attribute]
+pub fn hello(attr: TokenStream, item: TokenStream) -> TokenStream {
+    TokenStream::new()
+}
 
 fn main() {
     if let Err(e) = run() {
