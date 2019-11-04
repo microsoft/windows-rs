@@ -1,5 +1,5 @@
 [package]
-name = "winrt"
+name = "winrt_macros"
 version = "0.1.0"
 authors = ["Kenny Kerr <kekerr@microsoft.com>"]
 edition = "2018"
