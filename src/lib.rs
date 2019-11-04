@@ -3,15 +3,23 @@
 
 extern crate proc_macro;
 use proc_macro::TokenStream;
+use quote::quote;
 
 mod runtime;
 use runtime::*;
 use std::io::*;
+//use syn::*;
 
-#[proc_macro_attribute]
-pub fn hello(attr: TokenStream, item: TokenStream) -> TokenStream {
-    TokenStream::new()
-}
+// #[proc_macro_attribute]
+// pub fn hello(attr: TokenStream, item: TokenStream) -> TokenStream {
+//     let input = parse_macro_input!(input as DeriveInput);
+
+//     let expanded = quote! {
+
+//     };
+
+//     TokenStream::from(expanded)
+// }
 
 fn main() {
     if let Err(e) = run() {
