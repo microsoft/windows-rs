@@ -1,13 +1,6 @@
-use winrt::Stringable;
-
-struct Pancakes;
-
-impl Stringable for Pancakes {
-    fn to_string() {
-        println!("Hello Pancakes!");
-    }
-}
+use winrt::*;
 
 fn main() {
-    Pancakes::to_string();
+    Apples::to_string();
+    Oranges::to_string();
 }
