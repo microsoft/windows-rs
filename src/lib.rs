@@ -3,7 +3,7 @@ mod guid;
 mod runtime;
 mod string;
 
-use guid::*;
+pub use guid::*;
 use runtime::*;
 use winrt_macros::*;
 
