@@ -53,7 +53,7 @@ impl std::fmt::Display for String {
     }
 }
 
-// TODO: why not just a from function on the String itself?
+// TODO: why not just a `from` function on the String itself?
 impl From<&str> for String {
     fn from(value: &str) -> String {
         unsafe {
