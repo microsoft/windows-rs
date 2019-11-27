@@ -7,11 +7,7 @@ pub struct String {
     hstring: *const VOID,
 }
 
-// TODO: if a Rust String/str is provided (rather than a WinRT string),
-// store the HSTRING_HEADER and the Vec<16> buffer in a single heap allocation.
-// Alternatively, if the WinRT string construction uses WindowsPreallocateStringBuffer,
-// just use that and forget about hstring references as it's just one allocation and will
-// avoid any subsequent allocation if hte HSTRING is promoted.
+// TODO: consider implementing `Deref<Target = [u16]>` so the String can be used as a slice
 
 impl String {
     pub fn new() -> String {
@@ -25,36 +21,54 @@ impl String {
     pub fn len(&self) -> usize {
         unsafe { WindowsGetStringLen(self.hstring) as usize }
     }
+
+    pub fn as_chars(&self) -> &[u16] {
+        unsafe {
+            let mut len = 0;
+            let wide = WindowsGetStringRawBuffer(self.hstring, &mut len);
+            if len == 0 {
+                &[]
+            } else {
+                std::slice::from_raw_parts(wide, len as usize)
+            }
+        }
+    }
+}
+
+impl Drop for String {
+    fn drop(&mut self) {
+        if !self.is_empty() {
+            unsafe {
+                WindowsDeleteString(self.hstring);
+            }
+        }
+    }
 }
 
 impl std::fmt::Display for String {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         // TODO: format the wchar buffer directly to avoid an allocation?
-        write!(f, "{}", std::string::String::from(self))
+        // Especially since `value.to_string()` relies on this...
+        write!(f, "{}", std::string::String::from_utf16(self.as_chars()).unwrap())
     }
 }
 
+// TODO: why not just a from function on the String itself?
 impl From<&str> for String {
     fn from(value: &str) -> String {
-        // TODO: could avoid this temporary allocation by using an HSTRING buffer, but only if we
-        // can definitively calculate the resulting length exactly (and efficienty). Profile whether
-        // it is more efficient to call value.chars().count() and then using WindowsPreallocateStringBuffer
-        // and filling the buffer with value.encode_utf16()...
-        let wide: Vec<u16> = value.encode_utf16().collect();
-        let mut hstring: *mut VOID = std::ptr::null_mut();
-        unsafe { WindowsCreateString(wide.as_ptr(), wide.len() as u32, &mut hstring).unwrap() };
-        String { hstring }
-    }
-}
+        unsafe {
+            let len = value.encode_utf16().count() as u32;
+            let mut buffer: *mut u16 = std::ptr::null_mut();
+            let mut handle: *mut VOID = std::ptr::null_mut();
+            WindowsPreallocateStringBuffer(len, &mut buffer, &mut handle).unwrap();
 
-impl From<&String> for std::string::String {
-    fn from(value: &String) -> std::string::String {
-        let mut len = 0;
-        let wide = unsafe { WindowsGetStringRawBuffer(value.hstring, &mut len) };
-        if len == 0 {
-            std::string::String::new()
-        } else {
-            std::string::String::from_utf16(unsafe { std::slice::from_raw_parts(wide, len as usize) }).unwrap()
+            for (index, wide) in value.encode_utf16().enumerate() {
+                *buffer.offset(index as isize) = wide;
+            }
+
+            let mut hstring: *mut VOID = std::ptr::null_mut();
+            WindowsPromoteStringBuffer(handle, &mut hstring).unwrap();
+            String { hstring }
         }
     }
 }
