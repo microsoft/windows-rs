@@ -1,8 +1,10 @@
+#![allow(dead_code)]
+
 use crate::runtime::*;
 
 #[repr(C)]
 pub struct String {
-    hstring: HSTRING,
+    hstring: *const VOID,
 }
 
 // TODO: if a Rust String/str is provided (rather than a WinRT string),
@@ -12,10 +14,16 @@ pub struct String {
 // avoid any subsequent allocation if hte HSTRING is promoted.
 
 impl String {
-    fn new() -> String {
-        String {
-            hstring: std::ptr::null_mut(),
-        }
+    pub fn new() -> String {
+        String { hstring: std::ptr::null() }
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.hstring.is_null()
+    }
+
+    pub fn len(&self) -> usize {
+        unsafe { WindowsGetStringLen(self.hstring) as usize }
     }
 }
 
@@ -33,7 +41,7 @@ impl From<&str> for String {
         // it is more efficient to call value.chars().count() and then using WindowsPreallocateStringBuffer
         // and filling the buffer with value.encode_utf16()...
         let wide: Vec<u16> = value.encode_utf16().collect();
-        let mut hstring: HSTRING = std::ptr::null_mut();
+        let mut hstring: *mut VOID = std::ptr::null_mut();
         unsafe { WindowsCreateString(wide.as_ptr(), wide.len() as u32, &mut hstring).unwrap() };
         String { hstring }
     }
@@ -46,10 +54,7 @@ impl From<&String> for std::string::String {
         if len == 0 {
             std::string::String::new()
         } else {
-            std::string::String::from_utf16(unsafe {
-                std::slice::from_raw_parts(wide, len as usize)
-            })
-            .unwrap()
+            std::string::String::from_utf16(unsafe { std::slice::from_raw_parts(wide, len as usize) }).unwrap()
         }
     }
 }
