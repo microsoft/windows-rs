@@ -13,6 +13,7 @@ impl Guid {
     }
 }
 
+// TODO: why not just a `from` function on the Guid itself?
 impl From<&str> for Guid {
     fn from(value: &str) -> Guid {
         assert!(value.len() == 36, "Invalid GUID string");
