@@ -5,11 +5,12 @@ mod guid;
 mod runtime;
 mod string;
 
+pub use error::*;
 pub use guid::*;
-use runtime::*;
+pub use runtime::*;
 pub use string::*;
 
-fn load_runtime() {
+pub fn init() {
     let mut cookie: *mut VOID = std::ptr::null_mut();
     unsafe { CoIncrementMTAUsage(&mut cookie).unwrap() };
 }

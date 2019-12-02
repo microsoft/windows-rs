@@ -11,6 +11,12 @@ pub struct Error {
 
 pub type Result<T> = std::result::Result<T, Error>;
 
+impl Error {
+    pub fn code(&self) -> ErrorCode {
+        self.code
+    }
+}
+
 impl ErrorCode {
     pub fn is_ok(&self) -> bool {
         self.0 >= 0
@@ -24,7 +30,7 @@ impl ErrorCode {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
 
-    fn ok_or(&self) -> Result<()> {
+    pub fn result(&self) -> Result<()> {
         if self.0 < 0 {
             Err(Error { code: *self })
         } else {

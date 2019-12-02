@@ -33,6 +33,10 @@ impl String {
             }
         }
     }
+
+    pub fn as_raw_handle(&self) -> *const VOID {
+        self.hstring
+    }
 }
 
 impl Drop for String {
