@@ -3,7 +3,6 @@
 use crate::error::*;
 use crate::guid::*;
 
-// TODO: Is there not a std marker type for this?
 pub enum VOID {}
 
 #[link(name = "onecore")]
