@@ -1,4 +1,13 @@
 
+# The Rust/WinRT language projection
+
+Provides native and familiar support for the Windows Runtime for Rust developers. 
+
+This repo is still in early and active development. You can find more information about future plans for
+[this project here](https://kennykerr.ca/2019/11/05/rust/).
+
+The Rust winmd parser is part of the [xlang](https://github.com/microsoft/xlang) family of projects that help developers create APIs that can run on multiple platforms and be used with a variety of languages.
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
