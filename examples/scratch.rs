@@ -35,26 +35,6 @@ impl IUnknown {
     }
 }
 
-// TODO: probably don't need to expose this at all - only useful for debugging
-#[repr(C)]
-struct IInspectable {
-    impl_0: usize,
-    impl_1: usize,
-    impl_2: usize,
-    impl_3: usize,
-    name: extern "system" fn(*const Void, *mut *mut Void) -> ErrorCode,
-}
-
-impl IInspectable {
-    fn name(ptr: *const Void) -> String {
-        unsafe {
-            let mut hstring: *mut Void = std::ptr::null_mut();
-            ((*(*(ptr as *const *const IInspectable))).name)(ptr, &mut hstring);
-            String { hstring }
-        }
-    }
-}
-
 #[repr(C)]
 struct IColorsStatics {
     impl_0: usize,
