@@ -9,6 +9,7 @@ pub use error::*;
 pub use guid::*;
 pub use runtime::*;
 pub use string::*;
+pub use winrt_macros::*;
 
 pub fn init() {
     let mut cookie: *mut VOID = std::ptr::null_mut();

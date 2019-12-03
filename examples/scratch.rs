@@ -1,3 +1,4 @@
+#[winrt_macros::echo_target]
 use winrt::*;
 
 #[repr(C)]
@@ -58,3 +59,4 @@ fn main() {
 
     println!("ok");
 }
+
