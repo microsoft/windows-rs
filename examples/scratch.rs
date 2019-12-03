@@ -2,7 +2,11 @@
 use winrt::*;
 
 trait TypeGuid {
-    fn guid() -> &'static Guid;
+    fn type_guid() -> &'static Guid;
+}
+
+trait TypeName {
+    fn type_name() -> &'static str;
 }
 
 #[repr(C)]
@@ -100,21 +104,25 @@ impl Drop for IColorsStatics {
 }
 
 impl TypeGuid for IColorsStatics {
-    fn guid() -> &'static Guid {
-        static value: Guid = Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
-        &value
+    fn type_guid() -> &'static Guid {
+        static GUID: Guid = Guid::from_values(0xCFF52E04,0xCCA6,0x4614,&[ 0xA1,0x7E,0x75,0x49,0x10,0xC8,0x4A,0x99 ]);
+        &GUID
     }
 }
 
 struct Colors;
 
+impl TypeName for Colors {
+    fn type_name() -> &'static str {
+        "Windows.UI.Colors"
+    }
+}
+
 impl Colors {
     fn alice_blue() -> Result<Color> {
         unsafe {
-            let guid = Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
-
             let mut ptr: *mut Void = std::ptr::null_mut();
-            RoGetActivationFactory(String::from("Windows.UI.Colors").as_raw_handle(), &guid, &mut ptr).ok()?;
+            RoGetActivationFactory(String::from(Colors::type_name()).as_raw_handle(), IColorsStatics::type_guid(), &mut ptr).ok()?;
             let statics = IColorsStatics{ ptr };
 
             statics.alice_blue()
