@@ -1,9 +1,13 @@
 //#[winrt_macros::echo_target]
 use winrt::*;
 
+trait TypeGuid {
+    fn guid() -> &'static Guid;
+}
+
 #[repr(C)]
 #[derive(Default)]
-struct Color {
+pub struct Color {
     a: u8,
     r: u8,
     g: u8,
@@ -11,32 +15,51 @@ struct Color {
 }
 
 #[repr(C)]
-struct IUnknown {
+struct abi_IUnknown {
     query: extern "system" fn(*const Void, &Guid, *mut *mut Void) -> ErrorCode,
     addref: extern "system" fn(*const Void) -> u32,
     release: extern "system" fn(*const Void) -> u32,
 }
 
-impl IUnknown {
+impl abi_IUnknown {
     fn query(ptr: *const Void, guid: &Guid) -> *const Void {
         unsafe {
             let mut result: *mut Void = std::ptr::null_mut();
-            ((*(*(ptr as *const *const IUnknown))).query)(ptr, guid, &mut result);
+            ((*(*(ptr as *const *const Self))).query)(ptr, guid, &mut result);
             result
         }
     }
 
     fn addref(ptr: *const Void) -> u32 {
-        unsafe { ((*(*(ptr as *const *const IUnknown))).addref)(ptr) }
+        unsafe { ((*(*(ptr as *const *const Self))).addref)(ptr) }
     }
 
     fn release(ptr: *const Void) -> u32 {
-        unsafe { ((*(*(ptr as *const *const IUnknown))).release)(ptr) }
+        unsafe { ((*(*(ptr as *const *const Self))).release)(ptr) }
     }
 }
 
 #[repr(C)]
-struct IColorsStatics {
+struct abi_IInspectable {
+    impl_0: usize,
+    impl_1: usize,
+    impl_2: usize,
+    impl_3: usize,
+    type_name: extern "system" fn(*const Void, *mut *mut Void) -> ErrorCode,
+}
+
+impl abi_IInspectable {
+    fn type_name(ptr: *const Void) -> String {
+        unsafe {
+            let mut hstring: *mut Void = std::ptr::null_mut();
+            ((*(*(ptr as *const *const Self))).type_name)(ptr, &mut hstring);
+            String { hstring }
+        }
+    }
+}
+
+#[repr(C)]
+pub struct abi_IColorsStatics {
     impl_0: usize,
     impl_1: usize,
     impl_2: usize,
@@ -46,12 +69,40 @@ struct IColorsStatics {
     alice_blue: extern "system" fn(*const Void, value: &mut Color) -> ErrorCode,
 }
 
-impl IColorsStatics {
-    fn alice_blue(ptr: *const Void) -> Result<Color> {
+impl abi_IColorsStatics {
+    pub fn alice_blue(ptr: *const Void) -> Result<Color> {
         unsafe {
-        let mut color = Default::default();
-        ((*(*(ptr as *const *const IColorsStatics))).alice_blue)(ptr, &mut color).ok_or(color)
+            let mut color = Default::default();
+            ((*(*(ptr as *const *const Self))).alice_blue)(ptr, &mut color).ok_or(color)
         }
+    }
+}
+
+struct IColorsStatics {
+    ptr: *const Void,
+}
+
+impl IColorsStatics {
+    pub fn alice_blue(&self) -> Result<Color> {
+        unsafe {
+            let mut color = Default::default();
+            ((*(*(self.ptr as *const *const abi_IColorsStatics))).alice_blue)(self.ptr, &mut color).ok_or(color)
+        }
+    }
+}
+
+impl Drop for IColorsStatics {
+    fn drop(&mut self) {
+        if !self.ptr.is_null() {
+            abi_IUnknown::release(self.ptr);
+        }
+    }
+}
+
+impl TypeGuid for IColorsStatics {
+    fn guid() -> &'static Guid {
+        static value: Guid = Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
+        &value
     }
 }
 
@@ -62,10 +113,11 @@ impl Colors {
         unsafe {
             let guid = Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
 
-            let mut factory: *mut Void = std::ptr::null_mut();
-            RoGetActivationFactory(String::from("Windows.UI.Colors").as_raw_handle(), &guid, &mut factory).ok()?;
+            let mut ptr: *mut Void = std::ptr::null_mut();
+            RoGetActivationFactory(String::from("Windows.UI.Colors").as_raw_handle(), &guid, &mut ptr).ok()?;
+            let statics = IColorsStatics{ ptr };
 
-            IColorsStatics::alice_blue(factory)
+            statics.alice_blue()
         }
     }
 }
