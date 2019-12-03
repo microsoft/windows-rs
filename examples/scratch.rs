@@ -1,7 +1,8 @@
-#[winrt_macros::echo_target]
+//#[winrt_macros::echo_target]
 use winrt::*;
 
 #[repr(C)]
+#[derive(Default)]
 struct Color {
     a: u8,
     r: u8,
@@ -10,14 +11,68 @@ struct Color {
 }
 
 #[repr(C)]
+struct IUnknown {
+    query: extern "system" fn(*const Void, &Guid, *mut *mut Void) -> ErrorCode,
+    addref: extern "system" fn(*const Void) -> u32,
+    release: extern "system" fn(*const Void) -> u32,
+}
+
+impl IUnknown {
+    fn query(ptr: *const Void, guid: &Guid) -> *const Void {
+        unsafe {
+            let mut result: *mut Void = std::ptr::null_mut();
+            ((*(*(ptr as *const *const IUnknown))).query)(ptr, guid, &mut result);
+            result
+        }
+    }
+
+    fn addref(ptr: *const Void) -> u32 {
+        unsafe { ((*(*(ptr as *const *const IUnknown))).addref)(ptr) }
+    }
+
+    fn release(ptr: *const Void) -> u32 {
+        unsafe { ((*(*(ptr as *const *const IUnknown))).release)(ptr) }
+    }
+}
+
+// TODO: probably don't need to expose this at all - only useful for debugging
+#[repr(C)]
+struct IInspectable {
+    impl_0: usize,
+    impl_1: usize,
+    impl_2: usize,
+    impl_3: usize,
+    name: extern "system" fn(*const Void, *mut *mut Void) -> ErrorCode,
+}
+
+impl IInspectable {
+    fn name(ptr: *const Void) -> String {
+        unsafe {
+            let mut hstring: *mut Void = std::ptr::null_mut();
+            ((*(*(ptr as *const *const IInspectable))).name)(ptr, &mut hstring);
+            String { hstring }
+        }
+    }
+}
+
+#[repr(C)]
 struct IColorsStatics {
-    query_interface: extern "stdcall" fn(*const *const IColorsStatics, interface: &Guid, result: *mut *mut VOID) -> ErrorCode,
-    add_ref: extern "stdcall" fn(*const *const IColorsStatics) -> u32,
-    release: extern "stdcall" fn(*const *const IColorsStatics) -> u32,
-    iids: extern "C" fn(),
-    runtime_class_name: extern "C" fn(),
-    trust_level: extern "C" fn(),
-    alice_blue: extern "stdcall" fn(*const *const IColorsStatics, value: &mut Color) -> ErrorCode,
+    impl_0: usize,
+    impl_1: usize,
+    impl_2: usize,
+    impl_3: usize,
+    impl_4: usize,
+    impl_5: usize,
+    alice_blue: extern "system" fn(*const Void, value: &mut Color) -> ErrorCode,
+}
+
+impl IColorsStatics {
+    fn alice_blue(ptr: *const Void) -> Result<Color> {
+        unsafe {
+        let mut color = Default::default();
+        ((*(*(ptr as *const *const IColorsStatics))).alice_blue)(ptr, &mut color).ok_or(color)
+        }
+    }
 }
 
 struct Colors;
@@ -27,21 +82,15 @@ impl Colors {
         unsafe {
             let guid = Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
 
-            let mut factory: *mut VOID = std::ptr::null_mut();
-            let name = String::from("Windows.UI.Colors");
-            println!("[{}]", name.to_string());
-            RoGetActivationFactory(name.as_raw_handle(), &guid, &mut factory).result()?;
+            let mut factory: *mut Void = std::ptr::null_mut();
+            RoGetActivationFactory(String::from("Windows.UI.Colors").as_raw_handle(), &guid, &mut factory).ok()?;
 
-            let ptr = factory as *const *const IColorsStatics;
-            let mut color = Color { a: 0, r: 0, g: 0, b: 0 };
-            ((*(*ptr)).alice_blue)(ptr, &mut color).result()?;
-            Ok(color)
+            IColorsStatics::alice_blue(factory)
         }
     }
 }
 
 fn run() -> Result<()> {
-    init();
     let color = Colors::alice_blue()?;
 
     assert!(color.a == 255);
@@ -53,10 +102,11 @@ fn run() -> Result<()> {
 }
 
 fn main() {
+    init();
+
     if let Err(e) = run() {
         e.code().unwrap();
     }
 
     println!("ok");
 }
-

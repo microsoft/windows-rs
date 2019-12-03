@@ -30,11 +30,20 @@ impl ErrorCode {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
 
-    pub fn result(&self) -> Result<()> {
+    // TODO: `impl std::ops::Try for ErrorCode` when stable to avoid having to wrap just to return as result
+    pub fn ok(&self) -> Result<()> {
         if self.0 < 0 {
             Err(Error { code: *self })
         } else {
             Ok(())
+        }
+    }
+
+    pub fn ok_or<T>(&self, value: T) -> Result<T> {
+        if self.0 < 0 {
+            Err(Error { code: *self })
+        } else {
+            Ok(value)
         }
     }
 }

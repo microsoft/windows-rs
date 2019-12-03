@@ -4,7 +4,7 @@ use crate::runtime::*;
 
 #[repr(C)]
 pub struct String {
-    hstring: *const VOID,
+    pub hstring: *const Void,
 }
 
 // TODO: consider implementing `Deref<Target = [u16]>` so the String can be used as a slice
@@ -34,7 +34,7 @@ impl String {
         }
     }
 
-    pub fn as_raw_handle(&self) -> *const VOID {
+    pub fn as_raw_handle(&self) -> *const Void {
         self.hstring
     }
 }
@@ -64,14 +64,14 @@ impl From<&str> for String {
         unsafe {
             let len = value.encode_utf16().count() as u32;
             let mut buffer: *mut u16 = std::ptr::null_mut();
-            let mut handle: *mut VOID = std::ptr::null_mut();
+            let mut handle: *mut Void = std::ptr::null_mut();
             WindowsPreallocateStringBuffer(len, &mut buffer, &mut handle).unwrap();
 
             for (index, wide) in value.encode_utf16().enumerate() {
                 *buffer.offset(index as isize) = wide;
             }
 
-            let mut hstring: *mut VOID = std::ptr::null_mut();
+            let mut hstring: *mut Void = std::ptr::null_mut();
             WindowsPromoteStringBuffer(handle, &mut hstring).unwrap();
             String { hstring }
         }
