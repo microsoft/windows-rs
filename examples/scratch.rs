@@ -1,24 +1,25 @@
 //#[winrt_macros::echo_target]
-use winrt::*;
-use abi::Void;
+
+mod windows { pub mod ui {
 
 #[repr(C)]
 #[derive(Default)]
 pub struct Color {
-    a: u8,
-    r: u8,
-    g: u8,
-    b: u8,
+    pub a: u8,
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
 }
 
-struct Colors;
+pub struct Colors;
 
+// Only make the interface public if it is not exclusive/overridable.
 struct IColorsStatics {
-    ptr: *const Void,
+    ptr: *const winrt::abi::Void,
 }
 
 impl IColorsStatics {
-    pub fn alice_blue(&self) -> Result<Color> {
+    pub fn alice_blue(&self) -> winrt::Result<Color> {
         unsafe {
             let mut color = Default::default();
             ((*(*(self.ptr as *const *const winrt_impl::IColorsStatics))).alice_blue)(self.ptr, &mut color).ok_or(color)
@@ -29,14 +30,14 @@ impl IColorsStatics {
 impl Drop for IColorsStatics {
     fn drop(&mut self) {
         if !self.ptr.is_null() {
-            abi::IUnknown::release(self.ptr);
+            winrt::abi::IUnknown::release(self.ptr);
         }
     }
 }
 
 impl Colors {
-    fn alice_blue() -> Result<Color> {
-        factory::<Colors, IColorsStatics>()?.alice_blue()
+    pub fn alice_blue() -> winrt::Result<Color> {
+        winrt::factory::<Colors, IColorsStatics>()?.alice_blue()
     }
 }
 
@@ -54,25 +55,33 @@ mod winrt_impl {
         impl_3: usize,
         impl_4: usize,
         impl_5: usize,
-        pub alice_blue: extern "system" fn(*const Void, value: &mut Color) -> ErrorCode,
+        pub alice_blue: extern "system" fn(*const winrt::abi::Void, value: &mut Color) -> winrt::ErrorCode,
     }
 
-    impl TypeInterface for super::IColorsStatics {
-        fn type_guid() -> &'static Guid {
-            static GUID: Guid = Guid::from_values(0xCFF52E04, 0xCCA6, 0x4614, &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99]);
+    impl winrt::TypeInterface for super::IColorsStatics {
+        fn type_guid() -> &'static winrt::Guid {
+            // TODO: Not sure if this should be static or const. Either way, we need it to be the equivalent of "constexpr" in C++
+            // so that it's baked into the resulting binary and merely inlines as an address (e.g. __uuidof).
+            const GUID: winrt::Guid = winrt::Guid::from_values(0xCFF52E04, 0xCCA6, 0x4614, &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99]);
             &GUID
         }
-        fn take_ownership(ptr: *const Void) -> Self {
+
+        fn take_ownership(ptr: *const winrt::abi::Void) -> Self {
             Self { ptr }
         }
     }
 
-    impl TypeName for Colors {
+    impl winrt::TypeName for Colors {
         fn type_name() -> &'static str {
             "Windows.UI.Colors"
         }
     }
 }
+
+}}
+
+use winrt::*;
+use windows::ui::*;
 
 fn run() -> Result<()> {
     let color = Colors::alice_blue()?;
