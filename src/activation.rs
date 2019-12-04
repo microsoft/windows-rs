@@ -6,7 +6,7 @@ pub fn init() {
 }
 
 // TODO: this should return `Result<&I>` e.g. a reference pointing to the factory cache.
-// So this function needs to be implemented as some sort of singleton where RoGetActivationFactory
+// So this function needs to be implemented as some sort of atomic/singleton where RoGetActivationFactory
 // is only called once and the result is then cached. Here's how I do it in C++ - it's critical
 // that this is super fast.
 // https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
