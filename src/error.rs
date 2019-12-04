@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(overflowing_literals)]
 
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -44,5 +45,9 @@ impl ErrorCode {
         } else {
             Ok(value)
         }
+    }
+
+    pub(crate) const fn not_initialized() -> ErrorCode {
+        ErrorCode(0x800401F0)
     }
 }
