@@ -20,7 +20,6 @@ pub fn factory<C: TypeName, I: TypeInterface>() -> Result<I> {
             code = RoGetActivationFactory(String::from(C::type_name()).as_raw_handle(), I::type_guid(), &mut ptr);
         }
 
-        code.ok()?;
-        Ok(I::take_ownership(ptr))
+        code.ok_or(I::take_ownership(ptr))
     }
 }
