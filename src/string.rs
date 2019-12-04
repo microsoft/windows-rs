@@ -9,7 +9,9 @@ pub struct String {
 
 impl String {
     pub fn new() -> String {
-        String { hstring: std::ptr::null() }
+        String {
+            hstring: std::ptr::null(),
+        }
     }
 
     pub fn is_empty(&self) -> bool {
@@ -52,11 +54,14 @@ impl std::fmt::Display for String {
         // TODO: how to format the wchar buffer directly to avoid an allocation?
         // Especially since `value.to_string()` relies on this... unless the formatter
         // can somehow move/forward the string.
-        write!(f, "{}", std::string::String::from_utf16(self.as_chars()).unwrap())
+        write!(
+            f,
+            "{}",
+            std::string::String::from_utf16(self.as_chars()).unwrap()
+        )
     }
 }
 
-// TODO: why not just a `from` function on the String itself?
 impl From<&str> for String {
     fn from(value: &str) -> String {
         unsafe {

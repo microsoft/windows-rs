@@ -31,7 +31,10 @@ pub mod windows {
             pub fn alice_blue(&self) -> winrt::Result<Color> {
                 unsafe {
                     let mut color = Default::default();
-                    ((*(*(self.ptr as *const *const abi_IColorsStatics))).alice_blue)(self.ptr, &mut color).ok_or(color)
+                    ((*(*(self.ptr as *const *const abi_IColorsStatics))).alice_blue)(
+                        self.ptr, &mut color,
+                    )
+                    .ok_or(color)
                 }
             }
         }
@@ -52,10 +55,12 @@ pub mod windows {
 
         impl winrt::TypeInterface for IColorsStatics {
             fn type_guid() -> &'static winrt::Guid {
-                // TODO: Not sure if this should be static or const. Either way, we need it to be the equivalent of "constexpr" in C++
-                // so that it's baked into the resulting binary as data and merely inlined as an address to that data (e.g. __uuidof).
-                // This is because queries (requiring GUIDs) can add up to a lot of code gen in binaries using WinRT.
-                const GUID: winrt::Guid = winrt::Guid::from_values(0xCFF52E04, 0xCCA6, 0x4614, &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99]);
+                static GUID: winrt::Guid = winrt::Guid::from_values(
+                    0xCFF52E04,
+                    0xCCA6,
+                    0x4614,
+                    &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99],
+                );
                 &GUID
             }
 
