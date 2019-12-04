@@ -24,7 +24,7 @@ pub mod windows {
             abi_3: usize,
             abi_4: usize,
             abi_5: usize,
-            pub alice_blue: extern "system" fn(*const winrt::abi::Void, &mut Color) -> winrt::ErrorCode,
+            alice_blue: extern "system" fn(*const winrt::abi::Void, &mut Color) -> winrt::ErrorCode,
         }
 
         impl IColorsStatics {
