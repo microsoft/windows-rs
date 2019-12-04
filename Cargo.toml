@@ -1,0 +1,11 @@
+[package]
+name = "winrt"
+version = "0.1.0"
+authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
+edition = "2018"
+license = "MIT"
+description = "Windows Runtime language projection"
+repository = "https://github.com/microsoft/winrt-rs"
+
+[dependencies]
+winrt_macros = { path = "macros" }
