@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-use crate::runtime::*;
+use crate::*;
 
 #[repr(C)]
 pub struct String {
@@ -64,14 +64,14 @@ impl From<&str> for String {
         unsafe {
             let len = value.encode_utf16().count() as u32;
             let mut buffer: *mut u16 = std::ptr::null_mut();
-            let mut handle: *mut Void = std::ptr::null_mut();
+            let mut handle = Void::null_mut();
             WindowsPreallocateStringBuffer(len, &mut buffer, &mut handle).unwrap();
 
             for (index, wide) in value.encode_utf16().enumerate() {
                 *buffer.offset(index as isize) = wide;
             }
 
-            let mut hstring: *mut Void = std::ptr::null_mut();
+            let mut hstring = Void::null_mut();
             WindowsPromoteStringBuffer(handle, &mut hstring).unwrap();
             String { hstring }
         }

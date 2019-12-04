@@ -1,9 +1,6 @@
 #![allow(dead_code)]
 
-use crate::error::*;
-use crate::guid::*;
-
-pub enum Void {}
+use crate::*;
 
 // TODO: build the libs directly rather than relying on the Windows SDK.
 #[link(name = "windowsapp")]
