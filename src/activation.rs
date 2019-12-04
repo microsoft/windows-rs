@@ -1,5 +1,10 @@
 use crate::*;
 
+pub fn init() {
+    let mut cookie = abi::Void::null_mut();
+    unsafe { CoIncrementMTAUsage(&mut cookie).unwrap() };
+}
+
 // TODO: this should return `Result<&I>` e.g. a reference pointing to the factory cache.
 // So this function needs to be implemented as some sort of singleton where RoGetActivationFactory
 // is only called once and the result is then cached.

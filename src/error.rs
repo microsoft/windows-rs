@@ -6,7 +6,7 @@ pub struct ErrorCode(pub i32);
 
 pub struct Error {
     code: ErrorCode,
-    // IErrorInfo*
+    // TODO: add `info: IErrorInfo`
 }
 
 pub type Result<T> = std::result::Result<T, Error>;
@@ -30,7 +30,6 @@ impl ErrorCode {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
 
-    // TODO: `impl std::ops::Try for ErrorCode` when stable to avoid having to wrap just to return as result
     pub fn ok(&self) -> Result<()> {
         if self.0 < 0 {
             Err(Error { code: *self })

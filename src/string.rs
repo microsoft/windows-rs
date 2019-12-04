@@ -7,8 +7,6 @@ pub struct String {
     pub hstring: *const Void,
 }
 
-// TODO: consider implementing `Deref<Target = [u16]>` so the String can be used as a slice
-
 impl String {
     pub fn new() -> String {
         String { hstring: std::ptr::null() }

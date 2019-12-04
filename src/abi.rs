@@ -35,10 +35,10 @@ impl IUnknown {
 
 #[repr(C)]
 pub struct IInspectable {
-    impl_0: usize,
-    impl_1: usize,
-    impl_2: usize,
-    impl_3: usize,
+    abi_0: usize,
+    abi_1: usize,
+    abi_2: usize,
+    abi_3: usize,
     type_name: extern "system" fn(*const Void, *mut *mut Void) -> ErrorCode,
 }
 
