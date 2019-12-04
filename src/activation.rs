@@ -15,7 +15,7 @@ pub fn factory<C: TypeName, I: TypeInterface>() -> Result<I> {
         let mut ptr = Void::null_mut();
         let mut code = RoGetActivationFactory(String::from(C::type_name()).as_raw_handle(), I::type_guid(), &mut ptr);
 
-        if code == ErrorCode::not_initialized() {
+        if code == ErrorCode::NOT_INITIALIZED {
             init();
             code = RoGetActivationFactory(String::from(C::type_name()).as_raw_handle(), I::type_guid(), &mut ptr);
         }

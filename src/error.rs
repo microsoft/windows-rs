@@ -47,7 +47,5 @@ impl ErrorCode {
         }
     }
 
-    pub(crate) const fn not_initialized() -> ErrorCode {
-        ErrorCode(0x800401F0)
-    }
+    pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x800401F0);
 }
