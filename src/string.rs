@@ -4,7 +4,7 @@ use crate::*;
 
 #[repr(C)]
 pub struct String {
-    pub hstring: *const Void,
+    pub hstring: *const std::ffi::c_void,
 }
 
 impl String {
@@ -34,7 +34,7 @@ impl String {
         }
     }
 
-    pub fn as_raw_handle(&self) -> *const Void {
+    pub fn as_raw_handle(&self) -> *const std::ffi::c_void {
         self.hstring
     }
 }
@@ -67,14 +67,14 @@ impl From<&str> for String {
         unsafe {
             let len = value.encode_utf16().count() as u32;
             let mut buffer: *mut u16 = std::ptr::null_mut();
-            let mut handle = Void::null_mut();
+            let mut handle = std::ptr::null_mut();
             WindowsPreallocateStringBuffer(len, &mut buffer, &mut handle).unwrap();
 
             for (index, wide) in value.encode_utf16().enumerate() {
                 *buffer.offset(index as isize) = wide;
             }
 
-            let mut hstring = Void::null_mut();
+            let mut hstring = std::ptr::null_mut();
             WindowsPromoteStringBuffer(handle, &mut hstring).unwrap();
             String { hstring }
         }

@@ -15,5 +15,3 @@ use runtime::*;
 pub use string::*;
 pub use traits::*;
 pub use winrt_macros::*;
-
-use abi::Void;

@@ -13,7 +13,7 @@ pub mod windows {
         pub struct Colors;
 
         pub struct IColorsStatics {
-            ptr: *const winrt::abi::Void,
+            ptr: *const std::ffi::c_void,
         }
 
         #[repr(C)]
@@ -24,7 +24,7 @@ pub mod windows {
             abi_3: usize,
             abi_4: usize,
             abi_5: usize,
-            alice_blue: extern "system" fn(*const winrt::abi::Void, &mut Color) -> winrt::ErrorCode,
+            alice_blue: extern "system" fn(*const std::ffi::c_void, &mut Color) -> winrt::ErrorCode,
         }
 
         impl IColorsStatics {
@@ -64,7 +64,7 @@ pub mod windows {
                 &GUID
             }
 
-            fn take_ownership(ptr: *const winrt::abi::Void) -> Self {
+            fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
                 Self { ptr }
             }
         }

@@ -1,34 +1,26 @@
 use crate::*;
 
-pub enum Void {}
-
-impl Void {
-    pub fn null_mut() -> *mut Void {
-        std::ptr::null_mut()
-    }
-}
-
 #[repr(C)]
 pub struct IUnknown {
-    query: extern "system" fn(*const Void, &Guid, *mut *mut Void) -> ErrorCode,
-    addref: extern "system" fn(*const Void) -> u32,
-    release: extern "system" fn(*const Void) -> u32,
+    query: extern "system" fn(*const std::ffi::c_void, &Guid, *mut *mut std::ffi::c_void) -> ErrorCode,
+    addref: extern "system" fn(*const std::ffi::c_void) -> u32,
+    release: extern "system" fn(*const std::ffi::c_void) -> u32,
 }
 
 impl IUnknown {
-    pub fn query(ptr: *const Void, guid: &Guid) -> *const Void {
+    pub fn query(ptr: *const std::ffi::c_void, guid: &Guid) -> *const std::ffi::c_void {
         unsafe {
-            let mut result = Void::null_mut();
+            let mut result = std::ptr::null_mut();
             ((*(*(ptr as *const *const Self))).query)(ptr, guid, &mut result);
             result
         }
     }
 
-    pub fn addref(ptr: *const Void) -> u32 {
+    pub fn addref(ptr: *const std::ffi::c_void) -> u32 {
         unsafe { ((*(*(ptr as *const *const Self))).addref)(ptr) }
     }
 
-    pub fn release(ptr: *const Void) -> u32 {
+    pub fn release(ptr: *const std::ffi::c_void) -> u32 {
         unsafe { ((*(*(ptr as *const *const Self))).release)(ptr) }
     }
 }
@@ -39,13 +31,13 @@ pub struct IInspectable {
     abi_1: usize,
     abi_2: usize,
     abi_3: usize,
-    type_name: extern "system" fn(*const Void, *mut *mut Void) -> ErrorCode,
+    type_name: extern "system" fn(*const std::ffi::c_void, *mut *mut std::ffi::c_void) -> ErrorCode,
 }
 
 impl IInspectable {
-    pub fn type_name(ptr: *const Void) -> String {
+    pub fn type_name(ptr: *const std::ffi::c_void) -> String {
         unsafe {
-            let mut hstring = Void::null_mut();
+            let mut hstring = std::ptr::null_mut();
             ((*(*(ptr as *const *const Self))).type_name)(ptr, &mut hstring);
             String { hstring }
         }

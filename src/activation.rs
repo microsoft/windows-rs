@@ -1,7 +1,7 @@
 use crate::*;
 
 pub fn init() {
-    let mut cookie = abi::Void::null_mut();
+    let mut cookie = std::ptr::null_mut();
     unsafe { CoIncrementMTAUsage(&mut cookie).unwrap() };
 }
 
@@ -12,7 +12,7 @@ pub fn init() {
 // https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
 pub fn factory<C: TypeName, I: TypeInterface>() -> Result<I> {
     unsafe {
-        let mut ptr = Void::null_mut();
+        let mut ptr = std::ptr::null_mut();
         let mut code = RoGetActivationFactory(
             String::from(C::type_name()).as_raw_handle(),
             I::type_guid(),
