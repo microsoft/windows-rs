@@ -2,7 +2,7 @@
 #![allow(overflowing_literals)]
 
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, PartialEq)]
 pub struct ErrorCode(pub i32);
 
 pub struct Error {

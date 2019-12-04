@@ -85,8 +85,6 @@ fn run() -> winrt::Result<()> {
 }
 
 fn main() {
-    winrt::init();
-
     if let Err(e) = run() {
         e.code().unwrap();
     }

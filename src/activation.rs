@@ -13,8 +13,14 @@ pub fn init() {
 pub fn factory<C: TypeName, I: TypeInterface>() -> Result<I> {
     unsafe {
         let mut ptr = Void::null_mut();
-        RoGetActivationFactory(String::from(C::type_name()).as_raw_handle(), I::type_guid(), &mut ptr).ok()?;
-        // TODO: call init() here if RoGetActivationFactory returns not_initialized
+        let mut code = RoGetActivationFactory(String::from(C::type_name()).as_raw_handle(), I::type_guid(), &mut ptr);
+
+        if code == ErrorCode::not_initialized() {
+            init();
+            code = RoGetActivationFactory(String::from(C::type_name()).as_raw_handle(), I::type_guid(), &mut ptr);
+        }
+
+        code.ok()?;
         Ok(I::take_ownership(ptr))
     }
 }
