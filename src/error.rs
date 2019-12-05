@@ -2,9 +2,10 @@
 #![allow(overflowing_literals)]
 
 #[repr(C)]
-#[derive(Copy, Clone, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ErrorCode(pub i32);
 
+#[derive(Debug)]
 pub struct Error {
     code: ErrorCode,
     // TODO: add `info: IErrorInfo`
