@@ -2,8 +2,7 @@ use crate::*;
 
 #[repr(C)]
 pub struct IUnknown {
-    query:
-        extern "system" fn(*const std::ffi::c_void, &Guid, *mut *mut std::ffi::c_void) -> ErrorCode,
+    query: extern "system" fn(*const std::ffi::c_void, &Guid, *mut *mut std::ffi::c_void) -> ErrorCode,
     addref: extern "system" fn(*const std::ffi::c_void) -> u32,
     release: extern "system" fn(*const std::ffi::c_void) -> u32,
 }

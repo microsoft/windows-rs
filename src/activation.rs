@@ -14,19 +14,11 @@ pub fn factory<C: TypeName, I: TypeInterface>() -> Result<I> {
     unsafe {
         let mut ptr = std::ptr::null_mut();
 
-        let mut code = RoGetActivationFactory(
-            String::from(C::type_name()).as_raw_handle(),
-            I::type_guid(),
-            &mut ptr,
-        );
+        let mut code = RoGetActivationFactory(String::from(C::type_name()).as_raw_handle(), I::type_guid(), &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             init();
-            code = RoGetActivationFactory(
-                String::from(C::type_name()).as_raw_handle(),
-                I::type_guid(),
-                &mut ptr,
-            );
+            code = RoGetActivationFactory(String::from(C::type_name()).as_raw_handle(), I::type_guid(), &mut ptr);
         }
 
         code.ok_or(I::take_ownership(ptr))

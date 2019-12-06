@@ -31,10 +31,7 @@ pub mod windows {
             pub fn alice_blue(&self) -> winrt::Result<Color> {
                 unsafe {
                     let mut color = Default::default();
-                    ((*(*(self.ptr as *const *const abi_IColorsStatics))).alice_blue)(
-                        self.ptr, &mut color,
-                    )
-                    .ok_or(color)
+                    ((*(*(self.ptr as *const *const abi_IColorsStatics))).alice_blue)(self.ptr, &mut color).ok_or(color)
                 }
             }
         }
@@ -55,12 +52,7 @@ pub mod windows {
 
         impl winrt::TypeInterface for IColorsStatics {
             fn type_guid() -> &'static winrt::Guid {
-                static GUID: winrt::Guid = winrt::Guid::from_values(
-                    0xCFF52E04,
-                    0xCCA6,
-                    0x4614,
-                    &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99],
-                );
+                static GUID: winrt::Guid = winrt::Guid::from_values(0xCFF52E04, 0xCCA6, 0x4614, &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99]);
                 &GUID
             }
 
