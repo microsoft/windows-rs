@@ -15,7 +15,7 @@ use std::iter::FromIterator;
 enum ImportCategory {
     None,
     Dependency,
-    Module
+    Namespace
 }
 
 pub(crate) struct ImportScope {
@@ -57,15 +57,15 @@ fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections
 }
 
 // This is to support automatic importing of "windows.ui" when "windows.ui.xaml" is requested
-fn to_modules(module: &str) -> std::collections::BTreeSet::<String> {
+fn to_namespaces(namespace: &str) -> std::collections::BTreeSet::<String> {
     let mut result = std::collections::BTreeSet::new();
 
-    let mut module = module;
-    result.insert(module.to_string());
+    let mut namespace = namespace;
+    result.insert(namespace.to_string());
 
-    while let Some(index) = module.rfind('.') {
-        module = module.get(0..index).unwrap();
-        result.insert(module.to_string());
+    while let Some(index) = namespace.rfind('.') {
+        namespace = namespace.get(0..index).unwrap();
+        result.insert(namespace.to_string());
     }
 
     result
@@ -73,9 +73,9 @@ fn to_modules(module: &str) -> std::collections::BTreeSet::<String> {
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion
 // and deal with casing once we have an index of namespaces to compare against.
-fn module_literal_to_rough_namespace(module: &str) -> String {
+fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     let mut result = String::new();
-    for c in module.chars() {
+    for c in namespace.chars() {
         if c == '"' || c == '_' {
             // do nothing
         }
@@ -97,7 +97,7 @@ fn parse_import_stream(stream: TokenStream) -> ImportScope {
             TokenTree::Ident(value) => {
                 match value.to_string().as_ref() {
                     "dependencies" => category = ImportCategory::Dependency,
-                    "modules" => category = ImportCategory::Module,
+                    "modules" => category = ImportCategory::Namespace,
                     value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
                 }
             },
@@ -108,8 +108,8 @@ fn parse_import_stream(stream: TokenStream) -> ImportScope {
                     },
                     ImportCategory::Dependency => 
                         dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"'))),
-                    ImportCategory::Module => 
-                        modules.append(&mut to_modules(&module_literal_to_rough_namespace(&value.to_string()))),
+                    ImportCategory::Namespace => 
+                        modules.append(&mut to_namespaces(&namespace_literal_to_rough_namespace(&value.to_string()))),
                 }
             },
             _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string())
@@ -121,10 +121,10 @@ fn parse_import_stream(stream: TokenStream) -> ImportScope {
 
     // TODO: This MxN loop is not great
     for namespace in reader.namespaces() {
-        for module in &modules {
-            if module == &namespace.name().to_lowercase() {
+        for name in &modules {
+            if name == &namespace.name().to_lowercase() {
                 namespaces.insert(namespace.name().to_string());
-                // TODO: prune module from list so we can panic if any namespaces don't exist
+                // TODO: prune namespace from list so we can panic if any namespaces don't exist
                 break;
             }
         }
@@ -137,9 +137,11 @@ fn produce_output_stream(stream: TokenStream) -> TokenStream {
     let scope = parse_import_stream(stream);
     let mut result = Vec::<TokenStream>::new();
 
-    for module in &scope.modules {
-        println!("modules {}", module);
-        result.push(write_module(&scope, module));
+    for name in &scope.modules {
+        if let Some(namespace) = scope.reader.find_namespace(name) {
+            println!("modules {}", name);
+            result.push(write_namespace(&namespace, &scope.modules).into());
+        }
     }
 
     TokenStream::from_iter(result)
