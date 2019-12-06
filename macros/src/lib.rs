@@ -56,7 +56,7 @@ fn to_modules(module: &str) -> std::collections::BTreeSet::<String> {
     let mut module = module;
     result.insert(module.to_string());
 
-    while let Some(index) = module.find('.') {
+    while let Some(index) = module.rfind('.') {
         module = module.get(0..index).unwrap();
         result.insert(module.to_string());
     }
@@ -121,16 +121,24 @@ fn produce_output_stream(stream: TokenStream) -> proc_macro2::TokenStream {
     }
 
     let reader = winmd::Reader::from_files(&dependencies).unwrap();
+    let mut namespaces = std::collections::BTreeSet::<String>::new();
 
+    // TODO: This MxN loop is not great
     for namespace in reader.namespaces() {
-        println!("namespace {}", namespace.name());
+        // println!("namespace {}", namespace.name());
 
-        for &mut module in &mut modules {
+        for module in &modules {
             if module == &namespace.name().to_lowercase() {
-                *module = namespace.name().to_string();
+                namespaces.insert(namespace.name().to_string());
+                break;
             }
         }
     }
+
+    for value in &namespaces {
+        println!("namespace {}", value);
+    }
+
 
     let gen = quote! {
 
