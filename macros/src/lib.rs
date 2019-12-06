@@ -1,40 +1,14 @@
+// TODO: add panic strings that include some link for help (either to an issue or wiki?)
+    // note: for more information, see https://github.com/microsoft/winrt-rs/issues/123
+
 extern crate proc_macro;
 
+mod writers;
+
+use writers::*;
 use proc_macro::*;
 use quote::quote;
 use syn;
-
-#[proc_macro_derive(Stringable)]
-pub fn gen_to_string(input: TokenStream) -> TokenStream {
-    let ast: syn::DeriveInput = syn::parse(input).unwrap();
-    let name = &ast.ident;
-    let gen = quote! {
-        impl Stringable for #name {
-            fn to_string() {
-                println!("Hello {}!", stringify!(#name))
-            }
-        }
-    };
-    gen.into()
-}
-
-#[proc_macro_attribute]
-pub fn replace_your_innards(_args: TokenStream, target: TokenStream) -> TokenStream {
-    let value = target.to_string();
-    let gen = quote! {
-        pub fn change() {
-            println!("{}", #value);
-        }
-    };
-    gen.into()
-}
-
-#[proc_macro_attribute]
-pub fn echo_target(_args: TokenStream, target: TokenStream) -> TokenStream {
-    let value = target.to_string();
-    println!("{}", value);
-    target
-}
 
 #[derive(PartialEq)]
 enum ImportCategory {
@@ -42,6 +16,76 @@ enum ImportCategory {
     Dependency,
     Module
 }
+
+struct Import {
+    files: Vec::<String>,
+    modules: std::collections::BTreeSet::<String>,
+}
+
+fn files<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet::<String> {
+    let path = dependency.as_ref();
+    let mut result = std::collections::BTreeSet::<String>::new();
+
+    if path.is_dir() {
+        for path in std::fs::read_dir(path).unwrap() {
+            if let Ok(path) = path {
+                let path = path.path();
+                if path.is_file() {
+                    result.insert(path.to_str().unwrap().to_string());
+                }
+            }
+        }
+    }
+    else if path.is_file() {
+        result.insert(path.to_str().unwrap().to_string());
+    } else {
+        let path = path.to_str().unwrap();
+        if  path == "os" {
+            let mut path = std::path::PathBuf::new();
+            path.push(std::env::var("windir").unwrap());
+            path.push(SYSTEM32);
+            path.push("winmetadata");
+            result.append(&mut files(path));
+        }
+        else {
+            panic!("Dependency {} is not a file or directory", path);
+        }
+    }
+
+    result
+}
+
+// impl Import {
+//     fn new(stream: TokenStream) -> Import {
+//         let mut category = ImportCategory::None;
+//         let mut dependencies = Vec::<String>::new();
+//         let mut modules = Vec::<String>::new();
+    
+//         for token in stream {
+//             match token {
+//                 TokenTree::Ident(value) => {
+//                     match value.to_string().as_ref() {
+//                         "dependencies" => category = ImportCategory::Dependency,
+//                         "modules" => category = ImportCategory::Module,
+//                         value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
+//                     }
+//                 },
+//                 TokenTree::Literal(value) => {
+//                     match category {
+//                         ImportCategory::None => {
+//                             panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string());
+//                         },
+//                         ImportCategory::Dependency => 
+//                             dependencies.push(value.to_string()),
+//                         ImportCategory::Module => 
+//                             modules.push(value.to_string()),
+//                     }
+//                 },
+//                 _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string())
+//             }
+//         }
+//     }
+// }
 
 fn read_import_stream(stream: TokenStream) -> (Vec::<String>, Vec::<String>) {
     let mut category = ImportCategory::None;
@@ -75,18 +119,7 @@ fn read_import_stream(stream: TokenStream) -> (Vec::<String>, Vec::<String>) {
     (dependencies, modules)
 }
 
-fn produce_output_stream() -> proc_macro2::TokenStream {
-    let reader = winmd::Reader::from_os().unwrap();
-
-    let gen = quote! {
-
-    };
-
-    gen
-}
-
-#[proc_macro]
-pub fn import(stream: TokenStream) -> TokenStream {
+fn produce_output_stream(stream: TokenStream) -> proc_macro2::TokenStream {
     let (dependencies, modules) = read_import_stream(stream);
 
     for value in dependencies {
@@ -97,7 +130,23 @@ pub fn import(stream: TokenStream) -> TokenStream {
         println!("namespace {}", value);
     }
 
-    // produce_output_stream().into()
+    let reader = winmd::Reader::from_os().unwrap();
+
+    let gen = quote! {
+
+        struct CODE {}
+
+    };
+
+    gen
+}
+
+#[proc_macro]
+pub fn import(stream: TokenStream) -> TokenStream {
+
+    let output = produce_output_stream(stream);
+
+    println!("{}", output.to_string());
 
     let gen = quote! {
 
@@ -192,3 +241,9 @@ pub mod windows {
 //         windows.storage
 //         windows.ui.composition
 // )
+
+#[cfg(target_pointer_width = "64")]
+const SYSTEM32: &str = "System32";
+
+#[cfg(target_pointer_width = "32")]
+const SYSTEM32: &str = "SysNative";
