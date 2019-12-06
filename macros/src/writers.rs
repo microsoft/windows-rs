@@ -1,8 +1,12 @@
 use crate::*;
-use quote::quote;
+use proc_macro2::TokenStream;
 use quote::format_ident;
+use quote::quote;
 
-pub(crate) fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet::<String>) -> proc_macro2::TokenStream {
+pub(crate) fn write_namespace(
+    namespace: &winmd::Namespace,
+    scope: &std::collections::BTreeSet<String>,
+) -> TokenStream {
     let mut tokens = write_types(namespace, scope);
 
     for name in namespace.name().rsplit('.') {
@@ -15,7 +19,10 @@ pub(crate) fn write_namespace(namespace: &winmd::Namespace, scope: &std::collect
     tokens
 }
 
-fn write_types(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet::<String>) -> proc_macro2::TokenStream {
+fn write_types(
+    namespace: &winmd::Namespace,
+    scope: &std::collections::BTreeSet<String>,
+) -> TokenStream {
     let mut enums = write_enums(namespace);
 
     quote! {
@@ -38,7 +45,7 @@ fn write_enums(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
     tokens
 }
 
-fn write_enum_fields(t : &winmd::TypeDef) -> proc_macro2::TokenStream {
+fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for f in t.fields().unwrap() {
