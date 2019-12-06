@@ -43,7 +43,7 @@ enum ImportCategory {
     Module
 }
 
-fn parse_import(stream: TokenStream) -> (Vec::<String>, Vec::<String>) {
+fn read_import_stream(stream: TokenStream) -> (Vec::<String>, Vec::<String>) {
     let mut category = ImportCategory::None;
     let mut dependencies = Vec::<String>::new();
     let mut modules = Vec::<String>::new();
@@ -75,9 +75,19 @@ fn parse_import(stream: TokenStream) -> (Vec::<String>, Vec::<String>) {
     (dependencies, modules)
 }
 
+fn produce_output_stream() -> proc_macro2::TokenStream {
+    let reader = winmd::Reader::from_os().unwrap();
+
+    let gen = quote! {
+
+    };
+
+    gen
+}
+
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
-    let (dependencies, modules) = parse_import(stream);
+    let (dependencies, modules) = read_import_stream(stream);
 
     for value in dependencies {
         println!("winmd {}", value);
@@ -86,6 +96,8 @@ pub fn import(stream: TokenStream) -> TokenStream {
     for value in modules {
         println!("namespace {}", value);
     }
+
+    // produce_output_stream().into()
 
     let gen = quote! {
 
