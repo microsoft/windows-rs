@@ -18,9 +18,11 @@ pub(crate) fn write_namespace(namespace: &winmd::Namespace, scope: &std::collect
 
 fn write_types(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let enums = write_enums(namespace);
+    let structs = write_structs(namespace);
 
     quote! {
         #enums
+        #structs
     }
 }
 
@@ -53,6 +55,39 @@ fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
                 // TODO: write out the enum value
             };
         }
+    }
+
+    tokens
+}
+
+fn write_structs(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
+    let mut tokens = quote! {};
+
+    for t in namespace.structs() {
+        let name = format_ident!("{}", t.name().unwrap());
+        let fields = write_struct_fields(&t);
+        tokens = quote! {
+            #tokens
+            #[repr(C)]
+            #[derive(Default, Debug)]
+            pub struct #name { #fields }
+        };
+    }
+
+    tokens
+}
+
+fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
+    let mut tokens = quote! {};
+
+    for f in t.fields().unwrap() {
+        let name = format_ident!("{}", f.name().unwrap().to_lowercase());
+
+        tokens = quote! {
+            #tokens
+            #name: u32,
+            // TODO: write out field type
+        };
     }
 
     tokens

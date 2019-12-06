@@ -144,7 +144,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
     pub mod windows {
         pub mod ui {
             #[repr(C)]
-            #[derive(Default)]
+            #[derive(Default, Debug)]
             pub struct Color {
                 pub a: u8,
                 pub r: u8,
