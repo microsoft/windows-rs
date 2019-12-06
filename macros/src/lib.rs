@@ -17,14 +17,9 @@ enum ImportCategory {
     Module
 }
 
-struct Import {
-    files: Vec::<String>,
-    modules: std::collections::BTreeSet::<String>,
-}
-
-fn files<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet::<String> {
+fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet::<String> {
     let path = dependency.as_ref();
-    let mut result = std::collections::BTreeSet::<String>::new();
+    let mut result = std::collections::BTreeSet::new();
 
     if path.is_dir() {
         for path in std::fs::read_dir(path).unwrap() {
@@ -45,7 +40,7 @@ fn files<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet
             path.push(std::env::var("windir").unwrap());
             path.push(SYSTEM32);
             path.push("winmetadata");
-            result.append(&mut files(path));
+            result.append(&mut to_dependencies(path));
         }
         else {
             panic!("Dependency {} is not a file or directory", path);
@@ -55,42 +50,37 @@ fn files<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet
     result
 }
 
-// impl Import {
-//     fn new(stream: TokenStream) -> Import {
-//         let mut category = ImportCategory::None;
-//         let mut dependencies = Vec::<String>::new();
-//         let mut modules = Vec::<String>::new();
-    
-//         for token in stream {
-//             match token {
-//                 TokenTree::Ident(value) => {
-//                     match value.to_string().as_ref() {
-//                         "dependencies" => category = ImportCategory::Dependency,
-//                         "modules" => category = ImportCategory::Module,
-//                         value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
-//                     }
-//                 },
-//                 TokenTree::Literal(value) => {
-//                     match category {
-//                         ImportCategory::None => {
-//                             panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string());
-//                         },
-//                         ImportCategory::Dependency => 
-//                             dependencies.push(value.to_string()),
-//                         ImportCategory::Module => 
-//                             modules.push(value.to_string()),
-//                     }
-//                 },
-//                 _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string())
-//             }
-//         }
-//     }
-// }
+fn to_modules(module: &str) -> std::collections::BTreeSet::<String> {
+    let mut result = std::collections::BTreeSet::new();
 
-fn read_import_stream(stream: TokenStream) -> (Vec::<String>, Vec::<String>) {
+    let mut module = module;
+    result.insert(module.to_string());
+
+    while let Some(index) = module.find('.') {
+        module = module.get(0..index).unwrap();
+        result.insert(module.to_string());
+    }
+
+    result
+}
+
+fn module_literal_to_rough_namespace(module: &str) -> String {
+    let mut result = String::new();
+    for c in module.chars() {
+        if c == '"' || c == '_' {
+            // do nothing
+        }
+        else {
+            result.push(c);
+        }
+    }
+    result
+}
+
+fn parse_import_stream(stream: TokenStream) -> (std::collections::BTreeSet::<String>, std::collections::BTreeSet::<String>) {
     let mut category = ImportCategory::None;
-    let mut dependencies = Vec::<String>::new();
-    let mut modules = Vec::<String>::new();
+    let mut dependencies = std::collections::BTreeSet::<String>::new();
+    let mut modules = std::collections::BTreeSet::<String>::new();
 
     for token in stream {
         match token {
@@ -107,9 +97,9 @@ fn read_import_stream(stream: TokenStream) -> (Vec::<String>, Vec::<String>) {
                         panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string());
                     },
                     ImportCategory::Dependency => 
-                        dependencies.push(value.to_string()),
+                        dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"'))),
                     ImportCategory::Module => 
-                        modules.push(value.to_string()),
+                        modules.append(&mut to_modules(&module_literal_to_rough_namespace(&value.to_string()))),
                 }
             },
             _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string())
@@ -120,17 +110,27 @@ fn read_import_stream(stream: TokenStream) -> (Vec::<String>, Vec::<String>) {
 }
 
 fn produce_output_stream(stream: TokenStream) -> proc_macro2::TokenStream {
-    let (dependencies, modules) = read_import_stream(stream);
+    let (dependencies, mut modules) = parse_import_stream(stream);
 
-    for value in dependencies {
-        println!("winmd {}", value);
+    for value in &dependencies {
+        println!("files {}", value);
     }
 
-    for value in modules {
-        println!("namespace {}", value);
+    for value in &modules {
+        println!("modules {}", value);
     }
 
-    let reader = winmd::Reader::from_os().unwrap();
+    let reader = winmd::Reader::from_files(&dependencies).unwrap();
+
+    for namespace in reader.namespaces() {
+        println!("namespace {}", namespace.name());
+
+        for &mut module in &mut modules {
+            if module == &namespace.name().to_lowercase() {
+                *module = namespace.name().to_string();
+            }
+        }
+    }
 
     let gen = quote! {
 
