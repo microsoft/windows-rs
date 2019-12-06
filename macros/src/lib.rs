@@ -18,11 +18,6 @@ enum ImportCategory {
     Namespace
 }
 
-pub(crate) struct ImportScope {
-    reader: winmd::Reader,
-    namespaces: std::collections::BTreeSet::<String>,
-}
-
 fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet::<String> {
     let path = dependency.as_ref();
     let mut result = std::collections::BTreeSet::new();
@@ -87,7 +82,7 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     result
 }
 
-fn parse_import_stream(stream: TokenStream) -> ImportScope {
+fn parse_import_stream(stream: TokenStream) -> (winmd::Reader,     std::collections::BTreeSet::<String>) {
     let mut category = ImportCategory::None;
     let mut dependencies = std::collections::BTreeSet::<String>::new();
     let mut modules = std::collections::BTreeSet::<String>::new();
@@ -130,17 +125,17 @@ fn parse_import_stream(stream: TokenStream) -> ImportScope {
         }
     }
 
-    ImportScope { reader, namespaces: namespaces }
+    (reader, namespaces)
 }
 
 fn produce_output_stream(stream: TokenStream) -> TokenStream {
-    let scope = parse_import_stream(stream);
+    let (reader, namespaces) = parse_import_stream(stream);
     let mut result = Vec::<TokenStream>::new();
 
-    for name in &scope.namespaces {
-        if let Some(namespace) = scope.reader.find_namespace(name) {
+    for name in &namespaces {
+        if let Some(namespace) = reader.find_namespace(name) {
             println!("modules {}", name);
-            result.push(write_namespace(&namespace, &scope.namespaces).into());
+            result.push(write_namespace(&namespace, &namespaces).into());
         }
     }
 
