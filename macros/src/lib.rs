@@ -9,12 +9,18 @@ use writers::*;
 use proc_macro::*;
 use quote::quote;
 use syn;
+use std::iter::FromIterator;
 
 #[derive(PartialEq)]
 enum ImportCategory {
     None,
     Dependency,
     Module
+}
+
+pub(crate) struct ImportScope {
+    reader: winmd::Reader,
+    modules: std::collections::BTreeSet::<String>,
 }
 
 fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet::<String> {
@@ -50,6 +56,7 @@ fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections
     result
 }
 
+// This is to support automatic importing of "windows.ui" when "windows.ui.xaml" is requested
 fn to_modules(module: &str) -> std::collections::BTreeSet::<String> {
     let mut result = std::collections::BTreeSet::new();
 
@@ -64,6 +71,8 @@ fn to_modules(module: &str) -> std::collections::BTreeSet::<String> {
     result
 }
 
+// Snake <-> camel casing is lossy so we go for character but not case conversion
+// and deal with casing once we have an index of namespaces to compare against.
 fn module_literal_to_rough_namespace(module: &str) -> String {
     let mut result = String::new();
     for c in module.chars() {
@@ -73,11 +82,12 @@ fn module_literal_to_rough_namespace(module: &str) -> String {
         else {
             result.push(c);
         }
+        // TODO: maybe panic if uppercase char is observed
     }
     result
 }
 
-fn parse_import_stream(stream: TokenStream) -> (std::collections::BTreeSet::<String>, std::collections::BTreeSet::<String>) {
+fn parse_import_stream(stream: TokenStream) -> ImportScope {
     let mut category = ImportCategory::None;
     let mut dependencies = std::collections::BTreeSet::<String>::new();
     let mut modules = std::collections::BTreeSet::<String>::new();
@@ -106,47 +116,33 @@ fn parse_import_stream(stream: TokenStream) -> (std::collections::BTreeSet::<Str
         }
     }
 
-    (dependencies, modules)
-}
-
-fn produce_output_stream(stream: TokenStream) -> proc_macro2::TokenStream {
-    let (dependencies, mut modules) = parse_import_stream(stream);
-
-    for value in &dependencies {
-        println!("files {}", value);
-    }
-
-    for value in &modules {
-        println!("modules {}", value);
-    }
-
     let reader = winmd::Reader::from_files(&dependencies).unwrap();
     let mut namespaces = std::collections::BTreeSet::<String>::new();
 
     // TODO: This MxN loop is not great
     for namespace in reader.namespaces() {
-        // println!("namespace {}", namespace.name());
-
         for module in &modules {
             if module == &namespace.name().to_lowercase() {
                 namespaces.insert(namespace.name().to_string());
+                // TODO: prune module from list so we can panic if any namespaces don't exist
                 break;
             }
         }
     }
 
-    for value in &namespaces {
-        println!("namespace {}", value);
+    ImportScope { reader, modules: namespaces }
+}
+
+fn produce_output_stream(stream: TokenStream) -> TokenStream {
+    let scope = parse_import_stream(stream);
+    let mut result = Vec::<TokenStream>::new();
+
+    for module in &scope.modules {
+        println!("modules {}", module);
+        result.push(write_module(&scope, module));
     }
 
-
-    let gen = quote! {
-
-        struct CODE {}
-
-    };
-
-    gen
+    TokenStream::from_iter(result)
 }
 
 #[proc_macro]
