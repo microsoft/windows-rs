@@ -92,11 +92,11 @@ fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections:
                 value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
             },
             TokenTree::Literal(value) => match category {
-                ImportCategory::None => {
-                    panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string());
-                }
+                ImportCategory::None => 
+                    panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
+                
                 ImportCategory::Dependency => dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"'))),
-                ImportCategory::Namespace => modules.append(&mut to_namespaces(&namespace_literal_to_rough_namespace(&value.to_string()))),
+                ImportCategory::Namespace => {modules.insert(namespace_literal_to_rough_namespace(&value.to_string())); },
             },
             _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string()),
         }
@@ -108,11 +108,15 @@ fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections:
     // TODO: This MxN loop is not great
     for namespace in reader.namespaces() {
         for name in &modules {
+            println!("{}", name);
             if name == &namespace.name().to_lowercase() {
                 namespaces.insert(namespace.name().to_string());
                 // TODO: prune namespace from list so we can panic if any namespaces don't exist
                 break;
             }
+            // else{
+            //     panic!("winrt::import macro could not find module `{}` in the dependencies", name);
+            // }
         }
     }
 
@@ -122,6 +126,8 @@ fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections:
 fn produce_output_stream(stream: TokenStream) -> TokenStream {
     let (reader, namespaces) = parse_import_stream(stream);
     let mut result = Vec::<TokenStream>::new();
+
+    let modules = write_modules(&reader, &namespaces);
 
     for name in &namespaces {
         if let Some(namespace) = reader.find_namespace(name) {
@@ -137,7 +143,7 @@ fn produce_output_stream(stream: TokenStream) -> TokenStream {
 pub fn import(stream: TokenStream) -> TokenStream {
     let output = produce_output_stream(stream);
 
-    println!("{}", output.to_string());
+    //println!("{}", output.to_string());
 
     let gen = quote! {
 

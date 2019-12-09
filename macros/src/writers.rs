@@ -3,8 +3,21 @@ use proc_macro2::TokenStream;
 use quote::format_ident;
 use quote::quote;
 
+pub(crate) fn write_modules(reader: &winmd::Reader, namespaces: &std::collections::BTreeSet<String>) -> TokenStream {
+    for name in namespaces {
+        if let Some(namespace) = reader.find_namespace(name) {
+
+        }
+    }
+
+
+    quote! {}
+}
+
 pub(crate) fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let mut tokens = write_types(namespace, scope);
+    // TODO: just return write_types and then put it all together in a module hiearchy
+    // writing types can be paralalized
 
     for name in namespace.name().rsplit('.') {
         let name = format_ident!("{}", name.to_lowercase());
