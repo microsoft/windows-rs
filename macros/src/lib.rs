@@ -79,6 +79,10 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     result
 }
 
+// fn module_to_namespace(reader: &winmd::Reader, module: &str) -> &str {
+
+// }
+
 fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections::BTreeSet<String>) {
     let mut category = ImportCategory::None;
     let mut dependencies = std::collections::BTreeSet::<String>::new();
@@ -106,19 +110,11 @@ fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections:
     let reader = winmd::Reader::from_files(&dependencies).unwrap();
     let mut namespaces = std::collections::BTreeSet::<String>::new();
 
-    // TODO: This MxN loop is not great
-    for namespace in reader.namespaces() {
-        for name in &modules {
-            println!("{}", name);
-            if name == &namespace.name().to_lowercase() {
-                namespaces.insert(namespace.name().to_string());
-                // TODO: prune namespace from list so we can panic if any namespaces don't exist
-                break;
-            }
-            // else{
-            //     panic!("winrt::import macro could not find module `{}` in the dependencies", name);
-            // }
-        }
+    for module in &modules {
+        match reader.find_namespace_lowercase(module) {
+            Some(namespace) => namespaces.append(&mut to_namespaces(namespace.full_name())),
+            None => panic!("winrt::import macro could not find module `{}` in dependencies", module),
+        };
     }
 
     (reader, namespaces)
@@ -128,14 +124,18 @@ fn produce_output_stream(stream: TokenStream) -> TokenStream {
     let (reader, namespaces) = parse_import_stream(stream);
     let mut result = Vec::<TokenStream>::new();
 
-    let modules = write_modules(&reader, &namespaces);
-
-    for name in &namespaces {
-        if let Some(namespace) = reader.find_namespace(name) {
-            println!("modules {}", name);
-            result.push(write_namespace(&namespace, &namespaces).into());
-        }
+    for name in namespaces {
+        println!("ns {}", name);
     }
+
+    // let modules = write_modules(&reader, &namespaces);
+
+    // for name in &namespaces {
+    //     if let Some(namespace) = reader.find_namespace(name) {
+    //         println!("modules {}", name);
+    //         result.push(write_namespace(&namespace, &namespaces).into());
+    //     }
+    // }
 
     TokenStream::from_iter(result)
 }
