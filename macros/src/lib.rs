@@ -124,11 +124,13 @@ fn produce_output_stream(stream: TokenStream) -> TokenStream {
     let (reader, namespaces) = parse_import_stream(stream);
     let mut result = Vec::<TokenStream>::new();
 
-    for name in namespaces {
+    for name in &namespaces {
         println!("ns {}", name);
     }
 
-    // let modules = write_modules(&reader, &namespaces);
+    let output = write_modules(&reader, &namespaces);
+    println!("{}", output.to_string());
+
 
     // for name in &namespaces {
     //     if let Some(namespace) = reader.find_namespace(name) {
