@@ -2,9 +2,8 @@
 
 use crate::*;
 
-
 // TODO: delay load everything via LoadLibrary(combase.dll)/GetProcAddress(function)
-// except for LoadLibrary and GetProcAddress from kernel32.dll. For those if they don't 
+// except for LoadLibrary and GetProcAddress from kernel32.dll. For those if they don't
 // link automatically then create a def file and generate a lib rather than relying on the SDK.
 //
 // From a performance perspective, all APIs needed for WinRT can be delay loaded

@@ -92,11 +92,12 @@ fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections:
                 value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
             },
             TokenTree::Literal(value) => match category {
-                ImportCategory::None => 
-                    panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
-                
+                ImportCategory::None => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
+
                 ImportCategory::Dependency => dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"'))),
-                ImportCategory::Namespace => {modules.insert(namespace_literal_to_rough_namespace(&value.to_string())); },
+                ImportCategory::Namespace => {
+                    modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
+                }
             },
             _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string()),
         }

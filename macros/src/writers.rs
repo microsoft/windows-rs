@@ -5,11 +5,8 @@ use quote::quote;
 
 pub(crate) fn write_modules(reader: &winmd::Reader, namespaces: &std::collections::BTreeSet<String>) -> TokenStream {
     for name in namespaces {
-        if let Some(namespace) = reader.find_namespace(name) {
-
-        }
+        if let Some(namespace) = reader.find_namespace(name) {}
     }
-
 
     quote! {}
 }
