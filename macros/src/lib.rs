@@ -122,15 +122,15 @@ fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections:
 
 fn produce_output_stream(stream: TokenStream) -> TokenStream {
     let (reader, namespaces) = parse_import_stream(stream);
-    let mut result = Vec::<TokenStream>::new();
+    write_modules(&reader, &namespaces).into()
+    //let mut result = Vec::<TokenStream>::new();
 
-    for name in &namespaces {
-        println!("ns {}", name);
-    }
+    // for name in &namespaces {
+    //     println!("ns {}", name);
+    // }
 
-    let output = write_modules(&reader, &namespaces);
-    println!("{}", output.to_string());
-
+    //let output = write_modules(&reader, &namespaces);
+    //println!("{}", output.to_string());
 
     // for name in &namespaces {
     //     if let Some(namespace) = reader.find_namespace(name) {
@@ -139,7 +139,7 @@ fn produce_output_stream(stream: TokenStream) -> TokenStream {
     //     }
     // }
 
-    TokenStream::from_iter(result)
+    //TokenStream::from_iter(result)
 }
 
 #[proc_macro]
@@ -229,7 +229,8 @@ pub fn import(stream: TokenStream) -> TokenStream {
     }
         };
 
-    gen.into()
+    //gen.into()
+    output
 }
 
 // winrt::import!(

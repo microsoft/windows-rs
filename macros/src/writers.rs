@@ -12,32 +12,31 @@ pub(crate) fn write_namespace_set(namespaces: winmd::NamespaceSet, scope: &std::
 
     for namespace in namespaces {
         if scope.contains(namespace.full_name()) {
-        let namespace = write_namespace(&namespace, scope);
+            let namespace = write_namespace(&namespace, scope);
 
-        tokens = quote! {
-            #tokens
-            #namespace,
-        };
-    }
+            tokens = quote! {
+                #tokens
+                #namespace
+            };
+        }
     }
 
     tokens
 }
 
 fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    let module = format_ident!("{}", namespace.name().to_lowercase());
+    let enums = write_enums(namespace);
+    let structs = write_structs(namespace);
+    let namespaces = write_namespace_set(namespace.namespaces(), scope);
 
-        let module = format_ident!("{}", namespace.name().to_lowercase());
-        let enums = write_enums(namespace);
-        let structs = write_structs(namespace);
-        let namespaces = write_namespace_set(namespace.namespaces(), scope);
-
-        quote! {
-            pub mod #module {
-                #enums
-                #structs
-                #namespaces
-            }
+    quote! {
+        pub mod #module {
+            #enums
+            #structs
+            #namespaces
         }
+    }
 }
 
 fn write_enums(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
@@ -95,7 +94,7 @@ fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for f in t.fields().unwrap() {
-        let name = format_ident!("{}", f.name().unwrap().to_lowercase());
+        let name = format_ident!("{}", to_snake(f.name().unwrap()));
 
         tokens = quote! {
             #tokens
@@ -105,4 +104,28 @@ fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
     }
 
     tokens
+}
+
+fn to_snake(camel: &str) -> String {
+    let mut result = String::new();
+    for c in camel.chars() {
+        if c.is_uppercase() {
+            if !result.is_empty() {
+                result.push('_');
+            }
+            for c in c.to_lowercase() {
+                result.push(c);
+            }
+        } else {
+            result.push(c);
+        }
+    }
+
+    // TODO: go through keywords and append '_' if result is keyword
+    // Or use a "raw identifier" as in `r#type`
+    if result == "type" {
+        result += "_";
+    }
+
+    result
 }
