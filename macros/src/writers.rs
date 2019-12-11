@@ -121,10 +121,9 @@ fn to_snake(camel: &str) -> String {
         }
     }
 
-    // TODO: go through keywords and append '_' if result is keyword
-    // Or use a "raw identifier" as in `r#type`
+    // TODO: go through all keywords and prepend `r#` if result is keyword
     if result == "type" {
-        result += "_";
+        result.insert_str(0, "r#");
     }
 
     result
