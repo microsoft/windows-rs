@@ -43,7 +43,7 @@ fn write_enums(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
     let mut tokens = quote! {};
 
     for t in namespace.enums() {
-        let name = format_ident!("{}", t.name().unwrap());
+        let name = format_ident!("{}", t.name());
         let fields = write_enum_fields(&t);
         tokens = quote! {
             #tokens
@@ -57,10 +57,10 @@ fn write_enums(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
 fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
-    for f in t.fields().unwrap() {
-        for c in f.constants().unwrap() {
-            let name = format_ident!("{}", f.name().unwrap());
-            let value = c.value().unwrap();
+    for f in t.fields() {
+        for c in f.constants() {
+            let name = format_ident!("{}", f.name());
+            let value = c.value();
 
             tokens = quote! {
                 #tokens
@@ -77,7 +77,7 @@ fn write_structs(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
     let mut tokens = quote! {};
 
     for t in namespace.structs() {
-        let name = format_ident!("{}", t.name().unwrap());
+        let name = format_ident!("{}", t.name());
         let fields = write_struct_fields(&t);
         tokens = quote! {
             #tokens
@@ -93,8 +93,8 @@ fn write_structs(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
 fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
-    for f in t.fields().unwrap() {
-        let name = format_ident!("{}", to_snake(f.name().unwrap()));
+    for f in t.fields() {
+        let name = format_ident!("{}", to_snake(f.name()));
 
         tokens = quote! {
             #tokens
