@@ -70,7 +70,7 @@ fn write_interfaces(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
             #[repr(C)]
             pub struct #name_ident { ptr: *const std::ffi::c_void }
             #[repr(C)]
-            struct #abi_name_ident { 
+            struct #abi_name_ident {
                 abi_0: usize,
                 abi_1: usize,
                 abi_2: usize,
@@ -102,8 +102,6 @@ fn write_abi_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
 
 fn write_abi_params(signature: &winmd::MethodSig) -> proc_macro2::TokenStream {
     let mut tokens = quote! {};
-
-
 
     tokens
 }
