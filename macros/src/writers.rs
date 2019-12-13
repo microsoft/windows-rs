@@ -28,15 +28,84 @@ fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTree
     let module = format_ident!("{}", namespace.name().to_lowercase());
     let enums = write_enums(namespace);
     let structs = write_structs(namespace);
+    let interfaces = write_interfaces(namespace);
+    let classes = write_classes(namespace);
     let namespaces = write_namespace_set(namespace.namespaces(), scope);
 
     quote! {
         pub mod #module {
             #enums
             #structs
+            #interfaces
+            #classes
             #namespaces
         }
     }
+}
+
+fn write_classes(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
+    let mut tokens = quote! {};
+
+    for t in namespace.classes() {
+        let name = format_ident!("{}", t.name());
+        tokens = quote! {
+            #tokens
+            pub struct #name { ptr: *const std::ffi::c_void }
+        };
+    }
+
+    tokens
+}
+
+fn write_interfaces(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
+    let mut tokens = quote! {};
+
+    for interface in namespace.interfaces() {
+        let name = interface.name();
+        let name_ident = format_ident!("{}", name);
+        let abi_name_ident = format_ident!("abi_{}", name);
+        let methods = write_abi_methods(&interface);
+        tokens = quote! {
+            #tokens
+            #[repr(C)]
+            pub struct #name_ident { ptr: *const std::ffi::c_void }
+            #[repr(C)]
+            struct #abi_name_ident { 
+                abi_0: usize,
+                abi_1: usize,
+                abi_2: usize,
+                abi_3: usize,
+                abi_4: usize,
+                abi_5: usize,
+                #methods
+            }
+        };
+    }
+
+    tokens
+}
+
+fn write_abi_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
+    let mut tokens = quote! {};
+
+    for method in interface.methods() {
+        let name = format_ident!("{}", method.name());
+        let params = write_abi_params(&method.signature());
+        tokens = quote! {
+            #tokens
+            #name: extern "system" fn(*const std::ffi::c_void, #params) -> winrt::ErrorCode,
+        };
+    }
+
+    tokens
+}
+
+fn write_abi_params(signature: &winmd::MethodSig) -> proc_macro2::TokenStream {
+    let mut tokens = quote! {};
+
+
+
+    tokens
 }
 
 fn write_enums(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
