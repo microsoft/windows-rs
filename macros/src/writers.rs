@@ -71,12 +71,12 @@ fn write_interfaces(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
             pub struct #name_ident { ptr: *const std::ffi::c_void }
             #[repr(C)]
             struct #abi_name_ident {
-                abi_0: usize,
-                abi_1: usize,
-                abi_2: usize,
-                abi_3: usize,
-                abi_4: usize,
-                abi_5: usize,
+                _0: usize,
+                _1: usize,
+                _2: usize,
+                _3: usize,
+                _4: usize,
+                _5: usize,
                 #methods
             }
         };
@@ -84,6 +84,11 @@ fn write_interfaces(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
 
     tokens
 }
+
+// fn write_consume_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
+// }
+// fn write_produce_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
+// }
 
 fn write_abi_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
     let mut tokens = quote! {};
@@ -103,8 +108,26 @@ fn write_abi_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
 fn write_abi_params(signature: &winmd::MethodSig) -> proc_macro2::TokenStream {
     let mut tokens = quote! {};
 
+    for (_, param) in signature.params() {
+        tokens = quote! {
+            #tokens
+            
+        };
+    }
+
+    if let Some(param) = signature.return_type() {
+        tokens = quote! {
+            #tokens
+            
+        };
+    }
+
     tokens
 }
+
+// fn write_abi_type_sig(value: &winmd::TypeSig) -> proc_macro2::TokenStream {
+
+// }
 
 fn write_enums(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
     let mut tokens = quote! {};
