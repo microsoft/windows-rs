@@ -126,11 +126,11 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
                 #tokens
                 pub fn #name(&self, #params) -> winrt::Result<#result> {
                     unsafe {
-                        let mut _impl_result = Default::default();
+                        let mut winrt_impl_result: #result = Default::default();
                         ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
-                            self.ptr, #args &mut _impl_result,
+                            self.ptr, #args &mut winrt_impl_result,
                         )
-                        .ok_or(_impl_result)
+                        .ok_or(winrt_impl_result)
                     }
                 }
             };
@@ -157,7 +157,8 @@ fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
     }
 
     if let Some(param_sig) = signature.return_type() {
-        tokens.push(write_abi_type_sig(param_sig.sig_type()));
+        let name = write_abi_type_sig(param_sig.sig_type());
+        tokens.push(quote!{ &mut #name });
     }
 
     TokenStream::from_iter(tokens)
@@ -203,7 +204,7 @@ fn write_consume_param(param: &winmd::Param, param_sig: &winmd::ParamSig) -> Tok
 
     if param.flags().input() {
         quote! {
-             #name: &#tokens,
+             #name: #tokens,
         }
     } else {
         quote! {
