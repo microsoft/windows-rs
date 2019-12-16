@@ -126,11 +126,11 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
                 #tokens
                 pub fn #name(&self, #params) -> winrt::Result<#result> {
                     unsafe {
-                        let mut winrt_impl_result: #result = Default::default();
+                        let mut __result: #result = Default::default();
                         ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
-                            self.ptr, #args &mut winrt_impl_result,
+                            self.ptr, #args &mut __result,
                         )
-                        .ok_or(winrt_impl_result)
+                        .ok_or(__result)
                     }
                 }
             };
