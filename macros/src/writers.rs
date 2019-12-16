@@ -123,13 +123,11 @@ fn write_abi_param(value: &winmd::ParamSig, flags: winmd::ParamAttributes) -> To
     let tokens = write_abi_type_sig(value.sig_type());
 
     if flags.input() {
-                quote!{
+        quote! {
              #tokens,
         }
-    }
-    else {
-        
-        quote!{
+    } else {
+        quote! {
             &mut #tokens,
         }
     }
@@ -139,29 +137,29 @@ fn write_abi_type_sig(value: &winmd::TypeSig) -> TokenStream {
     match value.sig_type() {
         winmd::TypeSigType::ElementType(value) => write_abi_element_type(value),
         winmd::TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
-        winmd::TypeSigType::GenericSig(value) =>  panic!("GenericSig"),
-        winmd::TypeSigType::GenericTypeIndex(value) =>  panic!("GenericTypeIndex"),
-        winmd::TypeSigType::GenericMethodIndex(value) =>  panic!("GenericMethodIndex"),
+        winmd::TypeSigType::GenericSig(value) => panic!("GenericSig"),
+        winmd::TypeSigType::GenericTypeIndex(value) => panic!("GenericTypeIndex"),
+        winmd::TypeSigType::GenericMethodIndex(value) => panic!("GenericMethodIndex"),
         _ => panic!("write_abi_type_sig"),
     }
 }
 
 fn write_abi_element_type(value: &winmd::ElementType) -> TokenStream {
     match value {
-        winmd::ElementType::Bool => quote!{bool},
-        winmd::ElementType::Bool => quote!{ bool},
-        winmd::ElementType::Char => quote!{ char},
-        winmd::ElementType::I8 => quote!{ i8},
-        winmd::ElementType::U8 => quote!{ u8},
-        winmd::ElementType::I16 => quote!{ i16},
-        winmd::ElementType::U16 => quote!{ u16},
-        winmd::ElementType::I32 => quote!{ i32},
-        winmd::ElementType::U32 => quote!{ u32},
-        winmd::ElementType::I64 => quote!{ i64},
-        winmd::ElementType::U64 => quote!{ u64},
-        winmd::ElementType::F32 => quote!{ f32},
-        winmd::ElementType::F64 => quote!{ f64},
-        winmd::ElementType::String => quote!{ *mut std::ffi::c_void },
+        winmd::ElementType::Bool => quote! { bool },
+        winmd::ElementType::Bool => quote! { bool },
+        winmd::ElementType::Char => quote! { char },
+        winmd::ElementType::I8 => quote! { i8 },
+        winmd::ElementType::U8 => quote! { u8 },
+        winmd::ElementType::I16 => quote! { i16 },
+        winmd::ElementType::U16 => quote! { u16 },
+        winmd::ElementType::I32 => quote! { i32 },
+        winmd::ElementType::U32 => quote! { u32 },
+        winmd::ElementType::I64 => quote! { i64 },
+        winmd::ElementType::U64 => quote! { u64 },
+        winmd::ElementType::F32 => quote! { f32 },
+        winmd::ElementType::F64 => quote! { f64 },
+        winmd::ElementType::String => quote! { *mut std::ffi::c_void },
         _ => panic!("write_abi_element_type"),
     }
 }
@@ -178,9 +176,9 @@ fn write_abi_type_def(value: &winmd::TypeDef) -> TokenStream {
     match value.category() {
         winmd::TypeCategory::Struct => {
             let name = format_ident!("{}", value.name());
-            quote!{ #name }
-        },
-        _ => quote!{ *mut std::ffi::c_void },
+            quote! { #name }
+        }
+        _ => quote! { *mut std::ffi::c_void },
     }
 }
 
