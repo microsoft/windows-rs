@@ -153,11 +153,11 @@ fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
 
     for (param, param_sig) in signature.params() {
-        tokens.push(write_abi_param(param_sig, param.flags()));
+        tokens.push(write_abi_param(param, param_sig));
     }
 
     if let Some(param_sig) = signature.return_type() {
-        tokens.push(write_abi_param(param_sig, Default::default()));
+        tokens.push(write_abi_type_sig(param_sig.sig_type()));
     }
 
     TokenStream::from_iter(tokens)
@@ -167,7 +167,7 @@ fn write_consume_params(signature: &winmd::MethodSig) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
 
     for (param, param_sig) in signature.params() {
-        tokens.push(write_consume_param(param_sig, param));
+        tokens.push(write_consume_param(param, param_sig));
     }
 
     TokenStream::from_iter(tokens)
@@ -176,17 +176,17 @@ fn write_consume_params(signature: &winmd::MethodSig) -> TokenStream {
 fn write_abi_args(signature: &winmd::MethodSig) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
 
-    // for (param, param_sig) in signature.params() {
-    //     tokens.push(write_abi_arg(param_sig, param));
-    // }
+    for (param, param_sig) in signature.params() {
+        tokens.push(write_abi_arg(param, param_sig));
+    }
 
     TokenStream::from_iter(tokens)
 }
 
-fn write_abi_param(value: &winmd::ParamSig, flags: winmd::ParamAttributes) -> TokenStream {
-    let tokens = write_abi_type_sig(value.sig_type());
+fn write_abi_param(param: &winmd::Param, param_sig: &winmd::ParamSig) -> TokenStream {
+    let tokens = write_abi_type_sig(param_sig.sig_type());
 
-    if flags.input() {
+    if param.flags().input() {
         quote! {
              #tokens,
         }
@@ -197,9 +197,9 @@ fn write_abi_param(value: &winmd::ParamSig, flags: winmd::ParamAttributes) -> To
     }
 }
 
-fn write_consume_param(value: &winmd::ParamSig, param: &winmd::Param) -> TokenStream {
+fn write_consume_param(param: &winmd::Param, param_sig: &winmd::ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
-    let tokens = write_type_sig(value.sig_type());
+    let tokens = write_type_sig(param_sig.sig_type());
 
     if param.flags().input() {
         quote! {
@@ -212,8 +212,18 @@ fn write_consume_param(value: &winmd::ParamSig, param: &winmd::Param) -> TokenSt
     }
 }
 
-fn write_abi_arg(value: &winmd::ParamSig, flags: winmd::ParamAttributes) -> TokenStream {
-    panic!("write_abi_arg");
+fn write_abi_arg(param: &winmd::Param, param_sig: &winmd::ParamSig) -> TokenStream {
+    let name = format_ident!("{}", param.name());
+
+    if param.flags().input() {
+        quote! {
+             #name,
+        }
+    } else {
+        quote! {
+            &mut #name,
+        }
+    }
 }
 
 fn write_abi_type_sig(value: &winmd::TypeSig) -> TokenStream {
