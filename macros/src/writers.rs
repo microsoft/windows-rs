@@ -118,7 +118,7 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
         let signature = method.signature();
         let params = write_consume_params(&signature);
         let args = write_abi_args(&signature);
-        
+
         if let Some(result) = signature.return_type() {
             let result = write_type_sig(result.sig_type());
 
@@ -134,8 +134,7 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
                     }
                 }
             };
-        }
-        else {
+        } else {
             tokens = quote! {
                 #tokens
                 pub fn #name(&self, #params) -> winrt::Result<()> {
@@ -149,7 +148,6 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
 
     tokens
 }
-
 
 fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
