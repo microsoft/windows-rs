@@ -64,7 +64,8 @@ fn write_interfaces(namespace: &winmd::Namespace) -> TokenStream {
         let name = interface.name();
         let name_ident = format_ident!("{}", name);
         let abi_name_ident = format_ident!("abi_{}", name);
-        let methods = write_abi_methods(&interface);
+        let abi_methods = write_abi_methods(&interface);
+        let consume_methods = write_consume_methods(&interface);
         tokens = quote! {
             #tokens
             #[repr(C)]
@@ -77,7 +78,10 @@ fn write_interfaces(namespace: &winmd::Namespace) -> TokenStream {
                 _3: usize,
                 _4: usize,
                 _5: usize,
-                #methods
+                #abi_methods
+            }
+            impl #name_ident {
+                #consume_methods
             }
         };
     }
@@ -105,6 +109,48 @@ fn write_abi_methods(interface: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
+fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
+    let mut tokens = quote! {};
+    let abi_interface_name = format_ident!("abi_{}", interface.name());
+
+    for method in interface.methods() {
+        let name = format_ident!("{}", method.name());
+        let signature = method.signature();
+        let params = write_consume_params(&signature);
+        let args = write_abi_args(&signature);
+        
+        if let Some(result) = signature.return_type() {
+            let result = write_type_sig(result.sig_type());
+
+            tokens = quote! {
+                #tokens
+                pub fn #name(&self, #params) -> winrt::Result<#result> {
+                    unsafe {
+                        let mut _impl_result = Default::default();
+                        ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
+                            self.ptr, #args &mut _impl_result,
+                        )
+                        .ok_or(_impl_result)
+                    }
+                }
+            };
+        }
+        else {
+            tokens = quote! {
+                #tokens
+                pub fn #name(&self, #params) -> winrt::Result<()> {
+                    unsafe {
+                        panic!();
+                    }
+                }
+            };
+        };
+    }
+
+    tokens
+}
+
+
 fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
 
@@ -115,6 +161,26 @@ fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
     if let Some(param_sig) = signature.return_type() {
         tokens.push(write_abi_param(param_sig, Default::default()));
     }
+
+    TokenStream::from_iter(tokens)
+}
+
+fn write_consume_params(signature: &winmd::MethodSig) -> TokenStream {
+    let mut tokens = Vec::<TokenStream>::new();
+
+    for (param, param_sig) in signature.params() {
+        tokens.push(write_consume_param(param_sig, param));
+    }
+
+    TokenStream::from_iter(tokens)
+}
+
+fn write_abi_args(signature: &winmd::MethodSig) -> TokenStream {
+    let mut tokens = Vec::<TokenStream>::new();
+
+    // for (param, param_sig) in signature.params() {
+    //     tokens.push(write_abi_arg(param_sig, param));
+    // }
 
     TokenStream::from_iter(tokens)
 }
@@ -133,6 +199,25 @@ fn write_abi_param(value: &winmd::ParamSig, flags: winmd::ParamAttributes) -> To
     }
 }
 
+fn write_consume_param(value: &winmd::ParamSig, param: &winmd::Param) -> TokenStream {
+    let name = format_ident!("{}", param.name());
+    let tokens = write_type_sig(value.sig_type());
+
+    if param.flags().input() {
+        quote! {
+             #name: &#tokens,
+        }
+    } else {
+        quote! {
+            #name: &mut #tokens,
+        }
+    }
+}
+
+fn write_abi_arg(value: &winmd::ParamSig, flags: winmd::ParamAttributes) -> TokenStream {
+    panic!("write_abi_arg");
+}
+
 fn write_abi_type_sig(value: &winmd::TypeSig) -> TokenStream {
     match value.sig_type() {
         winmd::TypeSigType::ElementType(value) => write_abi_element_type(value),
@@ -141,6 +226,17 @@ fn write_abi_type_sig(value: &winmd::TypeSig) -> TokenStream {
         winmd::TypeSigType::GenericTypeIndex(value) => panic!("GenericTypeIndex"),
         winmd::TypeSigType::GenericMethodIndex(value) => panic!("GenericMethodIndex"),
         _ => panic!("write_abi_type_sig"),
+    }
+}
+
+fn write_type_sig(value: &winmd::TypeSig) -> TokenStream {
+    match value.sig_type() {
+        winmd::TypeSigType::ElementType(value) => write_element_type(value),
+        winmd::TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
+        winmd::TypeSigType::GenericSig(value) => panic!("GenericSig"),
+        winmd::TypeSigType::GenericTypeIndex(value) => panic!("GenericTypeIndex"),
+        winmd::TypeSigType::GenericMethodIndex(value) => panic!("GenericMethodIndex"),
+        _ => panic!("write_type_sig"),
     }
 }
 
@@ -164,11 +260,39 @@ fn write_abi_element_type(value: &winmd::ElementType) -> TokenStream {
     }
 }
 
+fn write_element_type(value: &winmd::ElementType) -> TokenStream {
+    match value {
+        winmd::ElementType::Bool => quote! { bool },
+        winmd::ElementType::Bool => quote! { bool },
+        winmd::ElementType::Char => quote! { char },
+        winmd::ElementType::I8 => quote! { i8 },
+        winmd::ElementType::U8 => quote! { u8 },
+        winmd::ElementType::I16 => quote! { i16 },
+        winmd::ElementType::U16 => quote! { u16 },
+        winmd::ElementType::I32 => quote! { i32 },
+        winmd::ElementType::U32 => quote! { u32 },
+        winmd::ElementType::I64 => quote! { i64 },
+        winmd::ElementType::U64 => quote! { u64 },
+        winmd::ElementType::F32 => quote! { f32 },
+        winmd::ElementType::F64 => quote! { f64 },
+        winmd::ElementType::String => quote! { winrt::String },
+        _ => panic!("write_element_type"),
+    }
+}
+
 fn write_abi_type_def_or_ref(value: &winmd::TypeDefOrRef) -> TokenStream {
     match value {
         winmd::TypeDefOrRef::TypeDef(value) => write_abi_type_def(value),
         winmd::TypeDefOrRef::TypeRef(value) => write_abi_type_ref(value),
         _ => panic!("write_abi_type_def_or_ref"),
+    }
+}
+
+fn write_type_def_or_ref(value: &winmd::TypeDefOrRef) -> TokenStream {
+    match value {
+        winmd::TypeDefOrRef::TypeDef(value) => write_type_def(value),
+        winmd::TypeDefOrRef::TypeRef(value) => write_type_ref(value),
+        _ => panic!("write_type_def_or_ref"),
     }
 }
 
@@ -182,9 +306,19 @@ fn write_abi_type_def(value: &winmd::TypeDef) -> TokenStream {
     }
 }
 
+fn write_type_def(value: &winmd::TypeDef) -> TokenStream {
+    let name = format_ident!("{}", value.name());
+    quote! { #name }
+}
+
 fn write_abi_type_ref(value: &winmd::TypeRef) -> TokenStream {
     // TODO: handle "System.Guid" directly
     write_abi_type_def(&value.find_def())
+}
+
+fn write_type_ref(value: &winmd::TypeRef) -> TokenStream {
+    // TODO: handle "System.Guid" directly
+    write_type_def(&value.find_def())
 }
 
 fn write_enums(namespace: &winmd::Namespace) -> TokenStream {
