@@ -72,12 +72,12 @@ fn write_interfaces(namespace: &winmd::Namespace) -> TokenStream {
             pub struct #name_ident { ptr: *const std::ffi::c_void }
             #[repr(C)]
             struct #abi_name_ident {
-                _0: usize,
-                _1: usize,
-                _2: usize,
-                _3: usize,
-                _4: usize,
-                _5: usize,
+                __0: usize,
+                __1: usize,
+                __2: usize,
+                __3: usize,
+                __4: usize,
+                __5: usize,
                 #abi_methods
             }
             impl #name_ident {
