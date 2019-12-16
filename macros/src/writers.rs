@@ -43,7 +43,7 @@ fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTree
     }
 }
 
-fn write_classes(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
+fn write_classes(namespace: &winmd::Namespace) -> TokenStream {
     let mut tokens = quote! {};
 
     for t in namespace.classes() {
@@ -57,7 +57,7 @@ fn write_classes(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
     tokens
 }
 
-fn write_interfaces(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
+fn write_interfaces(namespace: &winmd::Namespace) -> TokenStream {
     let mut tokens = quote! {};
 
     for interface in namespace.interfaces() {
@@ -85,12 +85,12 @@ fn write_interfaces(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
     tokens
 }
 
-// fn write_consume_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
+// fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
 // }
-// fn write_produce_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
+// fn write_produce_methods(interface: &winmd::TypeDef) -> TokenStream {
 // }
 
-fn write_abi_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
+fn write_abi_methods(interface: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for method in interface.methods() {
@@ -105,31 +105,91 @@ fn write_abi_methods(interface: &winmd::TypeDef) -> proc_macro2::TokenStream {
     tokens
 }
 
-fn write_abi_params(signature: &winmd::MethodSig) -> proc_macro2::TokenStream {
-    let mut tokens = quote! {};
+fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
+    let mut tokens = Vec::<TokenStream>::new();
 
-    for (_, param) in signature.params() {
-        tokens = quote! {
-            #tokens
-            
-        };
+    for (param, param_sig) in signature.params() {
+        tokens.push(write_abi_param(param_sig, param.flags()));
     }
 
-    if let Some(param) = signature.return_type() {
-        tokens = quote! {
-            #tokens
-            
-        };
+    if let Some(param_sig) = signature.return_type() {
+        tokens.push(write_abi_param(param_sig, Default::default()));
     }
 
-    tokens
+    TokenStream::from_iter(tokens)
 }
 
-// fn write_abi_type_sig(value: &winmd::TypeSig) -> proc_macro2::TokenStream {
+fn write_abi_param(value: &winmd::ParamSig, flags: winmd::ParamAttributes) -> TokenStream {
+    let tokens = write_abi_type_sig(value.sig_type());
 
-// }
+    if flags.input() {
+                quote!{
+             #tokens,
+        }
+    }
+    else {
+        
+        quote!{
+            &mut #tokens,
+        }
+    }
+}
 
-fn write_enums(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
+fn write_abi_type_sig(value: &winmd::TypeSig) -> TokenStream {
+    match value.sig_type() {
+        winmd::TypeSigType::ElementType(value) => write_abi_element_type(value),
+        winmd::TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
+        winmd::TypeSigType::GenericSig(value) =>  panic!("GenericSig"),
+        winmd::TypeSigType::GenericTypeIndex(value) =>  panic!("GenericTypeIndex"),
+        winmd::TypeSigType::GenericMethodIndex(value) =>  panic!("GenericMethodIndex"),
+        _ => panic!("write_abi_type_sig"),
+    }
+}
+
+fn write_abi_element_type(value: &winmd::ElementType) -> TokenStream {
+    match value {
+        winmd::ElementType::Bool => quote!{bool},
+        winmd::ElementType::Bool => quote!{ bool},
+        winmd::ElementType::Char => quote!{ char},
+        winmd::ElementType::I8 => quote!{ i8},
+        winmd::ElementType::U8 => quote!{ u8},
+        winmd::ElementType::I16 => quote!{ i16},
+        winmd::ElementType::U16 => quote!{ u16},
+        winmd::ElementType::I32 => quote!{ i32},
+        winmd::ElementType::U32 => quote!{ u32},
+        winmd::ElementType::I64 => quote!{ i64},
+        winmd::ElementType::U64 => quote!{ u64},
+        winmd::ElementType::F32 => quote!{ f32},
+        winmd::ElementType::F64 => quote!{ f64},
+        winmd::ElementType::String => quote!{ *mut std::ffi::c_void },
+        _ => panic!("write_abi_element_type"),
+    }
+}
+
+fn write_abi_type_def_or_ref(value: &winmd::TypeDefOrRef) -> TokenStream {
+    match value {
+        winmd::TypeDefOrRef::TypeDef(value) => write_abi_type_def(value),
+        winmd::TypeDefOrRef::TypeRef(value) => write_abi_type_ref(value),
+        _ => panic!("write_abi_type_def_or_ref"),
+    }
+}
+
+fn write_abi_type_def(value: &winmd::TypeDef) -> TokenStream {
+    match value.category() {
+        winmd::TypeCategory::Struct => {
+            let name = format_ident!("{}", value.name());
+            quote!{ #name }
+        },
+        _ => quote!{ *mut std::ffi::c_void },
+    }
+}
+
+fn write_abi_type_ref(value: &winmd::TypeRef) -> TokenStream {
+    // TODO: handle "System.Guid" directly
+    write_abi_type_def(&value.find_def())
+}
+
+fn write_enums(namespace: &winmd::Namespace) -> TokenStream {
     let mut tokens = quote! {};
 
     for t in namespace.enums() {
@@ -163,7 +223,7 @@ fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_structs(namespace: &winmd::Namespace) -> proc_macro2::TokenStream {
+fn write_structs(namespace: &winmd::Namespace) -> TokenStream {
     let mut tokens = quote! {};
 
     for t in namespace.structs() {
