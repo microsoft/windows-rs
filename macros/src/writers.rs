@@ -46,12 +46,68 @@ fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTree
 fn write_classes(namespace: &winmd::Namespace) -> TokenStream {
     let mut tokens = quote! {};
 
-    for t in namespace.classes() {
-        let name = format_ident!("{}", t.name());
+    for class in namespace.classes() {
+        let name = format_ident!("{}", class.name());
+        let functions = write_class_functions(&class);
+        let mut string_name = String::new();
+        string_name.push_str(class.namespace());
+        string_name.push('.');
+        string_name.push_str(class.name());
         tokens = quote! {
             #tokens
             pub struct #name { ptr: *const std::ffi::c_void }
+            impl #name { #functions }
+            impl winrt::TypeName for #name {
+                fn type_name() -> &'static str {
+                    #string_name
+                }
+            }
         };
+    }
+
+    tokens
+}
+
+fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
+    let mut tokens = quote! {};
+
+    for attribute in class.attributes() {
+        let (namespace, name) = attribute.name();
+
+        if name == "StaticAttribute" {
+            for (name, sig) in attribute.arguments() {
+                if let winmd::ArgumentSig::Type(interface) = sig {
+                    let class_name = format_ident!("{}", class.name());
+                    let interface_name = format_ident!("{}", interface.name());
+
+                    if interface.name() != "IColorHelperStatics" && interface.name() != "IColorHelperStatics2" && interface.name() != "IUIContentRoot" {
+                        for method in interface.methods() {
+                            let method_name = format_ident!("{}", method.name());
+                            let signature = method.signature();
+                            let params = write_consume_params(&signature);
+
+                            if let Some(result) = signature.return_type() {
+                                let result = write_type_sig(result.sig_type());
+
+                                tokens = quote! {
+                                    #tokens
+                                    pub fn #method_name(#params) -> winrt::Result<#result> {
+                                        winrt::factory::<#class_name, #interface_name>()?.#method_name()
+                                    }
+                                };
+                            } else {
+                                tokens = quote! {
+                                    #tokens
+                                    pub fn #method_name(#params) -> winrt::Result<()> {
+                                            panic!();
+                                    }
+                                };
+                            };
+                        }
+                    }
+                }
+            }
+        }
     }
 
     tokens
@@ -83,16 +139,26 @@ fn write_interfaces(namespace: &winmd::Namespace) -> TokenStream {
             impl #name_ident {
                 #consume_methods
             }
+            impl winrt::TypeInterface for #name_ident {
+                fn type_guid() -> &'static winrt::Guid {
+                    static GUID: winrt::Guid = winrt::Guid::from_values(
+                        0xCFF52E04,
+                        0xCCA6,
+                        0x4614,
+                        &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99],
+                    );
+                    &GUID
+                }
+
+                fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
+                    Self { ptr }
+                }
+            }
         };
     }
 
     tokens
 }
-
-// fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
-// }
-// fn write_produce_methods(interface: &winmd::TypeDef) -> TokenStream {
-// }
 
 fn write_abi_methods(interface: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
@@ -113,37 +179,39 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
     let abi_interface_name = format_ident!("abi_{}", interface.name());
 
-    for method in interface.methods() {
-        let name = format_ident!("{}", method.name());
-        let signature = method.signature();
-        let params = write_consume_params(&signature);
-        let args = write_abi_args(&signature);
+    if interface.name() != "IColorHelperStatics2" && interface.name() != "IUIContentRoot" {
+        for method in interface.methods() {
+            let name = format_ident!("{}", method.name());
+            let signature = method.signature();
+            let params = write_consume_params(&signature);
+            let args = write_abi_args(&signature);
 
-        if let Some(result) = signature.return_type() {
-            let result = write_type_sig(result.sig_type());
+            if let Some(result) = signature.return_type() {
+                let result = write_type_sig(result.sig_type());
 
-            tokens = quote! {
-                #tokens
-                pub fn #name(&self, #params) -> winrt::Result<#result> {
-                    unsafe {
-                        let mut __result: #result = Default::default();
-                        ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
-                            self.ptr, #args &mut __result,
-                        )
-                        .ok_or(__result)
+                tokens = quote! {
+                    #tokens
+                    pub fn #name(&self, #params) -> winrt::Result<#result> {
+                        unsafe {
+                            let mut __result: #result = Default::default();
+                            ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
+                                self.ptr, #args &mut __result,
+                            )
+                            .ok_or(__result)
+                        }
                     }
-                }
-            };
-        } else {
-            tokens = quote! {
-                #tokens
-                pub fn #name(&self, #params) -> winrt::Result<()> {
-                    unsafe {
-                        panic!();
+                };
+            } else {
+                tokens = quote! {
+                    #tokens
+                    pub fn #name(&self, #params) -> winrt::Result<()> {
+                        unsafe {
+                            panic!();
+                        }
                     }
-                }
+                };
             };
-        };
+        }
     }
 
     tokens
@@ -158,7 +226,7 @@ fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
 
     if let Some(param_sig) = signature.return_type() {
         let name = write_abi_type_sig(param_sig.sig_type());
-        tokens.push(quote!{ &mut #name });
+        tokens.push(quote! { &mut #name });
     }
 
     TokenStream::from_iter(tokens)
@@ -389,7 +457,7 @@ fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
 
         tokens = quote! {
             #tokens
-            #name: u32,
+            #name: u8,
             // TODO: write out field type
         };
     }

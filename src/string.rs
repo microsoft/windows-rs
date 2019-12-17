@@ -37,6 +37,12 @@ impl String {
     }
 }
 
+impl Default for String {
+    fn default() -> Self {
+        String::new()
+    }
+}
+
 impl Drop for String {
     fn drop(&mut self) {
         if !self.is_empty() {
