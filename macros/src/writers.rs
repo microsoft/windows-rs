@@ -26,35 +26,42 @@ pub(crate) fn write_namespace_set(namespaces: winmd::NamespaceSet, scope: &std::
 
 fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let module = format_ident!("{}", namespace.name().to_lowercase());
-    let enums = write_enums(namespace);
-    let structs = write_structs(namespace);
-    let interfaces = write_interfaces(namespace);
-    let classes = write_classes(namespace);
+    let types = write_namespace_types(namespace, scope);
     let namespaces = write_namespace_set(namespace.namespaces(), scope);
 
     quote! {
         pub mod #module {
-            #enums
-            #structs
-            #interfaces
-            #classes
+            #types
             #namespaces
         }
     }
 }
 
-fn write_classes(namespace: &winmd::Namespace) -> TokenStream {
-    let mut tokens = quote! {};
+fn write_namespace_types(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    let mut tokens = Vec::<TokenStream>::new();
 
-    for class in namespace.classes() {
+    for t in namespace.types() {
+        match t.category() {
+            winmd::TypeCategory::Interface => tokens.push(write_interface(&t, scope)),
+            winmd::TypeCategory::Class => tokens.push(write_class(&t, scope)),
+            winmd::TypeCategory::Enum => tokens.push(write_enum(&t, scope)),
+            winmd::TypeCategory::Struct => tokens.push(write_struct(&t, scope)),
+            //winmd::TypeCategory::Delegate => write_delegate(t, scope),
+            _ => {},
+        };
+    }
+
+    TokenStream::from_iter(tokens)
+}
+
+fn write_class(class: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
         let name = format_ident!("{}", class.name());
         let functions = write_class_functions(&class);
         let mut string_name = String::new();
         string_name.push_str(class.namespace());
         string_name.push('.');
         string_name.push_str(class.name());
-        tokens = quote! {
-            #tokens
+         quote! {
             pub struct #name { ptr: *const std::ffi::c_void }
             impl #name { #functions }
             impl winrt::TypeName for #name {
@@ -62,10 +69,7 @@ fn write_classes(namespace: &winmd::Namespace) -> TokenStream {
                     #string_name
                 }
             }
-        };
-    }
-
-    tokens
+        }
 }
 
 fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
@@ -113,17 +117,13 @@ fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_interfaces(namespace: &winmd::Namespace) -> TokenStream {
-    let mut tokens = quote! {};
-
-    for interface in namespace.interfaces() {
+fn write_interface(interface: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
         let name = interface.name();
         let name_ident = format_ident!("{}", name);
         let abi_name_ident = format_ident!("abi_{}", name);
         let abi_methods = write_abi_methods(&interface);
         let consume_methods = write_consume_methods(&interface);
-        tokens = quote! {
-            #tokens
+         quote! {
             #[repr(C)]
             pub struct #name_ident { ptr: *const std::ffi::c_void }
             #[repr(C)]
@@ -154,10 +154,7 @@ fn write_interfaces(namespace: &winmd::Namespace) -> TokenStream {
                     Self { ptr }
                 }
             }
-        };
-    }
-
-    tokens
+        }
 }
 
 fn write_abi_methods(interface: &winmd::TypeDef) -> TokenStream {
@@ -394,19 +391,12 @@ fn write_type_ref(value: &winmd::TypeRef) -> TokenStream {
     write_type_def(&value.find_def())
 }
 
-fn write_enums(namespace: &winmd::Namespace) -> TokenStream {
-    let mut tokens = quote! {};
-
-    for t in namespace.enums() {
+fn write_enum(t: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
         let name = format_ident!("{}", t.name());
         let fields = write_enum_fields(&t);
-        tokens = quote! {
-            #tokens
+        quote! {
             pub enum #name { #fields }
-        };
-    }
-
-    tokens
+        }
 }
 
 fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
@@ -428,21 +418,14 @@ fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_structs(namespace: &winmd::Namespace) -> TokenStream {
-    let mut tokens = quote! {};
-
-    for t in namespace.structs() {
+fn write_struct(t: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
         let name = format_ident!("{}", t.name());
         let fields = write_struct_fields(&t);
-        tokens = quote! {
-            #tokens
+         quote! {
             #[repr(C)]
             #[derive(Default, Debug)]
             pub struct #name { #fields }
-        };
-    }
-
-    tokens
+        }
 }
 
 fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
