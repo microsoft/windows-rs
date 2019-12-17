@@ -72,10 +72,10 @@ fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for attribute in class.attributes() {
-        let (namespace, name) = attribute.name();
+        let (_, name) = attribute.name();
 
         if name == "StaticAttribute" {
-            for (name, sig) in attribute.arguments() {
+            for (_, sig) in attribute.arguments() {
                 if let winmd::ArgumentSig::Type(interface) = sig {
                     let class_name = format_ident!("{}", class.name());
                     let interface_name = format_ident!("{}", interface.name());
@@ -281,7 +281,7 @@ fn write_consume_param(param: &winmd::Param, param_sig: &winmd::ParamSig) -> Tok
     }
 }
 
-fn write_abi_arg(param: &winmd::Param, param_sig: &winmd::ParamSig) -> TokenStream {
+fn write_abi_arg(param: &winmd::Param, _param_sig: &winmd::ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
 
     if param.flags().input() {
@@ -299,10 +299,9 @@ fn write_abi_type_sig(value: &winmd::TypeSig) -> TokenStream {
     match value.sig_type() {
         winmd::TypeSigType::ElementType(value) => write_abi_element_type(value),
         winmd::TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
-        winmd::TypeSigType::GenericSig(value) => panic!("GenericSig"),
-        winmd::TypeSigType::GenericTypeIndex(value) => panic!("GenericTypeIndex"),
-        winmd::TypeSigType::GenericMethodIndex(value) => panic!("GenericMethodIndex"),
-        _ => panic!("write_abi_type_sig"),
+        winmd::TypeSigType::GenericSig(_value) => panic!("GenericSig"),
+        winmd::TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
+        winmd::TypeSigType::GenericMethodIndex(_value) => panic!("GenericMethodIndex"),
     }
 }
 
@@ -310,16 +309,14 @@ fn write_type_sig(value: &winmd::TypeSig) -> TokenStream {
     match value.sig_type() {
         winmd::TypeSigType::ElementType(value) => write_element_type(value),
         winmd::TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
-        winmd::TypeSigType::GenericSig(value) => panic!("GenericSig"),
-        winmd::TypeSigType::GenericTypeIndex(value) => panic!("GenericTypeIndex"),
-        winmd::TypeSigType::GenericMethodIndex(value) => panic!("GenericMethodIndex"),
-        _ => panic!("write_type_sig"),
+        winmd::TypeSigType::GenericSig(_value) => panic!("GenericSig"),
+        winmd::TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
+        winmd::TypeSigType::GenericMethodIndex(_value) => panic!("GenericMethodIndex"),
     }
 }
 
 fn write_abi_element_type(value: &winmd::ElementType) -> TokenStream {
     match value {
-        winmd::ElementType::Bool => quote! { bool },
         winmd::ElementType::Bool => quote! { bool },
         winmd::ElementType::Char => quote! { char },
         winmd::ElementType::I8 => quote! { i8 },
@@ -339,7 +336,6 @@ fn write_abi_element_type(value: &winmd::ElementType) -> TokenStream {
 
 fn write_element_type(value: &winmd::ElementType) -> TokenStream {
     match value {
-        winmd::ElementType::Bool => quote! { bool },
         winmd::ElementType::Bool => quote! { bool },
         winmd::ElementType::Char => quote! { char },
         winmd::ElementType::I8 => quote! { i8 },
@@ -417,9 +413,9 @@ fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for f in t.fields() {
-        for c in f.constants() {
+        for _c in f.constants() {
             let name = format_ident!("{}", f.name());
-            let value = c.value();
+            //let value = c.value();
 
             tokens = quote! {
                 #tokens
