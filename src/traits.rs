@@ -1,8 +1,11 @@
 use crate::*;
 
-pub trait TypeInterface {
-    fn type_guid() -> &'static Guid;
+pub trait TakeOwnership {
     fn take_ownership(ptr: *const std::ffi::c_void) -> Self;
+}
+
+pub trait TypeInterface: TakeOwnership {
+    fn type_guid() -> &'static Guid;
 }
 
 pub trait TypeName {

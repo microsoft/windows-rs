@@ -61,6 +61,7 @@ fn write_class(class: &winmd::TypeDef, scope: &std::collections::BTreeSet<String
     string_name.push_str(class.namespace());
     string_name.push('.');
     string_name.push_str(class.name());
+    // TODO: don't define struct here if the class is static - only declare.
     quote! {
         pub struct #name { ptr: *const std::ffi::c_void }
         impl #name { #functions }
@@ -149,7 +150,8 @@ fn write_interface(interface: &winmd::TypeDef, scope: &std::collections::BTreeSe
                 );
                 &GUID
             }
-
+        }
+        impl winrt::TakeOwnership for #name_ident {
             fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
                 Self { ptr }
             }
@@ -184,17 +186,19 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
             let args = write_abi_args(&signature);
 
             if let Some(result) = signature.return_type() {
-                let result = write_type_sig(result.sig_type());
+                let result_type = write_type_sig(result.sig_type());
+                let result_local = write_consume_result_local(result);
+                let result_take_ownership = write_consume_result_take_ownership(result);
 
                 tokens = quote! {
                     #tokens
-                    pub fn #name(&self, #params) -> winrt::Result<#result> {
+                    pub fn #name(&self, #params) -> winrt::Result<#result_type> {
                         unsafe {
-                            let mut __result: #result = Default::default();
+                            #result_local
                             ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
-                                self.ptr, #args &mut __result,
+                                self.ptr, #args &mut __ok,
                             )
-                            .ok_or(__result)
+                            .ok_or(#result_take_ownership)
                         }
                     }
                 };
@@ -212,6 +216,20 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
     }
 
     tokens
+}
+
+fn write_consume_result_local(sig: &winmd::ParamSig) -> TokenStream {
+    let result = write_type_sig(sig.sig_type());
+    quote! {
+        let mut __ok: #result = Default::default();
+    }
+}
+
+fn write_consume_result_take_ownership(sig: &winmd::ParamSig) -> TokenStream {
+    let result = write_type_sig(sig.sig_type());
+    quote! {
+        __ok
+    }
 }
 
 fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {

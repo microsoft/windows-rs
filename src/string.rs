@@ -37,6 +37,12 @@ impl String {
     }
 }
 
+impl TakeOwnership for String {
+    fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
+        Self { hstring: ptr }
+    }
+}
+
 impl Default for String {
     fn default() -> Self {
         String::new()
