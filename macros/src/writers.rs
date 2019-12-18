@@ -47,7 +47,7 @@ fn write_namespace_types(namespace: &winmd::Namespace, scope: &std::collections:
             winmd::TypeCategory::Enum => tokens.push(write_enum(&t, scope)),
             winmd::TypeCategory::Struct => tokens.push(write_struct(&t, scope)),
             //winmd::TypeCategory::Delegate => write_delegate(t, scope),
-            _ => {},
+            _ => {}
         };
     }
 
@@ -55,21 +55,21 @@ fn write_namespace_types(namespace: &winmd::Namespace, scope: &std::collections:
 }
 
 fn write_class(class: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
-        let name = format_ident!("{}", class.name());
-        let functions = write_class_functions(&class);
-        let mut string_name = String::new();
-        string_name.push_str(class.namespace());
-        string_name.push('.');
-        string_name.push_str(class.name());
-         quote! {
-            pub struct #name { ptr: *const std::ffi::c_void }
-            impl #name { #functions }
-            impl winrt::TypeName for #name {
-                fn type_name() -> &'static str {
-                    #string_name
-                }
+    let name = format_ident!("{}", class.name());
+    let functions = write_class_functions(&class);
+    let mut string_name = String::new();
+    string_name.push_str(class.namespace());
+    string_name.push('.');
+    string_name.push_str(class.name());
+    quote! {
+        pub struct #name { ptr: *const std::ffi::c_void }
+        impl #name { #functions }
+        impl winrt::TypeName for #name {
+            fn type_name() -> &'static str {
+                #string_name
             }
         }
+    }
 }
 
 fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
@@ -118,43 +118,43 @@ fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
 }
 
 fn write_interface(interface: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
-        let name = interface.name();
-        let name_ident = format_ident!("{}", name);
-        let abi_name_ident = format_ident!("abi_{}", name);
-        let abi_methods = write_abi_methods(&interface);
-        let consume_methods = write_consume_methods(&interface);
-         quote! {
-            #[repr(C)]
-            pub struct #name_ident { ptr: *const std::ffi::c_void }
-            #[repr(C)]
-            struct #abi_name_ident {
-                __0: usize,
-                __1: usize,
-                __2: usize,
-                __3: usize,
-                __4: usize,
-                __5: usize,
-                #abi_methods
+    let name = interface.name();
+    let name_ident = format_ident!("{}", name);
+    let abi_name_ident = format_ident!("abi_{}", name);
+    let abi_methods = write_abi_methods(&interface);
+    let consume_methods = write_consume_methods(&interface);
+    quote! {
+        #[repr(C)]
+        pub struct #name_ident { ptr: *const std::ffi::c_void }
+        #[repr(C)]
+        struct #abi_name_ident {
+            __0: usize,
+            __1: usize,
+            __2: usize,
+            __3: usize,
+            __4: usize,
+            __5: usize,
+            #abi_methods
+        }
+        impl #name_ident {
+            #consume_methods
+        }
+        impl winrt::TypeInterface for #name_ident {
+            fn type_guid() -> &'static winrt::Guid {
+                static GUID: winrt::Guid = winrt::Guid::from_values(
+                    0xCFF52E04,
+                    0xCCA6,
+                    0x4614,
+                    &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99],
+                );
+                &GUID
             }
-            impl #name_ident {
-                #consume_methods
-            }
-            impl winrt::TypeInterface for #name_ident {
-                fn type_guid() -> &'static winrt::Guid {
-                    static GUID: winrt::Guid = winrt::Guid::from_values(
-                        0xCFF52E04,
-                        0xCCA6,
-                        0x4614,
-                        &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99],
-                    );
-                    &GUID
-                }
 
-                fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
-                    Self { ptr }
-                }
+            fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
+                Self { ptr }
             }
         }
+    }
 }
 
 fn write_abi_methods(interface: &winmd::TypeDef) -> TokenStream {
@@ -392,11 +392,11 @@ fn write_type_ref(value: &winmd::TypeRef) -> TokenStream {
 }
 
 fn write_enum(t: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
-        let name = format_ident!("{}", t.name());
-        let fields = write_enum_fields(&t);
-        quote! {
-            pub enum #name { #fields }
-        }
+    let name = format_ident!("{}", t.name());
+    let fields = write_enum_fields(&t);
+    quote! {
+        pub enum #name { #fields }
+    }
 }
 
 fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
@@ -419,13 +419,13 @@ fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
 }
 
 fn write_struct(t: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
-        let name = format_ident!("{}", t.name());
-        let fields = write_struct_fields(&t);
-         quote! {
-            #[repr(C)]
-            #[derive(Default, Debug)]
-            pub struct #name { #fields }
-        }
+    let name = format_ident!("{}", t.name());
+    let fields = write_struct_fields(&t);
+    quote! {
+        #[repr(C)]
+        #[derive(Default, Debug)]
+        pub struct #name { #fields }
+    }
 }
 
 fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
