@@ -123,12 +123,49 @@ fn write_class_functions(class: &TypeDef) -> TokenStream {
     tokens
 }
 
+fn guid_u32(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u32 {
+    match sig.next().unwrap().1 {
+        ArgumentSig::U32(value) => value,
+        _ => panic!(),
+    }
+}
+
+fn guid_u16(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u16 {
+    match sig.next().unwrap().1 {
+        ArgumentSig::U16(value) => value,
+        _ => panic!(),
+    }
+}
+
+fn guid_u8(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u8 {
+    match sig.next().unwrap().1 {
+        ArgumentSig::U8(value) => value,
+        _ => panic!(),
+    }
+}
+
 fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = interface.name();
     let name_ident = format_ident!("{}", name);
     let abi_name_ident = format_ident!("abi_{}", name);
     let abi_methods = write_abi_methods(&interface);
     let consume_methods = write_consume_methods(&interface);
+
+    let guid = interface.find_attribute("Windows.Foundation.Metadata.GuidAttribute").unwrap();
+    let guid = guid.arguments();
+    let mut guid = guid.iter();
+    let g1 = guid_u32(&mut guid);
+    let g2 = guid_u16(&mut guid);
+    let g3 = guid_u16(&mut guid);
+    let g4 = guid_u8(&mut guid);
+    let g5 = guid_u8(&mut guid);
+    let g6 = guid_u8(&mut guid);
+    let g7 = guid_u8(&mut guid);
+    let g8 = guid_u8(&mut guid);
+    let g9 = guid_u8(&mut guid);
+    let g10 = guid_u8(&mut guid);
+    let g11 = guid_u8(&mut guid);
+
     quote! {
         #[repr(C)]
         pub struct #name_ident { ptr: *const std::ffi::c_void }
@@ -148,10 +185,10 @@ fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<Stri
         impl winrt::TypeInterface for #name_ident {
             fn type_guid() -> &'static winrt::Guid {
                 static GUID: winrt::Guid = winrt::Guid::from_values(
-                    0xCFF52E04,
-                    0xCCA6,
-                    0x4614,
-                    &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99],
+                    #g1,
+                    #g2,
+                    #g3,
+                    &[#g4, #g5, #g6, #g7, #g8, #g9, #g10, #g11],
                 );
                 &GUID
             }
