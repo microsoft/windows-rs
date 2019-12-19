@@ -70,6 +70,11 @@ fn write_class(class: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> 
                 #string_name
             }
         }
+        impl From<*const std::ffi::c_void> for #name {
+            fn from(ptr: *const std::ffi::c_void) -> Self {
+                Self { ptr }
+            }
+        }
     }
 }
 
