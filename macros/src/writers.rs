@@ -56,13 +56,12 @@ fn write_namespace_types(namespace: &Namespace, scope: &std::collections::BTreeS
 }
 
 fn write_class(class: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    // TODO: don't define struct here if the class is static - only declare.
+
     let name = format_ident!("{}", class.name());
     let functions = write_class_functions(&class);
-    let mut string_name = String::new();
-    string_name.push_str(class.namespace());
-    string_name.push('.');
-    string_name.push_str(class.name());
-    // TODO: don't define struct here if the class is static - only declare.
+    let string_name = format!("{}.{}", class.namespace(), class.name());
+
     quote! {
         pub struct #name { ptr: *const std::ffi::c_void }
         impl #name { #functions }
@@ -92,8 +91,6 @@ fn write_class_functions(class: &TypeDef) -> TokenStream {
                             let signature = method.signature();
                             let params = write_consume_params(&signature);
                             let args = signature.params().iter().map(|(param, _)| format_ident!("{}", param.name()));
-                            //let args = write_consume_args(&signature);
-                            // TODO: maybe use an iterator for arg names?
 
                             if let Some(result) = signature.return_type() {
                                 let result = write_type_sig(result.sig_type());
