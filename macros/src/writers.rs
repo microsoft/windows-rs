@@ -2,12 +2,13 @@ use crate::*;
 use proc_macro2::TokenStream;
 use quote::format_ident;
 use quote::quote;
+use winmd::*;
 
-pub(crate) fn write_modules(reader: &winmd::Reader, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+pub(crate) fn write_modules(reader: &Reader, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     write_namespace_set(reader.namespaces(), scope)
 }
 
-pub(crate) fn write_namespace_set(namespaces: winmd::NamespaceSet, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+pub(crate) fn write_namespace_set(namespaces: NamespaceSet, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let mut tokens = quote! {};
 
     for namespace in namespaces {
@@ -24,7 +25,7 @@ pub(crate) fn write_namespace_set(namespaces: winmd::NamespaceSet, scope: &std::
     tokens
 }
 
-fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_namespace(namespace: &Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let module = format_ident!("{}", namespace.name().to_lowercase());
     let types = write_namespace_types(namespace, scope);
     let namespaces = write_namespace_set(namespace.namespaces(), scope);
@@ -37,16 +38,16 @@ fn write_namespace(namespace: &winmd::Namespace, scope: &std::collections::BTree
     }
 }
 
-fn write_namespace_types(namespace: &winmd::Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_namespace_types(namespace: &Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
 
     for t in namespace.types() {
         match t.category() {
-            winmd::TypeCategory::Interface => tokens.push(write_interface(&t, scope)),
-            winmd::TypeCategory::Class => tokens.push(write_class(&t, scope)),
-            winmd::TypeCategory::Enum => tokens.push(write_enum(&t, scope)),
-            winmd::TypeCategory::Struct => tokens.push(write_struct(&t, scope)),
-            //winmd::TypeCategory::Delegate => write_delegate(t, scope),
+            TypeCategory::Interface => tokens.push(write_interface(&t, scope)),
+            TypeCategory::Class => tokens.push(write_class(&t, scope)),
+            TypeCategory::Enum => tokens.push(write_enum(&t, scope)),
+            TypeCategory::Struct => tokens.push(write_struct(&t, scope)),
+            //TypeCategory::Delegate => write_delegate(t, scope),
             _ => {}
         };
     }
@@ -54,7 +55,7 @@ fn write_namespace_types(namespace: &winmd::Namespace, scope: &std::collections:
     TokenStream::from_iter(tokens)
 }
 
-fn write_class(class: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_class(class: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = format_ident!("{}", class.name());
     let functions = write_class_functions(&class);
     let mut string_name = String::new();
@@ -73,7 +74,7 @@ fn write_class(class: &winmd::TypeDef, _scope: &std::collections::BTreeSet<Strin
     }
 }
 
-fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
+fn write_class_functions(class: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for attribute in class.attributes() {
@@ -81,15 +82,16 @@ fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
 
         if name == "StaticAttribute" {
             for (_, sig) in attribute.arguments() {
-                if let winmd::ArgumentSig::Type(interface) = sig {
+                if let ArgumentSig::Type(interface) = sig {
                     let class_name = format_ident!("{}", class.name());
                     let interface_name = format_ident!("{}", interface.name());
 
-                    if interface.name() != "IColorHelperStatics" && interface.name() != "IColorHelperStatics2" && interface.name() != "IUIContentRoot" {
+                    if interface.name() != "IColorHelperStatics2" && interface.name() != "IUIContentRoot" {
                         for method in interface.methods() {
                             let method_name = format_ident!("{}", method.name());
                             let signature = method.signature();
                             let params = write_consume_params(&signature);
+                            let args = signature.params().iter().map(|(param, _)| format_ident!("{}", param.name()));
                             //let args = write_consume_args(&signature);
                             // TODO: maybe use an iterator for arg names?
 
@@ -99,7 +101,7 @@ fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
                                 tokens = quote! {
                                     #tokens
                                     pub fn #method_name(#params) -> winrt::Result<#result> {
-                                        winrt::factory::<#class_name, #interface_name>()?.#method_name()
+                                        winrt::factory::<#class_name, #interface_name>()?.#method_name(#(#args),*)
                                     }
                                 };
                             } else {
@@ -120,7 +122,7 @@ fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_interface(interface: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = interface.name();
     let name_ident = format_ident!("{}", name);
     let abi_name_ident = format_ident!("abi_{}", name);
@@ -161,7 +163,7 @@ fn write_interface(interface: &winmd::TypeDef, _scope: &std::collections::BTreeS
     }
 }
 
-fn write_abi_methods(interface: &winmd::TypeDef) -> TokenStream {
+fn write_abi_methods(interface: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for method in interface.methods() {
@@ -176,7 +178,7 @@ fn write_abi_methods(interface: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
+fn write_consume_methods(interface: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
     let abi_interface_name = format_ident!("abi_{}", interface.name());
 
@@ -219,7 +221,7 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
+fn write_abi_params(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
 
     for (param, param_sig) in signature.params() {
@@ -234,7 +236,7 @@ fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
     TokenStream::from_iter(tokens)
 }
 
-fn write_consume_params(signature: &winmd::MethodSig) -> TokenStream {
+fn write_consume_params(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
 
     for (param, param_sig) in signature.params() {
@@ -244,7 +246,7 @@ fn write_consume_params(signature: &winmd::MethodSig) -> TokenStream {
     TokenStream::from_iter(tokens)
 }
 
-fn write_abi_args(signature: &winmd::MethodSig) -> TokenStream {
+fn write_abi_args(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::<TokenStream>::new();
 
     for (param, param_sig) in signature.params() {
@@ -254,7 +256,7 @@ fn write_abi_args(signature: &winmd::MethodSig) -> TokenStream {
     TokenStream::from_iter(tokens)
 }
 
-fn write_abi_param(param: &winmd::Param, param_sig: &winmd::ParamSig) -> TokenStream {
+fn write_abi_param(param: &Param, param_sig: &ParamSig) -> TokenStream {
     let tokens = write_abi_type_sig(param_sig.sig_type());
 
     if param.flags().input() {
@@ -268,7 +270,7 @@ fn write_abi_param(param: &winmd::Param, param_sig: &winmd::ParamSig) -> TokenSt
     }
 }
 
-fn write_consume_param(param: &winmd::Param, param_sig: &winmd::ParamSig) -> TokenStream {
+fn write_consume_param(param: &Param, param_sig: &ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
     let tokens = write_type_sig(param_sig.sig_type());
 
@@ -283,7 +285,7 @@ fn write_consume_param(param: &winmd::Param, param_sig: &winmd::ParamSig) -> Tok
     }
 }
 
-fn write_abi_arg(param: &winmd::Param, _param_sig: &winmd::ParamSig) -> TokenStream {
+fn write_abi_arg(param: &Param, _param_sig: &ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
 
     if param.flags().input() {
@@ -297,83 +299,83 @@ fn write_abi_arg(param: &winmd::Param, _param_sig: &winmd::ParamSig) -> TokenStr
     }
 }
 
-fn write_abi_type_sig(value: &winmd::TypeSig) -> TokenStream {
+fn write_abi_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
-        winmd::TypeSigType::ElementType(value) => write_abi_element_type(value),
-        winmd::TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
-        winmd::TypeSigType::GenericSig(_value) => panic!("GenericSig"),
-        winmd::TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
-        winmd::TypeSigType::GenericMethodIndex(_value) => panic!("GenericMethodIndex"),
+        TypeSigType::ElementType(value) => write_abi_element_type(value),
+        TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
+        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
+        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
+        TypeSigType::GenericMethodIndex(_value) => panic!("GenericMethodIndex"),
     }
 }
 
-fn write_type_sig(value: &winmd::TypeSig) -> TokenStream {
+fn write_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
-        winmd::TypeSigType::ElementType(value) => write_element_type(value),
-        winmd::TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
-        winmd::TypeSigType::GenericSig(_value) => panic!("GenericSig"),
-        winmd::TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
-        winmd::TypeSigType::GenericMethodIndex(_value) => panic!("GenericMethodIndex"),
+        TypeSigType::ElementType(value) => write_element_type(value),
+        TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
+        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
+        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
+        TypeSigType::GenericMethodIndex(_value) => panic!("GenericMethodIndex"),
     }
 }
 
-fn write_abi_element_type(value: &winmd::ElementType) -> TokenStream {
+fn write_abi_element_type(value: &ElementType) -> TokenStream {
     match value {
-        winmd::ElementType::Bool => quote! { bool },
-        winmd::ElementType::Char => quote! { char },
-        winmd::ElementType::I8 => quote! { i8 },
-        winmd::ElementType::U8 => quote! { u8 },
-        winmd::ElementType::I16 => quote! { i16 },
-        winmd::ElementType::U16 => quote! { u16 },
-        winmd::ElementType::I32 => quote! { i32 },
-        winmd::ElementType::U32 => quote! { u32 },
-        winmd::ElementType::I64 => quote! { i64 },
-        winmd::ElementType::U64 => quote! { u64 },
-        winmd::ElementType::F32 => quote! { f32 },
-        winmd::ElementType::F64 => quote! { f64 },
-        winmd::ElementType::String => quote! { *mut std::ffi::c_void },
+        ElementType::Bool => quote! { bool },
+        ElementType::Char => quote! { char },
+        ElementType::I8 => quote! { i8 },
+        ElementType::U8 => quote! { u8 },
+        ElementType::I16 => quote! { i16 },
+        ElementType::U16 => quote! { u16 },
+        ElementType::I32 => quote! { i32 },
+        ElementType::U32 => quote! { u32 },
+        ElementType::I64 => quote! { i64 },
+        ElementType::U64 => quote! { u64 },
+        ElementType::F32 => quote! { f32 },
+        ElementType::F64 => quote! { f64 },
+        ElementType::String => quote! { *mut std::ffi::c_void },
         _ => panic!("write_abi_element_type"),
     }
 }
 
-fn write_element_type(value: &winmd::ElementType) -> TokenStream {
+fn write_element_type(value: &ElementType) -> TokenStream {
     match value {
-        winmd::ElementType::Bool => quote! { bool },
-        winmd::ElementType::Char => quote! { char },
-        winmd::ElementType::I8 => quote! { i8 },
-        winmd::ElementType::U8 => quote! { u8 },
-        winmd::ElementType::I16 => quote! { i16 },
-        winmd::ElementType::U16 => quote! { u16 },
-        winmd::ElementType::I32 => quote! { i32 },
-        winmd::ElementType::U32 => quote! { u32 },
-        winmd::ElementType::I64 => quote! { i64 },
-        winmd::ElementType::U64 => quote! { u64 },
-        winmd::ElementType::F32 => quote! { f32 },
-        winmd::ElementType::F64 => quote! { f64 },
-        winmd::ElementType::String => quote! { winrt::String },
+        ElementType::Bool => quote! { bool },
+        ElementType::Char => quote! { char },
+        ElementType::I8 => quote! { i8 },
+        ElementType::U8 => quote! { u8 },
+        ElementType::I16 => quote! { i16 },
+        ElementType::U16 => quote! { u16 },
+        ElementType::I32 => quote! { i32 },
+        ElementType::U32 => quote! { u32 },
+        ElementType::I64 => quote! { i64 },
+        ElementType::U64 => quote! { u64 },
+        ElementType::F32 => quote! { f32 },
+        ElementType::F64 => quote! { f64 },
+        ElementType::String => quote! { winrt::String },
         _ => panic!("write_element_type"),
     }
 }
 
-fn write_abi_type_def_or_ref(value: &winmd::TypeDefOrRef) -> TokenStream {
+fn write_abi_type_def_or_ref(value: &TypeDefOrRef) -> TokenStream {
     match value {
-        winmd::TypeDefOrRef::TypeDef(value) => write_abi_type_def(value),
-        winmd::TypeDefOrRef::TypeRef(value) => write_abi_type_ref(value),
+        TypeDefOrRef::TypeDef(value) => write_abi_type_def(value),
+        TypeDefOrRef::TypeRef(value) => write_abi_type_ref(value),
         _ => panic!("write_abi_type_def_or_ref"),
     }
 }
 
-fn write_type_def_or_ref(value: &winmd::TypeDefOrRef) -> TokenStream {
+fn write_type_def_or_ref(value: &TypeDefOrRef) -> TokenStream {
     match value {
-        winmd::TypeDefOrRef::TypeDef(value) => write_type_def(value),
-        winmd::TypeDefOrRef::TypeRef(value) => write_type_ref(value),
+        TypeDefOrRef::TypeDef(value) => write_type_def(value),
+        TypeDefOrRef::TypeRef(value) => write_type_ref(value),
         _ => panic!("write_type_def_or_ref"),
     }
 }
 
-fn write_abi_type_def(value: &winmd::TypeDef) -> TokenStream {
+fn write_abi_type_def(value: &TypeDef) -> TokenStream {
     match value.category() {
-        winmd::TypeCategory::Struct => {
+        TypeCategory::Struct => {
             let name = format_ident!("{}", value.name());
             quote! { #name }
         }
@@ -381,22 +383,22 @@ fn write_abi_type_def(value: &winmd::TypeDef) -> TokenStream {
     }
 }
 
-fn write_type_def(value: &winmd::TypeDef) -> TokenStream {
+fn write_type_def(value: &TypeDef) -> TokenStream {
     let name = format_ident!("{}", value.name());
     quote! { #name }
 }
 
-fn write_abi_type_ref(value: &winmd::TypeRef) -> TokenStream {
+fn write_abi_type_ref(value: &TypeRef) -> TokenStream {
     // TODO: handle "System.Guid" directly
     write_abi_type_def(&value.find_def())
 }
 
-fn write_type_ref(value: &winmd::TypeRef) -> TokenStream {
+fn write_type_ref(value: &TypeRef) -> TokenStream {
     // TODO: handle "System.Guid" directly
     write_type_def(&value.find_def())
 }
 
-fn write_enum(t: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_enum(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = format_ident!("{}", t.name());
     let fields = write_enum_fields(&t);
     quote! {
@@ -404,7 +406,7 @@ fn write_enum(t: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -
     }
 }
 
-fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
+fn write_enum_fields(t: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for f in t.fields() {
@@ -423,7 +425,7 @@ fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_struct(t: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_struct(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = format_ident!("{}", t.name());
     let fields = write_struct_fields(&t);
     quote! {
@@ -433,7 +435,7 @@ fn write_struct(t: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>)
     }
 }
 
-fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
+fn write_struct_fields(t: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for f in t.fields() {
@@ -441,7 +443,7 @@ fn write_struct_fields(t: &winmd::TypeDef) -> TokenStream {
 
         tokens = quote! {
             #tokens
-            #name: u8,
+            pub #name: u8,
             // TODO: write out field type
         };
     }
