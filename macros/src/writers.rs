@@ -54,7 +54,7 @@ fn write_namespace_types(namespace: &winmd::Namespace, scope: &std::collections:
     TokenStream::from_iter(tokens)
 }
 
-fn write_class(class: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_class(class: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = format_ident!("{}", class.name());
     let functions = write_class_functions(&class);
     let mut string_name = String::new();
@@ -118,7 +118,7 @@ fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_interface(interface: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_interface(interface: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = interface.name();
     let name_ident = format_ident!("{}", name);
     let abi_name_ident = format_ident!("abi_{}", name);
@@ -394,7 +394,7 @@ fn write_type_ref(value: &winmd::TypeRef) -> TokenStream {
     write_type_def(&value.find_def())
 }
 
-fn write_enum(t: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_enum(t: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = format_ident!("{}", t.name());
     let fields = write_enum_fields(&t);
     quote! {
@@ -421,7 +421,7 @@ fn write_enum_fields(t: &winmd::TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_struct(t: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+fn write_struct(t: &winmd::TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = format_ident!("{}", t.name());
     let fields = write_struct_fields(&t);
     quote! {
