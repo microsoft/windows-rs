@@ -188,6 +188,8 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
             if let Some(result) = signature.return_type() {
                 let result_type = write_type_sig(result.sig_type());
                 let result_local = write_consume_result_local(result);
+                // TODO: projected_type
+                // TODO: abi_type
 
                 tokens = quote! {
                     #tokens
