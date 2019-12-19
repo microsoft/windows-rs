@@ -47,7 +47,6 @@ fn write_namespace_types(namespace: &Namespace, scope: &std::collections::BTreeS
             TypeCategory::Class => tokens.push(write_class(&t, scope)),
             TypeCategory::Enum => tokens.push(write_enum(&t, scope)),
             TypeCategory::Struct => tokens.push(write_struct(&t, scope)),
-            //TypeCategory::Delegate => write_delegate(t, scope),
             _ => {}
         };
     }
@@ -443,7 +442,7 @@ fn write_struct(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> Tok
     let fields = write_struct_fields(&t);
     quote! {
         #[repr(C)]
-        #[derive(Default, Debug)]
+        #[derive(Default, Debug, PartialEq)]
         pub struct #name { #fields }
     }
 }
