@@ -186,20 +186,18 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
             let args = write_abi_args(&signature);
 
             if let Some(result) = signature.return_type() {
-                let result_type = write_type_sig(result.sig_type());
-                let result_local = write_consume_result_local(result);
-                // TODO: projected_type
-                // TODO: abi_type
+                let projected_result = write_type_sig(result.sig_type());
+                let abi_result = write_abi_type_sig(result.sig_type());
 
                 tokens = quote! {
                     #tokens
-                    pub fn #name(&self, #params) -> winrt::Result<#result_type> {
+                    pub fn #name(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
-                            #result_local
+                            let mut __ok: #abi_result = Default::default();
                             ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
                                 self.ptr, #args &mut __ok,
                             )
-                            .ok_or(#result_type::from(__ok))
+                            .ok_or(#projected_result::from(__ok))
                         }
                     }
                 };
@@ -217,14 +215,6 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
     }
 
     tokens
-}
-
-fn write_consume_result_local(sig: &winmd::ParamSig) -> TokenStream {
-    // This should be "write_abi_type_sig"
-    let result = write_type_sig(sig.sig_type());
-    quote! {
-        let mut __ok: #result = Default::default();
-    }
 }
 
 fn write_abi_params(signature: &winmd::MethodSig) -> TokenStream {
