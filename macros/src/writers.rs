@@ -69,8 +69,8 @@ fn write_class(class: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> 
                 #string_name
             }
         }
-        impl From<*const std::ffi::c_void> for #name {
-            fn from(ptr: *const std::ffi::c_void) -> Self {
+        impl From<*mut std::ffi::c_void> for #name {
+            fn from(ptr: *mut std::ffi::c_void) -> Self {
                 Self { ptr }
             }
         }
@@ -89,31 +89,29 @@ fn write_class_functions(class: &TypeDef) -> TokenStream {
                     let class_name = format_ident!("{}", class.name());
                     let interface_name = format_ident!("{}", interface.name());
 
-                    if interface.name() != "IUIContentRoot" {
-                        for method in interface.methods() {
-                            let method_name = format_ident!("{}", method.name());
-                            let signature = method.signature();
-                            let params = write_consume_params(&signature);
-                            let args = signature.params().iter().map(|(param, _)| format_ident!("{}", param.name()));
+                    for method in interface.methods() {
+                        let method_name = format_ident!("{}", method.name());
+                        let signature = method.signature();
+                        let params = write_consume_params(&signature);
+                        let args = signature.params().iter().map(|(param, _)| format_ident!("{}", param.name()));
 
-                            if let Some(result) = signature.return_type() {
-                                let result = write_type_sig(result.sig_type());
+                        if let Some(result) = signature.return_type() {
+                            let result = write_type_sig(result.sig_type());
 
-                                tokens = quote! {
-                                    #tokens
-                                    pub fn #method_name(#params) -> winrt::Result<#result> {
-                                        winrt::factory::<#class_name, #interface_name>()?.#method_name(#(#args),*)
-                                    }
-                                };
-                            } else {
-                                tokens = quote! {
-                                    #tokens
-                                    pub fn #method_name(#params) -> winrt::Result<()> {
-                                            panic!();
-                                    }
-                                };
+                            tokens = quote! {
+                                #tokens
+                                pub fn #method_name(#params) -> winrt::Result<#result> {
+                                    winrt::factory::<#class_name, #interface_name>()?.#method_name(#(#args),*)
+                                }
                             };
-                        }
+                        } else {
+                            tokens = quote! {
+                                #tokens
+                                pub fn #method_name(#params) -> winrt::Result<()> {
+                                        panic!();
+                                }
+                            };
+                        };
                     }
                 }
             }
@@ -193,8 +191,8 @@ fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<Stri
                 &GUID
             }
         }
-        impl From<*const std::ffi::c_void> for #name_ident {
-            fn from(ptr: *const std::ffi::c_void) -> Self {
+        impl From<*mut std::ffi::c_void> for #name_ident {
+            fn from(ptr: *mut std::ffi::c_void) -> Self {
                 Self { ptr }
             }
         }
@@ -220,40 +218,38 @@ fn write_consume_methods(interface: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
     let abi_interface_name = format_ident!("abi_{}", interface.name());
 
-    if interface.name() != "IUIContentRoot" {
-        for method in interface.methods() {
-            let name = format_ident!("{}", method.name());
-            let signature = method.signature();
-            let params = write_consume_params(&signature);
-            let args = write_abi_args(&signature);
+    for method in interface.methods() {
+        let name = format_ident!("{}", method.name());
+        let signature = method.signature();
+        let params = write_consume_params(&signature);
+        let args = write_abi_args(&signature);
 
-            if let Some(result) = signature.return_type() {
-                let projected_result = write_type_sig(result.sig_type());
-                let receive_result = write_consume_receive_type(result.sig_type());
+        if let Some(result) = signature.return_type() {
+            let projected_result = write_type_sig(result.sig_type());
+            let receive_result = write_consume_receive_type(result.sig_type());
 
-                tokens = quote! {
-                    #tokens
-                    pub fn #name(&self, #params) -> winrt::Result<#projected_result> {
-                        unsafe {
-                            #receive_result
-                            ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
-                                self.ptr, #args &mut __ok,
-                            )
-                            .ok_or(From::from(__ok))
-                        }
+            tokens = quote! {
+                #tokens
+                pub fn #name(&self, #params) -> winrt::Result<#projected_result> {
+                    unsafe {
+                        #receive_result
+                        ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
+                            self.ptr, #args &mut __ok,
+                        )
+                        .ok_or(From::from(__ok))
                     }
-                };
-            } else {
-                tokens = quote! {
-                    #tokens
-                    pub fn #name(&self, #params) -> winrt::Result<()> {
-                        unsafe {
-                            panic!();
-                        }
-                    }
-                };
+                }
             };
-        }
+        } else {
+            tokens = quote! {
+                #tokens
+                pub fn #name(&self, #params) -> winrt::Result<()> {
+                    unsafe {
+                        panic!();
+                    }
+                }
+            };
+        };
     }
 
     tokens
