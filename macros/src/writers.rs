@@ -156,12 +156,6 @@ fn write_interface(interface: &winmd::TypeDef, scope: &std::collections::BTreeSe
                 Self { ptr }
             }
         }
-        impl winrt::TypeAbi for #name_ident {
-            type Abi = *mut std::ffi::c_void;
-            fn empty_abi() -> Self::Abi {
-                std::ptr::null_mut()
-            }
-        }
     }
 }
 
@@ -442,12 +436,6 @@ fn write_struct(t: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) 
         #[repr(C)]
         #[derive(Default, Debug)]
         pub struct #name { #fields }
-        impl winrt::TypeAbi for #name {
-            type Abi = Self;
-            fn empty_abi() -> Self::Abi {
-                Default::default()
-            }
-        }
     }
 }
 

@@ -86,10 +86,3 @@ impl From<*const std::ffi::c_void> for String {
         Self { hstring: ptr }
     }
 }
-
-impl TypeAbi for String {
-    type Abi = *mut std::ffi::c_void;
-    fn empty_abi() -> Self::Abi {
-        std::ptr::null_mut()
-    }
-}
