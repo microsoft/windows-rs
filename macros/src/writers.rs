@@ -151,9 +151,15 @@ fn write_interface(interface: &winmd::TypeDef, scope: &std::collections::BTreeSe
                 &GUID
             }
         }
-        impl winrt::TakeOwnership for #name_ident {
-            fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
+        impl From<*const std::ffi::c_void> for #name_ident {
+            fn from(ptr: *const std::ffi::c_void) -> Self {
                 Self { ptr }
+            }
+        }
+        impl winrt::TypeAbi for #name_ident {
+            type Abi = *mut std::ffi::c_void;
+            fn empty_abi() -> Self::Abi {
+                std::ptr::null_mut()
             }
         }
     }
@@ -188,7 +194,6 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
             if let Some(result) = signature.return_type() {
                 let result_type = write_type_sig(result.sig_type());
                 let result_local = write_consume_result_local(result);
-                let result_take_ownership = write_consume_result_take_ownership(result);
 
                 tokens = quote! {
                     #tokens
@@ -198,7 +203,7 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
                             ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
                                 self.ptr, #args &mut __ok,
                             )
-                            .ok_or(#result_take_ownership)
+                            .ok_or(#result_type::from(__ok))
                         }
                     }
                 };
@@ -219,16 +224,10 @@ fn write_consume_methods(interface: &winmd::TypeDef) -> TokenStream {
 }
 
 fn write_consume_result_local(sig: &winmd::ParamSig) -> TokenStream {
+    // This should be "write_abi_type_sig"
     let result = write_type_sig(sig.sig_type());
     quote! {
         let mut __ok: #result = Default::default();
-    }
-}
-
-fn write_consume_result_take_ownership(sig: &winmd::ParamSig) -> TokenStream {
-    let result = write_type_sig(sig.sig_type());
-    quote! {
-        __ok
     }
 }
 
@@ -443,6 +442,12 @@ fn write_struct(t: &winmd::TypeDef, scope: &std::collections::BTreeSet<String>) 
         #[repr(C)]
         #[derive(Default, Debug)]
         pub struct #name { #fields }
+        impl winrt::TypeAbi for #name {
+            type Abi = Self;
+            fn empty_abi() -> Self::Abi {
+                Default::default()
+            }
+        }
     }
 }
 

@@ -37,12 +37,6 @@ impl String {
     }
 }
 
-impl TakeOwnership for String {
-    fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
-        Self { hstring: ptr }
-    }
-}
-
 impl Default for String {
     fn default() -> Self {
         String::new()
@@ -84,5 +78,18 @@ impl From<&str> for String {
             WindowsPromoteStringBuffer(handle, &mut hstring).unwrap();
             String { hstring }
         }
+    }
+}
+
+impl From<*const std::ffi::c_void> for String {
+    fn from(ptr: *const std::ffi::c_void) -> String {
+        Self { hstring: ptr }
+    }
+}
+
+impl TypeAbi for String {
+    type Abi = *mut std::ffi::c_void;
+    fn empty_abi() -> Self::Abi {
+        std::ptr::null_mut()
     }
 }
