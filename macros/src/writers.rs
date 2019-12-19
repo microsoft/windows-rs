@@ -85,7 +85,7 @@ fn write_class_functions(class: &TypeDef) -> TokenStream {
                     let class_name = format_ident!("{}", class.name());
                     let interface_name = format_ident!("{}", interface.name());
 
-                    if interface.name() != "IColorHelperStatics2" && interface.name() != "IUIContentRoot" {
+                    if interface.name() != "IUIContentRoot" {
                         for method in interface.methods() {
                             let method_name = format_ident!("{}", method.name());
                             let signature = method.signature();
@@ -179,7 +179,7 @@ fn write_consume_methods(interface: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
     let abi_interface_name = format_ident!("abi_{}", interface.name());
 
-    if interface.name() != "IColorHelperStatics2" && interface.name() != "IUIContentRoot" {
+    if interface.name() != "IUIContentRoot" {
         for method in interface.methods() {
             let name = format_ident!("{}", method.name());
             let signature = method.signature();
@@ -188,17 +188,17 @@ fn write_consume_methods(interface: &TypeDef) -> TokenStream {
 
             if let Some(result) = signature.return_type() {
                 let projected_result = write_type_sig(result.sig_type());
-                let abi_result = write_abi_type_sig(result.sig_type());
+                let receive_result = write_consume_receive_type(result.sig_type());
 
                 tokens = quote! {
                     #tokens
                     pub fn #name(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
-                            let mut __ok: #abi_result = Default::default();
+                            #receive_result
                             ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
                                 self.ptr, #args &mut __ok,
                             )
-                            .ok_or(#projected_result::from(__ok))
+                            .ok_or(From::from(__ok))
                         }
                     }
                 };
@@ -216,6 +216,17 @@ fn write_consume_methods(interface: &TypeDef) -> TokenStream {
     }
 
     tokens
+}
+
+fn write_consume_receive_type(value: &TypeSig) -> TokenStream {
+    match value.category() {
+        ParamCategory::Object | ParamCategory::String => quote! {
+            let mut __ok = std::ptr::null_mut();
+        },
+        _ => quote! {
+            let mut __ok = Default::default();
+        },
+    }
 }
 
 fn write_abi_params(signature: &MethodSig) -> TokenStream {
