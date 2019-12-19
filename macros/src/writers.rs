@@ -90,6 +90,8 @@ fn write_class_functions(class: &winmd::TypeDef) -> TokenStream {
                             let method_name = format_ident!("{}", method.name());
                             let signature = method.signature();
                             let params = write_consume_params(&signature);
+                            //let args = write_consume_args(&signature);
+                            // TODO: maybe use an iterator for arg names?
 
                             if let Some(result) = signature.return_type() {
                                 let result = write_type_sig(result.sig_type());
