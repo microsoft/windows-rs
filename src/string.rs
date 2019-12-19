@@ -81,8 +81,8 @@ impl From<&str> for String {
     }
 }
 
-impl From<*const std::ffi::c_void> for String {
-    fn from(ptr: *const std::ffi::c_void) -> String {
+impl From<*mut std::ffi::c_void> for String {
+    fn from(ptr: *mut std::ffi::c_void) -> String {
         Self { hstring: ptr }
     }
 }

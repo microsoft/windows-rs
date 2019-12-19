@@ -387,12 +387,12 @@ fn write_type_def(value: &TypeDef) -> TokenStream {
 
 fn write_abi_type_ref(value: &TypeRef) -> TokenStream {
     // TODO: handle "System.Guid" directly
-    write_abi_type_def(&value.find_def())
+    write_abi_type_def(&value.resolve())
 }
 
 fn write_type_ref(value: &TypeRef) -> TokenStream {
     // TODO: handle "System.Guid" directly
-    write_type_def(&value.find_def())
+    write_type_def(&value.resolve())
 }
 
 fn write_enum(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
