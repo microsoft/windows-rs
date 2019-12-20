@@ -39,16 +39,17 @@ fn write_namespace(namespace: &Namespace, scope: &std::collections::BTreeSet<Str
 }
 
 fn write_namespace_types(namespace: &Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    let mut tokens = Vec::<TokenStream>::new();
+    let mut tokens = Vec::new();
 
     for t in namespace.types() {
-        match t.category() {
-            TypeCategory::Interface => tokens.push(write_interface(&t, scope)),
-            TypeCategory::Class => tokens.push(write_class(&t, scope)),
-            TypeCategory::Enum => tokens.push(write_enum(&t, scope)),
-            TypeCategory::Struct => tokens.push(write_struct(&t, scope)),
-            _ => {}
-        };
+        tokens.push(match t.category() {
+            TypeCategory::Interface => write_interface(&t, scope),
+            TypeCategory::Class => write_class(&t, scope),
+            TypeCategory::Enum => write_enum(&t, scope),
+            TypeCategory::Struct => write_struct(&t, scope),
+            TypeCategory::Delegate => write_delegate(&t, scope),
+            _ => continue,
+        });
     }
 
     TokenStream::from_iter(tokens)
@@ -90,7 +91,7 @@ fn write_class_functions(class: &TypeDef) -> TokenStream {
                     let interface_name = format_ident!("{}", interface.name());
 
                     for method in interface.methods() {
-                        let method_name = format_ident!("{}", method.name());
+                        let method_name = format_ident!("r#{}", method.name());
                         let signature = method.signature();
                         let params = write_consume_params(&signature);
                         let args = signature.params().iter().map(|(param, _)| format_ident!("{}", param.name()));
@@ -204,7 +205,7 @@ fn write_abi_methods(interface: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for method in interface.methods() {
-        let name = format_ident!("{}", method.name());
+        let name = format_ident!("r#{}", method.name());
         let params = write_abi_params(&method.signature());
         tokens = quote! {
             #tokens
@@ -220,7 +221,7 @@ fn write_consume_methods(interface: &TypeDef) -> TokenStream {
     let abi_interface_name = format_ident!("abi_{}", interface.name());
 
     for method in interface.methods() {
-        let name = format_ident!("{}", method.name());
+        let name = format_ident!("r#{}", method.name());
         let signature = method.signature();
         let params = write_consume_params(&signature);
         let args = write_abi_args(&signature);
@@ -268,7 +269,7 @@ fn write_consume_receive_type(value: &TypeSig) -> TokenStream {
 }
 
 fn write_abi_params(signature: &MethodSig) -> TokenStream {
-    let mut tokens = Vec::<TokenStream>::new();
+    let mut tokens = Vec::new();
 
     for (param, param_sig) in signature.params() {
         tokens.push(write_abi_param(param, param_sig));
@@ -283,7 +284,7 @@ fn write_abi_params(signature: &MethodSig) -> TokenStream {
 }
 
 fn write_consume_params(signature: &MethodSig) -> TokenStream {
-    let mut tokens = Vec::<TokenStream>::new();
+    let mut tokens = Vec::new();
 
     for (param, param_sig) in signature.params() {
         tokens.push(write_consume_param(param, param_sig));
@@ -293,7 +294,7 @@ fn write_consume_params(signature: &MethodSig) -> TokenStream {
 }
 
 fn write_abi_args(signature: &MethodSig) -> TokenStream {
-    let mut tokens = Vec::<TokenStream>::new();
+    let mut tokens = Vec::new();
 
     for (param, param_sig) in signature.params() {
         tokens.push(write_abi_arg(param, param_sig));
@@ -349,8 +350,8 @@ fn write_abi_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_abi_element_type(value),
         TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => quote!{GenericSig},
-        TypeSigType::GenericTypeIndex(_value) => quote!{GenericTypeIndex},
+        TypeSigType::GenericSig(_value) => quote! {GenericSig},
+        TypeSigType::GenericTypeIndex(_value) => quote! {GenericTypeIndex},
     }
 }
 
@@ -358,8 +359,8 @@ fn write_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_element_type(value),
         TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => quote!{GenericSig},
-        TypeSigType::GenericTypeIndex(_value) => quote!{GenericTypeIndex},
+        TypeSigType::GenericSig(_value) => quote! {GenericSig},
+        TypeSigType::GenericTypeIndex(_value) => quote! {GenericTypeIndex},
     }
 }
 
@@ -475,6 +476,15 @@ fn write_enum_fields(t: &TypeDef) -> TokenStream {
     tokens
 }
 
+fn write_delegate(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    let name = format_ident!("{}", t.name());
+    quote! {
+        #[repr(C)]
+        #[derive(Default, Debug, PartialEq)]
+        pub struct #name {  }
+    }
+}
+
 fn write_struct(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let name = format_ident!("{}", t.name());
     let fields = write_struct_fields(&t);
@@ -489,7 +499,7 @@ fn write_struct_fields(t: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
 
     for f in t.fields() {
-        let name = format_ident!("{}", to_snake(f.name()));
+        let name = format_ident!("r#{}", to_snake(f.name()));
 
         tokens = quote! {
             #tokens
@@ -503,6 +513,7 @@ fn write_struct_fields(t: &TypeDef) -> TokenStream {
 
 fn to_snake(camel: &str) -> String {
     let mut result = String::new();
+
     for c in camel.chars() {
         if c.is_uppercase() {
             if !result.is_empty() {
@@ -514,11 +525,6 @@ fn to_snake(camel: &str) -> String {
         } else {
             result.push(c);
         }
-    }
-
-    // TODO: go through all keywords and prepend `r#` if result is keyword
-    if result == "type" {
-        result.insert_str(0, "r#");
     }
 
     result
