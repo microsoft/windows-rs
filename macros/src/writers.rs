@@ -143,7 +143,16 @@ fn guid_u8(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u8 {
 }
 
 fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    let name = interface.name();
+    let generics = interface.generics();
+
+    let name = if generics.is_empty() {
+        interface.name()
+    }
+    else {
+        let name = interface.name();
+        name.get(..name.len() - 2).unwrap()
+    };
+
     let name_ident = format_ident!("{}", name);
     let abi_name_ident = format_ident!("abi_{}", name);
     let abi_methods = write_abi_methods(&interface);
