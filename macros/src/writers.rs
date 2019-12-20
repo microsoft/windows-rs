@@ -350,8 +350,8 @@ fn write_abi_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_abi_element_type(value),
         TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => quote! {GenericSig},
-        TypeSigType::GenericTypeIndex(_value) => quote! {GenericTypeIndex},
+        TypeSigType::GenericSig(_value) => quote! {bool},
+        TypeSigType::GenericTypeIndex(_value) => quote! {bool},
     }
 }
 
@@ -359,8 +359,8 @@ fn write_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_element_type(value),
         TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => quote! {GenericSig},
-        TypeSigType::GenericTypeIndex(_value) => quote! {GenericTypeIndex},
+        TypeSigType::GenericSig(_value) => quote! {bool},
+        TypeSigType::GenericTypeIndex(_value) => quote! {bool},
     }
 }
 
@@ -476,12 +476,54 @@ fn write_enum_fields(t: &TypeDef) -> TokenStream {
     tokens
 }
 
-fn write_delegate(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    let name = format_ident!("{}", t.name());
+fn write_delegate(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    let generics = interface.generics();
+    let name = interface.name();
+    let name_ident = format_ident!("{}", name);
+    let abi_name_ident = format_ident!("abi_{}", name);
+
+    let guid = interface.find_attribute("Windows.Foundation.Metadata.GuidAttribute").unwrap();
+    let guid = guid.arguments();
+    let mut guid = guid.iter();
+    let g1 = guid_u32(&mut guid);
+    let g2 = guid_u16(&mut guid);
+    let g3 = guid_u16(&mut guid);
+    let g4 = guid_u8(&mut guid);
+    let g5 = guid_u8(&mut guid);
+    let g6 = guid_u8(&mut guid);
+    let g7 = guid_u8(&mut guid);
+    let g8 = guid_u8(&mut guid);
+    let g9 = guid_u8(&mut guid);
+    let g10 = guid_u8(&mut guid);
+    let g11 = guid_u8(&mut guid);
+
     quote! {
         #[repr(C)]
-        #[derive(Default, Debug, PartialEq)]
-        pub struct #name {  }
+        pub struct #name_ident { ptr: *const std::ffi::c_void }
+        #[repr(C)]
+        struct #abi_name_ident {
+            __0: usize,
+            __1: usize,
+            __2: usize,
+        }
+        impl #name_ident {
+        }
+        impl winrt::TypeInterface for #name_ident {
+            fn type_guid() -> &'static winrt::Guid {
+                static GUID: winrt::Guid = winrt::Guid::from_values(
+                    #g1,
+                    #g2,
+                    #g3,
+                    &[#g4, #g5, #g6, #g7, #g8, #g9, #g10, #g11],
+                );
+                &GUID
+            }
+        }
+        impl From<*mut std::ffi::c_void> for #name_ident {
+            fn from(ptr: *mut std::ffi::c_void) -> Self {
+                Self { ptr }
+            }
+        }
     }
 }
 
