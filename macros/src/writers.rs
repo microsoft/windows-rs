@@ -144,6 +144,10 @@ fn guid_u8(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u8 {
 }
 
 fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    if interface.name().starts_with("IAsync") {
+        return TokenStream::new();
+    }
+
     let generics = interface.generics();
     let name = interface.name();
     let name_ident = format_ident!("{}", name);
