@@ -434,13 +434,19 @@ fn write_type_def(value: &TypeDef) -> TokenStream {
 }
 
 fn write_abi_type_ref(value: &TypeRef) -> TokenStream {
-    // TODO: handle "System.Guid" directly
-    write_abi_type_def(&value.resolve())
+    if value.name() == "Guid" && value.namespace() == "System" {
+        quote! { winrt::Guid }
+    } else {
+        write_abi_type_def(&value.resolve())
+    }
 }
 
 fn write_type_ref(value: &TypeRef) -> TokenStream {
-    // TODO: handle "System.Guid" directly
-    write_type_def(&value.resolve())
+    if value.name() == "Guid" && value.namespace() == "System" {
+        quote! { winrt::Guid }
+    } else {
+        write_type_def(&value.resolve())
+    }
 }
 
 fn write_enum(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
