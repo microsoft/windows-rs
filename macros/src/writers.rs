@@ -144,15 +144,7 @@ fn guid_u8(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u8 {
 
 fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let generics = interface.generics();
-
-    let name = if generics.is_empty() {
-        interface.name()
-    }
-    else {
-        let name = interface.name();
-        name.get(..name.len() - 2).unwrap()
-    };
-
+    let name = interface.name();
     let name_ident = format_ident!("{}", name);
     let abi_name_ident = format_ident!("abi_{}", name);
     let abi_methods = write_abi_methods(&interface);
@@ -357,9 +349,8 @@ fn write_abi_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_abi_element_type(value),
         TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
-        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
-        TypeSigType::GenericMethodIndex(_value) => panic!("GenericMethodIndex"),
+        TypeSigType::GenericSig(_value) => quote!{GenericSig},
+        TypeSigType::GenericTypeIndex(_value) => quote!{GenericTypeIndex},
     }
 }
 
@@ -367,9 +358,8 @@ fn write_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_element_type(value),
         TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
-        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
-        TypeSigType::GenericMethodIndex(_value) => panic!("GenericMethodIndex"),
+        TypeSigType::GenericSig(_value) => quote!{GenericSig},
+        TypeSigType::GenericTypeIndex(_value) => quote!{GenericTypeIndex},
     }
 }
 
