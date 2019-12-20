@@ -4,12 +4,12 @@ use crate::*;
 
 #[repr(C)]
 pub struct String {
-    pub hstring: *const std::ffi::c_void,
+    pub hstring: *mut std::ffi::c_void,
 }
 
 impl String {
     pub fn new() -> String {
-        String { hstring: std::ptr::null() }
+        String { hstring: std::ptr::null_mut() }
     }
 
     pub fn is_empty(&self) -> bool {
@@ -31,9 +31,19 @@ impl String {
             }
         }
     }
+}
 
-    pub fn as_raw_handle(&self) -> *const std::ffi::c_void {
+impl AsAbi for String {
+    type In = *const std::ffi::c_void;
+    type Out = *mut *mut std::ffi::c_void;
+
+    fn as_abi_in(&self) -> Self::In {
         self.hstring
+    }
+
+    fn as_abi_out(&mut self) -> Self::Out {
+        debug_assert!(self.is_empty());
+        &mut self.hstring
     }
 }
 

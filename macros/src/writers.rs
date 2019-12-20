@@ -148,7 +148,7 @@ fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<Stri
         return TokenStream::new();
     }
 
-    let generics = interface.generics();
+    //let generics = interface.generics();
     let name = interface.name();
     let name_ident = format_ident!("{}", name);
     let abi_name_ident = format_ident!("abi_{}", name);
@@ -481,7 +481,7 @@ fn write_enum_fields(t: &TypeDef) -> TokenStream {
 }
 
 fn write_delegate(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    let generics = interface.generics();
+    //let generics = interface.generics();
     let name = interface.name();
     let name_ident = format_ident!("{}", name);
     let abi_name_ident = format_ident!("abi_{}", name);
