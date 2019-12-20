@@ -379,7 +379,7 @@ fn write_abi_element_type(value: &ElementType) -> TokenStream {
         ElementType::F32 => quote! { f32 },
         ElementType::F64 => quote! { f64 },
         ElementType::String => quote! { *mut std::ffi::c_void },
-        _ => panic!("write_abi_element_type"),
+        ElementType::Object => quote! { *mut std::ffi::c_void },
     }
 }
 
@@ -398,7 +398,7 @@ fn write_element_type(value: &ElementType) -> TokenStream {
         ElementType::F32 => quote! { f32 },
         ElementType::F64 => quote! { f64 },
         ElementType::String => quote! { winrt::String },
-        _ => panic!("write_element_type"),
+        ElementType::Object => quote! { winrt::Object },
     }
 }
 
