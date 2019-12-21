@@ -297,8 +297,9 @@ fn write_consume_receive_type(value: &TypeSig) -> TokenStream {
 fn write_abi_params(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::new();
 
-    for (param) in signature.params() {
+    for param in signature.params() {
         tokens.push(write_abi_type_sig(param));
+        tokens.push(quote!{,});// TODO: surely there's a simpler/more efficient way to do this?
     }
 
     if let Some(param) = signature.return_type() {
@@ -438,8 +439,8 @@ fn write_element_type(value: &ElementType) -> TokenStream {
 
 fn write_abi_type_def_or_ref(param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
     match value {
-        TypeDefOrRef::TypeDef(value) => write_abi_type_def(value),
-        TypeDefOrRef::TypeRef(value) => write_abi_type_ref(value),
+        TypeDefOrRef::TypeDef(value) => write_abi_type_def(param, value),
+        TypeDefOrRef::TypeRef(value) => write_abi_type_ref(param, value),
         _ => panic!("write_abi_type_def_or_ref"),
     }
 }
@@ -452,13 +453,23 @@ fn write_type_def_or_ref(value: &TypeDefOrRef) -> TokenStream {
     }
 }
 
-fn write_abi_type_def(value: &TypeDef) -> TokenStream {
-    match value.category() {
-        TypeCategory::Struct => {
-            let name = format_ident!("{}", value.name());
-            quote! { #name }
+fn write_abi_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
+    if param.input() {
+        match value.category() {
+            TypeCategory::Struct => {
+                let name = format_ident!("{}", value.name());
+                quote! { #name }
+            }
+            _ => quote! { *const std::ffi::c_void },
         }
-        _ => quote! { *mut std::ffi::c_void },
+    } else {
+        match value.category() {
+            TypeCategory::Struct => {
+                let name = format_ident!("{}", value.name());
+                quote! { &mut #name }
+            }
+            _ => quote! { &mut *mut std::ffi::c_void },
+        }
     }
 }
 
@@ -467,11 +478,11 @@ fn write_type_def(value: &TypeDef) -> TokenStream {
     quote! { #name }
 }
 
-fn write_abi_type_ref(value: &TypeRef) -> TokenStream {
+fn write_abi_type_ref(param: &ParamSig, value: &TypeRef) -> TokenStream {
     if value.name() == "Guid" && value.namespace() == "System" {
         quote! { winrt::Guid }
     } else {
-        write_abi_type_def(&value.resolve())
+        write_abi_type_def(param, &value.resolve())
     }
 }
 
