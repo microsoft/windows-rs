@@ -298,12 +298,11 @@ fn write_abi_params(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::new();
 
     for (param) in signature.params() {
-        tokens.push(write_abi_param(param));
+        tokens.push(write_abi_type_sig(param));
     }
 
     if let Some(param) = signature.return_type() {
-        let name = write_abi_type_sig(param.sig_type());
-        tokens.push(quote! { &mut #name });
+        tokens.push(write_abi_type_sig(param));
     }
 
     TokenStream::from_iter(tokens)
@@ -327,20 +326,6 @@ fn write_abi_args(signature: &MethodSig) -> TokenStream {
     }
 
     TokenStream::from_iter(tokens)
-}
-
-fn write_abi_param(param: &ParamSig) -> TokenStream {
-    let tokens = write_abi_type_sig(param.sig_type());
-
-    if param.input() {
-        quote! {
-             #tokens,
-        }
-    } else {
-        quote! {
-            &mut #tokens,
-        }
-    }
 }
 
 fn write_consume_param(param: &ParamSig) -> TokenStream {
@@ -376,10 +361,10 @@ fn write_abi_arg(param:  &ParamSig) -> TokenStream {
     }
 }
 
-fn write_abi_type_sig(value: &TypeSig) -> TokenStream {
-    match value.sig_type() {
-        TypeSigType::ElementType(value) => write_abi_element_type(value),
-        TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(value),
+fn write_abi_type_sig(param: &ParamSig) -> TokenStream {
+    match param.sig_type().sig_type() {
+        TypeSigType::ElementType(value) => write_abi_element_type(param, value),
+        TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(param, value),
         TypeSigType::GenericSig(_value) => quote! {bool},
         TypeSigType::GenericTypeIndex(_value) => quote! {bool},
     }
@@ -394,22 +379,41 @@ fn write_type_sig(value: &TypeSig) -> TokenStream {
     }
 }
 
-fn write_abi_element_type(value: &ElementType) -> TokenStream {
-    match value {
-        ElementType::Bool => quote! { bool },
-        ElementType::Char => quote! { char },
-        ElementType::I8 => quote! { i8 },
-        ElementType::U8 => quote! { u8 },
-        ElementType::I16 => quote! { i16 },
-        ElementType::U16 => quote! { u16 },
-        ElementType::I32 => quote! { i32 },
-        ElementType::U32 => quote! { u32 },
-        ElementType::I64 => quote! { i64 },
-        ElementType::U64 => quote! { u64 },
-        ElementType::F32 => quote! { f32 },
-        ElementType::F64 => quote! { f64 },
-        ElementType::String => quote! { *mut std::ffi::c_void },
-        ElementType::Object => quote! { *mut std::ffi::c_void },
+fn write_abi_element_type(param: &ParamSig, value: &ElementType) -> TokenStream {
+    if param.input() {
+        match value {
+            ElementType::Bool => quote! { bool },
+            ElementType::Char => quote! { char },
+            ElementType::I8 => quote! { i8 },
+            ElementType::U8 => quote! { u8 },
+            ElementType::I16 => quote! { i16 },
+            ElementType::U16 => quote! { u16 },
+            ElementType::I32 => quote! { i32 },
+            ElementType::U32 => quote! { u32 },
+            ElementType::I64 => quote! { i64 },
+            ElementType::U64 => quote! { u64 },
+            ElementType::F32 => quote! { f32 },
+            ElementType::F64 => quote! { f64 },
+            ElementType::String => quote! { *const std::ffi::c_void },
+            ElementType::Object => quote! { *const std::ffi::c_void },
+        }
+    } else {
+        match value {
+            ElementType::Bool => quote! { &mut bool },
+            ElementType::Char => quote! { &mut char },
+            ElementType::I8 => quote! { &mut i8 },
+            ElementType::U8 => quote! { &mut u8 },
+            ElementType::I16 => quote! { &mut i16 },
+            ElementType::U16 => quote! { &mut u16 },
+            ElementType::I32 => quote! { &mut i32 },
+            ElementType::U32 => quote! { &mut u32 },
+            ElementType::I64 => quote! { &mut i64 },
+            ElementType::U64 => quote! { &mut u64 },
+            ElementType::F32 => quote! { &mut f32 },
+            ElementType::F64 => quote! { &mut f64 },
+            ElementType::String => quote! { &mut *mut std::ffi::c_void },
+            ElementType::Object => quote! { &mut *mut std::ffi::c_void },
+        }
     }
 }
 
@@ -432,7 +436,7 @@ fn write_element_type(value: &ElementType) -> TokenStream {
     }
 }
 
-fn write_abi_type_def_or_ref(value: &TypeDefOrRef) -> TokenStream {
+fn write_abi_type_def_or_ref(param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
     match value {
         TypeDefOrRef::TypeDef(value) => write_abi_type_def(value),
         TypeDefOrRef::TypeRef(value) => write_abi_type_ref(value),
