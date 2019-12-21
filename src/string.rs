@@ -4,26 +4,26 @@ use crate::*;
 
 #[repr(C)]
 pub struct String {
-    pub hstring: *mut std::ffi::c_void,
+    pub ptr: *mut std::ffi::c_void,
 }
 
 impl String {
     pub fn new() -> String {
-        String { hstring: std::ptr::null_mut() }
+        String { ptr: std::ptr::null_mut() }
     }
 
     pub fn is_empty(&self) -> bool {
-        self.hstring.is_null()
+        self.ptr.is_null()
     }
 
     pub fn len(&self) -> usize {
-        unsafe { WindowsGetStringLen(self.hstring) as usize }
+        unsafe { WindowsGetStringLen(self.ptr) as usize }
     }
 
     pub fn as_chars(&self) -> &[u16] {
         unsafe {
             let mut len = 0;
-            let wide = WindowsGetStringRawBuffer(self.hstring, &mut len);
+            let wide = WindowsGetStringRawBuffer(self.ptr, &mut len);
             if len == 0 {
                 &[]
             } else {
@@ -38,12 +38,12 @@ impl AsAbi for String {
     type Out = *mut *mut std::ffi::c_void;
 
     fn as_abi_in(&self) -> Self::In {
-        self.hstring
+        self.ptr
     }
 
     fn as_abi_out(&mut self) -> Self::Out {
         debug_assert!(self.is_empty());
-        &mut self.hstring
+        &mut self.ptr
     }
 }
 
@@ -57,7 +57,7 @@ impl Drop for String {
     fn drop(&mut self) {
         if !self.is_empty() {
             unsafe {
-                WindowsDeleteString(self.hstring);
+                WindowsDeleteString(self.ptr);
             }
         }
     }
@@ -84,15 +84,15 @@ impl From<&str> for String {
                 *buffer.offset(index as isize) = wide;
             }
 
-            let mut hstring = std::ptr::null_mut();
-            WindowsPromoteStringBuffer(handle, &mut hstring).unwrap();
-            String { hstring }
+            let mut ptr = std::ptr::null_mut();
+            WindowsPromoteStringBuffer(handle, &mut ptr).unwrap();
+            String { ptr }
         }
     }
 }
 
 impl From<*mut std::ffi::c_void> for String {
     fn from(ptr: *mut std::ffi::c_void) -> String {
-        Self { hstring: ptr }
+        Self { ptr: ptr }
     }
 }
