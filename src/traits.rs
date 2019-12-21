@@ -11,7 +11,7 @@ pub trait TypeName {
 pub trait AsAbi {
     type In;
     type Out;
-    
+
     fn as_abi_in(&self) -> Self::In;
     fn as_abi_out(&mut self) -> Self::Out;
 }

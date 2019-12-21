@@ -27,10 +27,10 @@ impl IUnknown {
 
 #[repr(C)]
 pub struct IInspectable {
-    abi_0: usize,
-    abi_1: usize,
-    abi_2: usize,
-    abi_3: usize,
+    __0: usize,
+    __1: usize,
+    __2: usize,
+    __3: usize,
     type_name: extern "system" fn(*const std::ffi::c_void, *mut *mut std::ffi::c_void) -> ErrorCode,
 }
 

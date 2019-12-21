@@ -345,29 +345,33 @@ fn write_abi_param(param: &Param, param_sig: &ParamSig) -> TokenStream {
 
 fn write_consume_param(param: &Param, param_sig: &ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
+    let category = param_sig.sig_type().category();
     let tokens = write_type_sig(param_sig.sig_type());
 
     if param.flags().input() {
-        quote! {
-             #name: #tokens,
+        match category {
+            // TODO: exclude non-trivial structs
+            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name: #tokens, },
+            _ => quote! { #name: &#tokens, },
         }
     } else {
-        quote! {
-            #name: &mut #tokens,
-        }
+        quote! { #name: &mut #tokens, }
     }
 }
 
-fn write_abi_arg(param: &Param, _param_sig: &ParamSig) -> TokenStream {
+fn write_abi_arg(param: &Param, param_sig: &ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
+    let category = param_sig.sig_type().category();
 
     if param.flags().input() {
-        quote! {
-             #name,
+        match category {
+            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name, },
+            _ => quote! { winrt::AsAbi::as_abi_in(#name), },
         }
     } else {
-        quote! {
-            &mut #name,
+        match category {
+            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { &mut #name, },
+            _ => quote! { winrt::AsAbi::as_abi_out(#name), },
         }
     }
 }
@@ -525,7 +529,7 @@ fn write_delegate(interface: &TypeDef, _scope: &std::collections::BTreeSet<Strin
 
     quote! {
         #[repr(C)]
-        pub struct #name_ident { ptr: *const std::ffi::c_void }
+        pub struct #name_ident { ptr: *mut std::ffi::c_void }
         #[repr(C)]
         struct #abi_name_ident {
             __0: usize,
@@ -543,6 +547,17 @@ fn write_delegate(interface: &TypeDef, _scope: &std::collections::BTreeSet<Strin
                     &[#g4, #g5, #g6, #g7, #g8, #g9, #g10, #g11],
                 );
                 &GUID
+            }
+        }
+        impl winrt::AsAbi for #name_ident {
+            type In = *const std::ffi::c_void;
+            type Out = *mut *mut std::ffi::c_void;
+            fn as_abi_in(&self) -> Self::In {
+                self.ptr
+            }
+            fn as_abi_out(&mut self) -> Self::Out {
+                debug_assert!(self.ptr.is_null());
+                &mut self.ptr
             }
         }
         impl From<*mut std::ffi::c_void> for #name_ident {
