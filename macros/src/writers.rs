@@ -105,7 +105,7 @@ fn write_class_functions(class: &TypeDef) -> TokenStream {
                         let method_name = format_ident!("r#{}", method.name());
                         let signature = method.signature();
                         let params = write_consume_params(&signature);
-                        let args = signature.params().iter().map(|(param, _)| format_ident!("{}", param.name()));
+                        let args = signature.params().iter().map(|param| format_ident!("{}", param.name()));
 
                         if let Some(result) = signature.return_type() {
                             let result = write_type_sig(result.sig_type());
@@ -297,12 +297,12 @@ fn write_consume_receive_type(value: &TypeSig) -> TokenStream {
 fn write_abi_params(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::new();
 
-    for (param, param_sig) in signature.params() {
-        tokens.push(write_abi_param(param, param_sig));
+    for (param) in signature.params() {
+        tokens.push(write_abi_param(param));
     }
 
-    if let Some(param_sig) = signature.return_type() {
-        let name = write_abi_type_sig(param_sig.sig_type());
+    if let Some(param) = signature.return_type() {
+        let name = write_abi_type_sig(param.sig_type());
         tokens.push(quote! { &mut #name });
     }
 
@@ -312,8 +312,8 @@ fn write_abi_params(signature: &MethodSig) -> TokenStream {
 fn write_consume_params(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::new();
 
-    for (param, param_sig) in signature.params() {
-        tokens.push(write_consume_param(param, param_sig));
+    for param in signature.params() {
+        tokens.push(write_consume_param(param));
     }
 
     TokenStream::from_iter(tokens)
@@ -322,17 +322,17 @@ fn write_consume_params(signature: &MethodSig) -> TokenStream {
 fn write_abi_args(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::new();
 
-    for (param, param_sig) in signature.params() {
-        tokens.push(write_abi_arg(param, param_sig));
+    for param in signature.params() {
+        tokens.push(write_abi_arg(param));
     }
 
     TokenStream::from_iter(tokens)
 }
 
-fn write_abi_param(param: &Param, param_sig: &ParamSig) -> TokenStream {
-    let tokens = write_abi_type_sig(param_sig.sig_type());
+fn write_abi_param(param: &ParamSig) -> TokenStream {
+    let tokens = write_abi_type_sig(param.sig_type());
 
-    if param.flags().input() {
+    if param.input() {
         quote! {
              #tokens,
         }
@@ -343,12 +343,12 @@ fn write_abi_param(param: &Param, param_sig: &ParamSig) -> TokenStream {
     }
 }
 
-fn write_consume_param(param: &Param, param_sig: &ParamSig) -> TokenStream {
+fn write_consume_param(param: &ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
-    let category = param_sig.sig_type().category();
-    let tokens = write_type_sig(param_sig.sig_type());
+    let category = param.sig_type().category();
+    let tokens = write_type_sig(param.sig_type());
 
-    if param.flags().input() {
+    if param.input() {
         match category {
             // TODO: exclude non-trivial structs
             ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name: #tokens, },
@@ -359,11 +359,11 @@ fn write_consume_param(param: &Param, param_sig: &ParamSig) -> TokenStream {
     }
 }
 
-fn write_abi_arg(param: &Param, param_sig: &ParamSig) -> TokenStream {
+fn write_abi_arg(param:  &ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
-    let category = param_sig.sig_type().category();
+    let category = param.sig_type().category();
 
-    if param.flags().input() {
+    if param.input() {
         match category {
             ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name, },
             _ => quote! { winrt::AsAbi::as_abi_in(#name), },
