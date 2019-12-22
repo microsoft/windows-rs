@@ -35,7 +35,7 @@ pub struct IInspectable {
 }
 
 impl IInspectable {
-    pub fn type_name(ptr: *const std::ffi::c_void) -> String {
+    pub fn type_name() -> String {
         unsafe {
             let mut ptr = std::ptr::null_mut();
             ((*(*(ptr as *const *const Self))).type_name)(ptr, &mut ptr);

@@ -155,7 +155,7 @@ fn guid_u8(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u8 {
 }
 
 fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    if interface.name().starts_with("IAsync") {
+    if interface.name().starts_with("IAsync") || interface.name() == "IMemoryBufferReference" || interface.name() == "IMemoryBuffer" {
         return TokenStream::new();
     }
 
@@ -287,6 +287,9 @@ fn write_consume_receive_type(value: &TypeSig) -> TokenStream {
     match value.category() {
         ParamCategory::Object | ParamCategory::String => quote! {
             let mut __ok = std::ptr::null_mut();
+        },
+        ParamCategory::Enum => quote! {
+            let mut __ok;
         },
         _ => quote! {
             let mut __ok = Default::default();
@@ -456,7 +459,7 @@ fn write_type_def_or_ref(value: &TypeDefOrRef) -> TokenStream {
 fn write_abi_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
     if param.input() {
         match value.category() {
-            TypeCategory::Struct => {
+            TypeCategory::Enum | TypeCategory::Struct => {
                 let name = format_ident!("{}", value.name());
                 quote! { #name }
             }
@@ -464,7 +467,7 @@ fn write_abi_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
         }
     } else {
         match value.category() {
-            TypeCategory::Struct => {
+            TypeCategory::Enum | TypeCategory::Struct => {
                 let name = format_ident!("{}", value.name());
                 quote! { &mut #name }
             }
@@ -480,7 +483,11 @@ fn write_type_def(value: &TypeDef) -> TokenStream {
 
 fn write_abi_type_ref(param: &ParamSig, value: &TypeRef) -> TokenStream {
     if value.name() == "Guid" && value.namespace() == "System" {
-        quote! { winrt::Guid }
+        if param.input() {
+            quote! { winrt::Guid }
+        } else {
+            quote! { &mut winrt::Guid }
+        }
     } else {
         write_abi_type_def(param, &value.resolve())
     }
