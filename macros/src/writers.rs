@@ -299,7 +299,7 @@ fn write_abi_params(signature: &MethodSig) -> TokenStream {
 
     for param in signature.params() {
         tokens.push(write_abi_type_sig(param));
-        tokens.push(quote!{,});// TODO: surely there's a simpler/more efficient way to do this?
+        tokens.push(quote! {,}); // TODO: surely there's a simpler/more efficient way to do this?
     }
 
     if let Some(param) = signature.return_type() {
@@ -345,7 +345,7 @@ fn write_consume_param(param: &ParamSig) -> TokenStream {
     }
 }
 
-fn write_abi_arg(param:  &ParamSig) -> TokenStream {
+fn write_abi_arg(param: &ParamSig) -> TokenStream {
     let name = format_ident!("{}", param.name());
     let category = param.sig_type().category();
 
