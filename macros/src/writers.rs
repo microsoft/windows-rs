@@ -129,31 +129,10 @@ fn write_class_functions(class: &TypeDef) -> TokenStream {
     tokens
 }
 
-fn guid_u32(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u32 {
-    match sig.next().unwrap().1 {
-        ArgumentSig::U32(value) => value,
-        _ => panic!(),
-    }
-}
-
-fn guid_u16(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u16 {
-    match sig.next().unwrap().1 {
-        ArgumentSig::U16(value) => value,
-        _ => panic!(),
-    }
-}
-
-fn guid_u8(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u8 {
-    match sig.next().unwrap().1 {
-        ArgumentSig::U8(value) => value,
-        _ => panic!(),
-    }
-}
-
 fn write_guid(t: &TypeDef) -> TokenStream {
     let guid = t.find_attribute("Windows.Foundation.Metadata.GuidAttribute").unwrap();
     let args = guid.arguments();
-    
+
     let mut iter = args.iter().map(|(_, value)| match value {
         ArgumentSig::U8(value) => Literal::u8_unsuffixed(*value),
         ArgumentSig::U16(value) => Literal::u16_unsuffixed(*value),
@@ -304,7 +283,6 @@ fn write_abi_params(signature: &MethodSig) -> TokenStream {
 
     for param in signature.params() {
         tokens.push(write_abi_param(param));
-        tokens.push(quote! {,}); // TODO: surely there's a simpler/more efficient way to do this?
     }
 
     if let Some(param) = signature.return_type() {
@@ -326,37 +304,37 @@ fn write_abi_param(param: &ParamSig) -> TokenStream {
 fn write_abi_param_element_type(param: &ParamSig, value: &ElementType) -> TokenStream {
     if param.input() {
         match value {
-            ElementType::Bool => quote! { bool },
-            ElementType::Char => quote! { char },
-            ElementType::I8 => quote! { i8 },
-            ElementType::U8 => quote! { u8 },
-            ElementType::I16 => quote! { i16 },
-            ElementType::U16 => quote! { u16 },
-            ElementType::I32 => quote! { i32 },
-            ElementType::U32 => quote! { u32 },
-            ElementType::I64 => quote! { i64 },
-            ElementType::U64 => quote! { u64 },
-            ElementType::F32 => quote! { f32 },
-            ElementType::F64 => quote! { f64 },
-            ElementType::String => quote! { *const std::ffi::c_void },
-            ElementType::Object => quote! { *const std::ffi::c_void },
+            ElementType::Bool => quote! { bool, },
+            ElementType::Char => quote! { char, },
+            ElementType::I8 => quote! { i8, },
+            ElementType::U8 => quote! { u8, },
+            ElementType::I16 => quote! { i16, },
+            ElementType::U16 => quote! { u16, },
+            ElementType::I32 => quote! { i32, },
+            ElementType::U32 => quote! { u32, },
+            ElementType::I64 => quote! { i64, },
+            ElementType::U64 => quote! { u64, },
+            ElementType::F32 => quote! { f32, },
+            ElementType::F64 => quote! { f64, },
+            ElementType::String => quote! { *const std::ffi::c_void, },
+            ElementType::Object => quote! { *const std::ffi::c_void, },
         }
     } else {
         match value {
-            ElementType::Bool => quote! { &mut bool },
-            ElementType::Char => quote! { &mut char },
-            ElementType::I8 => quote! { &mut i8 },
-            ElementType::U8 => quote! { &mut u8 },
-            ElementType::I16 => quote! { &mut i16 },
-            ElementType::U16 => quote! { &mut u16 },
-            ElementType::I32 => quote! { &mut i32 },
-            ElementType::U32 => quote! { &mut u32 },
-            ElementType::I64 => quote! { &mut i64 },
-            ElementType::U64 => quote! { &mut u64 },
-            ElementType::F32 => quote! { &mut f32 },
-            ElementType::F64 => quote! { &mut f64 },
-            ElementType::String => quote! { &mut *mut std::ffi::c_void },
-            ElementType::Object => quote! { &mut *mut std::ffi::c_void },
+            ElementType::Bool => quote! { &mut bool, },
+            ElementType::Char => quote! { &mut char, },
+            ElementType::I8 => quote! { &mut i8, },
+            ElementType::U8 => quote! { &mut u8, },
+            ElementType::I16 => quote! { &mut i16, },
+            ElementType::U16 => quote! { &mut u16, },
+            ElementType::I32 => quote! { &mut i32, },
+            ElementType::U32 => quote! { &mut u32, },
+            ElementType::I64 => quote! { &mut i64, },
+            ElementType::U64 => quote! { &mut u64, },
+            ElementType::F32 => quote! { &mut f32, },
+            ElementType::F64 => quote! { &mut f64, },
+            ElementType::String => quote! { &mut *mut std::ffi::c_void, },
+            ElementType::Object => quote! { &mut *mut std::ffi::c_void, },
         }
     }
 }
@@ -374,17 +352,17 @@ fn write_abi_param_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
         match value.category() {
             TypeCategory::Enum | TypeCategory::Struct => {
                 let name = format_ident!("{}", value.name());
-                quote! { #name }
+                quote! { #name, }
             }
-            _ => quote! { *const std::ffi::c_void },
+            _ => quote! { *const std::ffi::c_void, },
         }
     } else {
         match value.category() {
             TypeCategory::Enum | TypeCategory::Struct => {
                 let name = format_ident!("{}", value.name());
-                quote! { &mut #name }
+                quote! { &mut #name, }
             }
-            _ => quote! { &mut *mut std::ffi::c_void },
+            _ => quote! { &mut *mut std::ffi::c_void, },
         }
     }
 }
@@ -392,9 +370,9 @@ fn write_abi_param_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
 fn write_abi_param_type_ref(param: &ParamSig, value: &TypeRef) -> TokenStream {
     if value.name() == "Guid" && value.namespace() == "System" {
         if param.input() {
-            quote! { winrt::Guid }
+            quote! { winrt::Guid, }
         } else {
-            quote! { &mut winrt::Guid }
+            quote! { &mut winrt::Guid, }
         }
     } else {
         write_abi_param_type_def(param, &value.resolve())
