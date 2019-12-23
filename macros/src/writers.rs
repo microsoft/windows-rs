@@ -1,7 +1,6 @@
 use crate::*;
 use proc_macro2::{Literal, TokenStream};
-use quote::format_ident;
-use quote::quote;
+use quote::{format_ident, quote};
 use winmd::*;
 
 pub(crate) fn write_namespaces(namespaces: NamespaceSet, scope: &std::collections::BTreeSet<String>) -> TokenStream {
