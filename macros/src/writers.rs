@@ -295,8 +295,8 @@ fn write_abi_param(param: &ParamSig) -> TokenStream {
     match param.sig_type().sig_type() {
         TypeSigType::ElementType(value) => write_abi_param_element_type(param, value),
         TypeSigType::TypeDefOrRef(value) => write_abi_param_type(param, value),
-        TypeSigType::GenericSig(_value) => quote! {bool},
-        TypeSigType::GenericTypeIndex(_value) => quote! {bool},
+        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
+        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
     }
 }
 
@@ -393,18 +393,84 @@ fn write_consume_params(signature: &MethodSig) -> TokenStream {
 }
 
 fn write_consume_param(param: &ParamSig) -> TokenStream {
+    match param.sig_type().sig_type() {
+        TypeSigType::ElementType(value) => write_consume_param_element_type(param, value),
+        TypeSigType::TypeDefOrRef(value) => write_consume_param_type(param, value),
+        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
+        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
+    }
+}
+
+fn write_consume_param_element_type(param: &ParamSig, value: &ElementType) -> TokenStream {
     let name = format_ident!("{}", param.name());
-    let category = param.sig_type().category();
-    let tokens = write_type_sig(param.sig_type());
 
     if param.input() {
-        match category {
-            // TODO: exclude non-trivial structs
-            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name: #tokens, },
-            _ => quote! { #name: &#tokens, },
+        match value {
+            ElementType::Bool => quote! { #name: bool, },
+            ElementType::Char => quote! { #name: char, },
+            ElementType::I8 => quote! { #name: i8, },
+            ElementType::U8 => quote! { #name: u8, },
+            ElementType::I16 => quote! { #name: i16, },
+            ElementType::U16 => quote! { #name: u16, },
+            ElementType::I32 => quote! { #name: i32, },
+            ElementType::U32 => quote! { #name: u32, },
+            ElementType::I64 => quote! { #name: i64, },
+            ElementType::U64 => quote! { #name: u64, },
+            ElementType::F32 => quote! { #name: f32, },
+            ElementType::F64 => quote! { #name: f64, },
+            ElementType::String => quote! { #name: &winrt::String, }, // AsRef<String> e.g. &str/String
+            ElementType::Object => quote! { #name: &winrt::Object, }, // AsRef<Object> e.g. boxing/polymorphism
         }
     } else {
-        quote! { #name: &mut #tokens, }
+        match value {
+            ElementType::Bool => quote! { #name: &mut bool, },
+            ElementType::Char => quote! { #name: &mut char, },
+            ElementType::I8 => quote! { #name: &mut i8, },
+            ElementType::U8 => quote! { #name: &mut u8, },
+            ElementType::I16 => quote! { #name: &mut i16, },
+            ElementType::U16 => quote! { #name: &mut u16, },
+            ElementType::I32 => quote! { #name: &mut i32, },
+            ElementType::U32 => quote! { #name: &mut u32, },
+            ElementType::I64 => quote! { #name: &mut i64, },
+            ElementType::U64 => quote! { #name: &mut u64, },
+            ElementType::F32 => quote! { #name: &mut f32, },
+            ElementType::F64 => quote! { #name: &mut f64, },
+            ElementType::String => quote! { #name: &mut winrt::String, },
+            ElementType::Object => quote! { #name: &mut winrt::Object, },
+        }
+    }
+}
+
+fn write_consume_param_type(param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
+    match value {
+        TypeDefOrRef::TypeDef(value) => write_consume_param_type_def(param, value),
+        TypeDefOrRef::TypeRef(value) => write_consume_param_type_ref(param, value),
+        _ => panic!("write_consume_param_type"),
+    }
+}
+
+fn write_consume_param_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
+    let param_name =format_ident!("{}", param.name()); 
+    let type_name = format_ident!("{}", value.name());
+
+    if param.input() {
+        quote! { #param_name: &#type_name, }
+    } else {
+        quote! { #param_name: &mut #type_name, }
+    }
+}
+
+fn write_consume_param_type_ref(param: &ParamSig, value: &TypeRef) -> TokenStream {
+    let param_name =format_ident!("{}", param.name()); 
+
+    if value.name() == "Guid" && value.namespace() == "System" {
+        if param.input() {
+            quote! { #param_name: &winrt::Guid, }
+        } else {
+            quote! { #param_name: &mut winrt::Guid, }
+        }
+    } else {
+        write_consume_param_type_def(param, &value.resolve())
     }
 }
 
@@ -443,8 +509,8 @@ fn write_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_element_type(value),
         TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => quote! {bool},
-        TypeSigType::GenericTypeIndex(_value) => quote! {bool},
+        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
+        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
     }
 }
 
