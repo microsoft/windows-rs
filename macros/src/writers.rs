@@ -506,6 +506,10 @@ fn write_abi_arg(param: &ParamSig) -> TokenStream {
     }
 }
 
+//
+// write_type
+//
+
 fn write_type_sig(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_element_type(value),
