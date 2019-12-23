@@ -50,14 +50,10 @@ pub mod windows {
             }
         }
 
-        impl winrt::TypeInterface for IColorsStatics {
+        impl winrt::TypeGuid for IColorsStatics {
             fn type_guid() -> &'static winrt::Guid {
                 static GUID: winrt::Guid = winrt::Guid::from_values(0xCFF52E04, 0xCCA6, 0x4614, &[0xA1, 0x7E, 0x75, 0x49, 0x10, 0xC8, 0x4A, 0x99]);
                 &GUID
-            }
-
-            fn take_ownership(ptr: *const std::ffi::c_void) -> Self {
-                Self { ptr }
             }
         }
 

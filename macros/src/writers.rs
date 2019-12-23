@@ -1,14 +1,10 @@
 use crate::*;
-use proc_macro2::TokenStream;
+use proc_macro2::{Literal, TokenStream};
 use quote::format_ident;
 use quote::quote;
 use winmd::*;
 
-pub(crate) fn write_modules(reader: &Reader, scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    write_namespace_set(reader.namespaces(), scope)
-}
-
-pub(crate) fn write_namespace_set(namespaces: NamespaceSet, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+pub(crate) fn write_namespaces(namespaces: NamespaceSet, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let mut tokens = quote! {};
 
     for namespace in namespaces {
@@ -28,7 +24,7 @@ pub(crate) fn write_namespace_set(namespaces: NamespaceSet, scope: &std::collect
 fn write_namespace(namespace: &Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
     let module = format_ident!("{}", namespace.name().to_lowercase());
     let types = write_namespace_types(namespace, scope);
-    let namespaces = write_namespace_set(namespace.namespaces(), scope);
+    let namespaces = write_namespaces(namespace.namespaces(), scope);
 
     quote! {
         pub mod #module {
@@ -154,6 +150,24 @@ fn guid_u8(sig: &mut std::slice::Iter<(&str, ArgumentSig)>) -> u8 {
     }
 }
 
+fn write_guid(t: &TypeDef) -> TokenStream {
+    let guid = t.find_attribute("Windows.Foundation.Metadata.GuidAttribute").unwrap();
+    let args = guid.arguments();
+    
+    let mut iter = args.iter().map(|(_, value)| match value {
+        ArgumentSig::U8(value) => Literal::u8_unsuffixed(*value),
+        ArgumentSig::U16(value) => Literal::u16_unsuffixed(*value),
+        ArgumentSig::U32(value) => Literal::u32_unsuffixed(*value),
+        _ => panic!(),
+    });
+
+    let three = iter.by_ref().take(3);
+
+    quote! {
+        #(#three,)* &[#(#iter),*],
+    }
+}
+
 fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
     if interface.name().starts_with("IAsync") || interface.name() == "IMemoryBufferReference" || interface.name() == "IMemoryBuffer" {
         return TokenStream::new();
@@ -166,20 +180,7 @@ fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<Stri
     let abi_methods = write_abi_methods(&interface);
     let consume_methods = write_consume_methods(&interface);
 
-    let guid = interface.find_attribute("Windows.Foundation.Metadata.GuidAttribute").unwrap();
-    let guid = guid.arguments();
-    let mut guid = guid.iter();
-    let g1 = guid_u32(&mut guid);
-    let g2 = guid_u16(&mut guid);
-    let g3 = guid_u16(&mut guid);
-    let g4 = guid_u8(&mut guid);
-    let g5 = guid_u8(&mut guid);
-    let g6 = guid_u8(&mut guid);
-    let g7 = guid_u8(&mut guid);
-    let g8 = guid_u8(&mut guid);
-    let g9 = guid_u8(&mut guid);
-    let g10 = guid_u8(&mut guid);
-    let g11 = guid_u8(&mut guid);
+    let guid = write_guid(interface);
 
     quote! {
         #[repr(C)]
@@ -197,13 +198,10 @@ fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<Stri
         impl #name_ident {
             #consume_methods
         }
-        impl winrt::TypeInterface for #name_ident {
+        impl winrt::TypeGuid for #name_ident {
             fn type_guid() -> &'static winrt::Guid {
                 static GUID: winrt::Guid = winrt::Guid::from_values(
-                    #g1,
-                    #g2,
-                    #g3,
-                    &[#g4, #g5, #g6, #g7, #g8, #g9, #g10, #g11],
+                    #guid
                 );
                 &GUID
             }
@@ -297,93 +295,35 @@ fn write_consume_receive_type(value: &TypeSig) -> TokenStream {
     }
 }
 
+//
+// write_abi_params
+//
+
 fn write_abi_params(signature: &MethodSig) -> TokenStream {
     let mut tokens = Vec::new();
 
     for param in signature.params() {
-        tokens.push(write_abi_type_sig(param));
+        tokens.push(write_abi_param(param));
         tokens.push(quote! {,}); // TODO: surely there's a simpler/more efficient way to do this?
     }
 
     if let Some(param) = signature.return_type() {
-        tokens.push(write_abi_type_sig(param));
+        tokens.push(write_abi_param(param));
     }
 
     TokenStream::from_iter(tokens)
 }
 
-fn write_consume_params(signature: &MethodSig) -> TokenStream {
-    let mut tokens = Vec::new();
-
-    for param in signature.params() {
-        tokens.push(write_consume_param(param));
-    }
-
-    TokenStream::from_iter(tokens)
-}
-
-fn write_abi_args(signature: &MethodSig) -> TokenStream {
-    let mut tokens = Vec::new();
-
-    for param in signature.params() {
-        tokens.push(write_abi_arg(param));
-    }
-
-    TokenStream::from_iter(tokens)
-}
-
-fn write_consume_param(param: &ParamSig) -> TokenStream {
-    let name = format_ident!("{}", param.name());
-    let category = param.sig_type().category();
-    let tokens = write_type_sig(param.sig_type());
-
-    if param.input() {
-        match category {
-            // TODO: exclude non-trivial structs
-            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name: #tokens, },
-            _ => quote! { #name: &#tokens, },
-        }
-    } else {
-        quote! { #name: &mut #tokens, }
-    }
-}
-
-fn write_abi_arg(param: &ParamSig) -> TokenStream {
-    let name = format_ident!("{}", param.name());
-    let category = param.sig_type().category();
-
-    if param.input() {
-        match category {
-            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name, },
-            _ => quote! { winrt::AsAbi::as_abi_in(#name), },
-        }
-    } else {
-        match category {
-            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { &mut #name, },
-            _ => quote! { winrt::AsAbi::as_abi_out(#name), },
-        }
-    }
-}
-
-fn write_abi_type_sig(param: &ParamSig) -> TokenStream {
+fn write_abi_param(param: &ParamSig) -> TokenStream {
     match param.sig_type().sig_type() {
-        TypeSigType::ElementType(value) => write_abi_element_type(param, value),
-        TypeSigType::TypeDefOrRef(value) => write_abi_type_def_or_ref(param, value),
+        TypeSigType::ElementType(value) => write_abi_param_element_type(param, value),
+        TypeSigType::TypeDefOrRef(value) => write_abi_param_type(param, value),
         TypeSigType::GenericSig(_value) => quote! {bool},
         TypeSigType::GenericTypeIndex(_value) => quote! {bool},
     }
 }
 
-fn write_type_sig(value: &TypeSig) -> TokenStream {
-    match value.sig_type() {
-        TypeSigType::ElementType(value) => write_element_type(value),
-        TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => quote! {bool},
-        TypeSigType::GenericTypeIndex(_value) => quote! {bool},
-    }
-}
-
-fn write_abi_element_type(param: &ParamSig, value: &ElementType) -> TokenStream {
+fn write_abi_param_element_type(param: &ParamSig, value: &ElementType) -> TokenStream {
     if param.input() {
         match value {
             ElementType::Bool => quote! { bool },
@@ -421,42 +361,15 @@ fn write_abi_element_type(param: &ParamSig, value: &ElementType) -> TokenStream 
     }
 }
 
-fn write_element_type(value: &ElementType) -> TokenStream {
+fn write_abi_param_type(param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
     match value {
-        ElementType::Bool => quote! { bool },
-        ElementType::Char => quote! { char },
-        ElementType::I8 => quote! { i8 },
-        ElementType::U8 => quote! { u8 },
-        ElementType::I16 => quote! { i16 },
-        ElementType::U16 => quote! { u16 },
-        ElementType::I32 => quote! { i32 },
-        ElementType::U32 => quote! { u32 },
-        ElementType::I64 => quote! { i64 },
-        ElementType::U64 => quote! { u64 },
-        ElementType::F32 => quote! { f32 },
-        ElementType::F64 => quote! { f64 },
-        ElementType::String => quote! { winrt::String },
-        ElementType::Object => quote! { winrt::Object },
+        TypeDefOrRef::TypeDef(value) => write_abi_param_type_def(param, value),
+        TypeDefOrRef::TypeRef(value) => write_abi_param_type_ref(param, value),
+        _ => panic!("write_abi_param_type"),
     }
 }
 
-fn write_abi_type_def_or_ref(param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
-    match value {
-        TypeDefOrRef::TypeDef(value) => write_abi_type_def(param, value),
-        TypeDefOrRef::TypeRef(value) => write_abi_type_ref(param, value),
-        _ => panic!("write_abi_type_def_or_ref"),
-    }
-}
-
-fn write_type_def_or_ref(value: &TypeDefOrRef) -> TokenStream {
-    match value {
-        TypeDefOrRef::TypeDef(value) => write_type_def(value),
-        TypeDefOrRef::TypeRef(value) => write_type_ref(value),
-        _ => panic!("write_type_def_or_ref"),
-    }
-}
-
-fn write_abi_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
+fn write_abi_param_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
     if param.input() {
         match value.category() {
             TypeCategory::Enum | TypeCategory::Struct => {
@@ -476,12 +389,7 @@ fn write_abi_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
     }
 }
 
-fn write_type_def(value: &TypeDef) -> TokenStream {
-    let name = format_ident!("{}", value.name());
-    quote! { #name }
-}
-
-fn write_abi_type_ref(param: &ParamSig, value: &TypeRef) -> TokenStream {
+fn write_abi_param_type_ref(param: &ParamSig, value: &TypeRef) -> TokenStream {
     if value.name() == "Guid" && value.namespace() == "System" {
         if param.input() {
             quote! { winrt::Guid }
@@ -489,8 +397,110 @@ fn write_abi_type_ref(param: &ParamSig, value: &TypeRef) -> TokenStream {
             quote! { &mut winrt::Guid }
         }
     } else {
-        write_abi_type_def(param, &value.resolve())
+        write_abi_param_type_def(param, &value.resolve())
     }
+}
+
+//
+// write_consume_params
+//
+
+fn write_consume_params(signature: &MethodSig) -> TokenStream {
+    let mut tokens = Vec::new();
+
+    for param in signature.params() {
+        tokens.push(write_consume_param(param));
+    }
+
+    TokenStream::from_iter(tokens)
+}
+
+fn write_consume_param(param: &ParamSig) -> TokenStream {
+    let name = format_ident!("{}", param.name());
+    let category = param.sig_type().category();
+    let tokens = write_type_sig(param.sig_type());
+
+    if param.input() {
+        match category {
+            // TODO: exclude non-trivial structs
+            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name: #tokens, },
+            _ => quote! { #name: &#tokens, },
+        }
+    } else {
+        quote! { #name: &mut #tokens, }
+    }
+}
+
+//
+// write_abi_args
+//
+
+fn write_abi_args(signature: &MethodSig) -> TokenStream {
+    let mut tokens = Vec::new();
+
+    for param in signature.params() {
+        tokens.push(write_abi_arg(param));
+    }
+
+    TokenStream::from_iter(tokens)
+}
+
+fn write_abi_arg(param: &ParamSig) -> TokenStream {
+    let name = format_ident!("{}", param.name());
+    let category = param.sig_type().category();
+
+    if param.input() {
+        match category {
+            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name, },
+            _ => quote! { winrt::AsAbi::as_abi_in(#name), },
+        }
+    } else {
+        match category {
+            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { &mut #name, },
+            _ => quote! { winrt::AsAbi::as_abi_out(#name), },
+        }
+    }
+}
+
+fn write_type_sig(value: &TypeSig) -> TokenStream {
+    match value.sig_type() {
+        TypeSigType::ElementType(value) => write_element_type(value),
+        TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
+        TypeSigType::GenericSig(_value) => quote! {bool},
+        TypeSigType::GenericTypeIndex(_value) => quote! {bool},
+    }
+}
+
+fn write_element_type(value: &ElementType) -> TokenStream {
+    match value {
+        ElementType::Bool => quote! { bool },
+        ElementType::Char => quote! { char },
+        ElementType::I8 => quote! { i8 },
+        ElementType::U8 => quote! { u8 },
+        ElementType::I16 => quote! { i16 },
+        ElementType::U16 => quote! { u16 },
+        ElementType::I32 => quote! { i32 },
+        ElementType::U32 => quote! { u32 },
+        ElementType::I64 => quote! { i64 },
+        ElementType::U64 => quote! { u64 },
+        ElementType::F32 => quote! { f32 },
+        ElementType::F64 => quote! { f64 },
+        ElementType::String => quote! { winrt::String },
+        ElementType::Object => quote! { winrt::Object },
+    }
+}
+
+fn write_type_def_or_ref(value: &TypeDefOrRef) -> TokenStream {
+    match value {
+        TypeDefOrRef::TypeDef(value) => write_type_def(value),
+        TypeDefOrRef::TypeRef(value) => write_type_ref(value),
+        _ => panic!("write_type_def_or_ref"),
+    }
+}
+
+fn write_type_def(value: &TypeDef) -> TokenStream {
+    let name = format_ident!("{}", value.name());
+    quote! { #name }
 }
 
 fn write_type_ref(value: &TypeRef) -> TokenStream {
@@ -534,20 +544,7 @@ fn write_delegate(interface: &TypeDef, _scope: &std::collections::BTreeSet<Strin
     let name_ident = format_ident!("{}", name);
     let abi_name_ident = format_ident!("abi_{}", name);
 
-    let guid = interface.find_attribute("Windows.Foundation.Metadata.GuidAttribute").unwrap();
-    let guid = guid.arguments();
-    let mut guid = guid.iter();
-    let g1 = guid_u32(&mut guid);
-    let g2 = guid_u16(&mut guid);
-    let g3 = guid_u16(&mut guid);
-    let g4 = guid_u8(&mut guid);
-    let g5 = guid_u8(&mut guid);
-    let g6 = guid_u8(&mut guid);
-    let g7 = guid_u8(&mut guid);
-    let g8 = guid_u8(&mut guid);
-    let g9 = guid_u8(&mut guid);
-    let g10 = guid_u8(&mut guid);
-    let g11 = guid_u8(&mut guid);
+    let guid = write_guid(interface);
 
     quote! {
         #[repr(C)]
@@ -560,13 +557,10 @@ fn write_delegate(interface: &TypeDef, _scope: &std::collections::BTreeSet<Strin
         }
         impl #name_ident {
         }
-        impl winrt::TypeInterface for #name_ident {
+        impl winrt::TypeGuid for #name_ident {
             fn type_guid() -> &'static winrt::Guid {
                 static GUID: winrt::Guid = winrt::Guid::from_values(
-                    #g1,
-                    #g2,
-                    #g3,
-                    &[#g4, #g5, #g6, #g7, #g8, #g9, #g10, #g11],
+                    #guid
                 );
                 &GUID
             }

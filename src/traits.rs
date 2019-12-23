@@ -1,6 +1,6 @@
 use crate::*;
 
-pub trait TypeInterface: From<*mut std::ffi::c_void> {
+pub trait TypeGuid {
     fn type_guid() -> &'static Guid;
 }
 
