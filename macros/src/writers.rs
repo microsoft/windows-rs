@@ -494,7 +494,8 @@ fn write_abi_arg(param: &ParamSig) -> TokenStream {
 
     if param.input() {
         match category {
-            ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name, },
+            ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
+            ParamCategory::Struct => quote! { #name.clone(), },
             _ => quote! { winrt::AsAbi::as_abi_in(#name), },
         }
     } else {
@@ -632,7 +633,7 @@ fn write_struct(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> Tok
     let fields = write_struct_fields(&t);
     quote! {
         #[repr(C)]
-        #[derive(Default, Debug, PartialEq)]
+        #[derive(Clone, Default, Debug, PartialEq)]
         pub struct #name { #fields }
     }
 }
