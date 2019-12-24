@@ -103,7 +103,7 @@ fn write_class_functions(class: &TypeDef) -> TokenStream {
                         let args = signature.params().iter().map(|param| format_ident!("{}", param.name()));
 
                         if let Some(result) = signature.return_type() {
-                            let result = write_type_sig(result.sig_type());
+                            let result = write_type(result.sig_type());
 
                             tokens = quote! {
                                 #tokens
@@ -229,7 +229,7 @@ fn write_consume_methods(interface: &TypeDef) -> TokenStream {
         let args = write_abi_args(&signature);
 
         if let Some(result) = signature.return_type() {
-            let projected_result = write_type_sig(result.sig_type());
+            let projected_result = write_type(result.sig_type());
             let receive_result = write_consume_receive_type(result.sig_type());
 
             tokens = quote! {
@@ -271,6 +271,124 @@ fn write_consume_receive_type(value: &TypeSig) -> TokenStream {
             let mut __ok = Default::default();
         },
     }
+}
+
+fn write_enum(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    let name = format_ident!("{}", t.name());
+    let fields = write_enum_fields(&t);
+    quote! {
+        pub enum #name { #fields }
+    }
+}
+
+fn write_enum_fields(t: &TypeDef) -> TokenStream {
+    let mut tokens = quote! {};
+
+    for f in t.fields() {
+        for _c in f.constants() {
+            let name = format_ident!("{}", f.name());
+            //let value = c.value();
+
+            tokens = quote! {
+                #tokens
+                #name,
+                // TODO: write out the enum value
+            };
+        }
+    }
+
+    tokens
+}
+
+fn write_delegate(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    //let generics = interface.generics();
+    let name = interface.name();
+    let name_ident = format_ident!("{}", name);
+    let abi_name_ident = format_ident!("abi_{}", name);
+
+    let guid = write_guid(interface);
+
+    quote! {
+        #[repr(C)]
+        pub struct #name_ident { ptr: *mut std::ffi::c_void }
+        #[repr(C)]
+        struct #abi_name_ident {
+            __0: usize,
+            __1: usize,
+            __2: usize,
+        }
+        impl #name_ident {
+        }
+        impl winrt::TypeGuid for #name_ident {
+            fn type_guid() -> &'static winrt::Guid {
+                static GUID: winrt::Guid = winrt::Guid::from_values(
+                    #guid
+                );
+                &GUID
+            }
+        }
+        impl winrt::AsAbi for #name_ident {
+            type In = *const std::ffi::c_void;
+            type Out = *mut *mut std::ffi::c_void;
+            fn as_abi_in(&self) -> Self::In {
+                self.ptr
+            }
+            fn as_abi_out(&mut self) -> Self::Out {
+                debug_assert!(self.ptr.is_null());
+                &mut self.ptr
+            }
+        }
+        impl From<*mut std::ffi::c_void> for #name_ident {
+            fn from(ptr: *mut std::ffi::c_void) -> Self {
+                Self { ptr }
+            }
+        }
+    }
+}
+
+fn write_struct(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
+    let name = format_ident!("{}", t.name());
+    let fields = write_struct_fields(&t);
+    quote! {
+        #[repr(C)]
+        #[derive(Clone, Default, Debug, PartialEq)]
+        pub struct #name { #fields }
+    }
+}
+
+fn write_struct_fields(t: &TypeDef) -> TokenStream {
+    let mut tokens = quote! {};
+
+    for f in t.fields() {
+        let name = format_ident!("r#{}", to_snake(f.name()));
+
+        tokens = quote! {
+            #tokens
+            pub #name: u8,
+            // TODO: write out field type
+        };
+    }
+
+    tokens
+}
+
+fn to_snake(camel: &str) -> String {
+    let mut result = String::new();
+
+    for c in camel.chars() {
+        if c.is_uppercase() {
+            if !result.is_empty() {
+                result.push('_');
+            }
+            for c in c.to_lowercase() {
+                result.push(c);
+            }
+        } else {
+            result.push(c);
+        }
+    }
+
+    result
 }
 
 //
@@ -510,16 +628,16 @@ fn write_abi_arg(param: &ParamSig) -> TokenStream {
 // write_type
 //
 
-fn write_type_sig(value: &TypeSig) -> TokenStream {
+fn write_type(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
-        TypeSigType::ElementType(value) => write_element_type(value),
+        TypeSigType::ElementType(value) => write_type_element(value),
         TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
         TypeSigType::GenericSig(_value) => panic!("GenericSig"),
         TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
     }
 }
 
-fn write_element_type(value: &ElementType) -> TokenStream {
+fn write_type_element(value: &ElementType) -> TokenStream {
     match value {
         ElementType::Bool => quote! { bool },
         ElementType::Char => quote! { char },
@@ -559,120 +677,3 @@ fn write_type_ref(value: &TypeRef) -> TokenStream {
     }
 }
 
-fn write_enum(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    let name = format_ident!("{}", t.name());
-    let fields = write_enum_fields(&t);
-    quote! {
-        pub enum #name { #fields }
-    }
-}
-
-fn write_enum_fields(t: &TypeDef) -> TokenStream {
-    let mut tokens = quote! {};
-
-    for f in t.fields() {
-        for _c in f.constants() {
-            let name = format_ident!("{}", f.name());
-            //let value = c.value();
-
-            tokens = quote! {
-                #tokens
-                #name,
-                // TODO: write out the enum value
-            };
-        }
-    }
-
-    tokens
-}
-
-fn write_delegate(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    //let generics = interface.generics();
-    let name = interface.name();
-    let name_ident = format_ident!("{}", name);
-    let abi_name_ident = format_ident!("abi_{}", name);
-
-    let guid = write_guid(interface);
-
-    quote! {
-        #[repr(C)]
-        pub struct #name_ident { ptr: *mut std::ffi::c_void }
-        #[repr(C)]
-        struct #abi_name_ident {
-            __0: usize,
-            __1: usize,
-            __2: usize,
-        }
-        impl #name_ident {
-        }
-        impl winrt::TypeGuid for #name_ident {
-            fn type_guid() -> &'static winrt::Guid {
-                static GUID: winrt::Guid = winrt::Guid::from_values(
-                    #guid
-                );
-                &GUID
-            }
-        }
-        impl winrt::AsAbi for #name_ident {
-            type In = *const std::ffi::c_void;
-            type Out = *mut *mut std::ffi::c_void;
-            fn as_abi_in(&self) -> Self::In {
-                self.ptr
-            }
-            fn as_abi_out(&mut self) -> Self::Out {
-                debug_assert!(self.ptr.is_null());
-                &mut self.ptr
-            }
-        }
-        impl From<*mut std::ffi::c_void> for #name_ident {
-            fn from(ptr: *mut std::ffi::c_void) -> Self {
-                Self { ptr }
-            }
-        }
-    }
-}
-
-fn write_struct(t: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    let name = format_ident!("{}", t.name());
-    let fields = write_struct_fields(&t);
-    quote! {
-        #[repr(C)]
-        #[derive(Clone, Default, Debug, PartialEq)]
-        pub struct #name { #fields }
-    }
-}
-
-fn write_struct_fields(t: &TypeDef) -> TokenStream {
-    let mut tokens = quote! {};
-
-    for f in t.fields() {
-        let name = format_ident!("r#{}", to_snake(f.name()));
-
-        tokens = quote! {
-            #tokens
-            pub #name: u8,
-            // TODO: write out field type
-        };
-    }
-
-    tokens
-}
-
-fn to_snake(camel: &str) -> String {
-    let mut result = String::new();
-
-    for c in camel.chars() {
-        if c.is_uppercase() {
-            if !result.is_empty() {
-                result.push('_');
-            }
-            for c in c.to_lowercase() {
-                result.push(c);
-            }
-        } else {
-            result.push(c);
-        }
-    }
-
-    result
-}
