@@ -450,7 +450,7 @@ fn write_consume_param_type(param: &ParamSig, value: &TypeDefOrRef) -> TokenStre
 }
 
 fn write_consume_param_type_def(param: &ParamSig, value: &TypeDef) -> TokenStream {
-    let param_name =format_ident!("{}", param.name()); 
+    let param_name = format_ident!("{}", param.name());
     let type_name = format_ident!("{}", value.name());
 
     if param.input() {
@@ -461,7 +461,7 @@ fn write_consume_param_type_def(param: &ParamSig, value: &TypeDef) -> TokenStrea
 }
 
 fn write_consume_param_type_ref(param: &ParamSig, value: &TypeRef) -> TokenStream {
-    let param_name =format_ident!("{}", param.name()); 
+    let param_name = format_ident!("{}", param.name());
 
     if value.name() == "Guid" && value.namespace() == "System" {
         if param.input() {
