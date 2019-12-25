@@ -3,12 +3,17 @@ use proc_macro2::{Literal, TokenStream};
 use quote::{format_ident, quote};
 use winmd::*;
 
-pub(crate) fn write_namespaces(namespaces: NamespaceSet, scope: &std::collections::BTreeSet<String>) -> TokenStream {
+// TOOD: make all subsequent write_ functions impls of Writer. The write_namespaces function
+// can then create one Writer for each namespace and then aggregate them all up at the end.
+// Each writer then manages its own generics and shares the limits
+
+pub(crate) fn write_namespaces(namespaces: NamespaceSet, limits: &std::collections::BTreeSet<String>) -> TokenStream {
     let mut tokens = quote! {};
+    let writer = Writer{ limits, generics: Default::default() };
 
     for namespace in namespaces {
-        if scope.contains(namespace.full_name()) {
-            let namespace = write_namespace(&namespace, scope);
+        if writer.limits.contains(namespace.full_name()) {
+            let namespace = write_namespace(&namespace, writer.limits);
 
             tokens = quote! {
                 #tokens
@@ -18,6 +23,11 @@ pub(crate) fn write_namespaces(namespaces: NamespaceSet, scope: &std::collection
     }
 
     tokens
+}
+
+struct Writer<'a> {
+    pub limits: &'a std::collections::BTreeSet<String>,
+    pub generics: Vec<Vec<GenericParam<'a>>>,
 }
 
 fn write_namespace(namespace: &Namespace, scope: &std::collections::BTreeSet<String>) -> TokenStream {
@@ -147,10 +157,6 @@ fn write_guid(t: &TypeDef) -> TokenStream {
 }
 
 fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<String>) -> TokenStream {
-    if interface.name().starts_with("IAsync") || interface.name() == "IMemoryBufferReference" || interface.name() == "IMemoryBuffer" {
-        return TokenStream::new();
-    }
-
     //let generics = interface.generics();
     let name = interface.name();
     let name_ident = format_ident!("{}", name);
@@ -205,6 +211,7 @@ fn write_interface(interface: &TypeDef, _scope: &std::collections::BTreeSet<Stri
 
 fn write_abi_methods(interface: &TypeDef) -> TokenStream {
     let mut tokens = quote! {};
+    println!("{}", interface.name());
 
     for method in interface.methods() {
         let name = format_ident!("r#{}", method.name());
@@ -413,8 +420,8 @@ fn write_abi_param(param: &ParamSig) -> TokenStream {
     match param.sig_type().sig_type() {
         TypeSigType::ElementType(value) => write_abi_param_element_type(param, value),
         TypeSigType::TypeDefOrRef(value) => write_abi_param_type(param, value),
-        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
-        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
+        TypeSigType::GenericSig(_value) => panic!("abi: GenericSig"),
+        TypeSigType::GenericTypeIndex(_value) => panic!("abi: GenericTypeIndex"),
     }
 }
 
@@ -514,8 +521,8 @@ fn write_consume_param(param: &ParamSig) -> TokenStream {
     match param.sig_type().sig_type() {
         TypeSigType::ElementType(value) => write_consume_param_element_type(param, value),
         TypeSigType::TypeDefOrRef(value) => write_consume_param_type(param, value),
-        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
-        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
+        TypeSigType::GenericSig(_value) => panic!("consume GenericSig"),
+        TypeSigType::GenericTypeIndex(_value) => panic!("consume GenericTypeIndex"),
     }
 }
 
@@ -632,8 +639,8 @@ fn write_type(value: &TypeSig) -> TokenStream {
     match value.sig_type() {
         TypeSigType::ElementType(value) => write_type_element(value),
         TypeSigType::TypeDefOrRef(value) => write_type_def_or_ref(value),
-        TypeSigType::GenericSig(_value) => panic!("GenericSig"),
-        TypeSigType::GenericTypeIndex(_value) => panic!("GenericTypeIndex"),
+        TypeSigType::GenericSig(_value) => panic!("type: GenericSig"),
+        TypeSigType::GenericTypeIndex(_value) => panic!("type: GenericTypeIndex"),
     }
 }
 
