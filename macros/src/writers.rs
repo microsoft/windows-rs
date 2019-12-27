@@ -9,7 +9,7 @@ use winmd::*;
 
 pub(crate) fn write_namespaces(namespaces: NamespaceSet, limits: &std::collections::BTreeSet<String>) -> TokenStream {
     let mut tokens = quote! {};
-    let writer = Writer{ limits, generics: Default::default() };
+    let writer = Writer { limits, generics: Default::default() };
 
     for namespace in namespaces {
         if writer.limits.contains(namespace.full_name()) {
@@ -683,4 +683,3 @@ fn write_type_ref(value: &TypeRef) -> TokenStream {
         write_type_def(&value.resolve())
     }
 }
-
