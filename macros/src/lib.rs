@@ -112,7 +112,7 @@ fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections:
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
     let (reader, namespaces) = parse_import_stream(stream);
-    let output = write_namespaces(reader.namespaces(), &namespaces);
+    let output = write_selection(reader.namespaces(), &namespaces);
     //println!("{}", output.to_string());
     output.into()
 }
