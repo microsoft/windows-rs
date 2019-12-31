@@ -46,10 +46,19 @@ fn to_snake(camel: &str) -> String {
 
 struct Writer<'a> {
     pub limits: &'a std::collections::BTreeSet<String>,
-    pub generics: Vec<Vec<GenericParam<'a>>>,
+    pub generics: Vec<Vec<String>>,
 }
 
 impl<'a> Writer<'a> {
+
+    // TODO: should return scope guard that pops generics stack on drop
+    fn push_generics(&mut self, generics: &[GenericParam]) {
+         let mut vec = Vec::with_capacity(generics.len());
+         for generic in generics {
+             vec.push(generic.name().to_string());
+         }
+         self.generics.push(vec);
+     }
 
 fn write_namespaces(&mut self, namespaces: NamespaceSet) -> TokenStream {
     let mut tokens = quote! {};
@@ -195,10 +204,18 @@ fn write_guid(&mut self, t: &TypeDef) -> TokenStream {
 }
 
 fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-    //let generics = interface.generics();
     let name = interface.name();
-    let name_ident = format_ident!("{}", name);
-    let abi_name_ident = format_ident!("abi_{}", name);
+    let generics = interface.generics().collect::<Vec<GenericParam>>();
+
+    //let writer = self.push_generics();
+
+
+    let (name_ident, abi_name_ident) = if generics.is_empty() {
+        (format_ident!("{}", name),format_ident!("abi_{}", name))
+    } else {
+        (format_ident!("{}", name),format_ident!("abi_{}", name))
+    };
+
     let abi_methods = self.write_abi_methods(&interface);
     let consume_methods = self.write_consume_methods(&interface);
 
