@@ -2,6 +2,24 @@
 
 use crate::*;
 
+const REFERENCE_FLAG: u32 = 1;
+
+#[repr(C)]
+struct Header {
+    flags: u32,
+    len: u32,
+    __0: u32,
+    __1: u32,
+    ptr: *const u16,
+}
+
+#[repr(C)]
+struct SharedHeader {
+    header: Header,
+    count: RefCount,
+    buffer: *mut u16,
+}
+
 #[repr(C)]
 pub struct String {
     pub ptr: *mut std::ffi::c_void,
