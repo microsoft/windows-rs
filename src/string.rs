@@ -20,6 +20,18 @@ struct SharedHeader {
     buffer: *mut u16,
 }
 
+// TODO: inline these functions when done
+
+fn release(handle: *const Header) {
+    unsafe {
+        debug_assert!((*handle).flags & REFERENCE_FLAG == 0);
+
+        if (0 == (*(handle as *const SharedHeader)).count.release()) {
+            HeapFree(GetProcessHeap(), 0, handle as *const std::ffi::c_void);
+        }
+    }
+}
+
 #[repr(C)]
 pub struct String {
     pub ptr: *mut std::ffi::c_void,
