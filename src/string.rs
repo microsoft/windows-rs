@@ -32,17 +32,33 @@ fn drop(handle: *const Header) {
     }
 }
 
+fn duplicate(handle: *const Header) -> *const Header {
+    if handle.is_null() {
+        std::ptr::null()
+    } else if (*handle).flags & REFERENCE_FLAG == 0 {
+        (*(handle as *const SharedHeader)).count.addref();
+        handle
+    } else {
+        let handle = with_len((*handle)->len);
+    }
+}
+
 fn with_len(len: u32) -> *const SharedHeader {
     unsafe {
         debug_assert!(len != 0);
 
-        let header = HeapAlloc(GetProcessHeap(), 0, std::mem::size_of::<SharedHeader>() + 2 * len as usize) as *mut SharedHeader;
+        let shared = HeapAlloc(GetProcessHeap(), 0, std::mem::size_of::<SharedHeader>() + 2 * len as usize) as *mut SharedHeader;
 
-        if header.is_null() {
+        if shared.is_null() {
             panic!();
         }
 
-        header
+        (*shared).header.flags = 0;
+        (*shared).header.len = len;
+        (*shared).header.ptr = &(*shared).buffer;
+        (*shared).count = RefCount::new(1);
+        *((*shared).header.ptr.offset(2 * len as isize) as *mut u16) = 0;
+        shared
     }
 }
 
