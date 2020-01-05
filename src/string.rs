@@ -17,18 +17,32 @@ struct Header {
 struct SharedHeader {
     header: Header,
     count: RefCount,
-    buffer: *mut u16,
+    buffer: u16,
 }
 
 // TODO: inline these functions when done
 
-fn release(handle: *const Header) {
+fn drop(handle: *const Header) {
     unsafe {
         debug_assert!((*handle).flags & REFERENCE_FLAG == 0);
 
-        if (0 == (*(handle as *const SharedHeader)).count.release()) {
+        if 0 == (*(handle as *const SharedHeader)).count.release() {
             HeapFree(GetProcessHeap(), 0, handle as *const std::ffi::c_void);
         }
+    }
+}
+
+fn with_len(len: u32) -> *const SharedHeader {
+    unsafe {
+        debug_assert!(len != 0);
+
+        let header = HeapAlloc(GetProcessHeap(), 0, std::mem::size_of::<SharedHeader>() + 2 * len as usize) as *mut SharedHeader;
+
+        if header.is_null() {
+            panic!();
+        }
+
+        header
     }
 }
 
@@ -39,6 +53,9 @@ pub struct String {
 
 impl String {
     pub fn new() -> String {
+
+        assert!(std::mem::size_of::<SharedHeader>() == 32);
+
         String { ptr: std::ptr::null_mut() }
     }
 
