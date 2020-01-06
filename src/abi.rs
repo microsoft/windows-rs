@@ -34,12 +34,12 @@ pub struct IInspectable {
     type_name: extern "system" fn(*const std::ffi::c_void, *mut *mut std::ffi::c_void) -> ErrorCode,
 }
 
-impl IInspectable {
-    pub fn type_name() -> String {
-        unsafe {
-            let mut ptr = std::ptr::null_mut();
-            ((*(*(ptr as *const *const Self))).type_name)(ptr, &mut ptr);
-            String { ptr }
-        }
-    }
-}
+// impl IInspectable {
+//     pub fn type_name() -> String {
+//         unsafe {
+//             let mut ptr = std::ptr::null_mut();
+//             ((*(*(ptr as *const *const Self))).type_name)(ptr, &mut ptr);
+//             String { ptr }
+//         }
+//     }
+// }

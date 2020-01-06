@@ -22,28 +22,24 @@ struct SharedHeader {
 
 // TODO: inline these functions when done
 
-fn drop(handle: *const Header) {
-    unsafe {
-        debug_assert!((*handle).flags & REFERENCE_FLAG == 0);
 
-        if 0 == (*(handle as *const SharedHeader)).count.release() {
-            HeapFree(GetProcessHeap(), 0, handle as *const std::ffi::c_void);
-        }
-    }
-}
 
 fn duplicate(handle: *const Header) -> *const Header {
+    unsafe {
     if handle.is_null() {
         std::ptr::null()
     } else if (*handle).flags & REFERENCE_FLAG == 0 {
         (*(handle as *const SharedHeader)).count.addref();
         handle
     } else {
-        let handle = with_len((*handle)->len);
+        let result = with_len((*handle).len);
+        std::ptr::copy_nonoverlapping((*handle).ptr, (*result).ptr as *mut u16, (*handle).len as usize + 1);
+        result
     }
 }
+}
 
-fn with_len(len: u32) -> *const SharedHeader {
+fn with_len(len: u32) -> *mut Header {
     unsafe {
         debug_assert!(len != 0);
 
@@ -58,39 +54,41 @@ fn with_len(len: u32) -> *const SharedHeader {
         (*shared).header.ptr = &(*shared).buffer;
         (*shared).count = RefCount::new(1);
         *((*shared).header.ptr.offset(2 * len as isize) as *mut u16) = 0;
-        shared
+        shared as *mut Header
     }
 }
 
 #[repr(C)]
 pub struct String {
-    pub ptr: *mut std::ffi::c_void,
+    handle: *const Header,
 }
 
 impl String {
     pub fn new() -> String {
-
-        assert!(std::mem::size_of::<SharedHeader>() == 32);
-
-        String { ptr: std::ptr::null_mut() }
+        String { handle: std::ptr::null_mut() }
     }
 
     pub fn is_empty(&self) -> bool {
-        self.ptr.is_null()
+        self.handle.is_null()
     }
 
     pub fn len(&self) -> usize {
-        unsafe { WindowsGetStringLen(self.ptr) as usize }
+        unsafe {
+            if self.handle.is_null() {
+                0
+            } else {
+                (*self.handle).len as usize
+            }
+        }
     }
 
     pub fn as_chars(&self) -> &[u16] {
         unsafe {
-            let mut len = 0;
-            let wide = WindowsGetStringRawBuffer(self.ptr, &mut len);
-            if len == 0 {
+            if self.handle.is_null() {
                 &[]
-            } else {
-                std::slice::from_raw_parts(wide, len as usize)
+            }
+            else {
+                std::slice::from_raw_parts((*self.handle).ptr, (*self.handle).len as usize)
             }
         }
     }
@@ -101,12 +99,12 @@ impl AsAbi for String {
     type Out = *mut *mut std::ffi::c_void;
 
     fn as_abi_in(&self) -> Self::In {
-        self.ptr
+        self.handle as Self::In
     }
 
     fn as_abi_out(&mut self) -> Self::Out {
         debug_assert!(self.is_empty());
-        &mut self.ptr
+        &mut (self.handle as *mut std::ffi::c_void) 
     }
 }
 
@@ -120,7 +118,11 @@ impl Drop for String {
     fn drop(&mut self) {
         if !self.is_empty() {
             unsafe {
-                WindowsDeleteString(self.ptr);
+                debug_assert!((*self.handle).flags & REFERENCE_FLAG == 0);
+        
+                if 0 == (*(self.handle as *const SharedHeader)).count.release() {
+                    HeapFree(GetProcessHeap(), 0, self.handle as *const std::ffi::c_void);
+                }
             }
         }
     }
@@ -138,24 +140,21 @@ impl std::fmt::Display for String {
 impl From<&str> for String {
     fn from(value: &str) -> String {
         unsafe {
-            let len = value.encode_utf16().count() as u32;
-            let mut buffer: *mut u16 = std::ptr::null_mut();
-            let mut handle = std::ptr::null_mut();
-            WindowsPreallocateStringBuffer(len, &mut buffer, &mut handle).unwrap();
+            let mut handle = with_len(value.len() as u32);
 
             for (index, wide) in value.encode_utf16().enumerate() {
-                *buffer.offset(index as isize) = wide;
+                *((*handle).ptr.offset(index as isize) as *mut u16) = wide;
+                (*handle).len = index as u32 + 1;
             }
 
-            let mut ptr = std::ptr::null_mut();
-            WindowsPromoteStringBuffer(handle, &mut ptr).unwrap();
-            String { ptr }
+            *((*handle).ptr.offset((*handle).len as isize) as *mut u16) = 0;
+            Self { handle }
         }
     }
 }
 
 impl From<*mut std::ffi::c_void> for String {
-    fn from(ptr: *mut std::ffi::c_void) -> String {
-        Self { ptr: ptr }
+    fn from(handle: *mut std::ffi::c_void) -> String {
+        Self { handle: handle as *const Header }
     }
 }
