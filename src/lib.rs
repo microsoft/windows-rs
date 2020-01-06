@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-pub mod abi;
+mod abi;
 mod activation;
 mod error;
 mod guid;
@@ -14,8 +14,8 @@ pub use activation::*;
 pub use error::*;
 pub use guid::*;
 pub use object::*;
-use ref_count::*;
-use runtime::*;
+pub use ref_count::*;
+pub use runtime::*;
 pub use string::*;
 pub use traits::*;
 pub use winrt_macros::*;

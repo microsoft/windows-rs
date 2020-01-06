@@ -1,7 +1,7 @@
 use std::sync::atomic::*;
 
 #[repr(C)]
-pub(crate) struct RefCount {
+pub struct RefCount {
     value: AtomicU32,
 }
 

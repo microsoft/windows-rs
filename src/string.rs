@@ -20,7 +20,7 @@ struct SharedHeader {
     buffer: u16,
 }
 
-// TODO: inline these functions when done
+// TODO: inline these functions (duplicate & with_len) when done
 fn duplicate(handle: *const Header) -> *const Header {
     unsafe {
         if handle.is_null() {

@@ -1,8 +1,19 @@
 extern crate proc_macro;
+
 mod writers;
+mod reader;
+mod file;
+mod error;
+mod flags;
+
+use writers::*;
+use reader::*;
+use file::*;
+use error::*;
+use flags::*;
+
 use proc_macro::*;
 use std::iter::FromIterator;
-use writers::*;
 
 #[derive(PartialEq)]
 enum ImportCategory {
@@ -72,49 +83,50 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     result
 }
 
-fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections::BTreeSet<String>) {
-    let mut category = ImportCategory::None;
-    let mut dependencies = std::collections::BTreeSet::<String>::new();
-    let mut modules = std::collections::BTreeSet::<String>::new();
+// fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections::BTreeSet<String>) {
+//     let mut category = ImportCategory::None;
+//     let mut dependencies = std::collections::BTreeSet::<String>::new();
+//     let mut modules = std::collections::BTreeSet::<String>::new();
 
-    for token in stream {
-        match token {
-            TokenTree::Ident(value) => match value.to_string().as_ref() {
-                "dependencies" => category = ImportCategory::Dependency,
-                "modules" => category = ImportCategory::Namespace,
-                value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
-            },
-            TokenTree::Literal(value) => match category {
-                ImportCategory::None => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
+//     for token in stream {
+//         match token {
+//             TokenTree::Ident(value) => match value.to_string().as_ref() {
+//                 "dependencies" => category = ImportCategory::Dependency,
+//                 "modules" => category = ImportCategory::Namespace,
+//                 value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
+//             },
+//             TokenTree::Literal(value) => match category {
+//                 ImportCategory::None => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
 
-                ImportCategory::Dependency => dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"'))),
-                ImportCategory::Namespace => {
-                    modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
-                }
-            },
-            _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string()),
-        }
-    }
+//                 ImportCategory::Dependency => dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"'))),
+//                 ImportCategory::Namespace => {
+//                     modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
+//                 }
+//             },
+//             _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string()),
+//         }
+//     }
 
-    let reader = winmd::Reader::from_files(&dependencies).unwrap();
-    let mut namespaces = std::collections::BTreeSet::<String>::new();
+//     let reader = winmd::Reader::from_files(&dependencies).unwrap();
+//     let mut namespaces = std::collections::BTreeSet::<String>::new();
 
-    for module in &modules {
-        match reader.find_namespace_lowercase(module) {
-            Some(namespace) => namespaces.append(&mut to_namespaces(namespace.full_name())),
-            None => panic!("winrt::import macro could not find module `{}` in dependencies", module),
-        };
-    }
+//     for module in &modules {
+//         match reader.find_namespace_lowercase(module) {
+//             Some(namespace) => namespaces.append(&mut to_namespaces(namespace.full_name())),
+//             None => panic!("winrt::import macro could not find module `{}` in dependencies", module),
+//         };
+//     }
 
-    (reader, namespaces)
-}
+//     (reader, namespaces)
+// }
 
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
-    let (reader, namespaces) = parse_import_stream(stream);
-    let output = write_selection(reader.namespaces(), &namespaces);
-    //println!("{}", output.to_string());
-    output.into()
+    //let (reader, namespaces) = parse_import_stream(stream);
+    // let output = write_selection(reader.namespaces(), &namespaces);
+    // //println!("{}", output.to_string());
+    // output.into()
+    TokenStream::new()
 }
 
 #[cfg(target_pointer_width = "64")]
