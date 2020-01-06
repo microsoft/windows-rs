@@ -21,22 +21,19 @@ struct SharedHeader {
 }
 
 // TODO: inline these functions when done
-
-
-
 fn duplicate(handle: *const Header) -> *const Header {
     unsafe {
-    if handle.is_null() {
-        std::ptr::null()
-    } else if (*handle).flags & REFERENCE_FLAG == 0 {
-        (*(handle as *const SharedHeader)).count.addref();
-        handle
-    } else {
-        let result = with_len((*handle).len);
-        std::ptr::copy_nonoverlapping((*handle).ptr, (*result).ptr as *mut u16, (*handle).len as usize + 1);
-        result
+        if handle.is_null() {
+            std::ptr::null()
+        } else if (*handle).flags & REFERENCE_FLAG == 0 {
+            (*(handle as *const SharedHeader)).count.addref();
+            handle
+        } else {
+            let result = with_len((*handle).len);
+            std::ptr::copy_nonoverlapping((*handle).ptr, (*result).ptr as *mut u16, (*handle).len as usize + 1);
+            result
+        }
     }
-}
 }
 
 fn with_len(len: u32) -> *mut Header {
@@ -53,7 +50,6 @@ fn with_len(len: u32) -> *mut Header {
         (*shared).header.len = len;
         (*shared).header.ptr = &(*shared).buffer;
         (*shared).count = RefCount::new(1);
-        *((*shared).header.ptr.offset(2 * len as isize) as *mut u16) = 0;
         shared as *mut Header
     }
 }
@@ -86,8 +82,7 @@ impl String {
         unsafe {
             if self.handle.is_null() {
                 &[]
-            }
-            else {
+            } else {
                 std::slice::from_raw_parts((*self.handle).ptr, (*self.handle).len as usize)
             }
         }
@@ -104,7 +99,7 @@ impl AsAbi for String {
 
     fn as_abi_out(&mut self) -> Self::Out {
         debug_assert!(self.is_empty());
-        &mut (self.handle as *mut std::ffi::c_void) 
+        &mut (self.handle as *mut std::ffi::c_void)
     }
 }
 
@@ -119,7 +114,7 @@ impl Drop for String {
         if !self.is_empty() {
             unsafe {
                 debug_assert!((*self.handle).flags & REFERENCE_FLAG == 0);
-        
+
                 if 0 == (*(self.handle as *const SharedHeader)).count.release() {
                     HeapFree(GetProcessHeap(), 0, self.handle as *const std::ffi::c_void);
                 }
