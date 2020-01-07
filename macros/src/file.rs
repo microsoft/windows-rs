@@ -14,19 +14,32 @@ pub struct File {
     strings: u32,
     blobs: u32,
     guids: u32,
+    pub tables: [TableData; 11],
 
-    pub constant: TableData,
-    pub custom_attribute: TableData,
-    pub field: TableData,
-    pub generic_param: TableData,
-    pub interface_impl: TableData,
-    pub member_ref: TableData,
-    pub method_def: TableData,
-    pub param: TableData,
-    pub type_def: TableData,
-    pub type_ref: TableData,
-    pub type_spec: TableData,
+    // pub constant: TableData,
+    // pub custom_attribute: TableData,
+    // pub field: TableData,
+    // pub generic_param: TableData,
+    // pub interface_impl: TableData,
+    // pub member_ref: TableData,
+    // pub method_def: TableData,
+    // pub param: TableData,
+    // pub type_def: TableData,
+    // pub type_ref: TableData,
+    // pub type_spec: TableData,
 }
+
+pub const TABLE_CONSTANT: usize = 0;
+pub const TABLE_CUSTOM_ATTRIBUTE: usize = 1;
+pub const TABLE_FIELD: usize = 2;
+pub const TABLE_GENERIC_PARAM: usize = 3;
+pub const TABLE_INTERFACE_IMPL: usize = 4;
+pub const TABLE_MEMBER_REF: usize = 5;
+pub const TABLE_METHOD_DEF: usize = 6;
+pub const TABLE_PARAM: usize = 7;
+pub const TABLE_TYPE_DEF: usize = 8;
+pub const TABLE_TYPE_REF: usize = 9;
+pub const TABLE_TYPE_SPEC: usize = 10;
 
 impl TableData {
     fn index_size(&self) -> u32 {
@@ -65,6 +78,8 @@ impl TableData {
         }
     }
 
+    // TODO: move u32 and str to file and simply take a Row param
+    
     pub fn u32(&self, file: &File, row: u32, column: u32) -> u32 {
         let offset = self.data + row * self.row_size + self.columns[column as usize].0;
         match self.columns[column as usize].1 {
@@ -181,15 +196,15 @@ impl File {
 
             match i {
                 0x00 => unused_module.row_count = row_count,
-                0x01 => file.type_ref.row_count = row_count,
-                0x02 => file.type_def.row_count = row_count,
-                0x04 => file.field.row_count = row_count,
-                0x06 => file.method_def.row_count = row_count,
-                0x08 => file.param.row_count = row_count,
-                0x09 => file.interface_impl.row_count = row_count,
-                0x0a => file.member_ref.row_count = row_count,
-                0x0b => file.constant.row_count = row_count,
-                0x0c => file.custom_attribute.row_count = row_count,
+                0x01 => file.tables[TABLE_TYPE_REF].row_count = row_count,
+                0x02 => file.tables[TABLE_TYPE_DEF].row_count = row_count,
+                0x04 => file.tables[TABLE_FIELD].row_count = row_count,
+                0x06 => file.tables[TABLE_METHOD_DEF].row_count = row_count,
+                0x08 => file.tables[TABLE_PARAM].row_count = row_count,
+                0x09 => file.tables[TABLE_INTERFACE_IMPL].row_count = row_count,
+                0x0a => file.tables[TABLE_MEMBER_REF].row_count = row_count,
+                0x0b => file.tables[TABLE_CONSTANT].row_count = row_count,
+                0x0c => file.tables[TABLE_CUSTOM_ATTRIBUTE].row_count = row_count,
                 0x0d => unused_field_marshal.row_count = row_count,
                 0x0e => unused_decl_security.row_count = row_count,
                 0x0f => unused_class_layout.row_count = row_count,
@@ -202,7 +217,7 @@ impl File {
                 0x18 => unused_method_semantics.row_count = row_count,
                 0x19 => unused_method_impl.row_count = row_count,
                 0x1a => unused_module_ref.row_count = row_count,
-                0x1b => file.type_spec.row_count = row_count,
+                0x1b => file.tables[TABLE_TYPE_SPEC].row_count = row_count,
                 0x1c => unused_impl_map.row_count = row_count,
                 0x1d => unused_field_rva.row_count = row_count,
                 0x20 => unused_assembly.row_count = row_count,
@@ -215,26 +230,26 @@ impl File {
                 0x27 => unused_exported_type.row_count = row_count,
                 0x28 => unused_manifest_resource.row_count = row_count,
                 0x29 => unused_nested_class.row_count = row_count,
-                0x2a => file.generic_param.row_count = row_count,
+                0x2a => file.tables[TABLE_GENERIC_PARAM].row_count = row_count,
                 0x2b => unused_method_spec.row_count = row_count,
                 0x2c => unused_generic_param_constraint.row_count = row_count,
                 _ => return Err(ParseError::InvalidFile),
             };
         }
 
-        let type_def_or_ref = composite_index_size(&[&file.type_def, &file.type_ref, &file.type_spec]);
-        let has_constant = composite_index_size(&[&file.field, &file.param, &unused_property]);
-        let has_custom_attribute = composite_index_size(&[&file.method_def, &file.field, &file.type_ref, &file.type_def, &file.param, &file.interface_impl, &file.member_ref, &unused_module, &unused_property, &unused_event, &unused_standalone_sig, &unused_module_ref, &file.type_spec, &unused_assembly, &unused_assembly_ref, &unused_file, &unused_exported_type, &unused_manifest_resource, &file.generic_param, &unused_generic_param_constraint, &unused_method_spec]);
-        let has_field_marshal = composite_index_size(&[&file.field, &file.param]);
-        let has_decl_security = composite_index_size(&[&file.type_def, &file.method_def, &unused_assembly]);
-        let member_ref_parent = composite_index_size(&[&file.type_def, &file.type_ref, &unused_module_ref, &file.method_def, &file.type_spec]);
+        let type_def_or_ref = composite_index_size(&[&file.tables[TABLE_TYPE_DEF], &file.tables[TABLE_TYPE_REF], &file.tables[TABLE_TYPE_SPEC]]);
+        let has_constant = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_PARAM], &unused_property]);
+        let has_custom_attribute = composite_index_size(&[&file.tables[TABLE_METHOD_DEF], &file.tables[TABLE_FIELD], &file.tables[TABLE_TYPE_REF], &file.tables[TABLE_TYPE_DEF], &file.tables[TABLE_PARAM], &file.tables[TABLE_INTERFACE_IMPL], &file.tables[TABLE_MEMBER_REF], &unused_module, &unused_property, &unused_event, &unused_standalone_sig, &unused_module_ref, &file.tables[TABLE_TYPE_SPEC], &unused_assembly, &unused_assembly_ref, &unused_file, &unused_exported_type, &unused_manifest_resource, &file.tables[TABLE_GENERIC_PARAM], &unused_generic_param_constraint, &unused_method_spec]);
+        let has_field_marshal = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_PARAM]]);
+        let has_decl_security = composite_index_size(&[&file.tables[TABLE_TYPE_DEF], &file.tables[TABLE_METHOD_DEF], &unused_assembly]);
+        let member_ref_parent = composite_index_size(&[&file.tables[TABLE_TYPE_DEF], &file.tables[TABLE_TYPE_REF], &unused_module_ref, &file.tables[TABLE_METHOD_DEF], &file.tables[TABLE_TYPE_SPEC]]);
         let has_semantics = composite_index_size(&[&unused_event, &unused_property]);
-        let method_def_or_ref = composite_index_size(&[&file.method_def, &file.member_ref]);
-        let member_forwarded = composite_index_size(&[&file.field, &file.method_def]);
+        let method_def_or_ref = composite_index_size(&[&file.tables[TABLE_METHOD_DEF], &file.tables[TABLE_MEMBER_REF]]);
+        let member_forwarded = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_METHOD_DEF]]);
         let implementation = composite_index_size(&[&unused_file, &unused_assembly_ref, &unused_exported_type]);
-        let custom_attribute_type = composite_index_size(&[&file.method_def, &file.member_ref, &unused_empty, &unused_empty, &unused_empty]);
-        let resolution_scope = composite_index_size(&[&unused_module, &unused_module_ref, &unused_assembly_ref, &file.type_ref]);
-        let type_or_method_def = composite_index_size(&[&file.type_def, &file.method_def]);
+        let custom_attribute_type = composite_index_size(&[&file.tables[TABLE_METHOD_DEF], &file.tables[TABLE_MEMBER_REF], &unused_empty, &unused_empty, &unused_empty]);
+        let resolution_scope = composite_index_size(&[&unused_module, &unused_module_ref, &unused_assembly_ref, &file.tables[TABLE_TYPE_REF]]);
+        let type_or_method_def = composite_index_size(&[&file.tables[TABLE_TYPE_DEF], &file.tables[TABLE_METHOD_DEF]]);
 
         unused_assembly.set_columns(4, 8, 4, blob_index_size, string_index_size, string_index_size);
         unused_assembly_os.set_columns(4, 4, 4, 0, 0, 0);
@@ -242,49 +257,49 @@ impl File {
         unused_assembly_ref.set_columns(8, 4, blob_index_size, string_index_size, string_index_size, blob_index_size);
         unused_assembly_ref_os.set_columns(4, 4, 4, unused_assembly_ref.index_size(), 0, 0);
         unused_assembly_ref_processor.set_columns(4, unused_assembly_ref.index_size(), 0, 0, 0, 0);
-        unused_class_layout.set_columns(2, 4, file.type_def.index_size(), 0, 0, 0);
-        file.constant.set_columns(2, has_constant, blob_index_size, 0, 0, 0);
-        file.custom_attribute.set_columns(has_custom_attribute, custom_attribute_type, blob_index_size, 0, 0, 0);
+        unused_class_layout.set_columns(2, 4, file.tables[TABLE_TYPE_DEF].index_size(), 0, 0, 0);
+        file.tables[TABLE_CONSTANT].set_columns(2, has_constant, blob_index_size, 0, 0, 0);
+        file.tables[TABLE_CUSTOM_ATTRIBUTE].set_columns(has_custom_attribute, custom_attribute_type, blob_index_size, 0, 0, 0);
         unused_decl_security.set_columns(2, has_decl_security, blob_index_size, 0, 0, 0);
-        unused_event_map.set_columns(file.type_def.index_size(), unused_event.index_size(), 0, 0, 0, 0);
+        unused_event_map.set_columns(file.tables[TABLE_TYPE_DEF].index_size(), unused_event.index_size(), 0, 0, 0, 0);
         unused_event.set_columns(2, string_index_size, type_def_or_ref, 0, 0, 0);
         unused_exported_type.set_columns(4, 4, string_index_size, string_index_size, implementation, 0);
-        file.field.set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
-        unused_field_layout.set_columns(4, file.field.index_size(), 0, 0, 0, 0);
+        file.tables[TABLE_FIELD].set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
+        unused_field_layout.set_columns(4, file.tables[TABLE_FIELD].index_size(), 0, 0, 0, 0);
         unused_field_marshal.set_columns(has_field_marshal, blob_index_size, 0, 0, 0, 0);
-        unused_field_rva.set_columns(4, file.field.index_size(), 0, 0, 0, 0);
+        unused_field_rva.set_columns(4, file.tables[TABLE_FIELD].index_size(), 0, 0, 0, 0);
         unused_file.set_columns(4, string_index_size, blob_index_size, 0, 0, 0);
-        file.generic_param.set_columns(2, 2, type_or_method_def, string_index_size, 0, 0);
-        unused_generic_param_constraint.set_columns(file.generic_param.index_size(), type_def_or_ref, 0, 0, 0, 0);
+        file.tables[TABLE_GENERIC_PARAM].set_columns(2, 2, type_or_method_def, string_index_size, 0, 0);
+        unused_generic_param_constraint.set_columns(file.tables[TABLE_GENERIC_PARAM].index_size(), type_def_or_ref, 0, 0, 0, 0);
         unused_impl_map.set_columns(2, member_forwarded, string_index_size, unused_module_ref.index_size(), 0, 0);
-        file.interface_impl.set_columns(file.type_def.index_size(), type_def_or_ref, 0, 0, 0, 0);
+        file.tables[TABLE_INTERFACE_IMPL].set_columns(file.tables[TABLE_TYPE_DEF].index_size(), type_def_or_ref, 0, 0, 0, 0);
         unused_manifest_resource.set_columns(4, 4, string_index_size, implementation, 0, 0);
-        file.member_ref.set_columns(member_ref_parent, string_index_size, blob_index_size, 0, 0, 0);
-        file.method_def.set_columns(4, 2, 2, string_index_size, blob_index_size, file.param.index_size());
-        unused_method_impl.set_columns(file.type_def.index_size(), method_def_or_ref, method_def_or_ref, 0, 0, 0);
-        unused_method_semantics.set_columns(2, file.method_def.index_size(), has_semantics, 0, 0, 0);
+        file.tables[TABLE_MEMBER_REF].set_columns(member_ref_parent, string_index_size, blob_index_size, 0, 0, 0);
+        file.tables[TABLE_METHOD_DEF].set_columns(4, 2, 2, string_index_size, blob_index_size, file.tables[TABLE_PARAM].index_size());
+        unused_method_impl.set_columns(file.tables[TABLE_TYPE_DEF].index_size(), method_def_or_ref, method_def_or_ref, 0, 0, 0);
+        unused_method_semantics.set_columns(2, file.tables[TABLE_METHOD_DEF].index_size(), has_semantics, 0, 0, 0);
         unused_method_spec.set_columns(method_def_or_ref, blob_index_size, 0, 0, 0, 0);
         unused_module.set_columns(2, string_index_size, guid_index_size, guid_index_size, guid_index_size, 0);
         unused_module_ref.set_columns(string_index_size, 0, 0, 0, 0, 0);
-        unused_nested_class.set_columns(file.type_def.index_size(), file.type_def.index_size(), 0, 0, 0, 0);
-        file.param.set_columns(2, 2, string_index_size, 0, 0, 0);
+        unused_nested_class.set_columns(file.tables[TABLE_TYPE_DEF].index_size(), file.tables[TABLE_TYPE_DEF].index_size(), 0, 0, 0, 0);
+        file.tables[TABLE_PARAM].set_columns(2, 2, string_index_size, 0, 0, 0);
         unused_property.set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
-        unused_property_map.set_columns(file.type_def.index_size(), unused_property.index_size(), 0, 0, 0, 0);
+        unused_property_map.set_columns(file.tables[TABLE_TYPE_DEF].index_size(), unused_property.index_size(), 0, 0, 0, 0);
         unused_standalone_sig.set_columns(blob_index_size, 0, 0, 0, 0, 0);
-        file.type_def.set_columns(4, string_index_size, string_index_size, type_def_or_ref, file.field.index_size(), file.method_def.index_size());
-        file.type_ref.set_columns(resolution_scope, string_index_size, string_index_size, 0, 0, 0);
-        file.type_spec.set_columns(blob_index_size, 0, 0, 0, 0, 0);
+        file.tables[TABLE_TYPE_DEF].set_columns(4, string_index_size, string_index_size, type_def_or_ref, file.tables[TABLE_FIELD].index_size(), file.tables[TABLE_METHOD_DEF].index_size());
+        file.tables[TABLE_TYPE_REF].set_columns(resolution_scope, string_index_size, string_index_size, 0, 0, 0);
+        file.tables[TABLE_TYPE_SPEC].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
         unused_module.set_data(&mut view);
-        file.type_ref.set_data(&mut view);
-        file.type_def.set_data(&mut view);
-        file.field.set_data(&mut view);
-        file.method_def.set_data(&mut view);
-        file.param.set_data(&mut view);
-        file.interface_impl.set_data(&mut view);
-        file.member_ref.set_data(&mut view);
-        file.constant.set_data(&mut view);
-        file.custom_attribute.set_data(&mut view);
+        file.tables[TABLE_TYPE_REF].set_data(&mut view);
+        file.tables[TABLE_TYPE_DEF].set_data(&mut view);
+        file.tables[TABLE_FIELD].set_data(&mut view);
+        file.tables[TABLE_METHOD_DEF].set_data(&mut view);
+        file.tables[TABLE_PARAM].set_data(&mut view);
+        file.tables[TABLE_INTERFACE_IMPL].set_data(&mut view);
+        file.tables[TABLE_MEMBER_REF].set_data(&mut view);
+        file.tables[TABLE_CONSTANT].set_data(&mut view);
+        file.tables[TABLE_CUSTOM_ATTRIBUTE].set_data(&mut view);
         unused_field_marshal.set_data(&mut view);
         unused_decl_security.set_data(&mut view);
         unused_class_layout.set_data(&mut view);
@@ -297,7 +312,7 @@ impl File {
         unused_method_semantics.set_data(&mut view);
         unused_method_impl.set_data(&mut view);
         unused_module_ref.set_data(&mut view);
-        file.type_spec.set_data(&mut view);
+        file.tables[TABLE_TYPE_SPEC].set_data(&mut view);
         unused_impl_map.set_data(&mut view);
         unused_field_rva.set_data(&mut view);
         unused_assembly.set_data(&mut view);
@@ -310,7 +325,7 @@ impl File {
         unused_exported_type.set_data(&mut view);
         unused_manifest_resource.set_data(&mut view);
         unused_nested_class.set_data(&mut view);
-        file.generic_param.set_data(&mut view);
+        file.tables[TABLE_GENERIC_PARAM].set_data(&mut view);
 
         Ok(file)
     }

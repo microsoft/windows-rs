@@ -1,8 +1,9 @@
 use crate::*;
 
 pub struct Row {
-    pub index: u32,
-    pub file: u32,
+    pub row: u32,
+    pub table: u16,
+    pub file: u16,
 }
 
 pub struct Reader {
@@ -16,12 +17,12 @@ impl<'a> Reader {
 
         for filename in filenames {
             let file = File::new(filename)?;
-
-            for row in 0..file.type_def.row_count {
-                if TypeAttributes(file.type_def.u32(&file, row, 0)).windows_runtime() {
-                    let type_name = file.type_def.str(&file, row, 1);
-                    let type_namespace = file.type_def.str(&file, row, 2);
-
+            let table = &file.tables[TABLE_TYPE_DEF];
+            
+            for row in 0..table.row_count {
+                if TypeAttributes(table.u32(&file, row, 0)).windows_runtime() {
+                    let namespace = table.str(&file, row, 2).to_string();
+                    reader.types.entry(namespace).or_insert_with(||Default::default()).push(Row {row: row, table:TABLE_TYPE_DEF as u16, file: reader.files.len() as u16 - 1});
                 }
             }
         }
