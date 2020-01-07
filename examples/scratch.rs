@@ -1,6 +1,6 @@
-
 fn main() -> winrt::Result<()> {
-    println!("ok");
+    let reader = reader::Reader::from_os();
 
+    println!("ok");
     Ok(())
 }

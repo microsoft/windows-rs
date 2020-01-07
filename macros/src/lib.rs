@@ -1,16 +1,8 @@
 extern crate proc_macro;
 
 mod writers;
-mod reader;
-mod file;
-mod error;
-mod flags;
 
 use writers::*;
-use reader::*;
-use file::*;
-use error::*;
-use flags::*;
 
 use proc_macro::*;
 use std::iter::FromIterator;
