@@ -1,9 +1,6 @@
 extern crate proc_macro;
 
-mod writers;
-
-use writers::*;
-
+use winmd::*;
 use proc_macro::*;
 use std::iter::FromIterator;
 
@@ -118,7 +115,10 @@ pub fn import(stream: TokenStream) -> TokenStream {
     // let output = write_selection(reader.namespaces(), &namespaces);
     // //println!("{}", output.to_string());
     // output.into()
-    TokenStream::new()
+
+    let mut writer = RustWriter::new();
+    writer.add_namespace("Windows.UI");
+    writer.write().into()
 }
 
 #[cfg(target_pointer_width = "64")]
