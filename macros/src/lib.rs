@@ -1,8 +1,8 @@
 extern crate proc_macro;
 
-use winmd::*;
 use proc_macro::*;
 use std::iter::FromIterator;
+use winmd::*;
 
 #[derive(PartialEq)]
 enum ImportCategory {
@@ -118,6 +118,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
 
     let mut writer = RustWriter::new();
     writer.add_namespace("Windows.UI");
+    writer.add_namespace("Windows.Foundation");
     writer.write().into()
 }
 
