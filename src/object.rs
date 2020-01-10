@@ -33,3 +33,9 @@ impl From<*mut std::ffi::c_void> for Object {
         Self { ptr }
     }
 }
+
+impl Default for Object {
+    fn default() -> Self {
+        Self { ptr: std::ptr::null_mut() }
+    }
+}
