@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Default, PartialEq)]
+#[derive(Copy, Clone, Default, Debug, PartialEq)]
 pub struct Guid {
     data1: u32,
     data2: u16,
