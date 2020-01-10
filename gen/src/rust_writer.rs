@@ -193,6 +193,11 @@ impl<'a> Writer<'a> {
             }
         }
 
+        // TODO: 1. write default interface consume methods directly into class impl (not calling through default interface)
+
+        // TODO: 2. write non-default interface consume methods as calls through those interfaces e.g.
+        // self.into<INonDefault>().NonDefaultMethod()
+
         TokenStream::from_iter(tokens)
     }
 
