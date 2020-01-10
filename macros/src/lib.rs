@@ -117,10 +117,10 @@ pub fn import(stream: TokenStream) -> TokenStream {
     // output.into()
 
     let mut writer = RustWriter::new();
-    //writer.add_namespace("Windows.UI");
+    writer.add_namespace("Windows.UI");
     writer.add_namespace("Windows.Foundation");
     let output = writer.write();
-    println!("{}", output.to_string());
+    //println!("{}", output.to_string());
     output.into()
 }
 
