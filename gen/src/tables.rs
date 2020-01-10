@@ -1,0 +1,228 @@
+use crate::*;
+use winmd_macros::*;
+
+table!(Constant);
+table!(CustomAttribute);
+table!(Field);
+table!(GenericParam);
+table!(InterfaceImpl);
+table!(MemberRef);
+table!(MethodDef);
+table!(Param);
+table!(TypeDef);
+table!(TypeRef);
+table!(TypeSpec);
+
+pub enum TypeCategory {
+    Interface,
+    Class,
+    Enum,
+    Struct,
+    Delegate,
+    Attribute,
+    Contract,
+}
+
+pub enum ConstantValue {
+    I32(i32),
+    U32(u32),
+}
+
+impl CustomAttribute {
+    pub fn parent(&self, r: &Reader) -> HasCustomAttribute {
+        r.decode(&self.row, 0)
+    }
+
+    pub fn constructor(&self, r: &Reader) -> CustomAttributeType {
+        r.decode(&self.row, 1)
+    }
+
+    pub fn name<'a>(&self, r: &'a Reader) -> (&'a str, &'a str) {
+        match self.constructor(r) {
+            CustomAttributeType::MethodDef(value) => {
+                let value = value.parent(r);
+                (value.namespace(r), value.name(r))
+            }
+            CustomAttributeType::MemberRef(value) => match value.parent(r) {
+                MemberRefParent::TypeDef(value) => (value.namespace(r), value.name(r)),
+                MemberRefParent::TypeRef(value) => (value.namespace(r), value.name(r)),
+                _ => panic!(),
+            },
+        }
+    }
+
+    pub fn arguments(&self, r: &Reader) -> Vec<(String, ArgumentSig)> {
+        match self.constructor(r) {
+            CustomAttributeType::MethodDef(value) => ArgumentSig::new(r, self.row.file, r.blob(&value.row, 4), r.blob(&self.row, 2)),
+            CustomAttributeType::MemberRef(value) => ArgumentSig::new(r, self.row.file, r.blob(&value.row, 2), r.blob(&self.row, 2)),
+        }
+    }
+}
+
+impl Field {
+    pub fn name<'a>(&self, r: &'a Reader) -> &'a str {
+        r.str(&self.row, 1)
+    }
+
+    pub fn signature(&self, r: &Reader) -> TypeSig {
+        field_sig(self, r)
+    }
+
+    pub fn constants(&self, r: &Reader) -> RowIterator<Constant> {
+        r.equal_range(self.row.file, 1, HasConstant::Field(*self).encode())
+    }
+}
+
+impl GenericParam {
+    pub fn name<'a>(&self, r: &'a Reader) -> &'a str {
+        r.str(&self.row, 3)
+    }
+}
+
+impl MemberRef {
+    pub fn parent(&self, r: &Reader) -> MemberRefParent {
+        r.decode(&self.row, 0)
+    }
+
+    pub fn name<'a>(&self, r: &'a Reader) -> &'a str {
+        r.str(&self.row, 1)
+    }
+}
+
+impl MethodDef {
+    pub fn flags(&self, r: &Reader) -> MethodAttributes {
+        MethodAttributes(r.u32(&self.row, 2))
+    }
+
+    pub fn parent(&self, r: &Reader) -> TypeDef {
+        r.upper_bound(self.row.file, 6, self.row.row)
+    }
+
+    pub(crate) fn params(&self, r: &Reader) -> RowIterator<Param> {
+        r.list(&self.row, 5)
+    }
+
+    pub fn abi_name<'a>(&self, r: &'a Reader) -> &'a str {
+        r.str(&self.row, 3)
+    }
+
+    pub fn signature(&self, r: &Reader) -> MethodSig {
+        MethodSig::new(r, self)
+    }
+
+    pub fn name(&self, r: &Reader) -> String {
+        // TODO: need to account for OverloadAttribute considering that Rust doesn't support overloads.
+
+        let mut source = self.abi_name(r);
+        let mut result = String::with_capacity(source.len() + 2);
+
+        if self.flags(r).special() {
+            if source.starts_with("get_") || source.starts_with("add_") {
+                source = &source[4..];
+            } else if source.starts_with("put_") {
+                result.push_str("set");
+                source = &source[4..];
+            } else if source.starts_with("remove_") {
+                result.push_str("revoke");
+                source = &source[7..];
+            }
+        }
+
+        append_snake(&mut result, source);
+
+        if result.starts_with("get_") {
+            result.replace_range(0..4, "");
+        }
+        result
+    }
+}
+
+impl Param {
+    pub fn flags(&self, r: &Reader) -> ParamAttributes {
+        ParamAttributes(r.u32(&self.row, 0))
+    }
+
+    pub fn sequence(&self, r: &Reader) -> u32 {
+        r.u32(&self.row, 1)
+    }
+
+    pub fn name<'a>(&self, r: &'a Reader) -> String {
+        to_snake(r.str(&self.row, 2))
+    }
+}
+
+impl TypeDef {
+    pub fn flags(&self, r: &Reader) -> TypeAttributes {
+        TypeAttributes(r.u32(&self.row, 0))
+    }
+
+    pub fn name<'a>(&self, r: &'a Reader) -> &'a str {
+        r.str(&self.row, 1)
+    }
+
+    pub fn namespace<'a>(&self, r: &'a Reader) -> &'a str {
+        r.str(&self.row, 2)
+    }
+
+    pub fn extends(&self, r: &Reader) -> TypeDefOrRef {
+        r.decode(&self.row, 3)
+    }
+
+    pub fn fields(&self, r: &Reader) -> RowIterator<Field> {
+        r.list(&self.row, 4)
+    }
+
+    pub fn methods(&self, r: &Reader) -> RowIterator<MethodDef> {
+        r.list(&self.row, 5)
+    }
+
+    pub fn generics(&self, r: &Reader) -> RowIterator<GenericParam> {
+        r.equal_range(self.row.file, 2, TypeOrMethodDef::TypeDef(*self).encode())
+    }
+
+    pub fn attributes(&self, r: &Reader) -> RowIterator<CustomAttribute> {
+        r.equal_range(self.row.file, 0, HasCustomAttribute::TypeDef(*self).encode())
+    }
+
+    pub fn has_attribute(&self, r: &Reader, namespace: &str, name: &str) -> bool {
+        self.attributes(r).any(|attribute| attribute.name(r) == (namespace, name))
+    }
+
+    pub fn find_attribute(&self, r: &Reader, namespace: &str, name: &str) -> Option<CustomAttribute> {
+        self.attributes(r).find(|attribute| attribute.name(r) == (namespace, name))
+    }
+
+    pub fn category(&self, r: &Reader) -> TypeCategory {
+        if self.flags(r).interface() {
+            TypeCategory::Interface
+        } else {
+            match self.extends(r).name(r) {
+                "Enum" => TypeCategory::Enum,
+                "MulticastDelegate" => TypeCategory::Delegate,
+                "ValueType" => {
+                    if self.has_attribute(r, "Windows.Foundation.Metadata", "ApiContractAttribute") {
+                        TypeCategory::Contract
+                    } else {
+                        TypeCategory::Struct
+                    }
+                }
+                "Attribute" => TypeCategory::Attribute,
+                _ => TypeCategory::Class,
+            }
+        }
+    }
+}
+
+impl TypeRef {
+    pub fn name<'a>(&self, r: &'a Reader) -> &'a str {
+        r.str(&self.row, 1)
+    }
+
+    pub fn namespace<'a>(&self, r: &'a Reader) -> &'a str {
+        r.str(&self.row, 2)
+    }
+
+    pub fn resolve(&self, r: &Reader) -> TypeDef {
+        *r.namespaces().get(self.namespace(r)).unwrap().get(self.name(r)).unwrap()
+    }
+}

@@ -1,14 +1,11 @@
 [package]
-name = "winrt_macros"
+name = "winmd"
 version = "0.1.0"
 authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
 edition = "2018"
 
-[lib]
-proc-macro = true
-
 [dependencies]
+winmd_macros = { path = "macros" }
 syn = "1.0"
 quote = "1.0"
 proc-macro2 = "1.0"
-winmd = { path = "../gen" }

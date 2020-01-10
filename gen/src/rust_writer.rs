@@ -1,0 +1,1060 @@
+use crate::*;
+use proc_macro2::{Literal, TokenStream};
+use quote::{format_ident, quote};
+use std::collections::*;
+use std::iter::FromIterator;
+
+#[derive(Default)]
+struct Namespace {
+    types: TokenStream,
+    namespaces: BTreeMap<String, Namespace>,
+}
+
+impl Namespace {
+    fn write(&self) -> TokenStream {
+        let types = &self.types;
+        let namespaces = self.namespaces.write_namespaces();
+
+        quote! {
+            #types
+            #namespaces
+        }
+    }
+}
+
+trait NamespaceWriter {
+    fn insert_namespace(&mut self, namespace: &str, types: TokenStream);
+    fn write_namespaces(&self) -> TokenStream;
+}
+
+impl NamespaceWriter for BTreeMap<String, Namespace> {
+    fn insert_namespace(&mut self, namespace: &str, types: TokenStream) {
+        if let Some(pos) = namespace.find('.') {
+            self.entry(namespace[..pos].to_string()).or_insert_with(|| Default::default()).namespaces.insert_namespace(&namespace[pos + 1..], types);
+        } else {
+            self.entry(namespace.to_string()).or_insert_with(|| Default::default()).types = types;
+        }
+    }
+
+    fn write_namespaces(&self) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for (name, namespace) in self {
+            let name = format_ident!("{}", name.to_lowercase());
+            let namespace = namespace.write();
+
+            tokens.push(quote! {
+                pub mod #name {
+                    #namespace
+                }
+            });
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+}
+
+pub struct RustWriter {
+    r: Reader,
+    limits: BTreeSet<String>,
+}
+
+impl RustWriter {
+    pub fn new() -> RustWriter {
+        RustWriter { r: Reader::from_os().unwrap(), limits: Default::default() }
+    }
+
+    pub fn add_namespace(&mut self, mut namespace: &str) {
+        if !self.r.namespaces().contains_key(namespace) {
+            panic!("Namespace `{}` not found in winmd files", namespace);
+        }
+
+        self.limits.insert(namespace.to_string());
+
+        while let Some(index) = namespace.rfind('.') {
+            namespace = namespace.get(0..index).unwrap();
+
+            if self.r.namespaces().contains_key(namespace) {
+                self.limits.insert(namespace.to_string());
+            }
+        }
+    }
+
+    pub fn write(&self) -> TokenStream {
+        Writer::write(&self.r, &self.limits)
+    }
+}
+
+struct Writer<'a> {
+    pub r: &'a Reader,
+    pub namespace: &'a str,
+    pub limits: &'a BTreeSet<String>,
+    pub generics: Vec<Vec<TokenStream>>,
+}
+
+impl<'a> Writer<'a> {
+    pub fn write(r: &Reader, limits: &BTreeSet<String>) -> TokenStream {
+        let mut namespaces = BTreeMap::new();
+
+        // TODO: parallalelize this loop
+        for namespace in limits {
+            let mut w = Writer { r, namespace, limits, generics: Default::default() };
+            namespaces.insert_namespace(namespace, w.write_namespace(namespace));
+        }
+
+        namespaces.write_namespaces()
+    }
+
+    fn write_namespace(&mut self, namespace: &str) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for t in self.r.namespace_types(namespace) {
+            tokens.push(match t.category(self.r) {
+                TypeCategory::Interface => self.write_interface(t),
+                TypeCategory::Class => self.write_class(t),
+                TypeCategory::Enum => self.write_enum(t),
+                TypeCategory::Struct => self.write_struct(t),
+                TypeCategory::Delegate => self.write_delegate(t),
+                _ => continue,
+            });
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_class(&mut self, class: &TypeDef) -> TokenStream {
+        // TODO: don't define struct here if the class is static - only declare.
+
+        if class.name(self.r) == "PropertyValue" {
+            return TokenStream::new();
+        }
+
+        let name = format_ident!("{}", class.name(self.r));
+        let functions = self.write_class_functions(&class);
+        let string_name = format!("{}.{}", class.namespace(self.r), class.name(self.r));
+
+        quote! {
+            pub struct #name { ptr: *mut std::ffi::c_void }
+            impl #name { #functions }
+            impl winrt::TypeName for #name {
+                fn type_name() -> &'static str {
+                    #string_name
+                }
+            }
+            impl winrt::AsAbi for #name {
+                type In = *mut std::ffi::c_void;
+                type Out = *mut *mut std::ffi::c_void;
+                fn as_abi_in(&self) -> Self::In {
+                    self.ptr
+                }
+                fn as_abi_out(&mut self) -> Self::Out {
+                    debug_assert!(self.ptr.is_null());
+                    &mut self.ptr
+                }
+            }
+            impl From<*mut std::ffi::c_void> for #name {
+                fn from(ptr: *mut std::ffi::c_void) -> Self {
+                    Self { ptr }
+                }
+            }
+            impl Default for #name {
+                fn default() -> Self {
+                    Self { ptr: std::ptr::null_mut() }
+                }
+            }
+        }
+    }
+
+    fn factory_type(&mut self, attribute: &CustomAttribute) -> Option<TypeDef> {
+        for (_, sig) in attribute.arguments(self.r) {
+            if let ArgumentSig::TypeDef(interface) = sig {
+                return Some(interface);
+            }
+        }
+
+        None
+    }
+
+    fn write_class_functions(&mut self, class: &TypeDef) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for attribute in class.attributes(self.r) {
+            let (_, name) = attribute.name(self.r);
+
+            if name == "StaticAttribute" {
+                let interface = self.factory_type(&attribute).unwrap();
+                tokens.push(self.write_class_statics(class, &interface));
+            } else if name == "ActivatableAttribute" {
+                if let Some(interface) = self.factory_type(&attribute) {
+                    tokens.push(self.write_class_statics(class, &interface));
+                } else {
+                    // TODO: code default constructor "new"
+                }
+            }
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_class_statics(&mut self, class: &TypeDef, interface: &TypeDef) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        let class_name = format_ident!("{}", class.name(self.r));
+        let interface_name = format_ident!("{}", interface.name(self.r));
+
+        for method in interface.methods(self.r) {
+            let method_name = format_ident!("r#{}", method.name(self.r));
+            let signature = method.signature(self.r);
+            let params = self.write_consume_params(&signature);
+            let args = signature.params().iter().map(|param| format_ident!("{}", param.name()));
+
+            if let Some(result) = signature.return_type() {
+                let result = self.write_type(result.sig_type());
+
+                tokens.push(quote! {
+                    pub fn #method_name(#params) -> winrt::Result<#result> {
+                        winrt::factory::<#class_name, #interface_name>()?.#method_name(#(#args),*)
+                    }
+                });
+            } else {
+                tokens.push(quote! {
+                    pub fn #method_name(#params) -> winrt::Result<()> {
+                            panic!();
+                    }
+                });
+            };
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_guid(&mut self, t: &TypeDef) -> TokenStream {
+        let guid = t.find_attribute(self.r, "Windows.Foundation.Metadata", "GuidAttribute").unwrap();
+        let args = guid.arguments(self.r);
+
+        let mut iter = args.iter().map(|(_, value)| match value {
+            ArgumentSig::U8(value) => Literal::u8_unsuffixed(*value),
+            ArgumentSig::U16(value) => Literal::u16_unsuffixed(*value),
+            ArgumentSig::U32(value) => Literal::u32_unsuffixed(*value),
+            _ => panic!(),
+        });
+
+        let three = iter.by_ref().take(3);
+
+        quote! {
+            #(#three,)* &[#(#iter),*],
+        }
+    }
+
+    fn namespace_ident(&mut self, name: &str) -> TokenStream {
+        let parts = name.split('.').map(|part| format_ident!("{}", part.to_lowercase()));
+        quote! {
+            #(#parts)::*
+        }
+    }
+
+    fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
+        if interface.name(self.r) == "IPropertyValueStatics" || interface.name(self.r) == "IReferenceArray`1" || interface.name(self.r) == "IPropertyValue" {
+            return TokenStream::new();
+        }
+
+        let generics = interface.generics(self.r);
+
+        if generics.is_empty() {
+            self.write_non_generic_interface(interface)
+        } else {
+            self.push_generic_params(generics);
+            let tokens = self.write_generic_interface(interface);
+            self.generics.pop();
+            tokens
+        }
+    }
+
+    fn write_non_generic_interface(&mut self, interface: &TypeDef) -> TokenStream {
+        let name = interface.name(self.r);
+        let name_ident = format_ident!("{}", name);
+        let abi_name_ident = format_ident!("abi_{}", name);
+        let abi_name_ident = quote! { #abi_name_ident };
+        let abi_methods = self.write_abi_methods(&interface);
+        let consume_methods = self.write_consume_methods(&interface, &abi_name_ident);
+        let guid = self.write_guid(interface);
+
+        quote! {
+            #[repr(C)]
+            pub struct #name_ident { ptr: *mut std::ffi::c_void }
+            #[repr(C)]
+            struct #abi_name_ident {
+                __0: usize,
+                __1: usize,
+                __2: usize,
+                __3: usize,
+                __4: usize,
+                __5: usize,
+                #abi_methods
+            }
+            impl #name_ident {
+                #consume_methods
+            }
+            impl winrt::TypeGuid for #name_ident {
+                fn type_guid() -> &'static winrt::Guid {
+                    static GUID: winrt::Guid = winrt::Guid::from_values(
+                        #guid
+                    );
+                    &GUID
+                }
+            }
+            impl winrt::AsAbi for #name_ident {
+                type In = *mut std::ffi::c_void;
+                type Out = *mut *mut std::ffi::c_void;
+                fn as_abi_in(&self) -> Self::In {
+                    self.ptr
+                }
+                fn as_abi_out(&mut self) -> Self::Out {
+                    debug_assert!(self.ptr.is_null());
+                    &mut self.ptr
+                }
+            }
+            impl From<*mut std::ffi::c_void> for #name_ident {
+                fn from(ptr: *mut std::ffi::c_void) -> Self {
+                    Self { ptr }
+                }
+            }
+            impl Default for #name_ident {
+                fn default() -> Self {
+                    Self { ptr: std::ptr::null_mut() }
+                }
+            }
+        }
+    }
+
+    fn push_generic_params(&mut self, generics: RowIterator<GenericParam>) {
+        self.generics.push(
+            generics
+                .map(|g| {
+                    let name = format_ident!("{}", g.name(self.r));
+                    quote! { #name }
+                })
+                .collect(),
+        );
+    }
+
+    fn write_generic_interface(&mut self, interface: &TypeDef) -> TokenStream {
+        let guid = self.write_guid(interface);
+        let generics = self.generics.last().unwrap();
+        let generics = quote! { <#(#generics),*> };
+        let generics2 = self.write_generic_params();
+        let phantoms = self.write_generic_phantom_data();
+        let name = interface.name(self.r);
+        let name = &name[..name.len() - 2];
+        let name_ident = format_ident!("{}", name);
+        let abi_name_ident = format_ident!("abi_{}", name);
+        let abi_name_ident2 = quote! { #abi_name_ident #generics };
+        let abi_methods = self.write_abi_methods(&interface);
+        let consume_methods = self.write_consume_methods(&interface, &abi_name_ident2);
+
+        quote! {
+            #[repr(C)]
+            pub struct #name_ident #generics2 { ptr: *mut std::ffi::c_void, #phantoms }
+            #[repr(C)]
+            struct #abi_name_ident #generics2 {
+                __0: usize,
+                __1: usize,
+                __2: usize,
+                __3: usize,
+                __4: usize,
+                __5: usize,
+                #abi_methods
+                #phantoms
+            }
+            impl #generics2 #name_ident #generics {
+                #consume_methods
+            }
+            impl #generics2 winrt::TypeGuid for #name_ident #generics {
+                fn type_guid() -> &'static winrt::Guid {
+                    static GUID: winrt::Guid = winrt::Guid::from_values(
+                        #guid
+                    );
+                    &GUID
+                }
+            }
+            impl #generics2 winrt::AsAbi for #name_ident #generics {
+                type In = *mut std::ffi::c_void;
+                type Out = *mut *mut std::ffi::c_void;
+                fn as_abi_in(&self) -> Self::In {
+                    self.ptr
+                }
+                fn as_abi_out(&mut self) -> Self::Out {
+                    debug_assert!(self.ptr.is_null());
+                    &mut self.ptr
+                }
+            }
+            impl #generics2 From<*mut std::ffi::c_void> for #name_ident #generics {
+                fn from(ptr: *mut std::ffi::c_void) -> Self {
+                    Self { ptr, #phantoms }
+                }
+            }
+            impl #generics2 Default for #name_ident #generics {
+                fn default() -> Self {
+                    Self { ptr: std::ptr::null_mut(), #phantoms }
+                }
+            }
+        }
+    }
+
+    fn write_abi_methods(&mut self, interface: &TypeDef) -> TokenStream {
+        let mut tokens = quote! {};
+
+        for method in interface.methods(self.r) {
+            let name = method.name(self.r);
+            if name == ".ctor" {
+                continue;
+            }
+            let name = format_ident!("r#{}", name);
+            let params = self.write_abi_params(&method.signature(self.r));
+            tokens = quote! {
+                #tokens
+                #name: extern "system" fn(*const std::ffi::c_void, #params) -> winrt::ErrorCode,
+            };
+        }
+
+        tokens
+    }
+
+    fn write_consume_methods(&mut self, interface: &TypeDef, abi_interface_name: &TokenStream) -> TokenStream {
+        let mut tokens = quote! {};
+
+        for method in interface.methods(self.r) {
+            let name = format_ident!("r#{}", method.name(self.r));
+            let signature = method.signature(self.r);
+            let params = self.write_consume_params(&signature);
+            let args = self.write_abi_args(&signature);
+
+            if let Some(result) = signature.return_type() {
+                let projected_result = self.write_type(result.sig_type());
+                let receive_result = self.write_consume_receive_type(result.sig_type());
+                let receive_expression = self.write_consume_receive_expression(result.sig_type());
+
+                tokens = quote! {
+                    #tokens
+                    pub fn #name(&self, #params) -> winrt::Result<#projected_result> {
+                        unsafe {
+                            #receive_result
+                            ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
+                                self.ptr, #args #receive_expression
+                            )
+                            .ok_or(From::from(__ok))
+                        }
+                    }
+                };
+            } else {
+                tokens = quote! {
+                    #tokens
+                    pub fn #name(&self, #params) -> winrt::Result<()> {
+                        unsafe {
+                            ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
+                                self.ptr, #args
+                            )
+                            .ok()
+                        }
+                    }
+                };
+            };
+        }
+
+        tokens
+    }
+
+    fn write_consume_receive_type(&mut self, value: &TypeSig) -> TokenStream {
+        match value.category(self.r) {
+            ParamCategory::Object | ParamCategory::String => quote! {
+                let mut __ok = std::ptr::null_mut();
+            },
+            _ => {
+                let projected_type = self.write_type(value);
+                quote! {
+                    let mut __ok: #projected_type = Default::default();
+                }
+            }
+        }
+    }
+
+    fn write_consume_receive_expression(&mut self, value: &TypeSig) -> TokenStream {
+        match value.category(self.r) {
+            ParamCategory::Generic => {
+                let projected_type = self.write_type(value);
+                quote! {
+                        <#projected_type as winrt::AsAbi>::as_abi_out(&mut __ok)
+                }
+            }
+            _ => quote! {
+                &mut __ok
+            },
+        }
+    }
+
+    fn write_enum(&mut self, t: &TypeDef) -> TokenStream {
+        let name = format_ident!("{}", t.name(self.r));
+        let fields = self.write_enum_fields(&t);
+        let first = format_ident!("{}", t.fields(self.r).skip(1).next().unwrap().name(self.r));
+        quote! {
+            pub enum #name { #fields }
+            impl Default for #name {
+                fn default() -> Self {
+                    Self::#first
+                }
+            }
+        }
+    }
+
+    fn write_enum_fields(&mut self, t: &TypeDef) -> TokenStream {
+        let mut tokens = quote! {};
+
+        for f in t.fields(self.r) {
+            for _c in f.constants(self.r) {
+                let name = format_ident!("{}", f.name(self.r));
+                //let value = c.value();
+
+                tokens = quote! {
+                    #tokens
+                    #name,
+                    // TODO: write out the enum value
+                };
+            }
+        }
+
+        tokens
+    }
+
+    fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
+        let generics = interface.generics(self.r);
+
+        if generics.is_empty() {
+            self.write_non_generic_delegate(interface)
+        } else {
+            self.push_generic_params(generics);
+            let tokens = self.write_generic_delegate(interface);
+            self.generics.pop();
+            tokens
+        }
+    }
+
+    fn write_non_generic_delegate(&mut self, interface: &TypeDef) -> TokenStream {
+        let name = interface.name(self.r);
+        let name_ident = format_ident!("{}", name);
+        let abi_name_ident = format_ident!("abi_{}", name);
+        let abi_name_ident = quote! { #abi_name_ident };
+        let guid = self.write_guid(interface);
+        let abi_methods = self.write_abi_methods(&interface);
+
+        quote! {
+            #[repr(C)]
+            pub struct #name_ident { ptr: *mut std::ffi::c_void }
+            #[repr(C)]
+            struct #abi_name_ident {
+                __0: usize,
+                __1: usize,
+                __2: usize,
+                #abi_methods
+            }
+            impl #name_ident {
+            }
+            impl winrt::TypeGuid for #name_ident {
+                fn type_guid() -> &'static winrt::Guid {
+                    static GUID: winrt::Guid = winrt::Guid::from_values(
+                        #guid
+                    );
+                    &GUID
+                }
+            }
+            impl winrt::AsAbi for #name_ident {
+                type In = *mut std::ffi::c_void;
+                type Out = *mut *mut std::ffi::c_void;
+                fn as_abi_in(&self) -> Self::In {
+                    self.ptr
+                }
+                fn as_abi_out(&mut self) -> Self::Out {
+                    debug_assert!(self.ptr.is_null());
+                    &mut self.ptr
+                }
+            }
+            impl From<*mut std::ffi::c_void> for #name_ident {
+                fn from(ptr: *mut std::ffi::c_void) -> Self {
+                    Self { ptr }
+                }
+            }
+            impl Default for #name_ident {
+                fn default() -> Self {
+                    Self { ptr: std::ptr::null_mut() }
+                }
+            }
+        }
+    }
+
+    fn write_generic_params(&mut self) -> TokenStream {
+        let generics = self.generics.last().unwrap();
+
+        let mut tokens = Vec::new();
+
+        for generic in generics {
+            tokens.push(quote! { #generic : winrt::AsAbi })
+        }
+
+        quote! { <#(#tokens),*> }
+    }
+
+    fn write_generic_phantom_data(&mut self) -> TokenStream {
+        let generics = self.generics.last().unwrap();
+
+        let mut tokens = Vec::new();
+
+        for (count, generic) in generics.iter().enumerate() {
+            let name = format_ident!("__{}", count + 6);
+            tokens.push(quote! { #name: std::marker::PhantomData::<#generic>, })
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_generic_delegate(&mut self, interface: &TypeDef) -> TokenStream {
+        let generics = self.generics.last().unwrap();
+        let generics = quote! { <#(#generics),*> };
+        let generics2 = self.write_generic_params();
+        let phantoms = self.write_generic_phantom_data();
+        let name = interface.name(self.r);
+        let name = &name[..name.len() - 2];
+        let name_ident = format_ident!("{}", name);
+        let abi_name_ident = format_ident!("abi_{}", name);
+        // let abi_name_ident2 = quote!{ #abi_name_ident #generics };
+        let guid = self.write_guid(interface);
+        let abi_methods = self.write_abi_methods(&interface);
+
+        quote! {
+            #[repr(C)]
+            pub struct #name_ident #generics2 { ptr: *mut std::ffi::c_void, #phantoms }
+            #[repr(C)]
+            struct #abi_name_ident #generics2 {
+                __0: usize,
+                __1: usize,
+                __2: usize,
+                #abi_methods
+                #phantoms
+            }
+            impl #generics2 #name_ident #generics {
+            }
+            impl #generics2 winrt::TypeGuid for #name_ident #generics {
+                fn type_guid() -> &'static winrt::Guid {
+                    static GUID: winrt::Guid = winrt::Guid::from_values(
+                        #guid
+                    );
+                    &GUID
+                }
+            }
+            impl #generics2 winrt::AsAbi for #name_ident #generics {
+                type In = *mut std::ffi::c_void;
+                type Out = *mut *mut std::ffi::c_void;
+                fn as_abi_in(&self) -> Self::In {
+                    self.ptr
+                }
+                fn as_abi_out(&mut self) -> Self::Out {
+                    debug_assert!(self.ptr.is_null());
+                    &mut self.ptr
+                }
+            }
+            impl #generics2 From<*mut std::ffi::c_void> for #name_ident #generics {
+                fn from(ptr: *mut std::ffi::c_void) -> Self {
+                    Self { ptr, #phantoms }
+                }
+            }
+            impl #generics2 Default for #name_ident #generics {
+                fn default() -> Self {
+                    Self { ptr: std::ptr::null_mut(), #phantoms }
+                }
+            }
+        }
+    }
+
+    fn write_struct(&mut self, t: &TypeDef) -> TokenStream {
+        let name = format_ident!("{}", t.name(self.r));
+        let fields = self.write_struct_fields(&t);
+        quote! {
+            #[repr(C)]
+            #[derive(Copy, Clone, Default, Debug, PartialEq)]
+            pub struct #name { #fields }
+            impl winrt::AsAbi for #name {
+                type In = #name;
+                type Out = *mut #name;
+                fn as_abi_in(&self) -> Self::In { *self }
+                fn as_abi_out(&mut self) -> Self::Out { self as Self::Out }
+            }
+        }
+        // TODO: AsAbi for non-trivial structs needs to be customized
+    }
+
+    fn write_struct_fields(&mut self, t: &TypeDef) -> TokenStream {
+        let mut tokens = quote! {};
+
+        for f in t.fields(self.r) {
+            let name = format_ident!("r#{}", to_snake(f.name(self.r)));
+
+            tokens = quote! {
+                #tokens
+                pub #name: u8,
+                // TODO: write out field type
+            };
+        }
+
+        tokens
+    }
+
+    //
+    // write_abi_params
+    //
+
+    fn write_abi_params(&mut self, signature: &MethodSig) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for param in signature.params() {
+            tokens.push(self.write_abi_param(param));
+        }
+
+        if let Some(param) = signature.return_type() {
+            tokens.push(self.write_abi_param(param));
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_abi_param(&mut self, param: &ParamSig) -> TokenStream {
+        match param.sig_type().sig_type() {
+            TypeSigType::ElementType(value) => self.write_abi_param_element_type(param, value),
+            TypeSigType::TypeDefOrRef(value) => self.write_abi_param_type(param, value),
+            TypeSigType::GenericSig(value) => self.write_abi_param_generic(param, value),
+            TypeSigType::GenericTypeIndex(value) => self.write_abi_param_generic_index(param, *value),
+        }
+    }
+
+    fn write_abi_param_element_type(&mut self, param: &ParamSig, value: &ElementType) -> TokenStream {
+        if param.input() {
+            match value {
+                ElementType::Bool => quote! { bool, },
+                ElementType::Char => quote! { char, },
+                ElementType::I8 => quote! { i8, },
+                ElementType::U8 => quote! { u8, },
+                ElementType::I16 => quote! { i16, },
+                ElementType::U16 => quote! { u16, },
+                ElementType::I32 => quote! { i32, },
+                ElementType::U32 => quote! { u32, },
+                ElementType::I64 => quote! { i64, },
+                ElementType::U64 => quote! { u64, },
+                ElementType::F32 => quote! { f32, },
+                ElementType::F64 => quote! { f64, },
+                ElementType::String => quote! { *const std::ffi::c_void, },
+                ElementType::Object => quote! { *const std::ffi::c_void, },
+            }
+        } else {
+            match value {
+                ElementType::Bool => quote! { &mut bool, },
+                ElementType::Char => quote! { &mut char, },
+                ElementType::I8 => quote! { &mut i8, },
+                ElementType::U8 => quote! { &mut u8, },
+                ElementType::I16 => quote! { &mut i16, },
+                ElementType::U16 => quote! { &mut u16, },
+                ElementType::I32 => quote! { &mut i32, },
+                ElementType::U32 => quote! { &mut u32, },
+                ElementType::I64 => quote! { &mut i64, },
+                ElementType::U64 => quote! { &mut u64, },
+                ElementType::F32 => quote! { &mut f32, },
+                ElementType::F64 => quote! { &mut f64, },
+                ElementType::String => quote! { &mut *mut std::ffi::c_void, },
+                ElementType::Object => quote! { &mut *mut std::ffi::c_void, },
+            }
+        }
+    }
+
+    fn write_abi_param_type(&mut self, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
+        match value {
+            TypeDefOrRef::TypeDef(value) => self.write_abi_param_type_def(param, value),
+            TypeDefOrRef::TypeRef(value) => self.write_abi_param_type_ref(param, value),
+            _ => panic!("write_abi_param_type"),
+        }
+    }
+
+    fn write_abi_param_type_def(&mut self, param: &ParamSig, value: &TypeDef) -> TokenStream {
+        if param.input() {
+            match value.category(self.r) {
+                TypeCategory::Enum | TypeCategory::Struct => {
+                    let name = format_ident!("{}", value.name(self.r));
+                    quote! { #name, }
+                }
+                _ => quote! { *const std::ffi::c_void, },
+            }
+        } else {
+            match value.category(self.r) {
+                TypeCategory::Enum | TypeCategory::Struct => {
+                    let name = format_ident!("{}", value.name(self.r));
+                    quote! { &mut #name, }
+                }
+                _ => quote! { &mut *mut std::ffi::c_void, },
+            }
+        }
+    }
+
+    fn write_abi_param_type_ref(&mut self, param: &ParamSig, value: &TypeRef) -> TokenStream {
+        if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
+            if param.input() {
+                quote! { winrt::Guid, }
+            } else {
+                quote! { &mut winrt::Guid, }
+            }
+        } else {
+            self.write_abi_param_type_def(param, &value.resolve(self.r))
+        }
+    }
+
+    fn write_abi_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
+        if param.input() {
+            quote! { *const std::ffi::c_void, }
+        } else {
+            quote! { &mut *mut std::ffi::c_void, }
+        }
+    }
+
+    fn write_abi_param_generic_index(&mut self, param: &ParamSig, value: u32) -> TokenStream {
+        let last = self.generics.last().unwrap();
+        let type_param = &last[value as usize];
+
+        if param.input() {
+            quote! { <#type_param as winrt::AsAbi>::In, }
+        } else {
+            quote! { <#type_param as winrt::AsAbi>::Out, }
+        }
+    }
+
+    //
+    // write_consume_params
+    //
+
+    fn write_consume_params(&mut self, signature: &MethodSig) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for param in signature.params() {
+            let name = format_ident!("{}", param.name());
+            tokens.push(quote! { #name: });
+            tokens.push(self.write_consume_param(param));
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_consume_param(&mut self, param: &ParamSig) -> TokenStream {
+        match param.sig_type().sig_type() {
+            TypeSigType::ElementType(value) => self.write_consume_param_element_type(param, value),
+            TypeSigType::TypeDefOrRef(value) => self.write_consume_param_type(param, value),
+            TypeSigType::GenericSig(value) => self.write_consume_param_generic(param, value),
+            TypeSigType::GenericTypeIndex(value) => self.write_consume_param_generic_index(param, *value),
+        }
+    }
+
+    fn write_consume_param_element_type(&mut self, param: &ParamSig, value: &ElementType) -> TokenStream {
+        if param.input() {
+            match value {
+                ElementType::Bool => quote! { bool, },
+                ElementType::Char => quote! { char, },
+                ElementType::I8 => quote! { i8, },
+                ElementType::U8 => quote! { u8, },
+                ElementType::I16 => quote! { i16, },
+                ElementType::U16 => quote! { u16, },
+                ElementType::I32 => quote! { i32, },
+                ElementType::U32 => quote! { u32, },
+                ElementType::I64 => quote! { i64, },
+                ElementType::U64 => quote! { u64, },
+                ElementType::F32 => quote! { f32, },
+                ElementType::F64 => quote! { f64, },
+                ElementType::String => quote! { &winrt::String, }, // AsRef<String> e.g. &str/String
+                ElementType::Object => quote! { &winrt::Object, }, // AsRef<Object> e.g. boxing/polymorphism
+            }
+        } else {
+            match value {
+                ElementType::Bool => quote! { &mut bool, },
+                ElementType::Char => quote! { &mut char, },
+                ElementType::I8 => quote! { &mut i8, },
+                ElementType::U8 => quote! { &mut u8, },
+                ElementType::I16 => quote! { &mut i16, },
+                ElementType::U16 => quote! { &mut u16, },
+                ElementType::I32 => quote! { &mut i32, },
+                ElementType::U32 => quote! { &mut u32, },
+                ElementType::I64 => quote! { &mut i64, },
+                ElementType::U64 => quote! { &mut u64, },
+                ElementType::F32 => quote! { &mut f32, },
+                ElementType::F64 => quote! { &mut f64, },
+                ElementType::String => quote! { &mut winrt::String, },
+                ElementType::Object => quote! { &mut winrt::Object, },
+            }
+        }
+    }
+
+    fn write_consume_param_type(&mut self, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
+        match value {
+            TypeDefOrRef::TypeDef(value) => self.write_consume_param_type_def(param, value),
+            TypeDefOrRef::TypeRef(value) => self.write_consume_param_type_ref(param, value),
+            _ => panic!("write_consume_param_type"),
+        }
+    }
+
+    fn write_consume_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
+        let namespace = self.namespace_ident(value.sig_type().namespace(self.r));
+        let name = value.sig_type().name(self.r);
+        let name = name.get(..name.len() - 2).unwrap();
+        let name = format_ident!("{}", name);
+        let mut args = Vec::new();
+
+        for arg in value.args() {
+            args.push(self.write_type(arg));
+        }
+
+        if param.input() {
+            quote! {
+                &#name<#(#args),*>,
+            }
+        } else {
+            quote! {
+                &mut #name<#(#args),*>,
+            }
+        }
+    }
+
+    fn write_consume_param_generic_index(&mut self, param: &ParamSig, value: u32) -> TokenStream {
+        let last = self.generics.last().unwrap();
+        let param = &last[value as usize];
+        quote! { #param, }
+    }
+
+    fn write_consume_param_type_def(&mut self, param: &ParamSig, value: &TypeDef) -> TokenStream {
+        let type_name = format_ident!("{}", value.name(self.r));
+
+        if param.input() {
+            quote! { &#type_name, }
+        } else {
+            quote! { &mut #type_name, }
+        }
+    }
+
+    fn write_consume_param_type_ref(&mut self, param: &ParamSig, value: &TypeRef) -> TokenStream {
+        if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
+            if param.input() {
+                quote! { &winrt::Guid, }
+            } else {
+                quote! { &mut winrt::Guid, }
+            }
+        } else {
+            self.write_consume_param_type_def(param, &value.resolve(self.r))
+        }
+    }
+
+    //
+    // write_abi_args
+    //
+
+    fn write_abi_args(&mut self, signature: &MethodSig) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for param in signature.params() {
+            tokens.push(self.write_abi_arg(param));
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_abi_arg(&mut self, param: &ParamSig) -> TokenStream {
+        let name = format_ident!("{}", param.name());
+        let category = param.sig_type().category(self.r);
+
+        if param.input() {
+            match category {
+                ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
+                ParamCategory::Struct => quote! { *#name, },
+                _ => quote! { winrt::AsAbi::as_abi_in(#name), },
+            }
+        } else {
+            match category {
+                ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { &mut #name, },
+                _ => quote! { winrt::AsAbi::as_abi_out(#name), },
+            }
+        }
+    }
+
+    //
+    // write_type
+    //
+
+    fn write_type(&mut self, value: &TypeSig) -> TokenStream {
+        match value.sig_type() {
+            TypeSigType::ElementType(value) => self.write_type_element(value),
+            TypeSigType::TypeDefOrRef(value) => self.write_type_def_or_ref(value),
+            TypeSigType::GenericSig(value) => self.write_type_generic(value),
+            TypeSigType::GenericTypeIndex(value) => self.write_type_generic_index(*value),
+        }
+    }
+
+    fn write_type_element(&mut self, value: &ElementType) -> TokenStream {
+        match value {
+            ElementType::Bool => quote! { bool },
+            ElementType::Char => quote! { char },
+            ElementType::I8 => quote! { i8 },
+            ElementType::U8 => quote! { u8 },
+            ElementType::I16 => quote! { i16 },
+            ElementType::U16 => quote! { u16 },
+            ElementType::I32 => quote! { i32 },
+            ElementType::U32 => quote! { u32 },
+            ElementType::I64 => quote! { i64 },
+            ElementType::U64 => quote! { u64 },
+            ElementType::F32 => quote! { f32 },
+            ElementType::F64 => quote! { f64 },
+            ElementType::String => quote! { winrt::String },
+            ElementType::Object => quote! { winrt::Object },
+        }
+    }
+
+    fn write_type_def_or_ref(&mut self, value: &TypeDefOrRef) -> TokenStream {
+        match value {
+            TypeDefOrRef::TypeDef(value) => self.write_type_def(value),
+            TypeDefOrRef::TypeRef(value) => self.write_type_ref(value),
+            _ => panic!("write_type_def_or_ref"),
+        }
+    }
+
+    fn write_type_def(&mut self, value: &TypeDef) -> TokenStream {
+        let name = format_ident!("{}", value.name(self.r));
+        quote! { #name }
+    }
+
+    fn write_type_ref(&mut self, value: &TypeRef) -> TokenStream {
+        if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
+            quote! { winrt::Guid }
+        } else {
+            self.write_type_def(&value.resolve(self.r))
+        }
+    }
+
+    fn write_type_generic(&mut self, value: &GenericSig) -> TokenStream {
+        let namespace = self.namespace_ident(value.sig_type().namespace(self.r));
+        let name = value.sig_type().name(self.r);
+        let name = name.get(..name.len() - 2).unwrap();
+        let name = format_ident!("{}", name);
+        let mut args = Vec::new();
+
+        for arg in value.args() {
+            args.push(self.write_type(arg));
+        }
+
+        quote! {
+            #name<#(#args),*>
+        }
+    }
+
+    fn write_type_generic_index(&mut self, value: u32) -> TokenStream {
+        let last = self.generics.last().unwrap();
+        let param = &last[value as usize];
+        quote! { #param }
+    }
+}
