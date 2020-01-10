@@ -11,17 +11,27 @@ impl IUnknown {
     pub fn query(ptr: *const std::ffi::c_void, guid: &Guid) -> *const std::ffi::c_void {
         unsafe {
             let mut result = std::ptr::null_mut();
-            ((*(*(ptr as *const *const Self))).query)(ptr, guid, &mut result);
+            if !ptr.is_null() {
+                ((*(*(ptr as *const *const Self))).query)(ptr, guid, &mut result);
+            }
             result
         }
     }
 
-    pub fn addref(ptr: *const std::ffi::c_void) -> u32 {
-        unsafe { ((*(*(ptr as *const *const Self))).addref)(ptr) }
+    pub fn addref(ptr: *const std::ffi::c_void) {
+        unsafe {
+            if !ptr.is_null() {
+                ((*(*(ptr as *const *const Self))).addref)(ptr);
+            }
+        }
     }
 
-    pub fn release(ptr: *const std::ffi::c_void) -> u32 {
-        unsafe { ((*(*(ptr as *const *const Self))).release)(ptr) }
+    pub fn release(ptr: *const std::ffi::c_void) {
+        unsafe {
+            if !ptr.is_null() {
+                ((*(*(ptr as *const *const Self))).release)(ptr);
+            }
+        }
     }
 }
 
