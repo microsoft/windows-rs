@@ -8,7 +8,7 @@ pub trait TypeName {
     fn type_name() -> &'static str;
 }
 
-pub trait AsAbi : Default {
+pub trait AsAbi: Default {
     type In;
     type Out;
 
@@ -26,4 +26,4 @@ impl AsAbi for u32 {
     fn as_abi_out(&mut self) -> Self::Out {
         self as Self::Out
     }
- }
+}
