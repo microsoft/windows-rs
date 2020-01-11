@@ -162,6 +162,11 @@ impl<'a> Writer<'a> {
                     Self { ptr: std::ptr::null_mut() }
                 }
             }
+            impl Drop for #name {
+                fn drop(&mut self) {
+                    winrt::IUnknown::release(self.ptr);
+                }
+            }
         }
     }
 
@@ -329,6 +334,11 @@ impl<'a> Writer<'a> {
                     Self { ptr: std::ptr::null_mut() }
                 }
             }
+            impl Drop for #name_ident {
+                fn drop(&mut self) {
+                    winrt::IUnknown::release(self.ptr);
+                }
+            }
         }
     }
 
@@ -401,6 +411,11 @@ impl<'a> Writer<'a> {
             impl #generics2 Default for #name_ident #generics {
                 fn default() -> Self {
                     Self { ptr: std::ptr::null_mut(), #phantoms }
+                }
+            }
+            impl #generics2 Drop for #name_ident #generics {
+                fn drop(&mut self) {
+                    winrt::IUnknown::release(self.ptr);
                 }
             }
         }
@@ -592,6 +607,11 @@ impl<'a> Writer<'a> {
                     Self { ptr: std::ptr::null_mut() }
                 }
             }
+            impl Drop for #name_ident {
+                fn drop(&mut self) {
+                    winrt::IUnknown::release(self.ptr);
+                }
+            }
         }
     }
 
@@ -673,6 +693,11 @@ impl<'a> Writer<'a> {
             impl #generics2 Default for #name_ident #generics {
                 fn default() -> Self {
                     Self { ptr: std::ptr::null_mut(), #phantoms }
+                }
+            }
+            impl #generics2 Drop for #name_ident #generics {
+                fn drop(&mut self) {
+                    winrt::IUnknown::release(self.ptr);
                 }
             }
         }

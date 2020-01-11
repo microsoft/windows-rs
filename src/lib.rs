@@ -10,6 +10,7 @@ mod runtime;
 mod string;
 mod traits;
 
+pub use abi::*;
 pub use activation::*;
 pub use error::*;
 pub use guid::*;

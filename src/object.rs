@@ -39,3 +39,9 @@ impl Default for Object {
         Self { ptr: std::ptr::null_mut() }
     }
 }
+
+impl Drop for Object {
+    fn drop(&mut self) {
+        IUnknown::release(self.ptr);
+    }
+}
