@@ -14,6 +14,10 @@ pub trait AsAbi: Default {
 
     fn as_abi_in(&self) -> Self::In;
     fn as_abi_out(&mut self) -> Self::Out;
+
+    fn detach_abi(&mut self) -> Self::In {
+        self.as_abi_in()
+    }
 }
 
 impl AsAbi for bool {

@@ -151,6 +151,11 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
+                fn detach_abi(&mut self) -> Self::In {
+                    let ptr = self.as_abi_in();
+                    self.ptr = std::ptr::null_mut();
+                    ptr
+                }
             }
             impl From<*mut std::ffi::c_void> for #name {
                 fn from(ptr: *mut std::ffi::c_void) -> Self {
@@ -323,6 +328,11 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
+                fn detach_abi(&mut self) -> Self::In {
+                    let ptr = self.as_abi_in();
+                    self.ptr = std::ptr::null_mut();
+                    ptr
+                }
             }
             impl From<*mut std::ffi::c_void> for #name_ident {
                 fn from(ptr: *mut std::ffi::c_void) -> Self {
@@ -401,6 +411,11 @@ impl<'a> Writer<'a> {
                 fn as_abi_out(&mut self) -> Self::Out {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
+                }
+                fn detach_abi(&mut self) -> Self::In {
+                    let ptr = self.as_abi_in();
+                    self.ptr = std::ptr::null_mut();
+                    ptr
                 }
             }
             impl #generics2 From<*mut std::ffi::c_void> for #name_ident #generics {
@@ -596,6 +611,11 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
+                fn detach_abi(&mut self) -> Self::In {
+                    let ptr = self.as_abi_in();
+                    self.ptr = std::ptr::null_mut();
+                    ptr
+                }
             }
             impl From<*mut std::ffi::c_void> for #name_ident {
                 fn from(ptr: *mut std::ffi::c_void) -> Self {
@@ -684,6 +704,11 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
+                fn detach_abi(&mut self) -> Self::In {
+                    let ptr = self.as_abi_in();
+                    self.ptr = std::ptr::null_mut();
+                    ptr
+                }
             }
             impl #generics2 From<*mut std::ffi::c_void> for #name_ident #generics {
                 fn from(ptr: *mut std::ffi::c_void) -> Self {
@@ -767,7 +792,7 @@ impl<'a> Writer<'a> {
         if param.input() {
             match value {
                 ElementType::Bool => quote! { bool, },
-                ElementType::Char => quote! { char, },
+                ElementType::Char => quote! { u16, },
                 ElementType::I8 => quote! { i8, },
                 ElementType::U8 => quote! { u8, },
                 ElementType::I16 => quote! { i16, },
@@ -784,7 +809,7 @@ impl<'a> Writer<'a> {
         } else {
             match value {
                 ElementType::Bool => quote! { &mut bool, },
-                ElementType::Char => quote! { &mut char, },
+                ElementType::Char => quote! { &mut u16, },
                 ElementType::I8 => quote! { &mut i8, },
                 ElementType::U8 => quote! { &mut u8, },
                 ElementType::I16 => quote! { &mut i16, },
@@ -889,7 +914,7 @@ impl<'a> Writer<'a> {
         if param.input() {
             match value {
                 ElementType::Bool => quote! { bool, },
-                ElementType::Char => quote! { char, },
+                ElementType::Char => quote! { u16, },
                 ElementType::I8 => quote! { i8, },
                 ElementType::U8 => quote! { u8, },
                 ElementType::I16 => quote! { i16, },
@@ -906,7 +931,7 @@ impl<'a> Writer<'a> {
         } else {
             match value {
                 ElementType::Bool => quote! { &mut bool, },
-                ElementType::Char => quote! { &mut char, },
+                ElementType::Char => quote! { &mut u16, },
                 ElementType::I8 => quote! { &mut i8, },
                 ElementType::U8 => quote! { &mut u8, },
                 ElementType::I16 => quote! { &mut i16, },
@@ -1029,7 +1054,7 @@ impl<'a> Writer<'a> {
     fn write_type_element(&mut self, value: &ElementType) -> TokenStream {
         match value {
             ElementType::Bool => quote! { bool },
-            ElementType::Char => quote! { char },
+            ElementType::Char => quote! { u16 },
             ElementType::I8 => quote! { i8 },
             ElementType::U8 => quote! { u8 },
             ElementType::I16 => quote! { i16 },

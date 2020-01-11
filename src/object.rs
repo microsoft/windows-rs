@@ -26,6 +26,12 @@ impl AsAbi for Object {
         debug_assert!(self.ptr.is_null());
         &mut self.ptr
     }
+
+    fn detach_abi(&mut self) -> Self::In {
+        let ptr = self.as_abi_in();
+        self.ptr = std::ptr::null_mut();
+        ptr
+    }
 }
 
 impl From<*mut std::ffi::c_void> for Object {

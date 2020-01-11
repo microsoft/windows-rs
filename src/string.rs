@@ -101,6 +101,12 @@ impl AsAbi for String {
         debug_assert!(self.is_empty());
         &mut (self.handle as *mut std::ffi::c_void)
     }
+
+    fn detach_abi(&mut self) -> Self::In {
+        let handle = self.as_abi_in();
+        self.handle = std::ptr::null_mut();
+        handle
+    }
 }
 
 impl Default for String {
