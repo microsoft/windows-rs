@@ -159,3 +159,67 @@ impl From<*mut std::ffi::c_void> for String {
         Self { handle: handle as *const Header }
     }
 }
+
+// TODO: put this into a submodule e.g. winrt::param::String
+pub enum InputString<'a> {
+    Slice(&'a str),
+    String(std::string::String),
+    WinrtStringSlice(&'a String),
+    WinrtString(String),
+}
+
+impl<'a> Into<InputString<'a>> for &'a str {
+    fn into(self) -> InputString<'a> {
+        InputString::Slice(self)
+    }
+}
+
+impl<'a> Into<InputString<'a>> for std::string::String {
+    fn into(self) -> InputString<'a> {
+        InputString::String(self)
+    }
+}
+
+impl<'a> Into<InputString<'a>> for String {
+    fn into(self) -> InputString<'a> {
+        InputString::WinrtString(self)
+    }
+}
+
+
+impl<'a> Into<InputString<'a>> for &'a String {
+    fn into(self) -> InputString<'a> {
+        InputString::WinrtStringSlice(self)
+    }
+}
+
+// impl AsRef<String> for String {
+//     fn as_ref(&self) -> &String {
+//         self
+//     }
+// }
+
+// impl AsRef<String> for str {
+//     fn as_ref(&self) -> &String {
+//         self
+//     }
+// }
+
+
+// pub enum Str<'a> {
+//     Slice(&'a str),
+//     Borrowed(&'a String),
+//     Owned(String),
+// }
+
+// impl<'a> std::borrow::Borrow<Str<'a>> for String {
+//     fn borrow(&self) -> &Str<'a> {
+//         panic!();
+//     }
+// }
+
+// impl<'a> std::borrow::BorrowMut<Str<'a>> for String {
+//     fn borrow_mut(&mut self) -> &mut Str<'a> {
+//         panic!();
+//     }
+// }
