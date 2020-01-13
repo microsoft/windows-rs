@@ -154,6 +154,18 @@ impl From<&str> for String {
     }
 }
 
+impl From<std::string::String> for String {
+    fn from(value: std::string::String) -> String {
+        value.as_str().into()
+    }
+}
+
+impl From<&std::string::String> for String {
+    fn from(value: &std::string::String) -> String {
+        value.as_str().into()
+    }
+}
+
 impl From<*mut std::ffi::c_void> for String {
     fn from(handle: *mut std::ffi::c_void) -> String {
         Self { handle: handle as *const Header }
