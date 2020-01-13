@@ -9,6 +9,7 @@ mod ref_count;
 mod runtime;
 mod string;
 mod traits;
+pub mod param;
 
 pub use abi::*;
 pub use activation::*;

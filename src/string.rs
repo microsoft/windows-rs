@@ -160,38 +160,7 @@ impl From<*mut std::ffi::c_void> for String {
     }
 }
 
-// TODO: put this into a submodule e.g. winrt::param::String
-pub enum InputString<'a> {
-    Slice(&'a str),
-    String(std::string::String),
-    WinrtStringSlice(&'a String),
-    WinrtString(String),
-}
 
-impl<'a> Into<InputString<'a>> for &'a str {
-    fn into(self) -> InputString<'a> {
-        InputString::Slice(self)
-    }
-}
-
-impl<'a> Into<InputString<'a>> for std::string::String {
-    fn into(self) -> InputString<'a> {
-        InputString::String(self)
-    }
-}
-
-impl<'a> Into<InputString<'a>> for String {
-    fn into(self) -> InputString<'a> {
-        InputString::WinrtString(self)
-    }
-}
-
-
-impl<'a> Into<InputString<'a>> for &'a String {
-    fn into(self) -> InputString<'a> {
-        InputString::WinrtStringSlice(self)
-    }
-}
 
 // impl AsRef<String> for String {
 //     fn as_ref(&self) -> &String {
