@@ -172,8 +172,6 @@ impl From<*mut std::ffi::c_void> for String {
     }
 }
 
-
-
 // impl AsRef<String> for String {
 //     fn as_ref(&self) -> &String {
 //         self
@@ -185,7 +183,6 @@ impl From<*mut std::ffi::c_void> for String {
 //         self
 //     }
 // }
-
 
 // pub enum Str<'a> {
 //     Slice(&'a str),

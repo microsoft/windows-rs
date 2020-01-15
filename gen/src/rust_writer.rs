@@ -175,16 +175,6 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn factory_type(&mut self, attribute: &CustomAttribute) -> Option<TypeDef> {
-        for (_, sig) in attribute.arguments(self.r) {
-            if let ArgumentSig::TypeDef(interface) = sig {
-                return Some(interface);
-            }
-        }
-
-        None
-    }
-
     fn write_class_functions(&mut self, class: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
@@ -258,13 +248,6 @@ impl<'a> Writer<'a> {
 
         quote! {
             #(#three,)* &[#(#iter),*],
-        }
-    }
-
-    fn namespace_ident(&mut self, name: &str) -> TokenStream {
-        let parts = name.split('.').map(|part| format_ident!("{}", part.to_lowercase()));
-        quote! {
-            #(#parts)::*
         }
     }
 
@@ -350,17 +333,6 @@ impl<'a> Writer<'a> {
                 }
             }
         }
-    }
-
-    fn push_generic_params(&mut self, generics: RowIterator<GenericParam>) {
-        self.generics.push(
-            generics
-                .map(|g| {
-                    let name = format_ident!("{}", g.name(self.r));
-                    quote! { #name }
-                })
-                .collect(),
-        );
     }
 
     fn write_generic_interface(&mut self, interface: &TypeDef) -> TokenStream {
@@ -1112,4 +1084,46 @@ impl<'a> Writer<'a> {
         let param = &last[value as usize];
         quote! { #param }
     }
+
+    //
+    // Helpers
+    //
+
+    fn factory_type(&mut self, attribute: &CustomAttribute) -> Option<TypeDef> {
+        for (_, sig) in attribute.arguments(self.r) {
+            if let ArgumentSig::TypeDef(interface) = sig {
+                return Some(interface);
+            }
+        }
+
+        None
+    }
+
+    fn namespace_ident(&mut self, name: &str) -> TokenStream {
+        let parts = name.split('.').map(|part| format_ident!("{}", part.to_lowercase()));
+        quote! {
+            #(#parts)::*
+        }
+    }
+
+    fn push_generic_params(&mut self, generics: RowIterator<GenericParam>) {
+        self.generics.push(
+            generics
+                .map(|g| {
+                    let name = format_ident!("{}", g.name(self.r));
+                    quote! { #name }
+                })
+                .collect(),
+        );
+    }
+
+    // fn interfaces(&self, t: &TypeDef) that returns a Vec of interfaces the TypeDef implements
+}
+
+struct InterfaceInfo {
+    interface: TypeDef,
+    default: bool,
+    overridable: bool,
+    exclusive: bool,
+    generics: Vec<Vec<TokenStream>>,
 }

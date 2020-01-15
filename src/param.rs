@@ -13,11 +13,11 @@ impl<'a> String<'a> {
             String::Ref(value) => {
                 *self = String::Winrt((*value).into());
                 self.as_abi_in()
-            },
+            }
             String::String(value) => {
                 *self = String::Winrt(value.as_str().into());
                 self.as_abi_in()
-            },
+            }
             String::Winrt(value) => value.as_abi_in(),
             String::WinrtRef(value) => value.as_abi_in(),
         }
@@ -41,7 +41,6 @@ impl<'a> Into<String<'a>> for super::String {
         String::Winrt(self)
     }
 }
-
 
 impl<'a> Into<String<'a>> for &'a super::String {
     fn into(self) -> String<'a> {
