@@ -191,18 +191,18 @@ impl<'a> Writer<'a> {
             let interface_ident = format_ident!("{}", i.definition.name(self.r));
 
             if i.default {
-                tokens.push(quote!{
+                tokens.push(quote! {
                     impl Into<#interface_ident> for #class_ident {
                         fn into(self) -> #interface_ident {
-                            #interface_ident::from(winrt::IUnknown::query(winrt::AsAbi::as_abi_in(&self), <#interface_ident as winrt::TypeGuid>::type_guid()))
+                            #interface_ident::from(winrt::AsAbi::detach_abi(self))
                         }
                     }
                 });
             } else {
-                tokens.push(quote!{
+                tokens.push(quote! {
                     impl Into<#interface_ident> for #class_ident {
                         fn into(self) -> #interface_ident {
-                            #interface_ident::from(winrt::AsAbi::detach_abi(self))
+                            #interface_ident::from(winrt::IUnknown::query(winrt::AsAbi::as_abi_in(&self), <#interface_ident as winrt::TypeGuid>::type_guid()))
                         }
                     }
                 });
@@ -1154,14 +1154,14 @@ impl<'a> Writer<'a> {
         );
     }
 
-    fn add_interfaces(&mut self, result: &mut Vec::<InterfaceInfo>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
+    fn add_interfaces(&mut self, result: &mut Vec<InterfaceInfo>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
         for i in children {
             let default = i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute");
             let overridable = i.has_attribute(self.r, "Windows.Foundation.Metadata", "OverridableAttribute");
             let mut generics = parent_generics.to_vec();
 
             let mut pop_generics = false;
-    
+
             let definition = match i.interface(self.r) {
                 TypeDefOrRef::TypeDef(value) => value,
                 TypeDefOrRef::TypeRef(value) => value.resolve(self.r),
@@ -1180,11 +1180,11 @@ impl<'a> Writer<'a> {
                     sig.sig_type().resolve(self.r)
                 }
             };
-    
-            if let Err(index) = result.binary_search_by_key(&definition, |info|info.definition) {
+
+            if let Err(index) = result.binary_search_by_key(&definition, |info| info.definition) {
                 let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
                 self.add_interfaces(result, &generics, definition.interfaces(self.r));
-                result.insert(index, InterfaceInfo{definition, generics, default, overridable, exclusive});
+                result.insert(index, InterfaceInfo { definition, generics, default, overridable, exclusive });
             }
 
             if pop_generics {
@@ -1193,13 +1193,13 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn interfaces(&mut self, t:&TypeDef) -> Vec<InterfaceInfo> {
+    fn interfaces(&mut self, t: &TypeDef) -> Vec<InterfaceInfo> {
         let mut result = Vec::new();
-    
+
         self.add_interfaces(&mut result, &Vec::new(), t.interfaces(self.r));
 
         // TODO: add base class interfaces
-    
+
         result
     }
 }
