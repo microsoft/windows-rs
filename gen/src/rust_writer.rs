@@ -1,5 +1,5 @@
 use crate::*;
-use proc_macro2::{Literal, TokenStream};
+use proc_macro2::{Ident, Literal, TokenStream};
 use quote::{format_ident, quote};
 use std::collections::*;
 use std::iter::FromIterator;
@@ -124,14 +124,17 @@ impl<'a> Writer<'a> {
 
     fn write_class(&mut self, class: &TypeDef) -> TokenStream {
         // TODO: don't define struct here if the class is static - only declare.
+        println!("write_class({})", class.name(self.r));
 
         if class.name(self.r) == "PropertyValue" {
             return TokenStream::new();
         }
 
         let name = format_ident!("{}", class.name(self.r));
-        let functions = self.write_class_functions(&class);
+        let functions = self.write_class_functions(class);
         let string_name = format!("{}.{}", class.namespace(self.r), class.name(self.r));
+        let interfaces = self.interfaces(class);
+        let intos = self.write_into_traits(&name, &interfaces);
 
         quote! {
             pub struct #name { ptr: *mut std::ffi::c_void }
@@ -173,6 +176,29 @@ impl<'a> Writer<'a> {
                 }
             }
         }
+    }
+
+    fn write_into_traits(&mut self, class_ident: &Ident, interfaces: &Vec<InterfaceInfo>) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for i in interfaces {
+            if !i.generics.is_empty() {
+                continue;
+            }
+
+            // TODO: support generic interfaces
+            let interface_ident = format_ident!("{}", i.definition.name(self.r));
+
+            tokens.push(quote!{
+                impl Into<#interface_ident> for #class_ident {
+                    fn into(self) -> #interface_ident {
+                        #interface_ident::from(IUnknown::query(winrt::AsAbi::as_abi_in(self), #interface_ident::type_guid()))
+                    }
+                }
+            });
+        }
+
+        TokenStream::from_iter(tokens)
     }
 
     fn write_class_functions(&mut self, class: &TypeDef) -> TokenStream {
@@ -1117,13 +1143,60 @@ impl<'a> Writer<'a> {
         );
     }
 
-    // fn interfaces(&self, t: &TypeDef) that returns a Vec of interfaces the TypeDef implements
+    fn interfaces_imp(&mut self, result: &mut Vec::<InterfaceInfo>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
+        for i in children {
+            let default = i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute");
+            let overridable = i.has_attribute(self.r, "Windows.Foundation.Metadata", "OverridableAttribute");
+            let mut generics = parent_generics.to_vec();
+
+            let mut pop_generics = false;
+    
+            let definition = match i.interface(self.r) {
+                TypeDefOrRef::TypeDef(value) => value,
+                TypeDefOrRef::TypeRef(value) => value.resolve(self.r),
+                TypeDefOrRef::TypeSpec(value) => {
+                    let sig = value.signature(self.r);
+                    let mut args = Vec::new();
+
+                    for arg in sig.args() {
+                        args.push(self.write_type(arg));
+                    }
+
+                    self.generics.push(args.to_vec());
+                    generics.push(args);
+                    pop_generics = true;
+
+                    sig.sig_type().resolve(self.r)
+                }
+            };
+    
+            if let Err(index) = result.binary_search_by_key(&definition, |info|info.definition) {
+                let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
+                self.interfaces_imp(result, &generics, definition.interfaces(self.r));
+                result.insert(index, InterfaceInfo{definition, generics, default, overridable, exclusive});
+            }
+
+            if pop_generics {
+                self.generics.pop();
+            }
+        }
+    }
+
+    fn interfaces(&mut self, t:&TypeDef) -> Vec<InterfaceInfo> {
+        let mut result = Vec::new();
+    
+        self.interfaces_imp(&mut result, &Vec::new(), t.interfaces(self.r));
+
+        // TODO: add base class interfaces
+    
+        result
+    }
 }
 
 struct InterfaceInfo {
-    interface: TypeDef,
+    definition: TypeDef,
+    generics: Vec<Vec<TokenStream>>,
     default: bool,
     overridable: bool,
     exclusive: bool,
-    generics: Vec<Vec<TokenStream>>,
 }

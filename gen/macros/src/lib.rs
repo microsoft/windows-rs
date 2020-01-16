@@ -11,7 +11,7 @@ pub fn table(stream: TokenStream) -> TokenStream {
     let table = format_ident!("TABLE_{}", name.to_string().to_uppercase());
 
     let output = quote!(
-        #[derive(Copy, Clone, PartialEq)]
+        #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
         pub struct #name {
             pub(crate) row: RowData,
         }

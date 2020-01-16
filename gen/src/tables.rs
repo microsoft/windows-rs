@@ -79,6 +79,20 @@ impl GenericParam {
     }
 }
 
+impl InterfaceImpl {
+    pub fn interface(&self, r: &Reader) -> TypeDefOrRef {
+        r.decode(&self.row, 1)
+    }
+
+    pub fn attributes(&self, r: &Reader) -> RowIterator<CustomAttribute> {
+        r.equal_range(self.row.file, 0, HasCustomAttribute::InterfaceImpl(*self).encode())
+    }
+
+    pub fn has_attribute(&self, r: &Reader, namespace: &str, name: &str) -> bool {
+        self.attributes(r).any(|attribute| attribute.name(r) == (namespace, name))
+    }
+}
+
 impl MemberRef {
     pub fn parent(&self, r: &Reader) -> MemberRefParent {
         r.decode(&self.row, 0)
@@ -180,6 +194,10 @@ impl TypeDef {
         r.equal_range(self.row.file, 2, TypeOrMethodDef::TypeDef(*self).encode())
     }
 
+    pub fn interfaces(&self, r: &Reader) -> RowIterator<InterfaceImpl> {
+        r.equal_range(self.row.file, 0, self.row.row + 1)
+    }
+
     pub fn attributes(&self, r: &Reader) -> RowIterator<CustomAttribute> {
         r.equal_range(self.row.file, 0, HasCustomAttribute::TypeDef(*self).encode())
     }
@@ -224,5 +242,13 @@ impl TypeRef {
 
     pub fn resolve(&self, r: &Reader) -> TypeDef {
         *r.namespaces().get(self.namespace(r)).unwrap().get(self.name(r)).unwrap()
+    }
+}
+
+impl TypeSpec {
+    pub fn signature(&self, r: &Reader) -> GenericSig {
+        let mut bytes = r.blob(&self.row, 0);
+        read_unsigned(&mut bytes);
+        GenericSig::new(self.row.file, &mut bytes)
     }
 }

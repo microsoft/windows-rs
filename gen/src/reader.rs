@@ -14,7 +14,7 @@ pub trait Row {
     fn table() -> u16;
 }
 
-#[derive(Copy, Clone, PartialEq)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct RowData {
     pub row: u32,
     pub table: u16,

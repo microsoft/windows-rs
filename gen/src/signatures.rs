@@ -85,7 +85,7 @@ pub enum ParamCategory {
 }
 
 impl GenericSig {
-    fn new(file: u16, bytes: &mut &[u8]) -> GenericSig {
+    pub(crate) fn new(file: u16, bytes: &mut &[u8]) -> GenericSig {
         read_unsigned(bytes);
         let sig_type = TypeDefOrRef::decode(read_unsigned(bytes), file);
         let arg_count = read_unsigned(bytes);
@@ -427,7 +427,7 @@ fn peek_unsigned(bytes: &[u8]) -> (u32, usize) {
     (value, bytes_read)
 }
 
-fn read_unsigned(bytes: &mut &[u8]) -> u32 {
+pub fn read_unsigned(bytes: &mut &[u8]) -> u32 {
     let (value, bytes_read) = peek_unsigned(bytes);
     *bytes = seek(bytes, bytes_read);
     value

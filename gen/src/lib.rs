@@ -10,12 +10,12 @@ mod rust_writer;
 mod signatures;
 mod tables;
 
-use codes::*;
+pub use codes::*;
 use error::*;
 use file::*;
 use flags::*;
 use helpers::*;
-use reader::*;
+pub use reader::*;
 pub use rust_writer::*;
 use signatures::*;
-use tables::*;
+pub use tables::*;
