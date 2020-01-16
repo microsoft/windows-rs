@@ -192,7 +192,7 @@ impl<'a> Writer<'a> {
             tokens.push(quote!{
                 impl Into<#interface_ident> for #class_ident {
                     fn into(self) -> #interface_ident {
-                        #interface_ident::from(IUnknown::query(winrt::AsAbi::as_abi_in(self), #interface_ident::type_guid()))
+                        #interface_ident::from(winrt::IUnknown::query(winrt::AsAbi::as_abi_in(&self), <#interface_ident as winrt::TypeGuid>::type_guid()))
                     }
                 }
             });
@@ -1143,7 +1143,7 @@ impl<'a> Writer<'a> {
         );
     }
 
-    fn interfaces_imp(&mut self, result: &mut Vec::<InterfaceInfo>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
+    fn add_interfaces(&mut self, result: &mut Vec::<InterfaceInfo>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
         for i in children {
             let default = i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute");
             let overridable = i.has_attribute(self.r, "Windows.Foundation.Metadata", "OverridableAttribute");
@@ -1172,7 +1172,7 @@ impl<'a> Writer<'a> {
     
             if let Err(index) = result.binary_search_by_key(&definition, |info|info.definition) {
                 let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
-                self.interfaces_imp(result, &generics, definition.interfaces(self.r));
+                self.add_interfaces(result, &generics, definition.interfaces(self.r));
                 result.insert(index, InterfaceInfo{definition, generics, default, overridable, exclusive});
             }
 
@@ -1185,7 +1185,7 @@ impl<'a> Writer<'a> {
     fn interfaces(&mut self, t:&TypeDef) -> Vec<InterfaceInfo> {
         let mut result = Vec::new();
     
-        self.interfaces_imp(&mut result, &Vec::new(), t.interfaces(self.r));
+        self.add_interfaces(&mut result, &Vec::new(), t.interfaces(self.r));
 
         // TODO: add base class interfaces
     
