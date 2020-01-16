@@ -8,7 +8,7 @@ pub enum String<'a> {
 }
 
 impl<'a> String<'a> {
-    pub fn as_abi_in(&mut self) -> *const std::ffi::c_void {
+    pub fn as_abi_in(&mut self) -> handle {
         match self {
             String::Ref(value) => {
                 *self = String::Winrt((*value).into());

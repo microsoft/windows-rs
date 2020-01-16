@@ -4,13 +4,13 @@ pub type handle = *mut std::ffi::c_void;
 
 #[repr(C)]
 pub struct IUnknown {
-    query: extern "system" fn(*const std::ffi::c_void, &Guid, *mut handle) -> ErrorCode,
-    addref: extern "system" fn(*const std::ffi::c_void) -> u32,
-    release: extern "system" fn(*const std::ffi::c_void) -> u32,
+    query: extern "system" fn(handle, &Guid, *mut handle) -> ErrorCode,
+    addref: extern "system" fn(handle) -> u32,
+    release: extern "system" fn(handle) -> u32,
 }
 
 impl IUnknown {
-    pub fn query(ptr: *const std::ffi::c_void, guid: &Guid) -> *const std::ffi::c_void {
+    pub fn query(ptr: handle, guid: &Guid) -> handle {
         unsafe {
             let mut result = std::ptr::null_mut();
             if !ptr.is_null() {
@@ -20,7 +20,7 @@ impl IUnknown {
         }
     }
 
-    pub fn addref(ptr: *const std::ffi::c_void) {
+    pub fn addref(ptr: handle) {
         unsafe {
             if !ptr.is_null() {
                 ((*(*(ptr as *const *const Self))).addref)(ptr);
@@ -28,7 +28,7 @@ impl IUnknown {
         }
     }
 
-    pub fn release(ptr: *const std::ffi::c_void) {
+    pub fn release(ptr: handle) {
         unsafe {
             if !ptr.is_null() {
                 ((*(*(ptr as *const *const Self))).release)(ptr);
@@ -43,7 +43,7 @@ pub struct IInspectable {
     __1: usize,
     __2: usize,
     __3: usize,
-    type_name: extern "system" fn(*const std::ffi::c_void, *mut handle) -> ErrorCode,
+    type_name: extern "system" fn(handle, *mut handle) -> ErrorCode,
 }
 
 // impl IInspectable {

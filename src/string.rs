@@ -90,7 +90,7 @@ impl String {
 }
 
 impl AsAbi for String {
-    type In = *const std::ffi::c_void;
+    type In = handle;
     type Out = *mut handle;
 
     fn as_abi_in(&self) -> Self::In {
@@ -122,7 +122,7 @@ impl Drop for String {
                 debug_assert!((*self.handle).flags & REFERENCE_FLAG == 0);
 
                 if 0 == (*(self.handle as *const SharedHeader)).count.release() {
-                    HeapFree(GetProcessHeap(), 0, self.handle as *const std::ffi::c_void);
+                    HeapFree(GetProcessHeap(), 0, self.handle as handle);
                 }
             }
         }

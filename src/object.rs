@@ -15,7 +15,7 @@ impl TypeGuid for Object {
 }
 
 impl AsAbi for Object {
-    type In = *const std::ffi::c_void;
+    type In = handle;
     type Out = *mut handle;
 
     fn as_abi_in(&self) -> Self::In {

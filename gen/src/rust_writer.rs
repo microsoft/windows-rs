@@ -446,7 +446,7 @@ impl<'a> Writer<'a> {
             let params = self.write_abi_params(&method.signature(self.r));
             tokens = quote! {
                 #tokens
-                #name: extern "system" fn(*const std::ffi::c_void, #params) -> winrt::ErrorCode,
+                #name: extern "system" fn(winrt::handle, #params) -> winrt::ErrorCode,
             };
         }
 
@@ -801,8 +801,8 @@ impl<'a> Writer<'a> {
                 ElementType::U64 => quote! { u64, },
                 ElementType::F32 => quote! { f32, },
                 ElementType::F64 => quote! { f64, },
-                ElementType::String => quote! { *const std::ffi::c_void, },
-                ElementType::Object => quote! { *const std::ffi::c_void, },
+                ElementType::String => quote! { winrt::handle, },
+                ElementType::Object => quote! { winrt::handle, },
             }
         } else {
             match value {
@@ -839,7 +839,7 @@ impl<'a> Writer<'a> {
                     let name = format_ident!("{}", value.name(self.r));
                     quote! { #name, }
                 }
-                _ => quote! { *const std::ffi::c_void, },
+                _ => quote! { winrt::handle, },
             }
         } else {
             match value.category(self.r) {
@@ -866,7 +866,7 @@ impl<'a> Writer<'a> {
 
     fn write_abi_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
         if param.input() {
-            quote! { *const std::ffi::c_void, }
+            quote! { winrt::handle, }
         } else {
             quote! { &mut winrt::handle, }
         }
