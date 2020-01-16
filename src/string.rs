@@ -91,7 +91,7 @@ impl String {
 
 impl AsAbi for String {
     type In = *const std::ffi::c_void;
-    type Out = *mut *mut std::ffi::c_void;
+    type Out = *mut handle;
 
     fn as_abi_in(&self) -> Self::In {
         self.handle as Self::In
@@ -99,7 +99,7 @@ impl AsAbi for String {
 
     fn as_abi_out(&mut self) -> Self::Out {
         debug_assert!(self.is_empty());
-        &mut (self.handle as *mut std::ffi::c_void)
+        &mut (self.handle as handle)
     }
 
     fn detach_abi(&mut self) -> Self::In {
@@ -166,8 +166,8 @@ impl From<&std::string::String> for String {
     }
 }
 
-impl From<*mut std::ffi::c_void> for String {
-    fn from(handle: *mut std::ffi::c_void) -> String {
+impl From<handle> for String {
+    fn from(handle: handle) -> String {
         Self { handle: handle as *const Header }
     }
 }

@@ -1,8 +1,10 @@
 use crate::*;
 
+pub type handle = *mut std::ffi::c_void;
+
 #[repr(C)]
 pub struct IUnknown {
-    query: extern "system" fn(*const std::ffi::c_void, &Guid, *mut *mut std::ffi::c_void) -> ErrorCode,
+    query: extern "system" fn(*const std::ffi::c_void, &Guid, *mut handle) -> ErrorCode,
     addref: extern "system" fn(*const std::ffi::c_void) -> u32,
     release: extern "system" fn(*const std::ffi::c_void) -> u32,
 }
@@ -41,7 +43,7 @@ pub struct IInspectable {
     __1: usize,
     __2: usize,
     __3: usize,
-    type_name: extern "system" fn(*const std::ffi::c_void, *mut *mut std::ffi::c_void) -> ErrorCode,
+    type_name: extern "system" fn(*const std::ffi::c_void, *mut handle) -> ErrorCode,
 }
 
 // impl IInspectable {

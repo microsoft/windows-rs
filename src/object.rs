@@ -4,7 +4,7 @@ use crate::*;
 
 #[repr(C)]
 pub struct Object {
-    pub ptr: *mut std::ffi::c_void,
+    pub ptr: handle,
 }
 
 impl TypeGuid for Object {
@@ -16,7 +16,7 @@ impl TypeGuid for Object {
 
 impl AsAbi for Object {
     type In = *const std::ffi::c_void;
-    type Out = *mut *mut std::ffi::c_void;
+    type Out = *mut handle;
 
     fn as_abi_in(&self) -> Self::In {
         self.ptr
@@ -34,8 +34,8 @@ impl AsAbi for Object {
     }
 }
 
-impl From<*mut std::ffi::c_void> for Object {
-    fn from(ptr: *mut std::ffi::c_void) -> Self {
+impl From<handle> for Object {
+    fn from(ptr: handle) -> Self {
         Self { ptr }
     }
 }

@@ -14,7 +14,7 @@ use crate::*;
 
 #[link(name = "windowsapp")]
 extern "system" {
-    pub fn CoIncrementMTAUsage(cookie: *mut *mut std::ffi::c_void) -> ErrorCode;
+    pub fn CoIncrementMTAUsage(cookie: *mut handle) -> ErrorCode;
     pub fn LoadLibraryW(name: *const u16) -> *const std::ffi::c_void;
     pub fn GetProcAddress(library: *const std::ffi::c_void, name: *const u8) -> *const std::ffi::c_void;
     pub fn GetProcessHeap() -> *const std::ffi::c_void;
@@ -22,5 +22,5 @@ extern "system" {
     pub fn HeapFree(heap: *const std::ffi::c_void, flags: u32, ptr: *const std::ffi::c_void) -> i32;
 
     // TODO: get rid of these
-    pub fn RoGetActivationFactory(hstring: *const std::ffi::c_void, interface: &Guid, result: *mut *mut std::ffi::c_void) -> ErrorCode;
+    pub fn RoGetActivationFactory(hstring: *const std::ffi::c_void, interface: &Guid, result: *mut handle) -> ErrorCode;
 }

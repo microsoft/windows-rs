@@ -137,7 +137,7 @@ impl<'a> Writer<'a> {
         let intos = self.write_into_traits(&name, &interfaces);
 
         quote! {
-            pub struct #name { ptr: *mut std::ffi::c_void }
+            pub struct #name { ptr: winrt::handle }
             impl #name { #functions }
             impl winrt::TypeName for #name {
                 fn type_name() -> &'static str {
@@ -145,8 +145,8 @@ impl<'a> Writer<'a> {
                 }
             }
             impl winrt::AsAbi for #name {
-                type In = *mut std::ffi::c_void;
-                type Out = *mut *mut std::ffi::c_void;
+                type In = winrt::handle;
+                type Out = *mut winrt::handle;
                 fn as_abi_in(&self) -> Self::In {
                     self.ptr
                 }
@@ -160,8 +160,8 @@ impl<'a> Writer<'a> {
                     ptr
                 }
             }
-            impl From<*mut std::ffi::c_void> for #name {
-                fn from(ptr: *mut std::ffi::c_void) -> Self {
+            impl From<winrt::handle> for #name {
+                fn from(ptr: winrt::handle) -> Self {
                     Self { ptr }
                 }
             }
@@ -305,7 +305,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident { ptr: *mut std::ffi::c_void }
+            pub struct #name_ident { ptr: winrt::handle }
             #[repr(C)]
             struct #abi_name_ident {
                 __0: usize,
@@ -328,8 +328,8 @@ impl<'a> Writer<'a> {
                 }
             }
             impl winrt::AsAbi for #name_ident {
-                type In = *mut std::ffi::c_void;
-                type Out = *mut *mut std::ffi::c_void;
+                type In = winrt::handle;
+                type Out = *mut winrt::handle;
                 fn as_abi_in(&self) -> Self::In {
                     self.ptr
                 }
@@ -343,8 +343,8 @@ impl<'a> Writer<'a> {
                     ptr
                 }
             }
-            impl From<*mut std::ffi::c_void> for #name_ident {
-                fn from(ptr: *mut std::ffi::c_void) -> Self {
+            impl From<winrt::handle> for #name_ident {
+                fn from(ptr: winrt::handle) -> Self {
                     Self { ptr }
                 }
             }
@@ -377,7 +377,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident #generics2 { ptr: *mut std::ffi::c_void, #phantoms }
+            pub struct #name_ident #generics2 { ptr: winrt::handle, #phantoms }
             #[repr(C)]
             struct #abi_name_ident #generics2 {
                 __0: usize,
@@ -401,8 +401,8 @@ impl<'a> Writer<'a> {
                 }
             }
             impl #generics2 winrt::AsAbi for #name_ident #generics {
-                type In = *mut std::ffi::c_void;
-                type Out = *mut *mut std::ffi::c_void;
+                type In = winrt::handle;
+                type Out = *mut winrt::handle;
                 fn as_abi_in(&self) -> Self::In {
                     self.ptr
                 }
@@ -416,8 +416,8 @@ impl<'a> Writer<'a> {
                     ptr
                 }
             }
-            impl #generics2 From<*mut std::ffi::c_void> for #name_ident #generics {
-                fn from(ptr: *mut std::ffi::c_void) -> Self {
+            impl #generics2 From<winrt::handle> for #name_ident #generics {
+                fn from(ptr: winrt::handle) -> Self {
                     Self { ptr, #phantoms }
                 }
             }
@@ -581,7 +581,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident { ptr: *mut std::ffi::c_void }
+            pub struct #name_ident { ptr: winrt::handle }
             #[repr(C)]
             struct #abi_name_ident {
                 __0: usize,
@@ -600,8 +600,8 @@ impl<'a> Writer<'a> {
                 }
             }
             impl winrt::AsAbi for #name_ident {
-                type In = *mut std::ffi::c_void;
-                type Out = *mut *mut std::ffi::c_void;
+                type In = winrt::handle;
+                type Out = *mut winrt::handle;
                 fn as_abi_in(&self) -> Self::In {
                     self.ptr
                 }
@@ -615,8 +615,8 @@ impl<'a> Writer<'a> {
                     ptr
                 }
             }
-            impl From<*mut std::ffi::c_void> for #name_ident {
-                fn from(ptr: *mut std::ffi::c_void) -> Self {
+            impl From<winrt::handle> for #name_ident {
+                fn from(ptr: winrt::handle) -> Self {
                     Self { ptr }
                 }
             }
@@ -673,7 +673,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident #generics2 { ptr: *mut std::ffi::c_void, #phantoms }
+            pub struct #name_ident #generics2 { ptr: winrt::handle, #phantoms }
             #[repr(C)]
             struct #abi_name_ident #generics2 {
                 __0: usize,
@@ -693,8 +693,8 @@ impl<'a> Writer<'a> {
                 }
             }
             impl #generics2 winrt::AsAbi for #name_ident #generics {
-                type In = *mut std::ffi::c_void;
-                type Out = *mut *mut std::ffi::c_void;
+                type In = winrt::handle;
+                type Out = *mut winrt::handle;
                 fn as_abi_in(&self) -> Self::In {
                     self.ptr
                 }
@@ -708,8 +708,8 @@ impl<'a> Writer<'a> {
                     ptr
                 }
             }
-            impl #generics2 From<*mut std::ffi::c_void> for #name_ident #generics {
-                fn from(ptr: *mut std::ffi::c_void) -> Self {
+            impl #generics2 From<winrt::handle> for #name_ident #generics {
+                fn from(ptr: winrt::handle) -> Self {
                     Self { ptr, #phantoms }
                 }
             }
@@ -818,8 +818,8 @@ impl<'a> Writer<'a> {
                 ElementType::U64 => quote! { &mut u64, },
                 ElementType::F32 => quote! { &mut f32, },
                 ElementType::F64 => quote! { &mut f64, },
-                ElementType::String => quote! { &mut *mut std::ffi::c_void, },
-                ElementType::Object => quote! { &mut *mut std::ffi::c_void, },
+                ElementType::String => quote! { &mut winrt::handle, },
+                ElementType::Object => quote! { &mut winrt::handle, },
             }
         }
     }
@@ -847,7 +847,7 @@ impl<'a> Writer<'a> {
                     let name = format_ident!("{}", value.name(self.r));
                     quote! { &mut #name, }
                 }
-                _ => quote! { &mut *mut std::ffi::c_void, },
+                _ => quote! { &mut winrt::handle, },
             }
         }
     }
@@ -868,7 +868,7 @@ impl<'a> Writer<'a> {
         if param.input() {
             quote! { *const std::ffi::c_void, }
         } else {
-            quote! { &mut *mut std::ffi::c_void, }
+            quote! { &mut winrt::handle, }
         }
     }
 
