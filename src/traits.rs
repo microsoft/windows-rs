@@ -15,7 +15,8 @@ pub trait AsAbi: Default {
     fn as_abi_in(&self) -> Self::In;
     fn as_abi_out(&mut self) -> Self::Out;
 
-    fn detach_abi(&mut self) -> Self::In {
+    // TODO: this should probably take self by value
+    fn detach_abi(self) -> Self::In {
         self.as_abi_in()
     }
 }

@@ -102,7 +102,7 @@ impl AsAbi for String {
         &mut (self.handle as handle)
     }
 
-    fn detach_abi(&mut self) -> Self::In {
+    fn detach_abi(mut self) -> Self::In {
         let handle = self.as_abi_in();
         self.handle = std::ptr::null_mut();
         handle

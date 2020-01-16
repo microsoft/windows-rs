@@ -154,7 +154,7 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
-                fn detach_abi(&mut self) -> Self::In {
+                fn detach_abi(mut self) -> Self::In {
                     let ptr = self.as_abi_in();
                     self.ptr = std::ptr::null_mut();
                     ptr
@@ -175,6 +175,7 @@ impl<'a> Writer<'a> {
                     winrt::IUnknown::release(self.ptr);
                 }
             }
+            #intos
         }
     }
 
@@ -189,13 +190,23 @@ impl<'a> Writer<'a> {
             // TODO: support generic interfaces
             let interface_ident = format_ident!("{}", i.definition.name(self.r));
 
-            tokens.push(quote!{
-                impl Into<#interface_ident> for #class_ident {
-                    fn into(self) -> #interface_ident {
-                        #interface_ident::from(winrt::IUnknown::query(winrt::AsAbi::as_abi_in(&self), <#interface_ident as winrt::TypeGuid>::type_guid()))
+            if i.default {
+                tokens.push(quote!{
+                    impl Into<#interface_ident> for #class_ident {
+                        fn into(self) -> #interface_ident {
+                            #interface_ident::from(winrt::IUnknown::query(winrt::AsAbi::as_abi_in(&self), <#interface_ident as winrt::TypeGuid>::type_guid()))
+                        }
                     }
-                }
-            });
+                });
+            } else {
+                tokens.push(quote!{
+                    impl Into<#interface_ident> for #class_ident {
+                        fn into(self) -> #interface_ident {
+                            #interface_ident::from(winrt::AsAbi::detach_abi(self))
+                        }
+                    }
+                });
+            }
         }
 
         TokenStream::from_iter(tokens)
@@ -337,7 +348,7 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
-                fn detach_abi(&mut self) -> Self::In {
+                fn detach_abi(mut self) -> Self::In {
                     let ptr = self.as_abi_in();
                     self.ptr = std::ptr::null_mut();
                     ptr
@@ -410,7 +421,7 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
-                fn detach_abi(&mut self) -> Self::In {
+                fn detach_abi(mut self) -> Self::In {
                     let ptr = self.as_abi_in();
                     self.ptr = std::ptr::null_mut();
                     ptr
@@ -609,7 +620,7 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
-                fn detach_abi(&mut self) -> Self::In {
+                fn detach_abi(mut self) -> Self::In {
                     let ptr = self.as_abi_in();
                     self.ptr = std::ptr::null_mut();
                     ptr
@@ -702,7 +713,7 @@ impl<'a> Writer<'a> {
                     debug_assert!(self.ptr.is_null());
                     &mut self.ptr
                 }
-                fn detach_abi(&mut self) -> Self::In {
+                fn detach_abi(mut self) -> Self::In {
                     let ptr = self.as_abi_in();
                     self.ptr = std::ptr::null_mut();
                     ptr

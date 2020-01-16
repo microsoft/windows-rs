@@ -27,7 +27,7 @@ impl AsAbi for Object {
         &mut self.ptr
     }
 
-    fn detach_abi(&mut self) -> Self::In {
+    fn detach_abi(mut self) -> Self::In {
         let ptr = self.as_abi_in();
         self.ptr = std::ptr::null_mut();
         ptr
