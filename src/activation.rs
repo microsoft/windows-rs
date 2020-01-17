@@ -21,3 +21,8 @@ pub fn factory<C: TypeName, I: TypeGuid + From<handle>>() -> Result<I> {
         code.ok_or(I::from(ptr))
     }
 }
+
+// pub fn clone_as<Source: AsAbi, Destination: TypeGuid + From<handle>>(source:&Source) -> Destination
+// {
+//     Destination::from(IUnknown::query(source.as_abi_in() as *mut std::ffi::c_void, <Destination as TypeGuid>::type_guid()))
+// }

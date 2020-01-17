@@ -8,6 +8,10 @@ pub trait TypeName {
     fn type_name() -> &'static str;
 }
 
+// pub trait CloneAs<T> {
+//     fn clone_as(&self) -> T;
+// }
+
 pub trait AsAbi: Default {
     type In;
     type Out;

@@ -248,19 +248,20 @@ impl<'a> Writer<'a> {
             let method_name = format_ident!("r#{}", method.name(self.r));
             let signature = method.signature(self.r);
             let params = self.write_consume_params(&signature);
+            let into_params = self.write_consume_into_params(&signature);
             let args = signature.params().iter().map(|param| format_ident!("{}", param.name()));
 
             if let Some(result) = signature.return_type() {
                 let result = self.write_type(result.sig_type());
 
                 tokens.push(quote! {
-                    pub fn #method_name(#params) -> winrt::Result<#result> {
+                    pub fn #method_name<#into_params>(#params) -> winrt::Result<#result> {
                         winrt::factory::<#class_name, #interface_name>()?.#method_name(#(#args),*)
                     }
                 });
             } else {
                 tokens.push(quote! {
-                    pub fn #method_name(#params) -> winrt::Result<()> {
+                    pub fn #method_name<#into_params>(#params) -> winrt::Result<()> {
                             panic!();
                     }
                 });
@@ -471,6 +472,7 @@ impl<'a> Writer<'a> {
             let name = format_ident!("r#{}", method.name(self.r));
             let signature = method.signature(self.r);
             let params = self.write_consume_params(&signature);
+            let into_params = self.write_consume_into_params(&signature);
             let args = self.write_abi_args(&signature);
 
             if let Some(result) = signature.return_type() {
@@ -480,7 +482,7 @@ impl<'a> Writer<'a> {
 
                 tokens = quote! {
                     #tokens
-                    pub fn #name(&self, #params) -> winrt::Result<#projected_result> {
+                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
                             #receive_result
                             ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
@@ -493,7 +495,7 @@ impl<'a> Writer<'a> {
             } else {
                 tokens = quote! {
                     #tokens
-                    pub fn #name(&self, #params) -> winrt::Result<()> {
+                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
                         unsafe {
                             ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
                                 self.ptr, #args
@@ -898,28 +900,46 @@ impl<'a> Writer<'a> {
     // write_consume_params
     //
 
+    fn write_consume_into_params(&self, signature: &MethodSig) -> TokenStream {
+        let mut tokens = Vec::<TokenStream>::new();
+
+        // for (count, param) in signature.params().iter().enumerate() {
+        //     let lifetime = format_ident!("a{}", count);
+        //     let type_param = format_ident!("__T{}", count);
+
+        //     if let TypeSigType::ElementType(ElementType::String) = param.sig_type().sig_type() {
+        //        if param.input() { 
+        //            tokens.push(quote! { #'lifetime, #type_param: Into<winrt::param::String< #'lifetime>>,});
+        //         }
+        //     }
+        //     // TODO: handle other convertible input types...
+        // }
+        
+        TokenStream::from_iter(tokens)
+    }
+
     fn write_consume_params(&mut self, signature: &MethodSig) -> TokenStream {
         let mut tokens = Vec::new();
 
-        for param in signature.params() {
+        for (count, param) in signature.params().iter().enumerate() {
             let name = format_ident!("{}", param.name());
             tokens.push(quote! { #name: });
-            tokens.push(self.write_consume_param(param));
+            tokens.push(self.write_consume_param(count, param));
         }
 
         TokenStream::from_iter(tokens)
     }
 
-    fn write_consume_param(&mut self, param: &ParamSig) -> TokenStream {
+    fn write_consume_param(&mut self, count:usize, param: &ParamSig) -> TokenStream {
         match param.sig_type().sig_type() {
-            TypeSigType::ElementType(value) => self.write_consume_param_element_type(param, value),
-            TypeSigType::TypeDefOrRef(value) => self.write_consume_param_type(param, value),
+            TypeSigType::ElementType(value) => self.write_consume_param_element_type(count, param, value),
+            TypeSigType::TypeDefOrRef(value) => self.write_consume_param_type(count, param, value),
             TypeSigType::GenericSig(value) => self.write_consume_param_generic(param, value),
             TypeSigType::GenericTypeIndex(value) => self.write_consume_param_generic_index(param, *value),
         }
     }
 
-    fn write_consume_param_element_type(&mut self, param: &ParamSig, value: &ElementType) -> TokenStream {
+    fn write_consume_param_element_type(&mut self, count:usize, param: &ParamSig, value: &ElementType) -> TokenStream {
         if param.input() {
             match value {
                 ElementType::Bool => quote! { bool, },
@@ -934,7 +954,11 @@ impl<'a> Writer<'a> {
                 ElementType::U64 => quote! { u64, },
                 ElementType::F32 => quote! { f32, },
                 ElementType::F64 => quote! { f64, },
-                ElementType::String => quote! { &winrt::String, }, // AsRef<String> e.g. &str/String
+                ElementType::String => quote! { &winrt::String, }, 
+                // ElementType::String => {
+                //     let type_param = format_ident!("__T{}", count);
+                //     quote! { #type_param, }
+                // },
                 ElementType::Object => quote! { &winrt::Object, }, // AsRef<Object> e.g. boxing/polymorphism
             }
         } else {
@@ -957,7 +981,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_consume_param_type(&mut self, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
+    fn write_consume_param_type(&mut self, count:usize, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
         match value {
             TypeDefOrRef::TypeDef(value) => self.write_consume_param_type_def(param, value),
             TypeDefOrRef::TypeRef(value) => self.write_consume_param_type_ref(param, value),
