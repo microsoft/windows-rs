@@ -1,5 +1,10 @@
 use crate::*;
 
+pub trait Interface{
+    fn raw(&self) -> handle;
+    fn raw_mut(&mut self) -> *mut handle;
+}
+
 pub trait TypeGuid {
     fn type_guid() -> &'static Guid;
 }
@@ -24,6 +29,19 @@ pub trait AsAbi: Default {
         self.as_abi_in()
     }
 }
+
+// impl<T> AsAbi for T where T : Interface {
+//     type In = handle;
+//     type Out = *mut handle;
+
+//     fn as_abi_in(&self) -> Self::In {
+//         self.raw()
+//     }
+
+//     fn as_abi_out(&mut self) -> Self::Out {
+//         self.raw_mut()
+//     }
+// }
 
 impl AsAbi for bool {
     type In = bool;
