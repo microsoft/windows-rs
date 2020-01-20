@@ -56,56 +56,48 @@ fn with_len(len: u32) -> *mut Header {
 
 #[repr(C)]
 pub struct String {
-    handle: *const Header,
+    ptr: *const Header,
 }
 
 impl String {
     pub fn new() -> String {
-        String { handle: std::ptr::null_mut() }
+        String { ptr: std::ptr::null_mut() }
     }
 
     pub fn is_empty(&self) -> bool {
-        self.handle.is_null()
+        self.ptr.is_null()
     }
 
     pub fn len(&self) -> usize {
         unsafe {
-            if self.handle.is_null() {
+            if self.ptr.is_null() {
                 0
             } else {
-                (*self.handle).len as usize
+                (*self.ptr).len as usize
             }
         }
     }
 
     pub fn as_chars(&self) -> &[u16] {
         unsafe {
-            if self.handle.is_null() {
+            if self.ptr.is_null() {
                 &[]
             } else {
-                std::slice::from_raw_parts((*self.handle).ptr, (*self.handle).len as usize)
+                std::slice::from_raw_parts((*self.ptr).ptr, (*self.ptr).len as usize)
             }
         }
     }
 }
 
-impl AsAbi for String {
-    type In = handle;
-    type Out = *mut handle;
+impl RuntimeType for String {
+    type Abi = RawPtr;
 
-    fn as_abi_in(&self) -> Self::In {
-        self.handle as Self::In
+    fn as_abi(&self) -> Self::Abi {
+        self.ptr as RawPtr
     }
 
-    fn as_abi_out(&mut self) -> Self::Out {
-        debug_assert!(self.is_empty());
-        &mut (self.handle as handle)
-    }
-
-    fn detach_abi(mut self) -> Self::In {
-        let handle = self.as_abi_in();
-        self.handle = std::ptr::null_mut();
-        handle
+    fn as_abi_mut(&mut self) -> *mut Self::Abi {
+        &mut (self.ptr as RawPtr)
     }
 }
 
@@ -119,10 +111,10 @@ impl Drop for String {
     fn drop(&mut self) {
         if !self.is_empty() {
             unsafe {
-                debug_assert!((*self.handle).flags & REFERENCE_FLAG == 0);
+                debug_assert!((*self.ptr).flags & REFERENCE_FLAG == 0);
 
-                if 0 == (*(self.handle as *const SharedHeader)).count.release() {
-                    HeapFree(GetProcessHeap(), 0, self.handle as handle);
+                if 0 == (*(self.ptr as *const SharedHeader)).count.release() {
+                    HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
                 }
             }
         }
@@ -141,15 +133,15 @@ impl std::fmt::Display for String {
 impl From<&str> for String {
     fn from(value: &str) -> String {
         unsafe {
-            let mut handle = with_len(value.len() as u32);
+            let mut ptr = with_len(value.len() as u32);
 
             for (index, wide) in value.encode_utf16().enumerate() {
-                *((*handle).ptr.offset(index as isize) as *mut u16) = wide;
-                (*handle).len = index as u32 + 1;
+                *((*ptr).ptr.offset(index as isize) as *mut u16) = wide;
+                (*ptr).len = index as u32 + 1;
             }
 
-            *((*handle).ptr.offset((*handle).len as isize) as *mut u16) = 0;
-            Self { handle }
+            *((*ptr).ptr.offset((*ptr).len as isize) as *mut u16) = 0;
+            Self { ptr }
         }
     }
 }
@@ -166,38 +158,14 @@ impl From<&std::string::String> for String {
     }
 }
 
-impl From<handle> for String {
-    fn from(handle: handle) -> String {
-        Self { handle: handle as *const Header }
+impl From<RawPtr> for String {
+    fn from(value: RawPtr) -> Self {
+        unsafe { std::mem::transmute(value) }
     }
 }
 
-// impl AsRef<String> for String {
-//     fn as_ref(&self) -> &String {
-//         self
-//     }
-// }
-
-// impl AsRef<String> for str {
-//     fn as_ref(&self) -> &String {
-//         self
-//     }
-// }
-
-// pub enum Str<'a> {
-//     Slice(&'a str),
-//     Borrowed(&'a String),
-//     Owned(String),
-// }
-
-// impl<'a> std::borrow::Borrow<Str<'a>> for String {
-//     fn borrow(&self) -> &Str<'a> {
-//         panic!();
-//     }
-// }
-
-// impl<'a> std::borrow::BorrowMut<Str<'a>> for String {
-//     fn borrow_mut(&mut self) -> &mut Str<'a> {
-//         panic!();
-//     }
-// }
+impl From<String> for RawPtr {
+    fn from(value: String) -> Self {
+        unsafe { std::mem::transmute(value) }
+    }
+}

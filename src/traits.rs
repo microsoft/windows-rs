@@ -1,177 +1,86 @@
 use crate::*;
 
-pub trait Interface{
-    fn raw(&self) -> handle;
-    fn raw_mut(&mut self) -> *mut handle;
-}
+// TODO: model traits after cppwinrt traits
 
+// Formal WinRT type categories.
+pub trait BasicType {}
+pub trait InterfaceType {}
+pub trait DelegateType {}
+pub trait EnumType {}
+pub trait ClassType {}
+pub trait StructType {}
+
+// Required for interfaces and delegates
 pub trait TypeGuid {
     fn type_guid() -> &'static Guid;
 }
 
+// Required for classes and in some cases interfaces
 pub trait TypeName {
     fn type_name() -> &'static str;
 }
 
-// pub trait CloneAs<T> {
-//     fn clone_as(&self) -> T;
-// }
+// All WinRT types (usable as generic type params so not arrays).
+pub trait RuntimeType {
+    type Abi;
 
-pub trait AsAbi: Default {
-    type In;
-    type Out;
+    // All WinRT types can safely be produced from an all-zero byte-pattern.
+    fn empty() -> Self
+    where
+        Self: Sized,
+    {
+        // TODO: do we even need this function? Can't the local being returned be initialized with std::mem::zeroed?
+        unsafe { std::mem::zeroed() }
+    }
 
-    fn as_abi_in(&self) -> Self::In;
-    fn as_abi_out(&mut self) -> Self::Out;
+    fn as_abi(&self) -> Self::Abi;
+    fn as_abi_mut(&mut self) -> *mut Self::Abi;
+}
 
-    // TODO: this should probably take self by value
-    fn detach_abi(self) -> Self::In {
-        self.as_abi_in()
+// Contrains blittable types to those that are WinRT types so that
+// we can implement RuntimeType for all of these at once.
+pub trait RuntimeCopy: Copy {}
+impl RuntimeCopy for bool {}
+impl RuntimeCopy for i8 {}
+impl RuntimeCopy for u8 {}
+impl RuntimeCopy for i16 {}
+impl RuntimeCopy for u16 {}
+impl RuntimeCopy for i32 {}
+impl RuntimeCopy for u32 {}
+impl RuntimeCopy for i64 {}
+impl RuntimeCopy for u64 {}
+impl RuntimeCopy for f32 {}
+impl RuntimeCopy for f64 {}
+
+impl<T> RuntimeType for T
+where
+    T: RuntimeCopy,
+{
+    type Abi = Self;
+
+    fn as_abi(&self) -> Self::Abi {
+        *self
+    }
+
+    fn as_abi_mut(&mut self) -> *mut Self::Abi {
+        self as *mut Self::Abi
     }
 }
 
-// impl<T> AsAbi for T where T : Interface {
-//     type In = handle;
-//     type Out = *mut handle;
+// RuntimeTypes (and other types likes arrays) used as input parameter types
+pub trait InParamType {
+    type Abi;
 
-//     fn as_abi_in(&self) -> Self::In {
-//         self.raw()
-//     }
-
-//     fn as_abi_out(&mut self) -> Self::Out {
-//         self.raw_mut()
-//     }
-// }
-
-impl AsAbi for bool {
-    type In = bool;
-    type Out = *mut bool;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
+    fn as_abi(&mut self) -> Self::Abi;
 }
 
-impl AsAbi for char {
-    // TODO: this needs to be u16
-    type In = char;
-    type Out = *mut char;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
+impl<T> InParamType for T
+where
+    T: RuntimeType,
+{
+    type Abi = T::Abi;
 
-impl AsAbi for i8 {
-    type In = i8;
-    type Out = *mut i8;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for u8 {
-    type In = u8;
-    type Out = *mut u8;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for i16 {
-    type In = i16;
-    type Out = *mut i16;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for u16 {
-    type In = u16;
-    type Out = *mut u16;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for i32 {
-    type In = i32;
-    type Out = *mut i32;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for u32 {
-    type In = u32;
-    type Out = *mut u32;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for i64 {
-    type In = i64;
-    type Out = *mut i64;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for u64 {
-    type In = u64;
-    type Out = *mut u64;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for f32 {
-    type In = f32;
-    type Out = *mut f32;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
-    }
-}
-
-impl AsAbi for f64 {
-    type In = f64;
-    type Out = *mut f64;
-    fn as_abi_in(&self) -> Self::In {
-        *self
-    }
-    fn as_abi_out(&mut self) -> Self::Out {
-        self as Self::Out
+    fn as_abi(&mut self) -> Self::Abi {
+        <Self as RuntimeType>::as_abi(self)
     }
 }

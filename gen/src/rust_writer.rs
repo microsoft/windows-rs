@@ -908,13 +908,13 @@ impl<'a> Writer<'a> {
         //     let type_param = format_ident!("__T{}", count);
 
         //     if let TypeSigType::ElementType(ElementType::String) = param.sig_type().sig_type() {
-        //        if param.input() { 
+        //        if param.input() {
         //            tokens.push(quote! { #'lifetime, #type_param: Into<winrt::param::String< #'lifetime>>,});
         //         }
         //     }
         //     // TODO: handle other convertible input types...
         // }
-        
+
         TokenStream::from_iter(tokens)
     }
 
@@ -930,7 +930,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_consume_param(&mut self, count:usize, param: &ParamSig) -> TokenStream {
+    fn write_consume_param(&mut self, count: usize, param: &ParamSig) -> TokenStream {
         match param.sig_type().sig_type() {
             TypeSigType::ElementType(value) => self.write_consume_param_element_type(count, param, value),
             TypeSigType::TypeDefOrRef(value) => self.write_consume_param_type(count, param, value),
@@ -939,7 +939,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_consume_param_element_type(&mut self, count:usize, param: &ParamSig, value: &ElementType) -> TokenStream {
+    fn write_consume_param_element_type(&mut self, count: usize, param: &ParamSig, value: &ElementType) -> TokenStream {
         if param.input() {
             match value {
                 ElementType::Bool => quote! { bool, },
@@ -954,7 +954,7 @@ impl<'a> Writer<'a> {
                 ElementType::U64 => quote! { u64, },
                 ElementType::F32 => quote! { f32, },
                 ElementType::F64 => quote! { f64, },
-                ElementType::String => quote! { &winrt::String, }, 
+                ElementType::String => quote! { &winrt::String, },
                 // ElementType::String => {
                 //     let type_param = format_ident!("__T{}", count);
                 //     quote! { #type_param, }
@@ -981,7 +981,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_consume_param_type(&mut self, count:usize, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
+    fn write_consume_param_type(&mut self, count: usize, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
         match value {
             TypeDefOrRef::TypeDef(value) => self.write_consume_param_type_def(param, value),
             TypeDefOrRef::TypeRef(value) => self.write_consume_param_type_ref(param, value),

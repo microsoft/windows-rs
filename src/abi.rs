@@ -1,16 +1,16 @@
 use crate::*;
 
-pub type handle = *mut std::ffi::c_void;
+pub type RawPtr = *mut std::ffi::c_void;
 
 #[repr(C)]
 pub struct IUnknown {
-    query: extern "system" fn(handle, &Guid, *mut handle) -> ErrorCode,
-    addref: extern "system" fn(handle) -> u32,
-    release: extern "system" fn(handle) -> u32,
+    query: extern "system" fn(RawPtr, &Guid, *mut RawPtr) -> ErrorCode,
+    addref: extern "system" fn(RawPtr) -> u32,
+    release: extern "system" fn(RawPtr) -> u32,
 }
 
 impl IUnknown {
-    pub fn query(ptr: handle, guid: &Guid) -> handle {
+    pub fn query(ptr: RawPtr, guid: &Guid) -> RawPtr {
         unsafe {
             let mut result = std::ptr::null_mut();
             if !ptr.is_null() {
@@ -20,7 +20,7 @@ impl IUnknown {
         }
     }
 
-    pub fn addref(ptr: handle) {
+    pub fn addref(ptr: RawPtr) {
         unsafe {
             if !ptr.is_null() {
                 ((*(*(ptr as *const *const Self))).addref)(ptr);
@@ -28,7 +28,7 @@ impl IUnknown {
         }
     }
 
-    pub fn release(ptr: handle) {
+    pub fn release(ptr: RawPtr) {
         unsafe {
             if !ptr.is_null() {
                 ((*(*(ptr as *const *const Self))).release)(ptr);
@@ -43,7 +43,7 @@ pub struct IInspectable {
     __1: usize,
     __2: usize,
     __3: usize,
-    type_name: extern "system" fn(handle, *mut handle) -> ErrorCode,
+    type_name: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
 }
 
 // impl IInspectable {

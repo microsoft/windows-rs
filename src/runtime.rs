@@ -14,13 +14,13 @@ use crate::*;
 
 #[link(name = "windowsapp")]
 extern "system" {
-    pub fn CoIncrementMTAUsage(cookie: *mut handle) -> ErrorCode;
-    pub fn LoadLibraryW(name: *const u16) -> handle;
-    pub fn GetProcAddress(library: handle, name: *const u8) -> handle;
-    pub fn GetProcessHeap() -> handle;
-    pub fn HeapAlloc(heap: handle, flags: u32, bytes: usize) -> handle;
-    pub fn HeapFree(heap: handle, flags: u32, ptr: handle) -> i32;
+    pub fn LoadLibraryW(name: *const u16) -> RawPtr;
+    pub fn GetProcAddress(library: RawPtr, name: *const u8) -> RawPtr;
+    pub fn GetProcessHeap() -> RawPtr;
+    pub fn HeapAlloc(heap: RawPtr, flags: u32, bytes: usize) -> RawPtr;
+    pub fn HeapFree(heap: RawPtr, flags: u32, ptr: RawPtr) -> i32;
 
-    // TODO: get rid of these
-    pub fn RoGetActivationFactory(hstring: handle, interface: &Guid, result: *mut handle) -> ErrorCode;
+    // TODO: get rid of these (not available on Windows 7)
+    pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
+    pub fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
 }

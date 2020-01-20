@@ -4,7 +4,7 @@ use crate::*;
 
 #[repr(C)]
 pub struct Object {
-    pub ptr: handle,
+    pub ptr: RawPtr,
 }
 
 impl TypeGuid for Object {
@@ -14,29 +14,15 @@ impl TypeGuid for Object {
     }
 }
 
-impl AsAbi for Object {
-    type In = handle;
-    type Out = *mut handle;
+impl RuntimeType for Object {
+    type Abi = RawPtr;
 
-    fn as_abi_in(&self) -> Self::In {
+    fn as_abi(&self) -> Self::Abi {
         self.ptr
     }
 
-    fn as_abi_out(&mut self) -> Self::Out {
-        debug_assert!(self.ptr.is_null());
+    fn as_abi_mut(&mut self) -> *mut Self::Abi {
         &mut self.ptr
-    }
-
-    fn detach_abi(mut self) -> Self::In {
-        let ptr = self.as_abi_in();
-        self.ptr = std::ptr::null_mut();
-        ptr
-    }
-}
-
-impl From<handle> for Object {
-    fn from(ptr: handle) -> Self {
-        Self { ptr }
     }
 }
 
@@ -49,5 +35,11 @@ impl Default for Object {
 impl Drop for Object {
     fn drop(&mut self) {
         IUnknown::release(self.ptr);
+    }
+}
+
+impl From<RawPtr> for Object {
+    fn from(value: RawPtr) -> Self {
+        unsafe { std::mem::transmute(value) }
     }
 }

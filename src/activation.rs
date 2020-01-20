@@ -6,23 +6,18 @@ use crate::*;
 // that this is super fast. Also, load RoGetActivationFactory dynamically and fall back to LoadLibrary
 // and implement DLL garbage collection for those. Version 0.1 can probably just pin everything.
 // https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
-pub fn factory<C: TypeName, I: TypeGuid + From<handle>>() -> Result<I> {
+pub fn factory<C: TypeName, I: TypeGuid + From<RawPtr>>() -> Result<I> {
     unsafe {
         let mut ptr = std::ptr::null_mut();
 
-        let mut code = RoGetActivationFactory(String::from(C::type_name()).as_abi_in(), I::type_guid(), &mut ptr);
+        let mut code = RoGetActivationFactory(String::from(C::type_name()).as_abi(), I::type_guid(), &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut cookie = std::ptr::null_mut();
             CoIncrementMTAUsage(&mut cookie);
-            code = RoGetActivationFactory(String::from(C::type_name()).as_abi_in(), I::type_guid(), &mut ptr);
+            code = RoGetActivationFactory(String::from(C::type_name()).as_abi(), I::type_guid(), &mut ptr);
         }
 
-        code.ok_or(I::from(ptr))
+        code.ok_or(ptr.into())
     }
 }
-
-// pub fn clone_as<Source: AsAbi, Destination: TypeGuid + From<handle>>(source:&Source) -> Destination
-// {
-//     Destination::from(IUnknown::query(source.as_abi_in() as *mut std::ffi::c_void, <Destination as TypeGuid>::type_guid()))
-// }

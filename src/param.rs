@@ -7,19 +7,21 @@ pub enum String<'a> {
     WinrtRef(&'a super::String),
 }
 
-impl<'a> String<'a> {
-    pub fn as_abi_in(&mut self) -> handle {
+impl<'a> InParamType for String<'a> {
+    type Abi = RawPtr;
+
+    fn as_abi(&mut self) -> Self::Abi {
         match self {
             String::Ref(value) => {
                 *self = String::Winrt((*value).into());
-                self.as_abi_in()
+                self.as_abi()
             }
             String::String(value) => {
                 *self = String::Winrt(value.as_str().into());
-                self.as_abi_in()
+                self.as_abi()
             }
-            String::Winrt(value) => value.as_abi_in(),
-            String::WinrtRef(value) => value.as_abi_in(),
+            String::Winrt(value) => value.as_abi(),
+            String::WinrtRef(value) => value.as_abi(),
         }
     }
 }
