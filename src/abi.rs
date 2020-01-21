@@ -1,6 +1,25 @@
 use crate::*;
 
 pub type RawPtr = *mut std::ffi::c_void;
+pub struct RawComPtr(RawPtr);
+
+impl Default for RawComPtr {
+    fn default() -> Self {
+        Self(std::ptr::null_mut())
+    }
+}
+
+impl RawComPtr {
+    pub fn query(&self, guid: &Guid) -> RawComPtr {
+        unsafe {
+            let mut result: RawComPtr = Default::default();
+            if !self.0.is_null() {
+                ((*(*(self.0 as *const *const IUnknown))).query)(self.0, guid, &mut result.0);
+            }
+            result
+        }
+    }
+}
 
 #[repr(C)]
 pub struct IUnknown {
