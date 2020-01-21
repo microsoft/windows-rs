@@ -177,3 +177,9 @@ impl From<String> for RawPtr {
         unsafe { std::mem::transmute(value) }
     }
 }
+
+// impl AsRef<String> for String {
+//     fn as_ref(&self) -> &String {
+//         &String::new()
+//     }
+// }

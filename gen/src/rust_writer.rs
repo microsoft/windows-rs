@@ -157,6 +157,16 @@ impl<'a> Writer<'a> {
                     Self { ptr }
                 }
             }
+            impl<'a> Into<winrt::Param<'a, #name>> for #name {
+                fn into(self) -> winrt::Param<'a, #name> {
+                    winrt::Param::Value(self)
+                }
+            }
+            impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
+                fn into(self) -> winrt::Param<'a, #name> {
+                    winrt::Param::Ref(self)
+                }
+            }
             impl Default for #name {
                 fn default() -> Self {
                     Self { ptr: std::ptr::null_mut() }
@@ -196,6 +206,16 @@ impl<'a> Writer<'a> {
                             #interface_ident::from(winrt::IUnknown::addref(winrt::RuntimeType::as_abi(value)))
                         }
                     }
+                    impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
+                        fn into(self) -> winrt::Param<'a, #interface_ident> {
+                            winrt::Param::Value(self.into())
+                        }
+                    }
+                    impl<'a> Into<winrt::Param<'a, #interface_ident>> for &'a #class_ident {
+                        fn into(self) -> winrt::Param<'a, #interface_ident> {
+                            winrt::Param::Value(self.into())
+                        }
+                    }
                 });
             } else {
                 tokens.push(quote! {
@@ -207,6 +227,16 @@ impl<'a> Writer<'a> {
                     impl From<&#class_ident> for #interface_ident {
                         fn from(value: &#class_ident) -> #interface_ident {
                             #interface_ident::from(winrt::IUnknown::query(winrt::RuntimeType::as_abi(value), <#interface_ident as winrt::TypeGuid>::type_guid()))
+                        }
+                    }
+                    impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
+                        fn into(self) -> winrt::Param<'a, #interface_ident> {
+                            winrt::Param::Value(self.into())
+                        }
+                    }
+                    impl<'a> Into<winrt::Param<'a, #interface_ident>> for &'a #class_ident {
+                        fn into(self) -> winrt::Param<'a, #interface_ident> {
+                            winrt::Param::Value(self.into())
                         }
                     }
                 });
@@ -367,6 +397,16 @@ impl<'a> Writer<'a> {
             impl From<winrt::RawPtr> for #name_ident {
                 fn from(ptr: winrt::RawPtr) -> Self {
                     Self { ptr }
+                }
+            }
+            impl<'a> Into<winrt::Param<'a, #name_ident>> for #name_ident {
+                fn into(self) -> winrt::Param<'a, #name_ident> {
+                    winrt::Param::Value(self)
+                }
+            }
+            impl<'a> Into<winrt::Param<'a, #name_ident>> for &'a #name_ident {
+                fn into(self) -> winrt::Param<'a, #name_ident> {
+                    winrt::Param::Ref(self)
                 }
             }
             impl Default for #name_ident {
@@ -611,6 +651,16 @@ impl<'a> Writer<'a> {
             impl From<winrt::RawPtr> for #name_ident {
                 fn from(ptr: winrt::RawPtr) -> Self {
                     Self { ptr }
+                }
+            }
+            impl<'a> Into<winrt::Param<'a, #name_ident>> for #name_ident {
+                fn into(self) -> winrt::Param<'a, #name_ident> {
+                    winrt::Param::Value(self)
+                }
+            }
+            impl<'a> Into<winrt::Param<'a, #name_ident>> for &'a #name_ident {
+                fn into(self) -> winrt::Param<'a, #name_ident> {
+                    winrt::Param::Ref(self)
                 }
             }
             impl Default for #name_ident {
@@ -876,7 +926,7 @@ impl<'a> Writer<'a> {
 
             if let TypeSigType::ElementType(ElementType::String) = param.sig_type().sig_type() {
                 if param.input() {
-                    tokens.push(quote! { #type_param: Into<winrt::param::String<'a>>,});
+                    tokens.push(quote! { #type_param: Into<winrt::StringParam<'a>>,});
                 }
             }
 
