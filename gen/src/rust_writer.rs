@@ -134,7 +134,7 @@ impl<'a> Writer<'a> {
         let functions = self.write_class_functions(class);
         let string_name = format!("{}.{}", class.namespace(self.r), class.name(self.r));
         let interfaces = self.interfaces(class);
-        let intos = self.write_into_traits(&name, &interfaces);
+        let froms = self.write_from_traits(&name, &interfaces);
 
         quote! {
             pub struct #name { ptr: winrt::RawPtr }
@@ -150,9 +150,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release(self.ptr);
-                    self.ptr = std::ptr::null_mut();
-                    &mut self.ptr
+                    winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
             impl From<winrt::RawPtr> for #name {
@@ -170,39 +168,51 @@ impl<'a> Writer<'a> {
                     winrt::IUnknown::release(self.ptr);
                 }
             }
-            #intos
+            #froms
         }
     }
 
-    fn write_into_traits(&mut self, class_ident: &Ident, interfaces: &Vec<InterfaceInfo>) -> TokenStream {
+    fn write_from_traits(&mut self, class_ident: &Ident, interfaces: &Vec<InterfaceInfo>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        // for i in interfaces {
-        //     if !i.generics.is_empty() {
-        //         continue;
-        //     }
+        for i in interfaces {
+            // TODO: support generic interfaces
+            if !i.generics.is_empty() {
+                continue;
+            }
 
-        //     // TODO: support generic interfaces
-        //     let interface_ident = format_ident!("{}", i.definition.name(self.r));
+            let interface_ident = format_ident!("{}", i.definition.name(self.r));
 
-        //     if i.default {
-        //         tokens.push(quote! {
-        //             impl Into<#interface_ident> for #class_ident {
-        //                 fn into(self) -> #interface_ident {
-        //                     #interface_ident::from(winrt::AsAbi::detach_abi(self))
-        //                 }
-        //             }
-        //         });
-        //     } else {
-        //         tokens.push(quote! {
-        //             impl Into<#interface_ident> for #class_ident {
-        //                 fn into(self) -> #interface_ident {
-        //                     #interface_ident::from(winrt::IUnknown::query(winrt::AsAbi::as_abi_in(&self), <#interface_ident as winrt::TypeGuid>::type_guid()))
-        //                 }
-        //             }
-        //         });
-        //     }
-        // }
+            // TODO: add from traits for ref
+
+            if i.default {
+                tokens.push(quote! {
+                    impl From<#class_ident> for #interface_ident {
+                        fn from(value: #class_ident) -> #interface_ident {
+                            unsafe { std::mem::transmute(value) }
+                        }
+                    }
+                    impl From<&#class_ident> for #interface_ident {
+                        fn from(value: &#class_ident) -> #interface_ident {
+                            #interface_ident::from(winrt::IUnknown::addref(winrt::RuntimeType::as_abi(value)))
+                        }
+                    }
+                });
+            } else {
+                tokens.push(quote! {
+                    impl From<#class_ident> for #interface_ident {
+                        fn from(value: #class_ident) -> #interface_ident {
+                            #interface_ident::from(&value)
+                        }
+                    }
+                    impl From<&#class_ident> for #interface_ident {
+                        fn from(value: &#class_ident) -> #interface_ident {
+                            #interface_ident::from(winrt::IUnknown::query(winrt::RuntimeType::as_abi(value), <#interface_ident as winrt::TypeGuid>::type_guid()))
+                        }
+                    }
+                });
+            }
+        }
 
         TokenStream::from_iter(tokens)
     }
@@ -234,6 +244,7 @@ impl<'a> Writer<'a> {
                 let abi_name_ident = quote! { #abi_name_ident };
                 tokens.push(self.write_consume_methods(&interface.definition, &abi_name_ident));
             }
+            // TODO: deal with non-default interfaces
         }
 
         // TODO: 1. write default interface consume methods directly into class impl (not calling through default interface)
@@ -351,9 +362,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release(self.ptr);
-                    self.ptr = std::ptr::null_mut();
-                    &mut self.ptr
+                    winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
 
@@ -420,9 +429,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release(self.ptr);
-                    self.ptr = std::ptr::null_mut();
-                    &mut self.ptr
+                    winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
             impl #generics2 From<winrt::RawPtr> for #name_ident #generics {
@@ -600,9 +607,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release(self.ptr);
-                    self.ptr = std::ptr::null_mut();
-                    &mut self.ptr
+                    winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
             impl From<winrt::RawPtr> for #name_ident {
@@ -688,9 +693,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release(self.ptr);
-                    self.ptr = std::ptr::null_mut();
-                    &mut self.ptr
+                    winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
             impl #generics2 From<winrt::RawPtr> for #name_ident #generics {

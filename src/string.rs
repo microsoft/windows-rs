@@ -133,7 +133,7 @@ impl std::fmt::Display for String {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         // TODO: how to format the wchar buffer directly to avoid an allocation?
         // Especially since `value.to_string()` relies on this... unless the formatter
-        // can somehow move/forward the string.
+        // can somehow move/forward the vector.
         write!(f, "{}", std::string::String::from_utf16(self.as_chars()).unwrap())
     }
 }

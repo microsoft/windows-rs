@@ -20,11 +20,12 @@ impl IUnknown {
         }
     }
 
-    pub fn addref(ptr: RawPtr) {
+    pub fn addref(ptr: RawPtr) -> RawPtr {
         unsafe {
             if !ptr.is_null() {
                 ((*(*(ptr as *const *const Self))).addref)(ptr);
             }
+            ptr
         }
     }
 
@@ -33,6 +34,17 @@ impl IUnknown {
             if !ptr.is_null() {
                 ((*(*(ptr as *const *const Self))).release)(ptr);
             }
+        }
+    }
+
+    pub fn release_mut(ptr: *mut RawPtr) -> *mut RawPtr {
+        unsafe {
+            if !(*ptr).is_null() {
+                ((*(*(*ptr as *const *const Self))).release)(*ptr);
+                *ptr = std::ptr::null_mut();
+            }
+
+            ptr
         }
     }
 }
