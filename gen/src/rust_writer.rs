@@ -124,7 +124,6 @@ impl<'a> Writer<'a> {
 
     fn write_class(&mut self, class: &TypeDef) -> TokenStream {
         // TODO: don't define struct here if the class is static - only declare.
-        println!("write_class({})", class.name(self.r));
 
         if class.name(self.r) == "PropertyValue" {
             return TokenStream::new();
@@ -239,7 +238,6 @@ impl<'a> Writer<'a> {
             if interface.default {
                 // TODO: deal with generic interfaces
                 let name = interface.definition.name(self.r);
-                println!("   required({})", name);
                 let abi_name_ident = format_ident!("abi_{}", name);
                 let abi_name_ident = quote! { #abi_name_ident };
                 tokens.push(self.write_consume_methods(&interface.definition, &abi_name_ident));
