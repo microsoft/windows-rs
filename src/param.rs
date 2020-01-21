@@ -7,10 +7,8 @@ pub enum String<'a> {
     WinrtRef(&'a super::String),
 }
 
-impl<'a> InParamType for String<'a> {
-    type Abi = RawPtr;
-
-    fn as_abi(&mut self) -> Self::Abi {
+impl<'a> String<'a> {
+    pub fn as_abi(&mut self) -> RawPtr {
         match self {
             String::Ref(value) => {
                 *self = String::Winrt((*value).into());

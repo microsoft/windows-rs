@@ -150,7 +150,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    IUnknown::release(self.ptr);
+                    winrt::IUnknown::release(self.ptr);
                     self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
@@ -222,6 +222,17 @@ impl<'a> Writer<'a> {
                 } else {
                     // TODO: code default constructor "new"
                 }
+            }
+        }
+
+        for interface in self.interfaces(class) {
+            if interface.default {
+                // TODO: deal with generic interfaces
+                let name = interface.definition.name(self.r);
+                println!("   required({})", name);
+                let abi_name_ident = format_ident!("abi_{}", name);
+                let abi_name_ident = quote! { #abi_name_ident };
+                tokens.push(self.write_consume_methods(&interface.definition, &abi_name_ident));
             }
         }
 
@@ -340,7 +351,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    IUnknown::release(self.ptr);
+                    winrt::IUnknown::release(self.ptr);
                     self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
@@ -409,7 +420,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    IUnknown::release(self.ptr);
+                    winrt::IUnknown::release(self.ptr);
                     self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
@@ -473,7 +484,7 @@ impl<'a> Writer<'a> {
                             ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
                                 self.ptr, #args #receive_expression
                             )
-                            .ok_or(From::from(__ok))
+                            .ok_or(__ok.into())
                         }
                     }
                 };
@@ -589,7 +600,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    IUnknown::release(self.ptr);
+                    winrt::IUnknown::release(self.ptr);
                     self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
@@ -677,7 +688,7 @@ impl<'a> Writer<'a> {
                     self.ptr
                 }
                 fn as_abi_mut(&mut self) -> *mut Self::Abi {
-                    IUnknown::release(self.ptr);
+                    winrt::IUnknown::release(self.ptr);
                     self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
@@ -859,17 +870,21 @@ impl<'a> Writer<'a> {
     fn write_consume_into_params(&self, signature: &MethodSig) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        // for (count, param) in signature.params().iter().enumerate() {
-        //     let lifetime = format_ident!("a{}", count);
-        //     let type_param = format_ident!("__T{}", count);
+        for (count, param) in signature.params().iter().enumerate() {
+            let type_param = format_ident!("__{}", count);
 
-        //     if let TypeSigType::ElementType(ElementType::String) = param.sig_type().sig_type() {
-        //        if param.input() {
-        //            tokens.push(quote! { #'lifetime, #type_param: Into<winrt::param::String< #'lifetime>>,});
-        //         }
-        //     }
-        //     // TODO: handle other convertible input types...
-        // }
+            if let TypeSigType::ElementType(ElementType::String) = param.sig_type().sig_type() {
+                if param.input() {
+                    tokens.push(quote! { #type_param: Into<winrt::param::String<'a>>,});
+                }
+            }
+
+            // TODO: handle other convertible input types...
+        }
+
+        if !tokens.is_empty() {
+            tokens.insert(0, quote! {'a,});
+        }
 
         TokenStream::from_iter(tokens)
     }
@@ -910,12 +925,11 @@ impl<'a> Writer<'a> {
                 ElementType::U64 => quote! { u64, },
                 ElementType::F32 => quote! { f32, },
                 ElementType::F64 => quote! { f64, },
-                ElementType::String => quote! { &winrt::String, },
-                // ElementType::String => {
-                //     let type_param = format_ident!("__T{}", count);
-                //     quote! { #type_param, }
-                // },
-                ElementType::Object => quote! { &winrt::Object, }, // AsRef<Object> e.g. boxing/polymorphism
+                ElementType::String => {
+                    let type_param = format_ident!("__{}", count);
+                    quote! { #type_param, }
+                }
+                ElementType::Object => quote! { &winrt::Object, }, // TODO: Same as string e.g. boxing/polymorphism
             }
         } else {
             match value {
@@ -1016,6 +1030,7 @@ impl<'a> Writer<'a> {
         if param.input() {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
+                ParamCategory::String => quote! { #name.into().as_abi(), },
                 ParamCategory::Struct => quote! { *#name, },
                 _ => quote! { winrt::RuntimeType::as_abi(#name), },
             }

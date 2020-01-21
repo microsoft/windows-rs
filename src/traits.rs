@@ -66,21 +66,3 @@ where
         self as *mut Self::Abi
     }
 }
-
-// RuntimeTypes (and other types likes arrays) used as input parameter types
-pub trait InParamType {
-    type Abi;
-
-    fn as_abi(&mut self) -> Self::Abi;
-}
-
-impl<T> InParamType for T
-where
-    T: RuntimeType,
-{
-    type Abi = T::Abi;
-
-    fn as_abi(&mut self) -> Self::Abi {
-        <Self as RuntimeType>::as_abi(self)
-    }
-}
