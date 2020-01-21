@@ -22,6 +22,8 @@ impl RuntimeType for Object {
     }
 
     fn as_abi_mut(&mut self) -> *mut Self::Abi {
+        IUnknown::release(self.ptr);
+        self.ptr = std::ptr::null_mut();
         &mut self.ptr
     }
 }

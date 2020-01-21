@@ -24,14 +24,14 @@ pub trait TypeName {
 pub trait RuntimeType {
     type Abi;
 
-    // All WinRT types can safely be produced from an all-zero byte-pattern.
-    fn empty() -> Self
-    where
-        Self: Sized,
-    {
-        // TODO: do we even need this function? Can't the local being returned be initialized with std::mem::zeroed?
-        unsafe { std::mem::zeroed() }
-    }
+    // // All WinRT types can safely be produced from an all-zero byte-pattern.
+    // fn empty() -> Self
+    // where
+    //     Self: Sized,
+    // {
+    //     // TODO: do we even need this function? Can't the local being returned be initialized with std::mem::zeroed?
+    //     unsafe { std::mem::zeroed() }
+    // }
 
     fn as_abi(&self) -> Self::Abi;
     fn as_abi_mut(&mut self) -> *mut Self::Abi;

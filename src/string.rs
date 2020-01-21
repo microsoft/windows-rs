@@ -87,6 +87,20 @@ impl String {
             }
         }
     }
+
+    pub fn clear(&mut self) {
+        unsafe {
+            if !self.is_empty() {
+                debug_assert!((*self.ptr).flags & REFERENCE_FLAG == 0);
+
+                if 0 == (*(self.ptr as *const SharedHeader)).count.release() {
+                    HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
+                }
+
+                self.ptr = std::ptr::null_mut();
+            }
+        }
+    }
 }
 
 impl RuntimeType for String {
@@ -97,6 +111,8 @@ impl RuntimeType for String {
     }
 
     fn as_abi_mut(&mut self) -> *mut Self::Abi {
+        self.clear();
+        self.ptr = std::ptr::null_mut();
         &mut (self.ptr as RawPtr)
     }
 }
@@ -109,15 +125,7 @@ impl Default for String {
 
 impl Drop for String {
     fn drop(&mut self) {
-        if !self.is_empty() {
-            unsafe {
-                debug_assert!((*self.ptr).flags & REFERENCE_FLAG == 0);
-
-                if 0 == (*(self.ptr as *const SharedHeader)).count.release() {
-                    HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
-                }
-            }
-        }
+        self.clear();
     }
 }
 

@@ -137,31 +137,26 @@ impl<'a> Writer<'a> {
         let intos = self.write_into_traits(&name, &interfaces);
 
         quote! {
-            pub struct #name { ptr: winrt::handle }
+            pub struct #name { ptr: winrt::RawPtr }
             impl #name { #functions }
             impl winrt::TypeName for #name {
                 fn type_name() -> &'static str {
                     #string_name
                 }
             }
-            impl winrt::AsAbi for #name {
-                type In = winrt::handle;
-                type Out = *mut winrt::handle;
-                fn as_abi_in(&self) -> Self::In {
+            impl winrt::RuntimeType for #name {
+                type Abi = winrt::RawPtr;
+                fn as_abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_out(&mut self) -> Self::Out {
-                    debug_assert!(self.ptr.is_null());
+                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                    IUnknown::release(self.ptr);
+                    self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
-                fn detach_abi(mut self) -> Self::In {
-                    let ptr = self.as_abi_in();
-                    self.ptr = std::ptr::null_mut();
-                    ptr
-                }
             }
-            impl From<winrt::handle> for #name {
-                fn from(ptr: winrt::handle) -> Self {
+            impl From<winrt::RawPtr> for #name {
+                fn from(ptr: winrt::RawPtr) -> Self {
                     Self { ptr }
                 }
             }
@@ -180,34 +175,34 @@ impl<'a> Writer<'a> {
     }
 
     fn write_into_traits(&mut self, class_ident: &Ident, interfaces: &Vec<InterfaceInfo>) -> TokenStream {
-        let mut tokens = Vec::new();
+        let mut tokens = Vec::<TokenStream>::new();
 
-        for i in interfaces {
-            if !i.generics.is_empty() {
-                continue;
-            }
+        // for i in interfaces {
+        //     if !i.generics.is_empty() {
+        //         continue;
+        //     }
 
-            // TODO: support generic interfaces
-            let interface_ident = format_ident!("{}", i.definition.name(self.r));
+        //     // TODO: support generic interfaces
+        //     let interface_ident = format_ident!("{}", i.definition.name(self.r));
 
-            if i.default {
-                tokens.push(quote! {
-                    impl Into<#interface_ident> for #class_ident {
-                        fn into(self) -> #interface_ident {
-                            #interface_ident::from(winrt::AsAbi::detach_abi(self))
-                        }
-                    }
-                });
-            } else {
-                tokens.push(quote! {
-                    impl Into<#interface_ident> for #class_ident {
-                        fn into(self) -> #interface_ident {
-                            #interface_ident::from(winrt::IUnknown::query(winrt::AsAbi::as_abi_in(&self), <#interface_ident as winrt::TypeGuid>::type_guid()))
-                        }
-                    }
-                });
-            }
-        }
+        //     if i.default {
+        //         tokens.push(quote! {
+        //             impl Into<#interface_ident> for #class_ident {
+        //                 fn into(self) -> #interface_ident {
+        //                     #interface_ident::from(winrt::AsAbi::detach_abi(self))
+        //                 }
+        //             }
+        //         });
+        //     } else {
+        //         tokens.push(quote! {
+        //             impl Into<#interface_ident> for #class_ident {
+        //                 fn into(self) -> #interface_ident {
+        //                     #interface_ident::from(winrt::IUnknown::query(winrt::AsAbi::as_abi_in(&self), <#interface_ident as winrt::TypeGuid>::type_guid()))
+        //                 }
+        //             }
+        //         });
+        //     }
+        // }
 
         TokenStream::from_iter(tokens)
     }
@@ -317,7 +312,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident { ptr: winrt::handle }
+            pub struct #name_ident { ptr: winrt::RawPtr }
             #[repr(C)]
             struct #abi_name_ident {
                 __0: usize,
@@ -339,24 +334,20 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            impl winrt::AsAbi for #name_ident {
-                type In = winrt::handle;
-                type Out = *mut winrt::handle;
-                fn as_abi_in(&self) -> Self::In {
+            impl winrt::RuntimeType for #name_ident {
+                type Abi = winrt::RawPtr;
+                fn as_abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_out(&mut self) -> Self::Out {
-                    debug_assert!(self.ptr.is_null());
+                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                    IUnknown::release(self.ptr);
+                    self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
-                fn detach_abi(mut self) -> Self::In {
-                    let ptr = self.as_abi_in();
-                    self.ptr = std::ptr::null_mut();
-                    ptr
-                }
             }
-            impl From<winrt::handle> for #name_ident {
-                fn from(ptr: winrt::handle) -> Self {
+
+            impl From<winrt::RawPtr> for #name_ident {
+                fn from(ptr: winrt::RawPtr) -> Self {
                     Self { ptr }
                 }
             }
@@ -389,7 +380,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident #generics2 { ptr: winrt::handle, #phantoms }
+            pub struct #name_ident #generics2 { ptr: winrt::RawPtr, #phantoms }
             #[repr(C)]
             struct #abi_name_ident #generics2 {
                 __0: usize,
@@ -412,24 +403,19 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            impl #generics2 winrt::AsAbi for #name_ident #generics {
-                type In = winrt::handle;
-                type Out = *mut winrt::handle;
-                fn as_abi_in(&self) -> Self::In {
+            impl #generics2 winrt::RuntimeType for #name_ident #generics {
+                type Abi = winrt::RawPtr;
+                fn as_abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_out(&mut self) -> Self::Out {
-                    debug_assert!(self.ptr.is_null());
+                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                    IUnknown::release(self.ptr);
+                    self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
-                fn detach_abi(mut self) -> Self::In {
-                    let ptr = self.as_abi_in();
-                    self.ptr = std::ptr::null_mut();
-                    ptr
-                }
             }
-            impl #generics2 From<winrt::handle> for #name_ident #generics {
-                fn from(ptr: winrt::handle) -> Self {
+            impl #generics2 From<winrt::RawPtr> for #name_ident #generics {
+                fn from(ptr: winrt::RawPtr) -> Self {
                     Self { ptr, #phantoms }
                 }
             }
@@ -458,7 +444,7 @@ impl<'a> Writer<'a> {
             let params = self.write_abi_params(&method.signature(self.r));
             tokens = quote! {
                 #tokens
-                #name: extern "system" fn(winrt::handle, #params) -> winrt::ErrorCode,
+                #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
             };
         }
 
@@ -477,14 +463,13 @@ impl<'a> Writer<'a> {
 
             if let Some(result) = signature.return_type() {
                 let projected_result = self.write_type(result.sig_type());
-                let receive_result = self.write_consume_receive_type(result.sig_type());
                 let receive_expression = self.write_consume_receive_expression(result.sig_type());
 
                 tokens = quote! {
                     #tokens
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
-                            #receive_result
+                            let mut __ok = std::mem::zeroed();
                             ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
                                 self.ptr, #args #receive_expression
                             )
@@ -510,26 +495,12 @@ impl<'a> Writer<'a> {
         tokens
     }
 
-    fn write_consume_receive_type(&mut self, value: &TypeSig) -> TokenStream {
-        match value.category(self.r) {
-            ParamCategory::Object | ParamCategory::String => quote! {
-                let mut __ok = std::ptr::null_mut();
-            },
-            _ => {
-                let projected_type = self.write_type(value);
-                quote! {
-                    let mut __ok: #projected_type = Default::default();
-                }
-            }
-        }
-    }
-
     fn write_consume_receive_expression(&mut self, value: &TypeSig) -> TokenStream {
         match value.category(self.r) {
             ParamCategory::Generic => {
                 let projected_type = self.write_type(value);
                 quote! {
-                        <#projected_type as winrt::AsAbi>::as_abi_out(&mut __ok)
+                        <#projected_type as winrt::RuntimeType>::as_abi_mut(&mut __ok)
                 }
             }
             _ => quote! {
@@ -594,7 +565,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident { ptr: winrt::handle }
+            pub struct #name_ident { ptr: winrt::RawPtr }
             #[repr(C)]
             struct #abi_name_ident {
                 __0: usize,
@@ -612,24 +583,19 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            impl winrt::AsAbi for #name_ident {
-                type In = winrt::handle;
-                type Out = *mut winrt::handle;
-                fn as_abi_in(&self) -> Self::In {
+            impl winrt::RuntimeType for #name_ident {
+                type Abi = winrt::RawPtr;
+                fn as_abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_out(&mut self) -> Self::Out {
-                    debug_assert!(self.ptr.is_null());
+                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                    IUnknown::release(self.ptr);
+                    self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
-                fn detach_abi(mut self) -> Self::In {
-                    let ptr = self.as_abi_in();
-                    self.ptr = std::ptr::null_mut();
-                    ptr
-                }
             }
-            impl From<winrt::handle> for #name_ident {
-                fn from(ptr: winrt::handle) -> Self {
+            impl From<winrt::RawPtr> for #name_ident {
+                fn from(ptr: winrt::RawPtr) -> Self {
                     Self { ptr }
                 }
             }
@@ -652,7 +618,7 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::new();
 
         for generic in generics {
-            tokens.push(quote! { #generic : winrt::AsAbi })
+            tokens.push(quote! { #generic : winrt::RuntimeType })
         }
 
         quote! { <#(#tokens),*> }
@@ -686,7 +652,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident #generics2 { ptr: winrt::handle, #phantoms }
+            pub struct #name_ident #generics2 { ptr: winrt::RawPtr, #phantoms }
             #[repr(C)]
             struct #abi_name_ident #generics2 {
                 __0: usize,
@@ -705,24 +671,19 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            impl #generics2 winrt::AsAbi for #name_ident #generics {
-                type In = winrt::handle;
-                type Out = *mut winrt::handle;
-                fn as_abi_in(&self) -> Self::In {
+            impl #generics2 winrt::RuntimeType for #name_ident #generics {
+                type Abi = winrt::RawPtr;
+                fn as_abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_out(&mut self) -> Self::Out {
-                    debug_assert!(self.ptr.is_null());
+                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                    IUnknown::release(self.ptr);
+                    self.ptr = std::ptr::null_mut();
                     &mut self.ptr
                 }
-                fn detach_abi(mut self) -> Self::In {
-                    let ptr = self.as_abi_in();
-                    self.ptr = std::ptr::null_mut();
-                    ptr
-                }
             }
-            impl #generics2 From<winrt::handle> for #name_ident #generics {
-                fn from(ptr: winrt::handle) -> Self {
+            impl #generics2 From<winrt::RawPtr> for #name_ident #generics {
+                fn from(ptr: winrt::RawPtr) -> Self {
                     Self { ptr, #phantoms }
                 }
             }
@@ -746,14 +707,9 @@ impl<'a> Writer<'a> {
             #[repr(C)]
             #[derive(Copy, Clone, Default, Debug, PartialEq)]
             pub struct #name { #fields }
-            impl winrt::AsAbi for #name {
-                type In = #name;
-                type Out = *mut #name;
-                fn as_abi_in(&self) -> Self::In { *self }
-                fn as_abi_out(&mut self) -> Self::Out { self as Self::Out }
-            }
+            impl winrt::RuntimeCopy for #name {}
         }
-        // TODO: AsAbi for non-trivial structs needs to be customized
+        // TODO: RuntimeType for non-trivial structs needs to be customized
     }
 
     fn write_struct_fields(&mut self, t: &TypeDef) -> TokenStream {
@@ -814,8 +770,8 @@ impl<'a> Writer<'a> {
                 ElementType::U64 => quote! { u64, },
                 ElementType::F32 => quote! { f32, },
                 ElementType::F64 => quote! { f64, },
-                ElementType::String => quote! { winrt::handle, },
-                ElementType::Object => quote! { winrt::handle, },
+                ElementType::String => quote! { winrt::RawPtr, },
+                ElementType::Object => quote! { winrt::RawPtr, },
             }
         } else {
             match value {
@@ -831,8 +787,8 @@ impl<'a> Writer<'a> {
                 ElementType::U64 => quote! { &mut u64, },
                 ElementType::F32 => quote! { &mut f32, },
                 ElementType::F64 => quote! { &mut f64, },
-                ElementType::String => quote! { &mut winrt::handle, },
-                ElementType::Object => quote! { &mut winrt::handle, },
+                ElementType::String => quote! { &mut winrt::RawPtr, },
+                ElementType::Object => quote! { &mut winrt::RawPtr, },
             }
         }
     }
@@ -852,7 +808,7 @@ impl<'a> Writer<'a> {
                     let name = format_ident!("{}", value.name(self.r));
                     quote! { #name, }
                 }
-                _ => quote! { winrt::handle, },
+                _ => quote! { winrt::RawPtr, },
             }
         } else {
             match value.category(self.r) {
@@ -860,7 +816,7 @@ impl<'a> Writer<'a> {
                     let name = format_ident!("{}", value.name(self.r));
                     quote! { &mut #name, }
                 }
-                _ => quote! { &mut winrt::handle, },
+                _ => quote! { &mut winrt::RawPtr, },
             }
         }
     }
@@ -879,9 +835,9 @@ impl<'a> Writer<'a> {
 
     fn write_abi_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
         if param.input() {
-            quote! { winrt::handle, }
+            quote! { winrt::RawPtr, }
         } else {
-            quote! { &mut winrt::handle, }
+            quote! { &mut winrt::RawPtr, }
         }
     }
 
@@ -890,9 +846,9 @@ impl<'a> Writer<'a> {
         let type_param = &last[value as usize];
 
         if param.input() {
-            quote! { <#type_param as winrt::AsAbi>::In, }
+            quote! { <#type_param as winrt::RuntimeType>::Abi, }
         } else {
-            quote! { <#type_param as winrt::AsAbi>::Out, }
+            quote! { *mut <#type_param as winrt::RuntimeType>::Abi, }
         }
     }
 
@@ -1061,12 +1017,12 @@ impl<'a> Writer<'a> {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
                 ParamCategory::Struct => quote! { *#name, },
-                _ => quote! { winrt::AsAbi::as_abi_in(#name), },
+                _ => quote! { winrt::RuntimeType::as_abi(#name), },
             }
         } else {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { &mut #name, },
-                _ => quote! { winrt::AsAbi::as_abi_out(#name), },
+                _ => quote! { winrt::RuntimeType::as_abi_mut(#name), },
             }
         }
     }
