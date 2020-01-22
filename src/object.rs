@@ -4,12 +4,16 @@ use crate::*;
 
 #[repr(C)]
 #[derive(Default, Clone)]
-pub struct Object(ComPtr);
+pub struct Object {
+    ptr: ComPtr,
+}
 
 impl Object {
     pub fn type_name(&self) -> Result<String> {
-        let mut ptr = std::ptr::null_mut();
-        (self.0.deref::<IInspectable>().type_name)(self.0.get(), &mut ptr).ok_or(ptr.into())
+        unsafe {
+            let mut ptr = std::ptr::null_mut();
+            ((*(*(self.ptr.0 as *const *const IInspectable))).type_name)(self.ptr.0, &mut ptr).ok_or(ptr.into())
+        }
     }
 }
 
@@ -24,11 +28,11 @@ impl RuntimeType for Object {
     type Abi = RawPtr;
 
     fn abi(&self) -> Self::Abi {
-        self.0.get()
+        self.ptr.get()
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        self.0.set()
+        self.ptr.set()
     }
 }
 

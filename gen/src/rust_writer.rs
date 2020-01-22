@@ -506,7 +506,7 @@ impl<'a> Writer<'a> {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
                             let mut __ok = std::mem::zeroed();
-                            (self.ptr.deref::<#abi_interface_name>().#name)(
+                            ((*(*(self.ptr.0 as *const *const #abi_interface_name))).#name)(
                                 self.ptr.get(), #args #receive_expression
                             )
                             .ok_or(__ok.into())
@@ -518,7 +518,7 @@ impl<'a> Writer<'a> {
                     #tokens
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
                         unsafe {
-                            (self.ptr.deref::<#abi_interface_name>().#name)(
+                            ((*(*(self.ptr.0 as *const *const #abi_interface_name))).#name)(
                                 self.ptr.get(), #args
                             )
                             .ok()

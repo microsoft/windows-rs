@@ -3,22 +3,30 @@ use crate::*;
 pub type RawPtr = *mut std::ffi::c_void;
 
 #[repr(C)]
-pub struct ComPtr(RawPtr);
+pub struct ComPtr(pub RawPtr);
+
+pub fn query<I: TypeGuid>(ptr: RawPtr) -> RawPtr {
+    unsafe {
+        let mut result = std::ptr::null_mut();
+        if !ptr.is_null() {
+            ((*(*(ptr as *const *const IUnknown))).query)(ptr, I::type_guid(), &mut result);
+        }
+        result
+    }
+}
 
 impl ComPtr {
     pub fn query<I: TypeGuid>(&self) -> RawPtr {
-        let mut ptr = std::ptr::null_mut();
-        if !self.0.is_null() {
-            (self.deref::<IUnknown>().query)(self.0, I::type_guid(), &mut ptr);
-        }
-        ptr
+        query::<I>(self.0)
     }
 
     pub fn addref(&self) -> RawPtr {
-        if !self.0.is_null() {
-            (self.deref::<IUnknown>().addref)(self.0);
+        unsafe {
+            if !self.0.is_null() {
+                ((*(*(self.0 as *const *const IUnknown))).addref)(self.0);
+            }
+            self.0
         }
-        self.0
     }
 
     pub fn get(&self) -> RawPtr {
@@ -26,15 +34,13 @@ impl ComPtr {
     }
 
     pub fn set(&mut self) -> *mut RawPtr {
-        if !self.0.is_null() {
-            (self.deref::<IUnknown>().release)(self.0);
-            self.0 = std::ptr::null_mut();
+        unsafe {
+            if !self.0.is_null() {
+                ((*(*(self.0 as *const *const IUnknown))).release)(self.0);
+                self.0 = std::ptr::null_mut();
+            }
+            &mut self.0
         }
-        &mut self.0
-    }
-
-    pub fn deref<T>(&self) -> &T {
-        unsafe { &(*(*(self.0 as *const *const T))) }
     }
 
     pub fn is_null(&self) -> bool {
@@ -50,10 +56,22 @@ impl Default for ComPtr {
 
 impl Clone for ComPtr {
     fn clone(&self) -> ComPtr {
-        if !self.0.is_null() {
-            (self.deref::<IUnknown>().addref)(self.0);
+        unsafe {
+            if !self.0.is_null() {
+                ((*(*(self.0 as *const *const IUnknown))).addref)(self.0);
+            }
+            ComPtr(self.0)
         }
-        ComPtr(self.0)
+    }
+}
+
+impl Drop for ComPtr {
+    fn drop(&mut self) {
+        unsafe {
+            if !self.0.is_null() {
+                ((*(*(self.0 as *const *const IUnknown))).release)(self.0);
+            }
+        }
     }
 }
 
