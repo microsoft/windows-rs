@@ -106,11 +106,11 @@ impl String {
 impl RuntimeType for String {
     type Abi = RawPtr;
 
-    fn as_abi(&self) -> Self::Abi {
+    fn abi(&self) -> Self::Abi {
         self.ptr as RawPtr
     }
 
-    fn as_abi_mut(&mut self) -> *mut Self::Abi {
+    fn set_abi(&mut self) -> *mut Self::Abi {
         self.clear();
         self.ptr = std::ptr::null_mut();
         &mut (self.ptr as RawPtr)

@@ -6,10 +6,10 @@ pub enum Param<'a, T> {
 }
 
 impl<'a, T: RuntimeType> Param<'a, T> {
-    pub fn as_abi(&mut self) -> T::Abi {
+    pub fn abi(&mut self) -> T::Abi {
         match self {
-            Param::Ref(value) => value.as_abi(),
-            Param::Value(value) => value.as_abi(),
+            Param::Ref(value) => value.abi(),
+            Param::Value(value) => value.abi(),
         }
     }
 }
@@ -22,18 +22,18 @@ pub enum StringParam<'a> {
 }
 
 impl<'a> StringParam<'a> {
-    pub fn as_abi(&mut self) -> RawPtr {
+    pub fn abi(&mut self) -> RawPtr {
         match self {
             StringParam::Ref(value) => {
                 *self = StringParam::Winrt((*value).into());
-                self.as_abi()
+                self.abi()
             }
             StringParam::String(value) => {
                 *self = StringParam::Winrt(value.as_str().into());
-                self.as_abi()
+                self.abi()
             }
-            StringParam::Winrt(value) => value.as_abi(),
-            StringParam::WinrtRef(value) => value.as_abi(),
+            StringParam::Winrt(value) => value.abi(),
+            StringParam::WinrtRef(value) => value.abi(),
         }
     }
 }

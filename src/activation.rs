@@ -10,12 +10,12 @@ pub fn factory<C: TypeName, I: TypeGuid + From<RawPtr>>() -> Result<I> {
     unsafe {
         let mut ptr = std::ptr::null_mut();
 
-        let mut code = RoGetActivationFactory(String::from(C::type_name()).as_abi(), I::type_guid(), &mut ptr);
+        let mut code = RoGetActivationFactory(String::from(C::type_name()).abi(), I::type_guid(), &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut cookie = std::ptr::null_mut();
             CoIncrementMTAUsage(&mut cookie);
-            code = RoGetActivationFactory(String::from(C::type_name()).as_abi(), I::type_guid(), &mut ptr);
+            code = RoGetActivationFactory(String::from(C::type_name()).abi(), I::type_guid(), &mut ptr);
         }
 
         code.ok_or(ptr.into())

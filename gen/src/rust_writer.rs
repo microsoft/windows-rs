@@ -145,10 +145,10 @@ impl<'a> Writer<'a> {
             }
             impl winrt::RuntimeType for #name {
                 type Abi = winrt::RawPtr;
-                fn as_abi(&self) -> Self::Abi {
+                fn abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                fn set_abi(&mut self) -> *mut Self::Abi {
                     winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
@@ -203,7 +203,7 @@ impl<'a> Writer<'a> {
                     }
                     impl From<&#class_ident> for #interface_ident {
                         fn from(value: &#class_ident) -> #interface_ident {
-                            #interface_ident::from(winrt::IUnknown::addref(winrt::RuntimeType::as_abi(value)))
+                            #interface_ident::from(winrt::IUnknown::addref(winrt::RuntimeType::abi(value)))
                         }
                     }
                     impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
@@ -226,7 +226,7 @@ impl<'a> Writer<'a> {
                     }
                     impl From<&#class_ident> for #interface_ident {
                         fn from(value: &#class_ident) -> #interface_ident {
-                            #interface_ident::from(winrt::IUnknown::query(winrt::RuntimeType::as_abi(value), <#interface_ident as winrt::TypeGuid>::type_guid()))
+                            #interface_ident::from(winrt::IUnknown::query(winrt::RuntimeType::abi(value), <#interface_ident as winrt::TypeGuid>::type_guid()))
                         }
                     }
                     impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
@@ -386,10 +386,10 @@ impl<'a> Writer<'a> {
             }
             impl winrt::RuntimeType for #name_ident {
                 type Abi = winrt::RawPtr;
-                fn as_abi(&self) -> Self::Abi {
+                fn abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                fn set_abi(&mut self) -> *mut Self::Abi {
                     winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
@@ -463,10 +463,10 @@ impl<'a> Writer<'a> {
             }
             impl #generics2 winrt::RuntimeType for #name_ident #generics {
                 type Abi = winrt::RawPtr;
-                fn as_abi(&self) -> Self::Abi {
+                fn abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                fn set_abi(&mut self) -> *mut Self::Abi {
                     winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
@@ -556,7 +556,7 @@ impl<'a> Writer<'a> {
             ParamCategory::Generic => {
                 let projected_type = self.write_type(value);
                 quote! {
-                        <#projected_type as winrt::RuntimeType>::as_abi_mut(&mut __ok)
+                        <#projected_type as winrt::RuntimeType>::set_abi(&mut __ok)
                 }
             }
             _ => quote! {
@@ -641,10 +641,10 @@ impl<'a> Writer<'a> {
             }
             impl winrt::RuntimeType for #name_ident {
                 type Abi = winrt::RawPtr;
-                fn as_abi(&self) -> Self::Abi {
+                fn abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                fn set_abi(&mut self) -> *mut Self::Abi {
                     winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
@@ -737,10 +737,10 @@ impl<'a> Writer<'a> {
             }
             impl #generics2 winrt::RuntimeType for #name_ident #generics {
                 type Abi = winrt::RawPtr;
-                fn as_abi(&self) -> Self::Abi {
+                fn abi(&self) -> Self::Abi {
                     self.ptr
                 }
-                fn as_abi_mut(&mut self) -> *mut Self::Abi {
+                fn set_abi(&mut self) -> *mut Self::Abi {
                     winrt::IUnknown::release_mut(&mut self.ptr)
                 }
             }
@@ -1081,14 +1081,14 @@ impl<'a> Writer<'a> {
         if param.input() {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
-                ParamCategory::String => quote! { #name.into().as_abi(), },
+                ParamCategory::String => quote! { #name.into().abi(), },
                 ParamCategory::Struct => quote! { *#name, },
-                _ => quote! { winrt::RuntimeType::as_abi(#name), },
+                _ => quote! { winrt::RuntimeType::abi(#name), },
             }
         } else {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { &mut #name, },
-                _ => quote! { winrt::RuntimeType::as_abi_mut(#name), },
+                _ => quote! { winrt::RuntimeType::set_abi(#name), },
             }
         }
     }

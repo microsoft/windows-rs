@@ -33,8 +33,8 @@ pub trait RuntimeType {
     //     unsafe { std::mem::zeroed() }
     // }
 
-    fn as_abi(&self) -> Self::Abi;
-    fn as_abi_mut(&mut self) -> *mut Self::Abi;
+    fn abi(&self) -> Self::Abi;
+    fn set_abi(&mut self) -> *mut Self::Abi;
 }
 
 // Contrains blittable types to those that are WinRT types so that
@@ -58,11 +58,11 @@ where
 {
     type Abi = Self;
 
-    fn as_abi(&self) -> Self::Abi {
+    fn abi(&self) -> Self::Abi {
         *self
     }
 
-    fn as_abi_mut(&mut self) -> *mut Self::Abi {
+    fn set_abi(&mut self) -> *mut Self::Abi {
         self as *mut Self::Abi
     }
 }

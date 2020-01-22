@@ -15,7 +15,7 @@ impl ComPtr {
         }
     }
 
-    pub fn as_mut(&mut self) -> *mut ComPtr {
+    pub fn set(&mut self) -> *mut ComPtr {
         unsafe {
             if !self.0.is_null() {
                 ((*(*(self.0 as *const *const IUnknown))).release)(self.0);
