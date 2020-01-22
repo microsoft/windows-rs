@@ -6,12 +6,12 @@ pub type RawPtr = *mut std::ffi::c_void;
 pub struct ComPtr(RawPtr);
 
 impl ComPtr {
-    pub fn query<I: TypeGuid + From<RawPtr>>(&self) -> I {
+    pub fn query<I: TypeGuid>(&self) -> RawPtr {
         let mut ptr = std::ptr::null_mut();
         if !self.0.is_null() {
             (self.deref::<IUnknown>().query)(self.0, I::type_guid(), &mut ptr);
         }
-        ptr.into()
+        ptr
     }
 
     pub fn addref(&self) -> RawPtr {
@@ -35,6 +35,10 @@ impl ComPtr {
 
     pub fn deref<T>(&self) -> &T {
         unsafe { &(*(*(self.0 as *const *const T))) }
+    }
+
+    pub fn is_null(&self) -> bool {
+        self.0.is_null()
     }
 }
 

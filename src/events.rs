@@ -9,8 +9,13 @@ pub struct EventToken {
 
 impl EventToken {
     pub fn new(source: RawPtr, token: i64, offset: u32) -> EventToken {
-        // TODO: query source for IWeakReferenceSource otherwise just store source
-        EventToken { source: source.into(), token, offset, weak: true }
+        let mut source : ComPtr = source.into();
+        let weak_source : ComPtr = source.query::<IWeakReferenceSource>().into();
+        let weak = !weak_source.is_null();
+        if weak {
+            (weak_source.deref::<IWeakReferenceSource>().reference)(source.set()).unwrap();
+        }
+        EventToken { source: source, token, offset, weak }
     }
 
     pub fn guard(self) -> EventGuard {
