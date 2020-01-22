@@ -128,6 +128,12 @@ impl<'a> Writer<'a> {
         if class.name(self.r) == "PropertyValue" {
             return TokenStream::new();
         }
+        if class.name(self.r) == "StringMap" {
+            return TokenStream::new();
+        }
+        if class.name(self.r) == "StringMap" {
+            return TokenStream::new();
+        }
 
         let name = format_ident!("{}", class.name(self.r));
         let functions = self.write_class_functions(class);

@@ -53,11 +53,9 @@ impl Clone for ComPtr {
     }
 }
 
-impl std::ops::Deref for ComPtr {
-    type Target = RawPtr;
-
-    fn deref(&self) -> &Self::Target {
-        &self.0
+impl From<RawPtr> for ComPtr {
+    fn from(ptr: RawPtr) -> Self {
+        unsafe { std::mem::transmute(ptr) }
     }
 }
 

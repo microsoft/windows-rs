@@ -3,6 +3,7 @@
 mod abi;
 mod activation;
 mod error;
+mod events;
 mod guid;
 mod object;
 mod param;
@@ -14,6 +15,7 @@ mod traits;
 pub use abi::*;
 pub use activation::*;
 pub use error::*;
+pub use events::*;
 pub use guid::*;
 pub use object::*;
 pub use param::*;
