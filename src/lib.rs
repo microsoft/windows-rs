@@ -11,6 +11,7 @@ mod ref_count;
 mod runtime;
 mod string;
 mod traits;
+mod weak;
 
 pub use abi::*;
 pub use activation::*;
@@ -24,3 +25,4 @@ pub use runtime::*;
 pub use string::*;
 pub use traits::*;
 pub use winrt_macros::*;
+pub use weak::*;
