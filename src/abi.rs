@@ -6,23 +6,23 @@ pub struct ComPtr(RawPtr);
 
 impl ComPtr {
     pub fn query(&self, guid: &Guid) -> ComPtr {
-        unsafe {
-            let mut result: ComPtr = Default::default();
-            if !self.0.is_null() {
-                ((*(*(self.0 as *const *const IUnknown))).query)(self.0, guid, &mut result.0);
-            }
-            result
+        let mut result: ComPtr = Default::default();
+        if !self.0.is_null() {
+            (self.deref::<IUnknown>().query)(self.0, guid, &mut result.0);
         }
+        result
     }
 
     pub fn set(&mut self) -> *mut ComPtr {
-        unsafe {
-            if !self.0.is_null() {
-                ((*(*(self.0 as *const *const IUnknown))).release)(self.0);
-                self.0 = std::ptr::null_mut();
-            }
-            self as *mut ComPtr
+        if !self.0.is_null() {
+            (self.deref::<IUnknown>().release)(self.0);
+            self.0 = std::ptr::null_mut();
         }
+        self as *mut ComPtr
+    }
+
+    pub fn deref<T>(&self) -> &T {
+        unsafe { &(*(*(self.0 as *const *const T))) }
     }
 }
 
@@ -34,21 +34,17 @@ impl Default for ComPtr {
 
 impl Clone for ComPtr {
     fn clone(&self) -> ComPtr {
-        unsafe {
-            if !self.0.is_null() {
-                ((*(*(self.0 as *const *const IUnknown))).addref)(self.0);
-            }
-            ComPtr(self.0)
+        if !self.0.is_null() {
+            (self.deref::<IUnknown>().addref)(self.0);
         }
+        ComPtr(self.0)
     }
 }
 
 impl Drop for ComPtr {
     fn drop(&mut self) {
-        unsafe {
-            if !self.0.is_null() {
-                ((*(*(self.0 as *const *const IUnknown))).release)(self.0);
-            }
+        if !self.0.is_null() {
+            (self.deref::<IUnknown>().release)(self.0);
         }
     }
 }
