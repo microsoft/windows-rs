@@ -9,12 +9,11 @@ pub struct EventToken {
 
 impl EventToken {
     pub fn new(source: RawPtr, token: i64, offset: u32) -> EventToken {
-        // TODO: query source for
+        // TODO: query source for IWeakReferenceSource otherwise just store source
         EventToken { source: source.into(), token, offset, weak: true }
     }
 
     pub fn guard(self) -> EventGuard {
-        // TODO: return error if source is null (indicates source doesn't implement IWeakReferenceSource)
         EventGuard { token: self }
     }
 }
