@@ -3,8 +3,14 @@
 use crate::*;
 
 #[repr(C)]
-pub struct Object {
-    pub ptr: RawPtr,
+#[derive(Default, Clone)]
+pub struct Object(ComPtr);
+
+impl Object {
+    pub fn type_name(&self) -> Result<String> {
+        let mut ptr = std::ptr::null_mut();
+        (self.0.deref::<IInspectable>().type_name)(self.0.get(), &mut ptr).ok_or(ptr.into())
+    }
 }
 
 impl TypeGuid for Object {
@@ -18,30 +24,25 @@ impl RuntimeType for Object {
     type Abi = RawPtr;
 
     fn abi(&self) -> Self::Abi {
-        self.ptr
+        self.0.get()
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        IUnknown::release(self.ptr);
-        self.ptr = std::ptr::null_mut();
-        &mut self.ptr
-    }
-}
-
-impl Default for Object {
-    fn default() -> Self {
-        Self { ptr: std::ptr::null_mut() }
-    }
-}
-
-impl Drop for Object {
-    fn drop(&mut self) {
-        IUnknown::release(self.ptr);
+        self.0.set()
     }
 }
 
 impl From<RawPtr> for Object {
-    fn from(value: RawPtr) -> Self {
-        unsafe { std::mem::transmute(value) }
+    fn from(ptr: RawPtr) -> Self {
+        unsafe { std::mem::transmute(ptr) }
     }
+}
+
+#[repr(C)]
+struct IInspectable {
+    __0: usize,
+    __1: usize,
+    __2: usize,
+    __3: usize,
+    type_name: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
 }

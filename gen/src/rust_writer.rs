@@ -136,7 +136,9 @@ impl<'a> Writer<'a> {
         let froms = self.write_from_traits(&name, &interfaces);
 
         quote! {
-            pub struct #name { ptr: winrt::RawPtr }
+            #[repr(C)]
+            #[derive(Default, Clone)]
+            pub struct #name { ptr: winrt::ComPtr }
             impl #name { #functions }
             impl winrt::TypeName for #name {
                 fn type_name() -> &'static str {
@@ -146,15 +148,15 @@ impl<'a> Writer<'a> {
             impl winrt::RuntimeType for #name {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
-                    self.ptr
+                    self.ptr.get()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release_mut(&mut self.ptr)
+                    self.ptr.set()
                 }
             }
             impl From<winrt::RawPtr> for #name {
                 fn from(ptr: winrt::RawPtr) -> Self {
-                    Self { ptr }
+                    unsafe { std::mem::transmute(ptr) }
                 }
             }
             impl<'a> Into<winrt::Param<'a, #name>> for #name {
@@ -165,16 +167,6 @@ impl<'a> Writer<'a> {
             impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
                 fn into(self) -> winrt::Param<'a, #name> {
                     winrt::Param::Ref(self)
-                }
-            }
-            impl Default for #name {
-                fn default() -> Self {
-                    Self { ptr: std::ptr::null_mut() }
-                }
-            }
-            impl Drop for #name {
-                fn drop(&mut self) {
-                    winrt::IUnknown::release(self.ptr);
                 }
             }
             #froms
@@ -203,7 +195,7 @@ impl<'a> Writer<'a> {
                     }
                     impl From<&#class_ident> for #interface_ident {
                         fn from(value: &#class_ident) -> #interface_ident {
-                            #interface_ident::from(winrt::IUnknown::addref(winrt::RuntimeType::abi(value)))
+                            #interface_ident::from(value.ptr.addref())
                         }
                     }
                     impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
@@ -226,7 +218,7 @@ impl<'a> Writer<'a> {
                     }
                     impl From<&#class_ident> for #interface_ident {
                         fn from(value: &#class_ident) -> #interface_ident {
-                            #interface_ident::from(winrt::IUnknown::query(winrt::RuntimeType::abi(value), <#interface_ident as winrt::TypeGuid>::type_guid()))
+                            #interface_ident::from(value.ptr.query::<#interface_ident>())
                         }
                     }
                     impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
@@ -362,7 +354,8 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident { ptr: winrt::RawPtr }
+            #[derive(Default, Clone)]
+            pub struct #name_ident { ptr: winrt::ComPtr }
             #[repr(C)]
             struct #abi_name_ident {
                 __0: usize,
@@ -387,16 +380,16 @@ impl<'a> Writer<'a> {
             impl winrt::RuntimeType for #name_ident {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
-                    self.ptr
+                    self.ptr.get()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release_mut(&mut self.ptr)
+                    self.ptr.set()
                 }
             }
 
             impl From<winrt::RawPtr> for #name_ident {
                 fn from(ptr: winrt::RawPtr) -> Self {
-                    Self { ptr }
+                    unsafe { std::mem::transmute(ptr) }
                 }
             }
             impl<'a> Into<winrt::Param<'a, #name_ident>> for #name_ident {
@@ -407,16 +400,6 @@ impl<'a> Writer<'a> {
             impl<'a> Into<winrt::Param<'a, #name_ident>> for &'a #name_ident {
                 fn into(self) -> winrt::Param<'a, #name_ident> {
                     winrt::Param::Ref(self)
-                }
-            }
-            impl Default for #name_ident {
-                fn default() -> Self {
-                    Self { ptr: std::ptr::null_mut() }
-                }
-            }
-            impl Drop for #name_ident {
-                fn drop(&mut self) {
-                    winrt::IUnknown::release(self.ptr);
                 }
             }
         }
@@ -438,7 +421,8 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident #generics2 { ptr: winrt::RawPtr, #phantoms }
+            #[derive(Default, Clone)]
+            pub struct #name_ident #generics2 { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
             struct #abi_name_ident #generics2 {
                 __0: usize,
@@ -464,25 +448,15 @@ impl<'a> Writer<'a> {
             impl #generics2 winrt::RuntimeType for #name_ident #generics {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
-                    self.ptr
+                    self.ptr.get()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release_mut(&mut self.ptr)
+                    self.ptr.set()
                 }
             }
             impl #generics2 From<winrt::RawPtr> for #name_ident #generics {
                 fn from(ptr: winrt::RawPtr) -> Self {
-                    Self { ptr, #phantoms }
-                }
-            }
-            impl #generics2 Default for #name_ident #generics {
-                fn default() -> Self {
-                    Self { ptr: std::ptr::null_mut(), #phantoms }
-                }
-            }
-            impl #generics2 Drop for #name_ident #generics {
-                fn drop(&mut self) {
-                    winrt::IUnknown::release(self.ptr);
+                    unsafe { std::mem::transmute(ptr) }
                 }
             }
         }
@@ -526,8 +500,8 @@ impl<'a> Writer<'a> {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
                             let mut __ok = std::mem::zeroed();
-                            ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
-                                self.ptr, #args #receive_expression
+                            (self.ptr.deref::<#abi_interface_name>().#name)(
+                                self.ptr.get(), #args #receive_expression
                             )
                             .ok_or(__ok.into())
                         }
@@ -538,8 +512,8 @@ impl<'a> Writer<'a> {
                     #tokens
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
                         unsafe {
-                            ((*(*(self.ptr as *const *const #abi_interface_name))).#name)(
-                                self.ptr, #args
+                            (self.ptr.deref::<#abi_interface_name>().#name)(
+                                self.ptr.get(), #args
                             )
                             .ok()
                         }
@@ -621,7 +595,8 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident { ptr: winrt::RawPtr }
+            #[derive(Default, Clone)]
+            pub struct #name_ident { ptr: winrt::ComPtr }
             #[repr(C)]
             struct #abi_name_ident {
                 __0: usize,
@@ -642,15 +617,15 @@ impl<'a> Writer<'a> {
             impl winrt::RuntimeType for #name_ident {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
-                    self.ptr
+                    self.ptr.get()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release_mut(&mut self.ptr)
+                    self.ptr.set()
                 }
             }
             impl From<winrt::RawPtr> for #name_ident {
                 fn from(ptr: winrt::RawPtr) -> Self {
-                    Self { ptr }
+                    unsafe { std::mem::transmute(ptr) }
                 }
             }
             impl<'a> Into<winrt::Param<'a, #name_ident>> for #name_ident {
@@ -661,16 +636,6 @@ impl<'a> Writer<'a> {
             impl<'a> Into<winrt::Param<'a, #name_ident>> for &'a #name_ident {
                 fn into(self) -> winrt::Param<'a, #name_ident> {
                     winrt::Param::Ref(self)
-                }
-            }
-            impl Default for #name_ident {
-                fn default() -> Self {
-                    Self { ptr: std::ptr::null_mut() }
-                }
-            }
-            impl Drop for #name_ident {
-                fn drop(&mut self) {
-                    winrt::IUnknown::release(self.ptr);
                 }
             }
         }
@@ -716,7 +681,8 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(C)]
-            pub struct #name_ident #generics2 { ptr: winrt::RawPtr, #phantoms }
+            #[derive(Default, Clone)]
+            pub struct #name_ident #generics2 { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
             struct #abi_name_ident #generics2 {
                 __0: usize,
@@ -738,25 +704,15 @@ impl<'a> Writer<'a> {
             impl #generics2 winrt::RuntimeType for #name_ident #generics {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
-                    self.ptr
+                    self.ptr.get()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    winrt::IUnknown::release_mut(&mut self.ptr)
+                    self.ptr.set()
                 }
             }
             impl #generics2 From<winrt::RawPtr> for #name_ident #generics {
                 fn from(ptr: winrt::RawPtr) -> Self {
-                    Self { ptr, #phantoms }
-                }
-            }
-            impl #generics2 Default for #name_ident #generics {
-                fn default() -> Self {
-                    Self { ptr: std::ptr::null_mut(), #phantoms }
-                }
-            }
-            impl #generics2 Drop for #name_ident #generics {
-                fn drop(&mut self) {
-                    winrt::IUnknown::release(self.ptr);
+                    unsafe { std::mem::transmute(ptr) }
                 }
             }
         }
