@@ -1,22 +1,54 @@
 use crate::*;
 
 pub type RawPtr = *mut std::ffi::c_void;
-pub struct RawComPtr(RawPtr);
 
-impl Default for RawComPtr {
+pub struct ComPtr(RawPtr);
+
+impl ComPtr {
+    pub fn query(&self, guid: &Guid) -> ComPtr {
+        unsafe {
+            let mut result: ComPtr = Default::default();
+            if !self.0.is_null() {
+                ((*(*(self.0 as *const *const IUnknown))).query)(self.0, guid, &mut result.0);
+            }
+            result
+        }
+    }
+
+    pub fn as_mut(&mut self) -> *mut ComPtr {
+        unsafe {
+            if !self.0.is_null() {
+                ((*(*(self.0 as *const *const IUnknown))).release)(self.0);
+                self.0 = std::ptr::null_mut();
+            }
+            self as *mut ComPtr
+        }
+    }
+}
+
+impl Default for ComPtr {
     fn default() -> Self {
         Self(std::ptr::null_mut())
     }
 }
 
-impl RawComPtr {
-    pub fn query(&self, guid: &Guid) -> RawComPtr {
+impl Clone for ComPtr {
+    fn clone(&self) -> ComPtr {
         unsafe {
-            let mut result: RawComPtr = Default::default();
             if !self.0.is_null() {
-                ((*(*(self.0 as *const *const IUnknown))).query)(self.0, guid, &mut result.0);
+                ((*(*(self.0 as *const *const IUnknown))).addref)(self.0);
             }
-            result
+            ComPtr(self.0)
+        }
+    }
+}
+
+impl Drop for ComPtr {
+    fn drop(&mut self) {
+        unsafe {
+            if !self.0.is_null() {
+                ((*(*(self.0 as *const *const IUnknown))).release)(self.0);
+            }
         }
     }
 }
