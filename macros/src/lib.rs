@@ -48,7 +48,7 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     let mut result = String::new();
     for c in namespace.chars() {
         if c != '"' && c != '_' {
-            result.extend(c.to_lowercase()); 
+            result.extend(c.to_lowercase());
         }
     }
     result

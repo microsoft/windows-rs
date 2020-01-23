@@ -66,7 +66,6 @@ impl RustWriter {
 
     pub fn from_files<'a, P: IntoIterator<Item = &'a String>>(filenames: P) -> RustWriter {
         RustWriter { r: Reader::from_files(filenames).unwrap(), limits: BTreeSet::new() }
-
     }
 
     pub fn add_namespace(&mut self, mut namespace: &str) {
@@ -767,10 +766,10 @@ impl<'a> Writer<'a> {
 
     fn write_abi_param(&mut self, param: &ParamSig) -> TokenStream {
         let tokens = match param.sig_type().sig_type() {
-            TypeSigType::ElementType(value) => self.write_abi_param_element_type(param, value),
-            TypeSigType::TypeDefOrRef(value) => self.write_abi_param_type(param, value),
-            TypeSigType::GenericSig(value) => self.write_abi_param_generic(param, value),
-            TypeSigType::GenericTypeIndex(value) => self.write_abi_param_generic_index(param, *value),
+            TypeSigType::ElementType(value) => self.write_abi_param_element_type(value),
+            TypeSigType::TypeDefOrRef(value) => self.write_abi_param_type(value),
+            TypeSigType::GenericSig(value) => quote! { winrt::RawPtr, },
+            TypeSigType::GenericTypeIndex(value) => self.write_abi_param_generic_index(*value),
         };
 
         if param.input() {
@@ -780,7 +779,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_element_type(&mut self, param: &ParamSig, value: &ElementType) -> TokenStream {
+    fn write_abi_param_element_type(&mut self, value: &ElementType) -> TokenStream {
         match value {
             ElementType::Bool => quote! { bool, },
             ElementType::Char => quote! { u16, },
@@ -799,15 +798,15 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_type(&mut self, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
+    fn write_abi_param_type(&mut self, value: &TypeDefOrRef) -> TokenStream {
         match value {
-            TypeDefOrRef::TypeDef(value) => self.write_abi_param_type_def(param, value),
-            TypeDefOrRef::TypeRef(value) => self.write_abi_param_type_ref(param, value),
+            TypeDefOrRef::TypeDef(value) => self.write_abi_param_type_def(value),
+            TypeDefOrRef::TypeRef(value) => self.write_abi_param_type_ref(value),
             _ => panic!("write_abi_param_type"),
         }
     }
 
-    fn write_abi_param_type_def(&mut self, param: &ParamSig, value: &TypeDef) -> TokenStream {
+    fn write_abi_param_type_def(&mut self, value: &TypeDef) -> TokenStream {
         match value.category(self.r) {
             TypeCategory::Enum => {
                 let name = format_ident!("{}", value.name(self.r));
@@ -827,19 +826,15 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_type_ref(&mut self, param: &ParamSig, value: &TypeRef) -> TokenStream {
+    fn write_abi_param_type_ref(&mut self, value: &TypeRef) -> TokenStream {
         if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
             quote! { winrt::Guid, }
         } else {
-            self.write_abi_param_type_def(param, &value.resolve(self.r))
+            self.write_abi_param_type_def(&value.resolve(self.r))
         }
     }
 
-    fn write_abi_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
-        quote! { winrt::RawPtr, }
-    }
-
-    fn write_abi_param_generic_index(&mut self, param: &ParamSig, value: u32) -> TokenStream {
+    fn write_abi_param_generic_index(&mut self, value: u32) -> TokenStream {
         let last = self.generics.last().unwrap();
         let type_param = &last[value as usize];
 
