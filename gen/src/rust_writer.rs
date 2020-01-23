@@ -160,11 +160,6 @@ impl<'a> Writer<'a> {
                     self.ptr.set()
                 }
             }
-            impl From<winrt::RawPtr> for #name {
-                fn from(ptr: winrt::RawPtr) -> Self {
-                    unsafe { std::mem::transmute(ptr) }
-                }
-            }
             impl<'a> Into<winrt::Param<'a, #name>> for #name {
                 fn into(self) -> winrt::Param<'a, #name> {
                     winrt::Param::Value(self)
@@ -392,12 +387,6 @@ impl<'a> Writer<'a> {
                     self.ptr.set()
                 }
             }
-
-            impl From<winrt::RawPtr> for #name_ident {
-                fn from(ptr: winrt::RawPtr) -> Self {
-                    unsafe { std::mem::transmute(ptr) }
-                }
-            }
             impl<'a> Into<winrt::Param<'a, #name_ident>> for #name_ident {
                 fn into(self) -> winrt::Param<'a, #name_ident> {
                     winrt::Param::Value(self)
@@ -460,11 +449,6 @@ impl<'a> Writer<'a> {
                     self.ptr.set()
                 }
             }
-            impl #generics2 From<winrt::RawPtr> for #name_ident #generics {
-                fn from(ptr: winrt::RawPtr) -> Self {
-                    unsafe { std::mem::transmute(ptr) }
-                }
-            }
         }
     }
 
@@ -509,7 +493,7 @@ impl<'a> Writer<'a> {
                             ((*(*(self.ptr.get() as *const *const #abi_interface_name))).#name)(
                                 self.ptr.get(), #args #receive_expression
                             )
-                            .ok_or(__ok.into())
+                            .ok_or(std::mem::transmute_copy(&__ok))
                         }
                     }
                 };
@@ -629,11 +613,6 @@ impl<'a> Writer<'a> {
                     self.ptr.set()
                 }
             }
-            impl From<winrt::RawPtr> for #name_ident {
-                fn from(ptr: winrt::RawPtr) -> Self {
-                    unsafe { std::mem::transmute(ptr) }
-                }
-            }
             impl<'a> Into<winrt::Param<'a, #name_ident>> for #name_ident {
                 fn into(self) -> winrt::Param<'a, #name_ident> {
                     winrt::Param::Value(self)
@@ -714,11 +693,6 @@ impl<'a> Writer<'a> {
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     self.ptr.set()
-                }
-            }
-            impl #generics2 From<winrt::RawPtr> for #name_ident #generics {
-                fn from(ptr: winrt::RawPtr) -> Self {
-                    unsafe { std::mem::transmute(ptr) }
                 }
             }
         }

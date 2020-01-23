@@ -112,7 +112,6 @@ impl RuntimeType for String {
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         self.clear();
-        self.ptr = std::ptr::null_mut();
         &mut (self.ptr as RawPtr)
     }
 }
@@ -165,21 +164,3 @@ impl From<&std::string::String> for String {
         value.as_str().into()
     }
 }
-
-impl From<RawPtr> for String {
-    fn from(value: RawPtr) -> Self {
-        unsafe { std::mem::transmute(value) }
-    }
-}
-
-impl From<String> for RawPtr {
-    fn from(value: String) -> Self {
-        unsafe { std::mem::transmute(value) }
-    }
-}
-
-// impl AsRef<String> for String {
-//     fn as_ref(&self) -> &String {
-//         &String::new()
-//     }
-// }

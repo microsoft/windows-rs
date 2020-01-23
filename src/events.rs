@@ -12,8 +12,8 @@ pub struct EventToken<T> {
 }
 
 impl<T: TypeGuid> EventToken<T> {
-    pub fn new(source: RawPtr, token: i64, offset: u32) -> EventToken<T> {
-        EventToken { token, source: ComPtr::addref(source), offset, __0: std::marker::PhantomData }
+    pub fn new(source: &ComPtr, token: i64, offset: u32) -> EventToken<T> {
+        EventToken { token, source: source.clone(), offset, __0: std::marker::PhantomData }
     }
 
     pub fn guard(mut self) -> EventGuard {

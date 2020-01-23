@@ -12,7 +12,7 @@ impl Object {
     pub fn type_name(&self) -> Result<String> {
         unsafe {
             let mut ptr = std::ptr::null_mut();
-            ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(self.ptr.get(), &mut ptr).ok_or(ptr.into())
+            ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(self.ptr.get(), &mut ptr).ok_or(std::mem::transmute(ptr))
         }
     }
 }
@@ -33,12 +33,6 @@ impl RuntimeType for Object {
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         self.ptr.set()
-    }
-}
-
-impl From<RawPtr> for Object {
-    fn from(ptr: RawPtr) -> Self {
-        unsafe { std::mem::transmute(ptr) }
     }
 }
 
