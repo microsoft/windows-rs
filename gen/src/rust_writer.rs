@@ -950,11 +950,11 @@ impl<'a> Writer<'a> {
 
         if param.input() {
             quote! {
-                &#name<#(#args),*>,
+                &#namespace#name<#(#args),*>,
             }
         } else {
             quote! {
-                &mut #name<#(#args),*>,
+                &mut#namespace#name<#(#args),*>,
             }
         }
     }
@@ -1067,8 +1067,9 @@ impl<'a> Writer<'a> {
     }
 
     fn write_type_def(&mut self, value: &TypeDef) -> TokenStream {
+        let namespace = self.write_relative_namespace(value.namespace(self.r));
         let name = format_ident!("{}", value.name(self.r));
-        quote! { #name }
+        quote! { #namespace#name }
     }
 
     fn write_type_ref(&mut self, value: &TypeRef) -> TokenStream {
@@ -1091,7 +1092,7 @@ impl<'a> Writer<'a> {
         }
 
         quote! {
-            #name<#(#args),*>
+            #namespace#name<#(#args),*>
         }
     }
 
@@ -1115,20 +1116,22 @@ impl<'a> Writer<'a> {
         None
     }
 
-    fn write_relative_namespace(&mut self, namespace: &str) -> TokenStream {
-        // if self.namespace == namespace {
-        //     TokenStream::new()
-        // } else {
-            
-        // }
+    fn write_relative_namespace(&mut self, other: &str) -> TokenStream {
+        let mut tokens = Vec::new();
 
+        if self.namespace != other {
+            let mut this = self.namespace.split('.');
+            let mut other = other.split('.');
 
-        // let parts = name.split('.').map(|part| format_ident!("{}", part.to_lowercase()));
-        // quote! {
-        //     #(#parts)::*
-        // }
+            this.by_ref().zip(other.by_ref()).any(|(this, other)|this != other);
+            tokens.resize(tokens.len() + this.count(), quote!{super::});
+            tokens.extend(other.map(|other| {
+                let other = format_ident!("{}", other.to_lowercase());
+                quote!{ #other:: }
+            }));
+        }
 
-        TokenStream::new()
+        TokenStream::from_iter(tokens)
     }
 
     fn push_generic_params(&mut self, generics: RowIterator<GenericParam>) {
