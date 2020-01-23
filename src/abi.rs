@@ -3,50 +3,32 @@ use crate::*;
 pub type RawPtr = *mut std::ffi::c_void;
 
 #[repr(C)]
-pub struct ComPtr{ ptr: RawPtr }
-
-// pub fn query<I: TypeGuid>(ptr: RawPtr) -> RawPtr {
-//     unsafe {
-//         let mut result = std::ptr::null_mut();
-//         if !ptr.is_null() {
-//             ((*(*(ptr as *const *const IUnknown))).query)(ptr, I::type_guid(), &mut result);
-//         }
-//         result
-//     }
-// }
-
-// pub fn addref(ptr: RawPtr) -> RawPtr {
-//     unsafe {
-//         if !ptr.is_null() {
-//             ((*(*(ptr as *const *const IUnknown))).addref)(ptr);
-//         }
-//         ptr
-//     }
-// }
+pub struct ComPtr {
+    ptr: RawPtr,
+}
 
 impl ComPtr {
-
     pub fn take_ownership(ptr: RawPtr) -> ComPtr {
-        ComPtr {ptr }
+        ComPtr { ptr }
     }
 
     pub fn addref(ptr: RawPtr) -> ComPtr {
-    unsafe {
-        if !ptr.is_null() {
-            ((*(*(ptr as *const *const IUnknown))).addref)(ptr);
+        unsafe {
+            if !ptr.is_null() {
+                ((*(*(ptr as *const *const IUnknown))).addref)(ptr);
+            }
+            ComPtr { ptr }
         }
-        ComPtr { ptr }
-    }
     }
 
     pub fn query<I: TypeGuid>(&self) -> ComPtr {
-    unsafe {
-        let mut ptr = std::ptr::null_mut();
-        if !self.ptr.is_null() {
-            ((*(*(self.ptr as *const *const IUnknown))).query)(self.ptr, I::type_guid(), &mut ptr);
+        unsafe {
+            let mut ptr = std::ptr::null_mut();
+            if !self.ptr.is_null() {
+                ((*(*(self.ptr as *const *const IUnknown))).query)(self.ptr, I::type_guid(), &mut ptr);
+            }
+            ComPtr { ptr }
         }
-        ComPtr { ptr }
-    }
     }
 
     pub fn get(&self) -> RawPtr {

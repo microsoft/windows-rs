@@ -24,5 +24,5 @@ pub use ref_count::*;
 pub use runtime::*;
 pub use string::*;
 pub use traits::*;
- use weak::*;
+use weak::*;
 pub use winrt_macros::*;

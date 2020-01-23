@@ -1,6 +1,6 @@
 use crate::*;
 
-// The EventGuard drops the generic parameter from the EventToken to make storing EventGuards more convenient 
+// The EventGuard drops the generic parameter from the EventToken to make storing EventGuards more convenient
 // as you don't have to figure out what type it is. The EventToken uses a generic parameter as this type doesn't
 // need to be used directly and this save some stack space every time an event handler is registered
 
@@ -34,7 +34,6 @@ pub struct EventGuard {
     source: ComPtr,
     offset: u32, // offset of remove virtual function
     weak: bool,  // whether source is a weak/strong ref
-
 }
 
 impl Drop for EventGuard {
