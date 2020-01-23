@@ -756,17 +756,21 @@ impl<'a> Writer<'a> {
     }
 
     fn write_abi_param(&mut self, param: &ParamSig) -> TokenStream {
-        match param.sig_type().sig_type() {
+        let tokens = match param.sig_type().sig_type() {
             TypeSigType::ElementType(value) => self.write_abi_param_element_type(param, value),
             TypeSigType::TypeDefOrRef(value) => self.write_abi_param_type(param, value),
             TypeSigType::GenericSig(value) => self.write_abi_param_generic(param, value),
             TypeSigType::GenericTypeIndex(value) => self.write_abi_param_generic_index(param, *value),
+        };
+
+        if param.input() {
+            tokens
+        } else {
+            quote! { *mut #tokens }
         }
-        // TODO: if these all simply append &mut for out params then just do that here rahter than repeating
     }
 
     fn write_abi_param_element_type(&mut self, param: &ParamSig, value: &ElementType) -> TokenStream {
-        if param.input() {
             match value {
                 ElementType::Bool => quote! { bool, },
                 ElementType::Char => quote! { u16, },
@@ -783,24 +787,7 @@ impl<'a> Writer<'a> {
                 ElementType::String => quote! { winrt::RawPtr, },
                 ElementType::Object => quote! { winrt::RawPtr, },
             }
-        } else {
-            match value {
-                ElementType::Bool => quote! { &mut bool, },
-                ElementType::Char => quote! { &mut u16, },
-                ElementType::I8 => quote! { &mut i8, },
-                ElementType::U8 => quote! { &mut u8, },
-                ElementType::I16 => quote! { &mut i16, },
-                ElementType::U16 => quote! { &mut u16, },
-                ElementType::I32 => quote! { &mut i32, },
-                ElementType::U32 => quote! { &mut u32, },
-                ElementType::I64 => quote! { &mut i64, },
-                ElementType::U64 => quote! { &mut u64, },
-                ElementType::F32 => quote! { &mut f32, },
-                ElementType::F64 => quote! { &mut f64, },
-                ElementType::String => quote! { &mut winrt::RawPtr, },
-                ElementType::Object => quote! { &mut winrt::RawPtr, },
-            }
-        }
+
     }
 
     fn write_abi_param_type(&mut self, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
@@ -812,7 +799,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_abi_param_type_def(&mut self, param: &ParamSig, value: &TypeDef) -> TokenStream {
-        let tokens = match value.category(self.r) {
+        match value.category(self.r) {
             TypeCategory::Enum => {
                 let name = format_ident!("{}", value.name(self.r));
                 quote! { #name, }
@@ -828,44 +815,27 @@ impl<'a> Writer<'a> {
                 }
             }
             _ => quote! { winrt::RawPtr, },
-        };
-
-        if param.input() {
-            tokens
-        } else {
-            quote! { &mut #tokens }
         }
+
     }
 
     fn write_abi_param_type_ref(&mut self, param: &ParamSig, value: &TypeRef) -> TokenStream {
         if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
-            if param.input() {
                 quote! { winrt::Guid, }
-            } else {
-                quote! { &mut winrt::Guid, }
-            }
         } else {
             self.write_abi_param_type_def(param, &value.resolve(self.r))
         }
     }
 
     fn write_abi_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
-        if param.input() {
             quote! { winrt::RawPtr, }
-        } else {
-            quote! { &mut winrt::RawPtr, }
-        }
     }
 
     fn write_abi_param_generic_index(&mut self, param: &ParamSig, value: u32) -> TokenStream {
         let last = self.generics.last().unwrap();
         let type_param = &last[value as usize];
 
-        if param.input() {
             quote! { <#type_param as winrt::RuntimeType>::Abi, }
-        } else {
-            quote! { *mut <#type_param as winrt::RuntimeType>::Abi, }
-        }
     }
 
     //
