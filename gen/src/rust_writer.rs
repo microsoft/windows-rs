@@ -475,6 +475,11 @@ impl<'a> Writer<'a> {
         let mut tokens = quote! {};
 
         for method in interface.methods(self.r) {
+
+            if method.abi_name(self.r) == "GetMany" {
+                continue;
+            }
+
             if method.is_remove_overload(self.r) {
                 // We don't project this method at all - the ABI is called internally by the EventGuard
                 continue;
@@ -958,8 +963,15 @@ impl<'a> Writer<'a> {
 
     fn write_consume_param_generic_index(&mut self, param: &ParamSig, value: u32) -> TokenStream {
         let last = self.generics.last().unwrap();
-        let param = &last[value as usize];
-        quote! { #param, }
+        let type_name = &last[value as usize];
+
+        // TODO: need to make this an Into<T> for input params
+
+        if param.input() {
+                quote! { &#type_name, }
+        } else {
+                quote! { &mut #type_name, }
+        }
     }
 
     fn write_consume_param_type_def(&mut self, param: &ParamSig, value: &TypeDef) -> TokenStream {
@@ -1006,12 +1018,11 @@ impl<'a> Writer<'a> {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
                 ParamCategory::String => quote! { #name.into().abi(), },
-                ParamCategory::Struct => quote! { *#name, },
                 _ => quote! { winrt::RuntimeType::abi(#name), },
             }
         } else {
             match category {
-                ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { &mut #name, },
+                ParamCategory::Enum | ParamCategory::Primitive | ParamCategory::Struct => quote! { #name, },
                 _ => quote! { winrt::RuntimeType::set_abi(#name), },
             }
         }

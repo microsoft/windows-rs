@@ -51,6 +51,7 @@ impl RuntimeCopy for i64 {}
 impl RuntimeCopy for u64 {}
 impl RuntimeCopy for f32 {}
 impl RuntimeCopy for f64 {}
+impl RuntimeCopy for Guid {}
 
 impl<T> RuntimeType for T
 where
