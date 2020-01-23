@@ -1,8 +1,9 @@
 use crate::*;
 
-// The EventGuard drops the generic parameter from the EventToken to make storing EventGuards more convenient
+// The EventGuard avoids the generic parameter from the EventToken to make storing EventGuards more convenient
 // as you don't have to figure out what type it is. The EventToken uses a generic parameter as this type doesn't
-// need to be used directly and this save some stack space every time an event handler is registered
+// need to be uttered directly and this is more efficient especially for cases where the guard isn't used.
+// The EventGuard will attempt to store a weak ref otherwise will fall back to strong ref
 
 pub struct EventToken<T> {
     token: i64,
@@ -38,15 +39,15 @@ pub struct EventGuard {
 
 impl Drop for EventGuard {
     fn drop(&mut self) {
-        // let source = if self.token.weak {
-        //     let mut ptr = std::ptr::null_mut();
-        //     ((*(*(self.token.source.0 as *const *const IWeakReference))).strong)(self.token.source.0, T::type_guid(), &mut ptr);
-        //     ptr.into()
-        // } else {
-        //     self.token.source
-        // };
-        // if !source.is_null() {
-
-        // }
+        unsafe {
+            if self.weak {
+                let mut ptr = std::ptr::null_mut();
+                ((*(*(self.source.get() as *const *const IWeakReference))).strong)(self.source.get(), &self.guid, &mut ptr);
+                self.source = std::mem::transmute(ptr);
+            }
+            if !self.source.is_null() {
+                // TODO: find the offset function pointer and call it
+            }
+        }
     }
 }

@@ -7,11 +7,11 @@ pub struct ComPtr {
     ptr: RawPtr,
 }
 
-impl ComPtr {
-    pub fn take_ownership(ptr: RawPtr) -> ComPtr {
-        ComPtr { ptr }
-    }
+// pub fn take_ownership<T, R>(value: R) -> T {
+//     unsafe{ std::mem::transmute_copy(&value) }
+// }
 
+impl ComPtr {
     pub fn addref(ptr: RawPtr) -> ComPtr {
         unsafe {
             if !ptr.is_null() {
