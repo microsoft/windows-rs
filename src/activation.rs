@@ -6,7 +6,7 @@ use crate::*;
 // that this is super fast. Also, load RoGetActivationFactory dynamically and fall back to LoadLibrary
 // and implement DLL garbage collection for those. Version 0.1 can probably just pin everything.
 // https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
-pub fn factory<C: TypeName, I: TypeGuid + From<RawPtr>>() -> Result<I> {
+pub fn factory<C: TypeName, I: TypeGuid>() -> Result<I> {
     unsafe {
         let mut ptr = std::ptr::null_mut();
 
@@ -18,6 +18,6 @@ pub fn factory<C: TypeName, I: TypeGuid + From<RawPtr>>() -> Result<I> {
             code = RoGetActivationFactory(String::from(C::type_name()).abi(), I::type_guid(), &mut ptr);
         }
 
-        code.ok_or(ptr.into())
+        code.ok_or(std::mem::transmute_copy(&ptr))
     }
 }

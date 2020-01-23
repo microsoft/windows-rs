@@ -12,7 +12,7 @@ pub struct EventToken<T> {
 }
 
 impl<T: TypeGuid> EventToken<T> {
-    pub fn new(mut source: RawPtr, token: i64, offset: u32) -> EventToken<T> {
+    pub fn new(source: RawPtr, token: i64, offset: u32) -> EventToken<T> {
         EventToken { token, source: ComPtr::addref(source), offset, __0: std::marker::PhantomData }
     }
 
