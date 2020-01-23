@@ -42,83 +42,57 @@ fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections
     result
 }
 
-// This is to support automatic importing of "windows.ui" when "windows.ui.xaml" is requested
-fn to_namespaces(namespace: &str) -> std::collections::BTreeSet<String> {
-    let mut result = std::collections::BTreeSet::new();
-
-    let mut namespace = namespace;
-    result.insert(namespace.to_string());
-
-    while let Some(index) = namespace.rfind('.') {
-        namespace = namespace.get(0..index).unwrap();
-        result.insert(namespace.to_string());
-    }
-
-    result
-}
-
 // Snake <-> camel casing is lossy so we go for character but not case conversion
 // and deal with casing once we have an index of namespaces to compare against.
 fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     let mut result = String::new();
     for c in namespace.chars() {
-        if c == '"' || c == '_' {
-            // do nothing
-        } else {
-            result.push(c);
+        if c != '"' && c != '_' {
+            result.extend(c.to_lowercase()); 
         }
-        // TODO: maybe panic if uppercase char is observed
     }
     result
 }
 
-// fn parse_import_stream(stream: TokenStream) -> (winmd::Reader, std::collections::BTreeSet<String>) {
-//     let mut category = ImportCategory::None;
-//     let mut dependencies = std::collections::BTreeSet::<String>::new();
-//     let mut modules = std::collections::BTreeSet::<String>::new();
+fn parse_import_stream(stream: TokenStream) -> (std::collections::BTreeSet<String>, std::collections::BTreeSet<String>) {
+    let mut category = ImportCategory::None;
+    let mut dependencies = std::collections::BTreeSet::<String>::new();
+    let mut modules = std::collections::BTreeSet::<String>::new();
 
-//     for token in stream {
-//         match token {
-//             TokenTree::Ident(value) => match value.to_string().as_ref() {
-//                 "dependencies" => category = ImportCategory::Dependency,
-//                 "modules" => category = ImportCategory::Namespace,
-//                 value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
-//             },
-//             TokenTree::Literal(value) => match category {
-//                 ImportCategory::None => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
+    for token in stream {
+        match token {
+            TokenTree::Ident(value) => match value.to_string().as_ref() {
+                "dependencies" => category = ImportCategory::Dependency,
+                "modules" => category = ImportCategory::Namespace,
+                value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
+            },
+            TokenTree::Literal(value) => match category {
+                ImportCategory::None => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
 
-//                 ImportCategory::Dependency => dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"'))),
-//                 ImportCategory::Namespace => {
-//                     modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
-//                 }
-//             },
-//             _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string()),
-//         }
-//     }
+                ImportCategory::Dependency => {
+                    dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"')));
+                }
+                ImportCategory::Namespace => {
+                    modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
+                }
+            },
+            _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string()),
+        }
+    }
 
-//     let reader = winmd::Reader::from_files(&dependencies).unwrap();
-//     let mut namespaces = std::collections::BTreeSet::<String>::new();
-
-//     for module in &modules {
-//         match reader.find_namespace_lowercase(module) {
-//             Some(namespace) => namespaces.append(&mut to_namespaces(namespace.full_name())),
-//             None => panic!("winrt::import macro could not find module `{}` in dependencies", module),
-//         };
-//     }
-
-//     (reader, namespaces)
-// }
+    (dependencies, modules)
+}
 
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
-    //let (reader, namespaces) = parse_import_stream(stream);
-    // let output = write_selection(reader.namespaces(), &namespaces);
-    // //println!("{}", output.to_string());
-    // output.into()
+    let (dependencies, namespaces) = parse_import_stream(stream);
 
-    let mut writer = RustWriter::new();
-    //writer.add_namespace("Windows.UI");
-    writer.add_namespace("Windows.Foundation.Collections");
+    let mut writer = RustWriter::from_files(&dependencies);
+
+    for namespace in namespaces {
+        writer.add_namespace(&namespace);
+    }
+
     let output = writer.write();
     //println!("{}", output.to_string());
     output.into()

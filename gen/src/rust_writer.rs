@@ -61,22 +61,28 @@ pub struct RustWriter {
 
 impl RustWriter {
     pub fn new() -> RustWriter {
-        RustWriter { r: Reader::from_os().unwrap(), limits: Default::default() }
+        RustWriter { r: Reader::from_os().unwrap(), limits: BTreeSet::new() }
+    }
+
+    pub fn from_files<'a, P: IntoIterator<Item = &'a String>>(filenames: P) -> RustWriter {
+        RustWriter { r: Reader::from_files(filenames).unwrap(), limits: BTreeSet::new() }
+
     }
 
     pub fn add_namespace(&mut self, mut namespace: &str) {
-        if !self.r.namespaces().contains_key(namespace) {
-            panic!("Namespace `{}` not found in winmd files", namespace);
-        }
+        if let Some(found) = self.r.namespaces().keys().find(|name| name.to_lowercase() == namespace) {
+            let mut namespace = found.as_str();
+            self.limits.insert(namespace.to_string());
 
-        self.limits.insert(namespace.to_string());
+            while let Some(index) = namespace.rfind('.') {
+                namespace = namespace.get(0..index).unwrap();
 
-        while let Some(index) = namespace.rfind('.') {
-            namespace = namespace.get(0..index).unwrap();
-
-            if self.r.namespaces().contains_key(namespace) {
-                self.limits.insert(namespace.to_string());
+                if self.r.namespaces().contains_key(namespace) {
+                    self.limits.insert(namespace.to_string());
+                }
             }
+        } else {
+            panic!("Namespace `{}` not found in winmd files", namespace);
         }
     }
 
