@@ -246,6 +246,7 @@ impl TypeRef {
         r.str(&self.row, 2)
     }
 
+    // TODO: panic with "'full name' not found"
     pub fn resolve(&self, r: &Reader) -> TypeDef {
         *r.namespaces().get(self.namespace(r)).unwrap().get(self.name(r)).unwrap()
     }

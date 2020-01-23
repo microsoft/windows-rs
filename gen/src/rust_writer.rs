@@ -476,9 +476,11 @@ impl<'a> Writer<'a> {
 
         for method in interface.methods(self.r) {
             if method.is_remove_overload(self.r) {
+                // We don't project this method at all - the ABI is called internally by the EventGuard
                 continue;
             }
             if method.is_add_overload(self.r) {
+                // TODO: define this using an EventToken<T> return type
                 continue;
             }
 
@@ -706,6 +708,8 @@ impl<'a> Writer<'a> {
     }
 
     fn write_struct(&mut self, t: &TypeDef) -> TokenStream {
+        // TODO: skip EventRegistrationToken
+
         let name = format_ident!("{}", t.name(self.r));
         let fields = self.write_struct_fields(&t);
         quote! {
@@ -758,6 +762,7 @@ impl<'a> Writer<'a> {
             TypeSigType::GenericSig(value) => self.write_abi_param_generic(param, value),
             TypeSigType::GenericTypeIndex(value) => self.write_abi_param_generic_index(param, *value),
         }
+        // TODO: if these all simply append &mut for out params then just do that here rahter than repeating
     }
 
     fn write_abi_param_element_type(&mut self, param: &ParamSig, value: &ElementType) -> TokenStream {

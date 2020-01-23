@@ -84,10 +84,6 @@ impl<'a> Reader {
             }
         }
 
-        if let Some(types) = r.types.get_mut("Windows.Foundation") {
-            types.remove("EventRegistrationToken");
-        }
-
         Ok(r)
     }
 
@@ -104,6 +100,7 @@ impl<'a> Reader {
         Self::from_dir(path)
     }
 
+    // TODO: panic with "'full name' not found"
     pub fn resolve(&self, full_name: &str) -> TypeDef {
         let (namespace, name) = split_type_name(full_name);
         *self.types.get(namespace).unwrap().get(name).unwrap()
