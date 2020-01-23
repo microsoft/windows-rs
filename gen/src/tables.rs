@@ -136,18 +136,24 @@ impl MethodDef {
             } else if source.starts_with("put_") {
                 result.push_str("set");
                 source = &source[4..];
-            } else if source.starts_with("remove_") {
-                result.push_str("revoke");
-                source = &source[7..];
             }
         }
 
         append_snake(&mut result, source);
 
+        // Covers non-special names that may have started with GetXxx
         if result.starts_with("get_") {
             result.replace_range(0..4, "");
         }
         result
+    }
+
+    pub fn is_add_overload(&self, r:&Reader) -> bool {
+        self.flags(r).special() && self.abi_name(r).starts_with("add_")
+    }
+
+    pub fn is_remove_overload(&self, r:&Reader) -> bool {
+        self.flags(r).special() && self.abi_name(r).starts_with("remove_")
     }
 }
 

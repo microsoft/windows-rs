@@ -475,6 +475,13 @@ impl<'a> Writer<'a> {
         let mut tokens = quote! {};
 
         for method in interface.methods(self.r) {
+            if method.is_remove_overload(self.r) {
+                continue;
+            }
+            if method.is_add_overload(self.r) {
+                continue;
+            }
+
             let name = format_ident!("r#{}", method.name(self.r));
             let signature = method.signature(self.r);
             let params = self.write_consume_params(&signature);
@@ -800,22 +807,28 @@ impl<'a> Writer<'a> {
     }
 
     fn write_abi_param_type_def(&mut self, param: &ParamSig, value: &TypeDef) -> TokenStream {
-        if param.input() {
-            match value.category(self.r) {
-                TypeCategory::Enum | TypeCategory::Struct => {
+        let tokens = match value.category(self.r) {
+            TypeCategory::Enum => {
+                let name = format_ident!("{}", value.name(self.r));
+                quote! { #name, }
+            }
+            TypeCategory::Struct => {
+                let name = value.name(self.r);
+                let namespace = value.namespace(self.r);
+                if name == "EventRegistrationToken" && namespace == "Windows.Foundation" {
+                    quote! { i64, }
+                } else {
                     let name = format_ident!("{}", value.name(self.r));
                     quote! { #name, }
                 }
-                _ => quote! { winrt::RawPtr, },
             }
+            _ => quote! { winrt::RawPtr, },
+        };
+
+        if param.input() {
+            tokens
         } else {
-            match value.category(self.r) {
-                TypeCategory::Enum | TypeCategory::Struct => {
-                    let name = format_ident!("{}", value.name(self.r));
-                    quote! { &mut #name, }
-                }
-                _ => quote! { &mut winrt::RawPtr, },
-            }
+            quote! { &mut #tokens }
         }
     }
 

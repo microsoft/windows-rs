@@ -84,6 +84,10 @@ impl<'a> Reader {
             }
         }
 
+        if let Some(types) = r.types.get_mut("Windows.Foundation") {
+            types.remove("EventRegistrationToken");
+        }
+
         Ok(r)
     }
 
