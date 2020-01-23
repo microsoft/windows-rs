@@ -1,35 +1,43 @@
 use crate::*;
 
+// The EventGuard drops the generic parameter from the EventToken to make storing EventGuards more convenient 
+// as you don't have to figure out what type it is. The EventToken uses a generic parameter as this type doesn't
+// need to be used directly and this save some stack space every time an event handler is registered
+
 pub struct EventToken<T> {
-    source: ComPtr,
     token: i64,
+    source: ComPtr,
     offset: u32, // offset of remove virtual function
-    weak: bool,  // whether source is a weak/strong ref
     __0: std::marker::PhantomData<T>,
 }
 
 impl<T: TypeGuid> EventToken<T> {
     pub fn new(mut source: RawPtr, token: i64, offset: u32) -> EventToken<T> {
+        EventToken { token, source: ComPtr::addref(source), offset, __0: std::marker::PhantomData }
+    }
+
+    pub fn guard(mut self) -> EventGuard {
         unsafe {
-            let weak_source: ComPtr = query::<IWeakReferenceSource>(source).into();
+            let weak_source = self.source.query::<IWeakReferenceSource>();
             let weak = !weak_source.is_null();
             if weak {
-                ((*(*(weak_source.0 as *const *const IWeakReferenceSource))).weak)(weak_source.0, &mut source).unwrap();
+                ((*(*(weak_source.get() as *const *const IWeakReferenceSource))).weak)(weak_source.get(), self.source.set()).unwrap();
             }
-            EventToken { source: source.into(), token, offset, weak, __0: std::marker::PhantomData }
+            EventGuard { guid: *T::type_guid(), token: self.token, source: self.source, offset: self.offset, weak: weak }
         }
     }
-
-    pub fn guard(self) -> EventGuard<T> {
-        EventGuard { token: self }
-    }
 }
 
-pub struct EventGuard<T: TypeGuid> {
-    token: EventToken<T>,
+pub struct EventGuard {
+    guid: Guid, // IID of interface contaiing
+    token: i64,
+    source: ComPtr,
+    offset: u32, // offset of remove virtual function
+    weak: bool,  // whether source is a weak/strong ref
+
 }
 
-impl<T: TypeGuid> Drop for EventGuard<T> {
+impl Drop for EventGuard {
     fn drop(&mut self) {
         // let source = if self.token.weak {
         //     let mut ptr = std::ptr::null_mut();

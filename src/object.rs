@@ -12,7 +12,7 @@ impl Object {
     pub fn type_name(&self) -> Result<String> {
         unsafe {
             let mut ptr = std::ptr::null_mut();
-            ((*(*(self.ptr.0 as *const *const IInspectable))).type_name)(self.ptr.0, &mut ptr).ok_or(ptr.into())
+            ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(self.ptr.get(), &mut ptr).ok_or(ptr.into())
         }
     }
 }

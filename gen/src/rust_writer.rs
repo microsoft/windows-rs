@@ -201,7 +201,7 @@ impl<'a> Writer<'a> {
                     }
                     impl From<&#class_ident> for #interface_ident {
                         fn from(value: &#class_ident) -> #interface_ident {
-                            #interface_ident::from(value.ptr.addref())
+                            unsafe { std::mem::transmute(value.clone()) }
                         }
                     }
                     impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
@@ -224,7 +224,7 @@ impl<'a> Writer<'a> {
                     }
                     impl From<&#class_ident> for #interface_ident {
                         fn from(value: &#class_ident) -> #interface_ident {
-                            #interface_ident::from(value.ptr.query::<#interface_ident>())
+                            #interface_ident {ptr: value.ptr.query::<#interface_ident>() }
                         }
                     }
                     impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
@@ -506,7 +506,7 @@ impl<'a> Writer<'a> {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
                             let mut __ok = std::mem::zeroed();
-                            ((*(*(self.ptr.0 as *const *const #abi_interface_name))).#name)(
+                            ((*(*(self.ptr.get() as *const *const #abi_interface_name))).#name)(
                                 self.ptr.get(), #args #receive_expression
                             )
                             .ok_or(__ok.into())
@@ -518,7 +518,7 @@ impl<'a> Writer<'a> {
                     #tokens
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
                         unsafe {
-                            ((*(*(self.ptr.0 as *const *const #abi_interface_name))).#name)(
+                            ((*(*(self.ptr.get() as *const *const #abi_interface_name))).#name)(
                                 self.ptr.get(), #args
                             )
                             .ok()
