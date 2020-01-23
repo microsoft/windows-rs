@@ -148,11 +148,11 @@ impl MethodDef {
         result
     }
 
-    pub fn is_add_overload(&self, r:&Reader) -> bool {
+    pub fn is_add_overload(&self, r: &Reader) -> bool {
         self.flags(r).special() && self.abi_name(r).starts_with("add_")
     }
 
-    pub fn is_remove_overload(&self, r:&Reader) -> bool {
+    pub fn is_remove_overload(&self, r: &Reader) -> bool {
         self.flags(r).special() && self.abi_name(r).starts_with("remove_")
     }
 }
