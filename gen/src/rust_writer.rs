@@ -938,7 +938,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_consume_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
-        let namespace = self.namespace_ident(value.sig_type().namespace(self.r));
+        let namespace = self.write_relative_namespace(value.sig_type().namespace(self.r));
         let name = value.sig_type().name(self.r);
         let name = name.get(..name.len() - 2).unwrap();
         let name = format_ident!("{}", name);
@@ -1080,7 +1080,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_type_generic(&mut self, value: &GenericSig) -> TokenStream {
-        let namespace = self.namespace_ident(value.sig_type().namespace(self.r));
+        let namespace = self.write_relative_namespace(value.sig_type().namespace(self.r));
         let name = value.sig_type().name(self.r);
         let name = name.get(..name.len() - 2).unwrap();
         let name = format_ident!("{}", name);
@@ -1115,11 +1115,20 @@ impl<'a> Writer<'a> {
         None
     }
 
-    fn namespace_ident(&mut self, name: &str) -> TokenStream {
-        let parts = name.split('.').map(|part| format_ident!("{}", part.to_lowercase()));
-        quote! {
-            #(#parts)::*
-        }
+    fn write_relative_namespace(&mut self, namespace: &str) -> TokenStream {
+        // if self.namespace == namespace {
+        //     TokenStream::new()
+        // } else {
+            
+        // }
+
+
+        // let parts = name.split('.').map(|part| format_ident!("{}", part.to_lowercase()));
+        // quote! {
+        //     #(#parts)::*
+        // }
+
+        TokenStream::new()
     }
 
     fn push_generic_params(&mut self, generics: RowIterator<GenericParam>) {
