@@ -124,6 +124,8 @@ impl MethodDef {
         MethodSig::new(r, self)
     }
 
+    // TODO: Either make the reader spit out TokenStreams directly or remove this as its all about formatting Rust
+    // rahter than simply parsing metadata.
     pub fn name(&self, r: &Reader) -> String {
         // TODO: need to account for OverloadAttribute considering that Rust doesn't support overloads.
 

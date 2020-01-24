@@ -179,61 +179,61 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_from_traits(&mut self, class_ident: &Ident, interfaces: &Vec<InterfaceInfo>) -> TokenStream {
+    fn write_from_traits(&mut self, from: &Ident, interfaces: &Vec<InterfaceInfo>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        for i in interfaces {
+        for interface in interfaces {
             // TODO: support generic interfaces
-            if !i.generics.is_empty() {
+            if !interface.generics.is_empty() {
                 continue;
             }
 
-            let interface_ident = format_ident!("{}", i.definition.name(self.r));
+            let namespace = self.write_relative_namespace(interface.definition.namespace(self.r));
+            let name = format_ident!("{}", interface.definition.name(self.r));
+            let into = quote! { #namespace#name };
 
-            // TODO: add from traits for ref
-
-            if i.default {
+            if interface.default {
                 tokens.push(quote! {
-                    impl From<#class_ident> for #interface_ident {
-                        fn from(value: #class_ident) -> #interface_ident {
+                    impl From<#from> for #into {
+                        fn from(value: #from) -> #into {
                             unsafe { std::mem::transmute(value) }
                         }
                     }
-                    impl From<&#class_ident> for #interface_ident {
-                        fn from(value: &#class_ident) -> #interface_ident {
+                    impl From<&#from> for #into {
+                        fn from(value: &#from) -> #into {
                             unsafe { std::mem::transmute(value.clone()) }
                         }
                     }
-                    impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
-                        fn into(self) -> winrt::Param<'a, #interface_ident> {
+                    impl<'a> Into<winrt::Param<'a, #into>> for #from {
+                        fn into(self) -> winrt::Param<'a, #into> {
                             winrt::Param::Value(self.into())
                         }
                     }
-                    impl<'a> Into<winrt::Param<'a, #interface_ident>> for &'a #class_ident {
-                        fn into(self) -> winrt::Param<'a, #interface_ident> {
+                    impl<'a> Into<winrt::Param<'a, #into>> for &'a #from {
+                        fn into(self) -> winrt::Param<'a, #into> {
                             winrt::Param::Value(self.into())
                         }
                     }
                 });
             } else {
                 tokens.push(quote! {
-                    impl From<#class_ident> for #interface_ident {
-                        fn from(value: #class_ident) -> #interface_ident {
-                            #interface_ident::from(&value)
+                    impl From<#from> for #into {
+                        fn from(value: #from) -> #into {
+                            #into::from(&value)
                         }
                     }
-                    impl From<&#class_ident> for #interface_ident {
-                        fn from(value: &#class_ident) -> #interface_ident {
-                            #interface_ident {ptr: value.ptr.query::<#interface_ident>() }
+                    impl From<&#from> for #into {
+                        fn from(value: &#from) -> #into {
+                            #into {ptr: value.ptr.query::<#into>() }
                         }
                     }
-                    impl<'a> Into<winrt::Param<'a, #interface_ident>> for #class_ident {
-                        fn into(self) -> winrt::Param<'a, #interface_ident> {
+                    impl<'a> Into<winrt::Param<'a, #into>> for #from {
+                        fn into(self) -> winrt::Param<'a, #into> {
                             winrt::Param::Value(self.into())
                         }
                     }
-                    impl<'a> Into<winrt::Param<'a, #interface_ident>> for &'a #class_ident {
-                        fn into(self) -> winrt::Param<'a, #interface_ident> {
+                    impl<'a> Into<winrt::Param<'a, #into>> for &'a #from {
+                        fn into(self) -> winrt::Param<'a, #into> {
                             winrt::Param::Value(self.into())
                         }
                     }
@@ -1119,17 +1119,26 @@ impl<'a> Writer<'a> {
     fn write_relative_namespace(&mut self, other: &str) -> TokenStream {
         let mut tokens = Vec::new();
 
-        if self.namespace != other {
-            let mut this = self.namespace.split('.');
-            let mut other = other.split('.');
+        let mut source = self.namespace.split('.').peekable();
+        let mut destination = other.split('.').peekable();
 
-            this.by_ref().zip(other.by_ref()).any(|(this, other)| this != other);
-            tokens.resize(tokens.len() + this.count(), quote! {super::});
-            tokens.extend(other.map(|other| {
-                let other = format_ident!("{}", other.to_lowercase());
-                quote! { #other:: }
-            }));
+        while source.peek() == destination.peek() {
+            if source.next().is_none() {
+                break;
+            }
+            destination.next();
         }
+
+        let count = source.count();
+
+        if count > 0 {
+            tokens.resize(tokens.len() + count, quote! {super::});
+        }
+
+        tokens.extend(destination.map(|destination| {
+            let destination = format_ident!("{}", destination.to_lowercase());
+            quote! { #destination:: }
+        }));
 
         TokenStream::from_iter(tokens)
     }

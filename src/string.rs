@@ -122,6 +122,12 @@ impl Default for String {
     }
 }
 
+impl Clone for String {
+    fn clone(&self) -> String {
+        String { ptr: duplicate(self.ptr) }
+    }
+}
+
 impl Drop for String {
     fn drop(&mut self) {
         self.clear();
