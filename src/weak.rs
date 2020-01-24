@@ -16,7 +16,7 @@ pub(crate) struct IWeakReferenceSource {
     pub weak: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
 }
 
-impl TypeGuid for IWeakReferenceSource {
+impl QueryType for IWeakReferenceSource {
     fn type_guid() -> &'static Guid {
         static GUID: Guid = Guid::from_values(0x00000038, 0x0000, 0x0000, &[0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46]);
         &GUID

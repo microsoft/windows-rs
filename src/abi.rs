@@ -11,6 +11,16 @@ pub struct ComPtr {
 //     unsafe{ std::mem::transmute_copy(&value) }
 // }
 
+pub fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
+    unsafe {
+        let mut result = std::ptr::null_mut();
+        if !ptr.is_null() {
+            ((*(*(ptr as *const *const IUnknown))).query)(ptr, I::type_guid(), &mut result);
+        }
+        ptr
+    }
+}
+
 impl ComPtr {
     pub fn addref(ptr: RawPtr) -> ComPtr {
         unsafe {
@@ -21,14 +31,8 @@ impl ComPtr {
         }
     }
 
-    pub fn query<I: TypeGuid>(&self) -> ComPtr {
-        unsafe {
-            let mut ptr = std::ptr::null_mut();
-            if !self.ptr.is_null() {
-                ((*(*(self.ptr as *const *const IUnknown))).query)(self.ptr, I::type_guid(), &mut ptr);
-            }
-            ComPtr { ptr }
-        }
+    pub fn query<I: QueryType>(&self) -> ComPtr {
+        ComPtr { ptr: query::<I>(self.ptr) }
     }
 
     pub fn get(&self) -> RawPtr {

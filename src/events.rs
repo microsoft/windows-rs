@@ -12,7 +12,7 @@ pub struct EventToken<T> {
     __0: std::marker::PhantomData<T>,
 }
 
-impl<T: TypeGuid> EventToken<T> {
+impl<T: QueryType> EventToken<T> {
     pub fn new(source: &ComPtr, token: i64, offset: u32) -> EventToken<T> {
         EventToken { token, source: source.clone(), offset, __0: std::marker::PhantomData }
     }

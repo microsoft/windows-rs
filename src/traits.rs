@@ -1,19 +1,20 @@
 use crate::*;
 
-// TODO: model traits after cppwinrt traits
+pub trait QueryType :  Sized {
+    fn type_guid() -> &'static Guid;
+
+    fn query<T: QueryType>(&self) -> T {
+        unsafe{ std::mem::transmute_copy(&query::<T>(std::mem::transmute_copy(self))) }
+    }
+}
 
 // Formal WinRT type categories.
 pub trait BasicType {}
-pub trait InterfaceType {}
-pub trait DelegateType {}
 pub trait EnumType {}
-pub trait ClassType {}
 pub trait StructType {}
-
-// Required for interfaces and delegates
-pub trait TypeGuid {
-    fn type_guid() -> &'static Guid;
-}
+pub trait InterfaceType  {}
+pub trait DelegateType  {}
+pub trait ClassType  {}
 
 // Required for classes and in some cases interfaces
 pub trait TypeName {

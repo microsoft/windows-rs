@@ -146,36 +146,58 @@ impl<'a> Writer<'a> {
         let interfaces = self.interfaces(class);
         let froms = self.write_from_traits(&name, &interfaces);
 
-        quote! {
-            #[repr(C)]
-            #[derive(Default, Clone)]
-            pub struct #name { ptr: winrt::ComPtr }
-            impl #name { #functions }
-            impl winrt::TypeName for #name {
-                fn type_name() -> &'static str {
-                    #string_name
+        // TODO: use bool.then when stable
+        if let Some(default_interface) = interfaces.iter().find_map(|interface|if interface.default { Some(interface.definition) } else { None }) {
+            let default_interface_namespace = self.write_relative_namespace(default_interface.namespace(self.r));
+            let default_interface_name = format_ident!("{}", default_interface.name(self.r));
+            quote! {
+                #[repr(C)]
+                #[derive(Default, Clone)]
+                pub struct #name { ptr: winrt::ComPtr }
+                impl #name { #functions }
+                impl winrt::ClassType for #name {}
+                impl winrt::QueryType for #name {
+                    fn type_guid() -> &'static winrt::Guid {
+                        <#default_interface_namespace #default_interface_name as winrt::QueryType>::type_guid()
+                    }
+                }
+                impl winrt::TypeName for #name {
+                    fn type_name() -> &'static str {
+                        #string_name
+                    }
+                }
+                impl winrt::RuntimeType for #name {
+                    type Abi = winrt::RawPtr;
+                    fn abi(&self) -> Self::Abi {
+                        self.ptr.get()
+                    }
+                    fn set_abi(&mut self) -> *mut Self::Abi {
+                        self.ptr.set()
+                    }
+                }
+                impl<'a> Into<winrt::Param<'a, #name>> for #name {
+                    fn into(self) -> winrt::Param<'a, #name> {
+                        winrt::Param::Value(self)
+                    }
+                }
+                impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
+                    fn into(self) -> winrt::Param<'a, #name> {
+                        winrt::Param::Ref(self)
+                    }
+                }
+                #froms
+            }
+        }
+        else {
+            quote! {
+                pub struct #name { }
+                impl #name { #functions }
+                impl winrt::TypeName for #name {
+                    fn type_name() -> &'static str {
+                        #string_name
+                    }
                 }
             }
-            impl winrt::RuntimeType for #name {
-                type Abi = winrt::RawPtr;
-                fn abi(&self) -> Self::Abi {
-                    self.ptr.get()
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set()
-                }
-            }
-            impl<'a> Into<winrt::Param<'a, #name>> for #name {
-                fn into(self) -> winrt::Param<'a, #name> {
-                    winrt::Param::Value(self)
-                }
-            }
-            impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
-                fn into(self) -> winrt::Param<'a, #name> {
-                    winrt::Param::Ref(self)
-                }
-            }
-            #froms
         }
     }
 
@@ -375,7 +397,8 @@ impl<'a> Writer<'a> {
             impl #name_ident {
                 #consume_methods
             }
-            impl winrt::TypeGuid for #name_ident {
+            impl winrt::InterfaceType for #name_ident {}
+            impl winrt::QueryType for #name_ident {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -437,7 +460,8 @@ impl<'a> Writer<'a> {
             impl #generics2 #name_ident #generics {
                 #consume_methods
             }
-            impl #generics2 winrt::TypeGuid for #name_ident #generics {
+            impl #generics2 winrt::InterfaceType for #name_ident #generics {}
+            impl #generics2 winrt::QueryType for #name_ident #generics {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -614,7 +638,8 @@ impl<'a> Writer<'a> {
             }
             impl #name_ident {
             }
-            impl winrt::TypeGuid for #name_ident {
+            impl winrt::DelegateType for #name_ident {}
+            impl winrt::QueryType for #name_ident {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -696,7 +721,8 @@ impl<'a> Writer<'a> {
             }
             impl #generics2 #name_ident #generics {
             }
-            impl #generics2 winrt::TypeGuid for #name_ident #generics {
+            impl #generics2 winrt::DelegateType for #name_ident #generics {}
+            impl #generics2 winrt::QueryType for #name_ident #generics {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
