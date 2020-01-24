@@ -1123,11 +1123,11 @@ impl<'a> Writer<'a> {
             let mut this = self.namespace.split('.');
             let mut other = other.split('.');
 
-            this.by_ref().zip(other.by_ref()).any(|(this, other)|this != other);
-            tokens.resize(tokens.len() + this.count(), quote!{super::});
+            this.by_ref().zip(other.by_ref()).any(|(this, other)| this != other);
+            tokens.resize(tokens.len() + this.count(), quote! {super::});
             tokens.extend(other.map(|other| {
                 let other = format_ident!("{}", other.to_lowercase());
-                quote!{ #other:: }
+                quote! { #other:: }
             }));
         }
 
