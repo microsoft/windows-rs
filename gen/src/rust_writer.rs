@@ -148,7 +148,7 @@ impl<'a> Writer<'a> {
 
         // TODO: use bool.then when stable
         if let Some(default_interface) = interfaces.iter().find_map(|interface| if interface.default { Some(interface.definition) } else { None }) {
-            let default_interface_namespace = self.write_relative_namespace(default_interface.namespace(self.r));
+            let default_interface_namespace = self.write_namespace_name(default_interface.namespace(self.r));
             let default_interface_name = format_ident!("{}", default_interface.name(self.r));
             quote! {
                 #[repr(C)]
@@ -209,7 +209,7 @@ impl<'a> Writer<'a> {
                 continue;
             }
 
-            let namespace = self.write_relative_namespace(interface.definition.namespace(self.r));
+            let namespace = self.write_namespace_name(interface.definition.namespace(self.r));
             let name = format_ident!("{}", interface.definition.name(self.r));
             let into = quote! { #namespace#name };
 
@@ -963,7 +963,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_consume_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
-        let namespace = self.write_relative_namespace(value.sig_type().namespace(self.r));
+        let namespace = self.write_namespace_name(value.sig_type().namespace(self.r));
         let name = value.sig_type().name(self.r);
         let name = name.get(..name.len() - 2).unwrap();
         let name = format_ident!("{}", name);
@@ -1092,7 +1092,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_type_def(&mut self, value: &TypeDef) -> TokenStream {
-        let namespace = self.write_relative_namespace(value.namespace(self.r));
+        let namespace = self.write_namespace_name(value.namespace(self.r));
         let name = format_ident!("{}", value.name(self.r));
         quote! { #namespace#name }
     }
@@ -1106,7 +1106,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_type_generic(&mut self, value: &GenericSig) -> TokenStream {
-        let namespace = self.write_relative_namespace(value.sig_type().namespace(self.r));
+        let namespace = self.write_namespace_name(value.sig_type().namespace(self.r));
         let name = value.sig_type().name(self.r);
         let name = name.get(..name.len() - 2).unwrap();
         let name = format_ident!("{}", name);
@@ -1141,7 +1141,11 @@ impl<'a> Writer<'a> {
         None
     }
 
-    fn write_relative_namespace(&mut self, other: &str) -> TokenStream {
+    fn write_method_name(&self, method: &MethodDef) -> TokenStream {
+        quote! { name }
+    }
+
+    fn write_namespace_name(&mut self, other: &str) -> TokenStream {
         let mut tokens = Vec::new();
 
         let mut source = self.namespace.split('.').peekable();
