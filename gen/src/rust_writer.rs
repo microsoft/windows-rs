@@ -441,6 +441,9 @@ impl<'a> Writer<'a> {
         let abi_methods = self.write_abi_methods(&interface);
         let consume_methods = self.write_consume_methods(&interface, &abi_name_ident2);
 
+        let generic_impl = self.write_generic_impl(interface);
+
+
         quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
@@ -456,11 +459,11 @@ impl<'a> Writer<'a> {
                 #abi_methods
                 #phantoms
             }
-            impl #generics2 #name_ident #generics {
+            #generic_impl #name_ident #generics {
                 #consume_methods
             }
-            impl #generics2 winrt::InterfaceType for #name_ident #generics {}
-            impl #generics2 winrt::QueryType for #name_ident #generics {
+            #generic_impl winrt::InterfaceType for #name_ident #generics {}
+            #generic_impl winrt::QueryType for #name_ident #generics {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -468,7 +471,7 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            impl #generics2 winrt::RuntimeType for #name_ident #generics {
+            #generic_impl winrt::RuntimeType for #name_ident #generics {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
                     self.ptr.get()
@@ -693,6 +696,20 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
+    fn write_generic_impl(&self, interface: &TypeDef) -> TokenStream {
+        if let Some(generics) = self.generics.last() {
+            let mut tokens = Vec::new();
+    
+            for generic in generics {
+                tokens.push(quote! { #generic : winrt::RuntimeType })
+            }
+    
+            quote! { impl <#(#tokens),*> }
+        } else {
+            quote! { impl }
+        }
+    }
+
     fn write_generic_delegate(&mut self, interface: &TypeDef) -> TokenStream {
         let generics = self.generics.last().unwrap();
         let generics = quote! { <#(#generics),*> };
@@ -706,6 +723,8 @@ impl<'a> Writer<'a> {
         let guid = self.write_guid(interface);
         let abi_methods = self.write_abi_methods(&interface);
 
+        let generic_impl = self.write_generic_impl(interface);
+
         quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
@@ -718,10 +737,10 @@ impl<'a> Writer<'a> {
                 #abi_methods
                 #phantoms
             }
-            impl #generics2 #name_ident #generics {
+            #generic_impl #name_ident #generics {
             }
-            impl #generics2 winrt::DelegateType for #name_ident #generics {}
-            impl #generics2 winrt::QueryType for #name_ident #generics {
+            #generic_impl winrt::DelegateType for #name_ident #generics {}
+            #generic_impl winrt::QueryType for #name_ident #generics {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -729,7 +748,7 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            impl #generics2 winrt::RuntimeType for #name_ident #generics {
+            #generic_impl winrt::RuntimeType for #name_ident #generics {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
                     self.ptr.get()
