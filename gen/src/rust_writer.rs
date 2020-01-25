@@ -448,7 +448,7 @@ impl<'a> Writer<'a> {
         quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
-            pub struct #name_ident #generics2 { ptr: winrt::ComPtr, #phantoms }
+            pub struct #generic_name { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
             struct #abi_name_ident #generics2 {
                 __0: usize,
@@ -460,11 +460,11 @@ impl<'a> Writer<'a> {
                 #abi_methods
                 #phantoms
             }
-            #generic_impl #name_ident #generics {
+            #generic_impl #generic_name {
                 #consume_methods
             }
-            #generic_impl winrt::InterfaceType for #name_ident #generics {}
-            #generic_impl winrt::QueryType for #name_ident #generics {
+            #generic_impl winrt::InterfaceType for #generic_name {}
+            #generic_impl winrt::QueryType for #generic_name {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -472,7 +472,7 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            #generic_impl winrt::RuntimeType for #name_ident #generics {
+            #generic_impl winrt::RuntimeType for #generic_name {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
                     self.ptr.get()
@@ -715,9 +715,11 @@ impl<'a> Writer<'a> {
         if let Some(generics) = self.generics.last() {
             let name = interface.name(self.r);
             let name = &name[..name.len() - 2];
+            let name = format_ident!("{}", name);
             quote! { #name<#(#generics),*> }
         } else {
             let name = interface.name(self.r);
+            let name = format_ident!("{}", name);
             quote! { #name }
         }
     }
@@ -735,12 +737,13 @@ impl<'a> Writer<'a> {
         let guid = self.write_guid(interface);
         let abi_methods = self.write_abi_methods(&interface);
 
+        let generic_name = self.write_generic_name(interface);
         let generic_impl = self.write_generic_impl(interface);
 
         quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
-            pub struct #name_ident #generics2 { ptr: winrt::ComPtr, #phantoms }
+            pub struct #generic_name { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
             struct #abi_name_ident #generics2 {
                 __0: usize,
@@ -749,10 +752,10 @@ impl<'a> Writer<'a> {
                 #abi_methods
                 #phantoms
             }
-            #generic_impl #name_ident #generics {
+            #generic_impl #generic_name {
             }
-            #generic_impl winrt::DelegateType for #name_ident #generics {}
-            #generic_impl winrt::QueryType for #name_ident #generics {
+            #generic_impl winrt::DelegateType for #generic_name {}
+            #generic_impl winrt::QueryType for #generic_name {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -760,7 +763,7 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            #generic_impl winrt::RuntimeType for #name_ident #generics {
+            #generic_impl winrt::RuntimeType for #generic_name {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
                     self.ptr.get()
