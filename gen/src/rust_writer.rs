@@ -432,7 +432,7 @@ impl<'a> Writer<'a> {
         let generics = self.generics.last().unwrap();
         let generics = quote! { <#(#generics),*> };
         let generics2 = self.write_generic_params();
-        let phantoms = self.write_generic_phantom_data();
+        let phantoms = self.write_generic_phantoms();
         let name = interface.name(self.r);
         let name = &name[..name.len() - 2];
         let name_ident = format_ident!("{}", name);
@@ -442,6 +442,7 @@ impl<'a> Writer<'a> {
         let consume_methods = self.write_consume_methods(&interface, &abi_name_ident2);
 
         let generic_name = self.write_generic_name(interface);
+        let generic_abi_name = self.write_generic_abi_name(interface);
         let generic_impl = self.write_generic_impl(interface);
 
 
@@ -450,7 +451,7 @@ impl<'a> Writer<'a> {
             #[derive(Default, Clone)]
             pub struct #generic_name { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
-            struct #abi_name_ident #generics2 {
+            struct #generic_abi_name {
                 __0: usize,
                 __1: usize,
                 __2: usize,
@@ -684,17 +685,20 @@ impl<'a> Writer<'a> {
         quote! { <#(#tokens),*> }
     }
 
-    fn write_generic_phantom_data(&mut self) -> TokenStream {
-        let generics = self.generics.last().unwrap();
+    fn write_generic_phantoms(&mut self) -> TokenStream {
+        if let Some(generics) = self.generics.last() {
+            let mut tokens = Vec::new();
 
-        let mut tokens = Vec::new();
+            for (count, generic) in generics.iter().enumerate() {
+                let name = format_ident!("__{}", count + 6);
+                tokens.push(quote! { #name: std::marker::PhantomData::<#generic>, })
+            }
 
-        for (count, generic) in generics.iter().enumerate() {
-            let name = format_ident!("__{}", count + 6);
-            tokens.push(quote! { #name: std::marker::PhantomData::<#generic>, })
+            TokenStream::from_iter(tokens)
         }
-
-        TokenStream::from_iter(tokens)
+        else {
+            TokenStream::new()
+        }
     }
 
     fn write_generic_impl(&self, interface: &TypeDef) -> TokenStream {
@@ -708,6 +712,25 @@ impl<'a> Writer<'a> {
             quote! { impl <#(#tokens),*> }
         } else {
             quote! { impl }
+        }
+    }
+
+    fn write_generic_abi_name(&self, interface: &TypeDef) -> TokenStream {
+        if let Some(generics) = self.generics.last() {
+            let mut tokens = Vec::new();
+    
+            for generic in generics {
+                tokens.push(quote! { #generic : winrt::RuntimeType })
+            }
+    
+            let name = interface.name(self.r);
+            let name = &name[..name.len() - 2];
+            let name = format_ident!("abi_{}", name);
+            quote! { #name<#(#tokens),*> }
+        } else {
+            let name = interface.name(self.r);
+            let name = format_ident!("abi_{}", name);
+            quote! { #name }
         }
     }
 
@@ -728,7 +751,7 @@ impl<'a> Writer<'a> {
         let generics = self.generics.last().unwrap();
         let generics = quote! { <#(#generics),*> };
         let generics2 = self.write_generic_params();
-        let phantoms = self.write_generic_phantom_data();
+        let phantoms = self.write_generic_phantoms();
         let name = interface.name(self.r);
         let name = &name[..name.len() - 2];
         let name_ident = format_ident!("{}", name);
@@ -738,6 +761,7 @@ impl<'a> Writer<'a> {
         let abi_methods = self.write_abi_methods(&interface);
 
         let generic_name = self.write_generic_name(interface);
+        let generic_abi_name = self.write_generic_abi_name(interface);
         let generic_impl = self.write_generic_impl(interface);
 
         quote! {
@@ -745,7 +769,7 @@ impl<'a> Writer<'a> {
             #[derive(Default, Clone)]
             pub struct #generic_name { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
-            struct #abi_name_ident #generics2 {
+            struct #generic_abi_name {
                 __0: usize,
                 __1: usize,
                 __2: usize,
