@@ -246,7 +246,7 @@ impl<'a> Writer<'a> {
                     }
                     impl From<&#from> for #into {
                         fn from(value: &#from) -> #into {
-                            #into {ptr: value.ptr.query::<#into>() }
+                            winrt::QueryType::query(value)
                         }
                     }
                     impl<'a> Into<winrt::Param<'a, #into>> for #from {
