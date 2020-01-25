@@ -429,15 +429,7 @@ impl<'a> Writer<'a> {
 
     fn write_generic_interface(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
-        let generics = self.generics.last().unwrap();
-        let generics = quote! { <#(#generics),*> };
-        let generics2 = self.write_generic_params();
         let phantoms = self.write_generic_phantoms();
-        let name = interface.name(self.r);
-        let name = &name[..name.len() - 2];
-        let name_ident = format_ident!("{}", name);
-        let abi_name_ident = format_ident!("abi_{}", name);
-        let abi_name_ident2 = quote! { #abi_name_ident #generics };
         let abi_methods = self.write_abi_methods(&interface);
 
         let generic_name = self.write_generic_name(interface);
