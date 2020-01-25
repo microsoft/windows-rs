@@ -1,10 +1,10 @@
 use crate::*;
 
-pub trait QueryType :  Sized {
+pub trait QueryType: Sized {
     fn type_guid() -> &'static Guid;
 
     fn query<T: QueryType>(&self) -> T {
-        unsafe{ std::mem::transmute_copy(&query::<T>(std::mem::transmute_copy(self))) }
+        unsafe { std::mem::transmute_copy(&query::<T>(std::mem::transmute_copy(self))) }
     }
 }
 
@@ -12,9 +12,9 @@ pub trait QueryType :  Sized {
 pub trait BasicType {}
 pub trait EnumType {}
 pub trait StructType {}
-pub trait InterfaceType  {}
-pub trait DelegateType  {}
-pub trait ClassType  {}
+pub trait InterfaceType {}
+pub trait DelegateType {}
+pub trait ClassType {}
 
 // Required for classes and in some cases interfaces
 pub trait TypeName {

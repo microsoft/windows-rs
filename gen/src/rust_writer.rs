@@ -147,7 +147,7 @@ impl<'a> Writer<'a> {
         let froms = self.write_from_traits(&name, &interfaces);
 
         // TODO: use bool.then when stable
-        if let Some(default_interface) = interfaces.iter().find_map(|interface|if interface.default { Some(interface.definition) } else { None }) {
+        if let Some(default_interface) = interfaces.iter().find_map(|interface| if interface.default { Some(interface.definition) } else { None }) {
             let default_interface_namespace = self.write_relative_namespace(default_interface.namespace(self.r));
             let default_interface_name = format_ident!("{}", default_interface.name(self.r));
             quote! {
@@ -187,8 +187,7 @@ impl<'a> Writer<'a> {
                 }
                 #froms
             }
-        }
-        else {
+        } else {
             quote! {
                 pub struct #name { }
                 impl #name { #functions }
