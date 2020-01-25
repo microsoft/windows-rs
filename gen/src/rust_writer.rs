@@ -289,7 +289,7 @@ impl<'a> Writer<'a> {
                 let name = interface.definition.name(self.r);
                 let abi_name_ident = format_ident!("abi_{}", name);
                 let abi_name_ident = quote! { #abi_name_ident };
-                tokens.push(self.write_consume_methods(&interface.definition, &abi_name_ident));
+                tokens.push(self.write_consume_methods(&interface.definition));
             }
             // TODO: deal with non-default interfaces
         }
@@ -376,7 +376,7 @@ impl<'a> Writer<'a> {
         let abi_name_ident = format_ident!("abi_{}", name);
         let abi_name_ident = quote! { #abi_name_ident };
         let abi_methods = self.write_abi_methods(&interface);
-        let consume_methods = self.write_consume_methods(&interface, &abi_name_ident);
+        let consume_methods = self.write_consume_methods(&interface);
         let guid = self.write_guid(interface);
 
         quote! {
@@ -439,12 +439,12 @@ impl<'a> Writer<'a> {
         let abi_name_ident = format_ident!("abi_{}", name);
         let abi_name_ident2 = quote! { #abi_name_ident #generics };
         let abi_methods = self.write_abi_methods(&interface);
-        let consume_methods = self.write_consume_methods(&interface, &abi_name_ident2);
 
         let generic_name = self.write_generic_name(interface);
-        let generic_abi_name = self.write_generic_abi_name(interface);
+        let generic_abi_name = self.write_generic_abi_name(interface, true);
         let generic_impl = self.write_generic_impl(interface);
 
+        let consume_methods = self.write_consume_methods(&interface);
 
         quote! {
             #[repr(C)]
@@ -504,8 +504,9 @@ impl<'a> Writer<'a> {
         tokens
     }
 
-    fn write_consume_methods(&mut self, interface: &TypeDef, abi_interface_name: &TokenStream) -> TokenStream {
+    fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
         let mut tokens = quote! {};
+        let generic_abi_name = self.write_generic_abi_name(interface, false);
 
         for method in interface.methods(self.r) {
             if method.name(self.r) == "GetMany" {
@@ -536,7 +537,7 @@ impl<'a> Writer<'a> {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
                             let mut __ok = std::mem::zeroed();
-                            ((*(*(self.ptr.get() as *const *const #abi_interface_name))).#name)(
+                            ((*(*(self.ptr.get() as *const *const #generic_abi_name))).#name)(
                                 self.ptr.get(), #args #receive_expression
                             )
                             .ok_or(std::mem::transmute_copy(&__ok))
@@ -548,7 +549,7 @@ impl<'a> Writer<'a> {
                     #tokens
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
                         unsafe {
-                            ((*(*(self.ptr.get() as *const *const #abi_interface_name))).#name)(
+                            ((*(*(self.ptr.get() as *const *const #generic_abi_name))).#name)(
                                 self.ptr.get(), #args
                             )
                             .ok()
@@ -715,12 +716,17 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_generic_abi_name(&self, interface: &TypeDef) -> TokenStream {
+    fn write_generic_abi_name(&self, interface: &TypeDef, constrain: bool) -> TokenStream {
         if let Some(generics) = self.generics.last() {
             let mut tokens = Vec::new();
     
             for generic in generics {
-                tokens.push(quote! { #generic : winrt::RuntimeType })
+                if constrain {
+                    tokens.push(quote! { #generic : winrt::RuntimeType })
+                } else {
+                    tokens.push(quote! { #generic })
+                }
+                
             }
     
             let name = interface.name(self.r);
@@ -761,7 +767,7 @@ impl<'a> Writer<'a> {
         let abi_methods = self.write_abi_methods(&interface);
 
         let generic_name = self.write_generic_name(interface);
-        let generic_abi_name = self.write_generic_abi_name(interface);
+        let generic_abi_name = self.write_generic_abi_name(interface, true);
         let generic_impl = self.write_generic_impl(interface);
 
         quote! {
