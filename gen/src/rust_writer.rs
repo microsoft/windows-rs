@@ -309,7 +309,7 @@ impl<'a> Writer<'a> {
         let interface_name = format_ident!("{}", interface.name(self.r));
 
         for method in interface.methods(self.r) {
-            let method_name = format_ident!("r#{}", method.name(self.r));
+            let method_name = self.write_method_name(&method);
             let signature = method.signature(self.r);
             let params = self.write_consume_params(&signature);
             let into_params = self.write_consume_into_params(&signature);
@@ -488,7 +488,7 @@ impl<'a> Writer<'a> {
             if name == ".ctor" {
                 continue;
             }
-            let name = format_ident!("r#{}", name);
+            let name = self.write_method_name(&method);
             let params = self.write_abi_params(&method.signature(self.r));
             tokens = quote! {
                 #tokens
@@ -503,7 +503,7 @@ impl<'a> Writer<'a> {
         let mut tokens = quote! {};
 
         for method in interface.methods(self.r) {
-            if method.abi_name(self.r) == "GetMany" {
+            if method.name(self.r) == "GetMany" {
                 continue;
             }
 
@@ -516,7 +516,7 @@ impl<'a> Writer<'a> {
                 continue;
             }
 
-            let name = format_ident!("r#{}", method.name(self.r));
+            let name = self.write_method_name(&method);
             let signature = method.signature(self.r);
             let params = self.write_consume_params(&signature);
             let into_params = self.write_consume_into_params(&signature);
@@ -1142,7 +1142,32 @@ impl<'a> Writer<'a> {
     }
 
     fn write_method_name(&self, method: &MethodDef) -> TokenStream {
-        quote! { name }
+
+        let mut source = method.name(self.r);
+        let mut result = String::with_capacity(source.len() + 2); // TODO: why 2 again?
+
+        if method.flags(self.r).special() {
+            if source.starts_with("get") || source.starts_with("add") {
+                source = &source[4..];
+            } else if source.starts_with("put") {
+                result.push_str("set");
+                source = &source[4..];
+            }
+            else if source.starts_with("remove") {
+                result.push_str("remove");
+                source = &source[7..];
+            }
+        }
+
+        append_snake(&mut result, source);
+
+        // Covers non-special names that may have started with GetXxx
+        if result.starts_with("get_") {
+            result.replace_range(0..4, "");
+        }
+
+        let name = format_ident!("{}", result);
+        quote! { #name }
     }
 
     fn write_namespace_name(&mut self, other: &str) -> TokenStream {

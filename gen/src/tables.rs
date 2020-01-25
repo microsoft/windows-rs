@@ -116,7 +116,7 @@ impl MethodDef {
         r.list(&self.row, 5)
     }
 
-    pub fn abi_name<'a>(&self, r: &'a Reader) -> &'a str {
+    pub fn name<'a>(&self, r: &'a Reader) -> &'a str {
         r.str(&self.row, 3)
     }
 
@@ -124,38 +124,12 @@ impl MethodDef {
         MethodSig::new(r, self)
     }
 
-    // TODO: Either make the reader spit out TokenStreams directly or remove this as its all about formatting Rust
-    // rahter than simply parsing metadata.
-    pub fn name(&self, r: &Reader) -> String {
-        // TODO: need to account for OverloadAttribute considering that Rust doesn't support overloads.
-
-        let mut source = self.abi_name(r);
-        let mut result = String::with_capacity(source.len() + 2);
-
-        if self.flags(r).special() {
-            if source.starts_with("get_") || source.starts_with("add_") {
-                source = &source[4..];
-            } else if source.starts_with("put_") {
-                result.push_str("set");
-                source = &source[4..];
-            }
-        }
-
-        append_snake(&mut result, source);
-
-        // Covers non-special names that may have started with GetXxx
-        if result.starts_with("get_") {
-            result.replace_range(0..4, "");
-        }
-        result
-    }
-
     pub fn is_add_overload(&self, r: &Reader) -> bool {
-        self.flags(r).special() && self.abi_name(r).starts_with("add_")
+        self.flags(r).special() && self.name(r).starts_with("add")
     }
 
     pub fn is_remove_overload(&self, r: &Reader) -> bool {
-        self.flags(r).special() && self.abi_name(r).starts_with("remove_")
+        self.flags(r).special() && self.name(r).starts_with("remove")
     }
 }
 
