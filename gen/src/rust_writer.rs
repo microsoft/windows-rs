@@ -752,7 +752,7 @@ impl<'a> Writer<'a> {
             pub struct #name { #fields }
             impl winrt::RuntimeCopy for #name {}
         }
-        // TODO: RuntimeType for non-trivial structs needs to be customized
+        // TODO: RuntimeType for non-blittable structs needs to be customized
     }
 
     fn write_struct_fields(&mut self, t: &TypeDef) -> TokenStream {
@@ -1142,7 +1142,6 @@ impl<'a> Writer<'a> {
     }
 
     fn write_method_name(&self, method: &MethodDef) -> TokenStream {
-
         let mut source = method.name(self.r);
         let mut result = String::with_capacity(source.len() + 2); // TODO: why 2 again?
 
@@ -1152,8 +1151,7 @@ impl<'a> Writer<'a> {
             } else if source.starts_with("put") {
                 result.push_str("set");
                 source = &source[4..];
-            }
-            else if source.starts_with("remove") {
+            } else if source.starts_with("remove") {
                 result.push_str("remove");
                 source = &source[7..];
             }
