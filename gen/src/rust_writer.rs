@@ -441,6 +441,7 @@ impl<'a> Writer<'a> {
         let abi_methods = self.write_abi_methods(&interface);
         let consume_methods = self.write_consume_methods(&interface, &abi_name_ident2);
 
+        let generic_name = self.write_generic_name(interface);
         let generic_impl = self.write_generic_impl(interface);
 
 
@@ -707,6 +708,17 @@ impl<'a> Writer<'a> {
             quote! { impl <#(#tokens),*> }
         } else {
             quote! { impl }
+        }
+    }
+
+    fn write_generic_name(&self, interface: &TypeDef) -> TokenStream {
+        if let Some(generics) = self.generics.last() {
+            let name = interface.name(self.r);
+            let name = &name[..name.len() - 2];
+            quote! { #name<#(#generics),*> }
+        } else {
+            let name = interface.name(self.r);
+            quote! { #name }
         }
     }
 
