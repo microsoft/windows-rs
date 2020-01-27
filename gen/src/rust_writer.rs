@@ -361,69 +361,12 @@ impl<'a> Writer<'a> {
         let generics = interface.generics(self.r);
 
         if generics.is_empty() {
-            self.write_non_generic_interface(interface)
+            self.write_generic_interface(interface)
         } else {
             self.push_generic_params(generics);
             let tokens = self.write_generic_interface(interface);
             self.generics.pop();
             tokens
-        }
-    }
-
-    fn write_non_generic_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        let name = interface.name(self.r);
-        let name_ident = format_ident!("{}", name);
-        let abi_name_ident = format_ident!("abi_{}", name);
-        let abi_name_ident = quote! { #abi_name_ident };
-        let abi_methods = self.write_abi_methods(&interface);
-        let consume_methods = self.write_consume_methods(&interface);
-        let guid = self.write_guid(interface);
-
-        quote! {
-            #[repr(C)]
-            #[derive(Default, Clone)]
-            pub struct #name_ident { ptr: winrt::ComPtr }
-            #[repr(C)]
-            struct #abi_name_ident {
-                __0: usize,
-                __1: usize,
-                __2: usize,
-                __3: usize,
-                __4: usize,
-                __5: usize,
-                #abi_methods
-            }
-            impl #name_ident {
-                #consume_methods
-            }
-            impl winrt::InterfaceType for #name_ident {}
-            impl winrt::QueryType for #name_ident {
-                fn type_guid() -> &'static winrt::Guid {
-                    static GUID: winrt::Guid = winrt::Guid::from_values(
-                        #guid
-                    );
-                    &GUID
-                }
-            }
-            impl winrt::RuntimeType for #name_ident {
-                type Abi = winrt::RawPtr;
-                fn abi(&self) -> Self::Abi {
-                    self.ptr.get()
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set()
-                }
-            }
-            impl<'a> Into<winrt::Param<'a, #name_ident>> for #name_ident {
-                fn into(self) -> winrt::Param<'a, #name_ident> {
-                    winrt::Param::Value(self)
-                }
-            }
-            impl<'a> Into<winrt::Param<'a, #name_ident>> for &'a #name_ident {
-                fn into(self) -> winrt::Param<'a, #name_ident> {
-                    winrt::Param::Ref(self)
-                }
-            }
         }
     }
 
@@ -472,6 +415,16 @@ impl<'a> Writer<'a> {
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     self.ptr.set()
+                }
+            }
+            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for #name<#generics> {
+                fn into(self) -> winrt::Param<'a, #name<#generics>> {
+                    winrt::Param::Value(self)
+                }
+            }
+            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for &'a #name<#generics> {
+                fn into(self) -> winrt::Param<'a, #name<#generics>> {
+                    winrt::Param::Ref(self)
                 }
             }
         }
