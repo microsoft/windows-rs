@@ -21,17 +21,18 @@ struct SharedHeader {
 }
 
 // TODO: inline these functions (duplicate & with_len) when done
-fn duplicate(handle: *const Header) -> *const Header {
+fn duplicate(ptr: RawPtr) -> RawPtr {
     unsafe {
+        let handle = ptr as *const Header;
         if handle.is_null() {
-            std::ptr::null()
+            std::ptr::null_mut()
         } else if (*handle).flags & REFERENCE_FLAG == 0 {
             (*(handle as *const SharedHeader)).count.addref();
-            handle
+            ptr
         } else {
-            let result = with_len((*handle).len);
-            std::ptr::copy_nonoverlapping((*handle).ptr, (*result).ptr as *mut u16, (*handle).len as usize + 1);
-            result
+            let copy = with_len((*handle).len);
+            std::ptr::copy_nonoverlapping((*handle).ptr, (*copy).ptr as *mut u16, (*handle).len as usize + 1);
+            copy as RawPtr
         }
     }
 }
@@ -56,7 +57,7 @@ fn with_len(len: u32) -> *mut Header {
 
 #[repr(C)]
 pub struct String {
-    ptr: *const Header,
+    ptr: RawPtr,
 }
 
 impl String {
@@ -73,7 +74,7 @@ impl String {
             if self.ptr.is_null() {
                 0
             } else {
-                (*self.ptr).len as usize
+                (*(self.ptr as *const Header)).len as usize
             }
         }
     }
@@ -83,7 +84,8 @@ impl String {
             if self.ptr.is_null() {
                 &[]
             } else {
-                std::slice::from_raw_parts((*self.ptr).ptr, (*self.ptr).len as usize)
+                let header = self.ptr as *const Header;
+                std::slice::from_raw_parts((*header).ptr, (*header).len as usize)
             }
         }
     }
@@ -91,10 +93,11 @@ impl String {
     pub fn clear(&mut self) {
         unsafe {
             if !self.is_empty() {
-                debug_assert!((*self.ptr).flags & REFERENCE_FLAG == 0);
+                let header = self.ptr as *const SharedHeader;
+                debug_assert!((*header).header.flags & REFERENCE_FLAG == 0);
 
-                if 0 == (*(self.ptr as *const SharedHeader)).count.release() {
-                    HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
+                if 0 == (*header).count.release() {
+                    HeapFree(GetProcessHeap(), 0, self.ptr);
                 }
 
                 self.ptr = std::ptr::null_mut();
@@ -112,7 +115,7 @@ impl RuntimeType for String {
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         self.clear();
-        &mut (self.ptr as RawPtr)
+        (&mut self.ptr) as *mut Self::Abi
     }
 }
 
@@ -154,7 +157,7 @@ impl From<&str> for String {
             }
 
             *((*ptr).ptr.offset((*ptr).len as isize) as *mut u16) = 0;
-            Self { ptr }
+            Self { ptr: ptr as RawPtr }
         }
     }
 }
