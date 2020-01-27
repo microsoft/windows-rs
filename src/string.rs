@@ -23,15 +23,15 @@ struct SharedHeader {
 // TODO: inline these functions (duplicate & with_len) when done
 fn duplicate(ptr: RawPtr) -> RawPtr {
     unsafe {
-        let handle = ptr as *const Header;
-        if handle.is_null() {
+        let header = ptr as *const Header;
+        if header.is_null() {
             std::ptr::null_mut()
-        } else if (*handle).flags & REFERENCE_FLAG == 0 {
-            (*(handle as *const SharedHeader)).count.addref();
+        } else if (*header).flags & REFERENCE_FLAG == 0 {
+            (*(header as *const SharedHeader)).count.addref();
             ptr
         } else {
-            let copy = with_len((*handle).len);
-            std::ptr::copy_nonoverlapping((*handle).ptr, (*copy).ptr as *mut u16, (*handle).len as usize + 1);
+            let copy = with_len((*header).len);
+            std::ptr::copy_nonoverlapping((*header).ptr, (*copy).ptr as *mut u16, (*header).len as usize + 1);
             copy as RawPtr
         }
     }
@@ -115,7 +115,7 @@ impl RuntimeType for String {
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         self.clear();
-        (&mut self.ptr) as *mut Self::Abi
+        &mut self.ptr
     }
 }
 
