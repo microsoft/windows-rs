@@ -454,6 +454,11 @@ impl<'a> Writer<'a> {
         let generic_abi_name = self.write_generic_abi_name(interface, false);
 
         for method in interface.methods(self.r) {
+            let name = method.name(self.r);
+            if name == ".ctor" {
+                continue;
+            }
+
             if method.name(self.r) == "GetMany" {
                 continue;
             }
@@ -746,38 +751,33 @@ impl<'a> Writer<'a> {
     }
 
     fn write_generic_delegate(&mut self, interface: &TypeDef) -> TokenStream {
-        let generics = self.generics.last().unwrap();
-        let generics = quote! { <#(#generics),*> };
-        let generics2 = self.write_generic_params();
-        let phantoms = self.write_generic_phantoms();
-        let name = interface.name(self.r);
-        let name = &name[..name.len() - 2];
-        let name_ident = format_ident!("{}", name);
-        let abi_name_ident = format_ident!("abi_{}", name);
-        // let abi_name_ident2 = quote!{ #abi_name_ident #generics };
         let guid = self.write_guid(interface);
+        let phantoms = self.write_generic_phantoms();
         let abi_methods = self.write_abi_methods(&interface);
+        let consume_methods = self.write_consume_methods(&interface);
 
-        let generic_name = self.write_generic_name(interface);
-        let generic_abi_name = self.write_generic_abi_name(interface, true);
-        let generic_impl = self.write_generic_impl(interface);
+        let generics = self.write_generics();
+        let constraints = self.write_generic_constraints();
+        let name = self.write_generic_name2(interface);
+        let abi_name = self.write_generic_abi_name2(interface);
 
         quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
-            pub struct #generic_name { ptr: winrt::ComPtr, #phantoms }
+            pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
-            struct #generic_abi_name {
+            struct #abi_name<#constraints> {
                 __0: usize,
                 __1: usize,
                 __2: usize,
                 #abi_methods
                 #phantoms
             }
-            #generic_impl #generic_name {
+            impl<#constraints> #name<#generics> {
+                #consume_methods
             }
-            #generic_impl winrt::DelegateType for #generic_name {}
-            #generic_impl winrt::QueryType for #generic_name {
+            impl<#constraints> winrt::DelegateType for #name<#generics> {}
+            impl<#constraints> winrt::QueryType for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -785,13 +785,23 @@ impl<'a> Writer<'a> {
                     &GUID
                 }
             }
-            #generic_impl winrt::RuntimeType for #generic_name {
+            impl<#constraints> winrt::RuntimeType for #name<#generics> {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
                     self.ptr.get()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     self.ptr.set()
+                }
+            }
+            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for #name<#generics> {
+                fn into(self) -> winrt::Param<'a, #name<#generics>> {
+                    winrt::Param::Value(self)
+                }
+            }
+            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for &'a #name<#generics> {
+                fn into(self) -> winrt::Param<'a, #name<#generics>> {
+                    winrt::Param::Ref(self)
                 }
             }
         }
@@ -1057,7 +1067,14 @@ impl<'a> Writer<'a> {
         let type_name = format_ident!("{}", value.name(self.r));
 
         if param.input() {
-            quote! { &#type_name, }
+            if param.sig_type().category(self.r) == ParamCategory::Enum {
+                quote! { #type_name, }
+            } else {
+                quote! { &#type_name, }
+            }
+
+            
+            
         } else {
             quote! { &mut #type_name, }
         }
