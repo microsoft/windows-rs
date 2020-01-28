@@ -453,10 +453,6 @@ impl<'a> Writer<'a> {
     }
 
     fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
-        if interface.name(self.r) == "IPropertyValue" {
-            return TokenStream::new();
-        }
-
         let mut tokens = quote! {};
         let generics = self.write_generics();
         let abi_name = self.write_generic_abi_name(interface);
@@ -904,7 +900,7 @@ impl<'a> Writer<'a> {
             if param.input() {
                 quote! { &[#tokens], }
             } else if param.by_ref() {
-                quote! { &winrt::Array<#tokens>, }
+                quote! { &mut winrt::Array<#tokens>, }
             } else {
                 quote! { &mut [#tokens], }
             }
@@ -945,7 +941,7 @@ impl<'a> Writer<'a> {
             if param.input() {
                 quote! { #name.len(), } // get_abi
             } else if param.by_ref() {
-                quote! { } // put_size and put_abi
+                quote! { #name.set_abi_len(), #name.set_abi() }
             } else {
                 quote! { #name.len(), } // put_abi
             }
