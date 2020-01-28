@@ -1070,11 +1070,6 @@ impl<'a> Writer<'a> {
 
         append_snake(&mut result, source);
 
-        // Covers non-special names that may have started with GetXxx
-        if result.starts_with("get_") {
-            result.replace_range(0..4, "");
-        }
-
         let name = format_ident!("r#{}", result);
         quote! { #name }
     }
