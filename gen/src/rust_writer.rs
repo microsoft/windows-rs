@@ -90,6 +90,17 @@ impl RustWriter {
     }
 }
 
+struct GenericGuard<'a> {
+    generics: &'a mut Vec<Vec<TokenStream>>,
+    count: usize
+}
+
+impl<'a> Drop for GenericGuard<'a> {
+    fn drop(&mut self) {
+        self.generics.resize(self.generics.len() - self.count, Vec::new());
+    }
+}
+
 struct Writer<'a> {
     pub r: &'a Reader,
     pub namespace: &'a str,
@@ -364,7 +375,31 @@ impl<'a> Writer<'a> {
         }
     }
 
+    // fn write_required_interface(&mut self, info: &InterfaceInfo) -> TokenStream {
+    //     let count = info.generics.len();
+
+    //     if count > 0 {
+    //         self.generics.append(&mut info.generics.clone());
+    //     }
+
+    //     if interface.default {
+    //         tokens.push(self.write_consume_methods(&interface.definition));
+    //     } else {
+    //         // TODO: write forwarding consume methods for non-default interfaces
+    //         // e.g. self.into::<IOther>().method()
+    //     }
+
+    //     if count > 0 {
+    //         self.generics.resize(self.generics.len() - count, Vec::new());
+    //     }
+    // }
+
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
+        // tODO: should be able to code this entire function as:
+        //      let guard = self.push_generic_params(generics);
+        //      self.write_generic_interface(interface)
+        // done - just don't know how to get the lifetimes to work.
+        
         let generics = interface.generics(self.r);
 
         if generics.is_empty() {
@@ -1121,6 +1156,19 @@ impl<'a> Writer<'a> {
                 .collect(),
         );
     }
+
+    // fn push_generic_params2(&mut self, generics: RowIterator<GenericParam>) -> GenericGuard {
+    //     self.generics.push(
+    //         generics
+    //             .map(|g| {
+    //                 let name = format_ident!("{}", g.name(self.r));
+    //                 quote! { #name }
+    //             })
+    //             .collect(),
+    //     );
+
+    //     GenericGuard { generics:&mut self.generics, count: 1 }
+    // }
 
     fn add_interfaces(&mut self, result: &mut Vec<InterfaceInfo>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
         for i in children {
