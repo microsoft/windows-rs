@@ -354,7 +354,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        if interface.name(self.r) == "IPropertyValueStatics" || interface.name(self.r) == "IReferenceArray`1" || interface.name(self.r) == "IPropertyValue" {
+        if interface.name(self.r) == "IPropertyValueStatics" || interface.name(self.r) == "IReferenceArray`1" { // || interface.name(self.r) == "IPropertyValue" {
             return TokenStream::new();
         }
 
@@ -773,6 +773,20 @@ impl<'a> Writer<'a> {
             TypeSigType::GenericTypeIndex(value) => self.write_abi_param_generic_index(*value),
         };
 
+        if param.array() { panic!("array");}
+
+        // if param.array() {
+        //     if param.input() {
+        //         quote! { u32, *const #tokens }
+        //     } else if param.by_ref() {
+        //         quote! { *mut u32, *mut *mut #tokens }
+        //     }
+        //     else {
+        //         quote! { u32, *mut #tokens }
+        //     }
+        // }
+        // else
+        
         if param.input() {
             tokens
         } else {

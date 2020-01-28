@@ -276,6 +276,14 @@ impl ParamSig {
     pub fn sig_type(&self) -> &TypeSig {
         &self.sig_type
     }
+
+    pub fn array(&self) -> bool {
+        self.sig_type.array
+    }
+
+    pub fn by_ref(&self) -> bool {
+        self.by_ref
+    }
 }
 
 impl TypeSigType {
