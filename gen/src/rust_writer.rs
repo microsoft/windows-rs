@@ -90,17 +90,6 @@ impl RustWriter {
     }
 }
 
-struct GenericGuard<'a> {
-    generics: &'a mut Vec<Vec<TokenStream>>,
-    count: usize
-}
-
-impl<'a> Drop for GenericGuard<'a> {
-    fn drop(&mut self) {
-        self.generics.resize(self.generics.len() - self.count, Vec::new());
-    }
-}
-
 struct Writer<'a> {
     pub r: &'a Reader,
     pub namespace: &'a str,
