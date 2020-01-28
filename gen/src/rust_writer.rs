@@ -427,6 +427,16 @@ impl<'a> Writer<'a> {
                     winrt::Param::Ref(self)
                 }
             }
+            impl<#constraints> From<winrt::Object> for #name<#generics> {
+                fn from(value: winrt::Object) -> #name<#generics> {
+                    #name::from(&value)
+                }
+            }
+            impl<#constraints> From<&winrt::Object> for #name<#generics> {
+                fn from(value: &winrt::Object) -> #name<#generics> {
+                    winrt::QueryType::query(value)
+                }
+            }
         }
     }
 
