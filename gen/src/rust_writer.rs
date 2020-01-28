@@ -860,7 +860,7 @@ impl<'a> Writer<'a> {
         // TODO: don't do convertible for array params
 
         for (count, param) in signature.params().iter().enumerate() {
-            if param.array() { 
+            if param.array() {
                 continue;
             }
 
