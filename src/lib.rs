@@ -2,6 +2,7 @@
 
 mod abi;
 mod activation;
+mod array;
 mod error;
 mod events;
 mod guid;
@@ -15,6 +16,7 @@ mod weak;
 
 pub use abi::*;
 pub use activation::*;
+pub use array::*;
 pub use error::*;
 pub use events::*;
 pub use guid::*;

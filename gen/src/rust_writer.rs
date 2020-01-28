@@ -354,7 +354,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        if interface.name(self.r) == "IPropertyValueStatics" || interface.name(self.r) == "IReferenceArray`1" { // || interface.name(self.r) == "IPropertyValue" {
+        if interface.name(self.r) == "IPropertyValueStatics" || interface.name(self.r) == "IReferenceArray`1" || interface.name(self.r) == "IPropertyValue" {
             return TokenStream::new();
         }
 
@@ -438,6 +438,9 @@ impl<'a> Writer<'a> {
             if name == ".ctor" {
                 continue;
             }
+            if name == "GetUInt8Array" {
+                println!("{}", name);
+            }
             let name = self.write_method_name(&method);
             let params = self.write_abi_params(&method.signature(self.r));
             tokens = quote! {
@@ -450,6 +453,10 @@ impl<'a> Writer<'a> {
     }
 
     fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
+        if interface.name(self.r) == "IPropertyValue" {
+            return TokenStream::new();
+        }
+
         let mut tokens = quote! {};
         let generics = self.write_generics();
         let abi_name = self.write_generic_abi_name(interface);
@@ -773,21 +780,15 @@ impl<'a> Writer<'a> {
             TypeSigType::GenericTypeIndex(value) => self.write_abi_param_generic_index(*value),
         };
 
-        if param.array() { panic!("array");}
-
-        // if param.array() {
-        //     if param.input() {
-        //         quote! { u32, *const #tokens }
-        //     } else if param.by_ref() {
-        //         quote! { *mut u32, *mut *mut #tokens }
-        //     }
-        //     else {
-        //         quote! { u32, *mut #tokens }
-        //     }
-        // }
-        // else
-        
-        if param.input() {
+        if param.array() {
+            if param.input() {
+                quote! { u32, *const #tokens }
+            } else if param.by_ref() {
+                quote! { *mut u32, *mut *mut #tokens }
+            } else {
+                quote! { u32, *mut #tokens }
+            }
+        } else if param.input() {
             tokens
         } else {
             quote! { *mut #tokens }
@@ -863,6 +864,8 @@ impl<'a> Writer<'a> {
     fn write_consume_into_params(&self, signature: &MethodSig) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
+        // TODO: don't do convertible for array params
+
         for (count, param) in signature.params().iter().enumerate() {
             let type_param = format_ident!("__{}", count);
 
@@ -901,6 +904,33 @@ impl<'a> Writer<'a> {
             TypeSigType::GenericSig(value) => self.write_consume_param_generic(param, value),
             TypeSigType::GenericTypeIndex(value) => self.write_consume_param_generic_index(param, *value),
         }
+
+        // let tokens = self.write_type(param.sig_type());
+
+        // if param.array() {
+        //     if param.input() {
+        //         quote! { &[#tokens], }
+        //     } else if param.by_ref() {
+        //         quote! { &winrt::Array<#tokens>, }
+        //     } else {
+        //         quote! { &mut [#tokens], }
+        //     }
+        // } else if param.input() {
+        //     match param.sig_type().sig_type() {
+        //         TypeSigType::ElementType(ElementType::String) => {
+        //             let type_param = format_ident!("__{}", count);
+        //             quote! { #type_param, }
+        //         }
+        //         TypeSigType::ElementType(ElementType::Object) => {
+        //             quote! { &#tokens, }
+        //         }
+        //         TypeSigType::GenericSig(_) => quote! { &#tokens, },
+        //         TypeSigType::TypeDefOrRef()
+        //         _ => quote! { #tokens, }
+        //     }
+        // } else {
+        //     quote! { &mut #tokens, }
+        // }
     }
 
     fn write_consume_param_element_type(&mut self, count: usize, param: &ParamSig, value: &ElementType) -> TokenStream {
@@ -1158,7 +1188,7 @@ impl<'a> Writer<'a> {
             result.replace_range(0..4, "");
         }
 
-        let name = format_ident!("{}", result);
+        let name = format_ident!("r#{}", result);
         quote! { #name }
     }
 
