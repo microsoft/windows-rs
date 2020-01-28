@@ -136,8 +136,6 @@ impl<'a> Writer<'a> {
 
         // TODO: use bool.then when stable
         if let Some(default_interface) = interfaces.iter().find(|interface| interface.default) {
-            
-
             let default_interface = self.write_required_interface(&default_interface);
 
             quote! {
@@ -357,7 +355,6 @@ impl<'a> Writer<'a> {
             let name = &name[..name.len() - 2];
             let name = format_ident!("{}", name);
             quote! { #name<#(#generics),*> }
-
         } else {
             self.write_type_def(&info.definition)
         }
@@ -368,7 +365,7 @@ impl<'a> Writer<'a> {
         //      let guard = self.push_generic_params(generics);
         //      self.write_generic_interface(interface)
         // done - just don't know how to get the lifetimes to work.
-        
+
         let generics = interface.generics(self.r);
 
         if generics.is_empty() {
@@ -871,9 +868,8 @@ impl<'a> Writer<'a> {
     fn write_consume_into_params(&self, signature: &MethodSig) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        // TODO: don't do convertible for array params
-
         for (count, param) in signature.params().iter().enumerate() {
+            // TODO: don't do convertible for array params?
             if param.array() {
                 continue;
             }
@@ -1125,19 +1121,6 @@ impl<'a> Writer<'a> {
                 .collect(),
         );
     }
-
-    // fn push_generic_params2(&mut self, generics: RowIterator<GenericParam>) -> GenericGuard {
-    //     self.generics.push(
-    //         generics
-    //             .map(|g| {
-    //                 let name = format_ident!("{}", g.name(self.r));
-    //                 quote! { #name }
-    //             })
-    //             .collect(),
-    //     );
-
-    //     GenericGuard { generics:&mut self.generics, count: 1 }
-    // }
 
     fn add_interfaces(&mut self, result: &mut Vec<InterfaceInfo>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
         for i in children {
