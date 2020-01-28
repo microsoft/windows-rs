@@ -138,7 +138,7 @@ impl MethodSig {
         let param_count = read_unsigned(&mut bytes);
         ModifierSig::vec(method.row.file, &mut bytes);
         read_expected(&mut bytes, 0x10);
-        let return_type = if read_expected(&mut bytes, 0x01) { None } else { Some(ParamSig { name: String::new(), modifiers: Vec::new(), input: false, by_ref: false, sig_type: TypeSig::new(method.row.file, &mut bytes) }) };
+        let return_type = if read_expected(&mut bytes, 0x01) { None } else { Some(ParamSig { name: String::new(), modifiers: Vec::new(), input: false, by_ref: true, sig_type: TypeSig::new(method.row.file, &mut bytes) }) };
         let mut params = Vec::with_capacity(param_count as usize);
         for param in method.params(r) {
             if !return_type.is_some() || param.sequence(r) != 0 {

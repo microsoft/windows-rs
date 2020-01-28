@@ -354,10 +354,6 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        if interface.name(self.r) == "IReferenceArray`1" {
-            return TokenStream::new();
-        }
-
         let generics = interface.generics(self.r);
 
         if generics.is_empty() {
@@ -514,12 +510,15 @@ impl<'a> Writer<'a> {
     }
 
     fn write_consume_receive_expression(&mut self, value: &TypeSig) -> TokenStream {
+        let projected_type = self.write_type(value);
         match value.category(self.r) {
             ParamCategory::Generic => {
-                let projected_type = self.write_type(value);
                 quote! {
                         <#projected_type as winrt::RuntimeType>::set_abi(&mut __ok)
                 }
+            }
+            ParamCategory::Array => {
+                quote! { winrt::Array::<#projected_type>::set_abi_len(&mut __ok), winrt::Array::<#projected_type>::set_abi(&mut __ok), }
             }
             _ => quote! {
                 &mut __ok
@@ -944,9 +943,9 @@ impl<'a> Writer<'a> {
             if param.input() {
                 quote! { #name.len() as u32, std::mem::transmute(#name.as_ptr()), }
             } else if param.by_ref() {
-                quote! { #name.set_abi_len(), #name.set_abi() }
+                quote! { #name.set_abi_len(), #name.set_abi(), }
             } else {
-                quote! { #name.len(), } // put_abi
+                quote! { #name.len(), #name.set_abi(), }
             }
         } else if param.input() {
             match category {
