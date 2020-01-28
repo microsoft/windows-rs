@@ -378,8 +378,8 @@ impl<'a> Writer<'a> {
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
-        let name = self.write_generic_name2(interface);
-        let abi_name = self.write_generic_abi_name2(interface);
+        let name = self.write_generic_name(interface);
+        let abi_name = self.write_generic_abi_name(interface);
 
         quote! {
             #[repr(C)]
@@ -451,7 +451,8 @@ impl<'a> Writer<'a> {
 
     fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
         let mut tokens = quote! {};
-        let generic_abi_name = self.write_generic_abi_name(interface, false);
+        let generics = self.write_generics();
+        let abi_name = self.write_generic_abi_name(interface);
 
         for method in interface.methods(self.r) {
             let name = method.name(self.r);
@@ -487,7 +488,7 @@ impl<'a> Writer<'a> {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
                             let mut __ok = std::mem::zeroed();
-                            ((*(*(self.ptr.get() as *const *const #generic_abi_name))).#name)(
+                            ((*(*(self.ptr.get() as *const *const #abi_name<#generics>))).#name)(
                                 self.ptr.get(), #args #receive_expression
                             )
                             .ok_or(std::mem::transmute_copy(&__ok))
@@ -499,7 +500,7 @@ impl<'a> Writer<'a> {
                     #tokens
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
                         unsafe {
-                            ((*(*(self.ptr.get() as *const *const #generic_abi_name))).#name)(
+                            ((*(*(self.ptr.get() as *const *const #abi_name<#generics>))).#name)(
                                 self.ptr.get(), #args
                             )
                             .ok()
@@ -563,64 +564,12 @@ impl<'a> Writer<'a> {
         let generics = interface.generics(self.r);
 
         if generics.is_empty() {
-            self.write_non_generic_delegate(interface)
+            self.write_generic_delegate(interface)
         } else {
             self.push_generic_params(generics);
             let tokens = self.write_generic_delegate(interface);
             self.generics.pop();
             tokens
-        }
-    }
-
-    fn write_non_generic_delegate(&mut self, interface: &TypeDef) -> TokenStream {
-        let name = interface.name(self.r);
-        let name_ident = format_ident!("{}", name);
-        let abi_name_ident = format_ident!("abi_{}", name);
-        let abi_name_ident = quote! { #abi_name_ident };
-        let guid = self.write_guid(interface);
-        let abi_methods = self.write_abi_methods(&interface);
-
-        quote! {
-            #[repr(C)]
-            #[derive(Default, Clone)]
-            pub struct #name_ident { ptr: winrt::ComPtr }
-            #[repr(C)]
-            struct #abi_name_ident {
-                __0: usize,
-                __1: usize,
-                __2: usize,
-                #abi_methods
-            }
-            impl #name_ident {
-            }
-            impl winrt::DelegateType for #name_ident {}
-            impl winrt::QueryType for #name_ident {
-                fn type_guid() -> &'static winrt::Guid {
-                    static GUID: winrt::Guid = winrt::Guid::from_values(
-                        #guid
-                    );
-                    &GUID
-                }
-            }
-            impl winrt::RuntimeType for #name_ident {
-                type Abi = winrt::RawPtr;
-                fn abi(&self) -> Self::Abi {
-                    self.ptr.get()
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set()
-                }
-            }
-            impl<'a> Into<winrt::Param<'a, #name_ident>> for #name_ident {
-                fn into(self) -> winrt::Param<'a, #name_ident> {
-                    winrt::Param::Value(self)
-                }
-            }
-            impl<'a> Into<winrt::Param<'a, #name_ident>> for &'a #name_ident {
-                fn into(self) -> winrt::Param<'a, #name_ident> {
-                    winrt::Param::Ref(self)
-                }
-            }
         }
     }
 
@@ -646,8 +595,7 @@ impl<'a> Writer<'a> {
             }
 
             TokenStream::from_iter(tokens)
-        }
-        else {
+        } else {
             TokenStream::new()
         }
     }
@@ -655,45 +603,21 @@ impl<'a> Writer<'a> {
     fn write_generic_impl(&self, interface: &TypeDef) -> TokenStream {
         if let Some(generics) = self.generics.last() {
             let mut tokens = Vec::new();
-    
+
             for generic in generics {
                 tokens.push(quote! { #generic : winrt::RuntimeType })
             }
-    
+
             quote! { impl <#(#tokens),*> }
         } else {
             quote! { impl }
         }
     }
 
-    fn write_generic_abi_name(&self, interface: &TypeDef, constrain: bool) -> TokenStream {
-        if let Some(generics) = self.generics.last() {
-            let mut tokens = Vec::new();
-    
-            for generic in generics {
-                if constrain {
-                    tokens.push(quote! { #generic : winrt::RuntimeType })
-                } else {
-                    tokens.push(quote! { #generic })
-                }
-                
-            }
-    
-            let name = interface.name(self.r);
-            let name = &name[..name.len() - 2];
-            let name = format_ident!("abi_{}", name);
-            quote! { #name<#(#tokens),*> }
-        } else {
-            let name = interface.name(self.r);
-            let name = format_ident!("abi_{}", name);
-            quote! { #name }
-        }
-    }
-
     fn write_generics(&self) -> TokenStream {
         if let Some(generics) = self.generics.last() {
             quote! { #(#generics),* }
-        }else {
+        } else {
             TokenStream::new()
         }
     }
@@ -703,49 +627,35 @@ impl<'a> Writer<'a> {
 
         if let Some(generics) = self.generics.last() {
             for generic in generics {
-                    tokens.push(quote! { #generic : winrt::RuntimeType, })
-                
+                tokens.push(quote! { #generic : winrt::RuntimeType, })
             }
         }
 
         TokenStream::from_iter(tokens)
     }
 
-    fn write_generic_name2(&self, interface: &TypeDef) -> TokenStream {
-        if let Some(_) = self.generics.last() {
-            let name = interface.name(self.r);
-            let name = &name[..name.len() - 2];
-            let name = format_ident!("{}", name);
-            quote! { #name }
-        } else {
-            let name = interface.name(self.r);
-            let name = format_ident!("{}", name);
-            quote! { #name }
-        }
-    }
-
-    fn write_generic_abi_name2(&self, interface: &TypeDef) -> TokenStream {
-        if let Some(_) = self.generics.last() {
-            let name = interface.name(self.r);
-            let name = &name[..name.len() - 2];
-            let name = format_ident!("abi_{}", name);
-            quote! { #name }
-        } else {
-            let name = interface.name(self.r);
-            let name = format_ident!("abi_{}", name);
-            quote! { #name }
-        }
-    }
-
     fn write_generic_name(&self, interface: &TypeDef) -> TokenStream {
-        if let Some(generics) = self.generics.last() {
+        if let Some(_) = self.generics.last() {
             let name = interface.name(self.r);
             let name = &name[..name.len() - 2];
             let name = format_ident!("{}", name);
-            quote! { #name<#(#generics),*> }
+            quote! { #name }
         } else {
             let name = interface.name(self.r);
             let name = format_ident!("{}", name);
+            quote! { #name }
+        }
+    }
+
+    fn write_generic_abi_name(&self, interface: &TypeDef) -> TokenStream {
+        if let Some(_) = self.generics.last() {
+            let name = interface.name(self.r);
+            let name = &name[..name.len() - 2];
+            let name = format_ident!("abi_{}", name);
+            quote! { #name }
+        } else {
+            let name = interface.name(self.r);
+            let name = format_ident!("abi_{}", name);
             quote! { #name }
         }
     }
@@ -758,8 +668,8 @@ impl<'a> Writer<'a> {
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
-        let name = self.write_generic_name2(interface);
-        let abi_name = self.write_generic_abi_name2(interface);
+        let name = self.write_generic_name(interface);
+        let abi_name = self.write_generic_abi_name(interface);
 
         quote! {
             #[repr(C)]
@@ -1072,9 +982,6 @@ impl<'a> Writer<'a> {
             } else {
                 quote! { &#type_name, }
             }
-
-            
-            
         } else {
             quote! { &mut #type_name, }
         }
