@@ -128,18 +128,6 @@ impl<'a> Writer<'a> {
     }
 
     fn write_class(&mut self, class: &TypeDef) -> TokenStream {
-        // TODO: don't define struct here if the class is static - only declare.
-
-        // if class.name(self.r) == "PropertyValue" {
-        //     return TokenStream::new();
-        // }
-        if class.name(self.r) == "StringMap" {
-            return TokenStream::new();
-        }
-        if class.name(self.r) == "StringMap" {
-            return TokenStream::new();
-        }
-
         let name = format_ident!("{}", class.name(self.r));
         let functions = self.write_class_functions(class);
         let string_name = format!("{}.{}", class.namespace(self.r), class.name(self.r));
@@ -211,9 +199,7 @@ impl<'a> Writer<'a> {
                 continue;
             }
 
-            let namespace = self.write_namespace_name(interface.definition.namespace(self.r));
-            let name = format_ident!("{}", interface.definition.name(self.r));
-            let into = quote! { #namespace#name };
+            let into = self.write_required_interface(interface);
 
             if interface.default {
                 tokens.push(quote! {
