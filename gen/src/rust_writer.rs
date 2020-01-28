@@ -149,7 +149,8 @@ impl<'a> Writer<'a> {
         // TODO: use bool.then when stable
         if let Some(default_interface) = interfaces.iter().find(|interface| interface.default) {
             
-            let default_interface = self.write_type_def(&default_interface.definition);
+
+            let default_interface = self.write_required_interface(&default_interface);
 
             quote! {
                 #[repr(C)]
@@ -364,24 +365,17 @@ impl<'a> Writer<'a> {
         }
     }
 
-    // fn write_required_interface(&mut self, info: &InterfaceInfo) -> TokenStream {
-    //     let count = info.generics.len();
+    fn write_required_interface(&mut self, info: &InterfaceInfo) -> TokenStream {
+        if let Some(generics) = info.generics.last() {
+            let name = info.definition.name(self.r);
+            let name = &name[..name.len() - 2];
+            let name = format_ident!("{}", name);
+            quote! { #name<#(#generics),*> }
 
-    //     if count > 0 {
-    //         self.generics.append(&mut info.generics.clone());
-    //     }
-
-    //     if interface.default {
-    //         tokens.push(self.write_consume_methods(&interface.definition));
-    //     } else {
-    //         // TODO: write forwarding consume methods for non-default interfaces
-    //         // e.g. self.into::<IOther>().method()
-    //     }
-
-    //     if count > 0 {
-    //         self.generics.resize(self.generics.len() - count, Vec::new());
-    //     }
-    // }
+        } else {
+            self.write_type_def(&info.definition)
+        }
+    }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
         // tODO: should be able to code this entire function as:
