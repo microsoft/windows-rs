@@ -354,7 +354,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        if interface.name(self.r) == "IPropertyValueStatics" || interface.name(self.r) == "IReferenceArray`1" || interface.name(self.r) == "IPropertyValue" {
+        if interface.name(self.r) == "IPropertyValueStatics" || interface.name(self.r) == "IReferenceArray`1" {
             return TokenStream::new();
         }
 
@@ -941,7 +941,15 @@ impl<'a> Writer<'a> {
         let name = format_ident!("{}", param.name());
         let category = param.sig_type().category(self.r);
 
-        if param.input() {
+        if param.array() {
+            if param.input() {
+                quote! { #name.len(), } // get_abi
+            } else if param.by_ref() {
+                quote! { } // put_size and put_abi
+            } else {
+                quote! { #name.len(), } // put_abi
+            }
+        } else if param.input() {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
                 ParamCategory::String => quote! { #name.into().abi(), },
