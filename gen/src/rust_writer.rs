@@ -147,9 +147,10 @@ impl<'a> Writer<'a> {
         let froms = self.write_from_traits(&name, &interfaces);
 
         // TODO: use bool.then when stable
-        if let Some(default_interface) = interfaces.iter().find_map(|interface| if interface.default { Some(interface.definition) } else { None }) {
-            let default_interface_namespace = self.write_namespace_name(default_interface.namespace(self.r));
-            let default_interface_name = format_ident!("{}", default_interface.name(self.r));
+        if let Some(default_interface) = interfaces.iter().find(|interface| interface.default) {
+            
+            let default_interface = self.write_type_def(&default_interface.definition);
+
             quote! {
                 #[repr(C)]
                 #[derive(Default, Clone)]
@@ -158,7 +159,7 @@ impl<'a> Writer<'a> {
                 impl winrt::ClassType for #name {}
                 impl winrt::QueryType for #name {
                     fn type_guid() -> &'static winrt::Guid {
-                        <#default_interface_namespace #default_interface_name as winrt::QueryType>::type_guid()
+                        <#default_interface as winrt::QueryType>::type_guid()
                     }
                 }
                 impl winrt::TypeName for #name {
@@ -284,14 +285,24 @@ impl<'a> Writer<'a> {
         }
 
         for interface in self.interfaces(class) {
-            if interface.default {
-                // TODO: deal with generic interfaces
-                let name = interface.definition.name(self.r);
-                let abi_name_ident = format_ident!("abi_{}", name);
-                let abi_name_ident = quote! { #abi_name_ident };
-                tokens.push(self.write_consume_methods(&interface.definition));
+            // TODO: this needs some kind of scope guard to push and pop automatically
+            // Not sure how to do that since self is already a &mut and we need to use it below
+            let count = interface.generics.len();
+
+            if count > 0 {
+                self.generics.append(&mut interface.generics.clone());
             }
-            // TODO: deal with non-default interfaces
+
+            if interface.default {
+                tokens.push(self.write_consume_methods(&interface.definition));
+            } else {
+                // TODO: write forwarding consume methods for non-default interfaces
+                // e.g. self.into::<IOther>().method()
+            }
+
+            if count > 0 {
+                self.generics.resize(self.generics.len() - count, Vec::new());
+            }
         }
 
         // TODO: 1. write default interface consume methods directly into class impl (not calling through default interface)
