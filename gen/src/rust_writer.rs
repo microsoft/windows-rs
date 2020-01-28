@@ -130,9 +130,9 @@ impl<'a> Writer<'a> {
     fn write_class(&mut self, class: &TypeDef) -> TokenStream {
         // TODO: don't define struct here if the class is static - only declare.
 
-        if class.name(self.r) == "PropertyValue" {
-            return TokenStream::new();
-        }
+        // if class.name(self.r) == "PropertyValue" {
+        //     return TokenStream::new();
+        // }
         if class.name(self.r) == "StringMap" {
             return TokenStream::new();
         }
@@ -860,6 +860,12 @@ impl<'a> Writer<'a> {
         // TODO: don't do convertible for array params
 
         for (count, param) in signature.params().iter().enumerate() {
+            if param.array() { 
+                continue;
+            }
+
+            // TODO: use ParamCategory here
+
             let type_param = format_ident!("__{}", count);
 
             if let TypeSigType::ElementType(ElementType::String) = param.sig_type().sig_type() {
