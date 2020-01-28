@@ -912,7 +912,7 @@ impl<'a> Writer<'a> {
                 }
                 ParamCategory::Primitive => quote! { #tokens, },
                 ParamCategory::Enum => quote! { #tokens, },
-                _ => quote! { &#tokens, }
+                _ => quote! { &#tokens, },
             }
         } else {
             quote! { &mut #tokens, }
