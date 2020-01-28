@@ -354,7 +354,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        if interface.name(self.r) == "IPropertyValueStatics" || interface.name(self.r) == "IReferenceArray`1" {
+        if interface.name(self.r) == "IReferenceArray`1" {
             return TokenStream::new();
         }
 
@@ -437,9 +437,6 @@ impl<'a> Writer<'a> {
             let name = method.name(self.r);
             if name == ".ctor" {
                 continue;
-            }
-            if name == "GetUInt8Array" {
-                println!("{}", name);
             }
             let name = self.write_method_name(&method);
             let params = self.write_abi_params(&method.signature(self.r));
@@ -939,7 +936,7 @@ impl<'a> Writer<'a> {
 
         if param.array() {
             if param.input() {
-                quote! { #name.len(), } // get_abi
+                quote! { #name.len() as u32, std::mem::transmute(#name.as_ptr()), }
             } else if param.by_ref() {
                 quote! { #name.set_abi_len(), #name.set_abi() }
             } else {
