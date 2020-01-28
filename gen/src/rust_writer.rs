@@ -898,148 +898,28 @@ impl<'a> Writer<'a> {
     }
 
     fn write_consume_param(&mut self, count: usize, param: &ParamSig) -> TokenStream {
-        match param.sig_type().sig_type() {
-            TypeSigType::ElementType(value) => self.write_consume_param_element_type(count, param, value),
-            TypeSigType::TypeDefOrRef(value) => self.write_consume_param_type(count, param, value),
-            TypeSigType::GenericSig(value) => self.write_consume_param_generic(param, value),
-            TypeSigType::GenericTypeIndex(value) => self.write_consume_param_generic_index(param, *value),
-        }
+        let tokens = self.write_type(param.sig_type());
 
-        // let tokens = self.write_type(param.sig_type());
-
-        // if param.array() {
-        //     if param.input() {
-        //         quote! { &[#tokens], }
-        //     } else if param.by_ref() {
-        //         quote! { &winrt::Array<#tokens>, }
-        //     } else {
-        //         quote! { &mut [#tokens], }
-        //     }
-        // } else if param.input() {
-        //     match param.sig_type().sig_type() {
-        //         TypeSigType::ElementType(ElementType::String) => {
-        //             let type_param = format_ident!("__{}", count);
-        //             quote! { #type_param, }
-        //         }
-        //         TypeSigType::ElementType(ElementType::Object) => {
-        //             quote! { &#tokens, }
-        //         }
-        //         TypeSigType::GenericSig(_) => quote! { &#tokens, },
-        //         TypeSigType::TypeDefOrRef()
-        //         _ => quote! { #tokens, }
-        //     }
-        // } else {
-        //     quote! { &mut #tokens, }
-        // }
-    }
-
-    fn write_consume_param_element_type(&mut self, count: usize, param: &ParamSig, value: &ElementType) -> TokenStream {
-        if param.input() {
-            match value {
-                ElementType::Bool => quote! { bool, },
-                ElementType::Char => quote! { u16, },
-                ElementType::I8 => quote! { i8, },
-                ElementType::U8 => quote! { u8, },
-                ElementType::I16 => quote! { i16, },
-                ElementType::U16 => quote! { u16, },
-                ElementType::I32 => quote! { i32, },
-                ElementType::U32 => quote! { u32, },
-                ElementType::I64 => quote! { i64, },
-                ElementType::U64 => quote! { u64, },
-                ElementType::F32 => quote! { f32, },
-                ElementType::F64 => quote! { f64, },
-                ElementType::String => {
+        if param.array() {
+            if param.input() {
+                quote! { &[#tokens], }
+            } else if param.by_ref() {
+                quote! { &winrt::Array<#tokens>, }
+            } else {
+                quote! { &mut [#tokens], }
+            }
+        } else if param.input() {
+            match param.sig_type().category(self.r) {
+                ParamCategory::String => {
                     let type_param = format_ident!("__{}", count);
                     quote! { #type_param, }
                 }
-                ElementType::Object => quote! { &winrt::Object, }, // TODO: Same as string e.g. boxing/polymorphism
+                ParamCategory::Primitive => quote! { #tokens, },
+                ParamCategory::Enum => quote! { #tokens, },
+                _ => quote! { &#tokens, }
             }
         } else {
-            match value {
-                ElementType::Bool => quote! { &mut bool, },
-                ElementType::Char => quote! { &mut u16, },
-                ElementType::I8 => quote! { &mut i8, },
-                ElementType::U8 => quote! { &mut u8, },
-                ElementType::I16 => quote! { &mut i16, },
-                ElementType::U16 => quote! { &mut u16, },
-                ElementType::I32 => quote! { &mut i32, },
-                ElementType::U32 => quote! { &mut u32, },
-                ElementType::I64 => quote! { &mut i64, },
-                ElementType::U64 => quote! { &mut u64, },
-                ElementType::F32 => quote! { &mut f32, },
-                ElementType::F64 => quote! { &mut f64, },
-                ElementType::String => quote! { &mut winrt::String, },
-                ElementType::Object => quote! { &mut winrt::Object, },
-            }
-        }
-    }
-
-    fn write_consume_param_type(&mut self, count: usize, param: &ParamSig, value: &TypeDefOrRef) -> TokenStream {
-        match value {
-            TypeDefOrRef::TypeDef(value) => self.write_consume_param_type_def(param, value),
-            TypeDefOrRef::TypeRef(value) => self.write_consume_param_type_ref(param, value),
-            _ => panic!("write_consume_param_type"),
-        }
-    }
-
-    fn write_consume_param_generic(&mut self, param: &ParamSig, value: &GenericSig) -> TokenStream {
-        let namespace = self.write_namespace_name(value.sig_type().namespace(self.r));
-        let name = value.sig_type().name(self.r);
-        let name = name.get(..name.len() - 2).unwrap();
-        let name = format_ident!("{}", name);
-        let mut args = Vec::new();
-
-        for arg in value.args() {
-            args.push(self.write_type(arg));
-        }
-
-        if param.input() {
-            quote! {
-                &#namespace#name<#(#args),*>,
-            }
-        } else {
-            quote! {
-                &mut#namespace#name<#(#args),*>,
-            }
-        }
-    }
-
-    fn write_consume_param_generic_index(&mut self, param: &ParamSig, value: u32) -> TokenStream {
-        let last = self.generics.last().unwrap();
-        let type_name = &last[value as usize];
-
-        // TODO: need to make this an Into<T> for input params
-
-        if param.input() {
-            quote! { &#type_name, }
-        } else {
-            quote! { &mut #type_name, }
-        }
-    }
-
-    fn write_consume_param_type_def(&mut self, param: &ParamSig, value: &TypeDef) -> TokenStream {
-        let type_name = format_ident!("{}", value.name(self.r));
-
-        if param.input() {
-            if param.sig_type().category(self.r) == ParamCategory::Enum {
-                quote! { #type_name, }
-            } else {
-                quote! { &#type_name, }
-            }
-        } else {
-            quote! { &mut #type_name, }
-        }
-    }
-
-    fn write_consume_param_type_ref(&mut self, param: &ParamSig, value: &TypeRef) -> TokenStream {
-        if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
-            if param.input() {
-                quote! { &winrt::Guid, }
-            } else {
-                quote! { &mut winrt::Guid, }
-            }
-        } else {
-            self.write_consume_param_type_def(param, &value.resolve(self.r))
+            quote! { &mut #tokens, }
         }
     }
 
