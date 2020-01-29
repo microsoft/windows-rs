@@ -228,11 +228,6 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::<TokenStream>::new();
 
         for interface in interfaces {
-            // TODO: support generic interfaces
-            if !interface.generics.is_empty() {
-                continue;
-            }
-
             let into = self.write_required_interface(interface);
 
             if interface.default {

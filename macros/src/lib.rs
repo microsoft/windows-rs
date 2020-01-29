@@ -95,7 +95,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
     // TODO: should we always include the windows.foundation.* namespaces for usability?
 
     let output = writer.write();
-    println!("{}", output.to_string());
+    // println!("{}", output.to_string());
     output.into()
 }
 
