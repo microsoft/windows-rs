@@ -1,7 +1,6 @@
 extern crate proc_macro;
 
 use proc_macro::*;
-use std::iter::FromIterator;
 use winmd::*;
 
 #[derive(PartialEq)]

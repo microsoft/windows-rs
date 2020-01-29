@@ -68,7 +68,7 @@ impl RustWriter {
         RustWriter { r: Reader::from_files(filenames).unwrap(), limits: BTreeSet::new() }
     }
 
-    pub fn add_namespace(&mut self, mut namespace: &str) {
+    pub fn add_namespace(&mut self, namespace: &str) {
         if let Some(found) = self.r.namespaces().keys().find(|name| name.to_lowercase() == namespace) {
             let mut namespace = found.as_str();
             self.limits.insert(namespace.to_string());
@@ -577,18 +577,6 @@ impl<'a> Writer<'a> {
             self.generics.pop();
             tokens
         }
-    }
-
-    fn write_generic_params(&mut self) -> TokenStream {
-        let generics = self.generics.last().unwrap();
-
-        let mut tokens = Vec::new();
-
-        for generic in generics {
-            tokens.push(quote! { #generic : winrt::RuntimeType })
-        }
-
-        quote! { <#(#tokens),*> }
     }
 
     fn write_generic_phantoms(&mut self) -> TokenStream {
