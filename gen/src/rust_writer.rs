@@ -170,8 +170,9 @@ impl<'a> Writer<'a> {
         let interfaces = self.interfaces(class);
         let froms = self.write_from_traits(&name, &interfaces);
 
-        if let Some(default_interface) = interfaces.iter().find(|interface| interface.default) {
-            let default_interface = self.write_required_interface(&default_interface);
+        if let Some(interface) = interfaces.iter().find(|interface| interface.default) {
+            let mut guard = self.push_generic_required_interface(&interface);
+            let default_interface = guard.write_required_interface(&interface);
 
             quote! {
                 #[repr(C)]
