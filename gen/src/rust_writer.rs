@@ -281,18 +281,13 @@ impl<'a> Writer<'a> {
                 tokens.push(self.write_consume_methods(&interface.definition));
             } else {
                 // TODO: write forwarding consume methods for non-default interfaces
-                // e.g. self.into::<IOther>().method()
+                // e.g. self.into::<INonDefault>().non_default_method()
             }
 
             if count > 0 {
                 self.generics.resize(self.generics.len() - count, Vec::new());
             }
         }
-
-        // TODO: 1. write default interface consume methods directly into class impl (not calling through default interface)
-
-        // TODO: 2. write non-default interface consume methods as calls through those interfaces e.g.
-        // self.into<INonDefault>().NonDefaultMethod()
 
         TokenStream::from_iter(tokens)
     }
@@ -360,7 +355,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        // tODO: should be able to code this entire function as:
+        // TODO: should be able to code this entire function as:
         //      let guard = self.push_generic_params(generics);
         //      self.write_generic_interface(interface)
         // done - just don't know how to get the lifetimes to work.
@@ -557,7 +552,6 @@ impl<'a> Writer<'a> {
         for f in t.fields(self.r) {
             for _c in f.constants(self.r) {
                 let name = format_ident!("{}", f.name(self.r));
-                //let value = c.value();
 
                 tokens = quote! {
                     #tokens
