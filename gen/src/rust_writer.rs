@@ -128,9 +128,11 @@ impl<'a> Writer<'a> {
     }
 
     fn write_class(&mut self, class: &TypeDef) -> TokenStream {
-        let name = format_ident!("{}", class.name(self.r));
+        let namespace = class.namespace(self.r);
+        let name = class.name(self.r);
+        let string_name = format!("{}.{}", namespace, name);
+        let name = format_ident!("{}", name);
         let functions = self.write_class_functions(class);
-        let string_name = format!("{}.{}", class.namespace(self.r), class.name(self.r));
         let interfaces = self.interfaces(class);
         let froms = self.write_from_traits(&name, &interfaces);
 
@@ -604,20 +606,6 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_generic_impl(&self, interface: &TypeDef) -> TokenStream {
-        if let Some(generics) = self.generics.last() {
-            let mut tokens = Vec::new();
-
-            for generic in generics {
-                tokens.push(quote! { #generic : winrt::RuntimeType })
-            }
-
-            quote! { impl <#(#tokens),*> }
-        } else {
-            quote! { impl }
-        }
-    }
-
     fn write_generics(&self) -> TokenStream {
         if let Some(generics) = self.generics.last() {
             quote! { #(#generics),* }
@@ -773,7 +761,7 @@ impl<'a> Writer<'a> {
         let tokens = match param.sig_type().sig_type() {
             TypeSigType::ElementType(value) => self.write_abi_param_element_type(value),
             TypeSigType::TypeDefOrRef(value) => self.write_abi_param_type(value),
-            TypeSigType::GenericSig(value) => quote! { winrt::RawPtr, },
+            TypeSigType::GenericSig(_) => quote! { winrt::RawPtr, },
             TypeSigType::GenericTypeIndex(value) => self.write_abi_param_generic_index(*value),
         };
 
