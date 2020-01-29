@@ -21,6 +21,10 @@ pub trait TypeName {
     fn type_name() -> &'static str;
 }
 
+pub trait Signature {
+    fn signature() -> &'static str;
+}
+
 // All WinRT types (usable as generic type params so not arrays).
 pub trait RuntimeType {
     type Abi;
@@ -66,5 +70,173 @@ where
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         self as *mut Self::Abi
+    }
+}
+
+impl TypeName for bool {
+    fn type_name() -> &'static str {
+        "Boolean"
+    }
+}
+
+impl TypeName for i8 {
+    fn type_name() -> &'static str {
+        "Int8"
+    }
+}
+
+impl TypeName for u8 {
+    fn type_name() -> &'static str {
+        "UInt8"
+    }
+}
+
+impl TypeName for i16 {
+    fn type_name() -> &'static str {
+        "Int16"
+    }
+}
+
+impl TypeName for u16 {
+    fn type_name() -> &'static str {
+        "UInt16"
+    }
+}
+
+impl TypeName for i32 {
+    fn type_name() -> &'static str {
+        "Int32"
+    }
+}
+
+impl TypeName for u32 {
+    fn type_name() -> &'static str {
+        "UInt32"
+    }
+}
+
+impl TypeName for i64 {
+    fn type_name() -> &'static str {
+        "Int64"
+    }
+}
+
+impl TypeName for u64 {
+    fn type_name() -> &'static str {
+        "UInt64"
+    }
+}
+
+impl TypeName for f32 {
+    fn type_name() -> &'static str {
+        "Single"
+    }
+}
+
+impl TypeName for f64 {
+    fn type_name() -> &'static str {
+        "Double"
+    }
+}
+
+impl TypeName for Guid {
+    fn type_name() -> &'static str {
+        "Guid"
+    }
+}
+
+impl TypeName for String {
+    fn type_name() -> &'static str {
+        "String"
+    }
+}
+
+impl TypeName for Object {
+    fn type_name() -> &'static str {
+        "Object"
+    }
+}
+
+impl Signature for bool {
+    fn signature() -> &'static str {
+        "b1"
+    }
+}
+
+impl Signature for i8 {
+    fn signature() -> &'static str {
+        "i1"
+    }
+}
+
+impl Signature for u8 {
+    fn signature() -> &'static str {
+        "u1"
+    }
+}
+
+impl Signature for i16 {
+    fn signature() -> &'static str {
+        "i2"
+    }
+}
+
+impl Signature for u16 {
+    fn signature() -> &'static str {
+        "u2"
+    }
+}
+
+impl Signature for i32 {
+    fn signature() -> &'static str {
+        "i4"
+    }
+}
+
+impl Signature for u32 {
+    fn signature() -> &'static str {
+        "u4"
+    }
+}
+
+impl Signature for i64 {
+    fn signature() -> &'static str {
+        "i8"
+    }
+}
+
+impl Signature for u64 {
+    fn signature() -> &'static str {
+        "u8"
+    }
+}
+
+impl Signature for f32 {
+    fn signature() -> &'static str {
+        "f4"
+    }
+}
+
+impl Signature for f64 {
+    fn signature() -> &'static str {
+        "f8"
+    }
+}
+
+impl Signature for Guid {
+    fn signature() -> &'static str {
+        "g16"
+    }
+}
+
+impl Signature for String {
+    fn signature() -> &'static str {
+        "string"
+    }
+}
+
+impl Signature for Object {
+    fn signature() -> &'static str {
+        "cinterface(IInspectable)"
     }
 }
