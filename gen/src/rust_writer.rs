@@ -101,6 +101,20 @@ impl<'a, 'b> GenericGuard<'a, 'b> {
     }
 }
 
+impl<'a, 'b> std::ops::Deref for GenericGuard<'a, 'b> {
+    type Target = Writer<'b>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.writer
+    }
+}
+
+impl<'a, 'b> std::ops::DerefMut for GenericGuard<'a, 'b> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.writer
+    }
+}
+
 impl<'a, 'b> Drop for GenericGuard<'a, 'b> {
     fn drop(&mut self) {
         if self.count > 0 {
@@ -291,16 +305,10 @@ impl<'a> Writer<'a> {
         }
 
         for interface in self.interfaces(class) {
-            let count = interface.generics.len();
-
-            if count > 0 {
-                self.generics.append(&mut interface.generics.clone());
-            }
-
-            let mut guard = GenericGuard::new(self, count);
+            let mut guard = self.push_generic_required_interface(&interface);
 
             if interface.default {
-                tokens.push(guard.writer.write_consume_methods(&interface.definition));
+                tokens.push(guard.write_consume_methods(&interface.definition));
             } else {
                 // TODO: write forwarding consume methods for non-default interfaces
                 // e.g. self.into::<INonDefault>().non_default_method()
@@ -373,8 +381,8 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        let mut guard = self.push_generic_params(interface);
-        guard.writer.write_generic_interface(interface)
+        let mut guard = self.push_generic_interface(interface);
+        guard.write_generic_interface(interface)
     }
 
     fn write_generic_interface(&mut self, interface: &TypeDef) -> TokenStream {
@@ -570,8 +578,8 @@ impl<'a> Writer<'a> {
     }
 
     fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
-        let mut guard = self.push_generic_params(interface);
-        guard.writer.write_generic_delegate(interface)
+        let mut guard = self.push_generic_interface(interface);
+        guard.write_generic_delegate(interface)
     }
 
     fn write_generic_phantoms(&mut self) -> TokenStream {
@@ -1075,7 +1083,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn push_generic_params<'g>(&'g mut self, interface: &TypeDef) -> GenericGuard<'g, 'a> {
+    fn push_generic_interface<'g>(&'g mut self, interface: &TypeDef) -> GenericGuard<'g, 'a> {
         let generics = interface.generics(self.r);
 
         if generics.is_empty() {
@@ -1092,6 +1100,14 @@ impl<'a> Writer<'a> {
 
             GenericGuard::new(self, 1)
         }
+    }
+
+    fn push_generic_required_interface<'g>(&'g mut self, interface: &Interface) -> GenericGuard<'g, 'a> {
+        if interface.generics.len() > 0 {
+            self.generics.append(&mut interface.generics.clone());
+        }
+
+        GenericGuard::new(self, interface.generics.len())
     }
 
     fn add_interfaces(&mut self, result: &mut Vec<Interface>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
