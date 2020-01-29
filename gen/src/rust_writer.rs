@@ -103,7 +103,9 @@ impl<'a, 'b> GenericGuard<'a, 'b> {
 
 impl<'a, 'b> Drop for GenericGuard<'a, 'b> {
     fn drop(&mut self) {
-        self.writer.generics.resize(self.writer.generics.len() - self.count, Vec::new());
+        if self.count > 0 {
+            self.writer.generics.resize_with(self.writer.generics.len() - self.count, || panic!());
+        }
     }
 }
 
