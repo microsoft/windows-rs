@@ -371,14 +371,8 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        let generics = interface.generics(self.r);
-
-        if !generics.is_empty() {
-            let mut guard = self.push_generic_params(generics);
-            guard.writer.write_generic_interface(interface)
-        } else {
-            self.write_generic_interface(interface)
-        }
+        let mut guard = self.push_generic_params(interface);
+        guard.writer.write_generic_interface(interface)
     }
 
     fn write_generic_interface(&mut self, interface: &TypeDef) -> TokenStream {
@@ -574,14 +568,8 @@ impl<'a> Writer<'a> {
     }
 
     fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
-        let generics = interface.generics(self.r);
-
-        if generics.is_empty() {
-            self.write_generic_delegate(interface)
-        } else {
-            let mut guard = self.push_generic_params(generics);
-            guard.writer.write_generic_delegate(interface)
-        }
+        let mut guard = self.push_generic_params(interface);
+        guard.writer.write_generic_delegate(interface)
     }
 
     fn write_generic_phantoms(&mut self) -> TokenStream {
@@ -1085,17 +1073,23 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn push_generic_params<'g>(&'g mut self, generics: RowIterator<GenericParam>) -> GenericGuard<'g, 'a> {
-        self.generics.push(
-            generics
-                .map(|g| {
-                    let name = format_ident!("{}", g.name(self.r));
-                    quote! { #name }
-                })
-                .collect(),
-        );
+    fn push_generic_params<'g>(&'g mut self, interface: &TypeDef) -> GenericGuard<'g, 'a> {
+        let generics = interface.generics(self.r);
 
-        GenericGuard::new(self, 1)
+        if generics.is_empty() {
+            GenericGuard::new(self, 0)
+        } else {
+            self.generics.push(
+                generics
+                    .map(|g| {
+                        let name = format_ident!("{}", g.name(self.r));
+                        quote! { #name }
+                    })
+                    .collect(),
+            );
+
+            GenericGuard::new(self, 1)
+        }
     }
 
     fn add_interfaces(&mut self, result: &mut Vec<Interface>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
