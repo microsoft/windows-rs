@@ -134,7 +134,6 @@ impl<'a> Writer<'a> {
         let interfaces = self.interfaces(class);
         let froms = self.write_from_traits(&name, &interfaces);
 
-        // TODO: use bool.then when stable
         if let Some(default_interface) = interfaces.iter().find(|interface| interface.default) {
             let default_interface = self.write_required_interface(&default_interface);
 
@@ -188,7 +187,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_from_traits(&mut self, from: &Ident, interfaces: &Vec<InterfaceInfo>) -> TokenStream {
+    fn write_from_traits(&mut self, from: &Ident, interfaces: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
         for interface in interfaces {
@@ -349,7 +348,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_required_interface(&mut self, info: &InterfaceInfo) -> TokenStream {
+    fn write_required_interface(&mut self, info: &Interface) -> TokenStream {
         if let Some(generics) = info.generics.last() {
             let name = info.definition.name(self.r);
             let name = &name[..name.len() - 2];
@@ -1122,7 +1121,7 @@ impl<'a> Writer<'a> {
         );
     }
 
-    fn add_interfaces(&mut self, result: &mut Vec<InterfaceInfo>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
+    fn add_interfaces(&mut self, result: &mut Vec<Interface>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
         for i in children {
             let default = i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute");
             let overridable = i.has_attribute(self.r, "Windows.Foundation.Metadata", "OverridableAttribute");
@@ -1152,7 +1151,7 @@ impl<'a> Writer<'a> {
             if let Err(index) = result.binary_search_by_key(&definition, |info| info.definition) {
                 let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
                 self.add_interfaces(result, &generics, definition.interfaces(self.r));
-                result.insert(index, InterfaceInfo { definition, generics, default, overridable, exclusive });
+                result.insert(index, Interface { definition, generics, default, overridable, exclusive });
             }
 
             if pop_generics {
@@ -1161,7 +1160,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn interfaces(&mut self, t: &TypeDef) -> Vec<InterfaceInfo> {
+    fn interfaces(&mut self, t: &TypeDef) -> Vec<Interface> {
         let mut result = Vec::new();
 
         self.add_interfaces(&mut result, &Vec::new(), t.interfaces(self.r));
@@ -1172,7 +1171,7 @@ impl<'a> Writer<'a> {
     }
 }
 
-struct InterfaceInfo {
+struct Interface {
     definition: TypeDef,
     generics: Vec<Vec<TokenStream>>,
     default: bool,
