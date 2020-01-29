@@ -1141,8 +1141,9 @@ impl<'a> Writer<'a> {
 
             if let Err(index) = result.binary_search_by_key(&definition, |info| info.definition) {
                 let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
+                // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
+                result.insert(index, Interface { definition, generics: generics.clone(), default, overridable, exclusive });
                 self.add_interfaces(result, &generics, definition.interfaces(self.r));
-                result.insert(index, Interface { definition, generics, default, overridable, exclusive });
             }
 
             if pop_generics {
