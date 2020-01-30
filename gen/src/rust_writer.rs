@@ -545,12 +545,17 @@ impl<'a> Writer<'a> {
     fn write_enum(&mut self, t: &TypeDef) -> TokenStream {
         let name = format_ident!("{}", t.name(self.r));
         let fields = self.write_enum_fields(&t);
-        let first = format_ident!("{}", t.fields(self.r).skip(1).next().unwrap().name(self.r));
+        let mut iter = t.fields(self.r);
+        // The first field holds the underlying type.
+        let underlying = self.write_type(&iter.next().unwrap().signature(self.r));
+        // The second field is the first or default value.
+        let default = format_ident!("{}", iter.next().unwrap().name(self.r));
         quote! {
+            #[repr(#underlying)]
             pub enum #name { #fields }
             impl Default for #name {
                 fn default() -> Self {
-                    Self::#first
+                    Self::#default
                 }
             }
         }
