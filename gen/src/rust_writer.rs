@@ -545,11 +545,11 @@ impl<'a> Writer<'a> {
     fn write_enum(&mut self, t: &TypeDef) -> TokenStream {
         let namespace = t.namespace(self.r);
         let name = t.name(self.r);
-        let type_name = format_ident!("{}", t.name(self.r));
+        let type_name = format_ident!("{}", name);
 
         let mut fields = t.fields(self.r);
 
-        // The first field holds the underlying type.
+        // The first field holds the underlying type (either i32 or u32).
         let (repr, type_signature) = match fields.next().unwrap().signature(self.r).sig_type() {
             TypeSigType::ElementType(ElementType::I32) => (format_ident!("i32"), format!("enum({}.{};i4)", namespace, name)),
             _ => (format_ident!("u32"), format!("enum({}.{};u4)", namespace, name)),
