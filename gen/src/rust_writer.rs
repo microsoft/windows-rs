@@ -548,7 +548,7 @@ impl<'a> Writer<'a> {
         let mut iter = t.fields(self.r);
         // The first field holds the underlying type.
         let underlying = self.write_type(&iter.next().unwrap().signature(self.r));
-        // The second field is the first or default value.
+        // The second field is the first or default variant.
         let default = format_ident!("{}", iter.next().unwrap().name(self.r));
         quote! {
             #[repr(#underlying)]
