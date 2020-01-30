@@ -99,6 +99,16 @@ pub fn import(stream: TokenStream) -> TokenStream {
     output.into()
 }
 
+#[proc_macro_attribute]
+pub fn winrt_enum(attr: TokenStream, item: TokenStream) -> TokenStream {
+    let mut attr = attr.into_iter();
+    if let TokenTree::Literal(value) = attr.next().unwrap() {
+        println!("macro: {}", value.to_string());
+    }
+
+    item
+}
+
 #[cfg(target_pointer_width = "64")]
 const SYSTEM32: &str = "System32";
 

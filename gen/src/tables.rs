@@ -211,6 +211,13 @@ impl TypeDef {
             }
         }
     }
+
+    pub fn signed_enum(&self, r: &Reader) -> bool {
+        match self.fields(r).next().unwrap().signature(r).sig_type() {
+            TypeSigType::ElementType(ElementType::I32) => true,
+            _ => false,
+        }
+    }
 }
 
 impl TypeRef {

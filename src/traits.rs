@@ -21,8 +21,8 @@ pub trait TypeName {
     fn type_name() -> &'static str;
 }
 
-pub trait Signature {
-    fn signature() -> &'static str;
+pub trait TypeSignature {
+    fn type_signature() -> &'static str;
 }
 
 // All WinRT types (usable as generic type params so not arrays).
@@ -157,86 +157,86 @@ impl TypeName for Object {
     }
 }
 
-impl Signature for bool {
-    fn signature() -> &'static str {
+impl TypeSignature for bool {
+    fn type_signature() -> &'static str {
         "b1"
     }
 }
 
-impl Signature for i8 {
-    fn signature() -> &'static str {
+impl TypeSignature for i8 {
+    fn type_signature() -> &'static str {
         "i1"
     }
 }
 
-impl Signature for u8 {
-    fn signature() -> &'static str {
+impl TypeSignature for u8 {
+    fn type_signature() -> &'static str {
         "u1"
     }
 }
 
-impl Signature for i16 {
-    fn signature() -> &'static str {
+impl TypeSignature for i16 {
+    fn type_signature() -> &'static str {
         "i2"
     }
 }
 
-impl Signature for u16 {
-    fn signature() -> &'static str {
+impl TypeSignature for u16 {
+    fn type_signature() -> &'static str {
         "u2"
     }
 }
 
-impl Signature for i32 {
-    fn signature() -> &'static str {
+impl TypeSignature for i32 {
+    fn type_signature() -> &'static str {
         "i4"
     }
 }
 
-impl Signature for u32 {
-    fn signature() -> &'static str {
+impl TypeSignature for u32 {
+    fn type_signature() -> &'static str {
         "u4"
     }
 }
 
-impl Signature for i64 {
-    fn signature() -> &'static str {
+impl TypeSignature for i64 {
+    fn type_signature() -> &'static str {
         "i8"
     }
 }
 
-impl Signature for u64 {
-    fn signature() -> &'static str {
+impl TypeSignature for u64 {
+    fn type_signature() -> &'static str {
         "u8"
     }
 }
 
-impl Signature for f32 {
-    fn signature() -> &'static str {
+impl TypeSignature for f32 {
+    fn type_signature() -> &'static str {
         "f4"
     }
 }
 
-impl Signature for f64 {
-    fn signature() -> &'static str {
+impl TypeSignature for f64 {
+    fn type_signature() -> &'static str {
         "f8"
     }
 }
 
-impl Signature for Guid {
-    fn signature() -> &'static str {
+impl TypeSignature for Guid {
+    fn type_signature() -> &'static str {
         "g16"
     }
 }
 
-impl Signature for String {
-    fn signature() -> &'static str {
+impl TypeSignature for String {
+    fn type_signature() -> &'static str {
         "string"
     }
 }
 
-impl Signature for Object {
-    fn signature() -> &'static str {
+impl TypeSignature for Object {
+    fn type_signature() -> &'static str {
         "cinterface(IInspectable)"
     }
 }

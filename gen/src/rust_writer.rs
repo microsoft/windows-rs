@@ -543,19 +543,33 @@ impl<'a> Writer<'a> {
     }
 
     fn write_enum(&mut self, t: &TypeDef) -> TokenStream {
-        let name = format_ident!("{}", t.name(self.r));
+        let namespace = t.namespace(self.r);
+        let name = t.name(self.r);
+        let type_name = format_ident!("{}", t.name(self.r));
         let fields = self.write_enum_fields(&t);
         let mut iter = t.fields(self.r);
         // The first field holds the underlying type.
-        let underlying = self.write_type(&iter.next().unwrap().signature(self.r));
         // The second field is the first or default variant.
-        let default = format_ident!("{}", iter.next().unwrap().name(self.r));
+        let default = format_ident!("{}", iter.skip(1).next().unwrap().name(self.r));
+
+        let (repr, type_signature) = if t.signed_enum(self.r) {
+            (format_ident!("i32"), format!("enum({}.{};i4)", namespace, name))
+        } else {
+            (format_ident!("u32"), format!("enum({}.{};u4)", namespace, name))
+        };
+
         quote! {
-            #[repr(#underlying)]
-            pub enum #name { #fields }
-            impl Default for #name {
+            #[repr(#repr)]
+            //#[winrt::winrt_enum("Hello2")]
+            pub enum #type_name { #fields }
+            impl Default for #type_name {
                 fn default() -> Self {
                     Self::#default
+                }
+            }
+            impl winrt::TypeSignature for #type_name {
+                fn type_signature() -> &'static str {
+                    #type_signature
                 }
             }
         }
