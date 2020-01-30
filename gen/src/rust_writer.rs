@@ -546,21 +546,24 @@ impl<'a> Writer<'a> {
         let namespace = t.namespace(self.r);
         let name = t.name(self.r);
         let type_name = format_ident!("{}", t.name(self.r));
-        let fields = self.write_enum_fields(&t);
-        let mut iter = t.fields(self.r);
-        // The first field holds the underlying type.
-        // The second field is the first or default variant.
-        let default = format_ident!("{}", iter.skip(1).next().unwrap().name(self.r));
 
-        let (repr, type_signature) = if t.signed_enum(self.r) {
-            (format_ident!("i32"), format!("enum({}.{};i4)", namespace, name))
-        } else {
-            (format_ident!("u32"), format!("enum({}.{};u4)", namespace, name))
+        let mut fields = t.fields(self.r);
+
+        // The first field holds the underlying type.
+        let (repr, type_signature) = match fields.next().unwrap().signature(self.r).sig_type() {
+            TypeSigType::ElementType(ElementType::I32) => (format_ident!("i32"), format!("enum({}.{};i4)", namespace, name)),
+            _ => (format_ident!("u32"), format!("enum({}.{};u4)", namespace, name)),
         };
+
+        // The second field is the first or default variant.
+        let default = format_ident!("{}", fields.next().unwrap().name(self.r));
+
+        let fields = self.write_enum_fields(&t);
 
         quote! {
             #[repr(#repr)]
             //#[winrt::winrt_enum("Hello2")]
+            #[derive(PartialEq)]
             pub enum #type_name { #fields }
             impl Default for #type_name {
                 fn default() -> Self {
