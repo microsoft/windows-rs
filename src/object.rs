@@ -36,19 +36,6 @@ impl RuntimeType for Object {
     }
 }
 
-impl InterfaceType for Object {}
-
-// impl<T> From<T: ConvertibleType> for Object {
-//     fn from(value: T) -> Object {
-//         Object { ptr: std::ptr::null_mut() }
-//     }
-// }
-// impl From<&#from> for Object {
-//     fn from(value: &#from) -> Object {
-//         Object {ptr: value.ptr.query::<Object>() }
-//     }
-// }
-
 #[repr(C)]
 struct IInspectable {
     __0: usize,

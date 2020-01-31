@@ -179,7 +179,6 @@ impl<'a> Writer<'a> {
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: winrt::ComPtr }
                 impl #name { #functions }
-                impl winrt::ClassType for #name {}
                 impl winrt::QueryType for #name {
                     fn type_guid() -> &'static winrt::Guid {
                         <#default_interface as winrt::QueryType>::type_guid()
@@ -411,7 +410,6 @@ impl<'a> Writer<'a> {
             impl<#constraints> #name<#generics> {
                 #consume_methods
             }
-            impl<#constraints> winrt::InterfaceType for #name<#generics> {}
             impl<#constraints> winrt::QueryType for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
@@ -550,9 +548,9 @@ impl<'a> Writer<'a> {
         let mut fields = t.fields(self.r);
 
         // The first field holds the underlying type (either i32 or u32).
-        let (repr, type_signature) = match fields.next().unwrap().signature(self.r).sig_type() {
-            TypeSigType::ElementType(ElementType::I32) => (format_ident!("i32"), format!("enum({}.{};i4)", namespace, name)),
-            _ => (format_ident!("u32"), format!("enum({}.{};u4)", namespace, name)),
+        let repr = match fields.next().unwrap().signature(self.r).sig_type() {
+            TypeSigType::ElementType(ElementType::I32) => format_ident!("i32"),
+            _ => format_ident!("u32"),
         };
 
         // The second field is the first or default variant.
@@ -568,11 +566,6 @@ impl<'a> Writer<'a> {
             impl Default for #type_name {
                 fn default() -> Self {
                     Self::#default
-                }
-            }
-            impl winrt::TypeSignature for #type_name {
-                fn type_signature() -> &'static str {
-                    #type_signature
                 }
             }
         }
@@ -688,7 +681,6 @@ impl<'a> Writer<'a> {
             impl<#constraints> #name<#generics> {
                 #consume_methods
             }
-            impl<#constraints> winrt::DelegateType for #name<#generics> {}
             impl<#constraints> winrt::QueryType for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
@@ -727,18 +719,12 @@ impl<'a> Writer<'a> {
         let type_name = format_ident!("{}", name);
         
         let fields = self.write_struct_fields(&t);
-        let type_signature = format!("struct({}.{};fields)", namespace, name);
 
         quote! {
             #[repr(C)]
             #[derive(Copy, Clone, Default, Debug, PartialEq)]
             pub struct #type_name { #fields }
             impl winrt::RuntimeCopy for #type_name {}
-            impl winrt::TypeSignature for #type_name {
-                fn type_signature() -> &'static str {
-                    #type_signature
-                }
-            }
         }
         // TODO: RuntimeType for non-blittable structs needs to be customized
     }
