@@ -2,6 +2,7 @@ extern crate proc_macro;
 
 use proc_macro::*;
 use winmd::*;
+use quote::quote;
 
 #[derive(PartialEq)]
 enum ImportCategory {
@@ -107,6 +108,19 @@ pub fn winrt_enum(attr: TokenStream, item: TokenStream) -> TokenStream {
     }
 
     item
+}
+
+#[proc_macro]
+pub fn type_signature(stream: TokenStream) -> TokenStream {
+
+    let value = stream.to_string();
+
+    let output = quote! {
+        fn type_signature() -> &'static str {
+            #value
+        }
+     };
+    output.into()
 }
 
 #[cfg(target_pointer_width = "64")]

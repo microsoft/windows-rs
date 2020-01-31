@@ -722,13 +722,23 @@ impl<'a> Writer<'a> {
     fn write_struct(&mut self, t: &TypeDef) -> TokenStream {
         // TODO: skip EventRegistrationToken
 
-        let name = format_ident!("{}", t.name(self.r));
+        let namespace = t.namespace(self.r);
+        let name = t.name(self.r);
+        let type_name = format_ident!("{}", name);
+        
         let fields = self.write_struct_fields(&t);
+        let type_signature = format!("struct({}.{};fields)", namespace, name);
+
         quote! {
             #[repr(C)]
             #[derive(Copy, Clone, Default, Debug, PartialEq)]
-            pub struct #name { #fields }
-            impl winrt::RuntimeCopy for #name {}
+            pub struct #type_name { #fields }
+            impl winrt::RuntimeCopy for #type_name {}
+            impl winrt::TypeSignature for #type_name {
+                fn type_signature() -> &'static str {
+                    #type_signature
+                }
+            }
         }
         // TODO: RuntimeType for non-blittable structs needs to be customized
     }
