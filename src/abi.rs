@@ -17,7 +17,7 @@ pub fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
         if !ptr.is_null() {
             ((*(*(ptr as *const *const IUnknown))).query)(ptr, I::type_guid(), &mut result);
         }
-        ptr
+        result
     }
 }
 

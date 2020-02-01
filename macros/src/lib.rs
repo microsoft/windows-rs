@@ -1,8 +1,8 @@
 extern crate proc_macro;
 
 use proc_macro::*;
-use winmd::*;
 use quote::quote;
+use winmd::*;
 
 #[derive(PartialEq)]
 enum ImportCategory {
@@ -96,32 +96,10 @@ pub fn import(stream: TokenStream) -> TokenStream {
     // TODO: should we always include the windows.foundation.* namespaces for usability?
 
     let output = writer.write();
-    // println!("{}", output.to_string());
+    println!("{}", output.to_string());
     output.into()
 }
 
-#[proc_macro_attribute]
-pub fn winrt_enum(attr: TokenStream, item: TokenStream) -> TokenStream {
-    let mut attr = attr.into_iter();
-    if let TokenTree::Literal(value) = attr.next().unwrap() {
-        println!("macro: {}", value.to_string());
-    }
-
-    item
-}
-
-#[proc_macro]
-pub fn type_signature(stream: TokenStream) -> TokenStream {
-
-    let value = stream.to_string();
-
-    let output = quote! {
-        fn type_signature() -> &'static str {
-            #value
-        }
-     };
-    output.into()
-}
 
 #[cfg(target_pointer_width = "64")]
 const SYSTEM32: &str = "System32";

@@ -717,7 +717,7 @@ impl<'a> Writer<'a> {
         let namespace = t.namespace(self.r);
         let name = t.name(self.r);
         let type_name = format_ident!("{}", name);
-        
+
         let fields = self.write_struct_fields(&t);
 
         quote! {
