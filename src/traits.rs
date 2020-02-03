@@ -9,8 +9,8 @@ pub trait QueryType: Sized {
 
     fn is_empty(&self) -> bool {
         unsafe {
-        let some:usize = std::mem::transmute_copy(self);
-        some == 0
+            let some: usize = std::mem::transmute_copy(self);
+            some == 0
         }
     }
 }

@@ -100,7 +100,6 @@ pub fn import(stream: TokenStream) -> TokenStream {
     output.into()
 }
 
-
 #[cfg(target_pointer_width = "64")]
 const SYSTEM32: &str = "System32";
 

@@ -128,7 +128,12 @@ struct Writer<'a> {
     pub namespace: &'a str,
     pub limits: &'a BTreeSet<String>,
     pub generics: Vec<Vec<TokenStream>>,
+
+    // TODO: what about all the writer methods simply return an Option<TokenStream> so we can short circuit
+    // automatically (and quickly) instead of stupid flags like this.
     pub drop_last: bool,
+
+    // TODO: keep track of generic specializations that need GUIDs
 }
 
 impl<'a> Writer<'a> {
