@@ -132,7 +132,6 @@ struct Writer<'a> {
     // TODO: what about all the writer methods simply return an Option<TokenStream> so we can short circuit
     // automatically (and quickly) instead of stupid flags like this.
     pub drop_last: bool,
-
     // TODO: keep track of generic specializations that need GUIDs
 }
 
@@ -1143,8 +1142,11 @@ impl<'a> Writer<'a> {
                 TypeDefOrRef::TypeRef(value) => value.resolve(self.r),
                 TypeDefOrRef::TypeSpec(value) => {
                     let sig = value.signature(self.r);
+                    let definition = sig.sig_type().resolve(self.r);
+
                     let mut args = Vec::new();
 
+                    // TODO: iter collect?
                     for arg in sig.args() {
                         args.push(self.write_type(arg));
                     }
@@ -1153,15 +1155,17 @@ impl<'a> Writer<'a> {
                     generics.push(args);
                     pop_generics = true;
 
-                    sig.sig_type().resolve(self.r)
+                    definition
                 }
             };
 
             if let Err(index) = result.binary_search_by_key(&definition, |info| info.definition) {
-                let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
-                // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
-                result.insert(index, Interface { definition, generics: generics.clone(), default, overridable, exclusive });
-                self.add_interfaces(result, &generics, definition.interfaces(self.r));
+                if self.limits.contains(definition.namespace(self.r)) {
+                    let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
+                    // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
+                    result.insert(index, Interface { definition, generics: generics.clone(), default, overridable, exclusive });
+                    self.add_interfaces(result, &generics, definition.interfaces(self.r));
+                }
             }
 
             if pop_generics {
