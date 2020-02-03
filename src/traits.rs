@@ -6,6 +6,13 @@ pub trait QueryType: Sized {
     fn query<T: QueryType>(&self) -> T {
         unsafe { std::mem::transmute_copy(&query::<T>(std::mem::transmute_copy(self))) }
     }
+
+    fn is_empty(&self) -> bool {
+        unsafe {
+        let some:usize = std::mem::transmute_copy(self);
+        some == 0
+        }
+    }
 }
 
 // Required for classes and interfaces
