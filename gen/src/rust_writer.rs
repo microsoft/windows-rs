@@ -749,11 +749,7 @@ impl<'a> Writer<'a> {
     //
 
     fn write_abi_params(&mut self, signature: &MethodSig) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for param in signature.params() {
-            tokens.push(self.write_abi_param(param));
-        }
+        let mut tokens: Vec<TokenStream> = signature.params().iter().map(|param| self.write_abi_param(param)).collect();
 
         if let Some(param) = signature.return_type() {
             tokens.push(self.write_abi_param(param));
