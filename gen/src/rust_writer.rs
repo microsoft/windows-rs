@@ -575,7 +575,7 @@ impl<'a> Writer<'a> {
 
     fn write_consume_args(&self, signature: &MethodSig) -> TokenStream {
         TokenStream::from_iter(signature.params().iter().map(|param| {
-            let name = format_ident!("{}", param.name());
+            let name = format_ident!("r#{}", param.name());
             quote! { #name, }
         }))
     }
@@ -937,7 +937,7 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::new();
 
         for (count, param) in signature.params().iter().enumerate() {
-            let name = format_ident!("{}", param.name());
+            let name = format_ident!("r#{}", param.name());
             tokens.push(quote! { #name: });
             tokens.push(self.write_consume_param(count, param));
         }
@@ -980,7 +980,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_abi_arg(&mut self, param: &ParamSig) -> TokenStream {
-        let name = format_ident!("{}", param.name());
+        let name = format_ident!("r#{}", param.name());
         let category = param.sig_type().category(self.r);
 
         if param.array() {
