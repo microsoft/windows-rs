@@ -919,13 +919,7 @@ impl<'a> Writer<'a> {
     //
 
     fn write_abi_args(&mut self, signature: &MethodSig) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for param in signature.params() {
-            tokens.push(self.write_abi_arg(param));
-        }
-
-        TokenStream::from_iter(tokens)
+        TokenStream::from_iter(signature.params().iter().map(|param| self.write_abi_arg(param)))
     }
 
     fn write_abi_arg(&mut self, param: &ParamSig) -> TokenStream {
@@ -1013,11 +1007,7 @@ impl<'a> Writer<'a> {
         let name = value.sig_type().name(self.r);
         let name = name.get(..name.len() - 2).unwrap();
         let name = format_ident!("{}", name);
-        let mut args = Vec::new();
-
-        for arg in value.args() {
-            args.push(self.write_type(arg));
-        }
+        let args = value.args().iter().map(|arg| self.write_type(arg));
 
         quote! {
             #namespace#name<#(#args),*>
@@ -1134,14 +1124,7 @@ impl<'a> Writer<'a> {
                 TypeDefOrRef::TypeSpec(value) => {
                     let sig = value.signature(self.r);
                     let definition = sig.sig_type().resolve(self.r);
-
-                    let mut args = Vec::new();
-
-                    // TODO: iter collect?
-                    for arg in sig.args() {
-                        args.push(self.write_type(arg));
-                    }
-
+                    let args: Vec<TokenStream> = sig.args().iter().map(|arg| self.write_type(arg)).collect();
                     self.generics.push(args.to_vec());
                     generics.push(args);
                     pop_generics = true;
