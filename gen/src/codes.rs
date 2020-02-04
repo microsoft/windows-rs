@@ -60,7 +60,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(value) => value.namespace(r),
             Self::TypeRef(value) => value.namespace(r),
-            Self::TypeSpec(_) => panic!(),
+            Self::TypeSpec(value) => value.signature(r).definition().namespace(r),
         }
     }
 
