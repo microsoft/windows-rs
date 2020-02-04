@@ -345,7 +345,7 @@ impl<'a> Writer<'a> {
             let args = self.write_consume_args(&signature);
 
             if let Some(result) = signature.return_type() {
-                let result = self.write_type(result.sig_type());
+                let result = self.write_type(result.definition());
 
                 tokens.push(quote! {
                     pub fn #method_name<#into_params>(#params) -> winrt::Result<#result> {
@@ -501,7 +501,7 @@ impl<'a> Writer<'a> {
             let args = self.write_consume_args(&signature);
 
             let projected_result = match signature.return_type() {
-                Some(result) => self.write_type(result.sig_type()),
+                Some(result) => self.write_type(result.definition()),
                 None => quote! { () },
             };
 
@@ -542,8 +542,8 @@ impl<'a> Writer<'a> {
             let args = self.write_abi_args(&signature);
 
             if let Some(result) = signature.return_type() {
-                let projected_result = self.write_type(result.sig_type());
-                let receive_expression = self.write_consume_receive_expression(result.sig_type());
+                let projected_result = self.write_type(result.definition());
+                let receive_expression = self.write_consume_receive_expression(result.definition());
 
                 tokens.push(quote! {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
@@ -605,7 +605,7 @@ impl<'a> Writer<'a> {
         let mut fields = t.fields(self.r);
 
         // The first field holds the underlying type (either i32 or u32).
-        let repr = match fields.next().unwrap().signature(self.r).sig_type() {
+        let repr = match fields.next().unwrap().signature(self.r).definition() {
             TypeSigType::ElementType(ElementType::I32) => format_ident!("i32"),
             _ => format_ident!("u32"),
         };
@@ -816,7 +816,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_abi_param(&mut self, param: &ParamSig) -> TokenStream {
-        let tokens = match param.sig_type().sig_type() {
+        let tokens = match param.definition().definition() {
             TypeSigType::ElementType(value) => self.write_abi_param_element_type(value),
             TypeSigType::TypeDefOrRef(value) => self.write_abi_param_type(value),
             TypeSigType::GenericSig(_) => quote! { winrt::RawPtr, },
@@ -917,7 +917,7 @@ impl<'a> Writer<'a> {
 
             let type_param = format_ident!("__{}", count);
 
-            if let TypeSigType::ElementType(ElementType::String) = param.sig_type().sig_type() {
+            if let TypeSigType::ElementType(ElementType::String) = param.definition().definition() {
                 if param.input() {
                     tokens.push(quote! { #type_param: Into<winrt::StringParam<'a>>,});
                 }
@@ -946,7 +946,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_consume_param(&mut self, count: usize, param: &ParamSig) -> TokenStream {
-        let tokens = self.write_type(param.sig_type());
+        let tokens = self.write_type(param.definition());
 
         if param.array() {
             if param.input() {
@@ -957,7 +957,7 @@ impl<'a> Writer<'a> {
                 quote! { &mut [#tokens], }
             }
         } else if param.input() {
-            match param.sig_type().category(self.r) {
+            match param.definition().category(self.r) {
                 ParamCategory::String => {
                     let type_param = format_ident!("__{}", count);
                     quote! { #type_param, }
@@ -981,7 +981,7 @@ impl<'a> Writer<'a> {
 
     fn write_abi_arg(&mut self, param: &ParamSig) -> TokenStream {
         let name = format_ident!("r#{}", param.name());
-        let category = param.sig_type().category(self.r);
+        let category = param.definition().category(self.r);
 
         if param.array() {
             if param.input() {
@@ -1010,7 +1010,7 @@ impl<'a> Writer<'a> {
     //
 
     fn write_type(&mut self, value: &TypeSig) -> TokenStream {
-        match value.sig_type() {
+        match value.definition() {
             TypeSigType::ElementType(value) => self.write_type_element(value),
             TypeSigType::TypeDefOrRef(value) => self.write_type_def_or_ref(value),
             TypeSigType::GenericSig(value) => self.write_type_generic(value),
@@ -1060,8 +1060,8 @@ impl<'a> Writer<'a> {
     }
 
     fn write_type_generic(&mut self, value: &GenericSig) -> TokenStream {
-        let namespace = self.write_namespace_name(value.sig_type().namespace(self.r));
-        let name = value.sig_type().name(self.r);
+        let namespace = self.write_namespace_name(value.definition().namespace(self.r));
+        let name = value.definition().name(self.r);
         let name = name.get(..name.len() - 2).unwrap();
         let name = format_ident!("{}", name);
         let args = value.args().iter().map(|arg| self.write_type(arg));
@@ -1180,7 +1180,7 @@ impl<'a> Writer<'a> {
                 TypeDefOrRef::TypeRef(value) => value.resolve(self.r),
                 TypeDefOrRef::TypeSpec(value) => {
                     let sig = value.signature(self.r);
-                    let definition = sig.sig_type().resolve(self.r);
+                    let definition = sig.definition().resolve(self.r);
                     let args: Vec<TokenStream> = sig.args().iter().map(|arg| self.write_type(arg)).collect();
                     self.generics.push(args.to_vec());
                     generics.push(args);

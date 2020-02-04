@@ -2,13 +2,13 @@ use crate::*;
 use std::convert::*;
 
 pub struct GenericSig {
-    sig_type: TypeDefOrRef,
+    definition: TypeDefOrRef,
     args: Vec<TypeSig>,
 }
 
 // TODO: Why not collapse this?
 pub struct ModifierSig {
-    sig_type: TypeDefOrRef,
+    definition: TypeDefOrRef,
 }
 
 pub struct MethodSig {
@@ -19,7 +19,7 @@ pub struct MethodSig {
 pub struct ParamSig {
     name: String,
     modifiers: Vec<ModifierSig>,
-    sig_type: TypeSig,
+    definition: TypeSig,
     input: bool,
     by_ref: bool,
 }
@@ -27,7 +27,7 @@ pub struct ParamSig {
 pub struct TypeSig {
     array: bool,
     modifiers: Vec<ModifierSig>,
-    sig_type: TypeSigType,
+    definition: TypeSigType,
 }
 
 #[derive(PartialEq)]
@@ -87,7 +87,7 @@ pub enum ParamCategory {
 impl GenericSig {
     pub(crate) fn new(file: u16, bytes: &mut &[u8]) -> GenericSig {
         read_unsigned(bytes);
-        let sig_type = TypeDefOrRef::decode(read_unsigned(bytes), file);
+        let definition = TypeDefOrRef::decode(read_unsigned(bytes), file);
         let arg_count = read_unsigned(bytes);
         let mut args = Vec::with_capacity(arg_count as usize);
 
@@ -95,11 +95,11 @@ impl GenericSig {
             args.push(TypeSig::new(file, bytes));
         }
 
-        GenericSig { sig_type, args }
+        GenericSig { definition, args }
     }
 
-    pub fn sig_type(&self) -> &TypeDefOrRef {
-        &self.sig_type
+    pub fn definition(&self) -> &TypeDefOrRef {
+        &self.definition
     }
 
     pub fn args(&self) -> &Vec<TypeSig> {
@@ -110,8 +110,8 @@ impl GenericSig {
 impl ModifierSig {
     fn new(file: u16, bytes: &mut &[u8]) -> ModifierSig {
         read_unsigned(bytes);
-        let sig_type = TypeDefOrRef::decode(read_unsigned(bytes), file);
-        ModifierSig { sig_type }
+        let definition = TypeDefOrRef::decode(read_unsigned(bytes), file);
+        ModifierSig { definition }
     }
 
     fn vec(file: u16, bytes: &mut &[u8]) -> Vec<ModifierSig> {
@@ -138,7 +138,7 @@ impl MethodSig {
         let param_count = read_unsigned(&mut bytes);
         ModifierSig::vec(method.row.file, &mut bytes);
         read_expected(&mut bytes, 0x10);
-        let return_type = if read_expected(&mut bytes, 0x01) { None } else { Some(ParamSig { name: String::new(), modifiers: Vec::new(), input: false, by_ref: true, sig_type: TypeSig::new(method.row.file, &mut bytes) }) };
+        let return_type = if read_expected(&mut bytes, 0x01) { None } else { Some(ParamSig { name: String::new(), modifiers: Vec::new(), input: false, by_ref: true, definition: TypeSig::new(method.row.file, &mut bytes) }) };
         let mut params = Vec::with_capacity(param_count as usize);
         for param in method.params(r) {
             if !return_type.is_some() || param.sequence(r) != 0 {
@@ -192,7 +192,7 @@ impl ArgumentSig {
             args.push((
                 String::new(),
                 // TODO: flatten match
-                match param.sig_type.sig_type {
+                match param.definition.definition {
                     TypeSigType::ElementType(value) => match value {
                         ElementType::I8 => ArgumentSig::I8(read_i8(&mut data_bytes)),
                         ElementType::U8 => ArgumentSig::U8(read_u8(&mut data_bytes)),
@@ -232,7 +232,7 @@ impl ArgumentSig {
                     let enum_type = r.resolve(&read_string(&mut data_bytes));
                     (
                         read_string(&mut data_bytes),
-                        match enum_type.fields(r).next().unwrap().signature(r).sig_type() {
+                        match enum_type.fields(r).next().unwrap().signature(r).definition() {
                             TypeSigType::ElementType(value) => match value {
                                 ElementType::I32 => ArgumentSig::I32(read_i32(&mut data_bytes)),
                                 ElementType::U32 => ArgumentSig::U32(read_u32(&mut data_bytes)),
@@ -254,15 +254,15 @@ impl ParamSig {
     fn new(name: String, input: bool, file: u16, bytes: &mut &[u8]) -> ParamSig {
         let modifiers = ModifierSig::vec(file, bytes);
         let by_ref = read_expected(bytes, 0x10);
-        let sig_type = TypeSig::new(file, bytes);
-        ParamSig { name: name, modifiers, input, by_ref, sig_type }
+        let definition = TypeSig::new(file, bytes);
+        ParamSig { name: name, modifiers, input, by_ref, definition }
     }
 
     fn from_attribute(file: u16, bytes: &mut &[u8]) -> ParamSig {
         let modifiers = ModifierSig::vec(file, bytes);
         let by_ref = read_expected(bytes, 0x10);
-        let sig_type = TypeSig::new(file, bytes);
-        ParamSig { name: String::new(), modifiers, input: true, by_ref, sig_type }
+        let definition = TypeSig::new(file, bytes);
+        ParamSig { name: String::new(), modifiers, input: true, by_ref, definition }
     }
 
     pub fn name(&self) -> &str {
@@ -273,12 +273,12 @@ impl ParamSig {
         self.input
     }
 
-    pub fn sig_type(&self) -> &TypeSig {
-        &self.sig_type
+    pub fn definition(&self) -> &TypeSig {
+        &self.definition
     }
 
     pub fn array(&self) -> bool {
-        self.sig_type.array
+        self.definition.array
     }
 
     pub fn by_ref(&self) -> bool {
@@ -317,19 +317,19 @@ impl TypeSig {
     fn new(file: u16, bytes: &mut &[u8]) -> TypeSig {
         let array = read_expected(bytes, 0x1D);
         let modifiers = ModifierSig::vec(file, bytes);
-        let sig_type = TypeSigType::new(file, bytes);
-        TypeSig { array, modifiers, sig_type }
+        let definition = TypeSigType::new(file, bytes);
+        TypeSig { array, modifiers, definition }
     }
 
-    pub fn sig_type(&self) -> &TypeSigType {
-        &self.sig_type
+    pub fn definition(&self) -> &TypeSigType {
+        &self.definition
     }
 
     pub fn category(&self, r: &Reader) -> ParamCategory {
         if self.array {
             ParamCategory::Array
         } else {
-            match &self.sig_type {
+            match &self.definition {
                 TypeSigType::ElementType(ElementType::String) => ParamCategory::String,
                 TypeSigType::ElementType(ElementType::Object) => ParamCategory::Object,
                 TypeSigType::ElementType(_) => ParamCategory::Primitive,
