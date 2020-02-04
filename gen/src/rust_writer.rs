@@ -473,10 +473,6 @@ impl<'a> Writer<'a> {
                 continue;
             }
 
-            if method.name(self.r) == "GetMany" {
-                continue;
-            }
-
             if method.is_remove_overload(self.r) {
                 // We don't project this method at all - the ABI is called internally by the EventGuard
                 continue;
@@ -932,7 +928,7 @@ impl<'a> Writer<'a> {
             } else if param.by_ref() {
                 quote! { #name.set_abi_len(), #name.set_abi(), }
             } else {
-                quote! { #name.len(), #name.set_abi(), }
+                quote! { #name.len() as u32, std::mem::transmute_copy(&#name), }
             }
         } else if param.input() {
             match category {
