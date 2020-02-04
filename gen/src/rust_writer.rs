@@ -170,9 +170,11 @@ impl<'a> Writer<'a> {
         let name = class.name(self.r);
         let string_name = format!("{}.{}", namespace, name);
         let name = format_ident!("{}", name);
+        let name = quote! { #name };
         let functions = self.write_class_functions(class);
         let interfaces = self.interfaces(class);
-        let froms = self.write_from_traits(&name, &interfaces);
+        let empty = TokenStream::new();
+        let froms = self.write_from_traits(&name, &empty, &empty, &interfaces);
 
         if let Some(interface) = interfaces.iter().find(|interface| interface.default) {
             let mut guard = self.push_generic_required_interface(&interface);
@@ -227,7 +229,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_from_traits(&mut self, from: &Ident, interfaces: &Vec<Interface>) -> TokenStream {
+    fn write_from_traits(&mut self, from: &TokenStream, constraints: &TokenStream, generics: &TokenStream, interfaces: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
         for interface in interfaces {
@@ -235,22 +237,22 @@ impl<'a> Writer<'a> {
 
             if interface.default {
                 tokens.push(quote! {
-                    impl From<#from> for #into {
-                        fn from(value: #from) -> #into {
+                    impl<#constraints> From<#from<#generics>> for #into {
+                        fn from(value: #from<#generics>) -> #into {
                             unsafe { std::mem::transmute(value) }
                         }
                     }
-                    impl From<&#from> for #into {
-                        fn from(value: &#from) -> #into {
+                    impl<#constraints> From<&#from<#generics>> for #into {
+                        fn from(value: &#from<#generics>) -> #into {
                             unsafe { std::mem::transmute(value.clone()) }
                         }
                     }
-                    impl<'a> Into<winrt::Param<'a, #into>> for #from {
+                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
                         fn into(self) -> winrt::Param<'a, #into> {
                             winrt::Param::Value(self.into())
                         }
                     }
-                    impl<'a> Into<winrt::Param<'a, #into>> for &'a #from {
+                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
                         fn into(self) -> winrt::Param<'a, #into> {
                             winrt::Param::Value(self.into())
                         }
@@ -258,22 +260,22 @@ impl<'a> Writer<'a> {
                 });
             } else {
                 tokens.push(quote! {
-                    impl From<#from> for #into {
-                        fn from(value: #from) -> #into {
+                    impl<#constraints> From<#from<#generics>> for #into {
+                        fn from(value: #from<#generics>) -> #into {
                             #into::from(&value)
                         }
                     }
-                    impl From<&#from> for #into {
-                        fn from(value: &#from) -> #into {
+                    impl<#constraints> From<&#from<#generics>> for #into {
+                        fn from(value: &#from<#generics>) -> #into {
                             winrt::QueryType::query(value)
                         }
                     }
-                    impl<'a> Into<winrt::Param<'a, #into>> for #from {
+                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
                         fn into(self) -> winrt::Param<'a, #into> {
                             winrt::Param::Value(self.into())
                         }
                     }
-                    impl<'a> Into<winrt::Param<'a, #into>> for &'a #from {
+                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
                         fn into(self) -> winrt::Param<'a, #into> {
                             winrt::Param::Value(self.into())
                         }
@@ -311,6 +313,19 @@ impl<'a> Writer<'a> {
             } else {
                 tokens.push(guard.write_forward_methods(&interface));
             }
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_interface_methods(&mut self, interface: &TypeDef) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        tokens.push(self.write_consume_methods(&interface));
+
+        for interface in self.interfaces(interface) {
+            let mut guard = self.push_generic_required_interface(&interface);
+            tokens.push(guard.write_forward_methods(&interface));
         }
 
         TokenStream::from_iter(tokens)
@@ -394,6 +409,9 @@ impl<'a> Writer<'a> {
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
+        let interfaces = self.interfaces(interface);
+        let empty = TokenStream::new();
+        let froms = self.write_from_traits(&name, &constraints, &generics, &interfaces);
 
         quote! {
             #[repr(C)]
@@ -440,6 +458,7 @@ impl<'a> Writer<'a> {
                     winrt::Param::Ref(self)
                 }
             }
+            #froms
         }
     }
 
