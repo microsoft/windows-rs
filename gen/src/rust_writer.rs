@@ -445,7 +445,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_abi_methods(&mut self, interface: &TypeDef) -> TokenStream {
-        let mut tokens = quote! {};
+        let mut tokens = Vec::new();
 
         for method in interface.methods(self.r) {
             let name = method.name(self.r);
@@ -454,17 +454,16 @@ impl<'a> Writer<'a> {
             }
             let name = self.write_method_name(&method);
             let params = self.write_abi_params(&method.signature(self.r));
-            tokens = quote! {
-                #tokens
+            tokens.push(quote! {
                 #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
-            };
+            });
         }
 
-        tokens
+        TokenStream::from_iter(tokens)
     }
 
     fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
-        let mut tokens = quote! {};
+        let mut tokens = Vec::new();
         let generics = self.write_generics();
         let abi_name = self.write_generic_abi_name(interface);
 
@@ -497,8 +496,7 @@ impl<'a> Writer<'a> {
                 let projected_result = self.write_type(result.sig_type());
                 let receive_expression = self.write_consume_receive_expression(result.sig_type());
 
-                tokens = quote! {
-                    #tokens
+                tokens.push(quote! {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
                             let mut __ok = std::mem::zeroed();
@@ -508,10 +506,9 @@ impl<'a> Writer<'a> {
                             .ok_or(std::mem::transmute_copy(&__ok))
                         }
                     }
-                };
+                });
             } else {
-                tokens = quote! {
-                    #tokens
+                tokens.push(quote! {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
                         unsafe {
                             ((*(*(self.ptr.get() as *const *const #abi_name<#generics>))).#name)(
@@ -520,11 +517,11 @@ impl<'a> Writer<'a> {
                             .ok()
                         }
                     }
-                };
+                });
             };
         }
 
-        tokens
+        TokenStream::from_iter(tokens)
     }
 
     fn write_consume_receive_expression(&mut self, value: &TypeSig) -> TokenStream {
@@ -576,21 +573,20 @@ impl<'a> Writer<'a> {
     }
 
     fn write_enum_fields(&mut self, t: &TypeDef) -> TokenStream {
-        let mut tokens = quote! {};
+        let mut tokens = Vec::new();
 
         for f in t.fields(self.r) {
             for _c in f.constants(self.r) {
                 let name = format_ident!("{}", f.name(self.r));
 
-                tokens = quote! {
-                    #tokens
+                tokens.push(quote! {
                     #name,
                     // TODO: write out the enum value
-                };
+                });
             }
         }
 
-        tokens
+        TokenStream::from_iter(tokens)
     }
 
     fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
@@ -734,19 +730,18 @@ impl<'a> Writer<'a> {
     }
 
     fn write_struct_fields(&mut self, t: &TypeDef) -> TokenStream {
-        let mut tokens = quote! {};
+        let mut tokens = Vec::new();
 
         for f in t.fields(self.r) {
             let name = format_ident!("r#{}", to_snake(f.name(self.r)));
 
-            tokens = quote! {
-                #tokens
+            tokens.push(quote! {
                 pub #name: u8,
                 // TODO: write out field type
-            };
+            });
         }
 
-        tokens
+        TokenStream::from_iter(tokens)
     }
 
     //
