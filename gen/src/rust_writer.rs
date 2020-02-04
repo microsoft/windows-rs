@@ -1172,10 +1172,14 @@ impl<'a> Writer<'a> {
             let default = i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute");
             let overridable = i.has_attribute(self.r, "Windows.Foundation.Metadata", "OverridableAttribute");
             let mut generics = parent_generics.to_vec();
-
             let mut pop_generics = false;
+            let interface = i.interface(self.r);
 
-            let definition = match i.interface(self.r) {
+            if !self.limits.contains(interface.namespace(self.r)) {
+                continue;
+            }
+
+            let definition = match interface {
                 TypeDefOrRef::TypeDef(value) => value,
                 TypeDefOrRef::TypeRef(value) => value.resolve(self.r),
                 TypeDefOrRef::TypeSpec(value) => {
@@ -1191,12 +1195,10 @@ impl<'a> Writer<'a> {
             };
 
             if let Err(index) = result.binary_search_by_key(&definition, |info| info.definition) {
-                if self.limits.contains(definition.namespace(self.r)) {
-                    let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
-                    // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
-                    result.insert(index, Interface { definition, generics: generics.clone(), default, overridable, exclusive });
-                    self.add_interfaces(result, &generics, definition.interfaces(self.r));
-                }
+                let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
+                // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
+                result.insert(index, Interface { definition, generics: generics.clone(), default, overridable, exclusive });
+                self.add_interfaces(result, &generics, definition.interfaces(self.r));
             }
 
             if pop_generics {
