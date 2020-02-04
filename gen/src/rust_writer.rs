@@ -309,8 +309,7 @@ impl<'a> Writer<'a> {
             if interface.default {
                 tokens.push(guard.write_consume_methods(&interface.definition));
             } else {
-                // TODO: write forwarding consume methods for non-default interfaces
-                // e.g. self.into::<INonDefault>().non_default_method()
+                tokens.push(guard.write_forward_methods(&interface));
             }
         }
 
@@ -328,14 +327,14 @@ impl<'a> Writer<'a> {
             let signature = method.signature(self.r);
             let params = self.write_consume_params(&signature);
             let into_params = self.write_consume_into_params(&signature);
-            let args = signature.params().iter().map(|param| format_ident!("{}", param.name()));
+            let args = self.write_consume_args(&signature);
 
             if let Some(result) = signature.return_type() {
                 let result = self.write_type(result.sig_type());
 
                 tokens.push(quote! {
                     pub fn #method_name<#into_params>(#params) -> winrt::Result<#result> {
-                        winrt::factory::<#class_name, #interface_name>()?.#method_name(#(#args),*)
+                        winrt::factory::<#class_name, #interface_name>()?.#method_name(#args)
                     }
                 });
             } else {
@@ -462,6 +461,41 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
+    fn write_forward_methods(&mut self, interface: &Interface) -> TokenStream {
+        let mut tokens = Vec::new();
+        let into = self.write_required_interface(&interface);
+
+        for method in interface.definition.methods(self.r) {
+            if method.is_remove_overload(self.r) {
+                // We don't project this method at all - the ABI is called internally by the EventGuard
+                continue;
+            }
+            if method.is_add_overload(self.r) {
+                // TODO: define this using an EventToken<T> return type
+                continue;
+            }
+
+            let name = self.write_method_name(&method);
+            let signature = method.signature(self.r);
+            let params = self.write_consume_params(&signature);
+            let into_params = self.write_consume_into_params(&signature);
+            let args = self.write_consume_args(&signature);
+
+            let projected_result = match signature.return_type() {
+                Some(result) => self.write_type(result.sig_type()),
+                None => quote! { () },
+            };
+
+            tokens.push(quote! {
+                pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
+                    <#into as From<&Self>>::from(self).#name(#args)
+                }
+            });
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
     fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
         let generics = self.write_generics();
@@ -514,10 +548,17 @@ impl<'a> Writer<'a> {
                         }
                     }
                 });
-            };
+            }
         }
 
         TokenStream::from_iter(tokens)
+    }
+
+    fn write_consume_args(&self, signature: &MethodSig) -> TokenStream {
+        TokenStream::from_iter(signature.params().iter().map(|param| {
+            let name = format_ident!("{}", param.name());
+            quote! { #name, }
+        }))
     }
 
     fn write_consume_receive_expression(&mut self, value: &TypeSig) -> TokenStream {
@@ -639,6 +680,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_generic_abi_name(&self, interface: &TypeDef) -> TokenStream {
+        // TODO: need namespace if ABI is called from different namespace (e.g. default interface is not in same namespace as class)
         if let Some(_) = self.generics.last() {
             let name = interface.name(self.r);
             let name = &name[..name.len() - 2];
