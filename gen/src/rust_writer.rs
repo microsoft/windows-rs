@@ -689,7 +689,7 @@ impl<'a> Writer<'a> {
     fn write_generic_name(&self, interface: &TypeDef) -> Ident {
         let mut name = interface.name(self.r);
 
-        if let Some(_) = self.generics.last() {
+        if name.chars().rev().skip(1).next() == Some('`') {
             name = &name[..name.len() - 2];
         }
 
@@ -701,7 +701,7 @@ impl<'a> Writer<'a> {
 
         let mut name = interface.name(self.r);
 
-        if let Some(_) = self.generics.last() {
+        if name.chars().rev().skip(1).next() == Some('`') {
             name = &name[..name.len() - 2];
         }
 
@@ -1059,7 +1059,7 @@ impl<'a> Writer<'a> {
     fn write_type_generic(&mut self, value: &GenericSig) -> TokenStream {
         let namespace = self.write_namespace_name(value.definition().namespace(self.r));
         let name = value.definition().name(self.r);
-        let name = name.get(..name.len() - 2).unwrap();
+        let name = &name[..name.len() - 2];
         let name = write_ident(name);
         let args = value.args().iter().map(|arg| self.write_type(arg));
 
