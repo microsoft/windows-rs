@@ -176,9 +176,9 @@ impl<'a> Writer<'a> {
         let empty = TokenStream::new();
         let froms = self.write_from_traits(&name, &empty, &empty, &interfaces);
 
-        if let Some(interface) = interfaces.iter().find(|interface| interface.default) {
-            let mut guard = self.push_generic_required_interface(&interface);
-            let default_interface = guard.write_required_interface(&interface);
+        if let Some(default) = interfaces.iter().find(|interface| interface.default) {
+            let mut guard = self.push_generic_required_interface(&default);
+            let default = guard.write_required_interface(&default);
 
             quote! {
                 #[repr(C)]
@@ -187,7 +187,7 @@ impl<'a> Writer<'a> {
                 impl #name { #functions }
                 impl winrt::QueryType for #name {
                     fn type_guid() -> &'static winrt::Guid {
-                        <#default_interface as winrt::QueryType>::type_guid()
+                        <#default as winrt::QueryType>::type_guid()
                     }
                 }
                 impl winrt::TypeName for #name {
