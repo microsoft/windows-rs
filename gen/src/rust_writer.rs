@@ -128,7 +128,6 @@ struct Writer<'a> {
     pub namespace: &'a str,
     pub limits: &'a BTreeSet<String>,
     pub generics: Vec<Vec<TokenStream>>,
-
     // TODO: keep track of generic specializations that need GUIDs
 }
 
@@ -173,50 +172,47 @@ impl<'a> Writer<'a> {
         let froms = self.write_from_traits(&name, &empty, &empty, &interfaces);
 
         if let Some(default) = interfaces.iter().find(|interface| interface.default) {
-            if self.limits.contains(default.definition.namespace(self.r)) {
-                let mut guard = self.push_generic_required_interface(&default);
-                let default = guard.write_required_interface(&default);
+            // TODO: this will need generic GUID generation support
+            let guid = self.write_guid(&default.definition);
 
-                quote! {
-                    #[repr(C)]
-                    #[derive(Default, Clone)]
-                    pub struct #name { ptr: winrt::ComPtr }
-                    impl #name { #functions }
-                    impl winrt::QueryType for #name {
-                        fn type_guid() -> &'static winrt::Guid {
-                            <#default as winrt::QueryType>::type_guid()
-                        }
+            quote! {
+                #[repr(C)]
+                #[derive(Default, Clone)]
+                pub struct #name { ptr: winrt::ComPtr }
+                impl #name { #functions }
+                impl winrt::QueryType for #name {
+                    fn type_guid() -> &'static winrt::Guid {
+                        static GUID: winrt::Guid = winrt::Guid::from_values(
+                            #guid
+                        );
+                        &GUID
                     }
-                    impl winrt::TypeName for #name {
-                        fn type_name() -> &'static str {
-                            #string_name
-                        }
-                    }
-                    impl winrt::RuntimeType for #name {
-                        type Abi = winrt::RawPtr;
-                        fn abi(&self) -> Self::Abi {
-                            self.ptr.get()
-                        }
-                        fn set_abi(&mut self) -> *mut Self::Abi {
-                            self.ptr.set()
-                        }
-                    }
-                    impl<'a> Into<winrt::Param<'a, #name>> for #name {
-                        fn into(self) -> winrt::Param<'a, #name> {
-                            winrt::Param::Value(self)
-                        }
-                    }
-                    impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
-                        fn into(self) -> winrt::Param<'a, #name> {
-                            winrt::Param::Ref(self)
-                        }
-                    }
-                    #froms
                 }
-            } else {
-                // If the default interface for a class is not included (by limits) then we don't bother
-                // to emit the class at all.
-                TokenStream::new()
+                impl winrt::TypeName for #name {
+                    fn type_name() -> &'static str {
+                        #string_name
+                    }
+                }
+                impl winrt::RuntimeType for #name {
+                    type Abi = winrt::RawPtr;
+                    fn abi(&self) -> Self::Abi {
+                        self.ptr.get()
+                    }
+                    fn set_abi(&mut self) -> *mut Self::Abi {
+                        self.ptr.set()
+                    }
+                }
+                impl<'a> Into<winrt::Param<'a, #name>> for #name {
+                    fn into(self) -> winrt::Param<'a, #name> {
+                        winrt::Param::Value(self)
+                    }
+                }
+                impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
+                    fn into(self) -> winrt::Param<'a, #name> {
+                        winrt::Param::Ref(self)
+                    }
+                }
+                #froms
             }
         } else {
             quote! {
