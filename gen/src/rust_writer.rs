@@ -385,14 +385,17 @@ impl<'a> Writer<'a> {
     }
 
     fn write_required_interface(&mut self, info: &Interface) -> TokenStream {
-        if let Some(generics) = info.generics.last() {
-            let namespace = self.write_namespace_name(info.definition.namespace(self.r));
-            let name = info.definition.name(self.r);
+        let namespace = self.write_namespace_name(info.definition.namespace(self.r));
+        let name = info.definition.name(self.r);
+
+        if name.chars().rev().skip(1).next() == Some('`') {
             let name = &name[..name.len() - 2];
             let name = write_ident(name);
+            let generics = info.generics.last().unwrap();
             quote! { #namespace#name::<#(#generics),*> }
         } else {
-            self.write_type_def(&info.definition)
+            let name = write_ident(name);
+            quote! { #namespace#name }
         }
     }
 
