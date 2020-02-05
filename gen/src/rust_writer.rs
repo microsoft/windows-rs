@@ -906,7 +906,7 @@ impl<'a> Writer<'a> {
     fn write_abi_param_type_def(&mut self, value: &TypeDef) -> TokenStream {
         match value.category(self.r) {
             TypeCategory::Enum => {
-                let name = write_ident(value.name(self.r));
+                let name = self.write_type_def(value);
                 quote! { #name, }
             }
             TypeCategory::Struct => {
@@ -915,7 +915,7 @@ impl<'a> Writer<'a> {
                 if name == "EventRegistrationToken" && namespace == "Windows.Foundation" {
                     quote! { i64, }
                 } else {
-                    let name = write_ident(value.name(self.r));
+                    let name = self.write_type_def(value);
                     quote! { #name, }
                 }
             }

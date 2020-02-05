@@ -96,7 +96,11 @@ pub fn import(stream: TokenStream) -> TokenStream {
     // TODO: should we always include the windows.foundation.* namespaces for usability?
 
     let output = writer.write();
-    // println!("{}", output.to_string());
+
+    use std::io::prelude::*;
+    let mut file = std::fs::File::create(r"c:\git\rust\dump.rs").unwrap();
+    file.write_all(output.to_string().as_bytes());
+
     output.into()
 }
 
