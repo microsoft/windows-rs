@@ -166,7 +166,7 @@ impl<'a> Writer<'a> {
         let name = class.name(self.r);
         let string_name = format!("{}.{}", namespace, name);
         let name = write_ident(name);
-        let functions = self.write_class_functions(class);
+        let methods = self.write_class_methods(class);
         let interfaces = self.interfaces(class);
         let empty = TokenStream::new();
         let froms = self.write_from_traits(&name, &empty, &empty, &interfaces);
@@ -179,7 +179,7 @@ impl<'a> Writer<'a> {
                 #[repr(C)]
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: winrt::ComPtr }
-                impl #name { #functions }
+                impl #name { #methods }
                 impl winrt::QueryType for #name {
                     fn type_guid() -> &'static winrt::Guid {
                         static GUID: winrt::Guid = winrt::Guid::from_values(
@@ -217,7 +217,7 @@ impl<'a> Writer<'a> {
         } else {
             quote! {
                 pub struct #name { }
-                impl #name { #functions }
+                impl #name { #methods }
                 impl winrt::TypeName for #name {
                     fn type_name() -> &'static str {
                         #string_name
@@ -289,7 +289,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_class_functions(&mut self, class: &TypeDef) -> TokenStream {
+    fn write_class_methods(&mut self, class: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
         for attribute in class.attributes(self.r) {
@@ -297,10 +297,14 @@ impl<'a> Writer<'a> {
 
             if name == "StaticAttribute" {
                 let interface = self.factory_type(&attribute).unwrap();
-                tokens.push(self.write_class_statics(class, &interface));
+                if self.limits.contains(interface.namespace(self.r)) {
+                    tokens.push(self.write_class_statics(class, &interface));
+                }
             } else if name == "ActivatableAttribute" {
                 if let Some(interface) = self.factory_type(&attribute) {
-                    tokens.push(self.write_class_statics(class, &interface));
+                    if self.limits.contains(interface.namespace(self.r)) {
+                        tokens.push(self.write_class_statics(class, &interface));
+                    }
                 } else {
                     // TODO: code default constructor "new"
                 }
@@ -416,7 +420,7 @@ impl<'a> Writer<'a> {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
         let abi_methods = self.write_abi_methods(&interface);
-        let consume_methods = self.write_consume_methods(&interface);
+        let consume_methods = self.write_interface_methods(&interface);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
