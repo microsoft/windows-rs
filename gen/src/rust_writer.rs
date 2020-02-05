@@ -352,8 +352,13 @@ impl<'a> Writer<'a> {
         let interface_name = write_ident(interface.name(self.r));
 
         for method in interface.methods(self.r) {
-            let method_name = self.write_method_name(&method);
             let signature = method.signature(self.r);
+
+            if self.limited_method(&signature) {
+                continue;
+            }
+
+            let method_name = self.write_method_name(&method);
             let params = self.write_consume_params(&signature);
             let into_params = self.write_consume_into_params(&signature);
             let args = self.write_consume_args(&signature);
@@ -369,7 +374,7 @@ impl<'a> Writer<'a> {
             } else {
                 tokens.push(quote! {
                     pub fn #method_name<#into_params>(#params) -> winrt::Result<()> {
-                            panic!();
+                            panic!("TODO: write_class_statics");
                     }
                 });
             };
@@ -386,7 +391,7 @@ impl<'a> Writer<'a> {
             ArgumentSig::U8(value) => Literal::u8_unsuffixed(*value),
             ArgumentSig::U16(value) => Literal::u16_unsuffixed(*value),
             ArgumentSig::U32(value) => Literal::u32_unsuffixed(*value),
-            _ => panic!(),
+            _ => panic!("TODO: write_guid"),
         });
 
         let three = iter.by_ref().take(3);
@@ -487,11 +492,19 @@ impl<'a> Writer<'a> {
             if name == ".ctor" {
                 continue;
             }
+
             let name = self.write_method_name(&method);
-            let params = self.write_abi_params(&method.signature(self.r));
-            tokens.push(quote! {
-                #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
-            });
+            let signature = method.signature(self.r);
+
+            // Limited methods still take up a slot to preserve vtable offsets.
+            if self.limited_method(&signature) {
+                tokens.push(quote! { #name: usize, });
+            } else {
+                let params = self.write_abi_params(&signature);
+                tokens.push(quote! {
+                    #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
+                });
+            }
         }
 
         TokenStream::from_iter(tokens)
@@ -502,17 +515,23 @@ impl<'a> Writer<'a> {
         let into = self.write_required_interface(&interface);
 
         for method in interface.definition.methods(self.r) {
+            let signature = method.signature(self.r);
+
+            if self.limited_method(&signature) {
+                continue;
+            }
+
             if method.is_remove_overload(self.r) {
                 // We don't project this method at all - the ABI is called internally by the EventGuard
                 continue;
             }
+
             if method.is_add_overload(self.r) {
                 // TODO: define this using an EventToken<T> return type
                 continue;
             }
 
             let name = self.write_method_name(&method);
-            let signature = method.signature(self.r);
             let params = self.write_consume_params(&signature);
             let into_params = self.write_consume_into_params(&signature);
             let args = self.write_consume_args(&signature);
@@ -539,7 +558,15 @@ impl<'a> Writer<'a> {
 
         for method in interface.methods(self.r) {
             let name = method.name(self.r);
+
             if name == ".ctor" {
+                continue;
+            }
+
+            // The .ctor method doesn't have a valid signature so that exclusion happens first.
+            let signature = method.signature(self.r);
+
+            if self.limited_method(&signature) {
                 continue;
             }
 
@@ -553,7 +580,6 @@ impl<'a> Writer<'a> {
             }
 
             let name = self.write_method_name(&method);
-            let signature = method.signature(self.r);
             let params = self.write_consume_params(&signature);
             let into_params = self.write_consume_into_params(&signature);
             let args = self.write_abi_args(&signature);
@@ -873,7 +899,7 @@ impl<'a> Writer<'a> {
         match value {
             TypeDefOrRef::TypeDef(value) => self.write_abi_param_type_def(value),
             TypeDefOrRef::TypeRef(value) => self.write_abi_param_type_ref(value),
-            _ => panic!("write_abi_param_type"),
+            _ => panic!("TODO: write_abi_param_type"),
         }
     }
 
@@ -1018,6 +1044,35 @@ impl<'a> Writer<'a> {
     }
 
     //
+    // limited_type
+    //
+
+
+    fn limited_method(&self, signature: &MethodSig) -> bool {
+        if let Some(value) = signature.return_type() {
+            if self.limited_type(value.definition()) {
+                return true;
+            } 
+        }
+    
+        for param in signature.params() {
+            if self.limited_type(param.definition()) {
+                return true;
+            } 
+        }
+    
+        return false;
+    }
+    
+    fn limited_type(&self, value: &TypeSig) -> bool {
+        match value.definition() {
+            TypeSigType::TypeDefOrRef(value) => !self.limits.contains(value.namespace(self.r)),
+            TypeSigType::GenericSig(value) => !self.limits.contains(value.definition().namespace(self.r)),
+            _ => false,
+        }
+    }
+
+    //
     // write_type
     //
 
@@ -1053,7 +1108,7 @@ impl<'a> Writer<'a> {
         match value {
             TypeDefOrRef::TypeDef(value) => self.write_type_def(value),
             TypeDefOrRef::TypeRef(value) => self.write_type_ref(value),
-            _ => panic!("write_type_def_or_ref"),
+            _ => panic!("TODO: write_type_def_or_ref"),
         }
     }
 

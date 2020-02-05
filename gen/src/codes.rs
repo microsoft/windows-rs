@@ -52,7 +52,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(value) => value.name(r),
             Self::TypeRef(value) => value.name(r),
-            Self::TypeSpec(_) => panic!(),
+            Self::TypeSpec(_) => panic!("TypeDefOrRef"),
         }
     }
 
@@ -68,7 +68,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(value) => *value,
             Self::TypeRef(value) => value.resolve(r),
-            Self::TypeSpec(_) => panic!(),
+            Self::TypeSpec(_) => panic!("TypeDefOrRef"),
         }
     }
 }
