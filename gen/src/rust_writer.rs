@@ -231,6 +231,10 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::<TokenStream>::new();
 
         for interface in interfaces {
+            if interface.limited {
+                continue;
+            }
+
             let into = self.write_required_interface(interface);
 
             if interface.default {
@@ -304,6 +308,10 @@ impl<'a> Writer<'a> {
         }
 
         for interface in self.interfaces(class) {
+            if interface.limited {
+                continue;
+            }
+
             let mut guard = self.push_generic_required_interface(&interface);
 
             if interface.default {
@@ -322,6 +330,10 @@ impl<'a> Writer<'a> {
         tokens.push(self.write_consume_methods(&interface));
 
         for interface in self.interfaces(interface) {
+            if interface.limited {
+                continue;
+            }
+
             let mut guard = self.push_generic_required_interface(&interface);
             tokens.push(guard.write_forward_methods(&interface));
         }
@@ -1168,10 +1180,7 @@ impl<'a> Writer<'a> {
             let mut generics = parent_generics.to_vec();
             let mut pop_generics = false;
             let interface = i.interface(self.r);
-
-            if !self.limits.contains(interface.namespace(self.r)) {
-                continue;
-            }
+            let limited = !self.limits.contains(interface.namespace(self.r));
 
             let definition = match interface {
                 TypeDefOrRef::TypeDef(value) => value,
@@ -1191,7 +1200,7 @@ impl<'a> Writer<'a> {
             if let Err(index) = result.binary_search_by_key(&definition, |info| info.definition) {
                 let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
                 // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
-                result.insert(index, Interface { definition, generics: generics.clone(), default, overridable, exclusive });
+                result.insert(index, Interface { definition, generics: generics.clone(), default, overridable, exclusive, limited });
                 self.add_interfaces(result, &generics, definition.interfaces(self.r));
             }
 
@@ -1226,4 +1235,5 @@ struct Interface {
     default: bool,
     overridable: bool,
     exclusive: bool,
+    limited: bool,
 }
