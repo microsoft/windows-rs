@@ -40,7 +40,7 @@ impl NamespaceWriter for BTreeMap<String, Namespace> {
         let mut tokens = Vec::new();
 
         for (name, namespace) in self {
-            let name = format_ident!("{}", name.to_lowercase());
+            let name = write_ident(&name.to_lowercase());
             let namespace = namespace.write();
 
             tokens.push(quote! {
@@ -166,8 +166,7 @@ impl<'a> Writer<'a> {
         let namespace = class.namespace(self.r);
         let name = class.name(self.r);
         let string_name = format!("{}.{}", namespace, name);
-        let name = format_ident!("{}", name);
-        let name = quote! { #name };
+        let name = write_ident(name);
         let functions = self.write_class_functions(class);
         let interfaces = self.interfaces(class);
         let empty = TokenStream::new();
@@ -232,7 +231,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_from_traits(&mut self, from: &TokenStream, constraints: &TokenStream, generics: &TokenStream, interfaces: &Vec<Interface>) -> TokenStream {
+    fn write_from_traits(&mut self, from: &Ident, constraints: &TokenStream, generics: &TokenStream, interfaces: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
         for interface in interfaces {
@@ -337,8 +336,8 @@ impl<'a> Writer<'a> {
     fn write_class_statics(&mut self, class: &TypeDef, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
-        let class_name = format_ident!("{}", class.name(self.r));
-        let interface_name = format_ident!("{}", interface.name(self.r));
+        let class_name = write_ident(class.name(self.r));
+        let interface_name = write_ident(interface.name(self.r));
 
         for method in interface.methods(self.r) {
             let method_name = self.write_method_name(&method);
@@ -390,7 +389,7 @@ impl<'a> Writer<'a> {
             let namespace = self.write_namespace_name(info.definition.namespace(self.r));
             let name = info.definition.name(self.r);
             let name = &name[..name.len() - 2];
-            let name = format_ident!("{}", name);
+            let name = write_ident(name);
             quote! { #namespace#name::<#(#generics),*> }
         } else {
             self.write_type_def(&info.definition)
@@ -578,7 +577,7 @@ impl<'a> Writer<'a> {
 
     fn write_consume_args(&self, signature: &MethodSig) -> TokenStream {
         TokenStream::from_iter(signature.params().iter().map(|param| {
-            let name = format_ident!("r#{}", param.name());
+            let name = write_ident(param.name());
             quote! { #name, }
         }))
     }
@@ -603,7 +602,7 @@ impl<'a> Writer<'a> {
     fn write_enum(&mut self, t: &TypeDef) -> TokenStream {
         let namespace = t.namespace(self.r);
         let name = t.name(self.r);
-        let type_name = format_ident!("{}", name);
+        let type_name = write_ident(name);
 
         let mut fields = t.fields(self.r);
 
@@ -614,13 +613,12 @@ impl<'a> Writer<'a> {
         };
 
         // The second field is the first or default variant.
-        let default = format_ident!("r#{}", fields.next().unwrap().name(self.r));
+        let default = write_ident(fields.next().unwrap().name(self.r));
 
         let fields = self.write_enum_fields(&t);
 
         quote! {
             #[repr(#repr)]
-            //#[winrt::winrt_enum("Hello2")]
             #[derive(PartialEq)]
             pub enum #type_name { #fields }
             impl Default for #type_name {
@@ -636,7 +634,7 @@ impl<'a> Writer<'a> {
 
         for f in t.fields(self.r) {
             for _c in f.constants(self.r) {
-                let name = format_ident!("r#{}", f.name(self.r));
+                let name = write_ident(f.name(self.r));
 
                 tokens.push(quote! {
                     #name,
@@ -688,31 +686,27 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_generic_name(&self, interface: &TypeDef) -> TokenStream {
+    fn write_generic_name(&self, interface: &TypeDef) -> Ident {
+        let mut name = interface.name(self.r);
+
         if let Some(_) = self.generics.last() {
-            let name = interface.name(self.r);
-            let name = &name[..name.len() - 2];
-            let name = format_ident!("{}", name);
-            quote! { #name }
-        } else {
-            let name = interface.name(self.r);
-            let name = format_ident!("{}", name);
-            quote! { #name }
+            name = &name[..name.len() - 2];
         }
+
+        write_ident(name)
     }
 
     fn write_generic_abi_name(&self, interface: &TypeDef) -> TokenStream {
         // TODO: need namespace if ABI is called from different namespace (e.g. default interface is not in same namespace as class)
+
+        let mut name = interface.name(self.r);
+
         if let Some(_) = self.generics.last() {
-            let name = interface.name(self.r);
-            let name = &name[..name.len() - 2];
-            let name = format_ident!("abi_{}", name);
-            quote! { #name }
-        } else {
-            let name = interface.name(self.r);
-            let name = format_ident!("abi_{}", name);
-            quote! { #name }
+            name = &name[..name.len() - 2];
         }
+
+        let name = format_ident!("abi_{}", name);
+        quote! { #name }
     }
 
     fn write_generic_delegate(&mut self, interface: &TypeDef) -> TokenStream {
@@ -776,7 +770,7 @@ impl<'a> Writer<'a> {
 
         let namespace = t.namespace(self.r);
         let name = t.name(self.r);
-        let type_name = format_ident!("{}", name);
+        let type_name = write_ident(name);
 
         let fields = self.write_struct_fields(&t);
 
@@ -793,7 +787,7 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::new();
 
         for f in t.fields(self.r) {
-            let name = format_ident!("r#{}", to_snake(f.name(self.r)));
+            let name = write_ident(&to_snake(f.name(self.r)));
 
             tokens.push(quote! {
                 pub #name: u8,
@@ -871,7 +865,7 @@ impl<'a> Writer<'a> {
     fn write_abi_param_type_def(&mut self, value: &TypeDef) -> TokenStream {
         match value.category(self.r) {
             TypeCategory::Enum => {
-                let name = format_ident!("{}", value.name(self.r));
+                let name = write_ident(value.name(self.r));
                 quote! { #name, }
             }
             TypeCategory::Struct => {
@@ -880,7 +874,7 @@ impl<'a> Writer<'a> {
                 if name == "EventRegistrationToken" && namespace == "Windows.Foundation" {
                     quote! { i64, }
                 } else {
-                    let name = format_ident!("{}", value.name(self.r));
+                    let name = write_ident(value.name(self.r));
                     quote! { #name, }
                 }
             }
@@ -983,7 +977,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_abi_arg(&mut self, param: &ParamSig) -> TokenStream {
-        let name = format_ident!("r#{}", param.name());
+        let name = write_ident(param.name());
         let category = param.definition().category(self.r);
 
         if param.array() {
@@ -1050,7 +1044,7 @@ impl<'a> Writer<'a> {
 
     fn write_type_def(&mut self, value: &TypeDef) -> TokenStream {
         let namespace = self.write_namespace_name(value.namespace(self.r));
-        let name = format_ident!("{}", value.name(self.r));
+        let name = write_ident(value.name(self.r));
         quote! { #namespace#name }
     }
 
@@ -1066,7 +1060,7 @@ impl<'a> Writer<'a> {
         let namespace = self.write_namespace_name(value.definition().namespace(self.r));
         let name = value.definition().name(self.r);
         let name = name.get(..name.len() - 2).unwrap();
-        let name = format_ident!("{}", name);
+        let name = write_ident(name);
         let args = value.args().iter().map(|arg| self.write_type(arg));
 
         quote! {
@@ -1094,7 +1088,7 @@ impl<'a> Writer<'a> {
         None
     }
 
-    fn write_method_name(&self, method: &MethodDef) -> TokenStream {
+    fn write_method_name(&self, method: &MethodDef) -> Ident {
         let mut source = method.name(self.r);
         let mut result = String::with_capacity(source.len() + 2); // TODO: why 2 again?
 
@@ -1111,9 +1105,7 @@ impl<'a> Writer<'a> {
         }
 
         append_snake(&mut result, source);
-
-        let name = format_ident!("r#{}", result);
-        quote! { #name }
+        write_ident(&result)
     }
 
     fn write_namespace_name(&mut self, other: &str) -> TokenStream {
@@ -1136,7 +1128,7 @@ impl<'a> Writer<'a> {
         }
 
         tokens.extend(destination.map(|destination| {
-            let destination = format_ident!("{}", destination.to_lowercase());
+            let destination = write_ident(&destination.to_lowercase());
             quote! { #destination:: }
         }));
 
@@ -1152,7 +1144,7 @@ impl<'a> Writer<'a> {
             self.generics.push(
                 generics
                     .map(|g| {
-                        let name = format_ident!("{}", g.name(self.r));
+                        let name = write_ident(g.name(self.r));
                         quote! { #name }
                     })
                     .collect(),
