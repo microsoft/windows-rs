@@ -1,5 +1,3 @@
-#![allow(exceeding_bitshifts)]
-
 use crate::*;
 use std::collections::BTreeMap;
 use std::marker::PhantomData;
@@ -148,7 +146,7 @@ impl<'a> Reader {
             _ => panic!(),
         };
         for byte in &file.bytes[offset + 1..offset + blob_size_bytes] {
-            blob_size = (blob_size << 8) + byte;
+            blob_size = blob_size.checked_shl(8).unwrap_or(0) + byte;
         }
         &file.bytes[offset + blob_size_bytes..offset + blob_size_bytes + blob_size as usize]
     }

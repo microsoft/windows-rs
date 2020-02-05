@@ -614,7 +614,7 @@ impl<'a> Writer<'a> {
         };
 
         // The second field is the first or default variant.
-        let default = format_ident!("{}", fields.next().unwrap().name(self.r));
+        let default = format_ident!("r#{}", fields.next().unwrap().name(self.r));
 
         let fields = self.write_enum_fields(&t);
 
@@ -636,7 +636,7 @@ impl<'a> Writer<'a> {
 
         for f in t.fields(self.r) {
             for _c in f.constants(self.r) {
-                let name = format_ident!("{}", f.name(self.r));
+                let name = format_ident!("r#{}", f.name(self.r));
 
                 tokens.push(quote! {
                     #name,
@@ -940,7 +940,7 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::new();
 
         for (count, param) in signature.params().iter().enumerate() {
-            let name = format_ident!("r#{}", param.name());
+            let name = write_ident(param.name());
             tokens.push(quote! { #name: });
             tokens.push(self.write_consume_param(count, param));
         }
@@ -1218,6 +1218,14 @@ impl<'a> Writer<'a> {
         // TODO: add base class interfaces
 
         result
+    }
+}
+
+fn write_ident(name: &str) -> Ident {
+    if name == "Self" {
+        format_ident!("{}_", name)
+    } else {
+        format_ident!("r#{}", name)
     }
 }
 
