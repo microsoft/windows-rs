@@ -21,3 +21,36 @@ pub fn factory<C: TypeName, I: QueryType>() -> Result<I> {
         code.ok_or(std::mem::transmute_copy(&ptr))
     }
 }
+
+#[repr(C)]
+#[derive(Default, Clone)]
+pub struct IActivationFactory {
+    ptr: ComPtr,
+}
+
+impl IActivationFactory {
+    pub fn activate_instance(&self) -> Result<Object> {
+        unsafe {
+            let mut ptr = std::ptr::null_mut();
+            ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(self.ptr.get(), &mut ptr).ok_or(std::mem::transmute(ptr))
+        }
+    }
+}
+
+impl QueryType for IActivationFactory {
+    fn type_guid() -> &'static Guid {
+        static GUID: Guid = Guid::from_values(0x00000035, 0x0000, 0x0000, &[0xc0,0x00,0x00,0x00,0x00,0x00,0x00,0x46]);
+        &GUID
+    }
+}
+
+#[repr(C)]
+struct abi_IActivationFactory {
+    __0: usize,
+    __1: usize,
+    __2: usize,
+    __3: usize,
+    __4: usize,
+    __5: usize,
+    activate_instance: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
+}

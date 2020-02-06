@@ -36,6 +36,22 @@ impl RuntimeType for Object {
     }
 }
 
+// tODO: use a constraint that includes all WinRT ref types but excludes Object itself
+// impl<T> From<T> for Object
+// where
+//     T: QueryType +
+//     T != Object
+// {
+//     fn from(value: T) -> Object {
+//         unsafe { std::mem::transmute(value) }
+//     }
+// }
+// impl<T> From<&T> for Object {
+//     fn from(value: &T) -> Object {
+//         unsafe { std::mem::transmute(value.clone()) }
+//     }
+// }
+
 #[repr(C)]
 struct IInspectable {
     __0: usize,
