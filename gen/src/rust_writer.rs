@@ -320,6 +320,7 @@ impl<'a> Writer<'a> {
             let mut guard = self.push_generic_required_interface(&interface);
 
             if interface.default {
+                // TODO: this needs to be a QI-free forwarding function to avoid a dependency on the ABI across namespaces.
                 tokens.push(guard.write_consume_methods(&interface.definition));
             } else {
                 tokens.push(guard.write_forward_methods(&interface));
