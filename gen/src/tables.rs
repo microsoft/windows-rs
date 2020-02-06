@@ -131,6 +131,14 @@ impl MethodDef {
     pub fn is_remove_overload(&self, r: &Reader) -> bool {
         self.flags(r).special() && self.name(r).starts_with("remove")
     }
+
+    pub fn attributes(&self, r: &Reader) -> RowIterator<CustomAttribute> {
+        r.equal_range(self.row.file, 0, HasCustomAttribute::MethodDef(*self).encode())
+    }
+
+    pub fn find_attribute(&self, r: &Reader, namespace: &str, name: &str) -> Option<CustomAttribute> {
+        self.attributes(r).find(|attribute| attribute.name(r) == (namespace, name))
+    }
 }
 
 impl Param {

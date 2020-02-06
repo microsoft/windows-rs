@@ -1176,8 +1176,22 @@ impl<'a> Writer<'a> {
         None
     }
 
+    fn method_abi_name(&self, method: &MethodDef) -> String {
+        if let Some(attribute) = method.find_attribute(self.r, "Windows.Foundation.Metadata", "OverloadAttribute") {
+            for (_, sig) in attribute.arguments(self.r) {
+                if let ArgumentSig::String(value) = sig {
+                    return value;
+                }
+            }
+        }
+
+        method.name(self.r).to_string()
+    }
+
     fn write_method_name(&self, method: &MethodDef) -> Ident {
-        let mut source = method.name(self.r);
+        // TODO: we end up allocating two strings here - should only be one
+        let name = self.method_abi_name(method);
+        let mut source = name.as_str();
         let mut result = String::with_capacity(source.len() + 2); // TODO: why 2 again?
 
         if method.flags(self.r).special() {
