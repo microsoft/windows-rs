@@ -555,6 +555,7 @@ impl<'a> Writer<'a> {
     fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
         let generics = self.write_generics();
+        let namespace = self.write_namespace_name(interface.namespace(self.r));
         let abi_name = self.write_generic_abi_name(interface);
 
         for method in interface.methods(self.r) {
@@ -593,7 +594,7 @@ impl<'a> Writer<'a> {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
                             let mut __ok = std::mem::zeroed();
-                            ((*(*(self.ptr.get() as *const *const #abi_name<#generics>))).#name)(
+                            ((*(*(self.ptr.get() as *const *const #namespace#abi_name<#generics>))).#name)(
                                 self.ptr.get(), #args #receive_expression
                             )
                             .ok_or(std::mem::transmute_copy(&__ok))
@@ -604,7 +605,7 @@ impl<'a> Writer<'a> {
                 tokens.push(quote! {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
                         unsafe {
-                            ((*(*(self.ptr.get() as *const *const #abi_name<#generics>))).#name)(
+                            ((*(*(self.ptr.get() as *const *const #namespace#abi_name<#generics>))).#name)(
                                 self.ptr.get(), #args
                             )
                             .ok()
