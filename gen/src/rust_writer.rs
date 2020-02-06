@@ -86,6 +86,7 @@ impl RustWriter {
     }
 
     pub fn write(&self) -> TokenStream {
+        // TODO: ensure *all* windows.foundation.* namespaces are included
         Writer::write(&self.r, &self.limits)
     }
 }
