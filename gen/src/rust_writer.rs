@@ -319,12 +319,7 @@ impl<'a> Writer<'a> {
 
             let mut guard = self.push_generic_required_interface(&interface);
 
-            if interface.default {
-                // TODO: this needs to be a QI-free forwarding function to avoid a dependency on the ABI across namespaces.
-                tokens.push(guard.write_consume_methods(&interface.definition));
-            } else {
-                tokens.push(guard.write_forward_methods(&interface));
-            }
+            tokens.push(guard.write_forward_methods(&interface));
         }
 
         TokenStream::from_iter(tokens)
@@ -543,9 +538,20 @@ impl<'a> Writer<'a> {
                 None => quote! { () },
             };
 
-            tokens.push(quote! {
-                pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
-                    <#into as From<&Self>>::from(self).#name(#args)
+            tokens.push(if interface.default {
+                quote! {
+                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
+                        unsafe {
+                            let __default: &#into = std::mem::transmute_copy(&self);
+                            __default.#name(#args)
+                        }
+                    }
+                }
+            } else {
+                quote! {
+                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
+                        <#into as From<&Self>>::from(self).#name(#args)
+                    }
                 }
             });
         }
