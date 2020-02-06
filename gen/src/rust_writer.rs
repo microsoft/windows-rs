@@ -1048,29 +1048,38 @@ impl<'a> Writer<'a> {
     // limited_type
     //
 
-
     fn limited_method(&self, signature: &MethodSig) -> bool {
         if let Some(value) = signature.return_type() {
             if self.limited_type(value.definition()) {
                 return true;
-            } 
+            }
         }
-    
+
         for param in signature.params() {
             if self.limited_type(param.definition()) {
                 return true;
-            } 
+            }
         }
-    
+
         return false;
     }
-    
+
     fn limited_type(&self, value: &TypeSig) -> bool {
         match value.definition() {
             TypeSigType::TypeDefOrRef(value) => !self.limits.contains(value.namespace(self.r)),
-            TypeSigType::GenericSig(value) => !self.limits.contains(value.definition().namespace(self.r)),
+            TypeSigType::GenericSig(value) => self.limited_type_generic(value),
             _ => false,
         }
+    }
+
+    fn limited_type_generic(&self, value: &GenericSig) -> bool {
+        // TODO: eventually all of Windows.Foundation will always be included
+        // and this check won't be necessary.
+        if !self.limits.contains(value.definition().namespace(self.r)) {
+            return true;
+        }
+
+        value.args().iter().any(|arg|self.limited_type(arg))
     }
 
     //
