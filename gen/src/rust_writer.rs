@@ -231,6 +231,29 @@ impl<'a> Writer<'a> {
     fn write_from_traits(&mut self, from: &Ident, constraints: &TokenStream, generics: &TokenStream, interfaces: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
+        tokens.push(quote! {
+            impl<#constraints> From<#from<#generics>> for winrt::Object {
+                fn from(value: #from<#generics>) -> winrt::Object {
+                    unsafe { std::mem::transmute(value) }
+                }
+            }
+            impl<#constraints> From<&#from<#generics>> for winrt::Object {
+                fn from(value: &#from<#generics>) -> winrt::Object {
+                    unsafe { std::mem::transmute(value.clone()) }
+                }
+            }
+            impl<'a, #constraints> Into<winrt::Param<'a, winrt::Object>> for #from<#generics> {
+                fn into(self) -> winrt::Param<'a, winrt::Object> {
+                    winrt::Param::Value(self.into())
+                }
+            }
+            impl<'a, #constraints> Into<winrt::Param<'a, winrt::Object>> for &'a #from<#generics> {
+                fn into(self) -> winrt::Param<'a, winrt::Object> {
+                    winrt::Param::Value(self.into())
+                }
+            }
+        });
+
         for interface in interfaces {
             if interface.limited {
                 continue;
