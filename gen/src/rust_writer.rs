@@ -172,7 +172,7 @@ impl<'a> Writer<'a> {
         let empty = TokenStream::new();
         let froms = self.write_from_traits(&name, &empty, &empty, &interfaces);
 
-        if let Some(default) = interfaces.iter().find(|interface| interface.default) {
+        if let Some(default) = interfaces.iter().find(|interface| interface.category == InterfaceCategory::DefaultInstance) {
             // TODO: this will need generic GUID generation support
             let guid = self.write_guid(&default.definition);
 
@@ -261,7 +261,7 @@ impl<'a> Writer<'a> {
 
             let into = self.write_required_interface(interface);
 
-            if interface.default {
+            if interface.category == InterfaceCategory::DefaultInstance {
                 tokens.push(quote! {
                     impl<#constraints> From<#from<#generics>> for #into {
                         fn from(value: #from<#generics>) -> #into {
@@ -561,7 +561,7 @@ impl<'a> Writer<'a> {
                 None => quote! { () },
             };
 
-            tokens.push(if interface.default {
+            tokens.push(if interface.category == InterfaceCategory::DefaultInstance {
                 quote! {
                     pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
                         unsafe {
@@ -1289,7 +1289,12 @@ impl<'a> Writer<'a> {
 
     fn add_interfaces(&mut self, result: &mut Vec<Interface>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
         for i in children {
-            let default = i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute");
+            let category = if i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute") {
+                InterfaceCategory::DefaultInstance
+            } else {
+                InterfaceCategory::Instance
+            };
+
             let overridable = i.has_attribute(self.r, "Windows.Foundation.Metadata", "OverridableAttribute");
             let mut generics = parent_generics.to_vec();
             let mut pop_generics = false;
@@ -1314,7 +1319,7 @@ impl<'a> Writer<'a> {
             if let Err(index) = result.binary_search_by_key(&definition, |info| info.definition) {
                 let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
                 // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
-                result.insert(index, Interface { definition, generics: generics.clone(), default, overridable, exclusive, limited });
+                result.insert(index, Interface { definition, generics: generics.clone(), overridable, exclusive, limited, category });
                 self.add_interfaces(result, &generics, definition.interfaces(self.r));
             }
 
@@ -1333,6 +1338,14 @@ impl<'a> Writer<'a> {
 
         result
     }
+
+    fn class_interfaces(&mut self, t: &TypeDef) -> Vec<Interface> {
+        let mut result = self.interfaces(t);
+
+        // TODO: add factory interfaces
+
+        result
+    }
 }
 
 fn write_ident(name: &str) -> Ident {
@@ -1343,11 +1356,36 @@ fn write_ident(name: &str) -> Ident {
     }
 }
 
+#[derive(PartialEq)]
+enum InterfaceCategory {
+    Instance,
+    DefaultInstance,
+    Static,
+    Activatable,
+    DefaultActivatable,
+}
+
 struct Interface {
     definition: TypeDef,
     generics: Vec<Vec<TokenStream>>,
-    default: bool,
     overridable: bool,
     exclusive: bool,
     limited: bool,
+    category: InterfaceCategory,
+}
+
+#[derive(PartialEq)]
+enum MethodCategory
+{
+    Normal,
+    Get,
+    Put,
+    Add,
+    Remove,
+}
+
+struct Method<'a> {
+    sig: MethodSig,
+    category: MethodCategory,
+    interface: &'a Interface,
 }
