@@ -1342,7 +1342,24 @@ impl<'a> Writer<'a> {
     fn class_interfaces(&mut self, t: &TypeDef) -> Vec<Interface> {
         let mut result = self.interfaces(t);
 
-        // TODO: add factory interfaces
+        // for attribute in class.attributes(self.r) {
+        //     let (_, name) = attribute.name(self.r);
+
+        //     if name == "StaticAttribute" {
+        //         let interface = self.factory_type(&attribute).unwrap();
+        //         if self.limits.contains(interface.namespace(self.r)) {
+        //             tokens.push(self.write_class_statics(class, &interface));
+        //         }
+        //     } else if name == "ActivatableAttribute" {
+        //         if let Some(interface) = self.factory_type(&attribute) {
+        //             if self.limits.contains(interface.namespace(self.r)) {
+        //                 tokens.push(self.write_class_statics(class, &interface));
+        //             }
+        //         } else {
+        //             // TODO: code default constructor "new"
+        //         }
+        //     }
+        // }
 
         result
     }
@@ -1370,7 +1387,7 @@ struct Interface {
     generics: Vec<Vec<TokenStream>>,
     overridable: bool,
     exclusive: bool,
-    limited: bool,
+    limited: bool, // TODO: why not just elide interface from list?
     category: InterfaceCategory,
 }
 
