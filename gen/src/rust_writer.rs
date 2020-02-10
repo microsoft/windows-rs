@@ -330,7 +330,11 @@ impl<'a> Writer<'a> {
                         tokens.push(self.write_class_statics(class, &interface));
                     }
                 } else {
-                    // TODO: code default constructor "new"
+                    tokens.push(quote! {
+                        pub fn new() -> winrt::Result<Self> {
+                            winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
+                        }
+                    });
                 }
             }
         }
