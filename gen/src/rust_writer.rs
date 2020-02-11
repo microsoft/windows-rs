@@ -167,14 +167,14 @@ impl<'a> Writer<'a> {
         let name = class.name(self.r);
         let string_name = format!("{}.{}", namespace, name);
         let name = write_ident(name);
-        let interfaces = self.interfaces(class);
-        let methods = self.write_required_methods(&interfaces);
+        let interfaces = self.class_interfaces(class);
+        let methods = self.write_required_methods(class, &interfaces);
         let empty = TokenStream::new();
         let froms = self.write_from_traits(&name, &empty, &empty, &interfaces);
 
-        if let Some(default) = interfaces.iter().find_map(|interface| if let InterfaceCategory::DefaultInstance(value) = interface.definition { Some(value) } else { None } ) {
+        if let Some(default) = interfaces.iter().find(|interface| interface.category == InterfaceCategory::DefaultInstance) {
             // TODO: this will need generic GUID generation support
-            let guid = self.write_guid(&default);
+            let guid = self.write_guid(&default.definition);
 
             quote! {
                 #[repr(C)]
@@ -259,98 +259,91 @@ impl<'a> Writer<'a> {
                 continue;
             }
 
-            match interface.definition { 
-                InterfaceCategory::DefaultInstance(definition) => {
-                    let into = self.write_required_interface(&definition, &interface.generics);
+            match interface.category {
+                InterfaceCategory::DefaultInstance => {
+                    let into = self.write_required_interface(&interface.definition, &interface.generics);
 
                     tokens.push(quote! {
-                    impl<#constraints> From<#from<#generics>> for #into {
-                        fn from(value: #from<#generics>) -> #into {
-                            unsafe { std::mem::transmute(value) }
+                        impl<#constraints> From<#from<#generics>> for #into {
+                            fn from(value: #from<#generics>) -> #into {
+                                unsafe { std::mem::transmute(value) }
+                            }
                         }
-                    }
-                    impl<#constraints> From<&#from<#generics>> for #into {
-                        fn from(value: &#from<#generics>) -> #into {
-                            unsafe { std::mem::transmute(value.clone()) }
+                        impl<#constraints> From<&#from<#generics>> for #into {
+                            fn from(value: &#from<#generics>) -> #into {
+                                unsafe { std::mem::transmute(value.clone()) }
+                            }
                         }
-                    }
-                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
-                        fn into(self) -> winrt::Param<'a, #into> {
-                            winrt::Param::Value(self.into())
+                        impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
+                            fn into(self) -> winrt::Param<'a, #into> {
+                                winrt::Param::Value(self.into())
+                            }
                         }
-                    }
-                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
-                        fn into(self) -> winrt::Param<'a, #into> {
-                            winrt::Param::Value(self.into())
+                        impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
+                            fn into(self) -> winrt::Param<'a, #into> {
+                                winrt::Param::Value(self.into())
+                            }
                         }
-                    }
-                });
-            }
-                InterfaceCategory::Instance(definition) => {
-                    let into = self.write_required_interface(&definition, &interface.generics);
+                    });
+                }
+                InterfaceCategory::Instance => {
+                    let into = self.write_required_interface(&interface.definition, &interface.generics);
                     tokens.push(quote! {
-                    impl<#constraints> From<#from<#generics>> for #into {
-                        fn from(value: #from<#generics>) -> #into {
-                            #into::from(&value)
+                        impl<#constraints> From<#from<#generics>> for #into {
+                            fn from(value: #from<#generics>) -> #into {
+                                #into::from(&value)
+                            }
                         }
-                    }
-                    impl<#constraints> From<&#from<#generics>> for #into {
-                        fn from(value: &#from<#generics>) -> #into {
-                            winrt::QueryType::query(value)
+                        impl<#constraints> From<&#from<#generics>> for #into {
+                            fn from(value: &#from<#generics>) -> #into {
+                                winrt::QueryType::query(value)
+                            }
                         }
-                    }
-                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
-                        fn into(self) -> winrt::Param<'a, #into> {
-                            winrt::Param::Value(self.into())
+                        impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
+                            fn into(self) -> winrt::Param<'a, #into> {
+                                winrt::Param::Value(self.into())
+                            }
                         }
-                    }
-                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
-                        fn into(self) -> winrt::Param<'a, #into> {
-                            winrt::Param::Value(self.into())
+                        impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
+                            fn into(self) -> winrt::Param<'a, #into> {
+                                winrt::Param::Value(self.into())
+                            }
                         }
-                    }
-                });
-            }
+                    });
+                }
+                _ => {} // TODO: anything else?
             }
         }
 
         TokenStream::from_iter(tokens)
     }
 
-    fn write_required_methods(&mut self, interface: &Vec<Interface>) -> TokenStream {
+    fn write_required_methods(&mut self, class: &TypeDef, interfaces: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        // for attribute in class.attributes(self.r) {
-        //     let (_, name) = attribute.name(self.r);
+        for interface in interfaces {
+            if interface.limited {
+                continue;
+            }
 
-        //     if name == "StaticAttribute" {
-        //         let interface = self.factory_type(&attribute).unwrap();
-        //         if self.limits.contains(interface.namespace(self.r)) {
-        //             tokens.push(self.write_class_statics(class, &interface));
-        //         }
-        //     } else if name == "ActivatableAttribute" {
-        //         if let Some(interface) = self.factory_type(&attribute) {
-        //             if self.limits.contains(interface.namespace(self.r)) {
-        //                 tokens.push(self.write_class_statics(class, &interface));
-        //             }
-        //         } else {
-        //             tokens.push(quote! {
-        //                 pub fn new() -> winrt::Result<Self> {
-        //                     winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
-        //                 }
-        //             });
-        //         }
-        //     }
-        // }
-
-        // for interface in self.interfaces(class) {
-        //     if interface.limited {
-        //         continue;
-        //     }
-
-        //     let mut guard = self.push_generic_required_interface(&interface);
-        //     tokens.push(guard.write_forward_methods(&interface));
-        // }
+            match interface.category {
+                InterfaceCategory::Instance | InterfaceCategory::DefaultInstance => {
+                    let mut guard = self.push_generic_required_interface(&interface);
+                    tokens.push(guard.write_forward_methods(&interface));
+                }
+                InterfaceCategory::Static | InterfaceCategory::Activatable => {
+                    tokens.push(self.write_class_statics(class, &interface.definition));
+                }
+                InterfaceCategory::DefaultActivatable => {
+                    tokens.push(quote! {
+                        pub fn new() -> winrt::Result<Self> {
+                            winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
+                        }
+                    });
+                }
+                _ => {}
+            }
+        }
 
         TokenStream::from_iter(tokens)
     }
@@ -438,13 +431,12 @@ impl<'a> Writer<'a> {
         let consume_methods = self.write_consume_methods(interface);
 
         let interfaces = self.interfaces(interface);
-        let required_methods = self.write_required_methods(&interfaces);
+        let required_methods = self.write_required_methods(interface, &interfaces);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
-        let interfaces = self.interfaces(interface);
         let empty = TokenStream::new();
         let froms = self.write_from_traits(&name, &constraints, &generics, &interfaces);
 
@@ -524,57 +516,57 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    // fn write_forward_methods(&mut self, interface: &Interface) -> TokenStream {
-    //     let mut tokens = Vec::new();
-    //     let into = self.write_required_interface(&interface);
+    fn write_forward_methods(&mut self, interface: &Interface) -> TokenStream {
+        let mut tokens = Vec::new();
+        let into = self.write_required_interface(&interface.definition, &interface.generics);
 
-    //     for method in interface.definition.methods(self.r) {
-    //         let signature = method.signature(self.r);
+        for method in interface.definition.methods(self.r) {
+            let signature = method.signature(self.r);
 
-    //         if self.limited_method(&signature) {
-    //             continue;
-    //         }
+            if self.limited_method(&signature) {
+                continue;
+            }
 
-    //         if method.is_remove_overload(self.r) {
-    //             // We don't project this method at all - the ABI is called internally by the EventGuard
-    //             continue;
-    //         }
+            if method.is_remove_overload(self.r) {
+                // We don't project this method at all - the ABI is called internally by the EventGuard
+                continue;
+            }
 
-    //         if method.is_add_overload(self.r) {
-    //             // TODO: define this using an EventToken<T> return type
-    //             continue;
-    //         }
+            if method.is_add_overload(self.r) {
+                // TODO: define this using an EventToken<T> return type
+                continue;
+            }
 
-    //         let name = self.write_method_name(&method);
-    //         let params = self.write_consume_params(&signature);
-    //         let into_params = self.write_consume_into_params(&signature);
-    //         let args = self.write_consume_args(&signature);
+            let name = self.write_method_name(&method);
+            let params = self.write_consume_params(&signature);
+            let into_params = self.write_consume_into_params(&signature);
+            let args = self.write_consume_args(&signature);
 
-    //         let projected_result = match signature.return_type() {
-    //             Some(result) => self.write_type(result.definition()),
-    //             None => quote! { () },
-    //         };
+            let projected_result = match signature.return_type() {
+                Some(result) => self.write_type(result.definition()),
+                None => quote! { () },
+            };
 
-    //         tokens.push(if interface.category == InterfaceCategory::DefaultInstance {
-    //             quote! {
-    //                 pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
-    //                     unsafe {
-    //                         let __default: &#into = std::mem::transmute_copy(&self);
-    //                         __default.#name(#args)
-    //                     }
-    //                 }
-    //             }
-    //         } else {
-    //             quote! {
-    //                 pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
-    //                     <#into as From<&Self>>::from(self).#name(#args)
-    //                 }
-    //             }
-    //         });
-    //     }
+            tokens.push(if interface.category == InterfaceCategory::DefaultInstance {
+                quote! {
+                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
+                        unsafe {
+                            let __default: &#into = std::mem::transmute_copy(&self);
+                            __default.#name(#args)
+                        }
+                    }
+                }
+            } else {
+                quote! {
+                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
+                        <#into as From<&Self>>::from(self).#name(#args)
+                    }
+                }
+            });
+        }
 
-    //     TokenStream::from_iter(tokens)
-    // }
+        TokenStream::from_iter(tokens)
+    }
 
     fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
@@ -1104,7 +1096,7 @@ impl<'a> Writer<'a> {
             return true;
         }
 
-        value.args().iter().any(|arg|self.limited_type(arg))
+        value.args().iter().any(|arg| self.limited_type(arg))
     }
 
     //
@@ -1283,11 +1275,7 @@ impl<'a> Writer<'a> {
 
     fn add_interfaces(&mut self, result: &mut Vec<Interface>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
         for i in children {
-            let category = if i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute") {
-                InterfaceCategory::DefaultInstance
-            } else {
-                InterfaceCategory::Instance
-            };
+            let category = if i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute") { InterfaceCategory::DefaultInstance } else { InterfaceCategory::Instance };
 
             let overridable = i.has_attribute(self.r, "Windows.Foundation.Metadata", "OverridableAttribute");
             let mut generics = parent_generics.to_vec();
@@ -1333,25 +1321,25 @@ impl<'a> Writer<'a> {
         result
     }
 
-    fn class_interfaces(&mut self, t: &TypeDef) -> Vec<Interface> {
-        let mut result = self.interfaces(t);
+    fn class_interfaces(&mut self, class: &TypeDef) -> Vec<Interface> {
+        let mut result = self.interfaces(class);
 
-        // for attribute in class.attributes(self.r) {
-        //     let (_, name) = attribute.name(self.r);
+        for attribute in class.attributes(self.r) {
+            let (_, name) = attribute.name(self.r);
 
-        //     if name == "StaticAttribute" {
-        //         let interface = self.factory_type(&attribute).unwrap();
-        //         let limited = !self.limits.contains(interface.namespace(self.r));
-        //         result.push(Interface { interface, generics: Vec::new(), overridable:false, exclusive:true, limited, category: InterfaceCategory::Static });
-        //     } else if name == "ActivatableAttribute" {
-        //         if let Some(interface) = self.factory_type(&attribute) {
-        //             let limited = !self.limits.contains(interface.namespace(self.r));
-        //             result.push(Interface { interface, generics: Vec::new(), overridable:false, exclusive:true, limited, category: InterfaceCategory::Activatable });
-        //         } else {
-        //             result.push(Interface { interface, generics: Vec::new(), overridable:false, exclusive:true, limited:false, category: InterfaceCategory::DefaultActivatable });
-        //         }
-        //     }
-        // }
+            if name == "StaticAttribute" {
+                let definition = self.factory_type(&attribute).unwrap();
+                let limited = !self.limits.contains(definition.namespace(self.r));
+                result.push(Interface { definition, generics: Vec::new(), overridable: false, exclusive: true, limited, category: InterfaceCategory::Static });
+            } else if name == "ActivatableAttribute" {
+                if let Some(definition) = self.factory_type(&attribute) {
+                    let limited = !self.limits.contains(definition.namespace(self.r));
+                    result.push(Interface { definition, generics: Vec::new(), overridable: false, exclusive: true, limited, category: InterfaceCategory::Activatable });
+                } else {
+                    result.push(Interface { definition: TypeDef::invalid(), generics: Vec::new(), overridable: false, exclusive: true, limited: false, category: InterfaceCategory::DefaultActivatable });
+                }
+            }
+        }
 
         result
     }
@@ -1367,10 +1355,10 @@ fn write_ident(name: &str) -> Ident {
 
 #[derive(PartialEq)]
 enum InterfaceCategory {
-    Instance(TypeDef),
-    DefaultInstance(TypeDef),
-    Static(TypeDef),
-    Activatable(TypeDef),
+    Instance,
+    DefaultInstance,
+    Static,
+    Activatable,
     DefaultActivatable,
 }
 
@@ -1384,8 +1372,7 @@ struct Interface {
 }
 
 #[derive(PartialEq)]
-enum MethodCategory
-{
+enum MethodCategory {
     Normal,
     Get,
     Put,

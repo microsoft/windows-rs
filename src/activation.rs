@@ -36,16 +36,16 @@ impl IActivationFactory {
     //     }
     // }
     pub fn activate_instance<I: QueryType>(&self) -> Result<I> {
-    unsafe {
-        let mut ptr = std::ptr::null_mut();
-        ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(self.ptr.get(), &mut ptr).ok_or(std::mem::transmute_copy(&ptr))
+        unsafe {
+            let mut ptr = std::ptr::null_mut();
+            ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(self.ptr.get(), &mut ptr).ok_or(std::mem::transmute_copy(&ptr))
+        }
     }
-}
 }
 
 impl QueryType for IActivationFactory {
     fn type_guid() -> &'static Guid {
-        static GUID: Guid = Guid::from_values(0x00000035, 0x0000, 0x0000, &[0xc0,0x00,0x00,0x00,0x00,0x00,0x00,0x46]);
+        static GUID: Guid = Guid::from_values(0x00000035, 0x0000, 0x0000, &[0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46]);
         &GUID
     }
 }

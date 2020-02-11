@@ -160,7 +160,6 @@ impl TypeDef {
         Self { row: RowData::invalid() }
     }
 
-
     pub fn flags(&self, r: &Reader) -> TypeAttributes {
         TypeAttributes(r.u32(&self.row, 0))
     }
