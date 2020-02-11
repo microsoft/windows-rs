@@ -172,9 +172,9 @@ impl<'a> Writer<'a> {
         let empty = TokenStream::new();
         let froms = self.write_from_traits(&name, &empty, &empty, &interfaces);
 
-        if let Some(default) = interfaces.iter().find(|interface| interface.category == InterfaceCategory::DefaultInstance) {
+        if let Some(default) = interfaces.iter().find_map(|interface| if let InterfaceCategory::DefaultInstance(value) = interface.definition { Some(value) } else { None } ) {
             // TODO: this will need generic GUID generation support
-            let guid = self.write_guid(&default.definition);
+            let guid = self.write_guid(&default);
 
             quote! {
                 #[repr(C)]
@@ -259,10 +259,11 @@ impl<'a> Writer<'a> {
                 continue;
             }
 
-            let into = self.write_required_interface(interface);
+            match interface.definition { 
+                InterfaceCategory::DefaultInstance(definition) => {
+                    let into = self.write_required_interface(&definition, &interface.generics);
 
-            if interface.category == InterfaceCategory::DefaultInstance {
-                tokens.push(quote! {
+                    tokens.push(quote! {
                     impl<#constraints> From<#from<#generics>> for #into {
                         fn from(value: #from<#generics>) -> #into {
                             unsafe { std::mem::transmute(value) }
@@ -284,8 +285,10 @@ impl<'a> Writer<'a> {
                         }
                     }
                 });
-            } else {
-                tokens.push(quote! {
+            }
+                InterfaceCategory::Instance(definition) => {
+                    let into = self.write_required_interface(&definition, &interface.generics);
+                    tokens.push(quote! {
                     impl<#constraints> From<#from<#generics>> for #into {
                         fn from(value: #from<#generics>) -> #into {
                             #into::from(&value)
@@ -308,12 +311,13 @@ impl<'a> Writer<'a> {
                     }
                 });
             }
+            }
         }
 
         TokenStream::from_iter(tokens)
     }
 
-    fn write_class_methods(&mut self, class: &TypeDef) -> TokenStream {
+    fn write_required_methods(&mut self, interface: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::new();
 
         for attribute in class.attributes(self.r) {
@@ -425,14 +429,14 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_required_interface(&mut self, info: &Interface) -> TokenStream {
-        let namespace = self.write_namespace_name(info.definition.namespace(self.r));
-        let name = info.definition.name(self.r);
+    fn write_required_interface(&mut self, interface: &TypeDef, generics: &Vec<Vec<TokenStream>>) -> TokenStream {
+        let namespace = self.write_namespace_name(interface.namespace(self.r));
+        let name = interface.name(self.r);
 
         if name.chars().rev().skip(1).next() == Some('`') {
             let name = &name[..name.len() - 2];
             let name = write_ident(name);
-            let generics = info.generics.last().unwrap();
+            let generics = generics.last().unwrap();
             quote! { #namespace#name::<#(#generics),*> }
         } else {
             let name = write_ident(name);
@@ -1351,16 +1355,14 @@ impl<'a> Writer<'a> {
 
         //     if name == "StaticAttribute" {
         //         let interface = self.factory_type(&attribute).unwrap();
-        //         if self.limits.contains(interface.namespace(self.r)) {
-        //             tokens.push(self.write_class_statics(class, &interface));
-        //         }
+        //         let limited = !self.limits.contains(interface.namespace(self.r));
+        //         result.push(Interface { interface, generics: Vec::new(), overridable:false, exclusive:true, limited, category: InterfaceCategory::Static });
         //     } else if name == "ActivatableAttribute" {
         //         if let Some(interface) = self.factory_type(&attribute) {
-        //             if self.limits.contains(interface.namespace(self.r)) {
-        //                 tokens.push(self.write_class_statics(class, &interface));
-        //             }
+        //             let limited = !self.limits.contains(interface.namespace(self.r));
+        //             result.push(Interface { interface, generics: Vec::new(), overridable:false, exclusive:true, limited, category: InterfaceCategory::Activatable });
         //         } else {
-        //             // TODO: code default constructor "new"
+        //             result.push(Interface { interface, generics: Vec::new(), overridable:false, exclusive:true, limited:false, category: InterfaceCategory::DefaultActivatable });
         //         }
         //     }
         // }
@@ -1379,20 +1381,19 @@ fn write_ident(name: &str) -> Ident {
 
 #[derive(PartialEq)]
 enum InterfaceCategory {
-    Instance,
-    DefaultInstance,
-    Static,
-    Activatable,
+    Instance(TypeDef),
+    DefaultInstance(TypeDef),
+    Static(TypeDef),
+    Activatable(TypeDef),
     DefaultActivatable,
 }
 
 struct Interface {
-    definition: TypeDef,
+    definition: InterfaceCategory,
     generics: Vec<Vec<TokenStream>>,
     overridable: bool,
     exclusive: bool,
-    limited: bool, // TODO: why not just elide interface from list?
-    category: InterfaceCategory,
+    limited: bool, // We don't just elide from the list because we need to deal with classes who's default interface is limited.
 }
 
 #[derive(PartialEq)]
