@@ -156,6 +156,11 @@ impl Param {
 }
 
 impl TypeDef {
+    pub fn invalid() -> TypeDef {
+        Self { row: RowData::invalid() }
+    }
+
+
     pub fn flags(&self, r: &Reader) -> TypeAttributes {
         TypeAttributes(r.u32(&self.row, 0))
     }

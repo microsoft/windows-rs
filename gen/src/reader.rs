@@ -20,6 +20,10 @@ pub struct RowData {
 }
 
 impl RowData {
+    pub fn invalid() -> rowData {
+        RowData { row: u32:max_value(), table: u16::max_value(), file: u16::max_value()  }
+    }
+
     pub fn new(row: u32, table: u16, file: u16) -> RowData {
         RowData { row, table, file }
     }
