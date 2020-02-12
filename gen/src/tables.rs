@@ -223,6 +223,28 @@ impl TypeDef {
             }
         }
     }
+
+    // TODO: should return BaseIterator
+    pub fn bases(&self, r:&Reader) -> Vec::<TypeDef> {
+        let mut bases = Vec::new();
+        let mut current = *self;
+
+        loop {
+            let extends = current.extends(r);
+            let namespace = extends.namespace(r);
+            let name = extends.name(r);
+
+            if (namespace == "System" && name == "Object")
+            {
+                break;
+            }
+
+            current = extends.resolve(r);
+            bases.push(current);
+        }
+
+        bases
+    }
 }
 
 impl TypeRef {

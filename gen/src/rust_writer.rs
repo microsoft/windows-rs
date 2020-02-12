@@ -430,7 +430,7 @@ impl<'a> Writer<'a> {
         let abi_methods = self.write_abi_methods(&interface);
         let consume_methods = self.write_consume_methods(interface);
 
-        let interfaces = self.interfaces(interface);
+        let interfaces = self.interface_interfaces(interface);
         let required_methods = self.write_required_methods(interface, &interfaces);
 
         let generics = self.write_generics();
@@ -1273,9 +1273,9 @@ impl<'a> Writer<'a> {
         GenericGuard::new(self, interface.generics.len())
     }
 
-    fn add_interfaces(&mut self, result: &mut Vec<Interface>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>) {
+    fn add_interfaces(&mut self, result: &mut Vec<Interface>, parent_generics: &Vec<Vec<TokenStream>>, children: RowIterator<InterfaceImpl>, find_default: bool) {
         for i in children {
-            let category = if i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute") { InterfaceCategory::DefaultInstance } else { InterfaceCategory::Instance };
+            let category = if find_default && i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute") { InterfaceCategory::DefaultInstance } else { InterfaceCategory::Instance };
 
             let overridable = i.has_attribute(self.r, "Windows.Foundation.Metadata", "OverridableAttribute");
             let mut generics = parent_generics.to_vec();
@@ -1302,7 +1302,7 @@ impl<'a> Writer<'a> {
                 let exclusive = definition.has_attribute(self.r, "Windows.Foundation.Metadata", "ExclusiveToAttribute");
                 // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
                 result.insert(index, Interface { definition, generics: generics.clone(), overridable, exclusive, limited, category });
-                self.add_interfaces(result, &generics, definition.interfaces(self.r));
+                self.add_interfaces(result, &generics, definition.interfaces(self.r), false);
             }
 
             if pop_generics {
@@ -1311,18 +1311,20 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn interfaces(&mut self, t: &TypeDef) -> Vec<Interface> {
+    fn interface_interfaces(&mut self, interface: &TypeDef) -> Vec<Interface> {
         let mut result = Vec::new();
-
-        self.add_interfaces(&mut result, &Vec::new(), t.interfaces(self.r));
-
-        // TODO: add base class interfaces
-
+        self.add_interfaces(&mut result, &Vec::new(), interface.interfaces(self.r), false);
         result
     }
 
     fn class_interfaces(&mut self, class: &TypeDef) -> Vec<Interface> {
-        let mut result = self.interfaces(class);
+        let mut result = Vec::new();
+
+        self.add_interfaces(&mut result, &Vec::new(), class.interfaces(self.r), true);
+
+        for base in class.bases(self.r) {
+            self.add_interfaces(&mut result, &Vec::new(), class.interfaces(self.r), false);
+        }
 
         for attribute in class.attributes(self.r) {
             let (_, name) = attribute.name(self.r);
