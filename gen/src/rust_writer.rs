@@ -1323,7 +1323,7 @@ impl<'a> Writer<'a> {
         self.add_interfaces(&mut result, &Vec::new(), class.interfaces(self.r), true);
 
         for base in class.bases(self.r) {
-            self.add_interfaces(&mut result, &Vec::new(), class.interfaces(self.r), false);
+            self.add_interfaces(&mut result, &Vec::new(), base.interfaces(self.r), false);
         }
 
         for attribute in class.attributes(self.r) {
