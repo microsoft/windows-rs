@@ -229,8 +229,8 @@ impl<'a> Writer<'a> {
             }
         }
     }
-    
-    fn write_base_conversions(&mut self, class:&TypeDef, from: &Ident) -> TokenStream {
+
+    fn write_base_conversions(&mut self, class: &TypeDef, from: &Ident) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
         for base in class.bases(self.r) {
@@ -772,7 +772,7 @@ impl<'a> Writer<'a> {
 
         if let Some(generics) = self.generics.last() {
             for generic in generics {
-                tokens.push(quote! { #generic : winrt::RuntimeType, })
+                tokens.push(quote! { #generic : winrt::RuntimeType + 'static, })
             }
         }
 
@@ -994,26 +994,31 @@ impl<'a> Writer<'a> {
     // write_consume_params
     //
 
-    fn write_consume_into_params(&self, signature: &MethodSig) -> TokenStream {
+    fn write_consume_into_params(&mut self, signature: &MethodSig) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
         for (count, param) in signature.params().iter().enumerate() {
-            // TODO: don't do convertible for array params?
+            if !param.input() {
+                continue;
+            }
+
+            // TODO: make sure array input params can accept a slice/array/vector
             if param.array() {
                 continue;
             }
 
-            // TODO: use ParamCategory here
-
+            let category = param.definition().category(self.r);
             let type_param = format_ident!("__{}", count);
 
-            if let TypeSigType::ElementType(ElementType::String) = param.definition().definition() {
-                if param.input() {
-                    tokens.push(quote! { #type_param: Into<winrt::StringParam<'a>>,});
+            match category {
+                ParamCategory::String => tokens.push(quote! { #type_param: Into<winrt::StringParam<'a>>,}),
+                ParamCategory::Object => {
+                    let into = self.write_type(param.definition());
+                    tokens.push(quote! { #type_param: Into<winrt::Param<'a, #into>>,});
                 }
+                // TODO: add structs
+                _ => {}
             }
-
-            // TODO: handle other convertible input types...
         }
 
         if !tokens.is_empty() {
@@ -1048,7 +1053,7 @@ impl<'a> Writer<'a> {
             }
         } else if param.input() {
             match param.definition().category(self.r) {
-                ParamCategory::String => {
+                ParamCategory::String | ParamCategory::Object => {
                     let type_param = format_ident!("__{}", count);
                     quote! { #type_param, }
                 }
@@ -1084,7 +1089,7 @@ impl<'a> Writer<'a> {
         } else if param.input() {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
-                ParamCategory::String => quote! { #name.into().abi(), },
+                ParamCategory::String | ParamCategory::Object => quote! { #name.into().abi(), },
                 _ => quote! { winrt::RuntimeType::abi(#name), },
             }
         } else {
