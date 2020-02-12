@@ -11,6 +11,7 @@ pub struct Error {
     // TODO: add `info: IErrorInfo`
 }
 
+#[must_use]
 pub type Result<T> = std::result::Result<T, Error>;
 
 impl Error {
