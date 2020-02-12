@@ -170,7 +170,8 @@ impl<'a> Writer<'a> {
         let interfaces = self.class_interfaces(class);
         let methods = self.write_required_methods(class, &interfaces);
         let empty = TokenStream::new();
-        let froms = self.write_from_traits(&name, &empty, &empty, &interfaces);
+        let froms = self.write_interface_conversions(&name, &empty, &empty, &interfaces);
+        let bases = self.write_base_conversions(class, &name);
 
         if let Some(default) = interfaces.iter().find(|interface| interface.category == InterfaceCategory::DefaultInstance) {
             // TODO: this will need generic GUID generation support
@@ -214,6 +215,7 @@ impl<'a> Writer<'a> {
                     }
                 }
                 #froms
+                #bases
             }
         } else {
             quote! {
@@ -227,8 +229,40 @@ impl<'a> Writer<'a> {
             }
         }
     }
+    
+    fn write_base_conversions(&mut self, class:&TypeDef, from: &Ident) -> TokenStream {
+        let mut tokens = Vec::<TokenStream>::new();
 
-    fn write_from_traits(&mut self, from: &Ident, constraints: &TokenStream, generics: &TokenStream, interfaces: &Vec<Interface>) -> TokenStream {
+        for base in class.bases(self.r) {
+            let into = self.write_type_def(&base);
+            tokens.push(quote! {
+                impl From<#from> for #into {
+                    fn from(value: #from) -> #into {
+                        #into::from(&value)
+                    }
+                }
+                impl From<&#from> for #into {
+                    fn from(value: &#from) -> #into {
+                        winrt::QueryType::query(value)
+                    }
+                }
+                impl<'a> Into<winrt::Param<'a, #into>> for #from {
+                    fn into(self) -> winrt::Param<'a, #into> {
+                        winrt::Param::Value(self.into())
+                    }
+                }
+                impl<'a> Into<winrt::Param<'a, #into>> for &'a #from {
+                    fn into(self) -> winrt::Param<'a, #into> {
+                        winrt::Param::Value(self.into())
+                    }
+                }
+            });
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_interface_conversions(&mut self, from: &Ident, constraints: &TokenStream, generics: &TokenStream, interfaces: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
         tokens.push(quote! {
@@ -438,7 +472,7 @@ impl<'a> Writer<'a> {
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
         let empty = TokenStream::new();
-        let froms = self.write_from_traits(&name, &constraints, &generics, &interfaces);
+        let froms = self.write_interface_conversions(&name, &constraints, &generics, &interfaces);
 
         quote! {
             #[repr(C)]
