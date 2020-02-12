@@ -1,46 +1,80 @@
 use crate::*;
 
+pub type RawPtr = *mut std::ffi::c_void;
+
 #[repr(C)]
-pub struct IUnknown {
-    query:
-        extern "system" fn(*const std::ffi::c_void, &Guid, *mut *mut std::ffi::c_void) -> ErrorCode,
-    addref: extern "system" fn(*const std::ffi::c_void) -> u32,
-    release: extern "system" fn(*const std::ffi::c_void) -> u32,
+pub struct ComPtr {
+    ptr: RawPtr,
 }
 
-impl IUnknown {
-    pub fn query(ptr: *const std::ffi::c_void, guid: &Guid) -> *const std::ffi::c_void {
+pub fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
+    unsafe {
+        let mut result = std::ptr::null_mut();
+        if !ptr.is_null() {
+            ((*(*(ptr as *const *const IUnknown))).query)(ptr, I::type_guid(), &mut result);
+        }
+        result
+    }
+}
+
+impl ComPtr {
+    pub fn addref(ptr: RawPtr) -> ComPtr {
         unsafe {
-            let mut result = std::ptr::null_mut();
-            ((*(*(ptr as *const *const Self))).query)(ptr, guid, &mut result);
-            result
+            if !ptr.is_null() {
+                ((*(*(ptr as *const *const IUnknown))).addref)(ptr);
+            }
+            ComPtr { ptr }
         }
     }
 
-    pub fn addref(ptr: *const std::ffi::c_void) -> u32 {
-        unsafe { ((*(*(ptr as *const *const Self))).addref)(ptr) }
+    pub fn query<I: QueryType>(&self) -> ComPtr {
+        ComPtr { ptr: query::<I>(self.ptr) }
     }
 
-    pub fn release(ptr: *const std::ffi::c_void) -> u32 {
-        unsafe { ((*(*(ptr as *const *const Self))).release)(ptr) }
+    pub fn get(&self) -> RawPtr {
+        self.ptr
+    }
+
+    pub fn set(&mut self) -> *mut RawPtr {
+        unsafe {
+            if !self.ptr.is_null() {
+                ((*(*(self.ptr as *const *const IUnknown))).release)(self.ptr);
+                self.ptr = std::ptr::null_mut();
+            }
+            &mut self.ptr
+        }
+    }
+
+    pub fn is_null(&self) -> bool {
+        self.ptr.is_null()
+    }
+}
+
+impl Default for ComPtr {
+    fn default() -> Self {
+        Self { ptr: std::ptr::null_mut() }
+    }
+}
+
+impl Clone for ComPtr {
+    fn clone(&self) -> ComPtr {
+        ComPtr::addref(self.ptr)
+    }
+}
+
+impl Drop for ComPtr {
+    fn drop(&mut self) {
+        unsafe {
+            if !self.ptr.is_null() {
+                ((*(*(self.ptr as *const *const IUnknown))).release)(self.ptr);
+            }
+        }
     }
 }
 
 #[repr(C)]
-pub struct IInspectable {
-    abi_0: usize,
-    abi_1: usize,
-    abi_2: usize,
-    abi_3: usize,
-    type_name: extern "system" fn(*const std::ffi::c_void, *mut *mut std::ffi::c_void) -> ErrorCode,
-}
-
-impl IInspectable {
-    pub fn type_name(ptr: *const std::ffi::c_void) -> String {
-        unsafe {
-            let mut hstring = std::ptr::null_mut();
-            ((*(*(ptr as *const *const Self))).type_name)(ptr, &mut hstring);
-            String { hstring }
-        }
-    }
+struct IUnknown {
+    query: extern "system" fn(RawPtr, &Guid, *mut RawPtr) -> ErrorCode,
+    addref: extern "system" fn(RawPtr) -> u32,
+    release: extern "system" fn(RawPtr) -> u32,
 }
