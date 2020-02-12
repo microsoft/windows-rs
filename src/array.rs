@@ -30,6 +30,6 @@ impl<T: RuntimeType> Array<T> {
 
 impl<T: RuntimeType> Drop for Array<T> {
     fn drop(&mut self) {
-        // CoTaskMemFree
+        // TODO: CoTaskMemFree
     }
 }

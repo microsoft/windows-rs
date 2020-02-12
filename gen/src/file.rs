@@ -65,24 +65,6 @@ impl TableData {
             *data = next;
         }
     }
-
-    // TODO: move u32 and str to file and simply take a Row param
-
-    // pub fn u32(&self, file: &File, row: u32, column: u32) -> u32 {
-    //     let offset = self.data + row * self.row_size + self.columns[column as usize].0;
-    //     match self.columns[column as usize].1 {
-    //         1 => *(file.bytes.view_as::<u8>(offset).unwrap()) as u32,
-    //         2 => *(file.bytes.view_as::<u16>(offset).unwrap()) as u32,
-    //         4 => *(file.bytes.view_as::<u32>(offset).unwrap()) as u32,
-    //         _ => *(file.bytes.view_as::<u64>(offset).unwrap()) as u32,
-    //     }
-    // }
-
-    // pub fn str<'a>(&self, file: &'a File, row: u32, column: u32) -> &'a str {
-    //     let offset = (file.strings + self.u32(file, row, column)) as usize;
-    //     let last = file.bytes[offset..].iter().position(|c| *c == b'\0').unwrap();
-    //     std::str::from_utf8(&file.bytes[offset..offset + last]).unwrap()
-    // }
 }
 
 impl File {
@@ -317,35 +299,6 @@ impl File {
 
         Ok(file)
     }
-
-    // pub fn u32(&self, row: &Row, column: u32) -> u32 {
-    //     let table = &self.tables[row.table as usize];
-    //     let offset = table.data + row.row * table.row_size + table.columns[column as usize].0;
-    //     match table.columns[column as usize].1 {
-    //         1 => *(self.bytes.view_as::<u8>(offset).unwrap()) as u32,
-    //         2 => *(self.bytes.view_as::<u16>(offset).unwrap()) as u32,
-    //         4 => *(self.bytes.view_as::<u32>(offset).unwrap()) as u32,
-    //         _ => *(self.bytes.view_as::<u64>(offset).unwrap()) as u32,
-    //     }
-    // }
-
-    // pub fn str(&self, row: &Row, column: u32) -> &str {
-    //     let offset = (self.strings + self.u32(row, column)) as usize;
-    //     let last = self.bytes[offset..].iter().position(|c| *c == b'\0').unwrap();
-    //     std::str::from_utf8(&self.bytes[offset..offset + last]).unwrap()
-    // }
-
-    // table_fn!(constant);
-    // table_fn!(custom_attribute);
-    // table_fn!(field);
-    // table_fn!(generic_param);
-    // table_fn!(interface_impl);
-    // table_fn!(member_ref);
-    // table_fn!(method_def);
-    // table_fn!(param);
-    // table_fn!(type_def);
-    // table_fn!(type_ref);
-    // table_fn!(type_spec);
 }
 
 fn section_from_rva(sections: &[ImageSectionHeader], rva: u32) -> ParseResult<&ImageSectionHeader> {

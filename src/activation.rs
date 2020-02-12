@@ -29,15 +29,10 @@ pub struct IActivationFactory {
 }
 
 impl IActivationFactory {
-    // pub fn activate_instance(&self) -> Result<Object> {
-    //     unsafe {
-    //         let mut ptr = std::ptr::null_mut();
-    //         ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(self.ptr.get(), &mut ptr).ok_or(std::mem::transmute(ptr))
-    //     }
-    // }
     pub fn activate_instance<I: QueryType>(&self) -> Result<I> {
         unsafe {
             let mut ptr = std::ptr::null_mut();
+            // TODO: this is cheating - we need a QI here...
             ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(self.ptr.get(), &mut ptr).ok_or(std::mem::transmute_copy(&ptr))
         }
     }

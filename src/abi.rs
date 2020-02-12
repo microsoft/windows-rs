@@ -7,10 +7,6 @@ pub struct ComPtr {
     ptr: RawPtr,
 }
 
-// pub fn take_ownership<T, R>(value: R) -> T {
-//     unsafe{ std::mem::transmute_copy(&value) }
-// }
-
 pub fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
     unsafe {
         let mut result = std::ptr::null_mut();
