@@ -863,15 +863,25 @@ impl<'a> Writer<'a> {
 
         let namespace = t.namespace(self.r);
         let name = t.name(self.r);
-        let type_name = write_ident(name);
+        let name = write_ident(name);
 
         let fields = self.write_struct_fields(&t);
 
         quote! {
             #[repr(C)]
             #[derive(Copy, Clone, Default, Debug, PartialEq)]
-            pub struct #type_name { #fields }
-            impl winrt::RuntimeCopy for #type_name {}
+            pub struct #name { #fields }
+            impl winrt::RuntimeCopy for #name {}
+            impl<'a> Into<winrt::Param<'a, #name>> for #name {
+                fn into(self) -> winrt::Param<'a, #name> {
+                    winrt::Param::Value(self)
+                }
+            }
+            impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
+                fn into(self) -> winrt::Param<'a, #name> {
+                    winrt::Param::Ref(self)
+                }
+            }
         }
         // TODO: RuntimeType for non-blittable structs needs to be customized
     }
@@ -1012,11 +1022,10 @@ impl<'a> Writer<'a> {
 
             match category {
                 ParamCategory::String => tokens.push(quote! { #type_param: Into<winrt::StringParam<'a>>,}),
-                ParamCategory::Object => {
+                ParamCategory::Object | ParamCategory::Struct => {
                     let into = self.write_type(param.definition());
                     tokens.push(quote! { #type_param: Into<winrt::Param<'a, #into>>,});
                 }
-                // TODO: add structs
                 _ => {}
             }
         }
@@ -1053,7 +1062,7 @@ impl<'a> Writer<'a> {
             }
         } else if param.input() {
             match param.definition().category(self.r) {
-                ParamCategory::String | ParamCategory::Object => {
+                ParamCategory::String | ParamCategory::Object | ParamCategory::Struct => {
                     let type_param = format_ident!("__{}", count);
                     quote! { #type_param, }
                 }
@@ -1089,7 +1098,7 @@ impl<'a> Writer<'a> {
         } else if param.input() {
             match category {
                 ParamCategory::Enum | ParamCategory::Primitive => quote! { #name, },
-                ParamCategory::String | ParamCategory::Object => quote! { #name.into().abi(), },
+                ParamCategory::String | ParamCategory::Object | ParamCategory::Struct => quote! { #name.into().abi(), },
                 _ => quote! { winrt::RuntimeType::abi(#name), },
             }
         } else {
