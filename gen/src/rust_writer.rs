@@ -468,12 +468,7 @@ impl<'a> Writer<'a> {
             pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
             struct #abi_name<#constraints> {
-                __0: usize,
-                __1: usize,
-                __2: usize,
-                __3: usize,
-                __4: usize,
-                __5: usize,
+                __base: [usize; 6],
                 #abi_methods
                 #phantoms
             }
@@ -807,9 +802,7 @@ impl<'a> Writer<'a> {
             pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
             struct #abi_name<#constraints> {
-                __0: usize,
-                __1: usize,
-                __2: usize,
+                __base: [usize; 3],
                 #abi_methods
                 #phantoms
             }
