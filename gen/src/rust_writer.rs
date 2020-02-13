@@ -69,7 +69,7 @@ impl RustWriter {
     }
 
     pub fn add_namespace(&mut self, namespace: &str) {
-        let found = self.r.namespaces().keys().find(|name| name.to_lowercase() == namespace).unwrap_or_else(||  panic!("Namespace `{}` not found in winmd files", namespace));
+        let found = self.r.namespaces().keys().find(|name| name.to_lowercase() == namespace).unwrap_or_else(|| panic!("Namespace `{}` not found in winmd files", namespace));
         let mut namespace = found.as_str();
         self.limits.insert(namespace.to_string());
 
