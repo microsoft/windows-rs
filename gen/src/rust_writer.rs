@@ -347,11 +347,7 @@ impl<'a> Writer<'a> {
     fn write_required_methods(&mut self, class: &TypeDef, interfaces: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        for interface in interfaces {
-            if interface.limited {
-                continue;
-            }
-
+        for interface in interfaces.iter().filter(|interface| !interface.limited) {
             match interface.category {
                 InterfaceCategory::Instance | InterfaceCategory::DefaultInstance => {
                     let mut guard = self.push_generic_required_interface(&interface);
