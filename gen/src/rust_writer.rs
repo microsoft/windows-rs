@@ -151,7 +151,7 @@ impl<'a> Writer<'a> {
         for t in self.r.namespace_types(namespace) {
             tokens.push(match t.category(self.r) {
                 TypeCategory::Interface => self.write_interface(t),
-                TypeCategory::Class => self.write_class(t),
+                TypeCategory::Class => self.write_class(namespace, t),
                 TypeCategory::Enum => self.write_enum(t),
                 TypeCategory::Struct => self.write_struct(t),
                 TypeCategory::Delegate => self.write_delegate(t),
@@ -162,8 +162,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_class(&mut self, class: &TypeDef) -> TokenStream {
-        let namespace = class.namespace(self.r);
+    fn write_class(&mut self, namespace: &str, class: &TypeDef) -> TokenStream {
         let name = class.name(self.r);
         let string_name = format!("{}.{}", namespace, name);
         let name = write_ident(name);
