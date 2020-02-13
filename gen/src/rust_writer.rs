@@ -30,9 +30,9 @@ trait NamespaceWriter {
 impl NamespaceWriter for BTreeMap<String, Namespace> {
     fn insert_namespace(&mut self, namespace: &str, types: TokenStream) {
         if let Some(pos) = namespace.find('.') {
-            self.entry(namespace[..pos].to_string()).or_insert_with(|| Default::default()).namespaces.insert_namespace(&namespace[pos + 1..], types);
+            self.entry(namespace[..pos].to_string()).or_default().namespaces.insert_namespace(&namespace[pos + 1..], types);
         } else {
-            self.entry(namespace.to_string()).or_insert_with(|| Default::default()).types = types;
+            self.entry(namespace.to_string()).or_default().types = types;
         }
     }
 
