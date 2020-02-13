@@ -510,6 +510,7 @@ impl<'a> Writer<'a> {
     fn write_abi_methods(&mut self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
+        // TODO: `for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {`
         for method in interface.methods(self.r) {
             let name = method.name(self.r);
             if name == ".ctor" {
