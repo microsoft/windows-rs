@@ -510,12 +510,7 @@ impl<'a> Writer<'a> {
     fn write_abi_methods(&self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
-        // TODO: `for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {`
-        for method in interface.methods(self.r) {
-            let name = method.name(self.r);
-            if name == ".ctor" {
-                continue;
-            }
+        for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {
 
             let name = self.write_method_name(&method);
             let signature = method.signature(self.r);
@@ -592,6 +587,8 @@ impl<'a> Writer<'a> {
         let namespace = self.write_namespace_name(interface.namespace(self.r));
         let abi_name = self.write_generic_abi_name(interface);
 
+        // TODO: can't simply this because self is mutable?
+        // for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {
         for method in interface.methods(self.r) {
             let name = method.name(self.r);
 
