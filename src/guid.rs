@@ -7,8 +7,6 @@ pub struct Guid {
     data4: [u8; 8],
 }
 
-// TODO: impl Debug trait directly to print Guid properly
-
 impl Guid {
     pub const fn from_values(data1: u32, data2: u16, data3: u16, data4: &[u8; 8]) -> Guid {
         Guid { data1, data2, data3, data4: *data4 }
