@@ -511,7 +511,6 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::new();
 
         for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {
-
             let name = self.write_method_name(&method);
             let signature = method.signature(self.r);
 
@@ -986,11 +985,7 @@ impl<'a> Writer<'a> {
     fn write_consume_into_params(&mut self, signature: &MethodSig) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        for (count, param) in signature.params().iter().enumerate() {
-            if !param.input() {
-                continue;
-            }
-
+        for (count, param) in signature.params().iter().filter(|param| param.input()).enumerate() {
             // TODO: make sure array input params can accept a slice/array/vector
             if param.array() {
                 continue;
