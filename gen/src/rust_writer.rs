@@ -363,7 +363,6 @@ impl<'a> Writer<'a> {
                         }
                     });
                 }
-                _ => {}
             }
         }
 
@@ -459,7 +458,6 @@ impl<'a> Writer<'a> {
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
-        let empty = TokenStream::new();
         let froms = self.write_interface_conversions(&name, &constraints, &generics, &interfaces);
 
         quote! {
@@ -673,7 +671,6 @@ impl<'a> Writer<'a> {
     }
 
     fn write_enum(&self, t: &TypeDef) -> TokenStream {
-        let namespace = t.namespace(self.r);
         let name = t.name(self.r);
         let type_name = write_ident(name);
 
@@ -839,7 +836,6 @@ impl<'a> Writer<'a> {
     fn write_struct(&mut self, t: &TypeDef) -> TokenStream {
         // TODO: skip EventRegistrationToken
 
-        let namespace = t.namespace(self.r);
         let name = t.name(self.r);
         let name = write_ident(name);
 

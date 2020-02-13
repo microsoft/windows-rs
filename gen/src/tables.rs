@@ -234,7 +234,7 @@ impl TypeDef {
             let namespace = extends.namespace(r);
             let name = extends.name(r);
 
-            if (namespace == "System" && name == "Object") {
+            if namespace == "System" && name == "Object" {
                 break;
             }
 
