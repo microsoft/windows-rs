@@ -284,11 +284,7 @@ impl<'a> Writer<'a> {
             }
         });
 
-        for interface in interfaces {
-            if interface.limited {
-                continue;
-            }
-
+        for interface in interfaces.iter().filter(|interface| !interface.limited) {
             match interface.category {
                 InterfaceCategory::DefaultInstance => {
                     let into = self.write_required_interface(&interface.definition, &interface.generics);
