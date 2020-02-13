@@ -1391,17 +1391,17 @@ struct Interface {
     category: InterfaceCategory,
 }
 
-#[derive(PartialEq)]
-enum MethodCategory {
-    Normal,
-    Get,
-    Put,
-    Add,
-    Remove,
-}
+// #[derive(PartialEq)]
+// enum MethodCategory {
+//     Normal,
+//     Get,
+//     Put,
+//     Add,
+//     Remove,
+// }
 
-struct Method<'a> {
-    sig: MethodSig,
-    category: MethodCategory,
-    interface: &'a Interface,
-}
+// struct Method<'a> {
+//     sig: MethodSig,
+//     category: MethodCategory,
+//     interface: &'a Interface,
+// }
