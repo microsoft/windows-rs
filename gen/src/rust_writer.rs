@@ -69,19 +69,16 @@ impl RustWriter {
     }
 
     pub fn add_namespace(&mut self, namespace: &str) {
-        if let Some(found) = self.r.namespaces().keys().find(|name| name.to_lowercase() == namespace) {
-            let mut namespace = found.as_str();
-            self.limits.insert(namespace.to_string());
+        let found = self.r.namespaces().keys().find(|name| name.to_lowercase() == namespace).unwrap_or_else(||  panic!("Namespace `{}` not found in winmd files", namespace));
+        let mut namespace = found.as_str();
+        self.limits.insert(namespace.to_string());
 
-            while let Some(index) = namespace.rfind('.') {
-                namespace = namespace.get(0..index).unwrap();
+        while let Some(index) = namespace.rfind('.') {
+            namespace = namespace.get(0..index).unwrap();
 
-                if self.r.namespaces().contains_key(namespace) {
-                    self.limits.insert(namespace.to_string());
-                }
+            if self.r.namespaces().contains_key(namespace) {
+                self.limits.insert(namespace.to_string());
             }
-        } else {
-            panic!("Namespace `{}` not found in winmd files", namespace);
         }
     }
 
