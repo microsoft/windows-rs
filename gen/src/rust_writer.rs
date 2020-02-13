@@ -226,7 +226,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_base_conversions(&mut self, class: &TypeDef, from: &Ident) -> TokenStream {
+    fn write_base_conversions(&self, class: &TypeDef, from: &Ident) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
         for base in class.bases(self.r) {
@@ -408,7 +408,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_guid(&mut self, t: &TypeDef) -> TokenStream {
+    fn write_guid(&self, t: &TypeDef) -> TokenStream {
         let guid = t.find_attribute(self.r, "Windows.Foundation.Metadata", "GuidAttribute").unwrap();
         let args = guid.arguments(self.r);
 
@@ -426,7 +426,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_required_interface(&mut self, interface: &TypeDef, generics: &Vec<Vec<TokenStream>>) -> TokenStream {
+    fn write_required_interface(&self, interface: &TypeDef, generics: &Vec<Vec<TokenStream>>) -> TokenStream {
         let namespace = self.write_namespace_name(interface.namespace(self.r));
         let name = interface.name(self.r);
 
@@ -507,7 +507,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_methods(&mut self, interface: &TypeDef) -> TokenStream {
+    fn write_abi_methods(&self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
         // TODO: `for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {`
@@ -676,7 +676,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_enum(&mut self, t: &TypeDef) -> TokenStream {
+    fn write_enum(&self, t: &TypeDef) -> TokenStream {
         let namespace = t.namespace(self.r);
         let name = t.name(self.r);
         let type_name = write_ident(name);
@@ -706,7 +706,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_enum_fields(&mut self, t: &TypeDef) -> TokenStream {
+    fn write_enum_fields(&self, t: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
         for f in t.fields(self.r) {
@@ -728,7 +728,7 @@ impl<'a> Writer<'a> {
         guard.write_generic_delegate(interface)
     }
 
-    fn write_generic_phantoms(&mut self) -> TokenStream {
+    fn write_generic_phantoms(&self) -> TokenStream {
         if let Some(generics) = self.generics.last() {
             let mut tokens = Vec::new();
 
@@ -887,7 +887,7 @@ impl<'a> Writer<'a> {
     // write_abi_params
     //
 
-    fn write_abi_params(&mut self, signature: &MethodSig) -> TokenStream {
+    fn write_abi_params(&self, signature: &MethodSig) -> TokenStream {
         let mut tokens: Vec<TokenStream> = signature.params().iter().map(|param| self.write_abi_param(param)).collect();
 
         if let Some(param) = signature.return_type() {
@@ -897,7 +897,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_abi_param(&mut self, param: &ParamSig) -> TokenStream {
+    fn write_abi_param(&self, param: &ParamSig) -> TokenStream {
         let tokens = match param.definition().definition() {
             TypeSigType::ElementType(value) => self.write_abi_param_element_type(value),
             TypeSigType::TypeDefOrRef(value) => self.write_abi_param_type(value),
@@ -920,7 +920,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_element_type(&mut self, value: &ElementType) -> TokenStream {
+    fn write_abi_param_element_type(&self, value: &ElementType) -> TokenStream {
         match value {
             ElementType::Bool => quote! { bool, },
             ElementType::Char => quote! { u16, },
@@ -939,7 +939,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_type(&mut self, value: &TypeDefOrRef) -> TokenStream {
+    fn write_abi_param_type(&self, value: &TypeDefOrRef) -> TokenStream {
         match value {
             TypeDefOrRef::TypeDef(value) => self.write_abi_param_type_def(value),
             TypeDefOrRef::TypeRef(value) => self.write_abi_param_type_ref(value),
@@ -947,7 +947,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_type_def(&mut self, value: &TypeDef) -> TokenStream {
+    fn write_abi_param_type_def(&self, value: &TypeDef) -> TokenStream {
         match value.category(self.r) {
             TypeCategory::Enum => {
                 let name = self.write_type_def(value);
@@ -967,7 +967,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_type_ref(&mut self, value: &TypeRef) -> TokenStream {
+    fn write_abi_param_type_ref(&self, value: &TypeRef) -> TokenStream {
         if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
             quote! { winrt::Guid, }
         } else {
@@ -975,7 +975,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_generic_index(&mut self, value: u32) -> TokenStream {
+    fn write_abi_param_generic_index(&self, value: u32) -> TokenStream {
         let last = self.generics.last().unwrap();
         let type_param = &last[value as usize];
 
@@ -1061,11 +1061,11 @@ impl<'a> Writer<'a> {
     // write_abi_args
     //
 
-    fn write_abi_args(&mut self, signature: &MethodSig) -> TokenStream {
+    fn write_abi_args(&self, signature: &MethodSig) -> TokenStream {
         TokenStream::from_iter(signature.params().iter().map(|param| self.write_abi_arg(param)))
     }
 
-    fn write_abi_arg(&mut self, param: &ParamSig) -> TokenStream {
+    fn write_abi_arg(&self, param: &ParamSig) -> TokenStream {
         let name = write_ident(param.name());
         let category = param.definition().category(self.r);
 
@@ -1142,7 +1142,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_type_element(&mut self, value: &ElementType) -> TokenStream {
+    fn write_type_element(&self, value: &ElementType) -> TokenStream {
         match value {
             ElementType::Bool => quote! { bool },
             ElementType::Char => quote! { u16 },
@@ -1161,7 +1161,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_type_def_or_ref(&mut self, value: &TypeDefOrRef) -> TokenStream {
+    fn write_type_def_or_ref(&self, value: &TypeDefOrRef) -> TokenStream {
         match value {
             TypeDefOrRef::TypeDef(value) => self.write_type_def(value),
             TypeDefOrRef::TypeRef(value) => self.write_type_ref(value),
@@ -1169,13 +1169,13 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_type_def(&mut self, value: &TypeDef) -> TokenStream {
+    fn write_type_def(&self, value: &TypeDef) -> TokenStream {
         let namespace = self.write_namespace_name(value.namespace(self.r));
         let name = write_ident(value.name(self.r));
         quote! { #namespace#name }
     }
 
-    fn write_type_ref(&mut self, value: &TypeRef) -> TokenStream {
+    fn write_type_ref(&self, value: &TypeRef) -> TokenStream {
         if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
             quote! { winrt::Guid }
         } else {
@@ -1195,7 +1195,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_type_generic_index(&mut self, value: u32) -> TokenStream {
+    fn write_type_generic_index(&self, value: u32) -> TokenStream {
         let last = self.generics.last().unwrap();
         let param = &last[value as usize];
         quote! { #param }
@@ -1205,7 +1205,7 @@ impl<'a> Writer<'a> {
     // Helpers
     //
 
-    fn factory_type(&mut self, attribute: &CustomAttribute) -> Option<TypeDef> {
+    fn factory_type(&self, attribute: &CustomAttribute) -> Option<TypeDef> {
         for (_, sig) in attribute.arguments(self.r) {
             if let ArgumentSig::TypeDef(interface) = sig {
                 return Some(interface);
@@ -1249,7 +1249,7 @@ impl<'a> Writer<'a> {
         write_ident(&result)
     }
 
-    fn write_namespace_name(&mut self, other: &str) -> TokenStream {
+    fn write_namespace_name(&self, other: &str) -> TokenStream {
         let mut tokens = Vec::new();
 
         let mut source = self.namespace.split('.').peekable();
