@@ -18,7 +18,6 @@ pub struct MethodSig {
 
 pub struct ParamSig {
     name: String,
-    modifiers: Vec<ModifierSig>,
     definition: TypeSig,
     input: bool,
     by_ref: bool,
@@ -26,7 +25,6 @@ pub struct ParamSig {
 
 pub struct TypeSig {
     array: bool,
-    modifiers: Vec<ModifierSig>,
     definition: TypeSigType,
 }
 
@@ -138,7 +136,7 @@ impl MethodSig {
         let param_count = read_unsigned(&mut bytes);
         ModifierSig::vec(method.row.file, &mut bytes);
         read_expected(&mut bytes, 0x10);
-        let return_type = if read_expected(&mut bytes, 0x01) { None } else { Some(ParamSig { name: String::new(), modifiers: Vec::new(), input: false, by_ref: true, definition: TypeSig::new(method.row.file, &mut bytes) }) };
+        let return_type = if read_expected(&mut bytes, 0x01) { None } else { Some(ParamSig { name: String::new(), input: false, by_ref: true, definition: TypeSig::new(method.row.file, &mut bytes) }) };
         let mut params = Vec::with_capacity(param_count as usize);
         for param in method.params(r) {
             if !return_type.is_some() || param.sequence(r) != 0 {
@@ -255,14 +253,14 @@ impl ParamSig {
         let modifiers = ModifierSig::vec(file, bytes);
         let by_ref = read_expected(bytes, 0x10);
         let definition = TypeSig::new(file, bytes);
-        ParamSig { name: name, modifiers, input, by_ref, definition }
+        ParamSig { name: name, input, by_ref, definition }
     }
 
     fn from_attribute(file: u16, bytes: &mut &[u8]) -> ParamSig {
         let modifiers = ModifierSig::vec(file, bytes);
         let by_ref = read_expected(bytes, 0x10);
         let definition = TypeSig::new(file, bytes);
-        ParamSig { name: String::new(), modifiers, input: true, by_ref, definition }
+        ParamSig { name: String::new(), input: true, by_ref, definition }
     }
 
     pub fn name(&self) -> &str {
@@ -318,7 +316,7 @@ impl TypeSig {
         let array = read_expected(bytes, 0x1D);
         let modifiers = ModifierSig::vec(file, bytes);
         let definition = TypeSigType::new(file, bytes);
-        TypeSig { array, modifiers, definition }
+        TypeSig { array, definition }
     }
 
     pub fn definition(&self) -> &TypeSigType {

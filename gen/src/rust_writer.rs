@@ -30,9 +30,9 @@ trait NamespaceWriter {
 impl NamespaceWriter for BTreeMap<String, Namespace> {
     fn insert_namespace(&mut self, namespace: &str, types: TokenStream) {
         if let Some(pos) = namespace.find('.') {
-            self.entry(namespace[..pos].to_string()).or_insert_with(|| Default::default()).namespaces.insert_namespace(&namespace[pos + 1..], types);
+            self.entry(namespace[..pos].to_string()).or_default().namespaces.insert_namespace(&namespace[pos + 1..], types);
         } else {
-            self.entry(namespace.to_string()).or_insert_with(|| Default::default()).types = types;
+            self.entry(namespace.to_string()).or_default().types = types;
         }
     }
 
@@ -69,19 +69,16 @@ impl RustWriter {
     }
 
     pub fn add_namespace(&mut self, namespace: &str) {
-        if let Some(found) = self.r.namespaces().keys().find(|name| name.to_lowercase() == namespace) {
-            let mut namespace = found.as_str();
-            self.limits.insert(namespace.to_string());
+        let found = self.r.namespaces().keys().find(|name| name.to_lowercase() == namespace).unwrap_or_else(|| panic!("Namespace `{}` not found in winmd files", namespace));
+        let mut namespace = found.as_str();
+        self.limits.insert(namespace.to_string());
 
-            while let Some(index) = namespace.rfind('.') {
-                namespace = namespace.get(0..index).unwrap();
+        while let Some(index) = namespace.rfind('.') {
+            namespace = namespace.get(0..index).unwrap();
 
-                if self.r.namespaces().contains_key(namespace) {
-                    self.limits.insert(namespace.to_string());
-                }
+            if self.r.namespaces().contains_key(namespace) {
+                self.limits.insert(namespace.to_string());
             }
-        } else {
-            panic!("Namespace `{}` not found in winmd files", namespace);
         }
     }
 
@@ -229,7 +226,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_base_conversions(&mut self, class: &TypeDef, from: &Ident) -> TokenStream {
+    fn write_base_conversions(&self, class: &TypeDef, from: &Ident) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
         for base in class.bases(self.r) {
@@ -287,11 +284,7 @@ impl<'a> Writer<'a> {
             }
         });
 
-        for interface in interfaces {
-            if interface.limited {
-                continue;
-            }
-
+        for interface in interfaces.iter().filter(|interface| !interface.limited) {
             match interface.category {
                 InterfaceCategory::DefaultInstance => {
                     let into = self.write_required_interface(&interface.definition, &interface.generics);
@@ -354,11 +347,7 @@ impl<'a> Writer<'a> {
     fn write_required_methods(&mut self, class: &TypeDef, interfaces: &Vec<Interface>) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        for interface in interfaces {
-            if interface.limited {
-                continue;
-            }
-
+        for interface in interfaces.iter().filter(|interface| !interface.limited) {
             match interface.category {
                 InterfaceCategory::Instance | InterfaceCategory::DefaultInstance => {
                     let mut guard = self.push_generic_required_interface(&interface);
@@ -374,7 +363,6 @@ impl<'a> Writer<'a> {
                         }
                     });
                 }
-                _ => {}
             }
         }
 
@@ -419,7 +407,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_guid(&mut self, t: &TypeDef) -> TokenStream {
+    fn write_guid(&self, t: &TypeDef) -> TokenStream {
         let guid = t.find_attribute(self.r, "Windows.Foundation.Metadata", "GuidAttribute").unwrap();
         let args = guid.arguments(self.r);
 
@@ -437,7 +425,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_required_interface(&mut self, interface: &TypeDef, generics: &Vec<Vec<TokenStream>>) -> TokenStream {
+    fn write_required_interface(&self, interface: &TypeDef, generics: &Vec<Vec<TokenStream>>) -> TokenStream {
         let namespace = self.write_namespace_name(interface.namespace(self.r));
         let name = interface.name(self.r);
 
@@ -470,7 +458,6 @@ impl<'a> Writer<'a> {
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
-        let empty = TokenStream::new();
         let froms = self.write_interface_conversions(&name, &constraints, &generics, &interfaces);
 
         quote! {
@@ -479,12 +466,7 @@ impl<'a> Writer<'a> {
             pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
             struct #abi_name<#constraints> {
-                __0: usize,
-                __1: usize,
-                __2: usize,
-                __3: usize,
-                __4: usize,
-                __5: usize,
+                __base: [usize; 6],
                 #abi_methods
                 #phantoms
             }
@@ -523,15 +505,10 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_methods(&mut self, interface: &TypeDef) -> TokenStream {
+    fn write_abi_methods(&self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
-        for method in interface.methods(self.r) {
-            let name = method.name(self.r);
-            if name == ".ctor" {
-                continue;
-            }
-
+        for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {
             let name = self.write_method_name(&method);
             let signature = method.signature(self.r);
 
@@ -607,6 +584,8 @@ impl<'a> Writer<'a> {
         let namespace = self.write_namespace_name(interface.namespace(self.r));
         let abi_name = self.write_generic_abi_name(interface);
 
+        // TODO: can't simply this because self is mutable?
+        // for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {
         for method in interface.methods(self.r) {
             let name = method.name(self.r);
 
@@ -691,8 +670,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_enum(&mut self, t: &TypeDef) -> TokenStream {
-        let namespace = t.namespace(self.r);
+    fn write_enum(&self, t: &TypeDef) -> TokenStream {
         let name = t.name(self.r);
         let type_name = write_ident(name);
 
@@ -721,7 +699,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_enum_fields(&mut self, t: &TypeDef) -> TokenStream {
+    fn write_enum_fields(&self, t: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
         for f in t.fields(self.r) {
@@ -743,7 +721,7 @@ impl<'a> Writer<'a> {
         guard.write_generic_delegate(interface)
     }
 
-    fn write_generic_phantoms(&mut self) -> TokenStream {
+    fn write_generic_phantoms(&self) -> TokenStream {
         if let Some(generics) = self.generics.last() {
             let mut tokens = Vec::new();
 
@@ -818,9 +796,7 @@ impl<'a> Writer<'a> {
             pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
             #[repr(C)]
             struct #abi_name<#constraints> {
-                __0: usize,
-                __1: usize,
-                __2: usize,
+                __base: [usize; 3],
                 #abi_methods
                 #phantoms
             }
@@ -860,7 +836,6 @@ impl<'a> Writer<'a> {
     fn write_struct(&mut self, t: &TypeDef) -> TokenStream {
         // TODO: skip EventRegistrationToken
 
-        let namespace = t.namespace(self.r);
         let name = t.name(self.r);
         let name = write_ident(name);
 
@@ -904,7 +879,7 @@ impl<'a> Writer<'a> {
     // write_abi_params
     //
 
-    fn write_abi_params(&mut self, signature: &MethodSig) -> TokenStream {
+    fn write_abi_params(&self, signature: &MethodSig) -> TokenStream {
         let mut tokens: Vec<TokenStream> = signature.params().iter().map(|param| self.write_abi_param(param)).collect();
 
         if let Some(param) = signature.return_type() {
@@ -914,7 +889,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_abi_param(&mut self, param: &ParamSig) -> TokenStream {
+    fn write_abi_param(&self, param: &ParamSig) -> TokenStream {
         let tokens = match param.definition().definition() {
             TypeSigType::ElementType(value) => self.write_abi_param_element_type(value),
             TypeSigType::TypeDefOrRef(value) => self.write_abi_param_type(value),
@@ -937,7 +912,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_element_type(&mut self, value: &ElementType) -> TokenStream {
+    fn write_abi_param_element_type(&self, value: &ElementType) -> TokenStream {
         match value {
             ElementType::Bool => quote! { bool, },
             ElementType::Char => quote! { u16, },
@@ -956,7 +931,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_type(&mut self, value: &TypeDefOrRef) -> TokenStream {
+    fn write_abi_param_type(&self, value: &TypeDefOrRef) -> TokenStream {
         match value {
             TypeDefOrRef::TypeDef(value) => self.write_abi_param_type_def(value),
             TypeDefOrRef::TypeRef(value) => self.write_abi_param_type_ref(value),
@@ -964,7 +939,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_type_def(&mut self, value: &TypeDef) -> TokenStream {
+    fn write_abi_param_type_def(&self, value: &TypeDef) -> TokenStream {
         match value.category(self.r) {
             TypeCategory::Enum => {
                 let name = self.write_type_def(value);
@@ -984,7 +959,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_type_ref(&mut self, value: &TypeRef) -> TokenStream {
+    fn write_abi_param_type_ref(&self, value: &TypeRef) -> TokenStream {
         if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
             quote! { winrt::Guid, }
         } else {
@@ -992,7 +967,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_param_generic_index(&mut self, value: u32) -> TokenStream {
+    fn write_abi_param_generic_index(&self, value: u32) -> TokenStream {
         let last = self.generics.last().unwrap();
         let type_param = &last[value as usize];
 
@@ -1006,11 +981,7 @@ impl<'a> Writer<'a> {
     fn write_consume_into_params(&mut self, signature: &MethodSig) -> TokenStream {
         let mut tokens = Vec::<TokenStream>::new();
 
-        for (count, param) in signature.params().iter().enumerate() {
-            if !param.input() {
-                continue;
-            }
-
+        for (count, param) in signature.params().iter().filter(|param| param.input()).enumerate() {
             // TODO: make sure array input params can accept a slice/array/vector
             if param.array() {
                 continue;
@@ -1078,11 +1049,11 @@ impl<'a> Writer<'a> {
     // write_abi_args
     //
 
-    fn write_abi_args(&mut self, signature: &MethodSig) -> TokenStream {
+    fn write_abi_args(&self, signature: &MethodSig) -> TokenStream {
         TokenStream::from_iter(signature.params().iter().map(|param| self.write_abi_arg(param)))
     }
 
-    fn write_abi_arg(&mut self, param: &ParamSig) -> TokenStream {
+    fn write_abi_arg(&self, param: &ParamSig) -> TokenStream {
         let name = write_ident(param.name());
         let category = param.definition().category(self.r);
 
@@ -1159,7 +1130,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_type_element(&mut self, value: &ElementType) -> TokenStream {
+    fn write_type_element(&self, value: &ElementType) -> TokenStream {
         match value {
             ElementType::Bool => quote! { bool },
             ElementType::Char => quote! { u16 },
@@ -1178,7 +1149,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_type_def_or_ref(&mut self, value: &TypeDefOrRef) -> TokenStream {
+    fn write_type_def_or_ref(&self, value: &TypeDefOrRef) -> TokenStream {
         match value {
             TypeDefOrRef::TypeDef(value) => self.write_type_def(value),
             TypeDefOrRef::TypeRef(value) => self.write_type_ref(value),
@@ -1186,13 +1157,13 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_type_def(&mut self, value: &TypeDef) -> TokenStream {
+    fn write_type_def(&self, value: &TypeDef) -> TokenStream {
         let namespace = self.write_namespace_name(value.namespace(self.r));
         let name = write_ident(value.name(self.r));
         quote! { #namespace#name }
     }
 
-    fn write_type_ref(&mut self, value: &TypeRef) -> TokenStream {
+    fn write_type_ref(&self, value: &TypeRef) -> TokenStream {
         if value.name(self.r) == "Guid" && value.namespace(self.r) == "System" {
             quote! { winrt::Guid }
         } else {
@@ -1212,7 +1183,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_type_generic_index(&mut self, value: u32) -> TokenStream {
+    fn write_type_generic_index(&self, value: u32) -> TokenStream {
         let last = self.generics.last().unwrap();
         let param = &last[value as usize];
         quote! { #param }
@@ -1222,7 +1193,7 @@ impl<'a> Writer<'a> {
     // Helpers
     //
 
-    fn factory_type(&mut self, attribute: &CustomAttribute) -> Option<TypeDef> {
+    fn factory_type(&self, attribute: &CustomAttribute) -> Option<TypeDef> {
         for (_, sig) in attribute.arguments(self.r) {
             if let ArgumentSig::TypeDef(interface) = sig {
                 return Some(interface);
@@ -1266,7 +1237,7 @@ impl<'a> Writer<'a> {
         write_ident(&result)
     }
 
-    fn write_namespace_name(&mut self, other: &str) -> TokenStream {
+    fn write_namespace_name(&self, other: &str) -> TokenStream {
         let mut tokens = Vec::new();
 
         let mut source = self.namespace.split('.').peekable();

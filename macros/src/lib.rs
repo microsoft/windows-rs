@@ -1,7 +1,6 @@
 extern crate proc_macro;
 
 use proc_macro::*;
-use quote::quote;
 use winmd::*;
 
 #[derive(PartialEq)]
@@ -99,7 +98,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
 
     use std::io::prelude::*;
     let mut file = std::fs::File::create(r"c:\git\rust\dump.rs").unwrap();
-    file.write_all(output.to_string().as_bytes());
+    file.write_all(output.to_string().as_bytes()).unwrap();
 
     output.into()
 }
