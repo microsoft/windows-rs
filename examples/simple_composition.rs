@@ -9,7 +9,7 @@ use winapi::{
         minwindef::{DWORD, BOOL},
         ntdef::HRESULT,
     },
-    winrt::roapi::{RoInitialize, RO_INIT_MULTITHREADED, RO_INIT_SINGLETHREADED},
+    winrt::roapi::{RoInitialize, RO_INIT_SINGLETHREADED},
 };
 use winit::{
     event::{Event, WindowEvent},
@@ -33,11 +33,9 @@ use windows::ui::composition::*;
 
 fn run() -> Result<()> {
     unsafe {
-        // winit seems to want single threaded
         winrt::ErrorCode(RoInitialize(RO_INIT_SINGLETHREADED)).ok()?;
     };
 
-    // TODO: Don't leak this
     let _dispatcher_queue_controller = create_dispatcher_queue_controller_for_current_thread()?;
 
     // Create our window
@@ -120,7 +118,7 @@ extern "stdcall" {
     ) -> HRESULT;
 }
 
-fn create_dispatcher_queue_controller_for_current_thread() -> Result<*mut IDispatcherQueueController> {
+fn create_dispatcher_queue_controller_for_current_thread() -> Result<winrt::ComPtr> {
     let options = {
         let mut options = DispatcherQueueOptions {
             size: 0,
@@ -132,9 +130,14 @@ fn create_dispatcher_queue_controller_for_current_thread() -> Result<*mut IDispa
     };
 
     let dispatcher_queue_controller = unsafe {
-        let mut dispatcher_queue_controller: *mut IDispatcherQueueController = ptr::null_mut();
-        winrt::ErrorCode(CreateDispatcherQueueController(options, &mut dispatcher_queue_controller as *mut _ as *mut _)).ok()?;       
-        dispatcher_queue_controller
+        let mut interop_ptr: *mut IDispatcherQueueController = ptr::null_mut();
+        winrt::ErrorCode(CreateDispatcherQueueController(options, &mut interop_ptr as *mut _ as *mut _)).ok()?;       
+        
+        let winrt_unknown = winrt::ComPtr::addref(interop_ptr as *mut c_void);
+        //let dispatcher_queue_controller = winrt_unknown.query::<DispatcherQueueController>();
+        //let dispatcher_queue_controller = std::mem::transmute::<winrt::ComPtr, DispatcherQueueController>(dispatcher_queue_controller);
+        
+        winrt_unknown
     };
 
     Ok(dispatcher_queue_controller)
