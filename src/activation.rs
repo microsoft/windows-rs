@@ -10,14 +10,18 @@ pub fn factory<C: TypeName, I: QueryType>() -> Result<I> {
     unsafe {
         let mut ptr = std::ptr::null_mut();
 
-        let mut code =
-            RoGetActivationFactory(String::from(C::type_name()).abi(), I::type_guid(), &mut ptr);
+        let mut code = RoGetActivationFactory(
+            HString::from(C::type_name()).abi(),
+            I::type_guid(),
+            &mut ptr,
+        );
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut cookie = std::ptr::null_mut();
             CoIncrementMTAUsage(&mut cookie);
+
             code = RoGetActivationFactory(
-                String::from(C::type_name()).abi(),
+                HString::from(C::type_name()).abi(),
                 I::type_guid(),
                 &mut ptr,
             );

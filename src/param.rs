@@ -17,8 +17,8 @@ impl<'a, T: RuntimeType> Param<'a, T> {
 pub enum StringParam<'a> {
     Ref(&'a str),
     String(std::string::String),
-    Winrt(super::String),
-    WinrtRef(&'a super::String),
+    Winrt(super::HString),
+    WinrtRef(&'a super::HString),
 }
 
 impl<'a> StringParam<'a> {
@@ -50,13 +50,13 @@ impl<'a> Into<StringParam<'a>> for std::string::String {
     }
 }
 
-impl<'a> Into<StringParam<'a>> for super::String {
+impl<'a> Into<StringParam<'a>> for super::HString {
     fn into(self) -> StringParam<'a> {
         StringParam::Winrt(self)
     }
 }
 
-impl<'a> Into<StringParam<'a>> for &'a super::String {
+impl<'a> Into<StringParam<'a>> for &'a super::HString {
     fn into(self) -> StringParam<'a> {
         StringParam::WinrtRef(self)
     }
