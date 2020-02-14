@@ -105,16 +105,11 @@ struct DispatcherQueueOptions {
     apartment_type: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
 }
 
-#[repr(C)]
-struct IDispatcherQueueController {
-    _dummy: u32
-}
-
 #[link(name = "coremessaging")]
 extern "stdcall" {
     fn CreateDispatcherQueueController(
         options: DispatcherQueueOptions,
-        dispatcherQueueController: *mut *mut IDispatcherQueueController,
+        dispatcherQueueController: *mut winrt::RawPtr,
     ) -> HRESULT;
 }
 
@@ -130,23 +125,15 @@ fn create_dispatcher_queue_controller_for_current_thread() -> Result<winrt::ComP
     };
 
     let dispatcher_queue_controller = unsafe {
-        let mut interop_ptr: *mut IDispatcherQueueController = ptr::null_mut();
-        winrt::ErrorCode(CreateDispatcherQueueController(options, &mut interop_ptr as *mut _ as *mut _)).ok()?;       
-        
-        let winrt_unknown = winrt::ComPtr::addref(interop_ptr as *mut c_void);
-        //let dispatcher_queue_controller = winrt_unknown.query::<DispatcherQueueController>();
+        let mut interop_ptr = winrt::ComPtr::default();
+        winrt::ErrorCode(CreateDispatcherQueueController(options, interop_ptr.set())).ok()?;       
+        //let dispatcher_queue_controller = interop_ptr.query::<DispatcherQueueController>();
         //let dispatcher_queue_controller = std::mem::transmute::<winrt::ComPtr, DispatcherQueueController>(dispatcher_queue_controller);
-        
-        winrt_unknown
+        // dispatcher_queue_controller
+        interop_ptr
     };
 
     Ok(dispatcher_queue_controller)
-}
-
-// Composition Interop
-#[repr(C)]
-pub struct IDesktopWindowTargetInterop {
-    _dummy: u32
 }
 
 // Taken from windows.ui.composition.interop.h in the windows sdk
@@ -156,7 +143,7 @@ trait ICompositorDesktopInterop: IUnknown {
         &self,
         hwnd_target: *mut c_void,
         is_topmost: BOOL,
-        result: *mut *mut IDesktopWindowTargetInterop,
+        result: *mut winrt::RawPtr,
     ) -> HRESULT;
 
     unsafe fn ensure_on_thread(
@@ -178,11 +165,9 @@ fn create_desktop_window_target(compositor: &Compositor, window_handle: *mut c_v
         compositor_interop
     };
     let desktop_target = unsafe {
-        let mut interop_ptr: *mut IDesktopWindowTargetInterop = ptr::null_mut();
-        winrt::ErrorCode(compositor_interop.create_desktop_window_target(window_handle, 0, &mut interop_ptr as *mut _ as *mut _)).ok()?;
-
-        let winrt_unknown = winrt::ComPtr::addref(interop_ptr as *mut c_void);
-        let desktop_target = winrt_unknown.query::<CompositionTarget>();
+        let mut interop_ptr = winrt::ComPtr::default();
+        winrt::ErrorCode(compositor_interop.create_desktop_window_target(window_handle, 0, interop_ptr.set())).ok()?;
+        let desktop_target = interop_ptr.query::<CompositionTarget>();
         let desktop_target = std::mem::transmute::<winrt::ComPtr, CompositionTarget>(desktop_target);
 
         desktop_target
