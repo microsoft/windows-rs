@@ -1,14 +1,13 @@
 use com::{ com_interface, interfaces::iunknown::IUnknown, InterfacePtr, InterfaceRc };
 use core::ffi::c_void;
 use std::ptr;
-use raw_window_handle::{RawWindowHandle, HasRawWindowHandle};
+use raw_window_handle::{HasRawWindowHandle};
 use winrt::*;
 use winapi::{
     ENUM,
     shared::{
-        guiddef::IID,
         minwindef::{DWORD, BOOL},
-        ntdef::{HRESULT, NULL},
+        ntdef::HRESULT,
     },
     winrt::roapi::{RoInitialize, RO_INIT_MULTITHREADED, RO_INIT_SINGLETHREADED},
 };
@@ -141,7 +140,7 @@ fn create_dispatcher_queue_controller_for_current_thread() -> Result<*mut IDispa
     Ok(dispatcher_queue_controller)
 }
 
-// ICompositorInterop
+// Composition Interop
 #[repr(C)]
 pub struct IDesktopWindowTargetInterop {
     _dummy: u32
@@ -181,7 +180,7 @@ fn create_desktop_window_target(compositor: &Compositor, window_handle: *mut c_v
 
         let winrt_unknown = winrt::ComPtr::addref(interop_ptr as *mut c_void);
         let desktop_target = winrt_unknown.query::<CompositionTarget>();
-        let desktop_target = std::mem::transmute::<winrt::ComPtr, CompositionTarget>(desktop_target);// { ptr: desktop_target };
+        let desktop_target = std::mem::transmute::<winrt::ComPtr, CompositionTarget>(desktop_target);
 
         desktop_target
     };
