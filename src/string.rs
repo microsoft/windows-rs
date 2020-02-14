@@ -5,13 +5,13 @@ use crate::*;
 use std::ptr;
 
 #[repr(C)]
-pub struct String {
+pub struct HString {
     ptr: Option<ptr::NonNull<Header>>,
 }
 
-impl String {
-    pub fn new() -> String {
-        String { ptr: None }
+impl HString {
+    pub fn new() -> HString {
+        HString { ptr: None }
     }
 
     pub fn is_empty(&self) -> bool {
@@ -49,7 +49,7 @@ impl String {
     }
 }
 
-impl RuntimeType for String {
+impl RuntimeType for HString {
     type Abi = RawPtr;
 
     fn abi(&self) -> Self::Abi {
@@ -62,26 +62,26 @@ impl RuntimeType for String {
     }
 }
 
-impl Default for String {
+impl Default for HString {
     fn default() -> Self {
-        String::new()
+        HString::new()
     }
 }
 
-impl Clone for String {
-    fn clone(&self) -> String {
+impl Clone for HString {
+    fn clone(&self) -> HString {
         let ptr = self.ptr.map(|mut p| unsafe { p.as_mut().duplicate() });
-        String { ptr }
+        HString { ptr }
     }
 }
 
-impl Drop for String {
+impl Drop for HString {
     fn drop(&mut self) {
         self.clear();
     }
 }
 
-impl std::fmt::Display for String {
+impl std::fmt::Display for HString {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         // TODO: how to format the wchar buffer directly to avoid an allocation?
         // Especially since `value.to_string()` relies on this... unless the formatter
@@ -90,8 +90,8 @@ impl std::fmt::Display for String {
     }
 }
 
-impl From<&str> for String {
-    fn from(value: &str) -> String {
+impl From<&str> for HString {
+    fn from(value: &str) -> HString {
         let mut ptr = Header::alloc(value.len() as u32);
         unsafe {
             // place each utf-16 character into the buffer and 
@@ -108,14 +108,14 @@ impl From<&str> for String {
     }
 }
 
-impl From<std::string::String> for String {
-    fn from(value: std::string::String) -> String {
+impl From<std::string::String> for HString {
+    fn from(value: std::string::String) -> HString {
         value.as_str().into()
     }
 }
 
-impl From<&std::string::String> for String {
-    fn from(value: &std::string::String) -> String {
+impl From<&std::string::String> for HString {
+    fn from(value: &std::string::String) -> HString {
         value.as_str().into()
     }
 }
