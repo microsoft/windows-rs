@@ -1,6 +1,5 @@
 #![allow(dead_code)]
 
-mod abi;
 mod activation;
 mod array;
 mod error;

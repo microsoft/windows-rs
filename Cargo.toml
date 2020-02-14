@@ -9,3 +9,4 @@ repository = "https://github.com/microsoft/winrt-rs"
 
 [dependencies]
 winrt_macros = { path = "macros" }
+com = { path = "../com-rs" }

@@ -7,47 +7,44 @@ use crate::*;
 
 pub struct EventToken<T> {
     token: i64,
-    source: ComPtr,
+    source: com::InterfaceRc<T>,
     offset: u32, // offset of remove virtual function
-    __0: std::marker::PhantomData<T>,
 }
 
-impl<T: QueryType> EventToken<T> {
-    pub fn new(source: &ComPtr, token: i64, offset: u32) -> EventToken<T> {
-        EventToken { token, source: source.clone(), offset, __0: std::marker::PhantomData }
+impl<T> EventToken<T: com::ComInterface> {
+    pub fn new(source: &com::InterfaceRc<T>, token: i64, offset: u32) -> EventToken<T> {
+        EventToken { token, source: source.clone(), offset }
     }
 
     pub fn guard(mut self) -> EventGuard {
-        unsafe {
-            let weak_source = self.source.query::<IWeakReferenceSource>();
-            let weak = !weak_source.is_null();
-            if weak {
-                ((*(*(weak_source.get() as *const *const IWeakReferenceSource))).weak)(weak_source.get(), self.source.set()).unwrap();
-            }
-            EventGuard { guid: *T::type_guid(), token: self.token, source: self.source, offset: self.offset, weak: weak }
-        }
+            let source = self.source.query_interface::<IWeakReferenceSource>().map(|source|{
+                let weak = std::ptr::null_mut();
+                unsafe {
+                    source.get_weak_reference(weak);
+                    com::InterfaceRc::from_raw(weak)
+                }
+            });
+            
+            EventGuard { guid: T::IID, token: self.token, source, offset: self.offset }
     }
 }
 
 pub struct EventGuard {
     guid: Guid, // IID of interface contaiing
     token: i64,
-    source: ComPtr,
+    source: Option<com::InterfaceRc<IWeakReference>>,
     offset: u32, // offset of remove virtual function
-    weak: bool,  // whether source is a weak/strong ref
 }
 
 impl Drop for EventGuard {
     fn drop(&mut self) {
-        unsafe {
-            if self.weak {
-                let mut ptr = std::ptr::null_mut();
-                ((*(*(self.source.get() as *const *const IWeakReference))).strong)(self.source.get(), &self.guid, &mut ptr);
-                self.source = std::mem::transmute(ptr);
-            }
-            if !self.source.is_null() {
-                // TODO: find the offset function pointer and call it
+        if let Some(weak) = self.source {
+            let mut strong = std::ptr::null_mut();
+            unsafe {
+                weak.resolve(&self.guid, strong);
+                com::InterfaceRc::from_raw(weak);
             }
         }
+        // TODO: find the offset of the remove function pointer and call it
     }
 }
