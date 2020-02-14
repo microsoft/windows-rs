@@ -1,7 +1,7 @@
 [package]
 name = "winmd"
 version = "0.1.0"
-authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
+authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
