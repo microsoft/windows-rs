@@ -3,6 +3,7 @@ use proc_macro2::{Ident, Literal, TokenStream};
 use quote::{format_ident, quote};
 use std::collections::*;
 use std::iter::FromIterator;
+use std::cmp::Ord;
 
 #[derive(Default)]
 struct Namespace {
@@ -1364,13 +1365,18 @@ impl<'a> Writer<'a> {
         result
     }
 
-    fn methods(&self, interfaces: &Vec<Interface>) -> Vec<Method> {
-        let mut methods = Vec::new();
+    fn methods<'i>(&self, interfaces: &'i Vec<Interface>) -> Vec<Method<'i>> {
+        let mut methods : Vec::<Method> = Vec::new();
 
         for interface in interfaces {
             for method in interface.definition.methods(self.r) {
-                let signature = method.signature(self.r);
+                let sig = method.signature(self.r);
                 let category = method.category(self.r);
+                let name = self.method_name(&method, category);
+
+                match methods.binary_search_by(|method| method.name.cmp(&name)) {
+                    Ok(index) | Err(index) => methods.insert(index, Method { name, sig, category, interface })
+                }
             }
         }
 

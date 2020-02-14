@@ -103,7 +103,7 @@ impl MemberRef {
     }
 }
 
-#[derive(PartialEq)]
+#[derive(Copy, Clone, PartialEq)]
 pub enum MethodCategory {
     Normal,
     Get,
