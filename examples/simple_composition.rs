@@ -1,6 +1,5 @@
 use com::{ com_interface, interfaces::iunknown::IUnknown, InterfacePtr, InterfaceRc };
 use core::ffi::c_void;
-use std::ptr;
 use raw_window_handle::{HasRawWindowHandle};
 use winrt::*;
 use winapi::{
