@@ -181,7 +181,7 @@ fn create_desktop_window_target(compositor: &Compositor, window_handle: *mut c_v
 
         let winrt_unknown = winrt::ComPtr::addref(interop_ptr as *mut c_void);
         let desktop_target = winrt_unknown.query::<CompositionTarget>();
-        let desktop_target = CompositionTarget { ptr: desktop_target };
+        let desktop_target = std::mem::transmute::<winrt::ComPtr, CompositionTarget>(desktop_target);// { ptr: desktop_target };
 
         desktop_target
     };

@@ -176,7 +176,7 @@ impl<'a> Writer<'a> {
             quote! {
                 #[repr(C)]
                 #[derive(Default, Clone)]
-                pub struct #name { pub ptr: winrt::ComPtr }
+                pub struct #name { ptr: winrt::ComPtr }
                 impl #name { #methods }
                 impl winrt::QueryType for #name {
                     fn type_guid() -> &'static winrt::Guid {
