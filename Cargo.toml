@@ -9,3 +9,9 @@ repository = "https://github.com/microsoft/winrt-rs"
 
 [dependencies]
 winrt_macros = { path = "macros" }
+
+[dev-dependencies]
+winapi = { version = "0.3.8", features = [ "std", "winuser", "ntdef", "roapi" ] }
+winit = "0.21.0"
+raw-window-handle = "0.3.3"
+com = { git = "https://github.com/microsoft/com-rs.git" }
