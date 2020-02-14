@@ -865,10 +865,10 @@ impl<'a> Writer<'a> {
 
         for f in t.fields(self.r) {
             let name = write_ident(&to_snake(f.name(self.r)));
+            let field_type = self.write_type(&f.signature(self.r));
 
             tokens.push(quote! {
-                pub #name: u8,
-                // TODO: write out field type
+                pub #name: #field_type,
             });
         }
 
