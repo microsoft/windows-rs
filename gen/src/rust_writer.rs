@@ -537,14 +537,10 @@ impl<'a> Writer<'a> {
                 continue;
             }
 
-            if method.is_remove_overload(self.r) {
-                // We don't project this method at all - the ABI is called internally by the EventGuard
-                continue;
-            }
-
-            if method.is_add_overload(self.r) {
-                // TODO: define this using an EventToken<T> return type
-                continue;
+            match method.category(self.r) {
+                MethodCategory::Remove => continue, // We don't project this method at all - the ABI is called internally by the EventGuard
+                MethodCategory::Add => continue, // TODO: define this using an EventToken<T> return type
+                _ => {}
             }
 
             let name = self.write_method_name(&method);
@@ -600,13 +596,10 @@ impl<'a> Writer<'a> {
                 continue;
             }
 
-            if method.is_remove_overload(self.r) {
-                // We don't project this method at all - the ABI is called internally by the EventGuard
-                continue;
-            }
-            if method.is_add_overload(self.r) {
-                // TODO: define this using an EventToken<T> return type
-                continue;
+            match method.category(self.r) {
+                MethodCategory::Remove => continue, // We don't project this method at all - the ABI is called internally by the EventGuard
+                MethodCategory::Add => continue, // TODO: define this using an EventToken<T> return type
+                _ => {}
             }
 
             let name = self.write_method_name(&method);
@@ -1203,7 +1196,7 @@ impl<'a> Writer<'a> {
         None
     }
 
-    fn method_abi_name(&self, method: &MethodDef) -> String {
+    fn raw_method_name(&self, method: &MethodDef) -> String {
         if let Some(attribute) = method.find_attribute(self.r, "Windows.Foundation.Metadata", "OverloadAttribute") {
             for (_, sig) in attribute.arguments(self.r) {
                 if let ArgumentSig::String(value) = sig {
@@ -1215,26 +1208,33 @@ impl<'a> Writer<'a> {
         method.name(self.r).to_string()
     }
 
-    fn write_method_name(&self, method: &MethodDef) -> Ident {
-        // TODO: we end up allocating two strings here - should only be one
-        let name = self.method_abi_name(method);
+    fn method_name(&self, method: &MethodDef, category: MethodCategory) -> String {
+        // TODO: we end up allocating a bunch of strings here - should only be one
+        let name = self.raw_method_name(method);
         let mut source = name.as_str();
         let mut result = String::with_capacity(source.len() + 2); // TODO: why 2 again?
 
-        if method.flags(self.r).special() {
-            if source.starts_with("get") || source.starts_with("add") {
+        match category {
+            MethodCategory::Get | MethodCategory::Add => {
                 source = &source[4..];
-            } else if source.starts_with("put") {
+            }
+            MethodCategory::Set => {
                 result.push_str("set");
                 source = &source[4..];
-            } else if source.starts_with("remove") {
+            }
+            MethodCategory::Remove => {
                 result.push_str("remove");
                 source = &source[7..];
             }
+            _ => {}
         }
 
         append_snake(&mut result, source);
-        write_ident(&result)
+        result
+    }
+
+    fn write_method_name(&self, method: &MethodDef) -> Ident {
+        write_ident(&self.method_name(method, method.category(self.r)))
     }
 
     fn write_namespace_name(&self, other: &str) -> TokenStream {
@@ -1363,6 +1363,19 @@ impl<'a> Writer<'a> {
 
         result
     }
+
+    fn methods(&self, interfaces: &Vec<Interface>) -> Vec<Method> {
+        let mut methods = Vec::new();
+
+        for interface in interfaces {
+            for method in interface.definition.methods(self.r) {
+                let signature = method.signature(self.r);
+                let category = method.category(self.r);
+            }
+        }
+
+        methods
+    }
 }
 
 fn write_ident(name: &str) -> Ident {
@@ -1391,17 +1404,9 @@ struct Interface {
     category: InterfaceCategory,
 }
 
-// #[derive(PartialEq)]
-// enum MethodCategory {
-//     Normal,
-//     Get,
-//     Put,
-//     Add,
-//     Remove,
-// }
-
-// struct Method<'a> {
-//     sig: MethodSig,
-//     category: MethodCategory,
-//     interface: &'a Interface,
-// }
+struct Method<'a> {
+    name: String,
+    sig: MethodSig,
+    category: MethodCategory,
+    interface: &'a Interface,
+}
