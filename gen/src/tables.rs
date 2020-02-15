@@ -133,7 +133,7 @@ impl MethodDef {
         MethodSig::new(r, self)
     }
 
-    pub fn category(&self, r:&Reader) -> MethodCategory {
+    pub fn category(&self, r: &Reader) -> MethodCategory {
         if self.flags(r).special() {
             let name = self.name(r);
             if name.starts_with("get") {

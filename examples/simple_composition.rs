@@ -1,20 +1,20 @@
-use com::{ com_interface, interfaces::iunknown::IUnknown, InterfacePtr, InterfaceRc };
+use com::{com_interface, interfaces::iunknown::IUnknown, InterfacePtr, InterfaceRc};
 use core::ffi::c_void;
-use raw_window_handle::{HasRawWindowHandle};
-use winrt::*;
+use raw_window_handle::HasRawWindowHandle;
 use winapi::{
-    ENUM,
     shared::{
-        minwindef::{DWORD, BOOL},
+        minwindef::{BOOL, DWORD},
         ntdef::HRESULT,
     },
     winrt::roapi::{RoInitialize, RO_INIT_SINGLETHREADED},
+    ENUM,
 };
 use winit::{
     event::{Event, WindowEvent},
     event_loop::{ControlFlow, EventLoop},
     window::WindowBuilder,
 };
+use winrt::*;
 
 import!(
     dependencies
@@ -25,10 +25,10 @@ import!(
         "windows.ui.composition"
 );
 
-use windows::foundation::*;
 use windows::foundation::numerics::*;
-use windows::ui::*;
+use windows::foundation::*;
 use windows::ui::composition::*;
+use windows::ui::*;
 
 fn run() -> Result<()> {
     unsafe {
@@ -54,7 +54,7 @@ fn run() -> Result<()> {
 
     // Build our visual tree
     let visual = compositor.create_sprite_visual()?;
-    visual.set_relative_size_adjustment(Vector2{ x: 1.0, y: 1.0 })?;
+    visual.set_relative_size_adjustment(Vector2 { x: 1.0, y: 1.0 })?;
     let brush = compositor.create_color_brush_with_color(Colors::red()?)?;
     visual.set_brush(brush)?;
 
@@ -64,10 +64,7 @@ fn run() -> Result<()> {
         *control_flow = ControlFlow::Wait;
 
         match event {
-            Event::WindowEvent {
-                event: WindowEvent::CloseRequested,
-                window_id,
-            } if window_id == window.id() => *control_flow = ControlFlow::Exit,
+            Event::WindowEvent { event: WindowEvent::CloseRequested, window_id } if window_id == window.id() => *control_flow = ControlFlow::Exit,
             _ => (),
         }
     });
@@ -86,12 +83,12 @@ fn main() {
 }
 
 // Dispatcher Queue interop
-ENUM!{enum DISPATCHERQUEUE_THREAD_TYPE {
+ENUM! {enum DISPATCHERQUEUE_THREAD_TYPE {
     DQTYPE_THREAD_DEDICATED = 1,
     DQTYPE_THREAD_CURRENT = 2,
 }}
 
-ENUM!{enum DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+ENUM! {enum DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     DQTAT_COM_NONE = 0,
     DQTAT_COM_ASTA = 1,
     DQTAT_COM_STA = 2,
@@ -106,26 +103,19 @@ struct DispatcherQueueOptions {
 
 #[link(name = "coremessaging")]
 extern "stdcall" {
-    fn CreateDispatcherQueueController(
-        options: DispatcherQueueOptions,
-        dispatcherQueueController: *mut winrt::RawPtr,
-    ) -> HRESULT;
+    fn CreateDispatcherQueueController(options: DispatcherQueueOptions, dispatcherQueueController: *mut winrt::RawPtr) -> HRESULT;
 }
 
 fn create_dispatcher_queue_controller_for_current_thread() -> Result<winrt::ComPtr> {
     let options = {
-        let mut options = DispatcherQueueOptions {
-            size: 0,
-            thread_type: DQTYPE_THREAD_CURRENT,
-            apartment_type: DQTAT_COM_NONE,
-        };
+        let mut options = DispatcherQueueOptions { size: 0, thread_type: DQTYPE_THREAD_CURRENT, apartment_type: DQTAT_COM_NONE };
         options.size = std::mem::size_of::<DispatcherQueueOptions>() as u32;
         options
     };
 
     let dispatcher_queue_controller = unsafe {
         let mut interop_ptr = winrt::ComPtr::default();
-        winrt::ErrorCode(CreateDispatcherQueueController(options, interop_ptr.set())).ok()?;       
+        winrt::ErrorCode(CreateDispatcherQueueController(options, interop_ptr.set())).ok()?;
         //let dispatcher_queue_controller = interop_ptr.query::<DispatcherQueueController>();
         //let dispatcher_queue_controller = std::mem::transmute::<winrt::ComPtr, DispatcherQueueController>(dispatcher_queue_controller);
         // dispatcher_queue_controller
@@ -138,22 +128,11 @@ fn create_dispatcher_queue_controller_for_current_thread() -> Result<winrt::ComP
 // Taken from windows.ui.composition.interop.h in the windows sdk
 #[com_interface("29E691FA-4567-4DCA-B319-D0F207EB6807")]
 trait ICompositorDesktopInterop: IUnknown {
-    unsafe fn create_desktop_window_target(
-        &self,
-        hwnd_target: *mut c_void,
-        is_topmost: BOOL,
-        result: *mut winrt::RawPtr,
-    ) -> HRESULT;
+    unsafe fn create_desktop_window_target(&self, hwnd_target: *mut c_void, is_topmost: BOOL, result: *mut winrt::RawPtr) -> HRESULT;
 
-    unsafe fn ensure_on_thread(
-        &self,
-        thread_id: DWORD,
-    ) -> HRESULT;
+    unsafe fn ensure_on_thread(&self, thread_id: DWORD) -> HRESULT;
 
-    unsafe fn get_trust_level(
-        &self,
-        trust_level: *mut *mut c_void,
-    ) -> HRESULT;
+    unsafe fn get_trust_level(&self, trust_level: *mut *mut c_void) -> HRESULT;
 }
 
 fn create_desktop_window_target(compositor: &Compositor, window_handle: *mut c_void) -> Result<CompositionTarget> {

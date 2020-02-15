@@ -1,9 +1,9 @@
 use crate::*;
 use proc_macro2::{Ident, Literal, TokenStream};
 use quote::{format_ident, quote};
+use std::cmp::Ord;
 use std::collections::*;
 use std::iter::FromIterator;
-use std::cmp::Ord;
 
 #[derive(Default)]
 struct Namespace {
@@ -540,7 +540,7 @@ impl<'a> Writer<'a> {
 
             match method.category(self.r) {
                 MethodCategory::Remove => continue, // We don't project this method at all - the ABI is called internally by the EventGuard
-                MethodCategory::Add => continue, // TODO: define this using an EventToken<T> return type
+                MethodCategory::Add => continue,    // TODO: define this using an EventToken<T> return type
                 _ => {}
             }
 
@@ -599,7 +599,7 @@ impl<'a> Writer<'a> {
 
             match method.category(self.r) {
                 MethodCategory::Remove => continue, // We don't project this method at all - the ABI is called internally by the EventGuard
-                MethodCategory::Add => continue, // TODO: define this using an EventToken<T> return type
+                MethodCategory::Add => continue,    // TODO: define this using an EventToken<T> return type
                 _ => {}
             }
 
@@ -1374,7 +1374,7 @@ impl<'a> Writer<'a> {
     }
 
     fn methods<'i>(&self, interfaces: &'i Vec<Interface>) -> Vec<Method<'i>> {
-        let mut methods : Vec::<Method> = Vec::new();
+        let mut methods: Vec<Method> = Vec::new();
 
         for interface in interfaces {
             for method in interface.definition.methods(self.r) {
@@ -1399,7 +1399,6 @@ impl<'a> Writer<'a> {
                         } else {
                             panic!("Unexpected method name collision");
                         }
-                        
                     }
                 }
             }
