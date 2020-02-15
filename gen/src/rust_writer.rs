@@ -1380,10 +1380,27 @@ impl<'a> Writer<'a> {
             for method in interface.definition.methods(self.r) {
                 let sig = method.signature(self.r);
                 let category = method.category(self.r);
-                let name = self.method_name(&method, category);
+                let mut name = self.method_name(&method, category);
 
                 match methods.binary_search_by(|method| method.name.cmp(&name)) {
-                    Ok(index) | Err(index) => methods.insert(index, Method { name, sig, category, interface })
+                    Err(index) => methods.insert(index, Method { name, sig, category, interface }),
+                    Ok(index) => {
+                        // A method exists with the same name. If there's a property "put_Path" and a method "SetPath"
+                        // then you have a collision since both are projected as "set_path". In this case, the method
+                        // should be named "set_path2". This ensures the naming is stable and relatively predictable.
+                        let prev = &mut methods[index];
+
+                        if prev.category == MethodCategory::Set && category == MethodCategory::Normal {
+                            name += "2";
+                            methods.insert(index + 1, Method { name, sig, category, interface });
+                        } else if prev.category == MethodCategory::Normal && category == MethodCategory::Set {
+                            prev.name += "2";
+                            methods.insert(index, Method { name, sig, category, interface });
+                        } else {
+                            panic!("Unexpected method name collision");
+                        }
+                        
+                    }
                 }
             }
         }
