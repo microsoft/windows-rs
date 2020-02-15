@@ -61,19 +61,12 @@ pub struct RustWriter {
 }
 
 impl RustWriter {
-
-    fn limits() -> BTreeSet<String> {
-        let mut limits = BTreeSet::new();
-        //limits.insert("System".to_string());
-        limits
-    }
-
     pub fn new() -> RustWriter {
-        RustWriter { r: Reader::from_os().unwrap(), limits: Self::limits() }
+        RustWriter { r: Reader::from_os().unwrap(), limits: BTreeSet::new() }
     }
 
     pub fn from_files<'a, P: IntoIterator<Item = &'a String>>(filenames: P) -> RustWriter {
-        RustWriter { r: Reader::from_files(filenames).unwrap(), limits: Self::limits() }
+        RustWriter { r: Reader::from_files(filenames).unwrap(), limits: BTreeSet::new() }
     }
 
     pub fn add_namespace(&mut self, namespace: &str) {
@@ -1102,7 +1095,15 @@ impl<'a> Writer<'a> {
 
     fn limited_type(&self, value: &TypeSig) -> bool {
         match value.definition() {
-            TypeSigType::TypeDefOrRef(value) => !self.limits.contains(value.namespace(self.r)),
+            TypeSigType::TypeDefOrRef(value) => {
+                let namespace = value.namespace(self.r);
+
+                if namespace == "System" {
+                    false // Types like "System.Guid" are never limited
+                } else {
+                    !self.limits.contains(value.namespace(self.r))
+                }
+            }
             TypeSigType::GenericSig(value) => self.limited_type_generic(value),
             _ => false,
         }
