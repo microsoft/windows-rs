@@ -178,14 +178,7 @@ impl<'a> Writer<'a> {
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: winrt::ComPtr }
                 impl #name { #methods }
-                impl winrt::QueryType for #name {
-                    fn type_guid() -> &'static winrt::Guid {
-                        static GUID: winrt::Guid = winrt::Guid::from_values(
-                            #guid
-                        );
-                        &GUID
-                    }
-                }
+
                 impl winrt::TypeName for #name {
                     fn type_name() -> &'static str {
                         #string_name
