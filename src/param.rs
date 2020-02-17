@@ -22,7 +22,7 @@ pub enum StringParam<'a> {
 }
 
 impl<'a> StringParam<'a> {
-    pub fn abi(&mut self) -> RawPtr {
+    pub fn abi(&mut self) -> *const std::ffi::c_void {
         match self {
             StringParam::Ref(value) => {
                 *self = StringParam::Winrt((*value).into());

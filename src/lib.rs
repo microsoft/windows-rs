@@ -13,7 +13,6 @@ mod string;
 mod traits;
 mod weak;
 
-pub use abi::*;
 pub use activation::*;
 pub use array::*;
 pub use error::*;

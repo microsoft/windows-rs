@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 use crate::*;
+use std::ffi::c_void;
 
 const REFERENCE_FLAG: u32 = 1;
 
@@ -21,7 +22,7 @@ struct SharedHeader {
 }
 
 // TODO: inline these functions (duplicate & with_len) when done
-fn duplicate(ptr: RawPtr) -> RawPtr {
+fn duplicate(ptr: *mut c_void) -> *mut c_void {
     unsafe {
         let header = ptr as *const Header;
         if header.is_null() {
@@ -32,7 +33,7 @@ fn duplicate(ptr: RawPtr) -> RawPtr {
         } else {
             let copy = with_len((*header).len);
             std::ptr::copy_nonoverlapping((*header).ptr, (*copy).ptr as *mut u16, (*header).len as usize + 1);
-            copy as RawPtr
+            copy as *mut c_void
         }
     }
 }
@@ -57,7 +58,7 @@ fn with_len(len: u32) -> *mut Header {
 
 #[repr(C)]
 pub struct String {
-    ptr: RawPtr,
+    ptr: *mut c_void,
 }
 
 impl String {
@@ -107,10 +108,10 @@ impl String {
 }
 
 impl RuntimeType for String {
-    type Abi = RawPtr;
+    type Abi = *mut c_void;
 
     fn abi(&self) -> Self::Abi {
-        self.ptr as RawPtr
+        self.ptr as *mut c_void
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
@@ -157,7 +158,7 @@ impl From<&str> for String {
             }
 
             *((*ptr).ptr.offset((*ptr).len as isize) as *mut u16) = 0;
-            Self { ptr: ptr as RawPtr }
+            Self { ptr: ptr as *mut c_void }
         }
     }
 }
