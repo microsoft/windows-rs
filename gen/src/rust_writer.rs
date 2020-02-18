@@ -165,8 +165,7 @@ impl<'a> Writer<'a> {
         let string_name = format!("{}.{}", namespace, name);
         let name = write_ident(name);
         let interfaces = self.class_interfaces(class);
-        let methods2 = self.methods(&interfaces);
-        let methods2 = self.write_methods(&methods2);
+        let methods = self.write_methods(&self.methods(&interfaces));
         let empty = TokenStream::new();
         let froms = self.write_interface_conversions(&name, &empty, &empty, &interfaces);
         let bases = self.write_base_conversions(class, &name);
@@ -179,7 +178,7 @@ impl<'a> Writer<'a> {
                 #[repr(C)]
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: winrt::ComPtr }
-                impl #name { #methods2 }
+                impl #name { #methods }
                 impl winrt::QueryType for #name {
                     fn type_guid() -> &'static winrt::Guid {
                         static GUID: winrt::Guid = winrt::Guid::from_values(
@@ -218,7 +217,7 @@ impl<'a> Writer<'a> {
         } else {
             quote! {
                 pub struct #name { }
-                impl #name { #methods2 }
+                impl #name { #methods }
                 impl winrt::TypeName for #name {
                     fn type_name() -> &'static str {
                         #string_name
@@ -391,8 +390,7 @@ impl<'a> Writer<'a> {
         let consume_methods = self.write_consume_methods(interface);
 
         let interfaces = self.interface_interfaces(interface);
-        let methods2 = self.methods(&interfaces);
-        let methods2 = self.write_methods(&methods2);
+        let methods = self.write_methods(&self.methods(&interfaces));
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
@@ -412,7 +410,7 @@ impl<'a> Writer<'a> {
             }
             impl<#constraints> #name<#generics> {
                 #consume_methods
-                #methods2
+                #methods
             }
             impl<#constraints> winrt::QueryType for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
