@@ -387,22 +387,13 @@ impl<'a> Writer<'a> {
             let params = self.write_consume_params(&signature);
             let into_params = self.write_consume_into_params(&signature);
             let args = self.write_consume_args(&signature);
+            let result = self.write_return_type(&signature);
 
-            if let Some(result) = signature.return_type() {
-                let result = self.write_type(result.definition());
-
-                tokens.push(quote! {
-                    pub fn #method_name<#into_params>(#params) -> winrt::Result<#result> {
-                        winrt::factory::<#class_name, #interface_name>()?.#method_name(#args)
-                    }
-                });
-            } else {
-                tokens.push(quote! {
-                    pub fn #method_name<#into_params>(#params) -> winrt::Result<()> {
-                            panic!("TODO: write_class_statics");
-                    }
-                });
-            };
+            tokens.push(quote! {
+                pub fn #method_name<#into_params>(#params) -> winrt::Result<#result> {
+                    winrt::factory::<#class_name, #interface_name>()?.#method_name(#args)
+                }
+            });
         }
 
         TokenStream::from_iter(tokens)
@@ -524,6 +515,48 @@ impl<'a> Writer<'a> {
             }
         }
 
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_methods(&mut self, methods: &Vec<Method>) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for method in methods.iter().filter(|method| method.category != MethodCategory::Remove) {
+            // TODO: can't seem to make this part of the filter above...
+            if self.limited_method(&method.sig) {
+                continue;
+            }
+
+            // TODO: MethodCategory::Add should return an EventToken<T> return type rather than a raw token
+
+            let method_name = write_ident(&method.name);
+            // TODO: perhaps all of these should take a Method param
+            let params = self.write_consume_params(&method.sig);
+            let into_params = self.write_consume_into_params(&method.sig);
+            let args = self.write_consume_args(&method.sig);
+            let result = self.write_return_type(&method.sig);
+            let into = self.write_required_interface(&method.interface.definition, &method.interface.generics);
+
+            // match method.interface.category {
+            //     InterfaceCategory::Instance | InterfaceCategory::DefaultInstance => {
+            //         let mut guard = self.push_generic_required_interface(&method.interface);
+            //         tokens.push(guard.write_forward_methods(&interface));
+            //     }
+            //     InterfaceCategory::Static | InterfaceCategory::Activatable => {
+            //         tokens.push(self.write_class_statics(class, &interface.definition));
+            //     }
+            //     InterfaceCategory::DefaultActivatable => {
+            //         tokens.push(quote! {
+            //             pub fn new() -> winrt::Result<Self> {
+            //                 winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
+            //             }
+            //         });
+            //     }
+            // }
+
+            tokens.push(quote! {});
+        }
+        
         TokenStream::from_iter(tokens)
     }
 
@@ -1123,6 +1156,14 @@ impl<'a> Writer<'a> {
     // write_type
     //
 
+    fn write_return_type(&mut self, value: &MethodSig) -> TokenStream {
+        if let Some(result) = value.return_type() {
+            self.write_type(result.definition())
+        } else {
+            quote!{ () }
+        }
+    }
+
     fn write_type(&mut self, value: &TypeSig) -> TokenStream {
         match value.definition() {
             TypeSigType::ElementType(value) => self.write_type_element(value),
@@ -1376,7 +1417,7 @@ impl<'a> Writer<'a> {
     fn methods<'i>(&self, interfaces: &'i Vec<Interface>) -> Vec<Method<'i>> {
         let mut methods: Vec<Method> = Vec::new();
 
-        for interface in interfaces {
+        for interface in interfaces.iter().filter(|interface| !interface.limited) {
             for method in interface.definition.methods(self.r) {
                 let sig = method.signature(self.r);
                 let category = method.category(self.r);
@@ -1402,6 +1443,7 @@ impl<'a> Writer<'a> {
                     }
                 }
             }
+            // TODO: add method for IActivationFactory if needed
         }
 
         methods
