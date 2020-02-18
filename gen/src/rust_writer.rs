@@ -468,9 +468,8 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::new();
 
         for method in methods.iter().filter(|method| method.category != MethodCategory::Remove) {
-
             if method.interface.category == InterfaceCategory::DefaultActivatable {
-                tokens.push(                    quote! {
+                tokens.push(quote! {
                     pub fn new() -> winrt::Result<Self> {
                         winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
                     }
@@ -526,7 +525,7 @@ impl<'a> Writer<'a> {
                 }
             });
         }
-        
+
         TokenStream::from_iter(tokens)
     }
 
@@ -1082,7 +1081,7 @@ impl<'a> Writer<'a> {
         if let Some(result) = value.return_type() {
             self.write_type(result.definition())
         } else {
-            quote!{ () }
+            quote! { () }
         }
     }
 
@@ -1341,7 +1340,7 @@ impl<'a> Writer<'a> {
 
         for interface in interfaces.iter().filter(|interface| !interface.limited) {
             if interface.category == InterfaceCategory::DefaultActivatable {
-                methods.push(Method { name: "new".to_string(), sig : MethodSig::invalid(), category: MethodCategory::Normal, interface });
+                methods.push(Method { name: "new".to_string(), sig: MethodSig::invalid(), category: MethodCategory::Normal, interface });
             } else {
                 for method in interface.definition.methods(self.r) {
                     let sig = method.signature(self.r);
