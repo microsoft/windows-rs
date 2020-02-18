@@ -57,17 +57,23 @@ fn parse_import_stream(stream: TokenStream) -> (std::collections::BTreeSet<Strin
     let mut category = ImportCategory::None;
     let mut dependencies = std::collections::BTreeSet::<String>::new();
     let mut modules = std::collections::BTreeSet::<String>::new();
-
-    for token in stream {
+    let mut stream = stream.into_iter().peekable();
+    while let Some(token) = stream.next() {
         match token {
-            TokenTree::Ident(value) => match value.to_string().as_ref() {
-                "dependencies" => category = ImportCategory::Dependency,
-                "modules" => category = ImportCategory::Namespace,
-                value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
+            TokenTree::Ident(value) =>{
+                match value.to_string().as_ref() {
+                    "dependencies" => category = ImportCategory::Dependency,
+                    "modules" => category = ImportCategory::Namespace,
+                    value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
+                } 
+                if let Some(TokenTree::Punct(p)) = stream.peek() {
+                    if p.as_char() == ':' {
+                        let _ = stream.next();
+                    } 
+                }
             },
             TokenTree::Literal(value) => match category {
                 ImportCategory::None => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
-
                 ImportCategory::Dependency => {
                     dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"')));
                 }
