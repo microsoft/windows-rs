@@ -86,7 +86,7 @@ impl std::fmt::Display for HString {
         // TODO: how to format the wchar buffer directly to avoid an allocation?
         // Especially since `value.to_string()` relies on this... unless the formatter
         // can somehow move/forward the vector.
-        write!(f, "{}", std::string::String::from_utf16(self.as_chars()).unwrap())
+        write!(f, "{}", String::from_utf16(self.as_chars()).unwrap())
     }
 }
 
@@ -94,7 +94,7 @@ impl From<&str> for HString {
     fn from(value: &str) -> HString {
         let mut ptr = Header::alloc(value.len() as u32);
         unsafe {
-            // place each utf-16 character into the buffer and 
+            // place each utf-16 character into the buffer and
             // increase len as we go along
             for (index, wide) in value.encode_utf16().enumerate() {
                 *((*ptr).ptr.offset(index as isize) as *mut _) = wide;
@@ -108,14 +108,14 @@ impl From<&str> for HString {
     }
 }
 
-impl From<std::string::String> for HString {
-    fn from(value: std::string::String) -> HString {
+impl From<String> for HString {
+    fn from(value: String) -> HString {
         value.as_str().into()
     }
 }
 
-impl From<&std::string::String> for HString {
-    fn from(value: &std::string::String) -> HString {
+impl From<&String> for HString {
+    fn from(value: &String) -> HString {
         value.as_str().into()
     }
 }
@@ -126,7 +126,8 @@ const REFERENCE_FLAG: u32 = 1;
 struct Header {
     flags: u32,
     len: u32,
-    _ignored: u64,
+    _0: u32,
+    _1: u32,
     ptr: *const u16,
     count: RefCount,
     buffer_start: u16,
@@ -137,19 +138,19 @@ impl Header {
         debug_assert!(len != 0);
         // alloc enough space for header and two bytes per character
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
-        let shared = unsafe { HeapAlloc(GetProcessHeap(), 0, alloc_size) as *mut Header };
+        let header = unsafe { HeapAlloc(GetProcessHeap(), 0, alloc_size) as *mut Header };
 
-        if shared.is_null() {
+        if header.is_null() {
             panic!("Could not successfully allocate for HString");
         }
 
         unsafe {
-            (*shared).flags = 0;
-            (*shared).len = len;
-            (*shared).ptr = &(*shared).buffer_start;
-            (*shared).count = RefCount::new(1);
+            (*header).flags = 0;
+            (*header).len = len;
+            (*header).ptr = &(*header).buffer_start;
+            (*header).count = RefCount::new(1);
         }
-        shared as *mut Header
+        header as *mut Header
     }
 
     fn duplicate(&mut self) -> ptr::NonNull<Header> {
