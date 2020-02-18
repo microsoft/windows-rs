@@ -638,7 +638,7 @@ impl<'a> Writer<'a> {
 
         quote! {
             #[repr(#repr)]
-            #[derive(PartialEq)]
+            #[derive(Copy, Clone, Debug, PartialEq)]
             pub enum #type_name { #fields }
             impl Default for #type_name {
                 fn default() -> Self {
