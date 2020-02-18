@@ -146,6 +146,10 @@ impl MethodSig {
         MethodSig { return_type, params }
     }
 
+    pub(crate) fn invalid() -> MethodSig {
+        MethodSig {     return_type: None,            params: Vec::new() }
+    }
+
     pub fn return_type(&self) -> &Option<ParamSig> {
         &self.return_type
     }

@@ -165,7 +165,8 @@ impl<'a> Writer<'a> {
         let string_name = format!("{}.{}", namespace, name);
         let name = write_ident(name);
         let interfaces = self.class_interfaces(class);
-        let methods = self.write_required_methods(class, &interfaces);
+        let methods2 = self.methods(&interfaces);
+        let methods2 = self.write_methods(&methods2);
         let empty = TokenStream::new();
         let froms = self.write_interface_conversions(&name, &empty, &empty, &interfaces);
         let bases = self.write_base_conversions(class, &name);
@@ -178,7 +179,7 @@ impl<'a> Writer<'a> {
                 #[repr(C)]
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: winrt::ComPtr }
-                impl #name { #methods }
+                impl #name { #methods2 }
                 impl winrt::QueryType for #name {
                     fn type_guid() -> &'static winrt::Guid {
                         static GUID: winrt::Guid = winrt::Guid::from_values(
@@ -217,7 +218,7 @@ impl<'a> Writer<'a> {
         } else {
             quote! {
                 pub struct #name { }
-                impl #name { #methods }
+                impl #name { #methods2 }
                 impl winrt::TypeName for #name {
                     fn type_name() -> &'static str {
                         #string_name
@@ -345,60 +346,6 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_required_methods(&mut self, class: &TypeDef, interfaces: &Vec<Interface>) -> TokenStream {
-        let mut tokens = Vec::<TokenStream>::new();
-
-        for interface in interfaces.iter().filter(|interface| !interface.limited) {
-            match interface.category {
-                InterfaceCategory::Instance | InterfaceCategory::DefaultInstance => {
-                    let mut guard = self.push_generic_required_interface(&interface);
-                    tokens.push(guard.write_forward_methods(&interface));
-                }
-                InterfaceCategory::Static | InterfaceCategory::Activatable => {
-                    tokens.push(self.write_class_statics(class, &interface.definition));
-                }
-                InterfaceCategory::DefaultActivatable => {
-                    tokens.push(quote! {
-                        pub fn new() -> winrt::Result<Self> {
-                            winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
-                        }
-                    });
-                }
-            }
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
-    fn write_class_statics(&mut self, class: &TypeDef, interface: &TypeDef) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        let class_name = write_ident(class.name(self.r));
-        let interface_name = write_ident(interface.name(self.r));
-
-        for method in interface.methods(self.r) {
-            let signature = method.signature(self.r);
-
-            if self.limited_method(&signature) {
-                continue;
-            }
-
-            let method_name = self.write_method_name(&method);
-            let params = self.write_consume_params(&signature);
-            let into_params = self.write_consume_into_params(&signature);
-            let args = self.write_consume_args(&signature);
-            let result = self.write_return_type(&signature);
-
-            tokens.push(quote! {
-                pub fn #method_name<#into_params>(#params) -> winrt::Result<#result> {
-                    winrt::factory::<#class_name, #interface_name>()?.#method_name(#args)
-                }
-            });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
     fn write_guid(&self, t: &TypeDef) -> TokenStream {
         let guid = t.find_attribute(self.r, "Windows.Foundation.Metadata", "GuidAttribute").unwrap();
         let args = guid.arguments(self.r);
@@ -424,7 +371,7 @@ impl<'a> Writer<'a> {
         if name.chars().rev().skip(1).next() == Some('`') {
             let name = &name[..name.len() - 2];
             let name = write_ident(name);
-            let generics = generics.last().unwrap();
+            let generics = generics.last().expect("write_required_interface");
             quote! { #namespace#name::<#(#generics),*> }
         } else {
             let name = write_ident(name);
@@ -444,7 +391,8 @@ impl<'a> Writer<'a> {
         let consume_methods = self.write_consume_methods(interface);
 
         let interfaces = self.interface_interfaces(interface);
-        let required_methods = self.write_required_methods(interface, &interfaces);
+        let methods2 = self.methods(&interfaces);
+        let methods2 = self.write_methods(&methods2);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
@@ -464,7 +412,7 @@ impl<'a> Writer<'a> {
             }
             impl<#constraints> #name<#generics> {
                 #consume_methods
-                #required_methods
+                #methods2
             }
             impl<#constraints> winrt::QueryType for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
@@ -522,6 +470,17 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::new();
 
         for method in methods.iter().filter(|method| method.category != MethodCategory::Remove) {
+
+            if method.interface.category == InterfaceCategory::DefaultActivatable {
+                tokens.push(                    quote! {
+                    pub fn new() -> winrt::Result<Self> {
+                        winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
+                    }
+                });
+
+                continue;
+            }
+
             // TODO: can't seem to make this part of the filter above...
             if self.limited_method(&method.sig) {
                 continue;
@@ -529,82 +488,47 @@ impl<'a> Writer<'a> {
 
             // TODO: MethodCategory::Add should return an EventToken<T> return type rather than a raw token
 
+            let mut guard = self.push_generic_required_interface(&method.interface);
+
             let method_name = write_ident(&method.name);
             // TODO: perhaps all of these should take a Method param
-            let params = self.write_consume_params(&method.sig);
-            let into_params = self.write_consume_into_params(&method.sig);
-            let args = self.write_consume_args(&method.sig);
-            let result = self.write_return_type(&method.sig);
-            let into = self.write_required_interface(&method.interface.definition, &method.interface.generics);
+            let params = guard.write_consume_params(&method.sig);
+            let into_params = guard.write_consume_into_params(&method.sig);
+            let args = guard.write_consume_args(&method.sig);
+            let result = guard.write_return_type(&method.sig);
+            let into = guard.write_required_interface(&method.interface.definition, &method.interface.generics);
 
-            // match method.interface.category {
-            //     InterfaceCategory::Instance | InterfaceCategory::DefaultInstance => {
-            //         let mut guard = self.push_generic_required_interface(&method.interface);
-            //         tokens.push(guard.write_forward_methods(&interface));
-            //     }
-            //     InterfaceCategory::Static | InterfaceCategory::Activatable => {
-            //         tokens.push(self.write_class_statics(class, &interface.definition));
-            //     }
-            //     InterfaceCategory::DefaultActivatable => {
-            //         tokens.push(quote! {
-            //             pub fn new() -> winrt::Result<Self> {
-            //                 winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
-            //             }
-            //         });
-            //     }
-            // }
-
-            tokens.push(quote! {});
-        }
-        
-        TokenStream::from_iter(tokens)
-    }
-
-    fn write_forward_methods(&mut self, interface: &Interface) -> TokenStream {
-        let mut tokens = Vec::new();
-        let into = self.write_required_interface(&interface.definition, &interface.generics);
-
-        for method in interface.definition.methods(self.r) {
-            let signature = method.signature(self.r);
-
-            if self.limited_method(&signature) {
-                continue;
-            }
-
-            match method.category(self.r) {
-                MethodCategory::Remove => continue, // We don't project this method at all - the ABI is called internally by the EventGuard
-                MethodCategory::Add => continue,    // TODO: define this using an EventToken<T> return type
-                _ => {}
-            }
-
-            let name = self.write_method_name(&method);
-            let params = self.write_consume_params(&signature);
-            let into_params = self.write_consume_into_params(&signature);
-            let args = self.write_consume_args(&signature);
-
-            let projected_result = match signature.return_type() {
-                Some(result) => self.write_type(result.definition()),
-                None => quote! { () },
-            };
-
-            tokens.push(if interface.category == InterfaceCategory::DefaultInstance {
-                quote! {
-                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
-                        unsafe {
-                            let __default: &#into = std::mem::transmute_copy(&self);
-                            __default.#name(#args)
+            tokens.push(match method.interface.category {
+                InterfaceCategory::DefaultInstance => {
+                    quote! {
+                        pub fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result> {
+                            unsafe {
+                                let __default: &#into = std::mem::transmute_copy(&self);
+                                __default.#method_name(#args)
+                            }
                         }
                     }
                 }
-            } else {
-                quote! {
-                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
-                        <#into as From<&Self>>::from(self).#name(#args)
+                InterfaceCategory::Instance => {
+                    quote! {
+                        pub fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result> {
+                            <#into as From<&Self>>::from(self).#method_name(#args)
+                        }
                     }
+                }
+                InterfaceCategory::Static | InterfaceCategory::Activatable => {
+                    quote! {
+                        pub fn #method_name<#into_params>(#params) -> winrt::Result<#result> {
+                            winrt::factory::<Self, #into>()?.#method_name(#args)
+                        }
+                    }
+                }
+                InterfaceCategory::DefaultActivatable => {
+                    panic!("Case should already be covered");
                 }
             });
         }
-
+        
         TokenStream::from_iter(tokens)
     }
 
@@ -632,7 +556,7 @@ impl<'a> Writer<'a> {
 
             match method.category(self.r) {
                 MethodCategory::Remove => continue, // We don't project this method at all - the ABI is called internally by the EventGuard
-                MethodCategory::Add => continue,    // TODO: define this using an EventToken<T> return type
+                //MethodCategory::Add => continue,    // TODO: define this using an EventToken<T> return type
                 _ => {}
             }
 
@@ -995,7 +919,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_abi_param_generic_index(&self, value: u32) -> TokenStream {
-        let last = self.generics.last().unwrap();
+        let last = self.generics.last().expect("write_abi_param_generic_index");
         let type_param = &last[value as usize];
 
         quote! { <#type_param as winrt::RuntimeType>::Abi, }
@@ -1227,7 +1151,7 @@ impl<'a> Writer<'a> {
     }
 
     fn write_type_generic_index(&self, value: u32) -> TokenStream {
-        let last = self.generics.last().unwrap();
+        let last = self.generics.last().expect("write_type_generic_index");
         let param = &last[value as usize];
         quote! { #param }
     }
@@ -1398,7 +1322,7 @@ impl<'a> Writer<'a> {
             let (_, name) = attribute.name(self.r);
 
             if name == "StaticAttribute" {
-                let definition = self.factory_type(&attribute).unwrap();
+                let definition = self.factory_type(&attribute).expect("class_interfaces");
                 let limited = !self.limits.contains(definition.namespace(self.r));
                 result.push(Interface { definition, generics: Vec::new(), overridable: false, exclusive: true, limited, category: InterfaceCategory::Static });
             } else if name == "ActivatableAttribute" {
@@ -1418,32 +1342,35 @@ impl<'a> Writer<'a> {
         let mut methods: Vec<Method> = Vec::new();
 
         for interface in interfaces.iter().filter(|interface| !interface.limited) {
-            for method in interface.definition.methods(self.r) {
-                let sig = method.signature(self.r);
-                let category = method.category(self.r);
-                let mut name = self.method_name(&method, category);
+            if interface.category == InterfaceCategory::DefaultActivatable {
+                methods.push(Method { name: "new".to_string(), sig : MethodSig::invalid(), category: MethodCategory::Normal, interface });
+            } else {
+                for method in interface.definition.methods(self.r) {
+                    let sig = method.signature(self.r);
+                    let category = method.category(self.r);
+                    let mut name = self.method_name(&method, category);
 
-                match methods.binary_search_by(|method| method.name.cmp(&name)) {
-                    Err(index) => methods.insert(index, Method { name, sig, category, interface }),
-                    Ok(index) => {
-                        // A method exists with the same name. If there's a property "put_Path" and a method "SetPath"
-                        // then you have a collision since both are projected as "set_path". In this case, the method
-                        // should be named "set_path2". This ensures the naming is stable and relatively predictable.
-                        let prev = &mut methods[index];
+                    match methods.binary_search_by(|method| method.name.cmp(&name)) {
+                        Err(index) => methods.insert(index, Method { name, sig, category, interface }),
+                        Ok(index) => {
+                            // A method exists with the same name. If there's a property "put_Path" and a method "SetPath"
+                            // then you have a collision since both are projected as "set_path". In this case, the method
+                            // should be named "set_path2". This ensures the naming is stable and relatively predictable.
+                            let prev = &mut methods[index];
 
-                        if prev.category == MethodCategory::Set && category == MethodCategory::Normal {
-                            name += "2";
-                            methods.insert(index + 1, Method { name, sig, category, interface });
-                        } else if prev.category == MethodCategory::Normal && category == MethodCategory::Set {
-                            prev.name += "2";
-                            methods.insert(index, Method { name, sig, category, interface });
-                        } else {
-                            panic!("Unexpected method name collision");
+                            if prev.category == MethodCategory::Set && category == MethodCategory::Normal {
+                                name += "2";
+                                methods.insert(index + 1, Method { name, sig, category, interface });
+                            } else if prev.category == MethodCategory::Normal && category == MethodCategory::Set {
+                                prev.name += "2";
+                                methods.insert(index, Method { name, sig, category, interface });
+                            } else {
+                                panic!("Unexpected method name collision");
+                            }
                         }
                     }
                 }
             }
-            // TODO: add method for IActivationFactory if needed
         }
 
         methods
