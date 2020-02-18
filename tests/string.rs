@@ -14,8 +14,11 @@ fn strings() {
     assert!(rust == "Hello");
     assert!(rust.len() == 5);
 
+    let hello2 = hello.clone();
     hello.clear();
     assert!(hello.len() == 0);
     hello.clear();
     assert!(hello.len() == 0);
+    assert!(!hello2.is_empty());
+    assert!(hello2.len() == 5);
 }
