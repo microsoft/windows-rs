@@ -7,7 +7,7 @@ pub struct GenericSig {
 }
 
 // TODO: Why not collapse this?
-pub struct ModifierSig {
+struct ModifierSig {
     definition: TypeDefOrRef,
 }
 
@@ -146,6 +146,10 @@ impl MethodSig {
         MethodSig { return_type, params }
     }
 
+    pub(crate) fn invalid() -> MethodSig {
+        MethodSig { return_type: None, params: Vec::new() }
+    }
+
     pub fn return_type(&self) -> &Option<ParamSig> {
         &self.return_type
     }
@@ -250,14 +254,14 @@ impl ArgumentSig {
 
 impl ParamSig {
     fn new(name: String, input: bool, file: u16, bytes: &mut &[u8]) -> ParamSig {
-        let modifiers = ModifierSig::vec(file, bytes);
+        ModifierSig::vec(file, bytes);
         let by_ref = read_expected(bytes, 0x10);
         let definition = TypeSig::new(file, bytes);
         ParamSig { name: name, input, by_ref, definition }
     }
 
     fn from_attribute(file: u16, bytes: &mut &[u8]) -> ParamSig {
-        let modifiers = ModifierSig::vec(file, bytes);
+        ModifierSig::vec(file, bytes);
         let by_ref = read_expected(bytes, 0x10);
         let definition = TypeSig::new(file, bytes);
         ParamSig { name: String::new(), input: true, by_ref, definition }
@@ -314,7 +318,7 @@ impl TypeSigType {
 impl TypeSig {
     fn new(file: u16, bytes: &mut &[u8]) -> TypeSig {
         let array = read_expected(bytes, 0x1D);
-        let modifiers = ModifierSig::vec(file, bytes);
+        ModifierSig::vec(file, bytes);
         let definition = TypeSigType::new(file, bytes);
         TypeSig { array, definition }
     }

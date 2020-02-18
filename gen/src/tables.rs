@@ -103,6 +103,15 @@ impl MemberRef {
     }
 }
 
+#[derive(Copy, Clone, PartialEq)]
+pub enum MethodCategory {
+    Normal,
+    Get,
+    Set,
+    Add,
+    Remove,
+}
+
 impl MethodDef {
     pub fn flags(&self, r: &Reader) -> MethodAttributes {
         MethodAttributes(r.u32(&self.row, 2))
@@ -124,12 +133,24 @@ impl MethodDef {
         MethodSig::new(r, self)
     }
 
-    pub fn is_add_overload(&self, r: &Reader) -> bool {
-        self.flags(r).special() && self.name(r).starts_with("add")
-    }
-
-    pub fn is_remove_overload(&self, r: &Reader) -> bool {
-        self.flags(r).special() && self.name(r).starts_with("remove")
+    pub fn category(&self, r: &Reader) -> MethodCategory {
+        if self.flags(r).special() {
+            let name = self.name(r);
+            if name.starts_with("get") {
+                MethodCategory::Get
+            } else if name.starts_with("put") {
+                MethodCategory::Set
+            } else if name.starts_with("add") {
+                MethodCategory::Add
+            } else if name.starts_with("remove") {
+                MethodCategory::Remove
+            } else {
+                // A delegate's 'Invoke' method is "special" but lacks a preamble.
+                MethodCategory::Normal
+            }
+        } else {
+            MethodCategory::Normal
+        }
     }
 
     pub fn attributes(&self, r: &Reader) -> RowIterator<CustomAttribute> {
