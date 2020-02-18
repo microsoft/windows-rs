@@ -36,12 +36,14 @@ impl HString {
     }
 
     pub fn clear(&mut self) {
-        if let Some(ptr) = self.ptr {
-            let header = unsafe { ptr.as_ref() };
+        if let Some(mut ptr) = self.ptr {
+            let header = unsafe { ptr.as_mut() };
             debug_assert!(header.flags & REFERENCE_FLAG == 0);
 
-            if 0 == header.count.release() {
-                unsafe { HeapFree(GetProcessHeap(), 0, ptr.as_ptr() as *mut std::ffi::c_void) };
+            unsafe {
+                if 0 == header.shared.as_mut_ptr().as_mut().unwrap().count.release() {
+                    HeapFree(GetProcessHeap(), 0, ptr.as_ptr() as *mut std::ffi::c_void);
+                }
             }
 
             self.ptr = None;
@@ -129,6 +131,11 @@ struct Header {
     _0: u32,
     _1: u32,
     ptr: *const u16,
+    shared: std::mem::MaybeUninit<Shared>,
+}
+
+#[repr(C)]
+struct Shared {
     count: RefCount,
     buffer_start: u16,
 }
@@ -147,16 +154,18 @@ impl Header {
         unsafe {
             (*header).flags = 0;
             (*header).len = len;
-            (*header).ptr = &(*header).buffer_start;
-            (*header).count = RefCount::new(1);
+            (*header).ptr = &(*header).shared.as_ptr().as_ref().unwrap().buffer_start;
+            (*(*header).shared.as_mut_ptr()).count = RefCount::new(1);
         }
         header as *mut Header
     }
 
     fn duplicate(&mut self) -> ptr::NonNull<Header> {
         if self.flags & REFERENCE_FLAG == 0 {
-            self.count.addref();
-            unsafe { ptr::NonNull::new_unchecked(self) }
+            unsafe {
+                self.shared.as_ptr().as_ref().unwrap().count.addref();
+                ptr::NonNull::new_unchecked(self)
+            }
         } else {
             let copy = Header::alloc(self.len);
             unsafe {
