@@ -344,7 +344,7 @@ impl<'a> Writer<'a> {
                     });
                 }
                 InterfaceCategory::Instance => {
-                    let into =&interface.identifier;
+                    let into = &interface.identifier;
                     tokens.push(quote! {
                         impl<#constraints> From<#from<#generics>> for #into {
                             fn from(value: #from<#generics>) -> #into {
@@ -460,6 +460,7 @@ impl<'a> Writer<'a> {
         }
     }
 
+    // TODO: this should also use "Methods" so it has the consistent naming - it should just skip anything that's not InterfaceCategory::Abi
     fn write_abi_methods(&self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
@@ -484,28 +485,14 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_methods(&mut self, methods: &Vec<Method>) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for method in methods
-            .iter()
-            .filter(|method| method.category != MethodCategory::Remove)
-        {
-            if method.interface.category == InterfaceCategory::DefaultActivatable {
-                tokens.push(quote! {
-                    pub fn new() -> winrt::Result<Self> {
-                        winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
-                    }
-                });
-
-                continue;
+    fn write_method(&mut self, method: &Method) -> TokenStream {
+        if method.interface.category == InterfaceCategory::DefaultActivatable {
+            quote! {
+                pub fn new() -> winrt::Result<Self> {
+                    winrt::factory::<Self, winrt::IActivationFactory>()?.activate_instance::<Self>()
+                }
             }
-
-            // TODO: can't seem to make this part of the filter above...
-            if self.limited_method(&method.sig) {
-                continue;
-            }
-
+        } else {
             // TODO: MethodCategory::Add should return an EventToken<T> return type rather than a raw token
 
             let mut guard = self.push_generic_required_interface(&method.interface);
@@ -518,7 +505,35 @@ impl<'a> Writer<'a> {
             let result = guard.write_return_type(&method.sig);
             let into = &method.interface.identifier;
 
-            tokens.push(match method.interface.category {
+            match method.interface.category {
+                InterfaceCategory::Abi => {
+                    let args = guard.write_abi_args(&method.sig);
+                    let abi = &method.interface.abi_identifier;
+
+                    let (result_type, receive_expression, ok_variable, ok_transmute) =
+                    if let Some(result) = method.sig.return_type() {
+                        (
+                            guard.write_type(result.definition()),
+                            guard.write_consume_receive_expression(result.definition()),
+                            quote! { let mut __ok = std::mem::zeroed(); },
+                            quote! { ok_or(std::mem::transmute_copy(&__ok)) },
+                        )
+                    } else {
+                        (quote! { () }, quote! {}, quote! {}, quote! { ok() })
+                    };
+    
+                    quote! {
+                        pub fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result_type> {
+                            unsafe {
+                                #ok_variable
+                                ((*(*(self.ptr.get() as *const *const #abi))).#method_name)(
+                                    self.ptr.get(), #args #receive_expression
+                                )
+                                .#ok_transmute
+                            }
+                        }
+                    }
+                }
                 InterfaceCategory::DefaultInstance => {
                     quote! {
                         pub fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result> {
@@ -546,7 +561,23 @@ impl<'a> Writer<'a> {
                 InterfaceCategory::DefaultActivatable => {
                     panic!("Case should already be covered");
                 }
-            });
+            }
+        }
+    }
+
+    fn write_methods(&mut self, methods: &Vec<Method>) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for method in methods
+            .iter()
+            .filter(|method| method.category != MethodCategory::Remove)
+        {
+            // TODO: can't seem to make this part of the filter above...
+            if self.limited_method(&method.sig) {
+                continue;
+            }
+
+            tokens.push(self.write_method(method));
         }
 
         TokenStream::from_iter(tokens)
@@ -1116,22 +1147,27 @@ impl<'a> Writer<'a> {
     // write_type
     //
 
-    fn write_type_interface2(
+    fn write_interface_idents(
         &self,
         definition: &TypeDef,
-        generics: &Vec<Vec<TokenStream>>
-    ) -> TokenStream {
+        generics: &Vec<Vec<TokenStream>>,
+    ) -> (TokenStream, TokenStream) {
         let namespace = self.write_namespace_name(definition.namespace(self.r));
         let name = definition.name(self.r);
 
         if name.chars().rev().skip(1).next() == Some('`') {
             let name = &name[..name.len() - 2];
+            let abi_name = format_ident!("abi_{}", name);
             let name = write_ident(name);
-            let generics = generics.last().expect("write_type_interface2");
-            quote! { #namespace#name::<#(#generics),*> }
+            let generics = generics.last().expect("write_interface_idents");
+            (
+                quote! { #namespace#name::<#(#generics),*> },
+                quote! { #namespace#abi_name::<#(#generics),*> },
+            )
         } else {
+            let abi_name = format_ident!("abi_{}", name);
             let name = write_ident(name);
-            quote! { #namespace#name }
+            (quote! { #namespace#name }, quote! { #namespace#abi_name })
         }
     }
 
@@ -1373,7 +1409,8 @@ impl<'a> Writer<'a> {
                     "Windows.Foundation.Metadata",
                     "ExclusiveToAttribute",
                 );
-                let identifier = self.write_type_interface2(&definition, &generics);
+                let (identifier, abi_identifier) =
+                    self.write_interface_idents(&definition, &generics);
                 // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
                 result.insert(
                     index,
@@ -1385,6 +1422,7 @@ impl<'a> Writer<'a> {
                         limited,
                         category,
                         identifier,
+                        abi_identifier,
                     },
                 );
                 self.add_interfaces(result, &generics, definition.interfaces(self.r), false);
@@ -1426,7 +1464,8 @@ impl<'a> Writer<'a> {
             if name == "StaticAttribute" {
                 let definition = self.factory_type(&attribute).expect("class_interfaces");
                 let limited = !self.limits.contains(definition.namespace(self.r));
-                let identifier = self.write_type_interface2(&definition, &Vec::new());
+                let (identifier, abi_identifier) =
+                    self.write_interface_idents(&definition, &Vec::new());
                 result.push(Interface {
                     definition,
                     generics: Vec::new(),
@@ -1434,12 +1473,14 @@ impl<'a> Writer<'a> {
                     exclusive: true,
                     limited,
                     category: InterfaceCategory::Static,
-                    identifier
+                    identifier,
+                    abi_identifier,
                 });
             } else if name == "ActivatableAttribute" {
                 if let Some(definition) = self.factory_type(&attribute) {
                     let limited = !self.limits.contains(definition.namespace(self.r));
-                    let identifier = self.write_type_interface2(&definition, &Vec::new());
+                    let (identifier, abi_identifier) =
+                        self.write_interface_idents(&definition, &Vec::new());
                     result.push(Interface {
                         definition,
                         generics: Vec::new(),
@@ -1448,6 +1489,7 @@ impl<'a> Writer<'a> {
                         limited,
                         category: InterfaceCategory::Activatable,
                         identifier,
+                        abi_identifier,
                     });
                 } else {
                     result.push(Interface {
@@ -1458,6 +1500,7 @@ impl<'a> Writer<'a> {
                         limited: false,
                         category: InterfaceCategory::DefaultActivatable,
                         identifier: TokenStream::new(),
+                        abi_identifier: TokenStream::new(),
                     });
                 }
             }
@@ -1550,6 +1593,7 @@ fn write_ident(name: &str) -> Ident {
 
 #[derive(PartialEq)]
 enum InterfaceCategory {
+    Abi,
     Instance,
     DefaultInstance,
     Static,
@@ -1565,6 +1609,7 @@ struct Interface {
     limited: bool, // We don't just elide from the list because we need to deal with classes who's default interface is limited.
     category: InterfaceCategory,
     identifier: TokenStream,
+    abi_identifier: TokenStream,
 }
 
 struct Method<'a> {
