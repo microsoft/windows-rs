@@ -7,7 +7,10 @@ pub struct Array<T: RuntimeType> {
 
 impl<T: RuntimeType> Array<T> {
     pub fn new() -> Array<T> {
-        Array { data: std::ptr::null_mut(), len: 0 }
+        Array {
+            data: std::ptr::null_mut(),
+            len: 0,
+        }
     }
 
     pub fn clear(&mut self) {

@@ -22,5 +22,9 @@ extern "system" {
 
     // TODO: get rid of these (not available on Windows 7)
     pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
-    pub fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
+    pub fn RoGetActivationFactory(
+        hstring: RawPtr,
+        interface: &Guid,
+        result: *mut RawPtr,
+    ) -> ErrorCode;
 }

@@ -14,7 +14,12 @@ pub struct EventToken<T> {
 
 impl<T: QueryType> EventToken<T> {
     pub fn new(source: &ComPtr, token: i64, offset: u32) -> EventToken<T> {
-        EventToken { token, source: source.clone(), offset, __0: std::marker::PhantomData }
+        EventToken {
+            token,
+            source: source.clone(),
+            offset,
+            __0: std::marker::PhantomData,
+        }
     }
 
     pub fn guard(mut self) -> EventGuard {
@@ -22,9 +27,19 @@ impl<T: QueryType> EventToken<T> {
             let weak_source = self.source.query::<IWeakReferenceSource>();
             let weak = !weak_source.is_null();
             if weak {
-                ((*(*(weak_source.get() as *const *const IWeakReferenceSource))).weak)(weak_source.get(), self.source.set()).unwrap();
+                ((*(*(weak_source.get() as *const *const IWeakReferenceSource))).weak)(
+                    weak_source.get(),
+                    self.source.set(),
+                )
+                .unwrap();
             }
-            EventGuard { guid: *T::type_guid(), token: self.token, source: self.source, offset: self.offset, weak: weak }
+            EventGuard {
+                guid: *T::type_guid(),
+                token: self.token,
+                source: self.source,
+                offset: self.offset,
+                weak: weak,
+            }
         }
     }
 }
@@ -42,7 +57,11 @@ impl Drop for EventGuard {
         unsafe {
             if self.weak {
                 let mut ptr = std::ptr::null_mut();
-                ((*(*(self.source.get() as *const *const IWeakReference))).strong)(self.source.get(), &self.guid, &mut ptr);
+                ((*(*(self.source.get() as *const *const IWeakReference))).strong)(
+                    self.source.get(),
+                    &self.guid,
+                    &mut ptr,
+                );
                 self.source = std::mem::transmute(ptr);
             }
             if !self.source.is_null() {

@@ -12,14 +12,23 @@ impl Object {
     pub fn type_name(&self) -> Result<String> {
         unsafe {
             let mut ptr = std::ptr::null_mut();
-            ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(self.ptr.get(), &mut ptr).ok_or(std::mem::transmute(ptr))
+            ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(
+                self.ptr.get(),
+                &mut ptr,
+            )
+            .ok_or(std::mem::transmute(ptr))
         }
     }
 }
 
 impl QueryType for Object {
     fn type_guid() -> &'static Guid {
-        static GUID: Guid = Guid::from_values(0xAF86E2E0, 0xB12D, 0x4C6A, &[0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90]);
+        static GUID: Guid = Guid::from_values(
+            0xAF86E2E0,
+            0xB12D,
+            0x4C6A,
+            &[0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90],
+        );
         &GUID
     }
 }

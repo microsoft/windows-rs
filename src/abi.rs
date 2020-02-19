@@ -28,7 +28,9 @@ impl ComPtr {
     }
 
     pub fn query<I: QueryType>(&self) -> ComPtr {
-        ComPtr { ptr: query::<I>(self.ptr) }
+        ComPtr {
+            ptr: query::<I>(self.ptr),
+        }
     }
 
     pub fn get(&self) -> RawPtr {
@@ -52,7 +54,9 @@ impl ComPtr {
 
 impl Default for ComPtr {
     fn default() -> Self {
-        Self { ptr: std::ptr::null_mut() }
+        Self {
+            ptr: std::ptr::null_mut(),
+        }
     }
 }
 

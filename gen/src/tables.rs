@@ -53,8 +53,18 @@ impl CustomAttribute {
 
     pub fn arguments(&self, r: &Reader) -> Vec<(String, ArgumentSig)> {
         match self.constructor(r) {
-            CustomAttributeType::MethodDef(value) => ArgumentSig::new(r, self.row.file, r.blob(&value.row, 4), r.blob(&self.row, 2)),
-            CustomAttributeType::MemberRef(value) => ArgumentSig::new(r, self.row.file, r.blob(&value.row, 2), r.blob(&self.row, 2)),
+            CustomAttributeType::MethodDef(value) => ArgumentSig::new(
+                r,
+                self.row.file,
+                r.blob(&value.row, 4),
+                r.blob(&self.row, 2),
+            ),
+            CustomAttributeType::MemberRef(value) => ArgumentSig::new(
+                r,
+                self.row.file,
+                r.blob(&value.row, 2),
+                r.blob(&self.row, 2),
+            ),
         }
     }
 }
@@ -85,11 +95,16 @@ impl InterfaceImpl {
     }
 
     pub fn attributes(&self, r: &Reader) -> RowIterator<CustomAttribute> {
-        r.equal_range(self.row.file, 0, HasCustomAttribute::InterfaceImpl(*self).encode())
+        r.equal_range(
+            self.row.file,
+            0,
+            HasCustomAttribute::InterfaceImpl(*self).encode(),
+        )
     }
 
     pub fn has_attribute(&self, r: &Reader, namespace: &str, name: &str) -> bool {
-        self.attributes(r).any(|attribute| attribute.name(r) == (namespace, name))
+        self.attributes(r)
+            .any(|attribute| attribute.name(r) == (namespace, name))
     }
 }
 
@@ -154,11 +169,21 @@ impl MethodDef {
     }
 
     pub fn attributes(&self, r: &Reader) -> RowIterator<CustomAttribute> {
-        r.equal_range(self.row.file, 0, HasCustomAttribute::MethodDef(*self).encode())
+        r.equal_range(
+            self.row.file,
+            0,
+            HasCustomAttribute::MethodDef(*self).encode(),
+        )
     }
 
-    pub fn find_attribute(&self, r: &Reader, namespace: &str, name: &str) -> Option<CustomAttribute> {
-        self.attributes(r).find(|attribute| attribute.name(r) == (namespace, name))
+    pub fn find_attribute(
+        &self,
+        r: &Reader,
+        namespace: &str,
+        name: &str,
+    ) -> Option<CustomAttribute> {
+        self.attributes(r)
+            .find(|attribute| attribute.name(r) == (namespace, name))
     }
 }
 
@@ -178,7 +203,9 @@ impl Param {
 
 impl TypeDef {
     pub fn invalid() -> TypeDef {
-        Self { row: RowData::invalid() }
+        Self {
+            row: RowData::invalid(),
+        }
     }
 
     pub fn flags(&self, r: &Reader) -> TypeAttributes {
@@ -214,15 +241,26 @@ impl TypeDef {
     }
 
     pub fn attributes(&self, r: &Reader) -> RowIterator<CustomAttribute> {
-        r.equal_range(self.row.file, 0, HasCustomAttribute::TypeDef(*self).encode())
+        r.equal_range(
+            self.row.file,
+            0,
+            HasCustomAttribute::TypeDef(*self).encode(),
+        )
     }
 
     pub fn has_attribute(&self, r: &Reader, namespace: &str, name: &str) -> bool {
-        self.attributes(r).any(|attribute| attribute.name(r) == (namespace, name))
+        self.attributes(r)
+            .any(|attribute| attribute.name(r) == (namespace, name))
     }
 
-    pub fn find_attribute(&self, r: &Reader, namespace: &str, name: &str) -> Option<CustomAttribute> {
-        self.attributes(r).find(|attribute| attribute.name(r) == (namespace, name))
+    pub fn find_attribute(
+        &self,
+        r: &Reader,
+        namespace: &str,
+        name: &str,
+    ) -> Option<CustomAttribute> {
+        self.attributes(r)
+            .find(|attribute| attribute.name(r) == (namespace, name))
     }
 
     pub fn category(&self, r: &Reader) -> TypeCategory {
@@ -233,7 +271,8 @@ impl TypeDef {
                 "Enum" => TypeCategory::Enum,
                 "MulticastDelegate" => TypeCategory::Delegate,
                 "ValueType" => {
-                    if self.has_attribute(r, "Windows.Foundation.Metadata", "ApiContractAttribute") {
+                    if self.has_attribute(r, "Windows.Foundation.Metadata", "ApiContractAttribute")
+                    {
                         TypeCategory::Contract
                     } else {
                         TypeCategory::Struct
@@ -278,7 +317,11 @@ impl TypeRef {
 
     // TODO: panic with "'full name' not found"
     pub fn resolve(&self, r: &Reader) -> TypeDef {
-        *r.namespaces().get(self.namespace(r)).unwrap().get(self.name(r)).unwrap()
+        *r.namespaces()
+            .get(self.namespace(r))
+            .unwrap()
+            .get(self.name(r))
+            .unwrap()
     }
 }
 
