@@ -535,7 +535,7 @@ impl<'a> Writer<'a> {
         let namespace = self.write_namespace_name(interface.namespace(self.r));
         let abi_name = self.write_generic_abi_name(interface);
 
-        // TODO: can't simply this because self is mutable?
+        // TODO: can't simply do this because self is mutable?
         // for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {
         for method in interface.methods(self.r) {
             let name = method.name(self.r);
@@ -562,33 +562,19 @@ impl<'a> Writer<'a> {
             let into_params = self.write_consume_into_params(&signature);
             let args = self.write_abi_args(&signature);
 
-            if let Some(result) = signature.return_type() {
-                let projected_result = self.write_type(result.definition());
-                let receive_expression = self.write_consume_receive_expression(result.definition());
+            let (result_type, receive_expression, ok_variable, ok_transmute) = if let Some(result) = signature.return_type() { (self.write_type(result.definition()), self.write_consume_receive_expression(result.definition()), quote! { let mut __ok = std::mem::zeroed(); }, quote! { ok_or(std::mem::transmute_copy(&__ok)) }) } else { (quote! { () }, quote! {}, quote! {}, quote! { ok() }) };
 
-                tokens.push(quote! {
-                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<#projected_result> {
-                        unsafe {
-                            let mut __ok = std::mem::zeroed();
-                            ((*(*(self.ptr.get() as *const *const #namespace#abi_name<#generics>))).#name)(
-                                self.ptr.get(), #args #receive_expression
-                            )
-                            .ok_or(std::mem::transmute_copy(&__ok))
-                        }
+            tokens.push(quote! {
+                pub fn #name<#into_params>(&self, #params) -> winrt::Result<#result_type> {
+                    unsafe {
+                        #ok_variable
+                        ((*(*(self.ptr.get() as *const *const #namespace#abi_name<#generics>))).#name)(
+                            self.ptr.get(), #args #receive_expression
+                        )
+                        .#ok_transmute
                     }
-                });
-            } else {
-                tokens.push(quote! {
-                    pub fn #name<#into_params>(&self, #params) -> winrt::Result<()> {
-                        unsafe {
-                            ((*(*(self.ptr.get() as *const *const #namespace#abi_name<#generics>))).#name)(
-                                self.ptr.get(), #args
-                            )
-                            .ok()
-                        }
-                    }
-                });
-            }
+                }
+            });
         }
 
         TokenStream::from_iter(tokens)

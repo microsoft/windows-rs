@@ -60,18 +60,18 @@ fn parse_import_stream(stream: TokenStream) -> (std::collections::BTreeSet<Strin
     let mut stream = stream.into_iter().peekable();
     while let Some(token) = stream.next() {
         match token {
-            TokenTree::Ident(value) =>{
+            TokenTree::Ident(value) => {
                 match value.to_string().as_ref() {
                     "dependencies" => category = ImportCategory::Dependency,
                     "modules" => category = ImportCategory::Namespace,
                     value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
-                } 
+                }
                 if let Some(TokenTree::Punct(p)) = stream.peek() {
                     if p.as_char() == ':' {
                         let _ = stream.next();
-                    } 
+                    }
                 }
-            },
+            }
             TokenTree::Literal(value) => match category {
                 ImportCategory::None => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
                 ImportCategory::Dependency => {

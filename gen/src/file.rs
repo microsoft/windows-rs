@@ -207,18 +207,57 @@ impl File {
             };
         }
 
-        let type_def_or_ref = composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_TYPEREF], &file.tables[TABLE_TYPESPEC]]);
-        let has_constant = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_PARAM], &unused_property]);
-        let has_custom_attribute = composite_index_size(&[&file.tables[TABLE_METHODDEF], &file.tables[TABLE_FIELD], &file.tables[TABLE_TYPEREF], &file.tables[TABLE_TYPEDEF], &file.tables[TABLE_PARAM], &file.tables[TABLE_INTERFACEIMPL], &file.tables[TABLE_MEMBERREF], &unused_module, &unused_property, &unused_event, &unused_standalone_sig, &unused_module_ref, &file.tables[TABLE_TYPESPEC], &unused_assembly, &unused_assembly_ref, &unused_file, &unused_exported_type, &unused_manifest_resource, &file.tables[TABLE_GENERICPARAM], &unused_generic_param_constraint, &unused_method_spec]);
+        let type_def_or_ref = composite_index_size(
+            &[&file.tables[TABLE_TYPEDEF], 
+            &file.tables[TABLE_TYPEREF], 
+            &file.tables[TABLE_TYPESPEC]]);
+
+        let has_constant = composite_index_size(
+            &[&file.tables[TABLE_FIELD],
+            &file.tables[TABLE_PARAM],
+            &unused_property]);
+
+        let has_custom_attribute = composite_index_size(
+            &[&file.tables[TABLE_METHODDEF],
+            &file.tables[TABLE_FIELD],
+            &file.tables[TABLE_TYPEREF],
+            &file.tables[TABLE_TYPEDEF],
+            &file.tables[TABLE_PARAM], 
+            &file.tables[TABLE_INTERFACEIMPL], 
+            &file.tables[TABLE_MEMBERREF], 
+            &unused_module, 
+            &unused_property, 
+            &unused_event, 
+            &unused_standalone_sig, 
+            &unused_module_ref, 
+            &file.tables[TABLE_TYPESPEC], 
+            &unused_assembly, 
+            &unused_assembly_ref, 
+            &unused_file, 
+            &unused_exported_type, 
+            &unused_manifest_resource, 
+            &file.tables[TABLE_GENERICPARAM], 
+            &unused_generic_param_constraint, 
+            &unused_method_spec]);
+
         let has_field_marshal = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_PARAM]]);
+
         let has_decl_security = composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_METHODDEF], &unused_assembly]);
+
         let member_ref_parent = composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_TYPEREF], &unused_module_ref, &file.tables[TABLE_METHODDEF], &file.tables[TABLE_TYPESPEC]]);
+
         let has_semantics = composite_index_size(&[&unused_event, &unused_property]);
+
         let method_def_or_ref = composite_index_size(&[&file.tables[TABLE_METHODDEF], &file.tables[TABLE_MEMBERREF]]);
+
         let member_forwarded = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_METHODDEF]]);
+
         let implementation = composite_index_size(&[&unused_file, &unused_assembly_ref, &unused_exported_type]);
+
         let custom_attribute_type = composite_index_size(&[&file.tables[TABLE_METHODDEF], &file.tables[TABLE_MEMBERREF], &unused_empty, &unused_empty, &unused_empty]);
+
         let resolution_scope = composite_index_size(&[&unused_module, &unused_module_ref, &unused_assembly_ref, &file.tables[TABLE_TYPEREF]]);
+
         let type_or_method_def = composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_METHODDEF]]);
 
         unused_assembly.set_columns(4, 8, 4, blob_index_size, string_index_size, string_index_size);
