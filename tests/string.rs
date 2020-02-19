@@ -1,14 +1,24 @@
 #[test]
 fn strings() {
-    let empty: winrt::String = winrt::String::new();
+    use winrt::HString;
+
+    let empty = HString::new();
     assert!(empty.is_empty());
     assert!(empty.len() == 0);
 
-    let hello: winrt::String = winrt::String::from("Hello");
+    let mut hello = HString::from("Hello");
     assert!(!hello.is_empty());
     assert!(hello.len() == 5);
 
-    let rust: std::string::String = hello.to_string();
+    let rust = hello.to_string();
     assert!(rust == "Hello");
     assert!(rust.len() == 5);
+
+    let hello2 = hello.clone();
+    hello.clear();
+    assert!(hello.len() == 0);
+    hello.clear();
+    assert!(hello.len() == 0);
+    assert!(!hello2.is_empty());
+    assert!(hello2.len() == 5);
 }
