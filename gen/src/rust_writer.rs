@@ -1489,6 +1489,8 @@ impl<'a> Writer<'a> {
                             // A method exists with the same name. If there's a property "put_Path" and a method "SetPath"
                             // then you have a collision since both are projected as "set_path". In this case, the method
                             // should be named "set_path2". This ensures the naming is stable and relatively predictable.
+                            // TODO: should also factor in versioning. The rule above should only apply to collisions within
+                            // a single interface. Later versions cannot rename previously introduced methods.
                             let prev = &mut methods[index];
 
                             if prev.category == MethodCategory::Set
