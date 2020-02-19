@@ -1399,6 +1399,10 @@ impl<'a> Writer<'a> {
 
     fn interface_interfaces(&mut self, interface: &TypeDef) -> Vec<Interface> {
         let mut result = Vec::new();
+
+        // TODO: add interface itself to list using InterfaceCategory::DefaultInstance so that
+        // we can use this list to generate the entire interface with method renaming already applied.
+
         self.add_interfaces(
             &mut result,
             &Vec::new(),
