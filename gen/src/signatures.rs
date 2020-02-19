@@ -136,18 +136,38 @@ impl MethodSig {
         let param_count = read_unsigned(&mut bytes);
         ModifierSig::vec(method.row.file, &mut bytes);
         read_expected(&mut bytes, 0x10);
-        let return_type = if read_expected(&mut bytes, 0x01) { None } else { Some(ParamSig { name: String::new(), input: false, by_ref: true, definition: TypeSig::new(method.row.file, &mut bytes) }) };
+        let return_type = if read_expected(&mut bytes, 0x01) {
+            None
+        } else {
+            Some(ParamSig {
+                name: String::new(),
+                input: false,
+                by_ref: true,
+                definition: TypeSig::new(method.row.file, &mut bytes),
+            })
+        };
         let mut params = Vec::with_capacity(param_count as usize);
         for param in method.params(r) {
             if !return_type.is_some() || param.sequence(r) != 0 {
-                params.push(ParamSig::new(param.name(r).to_string(), param.flags(r).input(), method.row.file, &mut bytes));
+                params.push(ParamSig::new(
+                    param.name(r).to_string(),
+                    param.flags(r).input(),
+                    method.row.file,
+                    &mut bytes,
+                ));
             }
         }
-        MethodSig { return_type, params }
+        MethodSig {
+            return_type,
+            params,
+        }
     }
 
     pub(crate) fn invalid() -> MethodSig {
-        MethodSig { return_type: None, params: Vec::new() }
+        MethodSig {
+            return_type: None,
+            params: Vec::new(),
+        }
     }
 
     pub fn return_type(&self) -> &Option<ParamSig> {
@@ -185,7 +205,12 @@ pub(crate) fn constructor_sig(file: u16, mut bytes: &[u8]) -> Vec<ParamSig> {
 }
 
 impl ArgumentSig {
-    pub(crate) fn new(r: &Reader, file: u16, signature_bytes: &[u8], mut data_bytes: &[u8]) -> Vec<(String, ArgumentSig)> {
+    pub(crate) fn new(
+        r: &Reader,
+        file: u16,
+        signature_bytes: &[u8],
+        mut data_bytes: &[u8],
+    ) -> Vec<(String, ArgumentSig)> {
         let params = constructor_sig(file, signature_bytes);
         read_u16(&mut data_bytes);
         let mut args = Vec::with_capacity(params.len());
@@ -226,15 +251,33 @@ impl ArgumentSig {
             let arg_type = read_u8(&mut data_bytes);
 
             args.push(match arg_type {
-                2 => (read_string(&mut data_bytes), ArgumentSig::Bool(read_u8(&mut data_bytes) != 0)),
-                8 => (read_string(&mut data_bytes), ArgumentSig::I32(read_i32(&mut data_bytes))),
-                14 => (read_string(&mut data_bytes), ArgumentSig::String(read_string(&mut data_bytes))),
-                0x50 => (read_string(&mut data_bytes), ArgumentSig::TypeDef(r.resolve(&read_string(&mut data_bytes)))),
+                2 => (
+                    read_string(&mut data_bytes),
+                    ArgumentSig::Bool(read_u8(&mut data_bytes) != 0),
+                ),
+                8 => (
+                    read_string(&mut data_bytes),
+                    ArgumentSig::I32(read_i32(&mut data_bytes)),
+                ),
+                14 => (
+                    read_string(&mut data_bytes),
+                    ArgumentSig::String(read_string(&mut data_bytes)),
+                ),
+                0x50 => (
+                    read_string(&mut data_bytes),
+                    ArgumentSig::TypeDef(r.resolve(&read_string(&mut data_bytes))),
+                ),
                 0x55 => {
                     let enum_type = r.resolve(&read_string(&mut data_bytes));
                     (
                         read_string(&mut data_bytes),
-                        match enum_type.fields(r).next().unwrap().signature(r).definition() {
+                        match enum_type
+                            .fields(r)
+                            .next()
+                            .unwrap()
+                            .signature(r)
+                            .definition()
+                        {
                             TypeSigType::ElementType(value) => match value {
                                 ElementType::I32 => ArgumentSig::I32(read_i32(&mut data_bytes)),
                                 ElementType::U32 => ArgumentSig::U32(read_u32(&mut data_bytes)),
@@ -257,14 +300,24 @@ impl ParamSig {
         ModifierSig::vec(file, bytes);
         let by_ref = read_expected(bytes, 0x10);
         let definition = TypeSig::new(file, bytes);
-        ParamSig { name: name, input, by_ref, definition }
+        ParamSig {
+            name: name,
+            input,
+            by_ref,
+            definition,
+        }
     }
 
     fn from_attribute(file: u16, bytes: &mut &[u8]) -> ParamSig {
         ModifierSig::vec(file, bytes);
         let by_ref = read_expected(bytes, 0x10);
         let definition = TypeSig::new(file, bytes);
-        ParamSig { name: String::new(), input: true, by_ref, definition }
+        ParamSig {
+            name: String::new(),
+            input: true,
+            by_ref,
+            definition,
+        }
     }
 
     pub fn name(&self) -> &str {
@@ -307,7 +360,9 @@ impl TypeSigType {
             0x0D => TypeSigType::ElementType(ElementType::F64),
             0x0E => TypeSigType::ElementType(ElementType::String),
             0x1C => TypeSigType::ElementType(ElementType::Object),
-            0x11 | 0x12 => TypeSigType::TypeDefOrRef(TypeDefOrRef::decode(read_unsigned(bytes), file)),
+            0x11 | 0x12 => {
+                TypeSigType::TypeDefOrRef(TypeDefOrRef::decode(read_unsigned(bytes), file))
+            }
             0x13 => TypeSigType::GenericTypeIndex(read_unsigned(bytes)),
             0x15 => TypeSigType::GenericSig(GenericSig::new(file, bytes)),
             _ => panic!(),
@@ -431,7 +486,13 @@ fn peek_unsigned(bytes: &[u8]) -> (u32, usize) {
     } else if bytes[0] & 0xC0 == 0x80 {
         (2, (((bytes[0] & 0x3F) as u32) << 8) | bytes[1] as u32)
     } else {
-        (4, (((bytes[0] & 0x1F) as u32) << 24) | (bytes[1] as u32) << 16 | (bytes[2] as u32) << 8 | bytes[3] as u32)
+        (
+            4,
+            (((bytes[0] & 0x1F) as u32) << 24)
+                | (bytes[1] as u32) << 16
+                | (bytes[2] as u32) << 8
+                | bytes[3] as u32,
+        )
     };
     // TODO: this is backwards from the result above...
     (value, bytes_read)

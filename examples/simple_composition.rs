@@ -1,20 +1,20 @@
-use com::{ com_interface, interfaces::iunknown::IUnknown, InterfacePtr, InterfaceRc };
+use com::{com_interface, interfaces::iunknown::IUnknown, InterfacePtr, InterfaceRc};
 use core::ffi::c_void;
-use raw_window_handle::{HasRawWindowHandle};
-use winrt::*;
+use raw_window_handle::HasRawWindowHandle;
 use winapi::{
-    ENUM,
     shared::{
-        minwindef::{DWORD, BOOL},
+        minwindef::{BOOL, DWORD},
         ntdef::HRESULT,
     },
     winrt::roapi::{RoInitialize, RO_INIT_SINGLETHREADED},
+    ENUM,
 };
 use winit::{
     event::{Event, WindowEvent},
     event_loop::{ControlFlow, EventLoop},
     window::WindowBuilder,
 };
+use winrt::*;
 
 import!(
     dependencies
@@ -25,10 +25,10 @@ import!(
         "windows.ui.composition"
 );
 
-use windows::foundation::*;
 use windows::foundation::numerics::*;
-use windows::ui::*;
+use windows::foundation::*;
 use windows::ui::composition::*;
+use windows::ui::*;
 
 fn run() -> Result<()> {
     unsafe {
@@ -54,7 +54,7 @@ fn run() -> Result<()> {
 
     // Build our visual tree
     let visual = compositor.create_sprite_visual()?;
-    visual.set_relative_size_adjustment(Vector2{ x: 1.0, y: 1.0 })?;
+    visual.set_relative_size_adjustment(Vector2 { x: 1.0, y: 1.0 })?;
     let brush = compositor.create_color_brush_with_color(Colors::red()?)?;
     visual.set_brush(brush)?;
 
@@ -86,12 +86,12 @@ fn main() {
 }
 
 // Dispatcher Queue interop
-ENUM!{enum DISPATCHERQUEUE_THREAD_TYPE {
+ENUM! {enum DISPATCHERQUEUE_THREAD_TYPE {
     DQTYPE_THREAD_DEDICATED = 1,
     DQTYPE_THREAD_CURRENT = 2,
 }}
 
-ENUM!{enum DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+ENUM! {enum DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     DQTAT_COM_NONE = 0,
     DQTAT_COM_ASTA = 1,
     DQTAT_COM_STA = 2,
@@ -125,7 +125,7 @@ fn create_dispatcher_queue_controller_for_current_thread() -> Result<winrt::ComP
 
     let dispatcher_queue_controller = unsafe {
         let mut interop_ptr = winrt::ComPtr::default();
-        winrt::ErrorCode(CreateDispatcherQueueController(options, interop_ptr.set())).ok()?;       
+        winrt::ErrorCode(CreateDispatcherQueueController(options, interop_ptr.set())).ok()?;
         //let dispatcher_queue_controller = interop_ptr.query::<DispatcherQueueController>();
         //let dispatcher_queue_controller = std::mem::transmute::<winrt::ComPtr, DispatcherQueueController>(dispatcher_queue_controller);
         // dispatcher_queue_controller
@@ -145,29 +145,35 @@ trait ICompositorDesktopInterop: IUnknown {
         result: *mut winrt::RawPtr,
     ) -> HRESULT;
 
-    unsafe fn ensure_on_thread(
-        &self,
-        thread_id: DWORD,
-    ) -> HRESULT;
+    unsafe fn ensure_on_thread(&self, thread_id: DWORD) -> HRESULT;
 
-    unsafe fn get_trust_level(
-        &self,
-        trust_level: *mut *mut c_void,
-    ) -> HRESULT;
+    unsafe fn get_trust_level(&self, trust_level: *mut *mut c_void) -> HRESULT;
 }
 
-fn create_desktop_window_target(compositor: &Compositor, window_handle: *mut c_void) -> Result<CompositionTarget> {
+fn create_desktop_window_target(
+    compositor: &Compositor,
+    window_handle: *mut c_void,
+) -> Result<CompositionTarget> {
     let compositor_ptr = compositor.abi();
     let compositor_interop = unsafe {
-        let unknown = InterfaceRc::<dyn IUnknown>::new(InterfacePtr::<dyn IUnknown>::new(compositor_ptr));
-        let compositor_interop = unknown.get_interface::<dyn ICompositorDesktopInterop>().unwrap();
+        let unknown =
+            InterfaceRc::<dyn IUnknown>::new(InterfacePtr::<dyn IUnknown>::new(compositor_ptr));
+        let compositor_interop = unknown
+            .get_interface::<dyn ICompositorDesktopInterop>()
+            .unwrap();
         compositor_interop
     };
     let desktop_target = unsafe {
         let mut interop_ptr = winrt::ComPtr::default();
-        winrt::ErrorCode(compositor_interop.create_desktop_window_target(window_handle, 0, interop_ptr.set())).ok()?;
+        winrt::ErrorCode(compositor_interop.create_desktop_window_target(
+            window_handle,
+            0,
+            interop_ptr.set(),
+        ))
+        .ok()?;
         let desktop_target = interop_ptr.query::<CompositionTarget>();
-        let desktop_target = std::mem::transmute::<winrt::ComPtr, CompositionTarget>(desktop_target);
+        let desktop_target =
+            std::mem::transmute::<winrt::ComPtr, CompositionTarget>(desktop_target);
 
         desktop_target
     };

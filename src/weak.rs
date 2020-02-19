@@ -18,7 +18,12 @@ pub(crate) struct IWeakReferenceSource {
 
 impl QueryType for IWeakReferenceSource {
     fn type_guid() -> &'static Guid {
-        static GUID: Guid = Guid::from_values(0x00000038, 0x0000, 0x0000, &[0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46]);
+        static GUID: Guid = Guid::from_values(
+            0x00000038,
+            0x0000,
+            0x0000,
+            &[0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
+        );
         &GUID
     }
 }

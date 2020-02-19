@@ -53,27 +53,35 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     result
 }
 
-fn parse_import_stream(stream: TokenStream) -> (std::collections::BTreeSet<String>, std::collections::BTreeSet<String>) {
+fn parse_import_stream(
+    stream: TokenStream,
+) -> (
+    std::collections::BTreeSet<String>,
+    std::collections::BTreeSet<String>,
+) {
     let mut category = ImportCategory::None;
     let mut dependencies = std::collections::BTreeSet::<String>::new();
     let mut modules = std::collections::BTreeSet::<String>::new();
     let mut stream = stream.into_iter().peekable();
     while let Some(token) = stream.next() {
         match token {
-            TokenTree::Ident(value) =>{
+            TokenTree::Ident(value) => {
                 match value.to_string().as_ref() {
                     "dependencies" => category = ImportCategory::Dependency,
                     "modules" => category = ImportCategory::Namespace,
                     value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
-                } 
+                }
                 if let Some(TokenTree::Punct(p)) = stream.peek() {
                     if p.as_char() == ':' {
                         let _ = stream.next();
-                    } 
+                    }
                 }
-            },
+            }
             TokenTree::Literal(value) => match category {
-                ImportCategory::None => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value.to_string()),
+                ImportCategory::None => panic!(
+                    "winrt::import macro expects either `dependencies` or `modules` but found `{}`",
+                    value.to_string()
+                ),
                 ImportCategory::Dependency => {
                     dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"')));
                 }
@@ -81,7 +89,10 @@ fn parse_import_stream(stream: TokenStream) -> (std::collections::BTreeSet<Strin
                     modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
                 }
             },
-            _ => panic!("winrt::import macro encountered an unrecognized token: {}", token.to_string()),
+            _ => panic!(
+                "winrt::import macro encountered an unrecognized token: {}",
+                token.to_string()
+            ),
         }
     }
 

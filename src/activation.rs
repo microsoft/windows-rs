@@ -10,12 +10,17 @@ pub fn factory<C: TypeName, I: QueryType>() -> Result<I> {
     unsafe {
         let mut ptr = std::ptr::null_mut();
 
-        let mut code = RoGetActivationFactory(String::from(C::type_name()).abi(), I::type_guid(), &mut ptr);
+        let mut code =
+            RoGetActivationFactory(String::from(C::type_name()).abi(), I::type_guid(), &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut cookie = std::ptr::null_mut();
             CoIncrementMTAUsage(&mut cookie);
-            code = RoGetActivationFactory(String::from(C::type_name()).abi(), I::type_guid(), &mut ptr);
+            code = RoGetActivationFactory(
+                String::from(C::type_name()).abi(),
+                I::type_guid(),
+                &mut ptr,
+            );
         }
 
         code.ok_or(std::mem::transmute_copy(&ptr))
@@ -33,14 +38,23 @@ impl IActivationFactory {
         unsafe {
             let mut ptr = std::ptr::null_mut();
             // TODO: this is cheating - we need a QI here...
-            ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(self.ptr.get(), &mut ptr).ok_or(std::mem::transmute_copy(&ptr))
+            ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(
+                self.ptr.get(),
+                &mut ptr,
+            )
+            .ok_or(std::mem::transmute_copy(&ptr))
         }
     }
 }
 
 impl QueryType for IActivationFactory {
     fn type_guid() -> &'static Guid {
-        static GUID: Guid = Guid::from_values(0x00000035, 0x0000, 0x0000, &[0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46]);
+        static GUID: Guid = Guid::from_values(
+            0x00000035,
+            0x0000,
+            0x0000,
+            &[0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
+        );
         &GUID
     }
 }

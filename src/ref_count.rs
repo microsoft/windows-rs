@@ -7,7 +7,9 @@ pub struct RefCount {
 
 impl RefCount {
     pub fn new(value: u32) -> RefCount {
-        RefCount { value: AtomicU32::new(value) }
+        RefCount {
+            value: AtomicU32::new(value),
+        }
     }
 
     pub fn addref(&self) -> u32 {

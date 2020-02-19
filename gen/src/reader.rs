@@ -21,7 +21,11 @@ pub struct RowData {
 
 impl RowData {
     pub fn invalid() -> RowData {
-        RowData { row: u32::max_value(), table: u16::max_value(), file: u16::max_value() }
+        RowData {
+            row: u32::max_value(),
+            table: u16::max_value(),
+            file: u16::max_value(),
+        }
     }
 
     pub fn new(row: u32, table: u16, file: u16) -> RowData {
@@ -42,7 +46,12 @@ pub struct RowIterator<T: Row> {
 
 impl<T: Row> RowIterator<T> {
     pub fn new(first: u32, last: u32, file: u16) -> RowIterator<T> {
-        RowIterator { first, last, file, phantom: PhantomData }
+        RowIterator {
+            first,
+            last,
+            file,
+            phantom: PhantomData,
+        }
     }
 
     pub fn is_empty(&self) -> bool {
@@ -70,7 +79,10 @@ pub struct Reader {
 
 impl<'a> Reader {
     pub fn from_files<P: IntoIterator<Item = &'a String>>(filenames: P) -> Result<Self, Error> {
-        let mut r = Reader { files: Vec::new(), types: Default::default() };
+        let mut r = Reader {
+            files: Vec::new(),
+            types: Default::default(),
+        };
 
         for filename in filenames {
             r.files.push(File::new(filename)?);
@@ -81,7 +93,11 @@ impl<'a> Reader {
                 if t.flags(&r).windows_runtime() {
                     let name = t.name(&r).to_string();
                     let namespace = t.namespace(&r).to_string();
-                    r.types.entry(namespace).or_insert_with(|| Default::default()).entry(name).or_insert(t);
+                    r.types
+                        .entry(namespace)
+                        .or_insert_with(|| Default::default())
+                        .entry(name)
+                        .or_insert(t);
                 }
             }
         }
@@ -90,7 +106,13 @@ impl<'a> Reader {
     }
 
     pub fn from_dir<P: AsRef<std::path::Path>>(directory: P) -> Result<Self, Error> {
-        let files: Vec<String> = std::fs::read_dir(directory)?.filter_map(|value| value.ok().map(|value| value.path().to_str().unwrap().to_string())).collect();
+        let files: Vec<String> = std::fs::read_dir(directory)?
+            .filter_map(|value| {
+                value
+                    .ok()
+                    .map(|value| value.path().to_str().unwrap().to_string())
+            })
+            .collect();
         Self::from_files(&files)
     }
 
@@ -112,7 +134,10 @@ impl<'a> Reader {
         &self.types
     }
 
-    pub fn namespace_types(&self, namespace: &str) -> std::collections::btree_map::Values<String, TypeDef> {
+    pub fn namespace_types(
+        &self,
+        namespace: &str,
+    ) -> std::collections::btree_map::Values<String, TypeDef> {
         self.types[namespace].values()
     }
 
@@ -135,7 +160,10 @@ impl<'a> Reader {
     pub fn str(&self, row: &RowData, column: u32) -> &str {
         let file = &self.files[row.file as usize];
         let offset = (file.strings + self.u32(row, column)) as usize;
-        let last = file.bytes[offset..].iter().position(|c| *c == b'\0').unwrap();
+        let last = file.bytes[offset..]
+            .iter()
+            .position(|c| *c == b'\0')
+            .unwrap();
         std::str::from_utf8(&file.bytes[offset..offset + last]).unwrap()
     }
 
@@ -159,12 +187,24 @@ impl<'a> Reader {
         let file = &self.files[row.file as usize];
         let first = self.u32(row, column) - 1;
 
-        let last = if row.row + 1 < file.tables[row.table as usize].row_count { self.u32(&row.next(), column) - 1 } else { file.tables[T::table() as usize].row_count };
+        let last = if row.row + 1 < file.tables[row.table as usize].row_count {
+            self.u32(&row.next(), column) - 1
+        } else {
+            file.tables[T::table() as usize].row_count
+        };
 
         RowIterator::new(first, last, row.file)
     }
 
-    fn lower_bound_of(&self, table: u16, file: u16, mut first: u32, last: u32, column: u32, value: u32) -> u32 {
+    fn lower_bound_of(
+        &self,
+        table: u16,
+        file: u16,
+        mut first: u32,
+        last: u32,
+        column: u32,
+        value: u32,
+    ) -> u32 {
         let mut count = last - first;
         while count > 0 {
             let count2 = count / 2;
@@ -179,7 +219,15 @@ impl<'a> Reader {
         first
     }
 
-    fn upper_bound_of(&self, table: u16, file: u16, mut first: u32, last: u32, column: u32, value: u32) -> u32 {
+    fn upper_bound_of(
+        &self,
+        table: u16,
+        file: u16,
+        mut first: u32,
+        last: u32,
+        column: u32,
+        value: u32,
+    ) -> u32 {
         let mut count = last - first;
 
         while count > 0 {
@@ -196,7 +244,15 @@ impl<'a> Reader {
         first
     }
 
-    fn equal_range_of(&self, table: u16, file: u16, mut first: u32, mut last: u32, column: u32, value: u32) -> (u32, u32) {
+    fn equal_range_of(
+        &self,
+        table: u16,
+        file: u16,
+        mut first: u32,
+        mut last: u32,
+        column: u32,
+        value: u32,
+    ) -> (u32, u32) {
         let mut count = last - first;
         loop {
             if count <= 0 {
@@ -224,13 +280,30 @@ impl<'a> Reader {
 
     pub fn equal_range<T: Row>(&self, file: u16, column: u32, value: u32) -> RowIterator<T> {
         let table = T::table();
-        let (first, last) = self.equal_range_of(table, file, 0, self.files[file as usize].tables[table as usize].row_count, column, value);
+        let (first, last) = self.equal_range_of(
+            table,
+            file,
+            0,
+            self.files[file as usize].tables[table as usize].row_count,
+            column,
+            value,
+        );
         RowIterator::new(first, last, file)
     }
 
     pub fn upper_bound<T: Row>(&self, file: u16, column: u32, value: u32) -> T {
         let table = T::table();
-        T::new(self.upper_bound_of(table, file, 0, self.files[file as usize].tables[table as usize].row_count, column, value), file)
+        T::new(
+            self.upper_bound_of(
+                table,
+                file,
+                0,
+                self.files[file as usize].tables[table as usize].row_count,
+                column,
+                value,
+            ),
+            file,
+        )
     }
 }
 

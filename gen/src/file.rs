@@ -69,7 +69,10 @@ impl TableData {
 
 impl File {
     pub fn new<P: AsRef<std::path::Path>>(filename: P) -> ParseResult<Self> {
-        let mut file = Self { bytes: std::fs::read(filename)?, ..Default::default() };
+        let mut file = Self {
+            bytes: std::fs::read(filename)?,
+            ..Default::default()
+        };
         let dos = file.bytes.view_as::<ImageDosHeader>(0)?;
 
         if dos.signature != IMAGE_DOS_SIGNATURE {
@@ -79,18 +82,41 @@ impl File {
         let pe = file.bytes.view_as::<ImageNtHeader>(dos.lfanew as u32)?;
 
         let (com_virtual_address, sections) = match pe.optional_header.magic {
-            MAGIC_PE32 => (pe.optional_header.data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].virtual_address, file.bytes.view_as_slice_of::<ImageSectionHeader>(dos.lfanew as u32 + sizeof::<ImageNtHeader>(), pe.file_header.number_of_sections as u32)?),
-            MAGIC_PE32PLUS => (file.bytes.view_as::<ImageNtHeaderPlus>(dos.lfanew as u32)?.optional_header.data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].virtual_address, file.bytes.view_as_slice_of::<ImageSectionHeader>(dos.lfanew as u32 + sizeof::<ImageNtHeaderPlus>(), pe.file_header.number_of_sections as u32)?),
+            MAGIC_PE32 => (
+                pe.optional_header.data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
+                    .virtual_address,
+                file.bytes.view_as_slice_of::<ImageSectionHeader>(
+                    dos.lfanew as u32 + sizeof::<ImageNtHeader>(),
+                    pe.file_header.number_of_sections as u32,
+                )?,
+            ),
+            MAGIC_PE32PLUS => (
+                file.bytes
+                    .view_as::<ImageNtHeaderPlus>(dos.lfanew as u32)?
+                    .optional_header
+                    .data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
+                    .virtual_address,
+                file.bytes.view_as_slice_of::<ImageSectionHeader>(
+                    dos.lfanew as u32 + sizeof::<ImageNtHeaderPlus>(),
+                    pe.file_header.number_of_sections as u32,
+                )?,
+            ),
             _ => return Err(ParseError::InvalidFile),
         };
 
-        let cli = file.bytes.view_as::<ImageCorHeader>(offset_from_rva(section_from_rva(sections, com_virtual_address)?, com_virtual_address))?;
+        let cli = file.bytes.view_as::<ImageCorHeader>(offset_from_rva(
+            section_from_rva(sections, com_virtual_address)?,
+            com_virtual_address,
+        ))?;
 
         if cli.cb != sizeof::<ImageCorHeader>() {
             return Err(ParseError::InvalidFile);
         }
 
-        let cli_offset = offset_from_rva(section_from_rva(sections, cli.meta_data.virtual_address)?, cli.meta_data.virtual_address);
+        let cli_offset = offset_from_rva(
+            section_from_rva(sections, cli.meta_data.virtual_address)?,
+            cli.meta_data.virtual_address,
+        );
 
         if *file.bytes.view_as::<u32>(cli_offset)? != STORAGE_MAGIC_SIG {
             return Err(ParseError::InvalidFile);
@@ -100,7 +126,10 @@ impl File {
         let mut view = cli_offset + version_length + 20;
         let mut tables_data: (u32, u32) = (0, 0);
 
-        for _ in 0..*file.bytes.view_as::<u16>(cli_offset + version_length + 18)? {
+        for _ in 0..*file
+            .bytes
+            .view_as::<u16>(cli_offset + version_length + 18)?
+        {
             let stream_offset = *file.bytes.view_as::<u32>(view)?;
             let stream_size = *file.bytes.view_as::<u32>(view + 4)?;
             let stream_name = file.bytes.view_as_str(view + 8)?;
@@ -207,57 +236,251 @@ impl File {
             };
         }
 
-        let type_def_or_ref = composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_TYPEREF], &file.tables[TABLE_TYPESPEC]]);
-        let has_constant = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_PARAM], &unused_property]);
-        let has_custom_attribute = composite_index_size(&[&file.tables[TABLE_METHODDEF], &file.tables[TABLE_FIELD], &file.tables[TABLE_TYPEREF], &file.tables[TABLE_TYPEDEF], &file.tables[TABLE_PARAM], &file.tables[TABLE_INTERFACEIMPL], &file.tables[TABLE_MEMBERREF], &unused_module, &unused_property, &unused_event, &unused_standalone_sig, &unused_module_ref, &file.tables[TABLE_TYPESPEC], &unused_assembly, &unused_assembly_ref, &unused_file, &unused_exported_type, &unused_manifest_resource, &file.tables[TABLE_GENERICPARAM], &unused_generic_param_constraint, &unused_method_spec]);
-        let has_field_marshal = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_PARAM]]);
-        let has_decl_security = composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_METHODDEF], &unused_assembly]);
-        let member_ref_parent = composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_TYPEREF], &unused_module_ref, &file.tables[TABLE_METHODDEF], &file.tables[TABLE_TYPESPEC]]);
-        let has_semantics = composite_index_size(&[&unused_event, &unused_property]);
-        let method_def_or_ref = composite_index_size(&[&file.tables[TABLE_METHODDEF], &file.tables[TABLE_MEMBERREF]]);
-        let member_forwarded = composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_METHODDEF]]);
-        let implementation = composite_index_size(&[&unused_file, &unused_assembly_ref, &unused_exported_type]);
-        let custom_attribute_type = composite_index_size(&[&file.tables[TABLE_METHODDEF], &file.tables[TABLE_MEMBERREF], &unused_empty, &unused_empty, &unused_empty]);
-        let resolution_scope = composite_index_size(&[&unused_module, &unused_module_ref, &unused_assembly_ref, &file.tables[TABLE_TYPEREF]]);
-        let type_or_method_def = composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_METHODDEF]]);
+        let type_def_or_ref = composite_index_size(&[
+            &file.tables[TABLE_TYPEDEF],
+            &file.tables[TABLE_TYPEREF],
+            &file.tables[TABLE_TYPESPEC],
+        ]);
 
-        unused_assembly.set_columns(4, 8, 4, blob_index_size, string_index_size, string_index_size);
+        let has_constant = composite_index_size(&[
+            &file.tables[TABLE_FIELD],
+            &file.tables[TABLE_PARAM],
+            &unused_property,
+        ]);
+
+        let has_custom_attribute = composite_index_size(&[
+            &file.tables[TABLE_METHODDEF],
+            &file.tables[TABLE_FIELD],
+            &file.tables[TABLE_TYPEREF],
+            &file.tables[TABLE_TYPEDEF],
+            &file.tables[TABLE_PARAM],
+            &file.tables[TABLE_INTERFACEIMPL],
+            &file.tables[TABLE_MEMBERREF],
+            &unused_module,
+            &unused_property,
+            &unused_event,
+            &unused_standalone_sig,
+            &unused_module_ref,
+            &file.tables[TABLE_TYPESPEC],
+            &unused_assembly,
+            &unused_assembly_ref,
+            &unused_file,
+            &unused_exported_type,
+            &unused_manifest_resource,
+            &file.tables[TABLE_GENERICPARAM],
+            &unused_generic_param_constraint,
+            &unused_method_spec,
+        ]);
+
+        let has_field_marshal =
+            composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_PARAM]]);
+
+        let has_decl_security = composite_index_size(&[
+            &file.tables[TABLE_TYPEDEF],
+            &file.tables[TABLE_METHODDEF],
+            &unused_assembly,
+        ]);
+
+        let member_ref_parent = composite_index_size(&[
+            &file.tables[TABLE_TYPEDEF],
+            &file.tables[TABLE_TYPEREF],
+            &unused_module_ref,
+            &file.tables[TABLE_METHODDEF],
+            &file.tables[TABLE_TYPESPEC],
+        ]);
+
+        let has_semantics = composite_index_size(&[&unused_event, &unused_property]);
+
+        let method_def_or_ref =
+            composite_index_size(&[&file.tables[TABLE_METHODDEF], &file.tables[TABLE_MEMBERREF]]);
+
+        let member_forwarded =
+            composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_METHODDEF]]);
+
+        let implementation =
+            composite_index_size(&[&unused_file, &unused_assembly_ref, &unused_exported_type]);
+
+        let custom_attribute_type = composite_index_size(&[
+            &file.tables[TABLE_METHODDEF],
+            &file.tables[TABLE_MEMBERREF],
+            &unused_empty,
+            &unused_empty,
+            &unused_empty,
+        ]);
+
+        let resolution_scope = composite_index_size(&[
+            &unused_module,
+            &unused_module_ref,
+            &unused_assembly_ref,
+            &file.tables[TABLE_TYPEREF],
+        ]);
+
+        let type_or_method_def =
+            composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_METHODDEF]]);
+
+        unused_assembly.set_columns(
+            4,
+            8,
+            4,
+            blob_index_size,
+            string_index_size,
+            string_index_size,
+        );
         unused_assembly_os.set_columns(4, 4, 4, 0, 0, 0);
         unused_assembly_processor.set_columns(4, 0, 0, 0, 0, 0);
-        unused_assembly_ref.set_columns(8, 4, blob_index_size, string_index_size, string_index_size, blob_index_size);
+        unused_assembly_ref.set_columns(
+            8,
+            4,
+            blob_index_size,
+            string_index_size,
+            string_index_size,
+            blob_index_size,
+        );
         unused_assembly_ref_os.set_columns(4, 4, 4, unused_assembly_ref.index_size(), 0, 0);
         unused_assembly_ref_processor.set_columns(4, unused_assembly_ref.index_size(), 0, 0, 0, 0);
         unused_class_layout.set_columns(2, 4, file.tables[TABLE_TYPEDEF].index_size(), 0, 0, 0);
         file.tables[TABLE_CONSTANT].set_columns(2, has_constant, blob_index_size, 0, 0, 0);
-        file.tables[TABLE_CUSTOMATTRIBUTE].set_columns(has_custom_attribute, custom_attribute_type, blob_index_size, 0, 0, 0);
+        file.tables[TABLE_CUSTOMATTRIBUTE].set_columns(
+            has_custom_attribute,
+            custom_attribute_type,
+            blob_index_size,
+            0,
+            0,
+            0,
+        );
         unused_decl_security.set_columns(2, has_decl_security, blob_index_size, 0, 0, 0);
-        unused_event_map.set_columns(file.tables[TABLE_TYPEDEF].index_size(), unused_event.index_size(), 0, 0, 0, 0);
+        unused_event_map.set_columns(
+            file.tables[TABLE_TYPEDEF].index_size(),
+            unused_event.index_size(),
+            0,
+            0,
+            0,
+            0,
+        );
         unused_event.set_columns(2, string_index_size, type_def_or_ref, 0, 0, 0);
-        unused_exported_type.set_columns(4, 4, string_index_size, string_index_size, implementation, 0);
+        unused_exported_type.set_columns(
+            4,
+            4,
+            string_index_size,
+            string_index_size,
+            implementation,
+            0,
+        );
         file.tables[TABLE_FIELD].set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
         unused_field_layout.set_columns(4, file.tables[TABLE_FIELD].index_size(), 0, 0, 0, 0);
         unused_field_marshal.set_columns(has_field_marshal, blob_index_size, 0, 0, 0, 0);
         unused_field_rva.set_columns(4, file.tables[TABLE_FIELD].index_size(), 0, 0, 0, 0);
         unused_file.set_columns(4, string_index_size, blob_index_size, 0, 0, 0);
-        file.tables[TABLE_GENERICPARAM].set_columns(2, 2, type_or_method_def, string_index_size, 0, 0);
-        unused_generic_param_constraint.set_columns(file.tables[TABLE_GENERICPARAM].index_size(), type_def_or_ref, 0, 0, 0, 0);
-        unused_impl_map.set_columns(2, member_forwarded, string_index_size, unused_module_ref.index_size(), 0, 0);
-        file.tables[TABLE_INTERFACEIMPL].set_columns(file.tables[TABLE_TYPEDEF].index_size(), type_def_or_ref, 0, 0, 0, 0);
+        file.tables[TABLE_GENERICPARAM].set_columns(
+            2,
+            2,
+            type_or_method_def,
+            string_index_size,
+            0,
+            0,
+        );
+        unused_generic_param_constraint.set_columns(
+            file.tables[TABLE_GENERICPARAM].index_size(),
+            type_def_or_ref,
+            0,
+            0,
+            0,
+            0,
+        );
+        unused_impl_map.set_columns(
+            2,
+            member_forwarded,
+            string_index_size,
+            unused_module_ref.index_size(),
+            0,
+            0,
+        );
+        file.tables[TABLE_INTERFACEIMPL].set_columns(
+            file.tables[TABLE_TYPEDEF].index_size(),
+            type_def_or_ref,
+            0,
+            0,
+            0,
+            0,
+        );
         unused_manifest_resource.set_columns(4, 4, string_index_size, implementation, 0, 0);
-        file.tables[TABLE_MEMBERREF].set_columns(member_ref_parent, string_index_size, blob_index_size, 0, 0, 0);
-        file.tables[TABLE_METHODDEF].set_columns(4, 2, 2, string_index_size, blob_index_size, file.tables[TABLE_PARAM].index_size());
-        unused_method_impl.set_columns(file.tables[TABLE_TYPEDEF].index_size(), method_def_or_ref, method_def_or_ref, 0, 0, 0);
-        unused_method_semantics.set_columns(2, file.tables[TABLE_METHODDEF].index_size(), has_semantics, 0, 0, 0);
+        file.tables[TABLE_MEMBERREF].set_columns(
+            member_ref_parent,
+            string_index_size,
+            blob_index_size,
+            0,
+            0,
+            0,
+        );
+        file.tables[TABLE_METHODDEF].set_columns(
+            4,
+            2,
+            2,
+            string_index_size,
+            blob_index_size,
+            file.tables[TABLE_PARAM].index_size(),
+        );
+        unused_method_impl.set_columns(
+            file.tables[TABLE_TYPEDEF].index_size(),
+            method_def_or_ref,
+            method_def_or_ref,
+            0,
+            0,
+            0,
+        );
+        unused_method_semantics.set_columns(
+            2,
+            file.tables[TABLE_METHODDEF].index_size(),
+            has_semantics,
+            0,
+            0,
+            0,
+        );
         unused_method_spec.set_columns(method_def_or_ref, blob_index_size, 0, 0, 0, 0);
-        unused_module.set_columns(2, string_index_size, guid_index_size, guid_index_size, guid_index_size, 0);
+        unused_module.set_columns(
+            2,
+            string_index_size,
+            guid_index_size,
+            guid_index_size,
+            guid_index_size,
+            0,
+        );
         unused_module_ref.set_columns(string_index_size, 0, 0, 0, 0, 0);
-        unused_nested_class.set_columns(file.tables[TABLE_TYPEDEF].index_size(), file.tables[TABLE_TYPEDEF].index_size(), 0, 0, 0, 0);
+        unused_nested_class.set_columns(
+            file.tables[TABLE_TYPEDEF].index_size(),
+            file.tables[TABLE_TYPEDEF].index_size(),
+            0,
+            0,
+            0,
+            0,
+        );
         file.tables[TABLE_PARAM].set_columns(2, 2, string_index_size, 0, 0, 0);
         unused_property.set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
-        unused_property_map.set_columns(file.tables[TABLE_TYPEDEF].index_size(), unused_property.index_size(), 0, 0, 0, 0);
+        unused_property_map.set_columns(
+            file.tables[TABLE_TYPEDEF].index_size(),
+            unused_property.index_size(),
+            0,
+            0,
+            0,
+            0,
+        );
         unused_standalone_sig.set_columns(blob_index_size, 0, 0, 0, 0, 0);
-        file.tables[TABLE_TYPEDEF].set_columns(4, string_index_size, string_index_size, type_def_or_ref, file.tables[TABLE_FIELD].index_size(), file.tables[TABLE_METHODDEF].index_size());
-        file.tables[TABLE_TYPEREF].set_columns(resolution_scope, string_index_size, string_index_size, 0, 0, 0);
+        file.tables[TABLE_TYPEDEF].set_columns(
+            4,
+            string_index_size,
+            string_index_size,
+            type_def_or_ref,
+            file.tables[TABLE_FIELD].index_size(),
+            file.tables[TABLE_METHODDEF].index_size(),
+        );
+        file.tables[TABLE_TYPEREF].set_columns(
+            resolution_scope,
+            string_index_size,
+            string_index_size,
+            0,
+            0,
+            0,
+        );
         file.tables[TABLE_TYPESPEC].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
         unused_module.set_data(&mut view);
@@ -302,7 +525,12 @@ impl File {
 }
 
 fn section_from_rva(sections: &[ImageSectionHeader], rva: u32) -> ParseResult<&ImageSectionHeader> {
-    sections.iter().find(|&s| rva >= s.virtual_address && rva < s.virtual_address + s.physical_address_or_virtual_size).ok_or_else(|| ParseError::InvalidFile)
+    sections
+        .iter()
+        .find(|&s| {
+            rva >= s.virtual_address && rva < s.virtual_address + s.physical_address_or_virtual_size
+        })
+        .ok_or_else(|| ParseError::InvalidFile)
 }
 
 fn offset_from_rva(section: &ImageSectionHeader, rva: u32) -> u32 {
@@ -333,7 +561,10 @@ fn composite_index_size(tables: &[&TableData]) -> u32 {
 
     let bits_needed = bits_needed(tables.len());
 
-    if tables.iter().all(|table| small(table.row_count, bits_needed)) {
+    if tables
+        .iter()
+        .all(|table| small(table.row_count, bits_needed))
+    {
         2
     } else {
         4
@@ -361,12 +592,22 @@ impl View for [u8] {
         if cli_offset + sizeof::<T>() * len > self.len() as u32 {
             return Err(ParseError::InvalidFile);
         }
-        unsafe { Ok(std::slice::from_raw_parts(&self[cli_offset as usize] as *const u8 as *const T, len as usize)) }
+        unsafe {
+            Ok(std::slice::from_raw_parts(
+                &self[cli_offset as usize] as *const u8 as *const T,
+                len as usize,
+            ))
+        }
     }
 
     fn view_as_str(&self, cli_offset: u32) -> ParseResult<&[u8]> {
-        let buffer = self.get(cli_offset as usize..).ok_or_else(|| ParseError::InvalidFile)?;
-        let index = buffer.iter().position(|c| *c == b'\0').ok_or_else(|| ParseError::InvalidFile)?;
+        let buffer = self
+            .get(cli_offset as usize..)
+            .ok_or_else(|| ParseError::InvalidFile)?;
+        let index = buffer
+            .iter()
+            .position(|c| *c == b'\0')
+            .ok_or_else(|| ParseError::InvalidFile)?;
         Ok(&self[cli_offset as usize..cli_offset as usize + index])
     }
 }

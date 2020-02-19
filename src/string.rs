@@ -31,7 +31,11 @@ fn duplicate(ptr: RawPtr) -> RawPtr {
             ptr
         } else {
             let copy = with_len((*header).len);
-            std::ptr::copy_nonoverlapping((*header).ptr, (*copy).ptr as *mut u16, (*header).len as usize + 1);
+            std::ptr::copy_nonoverlapping(
+                (*header).ptr,
+                (*copy).ptr as *mut u16,
+                (*header).len as usize + 1,
+            );
             copy as RawPtr
         }
     }
@@ -41,7 +45,11 @@ fn with_len(len: u32) -> *mut Header {
     unsafe {
         debug_assert!(len != 0);
 
-        let shared = HeapAlloc(GetProcessHeap(), 0, std::mem::size_of::<SharedHeader>() + 2 * len as usize) as *mut SharedHeader;
+        let shared = HeapAlloc(
+            GetProcessHeap(),
+            0,
+            std::mem::size_of::<SharedHeader>() + 2 * len as usize,
+        ) as *mut SharedHeader;
 
         if shared.is_null() {
             panic!();
@@ -62,7 +70,9 @@ pub struct String {
 
 impl String {
     pub fn new() -> String {
-        String { ptr: std::ptr::null_mut() }
+        String {
+            ptr: std::ptr::null_mut(),
+        }
     }
 
     pub fn is_empty(&self) -> bool {
@@ -127,7 +137,9 @@ impl Default for String {
 
 impl Clone for String {
     fn clone(&self) -> String {
-        String { ptr: duplicate(self.ptr) }
+        String {
+            ptr: duplicate(self.ptr),
+        }
     }
 }
 
@@ -142,7 +154,11 @@ impl std::fmt::Display for String {
         // TODO: how to format the wchar buffer directly to avoid an allocation?
         // Especially since `value.to_string()` relies on this... unless the formatter
         // can somehow move/forward the vector.
-        write!(f, "{}", std::string::String::from_utf16(self.as_chars()).unwrap())
+        write!(
+            f,
+            "{}",
+            std::string::String::from_utf16(self.as_chars()).unwrap()
+        )
     }
 }
 
