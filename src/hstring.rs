@@ -41,7 +41,7 @@ impl HString {
             debug_assert!(header.flags & REFERENCE_FLAG == 0);
 
             unsafe {
-                if 0 == header.shared.as_mut_ptr().as_mut().unwrap().count.release() {
+                if 0 == (*header.shared.as_mut_ptr()).count.release() {
                     HeapFree(GetProcessHeap(), 0, ptr.as_ptr() as *mut std::ffi::c_void);
                 }
             }
@@ -154,7 +154,7 @@ impl Header {
         unsafe {
             (*header).flags = 0;
             (*header).len = len;
-            (*header).ptr = &(*header).shared.as_ptr().as_ref().unwrap().buffer_start;
+            (*header).ptr = &(*(*header).shared.as_ptr()).buffer_start;
             (*(*header).shared.as_mut_ptr()).count = RefCount::new(1);
         }
         header as *mut Header
@@ -163,7 +163,7 @@ impl Header {
     fn duplicate(&mut self) -> ptr::NonNull<Header> {
         if self.flags & REFERENCE_FLAG == 0 {
             unsafe {
-                self.shared.as_ptr().as_ref().unwrap().count.addref();
+                (*self.shared.as_ptr()).count.addref();
                 ptr::NonNull::new_unchecked(self)
             }
         } else {
