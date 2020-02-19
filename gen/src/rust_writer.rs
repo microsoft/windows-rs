@@ -1169,7 +1169,7 @@ impl<'a> Writer<'a> {
             ElementType::U64 => quote! { u64 },
             ElementType::F32 => quote! { f32 },
             ElementType::F64 => quote! { f64 },
-            ElementType::String => quote! { winrt::String },
+            ElementType::String => quote! { winrt::HString },
             ElementType::Object => quote! { winrt::Object },
         }
     }

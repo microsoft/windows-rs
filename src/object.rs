@@ -9,7 +9,7 @@ pub struct Object {
 }
 
 impl Object {
-    pub fn type_name(&self) -> Result<String> {
+    pub fn type_name(&self) -> Result<HString> {
         unsafe {
             let mut ptr = std::ptr::null_mut();
             ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(
