@@ -318,8 +318,7 @@ impl<'a> Writer<'a> {
         for interface in interfaces.iter().filter(|interface| !interface.limited) {
             match interface.category {
                 InterfaceCategory::DefaultInstance => {
-                    let into =
-                        self.write_type_interface(&interface);
+                    let into = &interface.identifier;
 
                     tokens.push(quote! {
                         impl<#constraints> From<#from<#generics>> for #into {
@@ -345,8 +344,7 @@ impl<'a> Writer<'a> {
                     });
                 }
                 InterfaceCategory::Instance => {
-                    let into =
-                        self.write_type_interface(&interface);
+                    let into =&interface.identifier;
                     tokens.push(quote! {
                         impl<#constraints> From<#from<#generics>> for #into {
                             fn from(value: #from<#generics>) -> #into {
@@ -518,8 +516,7 @@ impl<'a> Writer<'a> {
             let into_params = guard.write_consume_into_params(&method.sig);
             let args = guard.write_consume_args(&method.sig);
             let result = guard.write_return_type(&method.sig);
-            let into = guard
-                .write_type_interface(&method.interface);
+            let into = &method.interface.identifier;
 
             tokens.push(match method.interface.category {
                 InterfaceCategory::DefaultInstance => {
@@ -1119,17 +1116,18 @@ impl<'a> Writer<'a> {
     // write_type
     //
 
-    fn write_type_interface(
+    fn write_type_interface2(
         &self,
-        interface: &Interface,
+        definition: &TypeDef,
+        generics: &Vec<Vec<TokenStream>>
     ) -> TokenStream {
-        let namespace = self.write_namespace_name(interface.definition.namespace(self.r));
-        let name = interface.definition.name(self.r);
+        let namespace = self.write_namespace_name(definition.namespace(self.r));
+        let name = definition.name(self.r);
 
         if name.chars().rev().skip(1).next() == Some('`') {
             let name = &name[..name.len() - 2];
             let name = write_ident(name);
-            let generics = interface.generics.last().expect("write_type_interface");
+            let generics = generics.last().expect("write_type_interface2");
             quote! { #namespace#name::<#(#generics),*> }
         } else {
             let name = write_ident(name);
@@ -1375,6 +1373,7 @@ impl<'a> Writer<'a> {
                     "Windows.Foundation.Metadata",
                     "ExclusiveToAttribute",
                 );
+                let identifier = self.write_type_interface2(&definition, &generics);
                 // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
                 result.insert(
                     index,
@@ -1385,6 +1384,7 @@ impl<'a> Writer<'a> {
                         exclusive,
                         limited,
                         category,
+                        identifier,
                     },
                 );
                 self.add_interfaces(result, &generics, definition.interfaces(self.r), false);
@@ -1426,6 +1426,7 @@ impl<'a> Writer<'a> {
             if name == "StaticAttribute" {
                 let definition = self.factory_type(&attribute).expect("class_interfaces");
                 let limited = !self.limits.contains(definition.namespace(self.r));
+                let identifier = self.write_type_interface2(&definition, &Vec::new());
                 result.push(Interface {
                     definition,
                     generics: Vec::new(),
@@ -1433,10 +1434,12 @@ impl<'a> Writer<'a> {
                     exclusive: true,
                     limited,
                     category: InterfaceCategory::Static,
+                    identifier
                 });
             } else if name == "ActivatableAttribute" {
                 if let Some(definition) = self.factory_type(&attribute) {
                     let limited = !self.limits.contains(definition.namespace(self.r));
+                    let identifier = self.write_type_interface2(&definition, &Vec::new());
                     result.push(Interface {
                         definition,
                         generics: Vec::new(),
@@ -1444,6 +1447,7 @@ impl<'a> Writer<'a> {
                         exclusive: true,
                         limited,
                         category: InterfaceCategory::Activatable,
+                        identifier,
                     });
                 } else {
                     result.push(Interface {
@@ -1453,6 +1457,7 @@ impl<'a> Writer<'a> {
                         exclusive: true,
                         limited: false,
                         category: InterfaceCategory::DefaultActivatable,
+                        identifier: TokenStream::new(),
                     });
                 }
             }
@@ -1559,6 +1564,7 @@ struct Interface {
     exclusive: bool,
     limited: bool, // We don't just elide from the list because we need to deal with classes who's default interface is limited.
     category: InterfaceCategory,
+    identifier: TokenStream,
 }
 
 struct Method<'a> {
