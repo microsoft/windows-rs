@@ -319,7 +319,7 @@ impl<'a> Writer<'a> {
             match interface.category {
                 InterfaceCategory::DefaultInstance => {
                     let into =
-                        self.write_required_interface(&interface.definition, &interface.generics);
+                        self.write_type_interface(&interface);
 
                     tokens.push(quote! {
                         impl<#constraints> From<#from<#generics>> for #into {
@@ -346,7 +346,7 @@ impl<'a> Writer<'a> {
                 }
                 InterfaceCategory::Instance => {
                     let into =
-                        self.write_required_interface(&interface.definition, &interface.generics);
+                        self.write_type_interface(&interface);
                     tokens.push(quote! {
                         impl<#constraints> From<#from<#generics>> for #into {
                             fn from(value: #from<#generics>) -> #into {
@@ -394,25 +394,6 @@ impl<'a> Writer<'a> {
 
         quote! {
             #(#three,)* &[#(#iter),*],
-        }
-    }
-
-    fn write_required_interface(
-        &self,
-        interface: &TypeDef,
-        generics: &Vec<Vec<TokenStream>>,
-    ) -> TokenStream {
-        let namespace = self.write_namespace_name(interface.namespace(self.r));
-        let name = interface.name(self.r);
-
-        if name.chars().rev().skip(1).next() == Some('`') {
-            let name = &name[..name.len() - 2];
-            let name = write_ident(name);
-            let generics = generics.last().expect("write_required_interface");
-            quote! { #namespace#name::<#(#generics),*> }
-        } else {
-            let name = write_ident(name);
-            quote! { #namespace#name }
         }
     }
 
@@ -538,7 +519,7 @@ impl<'a> Writer<'a> {
             let args = guard.write_consume_args(&method.sig);
             let result = guard.write_return_type(&method.sig);
             let into = guard
-                .write_required_interface(&method.interface.definition, &method.interface.generics);
+                .write_type_interface(&method.interface);
 
             tokens.push(match method.interface.category {
                 InterfaceCategory::DefaultInstance => {
@@ -1137,6 +1118,24 @@ impl<'a> Writer<'a> {
     //
     // write_type
     //
+
+    fn write_type_interface(
+        &self,
+        interface: &Interface,
+    ) -> TokenStream {
+        let namespace = self.write_namespace_name(interface.definition.namespace(self.r));
+        let name = interface.definition.name(self.r);
+
+        if name.chars().rev().skip(1).next() == Some('`') {
+            let name = &name[..name.len() - 2];
+            let name = write_ident(name);
+            let generics = interface.generics.last().expect("write_type_interface");
+            quote! { #namespace#name::<#(#generics),*> }
+        } else {
+            let name = write_ident(name);
+            quote! { #namespace#name }
+        }
+    }
 
     fn write_return_type(&mut self, value: &MethodSig) -> TokenStream {
         if let Some(result) = value.return_type() {
