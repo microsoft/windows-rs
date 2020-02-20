@@ -1458,7 +1458,7 @@ impl<'a> Writer<'a> {
 
         // TODO: note taht Abi interface must be first - also the sorting done in add_interfaces is probably unecessary
         // Rather just scan (typically short list) and delay sorting until the end when we need to sort by version for fastabi
-        
+
         let (identifier, abi_identifier) =
             self.write_interface_idents(interface, &Vec::new());
 
@@ -1559,7 +1559,24 @@ impl<'a> Writer<'a> {
                     let sig = method.signature(self.r);
                     let category = method.category(self.r);
                     let mut name = self.method_name(&method, category);
-                    let limited = self.limited_method(&sig);
+                    let mut limited = self.limited_method(&sig);
+
+                    if let Some(prev) = methods.iter().find(|method| method.name == name) {
+                        if interface.category == InterfaceCategory::Abi {
+                            // Collisions on the immediate interface can't be dropped otherwise they're be completely inaccessible.
+                            // Instead we consider the case where a method (SetThing) and property (put_Thing) collide and rename the 
+                            // the method unilateraillly to make versioning and renaming predictable
+                            if category == MethodCategory::Normal {
+                                name += "2";
+                            } else {
+                                prev.name == "2";
+                            }
+                            
+                        } else {
+                            // Collisions on required interfaces are simply dropped - call the method directly on the required interface
+                            limited = true;
+                        }
+                    }
 
                     methods.push(
                             Method {
