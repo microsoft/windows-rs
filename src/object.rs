@@ -3,20 +3,20 @@
 use crate::*;
 
 #[repr(C)]
-#[derive(Default, Clone)]
+#[derive(Clone)]
 pub struct Object {
-    ptr: ComPtr,
+    ptr: com::InterfacePtr<dyn abi::IInspectable>,
 }
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
-        use abi::*;
-        unsafe {
-            let mut ptr = std::ptr::null_mut();
-            let abi = com::InterfacePtr::<dyn abi::IInspectable>::new(self.ptr.get() as *mut _);
+        use abi::IInspectable;
+        let mut class_name = std::ptr::null_mut();
 
-            abi.get_runtime_class_name(&mut ptr)
-                .ok_or(std::mem::transmute(ptr))
+        unsafe {
+            self.ptr
+                .get_runtime_class_name(&mut class_name)
+                .ok_or(std::mem::transmute(class_name))
         }
     }
 }
@@ -33,11 +33,11 @@ impl RuntimeType for Object {
     type Abi = RawPtr;
 
     fn abi(&self) -> Self::Abi {
-        self.ptr.get()
+        self.ptr.as_raw() as RawPtr
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        self.ptr.set()
+        &mut self.abi()
     }
 }
 
