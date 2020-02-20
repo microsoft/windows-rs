@@ -169,11 +169,11 @@ impl<'a> Writer<'a> {
 
         for t in self.r.namespace_types(namespace) {
             tokens.push(match t.category(self.r) {
-                TypeCategory::Interface => self.write_interface(t),
+                TypeCategory::Interface => self.push_generic_interface(t).write_interface(t),
+                TypeCategory::Delegate => self.push_generic_interface(t).write_delegate(t),
                 TypeCategory::Class => self.write_class(namespace, t),
                 TypeCategory::Enum => self.write_enum(t),
                 TypeCategory::Struct => self.write_struct(t),
-                TypeCategory::Delegate => self.write_delegate(t),
                 _ => continue,
             });
         }
@@ -396,15 +396,9 @@ impl<'a> Writer<'a> {
     }
 
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
-        let mut guard = self.push_generic_interface(interface);
-        guard.write_generic_interface(interface)
-    }
-
-    fn write_generic_interface(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
         let abi_methods = self.write_abi_methods(&interface);
-        let consume_methods = self.write_consume_methods(interface);
 
         let interfaces = self.interface_interfaces(interface);
         let methods = self.write_methods(&self.methods(&interfaces));
@@ -426,7 +420,6 @@ impl<'a> Writer<'a> {
                 #phantoms
             }
             impl<#constraints> #name<#generics> {
-                #consume_methods
                 #methods
             }
             impl<#constraints> winrt::QueryType for #name<#generics> {
@@ -583,6 +576,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
+    // TODO: get rid of this function - now only used by delegates where this is overkill
     fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
         let generics = self.write_generics();
@@ -714,11 +708,6 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
-        let mut guard = self.push_generic_interface(interface);
-        guard.write_generic_delegate(interface)
-    }
-
     fn write_generic_phantoms(&self) -> TokenStream {
         if let Some(generics) = self.generics.last() {
             let mut tokens = Vec::new();
@@ -777,7 +766,7 @@ impl<'a> Writer<'a> {
         quote! { #name }
     }
 
-    fn write_generic_delegate(&mut self, interface: &TypeDef) -> TokenStream {
+    fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
         let abi_methods = self.write_abi_methods(&interface);
@@ -1159,7 +1148,14 @@ impl<'a> Writer<'a> {
             let name = &name[..name.len() - 2];
             let abi_name = format_ident!("abi_{}", name);
             let name = write_ident(name);
-            let generics = generics.last().expect("write_interface_idents");
+
+            // TODO: maybe push the generics in the first case so we don't have to special case this
+            let generics = if let Some(generics) = generics.last() {
+                generics
+            } else {
+                self.generics.last().unwrap()
+            };
+
             (
                 quote! { #namespace#name::<#(#generics),*> },
                 quote! { #namespace#abi_name::<#(#generics),*> },
@@ -1437,8 +1433,20 @@ impl<'a> Writer<'a> {
     fn interface_interfaces(&mut self, interface: &TypeDef) -> Vec<Interface> {
         let mut result = Vec::new();
 
-        // TODO: add interface itself to list using InterfaceCategory::DefaultInstance so that
-        // we can use this list to generate the entire interface with method renaming already applied.
+        let (identifier, abi_identifier) =
+            self.write_interface_idents(interface, &Vec::new());
+
+        result.push(Interface { 
+            definition: *interface,
+            generics: Vec::new(),
+            overridable: false,
+            exclusive: false, // TODO: lookup
+            limited: false,
+            category: InterfaceCategory::Abi,
+            identifier,
+            abi_identifier
+
+        });
 
         self.add_interfaces(
             &mut result,
@@ -1447,10 +1455,6 @@ impl<'a> Writer<'a> {
             false,
         );
         result
-    }
-
-    fn sort_interfaces(interfaces: &mut Vec<Interface>) {
-
     }
 
     fn class_interfaces(&mut self, class: &TypeDef) -> Vec<Interface> {
