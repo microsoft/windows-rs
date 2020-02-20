@@ -156,8 +156,9 @@ fn create_desktop_window_target(
 ) -> Result<CompositionTarget> {
     let compositor_ptr = compositor.abi();
     let compositor_interop = unsafe {
-        let unknown =
-            InterfaceRc::<dyn IUnknown>::new(InterfacePtr::<dyn IUnknown>::new(compositor_ptr));
+        let unknown = InterfaceRc::<dyn IUnknown>::new(InterfacePtr::<dyn IUnknown>::new(
+            compositor_ptr as *mut _,
+        ));
         let compositor_interop = unknown
             .get_interface::<dyn ICompositorDesktopInterop>()
             .unwrap();

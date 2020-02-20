@@ -10,13 +10,13 @@ pub struct Object {
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
+        use abi::*;
         unsafe {
             let mut ptr = std::ptr::null_mut();
-            ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(
-                self.ptr.get(),
-                &mut ptr,
-            )
-            .ok_or(std::mem::transmute(ptr))
+            let abi = com::InterfacePtr::<dyn abi::IInspectable>::new(self.ptr.get() as *mut _);
+
+            abi.get_runtime_class_name(&mut ptr)
+                .ok_or(std::mem::transmute(ptr))
         }
     }
 }
@@ -45,11 +45,18 @@ impl RuntimeType for Object {
     }
 }
 
-#[repr(C)]
-struct IInspectable {
-    __0: usize,
-    __1: usize,
-    __2: usize,
-    __3: usize,
-    type_name: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
+pub mod abi {
+    use com::interfaces::IUnknown;
+
+    #[com::com_interface("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90")]
+    pub trait IInspectable: IUnknown {
+        unsafe fn get_iids(
+            &self,
+            iid_count: *mut u32,
+            iids: *mut *mut crate::Guid,
+        ) -> crate::ErrorCode;
+        unsafe fn get_runtime_class_name(&self, class_name: *mut crate::RawPtr)
+            -> crate::ErrorCode;
+        unsafe fn get_trust_level(&self, trust_level: crate::RawPtr) -> crate::ErrorCode;
+    }
 }

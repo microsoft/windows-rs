@@ -1,4 +1,5 @@
 use crate::*;
+use com::interfaces::IUnknown;
 
 pub type RawPtr = *mut std::ffi::c_void;
 
@@ -7,29 +8,28 @@ pub struct ComPtr {
     ptr: RawPtr,
 }
 
-pub fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
-    unsafe {
-        let mut result = std::ptr::null_mut();
-        if !ptr.is_null() {
-            ((*(*(ptr as *const *const IUnknown))).query)(ptr, I::type_guid(), &mut result);
-        }
-        result
+pub unsafe fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
+    if ptr.is_null() {
+        return ptr;
     }
+    let mut result = std::ptr::null_mut();
+    let ptr = com::InterfacePtr::<dyn IUnknown>::new(ptr as *mut _);
+    ptr.query_interface(I::type_guid() as *const Guid as *const _, &mut result);
+    result
 }
 
 impl ComPtr {
-    pub fn addref(ptr: RawPtr) -> ComPtr {
-        unsafe {
-            if !ptr.is_null() {
-                ((*(*(ptr as *const *const IUnknown))).addref)(ptr);
-            }
-            ComPtr { ptr }
+    pub unsafe fn addref(ptr: RawPtr) -> ComPtr {
+        let ptr = com::InterfacePtr::<dyn IUnknown>::new(ptr as *mut _);
+        ptr.add_ref();
+        ComPtr {
+            ptr: ptr.as_raw() as *mut _,
         }
     }
 
     pub fn query<I: QueryType>(&self) -> ComPtr {
         ComPtr {
-            ptr: query::<I>(self.ptr),
+            ptr: unsafe { query::<I>(self.ptr) },
         }
     }
 
@@ -40,7 +40,8 @@ impl ComPtr {
     pub fn set(&mut self) -> *mut RawPtr {
         unsafe {
             if !self.ptr.is_null() {
-                ((*(*(self.ptr as *const *const IUnknown))).release)(self.ptr);
+                let ptr = com::InterfacePtr::<dyn IUnknown>::new(self.ptr as *mut _);
+                ptr.release();
                 self.ptr = std::ptr::null_mut();
             }
             &mut self.ptr
@@ -62,7 +63,7 @@ impl Default for ComPtr {
 
 impl Clone for ComPtr {
     fn clone(&self) -> ComPtr {
-        ComPtr::addref(self.ptr)
+        unsafe { ComPtr::addref(self.ptr) }
     }
 }
 
@@ -70,15 +71,9 @@ impl Drop for ComPtr {
     fn drop(&mut self) {
         unsafe {
             if !self.ptr.is_null() {
-                ((*(*(self.ptr as *const *const IUnknown))).release)(self.ptr);
+                let ptr = com::InterfacePtr::<dyn IUnknown>::new(self.ptr as *mut _);
+                ptr.release();
             }
         }
     }
-}
-
-#[repr(C)]
-struct IUnknown {
-    query: extern "system" fn(RawPtr, &Guid, *mut RawPtr) -> ErrorCode,
-    addref: extern "system" fn(RawPtr) -> u32,
-    release: extern "system" fn(RawPtr) -> u32,
 }

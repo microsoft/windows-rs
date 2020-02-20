@@ -39,14 +39,15 @@ pub struct IActivationFactory {
 
 impl IActivationFactory {
     pub fn activate_instance<I: QueryType>(&self) -> Result<I> {
+        use abi::IActivationFactory;
         unsafe {
             let mut ptr = std::ptr::null_mut();
             // TODO: this is cheating - we need a QI here...
-            ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(
-                self.ptr.get(),
-                &mut ptr,
-            )
-            .ok_or(std::mem::transmute_copy(&ptr))
+            let abi =
+                com::InterfacePtr::<dyn abi::IActivationFactory>::new(self.ptr.get() as *mut _);
+
+            abi.activate_instance(&mut ptr)
+                .ok_or(std::mem::transmute_copy(&ptr))
         }
     }
 }
@@ -63,13 +64,9 @@ impl QueryType for IActivationFactory {
     }
 }
 
-#[repr(C)]
-struct abi_IActivationFactory {
-    __0: usize,
-    __1: usize,
-    __2: usize,
-    __3: usize,
-    __4: usize,
-    __5: usize,
-    activate_instance: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
+mod abi {
+    #[com::com_interface("00000035-0000-0000-C000-000000000046")]
+    pub trait IActivationFactory: crate::object::abi::IInspectable {
+        unsafe fn activate_instance(&self, instance: *mut crate::RawPtr) -> crate::ErrorCode;
+    }
 }
