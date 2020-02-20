@@ -3,9 +3,10 @@ use com::interfaces::IUnknown;
 
 pub type RawPtr = *mut std::ffi::c_void;
 
-#[repr(C)]
+#[repr(transparent)]
+#[derive(Default, Clone)]
 pub struct ComPtr {
-    ptr: RawPtr,
+    ptr: Option<com::InterfacePtr<dyn IUnknown>>,
 }
 
 pub unsafe fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
@@ -19,61 +20,47 @@ pub unsafe fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
 }
 
 impl ComPtr {
-    pub unsafe fn addref(ptr: RawPtr) -> ComPtr {
-        let ptr = com::InterfacePtr::<dyn IUnknown>::new(ptr as *mut _);
-        ptr.add_ref();
-        ComPtr {
-            ptr: ptr.as_raw() as *mut _,
-        }
+    unsafe fn from_raw(ptr: RawPtr) -> Self {
+        let ptr = if ptr.is_null() {
+            None
+        } else {
+            Some(com::InterfacePtr::new(ptr as *mut _))
+        };
+        Self { ptr }
     }
 
-    pub fn query<I: QueryType>(&self) -> ComPtr {
-        ComPtr {
-            ptr: unsafe { query::<I>(self.ptr) },
+    pub fn query<I: QueryType>(&self) -> Self {
+        unsafe {
+            let ptr = query::<I>(self.get());
+            Self::from_raw(ptr)
         }
     }
 
     pub fn get(&self) -> RawPtr {
         self.ptr
+            .as_ref()
+            .map(|p| p.as_raw())
+            .unwrap_or_else(std::ptr::null_mut) as RawPtr
     }
 
     pub fn set(&mut self) -> *mut RawPtr {
-        unsafe {
-            if !self.ptr.is_null() {
-                let ptr = com::InterfacePtr::<dyn IUnknown>::new(self.ptr as *mut _);
-                ptr.release();
-                self.ptr = std::ptr::null_mut();
-            }
-            &mut self.ptr
+        if let Some(ref ptr) = self.ptr {
+            unsafe { ptr.release() };
+            self.ptr = None;
         }
+
+        &mut self.ptr as *mut _ as *mut RawPtr
     }
 
     pub fn is_null(&self) -> bool {
-        self.ptr.is_null()
-    }
-}
-
-impl Default for ComPtr {
-    fn default() -> Self {
-        Self {
-            ptr: std::ptr::null_mut(),
-        }
-    }
-}
-
-impl Clone for ComPtr {
-    fn clone(&self) -> ComPtr {
-        unsafe { ComPtr::addref(self.ptr) }
+        self.ptr.is_none()
     }
 }
 
 impl Drop for ComPtr {
     fn drop(&mut self) {
-        unsafe {
-            if !self.ptr.is_null() {
-                let ptr = com::InterfacePtr::<dyn IUnknown>::new(self.ptr as *mut _);
-                ptr.release();
-            }
+        if let Some(ref ptr) = self.ptr {
+            unsafe { ptr.release() };
         }
     }
 }
