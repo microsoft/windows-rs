@@ -402,7 +402,7 @@ impl<'a> Writer<'a> {
         let interfaces = self.interface_interfaces(interface);
         let methods = &self.methods(&interfaces);
         let projected_methods = self.write_methods(methods);
-        let abi_methods = self.write_abi_methods(interface);
+        let abi_methods = self.write_abi_methods2(methods);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
@@ -473,7 +473,7 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    // TODO: this should also use "Methods" so it has the consistent naming - it should just skip anything that's not InterfaceCategory::Abi
+    // TODO: get rid of this function (use write_abi_methods2)
     fn write_abi_methods(&self, interface: &TypeDef) -> TokenStream {
         let mut tokens = Vec::new();
 
@@ -485,14 +485,15 @@ impl<'a> Writer<'a> {
             let signature = method.signature(self.r);
 
             // Limited methods still take up a slot to preserve vtable offsets.
-            if self.limited_method(&signature) {
-                tokens.push(quote! { #name: usize, });
+            tokens.push(if self.limited_method(&signature) {
+                quote! { #name: usize, }
             } else {
                 let params = self.write_abi_params(&signature);
-                tokens.push(quote! {
+
+                quote! {
                     #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
-                });
-            }
+                }
+            });
         }
 
         TokenStream::from_iter(tokens)
@@ -583,13 +584,8 @@ impl<'a> Writer<'a> {
 
         for method in methods
             .iter()
-            .filter(|method| method.category != MethodCategory::Remove)
+            .filter(|method| !method.limited && method.category != MethodCategory::Remove)
         {
-            // TODO: can't seem to make this part of the filter above...
-            if self.limited_method(&method.sig) {
-                continue;
-            }
-
             tokens.push(self.write_method(method));
         }
 
@@ -1453,10 +1449,20 @@ impl<'a> Writer<'a> {
     fn interface_interfaces(&mut self, interface: &TypeDef) -> Vec<Interface> {
         let mut result = Vec::new();
 
+        self.add_interfaces(
+            &mut result,
+            &Vec::new(),
+            interface.interfaces(self.r),
+            false,
+        );
+
+        // TODO: note taht Abi interface must be first - also the sorting done in add_interfaces is probably unecessary
+        // Rather just scan (typically short list) and delay sorting until the end when we need to sort by version for fastabi
+        
         let (identifier, abi_identifier) =
             self.write_interface_idents(interface, &Vec::new());
 
-        result.push(Interface { 
+        result.insert(0, Interface { 
             definition: *interface,
             generics: Vec::new(),
             overridable: false,
@@ -1468,12 +1474,6 @@ impl<'a> Writer<'a> {
 
         });
 
-        self.add_interfaces(
-            &mut result,
-            &Vec::new(),
-            interface.interfaces(self.r),
-            false,
-        );
         result
     }
 
