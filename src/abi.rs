@@ -6,7 +6,7 @@ pub type RawPtr = *mut std::ffi::c_void;
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct ComPtr {
-    ptr: Option<com::InterfacePtr<dyn IUnknown>>,
+    pub ptr: Option<com::InterfacePtr<dyn IUnknown>>,
 }
 
 pub unsafe fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {

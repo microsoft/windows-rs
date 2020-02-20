@@ -9,7 +9,7 @@ use com::interfaces::IUnknown;
 
 pub struct EventToken<T> {
     token: i64,
-    source: com::InterfacePtr<dyn IUnknown>,
+    source: ComPtr,
     offset: u32, // offset of remove virtual function
     __0: std::marker::PhantomData<T>,
 }
@@ -18,29 +18,37 @@ impl<T: QueryType> EventToken<T> {
     pub fn new(source: &ComPtr, token: i64, offset: u32) -> EventToken<T> {
         EventToken {
             token,
-            source: unsafe { com::InterfacePtr::new(source.clone().get() as *mut _) },
+            source: source.clone(),
             offset,
             __0: std::marker::PhantomData,
         }
     }
 
-    pub fn guard(self) -> EventGuard {
-        unsafe {
-            let weak_source = self.source.get_interface::<dyn IWeakReferenceSource>();
-            let source = if let Some(weak_source) = weak_source {
-                self.source.release();
-                let source = &mut self.source.as_raw() as *mut _ as *mut crate::RawPtr;
-                weak_source.get_weak_reference(source as *mut _).unwrap();
-                EventGuardSource::Weak(com::InterfacePtr::new(*source as *mut _))
-            } else {
-                EventGuardSource::Strong(self.source)
-            };
-            EventGuard {
-                guid: *T::type_guid(),
-                token: self.token,
-                source,
-                offset: self.offset,
+    pub fn guard(mut self) -> EventGuard {
+        let weak_source = self
+            .source
+            .ptr
+            .as_ref()
+            .and_then(|i| i.get_interface::<dyn IWeakReferenceSource>());
+
+        let source = if let Some(weak_source) = weak_source {
+            unsafe {
+                weak_source.get_weak_reference(self.source.set()).unwrap();
+                let ptr = self.source.get();
+                if !ptr.is_null() {
+                    EventGuardSource::Weak(com::InterfacePtr::new(ptr as *mut _))
+                } else {
+                    EventGuardSource::Strong(self.source)
+                }
             }
+        } else {
+            EventGuardSource::Strong(self.source)
+        };
+        EventGuard {
+            guid: *T::type_guid(),
+            token: self.token,
+            source,
+            offset: self.offset,
         }
     }
 }
@@ -53,7 +61,7 @@ pub struct EventGuard {
 }
 
 enum EventGuardSource {
-    Strong(com::InterfacePtr<dyn IUnknown>),
+    Strong(ComPtr),
     Weak(com::InterfacePtr<dyn IWeakReference>),
 }
 
