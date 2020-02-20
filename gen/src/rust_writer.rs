@@ -1449,6 +1449,10 @@ impl<'a> Writer<'a> {
         result
     }
 
+    fn sort_interfaces(interfaces: &mut Vec<Interface>) {
+
+    }
+
     fn class_interfaces(&mut self, class: &TypeDef) -> Vec<Interface> {
         let mut result = Vec::new();
 
@@ -1610,6 +1614,7 @@ struct Interface {
     category: InterfaceCategory,
     identifier: TokenStream,
     abi_identifier: TokenStream,
+    // version: (u16,u16),
 }
 
 struct Method<'a> {
