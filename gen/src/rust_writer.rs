@@ -1561,7 +1561,7 @@ impl<'a> Writer<'a> {
                     let mut name = self.method_name(&method, category);
                     let mut limited = self.limited_method(&sig);
 
-                    if let Some(prev) = methods.iter().find(|method| method.name == name) {
+                    if let Some(pos) = methods.iter().position(|method| method.name == name) {
                         if interface.category == InterfaceCategory::Abi {
                             // Collisions on the immediate interface can't be dropped otherwise they're be completely inaccessible.
                             // Instead we consider the case where a method (SetThing) and property (put_Thing) collide and rename the 
@@ -1569,7 +1569,7 @@ impl<'a> Writer<'a> {
                             if category == MethodCategory::Normal {
                                 name += "2";
                             } else {
-                                prev.name == "2";
+                                methods[pos].name += "2";
                             }
                             
                         } else {
