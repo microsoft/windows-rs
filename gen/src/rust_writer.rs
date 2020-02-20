@@ -398,10 +398,11 @@ impl<'a> Writer<'a> {
     fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
-        let abi_methods = self.write_abi_methods(&interface);
 
         let interfaces = self.interface_interfaces(interface);
-        let methods = self.write_methods(&self.methods(&interfaces));
+        let methods = &self.methods(&interfaces);
+        let projected_methods = self.write_methods(methods);
+        let abi_methods = self.write_abi_methods(interface);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
@@ -420,7 +421,7 @@ impl<'a> Writer<'a> {
                 #phantoms
             }
             impl<#constraints> #name<#generics> {
-                #methods
+                #projected_methods
             }
             impl<#constraints> winrt::QueryType for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
@@ -451,6 +452,25 @@ impl<'a> Writer<'a> {
             }
             #froms
         }
+    }
+
+    fn write_abi_methods2(&self, methods: &Vec<Method>) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for method in methods.iter().take_while(|method| method.interface.category == InterfaceCategory::Abi) {
+            let name = write_ident(&method.name);
+
+            tokens.push(if method.limited {
+                quote! { #name: usize, }
+            } else {
+                let params = self.write_abi_params(&method.sig);
+                quote! {
+                    #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
+                }
+            });
+        }
+
+        TokenStream::from_iter(tokens)
     }
 
     // TODO: this should also use "Methods" so it has the consistent naming - it should just skip anything that's not InterfaceCategory::Abi
@@ -1532,57 +1552,68 @@ impl<'a> Writer<'a> {
                     sig: MethodSig::invalid(),
                     category: MethodCategory::Normal,
                     interface,
+                    limited:false,
                 });
             } else {
                 for method in interface.definition.methods(self.r) {
                     let sig = method.signature(self.r);
                     let category = method.category(self.r);
                     let mut name = self.method_name(&method, category);
+                    let limited = self.limited_method(&sig);
 
-                    match methods.binary_search_by(|method| method.name.cmp(&name)) {
-                        Err(index) => methods.insert(
-                            index,
+                    methods.push(
                             Method {
                                 name,
                                 sig,
                                 category,
                                 interface,
-                            },
-                        ),
-                        Ok(index) => {
-                            let prev = &mut methods[index];
+                                limited,
+                            });
 
-                            if prev.category == MethodCategory::Set
-                                && category == MethodCategory::Normal
-                            {
-                                name += "2";
-                                methods.insert(
-                                    index + 1,
-                                    Method {
-                                        name,
-                                        sig,
-                                        category,
-                                        interface,
-                                    },
-                                );
-                            } else if prev.category == MethodCategory::Normal
-                                && category == MethodCategory::Set
-                            {
-                                prev.name += "2";
-                                methods.insert(
-                                    index,
-                                    Method {
-                                        name,
-                                        sig,
-                                        category,
-                                        interface,
-                                    },
-                                );
-                            } else {
-                                panic!("Unexpected method name collision");
-                            }
-                        }
-                    }
+                    // match methods.binary_search_by(|method| method.name.cmp(&name)) {
+                    //     Err(index) => methods.insert(
+                    //         index,
+                    //         Method {
+                    //             name,
+                    //             sig,
+                    //             category,
+                    //             interface,
+                    //         },
+                    //     ),
+                    //     Ok(index) => {
+                    //         let prev = &mut methods[index];
+
+                    //         if prev.category == MethodCategory::Set
+                    //             && category == MethodCategory::Normal
+                    //         {
+                    //             name += "2";
+                    //             methods.insert(
+                    //                 index + 1,
+                    //                 Method {
+                    //                     name,
+                    //                     sig,
+                    //                     category,
+                    //                     interface,
+                    //                 },
+                    //             );
+                    //         } else if prev.category == MethodCategory::Normal
+                    //             && category == MethodCategory::Set
+                    //         {
+                    //             prev.name += "2";
+                    //             methods.insert(
+                    //                 index,
+                    //                 Method {
+                    //                     name,
+                    //                     sig,
+                    //                     category,
+                    //                     interface,
+                    //                 },
+                    //             );
+                    //         } else {
+                    //             panic!("Unexpected method name collision");
+                    //         }
+                    //     }
+                    // }
                 }
             }
         }
@@ -1626,4 +1657,5 @@ struct Method<'a> {
     sig: MethodSig,
     category: MethodCategory,
     interface: &'a Interface,
+    limited: bool, // We don't just elide these since we still need placeholders for vtable order.
 }
