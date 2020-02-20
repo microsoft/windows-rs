@@ -28,6 +28,7 @@ impl<T: QueryType> EventToken<T> {
         unsafe {
             let weak_source = self.source.get_interface::<dyn IWeakReferenceSource>();
             let source = if let Some(weak_source) = weak_source {
+                self.source.release();
                 let source = &mut self.source.as_raw() as *mut _ as *mut crate::RawPtr;
                 weak_source.get_weak_reference(source as *mut _).unwrap();
                 EventGuardSource::Weak(com::InterfacePtr::new(*source as *mut _))

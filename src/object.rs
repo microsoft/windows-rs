@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 use crate::*;
+use com::interfaces::IUnknown;
 
 #[repr(C)]
 #[derive(Clone)]
@@ -37,6 +38,7 @@ impl RuntimeType for Object {
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
+        unsafe { self.ptr.release() };
         &mut self.abi()
     }
 }
