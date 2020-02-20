@@ -1509,6 +1509,11 @@ impl<'a> Writer<'a> {
         result
     }
 
+    // If there's a property and method collision in a single interface then the methods gets a 2 appended.
+    // If there's a collision with a required interface method then the required member is simply elided.
+    // To call it you'd need to convert to that interface and call it directly. This makes for stable naming
+    // across different type compositions and versions.
+
     fn methods<'i>(&self, interfaces: &'i Vec<Interface>) -> Vec<Method<'i>> {
         let mut methods: Vec<Method> = Vec::new();
 
@@ -1537,11 +1542,6 @@ impl<'a> Writer<'a> {
                             },
                         ),
                         Ok(index) => {
-                            // A method exists with the same name. If there's a property "put_Path" and a method "SetPath"
-                            // then you have a collision since both are projected as "set_path". In this case, the method
-                            // should be named "set_path2". This ensures the naming is stable and relatively predictable.
-                            // TODO: should also factor in versioning. The rule above should only apply to collisions within
-                            // a single interface. Later versions cannot rename previously introduced methods.
                             let prev = &mut methods[index];
 
                             if prev.category == MethodCategory::Set
