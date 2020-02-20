@@ -1,6 +1,5 @@
 use crate::weak::abi::{IWeakReference, IWeakReferenceSource};
 use crate::*;
-use com::interfaces::IUnknown;
 
 // The EventGuard avoids the generic parameter from the EventToken to make storing EventGuards more convenient
 // as you don't have to figure out what type it is. The EventToken uses a generic parameter as this type doesn't
@@ -35,11 +34,12 @@ impl<T: QueryType> EventToken<T> {
             unsafe {
                 weak_source.get_weak_reference(self.source.set()).unwrap();
                 let ptr = self.source.get();
-                if !ptr.is_null() {
-                    EventGuardSource::Weak(com::InterfacePtr::new(ptr as *mut _))
-                } else {
-                    EventGuardSource::Strong(self.source)
-                }
+                debug_assert!(
+                    !ptr.is_null(),
+                    "Pointer was null after successful `get_weak_reference` call"
+                );
+
+                EventGuardSource::Weak(com::InterfacePtr::new(ptr as *mut _))
             }
         } else {
             EventGuardSource::Strong(self.source)
