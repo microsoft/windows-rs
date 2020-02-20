@@ -31,23 +31,22 @@ pub fn factory<C: TypeName, I: QueryType>() -> Result<I> {
     }
 }
 
-#[repr(C)]
-#[derive(Default, Clone)]
+#[repr(transparent)]
+#[derive(Clone)]
 pub struct IActivationFactory {
-    ptr: ComPtr,
+    ptr: com::InterfacePtr<dyn abi::IActivationFactory>,
 }
 
 impl IActivationFactory {
     pub fn activate_instance<I: QueryType>(&self) -> Result<I> {
         use abi::IActivationFactory;
-        unsafe {
-            let mut ptr = std::ptr::null_mut();
-            // TODO: this is cheating - we need a QI here...
-            let abi =
-                com::InterfacePtr::<dyn abi::IActivationFactory>::new(self.ptr.get() as *mut _);
+        let mut instance = std::ptr::null_mut();
 
-            abi.activate_instance(&mut ptr)
-                .ok_or(std::mem::transmute_copy(&ptr))
+        unsafe {
+            // TODO: this is cheating - we need a QI here...
+            self.ptr
+                .activate_instance(&mut instance)
+                .ok_or(std::mem::transmute_copy(&instance))
         }
     }
 }
