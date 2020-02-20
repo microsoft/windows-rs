@@ -9,7 +9,7 @@ repository = "https://github.com/microsoft/winrt-rs"
 
 [dependencies]
 winrt_macros = { path = "macros" }
-com = { path = "../com-rs" }
+com = { git = "https://github.com/microsoft/com-rs.git" }
 
 [dev-dependencies]
 winapi = { version = "0.3.8", features = [ "std", "winuser", "ntdef", "roapi" ] }
