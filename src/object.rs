@@ -6,7 +6,7 @@ use com::interfaces::IUnknown;
 #[repr(C)]
 #[derive(Clone)]
 pub struct Object {
-    ptr: com::InterfacePtr<dyn abi::IInspectable>,
+    ptr: com::ComPtr<dyn abi::IInspectable>,
 }
 
 impl Object {

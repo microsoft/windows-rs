@@ -39,7 +39,7 @@ impl<T: QueryType> EventToken<T> {
                     "Pointer was null after successful `get_weak_reference` call"
                 );
 
-                EventGuardSource::Weak(com::InterfacePtr::new(ptr as *mut _))
+                EventGuardSource::Weak(com::ComPtr::new(ptr as *mut _))
             }
         } else {
             EventGuardSource::Strong(self.source)
@@ -62,7 +62,7 @@ pub struct EventGuard {
 
 enum EventGuardSource {
     Strong(ComPtr),
-    Weak(com::InterfacePtr<dyn IWeakReference>),
+    Weak(com::ComPtr<dyn IWeakReference>),
 }
 
 impl Drop for EventGuard {

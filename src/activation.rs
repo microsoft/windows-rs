@@ -34,7 +34,7 @@ pub fn factory<C: TypeName, I: QueryType>() -> Result<I> {
 #[repr(transparent)]
 #[derive(Clone)]
 pub struct IActivationFactory {
-    ptr: com::InterfacePtr<dyn abi::IActivationFactory>,
+    ptr: com::ComPtr<dyn abi::IActivationFactory>,
 }
 
 impl IActivationFactory {
