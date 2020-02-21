@@ -1456,7 +1456,7 @@ impl<'a> Writer<'a> {
             false,
         );
 
-        // TODO: note taht Abi interface must be first - also the sorting done in add_interfaces is probably unecessary
+        // TODO: note that Abi interface must be first - also the sorting done in add_interfaces is probably unnecessary
         // Rather just scan (typically short list) and delay sorting until the end when we need to sort by version for fastabi
 
         let (identifier, abi_identifier) =
@@ -1565,7 +1565,7 @@ impl<'a> Writer<'a> {
                         if interface.category == InterfaceCategory::Abi {
                             // Collisions on the immediate interface can't be dropped otherwise they're be completely inaccessible.
                             // Instead we consider the case where a method (SetThing) and property (put_Thing) collide and rename the 
-                            // the method unilateraillly to make versioning and renaming predictable
+                            // the method unilaterally to make versioning and renaming predictable
                             if category == MethodCategory::Normal {
                                 name += "2";
                             } else {
