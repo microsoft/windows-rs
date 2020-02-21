@@ -133,7 +133,7 @@ impl<'a, 'b> Drop for GenericGuard<'a, 'b> {
         if self.count > 0 {
             self.writer
                 .generics
-                .resize_with(self.writer.generics.len() - self.count, || panic!());
+                .resize_with(self.writer.generics.len() - self.count, || panic!("TODO: drop GenericGuard"));
         }
     }
 }
@@ -402,7 +402,7 @@ impl<'a> Writer<'a> {
         let interfaces = self.interface_interfaces(interface);
         let methods = &self.methods(&interfaces);
         let projected_methods = self.write_methods(methods);
-        let abi_methods = self.write_abi_methods2(methods);
+        let abi_methods = self.write_abi_methods(methods);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
@@ -454,7 +454,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_methods2(&self, methods: &Vec<Method>) -> TokenStream {
+    fn write_abi_methods(&self, methods: &Vec<Method>) -> TokenStream {
         let mut tokens = Vec::new();
 
         for method in methods
