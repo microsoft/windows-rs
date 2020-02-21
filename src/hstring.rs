@@ -125,6 +125,33 @@ impl From<&String> for HString {
     }
 }
 
+impl PartialEq for HString {
+    fn eq(&self, other: &Self) -> bool {
+        self.as_chars() == other.as_chars()
+    }
+}
+
+impl PartialEq<String> for HString {
+    fn eq(&self, other: &String) -> bool {
+        self == other.as_str()
+    }
+}
+
+impl PartialEq<str> for HString {
+    fn eq(&self, other: &str) -> bool {
+        self == other
+    }
+}
+
+impl PartialEq<&str> for HString {
+    fn eq(&self, other: &&str) -> bool {
+        self.as_chars()
+            .iter()
+            .map(|left| *left)
+            .eq(other.encode_utf16())
+    }
+}
+
 const REFERENCE_FLAG: u32 = 1;
 
 #[repr(C)]

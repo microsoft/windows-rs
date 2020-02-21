@@ -21,4 +21,12 @@ fn strings() {
     assert!(hello.len() == 0);
     assert!(!hello2.is_empty());
     assert!(hello2.len() == 5);
+
+    assert!(HString::from("Hello") == HString::from("Hello"));
+    assert!(HString::from("Hello") != HString::from("World"));
+
+    assert!(HString::from("Hello") == "Hello");
+    assert!(HString::from("Hello") != "Hello ");
+    assert!(HString::from("Hello") != "Hell");
+    assert!(HString::from("Hello") != "World");
 }
