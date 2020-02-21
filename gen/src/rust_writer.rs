@@ -1,7 +1,6 @@
 use crate::*;
 use proc_macro2::{Ident, Literal, TokenStream};
 use quote::{format_ident, quote};
-use std::cmp::Ord;
 use std::collections::*;
 use std::iter::FromIterator;
 
@@ -257,6 +256,10 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::<TokenStream>::new();
 
         for base in class.bases(self.r) {
+            if self.limited_type_def(&base) {
+                continue;
+            }
+
             let into = self.write_type_def(&base);
             tokens.push(quote! {
                 impl From<#from> for #into {
@@ -1092,6 +1095,16 @@ impl<'a> Writer<'a> {
         return false;
     }
 
+    fn limited_type_def(&self, value: &TypeDef) -> bool {
+        let namespace = value.namespace(self.r);
+
+        if namespace == "System" {
+            false // Types like "System.Guid" are never limited
+        } else {
+            !self.limits.contains(value.namespace(self.r))
+        }
+    }
+
     fn limited_type(&self, value: &TypeSig) -> bool {
         match value.definition() {
             TypeSigType::TypeDefOrRef(value) => {
@@ -1280,10 +1293,6 @@ impl<'a> Writer<'a> {
 
         append_snake(&mut result, source);
         result
-    }
-
-    fn write_method_name(&self, method: &MethodDef) -> Ident {
-        write_ident(&self.method_name(method, method.category(self.r)))
     }
 
     fn write_namespace_name(&self, other: &str) -> TokenStream {
