@@ -133,7 +133,9 @@ impl<'a, 'b> Drop for GenericGuard<'a, 'b> {
         if self.count > 0 {
             self.writer
                 .generics
-                .resize_with(self.writer.generics.len() - self.count, || panic!("TODO: drop GenericGuard"));
+                .resize_with(self.writer.generics.len() - self.count, || {
+                    panic!("TODO: drop GenericGuard")
+                });
         }
     }
 }
@@ -569,68 +571,6 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    // TODO: get rid of this function - now only used by delegates where this is overkill
-    fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
-        let mut tokens = Vec::new();
-        let generics = self.write_generics();
-        let namespace = self.write_namespace_name(interface.namespace(self.r));
-        let abi_name = self.write_generic_abi_name(interface);
-
-        // TODO: can't simply do this because self is mutable?
-        // for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {
-        for method in interface.methods(self.r) {
-            let name = method.name(self.r);
-
-            if name == ".ctor" {
-                continue;
-            }
-
-            // The .ctor method doesn't have a valid signature so that exclusion happens first.
-            let signature = method.signature(self.r);
-
-            if self.limited_method(&signature) {
-                continue;
-            }
-
-            match method.category(self.r) {
-                MethodCategory::Remove => continue, // We don't project this method at all - the ABI is called internally by the EventGuard
-                //MethodCategory::Add => continue,    // TODO: define this using an EventToken<T> return type
-                _ => {}
-            }
-
-            let name = self.write_method_name(&method);
-            let params = self.write_consume_params(&signature);
-            let into_params = self.write_consume_into_params(&signature);
-            let args = self.write_abi_args(&signature);
-
-            let (result_type, receive_expression, ok_variable, ok_transmute) =
-                if let Some(result) = signature.return_type() {
-                    (
-                        self.write_type(result.definition()),
-                        self.write_consume_receive_expression(result.definition()),
-                        quote! { let mut __ok = std::mem::zeroed(); },
-                        quote! { ok_or(std::mem::transmute_copy(&__ok)) },
-                    )
-                } else {
-                    (quote! { () }, quote! {}, quote! {}, quote! { ok() })
-                };
-
-            tokens.push(quote! {
-                pub fn #name<#into_params>(&self, #params) -> winrt::Result<#result_type> {
-                    unsafe {
-                        #ok_variable
-                        ((*(*(self.ptr.get() as *const *const #namespace#abi_name<#generics>))).#name)(
-                            self.ptr.get(), #args #receive_expression
-                        )
-                        .#ok_transmute
-                    }
-                }
-            });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
     fn write_consume_args(&self, signature: &MethodSig) -> TokenStream {
         TokenStream::from_iter(signature.params().iter().map(|param| {
             let name = write_ident(param.name());
@@ -763,18 +703,24 @@ impl<'a> Writer<'a> {
     fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
-        let consume_methods = self.write_consume_methods(&interface);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
 
-        let method = interface.methods(self.r).find(|method| method.name(self.r) == "Invoke").expect("Delegate missing Invoke method");
+        let method = interface
+            .methods(self.r)
+            .find(|method| method.name(self.r) == "Invoke")
+            .expect("Delegate missing Invoke method");
         let sig = method.signature(self.r);
 
         if self.limited_method(&sig) {
-            panic!("Delegate {}.{} depends on excluded types", interface.namespace(self.r), interface.name(self.r)); // TOOD: more presreptive error message. e.g. what depends on what and fix doing what
+            panic!(
+                "Delegate {}.{} depends on excluded types",
+                interface.namespace(self.r),
+                interface.name(self.r)
+            ); // TOOD: more presreptive error message. e.g. what depends on what and fix doing what
 
             // Basically, the import macro may limit the definitions such that a delegate that is included has a parameter from a namespace
             // that's excluded. We cannot simply elide the delegate since other types in the included namespace may refer to the delegate
@@ -782,6 +728,21 @@ impl<'a> Writer<'a> {
         }
 
         let abi_params = self.write_abi_params(&sig);
+        let args = self.write_abi_args(&sig);
+        let into_params = self.write_consume_into_params(&sig);
+        let params = self.write_consume_params(&sig);
+
+        let (result_type, receive_expression, ok_variable, ok_transmute) =
+            if let Some(result) = sig.return_type() {
+                (
+                    self.write_type(result.definition()),
+                    self.write_consume_receive_expression(result.definition()),
+                    quote! { let mut __ok = std::mem::zeroed(); },
+                    quote! { ok_or(std::mem::transmute_copy(&__ok)) },
+                )
+            } else {
+                (quote! { () }, quote! {}, quote! {}, quote! { ok() })
+            };
 
         quote! {
             #[repr(C)]
@@ -794,7 +755,16 @@ impl<'a> Writer<'a> {
                 #phantoms
             }
             impl<#constraints> #name<#generics> {
-                #consume_methods
+                // TODO: this should be an invoke method but some kind of function call trait
+                pub fn invoke<#into_params>(&self, #params) -> winrt::Result<#result_type> {
+                    unsafe {
+                        #ok_variable
+                        ((*(*(self.ptr.get() as *const *const #abi_name<#generics>))).invoke)(
+                            self.ptr.get(), #args #receive_expression
+                        )
+                        .#ok_transmute
+                    }
+                }
             }
             impl<#constraints> winrt::QueryType for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
@@ -861,7 +831,11 @@ impl<'a> Writer<'a> {
             let sig = f.signature(self.r);
 
             if self.limited_type(&sig) {
-                panic!("Struct {}.{} depends on excluded types", t.namespace(self.r), t.name(self.r)); 
+                panic!(
+                    "Struct {}.{} depends on excluded types",
+                    t.namespace(self.r),
+                    t.name(self.r)
+                );
             }
 
             let field_type = self.write_type(&sig);
@@ -1581,51 +1555,6 @@ impl<'a> Writer<'a> {
                         interface,
                         limited,
                     });
-
-                    // match methods.binary_search_by(|method| method.name.cmp(&name)) {
-                    //     Err(index) => methods.insert(
-                    //         index,
-                    //         Method {
-                    //             name,
-                    //             sig,
-                    //             category,
-                    //             interface,
-                    //         },
-                    //     ),
-                    //     Ok(index) => {
-                    //         let prev = &mut methods[index];
-
-                    //         if prev.category == MethodCategory::Set
-                    //             && category == MethodCategory::Normal
-                    //         {
-                    //             name += "2";
-                    //             methods.insert(
-                    //                 index + 1,
-                    //                 Method {
-                    //                     name,
-                    //                     sig,
-                    //                     category,
-                    //                     interface,
-                    //                 },
-                    //             );
-                    //         } else if prev.category == MethodCategory::Normal
-                    //             && category == MethodCategory::Set
-                    //         {
-                    //             prev.name += "2";
-                    //             methods.insert(
-                    //                 index,
-                    //                 Method {
-                    //                     name,
-                    //                     sig,
-                    //                     category,
-                    //                     interface,
-                    //                 },
-                    //             );
-                    //         } else {
-                    //             panic!("Unexpected method name collision");
-                    //         }
-                    //     }
-                    // }
                 }
             }
         }
