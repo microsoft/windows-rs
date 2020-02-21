@@ -1,4 +1,4 @@
-use com::{com_interface, interfaces::iunknown::IUnknown, InterfacePtr, InterfaceRc};
+use com::{com_interface, interfaces::IUnknown, ComPtr, ComRc};
 use core::ffi::c_void;
 use raw_window_handle::HasRawWindowHandle;
 use winapi::{
@@ -156,8 +156,7 @@ fn create_desktop_window_target(
 ) -> Result<CompositionTarget> {
     let compositor_ptr = compositor.abi();
     let compositor_interop = unsafe {
-        let unknown =
-            InterfaceRc::<dyn IUnknown>::new(InterfacePtr::<dyn IUnknown>::new(compositor_ptr));
+        let unknown = ComRc::<dyn IUnknown>::from_raw(compositor_ptr as *mut _);
         let compositor_interop = unknown
             .get_interface::<dyn ICompositorDesktopInterop>()
             .unwrap();

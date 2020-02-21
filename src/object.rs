@@ -1,34 +1,31 @@
 #![allow(dead_code)]
 
 use crate::*;
+use com::interfaces::IUnknown;
 
 #[repr(C)]
-#[derive(Default, Clone)]
+#[derive(Clone)]
 pub struct Object {
-    ptr: ComPtr,
+    ptr: com::ComPtr<dyn abi::IInspectable>,
 }
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
+        use abi::IInspectable;
+        let mut class_name = std::ptr::null_mut();
+
         unsafe {
-            let mut ptr = std::ptr::null_mut();
-            ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(
-                self.ptr.get(),
-                &mut ptr,
-            )
-            .ok_or(std::mem::transmute(ptr))
+            self.ptr
+                .get_runtime_class_name(&mut class_name)
+                .ok_or(std::mem::transmute(class_name))
         }
     }
 }
 
 impl QueryType for Object {
     fn type_guid() -> &'static Guid {
-        static GUID: Guid = Guid::from_values(
-            0xAF86E2E0,
-            0xB12D,
-            0x4C6A,
-            &[0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90],
-        );
+        use com::ComInterface;
+        static GUID: Guid = Guid(abi::IInspectable::IID);
         &GUID
     }
 }
@@ -37,19 +34,27 @@ impl RuntimeType for Object {
     type Abi = RawPtr;
 
     fn abi(&self) -> Self::Abi {
-        self.ptr.get()
+        self.ptr.as_raw() as RawPtr
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        self.ptr.set()
+        unsafe { self.ptr.release() };
+        &mut self.abi()
     }
 }
 
-#[repr(C)]
-struct IInspectable {
-    __0: usize,
-    __1: usize,
-    __2: usize,
-    __3: usize,
-    type_name: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
+pub mod abi {
+    use com::interfaces::IUnknown;
+
+    #[com::com_interface("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90")]
+    pub trait IInspectable: IUnknown {
+        unsafe fn get_iids(
+            &self,
+            iid_count: *mut u32,
+            iids: *mut *mut crate::Guid,
+        ) -> crate::ErrorCode;
+        unsafe fn get_runtime_class_name(&self, class_name: *mut crate::RawPtr)
+            -> crate::ErrorCode;
+        unsafe fn get_trust_level(&self, trust_level: crate::RawPtr) -> crate::ErrorCode;
+    }
 }
