@@ -1,29 +1,27 @@
 use crate::*;
 
-#[repr(C)]
-pub(crate) struct IWeakReference {
-    __0: usize,
-    __1: usize,
-    __2: usize,
-    pub strong: extern "system" fn(RawPtr, &Guid, *mut RawPtr) -> ErrorCode,
-}
-
-#[repr(C)]
-pub(crate) struct IWeakReferenceSource {
-    __0: usize,
-    __1: usize,
-    __2: usize,
-    pub weak: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
-}
-
+struct IWeakReferenceSource {}
 impl QueryType for IWeakReferenceSource {
     fn type_guid() -> &'static Guid {
-        static GUID: Guid = Guid::from_values(
-            0x00000038,
-            0x0000,
-            0x0000,
-            &[0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
-        );
+        use com::ComInterface;
+        static GUID: Guid = Guid(abi::IWeakReferenceSource::IID);
         &GUID
+    }
+}
+
+pub mod abi {
+    use com::interfaces::IUnknown;
+    #[com::com_interface("00000037-0000-0000-C000-000000000046")]
+    pub trait IWeakReference: IUnknown {
+        unsafe fn resolve(
+            &self,
+            guid: *const crate::Guid,
+            ptr: *mut crate::RawPtr,
+        ) -> crate::ErrorCode;
+    }
+
+    #[com::com_interface("00000038-0000-0000-C000-000000000046")]
+    pub trait IWeakReferenceSource: IUnknown {
+        unsafe fn get_weak_reference(&self, ptr: *mut crate::RawPtr) -> crate::ErrorCode;
     }
 }
