@@ -1,12 +1,12 @@
-use windows::foundation::*;
-use winrt::*;
-
 import!(
     dependencies
         "os"
     modules
         "windows.foundation"
 );
+
+use windows::foundation::*;
+use winrt::*;
 
 #[test]
 fn uri() -> Result<()> {

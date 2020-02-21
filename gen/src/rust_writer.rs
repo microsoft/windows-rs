@@ -702,6 +702,7 @@ impl<'a> Writer<'a> {
             #[repr(#repr)]
             #[derive(Copy, Clone, Debug, PartialEq)]
             pub enum #type_name { #fields }
+            impl winrt::RuntimeCopy for #type_name {}
             impl Default for #type_name {
                 fn default() -> Self {
                     Self::#default
@@ -796,16 +797,16 @@ impl<'a> Writer<'a> {
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
 
-        // let method = interface.methods(self.r).find(|method| method.name(self.r) == "Invoke").expect("Delegate missing Invoke method");
-        // let sig = method.signature(self.r);
+        let method = interface.methods(self.r).find(|method| method.name(self.r) == "Invoke").expect("Delegate missing Invoke method");
+        let sig = method.signature(self.r);
 
-        // if self.limited_method(&sig) {
-        //     panic!("Delegate depends on limted namespace"); // TOOD: more presreptive error message. e.g. what depends on what and fix doing what
+        if self.limited_method(&sig) {
+            panic!("Delegate {}.{} depends on excluded types", interface.namespace(self.r), interface.name(self.r)); // TOOD: more presreptive error message. e.g. what depends on what and fix doing what
 
-        //     // Basically, the import macro may limit the definitions such that a delegate that is included has a parameter from a namespace
-        //     // that's excluded. We cannot simply elide the delegate since other types in the included namespace may refer to the delegate
-        //     // and this way we can at least give the user an meaningful breadcrumb.
-        // }
+            // Basically, the import macro may limit the definitions such that a delegate that is included has a parameter from a namespace
+            // that's excluded. We cannot simply elide the delegate since other types in the included namespace may refer to the delegate
+            // and this way we can at least give the user an meaningful breadcrumb.
+        }
 
         quote! {
             #[repr(C)]
@@ -882,7 +883,13 @@ impl<'a> Writer<'a> {
 
         for f in t.fields(self.r) {
             let name = write_ident(&to_snake(f.name(self.r)));
-            let field_type = self.write_type(&f.signature(self.r));
+            let sig = f.signature(self.r);
+
+            if self.limited_type(&sig) {
+                panic!("Struct {}.{} depends on excluded types", t.namespace(self.r), t.name(self.r)); 
+            }
+
+            let field_type = self.write_type(&sig);
 
             tokens.push(quote! {
                 pub #name: #field_type,
