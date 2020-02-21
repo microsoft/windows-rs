@@ -457,7 +457,10 @@ impl<'a> Writer<'a> {
     fn write_abi_methods2(&self, methods: &Vec<Method>) -> TokenStream {
         let mut tokens = Vec::new();
 
-        for method in methods.iter().take_while(|method| method.interface.category == InterfaceCategory::Abi) {
+        for method in methods
+            .iter()
+            .take_while(|method| method.interface.category == InterfaceCategory::Abi)
+        {
             let name = write_ident(&method.name);
 
             tokens.push(if method.limited {
@@ -525,17 +528,17 @@ impl<'a> Writer<'a> {
                     let abi = &method.interface.abi_identifier;
 
                     let (result_type, receive_expression, ok_variable, ok_transmute) =
-                    if let Some(result) = method.sig.return_type() {
-                        (
-                            guard.write_type(result.definition()),
-                            guard.write_consume_receive_expression(result.definition()),
-                            quote! { let mut __ok = std::mem::zeroed(); },
-                            quote! { ok_or(std::mem::transmute_copy(&__ok)) },
-                        )
-                    } else {
-                        (quote! { () }, quote! {}, quote! {}, quote! { ok() })
-                    };
-    
+                        if let Some(result) = method.sig.return_type() {
+                            (
+                                guard.write_type(result.definition()),
+                                guard.write_consume_receive_expression(result.definition()),
+                                quote! { let mut __ok = std::mem::zeroed(); },
+                                quote! { ok_or(std::mem::transmute_copy(&__ok)) },
+                            )
+                        } else {
+                            (quote! { () }, quote! {}, quote! {}, quote! { ok() })
+                        };
+
                     quote! {
                         pub fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result_type> {
                             unsafe {
@@ -792,6 +795,17 @@ impl<'a> Writer<'a> {
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
+
+        // let method = interface.methods(self.r).find(|method| method.name(self.r) == "Invoke").expect("Delegate missing Invoke method");
+        // let sig = method.signature(self.r);
+
+        // if self.limited_method(&sig) {
+        //     panic!("Delegate depends on limted namespace"); // TOOD: more presreptive error message. e.g. what depends on what and fix doing what
+
+        //     // Basically, the import macro may limit the definitions such that a delegate that is included has a parameter from a namespace
+        //     // that's excluded. We cannot simply elide the delegate since other types in the included namespace may refer to the delegate
+        //     // and this way we can at least give the user an meaningful breadcrumb.
+        // }
 
         quote! {
             #[repr(C)]
@@ -1459,20 +1473,21 @@ impl<'a> Writer<'a> {
         // TODO: note that Abi interface must be first - also the sorting done in add_interfaces is probably unnecessary
         // Rather just scan (typically short list) and delay sorting until the end when we need to sort by version for fastabi
 
-        let (identifier, abi_identifier) =
-            self.write_interface_idents(interface, &Vec::new());
+        let (identifier, abi_identifier) = self.write_interface_idents(interface, &Vec::new());
 
-        result.insert(0, Interface { 
-            definition: *interface,
-            generics: Vec::new(),
-            overridable: false,
-            exclusive: false, // TODO: lookup
-            limited: false,
-            category: InterfaceCategory::Abi,
-            identifier,
-            abi_identifier
-
-        });
+        result.insert(
+            0,
+            Interface {
+                definition: *interface,
+                generics: Vec::new(),
+                overridable: false,
+                exclusive: false, // TODO: lookup
+                limited: false,
+                category: InterfaceCategory::Abi,
+                identifier,
+                abi_identifier,
+            },
+        );
 
         result
     }
@@ -1552,7 +1567,7 @@ impl<'a> Writer<'a> {
                     sig: MethodSig::invalid(),
                     category: MethodCategory::Normal,
                     interface,
-                    limited:false,
+                    limited: false,
                 });
             } else {
                 for method in interface.definition.methods(self.r) {
@@ -1564,28 +1579,26 @@ impl<'a> Writer<'a> {
                     if let Some(pos) = methods.iter().position(|method| method.name == name) {
                         if interface.category == InterfaceCategory::Abi {
                             // Collisions on the immediate interface can't be dropped otherwise they're be completely inaccessible.
-                            // Instead we consider the case where a method (SetThing) and property (put_Thing) collide and rename the 
+                            // Instead we consider the case where a method (SetThing) and property (put_Thing) collide and rename the
                             // the method unilaterally to make versioning and renaming predictable
                             if category == MethodCategory::Normal {
                                 name += "2";
                             } else {
                                 methods[pos].name += "2";
                             }
-                            
                         } else {
                             // Collisions on required interfaces are simply dropped - call the method directly on the required interface
                             limited = true;
                         }
                     }
 
-                    methods.push(
-                            Method {
-                                name,
-                                sig,
-                                category,
-                                interface,
-                                limited,
-                            });
+                    methods.push(Method {
+                        name,
+                        sig,
+                        category,
+                        interface,
+                        limited,
+                    });
 
                     // match methods.binary_search_by(|method| method.name.cmp(&name)) {
                     //     Err(index) => methods.insert(
