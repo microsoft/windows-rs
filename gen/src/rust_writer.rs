@@ -476,32 +476,6 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    // TODO: get rid of this function (use write_abi_methods2)
-    fn write_abi_methods(&self, interface: &TypeDef) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for method in interface
-            .methods(self.r)
-            .filter(|method| method.name(self.r) != ".ctor")
-        {
-            let name = self.write_method_name(&method);
-            let signature = method.signature(self.r);
-
-            // Limited methods still take up a slot to preserve vtable offsets.
-            tokens.push(if self.limited_method(&signature) {
-                quote! { #name: usize, }
-            } else {
-                let params = self.write_abi_params(&signature);
-
-                quote! {
-                    #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
-                }
-            });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
     fn write_method(&mut self, method: &Method) -> TokenStream {
         if method.interface.category == InterfaceCategory::DefaultActivatable {
             quote! {
@@ -789,7 +763,6 @@ impl<'a> Writer<'a> {
     fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
-        let abi_methods = self.write_abi_methods(&interface);
         let consume_methods = self.write_consume_methods(&interface);
 
         let generics = self.write_generics();
@@ -808,6 +781,8 @@ impl<'a> Writer<'a> {
             // and this way we can at least give the user an meaningful breadcrumb.
         }
 
+        let abi_params = self.write_abi_params(&sig);
+
         quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
@@ -815,7 +790,7 @@ impl<'a> Writer<'a> {
             #[repr(C)]
             struct #abi_name<#constraints> {
                 __base: [usize; 3],
-                #abi_methods
+                invoke: extern "system" fn(winrt::RawPtr, #abi_params) -> winrt::ErrorCode,
                 #phantoms
             }
             impl<#constraints> #name<#generics> {
