@@ -15,7 +15,7 @@ fn uri() -> Result<()> {
     assert!(uri.domain()? == "kennykerr.ca");
     assert!(uri.port()? == 80);
 
-    // Calls IStringable::ToString under the hood (via QueryInterface)
+    // Calls QueryInterface followed by IStringable::ToString under the hood
     assert!(uri.to_string()? == "http://kennykerr.ca/");
 
     Ok(())
