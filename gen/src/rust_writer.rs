@@ -1,7 +1,6 @@
 use crate::*;
 use proc_macro2::{Ident, Literal, TokenStream};
 use quote::{format_ident, quote};
-use std::cmp::Ord;
 use std::collections::*;
 use std::iter::FromIterator;
 
@@ -44,7 +43,7 @@ impl NamespaceWriter for BTreeMap<String, Namespace> {
         let mut tokens = Vec::new();
 
         for (name, namespace) in self {
-            let name = write_ident(&name.to_lowercase());
+            let name = write_ident(&to_snake(name));
             let namespace = namespace.write();
 
             tokens.push(quote! {
@@ -133,7 +132,9 @@ impl<'a, 'b> Drop for GenericGuard<'a, 'b> {
         if self.count > 0 {
             self.writer
                 .generics
-                .resize_with(self.writer.generics.len() - self.count, || panic!());
+                .resize_with(self.writer.generics.len() - self.count, || {
+                    panic!("TODO: drop GenericGuard")
+                });
         }
     }
 }
@@ -255,6 +256,10 @@ impl<'a> Writer<'a> {
         let mut tokens = Vec::<TokenStream>::new();
 
         for base in class.bases(self.r) {
+            if self.limited_type_def(&base) {
+                continue;
+            }
+
             let into = self.write_type_def(&base);
             tokens.push(quote! {
                 impl From<#from> for #into {
@@ -402,7 +407,7 @@ impl<'a> Writer<'a> {
         let interfaces = self.interface_interfaces(interface);
         let methods = &self.methods(&interfaces);
         let projected_methods = self.write_methods(methods);
-        let abi_methods = self.write_abi_methods2(methods);
+        let abi_methods = self.write_abi_methods(methods);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
@@ -454,7 +459,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_abi_methods2(&self, methods: &Vec<Method>) -> TokenStream {
+    fn write_abi_methods(&self, methods: &Vec<Method>) -> TokenStream {
         let mut tokens = Vec::new();
 
         for method in methods
@@ -467,32 +472,6 @@ impl<'a> Writer<'a> {
                 quote! { #name: usize, }
             } else {
                 let params = self.write_abi_params(&method.sig);
-                quote! {
-                    #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
-                }
-            });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
-    // TODO: get rid of this function (use write_abi_methods2)
-    fn write_abi_methods(&self, interface: &TypeDef) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for method in interface
-            .methods(self.r)
-            .filter(|method| method.name(self.r) != ".ctor")
-        {
-            let name = self.write_method_name(&method);
-            let signature = method.signature(self.r);
-
-            // Limited methods still take up a slot to preserve vtable offsets.
-            tokens.push(if self.limited_method(&signature) {
-                quote! { #name: usize, }
-            } else {
-                let params = self.write_abi_params(&signature);
-
                 quote! {
                     #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
                 }
@@ -595,68 +574,6 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    // TODO: get rid of this function - now only used by delegates where this is overkill
-    fn write_consume_methods(&mut self, interface: &TypeDef) -> TokenStream {
-        let mut tokens = Vec::new();
-        let generics = self.write_generics();
-        let namespace = self.write_namespace_name(interface.namespace(self.r));
-        let abi_name = self.write_generic_abi_name(interface);
-
-        // TODO: can't simply do this because self is mutable?
-        // for method in interface.methods(self.r).filter(|method| method.name(self.r) != ".ctor") {
-        for method in interface.methods(self.r) {
-            let name = method.name(self.r);
-
-            if name == ".ctor" {
-                continue;
-            }
-
-            // The .ctor method doesn't have a valid signature so that exclusion happens first.
-            let signature = method.signature(self.r);
-
-            if self.limited_method(&signature) {
-                continue;
-            }
-
-            match method.category(self.r) {
-                MethodCategory::Remove => continue, // We don't project this method at all - the ABI is called internally by the EventGuard
-                //MethodCategory::Add => continue,    // TODO: define this using an EventToken<T> return type
-                _ => {}
-            }
-
-            let name = self.write_method_name(&method);
-            let params = self.write_consume_params(&signature);
-            let into_params = self.write_consume_into_params(&signature);
-            let args = self.write_abi_args(&signature);
-
-            let (result_type, receive_expression, ok_variable, ok_transmute) =
-                if let Some(result) = signature.return_type() {
-                    (
-                        self.write_type(result.definition()),
-                        self.write_consume_receive_expression(result.definition()),
-                        quote! { let mut __ok = std::mem::zeroed(); },
-                        quote! { ok_or(std::mem::transmute_copy(&__ok)) },
-                    )
-                } else {
-                    (quote! { () }, quote! {}, quote! {}, quote! { ok() })
-                };
-
-            tokens.push(quote! {
-                pub fn #name<#into_params>(&self, #params) -> winrt::Result<#result_type> {
-                    unsafe {
-                        #ok_variable
-                        ((*(*(self.ptr.get() as *const *const #namespace#abi_name<#generics>))).#name)(
-                            self.ptr.get(), #args #receive_expression
-                        )
-                        .#ok_transmute
-                    }
-                }
-            });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
     fn write_consume_args(&self, signature: &MethodSig) -> TokenStream {
         TokenStream::from_iter(signature.params().iter().map(|param| {
             let name = write_ident(param.name());
@@ -702,6 +619,7 @@ impl<'a> Writer<'a> {
             #[repr(#repr)]
             #[derive(Copy, Clone, Debug, PartialEq)]
             pub enum #type_name { #fields }
+            impl winrt::RuntimeCopy for #type_name {}
             impl Default for #type_name {
                 fn default() -> Self {
                     Self::#default
@@ -788,24 +706,46 @@ impl<'a> Writer<'a> {
     fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
-        let abi_methods = self.write_abi_methods(&interface);
-        let consume_methods = self.write_consume_methods(&interface);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
         let abi_name = self.write_generic_abi_name(interface);
 
-        // let method = interface.methods(self.r).find(|method| method.name(self.r) == "Invoke").expect("Delegate missing Invoke method");
-        // let sig = method.signature(self.r);
+        let method = interface
+            .methods(self.r)
+            .find(|method| method.name(self.r) == "Invoke")
+            .expect("Delegate missing Invoke method");
+        let sig = method.signature(self.r);
 
-        // if self.limited_method(&sig) {
-        //     panic!("Delegate depends on limted namespace"); // TOOD: more presreptive error message. e.g. what depends on what and fix doing what
+        if self.limited_method(&sig) {
+            panic!(
+                "Delegate {}.{} depends on excluded types",
+                interface.namespace(self.r),
+                interface.name(self.r)
+            ); // TOOD: more presreptive error message. e.g. what depends on what and fix doing what
 
-        //     // Basically, the import macro may limit the definitions such that a delegate that is included has a parameter from a namespace
-        //     // that's excluded. We cannot simply elide the delegate since other types in the included namespace may refer to the delegate
-        //     // and this way we can at least give the user an meaningful breadcrumb.
-        // }
+            // Basically, the import macro may limit the definitions such that a delegate that is included has a parameter from a namespace
+            // that's excluded. We cannot simply elide the delegate since other types in the included namespace may refer to the delegate
+            // and this way we can at least give the user an meaningful breadcrumb.
+        }
+
+        let abi_params = self.write_abi_params(&sig);
+        let args = self.write_abi_args(&sig);
+        let into_params = self.write_consume_into_params(&sig);
+        let params = self.write_consume_params(&sig);
+
+        let (result_type, receive_expression, ok_variable, ok_transmute) =
+            if let Some(result) = sig.return_type() {
+                (
+                    self.write_type(result.definition()),
+                    self.write_consume_receive_expression(result.definition()),
+                    quote! { let mut __ok = std::mem::zeroed(); },
+                    quote! { ok_or(std::mem::transmute_copy(&__ok)) },
+                )
+            } else {
+                (quote! { () }, quote! {}, quote! {}, quote! { ok() })
+            };
 
         quote! {
             #[repr(C)]
@@ -814,11 +754,20 @@ impl<'a> Writer<'a> {
             #[repr(C)]
             struct #abi_name<#constraints> {
                 __base: [usize; 3],
-                #abi_methods
+                invoke: extern "system" fn(winrt::RawPtr, #abi_params) -> winrt::ErrorCode,
                 #phantoms
             }
             impl<#constraints> #name<#generics> {
-                #consume_methods
+                // TODO: this should be an invoke method but some kind of function call trait
+                pub fn invoke<#into_params>(&self, #params) -> winrt::Result<#result_type> {
+                    unsafe {
+                        #ok_variable
+                        ((*(*(self.ptr.get() as *const *const #abi_name<#generics>))).invoke)(
+                            self.ptr.get(), #args #receive_expression
+                        )
+                        .#ok_transmute
+                    }
+                }
             }
             impl<#constraints> winrt::QueryType for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
@@ -882,7 +831,17 @@ impl<'a> Writer<'a> {
 
         for f in t.fields(self.r) {
             let name = write_ident(&to_snake(f.name(self.r)));
-            let field_type = self.write_type(&f.signature(self.r));
+            let sig = f.signature(self.r);
+
+            if self.limited_type(&sig) {
+                panic!(
+                    "Struct {}.{} depends on excluded types",
+                    t.namespace(self.r),
+                    t.name(self.r)
+                );
+            }
+
+            let field_type = self.write_type(&sig);
 
             tokens.push(quote! {
                 pub #name: #field_type,
@@ -1136,6 +1095,16 @@ impl<'a> Writer<'a> {
         return false;
     }
 
+    fn limited_type_def(&self, value: &TypeDef) -> bool {
+        let namespace = value.namespace(self.r);
+
+        if namespace == "System" {
+            false // Types like "System.Guid" are never limited
+        } else {
+            !self.limits.contains(value.namespace(self.r))
+        }
+    }
+
     fn limited_type(&self, value: &TypeSig) -> bool {
         match value.definition() {
             TypeSigType::TypeDefOrRef(value) => {
@@ -1326,10 +1295,6 @@ impl<'a> Writer<'a> {
         result
     }
 
-    fn write_method_name(&self, method: &MethodDef) -> Ident {
-        write_ident(&self.method_name(method, method.category(self.r)))
-    }
-
     fn write_namespace_name(&self, other: &str) -> TokenStream {
         let mut tokens = Vec::new();
 
@@ -1350,7 +1315,7 @@ impl<'a> Writer<'a> {
         }
 
         tokens.extend(destination.map(|destination| {
-            let destination = write_ident(&destination.to_lowercase());
+            let destination = write_ident(&to_snake(destination));
             quote! { #destination:: }
         }));
 
@@ -1599,51 +1564,6 @@ impl<'a> Writer<'a> {
                         interface,
                         limited,
                     });
-
-                    // match methods.binary_search_by(|method| method.name.cmp(&name)) {
-                    //     Err(index) => methods.insert(
-                    //         index,
-                    //         Method {
-                    //             name,
-                    //             sig,
-                    //             category,
-                    //             interface,
-                    //         },
-                    //     ),
-                    //     Ok(index) => {
-                    //         let prev = &mut methods[index];
-
-                    //         if prev.category == MethodCategory::Set
-                    //             && category == MethodCategory::Normal
-                    //         {
-                    //             name += "2";
-                    //             methods.insert(
-                    //                 index + 1,
-                    //                 Method {
-                    //                     name,
-                    //                     sig,
-                    //                     category,
-                    //                     interface,
-                    //                 },
-                    //             );
-                    //         } else if prev.category == MethodCategory::Normal
-                    //             && category == MethodCategory::Set
-                    //         {
-                    //             prev.name += "2";
-                    //             methods.insert(
-                    //                 index,
-                    //                 Method {
-                    //                     name,
-                    //                     sig,
-                    //                     category,
-                    //                     interface,
-                    //                 },
-                    //             );
-                    //         } else {
-                    //             panic!("Unexpected method name collision");
-                    //         }
-                    //     }
-                    // }
                 }
             }
         }

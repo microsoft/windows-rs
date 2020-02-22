@@ -9,16 +9,20 @@ pub fn append_snake(result: &mut String, camel: &str) {
     //      create_u_int8_array - should be 'create_u8_array'
     //      u_i - should be 'ui'
 
-    for c in camel.chars() {
-        if c.is_uppercase() {
-            if !result.is_empty() {
-                result.push('_');
-            }
-            for c in c.to_lowercase() {
+    if camel == "UI" {
+        result.push_str("ui");
+    } else {
+        for c in camel.chars() {
+            if c.is_uppercase() {
+                if !result.is_empty() {
+                    result.push('_');
+                }
+                for c in c.to_lowercase() {
+                    result.push(c);
+                }
+            } else {
                 result.push(c);
             }
-        } else {
-            result.push(c);
         }
     }
 }
