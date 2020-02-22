@@ -43,7 +43,7 @@ impl NamespaceWriter for BTreeMap<String, Namespace> {
         let mut tokens = Vec::new();
 
         for (name, namespace) in self {
-            let name = write_ident(&name.to_lowercase());
+            let name = write_ident(&to_snake(name));
             let namespace = namespace.write();
 
             tokens.push(quote! {
@@ -1315,7 +1315,7 @@ impl<'a> Writer<'a> {
         }
 
         tokens.extend(destination.map(|destination| {
-            let destination = write_ident(&destination.to_lowercase());
+            let destination = write_ident(&to_snake(destination));
             quote! { #destination:: }
         }));
 

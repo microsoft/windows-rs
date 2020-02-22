@@ -21,6 +21,7 @@ extern "system" {
     pub fn HeapFree(heap: RawPtr, flags: u32, ptr: RawPtr) -> i32;
 
     // TODO: get rid of these (not available on Windows 7)
+    pub fn CoInitializeEx(reserved: usize, apartment: u32) -> ErrorCode;
     pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
     pub fn RoGetActivationFactory(
         hstring: RawPtr,
