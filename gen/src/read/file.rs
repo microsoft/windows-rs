@@ -1,4 +1,4 @@
-use crate::*;
+use crate::error::{ParseError, ParseResult};
 
 #[derive(Default)]
 pub struct TableData {
@@ -521,6 +521,10 @@ impl File {
         file.tables[TABLE_GENERICPARAM].set_data(&mut view);
 
         Ok(file)
+    }
+
+    pub fn type_def_table(&self) -> &TableData {
+        &self.tables[TABLE_TYPEDEF]
     }
 }
 

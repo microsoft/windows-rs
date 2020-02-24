@@ -1,5 +1,7 @@
-use crate::*;
-use std::convert::*;
+use std::convert::TryInto;
+
+use crate::codes::*;
+use crate::read::*;
 
 pub struct GenericSig {
     definition: TypeDefOrRef,
@@ -127,8 +129,8 @@ impl ModifierSig {
 }
 
 impl MethodSig {
-    pub(crate) fn new(r: &Reader, method: &MethodDef) -> MethodSig {
-        let mut bytes = r.blob(&method.row, 4);
+    pub(crate) fn new(reader: &Reader, method: &MethodDef) -> MethodSig {
+        let mut bytes = reader.blob(&method.row, 4);
         let calling_convention = read_unsigned(&mut bytes);
         if calling_convention & 0x10 != 0 {
             read_unsigned(&mut bytes);
@@ -147,11 +149,11 @@ impl MethodSig {
             })
         };
         let mut params = Vec::with_capacity(param_count as usize);
-        for param in method.params(r) {
-            if !return_type.is_some() || param.sequence(r) != 0 {
+        for param in method.params(reader) {
+            if !return_type.is_some() || param.sequence(reader) != 0 {
                 params.push(ParamSig::new(
-                    param.name(r).to_string(),
-                    param.flags(r).input(),
+                    param.name(reader).to_string(),
+                    param.flags(reader).input(),
                     method.row.file,
                     &mut bytes,
                 ));
@@ -382,7 +384,7 @@ impl TypeSig {
         &self.definition
     }
 
-    pub fn category(&self, r: &Reader) -> ParamCategory {
+    pub(crate) fn category(&self, r: &Reader) -> ParamCategory {
         if self.array {
             ParamCategory::Array
         } else {

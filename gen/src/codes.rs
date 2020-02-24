@@ -1,5 +1,6 @@
-use crate::*;
-use winmd_macros::*;
+use winmd_macros::type_code;
+
+use crate::read::*;
 
 #[type_code(2)]
 pub enum TypeDefOrRef {
@@ -48,26 +49,26 @@ pub enum CustomAttributeType {
 }
 
 impl TypeDefOrRef {
-    pub fn name<'a>(&self, r: &'a Reader) -> &'a str {
+    pub(crate) fn name<'a>(&self, reader: &'a Reader) -> &'a str {
         match self {
-            Self::TypeDef(value) => value.name(r),
-            Self::TypeRef(value) => value.name(r),
+            Self::TypeDef(value) => value.name(reader),
+            Self::TypeRef(value) => value.name(reader),
             Self::TypeSpec(_) => panic!("TypeDefOrRef"),
         }
     }
 
-    pub fn namespace<'a>(&self, r: &'a Reader) -> &'a str {
+    pub(crate) fn namespace<'a>(&self, reader: &'a Reader) -> &'a str {
         match self {
-            Self::TypeDef(value) => value.namespace(r),
-            Self::TypeRef(value) => value.namespace(r),
-            Self::TypeSpec(value) => value.signature(r).definition().namespace(r),
+            Self::TypeDef(value) => value.namespace(reader),
+            Self::TypeRef(value) => value.namespace(reader),
+            Self::TypeSpec(value) => value.signature(reader).definition().namespace(reader),
         }
     }
 
-    pub fn resolve(&self, r: &Reader) -> TypeDef {
+    pub(crate) fn resolve(&self, reader: &Reader) -> TypeDef {
         match self {
             Self::TypeDef(value) => *value,
-            Self::TypeRef(value) => value.resolve(r),
+            Self::TypeRef(value) => value.resolve(reader),
             Self::TypeSpec(_) => panic!("TypeDefOrRef"),
         }
     }

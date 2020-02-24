@@ -1,111 +1,46 @@
-use crate::*;
 use std::collections::BTreeMap;
-use std::marker::PhantomData;
 
-pub trait Code {
-    fn decode(code: u32, file: u16) -> Self;
-    fn encode(&self) -> u32;
-}
+use super::file::{File, View};
+use super::{Code, Row, RowData, RowIterator, TypeDef};
+use crate::error::Error;
 
-pub trait Row {
-    fn new(row: u32, file: u16) -> Self;
-    fn table() -> u16;
-}
-
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct RowData {
-    pub row: u32,
-    pub table: u16,
-    pub file: u16,
-}
-
-impl RowData {
-    pub fn invalid() -> RowData {
-        RowData {
-            row: u32::max_value(),
-            table: u16::max_value(),
-            file: u16::max_value(),
-        }
-    }
-
-    pub fn new(row: u32, table: u16, file: u16) -> RowData {
-        RowData { row, table, file }
-    }
-
-    fn next(&self) -> RowData {
-        RowData::new(self.row + 1, self.table, self.file)
-    }
-}
-
-pub struct RowIterator<T: Row> {
-    pub first: u32,
-    pub last: u32,
-    pub file: u16,
-    phantom: PhantomData<T>,
-}
-
-impl<T: Row> RowIterator<T> {
-    pub fn new(first: u32, last: u32, file: u16) -> RowIterator<T> {
-        RowIterator {
-            first,
-            last,
-            file,
-            phantom: PhantomData,
-        }
-    }
-
-    pub fn is_empty(&self) -> bool {
-        self.first >= self.last
-    }
-}
-
-impl<T: Row> Iterator for RowIterator<T> {
-    type Item = T;
-
-    fn next(&mut self) -> Option<T> {
-        if self.first >= self.last {
-            None
-        } else {
-            self.first += 1;
-            Some(T::new(self.first - 1, self.file))
-        }
-    }
-}
-
-pub struct Reader {
+pub(crate) struct Reader {
     files: Vec<File>,
     types: BTreeMap<String, BTreeMap<String, TypeDef>>,
 }
 
 impl<'a> Reader {
-    pub fn from_files<P: IntoIterator<Item = &'a String>>(filenames: P) -> Result<Self, Error> {
-        let mut r = Reader {
+    pub(crate) fn from_files<P: IntoIterator<Item = &'a String>>(
+        filenames: P,
+    ) -> Result<Self, Error> {
+        let mut reader = Reader {
             files: Vec::new(),
             types: Default::default(),
         };
 
         for filename in filenames {
-            r.files.push(File::new(filename)?);
-            let table = &r.files[r.files.len() - 1].tables[TABLE_TYPEDEF];
+            reader.files.push(File::new(filename)?);
+            let table = &reader.files[reader.files.len() - 1].type_def_table();
 
             for row in 0..table.row_count {
-                let t = TypeDef::new(row, r.files.len() as u16 - 1);
-                if t.flags(&r).windows_runtime() {
-                    let name = t.name(&r).to_string();
-                    let namespace = t.namespace(&r).to_string();
-                    r.types
+                let t = TypeDef::new(row, reader.files.len() as u16 - 1);
+                if t.flags(&reader).windows_runtime() {
+                    let name = t.name(&reader).to_string();
+                    let namespace = t.namespace(&reader).to_string();
+                    reader
+                        .types
                         .entry(namespace)
-                        .or_insert_with(|| Default::default())
+                        .or_default()
                         .entry(name)
                         .or_insert(t);
                 }
             }
         }
 
-        Ok(r)
+        Ok(reader)
     }
 
-    pub fn from_dir<P: AsRef<std::path::Path>>(directory: P) -> Result<Self, Error> {
+    pub(crate) fn from_dir<P: AsRef<std::path::Path>>(directory: P) -> Result<Self, Error> {
         let files: Vec<String> = std::fs::read_dir(directory)?
             .filter_map(|value| {
                 value
@@ -116,36 +51,36 @@ impl<'a> Reader {
         Self::from_files(&files)
     }
 
-    pub fn from_os() -> Result<Self, Error> {
+    pub(crate) fn from_os() -> Result<Self, Error> {
         let mut path = std::path::PathBuf::new();
         path.push(std::env::var("windir").expect("'windir' environment variable not found"));
-        path.push(SYSTEM32);
+        path.push(super::SYSTEM32);
         path.push("winmetadata");
         Self::from_dir(path)
     }
 
     // TODO: panic with "'full name' not found"
-    pub fn resolve(&self, full_name: &str) -> TypeDef {
+    pub(crate) fn resolve(&self, full_name: &str) -> TypeDef {
         let (namespace, name) = split_type_name(full_name);
         *self.types.get(namespace).unwrap().get(name).unwrap()
     }
 
-    pub fn namespaces(&self) -> &BTreeMap<String, BTreeMap<String, TypeDef>> {
+    pub(crate) fn namespaces(&self) -> &BTreeMap<String, BTreeMap<String, TypeDef>> {
         &self.types
     }
 
-    pub fn namespace_types(
+    pub(crate) fn namespace_types(
         &self,
         namespace: &str,
     ) -> std::collections::btree_map::Values<String, TypeDef> {
         self.types[namespace].values()
     }
 
-    pub fn decode<T: Code>(&self, row: &RowData, column: u32) -> T {
+    pub(crate) fn decode<T: Code>(&self, row: &RowData, column: u32) -> T {
         T::decode(self.u32(row, column), row.file)
     }
 
-    pub fn u32(&self, row: &RowData, column: u32) -> u32 {
+    pub(crate) fn u32(&self, row: &RowData, column: u32) -> u32 {
         let file = &self.files[row.file as usize];
         let table = &file.tables[row.table as usize];
         let offset = table.data + row.row * table.row_size + table.columns[column as usize].0;
@@ -157,7 +92,7 @@ impl<'a> Reader {
         }
     }
 
-    pub fn str(&self, row: &RowData, column: u32) -> &str {
+    pub(crate) fn str(&self, row: &RowData, column: u32) -> &str {
         let file = &self.files[row.file as usize];
         let offset = (file.strings + self.u32(row, column)) as usize;
         let last = file.bytes[offset..]
@@ -167,7 +102,7 @@ impl<'a> Reader {
         std::str::from_utf8(&file.bytes[offset..offset + last]).unwrap()
     }
 
-    pub fn blob(&self, row: &RowData, column: u32) -> &[u8] {
+    pub(crate) fn blob(&self, row: &RowData, column: u32) -> &[u8] {
         let file = &self.files[row.file as usize];
         let offset = (file.blobs + self.u32(row, column)) as usize;
         let initial_byte = file.bytes[offset];
@@ -183,7 +118,7 @@ impl<'a> Reader {
         &file.bytes[offset + blob_size_bytes..offset + blob_size_bytes + blob_size as usize]
     }
 
-    pub fn list<T: Row>(&self, row: &RowData, column: u32) -> RowIterator<T> {
+    pub(crate) fn list<T: Row>(&self, row: &RowData, column: u32) -> RowIterator<T> {
         let file = &self.files[row.file as usize];
         let first = self.u32(row, column) - 1;
 
@@ -307,13 +242,7 @@ impl<'a> Reader {
     }
 }
 
-pub fn split_type_name(name: &str) -> (&str, &str) {
+fn split_type_name(name: &str) -> (&str, &str) {
     let index = name.rfind('.').unwrap();
     (&name[0..index], &name[index + 1..])
 }
-
-#[cfg(target_pointer_width = "64")]
-const SYSTEM32: &str = "System32";
-
-#[cfg(target_pointer_width = "32")]
-const SYSTEM32: &str = "SysNative";

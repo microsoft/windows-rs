@@ -1,146 +1,22 @@
-use crate::*;
-use proc_macro2::{Ident, Literal, TokenStream};
-use quote::{format_ident, quote};
-use std::collections::*;
+use std::collections::BTreeSet;
 use std::iter::FromIterator;
 
-#[derive(Default)]
-struct Namespace {
-    types: TokenStream,
-    namespaces: BTreeMap<String, Namespace>,
-}
+use proc_macro2::{Ident, Literal, TokenStream};
+use quote::{format_ident, quote};
 
-impl Namespace {
-    fn write(&self) -> TokenStream {
-        let types = &self.types;
-        let namespaces = self.namespaces.write_namespaces();
+use super::generic_guard::GenericGuard;
+use super::namespace::Namespaces;
+use super::{write_ident, Interface, InterfaceCategory, Method};
+use crate::codes::TypeDefOrRef;
+use crate::helpers::{append_snake, to_snake};
+use crate::read::{
+    CustomAttribute, InterfaceImpl, MethodCategory, MethodDef, Reader, RowIterator, TypeCategory,
+    TypeDef, TypeRef,
+};
+use crate::signatures::*;
 
-        quote! {
-            #types
-            #namespaces
-        }
-    }
-}
-
-trait NamespaceWriter {
-    fn insert_namespace(&mut self, namespace: &str, types: TokenStream);
-    fn write_namespaces(&self) -> TokenStream;
-}
-
-impl NamespaceWriter for BTreeMap<String, Namespace> {
-    fn insert_namespace(&mut self, namespace: &str, types: TokenStream) {
-        if let Some(pos) = namespace.find('.') {
-            self.entry(namespace[..pos].to_string())
-                .or_default()
-                .namespaces
-                .insert_namespace(&namespace[pos + 1..], types);
-        } else {
-            self.entry(namespace.to_string()).or_default().types = types;
-        }
-    }
-
-    fn write_namespaces(&self) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for (name, namespace) in self {
-            let name = write_ident(&to_snake(name));
-            let namespace = namespace.write();
-
-            tokens.push(quote! {
-                pub mod #name {
-                    #namespace
-                }
-            });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-}
-
-pub struct RustWriter {
-    r: Reader,
-    limits: BTreeSet<String>,
-}
-
-impl RustWriter {
-    pub fn new() -> RustWriter {
-        RustWriter {
-            r: Reader::from_os().unwrap(),
-            limits: BTreeSet::new(),
-        }
-    }
-
-    pub fn from_files<'a, P: IntoIterator<Item = &'a String>>(filenames: P) -> RustWriter {
-        RustWriter {
-            r: Reader::from_files(filenames).unwrap(),
-            limits: BTreeSet::new(),
-        }
-    }
-
-    pub fn add_namespace(&mut self, namespace: &str) {
-        let found = self
-            .r
-            .namespaces()
-            .keys()
-            .find(|name| name.to_lowercase() == namespace)
-            .unwrap_or_else(|| panic!("Namespace `{}` not found in winmd files", namespace));
-        let mut namespace = found.as_str();
-        self.limits.insert(namespace.to_string());
-
-        while let Some(index) = namespace.rfind('.') {
-            namespace = namespace.get(0..index).unwrap();
-
-            if self.r.namespaces().contains_key(namespace) {
-                self.limits.insert(namespace.to_string());
-            }
-        }
-    }
-
-    pub fn write(&self) -> TokenStream {
-        // TODO: ensure *all* windows.foundation.* namespaces are included
-        Writer::write(&self.r, &self.limits)
-    }
-}
-
-struct GenericGuard<'a, 'b> {
-    writer: &'a mut Writer<'b>,
-    count: usize,
-}
-
-impl<'a, 'b> GenericGuard<'a, 'b> {
-    fn new(writer: &'a mut Writer<'b>, count: usize) -> GenericGuard<'a, 'b> {
-        GenericGuard { writer, count }
-    }
-}
-
-impl<'a, 'b> std::ops::Deref for GenericGuard<'a, 'b> {
-    type Target = Writer<'b>;
-
-    fn deref(&self) -> &Self::Target {
-        &self.writer
-    }
-}
-
-impl<'a, 'b> std::ops::DerefMut for GenericGuard<'a, 'b> {
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.writer
-    }
-}
-
-impl<'a, 'b> Drop for GenericGuard<'a, 'b> {
-    fn drop(&mut self) {
-        if self.count > 0 {
-            self.writer
-                .generics
-                .resize_with(self.writer.generics.len() - self.count, || {
-                    panic!("TODO: drop GenericGuard")
-                });
-        }
-    }
-}
-
-struct Writer<'a> {
-    pub r: &'a Reader,
+pub struct Writer<'a> {
+    pub(crate) r: &'a Reader,
     pub namespace: &'a str,
     pub limits: &'a BTreeSet<String>,
     pub generics: Vec<Vec<TokenStream>>,
@@ -148,8 +24,8 @@ struct Writer<'a> {
 }
 
 impl<'a> Writer<'a> {
-    pub fn write(r: &Reader, limits: &BTreeSet<String>) -> TokenStream {
-        let mut namespaces = BTreeMap::new();
+    pub(crate) fn write(r: &Reader, limits: &BTreeSet<String>) -> TokenStream {
+        let mut namespaces = Namespaces::new();
 
         // TODO: parallalelize this loop
         for namespace in limits {
@@ -1570,42 +1446,4 @@ impl<'a> Writer<'a> {
 
         methods
     }
-}
-
-fn write_ident(name: &str) -> Ident {
-    if name == "Self" {
-        format_ident!("{}_", name)
-    } else {
-        format_ident!("r#{}", name)
-    }
-}
-
-#[derive(PartialEq)]
-enum InterfaceCategory {
-    Abi,
-    Instance,
-    DefaultInstance,
-    Static,
-    Activatable,
-    DefaultActivatable,
-}
-
-struct Interface {
-    definition: TypeDef,
-    generics: Vec<Vec<TokenStream>>,
-    overridable: bool,
-    exclusive: bool,
-    limited: bool, // We don't just elide from the list because we need to deal with classes who's default interface is limited.
-    category: InterfaceCategory,
-    identifier: TokenStream,
-    abi_identifier: TokenStream,
-    // version: (u16,u16),
-}
-
-struct Method<'a> {
-    name: String,
-    sig: MethodSig,
-    category: MethodCategory,
-    interface: &'a Interface,
-    limited: bool, // We don't just elide these since we still need placeholders for vtable order.
 }
