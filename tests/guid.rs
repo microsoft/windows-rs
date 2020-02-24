@@ -1,3 +1,25 @@
+import!(
+    dependencies
+        "os"
+    modules
+        "windows.foundation"
+);
+
+use winrt::*;
+use windows::foundation::*;
+
+#[test]
+fn guid_helper() -> Result<()> {
+    let a = GuidHelper::create_new_guid()?;
+    let b = GuidHelper::create_new_guid()?;
+
+    // TODO: the ABI for these aren't projecting correctly - not sure why they don't AV
+    assert!(!GuidHelper::equals(a, b)?);
+    assert!(GuidHelper::equals(a, a)?);
+
+    Ok(())
+}
+
 #[test]
 fn guid_from_string() {
     let a = winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
