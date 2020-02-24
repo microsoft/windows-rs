@@ -17,10 +17,10 @@ pub fn table(stream: TokenStream) -> TokenStream {
         }
         impl Row for #name {
             fn new(row:u32, file:u16) -> Self {
-                Self { row: RowData::new(row, #table as u16, file ) }
+                Self { row: RowData::new(row, crate::read::file::#table as u16, file ) }
             }
             fn table() -> u16 {
-                #table as u16
+                crate::read::file::#table as u16
             }
         }
     );

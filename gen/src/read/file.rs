@@ -1,4 +1,4 @@
-use crate::*;
+use crate::error::*;
 
 #[derive(Default)]
 pub struct TableData {
