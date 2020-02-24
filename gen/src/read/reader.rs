@@ -1,7 +1,8 @@
-use super::file::{File, View, TABLE_TYPEDEF};
+use std::collections::BTreeMap;
+
+use super::file::{File, View};
 use super::{Code, Row, RowData, RowIterator, TypeDef};
 use crate::error::Error;
-use std::collections::BTreeMap;
 
 pub(crate) struct Reader {
     files: Vec<File>,
@@ -19,7 +20,7 @@ impl<'a> Reader {
 
         for filename in filenames {
             reader.files.push(File::new(filename)?);
-            let table = &reader.files[reader.files.len() - 1].tables[TABLE_TYPEDEF];
+            let table = &reader.files[reader.files.len() - 1].type_def_table();
 
             for row in 0..table.row_count {
                 let t = TypeDef::new(row, reader.files.len() as u16 - 1);

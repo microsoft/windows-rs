@@ -6,11 +6,13 @@ use quote::{format_ident, quote};
 
 use super::generic_guard::GenericGuard;
 use super::namespace::Namespaces;
-use super::*;
-use super::{Interface, InterfaceCategory, Method};
-use crate::codes::*;
+use super::{write_ident, Interface, InterfaceCategory, Method};
+use crate::codes::TypeDefOrRef;
 use crate::helpers::{append_snake, to_snake};
-use crate::read::*;
+use crate::read::{
+    CustomAttribute, InterfaceImpl, MethodCategory, MethodDef, Reader, RowIterator, TypeCategory,
+    TypeDef, TypeRef,
+};
 use crate::signatures::*;
 
 pub struct Writer<'a> {

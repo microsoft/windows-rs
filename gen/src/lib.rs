@@ -1,5 +1,3 @@
-extern crate proc_macro;
-
 mod codes;
 mod error;
 mod helpers;

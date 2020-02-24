@@ -1,6 +1,7 @@
+use std::convert::TryInto;
+
 use crate::codes::*;
 use crate::read::*;
-use std::convert::*;
 
 pub struct GenericSig {
     definition: TypeDefOrRef,

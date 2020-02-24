@@ -3,11 +3,10 @@ mod namespace;
 mod rust_writer;
 mod writer;
 
-use crate::read::TypeDef;
 use proc_macro2::{Ident, TokenStream};
 use quote::format_ident;
 
-use crate::read::MethodCategory;
+use crate::read::{MethodCategory, TypeDef};
 use crate::signatures::MethodSig;
 pub use rust_writer::RustWriter;
 pub use writer::Writer;

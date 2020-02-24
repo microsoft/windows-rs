@@ -1,9 +1,10 @@
-use super::{flags::*, Code, Reader, Row, RowData, RowIterator};
+use super::flags::{MethodAttributes, ParamAttributes, TypeAttributes};
+use super::{Code, Reader, Row, RowData, RowIterator};
 use crate::codes::*;
 use crate::helpers::to_snake;
-use crate::signatures::*;
+use crate::signatures::{field_sig, read_unsigned, ArgumentSig, GenericSig, MethodSig, TypeSig};
 
-use winmd_macros::*;
+use winmd_macros::table;
 
 table!(Constant);
 table!(CustomAttribute);
