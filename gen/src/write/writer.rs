@@ -20,6 +20,7 @@ pub struct Writer<'a> {
     pub namespace: &'a str,
     pub limits: &'a BTreeSet<String>,
     pub generics: Vec<Vec<TokenStream>>,
+    pub sub_mod: bool,
     // TODO: keep track of generic specializations that need GUIDs
 }
 
@@ -34,6 +35,7 @@ impl<'a> Writer<'a> {
                 namespace,
                 limits,
                 generics: Default::default(),
+                sub_mod: false,
             };
             namespaces.insert_namespace(namespace, w.write_namespace(namespace));
         }
@@ -350,7 +352,17 @@ impl<'a> Writer<'a> {
             #froms
         };
 
-        let abi_tokens = quote! {};
+        let abi_methods = self.write_abi_methods2(methods);
+
+        let abi_tokens = quote! {
+            #[repr(C)]
+            pub struct #name<#constraints> {
+                __base: [usize; 6],
+                #abi_methods
+                #phantoms
+            }
+        };
+
         let trait_tokens = quote! {};
 
         (base_tokens, abi_tokens, trait_tokens)
@@ -374,6 +386,32 @@ impl<'a> Writer<'a> {
                 }
             });
         }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn write_abi_methods2(&mut self, methods: &Vec<Method>) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        self.sub_mod = true;
+
+        for method in methods
+            .iter()
+            .take_while(|method| method.interface.category == InterfaceCategory::Abi)
+        {
+            let name = write_ident(&method.name);
+
+            tokens.push(if method.limited {
+                quote! { #name: usize, }
+            } else {
+                let params = self.write_abi_params(&method.sig);
+                quote! {
+                    #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
+                }
+            });
+        }
+
+        self.sub_mod = false;
 
         TokenStream::from_iter(tokens)
     }
@@ -1206,6 +1244,10 @@ impl<'a> Writer<'a> {
         }
 
         let count = source.count();
+
+        if self.sub_mod {
+            tokens.push(quote! {super::});
+        }
 
         if count > 0 {
             tokens.resize(tokens.len() + count, quote! {super::});
