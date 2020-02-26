@@ -43,17 +43,33 @@ impl<'a> Writer<'a> {
 
     fn write_namespace(&mut self, namespace: &str) -> TokenStream {
         let mut tokens = Vec::new();
+        let mut abi = Vec::new();
+        let mut traits = Vec::new();
 
         for t in self.r.namespace_types(namespace) {
-            tokens.push(match t.category(self.r) {
-                TypeCategory::Interface => self.push_generic_interface(t).write_interface(t),
-                TypeCategory::Delegate => self.push_generic_interface(t).write_delegate(t),
-                TypeCategory::Class => self.write_class(namespace, t),
-                TypeCategory::Enum => self.write_enum(t),
-                TypeCategory::Struct => self.write_struct(t),
+            match t.category(self.r) {
+                TypeCategory::Interface => {
+                    let (base_tokens, abi_tokens, trait_tokens) = self.push_generic_interface(t).write_interface(t);
+                    tokens.push(base_tokens);
+                    abi.push(abi_tokens);
+                    traits.push(trait_tokens);
+                }
+                TypeCategory::Delegate => tokens.push(self.push_generic_interface(t).write_delegate(t)),
+                TypeCategory::Class => tokens.push(self.write_class(namespace, t)),
+                TypeCategory::Enum => tokens.push(self.write_enum(t)),
+                TypeCategory::Struct => tokens.push(self.write_struct(t)),
                 _ => continue,
-            });
+            }
         }
+
+        tokens.push(quote! {
+            mod abi {
+                #(#abi)*
+            }
+            pub mod traits {
+                #(#traits)*
+            }
+        });
 
         TokenStream::from_iter(tokens)
     }
@@ -276,7 +292,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
+    fn write_interface(&mut self, interface: &TypeDef) -> (TokenStream,TokenStream,TokenStream) {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
 
@@ -291,7 +307,7 @@ impl<'a> Writer<'a> {
         let abi_name = self.write_generic_abi_name(interface);
         let froms = self.write_interface_conversions(&name, &constraints, &generics, &interfaces);
 
-        quote! {
+        let base_tokens = quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
             pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
@@ -332,7 +348,12 @@ impl<'a> Writer<'a> {
                 }
             }
             #froms
-        }
+        };
+
+        let abi_tokens = quote! {};
+        let trait_tokens = quote! {};
+
+        (base_tokens, abi_tokens, trait_tokens)
     }
 
     fn write_abi_methods(&self, methods: &Vec<Method>) -> TokenStream {
