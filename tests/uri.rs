@@ -18,7 +18,7 @@ fn uri() -> Result<()> {
     // Calls QueryInterface followed by IStringable::ToString under the hood
     assert!(uri.to_string()? == "http://kennykerr.ca/");
 
-    let default : IUriRuntimeClass = uri.into();
+    let default: IUriRuntimeClass = uri.into();
     assert!(default.domain()? == uri.domain()?);
 
     let stringable: IStringable = uri.into();

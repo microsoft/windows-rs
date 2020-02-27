@@ -51,12 +51,18 @@ impl<'a> Writer<'a> {
         for t in self.r.namespace_types(namespace) {
             match t.category(self.r) {
                 TypeCategory::Interface => {
-                    let (base_tokens, abi_tokens, trait_tokens) = self.push_generic_interface(t).write_interface(t);
+                    let (base_tokens, abi_tokens, trait_tokens) =
+                        self.push_generic_interface(t).write_interface(t);
                     tokens.push(base_tokens);
                     abi.push(abi_tokens);
                     traits.push(trait_tokens);
                 }
-                TypeCategory::Delegate => tokens.push(self.push_generic_interface(t).write_delegate(t)),
+                TypeCategory::Delegate => {
+                    let (base_tokens, abi_tokens) =
+                        self.push_generic_interface(t).write_delegate(t);
+                    tokens.push(base_tokens);
+                    abi.push(abi_tokens);
+                }
                 TypeCategory::Class => tokens.push(self.write_class(namespace, t)),
                 TypeCategory::Enum => tokens.push(self.write_enum(t)),
                 TypeCategory::Struct => tokens.push(self.write_struct(t)),
@@ -294,7 +300,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_interface(&mut self, interface: &TypeDef) -> (TokenStream,TokenStream,TokenStream) {
+    fn write_interface(&mut self, interface: &TypeDef) -> (TokenStream, TokenStream, TokenStream) {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
 
@@ -595,27 +601,13 @@ impl<'a> Writer<'a> {
         write_ident(name)
     }
 
-    fn write_generic_abi_name(&self, interface: &TypeDef) -> TokenStream {
-        // TODO: need namespace if ABI is called from different namespace (e.g. default interface is not in same namespace as class)
-
-        let mut name = interface.name(self.r);
-
-        if name.chars().rev().skip(1).next() == Some('`') {
-            name = &name[..name.len() - 2];
-        }
-
-        let name = format_ident!("abi_{}", name);
-        quote! { #name }
-    }
-
-    fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
+    fn write_delegate(&mut self, interface: &TypeDef) -> (TokenStream, TokenStream) {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
-        let abi_name = self.write_generic_abi_name(interface);
 
         let method = interface
             .methods(self.r)
@@ -635,7 +627,6 @@ impl<'a> Writer<'a> {
             // and this way we can at least give the user an meaningful breadcrumb.
         }
 
-        let abi_params = self.write_abi_params(&sig);
         let args = self.write_abi_args(&sig);
         let into_params = self.write_consume_into_params(&sig);
         let params = self.write_consume_params(&sig);
@@ -652,22 +643,16 @@ impl<'a> Writer<'a> {
                 (quote! { () }, quote! {}, quote! {}, quote! { ok() })
             };
 
-        quote! {
+        let base_tokens = quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
             pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
-            #[repr(C)]
-            struct #abi_name<#constraints> {
-                __base: [usize; 3],
-                invoke: extern "system" fn(winrt::RawPtr, #abi_params) -> winrt::ErrorCode,
-                #phantoms
-            }
             impl<#constraints> #name<#generics> {
                 // TODO: this should be an invoke method but some kind of function call trait
                 pub fn invoke<#into_params>(&self, #params) -> winrt::Result<#result_type> {
                     unsafe {
                         #ok_variable
-                        ((*(*(self.ptr.get() as *const *const #abi_name<#generics>))).invoke)(
+                        ((*(*(self.ptr.get() as *const *const abi::#name<#generics>))).invoke)(
                             self.ptr.get(), #args #receive_expression
                         )
                         .#ok_transmute
@@ -701,7 +686,20 @@ impl<'a> Writer<'a> {
                     winrt::Param::Ref(self)
                 }
             }
-        }
+        };
+
+        let abi_params = self.write_abi_params(&sig);
+
+        let abi_tokens = quote! {
+            #[repr(C)]
+            struct #name<#constraints> {
+                __base: [usize; 3],
+                invoke: extern "system" fn(winrt::RawPtr, #abi_params) -> winrt::ErrorCode,
+                #phantoms
+            }
+        };
+
+        (base_tokens, abi_tokens)
     }
 
     fn write_struct(&mut self, t: &TypeDef) -> TokenStream {
@@ -1040,17 +1038,16 @@ impl<'a> Writer<'a> {
     // write_type
     //
 
-    fn write_interface_idents(
+    fn write_interface_ident(
         &self,
         definition: &TypeDef,
         generics: &Vec<Vec<TokenStream>>,
-    ) -> (TokenStream, TokenStream) {
+    ) -> TokenStream {
         let namespace = self.write_namespace_name(definition.namespace(self.r));
         let name = definition.name(self.r);
 
         if name.chars().rev().skip(1).next() == Some('`') {
             let name = &name[..name.len() - 2];
-            let abi_name = format_ident!("abi_{}", name);
             let name = write_ident(name);
 
             // TODO: maybe push the generics in the first case so we don't have to special case this
@@ -1060,14 +1057,10 @@ impl<'a> Writer<'a> {
                 self.generics.last().unwrap()
             };
 
-            (
-                quote! { #namespace#name::<#(#generics),*> },
-                quote! { #namespace#abi_name::<#(#generics),*> },
-            )
+            quote! { #namespace#name::<#(#generics),*> }
         } else {
-            let abi_name = format_ident!("abi_{}", name);
             let name = write_ident(name);
-            (quote! { #namespace#name }, quote! { #namespace#abi_name })
+            quote! { #namespace#name }
         }
     }
 
@@ -1309,8 +1302,7 @@ impl<'a> Writer<'a> {
                     "Windows.Foundation.Metadata",
                     "ExclusiveToAttribute",
                 );
-                let (identifier, abi_identifier) =
-                    self.write_interface_idents(&definition, &generics);
+                let identifier = self.write_interface_ident(&definition, &generics);
                 // TODO: ideally we don't need to clone here but we need to insert before calling add_interfaces
                 result.insert(
                     index,
@@ -1322,7 +1314,6 @@ impl<'a> Writer<'a> {
                         limited,
                         category,
                         identifier,
-                        abi_identifier,
                     },
                 );
                 self.add_interfaces(result, &generics, definition.interfaces(self.r), false);
@@ -1347,7 +1338,7 @@ impl<'a> Writer<'a> {
         // TODO: note that Abi interface must be first - also the sorting done in add_interfaces is probably unnecessary
         // Rather just scan (typically short list) and delay sorting until the end when we need to sort by version for fastabi
 
-        let (identifier, abi_identifier) = self.write_interface_idents(interface, &Vec::new());
+        let identifier = self.write_interface_ident(interface, &Vec::new());
 
         result.insert(
             0,
@@ -1359,7 +1350,6 @@ impl<'a> Writer<'a> {
                 limited: false,
                 category: InterfaceCategory::Abi,
                 identifier,
-                abi_identifier,
             },
         );
 
@@ -1381,8 +1371,7 @@ impl<'a> Writer<'a> {
             if name == "StaticAttribute" {
                 let definition = self.factory_type(&attribute).expect("class_interfaces");
                 let limited = !self.limits.contains(definition.namespace(self.r));
-                let (identifier, abi_identifier) =
-                    self.write_interface_idents(&definition, &Vec::new());
+                let identifier = self.write_interface_ident(&definition, &Vec::new());
                 result.push(Interface {
                     definition,
                     generics: Vec::new(),
@@ -1391,13 +1380,11 @@ impl<'a> Writer<'a> {
                     limited,
                     category: InterfaceCategory::Static,
                     identifier,
-                    abi_identifier,
                 });
             } else if name == "ActivatableAttribute" {
                 if let Some(definition) = self.factory_type(&attribute) {
                     let limited = !self.limits.contains(definition.namespace(self.r));
-                    let (identifier, abi_identifier) =
-                        self.write_interface_idents(&definition, &Vec::new());
+                    let identifier = self.write_interface_ident(&definition, &Vec::new());
                     result.push(Interface {
                         definition,
                         generics: Vec::new(),
@@ -1406,7 +1393,6 @@ impl<'a> Writer<'a> {
                         limited,
                         category: InterfaceCategory::Activatable,
                         identifier,
-                        abi_identifier,
                     });
                 } else {
                     result.push(Interface {
@@ -1417,7 +1403,6 @@ impl<'a> Writer<'a> {
                         limited: false,
                         category: InterfaceCategory::DefaultActivatable,
                         identifier: TokenStream::new(),
-                        abi_identifier: TokenStream::new(),
                     });
                 }
             }
