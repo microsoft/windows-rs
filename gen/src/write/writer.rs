@@ -301,24 +301,16 @@ impl<'a> Writer<'a> {
         let interfaces = self.interface_interfaces(interface);
         let methods = &self.methods(&interfaces);
         let projected_methods = self.write_methods(methods);
-        let abi_methods = self.write_abi_methods(methods);
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
         let name = self.write_generic_name(interface);
-        let abi_name = self.write_generic_abi_name(interface);
         let froms = self.write_interface_conversions(&name, &constraints, &generics, &interfaces);
 
         let base_tokens = quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
             pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
-            #[repr(C)]
-            struct #abi_name<#constraints> {
-                __base: [usize; 6],
-                #abi_methods
-                #phantoms
-            }
             impl<#constraints> #name<#generics> {
                 #projected_methods
             }
@@ -352,7 +344,7 @@ impl<'a> Writer<'a> {
             #froms
         };
 
-        let abi_methods = self.write_abi_methods2(methods);
+        let abi_methods = self.write_abi_methods(methods);
 
         let abi_tokens = quote! {
             #[repr(C)]
@@ -368,29 +360,7 @@ impl<'a> Writer<'a> {
         (base_tokens, abi_tokens, trait_tokens)
     }
 
-    fn write_abi_methods(&self, methods: &Vec<Method>) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for method in methods
-            .iter()
-            .take_while(|method| method.interface.category == InterfaceCategory::Abi)
-        {
-            let name = write_ident(&method.name);
-
-            tokens.push(if method.limited {
-                quote! { #name: usize, }
-            } else {
-                let params = self.write_abi_params(&method.sig);
-                quote! {
-                    #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
-                }
-            });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
-    fn write_abi_methods2(&mut self, methods: &Vec<Method>) -> TokenStream {
+    fn write_abi_methods(&mut self, methods: &Vec<Method>) -> TokenStream {
         let mut tokens = Vec::new();
 
         self.sub_mod = true;
@@ -406,7 +376,7 @@ impl<'a> Writer<'a> {
             } else {
                 let params = self.write_abi_params(&method.sig);
                 quote! {
-                    #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
+                    pub #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
                 }
             });
         }
@@ -439,7 +409,7 @@ impl<'a> Writer<'a> {
             match method.interface.category {
                 InterfaceCategory::Abi => {
                     let args = guard.write_abi_args(&method.sig);
-                    let abi = &method.interface.abi_identifier;
+                    let abi = &method.interface.identifier;
 
                     let (result_type, receive_expression, ok_variable, ok_transmute) =
                         if let Some(result) = method.sig.return_type() {
@@ -457,7 +427,7 @@ impl<'a> Writer<'a> {
                         pub fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result_type> {
                             unsafe {
                                 #ok_variable
-                                ((*(*(self.ptr.get() as *const *const #abi))).#method_name)(
+                                ((*(*(self.ptr.get() as *const *const abi::#abi))).#method_name)(
                                     self.ptr.get(), #args #receive_expression
                                 )
                                 .#ok_transmute
