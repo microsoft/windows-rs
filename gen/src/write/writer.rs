@@ -393,8 +393,7 @@ impl<'a> Writer<'a> {
             let params = self.write_consume_params(&method.sig);
             let into_params = self.write_consume_into_params(&method.sig);
 
-            let result_type =
-            if let Some(result) = method.sig.return_type() {
+            let result_type = if let Some(result) = method.sig.return_type() {
                 self.write_type(result.definition())
             } else {
                 quote! { () }
