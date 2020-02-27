@@ -688,13 +688,15 @@ impl<'a> Writer<'a> {
             }
         };
 
+        self.sub_mod = true;
         let abi_params = self.write_abi_params(&sig);
+        self.sub_mod = false;
 
         let abi_tokens = quote! {
             #[repr(C)]
-            struct #name<#constraints> {
+            pub struct #name<#constraints> {
                 __base: [usize; 3],
-                invoke: extern "system" fn(winrt::RawPtr, #abi_params) -> winrt::ErrorCode,
+                pub invoke: extern "system" fn(winrt::RawPtr, #abi_params) -> winrt::ErrorCode,
                 #phantoms
             }
         };
