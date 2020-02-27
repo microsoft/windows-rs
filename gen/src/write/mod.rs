@@ -37,7 +37,6 @@ struct Interface {
     limited: bool, // We don't just elide from the list because we need to deal with classes who's default interface is limited.
     category: InterfaceCategory,
     identifier: TokenStream,
-    abi_identifier: TokenStream,
     // version: (u16,u16),
 }
 

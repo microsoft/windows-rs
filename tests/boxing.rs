@@ -5,8 +5,8 @@ import!(
         "windows.foundation"
 );
 
-use winrt::*;
 use windows::foundation::*;
+use winrt::*;
 
 #[test]
 fn boxing() -> Result<()> {
