@@ -71,7 +71,7 @@ impl<'a> Writer<'a> {
         }
 
         tokens.push(quote! {
-            mod abi {
+            pub mod abi {
                 #(#abi)*
             }
             pub mod traits {
@@ -361,9 +361,53 @@ impl<'a> Writer<'a> {
             }
         };
 
-        let trait_tokens = quote! {};
+        let trait_methods = self.write_trait_methods(methods);
+
+        let trait_tokens = quote! {
+            pub trait #name<#constraints> {
+                #trait_methods
+            }
+        };
 
         (base_tokens, abi_tokens, trait_tokens)
+    }
+
+    fn write_trait_methods(&mut self, methods: &Vec<Method>) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        self.sub_mod = true;
+
+        for method in methods
+            .iter()
+            .take_while(|method| method.interface.category == InterfaceCategory::Abi)
+        {
+            if method.limited {
+                panic!(
+                    "Interface {}.{} depends on excluded types",
+                    method.interface.definition.namespace(self.r),
+                    method.interface.definition.name(self.r)
+                ); // TOOD: more presreptive error message. e.g. what depends on what and fix doing what
+            }
+
+            let method_name = write_ident(&method.name);
+            let params = self.write_consume_params(&method.sig);
+            let into_params = self.write_consume_into_params(&method.sig);
+
+            let result_type =
+            if let Some(result) = method.sig.return_type() {
+                self.write_type(result.definition())
+            } else {
+                quote! { () }
+            };
+
+            tokens.push(quote! {
+                fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result_type>;
+            });
+        }
+
+        self.sub_mod = false;
+
+        TokenStream::from_iter(tokens)
     }
 
     fn write_abi_methods(&mut self, methods: &Vec<Method>) -> TokenStream {
