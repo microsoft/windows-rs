@@ -1,4 +1,3 @@
-use crate::weak::abi::{IWeakReference, IWeakReferenceSource};
 use crate::*;
 
 // The EventGuard avoids the generic parameter from the EventToken to make storing EventGuards more convenient
@@ -24,31 +23,23 @@ impl<T: QueryType> EventToken<T> {
     }
 
     pub fn guard(mut self) -> EventGuard {
-        let weak_source = self
-            .source
-            .ptr
-            .as_ref()
-            .and_then(|i| i.get_interface::<dyn IWeakReferenceSource>());
-
-        let source = if let Some(weak_source) = weak_source {
-            unsafe {
-                weak_source.get_weak_reference(self.source.set()).unwrap();
-                let ptr = self.source.get();
-                debug_assert!(
-                    !ptr.is_null(),
-                    "Pointer was null after successful `get_weak_reference` call"
-                );
-
-                EventGuardSource::Weak(com::ComPtr::new(ptr as *mut _))
+        unsafe {
+            let weak_source = self.source.query::<IWeakReferenceSource>();
+            let weak = !weak_source.is_null();
+            if weak {
+                ((*(*(weak_source.get() as *const *const IWeakReferenceSource))).weak)(
+                    weak_source.get(),
+                    self.source.set(),
+                )
+                .unwrap();
             }
-        } else {
-            EventGuardSource::Strong(self.source)
-        };
-        EventGuard {
-            guid: *T::type_guid(),
-            token: self.token,
-            source,
-            offset: self.offset,
+            EventGuard {
+                guid: *T::type_guid(),
+                token: self.token,
+                source: self.source,
+                offset: self.offset,
+                weak: weak,
+            }
         }
     }
 }
@@ -56,27 +47,26 @@ impl<T: QueryType> EventToken<T> {
 pub struct EventGuard {
     guid: Guid, // IID of interface contaiing
     token: i64,
-    source: EventGuardSource,
+    source: ComPtr,
     offset: u32, // offset of remove virtual function
-}
-
-enum EventGuardSource {
-    Strong(ComPtr),
-    Weak(com::ComPtr<dyn IWeakReference>),
+    weak: bool,  // whether source is a weak/strong ref
 }
 
 impl Drop for EventGuard {
     fn drop(&mut self) {
         unsafe {
-            if let EventGuardSource::Weak(ref weak) = self.source {
+            if self.weak {
                 let mut ptr = std::ptr::null_mut();
-                weak.resolve(&self.guid, &mut ptr);
-
-                self.source = EventGuardSource::Strong(std::mem::transmute(ptr));
+                ((*(*(self.source.get() as *const *const IWeakReference))).strong)(
+                    self.source.get(),
+                    &self.guid,
+                    &mut ptr,
+                );
+                self.source = std::mem::transmute(ptr);
             }
-            // if !self.source.is_null() {
-            // TODO: find the offset function pointer and call it
-            // }
+            if !self.source.is_null() {
+                // TODO: find the offset function pointer and call it
+            }
         }
     }
 }

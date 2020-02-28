@@ -113,12 +113,9 @@ pub fn import(stream: TokenStream) -> TokenStream {
 
     let output = writer.write();
 
-    let path = std::path::PathBuf::from(r"c:\git\rust");
-    if path.exists() {
-        use std::io::prelude::*;
-        let mut file = std::fs::File::create(path.join("dump.rs")).unwrap();
-        file.write_all(output.to_string().as_bytes()).unwrap();
-    }
+    use std::io::prelude::*;
+    let mut file = std::fs::File::create(r"c:\git\rust\dump.rs").unwrap();
+    file.write_all(output.to_string().as_bytes()).unwrap();
 
     output.into()
 }
