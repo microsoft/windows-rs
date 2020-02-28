@@ -1014,6 +1014,46 @@ impl<'a> Writer<'a> {
     }
 
     //
+    // excluded_type
+    //
+
+    fn excluded_method(&self, t: &TypeDef, signature: &MethodSig) {
+        if let Some(value) = signature.return_type() {
+            self.excluded_type(t, value.definition());
+        }
+
+        for param in signature.params() {
+            self.excluded_type(t, param.definition());
+        }
+    }
+
+    fn excluded_namespace(&self, t: &TypeDef, namespace: &str) {
+        if namespace != "System" && !self.limits.contains(namespace) {
+            panic!("{}.{} depends on namespace {}", t.namespace(self.r), t.name(self.r), namespace);
+        }
+    }
+
+    fn excluded_type_def(&self, t: &TypeDef, value: &TypeDef) {
+        self.excluded_namespace(t, value.namespace(self.r))
+    }
+
+    fn excluded_type(&self, t: &TypeDef, value: &TypeSig) {
+        match value.definition() {
+            TypeSigType::TypeDefOrRef(value) => self.excluded_namespace(t, value.namespace(self.r)),
+
+            TypeSigType::GenericSig(value) => self.excluded_type_generic(t, value),
+            _ => {}
+        };
+    }
+
+    fn excluded_type_generic(&self, t: &TypeDef, value: &GenericSig) {
+        self.excluded_namespace(t, value.definition().namespace(self.r));
+        for arg in value.args() {
+            self.excluded_type(t, arg);
+        }
+    }
+
+    //
     // limited_type
     //
 
