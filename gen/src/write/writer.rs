@@ -1014,42 +1014,44 @@ impl<'a> Writer<'a> {
     }
 
     //
-    // excluded_type
+    // expect_type
     //
 
-    fn excluded_method(&self, t: &TypeDef, signature: &MethodSig) {
+    fn expect_method(&self, t: &TypeDef, signature: &MethodSig) {
         if let Some(value) = signature.return_type() {
-            self.excluded_type(t, value.definition());
+            self.expect_type(t, value.definition());
         }
 
         for param in signature.params() {
-            self.excluded_type(t, param.definition());
+            self.expect_type(t, param.definition());
         }
     }
 
-    fn excluded_namespace(&self, t: &TypeDef, namespace: &str) {
-        if namespace != "System" && !self.limits.contains(namespace) {
-            panic!("{}.{} depends on namespace {}", t.namespace(self.r), t.name(self.r), namespace);
+    fn expect_namespace(&self, t: &TypeDef, expected: &str) {
+        if expected != "System" && !self.limits.contains(expected) {
+            let included = to_snake(t.namespace(self.r));
+            let expected = to_snake(expected);
+            panic!("winrt type `{}.{}` depends on module `{}`. Consider including `{}` or excluding `{}`.", included, t.name(self.r), expected, expected, included);
         }
     }
 
-    fn excluded_type_def(&self, t: &TypeDef, value: &TypeDef) {
-        self.excluded_namespace(t, value.namespace(self.r))
+    fn expect_type_def(&self, t: &TypeDef, value: &TypeDef) {
+        self.expect_namespace(t, value.namespace(self.r))
     }
 
-    fn excluded_type(&self, t: &TypeDef, value: &TypeSig) {
+    fn expect_type(&self, t: &TypeDef, value: &TypeSig) {
         match value.definition() {
-            TypeSigType::TypeDefOrRef(value) => self.excluded_namespace(t, value.namespace(self.r)),
+            TypeSigType::TypeDefOrRef(value) => self.expect_namespace(t, value.namespace(self.r)),
 
-            TypeSigType::GenericSig(value) => self.excluded_type_generic(t, value),
+            TypeSigType::GenericSig(value) => self.expect_type_generic(t, value),
             _ => {}
         };
     }
 
-    fn excluded_type_generic(&self, t: &TypeDef, value: &GenericSig) {
-        self.excluded_namespace(t, value.definition().namespace(self.r));
+    fn expect_type_generic(&self, t: &TypeDef, value: &GenericSig) {
+        self.expect_namespace(t, value.definition().namespace(self.r));
         for arg in value.args() {
-            self.excluded_type(t, arg);
+            self.expect_type(t, arg);
         }
     }
 
@@ -1332,11 +1334,15 @@ impl<'a> Writer<'a> {
     fn add_interfaces(
         &mut self,
         result: &mut Vec<Interface>,
+        parent: &TypeDef,
         parent_generics: &Vec<Vec<TokenStream>>,
-        children: RowIterator<InterfaceImpl>,
         find_default: bool,
     ) {
-        for i in children {
+        for i in parent.interfaces(self.r) {
+            let interface = i.interface(self.r);
+            self.expect_namespace(parent, interface.namespace(self.r));
+            let limited = !self.limits.contains(interface.namespace(self.r));
+
             let category = if find_default
                 && i.has_attribute(self.r, "Windows.Foundation.Metadata", "DefaultAttribute")
             {
@@ -1352,8 +1358,6 @@ impl<'a> Writer<'a> {
             );
             let mut generics = parent_generics.to_vec();
             let mut pop_generics = false;
-            let interface = i.interface(self.r);
-            let limited = !self.limits.contains(interface.namespace(self.r));
 
             let definition = match interface {
                 TypeDefOrRef::TypeDef(value) => value,
@@ -1391,7 +1395,7 @@ impl<'a> Writer<'a> {
                         identifier,
                     },
                 );
-                self.add_interfaces(result, &generics, definition.interfaces(self.r), false);
+                self.add_interfaces(result, &definition, &generics, false);
             }
 
             if pop_generics {
@@ -1405,16 +1409,14 @@ impl<'a> Writer<'a> {
 
         self.add_interfaces(
             &mut result,
+            interface,
             &Vec::new(),
-            interface.interfaces(self.r),
             false,
         );
 
-        // TODO: note that Abi interface must be first - also the sorting done in add_interfaces is probably unnecessary
-        // Rather just scan (typically short list) and delay sorting until the end when we need to sort by version for fastabi
-
         let identifier = self.write_interface_ident(interface, &Vec::new());
 
+        // Note that Abi interface must be first.
         result.insert(
             0,
             Interface {
@@ -1434,10 +1436,10 @@ impl<'a> Writer<'a> {
     fn class_interfaces(&mut self, class: &TypeDef) -> Vec<Interface> {
         let mut result = Vec::new();
 
-        self.add_interfaces(&mut result, &Vec::new(), class.interfaces(self.r), true);
+        self.add_interfaces(&mut result, class, &Vec::new(), true);
 
         for base in class.bases(self.r) {
-            self.add_interfaces(&mut result, &Vec::new(), base.interfaces(self.r), false);
+            self.add_interfaces(&mut result, &base, &Vec::new(), false);
         }
 
         for attribute in class.attributes(self.r) {

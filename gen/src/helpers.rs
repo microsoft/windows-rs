@@ -13,9 +13,11 @@ pub fn append_snake(result: &mut String, camel: &str) {
         result.push_str("ui");
     } else {
         for c in camel.chars() {
-            if c.is_uppercase() {
-                if !result.is_empty() {
-                    result.push('_');
+            if c.is_uppercase()  {
+                if let Some(prev) = result.as_bytes().last() {
+                    if *prev != b'.' {
+                        result.push('_');
+                    }
                 }
                 for c in c.to_lowercase() {
                     result.push(c);
