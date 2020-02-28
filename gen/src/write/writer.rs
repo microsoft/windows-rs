@@ -484,17 +484,7 @@ impl<'a> Writer<'a> {
                         }
                     }
                 }
-                InterfaceCategory::DefaultInstance => {
-                    quote! {
-                        pub fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result> {
-                            unsafe {
-                                let __default: &#into = std::mem::transmute_copy(&self);
-                                __default.#method_name(#args)
-                            }
-                        }
-                    }
-                }
-                InterfaceCategory::Instance => {
+                InterfaceCategory::DefaultInstance | InterfaceCategory::Instance => {
                     quote! {
                         pub fn #method_name<#into_params>(&self, #params) -> winrt::Result<#result> {
                             <#into as From<&Self>>::from(self).#method_name(#args)
