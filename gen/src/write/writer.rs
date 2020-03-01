@@ -1508,6 +1508,7 @@ impl<'a> Writer<'a> {
             } else {
                 for method in interface.definition.methods(self.r) {
                     let sig = method.signature(self.r);
+                    self.expect_method(&interface.definition, &sig);
                     let category = method.category(self.r);
                     let mut name = self.method_name(&method, category);
                     let mut limited = self.limited_method(&sig);
