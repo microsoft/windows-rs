@@ -1407,12 +1407,7 @@ impl<'a> Writer<'a> {
     fn interface_interfaces(&mut self, interface: &TypeDef) -> Vec<Interface> {
         let mut result = Vec::new();
 
-        self.add_interfaces(
-            &mut result,
-            interface,
-            &Vec::new(),
-            false,
-        );
+        self.add_interfaces(&mut result, interface, &Vec::new(), false);
 
         let identifier = self.write_interface_ident(interface, &Vec::new());
 
