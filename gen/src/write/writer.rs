@@ -718,10 +718,23 @@ impl<'a> Writer<'a> {
         let fields = self.write_struct_fields(&t);
 
         quote! {
-            #[repr(C)]
-            #[derive(Copy, Clone, Default, Debug, PartialEq)]
+            // #[repr(C)]
+            // #[derive(Copy, Clone, Default, Debug, PartialEq)]
+            // pub struct #name { #fields }
+            // impl winrt::RuntimeType for #name {
+            //     type Abi = Self;
+            
+            //     fn abi(&self) -> Self::Abi {
+            //         *self
+            //     }
+            
+            //     fn set_abi(&mut self) -> *mut Self::Abi {
+            //         self as *mut Self::Abi
+            //     }
+            // }
+            
+            #[winrt::value_type]
             pub struct #name { #fields }
-            impl winrt::RuntimeCopy for #name {}
         }
         // TODO: RuntimeType for non-blittable structs needs to be customized
     }

@@ -2,6 +2,8 @@ extern crate proc_macro;
 
 use proc_macro::*;
 use winmd::*;
+use syn::*;
+use quote::quote;
 
 #[derive(PartialEq)]
 enum ImportCategory {
@@ -123,6 +125,32 @@ pub fn import(stream: TokenStream) -> TokenStream {
 #[proc_macro_attribute]
 pub fn class(args: TokenStream, input: TokenStream) -> TokenStream {
     input
+}
+
+#[proc_macro_attribute]
+pub fn value_type(args: TokenStream, input: TokenStream) -> TokenStream {
+    let input = parse_macro_input!(input as ItemStruct);
+    let name = &input.ident;
+
+    let output = quote! {
+        #[repr(C)]
+        #[derive(Copy, Clone, Default, Debug, PartialEq)]
+        #input
+        impl winrt::RuntimeType for #name {
+            type Abi = Self;
+        
+            fn abi(&self) -> Self::Abi {
+                *self
+            }
+        
+            fn set_abi(&mut self) -> *mut Self::Abi {
+                self as *mut Self::Abi
+            }
+        }
+        
+    };
+
+    output.into()
 }
 
 #[cfg(target_pointer_width = "64")]
