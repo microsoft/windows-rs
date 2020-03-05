@@ -50,26 +50,26 @@ impl<'a> StringParam<'a> {
     }
 }
 
-impl<'a> Into<StringParam<'a>> for &'a str {
-    fn into(self) -> StringParam<'a> {
-        StringParam::Borrowed(self)
+impl<'a> From<&'a str> for StringParam<'a> {
+    fn from(value: &'a str) -> StringParam<'a> {
+        StringParam::Borrowed(value)
     }
 }
 
-impl<'a> Into<StringParam<'a>> for String {
-    fn into(self) -> StringParam<'a> {
-        StringParam::Owned(self)
+impl<'a> From<String> for StringParam<'a> {
+    fn from(value: String) -> StringParam<'a> {
+        StringParam::Owned(value)
     }
 }
 
-impl<'a> Into<StringParam<'a>> for super::HString {
-    fn into(self) -> StringParam<'a> {
-        StringParam::RuntimeOwned(self)
+impl<'a> From<HString> for StringParam<'a> {
+    fn from(value: HString) -> StringParam<'a> {
+        StringParam::RuntimeOwned(value)
     }
 }
 
-impl<'a> Into<StringParam<'a>> for &'a super::HString {
-    fn into(self) -> StringParam<'a> {
-        StringParam::RuntimeBorrowed(self)
+impl<'a> From<&'a HString> for StringParam<'a> {
+    fn from(value: &'a HString) -> StringParam<'a> {
+        StringParam::RuntimeBorrowed(value)
     }
 }
