@@ -251,6 +251,8 @@ impl<'a> Writer<'a> {
                                 winrt::TypeGuid::query(value)
                             }
                         }
+                        // TODO: Rust compiler won't let me turn these Into traits into From traits. 
+                        // Complains about unused type parameter. Not sure why since they're all used...
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
                                 winrt::Param::Owned(self.into())
