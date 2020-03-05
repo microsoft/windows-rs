@@ -120,6 +120,11 @@ pub fn import(stream: TokenStream) -> TokenStream {
     output.into()
 }
 
+#[proc_macro_attribute]
+pub fn class(args: TokenStream, input: TokenStream) -> TokenStream {
+    input
+}
+
 #[cfg(target_pointer_width = "64")]
 const SYSTEM32: &str = "System32";
 

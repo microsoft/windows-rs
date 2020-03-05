@@ -44,9 +44,7 @@ impl RuntimeCopy for f32 {}
 impl RuntimeCopy for f64 {}
 impl RuntimeCopy for Guid {}
 
-impl<T> RuntimeType for T
-where
-    T: RuntimeCopy,
+impl<T: RuntimeCopy> RuntimeType for T
 {
     type Abi = Self;
 
