@@ -128,12 +128,12 @@ impl<'a> Writer<'a> {
                 }
                 impl<'a> Into<winrt::Param<'a, #name>> for #name {
                     fn into(self) -> winrt::Param<'a, #name> {
-                        winrt::Param::Value(self)
+                        winrt::Param::Owned(self)
                     }
                 }
                 impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
                     fn into(self) -> winrt::Param<'a, #name> {
-                        winrt::Param::Ref(self)
+                        winrt::Param::Borrowed(self)
                     }
                 }
                 #froms
@@ -174,12 +174,12 @@ impl<'a> Writer<'a> {
                 }
                 impl<'a> Into<winrt::Param<'a, #into>> for #from {
                     fn into(self) -> winrt::Param<'a, #into> {
-                        winrt::Param::Value(self.into())
+                        winrt::Param::Owned(self.into())
                     }
                 }
                 impl<'a> Into<winrt::Param<'a, #into>> for &'a #from {
                     fn into(self) -> winrt::Param<'a, #into> {
-                        winrt::Param::Value(self.into())
+                        winrt::Param::Owned(self.into())
                     }
                 }
             });
@@ -210,12 +210,12 @@ impl<'a> Writer<'a> {
             }
             impl<'a, #constraints> Into<winrt::Param<'a, winrt::Object>> for #from<#generics> {
                 fn into(self) -> winrt::Param<'a, winrt::Object> {
-                    winrt::Param::Value(self.into())
+                    winrt::Param::Owned(self.into())
                 }
             }
             impl<'a, #constraints> Into<winrt::Param<'a, winrt::Object>> for &'a #from<#generics> {
                 fn into(self) -> winrt::Param<'a, winrt::Object> {
-                    winrt::Param::Value(self.into())
+                    winrt::Param::Owned(self.into())
                 }
             }
         });
@@ -238,12 +238,12 @@ impl<'a> Writer<'a> {
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Value(self.into())
+                                winrt::Param::Owned(self.into())
                             }
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Value(self.into())
+                                winrt::Param::Owned(self.into())
                             }
                         }
                     });
@@ -263,12 +263,12 @@ impl<'a> Writer<'a> {
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Value(self.into())
+                                winrt::Param::Owned(self.into())
                             }
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Value(self.into())
+                                winrt::Param::Owned(self.into())
                             }
                         }
                     });
@@ -339,12 +339,12 @@ impl<'a> Writer<'a> {
             }
             impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for #name<#generics> {
                 fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Value(self)
+                    winrt::Param::Owned(self)
                 }
             }
             impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for &'a #name<#generics> {
                 fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Ref(self)
+                    winrt::Param::Borrowed(self)
                 }
             }
             #froms
@@ -711,12 +711,12 @@ impl<'a> Writer<'a> {
             }
             impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for #name<#generics> {
                 fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Value(self)
+                    winrt::Param::Owned(self)
                 }
             }
             impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for &'a #name<#generics> {
                 fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Ref(self)
+                    winrt::Param::Borrowed(self)
                 }
             }
         };
@@ -752,12 +752,12 @@ impl<'a> Writer<'a> {
             impl winrt::RuntimeCopy for #name {}
             impl<'a> Into<winrt::Param<'a, #name>> for #name {
                 fn into(self) -> winrt::Param<'a, #name> {
-                    winrt::Param::Value(self)
+                    winrt::Param::Owned(self)
                 }
             }
             impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
                 fn into(self) -> winrt::Param<'a, #name> {
-                    winrt::Param::Ref(self)
+                    winrt::Param::Borrowed(self)
                 }
             }
         }

@@ -22,12 +22,12 @@ impl Guid {
 
 impl<'a> Into<Param<'a, Guid>> for Guid {
     fn into(self) -> Param<'a, Guid> {
-        Param::Value(self)
+        Param::Owned(self)
     }
 }
 impl<'a> Into<Param<'a, Guid>> for &'a Guid {
     fn into(self) -> Param<'a, Guid> {
-        Param::Ref(self)
+        Param::Borrowed(self)
     }
 }
 
