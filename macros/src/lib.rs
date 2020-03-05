@@ -132,6 +132,9 @@ pub fn value_type(args: TokenStream, input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as ItemStruct);
     let name = &input.ident;
 
+    // TODO: if the struct is non-blittable then we need to generate a custom RuntimeType that ensures 
+    // that a POD is returned across the ABI.
+
     let output = quote! {
         #[repr(C)]
         #[derive(Copy, Clone, Default, Debug, PartialEq)]
