@@ -20,7 +20,6 @@ pub struct Writer<'a> {
     pub namespace: &'a str,
     pub limits: &'a BTreeSet<String>,
     pub generics: Vec<Vec<TokenStream>>,
-    pub sub_mod: bool,
     // TODO: keep track of generic specializations that need GUIDs
 }
 
@@ -35,7 +34,6 @@ impl<'a> Writer<'a> {
                 namespace,
                 limits,
                 generics: Default::default(),
-                sub_mod: false,
             };
             namespaces.insert_namespace(namespace, w.write_namespace(namespace));
         }
@@ -45,66 +43,31 @@ impl<'a> Writer<'a> {
 
     fn write_namespace(&mut self, namespace: &str) -> TokenStream {
         let mut tokens = Vec::new();
-        let mut abi = Vec::new();
-        let mut traits = Vec::new();
 
         for t in self.r.namespace_types(namespace) {
-            match t.category(self.r) {
-                TypeCategory::Interface => {
-                    let (base_tokens, abi_tokens, trait_tokens) =
-                        self.push_generic_interface(t).write_interface(t);
-                    tokens.push(base_tokens);
-                    abi.push(abi_tokens);
-                    traits.push(trait_tokens);
-                }
-                TypeCategory::Delegate => {
-                    let (base_tokens, abi_tokens) =
-                        self.push_generic_interface(t).write_delegate(t);
-                    tokens.push(base_tokens);
-                    abi.push(abi_tokens);
-                }
-                TypeCategory::Class => tokens.push(self.write_class(namespace, t)),
-                TypeCategory::Enum => tokens.push(self.write_enum(t)),
-                TypeCategory::Struct => tokens.push(self.write_struct(t)),
+            tokens.push(match t.category(self.r) {
+                TypeCategory::Interface => self.push_generic_interface(t).write_interface(t),
+                TypeCategory::Delegate => self.push_generic_interface(t).write_delegate(t),
+                TypeCategory::Class => self.write_class(namespace, t),
+                TypeCategory::Enum => self.write_enum(t),
+                TypeCategory::Struct => self.write_struct(t),
                 _ => continue,
-            }
+            });
         }
-
-        tokens.push(quote! {
-            pub mod abi {
-                #(#abi)*
-            }
-            pub mod traits {
-                #(#traits)*
-            }
-        });
 
         TokenStream::from_iter(tokens)
     }
 
-    fn write_class(&mut self, namespace: &str, class: &TypeDef) -> TokenStream {
-        let name = class.name(self.r);
-        let string_name = format!("{}.{}", namespace, name);
-        let name = write_ident(name);
-        let interfaces = self.class_interfaces(class);
-        let methods = self.write_methods(&self.methods(&interfaces));
-        let empty = TokenStream::new();
-        let froms = self.write_interface_conversions(&name, &empty, &empty, &interfaces);
-        let bases = self.write_base_conversions(class, &name);
-
+    fn write_class_guid(&self, name: &Ident, interfaces: &Vec<Interface>) -> TokenStream {
         if let Some(default) = interfaces
             .iter()
             .find(|interface| interface.category == InterfaceCategory::DefaultInstance)
         {
-            // TODO: this will need generic GUID generation support
+            // TODO: this will need generic GUID generation support for when the default interface is something like IVector<i32>
             let guid = self.write_guid(&default.definition);
 
             quote! {
-                #[repr(C)]
-                #[derive(Default, Clone)]
-                pub struct #name { ptr: winrt::ComPtr }
-                impl #name { #methods }
-                impl winrt::QueryType for #name {
+                impl winrt::TypeGuid for #name {
                     fn type_guid() -> &'static winrt::Guid {
                         static GUID: winrt::Guid = winrt::Guid::from_values(
                             #guid
@@ -112,43 +75,27 @@ impl<'a> Writer<'a> {
                         &GUID
                     }
                 }
-                impl winrt::TypeName for #name {
-                    fn type_name() -> &'static str {
-                        #string_name
-                    }
-                }
-                impl winrt::RuntimeType for #name {
-                    type Abi = winrt::RawPtr;
-                    fn abi(&self) -> Self::Abi {
-                        self.ptr.get()
-                    }
-                    fn set_abi(&mut self) -> *mut Self::Abi {
-                        self.ptr.set()
-                    }
-                }
-                impl<'a> Into<winrt::Param<'a, #name>> for #name {
-                    fn into(self) -> winrt::Param<'a, #name> {
-                        winrt::Param::Value(self)
-                    }
-                }
-                impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
-                    fn into(self) -> winrt::Param<'a, #name> {
-                        winrt::Param::Ref(self)
-                    }
-                }
-                #froms
-                #bases
             }
         } else {
-            quote! {
-                pub struct #name { }
-                impl #name { #methods }
-                impl winrt::TypeName for #name {
-                    fn type_name() -> &'static str {
-                        #string_name
-                    }
+            TokenStream::new()
+        }
+    }
+
+    fn write_class(&mut self, namespace: &str, class: &TypeDef) -> TokenStream {
+        let name = class.name(self.r);
+        let string_name = format!("{}.{}", namespace, name);
+        let name = write_ident(name);
+        let interfaces = self.class_interfaces(class);
+        let guid = self.write_class_guid(&name, &interfaces);
+
+        quote! {
+            pub trait #name {}
+            impl winrt::TypeName for #name {
+                fn type_name() -> &'static str {
+                    #string_name
                 }
             }
+
         }
     }
 
@@ -174,12 +121,12 @@ impl<'a> Writer<'a> {
                 }
                 impl<'a> Into<winrt::Param<'a, #into>> for #from {
                     fn into(self) -> winrt::Param<'a, #into> {
-                        winrt::Param::Value(self.into())
+                        winrt::Param::Owned(self.into())
                     }
                 }
                 impl<'a> Into<winrt::Param<'a, #into>> for &'a #from {
                     fn into(self) -> winrt::Param<'a, #into> {
-                        winrt::Param::Value(self.into())
+                        winrt::Param::Owned(self.into())
                     }
                 }
             });
@@ -210,12 +157,12 @@ impl<'a> Writer<'a> {
             }
             impl<'a, #constraints> Into<winrt::Param<'a, winrt::Object>> for #from<#generics> {
                 fn into(self) -> winrt::Param<'a, winrt::Object> {
-                    winrt::Param::Value(self.into())
+                    winrt::Param::Owned(self.into())
                 }
             }
             impl<'a, #constraints> Into<winrt::Param<'a, winrt::Object>> for &'a #from<#generics> {
                 fn into(self) -> winrt::Param<'a, winrt::Object> {
-                    winrt::Param::Value(self.into())
+                    winrt::Param::Owned(self.into())
                 }
             }
         });
@@ -238,12 +185,12 @@ impl<'a> Writer<'a> {
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Value(self.into())
+                                winrt::Param::Owned(self.into())
                             }
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Value(self.into())
+                                winrt::Param::Owned(self.into())
                             }
                         }
                     });
@@ -263,12 +210,12 @@ impl<'a> Writer<'a> {
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Value(self.into())
+                                winrt::Param::Owned(self.into())
                             }
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
                             fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Value(self.into())
+                                winrt::Param::Owned(self.into())
                             }
                         }
                     });
@@ -300,7 +247,7 @@ impl<'a> Writer<'a> {
         }
     }
 
-    fn write_interface(&mut self, interface: &TypeDef) -> (TokenStream, TokenStream, TokenStream) {
+    fn write_interface(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
 
@@ -310,72 +257,27 @@ impl<'a> Writer<'a> {
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
-        let name = self.write_generic_name(interface);
+        let (name, abi_name) = self.write_generic_name(interface);
         let froms = self.write_interface_conversions(&name, &constraints, &generics, &interfaces);
 
-        let base_tokens = quote! {
-            #[repr(C)]
-            #[derive(Default, Clone)]
-            pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
-            impl<#constraints> #name<#generics> {
-                #projected_methods
-            }
-            impl<#constraints> winrt::QueryType for #name<#generics> {
-                fn type_guid() -> &'static winrt::Guid {
-                    static GUID: winrt::Guid = winrt::Guid::from_values(
-                        #guid
-                    );
-                    &GUID
-                }
-            }
-            impl<#constraints> winrt::RuntimeType for #name<#generics> {
-                type Abi = winrt::RawPtr;
-                fn abi(&self) -> Self::Abi {
-                    self.ptr.get()
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set()
-                }
-            }
-            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for #name<#generics> {
-                fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Value(self)
-                }
-            }
-            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for &'a #name<#generics> {
-                fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Ref(self)
-                }
-            }
-            #froms
-        };
-
         let abi_methods = self.write_abi_methods(methods);
+        let trait_methods = self.write_trait_methods(methods);
 
-        let abi_tokens = quote! {
+        quote! {
+            pub trait #name<#constraints> {
+                #trait_methods
+            }
             #[repr(C)]
-            pub struct #name<#constraints> {
+            pub struct #abi_name<#constraints> {
                 __base: [usize; 6],
                 #abi_methods
                 #phantoms
             }
-        };
-
-        let trait_methods = self.write_trait_methods(methods);
-
-        let trait_tokens = quote! {
-            pub trait #name<#constraints> {
-                #trait_methods
-            }
-        };
-
-        (base_tokens, abi_tokens, trait_tokens)
+        }
     }
 
     fn write_trait_methods(&mut self, methods: &Vec<Method>) -> TokenStream {
         let mut tokens = Vec::new();
-
-        self.sub_mod = true;
 
         for method in methods
             .iter()
@@ -404,15 +306,11 @@ impl<'a> Writer<'a> {
             });
         }
 
-        self.sub_mod = false;
-
         TokenStream::from_iter(tokens)
     }
 
     fn write_abi_methods(&mut self, methods: &Vec<Method>) -> TokenStream {
         let mut tokens = Vec::new();
-
-        self.sub_mod = true;
 
         for method in methods
             .iter()
@@ -429,8 +327,6 @@ impl<'a> Writer<'a> {
                 }
             });
         }
-
-        self.sub_mod = false;
 
         TokenStream::from_iter(tokens)
     }
@@ -624,23 +520,23 @@ impl<'a> Writer<'a> {
         TokenStream::from_iter(tokens)
     }
 
-    fn write_generic_name(&self, interface: &TypeDef) -> Ident {
+    fn write_generic_name(&self, interface: &TypeDef) -> (Ident, Ident) {
         let mut name = interface.name(self.r);
 
         if name.chars().rev().skip(1).next() == Some('`') {
             name = &name[..name.len() - 2];
         }
 
-        write_ident(name)
+        (format_ident!("{}", name), format_ident!("abi_{}", name))
     }
 
-    fn write_delegate(&mut self, interface: &TypeDef) -> (TokenStream, TokenStream) {
+    fn write_delegate(&mut self, interface: &TypeDef) -> TokenStream {
         let guid = self.write_guid(interface);
         let phantoms = self.write_generic_phantoms();
 
         let generics = self.write_generics();
         let constraints = self.write_generic_constraints();
-        let name = self.write_generic_name(interface);
+        let (name, abi_name) = self.write_generic_name(interface);
 
         let method = interface
             .methods(self.r)
@@ -676,30 +572,10 @@ impl<'a> Writer<'a> {
                 (quote! { () }, quote! {}, quote! {}, quote! { ok() })
             };
 
-        let base_tokens = quote! {
+        quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
             pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
-            impl<#constraints> #name<#generics> {
-                // TODO: this should be an invoke method but some kind of function call trait
-                pub fn invoke<#into_params>(&self, #params) -> winrt::Result<#result_type> {
-                    unsafe {
-                        #ok_variable
-                        ((*(*(self.ptr.get() as *const *const abi::#name<#generics>))).invoke)(
-                            self.ptr.get(), #args #receive_expression
-                        )
-                        .#ok_transmute
-                    }
-                }
-            }
-            impl<#constraints> winrt::QueryType for #name<#generics> {
-                fn type_guid() -> &'static winrt::Guid {
-                    static GUID: winrt::Guid = winrt::Guid::from_values(
-                        #guid
-                    );
-                    &GUID
-                }
-            }
             impl<#constraints> winrt::RuntimeType for #name<#generics> {
                 type Abi = winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
@@ -709,32 +585,7 @@ impl<'a> Writer<'a> {
                     self.ptr.set()
                 }
             }
-            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for #name<#generics> {
-                fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Value(self)
-                }
-            }
-            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for &'a #name<#generics> {
-                fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Ref(self)
-                }
-            }
-        };
-
-        self.sub_mod = true;
-        let abi_params = self.write_abi_params(&sig);
-        self.sub_mod = false;
-
-        let abi_tokens = quote! {
-            #[repr(C)]
-            pub struct #name<#constraints> {
-                __base: [usize; 3],
-                pub invoke: extern "system" fn(winrt::RawPtr, #abi_params) -> winrt::ErrorCode,
-                #phantoms
-            }
-        };
-
-        (base_tokens, abi_tokens)
+        }
     }
 
     fn write_struct(&mut self, t: &TypeDef) -> TokenStream {
@@ -752,12 +603,12 @@ impl<'a> Writer<'a> {
             impl winrt::RuntimeCopy for #name {}
             impl<'a> Into<winrt::Param<'a, #name>> for #name {
                 fn into(self) -> winrt::Param<'a, #name> {
-                    winrt::Param::Value(self)
+                    winrt::Param::Owned(self)
                 }
             }
             impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
                 fn into(self) -> winrt::Param<'a, #name> {
-                    winrt::Param::Ref(self)
+                    winrt::Param::Borrowed(self)
                 }
             }
         }
@@ -917,7 +768,11 @@ impl<'a> Writer<'a> {
                 ParamCategory::String => {
                     tokens.push(quote! { #type_param: Into<winrt::StringParam<'a>>,})
                 }
-                ParamCategory::Object | ParamCategory::Struct => {
+                ParamCategory::Object => {
+                    let into = self.write_type(param.definition());
+                    tokens.push(quote! { #type_param: Into<winrt::Param<'a, winrt::Rc<#into>>>,});
+                }
+                ParamCategory::Struct => {
                     let into = self.write_type(param.definition());
                     tokens.push(quote! { #type_param: Into<winrt::Param<'a, #into>>,});
                 }
@@ -1173,7 +1028,7 @@ impl<'a> Writer<'a> {
             ElementType::F32 => quote! { f32 },
             ElementType::F64 => quote! { f64 },
             ElementType::String => quote! { winrt::HString },
-            ElementType::Object => quote! { winrt::Object },
+            ElementType::Object => quote! { winrt::Object }, // TODO: should be Rc<Object>?
         }
     }
 
@@ -1188,7 +1043,13 @@ impl<'a> Writer<'a> {
     fn write_type_def(&self, value: &TypeDef) -> TokenStream {
         let namespace = self.write_namespace_name(value.namespace(self.r));
         let name = write_ident(value.name(self.r));
-        quote! { #namespace#name }
+        match value.category(self.r) {
+            TypeCategory::Interface | TypeCategory::Class => quote! { winrt::Rc<#namespace#name> },
+            TypeCategory::Enum | TypeCategory::Struct | TypeCategory::Delegate => {
+                quote! { #namespace#name }
+            }
+            _ => panic!("TODO: write_type_def"),
+        }
     }
 
     fn write_type_ref(&self, value: &TypeRef) -> TokenStream {
@@ -1284,10 +1145,6 @@ impl<'a> Writer<'a> {
         }
 
         let count = source.count();
-
-        if self.sub_mod {
-            tokens.push(quote! {super::});
-        }
 
         if count > 0 {
             tokens.resize(tokens.len() + count, quote! {super::});
