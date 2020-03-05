@@ -20,17 +20,6 @@ impl Guid {
     }
 }
 
-impl<'a> Into<Param<'a, Guid>> for Guid {
-    fn into(self) -> Param<'a, Guid> {
-        Param::Owned(self)
-    }
-}
-impl<'a> Into<Param<'a, Guid>> for &'a Guid {
-    fn into(self) -> Param<'a, Guid> {
-        Param::Borrowed(self)
-    }
-}
-
 impl std::fmt::Debug for Guid {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(

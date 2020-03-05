@@ -126,16 +126,6 @@ impl<'a> Writer<'a> {
                         self.ptr.set()
                     }
                 }
-                impl<'a> Into<winrt::Param<'a, #name>> for #name {
-                    fn into(self) -> winrt::Param<'a, #name> {
-                        winrt::Param::Owned(self)
-                    }
-                }
-                impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
-                    fn into(self) -> winrt::Param<'a, #name> {
-                        winrt::Param::Borrowed(self)
-                    }
-                }
                 #froms
                 #bases
             }
@@ -335,16 +325,6 @@ impl<'a> Writer<'a> {
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     self.ptr.set()
-                }
-            }
-            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for #name<#generics> {
-                fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Owned(self)
-                }
-            }
-            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for &'a #name<#generics> {
-                fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Borrowed(self)
                 }
             }
             #froms
@@ -709,16 +689,6 @@ impl<'a> Writer<'a> {
                     self.ptr.set()
                 }
             }
-            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for #name<#generics> {
-                fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Owned(self)
-                }
-            }
-            impl<'a, #constraints> Into<winrt::Param<'a, #name<#generics>>> for &'a #name<#generics> {
-                fn into(self) -> winrt::Param<'a, #name<#generics>> {
-                    winrt::Param::Borrowed(self)
-                }
-            }
         };
 
         self.sub_mod = true;
@@ -750,16 +720,6 @@ impl<'a> Writer<'a> {
             #[derive(Copy, Clone, Default, Debug, PartialEq)]
             pub struct #name { #fields }
             impl winrt::RuntimeCopy for #name {}
-            impl<'a> Into<winrt::Param<'a, #name>> for #name {
-                fn into(self) -> winrt::Param<'a, #name> {
-                    winrt::Param::Owned(self)
-                }
-            }
-            impl<'a> Into<winrt::Param<'a, #name>> for &'a #name {
-                fn into(self) -> winrt::Param<'a, #name> {
-                    winrt::Param::Borrowed(self)
-                }
-            }
         }
         // TODO: RuntimeType for non-blittable structs needs to be customized
     }

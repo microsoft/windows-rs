@@ -14,6 +14,18 @@ impl<'a, T: RuntimeType> Param<'a, T> {
     }
 }
 
+impl<'a, T: RuntimeType> From<T> for Param<'a, T> {
+    fn from(value: T) -> Param<'a, T> {
+        Param::Owned(value)
+    }
+}
+
+impl<'a, T: RuntimeType> From<&'a T> for Param<'a, T> {
+    fn from(value: &'a T) -> Param<'a, T> {
+        Param::Borrowed(value)
+    }
+}
+
 pub enum StringParam<'a> {
     Borrowed(&'a str),
     Owned(String),
