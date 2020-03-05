@@ -104,7 +104,7 @@ impl<'a> Writer<'a> {
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: winrt::ComPtr }
                 impl #name { #methods }
-                impl winrt::QueryType for #name {
+                impl winrt::TypeGuid for #name {
                     fn type_guid() -> &'static winrt::Guid {
                         static GUID: winrt::Guid = winrt::Guid::from_values(
                             #guid
@@ -169,7 +169,7 @@ impl<'a> Writer<'a> {
                 }
                 impl From<&#from> for #into {
                     fn from(value: &#from) -> #into {
-                        winrt::QueryType::query(value)
+                        winrt::TypeGuid::query(value)
                     }
                 }
                 impl<'a> Into<winrt::Param<'a, #into>> for #from {
@@ -258,7 +258,7 @@ impl<'a> Writer<'a> {
                         }
                         impl<#constraints> From<&#from<#generics>> for #into {
                             fn from(value: &#from<#generics>) -> #into {
-                                winrt::QueryType::query(value)
+                                winrt::TypeGuid::query(value)
                             }
                         }
                         impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
@@ -320,7 +320,7 @@ impl<'a> Writer<'a> {
             impl<#constraints> #name<#generics> {
                 #projected_methods
             }
-            impl<#constraints> winrt::QueryType for #name<#generics> {
+            impl<#constraints> winrt::TypeGuid for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid
@@ -692,7 +692,7 @@ impl<'a> Writer<'a> {
                     }
                 }
             }
-            impl<#constraints> winrt::QueryType for #name<#generics> {
+            impl<#constraints> winrt::TypeGuid for #name<#generics> {
                 fn type_guid() -> &'static winrt::Guid {
                     static GUID: winrt::Guid = winrt::Guid::from_values(
                         #guid

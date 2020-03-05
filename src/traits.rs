@@ -1,9 +1,9 @@
 use crate::*;
 
-pub trait QueryType: Sized {
+pub trait TypeGuid: Sized {
     fn type_guid() -> &'static Guid;
 
-    fn query<T: QueryType>(&self) -> T {
+    fn query<T: TypeGuid>(&self) -> T {
         unsafe { std::mem::transmute_copy(&query::<T>(std::mem::transmute_copy(self))) }
     }
 

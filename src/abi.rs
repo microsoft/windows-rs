@@ -7,7 +7,7 @@ pub struct ComPtr {
     ptr: RawPtr,
 }
 
-pub fn query<I: QueryType>(ptr: RawPtr) -> RawPtr {
+pub fn query<I: TypeGuid>(ptr: RawPtr) -> RawPtr {
     unsafe {
         let mut result = std::ptr::null_mut();
         if !ptr.is_null() {
@@ -27,7 +27,7 @@ impl ComPtr {
         }
     }
 
-    pub fn query<I: QueryType>(&self) -> ComPtr {
+    pub fn query<I: TypeGuid>(&self) -> ComPtr {
         ComPtr {
             ptr: query::<I>(self.ptr),
         }

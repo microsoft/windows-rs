@@ -21,7 +21,7 @@ impl Object {
     }
 }
 
-impl QueryType for Object {
+impl TypeGuid for Object {
     fn type_guid() -> &'static Guid {
         static GUID: Guid = Guid::from_values(
             0xAF86E2E0,
