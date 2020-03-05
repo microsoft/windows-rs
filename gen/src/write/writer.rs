@@ -162,14 +162,14 @@ impl<'a> Writer<'a> {
                         winrt::TypeGuid::query(value)
                     }
                 }
-                impl<'a> Into<winrt::Param<'a, #into>> for #from {
-                    fn into(self) -> winrt::Param<'a, #into> {
-                        winrt::Param::Owned(self.into())
+                impl<'a> From<#from> for winrt::Param<'a, #into> {
+                    fn from(value: #from) -> winrt::Param<'a, #into> {
+                        winrt::Param::Owned(value.into())
                     }
                 }
-                impl<'a> Into<winrt::Param<'a, #into>> for &'a #from {
-                    fn into(self) -> winrt::Param<'a, #into> {
-                        winrt::Param::Owned(self.into())
+                impl<'a> From<&'a #from> for winrt::Param<'a, #into> {
+                    fn from(value: &'a #from) -> winrt::Param<'a, #into> {
+                        winrt::Param::Owned(value.into())
                     }
                 }
             });
@@ -198,14 +198,14 @@ impl<'a> Writer<'a> {
                     unsafe { std::mem::transmute(value.clone()) }
                 }
             }
-            impl<'a, #constraints> Into<winrt::Param<'a, winrt::Object>> for #from<#generics> {
-                fn into(self) -> winrt::Param<'a, winrt::Object> {
-                    winrt::Param::Owned(self.into())
+            impl<'a, #constraints> From<#from<#generics>> for winrt::Param<'a, winrt::Object> {
+                fn from(value: #from<#generics>) -> winrt::Param<'a, winrt::Object> {
+                    winrt::Param::Owned(value.into())
                 }
             }
-            impl<'a, #constraints> Into<winrt::Param<'a, winrt::Object>> for &'a #from<#generics> {
-                fn into(self) -> winrt::Param<'a, winrt::Object> {
-                    winrt::Param::Owned(self.into())
+            impl<'a, #constraints> From<&'a #from<#generics>> for winrt::Param<'a, winrt::Object> {
+                fn from(value: &'a #from<#generics>) -> winrt::Param<'a, winrt::Object> {
+                    winrt::Param::Owned(value.into())
                 }
             }
         });
@@ -226,14 +226,14 @@ impl<'a> Writer<'a> {
                                 unsafe { std::mem::transmute(value.clone()) }
                             }
                         }
-                        impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from<#generics> {
-                            fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Owned(self.into())
+                        impl<'a, #constraints> From<#from<#generics>> for winrt::Param<'a, #into>{
+                            fn from(value: #from<#generics>) -> winrt::Param<'a, #into> {
+                                winrt::Param::Owned(value.into())
                             }
                         }
-                        impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from<#generics> {
-                            fn into(self) -> winrt::Param<'a, #into> {
-                                winrt::Param::Owned(self.into())
+                        impl<'a, #constraints> From<&'a #from<#generics>> for winrt::Param<'a, #into> {
+                            fn from(value: &'a #from<#generics>) -> winrt::Param<'a, #into> {
+                                winrt::Param::Owned(value.into())
                             }
                         }
                     });

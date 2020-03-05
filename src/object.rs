@@ -45,6 +45,8 @@ impl RuntimeType for Object {
     }
 }
 
+// TODO: add from trait for all RuntimeTypes that are interfaces under the hood
+
 #[repr(C)]
 struct IInspectable {
     __0: usize,
