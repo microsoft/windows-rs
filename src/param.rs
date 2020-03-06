@@ -1,6 +1,6 @@
 use crate::*;
 
-pub enum Param<'a, T> {
+pub enum Param<'a, T: RuntimeType> {
     Borrowed(&'a T),
     Owned(T),
 }
