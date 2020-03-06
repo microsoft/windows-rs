@@ -102,7 +102,7 @@ impl<'a> Writer<'a> {
             quote! {
                 #[repr(C)]
                 #[derive(Default, Clone)]
-                pub struct #name { ptr: winrt::ComPtr }
+                pub struct #name { ptr: winrt::IUnknown }
                 impl #name { #methods }
                 impl winrt::TypeGuid for #name {
                     fn type_guid() -> &'static winrt::Guid {
@@ -159,7 +159,7 @@ impl<'a> Writer<'a> {
                 }
                 impl From<&#from> for #into {
                     fn from(value: &#from) -> #into {
-                        winrt::TypeGuid::query(value)
+                        winrt::safe_query(value)
                     }
                 }
                 impl<'a> From<#from> for winrt::Param<'a, #into> {
@@ -248,7 +248,7 @@ impl<'a> Writer<'a> {
                         }
                         impl<#constraints> From<&#from<#generics>> for #into {
                             fn from(value: &#from<#generics>) -> #into {
-                                winrt::TypeGuid::query(value)
+                                winrt::safe_query(value)
                             }
                         }
                         // TODO: Rust compiler won't let me turn these Into traits into From traits. 
@@ -308,7 +308,7 @@ impl<'a> Writer<'a> {
         let base_tokens = quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
-            pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
+            pub struct #name<#constraints> { ptr: winrt::IUnknown, #phantoms }
             impl<#constraints> #name<#generics> {
                 #projected_methods
             }
@@ -661,7 +661,7 @@ impl<'a> Writer<'a> {
         let base_tokens = quote! {
             #[repr(C)]
             #[derive(Default, Clone)]
-            pub struct #name<#constraints> { ptr: winrt::ComPtr, #phantoms }
+            pub struct #name<#constraints> { ptr: winrt::IUnknown, #phantoms }
             impl<#constraints> #name<#generics> {
                 // TODO: this should be an invoke method but some kind of function call trait
                 pub fn invoke<#into_params>(&self, #params) -> winrt::Result<#result_type> {

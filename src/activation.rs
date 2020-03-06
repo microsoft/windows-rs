@@ -34,7 +34,7 @@ pub fn factory<C: TypeName, I: TypeGuid>() -> Result<I> {
 #[repr(C)]
 #[derive(Default, Clone)]
 pub struct IActivationFactory {
-    ptr: ComPtr,
+    ptr: IUnknown,
 }
 
 impl IActivationFactory {

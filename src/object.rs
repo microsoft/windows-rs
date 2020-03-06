@@ -5,14 +5,14 @@ use crate::*;
 #[repr(C)]
 #[derive(Default, Clone)]
 pub struct Object {
-    ptr: ComPtr,
+    ptr: IUnknown,
 }
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
         unsafe {
             let mut ptr = std::ptr::null_mut();
-            ((*(*(self.ptr.get() as *const *const IInspectable))).type_name)(
+            ((*(*(self.ptr.get() as *const *const abi_IInspectable))).type_name)(
                 self.ptr.get(),
                 &mut ptr,
             )
@@ -48,7 +48,7 @@ impl RuntimeType for Object {
 // TODO: add from trait for all RuntimeTypes that are interfaces under the hood
 
 #[repr(C)]
-struct IInspectable {
+struct abi_IInspectable {
     __0: usize,
     __1: usize,
     __2: usize,
