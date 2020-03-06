@@ -190,7 +190,7 @@ impl<'a> Writer<'a> {
         tokens.push(quote! {
             impl<#constraints> From<#from<#generics>> for winrt::Object {
                 fn from(value: #from<#generics>) -> winrt::Object {
-                    unsafe { std::mem::transmute(value) }
+                    (&value).into()
                 }
             }
             impl<#constraints> From<&#from<#generics>> for winrt::Object {

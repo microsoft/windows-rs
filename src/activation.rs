@@ -40,13 +40,12 @@ pub struct IActivationFactory {
 impl IActivationFactory {
     pub fn activate_instance<I: TypeGuid>(&self) -> Result<I> {
         unsafe {
-            let mut ptr = std::ptr::null_mut();
-            // TODO: this is cheating - we need a QI here...
+            let mut object: Object = Default::default();
             ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(
                 self.ptr.get(),
-                &mut ptr,
+                object.set_abi(),
             )
-            .ok_or(std::mem::transmute_copy(&ptr))
+            .ok_or(safe_query(&object))
         }
     }
 }
@@ -65,11 +64,6 @@ impl TypeGuid for IActivationFactory {
 
 #[repr(C)]
 struct abi_IActivationFactory {
-    __0: usize,
-    __1: usize,
-    __2: usize,
-    __3: usize,
-    __4: usize,
-    __5: usize,
+    __base: [usize; 6],
     activate_instance: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
 }

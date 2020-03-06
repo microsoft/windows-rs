@@ -45,13 +45,8 @@ impl RuntimeType for Object {
     }
 }
 
-// TODO: add from trait for all RuntimeTypes that are interfaces under the hood
-
 #[repr(C)]
 struct abi_IInspectable {
-    __0: usize,
-    __1: usize,
-    __2: usize,
-    __3: usize,
+    __base: [usize; 4],
     type_name: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
 }
