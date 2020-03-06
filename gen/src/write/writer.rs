@@ -723,16 +723,16 @@ impl<'a> Writer<'a> {
             // pub struct #name { #fields }
             // impl winrt::RuntimeType for #name {
             //     type Abi = Self;
-            
+
             //     fn abi(&self) -> Self::Abi {
             //         *self
             //     }
-            
+
             //     fn set_abi(&mut self) -> *mut Self::Abi {
             //         self as *mut Self::Abi
             //     }
             // }
-            
+
             #[winrt::value_type]
             pub struct #name { #fields }
         }
