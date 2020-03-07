@@ -2,7 +2,6 @@ use std::convert::TryInto;
 
 use crate::*;
 
-
 pub struct GenericSig {
     definition: TypeDefOrRef,
     args: Vec<TypeSig>,

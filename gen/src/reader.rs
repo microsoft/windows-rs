@@ -2,7 +2,6 @@ use std::collections::BTreeMap;
 
 use crate::*;
 
-
 pub(crate) struct Reader {
     files: Vec<File>,
     types: BTreeMap<String, BTreeMap<String, TypeDef>>,

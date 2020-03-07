@@ -4,7 +4,6 @@ use proc_macro2::TokenStream;
 
 use crate::*;
 
-
 pub struct RustWriter {
     reader: Reader,
     limits: BTreeSet<String>,

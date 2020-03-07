@@ -1,6 +1,5 @@
-use crate::*;
-use quote::*;
 use proc_macro2::*;
+use quote::*;
 
 pub fn to_snake(camel: &str) -> String {
     let mut result = String::new();
@@ -40,5 +39,3 @@ pub fn write_ident(name: &str) -> Ident {
         format_ident!("r#{}", name)
     }
 }
-
-

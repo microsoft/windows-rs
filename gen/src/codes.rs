@@ -1,5 +1,5 @@
-use winmd_macros::*;
 use crate::*;
+use winmd_macros::*;
 
 #[type_code(2)]
 pub enum TypeDefOrRef {
