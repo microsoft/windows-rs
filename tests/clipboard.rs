@@ -21,3 +21,8 @@ fn uri() -> Result<()> {
 
     Ok(())
 }
+
+#[link(name = "onecore")]
+extern "system" {
+    pub fn CoInitializeEx(reserved: usize, apartment: u32) -> ErrorCode;
+}
