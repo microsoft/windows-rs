@@ -2,8 +2,8 @@ use std::collections::BTreeSet;
 
 use proc_macro2::TokenStream;
 
-use super::Writer;
-use crate::read::Reader;
+use crate::*;
+
 
 pub struct RustWriter {
     reader: Reader,

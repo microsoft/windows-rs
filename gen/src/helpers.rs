@@ -1,3 +1,7 @@
+use crate::*;
+use quote::*;
+use proc_macro2::*;
+
 pub fn to_snake(camel: &str) -> String {
     let mut result = String::new();
     append_snake(&mut result, camel);
@@ -28,3 +32,13 @@ pub fn append_snake(result: &mut String, camel: &str) {
         }
     }
 }
+
+pub fn write_ident(name: &str) -> Ident {
+    if name == "Self" {
+        format_ident!("{}_", name)
+    } else {
+        format_ident!("r#{}", name)
+    }
+}
+
+

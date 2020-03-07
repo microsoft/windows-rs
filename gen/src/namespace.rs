@@ -4,7 +4,7 @@ use std::iter::FromIterator;
 use proc_macro2::TokenStream;
 use quote::quote;
 
-use crate::helpers::to_snake;
+use crate::*;
 
 #[derive(Default)]
 pub struct Namespace {

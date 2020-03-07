@@ -1,4 +1,4 @@
-use super::Writer;
+use crate::*;
 
 pub(crate) struct GenericGuard<'a, 'b> {
     writer: &'a mut Writer<'b>,

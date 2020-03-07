@@ -1,4 +1,4 @@
-use crate::error::{ParseError, ParseResult};
+use crate::*;
 
 #[derive(Default)]
 pub struct TableData {

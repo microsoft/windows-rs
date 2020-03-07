@@ -4,16 +4,37 @@ use std::iter::FromIterator;
 use proc_macro2::{Ident, Literal, TokenStream};
 use quote::{format_ident, quote};
 
-use super::generic_guard::GenericGuard;
-use super::namespace::Namespaces;
-use super::{write_ident, Interface, InterfaceCategory, Method};
-use crate::codes::TypeDefOrRef;
-use crate::helpers::{append_snake, to_snake};
-use crate::read::{
-    CustomAttribute, InterfaceImpl, MethodCategory, MethodDef, Reader, RowIterator, TypeCategory,
-    TypeDef, TypeRef,
-};
-use crate::signatures::*;
+use crate::*;
+
+#[derive(PartialEq)]
+enum InterfaceCategory {
+    Abi,
+    Instance,
+    DefaultInstance,
+    Static,
+    Activatable,
+    DefaultActivatable,
+}
+
+struct Interface {
+    definition: TypeDef,
+    generics: Vec<Vec<TokenStream>>,
+    overridable: bool,
+    exclusive: bool,
+    limited: bool, // We don't just elide from the list because we need to deal with classes who's default interface is limited.
+    category: InterfaceCategory,
+    identifier: TokenStream,
+    // version: (u16,u16),
+}
+
+struct Method<'a> {
+    name: String,
+    sig: MethodSig,
+    category: MethodCategory,
+    interface: &'a Interface,
+    limited: bool, // We don't just elide these since we still need placeholders for vtable order.
+}
+
 
 pub struct Writer<'a> {
     pub(crate) r: &'a Reader,
