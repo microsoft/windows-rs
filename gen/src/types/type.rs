@@ -1,0 +1,42 @@
+use crate::*;
+
+#[derive(Debug)]
+pub enum Type {
+    Class(Class),
+    Interface(Interface),
+    Enum(Enum),
+    Struct(Struct),
+    Delegate(Delegate),
+}
+
+impl Type {
+    pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
+        match def.category(reader) {
+            TypeCategory::Interface => Self::Interface(Interface::from_type_def(reader, def)),
+            TypeCategory::Class => Self::Class(Class::from_type_def(reader, def)),
+            TypeCategory::Enum => Self::Enum(Enum::from_type_def(reader, def)),
+            TypeCategory::Struct => Self::Struct(Struct::from_type_def(reader, def)),
+            TypeCategory::Delegate => Self::Delegate(Delegate::from_type_def(reader, def)),
+        }
+    }
+
+    pub fn to_stream(&self) -> TokenStream {
+        match self {
+            Type::Class(t) => t.to_stream(),
+            Type::Interface(t) => t.to_stream(),
+            Type::Enum(t) => t.to_stream(),
+            Type::Struct(t) => t.to_stream(),
+            Type::Delegate(t) => t.to_stream(),
+        }
+    }
+
+    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
+        match self {
+            Type::Class(t) => t.dependencies(f),
+            Type::Interface(t) => t.dependencies(f),
+            Type::Enum(t) => t.dependencies(f),
+            Type::Struct(t) => t.dependencies(f),
+            Type::Delegate(t) => t.dependencies(f),
+        };
+    }
+}
