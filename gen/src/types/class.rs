@@ -39,6 +39,7 @@ impl Class {
                 namespace,
                 name,
                 generics,
+                def: base,
             });
         }
 

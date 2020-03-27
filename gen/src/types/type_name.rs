@@ -5,6 +5,7 @@ pub struct TypeName {
     pub namespace: String,
     pub name: String,
     pub generics: Vec<TypeKind>,
+    pub def: TypeDef,
 }
 
 impl TypeName {
@@ -23,6 +24,7 @@ impl TypeName {
             namespace,
             name,
             generics,
+            def,
         }
     }
 
@@ -43,6 +45,7 @@ impl TypeName {
             namespace,
             name,
             generics,
+            def,
         }
     }
 

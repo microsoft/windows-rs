@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct TypeDef(pub Row);
 
 impl TypeDef {
