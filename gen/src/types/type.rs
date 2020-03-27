@@ -30,13 +30,14 @@ impl Type {
         }
     }
 
-    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
+    // TODO: ideally this would return an iterator to avoid repeated allocations
+    pub fn dependencies(&self) -> Vec<TypeDef> {
         match self {
-            Type::Class(t) => t.dependencies(f),
-            Type::Interface(t) => t.dependencies(f),
-            Type::Enum(t) => t.dependencies(f),
-            Type::Struct(t) => t.dependencies(f),
-            Type::Delegate(t) => t.dependencies(f),
-        };
+            Type::Class(t) => t.dependencies(),
+            Type::Interface(t) => t.dependencies(),
+            Type::Enum(t) => Vec::new(),
+            Type::Struct(t) => t.dependencies(),
+            Type::Delegate(t) => t.dependencies(),
+        }
     }
 }

@@ -96,14 +96,18 @@ impl TypeKind {
         Self::from_blob(&mut blob, &Vec::new())
     }
 
-    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
-        match self {
-            TypeKind::Class(name) => f(name),
-            TypeKind::Interface(name) => f(name),
-            TypeKind::Enum(name) => f(name),
-            TypeKind::Struct(name) => f(name),
-            TypeKind::Delegate(name) => f(name),
-            _ => {}
-        }
+    // pub fn add_dependencies(&self, reader: &Reader, map: &mut BTreeMap::<TypeDef, Type>) {
+    //     // match self {
+    //     //     TypeKind::Class(name) => f(name),
+    //     //     TypeKind::Interface(name) => f(name),
+    //     //     TypeKind::Enum(name) => f(name),
+    //     //     TypeKind::Struct(name) => f(name),
+    //     //     TypeKind::Delegate(name) => f(name),
+    //     //     _ => {}
+    //     // }
+    // }
+
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        Vec::new()
     }
 }

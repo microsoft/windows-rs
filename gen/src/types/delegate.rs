@@ -21,7 +21,8 @@ impl Delegate {
         panic!();
     }
     
-    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        Vec::new()
     }
 
 

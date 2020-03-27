@@ -68,8 +68,7 @@ impl Class {
         }
     }
 
-    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
-        self.interfaces.iter().map(|i|&i.name).for_each(f);
-        self.bases.iter().for_each(f);
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.bases.iter().map(|i|i.def).chain(self.interfaces.iter().map(|i|i.name.def)).collect()
     }
 }

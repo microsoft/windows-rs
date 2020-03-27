@@ -84,8 +84,9 @@ impl Method {
             return_type,
         }
     }
-
-    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
+    
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        Vec::new()
     }
 
 }

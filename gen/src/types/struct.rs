@@ -30,8 +30,12 @@ impl Struct {
         panic!();
     }
     
-    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
-        self.fields.iter().map(|f|&f.kind).for_each(|k|k.dependencies(f));
+    // pub fn add_dependencies(&self, reader: &Reader, map: &mut BTreeMap::<TypeDef, Type>) {
+    //     // self.fields.iter().map(|f|&f.kind).for_each(|k|k.dependencies(f));
+    // }
+
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        Vec::new()
     }
 
 

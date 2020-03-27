@@ -18,7 +18,7 @@ pub use reader::*;
 use row::*;
 use std::collections::btree_map::*;
 use std::convert::TryInto;
-use tables::*;
+pub use tables::*;
 pub use types::*;
 use winmd_macros::*;
 pub use writer::*;

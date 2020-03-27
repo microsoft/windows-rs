@@ -53,10 +53,13 @@ impl Interface {
         panic!();
     }
     
-    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
-        self.methods.iter().for_each(|m|m.dependencies(f));
-        self.interfaces.iter().map(|i|&i.name).for_each(f);
-    }
+    // pub fn add_dependencies(&self, reader: &Reader, map: &mut BTreeMap::<TypeDef, Type>) {
+    //     // self.methods.iter().for_each(|m|m.dependencies(f));
+    //     // self.interfaces.iter().map(|i|&i.name).for_each(f);
+    // }
 
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        Vec::new()
+    }
 
 }

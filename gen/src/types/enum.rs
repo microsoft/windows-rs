@@ -44,9 +44,7 @@ impl Enum {
     pub fn to_stream(&self) -> TokenStream {
         panic!();
     }
-    
-    pub fn dependencies<F: Fn(&TypeName)>(&self, f: &F) {
-    }
+
 
 
 }
