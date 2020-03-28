@@ -15,7 +15,7 @@ impl Writer {
     fn new() -> Writer {
         let reader = Reader::from_os();
         let namespaces = Default::default();
-        let mut writer = Writer {reader, namespaces};
+        let mut writer = Writer { reader, namespaces };
 
         writer.add_namespace("Windows.Foundation");
         writer.add_namespace("Windows.Foundation.Collections");
@@ -24,14 +24,9 @@ impl Writer {
         writer
     }
 
+    fn add_type_name(&mut self, name: &TypeName) {}
 
-    fn add_type_name(&mut self, name: &TypeName) {
-
-    }
-
-    fn add_type_def(&mut self, def: &TypeDef) {
-
-    }
+    fn add_type_def(&mut self, def: &TypeDef) {}
 
     fn add_namespace(&mut self, namespace: &str) {
         if !self.namespaces.contains_key(namespace) {

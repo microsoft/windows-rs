@@ -21,7 +21,11 @@ impl Interface {
             .map(|method| Method::from_method_def(reader, method, &name.generics))
             .collect();
         let interfaces = Vec::new();
-        Self { name, methods, interfaces }
+        Self {
+            name,
+            methods,
+            interfaces,
+        }
     }
 
     fn from_type_ref(reader: &Reader, type_ref: TypeRef) -> Self {
@@ -32,7 +36,11 @@ impl Interface {
         let name = TypeName::from_type_spec(reader, spec);
         let methods = Vec::new();
         let interfaces = Vec::new();
-        Self { name, methods, interfaces }
+        Self {
+            name,
+            methods,
+            interfaces,
+        }
     }
 
     fn from_type_def_or_ref(reader: &Reader, code: TypeDefOrRef) -> Self {
@@ -52,14 +60,17 @@ impl Interface {
     pub fn to_stream(&self) -> TokenStream {
         panic!();
     }
-    
+
     // pub fn add_dependencies(&self, reader: &Reader, map: &mut BTreeMap::<TypeDef, Type>) {
     //     // self.methods.iter().for_each(|m|m.dependencies(f));
     //     // self.interfaces.iter().map(|i|&i.name).for_each(f);
     // }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
-        Vec::new()
+        self.interfaces
+            .iter()
+            .flat_map(|i| i.dependencies())
+            .chain(self.methods.iter().flat_map(|m| m.dependencies()))
+            .collect()
     }
-
 }

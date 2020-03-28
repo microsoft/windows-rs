@@ -9,6 +9,12 @@ pub struct TypeName {
 }
 
 impl TypeName {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        std::iter::once(self.def)
+            .chain(self.generics.iter().flat_map(|i| i.dependencies()))
+            .collect()
+    }
+
     pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
         let (namespace, name) = def.name(reader);
         let namespace = namespace.to_string();

@@ -17,12 +17,12 @@ use quote::{format_ident, quote};
 pub use reader::*;
 use row::*;
 use std::collections::btree_map::*;
+use std::collections::*;
 use std::convert::TryInto;
 pub use tables::*;
 pub use types::*;
 use winmd_macros::*;
 pub use writer::*;
-use std::collections::*;
 
 #[cfg(target_pointer_width = "64")]
 const SYSTEM32: &str = "System32";

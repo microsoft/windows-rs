@@ -44,7 +44,4 @@ impl Enum {
     pub fn to_stream(&self) -> TokenStream {
         panic!();
     }
-
-
-
 }

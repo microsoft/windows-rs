@@ -69,6 +69,10 @@ impl Class {
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.bases.iter().map(|i|i.def).chain(self.interfaces.iter().map(|i|i.name.def)).collect()
+        self.interfaces
+            .iter()
+            .flat_map(|i| i.dependencies())
+            .chain(self.bases.iter().map(|i| i.def))
+            .collect()
     }
 }

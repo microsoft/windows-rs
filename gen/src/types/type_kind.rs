@@ -26,6 +26,17 @@ pub enum TypeKind {
 }
 
 impl TypeKind {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        match self {
+            TypeKind::Class(name) => name.dependencies(),
+            TypeKind::Interface(name) => name.dependencies(),
+            TypeKind::Enum(name) => name.dependencies(),
+            TypeKind::Struct(name) => name.dependencies(),
+            TypeKind::Delegate(name) => name.dependencies(),
+            _ => Vec::new(),
+        }
+    }
+
     pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
 
@@ -94,20 +105,5 @@ impl TypeKind {
         blob.read_unsigned();
         blob.read_modifiers();
         Self::from_blob(&mut blob, &Vec::new())
-    }
-
-    // pub fn add_dependencies(&self, reader: &Reader, map: &mut BTreeMap::<TypeDef, Type>) {
-    //     // match self {
-    //     //     TypeKind::Class(name) => f(name),
-    //     //     TypeKind::Interface(name) => f(name),
-    //     //     TypeKind::Enum(name) => f(name),
-    //     //     TypeKind::Struct(name) => f(name),
-    //     //     TypeKind::Delegate(name) => f(name),
-    //     //     _ => {}
-    //     // }
-    // }
-
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        Vec::new()
     }
 }

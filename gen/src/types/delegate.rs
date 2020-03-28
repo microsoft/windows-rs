@@ -20,10 +20,8 @@ impl Delegate {
     pub fn to_stream(&self) -> TokenStream {
         panic!();
     }
-    
+
     pub fn dependencies(&self) -> Vec<TypeDef> {
-        Vec::new()
+        self.method.dependencies()
     }
-
-
 }

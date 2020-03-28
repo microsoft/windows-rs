@@ -13,6 +13,13 @@ pub struct StructField {
 }
 
 impl Struct {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.fields
+            .iter()
+            .flat_map(|i| i.kind.dependencies())
+            .collect()
+    }
+
     pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
         let mut fields = Vec::new();
@@ -29,14 +36,8 @@ impl Struct {
     pub fn to_stream(&self) -> TokenStream {
         panic!();
     }
-    
+
     // pub fn add_dependencies(&self, reader: &Reader, map: &mut BTreeMap::<TypeDef, Type>) {
     //     // self.fields.iter().map(|f|&f.kind).for_each(|k|k.dependencies(f));
     // }
-
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        Vec::new()
-    }
-
-
 }
