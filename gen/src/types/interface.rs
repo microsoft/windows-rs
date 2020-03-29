@@ -14,6 +14,14 @@ pub struct Interface {
 }
 
 impl Interface {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.interfaces
+            .iter()
+            .flat_map(|i| i.name.dependencies())
+            .chain(self.methods.iter().flat_map(|m| m.dependencies()))
+            .collect()
+    }
+
     pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
         let methods = def
@@ -59,18 +67,5 @@ impl Interface {
 
     pub fn to_stream(&self) -> TokenStream {
         panic!();
-    }
-
-    // pub fn add_dependencies(&self, reader: &Reader, map: &mut BTreeMap::<TypeDef, Type>) {
-    //     // self.methods.iter().for_each(|m|m.dependencies(f));
-    //     // self.interfaces.iter().map(|i|&i.name).for_each(f);
-    // }
-
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.interfaces
-            .iter()
-            .flat_map(|i| i.dependencies())
-            .chain(self.methods.iter().flat_map(|m| m.dependencies()))
-            .collect()
     }
 }

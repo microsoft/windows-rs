@@ -27,6 +27,14 @@ pub struct Param {
 }
 
 impl Method {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.return_type
+            .iter()
+            .chain(self.params.iter())
+            .flat_map(|i| i.kind.dependencies())
+            .collect()
+    }
+
     pub fn from_method_def(reader: &Reader, method: MethodDef, generics: &Vec<TypeKind>) -> Method {
         let name = method.name(reader).to_string();
         let mut blob = method.sig(reader);
@@ -83,9 +91,5 @@ impl Method {
             params,
             return_type,
         }
-    }
-
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        Vec::new()
     }
 }

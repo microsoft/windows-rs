@@ -36,8 +36,4 @@ impl Struct {
     pub fn to_stream(&self) -> TokenStream {
         panic!();
     }
-
-    // pub fn add_dependencies(&self, reader: &Reader, map: &mut BTreeMap::<TypeDef, Type>) {
-    //     // self.fields.iter().map(|f|&f.kind).for_each(|k|k.dependencies(f));
-    // }
 }
