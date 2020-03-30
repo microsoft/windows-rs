@@ -19,10 +19,19 @@ use row::*;
 use std::collections::btree_map::*;
 use std::collections::*;
 use std::convert::TryInto;
+use std::iter::FromIterator;
 pub use tables::*;
 pub use types::*;
 use winmd_macros::*;
 pub use writer::*;
+
+pub fn write_ident(name: &str) -> Ident {
+    if name == "Self" {
+        format_ident!("{}_", name)
+    } else {
+        format_ident!("r#{}", name)
+    }
+}
 
 #[cfg(target_pointer_width = "64")]
 const SYSTEM32: &str = "System32";

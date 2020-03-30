@@ -33,7 +33,13 @@ impl Struct {
         Self { name, fields }
     }
 
-    pub fn to_stream(&self) -> TokenStream {
-        panic!();
+    pub fn into_stream(&self) -> TokenStream {
+        let name = &self.name.name;
+
+        quote! {
+            pub struct #name {
+
+            }
+        }
     }
 }

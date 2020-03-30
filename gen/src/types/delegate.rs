@@ -24,4 +24,14 @@ impl Delegate {
     pub fn dependencies(&self) -> Vec<TypeDef> {
         self.method.dependencies()
     }
+
+    pub fn into_stream(&self) -> TokenStream {
+        let name = &self.name.name;
+
+        quote! {
+            pub struct #name {
+
+            }
+        }
+    }
 }
