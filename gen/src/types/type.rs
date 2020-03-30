@@ -9,6 +9,12 @@ pub enum Type {
     Delegate(Delegate),
 }
 
+// impl std::fmt::Debug for Type {
+//     fn fmt(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+//         write!(formatter, "{}.{}", self.name().namespace, self.name().name)
+//     }
+// }
+
 impl Type {
     pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
         match def.category(reader) {
@@ -27,6 +33,16 @@ impl Type {
             Type::Enum(t) => t.to_stream(),
             Type::Struct(t) => t.to_stream(),
             Type::Delegate(t) => t.to_stream(),
+        }
+    }
+
+    pub fn name(&self) -> &TypeName {
+        match self {
+            Type::Class(t) => &t.name,
+            Type::Interface(t) => &t.name,
+            Type::Enum(t) => &t.name,
+            Type::Struct(t) => &t.name,
+            Type::Delegate(t) => &t.name,
         }
     }
 
