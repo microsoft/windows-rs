@@ -1,6 +1,5 @@
 use crate::*;
 
-
 #[derive(Default)]
 pub struct TypeTree {
     types: Vec<Type>,

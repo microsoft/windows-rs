@@ -5,12 +5,12 @@ mod flags;
 mod reader;
 mod row;
 mod tables;
-mod types;
-mod writer;
 mod type_limits;
 mod type_namespace;
 mod type_stage;
 mod type_tree;
+mod types;
+mod writer;
 
 use blob::*;
 use codes::*;
@@ -25,13 +25,13 @@ use std::collections::*;
 use std::convert::TryInto;
 use std::iter::FromIterator;
 pub use tables::*;
-pub use types::*;
-use winmd_macros::*;
-pub use writer::*;
 pub use type_limits::*;
 pub use type_namespace::*;
 pub use type_stage::*;
 pub use type_tree::*;
+pub use types::*;
+use winmd_macros::*;
+pub use writer::*;
 
 pub fn write_ident(name: &str) -> Ident {
     if name == "Self" {
