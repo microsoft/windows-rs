@@ -7,6 +7,10 @@ mod row;
 mod tables;
 mod types;
 mod writer;
+mod type_limits;
+mod type_namespace;
+mod type_stage;
+mod type_tree;
 
 use blob::*;
 use codes::*;
@@ -24,6 +28,10 @@ pub use tables::*;
 pub use types::*;
 use winmd_macros::*;
 pub use writer::*;
+pub use type_limits::*;
+pub use type_namespace::*;
+pub use type_stage::*;
+pub use type_tree::*;
 
 pub fn write_ident(name: &str) -> Ident {
     if name == "Self" {
