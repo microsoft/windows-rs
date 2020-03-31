@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Default)]
 pub struct TypeTree {
     types: Vec<Type>,
-    namespaces: TypeNamespace,
+    namespaces: TypeNamespaces,
 }
 
 impl TypeTree {

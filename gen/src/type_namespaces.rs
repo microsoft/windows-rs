@@ -1,9 +1,9 @@
 use crate::*;
 
 #[derive(Default)]
-pub struct TypeNamespace(pub BTreeMap<String, TypeTree>);
+pub struct TypeNamespaces(pub BTreeMap<String, TypeTree>);
 
-impl TypeNamespace {
+impl TypeNamespaces {
     pub fn to_stream(&self) -> TokenStream {
         let mut tokens = Vec::new();
 
