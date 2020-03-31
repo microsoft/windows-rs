@@ -60,4 +60,15 @@ impl TypeName {
         blob.read_unsigned();
         TypeName::from_type_spec_blob(&mut blob, &Vec::new())
     }
+
+    pub fn ident(&self) -> TokenStream {
+        if self.generics.is_empty() {
+            let name = write_ident(&self.name);
+            quote! { #name }
+        } else {
+            let name = write_ident(&self.name[..self.name.len() - 2]);
+            let generics = self.generics.iter().map(|g| g.ident());
+            quote! { #name<#(#generics),*> }
+        }
+    }
 }

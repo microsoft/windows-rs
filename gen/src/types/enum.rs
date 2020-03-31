@@ -42,7 +42,7 @@ impl Enum {
     }
 
     pub fn into_stream(&self) -> TokenStream {
-        let name = &self.name.name;
+        let name = self.name.ident();
 
         quote! {
             pub struct #name {
