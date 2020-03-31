@@ -17,15 +17,11 @@ impl Delegate {
         Self { name, method }
     }
 
-    pub fn to_stream(&self) -> TokenStream {
-        panic!();
-    }
-
     pub fn dependencies(&self) -> Vec<TypeDef> {
         self.method.dependencies()
     }
 
-    pub fn into_stream(&self) -> TokenStream {
+    pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
         let phantoms = self.name.phantoms();
 

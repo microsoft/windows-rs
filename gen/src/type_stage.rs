@@ -29,7 +29,7 @@ impl TypeStage {
         }
     }
 
-    pub fn into_tree(self) -> TypeTree {
+    pub fn to_tree(self) -> TypeTree {
         let mut tree: TypeTree = Default::default();
         self.0
             .into_iter()

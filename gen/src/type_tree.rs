@@ -24,12 +24,12 @@ impl TypeTree {
         }
     }
 
-    pub fn into_stream(&self) -> TokenStream {
+    pub fn to_stream(&self) -> TokenStream {
         TokenStream::from_iter(
             self.types
                 .iter()
-                .map(|t| t.into_stream())
-                .chain(std::iter::once(self.namespaces.into_stream())),
+                .map(|t| t.to_stream())
+                .chain(std::iter::once(self.namespaces.to_stream())),
         )
     }
 }

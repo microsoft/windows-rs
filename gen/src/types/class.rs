@@ -66,7 +66,7 @@ impl Class {
         }
     }
 
-    pub fn into_stream(&self) -> TokenStream {
+    pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
 
         quote! {
