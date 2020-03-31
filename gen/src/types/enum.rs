@@ -43,10 +43,36 @@ impl Enum {
 
     pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
+        let default = write_ident(&self.fields[0].name);
+
+        let repr = match self.fields[0].value {
+            EnumConstant::U32(_) => format_ident!("u32"),
+            EnumConstant::I32(_) => format_ident!("i32"),
+        };
+
+        let fields = self.fields.iter().map(|field| {
+            let name = write_ident(&field.name);
+
+            let value = match field.value {
+                EnumConstant::U32(value) => quote! { #value },
+                EnumConstant::I32(value) => quote! { #value },
+            };
+
+            quote! {
+                #name = #value
+            }
+        });
 
         quote! {
-            pub struct #name {
-
+            #[repr(#repr)]
+            #[derive(Copy, Clone, Debug, PartialEq)]
+            pub enum #name {
+                #(#fields),*
+            }
+            impl Default for #name {
+                fn default() -> Self {
+                    Self::#default
+                }
             }
         }
     }
