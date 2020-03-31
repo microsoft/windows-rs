@@ -67,10 +67,11 @@ impl Interface {
 
     pub fn into_stream(&self) -> TokenStream {
         let name = self.name.ident();
+        let phantoms = self.name.phantoms();
 
         quote! {
             pub struct #name {
-
+                #phantoms
             }
         }
     }

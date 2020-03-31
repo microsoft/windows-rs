@@ -71,4 +71,20 @@ impl TypeName {
             quote! { #name<#(#generics),*> }
         }
     }
+
+    pub fn phantoms(&self) -> TokenStream {
+        if self.generics.is_empty() {
+            TokenStream::new()
+        } else {
+            let mut tokens = Vec::new();
+
+            for (count, generic) in self.generics.iter().enumerate() {
+                let name = format_ident!("__{}", count);
+                let generic = generic.ident();
+                tokens.push(quote! { #name: std::marker::PhantomData::<#generic>, })
+            }
+
+            TokenStream::from_iter(tokens)
+        }
+    }
 }
