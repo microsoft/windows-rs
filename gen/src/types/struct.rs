@@ -30,11 +30,19 @@ impl Struct {
     pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
 
+        let fields = self.fields.iter().map(|field| {
+            let name = write_ident(&field.0);
+            let kind = field.1.ident();
+            quote! {
+                pub #name: #kind
+            }
+        });
+
         quote! {
             #[repr(C)]
             #[derive(Copy, Clone, Default, Debug, PartialEq)]
             pub struct #name {
-
+                #(#fields),*
             }
         }
     }
