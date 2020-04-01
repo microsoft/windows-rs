@@ -3,13 +3,7 @@ use crate::*;
 #[derive(Debug)]
 pub struct Enum {
     pub name: TypeName,
-    pub fields: Vec<EnumField>,
-}
-
-#[derive(Debug)]
-pub struct EnumField {
-    pub name: String,
-    pub value: EnumConstant,
+    pub fields: Vec<(String, EnumConstant)>,
 }
 
 #[derive(Debug)]
@@ -34,7 +28,7 @@ impl Enum {
                     _ => panic!("Enum::from_type_def"),
                 };
 
-                fields.push(EnumField { name, value });
+                fields.push((name, value));
             }
         }
 
@@ -43,17 +37,17 @@ impl Enum {
 
     pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
-        let default = write_ident(&self.fields[0].name);
+        let default = write_ident(&self.fields[0].0);
 
-        let repr = match self.fields[0].value {
+        let repr = match self.fields[0].1 {
             EnumConstant::U32(_) => format_ident!("u32"),
             EnumConstant::I32(_) => format_ident!("i32"),
         };
 
         let fields = self.fields.iter().map(|field| {
-            let name = write_ident(&field.name);
+            let name = write_ident(&field.0);
 
-            let value = match field.value {
+            let value = match field.1 {
                 EnumConstant::U32(value) => quote! { #value },
                 EnumConstant::I32(value) => quote! { #value },
             };

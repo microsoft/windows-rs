@@ -3,20 +3,14 @@ use crate::*;
 #[derive(Debug)]
 pub struct Struct {
     pub name: TypeName,
-    pub fields: Vec<StructField>,
-}
-
-#[derive(Debug)]
-pub struct StructField {
-    pub name: String,
-    pub kind: TypeKind, // TODO: might have to be a full Type to ensure we can write out nested structs for ABI layout
+    pub fields: Vec<(String, TypeKind)>, // TODO: might have to be a full Type to ensure we can write out nested structs for ABI layout
 }
 
 impl Struct {
     pub fn dependencies(&self) -> Vec<TypeDef> {
         self.fields
             .iter()
-            .flat_map(|i| i.kind.dependencies())
+            .flat_map(|i| i.1.dependencies())
             .collect()
     }
 
@@ -27,7 +21,7 @@ impl Struct {
         for field in def.fields(reader) {
             let name = field.name(reader).to_string();
             let kind = TypeKind::from_field(reader, field);
-            fields.push(StructField { name, kind });
+            fields.push((name, kind));
         }
 
         Self { name, fields }
@@ -37,6 +31,8 @@ impl Struct {
         let name = self.name.ident();
 
         quote! {
+            #[repr(C)]
+            #[derive(Copy, Clone, Default, Debug, PartialEq)]
             pub struct #name {
 
             }
