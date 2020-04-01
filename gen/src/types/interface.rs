@@ -68,9 +68,13 @@ impl Interface {
     pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
         let phantoms = self.name.phantoms();
+        let constraints = self.name.constraints();
 
         quote! {
-            pub struct #name {
+            #[repr(C)]
+            #[derive(Default, Clone)]
+            pub struct #name where #constraints {
+                ptr: winrt::IUnknown,
                 #phantoms
             }
         }
