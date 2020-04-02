@@ -103,23 +103,15 @@ fn parse_import_stream(
 pub fn import(stream: TokenStream) -> TokenStream {
     let (dependencies, namespaces) = parse_import_stream(stream);
 
-    TokenStream::new()
+    let reader = &Reader::from_os();
 
-    // let mut writer = RustWriter::from_files(&dependencies);
+    let mut limits: TypeLimits = Default::default();
+    limits.insert(reader, "windows.foundation");
 
-    // for namespace in namespaces {
-    //     writer.add_namespace(&namespace);
-    // }
-
-    // // TODO: should we always include the windows.foundation.* namespaces for usability?
-
-    // let output = writer.write();
-
-    // use std::io::prelude::*;
-    // let mut file = std::fs::File::create(r"c:\git\rust\dump.rs").unwrap();
-    // file.write_all(output.to_string().as_bytes()).unwrap();
-
-    // output.into()
+    let stage = TypeStage::from_limits(reader, &limits);
+    let tree = stage.to_tree();
+    let stream = tree.to_stream();
+    stream.into()
 }
 
 #[proc_macro_attribute]
