@@ -10,7 +10,6 @@ mod type_namespaces;
 mod type_stage;
 mod type_tree;
 mod types;
-mod writer;
 
 use blob::*;
 use codes::*;
@@ -31,7 +30,6 @@ pub use type_stage::*;
 pub use type_tree::*;
 pub use types::*;
 use winmd_macros::*;
-pub use writer::*;
 
 pub fn write_ident(name: &str) -> Ident {
     if name == "Self" {
