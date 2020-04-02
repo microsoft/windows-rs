@@ -61,6 +61,12 @@ impl TypeDef {
             .any(|attribute| attribute.name(reader) == name)
     }
 
+    pub fn attribute(&self, reader: &Reader, name: (&str, &str)) -> Attribute {
+        self.attributes(reader)
+            .find(|attribute| attribute.name(reader) == name)
+            .unwrap()
+    }
+
     pub fn ignore(&self, reader: &Reader) -> bool {
         let flags = self.flags(reader);
 

@@ -3,7 +3,7 @@ use crate::*;
 #[derive(Debug)]
 pub struct Interface {
     pub name: TypeName,
-    // pub guid: Guid,
+    pub guid: TypeGuid,
     pub methods: Vec<Method>,
     // pub default: bool,
     // pub exclusive: bool,
@@ -24,6 +24,7 @@ impl Interface {
 
     pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
+        let guid = TypeGuid::new(); // TODO: read from metadata
         let methods = def
             .methods(reader)
             .map(|method| Method::from_method_def(reader, method, &name.generics))
@@ -31,6 +32,7 @@ impl Interface {
         let interfaces = Vec::new();
         Self {
             name,
+            guid,
             methods,
             interfaces,
         }
@@ -42,10 +44,12 @@ impl Interface {
 
     fn from_type_spec(reader: &Reader, spec: TypeSpec) -> Self {
         let name = TypeName::from_type_spec(reader, spec);
+        let guid = TypeGuid::new(); // TODO: Generate generic guid specialization
         let methods = Vec::new();
         let interfaces = Vec::new();
         Self {
             name,
+            guid,
             methods,
             interfaces,
         }
@@ -69,6 +73,7 @@ impl Interface {
         let name = self.name.ident();
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
+        let projected_methods = TokenStream::new();
 
         quote! {
             #[repr(C)]
@@ -76,6 +81,9 @@ impl Interface {
             pub struct #name where #constraints {
                 ptr: winrt::IUnknown,
                 #phantoms
+            }
+            impl<#constraints> #name {
+                #projected_methods
             }
         }
     }

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct TypeStage(pub BTreeMap<TypeDef, Type>);
 
 impl TypeStage {

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct TypeLimits(pub BTreeSet<String>);
 
 impl TypeLimits {
