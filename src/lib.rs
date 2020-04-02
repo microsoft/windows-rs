@@ -1,20 +1,19 @@
 #![allow(dead_code)]
 
-mod abi;
 mod activation;
 mod array;
 mod error;
 mod events;
 mod guid;
 mod hstring;
-pub mod object;
+mod object;
 mod param;
 mod ref_count;
 mod runtime;
 mod traits;
-pub mod weak;
+mod unknown;
+mod weak;
 
-pub use abi::*;
 pub use activation::*;
 pub use array::*;
 pub use error::*;
@@ -26,4 +25,8 @@ pub use param::*;
 pub use ref_count::*;
 pub use runtime::*;
 pub use traits::*;
+pub use unknown::*;
+pub use weak::*;
 pub use winrt_macros::*;
+
+pub type RawPtr = *mut std::ffi::c_void;

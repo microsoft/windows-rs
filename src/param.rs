@@ -1,63 +1,75 @@
 use crate::*;
 
-pub enum Param<'a, T> {
-    Ref(&'a T),
-    Value(T),
+pub enum Param<'a, T: RuntimeType> {
+    Borrowed(&'a T),
+    Owned(T),
 }
 
 impl<'a, T: RuntimeType> Param<'a, T> {
     pub fn abi(&mut self) -> T::Abi {
         match self {
-            Param::Ref(value) => value.abi(),
-            Param::Value(value) => value.abi(),
+            Param::Borrowed(value) => value.abi(),
+            Param::Owned(value) => value.abi(),
         }
     }
 }
 
+impl<'a, T: RuntimeType> From<T> for Param<'a, T> {
+    fn from(value: T) -> Param<'a, T> {
+        Param::Owned(value)
+    }
+}
+
+impl<'a, T: RuntimeType> From<&'a T> for Param<'a, T> {
+    fn from(value: &'a T) -> Param<'a, T> {
+        Param::Borrowed(value)
+    }
+}
+
 pub enum StringParam<'a> {
-    Ref(&'a str),
-    String(String),
-    Winrt(super::HString),
-    WinrtRef(&'a super::HString),
+    Borrowed(&'a str),
+    Owned(String),
+    RuntimeBorrowed(&'a super::HString),
+    RuntimeOwned(super::HString),
 }
 
 impl<'a> StringParam<'a> {
     pub fn abi(&mut self) -> RawPtr {
         match self {
-            StringParam::Ref(value) => {
-                *self = StringParam::Winrt((*value).into());
+            StringParam::Borrowed(value) => {
+                *self = StringParam::RuntimeOwned((*value).into());
                 self.abi()
             }
-            StringParam::String(value) => {
-                *self = StringParam::Winrt(value.as_str().into());
+            StringParam::Owned(value) => {
+                *self = StringParam::RuntimeOwned(value.as_str().into());
                 self.abi()
             }
-            StringParam::Winrt(value) => value.abi(),
-            StringParam::WinrtRef(value) => value.abi(),
+            StringParam::RuntimeOwned(value) => value.abi(),
+            StringParam::RuntimeBorrowed(value) => value.abi(),
         }
     }
 }
 
-impl<'a> Into<StringParam<'a>> for &'a str {
-    fn into(self) -> StringParam<'a> {
-        StringParam::Ref(self)
+impl<'a> From<&'a str> for StringParam<'a> {
+    fn from(value: &'a str) -> StringParam<'a> {
+        StringParam::Borrowed(value)
     }
 }
 
-impl<'a> Into<StringParam<'a>> for String {
-    fn into(self) -> StringParam<'a> {
-        StringParam::String(self)
+impl<'a> From<String> for StringParam<'a> {
+    fn from(value: String) -> StringParam<'a> {
+        StringParam::Owned(value)
     }
 }
 
-impl<'a> Into<StringParam<'a>> for super::HString {
-    fn into(self) -> StringParam<'a> {
-        StringParam::Winrt(self)
+impl<'a> From<HString> for StringParam<'a> {
+    fn from(value: HString) -> StringParam<'a> {
+        StringParam::RuntimeOwned(value)
     }
 }
 
-impl<'a> Into<StringParam<'a>> for &'a super::HString {
-    fn into(self) -> StringParam<'a> {
-        StringParam::WinrtRef(self)
+impl<'a> From<&'a HString> for StringParam<'a> {
+    fn from(value: &'a HString) -> StringParam<'a> {
+        StringParam::RuntimeBorrowed(value)
     }
 }

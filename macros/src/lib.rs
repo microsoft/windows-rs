@@ -1,6 +1,6 @@
-extern crate proc_macro;
-
 use proc_macro::*;
+use quote::quote;
+use syn::*;
 use winmd::*;
 
 #[derive(PartialEq)]
@@ -103,22 +103,47 @@ fn parse_import_stream(
 pub fn import(stream: TokenStream) -> TokenStream {
     let (dependencies, namespaces) = parse_import_stream(stream);
 
-    let mut writer = RustWriter::from_files(&dependencies);
+    let reader = &Reader::from_os();
 
-    for namespace in namespaces {
-        writer.add_namespace(&namespace);
-    }
+    let mut limits: TypeLimits = Default::default();
+    limits.insert(reader, "windows.foundation");
 
-    // TODO: should we always include the windows.foundation.* namespaces for usability?
+    let stage = TypeStage::from_limits(reader, &limits);
+    let tree = stage.to_tree();
+    let stream = tree.to_stream();
+    stream.into()
+}
 
-    let output = writer.write();
+#[proc_macro_attribute]
+pub fn class(args: TokenStream, input: TokenStream) -> TokenStream {
+    input
+}
 
-    let path = std::path::PathBuf::from(r"c:\git\rust");
-    if path.exists() {
-        use std::io::prelude::*;
-        let mut file = std::fs::File::create(path.join("dump.rs")).unwrap();
-        file.write_all(output.to_string().as_bytes()).unwrap();
-    }
+#[proc_macro_attribute]
+pub fn value_type(args: TokenStream, input: TokenStream) -> TokenStream {
+    let input = parse_macro_input!(input as ItemStruct);
+    let name = &input.ident;
+
+    // TODO: if the struct is non-blittable then we need to generate a custom RuntimeType that ensures
+    // that a POD is returned across the ABI.
+
+    let output = quote! {
+        #[repr(C)]
+        #[derive(Copy, Clone, Default, Debug, PartialEq)]
+        #input
+        impl winrt::RuntimeType for #name {
+            type Abi = Self;
+
+            fn abi(&self) -> Self::Abi {
+                *self
+            }
+
+            fn set_abi(&mut self) -> *mut Self::Abi {
+                self as *mut Self::Abi
+            }
+        }
+
+    };
 
     output.into()
 }

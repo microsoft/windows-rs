@@ -12,16 +12,18 @@ use crate::*;
 // of the HSTRING APIs that's compatible with Windows 10 but can also run down level.
 //
 
-#[link(name = "windowsapp")]
+#[link(name = "kernel32")]
 extern "system" {
     pub fn LoadLibraryW(name: *const u16) -> RawPtr;
     pub fn GetProcAddress(library: RawPtr, name: *const u8) -> RawPtr;
     pub fn GetProcessHeap() -> RawPtr;
     pub fn HeapAlloc(heap: RawPtr, flags: u32, bytes: usize) -> RawPtr;
     pub fn HeapFree(heap: RawPtr, flags: u32, ptr: RawPtr) -> i32;
+}
 
-    // TODO: get rid of these (not available on Windows 7)
-    pub fn CoInitializeEx(reserved: usize, apartment: u32) -> ErrorCode;
+#[link(name = "onecore")]
+extern "system" {
+    // TODO: get rid of these (not available on Windows 7) - we'll load these dynamically
     pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
     pub fn RoGetActivationFactory(
         hstring: RawPtr,

@@ -1,5 +1,3 @@
-use crate::error::{ParseError, ParseResult};
-
 #[derive(Default)]
 pub struct TableData {
     pub data: u32,
@@ -9,7 +7,7 @@ pub struct TableData {
 }
 
 #[derive(Default)]
-pub struct File {
+pub struct WinmdFile {
     pub bytes: Vec<u8>,
     pub strings: u32,
     pub blobs: u32,
@@ -67,19 +65,19 @@ impl TableData {
     }
 }
 
-impl File {
-    pub fn new<P: AsRef<std::path::Path>>(filename: P) -> ParseResult<Self> {
+impl WinmdFile {
+    pub fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
         let mut file = Self {
-            bytes: std::fs::read(filename)?,
+            bytes: std::fs::read(filename).unwrap(),
             ..Default::default()
         };
-        let dos = file.bytes.view_as::<ImageDosHeader>(0)?;
+        let dos = file.bytes.view_as::<ImageDosHeader>(0);
 
         if dos.signature != IMAGE_DOS_SIGNATURE {
-            return Err(ParseError::InvalidFile);
+            panic!("Invalid file");
         }
 
-        let pe = file.bytes.view_as::<ImageNtHeader>(dos.lfanew as u32)?;
+        let pe = file.bytes.view_as::<ImageNtHeader>(dos.lfanew as u32);
 
         let (com_virtual_address, sections) = match pe.optional_header.magic {
             MAGIC_PE32 => (
@@ -88,58 +86,55 @@ impl File {
                 file.bytes.view_as_slice_of::<ImageSectionHeader>(
                     dos.lfanew as u32 + sizeof::<ImageNtHeader>(),
                     pe.file_header.number_of_sections as u32,
-                )?,
+                ),
             ),
             MAGIC_PE32PLUS => (
                 file.bytes
-                    .view_as::<ImageNtHeaderPlus>(dos.lfanew as u32)?
+                    .view_as::<ImageNtHeaderPlus>(dos.lfanew as u32)
                     .optional_header
                     .data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
                     .virtual_address,
                 file.bytes.view_as_slice_of::<ImageSectionHeader>(
                     dos.lfanew as u32 + sizeof::<ImageNtHeaderPlus>(),
                     pe.file_header.number_of_sections as u32,
-                )?,
+                ),
             ),
-            _ => return Err(ParseError::InvalidFile),
+            _ => panic!("Invalid file"),
         };
 
         let cli = file.bytes.view_as::<ImageCorHeader>(offset_from_rva(
-            section_from_rva(sections, com_virtual_address)?,
+            section_from_rva(sections, com_virtual_address),
             com_virtual_address,
-        ))?;
+        ));
 
         if cli.cb != sizeof::<ImageCorHeader>() {
-            return Err(ParseError::InvalidFile);
+            panic!("Invalid file");
         }
 
         let cli_offset = offset_from_rva(
-            section_from_rva(sections, cli.meta_data.virtual_address)?,
+            section_from_rva(sections, cli.meta_data.virtual_address),
             cli.meta_data.virtual_address,
         );
 
-        if *file.bytes.view_as::<u32>(cli_offset)? != STORAGE_MAGIC_SIG {
-            return Err(ParseError::InvalidFile);
+        if *file.bytes.view_as::<u32>(cli_offset) != STORAGE_MAGIC_SIG {
+            panic!("Invalid file");
         }
 
-        let version_length = *file.bytes.view_as::<u32>(cli_offset + 12)?;
+        let version_length = *file.bytes.view_as::<u32>(cli_offset + 12);
         let mut view = cli_offset + version_length + 20;
         let mut tables_data: (u32, u32) = (0, 0);
 
-        for _ in 0..*file
-            .bytes
-            .view_as::<u16>(cli_offset + version_length + 18)?
-        {
-            let stream_offset = *file.bytes.view_as::<u32>(view)?;
-            let stream_size = *file.bytes.view_as::<u32>(view + 4)?;
-            let stream_name = file.bytes.view_as_str(view + 8)?;
+        for _ in 0..*file.bytes.view_as::<u16>(cli_offset + version_length + 18) {
+            let stream_offset = *file.bytes.view_as::<u32>(view);
+            let stream_size = *file.bytes.view_as::<u32>(view + 4);
+            let stream_name = file.bytes.view_as_str(view + 8);
             match stream_name {
                 b"#Strings" => file.strings = cli_offset + stream_offset,
                 b"#Blob" => file.blobs = cli_offset + stream_offset,
                 b"#GUID" => file.guids = cli_offset + stream_offset,
                 b"#~" => tables_data = (cli_offset + stream_offset, stream_size),
                 b"#US" => {}
-                _ => return Err(ParseError::InvalidFile),
+                _ => panic!("Invalid file"),
             }
             let mut padding = 4 - stream_name.len() % 4;
             if padding == 0 {
@@ -148,11 +143,11 @@ impl File {
             view = view + (8 + stream_name.len() + padding) as u32;
         }
 
-        let heap_sizes = *file.bytes.view_as::<u8>(tables_data.0 + 6)?;
+        let heap_sizes = *file.bytes.view_as::<u8>(tables_data.0 + 6);
         let string_index_size = if (heap_sizes & 1) == 1 { 4 } else { 2 };
         let guid_index_size = if (heap_sizes >> 1 & 1) == 1 { 4 } else { 2 };
         let blob_index_size = if (heap_sizes >> 2 & 1) == 1 { 4 } else { 2 };
-        let valid_bits = *file.bytes.view_as::<u64>(tables_data.0 + 8)?;
+        let valid_bits = *file.bytes.view_as::<u64>(tables_data.0 + 8);
         view = tables_data.0 + 24;
 
         // These tables are unused by WinRT, but needed temporarily to calculate sizes and offsets for subsequent tables.
@@ -190,7 +185,7 @@ impl File {
                 continue;
             }
 
-            let row_count = *file.bytes.view_as::<u32>(view)?;
+            let row_count = *file.bytes.view_as::<u32>(view);
             view = view + 4;
 
             match i {
@@ -232,7 +227,7 @@ impl File {
                 0x2a => file.tables[TABLE_GENERICPARAM].row_count = row_count,
                 0x2b => unused_method_spec.row_count = row_count,
                 0x2c => unused_generic_param_constraint.row_count = row_count,
-                _ => return Err(ParseError::InvalidFile),
+                _ => panic!("Invalid file"),
             };
         }
 
@@ -520,7 +515,7 @@ impl File {
         unused_nested_class.set_data(&mut view);
         file.tables[TABLE_GENERICPARAM].set_data(&mut view);
 
-        Ok(file)
+        file
     }
 
     pub fn type_def_table(&self) -> &TableData {
@@ -528,17 +523,17 @@ impl File {
     }
 }
 
-fn section_from_rva(sections: &[ImageSectionHeader], rva: u32) -> ParseResult<&ImageSectionHeader> {
+fn section_from_rva(sections: &[ImageSectionHeader], rva: u32) -> &ImageSectionHeader {
     sections
         .iter()
         .find(|&s| {
             rva >= s.virtual_address && rva < s.virtual_address + s.physical_address_or_virtual_size
         })
-        .ok_or_else(|| ParseError::InvalidFile)
+        .expect("Invalid file")
 }
 
 fn offset_from_rva(section: &ImageSectionHeader, rva: u32) -> u32 {
-    (rva - section.virtual_address + section.pointer_to_raw_data)
+    rva - section.virtual_address + section.pointer_to_raw_data
 }
 
 fn sizeof<T>() -> u32 {
@@ -576,43 +571,38 @@ fn composite_index_size(tables: &[&TableData]) -> u32 {
 }
 
 pub trait View {
-    fn view_as<T>(&self, cli_offset: u32) -> ParseResult<&T>;
-    fn view_as_slice_of<T>(&self, cli_offset: u32, len: u32) -> ParseResult<&[T]>;
-    fn view_as_str(&self, cli_offset: u32) -> ParseResult<&[u8]>;
+    fn view_as<T>(&self, cli_offset: u32) -> &T;
+    fn view_as_slice_of<T>(&self, cli_offset: u32, len: u32) -> &[T];
+    fn view_as_str(&self, cli_offset: u32) -> &[u8];
 }
 
-// TODO: remove use of unsafe blocks by simply indexing into the struct/fields with offsets
-// and avoiding the structs altogether.
-
 impl View for [u8] {
-    fn view_as<T>(&self, cli_offset: u32) -> ParseResult<&T> {
+    fn view_as<T>(&self, cli_offset: u32) -> &T {
         if cli_offset + sizeof::<T>() > self.len() as u32 {
-            return Err(ParseError::InvalidFile);
+            panic!("Invalid file");
         }
-        unsafe { Ok(&*(&self[cli_offset as usize] as *const u8 as *const T)) }
+        unsafe { &*(&self[cli_offset as usize] as *const u8 as *const T) }
     }
 
-    fn view_as_slice_of<T>(&self, cli_offset: u32, len: u32) -> ParseResult<&[T]> {
+    fn view_as_slice_of<T>(&self, cli_offset: u32, len: u32) -> &[T] {
         if cli_offset + sizeof::<T>() * len > self.len() as u32 {
-            return Err(ParseError::InvalidFile);
+            panic!("Invalid file");
         }
         unsafe {
-            Ok(std::slice::from_raw_parts(
+            std::slice::from_raw_parts(
                 &self[cli_offset as usize] as *const u8 as *const T,
                 len as usize,
-            ))
+            )
         }
     }
 
-    fn view_as_str(&self, cli_offset: u32) -> ParseResult<&[u8]> {
-        let buffer = self
-            .get(cli_offset as usize..)
-            .ok_or_else(|| ParseError::InvalidFile)?;
+    fn view_as_str(&self, cli_offset: u32) -> &[u8] {
+        let buffer = &self[cli_offset as usize..];
         let index = buffer
             .iter()
             .position(|c| *c == b'\0')
-            .ok_or_else(|| ParseError::InvalidFile)?;
-        Ok(&self[cli_offset as usize..cli_offset as usize + index])
+            .expect("Invalid file");
+        &self[cli_offset as usize..cli_offset as usize + index]
     }
 }
 

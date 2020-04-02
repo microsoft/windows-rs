@@ -6,7 +6,7 @@ use crate::*;
 // that this is super fast. Also, load RoGetActivationFactory dynamically and fall back to LoadLibrary
 // and implement DLL garbage collection for those. Version 0.1 can probably just pin everything.
 // https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
-pub fn factory<C: TypeName, I: QueryType>() -> Result<I> {
+pub fn factory<C: TypeName, I: TypeGuid>() -> Result<I> {
     unsafe {
         let mut ptr = std::ptr::null_mut();
 
@@ -31,37 +31,39 @@ pub fn factory<C: TypeName, I: QueryType>() -> Result<I> {
     }
 }
 
-#[repr(transparent)]
-#[derive(Clone)]
+#[repr(C)]
+#[derive(Default, Clone)]
 pub struct IActivationFactory {
-    ptr: com::ComPtr<dyn abi::IActivationFactory>,
+    ptr: IUnknown,
 }
 
 impl IActivationFactory {
-    pub fn activate_instance<I: QueryType>(&self) -> Result<I> {
-        use abi::IActivationFactory;
-        let mut instance = std::ptr::null_mut();
-
+    pub fn activate_instance<I: TypeGuid>(&self) -> Result<I> {
         unsafe {
-            // TODO: this is cheating - we need a QI here...
-            self.ptr
-                .activate_instance(&mut instance)
-                .ok_or(std::mem::transmute_copy(&instance))
+            let mut object: Object = Default::default();
+            ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(
+                self.ptr.get(),
+                object.set_abi(),
+            )
+            .ok_or(safe_query(&object))
         }
     }
 }
 
-impl QueryType for IActivationFactory {
+impl TypeGuid for IActivationFactory {
     fn type_guid() -> &'static Guid {
-        use com::ComInterface;
-        static GUID: Guid = Guid(abi::IActivationFactory::IID);
+        static GUID: Guid = Guid::from_values(
+            0x00000035,
+            0x0000,
+            0x0000,
+            &[0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
+        );
         &GUID
     }
 }
 
-mod abi {
-    #[com::com_interface("00000035-0000-0000-C000-000000000046")]
-    pub trait IActivationFactory: crate::object::abi::IInspectable {
-        unsafe fn activate_instance(&self, instance: *mut crate::RawPtr) -> crate::ErrorCode;
-    }
+#[repr(C)]
+struct abi_IActivationFactory {
+    __base: [usize; 6],
+    activate_instance: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
 }

@@ -1,6 +1,8 @@
-use winmd_macros::type_code;
+use crate::*;
 
-use crate::read::*;
+pub trait Decode {
+    fn decode(code: u32, file: u16) -> Self;
+}
 
 #[type_code(2)]
 pub enum TypeDefOrRef {
@@ -16,7 +18,7 @@ pub enum TypeOrMethodDef {
 }
 
 #[type_code(5)]
-pub enum HasCustomAttribute {
+pub enum HasAttribute {
     MethodDef,
     Field,
     TypeRef,
@@ -43,33 +45,25 @@ pub enum HasConstant {
 }
 
 #[type_code(3)]
-pub enum CustomAttributeType {
+pub enum AttributeType {
     MethodDef = 2,
     MemberRef,
 }
 
 impl TypeDefOrRef {
-    pub(crate) fn name<'a>(&self, reader: &'a Reader) -> &'a str {
+    pub fn name<'a>(&self, reader: &'a Reader) -> (&'a str, &'a str) {
         match self {
-            Self::TypeDef(value) => value.name(reader),
-            Self::TypeRef(value) => value.name(reader),
-            Self::TypeSpec(_) => panic!("TypeDefOrRef"),
+            TypeDefOrRef::TypeDef(value) => value.name(reader),
+            TypeDefOrRef::TypeRef(value) => value.name(reader),
+            TypeDefOrRef::TypeSpec(_) => panic!(),
         }
     }
 
-    pub(crate) fn namespace<'a>(&self, reader: &'a Reader) -> &'a str {
-        match self {
-            Self::TypeDef(value) => value.namespace(reader),
-            Self::TypeRef(value) => value.namespace(reader),
-            Self::TypeSpec(value) => value.signature(reader).definition().namespace(reader),
-        }
-    }
-
-    pub(crate) fn resolve(&self, reader: &Reader) -> TypeDef {
+    pub fn resolve(&self, reader: &Reader) -> TypeDef {
         match self {
             Self::TypeDef(value) => *value,
             Self::TypeRef(value) => value.resolve(reader),
-            Self::TypeSpec(_) => panic!("TypeDefOrRef"),
+            Self::TypeSpec(_) => panic!(),
         }
     }
 }

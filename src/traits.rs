@@ -1,18 +1,10 @@
 use crate::*;
 
-pub trait QueryType: Sized {
+// WinRT classes and interfaces implement this trait. WinRT classes implement it by returning the Guid
+// of the default interface. Static WinRT classes don't implement this trait. WinRT generic interfaces
+// don't yet retunr the correct value from type_guid because Rust's const functions are too limited.
+pub trait TypeGuid {
     fn type_guid() -> &'static Guid;
-
-    fn query<T: QueryType>(&self) -> T {
-        unsafe { std::mem::transmute_copy(&query::<T>(std::mem::transmute_copy(self))) }
-    }
-
-    fn is_empty(&self) -> bool {
-        unsafe {
-            let some: usize = std::mem::transmute_copy(self);
-            some == 0
-        }
-    }
 }
 
 // Required for classes and interfaces
@@ -20,7 +12,7 @@ pub trait TypeName {
     fn type_name() -> &'static str;
 }
 
-// All WinRT types (usable as generic type params so not arrays).
+// RuntimeType is used to constrain WinRT generic types to WinRT types
 pub trait RuntimeType {
     type Abi;
 
@@ -44,10 +36,7 @@ impl RuntimeCopy for f32 {}
 impl RuntimeCopy for f64 {}
 impl RuntimeCopy for Guid {}
 
-impl<T> RuntimeType for T
-where
-    T: RuntimeCopy,
-{
+impl<T: RuntimeCopy> RuntimeType for T {
     type Abi = Self;
 
     fn abi(&self) -> Self::Abi {
