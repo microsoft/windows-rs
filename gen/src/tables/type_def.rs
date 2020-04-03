@@ -4,70 +4,68 @@ use crate::*;
 pub struct TypeDef(pub Row);
 
 impl TypeDef {
-    pub fn flags(&self, reader: &Reader) -> TypeFlags {
+    pub fn flags(self, reader: &Reader) -> TypeFlags {
         TypeFlags(reader.u32(self.0, 0))
     }
 
-    pub fn name<'a>(&self, reader: &'a Reader) -> (&'a str, &'a str) {
+    pub fn name(self, reader: &Reader) -> (&str, &str) {
         (reader.str(self.0, 2), reader.str(self.0, 1))
     }
 
-    pub fn extends(&self, reader: &Reader) -> TypeDefOrRef {
+    pub fn extends(self, reader: &Reader) -> TypeDefOrRef {
         reader.decode(self.0, 3)
     }
 
-    pub fn fields(&self, reader: &Reader) -> impl Iterator<Item = Field> {
-        reader
-            .list(self.0, TABLE_FIELD as u16, 4)
-            .map(|row| Field(row))
+    pub fn fields(self, reader: &Reader) -> impl Iterator<Item = Field> {
+        reader.list(self.0, TABLE_FIELD as u16, 4).map(Field)
     }
 
-    pub fn methods(&self, reader: &Reader) -> impl Iterator<Item = MethodDef> {
+    pub fn methods(self, reader: &Reader) -> impl Iterator<Item = MethodDef> {
         reader
             .list(self.0, TABLE_METHODDEF as u16, 5)
-            .map(|row| MethodDef(row))
+            .map(MethodDef)
     }
 
-    pub fn generics(&self, reader: &Reader) -> impl Iterator<Item = GenericParam> {
+    pub fn generics(self, reader: &Reader) -> impl Iterator<Item = GenericParam> {
         reader
             .equal_range(
                 self.0.file,
                 TABLE_GENERICPARAM,
                 2,
-                TypeOrMethodDef::TypeDef(*self).encode(),
+                TypeOrMethodDef::TypeDef(self).encode(),
             )
-            .map(|row| GenericParam(row))
+            .map(GenericParam)
     }
 
-    pub fn interfaces(&self, reader: &Reader) -> impl Iterator<Item = InterfaceImpl> {
+    pub fn interfaces(self, reader: &Reader) -> impl Iterator<Item = InterfaceImpl> {
         reader
             .equal_range(self.0.file, TABLE_INTERFACEIMPL, 0, self.0.row + 1)
-            .map(|row| InterfaceImpl(row))
+            .map(InterfaceImpl)
     }
 
-    pub fn attributes(&self, reader: &Reader) -> impl Iterator<Item = Attribute> {
+    pub fn attributes(self, reader: &Reader) -> impl Iterator<Item = Attribute> {
         reader
             .equal_range(
                 self.0.file,
                 TABLE_CUSTOMATTRIBUTE,
                 0,
-                HasAttribute::TypeDef(*self).encode(),
+                HasAttribute::TypeDef(self).encode(),
             )
-            .map(|row| Attribute(row))
+            .map(Attribute)
     }
 
-    pub fn has_attribute(&self, reader: &Reader, name: (&str, &str)) -> bool {
+    pub fn has_attribute(self, reader: &Reader, name: (&str, &str)) -> bool {
         self.attributes(reader)
             .any(|attribute| attribute.name(reader) == name)
     }
 
-    pub fn attribute(&self, reader: &Reader, name: (&str, &str)) -> Attribute {
+    pub fn attribute(self, reader: &Reader, name: (&str, &str)) -> Attribute {
         self.attributes(reader)
             .find(|attribute| attribute.name(reader) == name)
             .unwrap()
     }
 
-    pub fn ignore(&self, reader: &Reader) -> bool {
+    pub fn ignore(self, reader: &Reader) -> bool {
         let flags = self.flags(reader);
 
         if !flags.windows_runtime() {
@@ -86,7 +84,7 @@ impl TypeDef {
         }
     }
 
-    pub fn category(&self, reader: &Reader) -> TypeCategory {
+    pub fn category(self, reader: &Reader) -> TypeCategory {
         debug_assert!(self.flags(reader).windows_runtime());
 
         if self.flags(reader).interface() {
@@ -101,7 +99,7 @@ impl TypeDef {
         }
     }
 
-    pub fn info(&self, reader: &Reader) -> Type {
-        Type::from_type_def(reader, *self)
+    pub fn info(self, reader: &Reader) -> Type {
+        Type::from_type_def(reader, self)
     }
 }

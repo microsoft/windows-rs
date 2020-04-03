@@ -4,18 +4,18 @@ use crate::*;
 pub struct InterfaceImpl(pub Row);
 
 impl InterfaceImpl {
-    pub fn interface(&self, reader: &Reader) -> TypeDefOrRef {
+    pub fn interface(self, reader: &Reader) -> TypeDefOrRef {
         reader.decode(self.0, 1)
     }
 
-    pub fn attributes(&self, reader: &Reader) -> impl Iterator<Item = Attribute> {
+    pub fn attributes(self, reader: &Reader) -> impl Iterator<Item = Attribute> {
         reader
             .equal_range(
                 self.0.file,
                 TABLE_CUSTOMATTRIBUTE,
                 0,
-                HasAttribute::InterfaceImpl(*self).encode(),
+                HasAttribute::InterfaceImpl(self).encode(),
             )
-            .map(|row| Attribute(row))
+            .map(Attribute)
     }
 }

@@ -51,7 +51,7 @@ impl Type {
         match self {
             Type::Class(t) => t.dependencies(),
             Type::Interface(t) => t.dependencies(),
-            Type::Enum(t) => Vec::new(),
+            Type::Enum(_t) => Vec::new(),
             Type::Struct(t) => t.dependencies(),
             Type::Delegate(t) => t.dependencies(),
         }

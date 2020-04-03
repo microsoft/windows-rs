@@ -100,7 +100,7 @@ impl From<&str> for HString {
             // place each utf-16 character into the buffer and
             // increase len as we go along
             for (index, wide) in value.encode_utf16().enumerate() {
-                *((*ptr).ptr.offset(index as isize) as *mut _) = wide;
+                *((*ptr).ptr.add(index) as *mut _) = wide;
                 (*ptr).len = index as u32 + 1;
             }
 
@@ -145,10 +145,7 @@ impl PartialEq<str> for HString {
 
 impl PartialEq<&str> for HString {
     fn eq(&self, other: &&str) -> bool {
-        self.as_chars()
-            .iter()
-            .map(|left| *left)
-            .eq(other.encode_utf16())
+        self.as_chars().iter().copied().eq(other.encode_utf16())
     }
 }
 

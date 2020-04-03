@@ -4,15 +4,15 @@ use crate::*;
 pub struct Param(pub Row);
 
 impl Param {
-    pub fn flags(&self, reader: &Reader) -> ParamFlags {
+    pub fn flags(self, reader: &Reader) -> ParamFlags {
         ParamFlags(reader.u32(self.0, 0))
     }
 
-    pub fn sequence(&self, reader: &Reader) -> u32 {
+    pub fn sequence(self, reader: &Reader) -> u32 {
         reader.u32(self.0, 1)
     }
 
-    pub fn name<'a>(&self, reader: &'a Reader) -> &'a str {
+    pub fn name(self, reader: &Reader) -> &str {
         reader.str(self.0, 2)
     }
 }

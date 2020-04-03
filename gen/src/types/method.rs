@@ -35,7 +35,7 @@ impl Method {
             .collect()
     }
 
-    pub fn from_method_def(reader: &Reader, method: MethodDef, generics: &Vec<TypeKind>) -> Method {
+    pub fn from_method_def(reader: &Reader, method: MethodDef, generics: &[TypeKind]) -> Method {
         let name = method.name(reader).to_string();
         let mut blob = method.sig(reader);
 
@@ -67,7 +67,7 @@ impl Method {
         let mut params = Vec::with_capacity(param_count as usize);
 
         for param in method.params(reader) {
-            if !return_type.is_some() || param.sequence(reader) != 0 {
+            if return_type.is_none() || param.sequence(reader) != 0 {
                 let name = param.name(reader).to_string();
                 let input = param.flags(reader).input();
 

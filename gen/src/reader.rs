@@ -1,5 +1,7 @@
 use crate::*;
 
+use std::cmp::Ordering;
+
 pub struct Reader {
     pub files: Vec<WinmdFile>,
     pub types: BTreeMap<String, BTreeMap<String, TypeDef>>,
@@ -148,7 +150,7 @@ impl Reader {
         (first..last).map(move |value| Row::new(value, table as u16, row.file))
     }
 
-    pub fn blob<'a>(&'a self, row: Row, column: u32) -> Blob<'a> {
+    pub fn blob(&self, row: Row, column: u32) -> Blob {
         let file = &self.files[row.file as usize];
         let offset = (file.blobs + self.u32(row, column)) as usize;
         let initial_byte = file.bytes[offset];
@@ -238,24 +240,26 @@ impl Reader {
     ) -> (u32, u32) {
         let mut count = last - first;
         loop {
-            if count <= 0 {
+            if count == 0 {
                 last = first;
                 break;
             }
             let count2 = count / 2;
             let middle = first + count2;
             let middle_value = self.u32(Row::new(middle, table, file), column);
-            if middle_value < value {
-                first = middle + 1;
-                count -= count2 + 1;
-            } else if value < middle_value {
-                count = count2;
-            } else {
-                let first2 = self.lower_bound_of(table, file, first, middle, column, value);
-                first += count;
-                last = self.upper_bound_of(table, file, middle + 1, first, column, value);
-                first = first2;
-                break;
+            match middle_value.cmp(&value) {
+                Ordering::Less => {
+                    first = middle + 1;
+                    count -= count2 + 1;
+                }
+                Ordering::Greater => count = count2,
+                Ordering::Equal => {
+                    let first2 = self.lower_bound_of(table, file, first, middle, column, value);
+                    first += count;
+                    last = self.upper_bound_of(table, file, middle + 1, first, column, value);
+                    first = first2;
+                    break;
+                }
             }
         }
         (first, last)

@@ -1,5 +1,3 @@
-use crate::*;
-
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct Row {
     pub row: u32,
@@ -14,7 +12,7 @@ impl Row {
         Self { row, table, file }
     }
 
-    pub fn next(&self) -> Self {
+    pub fn next(self) -> Self {
         Self::new(self.row + 1, self.table, self.file)
     }
 }

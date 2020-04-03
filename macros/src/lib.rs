@@ -101,7 +101,7 @@ fn parse_import_stream(
 
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
-    let (dependencies, namespaces) = parse_import_stream(stream);
+    let (_dependencies, _namespaces) = parse_import_stream(stream);
 
     let reader = &Reader::from_os();
 
@@ -109,18 +109,18 @@ pub fn import(stream: TokenStream) -> TokenStream {
     limits.insert(reader, "windows.foundation");
 
     let stage = TypeStage::from_limits(reader, &limits);
-    let tree = stage.to_tree();
+    let tree = stage.into_tree();
     let stream = tree.to_stream();
     stream.into()
 }
 
 #[proc_macro_attribute]
-pub fn class(args: TokenStream, input: TokenStream) -> TokenStream {
+pub fn class(_args: TokenStream, input: TokenStream) -> TokenStream {
     input
 }
 
 #[proc_macro_attribute]
-pub fn value_type(args: TokenStream, input: TokenStream) -> TokenStream {
+pub fn value_type(_args: TokenStream, input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as ItemStruct);
     let name = &input.ident;
 
