@@ -93,3 +93,27 @@ impl Interface {
         }
     }
 }
+
+#[test]
+fn interface() {
+    let reader = &Reader::from_os();
+    let def = reader.resolve(("Windows.Foundation", "IStringable"));
+    let t = def.into_type(reader);
+    let name = t.name();
+    assert!(name.namespace == "Windows.Foundation");
+    assert!(name.name == "IStringable");
+    assert!(name.generics.is_empty());
+    assert!(name.def == def);
+
+    let t = match t {
+        Type::Interface(t) => t,
+        _ => panic!("Wrong type"),
+    };
+
+    assert!(t.methods.len() == 1);
+    let method = &t.methods[0];
+    assert!(method.name == "ToString");
+    assert!(method.params.is_empty());
+    let param = method.return_type.as_ref().unwrap();
+    assert!(param.kind == TypeKind::String);
+}

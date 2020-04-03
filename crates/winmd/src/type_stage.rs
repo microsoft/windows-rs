@@ -24,7 +24,7 @@ impl TypeStage {
 
     fn insert(&mut self, reader: &Reader, def: TypeDef) {
         if !self.0.contains_key(&def) {
-            let info = def.info(reader);
+            let info = def.into_type(reader);
             let depends = info.dependencies();
             self.0.insert(def, info);
             for def in depends {

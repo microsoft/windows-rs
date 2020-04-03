@@ -107,7 +107,7 @@ impl TypeDef {
         }
     }
 
-    pub fn info(self, reader: &Reader) -> Type {
+    pub fn into_type(self, reader: &Reader) -> Type {
         Type::from_type_def(reader, self)
     }
 }
