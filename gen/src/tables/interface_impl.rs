@@ -1,4 +1,8 @@
-use crate::*;
+use super::Attribute;
+use crate::codes::{HasAttribute, TypeDefOrRef};
+use crate::file::TABLE_CUSTOMATTRIBUTE;
+use crate::reader::Reader;
+use crate::row::Row;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct InterfaceImpl(pub Row);

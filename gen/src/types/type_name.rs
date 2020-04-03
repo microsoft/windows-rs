@@ -1,4 +1,7 @@
+use crate::blob::Blob;
 use crate::*;
+
+use std::iter::FromIterator;
 
 #[derive(Debug, Clone)]
 pub struct TypeName {

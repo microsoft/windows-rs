@@ -1,4 +1,6 @@
-use crate::*;
+use crate::reader::Reader;
+
+use std::collections::BTreeSet;
 
 #[derive(Default, Debug)]
 pub struct TypeLimits(pub BTreeSet<String>);

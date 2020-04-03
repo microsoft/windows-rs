@@ -1,4 +1,12 @@
-use crate::*;
+use super::Attribute;
+use crate::codes::{HasAttribute, TypeDefOrRef, TypeOrMethodDef};
+use crate::file::TABLE_CUSTOMATTRIBUTE;
+use crate::file::{TABLE_FIELD, TABLE_GENERICPARAM, TABLE_INTERFACEIMPL, TABLE_METHODDEF};
+use crate::flags::{TypeCategory, TypeFlags};
+use crate::reader::Reader;
+use crate::row::Row;
+use crate::tables::{Field, GenericParam, InterfaceImpl, MethodDef};
+use crate::types::Type;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct TypeDef(pub Row);

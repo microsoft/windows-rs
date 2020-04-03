@@ -1,4 +1,10 @@
-use crate::*;
+use crate::reader::Reader;
+use crate::tables::TypeDef;
+use crate::type_limits::TypeLimits;
+use crate::type_tree::TypeTree;
+use crate::types::Type;
+
+use std::collections::*;
 
 #[derive(Default, Debug)]
 pub struct TypeStage(pub BTreeMap<TypeDef, Type>);

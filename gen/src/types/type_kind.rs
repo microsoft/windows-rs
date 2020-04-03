@@ -1,3 +1,4 @@
+use crate::blob::Blob;
 use crate::*;
 
 #[derive(Debug, Clone)]

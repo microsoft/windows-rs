@@ -1,6 +1,13 @@
-use crate::*;
+use crate::blob::Blob;
+use crate::codes::Decode;
+use crate::file::{View, WinmdFile, TABLE_TYPEDEF};
+use crate::row::Row;
+use crate::tables::TypeDef;
+use crate::types::Type;
 
 use std::cmp::Ordering;
+use std::collections::btree_map::{Keys, Values};
+use std::collections::BTreeMap;
 
 pub struct Reader {
     pub files: Vec<WinmdFile>,

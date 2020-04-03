@@ -11,7 +11,6 @@ mod type_stage;
 mod type_tree;
 mod types;
 
-use blob::*;
 use codes::*;
 use file::*;
 use flags::*;
@@ -19,10 +18,7 @@ use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 pub use reader::*;
 use row::*;
-use std::collections::btree_map::*;
-use std::collections::*;
-use std::convert::TryInto;
-use std::iter::FromIterator;
+
 pub use tables::*;
 pub use type_limits::*;
 pub use type_namespaces::*;
