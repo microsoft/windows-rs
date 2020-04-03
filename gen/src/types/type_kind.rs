@@ -99,7 +99,7 @@ impl TypeKind {
         }
     }
 
-    pub fn from_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
+    pub fn from_blob(blob: &mut Blob, generics: &[TypeKind]) -> Self {
         blob.read_expected(0x1D);
         blob.read_modifiers();
 

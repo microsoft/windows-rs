@@ -4,22 +4,22 @@ use crate::*;
 pub struct Field(pub Row);
 
 impl Field {
-    pub fn name<'a>(&self, reader: &'a Reader) -> &'a str {
+    pub fn name(self, reader: &Reader) -> &str {
         reader.str(self.0, 1)
     }
 
-    pub fn sig<'a>(&self, reader: &'a Reader) -> Blob<'a> {
+    pub fn sig(self, reader: &Reader) -> Blob {
         reader.blob(self.0, 2)
     }
 
-    pub fn constants(&self, reader: &Reader) -> impl Iterator<Item = Constant> {
+    pub fn constants(self, reader: &Reader) -> impl Iterator<Item = Constant> {
         reader
             .equal_range(
                 self.0.file,
                 TABLE_CONSTANT,
                 1,
-                HasConstant::Field(*self).encode(),
+                HasConstant::Field(self).encode(),
             )
-            .map(|row| Constant(row))
+            .map(Constant)
     }
 }

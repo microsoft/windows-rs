@@ -37,7 +37,7 @@ impl TableData {
     }
 
     fn set_columns(&mut self, a: u32, b: u32, c: u32, d: u32, e: u32, f: u32) {
-        self.row_size = (a + b + c + d + e + f).into();
+        self.row_size = a + b + c + d + e + f;
         self.columns[0] = (0, a);
         if b != 0 {
             self.columns[1] = ((a), b);
@@ -142,7 +142,7 @@ impl WinmdFile {
             if padding == 0 {
                 padding = 4;
             }
-            view = view + (8 + stream_name.len() + padding) as u32;
+            view += (8 + stream_name.len() + padding) as u32;
         }
 
         let heap_sizes = *file.bytes.view_as::<u8>(tables_data.0 + 6);
@@ -188,7 +188,7 @@ impl WinmdFile {
             }
 
             let row_count = *file.bytes.view_as::<u32>(view);
-            view = view + 4;
+            view += 4;
 
             match i {
                 0x00 => unused_module.row_count = row_count,
@@ -551,7 +551,7 @@ fn composite_index_size(tables: &[&TableData]) -> u32 {
         let mut value = value - 1;
         let mut bits: u8 = 1;
         loop {
-            value = value >> 1;
+            value >>= 1;
             if value == 0 {
                 break;
             }
@@ -623,7 +623,7 @@ const IMAGE_DOS_SIGNATURE: u16 = 0x5A4D;
 const MAGIC_PE32: u16 = 0x10B;
 const MAGIC_PE32PLUS: u16 = 0x20B;
 const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: u32 = 14;
-const STORAGE_MAGIC_SIG: u32 = 0x424A5342;
+const STORAGE_MAGIC_SIG: u32 = 0x424A_5342;
 
 #[repr(C)]
 struct ImageDosHeader {

@@ -1,5 +1,3 @@
-use crate::*;
-
 #[derive(Debug, Clone, Default)]
 pub struct TypeGuid([GuidConstant; 11]);
 

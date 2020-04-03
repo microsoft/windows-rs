@@ -4,15 +4,15 @@ use crate::*;
 pub struct Attribute(pub Row);
 
 impl Attribute {
-    pub fn parent(&self, reader: &Reader) -> HasAttribute {
+    pub fn parent(self, reader: &Reader) -> HasAttribute {
         reader.decode(self.0, 0)
     }
 
-    pub fn constructor(&self, reader: &Reader) -> AttributeType {
+    pub fn constructor(self, reader: &Reader) -> AttributeType {
         reader.decode(self.0, 1)
     }
 
-    pub fn name<'a>(&self, reader: &'a Reader) -> (&'a str, &'a str) {
+    pub fn name(self, reader: &Reader) -> (&str, &str) {
         match self.constructor(reader) {
             AttributeType::MethodDef(method) => method.parent(reader).name(reader),
 
@@ -24,7 +24,7 @@ impl Attribute {
         }
     }
 
-    pub fn arguments<'a>(&self, reader: &'a Reader) -> Vec<(String, Argument)> {
+    pub fn arguments(self, reader: &Reader) -> Vec<(String, Argument)> {
         let (mut sig, mut values) = match self.constructor(reader) {
             AttributeType::MethodDef(method) => (reader.blob(method.0, 4), reader.blob(self.0, 2)),
             AttributeType::MemberRef(method) => (reader.blob(method.0, 2), reader.blob(self.0, 2)),
@@ -56,7 +56,7 @@ impl Attribute {
                 }
                 _ => panic!(),
             };
-    
+
             args.push((String::new(), arg));
         }
 

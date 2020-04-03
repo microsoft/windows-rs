@@ -64,9 +64,8 @@ impl Interface {
     }
 
     pub fn from_interface_impl(reader: &Reader, key: InterfaceImpl) -> Self {
-        let mut interface = Self::from_type_def_or_ref(reader, key.interface(reader));
         // TODO: flip default/exclusive/overridable bits as needed
-        interface
+        Self::from_type_def_or_ref(reader, key.interface(reader))
     }
 
     pub fn to_stream(&self) -> TokenStream {

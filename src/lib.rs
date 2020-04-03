@@ -26,7 +26,6 @@ pub use ref_count::*;
 pub use runtime::*;
 pub use traits::*;
 pub use unknown::*;
-pub use weak::*;
 pub use winrt_macros::*;
 
 pub type RawPtr = *mut std::ffi::c_void;

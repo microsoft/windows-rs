@@ -4,11 +4,11 @@ use crate::*;
 pub struct TypeRef(pub Row);
 
 impl TypeRef {
-    pub fn name<'a>(&self, reader: &'a Reader) -> (&'a str, &'a str) {
+    pub fn name(self, reader: &Reader) -> (&str, &str) {
         (reader.str(self.0, 2), reader.str(self.0, 1))
     }
 
-    pub fn resolve(&self, reader: &Reader) -> TypeDef {
+    pub fn resolve(self, reader: &Reader) -> TypeDef {
         reader.resolve(self.name(reader))
     }
 }

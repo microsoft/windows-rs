@@ -10,7 +10,7 @@ impl<'a> Blob<'a> {
     pub fn new(reader: &'a Reader, file: u16, offset: usize) -> Self {
         Blob {
             reader,
-            file: file,
+            file,
             offset,
         }
     }

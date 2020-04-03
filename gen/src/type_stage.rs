@@ -18,7 +18,7 @@ impl TypeStage {
 
     fn insert(&mut self, reader: &Reader, def: TypeDef) {
         if !self.0.contains_key(&def) {
-            let name = def.name(reader);
+            let _name = def.name(reader);
             //println!("{}.{}", name.0, name.1);
             let info = def.info(reader);
             let depends = info.dependencies();
@@ -29,7 +29,7 @@ impl TypeStage {
         }
     }
 
-    pub fn to_tree(self) -> TypeTree {
+    pub fn into_tree(self) -> TypeTree {
         let mut tree: TypeTree = Default::default();
         self.0
             .into_iter()
