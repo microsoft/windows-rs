@@ -1,4 +1,9 @@
-use crate::*;
+use crate::type_namespaces::TypeNamespaces;
+use crate::types::Type;
+
+use proc_macro2::TokenStream;
+
+use std::iter::FromIterator;
 
 #[derive(Default)]
 pub struct TypeTree {

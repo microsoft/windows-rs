@@ -1,4 +1,10 @@
-use crate::*;
+use crate::reader::Reader;
+use crate::tables::TypeDef;
+use crate::type_limits::TypeLimits;
+use crate::type_tree::TypeTree;
+use crate::types::Type;
+
+use std::collections::*;
 
 #[derive(Default, Debug)]
 pub struct TypeStage(pub BTreeMap<TypeDef, Type>);
@@ -18,8 +24,6 @@ impl TypeStage {
 
     fn insert(&mut self, reader: &Reader, def: TypeDef) {
         if !self.0.contains_key(&def) {
-            let _name = def.name(reader);
-            //println!("{}.{}", name.0, name.1);
             let info = def.info(reader);
             let depends = info.dependencies();
             self.0.insert(def, info);

@@ -1,4 +1,7 @@
+use crate::blob::Blob;
 use crate::*;
+
+use std::iter::FromIterator;
 
 #[derive(Debug, Clone)]
 pub struct TypeName {
@@ -26,7 +29,7 @@ impl TypeName {
             generics.push(TypeKind::Generic(name));
         }
 
-        TypeName {
+        Self {
             namespace,
             name,
             generics,
@@ -47,7 +50,7 @@ impl TypeName {
         let name = name.to_string();
         let generics = args;
 
-        TypeName {
+        Self {
             namespace,
             name,
             generics,
@@ -87,6 +90,7 @@ impl TypeName {
             TokenStream::from_iter(tokens)
         }
     }
+
     pub fn constraints(&self) -> TokenStream {
         let generics = self.generics.iter().map(|generic| {
             let generic = generic.ident();

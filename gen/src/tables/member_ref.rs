@@ -1,4 +1,6 @@
-use crate::*;
+use crate::codes::MemberRefParent;
+use crate::reader::Reader;
+use crate::row::Row;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct MemberRef(pub Row);

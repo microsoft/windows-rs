@@ -1,4 +1,6 @@
-use crate::*;
+use crate::blob::Blob;
+use crate::reader::Reader;
+use crate::row::Row;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Constant(pub Row);

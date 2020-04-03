@@ -1,3 +1,4 @@
+use crate::blob::Blob;
 use crate::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]

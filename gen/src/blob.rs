@@ -1,4 +1,5 @@
-use crate::*;
+use crate::reader::Reader;
+use std::convert::TryInto;
 
 pub struct Blob<'a> {
     pub reader: &'a Reader,

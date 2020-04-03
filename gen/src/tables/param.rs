@@ -1,4 +1,6 @@
-use crate::*;
+use crate::flags::ParamFlags;
+use crate::reader::Reader;
+use crate::row::Row;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Param(pub Row);

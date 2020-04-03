@@ -1,4 +1,11 @@
-use crate::*;
+use crate::type_tree::TypeTree;
+use crate::write_ident;
+
+use proc_macro2::TokenStream;
+use quote::quote;
+
+use std::collections::*;
+use std::iter::FromIterator;
 
 #[derive(Default)]
 pub struct TypeNamespaces(pub BTreeMap<String, TypeTree>);
