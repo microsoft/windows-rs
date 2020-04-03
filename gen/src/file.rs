@@ -67,14 +67,16 @@ impl TableData {
 
 impl WinmdFile {
     pub fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
+        let bytes = std::fs::read(filename.as_ref())
+            .unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename.as_ref(), e));
         let mut file = Self {
-            bytes: std::fs::read(filename).unwrap(),
+            bytes,
             ..Default::default()
         };
         let dos = file.bytes.view_as::<ImageDosHeader>(0);
 
         if dos.signature != IMAGE_DOS_SIGNATURE {
-            panic!("Invalid file");
+            panic!("Invalid file: signature does not match IMAGE_DOS_SIGNATURE");
         }
 
         let pe = file.bytes.view_as::<ImageNtHeader>(dos.lfanew as u32);
@@ -99,7 +101,7 @@ impl WinmdFile {
                     pe.file_header.number_of_sections as u32,
                 ),
             ),
-            _ => panic!("Invalid file"),
+            _ => panic!("Invalid file: invalid magic"),
         };
 
         let cli = file.bytes.view_as::<ImageCorHeader>(offset_from_rva(
@@ -108,7 +110,7 @@ impl WinmdFile {
         ));
 
         if cli.cb != sizeof::<ImageCorHeader>() {
-            panic!("Invalid file");
+            panic!("Invalid file: invalid ImageCorHeader");
         }
 
         let cli_offset = offset_from_rva(
@@ -117,7 +119,7 @@ impl WinmdFile {
         );
 
         if *file.bytes.view_as::<u32>(cli_offset) != STORAGE_MAGIC_SIG {
-            panic!("Invalid file");
+            panic!("Invalid file: invalid STORAGE_MAGIC_SIG");
         }
 
         let version_length = *file.bytes.view_as::<u32>(cli_offset + 12);
@@ -134,7 +136,7 @@ impl WinmdFile {
                 b"#GUID" => file.guids = cli_offset + stream_offset,
                 b"#~" => tables_data = (cli_offset + stream_offset, stream_size),
                 b"#US" => {}
-                _ => panic!("Invalid file"),
+                _ => panic!("Invalid file: invalid stream name"),
             }
             let mut padding = 4 - stream_name.len() % 4;
             if padding == 0 {
@@ -227,7 +229,7 @@ impl WinmdFile {
                 0x2a => file.tables[TABLE_GENERICPARAM].row_count = row_count,
                 0x2b => unused_method_spec.row_count = row_count,
                 0x2c => unused_generic_param_constraint.row_count = row_count,
-                _ => panic!("Invalid file"),
+                _ => unreachable!(),
             };
         }
 
@@ -570,30 +572,41 @@ fn composite_index_size(tables: &[&TableData]) -> u32 {
     }
 }
 
-pub trait View {
-    fn view_as<T>(&self, cli_offset: u32) -> &T;
-    fn view_as_slice_of<T>(&self, cli_offset: u32, len: u32) -> &[T];
+pub(crate) trait View {
+    fn view_as<T: Pod>(&self, cli_offset: u32) -> &T;
+    fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T];
     fn view_as_str(&self, cli_offset: u32) -> &[u8];
 }
 
 impl View for [u8] {
-    fn view_as<T>(&self, cli_offset: u32) -> &T {
+    fn view_as<T: Pod>(&self, cli_offset: u32) -> &T {
         if cli_offset + sizeof::<T>() > self.len() as u32 {
-            panic!("Invalid file");
+            panic!("Invalid file: offset {} is not a valid T", cli_offset);
         }
-        unsafe { &*(&self[cli_offset as usize] as *const u8 as *const T) }
-    }
-
-    fn view_as_slice_of<T>(&self, cli_offset: u32, len: u32) -> &[T] {
-        if cli_offset + sizeof::<T>() * len > self.len() as u32 {
-            panic!("Invalid file");
-        }
-        unsafe {
-            std::slice::from_raw_parts(
-                &self[cli_offset as usize] as *const u8 as *const T,
-                len as usize,
+        let ptr = self[cli_offset as usize] as *const u8 as *const T;
+        if ptr.align_offset(std::mem::align_of::<T>()) != 0 {
+            panic!(
+                "Invalid file: offset {} is not properly aligned to T",
+                cli_offset
             )
         }
+        unsafe { &*ptr }
+    }
+
+    fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T] {
+        if cli_offset + sizeof::<T>() * len > self.len() as u32 {
+            panic!("Invalid file: offset {} is not a valid T", cli_offset);
+        }
+
+        let ptr = self[cli_offset as usize] as *const u8 as *const T;
+
+        if ptr.align_offset(std::mem::align_of::<T>()) != 0 {
+            panic!(
+                "Invalid file: offset {} is not properly aligned to T",
+                cli_offset
+            )
+        }
+        unsafe { std::slice::from_raw_parts(ptr, len as usize) }
     }
 
     fn view_as_str(&self, cli_offset: u32) -> &[u8] {
@@ -634,6 +647,9 @@ struct ImageDosHeader {
     res2: [u16; 10],
     lfanew: i32,
 }
+// Safety: this is safe because the type is #[repr(C)]
+// and only contains data that is itself `Pod`
+unsafe impl Pod for ImageDosHeader {}
 
 #[repr(C)]
 struct ImageFileHeader {
@@ -645,6 +661,9 @@ struct ImageFileHeader {
     size_of_optional_header: u16,
     characteristics: u16,
 }
+// Safety: this is safe because the type is #[repr(C)]
+// and only contains data that is itself `Pod`
+unsafe impl Pod for ImageFileHeader {}
 
 #[repr(C)]
 struct ImageDataDirectory {
@@ -686,6 +705,9 @@ struct ImageOptionalHeader {
     number_of_rva_and_sizes: u32,
     data_directory: [ImageDataDirectory; 16],
 }
+// Safety: this is safe because the type is #[repr(C)]
+// and only contains data that is itself `Pod`
+unsafe impl Pod for ImageOptionalHeader {}
 
 #[repr(C)]
 struct ImageNtHeader {
@@ -693,6 +715,9 @@ struct ImageNtHeader {
     file_header: ImageFileHeader,
     optional_header: ImageOptionalHeader,
 }
+// Safety: this is safe because the type is #[repr(C)]
+// and only contains data that is itself `Pod`
+unsafe impl Pod for ImageNtHeader {}
 
 #[repr(C)]
 struct ImageOptionalHeaderPlus {
@@ -734,6 +759,9 @@ struct ImageNtHeaderPlus {
     file_header: ImageFileHeader,
     optional_header: ImageOptionalHeaderPlus,
 }
+// Safety: this is safe because the type is #[repr(C)]
+// and only contains data that is itself `Pod`
+unsafe impl Pod for ImageNtHeaderPlus {}
 
 #[repr(C)]
 struct ImageSectionHeader {
@@ -748,6 +776,9 @@ struct ImageSectionHeader {
     number_of_line_numbers: u16,
     characteristics: u32,
 }
+// Safety: this is safe because the type is #[repr(C)]
+// and only contains data that is itself `Pod`
+unsafe impl Pod for ImageSectionHeader {}
 
 #[repr(C)]
 struct ImageCorHeader {
@@ -764,3 +795,27 @@ struct ImageCorHeader {
     export_address_table_jumps: ImageDataDirectory,
     managed_native_header: ImageDataDirectory,
 }
+// Safety: this is safe because the type is #[repr(C)]
+// and only contains data that is itself `Pod`
+unsafe impl Pod for ImageCorHeader {}
+
+/// A "Plain Ol' Data" structure that represents any type that
+/// can be viewed from any probably aligned and sized buffer of
+/// bytes in a well defined way. This means that the representation
+/// of the type in memory must be stable and it must not contain
+/// any invariant constraints.
+///
+/// ## Examples
+///
+/// A `u32` is a `Pod` because any [u8; 4] can be viewed as a `u32` safely.
+/// A `bool` is _not_ a `Pod` because it must either be a `0` or `1` in memory
+pub(crate) unsafe trait Pod {}
+
+unsafe impl Pod for u8 {}
+unsafe impl Pod for u16 {}
+unsafe impl Pod for u32 {}
+unsafe impl Pod for u64 {}
+unsafe impl Pod for i8 {}
+unsafe impl Pod for i16 {}
+unsafe impl Pod for i32 {}
+unsafe impl Pod for i64 {}
