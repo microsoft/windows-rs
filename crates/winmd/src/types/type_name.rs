@@ -9,7 +9,7 @@ use quote::{format_ident, quote};
 
 use std::iter::FromIterator;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct TypeName {
     pub namespace: String,
     pub name: String,

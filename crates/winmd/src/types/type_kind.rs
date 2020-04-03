@@ -8,7 +8,7 @@ use crate::{write_ident, Reader};
 use proc_macro2::TokenStream;
 use quote::quote;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum TypeKind {
     Bool,
     Char,
