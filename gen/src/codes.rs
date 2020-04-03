@@ -1,4 +1,8 @@
+use crate::file::*;
+use crate::row::Row;
 use crate::*;
+
+use winmd_macros::type_code;
 
 pub trait Decode {
     fn decode(code: u32, file: u16) -> Self;

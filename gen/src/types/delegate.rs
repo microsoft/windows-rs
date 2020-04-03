@@ -1,5 +1,8 @@
 use crate::*;
 
+use proc_macro2::TokenStream;
+use quote::quote;
+
 #[derive(Debug)]
 pub struct Delegate {
     pub name: TypeName,

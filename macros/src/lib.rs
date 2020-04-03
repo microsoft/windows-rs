@@ -1,6 +1,6 @@
-use proc_macro::*;
+use proc_macro::{TokenStream, TokenTree};
 use quote::quote;
-use syn::*;
+use syn::{parse_macro_input, ItemStruct};
 use winmd::*;
 
 #[derive(PartialEq)]

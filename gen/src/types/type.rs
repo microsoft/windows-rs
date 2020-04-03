@@ -1,4 +1,7 @@
+use crate::flags::*;
 use crate::*;
+
+use proc_macro2::TokenStream;
 
 #[derive(Debug)]
 pub enum Type {

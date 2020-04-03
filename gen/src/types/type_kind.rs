@@ -1,5 +1,10 @@
 use crate::blob::Blob;
+use crate::codes::*;
+use crate::flags::*;
 use crate::*;
+
+use proc_macro2::TokenStream;
+use quote::quote;
 
 #[derive(Debug, Clone)]
 pub enum TypeKind {
