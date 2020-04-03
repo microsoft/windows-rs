@@ -1,5 +1,10 @@
+use super::{Attribute, Param, TypeDef};
 use crate::blob::Blob;
-use crate::*;
+use crate::codes::HasAttribute;
+use crate::file::{TABLE_CUSTOMATTRIBUTE, TABLE_PARAM, TABLE_TYPEDEF};
+use crate::flags::{MethodCategory, MethodFlags};
+use crate::reader::Reader;
+use crate::row::Row;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct MethodDef(pub Row);

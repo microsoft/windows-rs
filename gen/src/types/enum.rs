@@ -1,5 +1,8 @@
 use crate::*;
 
+use proc_macro2::TokenStream;
+use quote::{format_ident, quote};
+
 #[derive(Debug)]
 pub struct Enum {
     pub name: TypeName,
