@@ -8,4 +8,9 @@ description = "Windows Runtime language projection"
 repository = "https://github.com/microsoft/winrt-rs"
 
 [dependencies]
-winrt_macros = { path = "macros" }
+winrt_macros = { path = "crates/macros" }
+
+[workspace]
+members = [
+    "crates/*",
+]

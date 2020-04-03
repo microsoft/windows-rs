@@ -10,7 +10,7 @@ use std::collections::*;
 pub struct TypeStage(pub BTreeMap<TypeDef, Type>);
 
 impl TypeStage {
-    pub fn from_limits(reader: &Reader, limits: &TypeLimits) -> TypeStage {
+    pub fn from_limits(limits: &TypeLimits, reader: &Reader) -> TypeStage {
         let mut stage: TypeStage = Default::default();
 
         for namespace in &limits.0 {

@@ -33,6 +33,7 @@ pub enum TypeCategory {
     Delegate,
 }
 
+#[allow(dead_code)]
 pub enum ParamCategory {
     Array,
     Enum,
@@ -43,6 +44,7 @@ pub enum ParamCategory {
     Struct,
 }
 
+#[allow(dead_code)]
 pub enum ElementType {
     Bool,
     Char,

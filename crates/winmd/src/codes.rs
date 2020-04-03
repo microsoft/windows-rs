@@ -1,6 +1,7 @@
 use crate::file::*;
 use crate::row::Row;
-use crate::*;
+use crate::tables::*;
+use crate::Reader;
 
 use winmd_macros::type_code;
 

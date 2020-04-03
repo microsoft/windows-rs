@@ -1,4 +1,6 @@
-use crate::*;
+use crate::tables::*;
+use crate::types::*;
+use crate::Reader;
 
 #[derive(Debug)]
 pub struct Method {
@@ -8,6 +10,7 @@ pub struct Method {
     // pub category: MethodKind,
 }
 
+#[allow(dead_code)]
 #[derive(Copy, Clone, PartialEq, Debug)]
 pub enum MethodKind {
     Normal,
