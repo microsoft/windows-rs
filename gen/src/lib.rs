@@ -15,7 +15,7 @@ use blob::*;
 use codes::*;
 use file::*;
 use flags::*;
-use proc_macro2::{Ident, Literal, TokenStream};
+use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 pub use reader::*;
 use row::*;
