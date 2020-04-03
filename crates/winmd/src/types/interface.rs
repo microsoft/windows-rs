@@ -30,7 +30,10 @@ impl Interface {
 
     pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let guid = TypeGuid::new(); // TODO: read from metadata
+        let guid = TypeGuid::from_args(
+            def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
+                .args(reader),
+        );
         let methods = def
             .methods(reader)
             .map(|method| Method::from_method_def(reader, method, &name.generics))
@@ -95,7 +98,7 @@ impl Interface {
 }
 
 #[test]
-fn interface() {
+fn test() {
     let reader = &Reader::from_os();
     let def = reader.resolve(("Windows.Foundation", "IStringable"));
     let t = def.into_type(reader);
@@ -116,4 +119,17 @@ fn interface() {
     assert!(method.params.is_empty());
     let param = method.return_type.as_ref().unwrap();
     assert!(param.kind == TypeKind::String);
+
+    let guid = &t.guid;
+    assert!(guid.0[0] == GuidConstant::U32(0x96369F54));
+    assert!(guid.0[1] == GuidConstant::U16(0x8EB6));
+    assert!(guid.0[2] == GuidConstant::U16(0x48F0));
+    assert!(guid.0[3] == GuidConstant::U8(0xAB));
+    assert!(guid.0[4] == GuidConstant::U8(0xCE));
+    assert!(guid.0[5] == GuidConstant::U8(0xC1));
+    assert!(guid.0[6] == GuidConstant::U8(0xB2));
+    assert!(guid.0[7] == GuidConstant::U8(0x11));
+    assert!(guid.0[8] == GuidConstant::U8(0xE6));
+    assert!(guid.0[9] == GuidConstant::U8(0x27));
+    assert!(guid.0[10] == GuidConstant::U8(0xC3));
 }
