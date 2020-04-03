@@ -27,7 +27,7 @@ impl Attribute {
         }
     }
 
-    pub fn arguments<'a>(&self, reader: &'a Reader) -> Vec<(String, AttributeArgument)> {
+    pub fn arguments(&self, reader: &Reader) -> Vec<(String, AttributeArgument)> {
         let (mut sig, mut values) = match self.constructor(reader) {
             AttributeType::MethodDef(method) => (reader.blob(method.0, 4), reader.blob(self.0, 2)),
             AttributeType::MemberRef(method) => (reader.blob(method.0, 2), reader.blob(self.0, 2)),
@@ -55,7 +55,9 @@ impl Attribute {
                     sig.read_unsigned();
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
-                    AttributeArgument::TypeDef(reader.resolve((&name[0..index], &name[index + 1..])))
+                    AttributeArgument::TypeDef(
+                        reader.resolve((&name[0..index], &name[index + 1..])),
+                    )
                 }
                 _ => panic!(),
             };
@@ -77,7 +79,9 @@ impl Attribute {
                 0x50 => {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
-                    AttributeArgument::TypeDef(reader.resolve((&name[0..index], &name[index + 1..])))
+                    AttributeArgument::TypeDef(
+                        reader.resolve((&name[0..index], &name[index + 1..])),
+                    )
                 }
                 // 0x55 => {
                 //     let name = values.read_str();
