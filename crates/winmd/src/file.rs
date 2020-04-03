@@ -583,14 +583,8 @@ impl View for [u8] {
         if cli_offset + sizeof::<T>() > self.len() as u32 {
             panic!("Invalid file: offset {} is not a valid T", cli_offset);
         }
-        let ptr = self[cli_offset as usize] as *const u8 as *const T;
-        if ptr.align_offset(std::mem::align_of::<T>()) != 0 {
-            panic!(
-                "Invalid file: offset {} is not properly aligned to T",
-                cli_offset
-            )
-        }
-        unsafe { &*ptr }
+
+        unsafe { &*(&self[cli_offset as usize] as *const u8 as *const T) }
     }
 
     fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T] {
@@ -598,15 +592,12 @@ impl View for [u8] {
             panic!("Invalid file: offset {} is not a valid T", cli_offset);
         }
 
-        let ptr = self[cli_offset as usize] as *const u8 as *const T;
-
-        if ptr.align_offset(std::mem::align_of::<T>()) != 0 {
-            panic!(
-                "Invalid file: offset {} is not properly aligned to T",
-                cli_offset
+        unsafe {
+            std::slice::from_raw_parts(
+                &self[cli_offset as usize] as *const u8 as *const T,
+                len as usize,
             )
         }
-        unsafe { std::slice::from_raw_parts(ptr, len as usize) }
     }
 
     fn view_as_str(&self, cli_offset: u32) -> &[u8] {
