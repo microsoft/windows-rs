@@ -1,5 +1,7 @@
 use crate::codes::*;
-use crate::*;
+use crate::tables::*;
+use crate::types::*;
+use crate::Reader;
 
 use proc_macro2::TokenStream;
 use quote::quote;

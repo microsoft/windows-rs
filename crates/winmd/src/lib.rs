@@ -11,22 +11,15 @@ mod type_stage;
 mod type_tree;
 mod types;
 
-use proc_macro2::Ident;
-use quote::format_ident;
+pub use reader::Reader;
+pub use type_limits::TypeLimits;
+pub use type_stage::TypeStage;
 
-pub use reader::*;
-pub use tables::*;
-pub use type_limits::*;
-pub use type_namespaces::*;
-pub use type_stage::*;
-pub use type_tree::*;
-pub use types::*;
-
-pub fn write_ident(name: &str) -> Ident {
+fn write_ident(name: &str) -> proc_macro2::Ident {
     if name == "Self" {
-        format_ident!("{}_", name)
+        quote::format_ident!("{}_", name)
     } else {
-        format_ident!("r#{}", name)
+        quote::format_ident!("r#{}", name)
     }
 }
 

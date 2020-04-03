@@ -1,6 +1,8 @@
 use crate::blob::Blob;
 use crate::codes::*;
-use crate::*;
+use crate::tables::*;
+use crate::types::*;
+use crate::{write_ident, Reader};
 
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
