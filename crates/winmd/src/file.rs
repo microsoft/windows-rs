@@ -584,12 +584,12 @@ impl View for [u8] {
             panic!("Invalid file: offset {} is not a valid T", cli_offset);
         }
         let ptr = self[cli_offset as usize] as *const u8 as *const T;
-        // if ptr.align_offset(std::mem::align_of::<T>()) != 0 {
-        //     panic!(
-        //         "Invalid file: offset {} is not properly aligned to T",
-        //         cli_offset
-        //     )
-        // }
+        if ptr.align_offset(std::mem::align_of::<T>()) != 0 {
+            panic!(
+                "Invalid file: offset {} is not properly aligned to T",
+                cli_offset
+            )
+        }
         unsafe { &*ptr }
     }
 
