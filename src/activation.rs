@@ -53,10 +53,10 @@ impl IActivationFactory {
 impl TypeGuid for IActivationFactory {
     fn type_guid() -> &'static Guid {
         static GUID: Guid = Guid::from_values(
-            0x00000035,
+            0x0000_0035,
             0x0000,
             0x0000,
-            &[0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
+            [0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
         );
         &GUID
     }
