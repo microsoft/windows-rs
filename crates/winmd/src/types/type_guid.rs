@@ -1,6 +1,7 @@
 #[derive(Debug, Clone, Default)]
 pub struct TypeGuid([GuidConstant; 11]);
 
+#[allow(dead_code)]
 #[derive(Debug, Clone)]
 pub enum GuidConstant {
     U32(u32),
@@ -8,7 +9,7 @@ pub enum GuidConstant {
     U8(u8),
 }
 
-// tODO: get rid of this
+// TODO: get rid of this
 impl Default for GuidConstant {
     fn default() -> Self {
         Self::U8(0)

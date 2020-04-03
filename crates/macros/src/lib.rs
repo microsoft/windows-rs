@@ -105,10 +105,10 @@ pub fn import(stream: TokenStream) -> TokenStream {
 
     let reader = &Reader::from_os();
 
-    let mut limits: TypeLimits = Default::default();
+    let mut limits = TypeLimits::default();
     limits.insert(reader, "windows.foundation");
 
-    let stage = TypeStage::from_limits(reader, &limits);
+    let stage = TypeStage::from_limits(&limits, reader);
     let tree = stage.into_tree();
     let stream = tree.to_stream();
     stream.into()
