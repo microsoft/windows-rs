@@ -27,7 +27,7 @@ impl Attribute {
         }
     }
 
-    pub fn arguments(&self, reader: &Reader) -> Vec<(String, AttributeArgument)> {
+    pub fn args(&self, reader: &Reader) -> Vec<(String, AttributeArg)> {
         let (mut sig, mut values) = match self.constructor(reader) {
             AttributeType::MethodDef(method) => (reader.blob(method.0, 4), reader.blob(self.0, 2)),
             AttributeType::MemberRef(method) => (reader.blob(method.0, 2), reader.blob(self.0, 2)),
@@ -38,26 +38,24 @@ impl Attribute {
         let count = sig.read_unsigned();
         sig.read_unsigned();
 
-        let mut args: Vec<(String, AttributeArgument)> = Vec::with_capacity(count as usize);
+        let mut args: Vec<(String, AttributeArg)> = Vec::with_capacity(count as usize);
 
         for _ in 0..count {
             let arg = match sig.read_unsigned() {
-                0x04 => AttributeArgument::I8(values.read_i8()),
-                0x05 => AttributeArgument::U8(values.read_u8()),
-                0x06 => AttributeArgument::I16(values.read_i16()),
-                0x07 => AttributeArgument::U16(values.read_u16()),
-                0x08 => AttributeArgument::I32(values.read_i32()),
-                0x09 => AttributeArgument::U32(values.read_u32()),
-                0x0A => AttributeArgument::I64(values.read_i64()),
-                0x0B => AttributeArgument::U64(values.read_u64()),
-                0x0E => AttributeArgument::String(values.read_str().to_string()),
+                0x04 => AttributeArg::I8(values.read_i8()),
+                0x05 => AttributeArg::U8(values.read_u8()),
+                0x06 => AttributeArg::I16(values.read_i16()),
+                0x07 => AttributeArg::U16(values.read_u16()),
+                0x08 => AttributeArg::I32(values.read_i32()),
+                0x09 => AttributeArg::U32(values.read_u32()),
+                0x0A => AttributeArg::I64(values.read_i64()),
+                0x0B => AttributeArg::U64(values.read_u64()),
+                0x0E => AttributeArg::String(values.read_str().to_string()),
                 0x11 | 0x12 => {
                     sig.read_unsigned();
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
-                    AttributeArgument::TypeDef(
-                        reader.resolve((&name[0..index], &name[index + 1..])),
-                    )
+                    AttributeArg::TypeDef(reader.resolve((&name[0..index], &name[index + 1..])))
                 }
                 _ => panic!(),
             };
@@ -73,15 +71,13 @@ impl Attribute {
         for _ in 0..count {
             let name = values.read_str().to_string();
             let arg = match values.read_unsigned() {
-                0x02 => AttributeArgument::Bool(values.read_u8() != 0),
-                0x08 => AttributeArgument::I32(values.read_i32()),
-                0x0E => AttributeArgument::String(values.read_str().to_string()),
+                0x02 => AttributeArg::Bool(values.read_u8() != 0),
+                0x08 => AttributeArg::I32(values.read_i32()),
+                0x0E => AttributeArg::String(values.read_str().to_string()),
                 0x50 => {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
-                    AttributeArgument::TypeDef(
-                        reader.resolve((&name[0..index], &name[index + 1..])),
-                    )
+                    AttributeArg::TypeDef(reader.resolve((&name[0..index], &name[index + 1..])))
                 }
                 // 0x55 => {
                 //     let name = values.read_str();
@@ -99,7 +95,7 @@ impl Attribute {
 }
 
 #[derive(Debug)]
-pub enum AttributeArgument {
+pub enum AttributeArg {
     Bool(bool),
     Char(char),
     I8(i8),
