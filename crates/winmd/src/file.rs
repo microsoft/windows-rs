@@ -584,20 +584,30 @@ impl View for [u8] {
             panic!("Invalid file: offset {} is not a valid T", cli_offset);
         }
 
-        unsafe { &*(&self[cli_offset as usize] as *const u8 as *const T) }
+        let ptr = &self[cli_offset as usize] as *const u8 as *const T;
+
+        if ptr.align_offset(std::mem::align_of::<T>()) != 0 {
+            panic!(
+                "Invalid file: offset {} is not properly aligned to T",
+                cli_offset
+            )
+        }
+        unsafe { &*ptr }
     }
 
     fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T] {
         if cli_offset + sizeof::<T>() * len > self.len() as u32 {
-            panic!("Invalid file: offset {} is not a valid T", cli_offset);
+            panic!("Invalid file: offset {} is not a valid &[T]", cli_offset);
         }
+        let ptr = &self[cli_offset as usize] as *const u8 as *const T;
 
-        unsafe {
-            std::slice::from_raw_parts(
-                &self[cli_offset as usize] as *const u8 as *const T,
-                len as usize,
+        if ptr.align_offset(std::mem::align_of::<T>()) != 0 {
+            panic!(
+                "Invalid file: offset {} is not properly aligned to &[T]",
+                cli_offset
             )
         }
+        unsafe { std::slice::from_raw_parts(ptr, len as usize) }
     }
 
     fn view_as_str(&self, cli_offset: u32) -> &[u8] {
@@ -810,3 +820,33 @@ unsafe impl Pod for i8 {}
 unsafe impl Pod for i16 {}
 unsafe impl Pod for i32 {}
 unsafe impl Pod for i64 {}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[repr(C)]
+    struct Foo {
+        bar: u16,
+        baz: u8,
+    }
+    unsafe impl Pod for Foo {}
+
+    #[test]
+    fn view_bytes_as_type() {
+        let bytes = [1u8, 3, 48, 90];
+
+        let foo = bytes.view_as::<Foo>(0);
+        assert_eq!(foo.bar, 0x0301);
+        assert_eq!(foo.baz, 48)
+    }
+
+    #[test]
+    #[should_panic]
+    fn panic_on_unaligned_bytes() {
+        let bytes = [1u8, 3, 48, 90, 90];
+
+        let _ = bytes.view_as::<Foo>(0);
+        let _ = bytes.view_as::<Foo>(1);
+    }
+}
