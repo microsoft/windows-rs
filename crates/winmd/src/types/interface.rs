@@ -103,10 +103,12 @@ fn can_read_interface_from_reader() {
     let reader = &TypeReader::new(winmd_files);
     let def = reader.resolve(("Windows.Foundation", "IStringable"));
     let t = def.into_type(reader);
+
     let name = t.name();
     assert!(name.namespace == "Windows.Foundation");
     assert!(name.name == "IStringable");
     assert!(name.generics.is_empty());
+
     assert!(name.def == def);
 
     let t = match t {
@@ -116,7 +118,9 @@ fn can_read_interface_from_reader() {
 
     assert!(t.methods.len() == 1);
     let method = &t.methods[0];
-    assert!(method.name == "ToString");
+    assert!(method.name == "to_string");
+    assert!(method.kind == MethodKind::Normal);
+
     assert!(method.params.is_empty());
     let param = method.return_type.as_ref().unwrap();
     assert!(param.kind == TypeKind::String);
@@ -133,4 +137,37 @@ fn can_read_interface_from_reader() {
     assert!(guid.0[8] == GuidConstant::U8(0xE6));
     assert!(guid.0[9] == GuidConstant::U8(0x27));
     assert!(guid.0[10] == GuidConstant::U8(0xC3));
+}
+
+#[test]
+fn can_read_generic_interface_from_reader() {
+    let winmd_files = crate::load_winmd::from_os();
+    let reader = &TypeReader::new(winmd_files);
+    let def = reader.resolve(("Windows.Foundation.Collections", "IObservableMap`2"));
+    let t = def.into_type(reader);
+    let name = t.name();
+
+    assert!(name.namespace == "Windows.Foundation.Collections");
+    assert!(name.name == "IObservableMap`2");
+    assert!(name.generics.len() == 2);
+    assert!(name.generics[0] == TypeKind::Generic("K".to_string()));
+    assert!(name.generics[1] == TypeKind::Generic("V".to_string()));
+
+    assert!(name.def == def);
+
+    let t = match t {
+        Type::Interface(t) => t,
+        _ => panic!("Wrong type"),
+    };
+
+    assert!(t.methods.len() == 2);
+
+    let method = &t.methods[0];
+    assert!(method.name == "map_changed");
+    assert!(method.kind == MethodKind::Add);
+
+    let method = &t.methods[1];
+    println!("{}", method.name);
+    assert!(method.name == "remove_map_changed");
+    assert!(method.kind == MethodKind::Remove);
 }

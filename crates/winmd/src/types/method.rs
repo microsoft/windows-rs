@@ -1,3 +1,4 @@
+use crate::case::to_snake;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
@@ -7,10 +8,9 @@ pub struct Method {
     pub name: String,
     pub params: Vec<Param>,
     pub return_type: Option<Param>,
-    // pub category: MethodKind,
+    pub kind: MethodKind,
 }
 
-#[allow(dead_code)]
 #[derive(Copy, Clone, PartialEq, Debug)]
 pub enum MethodKind {
     Normal,
@@ -38,12 +38,44 @@ impl Method {
             .collect()
     }
 
+    fn method_name(reader: &TypeReader, method: MethodDef) -> String {
+        if let Some(attribute) =
+            method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
+        {
+            for (_, arg) in attribute.args(reader) {
+                if let AttributeArg::String(name) = arg {
+                    return to_snake("", &name);
+                }
+            }
+        }
+
+        to_snake("", method.name(reader))
+    }
+
     pub fn from_method_def(
         reader: &TypeReader,
         method: MethodDef,
         generics: &[TypeKind],
     ) -> Method {
-        let name = method.name(reader).to_string();
+        let (name, kind) = if method.flags(reader).special() {
+            let name = method.name(reader);
+
+            if name.starts_with("get") {
+                (to_snake("", &name[4..]), MethodKind::Get)
+            } else if name.starts_with("put") {
+                (to_snake("set", &name[4..]), MethodKind::Set)
+            } else if name.starts_with("add") {
+                (to_snake("", &name[4..]), MethodKind::Add)
+            } else if name.starts_with("remove") {
+                (to_snake("remove", &name[7..]), MethodKind::Remove)
+            } else {
+                // A delegate's 'Invoke' method is "special" but lacks a preamble.
+                ("invoke".to_string(), MethodKind::Normal)
+            }
+        } else {
+            (Method::method_name(reader, method), MethodKind::Normal)
+        };
+
         let mut blob = method.sig(reader);
 
         if blob.read_unsigned() & 0x10 != 0 {
@@ -95,6 +127,7 @@ impl Method {
 
         Method {
             name,
+            kind,
             params,
             return_type,
         }

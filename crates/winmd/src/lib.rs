@@ -1,4 +1,5 @@
 mod blob;
+mod case;
 mod codes;
 mod file;
 mod flags;

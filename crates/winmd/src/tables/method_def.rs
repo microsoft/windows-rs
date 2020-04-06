@@ -61,4 +61,9 @@ impl MethodDef {
             )
             .map(Attribute)
     }
+
+    pub fn find_attribute(self, reader: &TypeReader, name: (&str, &str)) -> Option<Attribute> {
+        self.attributes(reader)
+            .find(|attribute| attribute.name(reader) == name)
+    }
 }
