@@ -1,6 +1,6 @@
 use crate::blob::Blob;
 use crate::codes::HasConstant;
-use crate::file::TABLE_CONSTANT;
+use crate::file::TableIndex;
 use crate::row::Row;
 use crate::tables::Constant;
 use crate::TypeReader;
@@ -21,7 +21,7 @@ impl Field {
         reader
             .equal_range(
                 self.0.file_index,
-                TABLE_CONSTANT,
+                TableIndex::Constant,
                 1,
                 HasConstant::Field(self).encode(),
             )

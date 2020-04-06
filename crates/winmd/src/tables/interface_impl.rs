@@ -1,6 +1,6 @@
 use super::Attribute;
 use crate::codes::{HasAttribute, TypeDefOrRef};
-use crate::file::TABLE_CUSTOMATTRIBUTE;
+use crate::file::TableIndex;
 use crate::row::Row;
 use crate::TypeReader;
 
@@ -16,7 +16,7 @@ impl InterfaceImpl {
         reader
             .equal_range(
                 self.0.file_index,
-                TABLE_CUSTOMATTRIBUTE,
+                TableIndex::CustomAttribute,
                 0,
                 HasAttribute::InterfaceImpl(self).encode(),
             )

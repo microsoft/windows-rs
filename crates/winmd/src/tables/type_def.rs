@@ -1,7 +1,6 @@
 use super::Attribute;
 use crate::codes::{HasAttribute, TypeDefOrRef, TypeOrMethodDef};
-use crate::file::TABLE_CUSTOMATTRIBUTE;
-use crate::file::{TABLE_FIELD, TABLE_GENERICPARAM, TABLE_INTERFACEIMPL, TABLE_METHODDEF};
+use crate::file::TableIndex;
 use crate::flags::{TypeCategory, TypeFlags};
 use crate::row::Row;
 use crate::tables::{Field, GenericParam, InterfaceImpl, MethodDef};
@@ -25,20 +24,18 @@ impl TypeDef {
     }
 
     pub fn fields(self, reader: &TypeReader) -> impl Iterator<Item = Field> {
-        reader.list(self.0, TABLE_FIELD as u16, 4).map(Field)
+        reader.list(self.0, TableIndex::Field, 4).map(Field)
     }
 
     pub fn methods(self, reader: &TypeReader) -> impl Iterator<Item = MethodDef> {
-        reader
-            .list(self.0, TABLE_METHODDEF as u16, 5)
-            .map(MethodDef)
+        reader.list(self.0, TableIndex::MethodDef, 5).map(MethodDef)
     }
 
     pub fn generics(self, reader: &TypeReader) -> impl Iterator<Item = GenericParam> {
         reader
             .equal_range(
                 self.0.file_index,
-                TABLE_GENERICPARAM,
+                TableIndex::GenericParam,
                 2,
                 TypeOrMethodDef::TypeDef(self).encode(),
             )
@@ -47,7 +44,12 @@ impl TypeDef {
 
     pub fn interfaces(self, reader: &TypeReader) -> impl Iterator<Item = InterfaceImpl> {
         reader
-            .equal_range(self.0.file_index, TABLE_INTERFACEIMPL, 0, self.0.index + 1)
+            .equal_range(
+                self.0.file_index,
+                TableIndex::InterfaceImpl,
+                0,
+                self.0.index + 1,
+            )
             .map(InterfaceImpl)
     }
 
@@ -55,7 +57,7 @@ impl TypeDef {
         reader
             .equal_range(
                 self.0.file_index,
-                TABLE_CUSTOMATTRIBUTE,
+                TableIndex::CustomAttribute,
                 0,
                 HasAttribute::TypeDef(self).encode(),
             )

@@ -1,6 +1,6 @@
 use crate::blob::Blob;
 use crate::codes::Decode;
-use crate::file::{View, WinmdFile, TABLE_TYPEDEF};
+use crate::file::{TableIndex, View, WinmdFile};
 use crate::row::Row;
 use crate::tables::TypeDef;
 use crate::types::Type;
@@ -31,7 +31,7 @@ impl TypeReader {
             reader.files.push(file);
 
             for row in 0..row_count {
-                let def = TypeDef(Row::new(row, TABLE_TYPEDEF as u16, file_index as u16));
+                let def = TypeDef(Row::new(row, TableIndex::TypeDef, file_index as u16));
 
                 if def.ignore(&reader) {
                     continue;
@@ -115,7 +115,7 @@ impl TypeReader {
         T::decode(self.u32(row, column), row.file_index)
     }
 
-    pub fn list(&self, row: Row, table: u16, column: u32) -> impl Iterator<Item = Row> {
+    pub fn list(&self, row: Row, table: TableIndex, column: u32) -> impl Iterator<Item = Row> {
         let file = &self.files[row.file_index as usize];
         let first = self.u32(row, column) - 1;
 
@@ -125,7 +125,7 @@ impl TypeReader {
             file.tables[table as usize].row_count
         };
 
-        (first..last).map(move |value| Row::new(value, table as u16, row.file_index))
+        (first..last).map(move |value| Row::new(value, table, row.file_index))
     }
 
     pub fn blob(&self, row: Row, column: u32) -> Blob {
@@ -147,25 +147,25 @@ impl TypeReader {
     pub fn equal_range(
         &self,
         file: u16,
-        table: usize,
+        table: TableIndex,
         column: u32,
         value: u32,
     ) -> impl Iterator<Item = Row> {
         let (first, last) = self.equal_range_of(
-            table as u16,
+            table,
             file,
             0,
-            self.files[file as usize].tables[table].row_count,
+            self.files[file as usize].tables[table as usize].row_count,
             column,
             value,
         );
 
-        (first..last).map(move |row| Row::new(row, table as u16, file))
+        (first..last).map(move |row| Row::new(row, table, file))
     }
 
     fn lower_bound_of(
         &self,
-        table: u16,
+        table: TableIndex,
         file: u16,
         mut first: u32,
         last: u32,
@@ -186,7 +186,7 @@ impl TypeReader {
         first
     }
 
-    pub fn upper_bound(&self, file: u16, table: u16, column: u32, value: u32) -> Row {
+    pub fn upper_bound(&self, file: u16, table: TableIndex, column: u32, value: u32) -> Row {
         Row::new(
             self.upper_bound_of(
                 table,
@@ -203,7 +203,7 @@ impl TypeReader {
 
     fn upper_bound_of(
         &self,
-        table: u16,
+        table: TableIndex,
         file: u16,
         mut first: u32,
         last: u32,
@@ -228,7 +228,7 @@ impl TypeReader {
 
     fn equal_range_of(
         &self,
-        table: u16,
+        table: TableIndex,
         file: u16,
         mut first: u32,
         mut last: u32,
