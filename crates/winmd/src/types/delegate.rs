@@ -1,6 +1,6 @@
 use crate::tables::*;
 use crate::types::*;
-use crate::Reader;
+use crate::TypeReader;
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -12,7 +12,7 @@ pub struct Delegate {
 }
 
 impl Delegate {
-    pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
         let method = def
             .methods(reader)

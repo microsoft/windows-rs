@@ -1,7 +1,7 @@
 use crate::file::*;
 use crate::row::Row;
 use crate::tables::*;
-use crate::Reader;
+use crate::TypeReader;
 
 use winmd_macros::type_code;
 
@@ -56,7 +56,7 @@ pub enum AttributeType {
 }
 
 impl TypeDefOrRef {
-    pub fn name<'a>(&self, reader: &'a Reader) -> (&'a str, &'a str) {
+    pub fn name<'a>(&self, reader: &'a TypeReader) -> (&'a str, &'a str) {
         match self {
             TypeDefOrRef::TypeDef(value) => value.name(reader),
             TypeDefOrRef::TypeRef(value) => value.name(reader),
@@ -64,7 +64,7 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn resolve(&self, reader: &Reader) -> TypeDef {
+    pub fn resolve(&self, reader: &TypeReader) -> TypeDef {
         match self {
             Self::TypeDef(value) => *value,
             Self::TypeRef(value) => value.resolve(reader),

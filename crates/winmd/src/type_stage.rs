@@ -1,8 +1,8 @@
-use crate::reader::Reader;
 use crate::tables::TypeDef;
 use crate::type_limits::TypeLimits;
 use crate::type_tree::TypeTree;
 use crate::types::Type;
+use crate::TypeReader;
 
 use std::collections::*;
 
@@ -10,7 +10,7 @@ use std::collections::*;
 pub struct TypeStage(pub BTreeMap<TypeDef, Type>);
 
 impl TypeStage {
-    pub fn from_limits(reader: &Reader, limits: &TypeLimits) -> TypeStage {
+    pub fn from_limits(reader: &TypeReader, limits: &TypeLimits) -> TypeStage {
         let mut stage: TypeStage = Default::default();
 
         for namespace in &limits.0 {
@@ -22,7 +22,7 @@ impl TypeStage {
         stage
     }
 
-    fn insert(&mut self, reader: &Reader, def: TypeDef) {
+    fn insert(&mut self, reader: &TypeReader, def: TypeDef) {
         if !self.0.contains_key(&def) {
             let info = def.into_type(reader);
             let depends = info.dependencies();

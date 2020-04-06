@@ -1,23 +1,23 @@
 use crate::blob::Blob;
 use crate::codes::HasConstant;
 use crate::file::TABLE_CONSTANT;
-use crate::reader::Reader;
 use crate::row::Row;
 use crate::tables::Constant;
+use crate::TypeReader;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Field(pub Row);
 
 impl Field {
-    pub fn name(self, reader: &Reader) -> &str {
+    pub fn name(self, reader: &TypeReader) -> &str {
         reader.str(self.0, 1)
     }
 
-    pub fn sig(self, reader: &Reader) -> Blob {
+    pub fn sig(self, reader: &TypeReader) -> Blob {
         reader.blob(self.0, 2)
     }
 
-    pub fn constants(self, reader: &Reader) -> impl Iterator<Item = Constant> {
+    pub fn constants(self, reader: &TypeReader) -> impl Iterator<Item = Constant> {
         reader
             .equal_range(
                 self.0.file,

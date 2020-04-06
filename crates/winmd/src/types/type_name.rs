@@ -2,7 +2,7 @@ use crate::blob::Blob;
 use crate::codes::*;
 use crate::tables::*;
 use crate::types::*;
-use crate::{write_ident, Reader};
+use crate::{write_ident, TypeReader};
 
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
@@ -24,7 +24,7 @@ impl TypeName {
             .collect()
     }
 
-    pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let (namespace, name) = def.name(reader);
         let namespace = namespace.to_string();
         let name = name.to_string();
@@ -64,7 +64,7 @@ impl TypeName {
         }
     }
 
-    pub fn from_type_spec(reader: &Reader, spec: TypeSpec) -> Self {
+    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec) -> Self {
         let mut blob = spec.sig(reader);
         blob.read_unsigned();
         TypeName::from_type_spec_blob(&mut blob, &Vec::new())

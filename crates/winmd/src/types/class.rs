@@ -1,6 +1,6 @@
 use crate::tables::*;
 use crate::types::*;
-use crate::Reader;
+use crate::TypeReader;
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -21,7 +21,7 @@ impl Class {
             .collect()
     }
 
-    pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
         let mut interfaces: Vec<Interface> = def
             .interfaces(reader)

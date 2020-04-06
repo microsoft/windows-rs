@@ -1,6 +1,6 @@
 use crate::tables::*;
 use crate::types::*;
-use crate::Reader;
+use crate::TypeReader;
 
 #[derive(Debug)]
 pub struct Method {
@@ -38,7 +38,7 @@ impl Method {
             .collect()
     }
 
-    fn method_name(reader: &Reader, method: MethodDef) -> String {
+    fn method_name(reader: &TypeReader, method: MethodDef) -> String {
         if let Some(attribute) =
             method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
         {
@@ -52,7 +52,7 @@ impl Method {
         method.name(reader).to_string()
     }
 
-    pub fn from_method_def(reader: &Reader, method: MethodDef, generics: &[TypeKind]) -> Method {
+    pub fn from_method_def(reader: &TypeReader, method: MethodDef, generics: &[TypeKind]) -> Method {
         let (name, kind) = if method.flags(reader).special() {
             let name = method.name(reader);
 

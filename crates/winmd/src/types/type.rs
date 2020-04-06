@@ -1,7 +1,7 @@
 use crate::flags::*;
 use crate::tables::*;
 use crate::types::*;
-use crate::Reader;
+use crate::TypeReader;
 
 use proc_macro2::TokenStream;
 
@@ -14,14 +14,8 @@ pub enum Type {
     Delegate(Delegate),
 }
 
-// impl std::fmt::Debug for Type {
-//     fn fmt(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
-//         write!(formatter, "{}.{}", self.name().namespace, self.name().name)
-//     }
-// }
-
 impl Type {
-    pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         match def.category(reader) {
             TypeCategory::Interface => Self::Interface(Interface::from_type_def(reader, def)),
             TypeCategory::Class => Self::Class(Class::from_type_def(reader, def)),
