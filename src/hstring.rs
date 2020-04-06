@@ -3,7 +3,7 @@
 use crate::*;
 use std::ptr;
 
-#[repr(C)]
+#[repr(transparent)]
 pub struct HString {
     ptr: Option<ptr::NonNull<Header>>,
 }

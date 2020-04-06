@@ -1,6 +1,6 @@
-use std::sync::atomic::*;
+use std::sync::atomic::{self, AtomicU32, Ordering};
 
-#[repr(C)]
+#[repr(transparent)]
 pub struct RefCount {
     value: AtomicU32,
 }
@@ -20,7 +20,7 @@ impl RefCount {
         let remaining = self.value.fetch_sub(1, Ordering::Release) - 1;
 
         if remaining == 0 {
-            fence(Ordering::Acquire);
+            atomic::fence(Ordering::Acquire);
         }
 
         remaining

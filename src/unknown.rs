@@ -1,6 +1,6 @@
 use crate::*;
 
-#[repr(C)]
+#[repr(transparent)]
 pub struct IUnknown {
     ptr: RawPtr,
 }
@@ -11,13 +11,13 @@ impl IUnknown {
     }
 
     pub fn set(&mut self) -> *mut RawPtr {
-        unsafe {
-            if !self.ptr.is_null() {
+        if !self.ptr.is_null() {
+            unsafe {
                 ((*(*(self.ptr as *const *const abi_IUnknown))).release)(self.ptr);
                 self.ptr = std::ptr::null_mut();
             }
-            &mut self.ptr
         }
+        &mut self.ptr
     }
 }
 
@@ -31,19 +31,19 @@ impl Default for IUnknown {
 
 impl Clone for IUnknown {
     fn clone(&self) -> IUnknown {
-        unsafe {
-            if !self.ptr.is_null() {
+        if !self.ptr.is_null() {
+            unsafe {
                 ((*(*(self.ptr as *const *const abi_IUnknown))).addref)(self.ptr);
             }
-            IUnknown { ptr: self.ptr }
         }
+        IUnknown { ptr: self.ptr }
     }
 }
 
 impl Drop for IUnknown {
     fn drop(&mut self) {
-        unsafe {
-            if !self.ptr.is_null() {
+        if !self.ptr.is_null() {
+            unsafe {
                 ((*(*(self.ptr as *const *const abi_IUnknown))).release)(self.ptr);
             }
         }
