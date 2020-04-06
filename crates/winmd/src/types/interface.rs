@@ -98,7 +98,7 @@ impl Interface {
 }
 
 #[test]
-fn test() {
+fn can_read_interface_from_reader() {
     let reader = &Reader::from_os();
     let def = reader.resolve(("Windows.Foundation", "IStringable"));
     let t = def.into_type(reader);
