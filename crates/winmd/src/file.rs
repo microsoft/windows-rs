@@ -118,17 +118,17 @@ impl WinmdFile {
             cli.meta_data.virtual_address,
         );
 
-        if *file.bytes.view_as::<u32>(cli_offset) != STORAGE_MAGIC_SIG {
+        if file.bytes.copy_as::<u32>(cli_offset) != STORAGE_MAGIC_SIG {
             panic!("Invalid file: invalid STORAGE_MAGIC_SIG");
         }
 
-        let version_length = *file.bytes.view_as::<u32>(cli_offset + 12);
+        let version_length = file.bytes.copy_as::<u32>(cli_offset + 12);
         let mut view = cli_offset + version_length + 20;
         let mut tables_data: (u32, u32) = (0, 0);
 
-        for _ in 0..*file.bytes.view_as::<u16>(cli_offset + version_length + 18) {
-            let stream_offset = *file.bytes.view_as::<u32>(view);
-            let stream_size = *file.bytes.view_as::<u32>(view + 4);
+        for _ in 0..file.bytes.copy_as::<u16>(cli_offset + version_length + 18) {
+            let stream_offset = file.bytes.copy_as::<u32>(view);
+            let stream_size = file.bytes.copy_as::<u32>(view + 4);
             let stream_name = file.bytes.view_as_str(view + 8);
             match stream_name {
                 b"#Strings" => file.strings = cli_offset + stream_offset,
@@ -145,11 +145,11 @@ impl WinmdFile {
             view += (8 + stream_name.len() + padding) as u32;
         }
 
-        let heap_sizes = *file.bytes.view_as::<u8>(tables_data.0 + 6);
+        let heap_sizes = file.bytes.copy_as::<u8>(tables_data.0 + 6);
         let string_index_size = if (heap_sizes & 1) == 1 { 4 } else { 2 };
         let guid_index_size = if (heap_sizes >> 1 & 1) == 1 { 4 } else { 2 };
         let blob_index_size = if (heap_sizes >> 2 & 1) == 1 { 4 } else { 2 };
-        let valid_bits = *file.bytes.view_as::<u64>(tables_data.0 + 8);
+        let valid_bits = file.bytes.copy_as::<u64>(tables_data.0 + 8);
         view = tables_data.0 + 24;
 
         // These tables are unused by WinRT, but needed temporarily to calculate sizes and offsets for subsequent tables.
@@ -187,7 +187,7 @@ impl WinmdFile {
                 continue;
             }
 
-            let row_count = *file.bytes.view_as::<u32>(view);
+            let row_count = file.bytes.copy_as::<u32>(view);
             view += 4;
 
             match i {
@@ -575,28 +575,64 @@ fn composite_index_size(tables: &[&TableData]) -> u32 {
 pub(crate) trait View {
     fn view_as<T: Pod>(&self, cli_offset: u32) -> &T;
     fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T];
+    fn copy_as<T: Copy + CopyPod>(&self, cli_offset: u32) -> T;
     fn view_as_str(&self, cli_offset: u32) -> &[u8];
+}
+
+macro_rules! assert_proper_length {
+    ($self:expr, $t:ty, $cli_offset:expr, $size:expr) => {
+        let enough_room = $cli_offset + $size <= $self.len() as u32;
+        assert!(
+            enough_room,
+            "Invalid file: not enough bytes at offset {} to represent T",
+            $cli_offset
+        );
+    };
+}
+
+macro_rules! assert_proper_length_and_alignment {
+    ($self:expr, $t:ty, $cli_offset:expr, $size:expr) => {{
+        assert_proper_length!($self, $t, $cli_offset, $size);
+
+        let ptr = &$self[$cli_offset as usize] as *const u8 as *const $t;
+
+        let properly_aligned = ptr.align_offset(std::mem::align_of::<$t>()) == 0;
+
+        assert!(
+            properly_aligned,
+            "Invalid file: offset {} is not properly aligned to T",
+            $cli_offset
+        );
+        ptr
+    }};
 }
 
 impl View for [u8] {
     fn view_as<T: Pod>(&self, cli_offset: u32) -> &T {
-        if cli_offset + sizeof::<T>() > self.len() as u32 {
-            panic!("Invalid file: offset {} is not a valid T", cli_offset);
-        }
+        let ptr = assert_proper_length_and_alignment!(self, T, cli_offset, sizeof::<T>());
 
-        unsafe { &*(&self[cli_offset as usize] as *const u8 as *const T) }
+        unsafe { &*ptr }
     }
 
     fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T] {
-        if cli_offset + sizeof::<T>() * len > self.len() as u32 {
-            panic!("Invalid file: offset {} is not a valid T", cli_offset);
-        }
+        let ptr = assert_proper_length_and_alignment!(self, T, cli_offset, sizeof::<T>() * len);
+
+        unsafe { std::slice::from_raw_parts(ptr, len as usize) }
+    }
+
+    fn copy_as<T: CopyPod>(&self, cli_offset: u32) -> T {
+        assert_proper_length!(self, T, cli_offset, sizeof::<T>());
 
         unsafe {
-            std::slice::from_raw_parts(
-                &self[cli_offset as usize] as *const u8 as *const T,
-                len as usize,
-            )
+            let mut data = std::mem::MaybeUninit::zeroed().assume_init();
+
+            std::ptr::copy_nonoverlapping(
+                self[cli_offset as usize..].as_ptr(),
+                &mut data as *mut T as *mut u8,
+                std::mem::size_of::<T>(),
+            );
+
+            data
         }
     }
 
@@ -802,11 +838,63 @@ unsafe impl Pod for ImageCorHeader {}
 /// A `bool` is _not_ a `Pod` because it must either be a `0` or `1` in memory
 pub(crate) unsafe trait Pod {}
 
-unsafe impl Pod for u8 {}
-unsafe impl Pod for u16 {}
-unsafe impl Pod for u32 {}
-unsafe impl Pod for u64 {}
-unsafe impl Pod for i8 {}
-unsafe impl Pod for i16 {}
-unsafe impl Pod for i32 {}
-unsafe impl Pod for i64 {}
+/// A Pod type that is also safe to copy.
+///
+/// In addition to the same safety properties as Pod types, this type must be able to
+/// be zeroed, many that it is valid to represent this type in memory as all 0s.
+pub(crate) unsafe trait CopyPod: Copy {}
+
+unsafe impl CopyPod for u8 {}
+unsafe impl CopyPod for u16 {}
+unsafe impl CopyPod for u32 {}
+unsafe impl CopyPod for u64 {}
+unsafe impl CopyPod for i8 {}
+unsafe impl CopyPod for i16 {}
+unsafe impl CopyPod for i32 {}
+unsafe impl CopyPod for i64 {}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[repr(C)]
+    struct Foo {
+        bar: u16,
+        baz: u8,
+    }
+    unsafe impl Pod for Foo {}
+
+    #[test]
+    fn view_bytes_as_type() {
+        let bytes = [1u8, 3, 48, 90];
+
+        let foo = bytes.view_as::<Foo>(0);
+        assert_eq!(foo.bar, 0x0301);
+        assert_eq!(foo.baz, 48)
+    }
+
+    #[test]
+    #[should_panic]
+    fn panic_on_unaligned_bytes() {
+        let bytes = [1u8, 3, 48, 90, 90];
+
+        let _ = bytes.view_as::<Foo>(0);
+        let _ = bytes.view_as::<Foo>(1);
+    }
+
+    #[test]
+    #[should_panic]
+    fn panic_on_too_few_bytes() {
+        let bytes = [1u8, 3];
+
+        let _ = bytes.view_as::<Foo>(0);
+    }
+
+    #[test]
+    fn copy_bytes_as_type() {
+        let bytes = [1u8, 3];
+
+        let foo = bytes.copy_as::<u16>(0);
+        assert_eq!(foo, 0x0301);
+    }
+}

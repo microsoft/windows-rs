@@ -104,10 +104,10 @@ impl Reader {
         let table = &file.tables[row.table as usize];
         let offset = table.data + row.row * table.row_size + table.columns[column as usize].0;
         match table.columns[column as usize].1 {
-            1 => *(file.bytes.view_as::<u8>(offset)) as u32,
-            2 => *(file.bytes.view_as::<u16>(offset)) as u32,
-            4 => *(file.bytes.view_as::<u32>(offset)) as u32,
-            _ => *(file.bytes.view_as::<u64>(offset)) as u32,
+            1 => file.bytes.copy_as::<u8>(offset) as u32,
+            2 => file.bytes.copy_as::<u16>(offset) as u32,
+            4 => file.bytes.copy_as::<u32>(offset) as u32,
+            _ => file.bytes.copy_as::<u64>(offset) as u32,
         }
     }
 

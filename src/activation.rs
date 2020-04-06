@@ -7,9 +7,8 @@ use crate::*;
 // and implement DLL garbage collection for those. Version 0.1 can probably just pin everything.
 // https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
 pub fn factory<C: TypeName, I: TypeGuid>() -> Result<I> {
+    let mut ptr = std::ptr::null_mut();
     unsafe {
-        let mut ptr = std::ptr::null_mut();
-
         let mut code = RoGetActivationFactory(
             HString::from(C::type_name()).abi(),
             I::type_guid(),
@@ -17,8 +16,8 @@ pub fn factory<C: TypeName, I: TypeGuid>() -> Result<I> {
         );
 
         if code == ErrorCode::NOT_INITIALIZED {
-            let mut cookie = std::ptr::null_mut();
-            CoIncrementMTAUsage(&mut cookie);
+            let mut _cookie = std::ptr::null_mut();
+            CoIncrementMTAUsage(&mut _cookie);
 
             code = RoGetActivationFactory(
                 HString::from(C::type_name()).abi(),
@@ -27,11 +26,11 @@ pub fn factory<C: TypeName, I: TypeGuid>() -> Result<I> {
             );
         }
 
-        code.ok_or(std::mem::transmute_copy(&ptr))
+        code.and_then(|| std::mem::transmute_copy(&ptr))
     }
 }
 
-#[repr(C)]
+#[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct IActivationFactory {
     ptr: IUnknown,
@@ -39,13 +38,13 @@ pub struct IActivationFactory {
 
 impl IActivationFactory {
     pub fn activate_instance<I: TypeGuid>(&self) -> Result<I> {
+        let mut object = Object::default();
         unsafe {
-            let mut object: Object = Default::default();
             ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(
                 self.ptr.get(),
                 object.set_abi(),
             )
-            .ok_or(safe_query(&object))
+            .and_then(|| safe_query(&object))
         }
     }
 }

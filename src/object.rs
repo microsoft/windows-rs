@@ -1,8 +1,6 @@
-#![allow(dead_code)]
-
 use crate::*;
 
-#[repr(C)]
+#[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct Object {
     ptr: IUnknown,
@@ -16,7 +14,7 @@ impl Object {
                 self.ptr.get(),
                 &mut ptr,
             )
-            .ok_or(std::mem::transmute(ptr))
+            .and_then(|| std::mem::transmute(ptr))
         }
     }
 }
