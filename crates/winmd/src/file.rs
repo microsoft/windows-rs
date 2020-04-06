@@ -579,56 +579,49 @@ pub(crate) trait View {
     fn view_as_str(&self, cli_offset: u32) -> &[u8];
 }
 
-impl View for [u8] {
-    fn view_as<T: Pod>(&self, cli_offset: u32) -> &T {
-        let enough_room = cli_offset + sizeof::<T>() <= self.len() as u32;
+macro_rules! assert_proper_length {
+    ($self:expr, $t:ty, $cli_offset:expr, $size:expr) => {
+        let enough_room = $cli_offset + $size <= $self.len() as u32;
         assert!(
             enough_room,
-            "Invalid file: offset {} is not a valid T",
-            cli_offset
+            "Invalid file: not enough bytes at offset {} to represent T",
+            $cli_offset
         );
+    };
+}
 
-        let ptr = &self[cli_offset as usize] as *const u8 as *const T;
+macro_rules! assert_proper_length_and_alignment {
+    ($self:expr, $t:ty, $cli_offset:expr, $size:expr) => {{
+        assert_proper_length!($self, $t, $cli_offset, $size);
 
-        let properly_aligned = ptr.align_offset(std::mem::align_of::<T>()) == 0;
+        let ptr = &$self[$cli_offset as usize] as *const u8 as *const $t;
+
+        let properly_aligned = ptr.align_offset(std::mem::align_of::<$t>()) == 0;
 
         assert!(
             properly_aligned,
-            "Invalid file: not enough bytes at offset {} to represent T",
-            cli_offset
+            "Invalid file: offset {} is not properly aligned to T",
+            $cli_offset
         );
+        ptr
+    }};
+}
+
+impl View for [u8] {
+    fn view_as<T: Pod>(&self, cli_offset: u32) -> &T {
+        let ptr = assert_proper_length_and_alignment!(self, T, cli_offset, sizeof::<T>());
 
         unsafe { &*ptr }
     }
 
     fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T] {
-        let enough_room = cli_offset + sizeof::<T>() * len <= self.len() as u32;
-        assert!(
-            enough_room,
-            "Invalid file: not enough bytes at offset {} to represent &[T]",
-            cli_offset
-        );
-
-        let ptr = &self[cli_offset as usize] as *const u8 as *const T;
-
-        let properly_aligned = ptr.align_offset(std::mem::align_of::<T>()) == 0;
-
-        assert!(
-            properly_aligned,
-            "Invalid file: offset {} is not properly aligned to &[T]",
-            cli_offset
-        );
+        let ptr = assert_proper_length_and_alignment!(self, T, cli_offset, sizeof::<T>() * len);
 
         unsafe { std::slice::from_raw_parts(ptr, len as usize) }
     }
 
     fn copy_as<T: CopyPod>(&self, cli_offset: u32) -> T {
-        let enough_room = cli_offset + sizeof::<T>() <= self.len() as u32;
-        assert!(
-            enough_room,
-            "Invalid file: not enough bytes at offset {} to represent T",
-            cli_offset
-        );
+        assert_proper_length!(self, T, cli_offset, sizeof::<T>());
 
         unsafe {
             let mut data = std::mem::MaybeUninit::zeroed().assume_init();
