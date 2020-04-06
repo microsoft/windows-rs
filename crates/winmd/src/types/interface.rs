@@ -167,7 +167,6 @@ fn can_read_generic_interface_from_reader() {
     assert!(method.kind == MethodKind::Add);
 
     let method = &t.methods[1];
-    println!("{}", method.name);
     assert!(method.name == "remove_map_changed");
     assert!(method.kind == MethodKind::Remove);
 }

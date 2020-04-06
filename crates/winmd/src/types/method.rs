@@ -6,9 +6,9 @@ use crate::TypeReader;
 #[derive(Debug)]
 pub struct Method {
     pub name: String,
+    pub kind: MethodKind,
     pub params: Vec<Param>,
     pub return_type: Option<Param>,
-    pub kind: MethodKind,
 }
 
 #[derive(Copy, Clone, PartialEq, Debug)]

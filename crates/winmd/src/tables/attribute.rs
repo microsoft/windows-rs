@@ -63,8 +63,6 @@ impl Attribute {
             args.push((String::new(), arg));
         }
 
-        println!("{:?}", args);
-
         let count = values.read_unsigned();
         args.reserve(count as usize);
 
