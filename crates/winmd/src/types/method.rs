@@ -7,7 +7,7 @@ pub struct Method {
     pub name: String,
     pub params: Vec<Param>,
     pub return_type: Option<Param>,
-    // pub category: MethodKind,
+    pub kind: MethodKind,
 }
 
 #[allow(dead_code)]
@@ -38,8 +38,40 @@ impl Method {
             .collect()
     }
 
+    fn method_name(reader: &Reader, method: MethodDef) -> String {
+        if let Some(attribute) =
+            method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
+        {
+            for (_, arg) in attribute.args(reader) {
+                if let AttributeArg::String(name) = arg {
+                    return name;
+                }
+            }
+        }
+
+        method.name(reader).to_string()
+    }
+
     pub fn from_method_def(reader: &Reader, method: MethodDef, generics: &[TypeKind]) -> Method {
-        let name = method.name(reader).to_string();
+        let (name, kind) = if method.flags(reader).special() {
+            let name = method.name(reader);
+
+            if name.starts_with("get") {
+                (name[4..].to_string(), MethodKind::Get)
+            } else if name.starts_with("put") {
+                (name[4..].to_string(), MethodKind::Set)
+            } else if name.starts_with("add") {
+                (name[4..].to_string(), MethodKind::Add)
+            } else if name.starts_with("remove") {
+                (name[7..].to_string(), MethodKind::Remove)
+            } else {
+                // A delegate's 'Invoke' method is "special" but lacks a preamble.
+                (name.to_string(), MethodKind::Normal)
+            }
+        } else {
+            (Method::method_name(reader, method), MethodKind::Normal)
+        };
+
         let mut blob = method.sig(reader);
 
         if blob.read_unsigned() & 0x10 != 0 {
@@ -91,6 +123,7 @@ impl Method {
 
         Method {
             name,
+            kind,
             params,
             return_type,
         }
