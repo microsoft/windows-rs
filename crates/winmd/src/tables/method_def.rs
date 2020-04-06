@@ -1,7 +1,7 @@
 use super::{Attribute, Param, TypeDef};
 use crate::blob::Blob;
 use crate::codes::HasAttribute;
-use crate::file::{TABLE_CUSTOMATTRIBUTE, TABLE_PARAM, TABLE_TYPEDEF};
+use crate::file::TableIndex;
 use crate::flags::{MethodCategory, MethodFlags};
 use crate::row::Row;
 use crate::TypeReader;
@@ -15,11 +15,11 @@ impl MethodDef {
     }
 
     pub fn parent(self, reader: &TypeReader) -> TypeDef {
-        TypeDef(reader.upper_bound(self.0.file, TABLE_TYPEDEF as u16, 6, self.0.row))
+        TypeDef(reader.upper_bound(self.0.file_index, TableIndex::TypeDef, 6, self.0.index))
     }
 
     pub fn params(self, reader: &TypeReader) -> impl Iterator<Item = Param> {
-        reader.list(self.0, TABLE_PARAM as u16, 5).map(Param)
+        reader.list(self.0, TableIndex::Param, 5).map(Param)
     }
 
     pub fn name(self, reader: &TypeReader) -> &str {
@@ -54,8 +54,8 @@ impl MethodDef {
     pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
         reader
             .equal_range(
-                self.0.file,
-                TABLE_CUSTOMATTRIBUTE,
+                self.0.file_index,
+                TableIndex::CustomAttribute,
                 0,
                 HasAttribute::MethodDef(self).encode(),
             )

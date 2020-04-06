@@ -21,7 +21,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
 
     for variant in input.variants.iter() {
         let name = &variant.ident;
-        let table = format_ident!("TABLE_{}", name.to_string().to_uppercase());
+        let table = format_ident!("{}", name);
 
         if let Some((_, syn::Expr::Lit(value))) = &variant.discriminant {
             if let syn::Lit::Int(value) = &value.lit {
@@ -34,11 +34,11 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         ));
 
         decodes.push(quote!(
-            #enumerator => Self::#name(#name(Row::new(code.1, #table as u16, file))),
+            #enumerator => Self::#name(#name(Row::new(code.1, TableIndex::#table, file))),
         ));
 
         encodes.push(quote!(
-            Self::#name(value) => ((value.0.row + 1) << #bits) | #enumerator,
+            Self::#name(value) => ((value.0.index + 1) << #bits) | #enumerator,
         ));
 
         enumerator += 1;

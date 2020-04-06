@@ -1,6 +1,6 @@
 use super::Attribute;
 use crate::codes::{HasAttribute, TypeDefOrRef};
-use crate::file::TABLE_CUSTOMATTRIBUTE;
+use crate::file::TableIndex;
 use crate::row::Row;
 use crate::TypeReader;
 
@@ -15,8 +15,8 @@ impl InterfaceImpl {
     pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
         reader
             .equal_range(
-                self.0.file,
-                TABLE_CUSTOMATTRIBUTE,
+                self.0.file_index,
+                TableIndex::CustomAttribute,
                 0,
                 HasAttribute::InterfaceImpl(self).encode(),
             )
