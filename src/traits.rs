@@ -20,21 +20,27 @@ pub trait RuntimeType {
     fn set_abi(&mut self) -> *mut Self::Abi;
 }
 
-// Contrains blittable types to those that are WinRT types so that
-// we can implement RuntimeType for all of these at once.
-pub trait RuntimeCopy: Copy {}
-impl RuntimeCopy for bool {}
-impl RuntimeCopy for i8 {}
-impl RuntimeCopy for u8 {}
-impl RuntimeCopy for i16 {}
-impl RuntimeCopy for u16 {}
-impl RuntimeCopy for i32 {}
-impl RuntimeCopy for u32 {}
-impl RuntimeCopy for i64 {}
-impl RuntimeCopy for u64 {}
-impl RuntimeCopy for f32 {}
-impl RuntimeCopy for f64 {}
-impl RuntimeCopy for Guid {}
+/// Contrains [blittable types](https://docs.microsoft.com/en-us/dotnet/framework/interop/blittable-and-non-blittable-types)
+/// to those that are WinRT types so that we can implement RuntimeType for all of these at once.
+///
+/// # Safety
+///
+/// These types must have a stable representation meaning that they can be viewed as bytes
+/// in a deterministic way. This usually means either core types (e.g.,`u8` and `bool`) or
+/// types that are `#[repr(C)]`
+pub unsafe trait RuntimeCopy: Copy {}
+unsafe impl RuntimeCopy for bool {}
+unsafe impl RuntimeCopy for i8 {}
+unsafe impl RuntimeCopy for u8 {}
+unsafe impl RuntimeCopy for i16 {}
+unsafe impl RuntimeCopy for u16 {}
+unsafe impl RuntimeCopy for i32 {}
+unsafe impl RuntimeCopy for u32 {}
+unsafe impl RuntimeCopy for i64 {}
+unsafe impl RuntimeCopy for u64 {}
+unsafe impl RuntimeCopy for f32 {}
+unsafe impl RuntimeCopy for f64 {}
+unsafe impl RuntimeCopy for Guid {}
 
 impl<T: RuntimeCopy> RuntimeType for T {
     type Abi = Self;

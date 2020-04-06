@@ -3,7 +3,7 @@
 use crate::*;
 use std::ptr;
 
-#[repr(C)]
+#[repr(transparent)]
 pub struct HString {
     ptr: Option<ptr::NonNull<Header>>,
 }
@@ -86,10 +86,11 @@ impl Drop for HString {
 
 impl std::fmt::Display for HString {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        // TODO: how to format the wchar buffer directly to avoid an allocation?
-        // Especially since `value.to_string()` relies on this... unless the formatter
-        // can somehow move/forward the vector.
-        write!(f, "{}", String::from_utf16(self.as_chars()).unwrap())
+        use std::fmt::Write;
+        for c in std::char::decode_utf16(self.as_chars().iter().cloned()) {
+            f.write_char(c.map_err(|_| std::fmt::Error)?)?
+        }
+        Ok(())
     }
 }
 
@@ -100,12 +101,12 @@ impl From<&str> for HString {
             // place each utf-16 character into the buffer and
             // increase len as we go along
             for (index, wide) in value.encode_utf16().enumerate() {
-                *((*ptr).ptr.add(index) as *mut _) = wide;
+                ptr::write((*ptr).ptr.add(index) as *mut _, wide);
                 (*ptr).len = index as u32 + 1;
             }
 
             // write a 0 byte to the end of the buffer
-            *((*ptr).ptr.offset((*ptr).len as isize) as *mut u16) = 0;
+            ptr::write((*ptr).ptr.offset((*ptr).len as isize) as *mut _, 0);
             Self {
                 ptr: Some(ptr::NonNull::new_unchecked(ptr)),
             }
@@ -146,6 +147,18 @@ impl PartialEq<str> for HString {
 impl PartialEq<&str> for HString {
     fn eq(&self, other: &&str) -> bool {
         self.as_chars().iter().copied().eq(other.encode_utf16())
+    }
+}
+
+impl<'a> From<&'a HString> for String {
+    fn from(hstring: &HString) -> Self {
+        String::from_utf16(hstring.as_chars()).unwrap()
+    }
+}
+
+impl From<HString> for String {
+    fn from(hstring: HString) -> Self {
+        hstring.into()
     }
 }
 
@@ -204,5 +217,43 @@ impl Header {
                 ptr::NonNull::new_unchecked(copy)
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn hstring_works() {
+        let empty = HString::new();
+        assert!(empty.is_empty());
+        assert!(empty.len() == 0);
+
+        let mut hello = HString::from("Hello");
+        assert!(!hello.is_empty());
+        assert!(hello.len() == 5);
+
+        let rust = hello.to_string();
+        assert!(rust == "Hello");
+        assert!(rust.len() == 5);
+
+        let hello2 = hello.clone();
+        hello.clear();
+        assert!(hello.len() == 0);
+        hello.clear();
+        assert!(hello.len() == 0);
+        assert!(!hello2.is_empty());
+        assert!(hello2.len() == 5);
+
+        assert!(HString::from("Hello") == HString::from("Hello"));
+        assert!(HString::from("Hello") != HString::from("World"));
+
+        assert!(HString::from("Hello") == "Hello");
+        assert!(HString::from("Hello") != "Hello ");
+        assert!(HString::from("Hello") != "Hell");
+        assert!(HString::from("Hello") != "World");
+
+        assert!(HString::from("Hello").to_string() == String::from("Hello"));
     }
 }

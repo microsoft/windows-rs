@@ -1,9 +1,7 @@
-#![allow(dead_code)]
 #![allow(overflowing_literals)]
 
-#[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
-pub struct ErrorCode(pub i32);
+#[must_use]
+pub type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Debug)]
 pub struct Error {
@@ -11,42 +9,50 @@ pub struct Error {
     // TODO: add `info: IErrorInfo`
 }
 
-#[must_use]
-pub type Result<T> = std::result::Result<T, Error>;
-
 impl Error {
     pub fn code(&self) -> ErrorCode {
         self.code
     }
 }
 
+type HRESULT = i32;
+
+#[repr(transparent)]
+#[derive(Copy, Clone, Debug, PartialEq)]
+pub struct ErrorCode(pub HRESULT);
+
 impl ErrorCode {
+    #[inline]
     pub fn is_ok(self) -> bool {
         self.0 >= 0
     }
 
+    #[inline]
     pub fn is_err(self) -> bool {
         self.0 < 0
     }
 
+    #[inline]
     pub fn unwrap(self) {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
 
+    #[inline]
     pub fn ok(self) -> Result<()> {
-        if self.0 < 0 {
-            Err(Error { code: self })
-        } else {
+        if self.is_ok() {
             Ok(())
+        } else {
+            Err(Error { code: self })
         }
     }
 
-    pub fn ok_or<T>(self, value: T) -> Result<T> {
-        if self.0 < 0 {
-            Err(Error { code: self })
-        } else {
-            Ok(value)
-        }
+    #[inline]
+    pub fn and_then<F, T>(self, value: F) -> Result<T>
+    where
+        F: FnOnce() -> T,
+    {
+        self.ok()?;
+        Ok(value())
     }
 
     pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
