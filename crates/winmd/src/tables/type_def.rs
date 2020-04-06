@@ -37,7 +37,7 @@ impl TypeDef {
     pub fn generics(self, reader: &TypeReader) -> impl Iterator<Item = GenericParam> {
         reader
             .equal_range(
-                self.0.file,
+                self.0.file_index,
                 TABLE_GENERICPARAM,
                 2,
                 TypeOrMethodDef::TypeDef(self).encode(),
@@ -47,14 +47,14 @@ impl TypeDef {
 
     pub fn interfaces(self, reader: &TypeReader) -> impl Iterator<Item = InterfaceImpl> {
         reader
-            .equal_range(self.0.file, TABLE_INTERFACEIMPL, 0, self.0.row + 1)
+            .equal_range(self.0.file_index, TABLE_INTERFACEIMPL, 0, self.0.index + 1)
             .map(InterfaceImpl)
     }
 
     pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
         reader
             .equal_range(
-                self.0.file,
+                self.0.file_index,
                 TABLE_CUSTOMATTRIBUTE,
                 0,
                 HasAttribute::TypeDef(self).encode(),

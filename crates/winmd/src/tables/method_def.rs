@@ -15,7 +15,7 @@ impl MethodDef {
     }
 
     pub fn parent(self, reader: &TypeReader) -> TypeDef {
-        TypeDef(reader.upper_bound(self.0.file, TABLE_TYPEDEF as u16, 6, self.0.row))
+        TypeDef(reader.upper_bound(self.0.file_index, TABLE_TYPEDEF as u16, 6, self.0.index))
     }
 
     pub fn params(self, reader: &TypeReader) -> impl Iterator<Item = Param> {
@@ -54,7 +54,7 @@ impl MethodDef {
     pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
         reader
             .equal_range(
-                self.0.file,
+                self.0.file_index,
                 TABLE_CUSTOMATTRIBUTE,
                 0,
                 HasAttribute::MethodDef(self).encode(),

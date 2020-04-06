@@ -38,7 +38,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         ));
 
         encodes.push(quote!(
-            Self::#name(value) => ((value.0.row + 1) << #bits) | #enumerator,
+            Self::#name(value) => ((value.0.index + 1) << #bits) | #enumerator,
         ));
 
         enumerator += 1;

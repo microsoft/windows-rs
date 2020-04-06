@@ -15,7 +15,7 @@ impl InterfaceImpl {
     pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
         reader
             .equal_range(
-                self.0.file,
+                self.0.file_index,
                 TABLE_CUSTOMATTRIBUTE,
                 0,
                 HasAttribute::InterfaceImpl(self).encode(),

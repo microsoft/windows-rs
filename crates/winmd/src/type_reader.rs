@@ -88,9 +88,9 @@ impl TypeReader {
 
     /// Read a [`u32`] value from a specific [`Row`] and column
     pub fn u32(&self, row: Row, column: u32) -> u32 {
-        let file = &self.files[row.file as usize];
-        let table = &file.tables[row.table as usize];
-        let offset = table.data + row.row * table.row_size + table.columns[column as usize].0;
+        let file = &self.files[row.file_index as usize];
+        let table = &file.tables[row.table_index as usize];
+        let offset = table.data + row.index * table.row_size + table.columns[column as usize].0;
         match table.columns[column as usize].1 {
             1 => file.bytes.copy_as::<u8>(offset) as u32,
             2 => file.bytes.copy_as::<u16>(offset) as u32,
@@ -101,7 +101,7 @@ impl TypeReader {
 
     /// Read a [`&str`] value from a specific [`Row`] and column
     pub fn str(&self, row: Row, column: u32) -> &str {
-        let file = &self.files[row.file as usize];
+        let file = &self.files[row.file_index as usize];
         let offset = (file.strings + self.u32(row, column)) as usize;
         let last = file.bytes[offset..]
             .iter()
@@ -112,24 +112,24 @@ impl TypeReader {
 
     /// Read a `T: Decode` value from a specific [`Row`] and column
     pub fn decode<T: Decode>(&self, row: Row, column: u32) -> T {
-        T::decode(self.u32(row, column), row.file)
+        T::decode(self.u32(row, column), row.file_index)
     }
 
     pub fn list(&self, row: Row, table: u16, column: u32) -> impl Iterator<Item = Row> {
-        let file = &self.files[row.file as usize];
+        let file = &self.files[row.file_index as usize];
         let first = self.u32(row, column) - 1;
 
-        let last = if row.row + 1 < file.tables[row.table as usize].row_count {
+        let last = if row.index + 1 < file.tables[row.table_index as usize].row_count {
             self.u32(row.next(), column) - 1
         } else {
             file.tables[table as usize].row_count
         };
 
-        (first..last).map(move |value| Row::new(value, table as u16, row.file))
+        (first..last).map(move |value| Row::new(value, table as u16, row.file_index))
     }
 
     pub fn blob(&self, row: Row, column: u32) -> Blob {
-        let file = &self.files[row.file as usize];
+        let file = &self.files[row.file_index as usize];
         let offset = (file.blobs + self.u32(row, column)) as usize;
         let initial_byte = file.bytes[offset];
         let (mut blob_size, blob_size_bytes) = match initial_byte >> 5 {
@@ -141,7 +141,7 @@ impl TypeReader {
         for byte in &file.bytes[offset + 1..offset + blob_size_bytes] {
             blob_size = blob_size.checked_shl(8).unwrap_or(0) + byte;
         }
-        Blob::new(self, row.file, offset + blob_size_bytes)
+        Blob::new(self, row.file_index, offset + blob_size_bytes)
     }
 
     pub fn equal_range(

@@ -20,7 +20,7 @@ impl Field {
     pub fn constants(self, reader: &TypeReader) -> impl Iterator<Item = Constant> {
         reader
             .equal_range(
-                self.0.file,
+                self.0.file_index,
                 TABLE_CONSTANT,
                 1,
                 HasConstant::Field(self).encode(),
