@@ -1,14 +1,14 @@
-use crate::reader::Reader;
+use crate::TypeReader;
 use std::convert::TryInto;
 
 pub struct Blob<'a> {
-    pub reader: &'a Reader,
+    pub reader: &'a TypeReader,
     pub file: u16,
     offset: usize,
 }
 
 impl<'a> Blob<'a> {
-    pub fn new(reader: &'a Reader, file: u16, offset: usize) -> Self {
+    pub fn new(reader: &'a TypeReader, file: u16, offset: usize) -> Self {
         Blob {
             reader,
             file,

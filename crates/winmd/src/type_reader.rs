@@ -6,99 +6,87 @@ use crate::tables::TypeDef;
 use crate::types::Type;
 
 use std::cmp::Ordering;
-use std::collections::btree_map::{Keys, Values};
 use std::collections::BTreeMap;
 
-pub struct Reader {
+/// A reader of type information from Windows Metadata
+pub struct TypeReader {
+    /// The parsed Windows metadata files the [`TypeReader`] has access to
     pub files: Vec<WinmdFile>,
+    /// Types known to this [`TypeReader`]
+    ///
+    /// This is a mapping between namespace names and the types inside
+    /// that namespace
     pub types: BTreeMap<String, BTreeMap<String, TypeDef>>,
 }
 
-impl Reader {
-    pub fn from_os() -> Self {
-        let mut path = std::path::PathBuf::new();
-        path.push(std::env::var("windir").unwrap());
-        path.push(super::SYSTEM32);
-        path.push("winmetadata");
-        Self::from_dir(path)
-    }
-
-    pub fn from_dir<P: AsRef<std::path::Path>>(directory: P) -> Self {
-        let files: Vec<String> = std::fs::read_dir(directory)
-            .unwrap()
-            .filter_map(|value| {
-                value
-                    .ok()
-                    .map(|value| value.path().to_str().unwrap().to_string())
-            })
-            .collect();
-        Self::from_files(&files)
-    }
-
-    pub fn from_files<'a, P: IntoIterator<Item = &'a String>>(filenames: P) -> Self {
-        let mut reader = Reader {
-            files: Default::default(),
-            types: Default::default(),
+impl TypeReader {
+    /// Create a new [`TypeReader`] from a [`WinmdFile`]s
+    pub fn new(files: Vec<WinmdFile>) -> Self {
+        let mut reader = Self {
+            files: Vec::default(),
+            types: BTreeMap::default(),
         };
+        for (file_index, file) in files.into_iter().enumerate() {
+            let row_count = file.type_def_table().row_count;
+            reader.files.push(file);
 
-        reader.load(filenames);
+            for row in 0..row_count {
+                let def = TypeDef(Row::new(row, TABLE_TYPEDEF as u16, file_index as u16));
 
-        reader
-    }
-
-    fn load<'a, P: IntoIterator<Item = &'a String>>(&mut self, filenames: P) {
-        debug_assert!(self.files.is_empty());
-
-        for filename in filenames {
-            self.files.push(WinmdFile::new(filename));
-            let table = &self.files[self.files.len() - 1].type_def_table();
-
-            for row in 0..table.row_count {
-                let def = TypeDef(Row::new(
-                    row,
-                    TABLE_TYPEDEF as u16,
-                    self.files.len() as u16 - 1,
-                ));
-
-                if def.ignore(self) {
+                if def.ignore(&reader) {
                     continue;
                 }
 
-                let (namespace, name) = def.name(self);
+                let (namespace, name) = def.name(&reader);
                 let namespace = namespace.to_string();
                 let name = name.to_string();
 
-                self.types
+                reader
+                    .types
                     .entry(namespace)
                     .or_default()
                     .entry(name)
                     .or_insert(def);
             }
         }
+        reader
     }
 
-    pub fn namespaces(&self) -> Keys<String, BTreeMap<String, TypeDef>> {
+    /// Get all the namespace names that the [`TypeReader`] knows about
+    pub fn namespaces(&self) -> impl Iterator<Item = &String> {
         self.types.keys()
     }
 
-    pub fn namespace_types(&self, namespace: &str) -> Values<String, TypeDef> {
+    /// Get all type definitions ([`TypeDef`]s) for a given namespace
+    ///
+    /// # Panics
+    ///
+    /// Panics if the namespace does not exist
+    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = &TypeDef> {
         self.types[namespace].values()
     }
 
-    pub fn resolve(&self, name: (&str, &str)) -> TypeDef {
-        if let Some(types) = self.types.get(name.0) {
-            if let Some(def) = types.get(name.1) {
+    /// Resolve a type definition given its namespace and type name
+    ///
+    /// # Panics
+    ///
+    /// Panics if no type definition for the given namespace and type name can be found
+    pub fn resolve(&self, (namespace, type_name): (&str, &str)) -> TypeDef {
+        if let Some(types) = self.types.get(namespace) {
+            if let Some(def) = types.get(type_name) {
                 return *def;
             }
         }
 
-        panic!("Could not find type `{}.{}`", name.0, name.1);
+        panic!("Could not find type `{}.{}`", namespace, type_name);
     }
 
+    /// Resolve a type's definition ([`TypeDef`]) to a [`Type`]
     pub fn type_info(&self, def: TypeDef) -> Type {
         Type::from_type_def(self, def)
     }
 
+    /// Read a [`u32`] value from a specific [`Row`] and column
     pub fn u32(&self, row: Row, column: u32) -> u32 {
         let file = &self.files[row.file as usize];
         let table = &file.tables[row.table as usize];
@@ -111,6 +99,7 @@ impl Reader {
         }
     }
 
+    /// Read a [`&str`] value from a specific [`Row`] and column
     pub fn str(&self, row: Row, column: u32) -> &str {
         let file = &self.files[row.file as usize];
         let offset = (file.strings + self.u32(row, column)) as usize;
@@ -121,27 +110,9 @@ impl Reader {
         std::str::from_utf8(&file.bytes[offset..offset + last]).unwrap()
     }
 
+    /// Read a `T: Decode` value from a specific [`Row`] and column
     pub fn decode<T: Decode>(&self, row: Row, column: u32) -> T {
         T::decode(self.u32(row, column), row.file)
-    }
-
-    pub fn equal_range(
-        &self,
-        file: u16,
-        table: usize,
-        column: u32,
-        value: u32,
-    ) -> impl Iterator<Item = Row> {
-        let (first, last) = self.equal_range_of(
-            table as u16,
-            file,
-            0,
-            self.files[file as usize].tables[table].row_count,
-            column,
-            value,
-        );
-
-        (first..last).map(move |row| Row::new(row, table as u16, file))
     }
 
     pub fn list(&self, row: Row, table: u16, column: u32) -> impl Iterator<Item = Row> {
@@ -171,6 +142,25 @@ impl Reader {
             blob_size = blob_size.checked_shl(8).unwrap_or(0) + byte;
         }
         Blob::new(self, row.file, offset + blob_size_bytes)
+    }
+
+    pub fn equal_range(
+        &self,
+        file: u16,
+        table: usize,
+        column: u32,
+        value: u32,
+    ) -> impl Iterator<Item = Row> {
+        let (first, last) = self.equal_range_of(
+            table as u16,
+            file,
+            0,
+            self.files[file as usize].tables[table].row_count,
+            column,
+            value,
+        );
+
+        (first..last).map(move |row| Row::new(row, table as u16, file))
     }
 
     fn lower_bound_of(

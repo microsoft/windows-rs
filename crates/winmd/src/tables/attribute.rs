@@ -1,21 +1,21 @@
 use super::TypeDef;
 use crate::codes::{AttributeType, HasAttribute, MemberRefParent};
-use crate::reader::Reader;
 use crate::row::Row;
+use crate::TypeReader;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Attribute(pub Row);
 
 impl Attribute {
-    pub fn parent(self, reader: &Reader) -> HasAttribute {
+    pub fn parent(self, reader: &TypeReader) -> HasAttribute {
         reader.decode(self.0, 0)
     }
 
-    pub fn constructor(self, reader: &Reader) -> AttributeType {
+    pub fn constructor(self, reader: &TypeReader) -> AttributeType {
         reader.decode(self.0, 1)
     }
 
-    pub fn name(self, reader: &Reader) -> (&str, &str) {
+    pub fn name(self, reader: &TypeReader) -> (&str, &str) {
         match self.constructor(reader) {
             AttributeType::MethodDef(method) => method.parent(reader).name(reader),
 
@@ -27,7 +27,7 @@ impl Attribute {
         }
     }
 
-    pub fn args(&self, reader: &Reader) -> Vec<(String, AttributeArg)> {
+    pub fn args(&self, reader: &TypeReader) -> Vec<(String, AttributeArg)> {
         let (mut sig, mut values) = match self.constructor(reader) {
             AttributeType::MethodDef(method) => (reader.blob(method.0, 4), reader.blob(self.0, 2)),
             AttributeType::MemberRef(method) => (reader.blob(method.0, 2), reader.blob(self.0, 2)),

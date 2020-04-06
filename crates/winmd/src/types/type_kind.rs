@@ -3,7 +3,7 @@ use crate::codes::*;
 use crate::flags::*;
 use crate::tables::*;
 use crate::types::*;
-use crate::{write_ident, Reader};
+use crate::{write_ident, TypeReader};
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -74,7 +74,7 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
 
         match def.category(reader) {
@@ -86,7 +86,7 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_ref(reader: &Reader, type_ref: TypeRef) -> Self {
+    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> Self {
         let (namespace, name) = type_ref.name(reader);
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
@@ -95,11 +95,11 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_spec(reader: &Reader, spec: TypeSpec) -> Self {
+    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec) -> Self {
         TypeKind::Interface(TypeName::from_type_spec(reader, spec))
     }
 
-    pub fn from_type_def_or_ref(reader: &Reader, code: TypeDefOrRef) -> Self {
+    pub fn from_type_def_or_ref(reader: &TypeReader, code: TypeDefOrRef) -> Self {
         match code {
             TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
             TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
@@ -137,7 +137,7 @@ impl TypeKind {
         }
     }
 
-    pub fn from_field(reader: &Reader, field: Field) -> Self {
+    pub fn from_field(reader: &TypeReader, field: Field) -> Self {
         let mut blob = field.sig(reader);
         blob.read_unsigned();
         blob.read_modifiers();
