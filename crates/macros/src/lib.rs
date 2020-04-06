@@ -103,7 +103,8 @@ fn parse_import_stream(
 pub fn import(stream: TokenStream) -> TokenStream {
     let (_dependencies, _namespaces) = parse_import_stream(stream);
 
-    let reader = &Reader::from_os();
+    let winmd_files = load_winmd::from_os();
+    let reader = &TypeReader::new(winmd_files);
 
     let mut limits = TypeLimits::default();
     limits.insert(reader, "windows.foundation");

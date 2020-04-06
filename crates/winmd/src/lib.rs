@@ -2,17 +2,18 @@ mod blob;
 mod codes;
 mod file;
 mod flags;
-mod reader;
 mod row;
 mod tables;
 mod type_limits;
 mod type_namespaces;
+mod type_reader;
 mod type_stage;
 mod type_tree;
 mod types;
 
-pub use reader::Reader;
+pub mod load_winmd;
 pub use type_limits::TypeLimits;
+pub use type_reader::TypeReader;
 pub use type_stage::TypeStage;
 
 fn write_ident(name: &str) -> proc_macro2::Ident {

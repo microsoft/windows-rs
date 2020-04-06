@@ -1,4 +1,4 @@
-use crate::reader::Reader;
+use crate::TypeReader;
 
 use std::collections::BTreeSet;
 
@@ -6,7 +6,7 @@ use std::collections::BTreeSet;
 pub struct TypeLimits(pub BTreeSet<String>);
 
 impl TypeLimits {
-    pub fn insert(&mut self, reader: &Reader, namespace: &str) {
+    pub fn insert(&mut self, reader: &TypeReader, namespace: &str) {
         let found = reader
             .types
             .keys()

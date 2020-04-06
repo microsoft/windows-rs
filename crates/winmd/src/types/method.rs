@@ -1,6 +1,6 @@
 use crate::tables::*;
 use crate::types::*;
-use crate::Reader;
+use crate::TypeReader;
 
 #[derive(Debug)]
 pub struct Method {
@@ -38,7 +38,11 @@ impl Method {
             .collect()
     }
 
-    pub fn from_method_def(reader: &Reader, method: MethodDef, generics: &[TypeKind]) -> Method {
+    pub fn from_method_def(
+        reader: &TypeReader,
+        method: MethodDef,
+        generics: &[TypeKind],
+    ) -> Method {
         let name = method.name(reader).to_string();
         let mut blob = method.sig(reader);
 

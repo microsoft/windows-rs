@@ -1,7 +1,7 @@
 use crate::codes::*;
 use crate::tables::*;
 use crate::types::*;
-use crate::Reader;
+use crate::TypeReader;
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -28,7 +28,7 @@ impl Interface {
             .collect()
     }
 
-    pub fn from_type_def(reader: &Reader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
         let guid = TypeGuid::from_args(
             def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
@@ -47,11 +47,11 @@ impl Interface {
         }
     }
 
-    fn from_type_ref(reader: &Reader, type_ref: TypeRef) -> Self {
+    fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> Self {
         Self::from_type_def(reader, type_ref.resolve(reader))
     }
 
-    fn from_type_spec(reader: &Reader, spec: TypeSpec) -> Self {
+    fn from_type_spec(reader: &TypeReader, spec: TypeSpec) -> Self {
         let name = TypeName::from_type_spec(reader, spec);
         let guid = TypeGuid::new(); // TODO: Generate generic guid specialization
         let methods = Vec::new();
@@ -64,7 +64,7 @@ impl Interface {
         }
     }
 
-    fn from_type_def_or_ref(reader: &Reader, code: TypeDefOrRef) -> Self {
+    fn from_type_def_or_ref(reader: &TypeReader, code: TypeDefOrRef) -> Self {
         match code {
             TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
             TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
@@ -72,7 +72,7 @@ impl Interface {
         }
     }
 
-    pub fn from_interface_impl(reader: &Reader, key: InterfaceImpl) -> Self {
+    pub fn from_interface_impl(reader: &TypeReader, key: InterfaceImpl) -> Self {
         // TODO: flip default/exclusive/overridable bits as needed
         Self::from_type_def_or_ref(reader, key.interface(reader))
     }
@@ -99,7 +99,8 @@ impl Interface {
 
 #[test]
 fn can_read_interface_from_reader() {
-    let reader = &Reader::from_os();
+    let winmd_files = crate::load_winmd::from_os();
+    let reader = &TypeReader::new(winmd_files);
     let def = reader.resolve(("Windows.Foundation", "IStringable"));
     let t = def.into_type(reader);
     let name = t.name();
