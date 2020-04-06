@@ -11,7 +11,6 @@ pub struct Method {
     pub kind: MethodKind,
 }
 
-#[allow(dead_code)]
 #[derive(Copy, Clone, PartialEq, Debug)]
 pub enum MethodKind {
     Normal,
