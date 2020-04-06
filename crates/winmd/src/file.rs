@@ -15,17 +15,21 @@ pub struct WinmdFile {
     pub tables: [TableData; 11],
 }
 
-pub const TABLE_CONSTANT: usize = 0;
-pub const TABLE_CUSTOMATTRIBUTE: usize = 1;
-pub const TABLE_FIELD: usize = 2;
-pub const TABLE_GENERICPARAM: usize = 3;
-pub const TABLE_INTERFACEIMPL: usize = 4;
-pub const TABLE_MEMBERREF: usize = 5;
-pub const TABLE_METHODDEF: usize = 6;
-pub const TABLE_PARAM: usize = 7;
-pub const TABLE_TYPEDEF: usize = 8;
-pub const TABLE_TYPEREF: usize = 9;
-pub const TABLE_TYPESPEC: usize = 10;
+#[repr(u16)]
+#[derive(Copy, Clone, Eq, PartialEq, Debug, PartialOrd, Ord)]
+pub enum TableIndex {
+    Constant = 0,
+    CustomAttribute,
+    Field,
+    GenericParam,
+    InterfaceImpl,
+    MemberRef,
+    MethodDef,
+    Param,
+    TypeDef,
+    TypeRef,
+    TypeSpec,
+}
 
 impl TableData {
     fn index_size(&self) -> u32 {
@@ -192,15 +196,15 @@ impl WinmdFile {
 
             match i {
                 0x00 => unused_module.row_count = row_count,
-                0x01 => file.tables[TABLE_TYPEREF].row_count = row_count,
-                0x02 => file.tables[TABLE_TYPEDEF].row_count = row_count,
-                0x04 => file.tables[TABLE_FIELD].row_count = row_count,
-                0x06 => file.tables[TABLE_METHODDEF].row_count = row_count,
-                0x08 => file.tables[TABLE_PARAM].row_count = row_count,
-                0x09 => file.tables[TABLE_INTERFACEIMPL].row_count = row_count,
-                0x0a => file.tables[TABLE_MEMBERREF].row_count = row_count,
-                0x0b => file.tables[TABLE_CONSTANT].row_count = row_count,
-                0x0c => file.tables[TABLE_CUSTOMATTRIBUTE].row_count = row_count,
+                0x01 => file.tables[TableIndex::TypeRef as usize].row_count = row_count,
+                0x02 => file.tables[TableIndex::TypeDef as usize].row_count = row_count,
+                0x04 => file.tables[TableIndex::Field as usize].row_count = row_count,
+                0x06 => file.tables[TableIndex::MethodDef as usize].row_count = row_count,
+                0x08 => file.tables[TableIndex::Param as usize].row_count = row_count,
+                0x09 => file.tables[TableIndex::InterfaceImpl as usize].row_count = row_count,
+                0x0a => file.tables[TableIndex::MemberRef as usize].row_count = row_count,
+                0x0b => file.tables[TableIndex::Constant as usize].row_count = row_count,
+                0x0c => file.tables[TableIndex::CustomAttribute as usize].row_count = row_count,
                 0x0d => unused_field_marshal.row_count = row_count,
                 0x0e => unused_decl_security.row_count = row_count,
                 0x0f => unused_class_layout.row_count = row_count,
@@ -213,7 +217,7 @@ impl WinmdFile {
                 0x18 => unused_method_semantics.row_count = row_count,
                 0x19 => unused_method_impl.row_count = row_count,
                 0x1a => unused_module_ref.row_count = row_count,
-                0x1b => file.tables[TABLE_TYPESPEC].row_count = row_count,
+                0x1b => file.tables[TableIndex::TypeSpec as usize].row_count = row_count,
                 0x1c => unused_impl_map.row_count = row_count,
                 0x1d => unused_field_rva.row_count = row_count,
                 0x20 => unused_assembly.row_count = row_count,
@@ -226,7 +230,7 @@ impl WinmdFile {
                 0x27 => unused_exported_type.row_count = row_count,
                 0x28 => unused_manifest_resource.row_count = row_count,
                 0x29 => unused_nested_class.row_count = row_count,
-                0x2a => file.tables[TABLE_GENERICPARAM].row_count = row_count,
+                0x2a => file.tables[TableIndex::GenericParam as usize].row_count = row_count,
                 0x2b => unused_method_spec.row_count = row_count,
                 0x2c => unused_generic_param_constraint.row_count = row_count,
                 _ => unreachable!(),
@@ -234,72 +238,78 @@ impl WinmdFile {
         }
 
         let type_def_or_ref = composite_index_size(&[
-            &file.tables[TABLE_TYPEDEF],
-            &file.tables[TABLE_TYPEREF],
-            &file.tables[TABLE_TYPESPEC],
+            &file.tables[TableIndex::TypeDef as usize],
+            &file.tables[TableIndex::TypeRef as usize],
+            &file.tables[TableIndex::TypeSpec as usize],
         ]);
 
         let has_constant = composite_index_size(&[
-            &file.tables[TABLE_FIELD],
-            &file.tables[TABLE_PARAM],
+            &file.tables[TableIndex::Field as usize],
+            &file.tables[TableIndex::Param as usize],
             &unused_property,
         ]);
 
         let has_custom_attribute = composite_index_size(&[
-            &file.tables[TABLE_METHODDEF],
-            &file.tables[TABLE_FIELD],
-            &file.tables[TABLE_TYPEREF],
-            &file.tables[TABLE_TYPEDEF],
-            &file.tables[TABLE_PARAM],
-            &file.tables[TABLE_INTERFACEIMPL],
-            &file.tables[TABLE_MEMBERREF],
+            &file.tables[TableIndex::MethodDef as usize],
+            &file.tables[TableIndex::Field as usize],
+            &file.tables[TableIndex::TypeRef as usize],
+            &file.tables[TableIndex::TypeDef as usize],
+            &file.tables[TableIndex::Param as usize],
+            &file.tables[TableIndex::InterfaceImpl as usize],
+            &file.tables[TableIndex::MemberRef as usize],
             &unused_module,
             &unused_property,
             &unused_event,
             &unused_standalone_sig,
             &unused_module_ref,
-            &file.tables[TABLE_TYPESPEC],
+            &file.tables[TableIndex::TypeSpec as usize],
             &unused_assembly,
             &unused_assembly_ref,
             &unused_file,
             &unused_exported_type,
             &unused_manifest_resource,
-            &file.tables[TABLE_GENERICPARAM],
+            &file.tables[TableIndex::GenericParam as usize],
             &unused_generic_param_constraint,
             &unused_method_spec,
         ]);
 
-        let has_field_marshal =
-            composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_PARAM]]);
+        let has_field_marshal = composite_index_size(&[
+            &file.tables[TableIndex::Field as usize],
+            &file.tables[TableIndex::Param as usize],
+        ]);
 
         let has_decl_security = composite_index_size(&[
-            &file.tables[TABLE_TYPEDEF],
-            &file.tables[TABLE_METHODDEF],
+            &file.tables[TableIndex::TypeDef as usize],
+            &file.tables[TableIndex::MethodDef as usize],
             &unused_assembly,
         ]);
 
         let member_ref_parent = composite_index_size(&[
-            &file.tables[TABLE_TYPEDEF],
-            &file.tables[TABLE_TYPEREF],
+            &file.tables[TableIndex::TypeDef as usize],
+            &file.tables[TableIndex::TypeRef as usize],
             &unused_module_ref,
-            &file.tables[TABLE_METHODDEF],
-            &file.tables[TABLE_TYPESPEC],
+            &file.tables[TableIndex::MethodDef as usize],
+            &file.tables[TableIndex::TypeSpec as usize],
         ]);
 
         let has_semantics = composite_index_size(&[&unused_event, &unused_property]);
 
-        let method_def_or_ref =
-            composite_index_size(&[&file.tables[TABLE_METHODDEF], &file.tables[TABLE_MEMBERREF]]);
+        let method_def_or_ref = composite_index_size(&[
+            &file.tables[TableIndex::MethodDef as usize],
+            &file.tables[TableIndex::MemberRef as usize],
+        ]);
 
-        let member_forwarded =
-            composite_index_size(&[&file.tables[TABLE_FIELD], &file.tables[TABLE_METHODDEF]]);
+        let member_forwarded = composite_index_size(&[
+            &file.tables[TableIndex::Field as usize],
+            &file.tables[TableIndex::MethodDef as usize],
+        ]);
 
         let implementation =
             composite_index_size(&[&unused_file, &unused_assembly_ref, &unused_exported_type]);
 
         let custom_attribute_type = composite_index_size(&[
-            &file.tables[TABLE_METHODDEF],
-            &file.tables[TABLE_MEMBERREF],
+            &file.tables[TableIndex::MethodDef as usize],
+            &file.tables[TableIndex::MemberRef as usize],
             &unused_empty,
             &unused_empty,
             &unused_empty,
@@ -309,11 +319,13 @@ impl WinmdFile {
             &unused_module,
             &unused_module_ref,
             &unused_assembly_ref,
-            &file.tables[TABLE_TYPEREF],
+            &file.tables[TableIndex::TypeRef as usize],
         ]);
 
-        let type_or_method_def =
-            composite_index_size(&[&file.tables[TABLE_TYPEDEF], &file.tables[TABLE_METHODDEF]]);
+        let type_or_method_def = composite_index_size(&[
+            &file.tables[TableIndex::TypeDef as usize],
+            &file.tables[TableIndex::MethodDef as usize],
+        ]);
 
         unused_assembly.set_columns(
             4,
@@ -335,9 +347,23 @@ impl WinmdFile {
         );
         unused_assembly_ref_os.set_columns(4, 4, 4, unused_assembly_ref.index_size(), 0, 0);
         unused_assembly_ref_processor.set_columns(4, unused_assembly_ref.index_size(), 0, 0, 0, 0);
-        unused_class_layout.set_columns(2, 4, file.tables[TABLE_TYPEDEF].index_size(), 0, 0, 0);
-        file.tables[TABLE_CONSTANT].set_columns(2, has_constant, blob_index_size, 0, 0, 0);
-        file.tables[TABLE_CUSTOMATTRIBUTE].set_columns(
+        unused_class_layout.set_columns(
+            2,
+            4,
+            file.tables[TableIndex::TypeDef as usize].index_size(),
+            0,
+            0,
+            0,
+        );
+        file.tables[TableIndex::Constant as usize].set_columns(
+            2,
+            has_constant,
+            blob_index_size,
+            0,
+            0,
+            0,
+        );
+        file.tables[TableIndex::CustomAttribute as usize].set_columns(
             has_custom_attribute,
             custom_attribute_type,
             blob_index_size,
@@ -347,7 +373,7 @@ impl WinmdFile {
         );
         unused_decl_security.set_columns(2, has_decl_security, blob_index_size, 0, 0, 0);
         unused_event_map.set_columns(
-            file.tables[TABLE_TYPEDEF].index_size(),
+            file.tables[TableIndex::TypeDef as usize].index_size(),
             unused_event.index_size(),
             0,
             0,
@@ -363,12 +389,33 @@ impl WinmdFile {
             implementation,
             0,
         );
-        file.tables[TABLE_FIELD].set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
-        unused_field_layout.set_columns(4, file.tables[TABLE_FIELD].index_size(), 0, 0, 0, 0);
+        file.tables[TableIndex::Field as usize].set_columns(
+            2,
+            string_index_size,
+            blob_index_size,
+            0,
+            0,
+            0,
+        );
+        unused_field_layout.set_columns(
+            4,
+            file.tables[TableIndex::Field as usize].index_size(),
+            0,
+            0,
+            0,
+            0,
+        );
         unused_field_marshal.set_columns(has_field_marshal, blob_index_size, 0, 0, 0, 0);
-        unused_field_rva.set_columns(4, file.tables[TABLE_FIELD].index_size(), 0, 0, 0, 0);
+        unused_field_rva.set_columns(
+            4,
+            file.tables[TableIndex::Field as usize].index_size(),
+            0,
+            0,
+            0,
+            0,
+        );
         unused_file.set_columns(4, string_index_size, blob_index_size, 0, 0, 0);
-        file.tables[TABLE_GENERICPARAM].set_columns(
+        file.tables[TableIndex::GenericParam as usize].set_columns(
             2,
             2,
             type_or_method_def,
@@ -377,7 +424,7 @@ impl WinmdFile {
             0,
         );
         unused_generic_param_constraint.set_columns(
-            file.tables[TABLE_GENERICPARAM].index_size(),
+            file.tables[TableIndex::GenericParam as usize].index_size(),
             type_def_or_ref,
             0,
             0,
@@ -392,8 +439,8 @@ impl WinmdFile {
             0,
             0,
         );
-        file.tables[TABLE_INTERFACEIMPL].set_columns(
-            file.tables[TABLE_TYPEDEF].index_size(),
+        file.tables[TableIndex::InterfaceImpl as usize].set_columns(
+            file.tables[TableIndex::TypeDef as usize].index_size(),
             type_def_or_ref,
             0,
             0,
@@ -401,7 +448,7 @@ impl WinmdFile {
             0,
         );
         unused_manifest_resource.set_columns(4, 4, string_index_size, implementation, 0, 0);
-        file.tables[TABLE_MEMBERREF].set_columns(
+        file.tables[TableIndex::MemberRef as usize].set_columns(
             member_ref_parent,
             string_index_size,
             blob_index_size,
@@ -409,16 +456,16 @@ impl WinmdFile {
             0,
             0,
         );
-        file.tables[TABLE_METHODDEF].set_columns(
+        file.tables[TableIndex::MethodDef as usize].set_columns(
             4,
             2,
             2,
             string_index_size,
             blob_index_size,
-            file.tables[TABLE_PARAM].index_size(),
+            file.tables[TableIndex::Param as usize].index_size(),
         );
         unused_method_impl.set_columns(
-            file.tables[TABLE_TYPEDEF].index_size(),
+            file.tables[TableIndex::TypeDef as usize].index_size(),
             method_def_or_ref,
             method_def_or_ref,
             0,
@@ -427,7 +474,7 @@ impl WinmdFile {
         );
         unused_method_semantics.set_columns(
             2,
-            file.tables[TABLE_METHODDEF].index_size(),
+            file.tables[TableIndex::MethodDef as usize].index_size(),
             has_semantics,
             0,
             0,
@@ -444,17 +491,17 @@ impl WinmdFile {
         );
         unused_module_ref.set_columns(string_index_size, 0, 0, 0, 0, 0);
         unused_nested_class.set_columns(
-            file.tables[TABLE_TYPEDEF].index_size(),
-            file.tables[TABLE_TYPEDEF].index_size(),
+            file.tables[TableIndex::TypeDef as usize].index_size(),
+            file.tables[TableIndex::TypeDef as usize].index_size(),
             0,
             0,
             0,
             0,
         );
-        file.tables[TABLE_PARAM].set_columns(2, 2, string_index_size, 0, 0, 0);
+        file.tables[TableIndex::Param as usize].set_columns(2, 2, string_index_size, 0, 0, 0);
         unused_property.set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
         unused_property_map.set_columns(
-            file.tables[TABLE_TYPEDEF].index_size(),
+            file.tables[TableIndex::TypeDef as usize].index_size(),
             unused_property.index_size(),
             0,
             0,
@@ -462,15 +509,15 @@ impl WinmdFile {
             0,
         );
         unused_standalone_sig.set_columns(blob_index_size, 0, 0, 0, 0, 0);
-        file.tables[TABLE_TYPEDEF].set_columns(
+        file.tables[TableIndex::TypeDef as usize].set_columns(
             4,
             string_index_size,
             string_index_size,
             type_def_or_ref,
-            file.tables[TABLE_FIELD].index_size(),
-            file.tables[TABLE_METHODDEF].index_size(),
+            file.tables[TableIndex::Field as usize].index_size(),
+            file.tables[TableIndex::MethodDef as usize].index_size(),
         );
-        file.tables[TABLE_TYPEREF].set_columns(
+        file.tables[TableIndex::TypeRef as usize].set_columns(
             resolution_scope,
             string_index_size,
             string_index_size,
@@ -478,18 +525,18 @@ impl WinmdFile {
             0,
             0,
         );
-        file.tables[TABLE_TYPESPEC].set_columns(blob_index_size, 0, 0, 0, 0, 0);
+        file.tables[TableIndex::TypeSpec as usize].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
         unused_module.set_data(&mut view);
-        file.tables[TABLE_TYPEREF].set_data(&mut view);
-        file.tables[TABLE_TYPEDEF].set_data(&mut view);
-        file.tables[TABLE_FIELD].set_data(&mut view);
-        file.tables[TABLE_METHODDEF].set_data(&mut view);
-        file.tables[TABLE_PARAM].set_data(&mut view);
-        file.tables[TABLE_INTERFACEIMPL].set_data(&mut view);
-        file.tables[TABLE_MEMBERREF].set_data(&mut view);
-        file.tables[TABLE_CONSTANT].set_data(&mut view);
-        file.tables[TABLE_CUSTOMATTRIBUTE].set_data(&mut view);
+        file.tables[TableIndex::TypeRef as usize].set_data(&mut view);
+        file.tables[TableIndex::TypeDef as usize].set_data(&mut view);
+        file.tables[TableIndex::Field as usize].set_data(&mut view);
+        file.tables[TableIndex::MethodDef as usize].set_data(&mut view);
+        file.tables[TableIndex::Param as usize].set_data(&mut view);
+        file.tables[TableIndex::InterfaceImpl as usize].set_data(&mut view);
+        file.tables[TableIndex::MemberRef as usize].set_data(&mut view);
+        file.tables[TableIndex::Constant as usize].set_data(&mut view);
+        file.tables[TableIndex::CustomAttribute as usize].set_data(&mut view);
         unused_field_marshal.set_data(&mut view);
         unused_decl_security.set_data(&mut view);
         unused_class_layout.set_data(&mut view);
@@ -502,7 +549,7 @@ impl WinmdFile {
         unused_method_semantics.set_data(&mut view);
         unused_method_impl.set_data(&mut view);
         unused_module_ref.set_data(&mut view);
-        file.tables[TABLE_TYPESPEC].set_data(&mut view);
+        file.tables[TableIndex::TypeSpec as usize].set_data(&mut view);
         unused_impl_map.set_data(&mut view);
         unused_field_rva.set_data(&mut view);
         unused_assembly.set_data(&mut view);
@@ -515,13 +562,13 @@ impl WinmdFile {
         unused_exported_type.set_data(&mut view);
         unused_manifest_resource.set_data(&mut view);
         unused_nested_class.set_data(&mut view);
-        file.tables[TABLE_GENERICPARAM].set_data(&mut view);
+        file.tables[TableIndex::GenericParam as usize].set_data(&mut view);
 
         file
     }
 
     pub fn type_def_table(&self) -> &TableData {
-        &self.tables[TABLE_TYPEDEF]
+        &self.tables[TableIndex::TypeDef as usize]
     }
 }
 
