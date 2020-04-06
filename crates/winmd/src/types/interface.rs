@@ -118,7 +118,7 @@ fn can_read_interface_from_reader() {
 
     assert!(t.methods.len() == 1);
     let method = &t.methods[0];
-    assert!(method.name == "ToString");
+    assert!(method.name == "to_string");
     assert!(method.kind == MethodKind::Normal);
 
     assert!(method.params.is_empty());
@@ -163,10 +163,11 @@ fn can_read_generic_interface_from_reader() {
     assert!(t.methods.len() == 2);
 
     let method = &t.methods[0];
-    assert!(method.name == "MapChanged");
+    assert!(method.name == "map_changed");
     assert!(method.kind == MethodKind::Add);
 
     let method = &t.methods[1];
-    assert!(method.name == "MapChanged");
+    println!("{}", method.name);
+    assert!(method.name == "remove_map_changed");
     assert!(method.kind == MethodKind::Remove);
 }
