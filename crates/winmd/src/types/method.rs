@@ -1,4 +1,4 @@
-use crate::case::to_snake;
+use crate::case;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
@@ -44,12 +44,12 @@ impl Method {
         {
             for (_, arg) in attribute.args(reader) {
                 if let AttributeArg::String(name) = arg {
-                    return to_snake("", &name);
+                    return case::to_snake(&name, None);
                 }
             }
         }
 
-        to_snake("", method.name(reader))
+        case::to_snake(method.name(reader), None)
     }
 
     pub fn from_method_def(
@@ -61,13 +61,19 @@ impl Method {
             let name = method.name(reader);
 
             if name.starts_with("get") {
-                (to_snake("", &name[4..]), MethodKind::Get)
+                (case::to_snake(&name[4..], None), MethodKind::Get)
             } else if name.starts_with("put") {
-                (to_snake("set", &name[4..]), MethodKind::Set)
+                (
+                    case::to_snake(&name[4..], Some(case::MethodKind::Set)),
+                    MethodKind::Set,
+                )
             } else if name.starts_with("add") {
-                (to_snake("", &name[4..]), MethodKind::Add)
+                (case::to_snake(&name[4..], None), MethodKind::Add)
             } else if name.starts_with("remove") {
-                (to_snake("remove", &name[7..]), MethodKind::Remove)
+                (
+                    case::to_snake(&name[7..], Some(case::MethodKind::Remove)),
+                    MethodKind::Remove,
+                )
             } else {
                 // A delegate's 'Invoke' method is "special" but lacks a preamble.
                 ("invoke".to_string(), MethodKind::Normal)
