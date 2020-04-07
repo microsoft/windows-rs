@@ -1,5 +1,5 @@
+use super::TypeTree;
 use crate::case;
-use crate::type_tree::TypeTree;
 use crate::write_ident;
 
 use proc_macro2::TokenStream;

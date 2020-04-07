@@ -1,4 +1,4 @@
-![Build and Test](https://github.com/microsoft/winrt-rs/workflows/Build%20and%20Test/badge.svg)
+[![Build status](https://github.com/microsoft/winrt-rs/workflows/Build%20and%20Test/badge.svg)](https://github.com/microsoft/winrt-rs/actions)
 
 # The Rust/WinRT language projection
 

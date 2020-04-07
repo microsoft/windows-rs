@@ -6,10 +6,8 @@ mod flags;
 mod row;
 mod tables;
 mod type_limits;
-mod type_namespaces;
 mod type_reader;
 mod type_stage;
-mod type_tree;
 mod types;
 
 pub mod load_winmd;
