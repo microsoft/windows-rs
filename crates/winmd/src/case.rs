@@ -1,20 +1,21 @@
 /// Change a CamelCase string to snake case
 ///  
-/// This prepends the `preamble` to the string in an efficient way.
-/// The preamble must already be in snake case
-pub fn to_snake(preamble: &str, camel: &str) -> String {
-    match (preamble, camel) {
-        ("", "") => return String::new(),
-        (_, "") => return preamble.to_owned(),
-        _ => {}
-    }
+/// This prepends the optional preamble to the string in an efficient way.
+///
+/// # Panics
+///
+/// This panics in debug mode if called with an empty string
+pub(crate) fn to_snake(camel: &str, preamble: Option<MethodKind>) -> String {
+    debug_assert!(!camel.is_empty(), "Called `to_snake` with empty string");
+
+    let preamble = match preamble {
+        None => "",
+        Some(kind) => kind.into(),
+    };
 
     let mut snake = String::with_capacity(preamble.len() + camel.len());
     snake.push_str(preamble);
-    // add '_' if preamble was present
-    if !snake.is_empty() {
-        snake.push('_');
-    }
+
     let mut since_last_underscore = 0;
 
     let mut chars = camel.chars();
@@ -54,26 +55,44 @@ pub fn to_snake(preamble: &str, camel: &str) -> String {
     snake
 }
 
+#[derive(Copy, Clone)]
+pub(crate) enum MethodKind {
+    Set,
+    Remove,
+}
+
+impl std::convert::From<MethodKind> for &'static str {
+    fn from(kind: MethodKind) -> Self {
+        match kind {
+            MethodKind::Set => "set_",
+            MethodKind::Remove => "remove_",
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
     #[test]
     fn to_snake_works() {
-        assert_eq!(to_snake("", "Windows"), "windows".to_owned());
+        assert_eq!(to_snake("Windows", None), "windows".to_owned());
         assert_eq!(
-            to_snake("", "ApplicationModel"),
+            to_snake("ApplicationModel", None),
             "application_model".to_owned()
         );
-        assert_eq!(to_snake("foo", ""), "foo".to_owned());
-        assert_eq!(to_snake("", "UIProgramming"), "ui_programming".to_owned());
+        assert_eq!(to_snake("foo", None), "foo".to_owned());
+        assert_eq!(to_snake("UIProgramming", None), "ui_programming".to_owned());
         assert_eq!(
-            to_snake("awesome", "UIProgramming"),
-            "awesome_ui_programming".to_owned()
+            to_snake("UIProgramming", Some(MethodKind::Set)),
+            "set_ui_programming".to_owned()
         );
         assert_eq!(
-            to_snake("", "CreateUInt8Array"),
+            to_snake("CreateUInt8Array", None),
             "create_uint8_array".to_owned()
         );
-        assert_eq!(to_snake("awesome", "Socks"), "awesome_socks".to_owned());
+        assert_eq!(
+            to_snake("Socks", Some(MethodKind::Remove)),
+            "remove_socks".to_owned()
+        );
     }
 }
