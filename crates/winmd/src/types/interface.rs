@@ -20,14 +20,6 @@ pub struct Interface {
 }
 
 impl Interface {
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.interfaces
-            .iter()
-            .flat_map(|i| i.name.dependencies())
-            .chain(self.methods.iter().flat_map(|m| m.dependencies()))
-            .collect()
-    }
-
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
         let guid = TypeGuid::from_args(
@@ -77,6 +69,14 @@ impl Interface {
         Self::from_type_def_or_ref(reader, key.interface(reader))
     }
 
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.interfaces
+            .iter()
+            .flat_map(|i| i.name.dependencies())
+            .chain(self.methods.iter().flat_map(|m| m.dependencies()))
+            .collect()
+    }
+
     pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
         let phantoms = self.name.phantoms();
@@ -97,77 +97,84 @@ impl Interface {
     }
 }
 
-#[test]
-fn can_read_interface_from_reader() {
-    let winmd_files = crate::load_winmd::from_os();
-    let reader = &TypeReader::new(winmd_files);
-    let def = reader.resolve(("Windows.Foundation", "IStringable"));
-    let t = def.into_type(reader);
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::types::method::MethodKind;
+    use crate::types::type_guid::GuidConstant;
 
-    let name = t.name();
-    assert!(name.namespace == "Windows.Foundation");
-    assert!(name.name == "IStringable");
-    assert!(name.generics.is_empty());
+    #[test]
+    fn can_read_interface_from_reader() {
+        let winmd_files = crate::load_winmd::from_os();
+        let reader = &TypeReader::new(winmd_files);
+        let def = reader.resolve(("Windows.Foundation", "IStringable"));
+        let t = def.into_type(reader);
 
-    assert!(name.def == def);
+        let name = t.name();
+        assert!(name.namespace == "Windows.Foundation");
+        assert!(name.name == "IStringable");
+        assert!(name.generics.is_empty());
 
-    let t = match t {
-        Type::Interface(t) => t,
-        _ => panic!("Wrong type"),
-    };
+        assert!(name.def == def);
 
-    assert!(t.methods.len() == 1);
-    let method = &t.methods[0];
-    assert!(method.name == "to_string");
-    assert!(method.kind == MethodKind::Normal);
+        let t = match t {
+            Type::Interface(t) => t,
+            _ => panic!("Wrong type"),
+        };
 
-    assert!(method.params.is_empty());
-    let param = method.return_type.as_ref().unwrap();
-    assert!(param.kind == TypeKind::String);
+        assert!(t.methods.len() == 1);
+        let method = &t.methods[0];
+        assert!(method.name == "to_string");
+        assert!(method.kind == MethodKind::Normal);
 
-    let guid = &t.guid;
-    assert!(guid.0[0] == GuidConstant::U32(0x96369F54));
-    assert!(guid.0[1] == GuidConstant::U16(0x8EB6));
-    assert!(guid.0[2] == GuidConstant::U16(0x48F0));
-    assert!(guid.0[3] == GuidConstant::U8(0xAB));
-    assert!(guid.0[4] == GuidConstant::U8(0xCE));
-    assert!(guid.0[5] == GuidConstant::U8(0xC1));
-    assert!(guid.0[6] == GuidConstant::U8(0xB2));
-    assert!(guid.0[7] == GuidConstant::U8(0x11));
-    assert!(guid.0[8] == GuidConstant::U8(0xE6));
-    assert!(guid.0[9] == GuidConstant::U8(0x27));
-    assert!(guid.0[10] == GuidConstant::U8(0xC3));
-}
+        assert!(method.params.is_empty());
+        let param = method.return_type.as_ref().unwrap();
+        assert!(param.kind == TypeKind::String);
 
-#[test]
-fn can_read_generic_interface_from_reader() {
-    let winmd_files = crate::load_winmd::from_os();
-    let reader = &TypeReader::new(winmd_files);
-    let def = reader.resolve(("Windows.Foundation.Collections", "IObservableMap`2"));
-    let t = def.into_type(reader);
-    let name = t.name();
+        let guid = &t.guid;
+        assert!(guid.0[0] == GuidConstant::U32(0x96369F54));
+        assert!(guid.0[1] == GuidConstant::U16(0x8EB6));
+        assert!(guid.0[2] == GuidConstant::U16(0x48F0));
+        assert!(guid.0[3] == GuidConstant::U8(0xAB));
+        assert!(guid.0[4] == GuidConstant::U8(0xCE));
+        assert!(guid.0[5] == GuidConstant::U8(0xC1));
+        assert!(guid.0[6] == GuidConstant::U8(0xB2));
+        assert!(guid.0[7] == GuidConstant::U8(0x11));
+        assert!(guid.0[8] == GuidConstant::U8(0xE6));
+        assert!(guid.0[9] == GuidConstant::U8(0x27));
+        assert!(guid.0[10] == GuidConstant::U8(0xC3));
+    }
 
-    assert!(name.namespace == "Windows.Foundation.Collections");
-    assert!(name.name == "IObservableMap`2");
-    assert!(name.generics.len() == 2);
-    assert!(name.generics[0] == TypeKind::Generic("K".to_string()));
-    assert!(name.generics[1] == TypeKind::Generic("V".to_string()));
+    #[test]
+    fn can_read_generic_interface_from_reader() {
+        let winmd_files = crate::load_winmd::from_os();
+        let reader = &TypeReader::new(winmd_files);
+        let def = reader.resolve(("Windows.Foundation.Collections", "IObservableMap`2"));
+        let t = def.into_type(reader);
+        let name = t.name();
 
-    assert!(name.def == def);
+        assert!(name.namespace == "Windows.Foundation.Collections");
+        assert!(name.name == "IObservableMap`2");
+        assert!(name.generics.len() == 2);
+        assert!(name.generics[0] == TypeKind::Generic("K".to_string()));
+        assert!(name.generics[1] == TypeKind::Generic("V".to_string()));
 
-    let t = match t {
-        Type::Interface(t) => t,
-        _ => panic!("Wrong type"),
-    };
+        assert!(name.def == def);
 
-    assert!(t.methods.len() == 2);
+        let t = match t {
+            Type::Interface(t) => t,
+            _ => panic!("Wrong type"),
+        };
 
-    let method = &t.methods[0];
-    assert!(method.name == "map_changed");
-    assert!(method.kind == MethodKind::Add);
+        assert!(t.methods.len() == 2);
 
-    let method = &t.methods[1];
-    println!("{}", method.name);
-    assert!(method.name == "remove_map_changed");
-    assert!(method.kind == MethodKind::Remove);
+        let method = &t.methods[0];
+        assert!(method.name == "map_changed");
+        assert!(method.kind == MethodKind::Add);
+
+        let method = &t.methods[1];
+        println!("{}", method.name);
+        assert!(method.name == "remove_map_changed");
+        assert!(method.kind == MethodKind::Remove);
+    }
 }

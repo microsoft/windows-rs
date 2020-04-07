@@ -5,6 +5,7 @@ use crate::TypeReader;
 use proc_macro2::TokenStream;
 use quote::quote;
 
+/// A WinRT Class
 #[derive(Debug)]
 pub struct Class {
     pub name: TypeName,
@@ -13,14 +14,6 @@ pub struct Class {
 }
 
 impl Class {
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.interfaces
-            .iter()
-            .flat_map(|i| i.name.dependencies())
-            .chain(self.bases.iter().map(|i| i.def))
-            .collect()
-    }
-
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
         let mut interfaces: Vec<Interface> = def
@@ -69,6 +62,14 @@ impl Class {
             interfaces,
             bases,
         }
+    }
+
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.interfaces
+            .iter()
+            .flat_map(|i| i.name.dependencies())
+            .chain(self.bases.iter().map(|i| i.def))
+            .collect()
     }
 
     pub fn to_stream(&self) -> TokenStream {

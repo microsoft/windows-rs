@@ -30,28 +30,6 @@ pub struct Param {
 }
 
 impl Method {
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.return_type
-            .iter()
-            .chain(self.params.iter())
-            .flat_map(|i| i.kind.dependencies())
-            .collect()
-    }
-
-    fn method_name(reader: &TypeReader, method: MethodDef) -> String {
-        if let Some(attribute) =
-            method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
-        {
-            for (_, arg) in attribute.args(reader) {
-                if let AttributeArg::String(name) = arg {
-                    return case::to_snake(&name, None);
-                }
-            }
-        }
-
-        case::to_snake(method.name(reader), None)
-    }
-
     pub fn from_method_def(
         reader: &TypeReader,
         method: MethodDef,
@@ -76,10 +54,10 @@ impl Method {
                 )
             } else {
                 // A delegate's 'Invoke' method is "special" but lacks a preamble.
-                ("invoke".to_string(), MethodKind::Normal)
+                ("invoke".to_owned(), MethodKind::Normal)
             }
         } else {
-            (Method::method_name(reader, method), MethodKind::Normal)
+            (Method::name(reader, method), MethodKind::Normal)
         };
 
         let mut blob = method.sig(reader);
@@ -137,5 +115,27 @@ impl Method {
             params,
             return_type,
         }
+    }
+
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.return_type
+            .iter()
+            .chain(self.params.iter())
+            .flat_map(|i| i.kind.dependencies())
+            .collect()
+    }
+
+    fn name(reader: &TypeReader, method: MethodDef) -> String {
+        if let Some(attribute) =
+            method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
+        {
+            for (_, arg) in attribute.args(reader) {
+                if let AttributeArg::String(name) = arg {
+                    return case::to_snake(&name, None);
+                }
+            }
+        }
+
+        case::to_snake(method.name(reader), None)
     }
 }

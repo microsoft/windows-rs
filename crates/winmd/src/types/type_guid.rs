@@ -3,7 +3,6 @@ use crate::tables::*;
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct TypeGuid(pub [GuidConstant; 11]);
 
-#[allow(dead_code)]
 #[derive(Debug, Clone, PartialEq)]
 pub enum GuidConstant {
     U32(u32),
@@ -13,10 +12,10 @@ pub enum GuidConstant {
 
 impl GuidConstant {
     fn from_arg(arg: &AttributeArg) -> GuidConstant {
-        match arg {
-            AttributeArg::U32(value) => GuidConstant::U32(*value),
-            AttributeArg::U16(value) => GuidConstant::U16(*value),
-            AttributeArg::U8(value) => GuidConstant::U8(*value),
+        match *arg {
+            AttributeArg::U32(value) => GuidConstant::U32(value),
+            AttributeArg::U16(value) => GuidConstant::U16(value),
+            AttributeArg::U8(value) => GuidConstant::U8(value),
             _ => panic!("Invalid Guid argument"),
         }
     }
@@ -30,12 +29,12 @@ impl Default for GuidConstant {
 }
 
 impl TypeGuid {
-    pub fn new() -> TypeGuid {
-        Default::default()
+    pub fn new() -> Self {
+        Self::default()
     }
 
-    pub fn from_args(args: Vec<(String, AttributeArg)>) -> TypeGuid {
-        TypeGuid([
+    pub fn from_args(args: Vec<(String, AttributeArg)>) -> Self {
+        Self([
             GuidConstant::from_arg(&args[0].1),
             GuidConstant::from_arg(&args[1].1),
             GuidConstant::from_arg(&args[2].1),
