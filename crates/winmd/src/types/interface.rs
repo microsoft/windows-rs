@@ -165,12 +165,62 @@ fn can_read_generic_interface_from_reader() {
     let method = &t.methods[0];
     assert!(method.name == "map_changed");
     assert!(method.kind == MethodKind::Add);
-    // TODO: make sure event handler type is correct
+    assert!(method.params.len() == 1);
+
+    let handler = &method.params[0];
+    assert!(handler.array == false);
+    assert!(handler.input == true);
+    assert!(handler.by_ref == false);
+
+    let handler = match &handler.kind {
+        TypeKind::Delegate(delegate) => delegate,
+        _ => panic!("Wrong type"),
+    };
+
+    assert!(handler.namespace == "Windows.Foundation.Collections");
+    assert!(handler.name == "MapChangedEventHandler`2");
+    assert!(handler.generics.len() == 2);
+    assert!(handler.generics[0] == TypeKind::Generic("K".to_string()));
+    assert!(handler.generics[1] == TypeKind::Generic("V".to_string()));
+    assert!(
+        handler.def
+            == reader.resolve(("Windows.Foundation.Collections", "MapChangedEventHandler`2"))
+    );
+
+    let token = method.return_type.as_ref().unwrap();
+    assert!(token.array == false);
+    assert!(token.input == false);
+    assert!(token.by_ref == true);
+
+    let token = match &token.kind {
+        TypeKind::Struct(token) => token,
+        _ => panic!("Wrong type"),
+    };
+
+    assert!(token.namespace == "Windows.Foundation");
+    assert!(token.name == "EventRegistrationToken");
+    assert!(token.generics.is_empty());
+    assert!(token.def == reader.resolve(("Windows.Foundation", "EventRegistrationToken")));
 
     let method = &t.methods[1];
     assert!(method.name == "remove_map_changed");
     assert!(method.kind == MethodKind::Remove);
-    // TODO: make sure event token type is correct
+    assert!(method.params.len() == 1);
+
+    let token = &method.params[0];
+    assert!(token.array == false);
+    assert!(token.input == true);
+    assert!(token.by_ref == false);
+
+    let token = match &token.kind {
+        TypeKind::Struct(token) => token,
+        _ => panic!("Wrong type"),
+    };
+
+    assert!(token.namespace == "Windows.Foundation");
+    assert!(token.name == "EventRegistrationToken");
+    assert!(token.generics.is_empty());
+    assert!(token.def == reader.resolve(("Windows.Foundation", "EventRegistrationToken")));
 
     // TODO: make sure all required interfaces are properly specialized
 }

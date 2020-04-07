@@ -88,7 +88,6 @@ fn can_read_class_with_generic_interface_from_reader() {
     let reader = &TypeReader::new(winmd_files);
     let def = reader.resolve(("Windows.Foundation", "WwwFormUrlDecoder"));
     let t = def.into_type(reader);
-    let name = t.name();
 
     let name = t.name();
     assert!(name.namespace == "Windows.Foundation");
@@ -97,15 +96,13 @@ fn can_read_class_with_generic_interface_from_reader() {
 
     assert!(name.def == def);
 
-    let t = match t {
-        Type::Class(t) => t,
-        _ => panic!("Wrong type"),
-    };
+    // let t = match t {
+    //     Type::Class(t) => t,
+    //     _ => panic!("Wrong type"),
+    // };
 
-    // Interfaces
+    // TODO: Assert required interfaces...
     // defualt: IWwwFormUrlDecoderRuntimeClass
     // IIterable<IWwwFormUrlDecoderEntry>
     // IVectorView<IWwwFormUrlDecoderEntry>>
-
-    
 }
