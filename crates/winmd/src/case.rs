@@ -1,31 +1,55 @@
+/// Change a CamelCase string to snake case
+///  
+/// This prepends the `preamble` to the string in an efficient way.
+/// The preamble must already be in snake case
 pub fn to_snake(preamble: &str, camel: &str) -> String {
+    match (preamble, camel) {
+        ("", "") => return String::new(),
+        (_, "") => return preamble.to_owned(),
+        _ => {}
+    }
+
     let mut snake = String::with_capacity(preamble.len() + camel.len());
     snake.push_str(preamble);
+    // add '_' if preamble was present
+    if !snake.is_empty() {
+        snake.push('_');
+    }
+    let mut since_last_underscore = 0;
 
-    // TODO: deal with anomalies like "UI" and "CreateUint8Array". Not sure
-    // whether we should just hard code the well-known ones or somehow use
-    // heuristics to do this generically. It should handle conversions like
-    // this:
-    //
-    // "Windows" -> "windows"
-    // "UI" -> "ui"
-    // "ApplicationModel" -> "application_model"
-    // "CreateUInt8Array" -> "create_u8_array"
-    //
-    // The last one is a stretch goal, but may be too expensive.
+    let mut chars = camel.chars();
+    // first character as lowercased
+    for c in chars.next().unwrap().to_lowercase() {
+        since_last_underscore += 1;
+        snake.push(c);
+    }
 
-    for c in camel.chars() {
-        if c.is_uppercase() {
-            if !snake.is_empty() {
-                snake.push('_');
-            }
-            for c in c.to_lowercase() {
-                snake.push(c);
-            }
-        } else {
+    // zip together iterator of previous characters and next characters
+    for (previous, next) in camel.chars().zip(camel.chars().skip(2)) {
+        // safe to unwrap since the iterator of next chars produced something
+        let current = chars.next().unwrap();
+
+        // If the current character isn't uppercase we can just push it and move on
+        if !current.is_uppercase() {
+            since_last_underscore += 1;
+            snake.push(current);
+            continue;
+        }
+
+        if previous.is_lowercase() || next.is_lowercase() && since_last_underscore > 1 {
+            since_last_underscore = 0;
+            snake.push('_');
+        }
+
+        for c in current.to_lowercase() {
+            since_last_underscore += 1;
+
             snake.push(c);
         }
     }
+
+    // last character as lowercase
+    snake.extend(chars.next().unwrap().to_lowercase());
 
     snake
 }
@@ -40,8 +64,16 @@ mod tests {
             to_snake("", "ApplicationModel"),
             "application_model".to_owned()
         );
-        // assert_eq!(to_snake("", "UIProgramming"), "ui_programming".to_owned());
-        // assert_eq!(to_snake("", "CreateU8Array"), "create_u8_array".to_owned());
-        assert_eq!(to_snake("awesome", "Windows"), "awesome_windows".to_owned());
+        assert_eq!(to_snake("foo", ""), "foo".to_owned());
+        assert_eq!(to_snake("", "UIProgramming"), "ui_programming".to_owned());
+        assert_eq!(
+            to_snake("awesome", "UIProgramming"),
+            "awesome_ui_programming".to_owned()
+        );
+        assert_eq!(
+            to_snake("", "CreateUInt8Array"),
+            "create_uint8_array".to_owned()
+        );
+        assert_eq!(to_snake("awesome", "Socks"), "awesome_socks".to_owned());
     }
 }
