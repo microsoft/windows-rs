@@ -1,3 +1,4 @@
+use crate::case;
 use crate::type_tree::TypeTree;
 use crate::write_ident;
 
@@ -15,7 +16,8 @@ impl TypeNamespaces {
         let mut tokens = Vec::new();
 
         for (name, tree) in self.0.iter() {
-            let name = write_ident(name);
+            let name = case::to_snake(name, None);
+            let name = write_ident(&name);
             let tree = tree.to_stream();
 
             tokens.push(quote! {
