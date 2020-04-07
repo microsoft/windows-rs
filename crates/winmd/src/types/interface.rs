@@ -165,8 +165,12 @@ fn can_read_generic_interface_from_reader() {
     let method = &t.methods[0];
     assert!(method.name == "map_changed");
     assert!(method.kind == MethodKind::Add);
+    // TODO: make sure event handler type is correct
 
     let method = &t.methods[1];
     assert!(method.name == "remove_map_changed");
     assert!(method.kind == MethodKind::Remove);
+    // TODO: make sure event token type is correct
+
+    // TODO: make sure all required interfaces are properly specialized
 }
