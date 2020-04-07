@@ -34,46 +34,6 @@ pub enum TypeKind {
 }
 
 impl TypeKind {
-    pub fn ident(&self) -> TokenStream {
-        match self {
-            Self::Bool => quote! { bool },
-            Self::Char => quote! { u16 },
-            Self::I8 => quote! { i8 },
-            Self::U8 => quote! { u8 },
-            Self::I16 => quote! { i16 },
-            Self::U16 => quote! { u16 },
-            Self::I32 => quote! { i32 },
-            Self::U32 => quote! { u32 },
-            Self::I64 => quote! { i64 },
-            Self::U64 => quote! { u64 },
-            Self::F32 => quote! { f32 },
-            Self::F64 => quote! { f64 },
-            Self::String => quote! { winrt::HString },
-            Self::Object => quote! { winrt::Object },
-            Self::Guid => quote! { winrt::Guid },
-            Self::Class(name) => name.ident(),
-            Self::Interface(name) => name.ident(),
-            Self::Enum(name) => name.ident(),
-            Self::Struct(name) => name.ident(),
-            Self::Delegate(name) => name.ident(),
-            Self::Generic(name) => {
-                let name = write_ident(name);
-                quote! { #name }
-            }
-        }
-    }
-
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        match self {
-            TypeKind::Class(name) => name.dependencies(),
-            TypeKind::Interface(name) => name.dependencies(),
-            TypeKind::Enum(name) => name.dependencies(),
-            TypeKind::Struct(name) => name.dependencies(),
-            TypeKind::Delegate(name) => name.dependencies(),
-            _ => Vec::new(),
-        }
-    }
-
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
 
@@ -142,5 +102,45 @@ impl TypeKind {
         blob.read_unsigned();
         blob.read_modifiers();
         Self::from_blob(&mut blob, &Vec::new())
+    }
+
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        match self {
+            TypeKind::Class(name) => name.dependencies(),
+            TypeKind::Interface(name) => name.dependencies(),
+            TypeKind::Enum(name) => name.dependencies(),
+            TypeKind::Struct(name) => name.dependencies(),
+            TypeKind::Delegate(name) => name.dependencies(),
+            _ => Vec::new(),
+        }
+    }
+
+    pub fn to_stream(&self) -> TokenStream {
+        match self {
+            Self::Bool => quote! { bool },
+            Self::Char => quote! { u16 },
+            Self::I8 => quote! { i8 },
+            Self::U8 => quote! { u8 },
+            Self::I16 => quote! { i16 },
+            Self::U16 => quote! { u16 },
+            Self::I32 => quote! { i32 },
+            Self::U32 => quote! { u32 },
+            Self::I64 => quote! { i64 },
+            Self::U64 => quote! { u64 },
+            Self::F32 => quote! { f32 },
+            Self::F64 => quote! { f64 },
+            Self::String => quote! { winrt::HString },
+            Self::Object => quote! { winrt::Object },
+            Self::Guid => quote! { winrt::Guid },
+            Self::Class(name) => name.ident(),
+            Self::Interface(name) => name.ident(),
+            Self::Enum(name) => name.ident(),
+            Self::Struct(name) => name.ident(),
+            Self::Delegate(name) => name.ident(),
+            Self::Generic(name) => {
+                let name = write_ident(name);
+                quote! { #name }
+            }
+        }
     }
 }

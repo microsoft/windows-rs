@@ -18,12 +18,6 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        std::iter::once(self.def)
-            .chain(self.generics.iter().flat_map(|i| i.dependencies()))
-            .collect()
-    }
-
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let (namespace, name) = def.name(reader);
         let namespace = namespace.to_string();
@@ -70,13 +64,19 @@ impl TypeName {
         TypeName::from_type_spec_blob(&mut blob, &Vec::new())
     }
 
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        std::iter::once(self.def)
+            .chain(self.generics.iter().flat_map(|i| i.dependencies()))
+            .collect()
+    }
+
     pub fn ident(&self) -> TokenStream {
         if self.generics.is_empty() {
             let name = write_ident(&self.name);
             quote! { #name }
         } else {
             let name = write_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.ident());
+            let generics = self.generics.iter().map(|g| g.to_stream());
             quote! { #name<#(#generics),*> }
         }
     }
@@ -89,7 +89,7 @@ impl TypeName {
 
             for (count, generic) in self.generics.iter().enumerate() {
                 let name = format_ident!("__{}", count);
-                let generic = generic.ident();
+                let generic = generic.to_stream();
                 tokens.push(quote! { #name: std::marker::PhantomData::<#generic>, })
             }
 
@@ -99,7 +99,7 @@ impl TypeName {
 
     pub fn constraints(&self) -> TokenStream {
         let generics = self.generics.iter().map(|generic| {
-            let generic = generic.ident();
+            let generic = generic.to_stream();
             quote! { #generic: winrt::RuntimeType + 'static, }
         });
 

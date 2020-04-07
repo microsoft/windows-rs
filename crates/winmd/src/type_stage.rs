@@ -1,15 +1,17 @@
 use crate::tables::TypeDef;
 use crate::type_limits::TypeLimits;
-use crate::type_tree::TypeTree;
 use crate::types::Type;
+use crate::types::TypeTree;
 use crate::TypeReader;
 
 use std::collections::*;
 
+/// A map between type def and the fully resolved types
 #[derive(Default, Debug)]
 pub struct TypeStage(pub BTreeMap<TypeDef, Type>);
 
 impl TypeStage {
+    /// Resolve types from the relevant types in a [`TypeLimit`]
     pub fn from_limits(reader: &TypeReader, limits: &TypeLimits) -> TypeStage {
         let mut stage: TypeStage = Default::default();
 
@@ -33,6 +35,7 @@ impl TypeStage {
         }
     }
 
+    /// Resolve the types into a type tree for code generation
     pub fn into_tree(self) -> TypeTree {
         let mut tree: TypeTree = Default::default();
         self.0

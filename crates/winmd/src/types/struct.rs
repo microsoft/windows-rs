@@ -12,13 +12,6 @@ pub struct Struct {
 }
 
 impl Struct {
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.fields
-            .iter()
-            .flat_map(|i| i.1.dependencies())
-            .collect()
-    }
-
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
         let mut fields = Vec::new();
@@ -32,12 +25,19 @@ impl Struct {
         Self { name, fields }
     }
 
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.fields
+            .iter()
+            .flat_map(|i| i.1.dependencies())
+            .collect()
+    }
+
     pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
 
         let fields = self.fields.iter().map(|field| {
             let name = write_ident(&field.0);
-            let kind = field.1.ident();
+            let kind = field.1.to_stream();
             quote! {
                 pub #name: #kind
             }
