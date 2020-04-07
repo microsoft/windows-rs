@@ -82,3 +82,28 @@ impl Class {
         }
     }
 }
+
+#[test]
+fn can_read_class_with_generic_interface_from_reader() {
+    let winmd_files = crate::load_winmd::from_os();
+    let reader = &TypeReader::new(winmd_files);
+    let def = reader.resolve(("Windows.Foundation", "WwwFormUrlDecoder"));
+    let t = def.into_type(reader);
+
+    let name = t.name();
+    assert!(name.namespace == "Windows.Foundation");
+    assert!(name.name == "WwwFormUrlDecoder");
+    assert!(name.generics.is_empty());
+
+    assert!(name.def == def);
+
+    // let t = match t {
+    //     Type::Class(t) => t,
+    //     _ => panic!("Wrong type"),
+    // };
+
+    // TODO: Assert required interfaces...
+    // defualt: IWwwFormUrlDecoderRuntimeClass
+    // IIterable<IWwwFormUrlDecoderEntry>
+    // IVectorView<IWwwFormUrlDecoderEntry>>
+}

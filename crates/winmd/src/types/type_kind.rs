@@ -34,16 +34,18 @@ pub enum TypeKind {
 }
 
 impl TypeKind {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
-
-        match def.category(reader) {
+    fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
+        match name.def.category(reader) {
             TypeCategory::Interface => TypeKind::Interface(name),
             TypeCategory::Class => TypeKind::Class(name),
             TypeCategory::Enum => TypeKind::Enum(name),
             TypeCategory::Struct => TypeKind::Struct(name),
             TypeCategory::Delegate => TypeKind::Delegate(name),
         }
+    }
+
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+        Self::from_type_name(reader, TypeName::from_type_def(reader, def))
     }
 
     pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> Self {
@@ -91,8 +93,9 @@ impl TypeKind {
                 TypeDefOrRef::decode(blob.read_unsigned(), blob.file),
             ),
             0x13 => generics[blob.read_unsigned() as usize].clone(),
-
-            0x15 => TypeKind::Interface(TypeName::from_type_spec_blob(blob, generics)),
+            0x15 => {
+                Self::from_type_name(blob.reader, TypeName::from_type_spec_blob(blob, generics))
+            }
             _ => panic!("TypeKind::from_blob"),
         }
     }

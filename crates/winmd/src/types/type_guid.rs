@@ -1,13 +1,23 @@
 use crate::tables::*;
 
-#[derive(Debug, Clone, Default, PartialEq)]
+#[derive(Clone, Default, PartialEq)]
 pub struct TypeGuid(pub [GuidConstant; 11]);
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Clone, PartialEq)]
 pub enum GuidConstant {
     U32(u32),
     U16(u16),
     U8(u8),
+}
+
+impl std::fmt::Debug for GuidConstant {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::U32(value) => write!(f, "{:08X?}", value),
+            Self::U16(value) => write!(f, "{:04X?}", value),
+            Self::U8(value) => write!(f, "{:02X?}", value),
+        }
+    }
 }
 
 impl GuidConstant {
@@ -21,7 +31,26 @@ impl GuidConstant {
     }
 }
 
-// TODO: get rid of this
+impl std::fmt::Debug for TypeGuid {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{:?}-{:?}-{:?}-{:?}{:?}-{:?}{:?}{:?}{:?}{:?}{:?}",
+            self.0[0],
+            self.0[1],
+            self.0[2],
+            self.0[3],
+            self.0[4],
+            self.0[5],
+            self.0[6],
+            self.0[7],
+            self.0[8],
+            self.0[9],
+            self.0[10]
+        )
+    }
+}
+
 impl Default for GuidConstant {
     fn default() -> Self {
         Self::U8(0)
