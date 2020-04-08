@@ -98,10 +98,38 @@ mod tests {
         assert!(t.name.name == "WwwFormUrlDecoder");
         assert!(t.name.generics.is_empty());
 
-        // TODO: Assert required interfaces...
-        // defualt: IWwwFormUrlDecoderRuntimeClass
-        // IIterable<IWwwFormUrlDecoderEntry>
-        // IVectorView<IWwwFormUrlDecoderEntry>>
+        assert!(t.interfaces.len() == 3);
+
+        let interface = t.interfaces.iter().find(|interface| interface.name.name == "IWwwFormUrlDecoderRuntimeClass").unwrap();
+        assert!(interface.name.namespace == "Windows.Foundation");
+        assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClass");
+        assert!(interface.name.generics.is_empty());
+
+        let interface = t.interfaces.iter().find(|interface| interface.name.name == "IIterable`1").unwrap();
+        assert!(interface.name.namespace == "Windows.Foundation.Collections");
+        assert!(interface.name.name == "IIterable`1");
+        assert!(interface.name.generics.len() == 1);
+
+        let entry = match &interface.name.generics[0] {
+            TypeKind::Interface(entry) => entry,
+            _ => panic!("Wrong type"),
+        };
+
+        assert!(entry.namespace == "Windows.Foundation");
+        assert!(entry.name == "IWwwFormUrlDecoderEntry");
+
+        let interface = t.interfaces.iter().find(|interface| interface.name.name == "IVectorView`1").unwrap();
+        assert!(interface.name.namespace == "Windows.Foundation.Collections");
+        assert!(interface.name.name == "IVectorView`1");
+        assert!(interface.name.generics.len() == 1);
+
+        let entry = match &interface.name.generics[0] {
+            TypeKind::Interface(entry) => entry,
+            _ => panic!("Wrong type"),
+        };
+
+        assert!(entry.namespace == "Windows.Foundation");
+        assert!(entry.name == "IWwwFormUrlDecoderEntry");
     }
 
     #[test]
