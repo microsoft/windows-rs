@@ -139,3 +139,102 @@ impl Method {
         case::to_snake(method.name(reader), None)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
+        let reader = &TypeReader::from_os();
+        let def = reader.resolve((namespace, type_name));
+
+        let t = match def.into_type(reader) {
+            Type::Interface(t) => t,
+            _ => panic!("Type not an interface"),
+        };
+
+        for method in t.methods {
+            if method.name == method_name {
+                return method;
+            }
+        }
+
+        panic!("Method not found");
+    }
+
+    #[test]
+    fn test_to_string() {
+        let method = method(("Windows.Foundation", "IStringable"), "to_string");
+        assert!(method.kind == MethodKind::Normal);
+        assert!(method.params.is_empty());
+
+        let param = method.return_type.as_ref().unwrap();
+        assert!(param.kind == TypeKind::String);
+    }
+
+    #[test]
+    fn test_map_changed() {
+        let method = method(
+            ("Windows.Foundation.Collections", "IObservableMap`2"),
+            "map_changed",
+        );
+
+        assert!(method.kind == MethodKind::Add);
+        assert!(method.params.len() == 1);
+
+        let handler = &method.params[0];
+        assert!(handler.array == false);
+        assert!(handler.input == true);
+        assert!(handler.by_ref == false);
+
+        let handler = match &handler.kind {
+            TypeKind::Delegate(delegate) => delegate,
+            _ => panic!("Wrong type"),
+        };
+
+        assert!(handler.namespace == "Windows.Foundation.Collections");
+        assert!(handler.name == "MapChangedEventHandler`2");
+        assert!(handler.generics.len() == 2);
+        assert!(handler.generics[0] == TypeKind::Generic("K".to_string()));
+        assert!(handler.generics[1] == TypeKind::Generic("V".to_string()));
+
+        let token = method.return_type.as_ref().unwrap();
+        assert!(token.array == false);
+        assert!(token.input == false);
+        assert!(token.by_ref == true);
+
+        let token = match &token.kind {
+            TypeKind::Struct(token) => token,
+            _ => panic!("Wrong type"),
+        };
+
+        assert!(token.namespace == "Windows.Foundation");
+        assert!(token.name == "EventRegistrationToken");
+        assert!(token.generics.is_empty());
+    }
+
+    #[test]
+    fn test_remove_map_changed() {
+        let method = method(
+            ("Windows.Foundation.Collections", "IObservableMap`2"),
+            "remove_map_changed",
+        );
+
+        assert!(method.kind == MethodKind::Remove);
+        assert!(method.params.len() == 1);
+
+        let token = &method.params[0];
+        assert!(token.array == false);
+        assert!(token.input == true);
+        assert!(token.by_ref == false);
+
+        let token = match &token.kind {
+            TypeKind::Struct(token) => token,
+            _ => panic!("Wrong type"),
+        };
+
+        assert!(token.namespace == "Windows.Foundation");
+        assert!(token.name == "EventRegistrationToken");
+        assert!(token.generics.is_empty());
+    }
+}
