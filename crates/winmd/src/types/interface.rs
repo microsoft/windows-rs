@@ -156,7 +156,6 @@ mod tests {
         assert!(t.name.name == "IAsyncAction");
         assert!(t.name.generics.is_empty());
 
-        assert!(t.name.def == def);
         assert!(t.interfaces.len() == 1);
 
         assert!(t.interfaces[0].name.namespace == "Windows.Foundation");

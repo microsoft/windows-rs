@@ -76,60 +76,54 @@ impl Class {
         }
     }
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-#[test]
-fn test_url_decoder() {
-    let reader = &TypeReader::from_os();
-    let def = reader.resolve(("Windows.Foundation", "WwwFormUrlDecoder"));
-    let t = def.into_type(reader);
+    fn class((namespace, type_name): (&str, &str)) -> Class {
+        let reader = &TypeReader::from_os();
+        let def = reader.resolve((namespace, type_name));
 
-    let name = t.name();
-    assert!(name.namespace == "Windows.Foundation");
-    assert!(name.name == "WwwFormUrlDecoder");
-    assert!(name.generics.is_empty());
+        match def.into_type(reader) {
+            Type::Class(t) => t,
+            _ => panic!("Type not an interface"),
+        }
+    }
 
-    assert!(name.def == def);
+    #[test]
+    fn test_url_decoder() {
+        let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
 
-    // let t = match t {
-    //     Type::Class(t) => t,
-    //     _ => panic!("Wrong type"),
-    // };
+        assert!(t.name.namespace == "Windows.Foundation");
+        assert!(t.name.name == "WwwFormUrlDecoder");
+        assert!(t.name.generics.is_empty());
 
-    // TODO: Assert required interfaces...
-    // defualt: IWwwFormUrlDecoderRuntimeClass
-    // IIterable<IWwwFormUrlDecoderEntry>
-    // IVectorView<IWwwFormUrlDecoderEntry>>
-}
+        // TODO: Assert required interfaces...
+        // defualt: IWwwFormUrlDecoderRuntimeClass
+        // IIterable<IWwwFormUrlDecoderEntry>
+        // IVectorView<IWwwFormUrlDecoderEntry>>
+    }
 
-#[test]
-fn test_class_with_bases() {
-    let reader = &TypeReader::from_os();
-    let def = reader.resolve(("Windows.UI.Composition", "SpriteVisual"));
+    #[test]
+    fn test_class_with_bases() {
+        let t = class(("Windows.UI.Composition", "SpriteVisual"));
 
-    let t = match def.into_type(reader) {
-        Type::Class(t) => t,
-        _ => panic!("Wrong type"),
-    };
+        assert!(t.name.namespace == "Windows.UI.Composition");
+        assert!(t.name.name == "SpriteVisual");
+        assert!(t.name.generics.is_empty());
 
-    assert!(t.name.namespace == "Windows.UI.Composition");
-    assert!(t.name.name == "SpriteVisual");
-    assert!(t.name.generics.is_empty());
+        assert!(t.bases.len() == 3);
 
-    assert!(t.name.def == def);
-    assert!(t.bases.len() == 3);
+        assert!(t.bases[0].namespace == "Windows.UI.Composition");
+        assert!(t.bases[0].name == "ContainerVisual");
+        assert!(t.bases[0].generics.is_empty());
 
-    assert!(t.bases[0].namespace == "Windows.UI.Composition");
-    assert!(t.bases[0].name == "ContainerVisual");
-    assert!(t.bases[0].generics.is_empty());
-    assert!(t.bases[0].def == reader.resolve(("Windows.UI.Composition", "ContainerVisual")));
+        assert!(t.bases[1].namespace == "Windows.UI.Composition");
+        assert!(t.bases[1].name == "Visual");
+        assert!(t.bases[1].generics.is_empty());
 
-    assert!(t.bases[1].namespace == "Windows.UI.Composition");
-    assert!(t.bases[1].name == "Visual");
-    assert!(t.bases[1].generics.is_empty());
-    assert!(t.bases[1].def == reader.resolve(("Windows.UI.Composition", "Visual")));
-
-    assert!(t.bases[2].namespace == "Windows.UI.Composition");
-    assert!(t.bases[2].name == "CompositionObject");
-    assert!(t.bases[2].generics.is_empty());
-    assert!(t.bases[2].def == reader.resolve(("Windows.UI.Composition", "CompositionObject")));
+        assert!(t.bases[2].namespace == "Windows.UI.Composition");
+        assert!(t.bases[2].name == "CompositionObject");
+        assert!(t.bases[2].generics.is_empty());
+    }
 }
