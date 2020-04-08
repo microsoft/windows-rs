@@ -101,13 +101,16 @@ fn parse_import_stream(
 
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
-    let (_dependencies, _namespaces) = parse_import_stream(stream);
+    let (_dependencies, namespaces) = parse_import_stream(stream);
 
     let winmd_files = load_winmd::from_os();
     let reader = &TypeReader::new(winmd_files);
 
     let mut limits = TypeLimits::default();
-    limits.insert(reader, "windows.foundation");
+
+    for namespace in namespaces {
+        limits.insert(reader, &namespace);
+    }
 
     let stage = TypeStage::from_limits(reader, &limits);
     let tree = stage.into_tree();

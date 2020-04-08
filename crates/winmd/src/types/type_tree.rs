@@ -16,15 +16,19 @@ impl TypeTree {
     ///
     /// This recursively searchs the tree for an entry corresponding to the namespace
     pub fn insert(&mut self, namespace: String, t: Type) {
-        let subtree = &mut self.namespaces.0;
         if let Some(pos) = namespace.find('.') {
-            let (namespace, rest) = namespace.split_at(pos);
-            subtree
-                .entry(namespace.to_owned())
+            self.namespaces
+                .0
+                .entry(namespace[..pos].to_string())
                 .or_default()
-                .insert(rest.to_owned(), t);
+                .insert(namespace[pos + 1..].to_string(), t);
         } else {
-            subtree.entry(namespace).or_default().types.push(t);
+            self.namespaces
+                .0
+                .entry(namespace)
+                .or_default()
+                .types
+                .push(t);
         }
     }
 
