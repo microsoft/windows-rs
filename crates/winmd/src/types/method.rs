@@ -33,7 +33,7 @@ impl Method {
     pub fn from_method_def(
         reader: &TypeReader,
         method: MethodDef,
-        generics: &[TypeKind],
+        generics: &Vec<TypeKind>,
     ) -> Method {
         let (name, kind) = if method.flags(reader).special() {
             let name = method.name(reader);

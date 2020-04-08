@@ -15,6 +15,7 @@ pub(crate) use class::Class;
 pub(crate) use delegate::Delegate;
 pub(crate) use interface::Interface;
 pub(crate) use method::Method;
+pub(crate) use method::MethodKind;
 pub(crate) use r#enum::Enum;
 pub(crate) use r#struct::Struct;
 pub(crate) use r#type::Type;

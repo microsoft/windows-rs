@@ -20,6 +20,10 @@ pub struct TypeReader {
 }
 
 impl TypeReader {
+    pub fn from_os() -> Self {
+        Self::new(crate::load_winmd::from_os())
+    }
+
     /// Create a new [`TypeReader`] from a [`WinmdFile`]s
     pub fn new(files: Vec<WinmdFile>) -> Self {
         let mut reader = Self {
