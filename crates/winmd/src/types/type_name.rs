@@ -64,6 +64,10 @@ impl TypeName {
         TypeName::from_type_spec_blob(&mut blob, generics)
     }
 
+    pub fn interfaces(&self, reader: &TypeReader) -> Vec<Interface> {
+        Interface::interfaces(reader, self.def, &self.generics)
+    }
+
     pub fn dependencies(&self) -> Vec<TypeDef> {
         std::iter::once(self.def)
             .chain(self.generics.iter().flat_map(|i| i.dependencies()))

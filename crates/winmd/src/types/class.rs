@@ -16,7 +16,7 @@ pub struct Class {
 impl Class {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces = Interface::interfaces(reader, def, &Vec::new());
+        let mut interfaces = name.interfaces(reader);
         let mut bases = Vec::new();
         let mut base = def;
 
@@ -78,7 +78,7 @@ impl Class {
 }
 
 #[test]
-fn test_class_with_generic_interface() {
+fn test_url_decoder() {
     let reader = &TypeReader::from_os();
     let def = reader.resolve(("Windows.Foundation", "WwwFormUrlDecoder"));
     let t = def.into_type(reader);

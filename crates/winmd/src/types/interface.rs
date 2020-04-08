@@ -30,7 +30,7 @@ impl Interface {
             .methods(reader)
             .map(|method| Method::from_method_def(reader, method, &name.generics))
             .collect();
-        let interfaces = Self::interfaces(reader, def, &name.generics); // And here we use the resolved generics
+        let interfaces = name.interfaces(reader);
         Self {
             name,
             guid,
@@ -48,7 +48,6 @@ impl Interface {
             .map(|interface| Interface::from_interface_impl(reader, interface, generics))
             .collect()
     }
-
     fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, generics: &Vec<TypeKind>) -> Self {
         Self::from_type_def(reader, type_ref.resolve(reader), generics)
     }
@@ -57,7 +56,7 @@ impl Interface {
         let name = TypeName::from_type_spec(reader, spec, generics);
         let guid = TypeGuid::new(); // TODO: Generate generic guid specialization
         let methods = Vec::new();
-        let interfaces = Vec::new();
+        let interfaces = name.interfaces(reader);
         Self {
             name,
             guid,
@@ -116,7 +115,7 @@ impl Interface {
 }
 
 #[test]
-fn test_IStringable() {
+fn test_stringable() {
     let reader = &TypeReader::from_os();
     let def = reader.resolve(("Windows.Foundation", "IStringable"));
     let t = def.into_type(reader);
@@ -146,7 +145,7 @@ fn test_IStringable() {
 }
 
 #[test]
-fn test_IAsyncAction() {
+fn test_async_action() {
     let reader = &TypeReader::from_os();
     let def = reader.resolve(("Windows.Foundation", "IAsyncAction"));
 
@@ -168,7 +167,8 @@ fn test_IAsyncAction() {
 }
 
 #[test]
-fn test_IObservableMap() {
+fn test_observable_map() {
+    // TODO: split into smaller focused tests
     let reader = &TypeReader::from_os();
     let def = reader.resolve(("Windows.Foundation.Collections", "IObservableMap`2"));
     let t = def.into_type(reader);
@@ -249,5 +249,30 @@ fn test_IObservableMap() {
     assert!(token.generics.is_empty());
     assert!(token.def == reader.resolve(("Windows.Foundation", "EventRegistrationToken")));
 
-    // TODO: make sure all required interfaces are properly specialized
+    assert!(t.interfaces.len() == 1);
+    let map = &t.interfaces[0];
+
+    assert!(map.name.namespace == "Windows.Foundation.Collections");
+    assert!(map.name.name == "IMap`2");
+    assert!(map.name.generics.len() == 2);
+    assert!(map.name.generics[0] == TypeKind::Generic("K".to_string()));
+    assert!(map.name.generics[1] == TypeKind::Generic("V".to_string()));
+
+    assert!(map.interfaces.len() == 1);
+    let iterable = &map.interfaces[0];
+
+    assert!(iterable.interfaces.len() == 0);
+    assert!(iterable.name.namespace == "Windows.Foundation.Collections");
+    assert!(iterable.name.name == "IIterable`1");
+    assert!(iterable.name.generics.len() == 1);
+
+    let pair = match &iterable.name.generics[0] {
+        TypeKind::Interface(pair) => pair,
+        _ => panic!("Wrong type"),
+    };
+
+    assert!(pair.namespace == "Windows.Foundation.Collections");
+    assert!(pair.name == "IKeyValuePair`2");
+    assert!(pair.generics[0] == TypeKind::Generic("K".to_string()));
+    assert!(pair.generics[1] == TypeKind::Generic("V".to_string()));
 }
