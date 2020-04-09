@@ -1,3 +1,5 @@
+use winrt::{import, Result};
+
 import!(
     dependencies
         "os"
@@ -5,11 +7,9 @@ import!(
         "windows.foundation"
 );
 
-use winrt::*;
-
 #[test]
 fn uri() -> Result<()> {
-    use windows::foundation::*;
+    use windows::foundation::Uri;
 
     let _uri = Uri::default();
 
