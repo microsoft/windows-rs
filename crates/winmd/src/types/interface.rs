@@ -11,7 +11,7 @@ pub struct Interface {
     pub name: TypeName,
     pub guid: TypeGuid,
     pub methods: Vec<Method>,
-    // pub default: bool,
+    pub default: bool,
     // pub exclusive: bool,
     // pub constructors: bool,
     // pub statics: bool,
@@ -36,6 +36,7 @@ impl Interface {
             guid,
             methods,
             interfaces,
+            default: false,
         }
     }
 
@@ -62,6 +63,7 @@ impl Interface {
             guid,
             methods,
             interfaces,
+            default: false,
         }
     }
 
@@ -83,7 +85,9 @@ impl Interface {
         generics: &Vec<TypeKind>,
     ) -> Self {
         // TODO: flip default/exclusive/overridable bits as needed
-        Self::from_type_def_or_ref(reader, key.interface(reader), generics)
+        let mut interface = Self::from_type_def_or_ref(reader, key.interface(reader), generics);
+        interface.default = key.has_attribute(reader, ("Windows.Foundation.Metadata", "DefaultAttribute"));
+        interface
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {

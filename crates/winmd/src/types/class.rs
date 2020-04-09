@@ -135,6 +135,7 @@ mod tests {
             .find(|interface| interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory")
             .unwrap();
 
+        assert!(interface.default == false);
         assert!(interface.name.namespace == "Windows.Foundation");
         assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory");
         assert!(interface.name.generics.is_empty());
@@ -145,6 +146,7 @@ mod tests {
             .find(|interface| interface.name.name == "IWwwFormUrlDecoderRuntimeClass")
             .unwrap();
 
+        assert!(interface.default == true);
         assert!(interface.name.namespace == "Windows.Foundation");
         assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClass");
         assert!(interface.name.generics.is_empty());
@@ -155,6 +157,7 @@ mod tests {
             .find(|interface| interface.name.name == "IIterable`1")
             .unwrap();
 
+        assert!(interface.default == false);
         assert!(interface.name.namespace == "Windows.Foundation.Collections");
         assert!(interface.name.name == "IIterable`1");
         assert!(interface.name.generics.len() == 1);
@@ -173,6 +176,7 @@ mod tests {
             .find(|interface| interface.name.name == "IVectorView`1")
             .unwrap();
 
+        assert!(interface.default == false);
         assert!(interface.name.namespace == "Windows.Foundation.Collections");
         assert!(interface.name.name == "IVectorView`1");
         assert!(interface.name.generics.len() == 1);
