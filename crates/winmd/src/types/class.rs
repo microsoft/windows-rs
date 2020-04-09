@@ -11,15 +11,13 @@ pub struct Class {
     pub name: TypeName,
     pub interfaces: Vec<Interface>,
     pub bases: Vec<TypeName>,
+    pub default: bool,
 }
 
 impl Class {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces: Vec<Interface> = def
-            .interfaces(reader)
-            .map(|interface| Interface::from_interface_impl(reader, interface))
-            .collect();
+        let mut interfaces = name.interfaces(reader);
         let mut bases = Vec::new();
         let mut base = def;
 
@@ -32,10 +30,7 @@ impl Class {
 
             base = reader.resolve((namespace, name));
 
-            interfaces.extend(
-                base.interfaces(reader)
-                    .map(|interface| Interface::from_interface_impl(reader, interface)),
-            );
+            interfaces.extend(Interface::interfaces(reader, base, &Vec::new()));
 
             let namespace = namespace.to_string();
             let name = name.to_string();
@@ -49,10 +44,25 @@ impl Class {
             });
         }
 
+        let mut default = false;
+
         for attribute in def.attributes(reader) {
             match attribute.name(reader) {
-                ("Windows.Foundation.Metadata", "StaticAttribute") => {}
-                ("Windows.Foundation.Metadata", "ActivatableAttribute") => {}
+                ("Windows.Foundation.Metadata", "StaticAttribute") => {
+                    interfaces.push(Interface::from_type_def(
+                        reader,
+                        attribute_factory(reader, attribute).unwrap(),
+                        &Vec::new(),
+                    ));
+                }
+                ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
+                    match attribute_factory(reader, attribute) {
+                        Some(def) => {
+                            interfaces.push(Interface::from_type_def(reader, def, &Vec::new()))
+                        }
+                        None => default = true,
+                    }
+                }
                 _ => {}
             }
         }
@@ -61,6 +71,7 @@ impl Class {
             name,
             interfaces,
             bases,
+            default,
         }
     }
 
@@ -76,34 +87,125 @@ impl Class {
         let name = self.name.ident();
 
         quote! {
-            pub struct #name {
-
-            }
+            #[repr(C)]
+            #[derive(Default, Clone)]
+            pub struct #name { ptr: winrt::IUnknown }
         }
     }
 }
 
-#[test]
-fn can_read_class_with_generic_interface_from_reader() {
-    let winmd_files = crate::load_winmd::from_os();
-    let reader = &TypeReader::new(winmd_files);
-    let def = reader.resolve(("Windows.Foundation", "WwwFormUrlDecoder"));
-    let t = def.into_type(reader);
+fn attribute_factory(reader: &TypeReader, attribute: Attribute) -> Option<TypeDef> {
+    for (_, arg) in attribute.args(reader) {
+        if let AttributeArg::TypeDef(def) = arg {
+            return Some(def);
+        }
+    }
 
-    let name = t.name();
-    assert!(name.namespace == "Windows.Foundation");
-    assert!(name.name == "WwwFormUrlDecoder");
-    assert!(name.generics.is_empty());
+    None
+}
 
-    assert!(name.def == def);
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-    // let t = match t {
-    //     Type::Class(t) => t,
-    //     _ => panic!("Wrong type"),
-    // };
+    fn class((namespace, type_name): (&str, &str)) -> Class {
+        let reader = &TypeReader::from_os();
+        let def = reader.resolve((namespace, type_name));
 
-    // TODO: Assert required interfaces...
-    // defualt: IWwwFormUrlDecoderRuntimeClass
-    // IIterable<IWwwFormUrlDecoderEntry>
-    // IVectorView<IWwwFormUrlDecoderEntry>>
+        match def.into_type(reader) {
+            Type::Class(t) => t,
+            _ => panic!("Type not an interface"),
+        }
+    }
+
+    #[test]
+    fn test_url_decoder() {
+        let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
+        assert!(t.default == false);
+
+        assert!(t.name.namespace == "Windows.Foundation");
+        assert!(t.name.name == "WwwFormUrlDecoder");
+        assert!(t.name.generics.is_empty());
+
+        assert!(t.interfaces.len() == 4);
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory")
+            .unwrap();
+
+        assert!(interface.name.namespace == "Windows.Foundation");
+        assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory");
+        assert!(interface.name.generics.is_empty());
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IWwwFormUrlDecoderRuntimeClass")
+            .unwrap();
+
+        assert!(interface.name.namespace == "Windows.Foundation");
+        assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClass");
+        assert!(interface.name.generics.is_empty());
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IIterable`1")
+            .unwrap();
+
+        assert!(interface.name.namespace == "Windows.Foundation.Collections");
+        assert!(interface.name.name == "IIterable`1");
+        assert!(interface.name.generics.len() == 1);
+
+        let entry = match &interface.name.generics[0] {
+            TypeKind::Interface(entry) => entry,
+            _ => panic!("Wrong type"),
+        };
+
+        assert!(entry.namespace == "Windows.Foundation");
+        assert!(entry.name == "IWwwFormUrlDecoderEntry");
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IVectorView`1")
+            .unwrap();
+
+        assert!(interface.name.namespace == "Windows.Foundation.Collections");
+        assert!(interface.name.name == "IVectorView`1");
+        assert!(interface.name.generics.len() == 1);
+
+        let entry = match &interface.name.generics[0] {
+            TypeKind::Interface(entry) => entry,
+            _ => panic!("Wrong type"),
+        };
+
+        assert!(entry.namespace == "Windows.Foundation");
+        assert!(entry.name == "IWwwFormUrlDecoderEntry");
+    }
+
+    #[test]
+    fn test_class_with_bases() {
+        let t = class(("Windows.UI.Composition", "SpriteVisual"));
+
+        assert!(t.name.namespace == "Windows.UI.Composition");
+        assert!(t.name.name == "SpriteVisual");
+        assert!(t.name.generics.is_empty());
+
+        assert!(t.bases.len() == 3);
+
+        assert!(t.bases[0].namespace == "Windows.UI.Composition");
+        assert!(t.bases[0].name == "ContainerVisual");
+        assert!(t.bases[0].generics.is_empty());
+
+        assert!(t.bases[1].namespace == "Windows.UI.Composition");
+        assert!(t.bases[1].name == "Visual");
+        assert!(t.bases[1].generics.is_empty());
+
+        assert!(t.bases[2].namespace == "Windows.UI.Composition");
+        assert!(t.bases[2].name == "CompositionObject");
+        assert!(t.bases[2].generics.is_empty());
+    }
 }

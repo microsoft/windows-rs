@@ -15,9 +15,12 @@ pub enum Type {
 }
 
 impl Type {
+    // TODO: add generics param to test generic specializations?
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         match def.category(reader) {
-            TypeCategory::Interface => Self::Interface(Interface::from_type_def(reader, def)),
+            TypeCategory::Interface => {
+                Self::Interface(Interface::from_type_def(reader, def, &Vec::new()))
+            }
             TypeCategory::Class => Self::Class(Class::from_type_def(reader, def)),
             TypeCategory::Enum => Self::Enum(Enum::from_type_def(reader, def)),
             TypeCategory::Struct => Self::Struct(Struct::from_type_def(reader, def)),

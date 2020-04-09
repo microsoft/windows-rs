@@ -63,12 +63,12 @@ impl Attribute {
             args.push((String::new(), arg));
         }
 
-        let count = values.read_unsigned();
+        let count = values.read_u16();
         args.reserve(count as usize);
 
         for _ in 0..count {
             let name = values.read_str().to_string();
-            let arg = match values.read_unsigned() {
+            let arg = match values.read_u8() {
                 0x02 => AttributeArg::Bool(values.read_u8() != 0),
                 0x08 => AttributeArg::I32(values.read_i32()),
                 0x0E => AttributeArg::String(values.read_str().to_string()),

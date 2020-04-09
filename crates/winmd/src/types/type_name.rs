@@ -37,7 +37,7 @@ impl TypeName {
         }
     }
 
-    pub fn from_type_spec_blob(blob: &mut Blob, generics: &[TypeKind]) -> Self {
+    pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
         blob.read_unsigned();
         let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file).resolve(blob.reader);
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
@@ -58,10 +58,14 @@ impl TypeName {
         }
     }
 
-    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec) -> Self {
+    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
         let mut blob = spec.sig(reader);
         blob.read_unsigned();
-        TypeName::from_type_spec_blob(&mut blob, &Vec::new())
+        TypeName::from_type_spec_blob(&mut blob, generics)
+    }
+
+    pub fn interfaces(&self, reader: &TypeReader) -> Vec<Interface> {
+        Interface::interfaces(reader, self.def, &self.generics)
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {

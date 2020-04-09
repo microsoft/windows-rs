@@ -44,32 +44,36 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef, _generics: &Vec<TypeKind>) -> Self {
         Self::from_type_name(reader, TypeName::from_type_def(reader, def))
     }
 
-    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> Self {
+    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, generics: &Vec<TypeKind>) -> Self {
         let (namespace, name) = type_ref.name(reader);
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
         } else {
-            Self::from_type_def(reader, reader.resolve((namespace, name)))
+            Self::from_type_def(reader, reader.resolve((namespace, name)), generics)
         }
     }
 
-    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec) -> Self {
-        TypeKind::Interface(TypeName::from_type_spec(reader, spec))
+    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
+        TypeKind::Interface(TypeName::from_type_spec(reader, spec, generics))
     }
 
-    pub fn from_type_def_or_ref(reader: &TypeReader, code: TypeDefOrRef) -> Self {
+    pub fn from_type_def_or_ref(
+        reader: &TypeReader,
+        code: TypeDefOrRef,
+        generics: &Vec<TypeKind>,
+    ) -> Self {
         match code {
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
-            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
-            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value),
+            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value, generics),
+            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value, generics),
+            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
         }
     }
 
-    pub fn from_blob(blob: &mut Blob, generics: &[TypeKind]) -> Self {
+    pub fn from_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
         blob.read_expected(0x1D);
         blob.read_modifiers();
 
@@ -91,6 +95,7 @@ impl TypeKind {
             0x11 | 0x12 => Self::from_type_def_or_ref(
                 blob.reader,
                 TypeDefOrRef::decode(blob.read_unsigned(), blob.file),
+                generics,
             ),
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x15 => {

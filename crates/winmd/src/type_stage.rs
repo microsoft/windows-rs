@@ -12,8 +12,8 @@ pub struct TypeStage(pub BTreeMap<TypeDef, Type>);
 
 impl TypeStage {
     /// Resolve types from the relevant types in a [`TypeLimit`]
-    pub fn from_limits(reader: &TypeReader, limits: &TypeLimits) -> TypeStage {
-        let mut stage: TypeStage = Default::default();
+    pub fn from_limits(reader: &TypeReader, limits: &TypeLimits) -> Self {
+        let mut stage = Self::default();
 
         for namespace in &limits.0 {
             for def in reader.namespace_types(&namespace) {
@@ -37,7 +37,7 @@ impl TypeStage {
 
     /// Resolve the types into a type tree for code generation
     pub fn into_tree(self) -> TypeTree {
-        let mut tree: TypeTree = Default::default();
+        let mut tree = TypeTree::default();
         self.0
             .into_iter()
             .for_each(|(_, t)| tree.insert(t.name().namespace.clone(), t));
