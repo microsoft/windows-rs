@@ -1,6 +1,7 @@
 use super::TypeTree;
 use crate::case;
 use crate::write_ident;
+use crate::types::MethodKind;
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -16,7 +17,7 @@ impl TypeNamespaces {
         let mut tokens = Vec::new();
 
         for (name, tree) in self.0.iter() {
-            let name = case::to_snake(name, None);
+            let name = case::to_snake(name, MethodKind::Normal);
             let name = write_ident(&name);
             let tree = tree.to_stream();
 

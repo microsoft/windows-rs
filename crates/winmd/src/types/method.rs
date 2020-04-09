@@ -39,17 +39,17 @@ impl Method {
             let name = method.name(reader);
 
             if name.starts_with("get") {
-                (case::to_snake(&name[4..], None), MethodKind::Get)
+                (case::to_snake(&name[4..], MethodKind::Get), MethodKind::Get)
             } else if name.starts_with("put") {
                 (
-                    case::to_snake(&name[4..], Some(case::MethodKind::Set)),
+                    case::to_snake(&name[4..], MethodKind::Set),
                     MethodKind::Set,
                 )
             } else if name.starts_with("add") {
-                (case::to_snake(&name[4..], None), MethodKind::Add)
+                (case::to_snake(&name[4..], MethodKind::Add), MethodKind::Add)
             } else if name.starts_with("remove") {
                 (
-                    case::to_snake(&name[7..], Some(case::MethodKind::Remove)),
+                    case::to_snake(&name[7..], MethodKind::Remove),
                     MethodKind::Remove,
                 )
             } else {
@@ -131,12 +131,12 @@ impl Method {
         {
             for (_, arg) in attribute.args(reader) {
                 if let AttributeArg::String(name) = arg {
-                    return case::to_snake(&name, None);
+                    return case::to_snake(&name, MethodKind::Normal);
                 }
             }
         }
 
-        case::to_snake(method.name(reader), None)
+        case::to_snake(method.name(reader), MethodKind::Normal)
     }
 }
 
