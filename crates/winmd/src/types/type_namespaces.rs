@@ -1,7 +1,7 @@
 use super::TypeTree;
 use crate::case;
-use crate::write_ident;
 use crate::types::MethodKind;
+use crate::write_ident;
 
 use proc_macro2::TokenStream;
 use quote::quote;

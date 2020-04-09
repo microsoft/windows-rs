@@ -41,10 +41,7 @@ impl Method {
             if name.starts_with("get") {
                 (case::to_snake(&name[4..], MethodKind::Get), MethodKind::Get)
             } else if name.starts_with("put") {
-                (
-                    case::to_snake(&name[4..], MethodKind::Set),
-                    MethodKind::Set,
-                )
+                (case::to_snake(&name[4..], MethodKind::Set), MethodKind::Set)
             } else if name.starts_with("add") {
                 (case::to_snake(&name[4..], MethodKind::Add), MethodKind::Add)
             } else if name.starts_with("remove") {

@@ -64,13 +64,19 @@ mod tests {
 
     #[test]
     fn to_snake_works() {
-        assert_eq!(to_snake("Windows", MethodKind::Normal), "windows".to_owned());
+        assert_eq!(
+            to_snake("Windows", MethodKind::Normal),
+            "windows".to_owned()
+        );
         assert_eq!(
             to_snake("ApplicationModel", MethodKind::Normal),
             "application_model".to_owned()
         );
         assert_eq!(to_snake("foo", MethodKind::Normal), "foo".to_owned());
-        assert_eq!(to_snake("UIProgramming", MethodKind::Normal), "ui_programming".to_owned());
+        assert_eq!(
+            to_snake("UIProgramming", MethodKind::Normal),
+            "ui_programming".to_owned()
+        );
         assert_eq!(
             to_snake("UIProgramming", MethodKind::Set),
             "set_ui_programming".to_owned()
