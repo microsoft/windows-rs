@@ -68,7 +68,13 @@ impl<'a> Blob<'a> {
 
     pub fn read_str(&mut self) -> &str {
         let len = self.read_unsigned() as usize;
-        std::str::from_utf8(&self.bytes()[..len]).unwrap()
+        self.offset += len;
+        // TODO: for some reason we can't read using bytes() and then adjust the offset because it trips
+        // over reference lifetimes
+        std::str::from_utf8(
+            &self.reader.files[self.file as usize].bytes[self.offset - len..self.offset],
+        )
+        .unwrap()
     }
 
     pub fn read_i8(&mut self) -> i8 {

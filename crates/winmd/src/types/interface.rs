@@ -20,7 +20,7 @@ pub struct Interface {
 }
 
 impl Interface {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, generics: &Vec<TypeKind>) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef, _generics: &Vec<TypeKind>) -> Self {
         let name = TypeName::from_type_def(reader, def); // TODO: generics above needs to feed in here to resolve any generics
         let guid = TypeGuid::from_args(
             def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))

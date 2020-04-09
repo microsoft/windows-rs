@@ -44,7 +44,7 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, generics: &Vec<TypeKind>) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef, _generics: &Vec<TypeKind>) -> Self {
         Self::from_type_name(reader, TypeName::from_type_def(reader, def))
     }
 

@@ -11,6 +11,7 @@ pub struct Class {
     pub name: TypeName,
     pub interfaces: Vec<Interface>,
     pub bases: Vec<TypeName>,
+    pub default: bool,
 }
 
 impl Class {
@@ -43,10 +44,25 @@ impl Class {
             });
         }
 
+        let mut default = false;
+
         for attribute in def.attributes(reader) {
             match attribute.name(reader) {
-                ("Windows.Foundation.Metadata", "StaticAttribute") => {}
-                ("Windows.Foundation.Metadata", "ActivatableAttribute") => {}
+                ("Windows.Foundation.Metadata", "StaticAttribute") => {
+                    interfaces.push(Interface::from_type_def(
+                        reader,
+                        attribute_factory(reader, attribute).unwrap(),
+                        &Vec::new(),
+                    ));
+                }
+                ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
+                    match attribute_factory(reader, attribute) {
+                        Some(def) => {
+                            interfaces.push(Interface::from_type_def(reader, def, &Vec::new()))
+                        }
+                        None => default = true,
+                    }
+                }
                 _ => {}
             }
         }
@@ -55,6 +71,7 @@ impl Class {
             name,
             interfaces,
             bases,
+            default,
         }
     }
 
@@ -70,12 +87,23 @@ impl Class {
         let name = self.name.ident();
 
         quote! {
-            pub struct #name {
-
-            }
+            #[repr(C)]
+            #[derive(Default, Clone)]
+            pub struct #name { ptr: winrt::IUnknown }
         }
     }
 }
+
+fn attribute_factory(reader: &TypeReader, attribute: Attribute) -> Option<TypeDef> {
+    for (_, arg) in attribute.args(reader) {
+        if let AttributeArg::TypeDef(def) = arg {
+            return Some(def);
+        }
+    }
+
+    None
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -93,18 +121,30 @@ mod tests {
     #[test]
     fn test_url_decoder() {
         let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
+        assert!(t.default == false);
 
         assert!(t.name.namespace == "Windows.Foundation");
         assert!(t.name.name == "WwwFormUrlDecoder");
         assert!(t.name.generics.is_empty());
 
-        assert!(t.interfaces.len() == 3);
+        assert!(t.interfaces.len() == 4);
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory")
+            .unwrap();
+
+        assert!(interface.name.namespace == "Windows.Foundation");
+        assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory");
+        assert!(interface.name.generics.is_empty());
 
         let interface = t
             .interfaces
             .iter()
             .find(|interface| interface.name.name == "IWwwFormUrlDecoderRuntimeClass")
             .unwrap();
+
         assert!(interface.name.namespace == "Windows.Foundation");
         assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClass");
         assert!(interface.name.generics.is_empty());
@@ -114,6 +154,7 @@ mod tests {
             .iter()
             .find(|interface| interface.name.name == "IIterable`1")
             .unwrap();
+
         assert!(interface.name.namespace == "Windows.Foundation.Collections");
         assert!(interface.name.name == "IIterable`1");
         assert!(interface.name.generics.len() == 1);
@@ -131,6 +172,7 @@ mod tests {
             .iter()
             .find(|interface| interface.name.name == "IVectorView`1")
             .unwrap();
+
         assert!(interface.name.namespace == "Windows.Foundation.Collections");
         assert!(interface.name.name == "IVectorView`1");
         assert!(interface.name.generics.len() == 1);
