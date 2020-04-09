@@ -1,23 +1,25 @@
+use crate::file::WinmdFile;
 use crate::TypeReader;
+
 use std::convert::TryInto;
 
 pub struct Blob<'a> {
     pub reader: &'a TypeReader,
-    pub file: u16,
+    pub file_index: u16,
     offset: usize,
 }
 
 impl<'a> Blob<'a> {
-    pub fn new(reader: &'a TypeReader, file: u16, offset: usize) -> Self {
+    pub fn new(reader: &'a TypeReader, file_index: u16, offset: usize) -> Self {
         Blob {
             reader,
-            file,
+            file_index,
             offset,
         }
     }
 
     fn bytes(&self) -> &[u8] {
-        &self.reader.files[self.file as usize].bytes[self.offset..]
+        &self.file().bytes[self.offset..]
     }
 
     pub fn peek_unsigned(&self) -> (u32, usize) {
@@ -71,10 +73,7 @@ impl<'a> Blob<'a> {
         self.offset += len;
         // TODO: for some reason we can't read using bytes() and then adjust the offset because it trips
         // over reference lifetimes
-        std::str::from_utf8(
-            &self.reader.files[self.file as usize].bytes[self.offset - len..self.offset],
-        )
-        .unwrap()
+        std::str::from_utf8(&self.file().bytes[self.offset - len..self.offset]).unwrap()
     }
 
     pub fn read_i8(&mut self) -> i8 {
@@ -123,5 +122,9 @@ impl<'a> Blob<'a> {
         let value = u64::from_le_bytes(self.bytes()[..8].try_into().unwrap());
         self.offset += 8;
         value
+    }
+
+    fn file(&self) -> &WinmdFile {
+        &self.reader.files[self.file_index as usize]
     }
 }

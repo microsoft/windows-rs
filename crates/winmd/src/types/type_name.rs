@@ -39,7 +39,7 @@ impl TypeName {
 
     pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
         blob.read_unsigned();
-        let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file).resolve(blob.reader);
+        let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {

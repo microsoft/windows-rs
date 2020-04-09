@@ -94,7 +94,7 @@ impl TypeKind {
             0x1C => TypeKind::Object,
             0x11 | 0x12 => Self::from_type_def_or_ref(
                 blob.reader,
-                TypeDefOrRef::decode(blob.read_unsigned(), blob.file),
+                TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index),
                 generics,
             ),
             0x13 => generics[blob.read_unsigned() as usize].clone(),

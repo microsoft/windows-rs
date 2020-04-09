@@ -3,6 +3,9 @@ use quote::quote;
 use syn::{parse_macro_input, ItemStruct};
 use winmd::*;
 
+use std::collections::BTreeSet;
+use std::path::{Path, PathBuf};
+
 #[derive(PartialEq)]
 enum ImportCategory {
     None,
@@ -10,12 +13,18 @@ enum ImportCategory {
     Namespace,
 }
 
-fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet<String> {
+fn to_dependencies<P: AsRef<Path>>(dependency: P) -> BTreeSet<String> {
     let path = dependency.as_ref();
-    let mut result = std::collections::BTreeSet::new();
+    let mut result = BTreeSet::new();
 
     if path.is_dir() {
-        for path in std::fs::read_dir(path).unwrap() {
+        let paths = std::fs::read_dir(path).unwrap_or_else(|e| {
+            panic!(
+                "Could not read dependecy directory at path {:?}: {}",
+                path, e
+            )
+        });
+        for path in paths {
             if let Ok(path) = path {
                 let path = path.path();
                 if path.is_file() {
@@ -25,17 +34,16 @@ fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections
         }
     } else if path.is_file() {
         result.insert(path.to_str().unwrap().to_string());
+    } else if path.to_str().unwrap() == "os" {
+        let mut path = PathBuf::new();
+        let wind_dir_env = std::env::var("windir")
+            .unwrap_or_else(|_| panic!("No `windir` environment variable found"));
+        path.push(wind_dir_env);
+        path.push(SYSTEM32);
+        path.push("winmetadata");
+        result.append(&mut to_dependencies(path));
     } else {
-        let path = path.to_str().unwrap();
-        if path == "os" {
-            let mut path = std::path::PathBuf::new();
-            path.push(std::env::var("windir").unwrap());
-            path.push(SYSTEM32);
-            path.push("winmetadata");
-            result.append(&mut to_dependencies(path));
-        } else {
-            panic!("Dependency {} is not a file or directory", path);
-        }
+        panic!("Dependency {:?} is not a file or directory", path);
     }
 
     result
@@ -53,16 +61,12 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     result
 }
 
-fn parse_import_stream(
-    stream: TokenStream,
-) -> (
-    std::collections::BTreeSet<String>,
-    std::collections::BTreeSet<String>,
-) {
+fn parse_import_stream(stream: TokenStream) -> (BTreeSet<String>, BTreeSet<String>) {
     let mut category = ImportCategory::None;
-    let mut dependencies = std::collections::BTreeSet::<String>::new();
-    let mut modules = std::collections::BTreeSet::<String>::new();
+    let mut dependencies = BTreeSet::<String>::new();
+    let mut modules = BTreeSet::<String>::new();
     let mut stream = stream.into_iter().peekable();
+
     while let Some(token) = stream.next() {
         match token {
             TokenTree::Ident(value) => {

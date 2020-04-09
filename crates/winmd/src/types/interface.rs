@@ -101,7 +101,7 @@ impl Interface {
         let projected_methods = TokenStream::new();
 
         quote! {
-            #[repr(C)]
+            #[repr(transparent)]
             #[derive(Default, Clone)]
             pub struct #name where #constraints {
                 ptr: winrt::IUnknown,
