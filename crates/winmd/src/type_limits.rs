@@ -27,3 +27,42 @@ impl TypeLimits {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_parent_inclusion() {
+        let reader = &TypeReader::from_os();
+
+        {
+            // Windows.Foundation's parent is empty so that's not included
+            let mut limits = TypeLimits::default();
+            limits.insert(reader, "windows.foundation");
+            assert!(limits.0.len() == 1);
+            assert!(limits.0.contains("Windows.Foundation"));
+        }
+
+        {
+            // Windows.Foundation.Collections's parent is not empty so it gets included
+            let mut limits = TypeLimits::default();
+            limits.insert(reader, "windows.foundation.collections");
+            assert!(limits.0.len() == 2);
+            assert!(limits.0.contains("Windows.Foundation"));
+            assert!(limits.0.contains("Windows.Foundation.Collections"));
+        }
+
+        {
+            let mut limits = TypeLimits::default();
+            limits.insert(reader, "windows.foundation.collections");
+            limits.insert(reader, "windows.ui.xaml.controls");
+            assert!(limits.0.len() == 5);
+            assert!(limits.0.contains("Windows.Foundation"));
+            assert!(limits.0.contains("Windows.Foundation.Collections"));
+            assert!(limits.0.contains("Windows.UI"));
+            assert!(limits.0.contains("Windows.UI.Xaml"));
+            assert!(limits.0.contains("Windows.UI.Xaml.Controls"));
+        }
+    }
+}
