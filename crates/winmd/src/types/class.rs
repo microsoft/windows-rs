@@ -11,7 +11,7 @@ pub struct Class {
     pub name: TypeName,
     pub interfaces: Vec<Interface>,
     pub bases: Vec<TypeName>,
-    pub default: bool,
+    pub default_constructor: bool,
 }
 
 impl Class {
@@ -44,7 +44,7 @@ impl Class {
             });
         }
 
-        let mut default = false;
+        let mut default_constructor = false;
 
         for attribute in def.attributes(reader) {
             match attribute.name(reader) {
@@ -64,7 +64,7 @@ impl Class {
                             interface.kind = InterfaceKind::Constructors;
                             interfaces.push(interface);
                         }
-                        None => default = true,
+                        None => default_constructor = true,
                     }
                 }
                 _ => {}
@@ -75,7 +75,7 @@ impl Class {
             name,
             interfaces,
             bases,
-            default,
+            default_constructor,
         }
     }
 
@@ -123,9 +123,28 @@ mod tests {
     }
 
     #[test]
+    fn test_flat_interfaces() {
+        let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
+
+        // TODO: assert that the interfaces directly implemented by this class are in the list
+
+        // TODO: assert that those interfaecs themselves have pulled in necessary required interfaces
+
+        // TODO: assert that a "flat map" of recursive interfaces has no dupes
+    }
+
+    #[test]
+    fn test_flat_interfaces() {
+        let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
+
+        // TODO: assert that a "flat map" of methods has no dupes and provides all the info needed to generate Rust
+        // May need a ClassMethod and InterfaceMethod iterator type to provide the context specific info.
+    }
+
+    #[test]
     fn test_url_decoder() {
         let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
-        assert!(t.default == false);
+        assert!(t.default_constructor == false);
 
         assert!(t.name.namespace == "Windows.Foundation");
         assert!(t.name.name == "WwwFormUrlDecoder");
