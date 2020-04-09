@@ -49,16 +49,20 @@ impl Class {
         for attribute in def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    interfaces.push(Interface::from_type_def(
+                    let mut interface = Interface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
                         &Vec::new(),
-                    ));
+                    );
+                    interface.statics = true;
+                    interfaces.push(interface);
                 }
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            interfaces.push(Interface::from_type_def(reader, def, &Vec::new()))
+                            let mut interface = Interface::from_type_def(reader, def, &Vec::new());
+                            interface.constructors = true;
+                            interfaces.push(interface);
                         }
                         None => default = true,
                     }
@@ -136,6 +140,8 @@ mod tests {
             .unwrap();
 
         assert!(interface.default == false);
+        assert!(interface.constructors == true);
+        assert!(interface.statics == false);
         assert!(interface.name.namespace == "Windows.Foundation");
         assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory");
         assert!(interface.name.generics.is_empty());
@@ -147,6 +153,8 @@ mod tests {
             .unwrap();
 
         assert!(interface.default == true);
+        assert!(interface.constructors == false);
+        assert!(interface.statics == false);
         assert!(interface.name.namespace == "Windows.Foundation");
         assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClass");
         assert!(interface.name.generics.is_empty());
@@ -158,6 +166,8 @@ mod tests {
             .unwrap();
 
         assert!(interface.default == false);
+        assert!(interface.constructors == false);
+        assert!(interface.statics == false);
         assert!(interface.name.namespace == "Windows.Foundation.Collections");
         assert!(interface.name.name == "IIterable`1");
         assert!(interface.name.generics.len() == 1);
@@ -177,6 +187,8 @@ mod tests {
             .unwrap();
 
         assert!(interface.default == false);
+        assert!(interface.constructors == false);
+        assert!(interface.statics == false);
         assert!(interface.name.namespace == "Windows.Foundation.Collections");
         assert!(interface.name.name == "IVectorView`1");
         assert!(interface.name.generics.len() == 1);
