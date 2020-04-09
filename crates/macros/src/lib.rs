@@ -90,7 +90,7 @@ fn parse_import_stream(stream: TokenStream) -> (BTreeSet<PathBuf>, BTreeSet<Stri
             TokenTree::Literal(value) => match category {
                 ImportCategory::None => panic!(
                     "winrt::import macro expects either `dependencies` or `modules` but found `{}`",
-                    value.to_string()
+                    value
                 ),
                 ImportCategory::Dependency => {
                     dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"')));
@@ -101,7 +101,7 @@ fn parse_import_stream(stream: TokenStream) -> (BTreeSet<PathBuf>, BTreeSet<Stri
             },
             _ => panic!(
                 "winrt::import macro encountered an unrecognized token: {}",
-                token.to_string()
+                token
             ),
         }
     }
