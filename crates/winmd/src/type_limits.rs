@@ -37,7 +37,7 @@ mod tests {
         let reader = &TypeReader::from_os();
 
         {
-            // windows.foundation's parent is empty so that's not included
+            // Windows.Foundation's parent is empty so that's not included
             let mut limits = TypeLimits::default();
             limits.insert(reader, "windows.foundation");
             assert!(limits.0.len() == 1);
@@ -45,7 +45,7 @@ mod tests {
         }
 
         {
-            // windows.foundation.collections's parent is not empty so it gets included
+            // Windows.Foundation.Collections's parent is not empty so it gets included
             let mut limits = TypeLimits::default();
             limits.insert(reader, "windows.foundation.collections");
             assert!(limits.0.len() == 2);

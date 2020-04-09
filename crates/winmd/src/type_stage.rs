@@ -53,17 +53,19 @@ mod tests {
     fn test_dependency_inclusion() {
         let reader = &TypeReader::from_os();
 
-        // windows.foundation depends on types in windows.foundation.collections
-        // Since windows.foundation.collections is not added to the type limits,
+        // Windows.Foundation depends on types in Windows.Foundation.Collections
+        // Since Windows.Foundation.Collections is not added to the type limits,
         // only the types that are actually needed will be included.
         let mut limits = TypeLimits::default();
         limits.insert(reader, "windows.foundation");
         let stage = TypeStage::from_limits(reader, &limits);
 
-        // windows.foundation.WwwFormUrlDecoder depends on windows.foundation.collections.IVectorView`1
+        // Windows.Foundation.WwwFormUrlDecoder depends on Windows.Foundation.Collections.IVectorView`1
+        // so that's included.
         assert!(stage.0.values().any(|t| t.name().name == "IVectorView`1"));
 
-        // windows.foundation does not however depend on windows.foundation.collections.PropertySet
+        // Windows.Foundation does not however depend on Windows.Foundation.Collections.PropertySet
+        // so that's not included.
         assert!(stage.0.values().any(|t| t.name().name == "PropertySet") == false);
     }
 }
