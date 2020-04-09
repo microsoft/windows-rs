@@ -3,108 +3,14 @@ use quote::quote;
 use syn::{parse_macro_input, ItemStruct};
 use winmd::*;
 
-#[derive(PartialEq)]
-enum ImportCategory {
-    None,
-    Dependency,
-    Namespace,
-}
-
-fn to_dependencies<P: AsRef<std::path::Path>>(dependency: P) -> std::collections::BTreeSet<String> {
-    let path = dependency.as_ref();
-    let mut result = std::collections::BTreeSet::new();
-
-    if path.is_dir() {
-        for path in std::fs::read_dir(path).unwrap() {
-            if let Ok(path) = path {
-                let path = path.path();
-                if path.is_file() {
-                    result.insert(path.to_str().unwrap().to_string());
-                }
-            }
-        }
-    } else if path.is_file() {
-        result.insert(path.to_str().unwrap().to_string());
-    } else {
-        let path = path.to_str().unwrap();
-        if path == "os" {
-            let mut path = std::path::PathBuf::new();
-            path.push(std::env::var("windir").unwrap());
-            path.push(SYSTEM32);
-            path.push("winmetadata");
-            result.append(&mut to_dependencies(path));
-        } else {
-            panic!("Dependency {} is not a file or directory", path);
-        }
-    }
-
-    result
-}
-
-// Snake <-> camel casing is lossy so we go for character but not case conversion
-// and deal with casing once we have an index of namespaces to compare against.
-fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
-    let mut result = String::new();
-    for c in namespace.chars() {
-        if c != '"' && c != '_' {
-            result.extend(c.to_lowercase());
-        }
-    }
-    result
-}
-
-fn parse_import_stream(
-    stream: TokenStream,
-) -> (
-    std::collections::BTreeSet<String>,
-    std::collections::BTreeSet<String>,
-) {
-    let mut category = ImportCategory::None;
-    let mut dependencies = std::collections::BTreeSet::<String>::new();
-    let mut modules = std::collections::BTreeSet::<String>::new();
-    let mut stream = stream.into_iter().peekable();
-    while let Some(token) = stream.next() {
-        match token {
-            TokenTree::Ident(value) => {
-                match value.to_string().as_ref() {
-                    "dependencies" => category = ImportCategory::Dependency,
-                    "modules" => category = ImportCategory::Namespace,
-                    value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
-                }
-                if let Some(TokenTree::Punct(p)) = stream.peek() {
-                    if p.as_char() == ':' {
-                        let _ = stream.next();
-                    }
-                }
-            }
-            TokenTree::Literal(value) => match category {
-                ImportCategory::None => panic!(
-                    "winrt::import macro expects either `dependencies` or `modules` but found `{}`",
-                    value.to_string()
-                ),
-                ImportCategory::Dependency => {
-                    dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"')));
-                }
-                ImportCategory::Namespace => {
-                    modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
-                }
-            },
-            _ => panic!(
-                "winrt::import macro encountered an unrecognized token: {}",
-                token.to_string()
-            ),
-        }
-    }
-
-    (dependencies, modules)
-}
+use std::collections::BTreeSet;
+use std::path::{Path, PathBuf};
 
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
     let (_dependencies, namespaces) = parse_import_stream(stream);
 
-    let winmd_files = load_winmd::from_os();
-    let reader = &TypeReader::new(winmd_files);
+    let reader = &TypeReader::from_os();
 
     let mut limits = TypeLimits::default();
 
@@ -150,6 +56,106 @@ pub fn value_type(_args: TokenStream, input: TokenStream) -> TokenStream {
     };
 
     output.into()
+}
+
+#[derive(PartialEq)]
+enum ImportCategory {
+    None,
+    Dependency,
+    Namespace,
+}
+
+/// Parse `import!` macro and return a set of paths to dependencies and
+/// a set to all the namespaces referenced
+fn parse_import_stream(stream: TokenStream) -> (BTreeSet<PathBuf>, BTreeSet<String>) {
+    let mut category = ImportCategory::None;
+    let mut dependencies = BTreeSet::<PathBuf>::new();
+    let mut modules = BTreeSet::<String>::new();
+    let mut stream = stream.into_iter().peekable();
+
+    while let Some(token) = stream.next() {
+        match token {
+            TokenTree::Ident(value) => {
+                match value.to_string().as_ref() {
+                    "dependencies" => category = ImportCategory::Dependency,
+                    "modules" => category = ImportCategory::Namespace,
+                    value => panic!("winrt::import macro expects either `dependencies` or `modules` but found `{}`", value),
+                }
+                if let Some(TokenTree::Punct(p)) = stream.peek() {
+                    if p.as_char() == ':' {
+                        let _ = stream.next();
+                    }
+                }
+            }
+            TokenTree::Literal(value) => match category {
+                ImportCategory::None => panic!(
+                    "winrt::import macro expects either `dependencies` or `modules` but found `{}`",
+                    value
+                ),
+                ImportCategory::Dependency => {
+                    dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"')));
+                }
+                ImportCategory::Namespace => {
+                    modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
+                }
+            },
+            _ => panic!(
+                "winrt::import macro encountered an unrecognized token: {}",
+                token
+            ),
+        }
+    }
+
+    (dependencies, modules)
+}
+
+/// Returns the paths to resolved dependencies
+fn to_dependencies<P: AsRef<Path>>(dependency: P) -> BTreeSet<PathBuf> {
+    let path = dependency.as_ref();
+    let mut result = BTreeSet::new();
+
+    if path.is_dir() {
+        let paths = std::fs::read_dir(path).unwrap_or_else(|e| {
+            panic!(
+                "Could not read dependecy directory at path {:?}: {}",
+                path, e
+            )
+        });
+        for path in paths {
+            if let Ok(path) = path {
+                let path = path.path();
+                if path.is_file() {
+                    result.insert(path);
+                }
+            }
+        }
+    } else if path.is_file() {
+        result.insert(path.to_path_buf());
+    } else if path.to_str().map(|p| p == "os").unwrap_or(false) {
+        let mut path = PathBuf::new();
+        let wind_dir_env = std::env::var("windir")
+            .unwrap_or_else(|_| panic!("No `windir` environment variable found"));
+        path.push(wind_dir_env);
+        path.push(SYSTEM32);
+        path.push("winmetadata");
+        result.append(&mut to_dependencies(path));
+    } else {
+        panic!("Dependency {:?} is not a file or directory", path);
+    }
+
+    result
+}
+
+// Snake <-> camel casing is lossy so we go for character but not case conversion
+// and deal with casing once we have an index of namespaces to compare against.
+fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
+    let mut result = String::with_capacity(namespace.len());
+    for c in namespace.chars() {
+        if c != '"' && c != '_' {
+            result.extend(c.to_lowercase());
+        }
+    }
+    result
 }
 
 #[cfg(target_pointer_width = "64")]

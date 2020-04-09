@@ -87,7 +87,7 @@ impl Class {
         let name = self.name.ident();
 
         quote! {
-            #[repr(C)]
+            #[repr(transparent)]
             #[derive(Default, Clone)]
             pub struct #name { ptr: winrt::IUnknown }
         }
