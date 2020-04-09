@@ -22,4 +22,9 @@ impl InterfaceImpl {
             )
             .map(Attribute)
     }
+
+    pub fn has_attribute(self, reader: &TypeReader, name: (&str, &str)) -> bool {
+        self.attributes(reader)
+            .any(|attribute| attribute.name(reader) == name)
+    }
 }

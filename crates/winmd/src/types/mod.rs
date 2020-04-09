@@ -13,7 +13,7 @@ mod type_tree;
 
 pub(crate) use class::Class;
 pub(crate) use delegate::Delegate;
-pub(crate) use interface::Interface;
+pub(crate) use interface::{Interface, InterfaceKind};
 pub(crate) use method::{Method, MethodKind};
 pub(crate) use r#enum::Enum;
 pub(crate) use r#struct::Struct;
