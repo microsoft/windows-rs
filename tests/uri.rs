@@ -1,28 +1,30 @@
-// import!(
-//     dependencies
-//         "os"
-//     modules
-//         "windows.foundation"
-// );
+import!(
+    dependencies
+        "os"
+    modules
+        "windows.foundation"
+);
 
-// use winrt::*;
+use winrt::*;
 
-// #[test]
-// fn uri() -> Result<()> {
-//     use windows::foundation::*;
+#[test]
+fn uri() -> Result<()> {
+    use windows::foundation::*;
 
-//     let uri = &Uri::create_uri("http://kennykerr.ca")?;
-//     assert!(uri.domain()? == "kennykerr.ca");
-//     assert!(uri.port()? == 80);
+    let _uri = Uri::default();
 
-//     // Calls QueryInterface followed by IStringable::ToString under the hood
-//     assert!(uri.to_string()? == "http://kennykerr.ca/");
+    //     let uri = &Uri::create_uri("http://kennykerr.ca")?;
+    //     assert!(uri.domain()? == "kennykerr.ca");
+    //     assert!(uri.port()? == 80);
 
-//     let default: IUriRuntimeClass = uri.into();
-//     assert!(default.domain()? == uri.domain()?);
+    //     // Calls QueryInterface followed by IStringable::ToString under the hood
+    //     assert!(uri.to_string()? == "http://kennykerr.ca/");
 
-//     let stringable: IStringable = uri.into();
-//     assert!(stringable.to_string()? == uri.to_string()?);
+    //     let default: IUriRuntimeClass = uri.into();
+    //     assert!(default.domain()? == uri.domain()?);
 
-//     Ok(())
-// }
+    //     let stringable: IStringable = uri.into();
+    //     assert!(stringable.to_string()? == uri.to_string()?);
+
+    Ok(())
+}
