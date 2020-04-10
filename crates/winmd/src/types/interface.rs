@@ -16,6 +16,7 @@ pub struct Interface {
     pub interfaces: Vec<Interface>,
 }
 
+
 #[derive(Copy, Clone, PartialEq, Debug)]
 pub enum InterfaceKind {
     Default,
@@ -26,6 +27,51 @@ pub enum InterfaceKind {
 }
 
 impl Interface {
+    pub fn from_top_level_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+        let name = TypeName::from_type_def(reader, def); 
+
+        let guid = TypeGuid::from_args(
+            def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
+                .args(reader),
+        );
+
+        let methods = def
+            .methods(reader)
+            .map(|method| Method::from_method_def(reader, method, &name.generics))
+            .collect();
+
+            // TODO: too wordy - this should be simpler
+        let interfaces = RequiredInterfaces::from_type_name(reader, &name).into_interfaces(reader);
+
+        Self {
+            name,
+            guid,
+            methods,
+            interfaces,
+            kind: InterfaceKind::NonDefault,
+        }
+    }
+
+    pub fn from_type_name_and_kind(reader: &TypeReader, name: TypeName, kind: InterfaceKind) -> Self {
+        let guid = TypeGuid::from_args(
+            name.def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
+                .args(reader),
+        );
+
+        let methods = name.def
+        .methods(reader)
+        .map(|method| Method::from_method_def(reader, method, &name.generics))
+        .collect();
+
+        Self {
+            name,
+            guid,
+            methods,
+            interfaces: Vec::new(),
+            kind,
+        }
+    }
+
     pub fn from_type_def(reader: &TypeReader, def: TypeDef, _generics: &Vec<TypeKind>) -> Self {
         let name = TypeName::from_type_def(reader, def); // TODO: generics above needs to feed in here to resolve any generics
         let guid = TypeGuid::from_args(
@@ -36,7 +82,8 @@ impl Interface {
             .methods(reader)
             .map(|method| Method::from_method_def(reader, method, &name.generics))
             .collect();
-        let interfaces = name.interfaces(reader);
+        let mut interfaces = Vec::new();
+        Interface::add_interfaces(reader, name.def, &name.generics, &mut interfaces);
         Self {
             name,
             guid,
@@ -46,15 +93,10 @@ impl Interface {
         }
     }
 
-    pub fn interfaces(
-        reader: &TypeReader,
-        def: TypeDef,
-        generics: &Vec<TypeKind>,
-    ) -> Vec<Interface> {
-        def.interfaces(reader)
-            .map(|interface| Interface::from_interface_impl(reader, interface, generics))
-            .collect()
-    }
+
+    // TODO: only have a top-level from_type_def for the Type class to use and then a function to get the interfaces
+    // as a Vec<TypeName, InterfaceKind> so that they can quickly be packed into a flat Vec.
+
     fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, generics: &Vec<TypeKind>) -> Self {
         Self::from_type_def(reader, type_ref.resolve(reader), generics)
     }
@@ -63,7 +105,8 @@ impl Interface {
         let name = TypeName::from_type_spec(reader, spec, generics);
         let guid = TypeGuid::new(); // TODO: Generate generic guid specialization
         let methods = Vec::new();
-        let interfaces = name.interfaces(reader);
+        let mut interfaces = Vec::new();
+        Interface::add_interfaces(reader, name.def, &name.generics, &mut interfaces);
         Self {
             name,
             guid,
@@ -83,6 +126,24 @@ impl Interface {
             TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value, generics),
             TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
         }
+    }
+
+    pub fn add_interfaces(
+        reader: &TypeReader,
+        def: TypeDef,
+        generics: &Vec<TypeKind>,
+        interfaces: &mut Vec<Interface>,
+    ) {
+        for interface in def.interfaces(reader)
+            .map(|interface| Interface::from_interface_impl(reader, interface, generics)) {
+                if !interfaces.iter().any(|current|current.name == interface.name)
+                {
+                    let name = interface.name.clone();
+                    interfaces.push(interface);
+                    Interface::add_interfaces(reader, name.def, &name.generics, interfaces);
+                }
+            }
+            
     }
 
     pub fn from_interface_impl(
@@ -132,9 +193,9 @@ mod tests {
 
     fn interface((namespace, type_name): (&str, &str)) -> Interface {
         let reader = &TypeReader::from_os();
-        let def = reader.resolve((namespace, type_name));
+        let t = reader.resolve_type((namespace, type_name));
 
-        match def.into_type(reader) {
+        match t {
             Type::Interface(t) => t,
             _ => panic!("Type not an interface"),
         }
@@ -189,8 +250,9 @@ mod tests {
         assert!(t.methods[0].name == "map_changed");
         assert!(t.methods[1].name == "remove_map_changed");
 
-        assert!(t.interfaces.len() == 1);
-        let map = &t.interfaces[0];
+        assert!(t.interfaces.len() == 2);
+
+        let map = t.interfaces.iter().find(|required|required.name.name == "IMap`2").unwrap();
 
         assert!(map.name.namespace == "Windows.Foundation.Collections");
         assert!(map.name.name == "IMap`2");
@@ -198,8 +260,9 @@ mod tests {
         assert!(map.name.generics[0] == TypeKind::Generic("K".to_string()));
         assert!(map.name.generics[1] == TypeKind::Generic("V".to_string()));
 
-        assert!(map.interfaces.len() == 1);
-        let iterable = &map.interfaces[0];
+        assert!(map.interfaces.len() == 0);
+
+        let iterable = t.interfaces.iter().find(|required|required.name.name == "IIterable`1").unwrap();
 
         assert!(iterable.interfaces.len() == 0);
         assert!(iterable.name.namespace == "Windows.Foundation.Collections");

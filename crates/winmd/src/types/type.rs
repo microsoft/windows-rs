@@ -19,7 +19,7 @@ impl Type {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         match def.category(reader) {
             TypeCategory::Interface => {
-                Self::Interface(Interface::from_type_def(reader, def, &Vec::new()))
+                Self::Interface(Interface::from_top_level_type_def(reader, def))
             }
             TypeCategory::Class => Self::Class(Class::from_type_def(reader, def)),
             TypeCategory::Enum => Self::Enum(Enum::from_type_def(reader, def)),

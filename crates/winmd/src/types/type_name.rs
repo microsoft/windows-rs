@@ -9,7 +9,7 @@ use quote::{format_ident, quote};
 
 use std::iter::FromIterator;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeName {
     pub namespace: String,
     pub name: String,
@@ -18,6 +18,23 @@ pub struct TypeName {
 }
 
 impl TypeName {
+    pub fn from_type_def_or_ref(
+        reader: &TypeReader,
+        code: TypeDefOrRef,
+        generics: &Vec<TypeKind>,
+    ) -> Self {
+        match code {
+            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value, generics),
+            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
+            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
+        }
+    }
+
+    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, generics: &Vec<TypeKind>) -> TypeName {
+        let (namespace, name) = type_ref.name(reader);
+        Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
+    }
+
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let (namespace, name) = def.name(reader);
         let namespace = namespace.to_string();
@@ -62,10 +79,6 @@ impl TypeName {
         let mut blob = spec.sig(reader);
         blob.read_unsigned();
         TypeName::from_type_spec_blob(&mut blob, generics)
-    }
-
-    pub fn interfaces(&self, reader: &TypeReader) -> Vec<Interface> {
-        Interface::interfaces(reader, self.def, &self.generics)
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {

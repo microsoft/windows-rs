@@ -8,7 +8,7 @@ use crate::{write_ident, TypeReader};
 use proc_macro2::TokenStream;
 use quote::quote;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeKind {
     Bool,
     Char,
@@ -53,7 +53,7 @@ impl TypeKind {
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
         } else {
-            Self::from_type_def(reader, reader.resolve((namespace, name)), generics)
+            Self::from_type_def(reader, reader.resolve_type_def((namespace, name)), generics)
         }
     }
 

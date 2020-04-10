@@ -17,7 +17,7 @@ pub struct Class {
 impl Class {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces = name.interfaces(reader);
+        let mut interfaces = RequiredInterfaces::from_type_name(reader, &name).into_interfaces(reader);
         let mut bases = Vec::new();
         let mut base = def;
 
@@ -28,20 +28,20 @@ impl Class {
                 break;
             }
 
-            base = reader.resolve((namespace, name));
-
-            interfaces.extend(Interface::interfaces(reader, base, &Vec::new()));
-
+            base = reader.resolve_type_def((namespace, name));
             let namespace = namespace.to_string();
             let name = name.to_string();
             let generics = Vec::new();
 
-            bases.push(TypeName {
+            let base = TypeName {
                 namespace,
                 name,
                 generics,
                 def: base,
-            });
+            };
+
+            interfaces.append(&mut RequiredInterfaces::from_type_name(reader, &base).into_interfaces(reader));
+            bases.push(base);
         }
 
         let mut default_constructor = false;
@@ -114,7 +114,7 @@ mod tests {
 
     fn class((namespace, type_name): (&str, &str)) -> Class {
         let reader = &TypeReader::from_os();
-        let def = reader.resolve((namespace, type_name));
+        let def = reader.resolve_type_def((namespace, type_name));
 
         match def.into_type(reader) {
             Type::Class(t) => t,
@@ -125,6 +125,15 @@ mod tests {
     #[test]
     fn test_flat_interfaces() {
         let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
+        assert!(t.interfaces.len() == 4);
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IVectorView`1")
+            .unwrap();
+
+        assert!(interface.interfaces.len() == 0);
 
         // TODO: assert that the interfaces directly implemented by this class are in the list
 
@@ -134,7 +143,7 @@ mod tests {
     }
 
     #[test]
-    fn test_flat_interfaces() {
+    fn test_flat_methods() {
         let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
 
         // TODO: assert that a "flat map" of methods has no dupes and provides all the info needed to generate Rust

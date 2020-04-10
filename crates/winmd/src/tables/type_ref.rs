@@ -11,6 +11,6 @@ impl TypeRef {
     }
 
     pub fn resolve(self, reader: &TypeReader) -> TypeDef {
-        reader.resolve(self.name(reader))
+        reader.resolve_type_def(self.name(reader))
     }
 }
