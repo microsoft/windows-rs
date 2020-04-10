@@ -16,7 +16,6 @@ pub struct Interface {
     pub interfaces: Vec<Interface>,
 }
 
-
 #[derive(Copy, Clone, PartialEq, Debug)]
 pub enum InterfaceKind {
     Default,
@@ -28,7 +27,7 @@ pub enum InterfaceKind {
 
 impl Interface {
     pub fn from_top_level_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def); 
+        let name = TypeName::from_type_def(reader, def);
 
         let guid = TypeGuid::from_args(
             def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
@@ -40,7 +39,7 @@ impl Interface {
             .map(|method| Method::from_method_def(reader, method, &name.generics))
             .collect();
 
-            // TODO: too wordy - this should be simpler
+        // TODO: too wordy - this should be simpler
         let interfaces = RequiredInterfaces::from_type_name(reader, &name).into_interfaces(reader);
 
         Self {
@@ -52,16 +51,22 @@ impl Interface {
         }
     }
 
-    pub fn from_type_name_and_kind(reader: &TypeReader, name: TypeName, kind: InterfaceKind) -> Self {
+    pub fn from_type_name_and_kind(
+        reader: &TypeReader,
+        name: TypeName,
+        kind: InterfaceKind,
+    ) -> Self {
         let guid = TypeGuid::from_args(
-            name.def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
+            name.def
+                .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
                 .args(reader),
         );
 
-        let methods = name.def
-        .methods(reader)
-        .map(|method| Method::from_method_def(reader, method, &name.generics))
-        .collect();
+        let methods = name
+            .def
+            .methods(reader)
+            .map(|method| Method::from_method_def(reader, method, &name.generics))
+            .collect();
 
         Self {
             name,
@@ -92,7 +97,6 @@ impl Interface {
             kind: InterfaceKind::NonDefault,
         }
     }
-
 
     // TODO: only have a top-level from_type_def for the Type class to use and then a function to get the interfaces
     // as a Vec<TypeName, InterfaceKind> so that they can quickly be packed into a flat Vec.
@@ -134,16 +138,19 @@ impl Interface {
         generics: &Vec<TypeKind>,
         interfaces: &mut Vec<Interface>,
     ) {
-        for interface in def.interfaces(reader)
-            .map(|interface| Interface::from_interface_impl(reader, interface, generics)) {
-                if !interfaces.iter().any(|current|current.name == interface.name)
-                {
-                    let name = interface.name.clone();
-                    interfaces.push(interface);
-                    Interface::add_interfaces(reader, name.def, &name.generics, interfaces);
-                }
+        for interface in def
+            .interfaces(reader)
+            .map(|interface| Interface::from_interface_impl(reader, interface, generics))
+        {
+            if !interfaces
+                .iter()
+                .any(|current| current.name == interface.name)
+            {
+                let name = interface.name.clone();
+                interfaces.push(interface);
+                Interface::add_interfaces(reader, name.def, &name.generics, interfaces);
             }
-            
+        }
     }
 
     pub fn from_interface_impl(
@@ -252,7 +259,11 @@ mod tests {
 
         assert!(t.interfaces.len() == 2);
 
-        let map = t.interfaces.iter().find(|required|required.name.name == "IMap`2").unwrap();
+        let map = t
+            .interfaces
+            .iter()
+            .find(|required| required.name.name == "IMap`2")
+            .unwrap();
 
         assert!(map.name.namespace == "Windows.Foundation.Collections");
         assert!(map.name.name == "IMap`2");
@@ -262,7 +273,11 @@ mod tests {
 
         assert!(map.interfaces.len() == 0);
 
-        let iterable = t.interfaces.iter().find(|required|required.name.name == "IIterable`1").unwrap();
+        let iterable = t
+            .interfaces
+            .iter()
+            .find(|required| required.name.name == "IIterable`1")
+            .unwrap();
 
         assert!(iterable.interfaces.len() == 0);
         assert!(iterable.name.namespace == "Windows.Foundation.Collections");

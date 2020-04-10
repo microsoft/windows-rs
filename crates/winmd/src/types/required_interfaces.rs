@@ -1,7 +1,7 @@
-use crate::types::*;
-use std::collections::*;
-use crate::TypeReader;
 use crate::tables::*;
+use crate::types::*;
+use crate::TypeReader;
+use std::collections::*;
 
 #[derive(Default, Debug)]
 pub struct RequiredInterfaces(pub BTreeMap<TypeName, InterfaceKind>);
@@ -38,16 +38,18 @@ impl RequiredInterfaces {
 
     fn insert_required(&mut self, reader: &TypeReader, name: &TypeName) {
         for required in name.def.interfaces(reader) {
-            let name = TypeName::from_type_def_or_ref(reader, required.interface(reader), &name.generics);
+            let name =
+                TypeName::from_type_def_or_ref(reader, required.interface(reader), &name.generics);
             let kind = Self::kind(reader, required);
             self.insert_type_name(reader, name, kind);
         }
     }
 
     pub fn into_interfaces(self, reader: &TypeReader) -> Vec<Interface> {
-        self.0.into_iter().map(move |(name, kind)| {
-            Interface::from_type_name_and_kind(reader, name, kind)
-        }).collect()
+        self.0
+            .into_iter()
+            .map(move |(name, kind)| Interface::from_type_name_and_kind(reader, name, kind))
+            .collect()
     }
 }
 
@@ -85,16 +87,25 @@ mod tests {
         let required = RequiredInterfaces::from_type_name(reader, &decoder.name()).0;
         assert!(required.len() == 3);
 
-        let (name, kind) = required.iter().find(|(k,_)|k.name == "IWwwFormUrlDecoderRuntimeClass").unwrap();
+        let (name, kind) = required
+            .iter()
+            .find(|(k, _)| k.name == "IWwwFormUrlDecoderRuntimeClass")
+            .unwrap();
         assert!(*kind == InterfaceKind::Default);
         assert!(name.generics.len() == 0);
 
-        let (name, kind) = required.iter().find(|(k,_)|k.name == "IIterable`1").unwrap();
+        let (name, kind) = required
+            .iter()
+            .find(|(k, _)| k.name == "IIterable`1")
+            .unwrap();
         assert!(*kind == InterfaceKind::NonDefault);
         assert!(name.generics.len() == 1);
         assert!(name.generics[0] == TypeKind::Interface(entry.name().clone()));
 
-        let (name, kind) = required.iter().find(|(k,_)|k.name == "IVectorView`1").unwrap();
+        let (name, kind) = required
+            .iter()
+            .find(|(k, _)| k.name == "IVectorView`1")
+            .unwrap();
         assert!(*kind == InterfaceKind::NonDefault);
         assert!(name.generics.len() == 1);
         assert!(name.generics[0] == TypeKind::Interface(entry.name().clone()));
@@ -121,7 +132,10 @@ mod tests {
         let required = RequiredInterfaces::from_type_name(reader, &t.name()).0;
         assert!(required.len() == 2);
 
-        let (name, kind) = required.iter().find(|(k,_)|k.name == "IIterable`1").unwrap();
+        let (name, kind) = required
+            .iter()
+            .find(|(k, _)| k.name == "IIterable`1")
+            .unwrap();
         assert!(*kind == InterfaceKind::NonDefault);
         assert!(name.generics.len() == 1);
         let pair = match &name.generics[0] {
@@ -134,7 +148,7 @@ mod tests {
         assert!(pair.generics[0] == TypeKind::Generic("K".to_string()));
         assert!(pair.generics[1] == TypeKind::Generic("V".to_string()));
 
-        let (name, kind) = required.iter().find(|(k,_)|k.name == "IMap`2").unwrap();
+        let (name, kind) = required.iter().find(|(k, _)| k.name == "IMap`2").unwrap();
         assert!(*kind == InterfaceKind::NonDefault);
         assert!(name.generics.len() == 2);
         assert!(name.generics[0] == TypeKind::Generic("K".to_string()));

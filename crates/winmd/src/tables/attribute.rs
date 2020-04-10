@@ -55,7 +55,9 @@ impl Attribute {
                     sig.read_unsigned();
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
-                    AttributeArg::TypeDef(reader.resolve_type_def((&name[0..index], &name[index + 1..])))
+                    AttributeArg::TypeDef(
+                        reader.resolve_type_def((&name[0..index], &name[index + 1..])),
+                    )
                 }
                 _ => panic!(),
             };
@@ -75,7 +77,9 @@ impl Attribute {
                 0x50 => {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
-                    AttributeArg::TypeDef(reader.resolve_type_def((&name[0..index], &name[index + 1..])))
+                    AttributeArg::TypeDef(
+                        reader.resolve_type_def((&name[0..index], &name[index + 1..])),
+                    )
                 }
                 // 0x55 => {
                 //     let name = values.read_str();

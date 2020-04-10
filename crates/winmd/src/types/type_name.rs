@@ -30,7 +30,11 @@ impl TypeName {
         }
     }
 
-    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, generics: &Vec<TypeKind>) -> TypeName {
+    pub fn from_type_ref(
+        reader: &TypeReader,
+        type_ref: TypeRef,
+        generics: &Vec<TypeKind>,
+    ) -> TypeName {
         let (namespace, name) = type_ref.name(reader);
         Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
     }
