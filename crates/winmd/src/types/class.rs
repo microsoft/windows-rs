@@ -17,8 +17,7 @@ pub struct Class {
 impl Class {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces =
-            RequiredInterfaces::from_type_name(reader, &name).into_interfaces(reader);
+        let mut interfaces = RequiredInterfaces::required(reader, &name);
         let mut bases = Vec::new();
         let mut base = def;
 
@@ -41,9 +40,7 @@ impl Class {
                 def: base,
             };
 
-            interfaces.append(
-                &mut RequiredInterfaces::from_type_name(reader, &base).into_interfaces(reader),
-            );
+            interfaces.append(&mut RequiredInterfaces::required(reader, &base));
             bases.push(base);
         }
 
@@ -146,7 +143,7 @@ mod tests {
 
     #[test]
     fn test_flat_methods() {
-        let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
+        // let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
 
         // TODO: assert that a "flat map" of methods has no dupes and provides all the info needed to generate Rust
         // May need a ClassMethod and InterfaceMethod iterator type to provide the context specific info.

@@ -24,7 +24,7 @@ impl TypeName {
         generics: &Vec<TypeKind>,
     ) -> Self {
         match code {
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value, generics),
+            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
             TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
             TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
         }
@@ -33,7 +33,6 @@ impl TypeName {
     pub fn from_type_ref(
         reader: &TypeReader,
         type_ref: TypeRef,
-        generics: &Vec<TypeKind>,
     ) -> TypeName {
         let (namespace, name) = type_ref.name(reader);
         Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))

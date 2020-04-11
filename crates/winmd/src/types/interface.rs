@@ -1,4 +1,3 @@
-use crate::codes::*;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
@@ -39,8 +38,7 @@ impl Interface {
             .map(|method| Method::from_method_def(reader, method, &name.generics))
             .collect();
 
-        // TODO: too wordy - this should be simpler
-        let interfaces = RequiredInterfaces::from_type_name(reader, &name).into_interfaces(reader);
+        let interfaces = RequiredInterfaces::required(reader, &name);
 
         Self {
             name,
