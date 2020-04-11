@@ -55,7 +55,6 @@ impl Class {
                     let mut interface = Interface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
-                        &Vec::new(),
                     );
                     interface.kind = InterfaceKind::Statics;
                     interfaces.push(interface);
@@ -63,7 +62,7 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            let mut interface = Interface::from_type_def(reader, def, &Vec::new());
+                            let mut interface = Interface::from_type_def(reader, def);
                             interface.kind = InterfaceKind::Constructors;
                             interfaces.push(interface);
                         }

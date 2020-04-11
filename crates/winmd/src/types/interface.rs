@@ -26,7 +26,7 @@ pub enum InterfaceKind {
 }
 
 impl Interface {
-    pub fn from_top_level_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
 
         let guid = TypeGuid::from_args(
@@ -75,95 +75,6 @@ impl Interface {
             interfaces: Vec::new(),
             kind,
         }
-    }
-
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, _generics: &Vec<TypeKind>) -> Self {
-        let name = TypeName::from_type_def(reader, def); // TODO: generics above needs to feed in here to resolve any generics
-        let guid = TypeGuid::from_args(
-            def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
-                .args(reader),
-        );
-        let methods = def
-            .methods(reader)
-            .map(|method| Method::from_method_def(reader, method, &name.generics))
-            .collect();
-        let mut interfaces = Vec::new();
-        Interface::add_interfaces(reader, name.def, &name.generics, &mut interfaces);
-        Self {
-            name,
-            guid,
-            methods,
-            interfaces,
-            kind: InterfaceKind::NonDefault,
-        }
-    }
-
-    // TODO: only have a top-level from_type_def for the Type class to use and then a function to get the interfaces
-    // as a Vec<TypeName, InterfaceKind> so that they can quickly be packed into a flat Vec.
-
-    fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, generics: &Vec<TypeKind>) -> Self {
-        Self::from_type_def(reader, type_ref.resolve(reader), generics)
-    }
-
-    fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
-        let name = TypeName::from_type_spec(reader, spec, generics);
-        let guid = TypeGuid::new(); // TODO: Generate generic guid specialization
-        let methods = Vec::new();
-        let mut interfaces = Vec::new();
-        Interface::add_interfaces(reader, name.def, &name.generics, &mut interfaces);
-        Self {
-            name,
-            guid,
-            methods,
-            interfaces,
-            kind: InterfaceKind::NonDefault,
-        }
-    }
-
-    fn from_type_def_or_ref(
-        reader: &TypeReader,
-        code: TypeDefOrRef,
-        generics: &Vec<TypeKind>,
-    ) -> Self {
-        match code {
-            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value, generics),
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value, generics),
-            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
-        }
-    }
-
-    pub fn add_interfaces(
-        reader: &TypeReader,
-        def: TypeDef,
-        generics: &Vec<TypeKind>,
-        interfaces: &mut Vec<Interface>,
-    ) {
-        for interface in def
-            .interfaces(reader)
-            .map(|interface| Interface::from_interface_impl(reader, interface, generics))
-        {
-            if !interfaces
-                .iter()
-                .any(|current| current.name == interface.name)
-            {
-                let name = interface.name.clone();
-                interfaces.push(interface);
-                Interface::add_interfaces(reader, name.def, &name.generics, interfaces);
-            }
-        }
-    }
-
-    pub fn from_interface_impl(
-        reader: &TypeReader,
-        key: InterfaceImpl,
-        generics: &Vec<TypeKind>,
-    ) -> Self {
-        // TODO: flip default/exclusive/overridable bits as needed
-        let mut interface = Self::from_type_def_or_ref(reader, key.interface(reader), generics);
-        if key.has_attribute(reader, ("Windows.Foundation.Metadata", "DefaultAttribute")) {
-            interface.kind = InterfaceKind::Default;
-        }
-        interface
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
