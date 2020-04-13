@@ -18,6 +18,29 @@ pub struct TypeName {
 }
 
 impl TypeName {
+    pub fn runtime_name(&self) -> String {
+        let mut result = format!("{}.{}", self.namespace, self.name);
+
+        if !self.generics.is_empty() {
+            result += "<";
+            let mut first = true;
+
+            for kind in &self.generics {
+                if first {
+                    first = false;
+                } else {
+                    result += ", ";
+                }
+
+                result += &kind.runtime_name();
+            }
+
+            result += ">";
+        }
+
+        result
+    }
+
     pub fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
@@ -30,10 +53,7 @@ impl TypeName {
         }
     }
 
-    pub fn from_type_ref(
-        reader: &TypeReader,
-        type_ref: TypeRef,
-    ) -> TypeName {
+    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> TypeName {
         let (namespace, name) = type_ref.name(reader);
         Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
     }

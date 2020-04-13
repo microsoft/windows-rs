@@ -154,9 +154,7 @@ mod tests {
         let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
         assert!(t.default_constructor == false);
 
-        assert!(t.name.namespace == "Windows.Foundation");
-        assert!(t.name.name == "WwwFormUrlDecoder");
-        assert!(t.name.generics.is_empty());
+        assert!(t.name.runtime_name() == "Windows.Foundation.WwwFormUrlDecoder");
 
         assert!(t.interfaces.len() == 4);
 
@@ -167,9 +165,10 @@ mod tests {
             .unwrap();
 
         assert!(interface.kind == InterfaceKind::Constructors);
-        assert!(interface.name.namespace == "Windows.Foundation");
-        assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory");
-        assert!(interface.name.generics.is_empty());
+        assert!(
+            interface.name.runtime_name()
+                == "Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory"
+        );
 
         let interface = t
             .interfaces
@@ -178,9 +177,9 @@ mod tests {
             .unwrap();
 
         assert!(interface.kind == InterfaceKind::Default);
-        assert!(interface.name.namespace == "Windows.Foundation");
-        assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClass");
-        assert!(interface.name.generics.is_empty());
+        assert!(
+            interface.name.runtime_name() == "Windows.Foundation.IWwwFormUrlDecoderRuntimeClass"
+        );
 
         let interface = t
             .interfaces
@@ -189,17 +188,7 @@ mod tests {
             .unwrap();
 
         assert!(interface.kind == InterfaceKind::NonDefault);
-        assert!(interface.name.namespace == "Windows.Foundation.Collections");
-        assert!(interface.name.name == "IIterable`1");
-        assert!(interface.name.generics.len() == 1);
-
-        let entry = match &interface.name.generics[0] {
-            TypeKind::Interface(entry) => entry,
-            _ => panic!("Wrong type"),
-        };
-
-        assert!(entry.namespace == "Windows.Foundation");
-        assert!(entry.name == "IWwwFormUrlDecoderEntry");
+        assert!(interface.name.runtime_name() == "Windows.Foundation.Collections.IIterable`1<Windows.Foundation.IWwwFormUrlDecoderEntry>");
 
         let interface = t
             .interfaces
@@ -208,39 +197,16 @@ mod tests {
             .unwrap();
 
         assert!(interface.kind == InterfaceKind::NonDefault);
-        assert!(interface.name.namespace == "Windows.Foundation.Collections");
-        assert!(interface.name.name == "IVectorView`1");
-        assert!(interface.name.generics.len() == 1);
-
-        let entry = match &interface.name.generics[0] {
-            TypeKind::Interface(entry) => entry,
-            _ => panic!("Wrong type"),
-        };
-
-        assert!(entry.namespace == "Windows.Foundation");
-        assert!(entry.name == "IWwwFormUrlDecoderEntry");
+        assert!(interface.name.runtime_name() == "Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.IWwwFormUrlDecoderEntry>");
     }
 
     #[test]
     fn test_class_with_bases() {
         let t = class(("Windows.UI.Composition", "SpriteVisual"));
-
-        assert!(t.name.namespace == "Windows.UI.Composition");
-        assert!(t.name.name == "SpriteVisual");
-        assert!(t.name.generics.is_empty());
-
+        assert!(t.name.runtime_name() == "Windows.UI.Composition.SpriteVisual");
         assert!(t.bases.len() == 3);
-
-        assert!(t.bases[0].namespace == "Windows.UI.Composition");
-        assert!(t.bases[0].name == "ContainerVisual");
-        assert!(t.bases[0].generics.is_empty());
-
-        assert!(t.bases[1].namespace == "Windows.UI.Composition");
-        assert!(t.bases[1].name == "Visual");
-        assert!(t.bases[1].generics.is_empty());
-
-        assert!(t.bases[2].namespace == "Windows.UI.Composition");
-        assert!(t.bases[2].name == "CompositionObject");
-        assert!(t.bases[2].generics.is_empty());
+        assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.ContainerVisual");
+        assert!(t.bases[1].runtime_name() == "Windows.UI.Composition.Visual");
+        assert!(t.bases[2].runtime_name() == "Windows.UI.Composition.CompositionObject");
     }
 }

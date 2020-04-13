@@ -120,10 +120,7 @@ mod tests {
     #[test]
     fn test_stringable() {
         let t = interface(("Windows.Foundation", "IStringable"));
-
-        assert!(t.name.namespace == "Windows.Foundation");
-        assert!(t.name.name == "IStringable");
-        assert!(t.name.generics.is_empty());
+        assert!(t.name.runtime_name() == "Windows.Foundation.IStringable");
 
         assert!(t.methods.len() == 1);
         let method = &t.methods[0];
@@ -140,27 +137,16 @@ mod tests {
     #[test]
     fn test_async_action() {
         let t = interface(("Windows.Foundation", "IAsyncAction"));
-
-        assert!(t.name.namespace == "Windows.Foundation");
-        assert!(t.name.name == "IAsyncAction");
-        assert!(t.name.generics.is_empty());
+        assert!(t.name.runtime_name() == "Windows.Foundation.IAsyncAction");
 
         assert!(t.interfaces.len() == 1);
-
-        assert!(t.interfaces[0].name.namespace == "Windows.Foundation");
-        assert!(t.interfaces[0].name.name == "IAsyncInfo");
-        assert!(t.interfaces[0].name.generics.is_empty());
+        assert!(t.interfaces[0].name.runtime_name() == "Windows.Foundation.IAsyncInfo");
     }
 
     #[test]
     fn test_observable_map() {
         let t = interface(("Windows.Foundation.Collections", "IObservableMap`2"));
-
-        assert!(t.name.namespace == "Windows.Foundation.Collections");
-        assert!(t.name.name == "IObservableMap`2");
-        assert!(t.name.generics.len() == 2);
-        assert!(t.name.generics[0] == TypeKind::Generic("K".to_string()));
-        assert!(t.name.generics[1] == TypeKind::Generic("V".to_string()));
+        assert!(t.name.runtime_name() == "Windows.Foundation.Collections.IObservableMap`2<K, V>");
 
         assert!(t.methods.len() == 2);
         assert!(t.methods[0].name == "map_changed");
@@ -174,12 +160,7 @@ mod tests {
             .find(|required| required.name.name == "IMap`2")
             .unwrap();
 
-        assert!(map.name.namespace == "Windows.Foundation.Collections");
-        assert!(map.name.name == "IMap`2");
-        assert!(map.name.generics.len() == 2);
-        assert!(map.name.generics[0] == TypeKind::Generic("K".to_string()));
-        assert!(map.name.generics[1] == TypeKind::Generic("V".to_string()));
-
+        assert!(map.name.runtime_name() == "Windows.Foundation.Collections.IMap`2<K, V>");
         assert!(map.interfaces.len() == 0);
 
         let iterable = t
@@ -188,19 +169,7 @@ mod tests {
             .find(|required| required.name.name == "IIterable`1")
             .unwrap();
 
+        assert!(iterable.name.runtime_name() == "Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<K, V>>");
         assert!(iterable.interfaces.len() == 0);
-        assert!(iterable.name.namespace == "Windows.Foundation.Collections");
-        assert!(iterable.name.name == "IIterable`1");
-        assert!(iterable.name.generics.len() == 1);
-
-        let pair = match &iterable.name.generics[0] {
-            TypeKind::Interface(pair) => pair,
-            _ => panic!("Wrong type"),
-        };
-
-        assert!(pair.namespace == "Windows.Foundation.Collections");
-        assert!(pair.name == "IKeyValuePair`2");
-        assert!(pair.generics[0] == TypeKind::Generic("K".to_string()));
-        assert!(pair.generics[1] == TypeKind::Generic("V".to_string()));
     }
 }
