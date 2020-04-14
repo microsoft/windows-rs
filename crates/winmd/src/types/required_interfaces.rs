@@ -3,17 +3,84 @@ use crate::types::*;
 use crate::TypeReader;
 use std::collections::*;
 
+#[derive(Debug)]
+pub struct RequiredInterface {
+    pub name: TypeName,
+    pub guid: TypeGuid,
+    pub methods: Vec<Method>,
+    pub kind: InterfaceKind,
+}
+
+#[derive(Copy, Clone, PartialEq, Debug)]
+pub enum InterfaceKind {
+    Default,
+    NonDefault,
+    Overrides,
+    Constructors,
+    Statics,
+}
+
 #[derive(Default, Debug)]
 pub struct RequiredInterfaces(pub BTreeMap<TypeName, InterfaceKind>);
 
+impl RequiredInterface {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+        let name = TypeName::from_type_def(reader, def);
+
+        let guid = TypeGuid::from_args(
+            def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
+                .args(reader),
+        );
+
+        let methods = def
+            .methods(reader)
+            .map(|method| Method::from_method_def(reader, method, &name.generics))
+            .collect();
+
+        let interfaces = RequiredInterfaces::required(reader, &name);
+
+        Self {
+            name,
+            guid,
+            methods,
+            kind: InterfaceKind::NonDefault,
+        }
+    }
+
+    pub fn from_type_name_and_kind(
+        reader: &TypeReader,
+        name: TypeName,
+        kind: InterfaceKind,
+    ) -> Self {
+        let guid = TypeGuid::from_args(
+            name.def
+                .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
+                .args(reader),
+        );
+
+        let methods = name
+            .def
+            .methods(reader)
+            .map(|method| Method::from_method_def(reader, method, &name.generics))
+            .collect();
+
+        Self {
+            name,
+            guid,
+            methods,
+            kind,
+        }
+    }
+}
+
 impl RequiredInterfaces {
-    pub fn required(reader: &TypeReader, name: &TypeName) -> Vec<Interface> {
+    pub fn required(reader: &TypeReader, name: &TypeName) -> Vec<RequiredInterface> {
         let mut interfaces = Self::default();
         interfaces.insert_required(reader, name);
         interfaces
             .0
             .into_iter()
-            .map(move |(name, kind)| Interface::from_type_name_and_kind(reader, name, kind))
+            .map(move |(name, kind)| RequiredInterface::from_type_name_and_kind(reader, name, kind))
             .collect()
     }
 

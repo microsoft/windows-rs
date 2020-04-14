@@ -10,18 +10,7 @@ pub struct Interface {
     pub name: TypeName,
     pub guid: TypeGuid,
     pub methods: Vec<Method>,
-    pub kind: InterfaceKind,
-    // pub exclusive: bool,
-    pub interfaces: Vec<Interface>,
-}
-
-#[derive(Copy, Clone, PartialEq, Debug)]
-pub enum InterfaceKind {
-    Default,
-    NonDefault,
-    Overrides,
-    Constructors,
-    Statics,
+    pub interfaces: Vec<RequiredInterface>,
 }
 
 impl Interface {
@@ -45,33 +34,6 @@ impl Interface {
             guid,
             methods,
             interfaces,
-            kind: InterfaceKind::NonDefault,
-        }
-    }
-
-    pub fn from_type_name_and_kind(
-        reader: &TypeReader,
-        name: TypeName,
-        kind: InterfaceKind,
-    ) -> Self {
-        let guid = TypeGuid::from_args(
-            name.def
-                .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
-                .args(reader),
-        );
-
-        let methods = name
-            .def
-            .methods(reader)
-            .map(|method| Method::from_method_def(reader, method, &name.generics))
-            .collect();
-
-        Self {
-            name,
-            guid,
-            methods,
-            interfaces: Vec::new(),
-            kind,
         }
     }
 
@@ -161,7 +123,6 @@ mod tests {
             .unwrap();
 
         assert!(map.name.runtime_name() == "Windows.Foundation.Collections.IMap`2<K, V>");
-        assert!(map.interfaces.len() == 0);
 
         let iterable = t
             .interfaces
@@ -170,6 +131,5 @@ mod tests {
             .unwrap();
 
         assert!(iterable.name.runtime_name() == "Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<K, V>>");
-        assert!(iterable.interfaces.len() == 0);
     }
 }

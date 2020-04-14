@@ -9,8 +9,8 @@ use quote::quote;
 #[derive(Debug)]
 pub struct Class {
     pub name: TypeName,
-    pub interfaces: Vec<Interface>,
     pub bases: Vec<TypeName>,
+    pub interfaces: Vec<RequiredInterface>,
     pub default_constructor: bool,
 }
 
@@ -49,7 +49,7 @@ impl Class {
         for attribute in def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    let mut interface = Interface::from_type_def(
+                    let mut interface = RequiredInterface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
                     );
@@ -59,7 +59,7 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            let mut interface = Interface::from_type_def(reader, def);
+                            let mut interface = RequiredInterface::from_type_def(reader, def);
                             interface.kind = InterfaceKind::Constructors;
                             interfaces.push(interface);
                         }
@@ -131,8 +131,6 @@ mod tests {
             .iter()
             .find(|interface| interface.name.name == "IVectorView`1")
             .unwrap();
-
-        assert!(interface.interfaces.len() == 0);
 
         // TODO: assert that the interfaces directly implemented by this class are in the list
 
