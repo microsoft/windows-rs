@@ -94,6 +94,12 @@ impl std::fmt::Display for HString {
     }
 }
 
+impl std::fmt::Debug for HString {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        <Self as std::fmt::Display>::fmt(self, f)
+    }
+}
+
 impl From<&str> for HString {
     fn from(value: &str) -> HString {
         let mut ptr = Header::alloc(value.len() as u32);
@@ -255,5 +261,17 @@ mod tests {
         assert!(HString::from("Hello") != "World");
 
         assert!(HString::from("Hello").to_string() == String::from("Hello"));
+    }
+
+    #[test]
+    fn display_format() {
+        let value = HString::from("Hello world");
+        assert!(format!("{}", value) == "Hello world");
+    }
+
+    #[test]
+    fn debug_format() {
+        let value = HString::from("Hello world");
+        assert!(format!("{:#?}", value) == "Hello world");
     }
 }
