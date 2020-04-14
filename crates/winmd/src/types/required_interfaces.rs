@@ -45,11 +45,7 @@ impl RequiredInterface {
         }
     }
 
-    fn from_type_name_and_kind(
-        reader: &TypeReader,
-        name: TypeName,
-        kind: InterfaceKind,
-    ) -> Self {
+    fn from_type_name_and_kind(reader: &TypeReader, name: TypeName, kind: InterfaceKind) -> Self {
         let guid = TypeGuid::from_args(
             name.def
                 .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
