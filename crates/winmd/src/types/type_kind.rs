@@ -8,7 +8,7 @@ use crate::{write_ident, TypeReader};
 use proc_macro2::TokenStream;
 use quote::quote;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeKind {
     Bool,
     Char,
@@ -34,6 +34,32 @@ pub enum TypeKind {
 }
 
 impl TypeKind {
+    pub fn runtime_name(&self) -> String {
+        match self {
+            Self::Bool => "Boolean".to_owned(),
+            Self::Char => "Char16".to_owned(),
+            Self::I8 => "Int8".to_owned(),
+            Self::U8 => "UInt8".to_owned(),
+            Self::I16 => "Int16".to_owned(),
+            Self::U16 => "UInt16".to_owned(),
+            Self::I32 => "Int32".to_owned(),
+            Self::U32 => "UInt32".to_owned(),
+            Self::I64 => "Int64".to_owned(),
+            Self::U64 => "UInt64".to_owned(),
+            Self::F32 => "Single".to_owned(),
+            Self::F64 => "Double".to_owned(),
+            Self::String => "String".to_owned(),
+            Self::Object => "Object".to_owned(),
+            Self::Guid => "Guid".to_owned(),
+            Self::Class(name) => name.runtime_name(),
+            Self::Interface(name) => name.runtime_name(),
+            Self::Enum(name) => name.runtime_name(),
+            Self::Struct(name) => name.runtime_name(),
+            Self::Delegate(name) => name.runtime_name(),
+            Self::Generic(name) => name.to_owned(),
+        }
+    }
+
     fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         match name.def.category(reader) {
             TypeCategory::Interface => TypeKind::Interface(name),
@@ -53,7 +79,7 @@ impl TypeKind {
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
         } else {
-            Self::from_type_def(reader, reader.resolve((namespace, name)), generics)
+            Self::from_type_def(reader, reader.resolve_type_def((namespace, name)), generics)
         }
     }
 

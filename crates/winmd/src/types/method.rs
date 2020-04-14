@@ -143,7 +143,7 @@ mod tests {
 
     fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
         let reader = &TypeReader::from_os();
-        let def = reader.resolve((namespace, type_name));
+        let def = reader.resolve_type_def((namespace, type_name));
 
         let t = match def.into_type(reader) {
             Type::Interface(t) => t,
@@ -189,11 +189,10 @@ mod tests {
             _ => panic!("Wrong type"),
         };
 
-        assert!(handler.namespace == "Windows.Foundation.Collections");
-        assert!(handler.name == "MapChangedEventHandler`2");
-        assert!(handler.generics.len() == 2);
-        assert!(handler.generics[0] == TypeKind::Generic("K".to_string()));
-        assert!(handler.generics[1] == TypeKind::Generic("V".to_string()));
+        assert!(
+            handler.runtime_name()
+                == "Windows.Foundation.Collections.MapChangedEventHandler`2<K, V>"
+        );
 
         let token = method.return_type.as_ref().unwrap();
         assert!(token.array == false);
@@ -205,9 +204,7 @@ mod tests {
             _ => panic!("Wrong type"),
         };
 
-        assert!(token.namespace == "Windows.Foundation");
-        assert!(token.name == "EventRegistrationToken");
-        assert!(token.generics.is_empty());
+        assert!(token.runtime_name() == "Windows.Foundation.EventRegistrationToken");
     }
 
     #[test]
@@ -230,8 +227,6 @@ mod tests {
             _ => panic!("Wrong type"),
         };
 
-        assert!(token.namespace == "Windows.Foundation");
-        assert!(token.name == "EventRegistrationToken");
-        assert!(token.generics.is_empty());
+        assert!(token.runtime_name() == "Windows.Foundation.EventRegistrationToken");
     }
 }

@@ -9,15 +9,15 @@ use quote::quote;
 #[derive(Debug)]
 pub struct Class {
     pub name: TypeName,
-    pub interfaces: Vec<Interface>,
     pub bases: Vec<TypeName>,
-    pub default: bool,
+    pub interfaces: Vec<RequiredInterface>,
+    pub default_constructor: bool,
 }
 
 impl Class {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces = name.interfaces(reader);
+        let mut interfaces = RequiredInterface::all(reader, &name);
         let mut bases = Vec::new();
         let mut base = def;
 
@@ -28,31 +28,30 @@ impl Class {
                 break;
             }
 
-            base = reader.resolve((namespace, name));
-
-            interfaces.extend(Interface::interfaces(reader, base, &Vec::new()));
-
+            base = reader.resolve_type_def((namespace, name));
             let namespace = namespace.to_string();
             let name = name.to_string();
             let generics = Vec::new();
 
-            bases.push(TypeName {
+            let base = TypeName {
                 namespace,
                 name,
                 generics,
                 def: base,
-            });
+            };
+
+            interfaces.append(&mut RequiredInterface::all(reader, &base));
+            bases.push(base);
         }
 
-        let mut default = false;
+        let mut default_constructor = false;
 
         for attribute in def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    let mut interface = Interface::from_type_def(
+                    let mut interface = RequiredInterface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
-                        &Vec::new(),
                     );
                     interface.kind = InterfaceKind::Statics;
                     interfaces.push(interface);
@@ -60,11 +59,11 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            let mut interface = Interface::from_type_def(reader, def, &Vec::new());
+                            let mut interface = RequiredInterface::from_type_def(reader, def);
                             interface.kind = InterfaceKind::Constructors;
                             interfaces.push(interface);
                         }
-                        None => default = true,
+                        None => default_constructor = true,
                     }
                 }
                 _ => {}
@@ -75,7 +74,7 @@ impl Class {
             name,
             interfaces,
             bases,
-            default,
+            default_constructor,
         }
     }
 
@@ -114,7 +113,7 @@ mod tests {
 
     fn class((namespace, type_name): (&str, &str)) -> Class {
         let reader = &TypeReader::from_os();
-        let def = reader.resolve((namespace, type_name));
+        let def = reader.resolve_type_def((namespace, type_name));
 
         match def.into_type(reader) {
             Type::Class(t) => t,
@@ -123,13 +122,67 @@ mod tests {
     }
 
     #[test]
+    fn test_uri() {
+        let t = class(("Windows.Foundation", "Uri"));
+        assert!(t.default_constructor == false);
+        assert!(t.bases.is_empty());
+        assert!(t.interfaces.len() == 5);
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IUriRuntimeClass")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::Default);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IUriRuntimeClass");
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IUriRuntimeClassWithAbsoluteCanonicalUri")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::NonDefault);
+        assert!(
+            interface.name.runtime_name()
+                == "Windows.Foundation.IUriRuntimeClassWithAbsoluteCanonicalUri"
+        );
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IStringable")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::NonDefault);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IStringable");
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IUriRuntimeClassFactory")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::Constructors);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IUriRuntimeClassFactory");
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IUriEscapeStatics")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::Statics);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IUriEscapeStatics");
+    }
+
+    #[test]
     fn test_url_decoder() {
         let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
-        assert!(t.default == false);
+        assert!(t.default_constructor == false);
 
-        assert!(t.name.namespace == "Windows.Foundation");
-        assert!(t.name.name == "WwwFormUrlDecoder");
-        assert!(t.name.generics.is_empty());
+        assert!(t.name.runtime_name() == "Windows.Foundation.WwwFormUrlDecoder");
 
         assert!(t.interfaces.len() == 4);
 
@@ -140,9 +193,10 @@ mod tests {
             .unwrap();
 
         assert!(interface.kind == InterfaceKind::Constructors);
-        assert!(interface.name.namespace == "Windows.Foundation");
-        assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory");
-        assert!(interface.name.generics.is_empty());
+        assert!(
+            interface.name.runtime_name()
+                == "Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory"
+        );
 
         let interface = t
             .interfaces
@@ -151,9 +205,9 @@ mod tests {
             .unwrap();
 
         assert!(interface.kind == InterfaceKind::Default);
-        assert!(interface.name.namespace == "Windows.Foundation");
-        assert!(interface.name.name == "IWwwFormUrlDecoderRuntimeClass");
-        assert!(interface.name.generics.is_empty());
+        assert!(
+            interface.name.runtime_name() == "Windows.Foundation.IWwwFormUrlDecoderRuntimeClass"
+        );
 
         let interface = t
             .interfaces
@@ -162,17 +216,7 @@ mod tests {
             .unwrap();
 
         assert!(interface.kind == InterfaceKind::NonDefault);
-        assert!(interface.name.namespace == "Windows.Foundation.Collections");
-        assert!(interface.name.name == "IIterable`1");
-        assert!(interface.name.generics.len() == 1);
-
-        let entry = match &interface.name.generics[0] {
-            TypeKind::Interface(entry) => entry,
-            _ => panic!("Wrong type"),
-        };
-
-        assert!(entry.namespace == "Windows.Foundation");
-        assert!(entry.name == "IWwwFormUrlDecoderEntry");
+        assert!(interface.name.runtime_name() == "Windows.Foundation.Collections.IIterable`1<Windows.Foundation.IWwwFormUrlDecoderEntry>");
 
         let interface = t
             .interfaces
@@ -181,39 +225,34 @@ mod tests {
             .unwrap();
 
         assert!(interface.kind == InterfaceKind::NonDefault);
-        assert!(interface.name.namespace == "Windows.Foundation.Collections");
-        assert!(interface.name.name == "IVectorView`1");
-        assert!(interface.name.generics.len() == 1);
-
-        let entry = match &interface.name.generics[0] {
-            TypeKind::Interface(entry) => entry,
-            _ => panic!("Wrong type"),
-        };
-
-        assert!(entry.namespace == "Windows.Foundation");
-        assert!(entry.name == "IWwwFormUrlDecoderEntry");
+        assert!(interface.name.runtime_name() == "Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.IWwwFormUrlDecoderEntry>");
     }
 
     #[test]
     fn test_class_with_bases() {
         let t = class(("Windows.UI.Composition", "SpriteVisual"));
-
-        assert!(t.name.namespace == "Windows.UI.Composition");
-        assert!(t.name.name == "SpriteVisual");
-        assert!(t.name.generics.is_empty());
-
+        assert!(t.default_constructor == false);
+        assert!(t.name.runtime_name() == "Windows.UI.Composition.SpriteVisual");
         assert!(t.bases.len() == 3);
+        assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.ContainerVisual");
+        assert!(t.bases[1].runtime_name() == "Windows.UI.Composition.Visual");
+        assert!(t.bases[2].runtime_name() == "Windows.UI.Composition.CompositionObject");
+    }
 
-        assert!(t.bases[0].namespace == "Windows.UI.Composition");
-        assert!(t.bases[0].name == "ContainerVisual");
-        assert!(t.bases[0].generics.is_empty());
+    #[test]
+    fn test_class_with_default_constructor() {
+        let t = class(("Windows.UI.Composition", "Compositor"));
+        assert!(t.default_constructor == true);
+        assert!(t.name.runtime_name() == "Windows.UI.Composition.Compositor");
+        assert!(t.bases.is_empty());
 
-        assert!(t.bases[1].namespace == "Windows.UI.Composition");
-        assert!(t.bases[1].name == "Visual");
-        assert!(t.bases[1].generics.is_empty());
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "ICompositor")
+            .unwrap();
 
-        assert!(t.bases[2].namespace == "Windows.UI.Composition");
-        assert!(t.bases[2].name == "CompositionObject");
-        assert!(t.bases[2].generics.is_empty());
+        assert!(interface.kind == InterfaceKind::Default);
+        assert!(interface.name.runtime_name() == "Windows.UI.Composition.ICompositor");
     }
 }

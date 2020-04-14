@@ -75,7 +75,7 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if no type definition for the given namespace and type name can be found
-    pub fn resolve(&self, (namespace, type_name): (&str, &str)) -> TypeDef {
+    pub fn resolve_type_def(&self, (namespace, type_name): (&str, &str)) -> TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(def) = types.get(type_name) {
                 return *def;
@@ -83,6 +83,10 @@ impl TypeReader {
         }
 
         panic!("Could not find type `{}.{}`", namespace, type_name);
+    }
+
+    pub fn resolve_type(&self, (namespace, type_name): (&str, &str)) -> Type {
+        Type::from_type_def(self, self.resolve_type_def((namespace, type_name)))
     }
 
     /// Resolve a type's definition ([`TypeDef`]) to a [`Type`]
