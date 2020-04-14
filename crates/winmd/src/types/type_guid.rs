@@ -1,6 +1,9 @@
 use crate::tables::*;
 use crate::TypeReader;
 
+use proc_macro2::{Literal, TokenStream};
+use quote::quote;
+
 #[derive(Clone, Default, PartialEq)]
 pub struct TypeGuid(pub [GuidConstant; 11]);
 
@@ -81,5 +84,19 @@ impl TypeGuid {
             GuidConstant::from_arg(&args[9].1),
             GuidConstant::from_arg(&args[10].1),
         ])
+    }
+
+    pub fn to_stream(&self) -> TokenStream {
+        let mut iter = self.0.iter().map(|value| match value {
+            GuidConstant::U32(value) => Literal::u32_unsuffixed(*value),
+            GuidConstant::U16(value) => Literal::u16_unsuffixed(*value),
+            GuidConstant::U8(value) => Literal::u8_unsuffixed(*value),
+        });
+
+        let three = iter.by_ref().take(3);
+
+        quote! {
+            #(#three,)* [#(#iter),*],
+        }
     }
 }

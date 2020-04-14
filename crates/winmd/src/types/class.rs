@@ -88,12 +88,60 @@ impl Class {
 
     pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
+        let type_name = self.type_name(&name);
+        let methods = self.methods();
+
+        if let Some(default_interface) = self
+            .interfaces
+            .iter()
+            .find(|interface| interface.kind == InterfaceKind::Default)
+        {
+            let type_guid = self.type_guid(&name, &default_interface);
+
+            quote! {
+                #[repr(transparent)]
+                #[derive(Default, Clone)]
+                pub struct #name { ptr: winrt::IUnknown }
+                impl #name { #methods }
+                #type_name
+                #type_guid
+            }
+        } else {
+            quote! {
+                pub struct #name {}
+                impl #name { #methods }
+                #type_name
+            }
+        }
+    }
+
+    fn type_name(&self, class_name: &TokenStream) -> TokenStream {
+        let runtime_name = self.name.runtime_name();
 
         quote! {
-            #[repr(transparent)]
-            #[derive(Default, Clone)]
-            pub struct #name { ptr: winrt::IUnknown }
+            impl winrt::TypeName for #class_name {
+                fn type_name() -> &'static str {
+                    #runtime_name
+                }
+            }
         }
+    }
+
+    fn type_guid(&self, name: &TokenStream, default_interface: &RequiredInterface) -> TokenStream {
+        let value = default_interface.guid.to_stream();
+
+        quote! {
+            impl winrt::TypeGuid for #name {
+                fn type_guid() -> &'static winrt::Guid {
+                    static GUID: winrt::Guid = winrt::Guid::from_values(#value);
+                    &GUID
+                }
+            }
+        }
+    }
+
+    fn methods(&self) -> TokenStream {
+        quote! {}
     }
 }
 
