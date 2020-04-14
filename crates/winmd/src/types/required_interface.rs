@@ -26,11 +26,7 @@ struct RequiredInterfaces(pub BTreeMap<TypeName, InterfaceKind>);
 impl RequiredInterface {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-
-        let guid = TypeGuid::from_args(
-            def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
-                .args(reader),
-        );
+        let guid = TypeGuid::from_type_def(reader, def);
 
         let methods = def
             .methods(reader)
@@ -46,11 +42,7 @@ impl RequiredInterface {
     }
 
     fn from_type_name_and_kind(reader: &TypeReader, name: TypeName, kind: InterfaceKind) -> Self {
-        let guid = TypeGuid::from_args(
-            name.def
-                .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
-                .args(reader),
-        );
+        let guid = TypeGuid::from_type_def(reader, name.def);
 
         let methods = name
             .def
@@ -78,22 +70,6 @@ impl RequiredInterface {
 }
 
 impl RequiredInterfaces {
-    fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
-        for attribute in required.attributes(reader) {
-            let name = attribute.name(reader);
-
-            if name == ("Windows.Foundation.Metadata", "DefaultAttribute") {
-                return InterfaceKind::Default;
-            }
-
-            if name == ("Windows.Foundation.Metadata", "OverridableAttribute") {
-                return InterfaceKind::Default;
-            }
-        }
-
-        InterfaceKind::NonDefault
-    }
-
     fn insert_type_name(&mut self, reader: &TypeReader, name: TypeName, kind: InterfaceKind) {
         if !self.0.contains_key(&name) {
             self.insert_required(reader, &name);
@@ -105,8 +81,24 @@ impl RequiredInterfaces {
         for required in name.def.interfaces(reader) {
             let name =
                 TypeName::from_type_def_or_ref(reader, required.interface(reader), &name.generics);
-            let kind = Self::kind(reader, required);
+            let kind = kind(reader, required);
             self.insert_type_name(reader, name, kind);
         }
     }
+}
+
+fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
+    for attribute in required.attributes(reader) {
+        let name = attribute.name(reader);
+
+        if matches!(
+            name,
+            ("Windows.Foundation.Metadata", "DefaultAttribute")
+                | ("Windows.Foundation.Metadata", "OverridableAttribute")
+        ) {
+            return InterfaceKind::Default;
+        }
+    }
+
+    InterfaceKind::NonDefault
 }

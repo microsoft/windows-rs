@@ -16,11 +16,7 @@ pub struct Interface {
 impl Interface {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-
-        let guid = TypeGuid::from_args(
-            def.attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
-                .args(reader),
-        );
+        let guid = TypeGuid::from_type_def(reader, def);
 
         let methods = def
             .methods(reader)

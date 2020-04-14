@@ -1,4 +1,5 @@
 use crate::tables::*;
+use crate::TypeReader;
 
 #[derive(Clone, Default, PartialEq)]
 pub struct TypeGuid(pub [GuidConstant; 11]);
@@ -62,7 +63,11 @@ impl TypeGuid {
         Self::default()
     }
 
-    pub fn from_args(args: Vec<(String, AttributeArg)>) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+        let args = def
+            .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
+            .args(reader);
+
         Self([
             GuidConstant::from_arg(&args[0].1),
             GuidConstant::from_arg(&args[1].1),
