@@ -45,7 +45,7 @@ impl Struct {
 
         quote! {
             #[repr(C)]
-            #[derive(Copy, Clone, Default, Debug, PartialEq)]
+            #[derive(Clone, Default, Debug, PartialEq)]
             pub struct #name {
                 #(#fields),*
             }
