@@ -1,6 +1,6 @@
 [![Build status](https://github.com/microsoft/winrt-rs/workflows/Build%20and%20Test/badge.svg)](https://github.com/microsoft/winrt-rs/actions)
 
-# The Rust/WinRT language projection
+## The Rust/WinRT language projection
 
 Provides native and familiar support for the Windows Runtime for Rust developers. 
 
@@ -9,7 +9,7 @@ This repo is still in early and active development. You can find more informatio
 
 The Rust winmd parser is part of the [xlang](https://github.com/microsoft/xlang) family of projects that help developers create APIs that can run on multiple platforms and be used with a variety of languages.
 
-# Getting started
+## Getting started
 
 Start by adding the following to your Cargo.toml file:
 
