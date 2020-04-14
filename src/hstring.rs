@@ -96,7 +96,7 @@ impl std::fmt::Display for HString {
 
 impl std::fmt::Debug for HString {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        <Self as std::fmt::Display>::fmt(self, f)
+        write!(f, "{}", self)
     }
 }
 

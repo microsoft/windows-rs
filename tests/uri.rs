@@ -1,6 +1,4 @@
-use winrt::{import, Result};
-
-import!(
+winrt::import!(
     dependencies
         "os"
     modules
@@ -8,8 +6,15 @@ import!(
 );
 
 #[test]
-fn uri() -> Result<()> {
+fn uri() -> winrt::Result<()> {
     use windows::foundation::Uri;
+
+    assert!(<Uri as winrt::TypeName>::type_name() == "Windows.Foundation.Uri");
+
+    assert!(
+        <Uri as winrt::TypeGuid>::type_guid()
+            == &winrt::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
+    );
 
     let _uri = Uri::default();
 
