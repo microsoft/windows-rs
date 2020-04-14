@@ -21,7 +21,7 @@ pub enum InterfaceKind {
 }
 
 #[derive(Default, Debug)]
-pub struct RequiredInterfaces(pub BTreeMap<TypeName, InterfaceKind>);
+struct RequiredInterfaces(pub BTreeMap<TypeName, InterfaceKind>);
 
 impl RequiredInterface {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
@@ -45,7 +45,7 @@ impl RequiredInterface {
         }
     }
 
-    pub fn from_type_name_and_kind(
+    fn from_type_name_and_kind(
         reader: &TypeReader,
         name: TypeName,
         kind: InterfaceKind,
@@ -69,11 +69,9 @@ impl RequiredInterface {
             kind,
         }
     }
-}
 
-impl RequiredInterfaces {
-    pub fn required(reader: &TypeReader, name: &TypeName) -> Vec<RequiredInterface> {
-        let mut interfaces = Self::default();
+    pub fn all(reader: &TypeReader, name: &TypeName) -> Vec<RequiredInterface> {
+        let mut interfaces = RequiredInterfaces::default();
         interfaces.insert_required(reader, name);
         interfaces
             .0
@@ -81,7 +79,9 @@ impl RequiredInterfaces {
             .map(move |(name, kind)| RequiredInterface::from_type_name_and_kind(reader, name, kind))
             .collect()
     }
+}
 
+impl RequiredInterfaces {
     fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
         for attribute in required.attributes(reader) {
             let name = attribute.name(reader);

@@ -17,7 +17,7 @@ pub struct Class {
 impl Class {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces = RequiredInterfaces::required(reader, &name);
+        let mut interfaces = RequiredInterface::all(reader, &name);
         let mut bases = Vec::new();
         let mut base = def;
 
@@ -40,7 +40,7 @@ impl Class {
                 def: base,
             };
 
-            interfaces.append(&mut RequiredInterfaces::required(reader, &base));
+            interfaces.append(&mut RequiredInterface::all(reader, &base));
             bases.push(base);
         }
 
