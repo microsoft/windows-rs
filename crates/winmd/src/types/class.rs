@@ -122,29 +122,59 @@ mod tests {
     }
 
     #[test]
-    fn test_flat_interfaces() {
-        let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
-        assert!(t.interfaces.len() == 4);
+    fn test_uri() {
+        let t = class(("Windows.Foundation", "Uri"));
+        assert!(t.default_constructor == false);
+        assert!(t.bases.is_empty());
+        assert!(t.interfaces.len() == 5);
 
         let interface = t
             .interfaces
             .iter()
-            .find(|interface| interface.name.name == "IVectorView`1")
+            .find(|interface| interface.name.name == "IUriRuntimeClass")
             .unwrap();
 
-        // TODO: assert that the interfaces directly implemented by this class are in the list
+        assert!(interface.kind == InterfaceKind::Default);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IUriRuntimeClass");
 
-        // TODO: assert that those interfaecs themselves have pulled in necessary required interfaces
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IUriRuntimeClassWithAbsoluteCanonicalUri")
+            .unwrap();
 
-        // TODO: assert that a "flat map" of recursive interfaces has no dupes
-    }
+        assert!(interface.kind == InterfaceKind::NonDefault);
+        assert!(
+            interface.name.runtime_name()
+                == "Windows.Foundation.IUriRuntimeClassWithAbsoluteCanonicalUri"
+        );
 
-    #[test]
-    fn test_flat_methods() {
-        // let t = class(("Windows.Foundation", "WwwFormUrlDecoder"));
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IStringable")
+            .unwrap();
 
-        // TODO: assert that a "flat map" of methods has no dupes and provides all the info needed to generate Rust
-        // May need a ClassMethod and InterfaceMethod iterator type to provide the context specific info.
+        assert!(interface.kind == InterfaceKind::NonDefault);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IStringable");
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IUriRuntimeClassFactory")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::Constructors);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IUriRuntimeClassFactory");
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IUriEscapeStatics")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::Statics);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IUriEscapeStatics");
     }
 
     #[test]
@@ -201,10 +231,28 @@ mod tests {
     #[test]
     fn test_class_with_bases() {
         let t = class(("Windows.UI.Composition", "SpriteVisual"));
+        assert!(t.default_constructor == false);
         assert!(t.name.runtime_name() == "Windows.UI.Composition.SpriteVisual");
         assert!(t.bases.len() == 3);
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.ContainerVisual");
         assert!(t.bases[1].runtime_name() == "Windows.UI.Composition.Visual");
         assert!(t.bases[2].runtime_name() == "Windows.UI.Composition.CompositionObject");
+    }
+
+    #[test]
+    fn test_class_with_default_constructor() {
+        let t = class(("Windows.UI.Composition", "Compositor"));
+        assert!(t.default_constructor == true);
+        assert!(t.name.runtime_name() == "Windows.UI.Composition.Compositor");
+        assert!(t.bases.is_empty());
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "ICompositor")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::Default);
+        assert!(interface.name.runtime_name() == "Windows.UI.Composition.ICompositor");
     }
 }

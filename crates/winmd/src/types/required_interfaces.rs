@@ -37,8 +37,6 @@ impl RequiredInterface {
             .map(|method| Method::from_method_def(reader, method, &name.generics))
             .collect();
 
-        let interfaces = RequiredInterfaces::required(reader, &name);
-
         Self {
             name,
             guid,
