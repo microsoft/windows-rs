@@ -18,29 +18,6 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    pub fn runtime_name(&self) -> String {
-        let mut result = format!("{}.{}", self.namespace, self.name);
-
-        if !self.generics.is_empty() {
-            result += "<";
-            let mut first = true;
-
-            for kind in &self.generics {
-                if first {
-                    first = false;
-                } else {
-                    result += ", ";
-                }
-
-                result += &kind.runtime_name();
-            }
-
-            result += ">";
-        }
-
-        result
-    }
-
     pub fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
@@ -102,6 +79,29 @@ impl TypeName {
         let mut blob = spec.sig(reader);
         blob.read_unsigned();
         TypeName::from_type_spec_blob(&mut blob, generics)
+    }
+
+    pub fn runtime_name(&self) -> String {
+        let mut result = format!("{}.{}", self.namespace, self.name);
+
+        if !self.generics.is_empty() {
+            result += "<";
+            let mut first = true;
+
+            for kind in &self.generics {
+                if first {
+                    first = false;
+                } else {
+                    result += ", ";
+                }
+
+                result += &kind.runtime_name();
+            }
+
+            result += ">";
+        }
+
+        result
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
