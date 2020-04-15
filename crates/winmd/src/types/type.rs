@@ -26,11 +26,11 @@ impl Type {
         }
     }
 
-    pub fn to_stream(&self) -> (TokenStream, TokenStream) {
+    pub fn to_stream(&self) -> TokenStream {
         match self {
-            Type::Class(t) => (t.to_stream(), TokenStream::new()),
+            Type::Class(t) => t.to_stream(),
             Type::Interface(t) => t.to_stream(),
-            Type::Enum(t) => (t.to_stream(), TokenStream::new()),
+            Type::Enum(t) => t.to_stream(),
             Type::Struct(t) => t.to_stream(),
             Type::Delegate(t) => t.to_stream(),
         }

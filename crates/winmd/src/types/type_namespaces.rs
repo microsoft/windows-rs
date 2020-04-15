@@ -19,18 +19,13 @@ impl TypeNamespaces {
         for (name, tree) in self.0.iter() {
             let name = case::to_snake(name, MethodKind::Normal);
             let name = write_ident(&name);
-            let (base, abi) = tree.to_stream();
+            let tree = tree.to_stream();
 
-            let merged: TokenStream = quote! {
+            tokens.push(quote! {
                 pub mod #name {
-                    #base
-                    pub mod abi {
-                        #abi
-                    }
+                    #tree
                 }
-            };
-
-            tokens.push(merged);
+            });
         }
 
         TokenStream::from_iter(tokens)
