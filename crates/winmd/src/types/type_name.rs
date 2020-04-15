@@ -83,23 +83,22 @@ impl TypeName {
 
     pub fn runtime_name(&self) -> String {
         let mut result = format!("{}.{}", self.namespace, self.name);
+        let mut generics = self.generics.iter();
 
-        if !self.generics.is_empty() {
-            result += "<";
-            let mut first = true;
+        let first = match generics.next() {
+            Some(first) => first,
+            None => return result,
+        };
 
-            for kind in &self.generics {
-                if first {
-                    first = false;
-                } else {
-                    result += ", ";
-                }
+        result += "<";
+        result += &first.runtime_name();
 
-                result += &kind.runtime_name();
-            }
-
-            result += ">";
+        for kind in generics {
+            result += ", ";
+            result += &kind.runtime_name();
         }
+
+        result += ">";
 
         result
     }
@@ -123,26 +122,61 @@ impl TypeName {
 
     pub fn phantoms(&self) -> TokenStream {
         if self.generics.is_empty() {
-            TokenStream::new()
-        } else {
-            let mut tokens = Vec::new();
-
-            for (count, generic) in self.generics.iter().enumerate() {
-                let name = format_ident!("__{}", count);
-                let generic = generic.to_stream();
-                tokens.push(quote! { #name: std::marker::PhantomData::<#generic>, })
-            }
-
-            TokenStream::from_iter(tokens)
+            return TokenStream::new();
         }
+
+        let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
+            let name = format_ident!("__{}", count);
+            let generic = generic.to_stream();
+            quote! { #name: std::marker::PhantomData::<#generic>, }
+        });
+
+        TokenStream::from_iter(phantoms)
     }
 
     pub fn constraints(&self) -> TokenStream {
         let generics = self.generics.iter().map(|generic| {
             let generic = generic.to_stream();
-            quote! { #generic: winrt::RuntimeType + 'static, }
+            quote! { #generic: ::winrt::RuntimeType + 'static, }
         });
 
         TokenStream::from_iter(generics)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::file::TableIndex;
+    use crate::row::Row;
+
+    #[test]
+    fn runtime_name() {
+        let mut type_name = TypeName {
+            name: String::from("MyType"),
+            namespace: String::from("Outer.Inner"),
+            generics: vec![],
+            def: TypeDef(Row {
+                index: 0,
+                table_index: TableIndex::InterfaceImpl,
+                file_index: 0,
+            }),
+        };
+
+        assert_eq!(type_name.runtime_name(), String::from("Outer.Inner.MyType"));
+
+        type_name.generics = vec![TypeKind::Bool];
+
+        assert_eq!(
+            type_name.runtime_name(),
+            String::from("Outer.Inner.MyType<Boolean>")
+        );
+
+        type_name.generics = vec![TypeKind::Bool, TypeKind::U8];
+
+        assert_eq!(
+            type_name.runtime_name(),
+            String::from("Outer.Inner.MyType<Boolean, UInt8>")
+        );
     }
 }

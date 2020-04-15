@@ -49,7 +49,7 @@ impl Interface {
             #[repr(transparent)]
             #[derive(Default, Clone)]
             pub struct #name where #constraints {
-                ptr: winrt::IUnknown,
+                ptr: ::winrt::IUnknown,
                 #phantoms
             }
             impl<#constraints> #name {
