@@ -137,7 +137,7 @@ impl TypeName {
     pub fn constraints(&self) -> TokenStream {
         let generics = self.generics.iter().map(|generic| {
             let generic = generic.to_stream();
-            quote! { #generic: winrt::RuntimeType + 'static, }
+            quote! { #generic: ::winrt::RuntimeType + 'static, }
         });
 
         TokenStream::from_iter(generics)
@@ -154,7 +154,7 @@ mod tests {
     fn runtime_name() {
         let mut type_name = TypeName {
             name: String::from("MyType"),
-            namespace: String::from("outer.inner"),
+            namespace: String::from("Outer.Inner"),
             generics: vec![],
             def: TypeDef(Row {
                 index: 0,
@@ -163,20 +163,20 @@ mod tests {
             }),
         };
 
-        assert_eq!(type_name.runtime_name(), String::from("outer.inner.MyType"));
+        assert_eq!(type_name.runtime_name(), String::from("Outer.Inner.MyType"));
 
         type_name.generics = vec![TypeKind::Bool];
 
         assert_eq!(
             type_name.runtime_name(),
-            String::from("outer.inner.MyType<Boolean>")
+            String::from("Outer.Inner.MyType<Boolean>")
         );
 
         type_name.generics = vec![TypeKind::Bool, TypeKind::U8];
 
         assert_eq!(
             type_name.runtime_name(),
-            String::from("outer.inner.MyType<Boolean, UInt8>")
+            String::from("Outer.Inner.MyType<Boolean, UInt8>")
         );
     }
 }
