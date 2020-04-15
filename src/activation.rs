@@ -6,18 +6,17 @@ use crate::*;
 // that this is super fast. Also, load RoGetActivationFactory dynamically and fall back to LoadLibrary
 // and implement DLL garbage collection for those. Version 0.1 can probably just pin everything.
 // https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
-pub fn factory<C: TypeName, I: TypeGuid>() -> Result<I> {
+pub fn factory<C: TypeName, I: ComInterface>() -> Result<I> {
     let mut ptr = std::ptr::null_mut();
     unsafe {
         let mut code =
-            RoGetActivationFactory(HString::from(C::TYPE_NAME).abi(), &I::TYPE_GUID, &mut ptr);
+            RoGetActivationFactory(HString::from(C::TYPE_NAME).abi(), &I::GUID, &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
             CoIncrementMTAUsage(&mut _cookie);
 
-            code =
-                RoGetActivationFactory(HString::from(C::TYPE_NAME).abi(), &I::TYPE_GUID, &mut ptr);
+            code = RoGetActivationFactory(HString::from(C::TYPE_NAME).abi(), &I::GUID, &mut ptr);
         }
 
         code.and_then(|| std::mem::transmute_copy(&ptr))
@@ -31,7 +30,7 @@ pub struct IActivationFactory {
 }
 
 impl IActivationFactory {
-    pub fn activate_instance<I: TypeGuid>(&self) -> Result<I> {
+    pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
         let mut object = Object::default();
         unsafe {
             ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(
@@ -43,8 +42,8 @@ impl IActivationFactory {
     }
 }
 
-unsafe impl TypeGuid for IActivationFactory {
-    const TYPE_GUID: Guid = Guid::from_values(
+unsafe impl ComInterface for IActivationFactory {
+    const GUID: Guid = Guid::from_values(
         0x0000_0035,
         0x0000,
         0x0000,

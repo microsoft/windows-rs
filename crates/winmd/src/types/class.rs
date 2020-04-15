@@ -131,8 +131,8 @@ impl Class {
         let value = default_interface.guid.to_stream();
 
         quote! {
-            unsafe impl ::winrt::TypeGuid for #name {
-                const TYPE_GUID: ::winrt::Guid = ::winrt::Guid::from_values(#value);
+            unsafe impl ::winrt::ComInterface for #name {
+                const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#value);
             }
         }
     }

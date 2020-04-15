@@ -19,8 +19,8 @@ impl Object {
     }
 }
 
-unsafe impl TypeGuid for Object {
-    const TYPE_GUID: Guid = Guid::from_values(
+unsafe impl ComInterface for Object {
+    const GUID: Guid = Guid::from_values(
         0xAF86_E2E0,
         0xB12D,
         0x4C6A,
