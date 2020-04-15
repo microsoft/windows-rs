@@ -39,8 +39,9 @@ impl Interface {
         dependencies
     }
 
-    pub fn to_stream(&self) -> (TokenStream, TokenStream) {
+    pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
+        let abi_name = self.name.abi_ident();
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
         let default_interface = self.interfaces.last().unwrap();
@@ -49,30 +50,27 @@ impl Interface {
         let projected_methods = TokenStream::new();
         let abi_methods = TokenStream::new();
 
-        (
-            quote! {
-                #[repr(transparent)]
-                #[derive(Default, Clone)]
-                pub struct #name where #constraints {
-                    ptr: ::winrt::IUnknown,
-                    #phantoms
-                }
-                impl<#constraints> #name {
-                    #projected_methods
-                }
-                unsafe impl<#constraints> ::winrt::ComInterface for #name {
-                    const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
-                }
-            },
-            quote! {
-                #[repr(C)]
-                pub struct #name where #constraints {
-                    __base: [usize; 6],
-                    #abi_methods
-                    #phantoms
-                }
-            },
-        )
+        quote! {
+            #[repr(transparent)]
+            #[derive(Default, Clone)]
+            pub struct #name where #constraints {
+                ptr: ::winrt::IUnknown,
+                #phantoms
+            }
+            impl<#constraints> #name {
+                #projected_methods
+            }
+            unsafe impl<#constraints> ::winrt::ComInterface for #name {
+                const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+            }
+            #[repr(C)]
+            pub struct #abi_name where #constraints {
+                __base: [usize; 6],
+                #abi_methods
+                #phantoms
+            }
+
+        }
     }
 }
 

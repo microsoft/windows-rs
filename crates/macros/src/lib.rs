@@ -20,7 +20,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
 
     let stage = TypeStage::from_limits(reader, &limits);
     let tree = stage.into_tree();
-    let stream = tree.to_stream().0;
+    let stream = tree.to_stream();
     //println!("{}", stream.to_string());
     stream.into()
 }

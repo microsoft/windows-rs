@@ -32,7 +32,7 @@ impl Struct {
             .collect()
     }
 
-    pub fn to_stream(&self) -> (TokenStream, TokenStream) {
+    pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
 
         let fields = self.fields.iter().map(|field| {
@@ -43,15 +43,12 @@ impl Struct {
             }
         });
 
-        (
-            quote! {
-                #[repr(C)]
-                #[derive(Clone, Default, Debug, PartialEq)]
-                pub struct #name {
-                    #(#fields),*
-                }
-            },
-            quote! {},
-        )
+        quote! {
+            #[repr(C)]
+            #[derive(Clone, Default, Debug, PartialEq)]
+            pub struct #name {
+                #(#fields),*
+            }
+        }
     }
 }

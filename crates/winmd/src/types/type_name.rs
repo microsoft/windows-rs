@@ -2,7 +2,7 @@ use crate::blob::Blob;
 use crate::codes::*;
 use crate::tables::*;
 use crate::types::*;
-use crate::{write_ident, TypeReader};
+use crate::*;
 
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
@@ -115,6 +115,17 @@ impl TypeName {
             quote! { #name }
         } else {
             let name = write_ident(&self.name[..self.name.len() - 2]);
+            let generics = self.generics.iter().map(|g| g.to_stream());
+            quote! { #name<#(#generics),*> }
+        }
+    }
+
+    pub fn abi_ident(&self) -> TokenStream {
+        if self.generics.is_empty() {
+            let name = write_abi_ident(&self.name);
+            quote! { #name }
+        } else {
+            let name = write_abi_ident(&self.name[..self.name.len() - 2]);
             let generics = self.generics.iter().map(|g| g.to_stream());
             quote! { #name<#(#generics),*> }
         }
