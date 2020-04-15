@@ -10,7 +10,7 @@ fn uri() -> winrt::Result<()> {
     use windows::foundation::Uri;
 
     assert_eq!(
-        <Uri as winrt::TypeName>::TYPE_NAME,
+        <Uri as winrt::RuntimeName>::NAME,
         "Windows.Foundation.Uri"
     );
 

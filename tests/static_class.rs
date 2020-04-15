@@ -13,7 +13,7 @@ fn static_class() -> winrt::Result<()> {
     use windows::foundation::PropertyValue;
 
     assert_eq!(
-        <PropertyValue as winrt::TypeName>::TYPE_NAME,
+        <PropertyValue as winrt::RuntimeName>::NAME,
         "Windows.Foundation.PropertyValue"
     );
 

@@ -52,7 +52,7 @@ impl Drop for IUnknown {
 
 // unsafe_query only exists to support generic interface queries that aren't yet supported by Rust because
 // it lacks good const function support to work out the guids in a generic and thus type safe manner. Once
-// const function support arrives, we should be able to remove this function and rely on type_guid to
+// const function support arrives, we should be able to remove this function and rely on ComInterface to
 // calculate the guid for all types.
 pub unsafe fn unsafe_query<From: ComInterface, Into: ComInterface>(
     from: &From,

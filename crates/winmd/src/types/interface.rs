@@ -43,6 +43,9 @@ impl Interface {
         let name = self.name.ident();
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
+        let default_interface = self.interfaces.last().unwrap();
+        let guid = default_interface.guid.to_stream();
+
         let projected_methods = TokenStream::new();
 
         quote! {
@@ -54,6 +57,9 @@ impl Interface {
             }
             impl<#constraints> #name {
                 #projected_methods
+            }
+            unsafe impl<#constraints> ::winrt::ComInterface for #name {
+                const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
             }
         }
     }
