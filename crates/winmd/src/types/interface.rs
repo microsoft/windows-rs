@@ -47,6 +47,7 @@ impl Interface {
         let guid = default_interface.guid.to_stream();
 
         let projected_methods = TokenStream::new();
+        let abi_methods = TokenStream::new();
 
         (
             quote! {
@@ -63,7 +64,14 @@ impl Interface {
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
             },
-            quote! {},
+            quote! {
+                #[repr(C)]
+                pub struct #name where #constraints {
+                    __base: [usize; 6],
+                    #abi_methods
+                    #phantoms
+                }
+            },
         )
     }
 }
