@@ -47,8 +47,8 @@ impl Interface {
         let default_interface = self.interfaces.last().unwrap();
         let guid = default_interface.guid.to_stream();
 
-        let projected_methods = TokenStream::new();
-        let abi_methods = TokenStream::new();
+        let projected_methods = self.projected_methods();
+        let abi_methods = self.abi_methods();
 
         quote! {
             #[repr(transparent)]
@@ -70,6 +70,18 @@ impl Interface {
                 #phantoms
             }
 
+        }
+    }
+
+    fn projected_methods(&self) -> TokenStream {
+        quote! {
+            
+        }
+    }
+
+    fn abi_methods(&self) -> TokenStream {
+        quote! {
+            
         }
     }
 }

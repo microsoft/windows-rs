@@ -95,7 +95,7 @@ impl Class {
     pub fn to_stream(&self) -> TokenStream {
         let name = self.name.ident();
         let type_name = self.type_name(&name);
-        let methods = self.methods(&name);
+        let methods = self.projected_methods();
 
         if let Some(default_interface) = self.default_interface() {
             let guid = default_interface.guid.to_stream();
@@ -107,7 +107,7 @@ impl Class {
                 unsafe impl ::winrt::ComInterface for #name {
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
-                #methods
+                impl #name { #methods }
                 #type_name
             }
         } else {
@@ -129,9 +129,10 @@ impl Class {
         }
     }
 
-    fn methods(&self, name: &TokenStream) -> TokenStream {
+    // TODO: this should share an implementation with interface methods
+    fn projected_methods(&self) -> TokenStream {
         quote! {
-            impl #name { }
+            
         }
     }
 }
