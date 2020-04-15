@@ -64,7 +64,7 @@ pub unsafe fn unsafe_query<From: TypeGuid, Into: TypeGuid>(from: &From, guid: &G
 }
 
 pub fn safe_query<From: TypeGuid, Into: TypeGuid>(from: &From) -> Into {
-    unsafe { unsafe_query(from, Into::type_guid()) }
+    unsafe { unsafe_query(from, &Into::TYPE_GUID) }
 }
 
 #[repr(C)]

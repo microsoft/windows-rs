@@ -17,13 +17,10 @@ pub(crate) struct IWeakReferenceSource {
 }
 
 impl TypeGuid for IWeakReferenceSource {
-    fn type_guid() -> &'static Guid {
-        static GUID: Guid = Guid::from_values(
-            0x0000_0038,
-            0x0000,
-            0x0000,
-            [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
-        );
-        &GUID
-    }
+    const TYPE_GUID: Guid = Guid::from_values(
+        0x0000_0038,
+        0x0000,
+        0x0000,
+        [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
+    );
 }

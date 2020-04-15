@@ -120,9 +120,7 @@ impl Class {
 
         quote! {
             impl winrt::TypeName for #class_name {
-                fn type_name() -> &'static str {
-                    #runtime_name
-                }
+                const TYPE_NAME: &'static str = #runtime_name;
             }
         }
     }
@@ -132,10 +130,7 @@ impl Class {
 
         quote! {
             impl winrt::TypeGuid for #name {
-                fn type_guid() -> &'static winrt::Guid {
-                    static GUID: winrt::Guid = winrt::Guid::from_values(#value);
-                    &GUID
-                }
+                const TYPE_GUID: winrt::Guid = winrt::Guid::from_values(#value);
             }
         }
     }

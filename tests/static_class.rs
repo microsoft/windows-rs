@@ -12,7 +12,10 @@ winrt::import!(
 fn static_class() -> winrt::Result<()> {
     use windows::foundation::PropertyValue;
 
-    assert!(<PropertyValue as winrt::TypeName>::type_name() == "Windows.Foundation.PropertyValue");
+    assert_eq!(
+        <PropertyValue as winrt::TypeName>::TYPE_NAME,
+        "Windows.Foundation.PropertyValue"
+    );
 
     // TODO: test PropertyValue's methods here
 
