@@ -25,6 +25,7 @@ impl ParamFlags {
     }
 }
 
+#[derive(PartialEq)]
 pub enum TypeCategory {
     Interface,
     Class,
