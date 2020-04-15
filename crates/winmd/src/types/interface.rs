@@ -8,37 +8,35 @@ use quote::quote;
 #[derive(Debug)]
 pub struct Interface {
     pub name: TypeName,
-    pub guid: TypeGuid,
-    pub methods: Vec<Method>,
     pub interfaces: Vec<RequiredInterface>,
 }
 
 impl Interface {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let guid = TypeGuid::from_type_def(reader, def);
+        let mut interfaces = RequiredInterface::all(reader, &name);
 
-        let methods = def
-            .methods(reader)
-            .map(|method| Method::from_method_def(reader, method, &name.generics))
-            .collect();
+        let mut default_interface = RequiredInterface::from_type_def(reader, def);
+        default_interface.kind = InterfaceKind::Default;
+        interfaces.push(default_interface);
 
-        let interfaces = RequiredInterface::all(reader, &name);
-
-        Self {
-            name,
-            guid,
-            methods,
-            interfaces,
-        }
+        Self { name, interfaces }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.interfaces
-            .iter()
-            .flat_map(|i| i.name.dependencies())
-            .chain(self.methods.iter().flat_map(|m| m.dependencies()))
-            .collect()
+        let mut dependencies = Vec::new();
+
+        for interface in &self.interfaces {
+            dependencies.append(&mut interface.name.dependencies());
+
+            if interface.kind == InterfaceKind::Default {
+                for method in &interface.methods {
+                    dependencies.append(&mut method.dependencies());
+                }
+            }
+        }
+
+        dependencies
     }
 
     pub fn to_stream(&self) -> TokenStream {
@@ -79,6 +77,10 @@ mod tests {
     fn test_stringable() {
         let t = interface(("Windows.Foundation", "IStringable"));
         assert!(t.name.runtime_name() == "Windows.Foundation.IStringable");
+        assert!(t.interfaces.len() == 1);
+        let t = &t.interfaces[0];
+        assert!(t.name.runtime_name() == "Windows.Foundation.IStringable");
+        assert!(t.kind == InterfaceKind::Default);
 
         assert!(t.methods.len() == 1);
         let method = &t.methods[0];
@@ -97,20 +99,43 @@ mod tests {
         let t = interface(("Windows.Foundation", "IAsyncAction"));
         assert!(t.name.runtime_name() == "Windows.Foundation.IAsyncAction");
 
-        assert!(t.interfaces.len() == 1);
-        assert!(t.interfaces[0].name.runtime_name() == "Windows.Foundation.IAsyncInfo");
+        assert!(t.interfaces.len() == 2);
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IAsyncInfo")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::NonDefault);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IAsyncInfo");
+
+        let interface = t
+            .interfaces
+            .iter()
+            .find(|interface| interface.name.name == "IAsyncAction")
+            .unwrap();
+
+        assert!(interface.kind == InterfaceKind::Default);
+        assert!(interface.name.runtime_name() == "Windows.Foundation.IAsyncAction");
     }
 
     #[test]
     fn test_observable_map() {
         let t = interface(("Windows.Foundation.Collections", "IObservableMap`2"));
         assert!(t.name.runtime_name() == "Windows.Foundation.Collections.IObservableMap`2<K, V>");
+        assert!(t.interfaces.len() == 3);
 
-        assert!(t.methods.len() == 2);
-        assert!(t.methods[0].name == "map_changed");
-        assert!(t.methods[1].name == "remove_map_changed");
+        let default_interface = t
+            .interfaces
+            .iter()
+            .find(|required| required.name.name == "IObservableMap`2")
+            .unwrap();
 
-        assert!(t.interfaces.len() == 2);
+        assert!(default_interface.kind == InterfaceKind::Default);
+        assert!(default_interface.methods.len() == 2);
+        assert!(default_interface.methods[0].name == "map_changed");
+        assert!(default_interface.methods[1].name == "remove_map_changed");
 
         let map = t
             .interfaces
@@ -118,6 +143,7 @@ mod tests {
             .find(|required| required.name.name == "IMap`2")
             .unwrap();
 
+        assert!(map.kind == InterfaceKind::NonDefault);
         assert!(map.name.runtime_name() == "Windows.Foundation.Collections.IMap`2<K, V>");
 
         let iterable = t
@@ -126,6 +152,7 @@ mod tests {
             .find(|required| required.name.name == "IIterable`1")
             .unwrap();
 
+        assert!(iterable.kind == InterfaceKind::NonDefault);
         assert!(iterable.name.runtime_name() == "Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<K, V>>");
     }
 }

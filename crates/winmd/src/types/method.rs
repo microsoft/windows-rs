@@ -150,9 +150,11 @@ mod tests {
             _ => panic!("Type not an interface"),
         };
 
-        for method in t.methods {
-            if method.name == method_name {
-                return method;
+        for interface in t.interfaces {
+            for method in interface.methods {
+                if method.name == method_name {
+                    return method;
+                }
             }
         }
 
