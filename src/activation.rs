@@ -6,17 +6,16 @@ use crate::*;
 // that this is super fast. Also, load RoGetActivationFactory dynamically and fall back to LoadLibrary
 // and implement DLL garbage collection for those. Version 0.1 can probably just pin everything.
 // https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
-pub fn factory<C: TypeName, I: ComInterface>() -> Result<I> {
+pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
     let mut ptr = std::ptr::null_mut();
     unsafe {
-        let mut code =
-            RoGetActivationFactory(HString::from(C::TYPE_NAME).abi(), &I::GUID, &mut ptr);
+        let mut code = RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
             CoIncrementMTAUsage(&mut _cookie);
 
-            code = RoGetActivationFactory(HString::from(C::TYPE_NAME).abi(), &I::GUID, &mut ptr);
+            code = RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
         }
 
         code.and_then(|| std::mem::transmute_copy(&ptr))

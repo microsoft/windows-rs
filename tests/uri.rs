@@ -9,10 +9,7 @@ winrt::import!(
 fn uri() -> winrt::Result<()> {
     use windows::foundation::Uri;
 
-    assert_eq!(
-        <Uri as winrt::TypeName>::TYPE_NAME,
-        "Windows.Foundation.Uri"
-    );
+    assert_eq!(<Uri as winrt::RuntimeName>::NAME, "Windows.Foundation.Uri");
 
     assert_eq!(
         <Uri as winrt::ComInterface>::GUID,
