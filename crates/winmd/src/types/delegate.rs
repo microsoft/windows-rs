@@ -26,14 +26,21 @@ impl Delegate {
         self.method.dependencies()
     }
 
-    pub fn to_stream(&self) -> TokenStream {
+    pub fn to_stream(&self) -> (TokenStream, TokenStream) {
         let name = self.name.ident();
         let phantoms = self.name.phantoms();
 
-        quote! {
-            pub struct #name {
-                #phantoms
-            }
-        }
+        (
+            quote! {
+                pub struct #name {
+                    #phantoms
+                }
+            },
+            quote! {
+                pub struct #name {
+                    #phantoms
+                }
+            },
+        )
     }
 }

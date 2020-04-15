@@ -9,8 +9,7 @@ use crate::*;
 pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
     let mut ptr = std::ptr::null_mut();
     unsafe {
-        let mut code =
-            RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
+        let mut code = RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
