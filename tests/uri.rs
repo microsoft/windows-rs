@@ -15,7 +15,7 @@ fn uri() -> winrt::Result<()> {
     );
 
     assert_eq!(
-        <Uri as winrt::TypeGuid>::TYPE_GUID,
+        <Uri as winrt::ComInterface>::GUID,
         winrt::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 

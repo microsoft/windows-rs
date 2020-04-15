@@ -54,7 +54,10 @@ impl Drop for IUnknown {
 // it lacks good const function support to work out the guids in a generic and thus type safe manner. Once
 // const function support arrives, we should be able to remove this function and rely on type_guid to
 // calculate the guid for all types.
-pub unsafe fn unsafe_query<From: TypeGuid, Into: TypeGuid>(from: &From, guid: &Guid) -> Into {
+pub unsafe fn unsafe_query<From: ComInterface, Into: ComInterface>(
+    from: &From,
+    guid: &Guid,
+) -> Into {
     let mut into = std::ptr::null_mut();
     let from: RawPtr = std::mem::transmute_copy(from);
     if !from.is_null() {
@@ -63,8 +66,8 @@ pub unsafe fn unsafe_query<From: TypeGuid, Into: TypeGuid>(from: &From, guid: &G
     std::mem::transmute_copy(&into)
 }
 
-pub fn safe_query<From: TypeGuid, Into: TypeGuid>(from: &From) -> Into {
-    unsafe { unsafe_query(from, &Into::TYPE_GUID) }
+pub fn safe_query<From: ComInterface, Into: ComInterface>(from: &From) -> Into {
+    unsafe { unsafe_query(from, &Into::GUID) }
 }
 
 #[repr(C)]
