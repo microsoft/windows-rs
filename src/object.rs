@@ -19,7 +19,7 @@ impl Object {
     }
 }
 
-impl TypeGuid for Object {
+unsafe impl TypeGuid for Object {
     const TYPE_GUID: Guid = Guid::from_values(
         0xAF86_E2E0,
         0xB12D,

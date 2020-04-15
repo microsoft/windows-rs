@@ -43,7 +43,7 @@ impl IActivationFactory {
     }
 }
 
-impl TypeGuid for IActivationFactory {
+unsafe impl TypeGuid for IActivationFactory {
     const TYPE_GUID: Guid = Guid::from_values(
         0x0000_0035,
         0x0000,

@@ -131,7 +131,7 @@ impl Class {
         let value = default_interface.guid.to_stream();
 
         quote! {
-            impl ::winrt::TypeGuid for #name {
+            unsafe impl ::winrt::TypeGuid for #name {
                 const TYPE_GUID: ::winrt::Guid = ::winrt::Guid::from_values(#value);
             }
         }

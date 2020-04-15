@@ -3,7 +3,7 @@ use crate::*;
 // WinRT classes and interfaces implement this trait. WinRT classes implement it by returning the Guid
 // of the default interface. Static WinRT classes don't implement this trait. WinRT generic interfaces
 // don't yet return the correct value from type_guid because Rust's const functions are too limited.
-pub trait TypeGuid {
+pub unsafe trait TypeGuid {
     const TYPE_GUID: Guid;
 }
 
