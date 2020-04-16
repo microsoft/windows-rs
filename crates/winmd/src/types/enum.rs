@@ -1,6 +1,6 @@
 use crate::tables::*;
 use crate::types::*;
-use crate::{write_ident, TypeReader};
+use crate::{format_ident, TypeReader};
 
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
@@ -41,8 +41,8 @@ impl Enum {
     }
 
     pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.ident();
-        let default = write_ident(&self.fields[0].0);
+        let name = self.name.to_stream(&self.name.namespace);
+        let default = format_ident(&self.fields[0].0);
 
         let repr = match self.fields[0].1 {
             EnumConstant::U32(_) => format_ident!("u32"),
@@ -50,7 +50,7 @@ impl Enum {
         };
 
         let fields = self.fields.iter().map(|field| {
-            let name = write_ident(&field.0);
+            let name = format_ident(&field.0);
 
             let value = match field.1 {
                 EnumConstant::U32(value) => quote! { #value },

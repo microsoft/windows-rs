@@ -9,6 +9,9 @@ use quote::quote;
 pub struct Delegate {
     pub name: TypeName,
     pub method: Method,
+    // TODO: replace `method` with this:
+    // pub params: Vec<Param>,
+    // pub return_type: Option<Param>,
 }
 
 impl Delegate {
@@ -27,7 +30,7 @@ impl Delegate {
     }
 
     pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.ident();
+        let name = self.name.to_stream(&self.name.namespace);
         let phantoms = self.name.phantoms();
 
         quote! {

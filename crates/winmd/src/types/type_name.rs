@@ -1,4 +1,5 @@
 use crate::blob::Blob;
+use crate::case::*;
 use crate::codes::*;
 use crate::tables::*;
 use crate::types::*;
@@ -109,25 +110,29 @@ impl TypeName {
             .collect()
     }
 
-    pub fn ident(&self) -> TokenStream {
+    pub fn to_stream(&self, calling_namespace: &str) -> TokenStream {
+        let namespace = self.to_namespace_stream(calling_namespace);
+
         if self.generics.is_empty() {
-            let name = write_ident(&self.name);
-            quote! { #name }
+            let name = format_ident(&self.name);
+            quote! { #namespace#name }
         } else {
-            let name = write_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_stream());
-            quote! { #name<#(#generics),*> }
+            let name = format_ident(&self.name[..self.name.len() - 2]);
+            let generics = self.generics.iter().map(|g| g.to_stream(calling_namespace));
+            quote! { #namespace#name<#(#generics),*> }
         }
     }
 
-    pub fn abi_ident(&self) -> TokenStream {
+    pub fn to_abi_stream(&self, calling_namespace: &str) -> TokenStream {
+        let namespace = self.to_namespace_stream(calling_namespace);
+
         if self.generics.is_empty() {
-            let name = write_abi_ident(&self.name);
-            quote! { #name }
+            let name = format_abi_ident(&self.name);
+            quote! { #namespace#name }
         } else {
-            let name = write_abi_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_stream());
-            quote! { #name<#(#generics),*> }
+            let name = format_abi_ident(&self.name[..self.name.len() - 2]);
+            let generics = self.generics.iter().map(|g| g.to_stream(calling_namespace));
+            quote! { #namespace#name<#(#generics),*> }
         }
     }
 
@@ -138,7 +143,7 @@ impl TypeName {
 
         let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
             let name = format_ident!("__{}", count);
-            let generic = generic.to_stream();
+            let generic = generic.to_stream("");
             quote! { #name: std::marker::PhantomData::<#generic>, }
         });
 
@@ -147,11 +152,38 @@ impl TypeName {
 
     pub fn constraints(&self) -> TokenStream {
         let generics = self.generics.iter().map(|generic| {
-            let generic = generic.to_stream();
+            let generic = generic.to_stream("");
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         });
 
         TokenStream::from_iter(generics)
+    }
+
+    fn to_namespace_stream(&self, calling_namespace: &str) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        let mut source = calling_namespace.split('.').peekable();
+        let mut destination = self.namespace.split('.').peekable();
+
+        while source.peek() == destination.peek() {
+            if source.next().is_none() {
+                break;
+            }
+            destination.next();
+        }
+
+        let count = source.count();
+
+        if count > 0 {
+            tokens.resize(tokens.len() + count, quote! {super::});
+        }
+
+        tokens.extend(destination.map(|destination| {
+            let destination = format_ident(&to_snake(destination, MethodKind::Normal));
+            quote! { #destination:: }
+        }));
+
+        TokenStream::from_iter(tokens)
     }
 }
 

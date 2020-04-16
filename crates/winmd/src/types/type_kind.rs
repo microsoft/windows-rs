@@ -3,7 +3,7 @@ use crate::codes::*;
 use crate::flags::*;
 use crate::tables::*;
 use crate::types::*;
-use crate::{write_ident, TypeReader};
+use crate::{format_ident, TypeReader};
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -149,7 +149,7 @@ impl TypeKind {
         }
     }
 
-    pub fn to_stream(&self) -> TokenStream {
+    pub fn to_stream(&self, calling_namespace: &str) -> TokenStream {
         match self {
             Self::Bool => quote! { bool },
             Self::Char => quote! { u16 },
@@ -166,14 +166,49 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
-            Self::Class(name) => name.ident(),
-            Self::Interface(name) => name.ident(),
-            Self::Enum(name) => name.ident(),
-            Self::Struct(name) => name.ident(),
-            Self::Delegate(name) => name.ident(),
+            Self::Class(name) => name.to_stream(calling_namespace),
+            Self::Interface(name) => name.to_stream(calling_namespace),
+            Self::Enum(name) => name.to_stream(calling_namespace),
+            Self::Struct(name) => name.to_stream(calling_namespace),
+            Self::Delegate(name) => name.to_stream(calling_namespace),
             Self::Generic(name) => {
-                let name = write_ident(name);
+                let name = format_ident(name);
                 quote! { #name }
+            }
+        }
+    }
+
+    pub fn to_abi_stream(&self, calling_namespace: &str) -> TokenStream {
+        match self {
+            Self::Bool => quote! { bool, },
+            Self::Char => quote! { u16, },
+            Self::I8 => quote! { i8, },
+            Self::U8 => quote! { u8, },
+            Self::I16 => quote! { i16, },
+            Self::U16 => quote! { u16, },
+            Self::I32 => quote! { i32, },
+            Self::U32 => quote! { u32, },
+            Self::I64 => quote! { i64, },
+            Self::U64 => quote! { u64, },
+            Self::F32 => quote! { f32, },
+            Self::F64 => quote! { f64, },
+            Self::String => quote! { ::winrt::RawPtr, },
+            Self::Object => quote! { ::winrt::RawPtr, },
+            Self::Guid => quote! { ::winrt::Guid, },
+            Self::Class(_) => quote! { ::winrt::RawPtr, },
+            Self::Interface(_) => quote! { ::winrt::RawPtr, },
+            Self::Enum(name) => {
+                let name = name.to_stream(calling_namespace);
+                quote! { #name, }
+            }
+            Self::Struct(name) => {
+                let name = name.to_stream(calling_namespace);
+                quote! { #name, }
+            }
+            Self::Delegate(_) => quote! { ::winrt::RawPtr, },
+            Self::Generic(name) => {
+                let name = format_ident(name);
+                quote! { <#name as ::winrt::RuntimeType>::Abi, }
             }
         }
     }

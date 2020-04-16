@@ -1,6 +1,6 @@
 use crate::tables::*;
 use crate::types::*;
-use crate::{write_ident, TypeReader};
+use crate::{format_ident, TypeReader};
 
 use proc_macro2::TokenStream;
 use quote::quote;
@@ -33,11 +33,11 @@ impl Struct {
     }
 
     pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.ident();
+        let name = self.name.to_stream(&self.name.namespace);
 
         let fields = self.fields.iter().map(|field| {
-            let name = write_ident(&field.0);
-            let kind = field.1.to_stream();
+            let name = format_ident(&field.0);
+            let kind = field.1.to_stream(&self.name.namespace);
             quote! {
                 pub #name: #kind
             }

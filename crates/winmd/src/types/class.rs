@@ -93,7 +93,7 @@ impl Class {
     }
 
     pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.ident();
+        let name = self.name.to_stream(&self.name.namespace);
         let type_name = self.type_name(&name);
         let methods = self.projected_methods();
 
@@ -131,9 +131,7 @@ impl Class {
 
     // TODO: this should share an implementation with interface methods
     fn projected_methods(&self) -> TokenStream {
-        quote! {
-            
-        }
+        quote! {}
     }
 }
 
