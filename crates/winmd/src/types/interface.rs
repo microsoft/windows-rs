@@ -49,7 +49,7 @@ impl Interface {
         let default_interface = self.interfaces.last().unwrap();
         let guid = default_interface.guid.to_tokens();
 
-        let methods = to_method_tokens(&self.interfaces);
+        let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
 
         quote! {

@@ -4,7 +4,6 @@ use crate::TypeReader;
 use proc_macro2::TokenStream;
 use std::collections::*;
 use std::iter::FromIterator;
-use quote::quote;
 
 #[derive(Debug)]
 pub struct RequiredInterface {
@@ -120,20 +119,27 @@ fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
     InterfaceKind::NonDefault
 }
 
-pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
+pub fn to_method_tokens(calling_namespace: &str, interfaces: &Vec<RequiredInterface>) -> TokenStream {
+    let mut tokens = Vec::new();
     let mut names = BTreeSet::new();
 
     for interface in interfaces {
         for method in &interface.methods {
-            // If there are any collisions just drop and caller can QI for the right interface.
+            // If there are any collisions just drop and caller can QI for the actual interface.
             if names.contains(&method.name) {
                 continue;
             }
 
             names.insert(&method.name);
-            //let method_name = format_ident(&method.name);
+
+            tokens.push(match interface.kind {
+                InterfaceKind::Default => method.to_default_tokens(calling_namespace),
+                InterfaceKind::NonDefault | InterfaceKind::Overrides => method.to_non_default_tokens(calling_namespace),
+                InterfaceKind::Constructors => method.to_constructor_tokens(calling_namespace),
+                InterfaceKind::Statics => method.to_static_tokens(calling_namespace),
+            });
         }
     }
 
-    quote! {}
+    TokenStream::from_iter(tokens)
 }

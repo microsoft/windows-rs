@@ -177,6 +177,46 @@ impl Method {
             pub #name: extern "system" fn(::winrt::RawPtr, #params) -> ::winrt::ErrorCode,
         }
     }
+
+    pub fn to_default_tokens(&self, calling_namespace: &str) -> TokenStream {
+        // let method_name = format_ident(&method.name);
+
+        // // TODO: don't calculate these for all if they're only used for some interface kinds
+        // let interface_name = interface.name.to_tokens(calling_namespace);
+        // let params = quote! {};
+        // let constraints = quote! {};
+        // let args = quote! {};
+        // let result = quote! {};
+
+        // match interface.kind {
+        //     InterfaceKind::Default => {
+
+        //     }
+        //     InterfaceKind::NonDefault | InterfaceKind::Overrides => {
+
+        //     }
+        //     InterfaceKind::Constructors => {
+
+        //     }
+        //     InterfaceKind::Statics => {
+
+        //     }
+        // }
+
+        quote! {}
+    }
+
+    pub fn to_non_default_tokens(&self, calling_namespace: &str) -> TokenStream {
+        quote! {}
+    }
+
+    pub fn to_constructor_tokens(&self, calling_namespace: &str) -> TokenStream {
+        quote! {}
+    }
+
+    pub fn to_static_tokens(&self, calling_namespace: &str) -> TokenStream {
+        quote! {}
+    }
 }
 
 #[cfg(test)]
