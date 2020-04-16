@@ -48,11 +48,7 @@ impl Interface {
         let guid = default_interface.guid.to_tokens();
 
         let projected_methods = self.projected_methods();
-
-        let abi_methods = default_interface
-            .methods
-            .iter()
-            .map(|method| method.to_abi_tokens(&default_interface.name.namespace));
+        let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
 
         quote! {
             #[repr(transparent)]
@@ -70,7 +66,7 @@ impl Interface {
             #[repr(C)]
             pub struct #abi_name where #constraints {
                 __base: [usize; 6],
-                #(#abi_methods)*
+                #abi_methods
                 #phantoms
             }
 

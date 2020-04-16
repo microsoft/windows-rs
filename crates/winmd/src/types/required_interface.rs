@@ -1,7 +1,9 @@
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
+use proc_macro2::TokenStream;
 use std::collections::*;
+use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct RequiredInterface {
@@ -66,6 +68,14 @@ impl RequiredInterface {
             .into_iter()
             .map(move |(name, kind)| RequiredInterface::from_type_name_and_kind(reader, name, kind))
             .collect()
+    }
+
+    pub fn to_abi_method_tokens(&self, calling_namespace: &str) -> TokenStream {
+        TokenStream::from_iter(
+            self.methods
+                .iter()
+                .map(|method| method.to_abi_tokens(calling_namespace)),
+        )
     }
 }
 
