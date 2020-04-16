@@ -4,6 +4,7 @@ use crate::TypeReader;
 use proc_macro2::TokenStream;
 use std::collections::*;
 use std::iter::FromIterator;
+use quote::quote;
 
 #[derive(Debug)]
 pub struct RequiredInterface {
@@ -60,18 +61,18 @@ impl RequiredInterface {
         }
     }
 
-    pub fn append(reader: &TypeReader, name: &TypeName, all: &mut Vec<RequiredInterface>) {
-        let mut interfaces = RequiredInterfaces::default();
-        interfaces.insert_required(reader, name);
+    pub fn append(reader: &TypeReader, name: &TypeName, interfaces: &mut Vec<RequiredInterface>) {
+        let mut map = RequiredInterfaces::default();
+        map.insert_required(reader, name);
 
         // Ensures that the default interface (if any) is first in line.
-        for (name, kind) in interfaces.0 {
+        for (name, kind) in map.0 {
             let required = RequiredInterface::from_type_name_and_kind(reader, name, kind);
 
             if kind == InterfaceKind::Default {
-                all.insert(0, required);
+                interfaces.insert(0, required);
             } else {
-                all.push(required);
+                interfaces.push(required);
             }
         }
     }
@@ -117,4 +118,22 @@ fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
     }
 
     InterfaceKind::NonDefault
+}
+
+pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
+    let mut names = BTreeSet::new();
+
+    for interface in interfaces {
+        for method in &interface.methods {
+            // If there are any collisions just drop and caller can QI for the right interface.
+            if names.contains(&method.name) {
+                continue;
+            }
+
+            names.insert(&method.name);
+            //let method_name = format_ident(&method.name);
+        }
+    }
+
+    quote! {}
 }

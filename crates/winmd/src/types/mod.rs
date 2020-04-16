@@ -19,7 +19,7 @@ pub(crate) use method::{Method, MethodKind};
 pub(crate) use r#enum::Enum;
 pub(crate) use r#struct::Struct;
 pub(crate) use r#type::Type;
-pub(crate) use required_interface::{InterfaceKind, RequiredInterface};
+pub(crate) use required_interface::*;
 pub(crate) use type_guid::TypeGuid;
 pub(crate) use type_kind::TypeKind;
 pub(crate) use type_name::TypeName;

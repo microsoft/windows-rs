@@ -3,7 +3,6 @@ use crate::types::*;
 use crate::*;
 use proc_macro2::TokenStream;
 use quote::quote;
-use std::collections::*;
 
 #[derive(Debug)]
 pub struct Interface {
@@ -50,7 +49,7 @@ impl Interface {
         let default_interface = self.interfaces.last().unwrap();
         let guid = default_interface.guid.to_tokens();
 
-        let projected_methods = self.projected_methods();
+        let methods = to_method_tokens(&self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
 
         quote! {
@@ -61,7 +60,7 @@ impl Interface {
                 #phantoms
             }
             impl<#constraints> #name {
-                #projected_methods
+                #methods
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
@@ -73,28 +72,6 @@ impl Interface {
                 #phantoms
             }
         }
-    }
-
-    // TODO: this should share an implementation with interface methods
-    fn projected_methods(&self) -> TokenStream {
-        let mut names = BTreeSet::new();
-
-        // Must start with the default interface to avoid dropping methods from the default interface due to a collision.
-        debug_assert!(self.interfaces[0].kind == InterfaceKind::Default);
-
-        for interface in &self.interfaces {
-            for method in &interface.methods {
-                // If there are any collisions just drop and caller can QI for the right interface.
-                if names.contains(&method.name) {
-                    continue;
-                }
-
-                names.insert(&method.name);
-                //let method_name = format_ident(&method.name);
-            }
-        }
-
-        quote! {}
     }
 }
 

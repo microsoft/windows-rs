@@ -96,7 +96,7 @@ impl Class {
     pub fn to_tokens(&self) -> TokenStream {
         let name = self.name.to_tokens(&self.name.namespace);
         let type_name = self.type_name(&name);
-        let methods = self.projected_methods();
+        let methods = to_method_tokens(&self.interfaces);
 
         if let Some(default_interface) = self.default_interface() {
             let guid = default_interface.guid.to_tokens();
@@ -114,7 +114,7 @@ impl Class {
         } else {
             quote! {
                 pub struct #name {}
-                #methods
+                impl #name { #methods }
                 #type_name
             }
         }
@@ -128,11 +128,6 @@ impl Class {
                 const NAME: &'static str = #runtime_name;
             }
         }
-    }
-
-    // TODO: this should share an implementation with interface methods
-    fn projected_methods(&self) -> TokenStream {
-        quote! {}
     }
 }
 
