@@ -2,8 +2,10 @@ use crate::case;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
+use crate::*;
 use proc_macro2::TokenStream;
 use quote::quote;
+use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct Method {
@@ -32,12 +34,12 @@ pub struct Param {
 }
 
 impl Param {
-    pub fn to_stream(&self) -> TokenStream {
+    pub fn to_tokens(&self) -> TokenStream {
         quote! {}
     }
 
-    pub fn to_abi_stream(&self, calling_namespace: &str) -> TokenStream {
-        let tokens = self.kind.to_abi_stream(calling_namespace);
+    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
+        let tokens = self.kind.to_abi_tokens(calling_namespace);
 
         if self.array {
             if self.input {
@@ -160,6 +162,20 @@ impl Method {
         }
 
         case::to_snake(method.name(reader), MethodKind::Normal)
+    }
+
+    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
+        let name = format_ident(&self.name);
+        let params = TokenStream::from_iter(
+            self.params
+                .iter()
+                .chain(self.return_type.iter())
+                .map(|param| param.to_abi_tokens(calling_namespace)),
+        );
+
+        quote! {
+            pub #name: extern "system" fn(::winrt::RawPtr, #params) -> ::winrt::ErrorCode,
+        }
     }
 }
 

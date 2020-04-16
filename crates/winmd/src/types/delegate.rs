@@ -29,8 +29,8 @@ impl Delegate {
         self.method.dependencies()
     }
 
-    pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.to_stream(&self.name.namespace);
+    pub fn to_tokens(&self) -> TokenStream {
+        let name = self.name.to_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
 
         quote! {

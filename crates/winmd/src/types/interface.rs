@@ -3,7 +3,7 @@ use crate::types::*;
 use crate::*;
 use proc_macro2::TokenStream;
 use quote::quote;
-use std::iter::FromIterator;
+use std::collections::*;
 
 #[derive(Debug)]
 pub struct Interface {
@@ -39,16 +39,20 @@ impl Interface {
         dependencies
     }
 
-    pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.to_stream(&self.name.namespace);
-        let abi_name = self.name.to_abi_stream(&self.name.namespace);
+    pub fn to_tokens(&self) -> TokenStream {
+        let name = self.name.to_tokens(&self.name.namespace);
+        let abi_name = self.name.to_abi_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
         let default_interface = self.interfaces.last().unwrap();
-        let guid = default_interface.guid.to_stream();
+        let guid = default_interface.guid.to_tokens();
 
         let projected_methods = self.projected_methods();
-        let abi_methods = self.abi_methods(default_interface);
+
+        let abi_methods = default_interface
+            .methods
+            .iter()
+            .map(|method| method.to_abi_tokens(&default_interface.name.namespace));
 
         quote! {
             #[repr(transparent)]
@@ -66,7 +70,7 @@ impl Interface {
             #[repr(C)]
             pub struct #abi_name where #constraints {
                 __base: [usize; 6],
-                #abi_methods
+                #(#abi_methods)*
                 #phantoms
             }
 
@@ -75,31 +79,24 @@ impl Interface {
 
     // TODO: this should share an implementation with interface methods
     fn projected_methods(&self) -> TokenStream {
-        // Start withe default interface - if there are any collisions just drop and assume dev will QI for the right interface
-        //let mut names = BTreeSet::new();
+        let mut names = BTreeSet::new();
 
-        quote! {}
-    }
+        // Must start with the default interface to avoid dropping methods from the default interface due to a collision.
+        debug_assert!(self.interfaces.last().unwrap().kind == InterfaceKind::Default);
 
-    fn abi_methods(&self, interface: &RequiredInterface) -> TokenStream {
-        let mut tokens = Vec::new();
+        for interface in self.interfaces.iter().rev() {
+            for method in &interface.methods {
+                // If there are any collisions just drop and caller can QI for the right interface.
+                if names.contains(&method.name) {
+                    continue;
+                }
 
-        for method in &interface.methods {
-            let name = format_ident(&method.name);
-            let params = TokenStream::from_iter(
-                method
-                    .params
-                    .iter()
-                    .chain(method.return_type.iter())
-                    .map(|param| param.to_abi_stream(&interface.name.namespace)),
-            );
-
-            tokens.push(quote! {
-                pub #name: extern "system" fn(winrt::RawPtr, #params) -> winrt::ErrorCode,
-            });
+                names.insert(&method.name);
+                //let method_name = format_ident(&method.name);
+            }
         }
 
-        TokenStream::from_iter(tokens)
+        quote! {}
     }
 }
 

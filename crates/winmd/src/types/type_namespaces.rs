@@ -13,13 +13,13 @@ use std::iter::FromIterator;
 pub struct TypeNamespaces(pub BTreeMap<String, TypeTree>);
 
 impl TypeNamespaces {
-    pub fn to_stream(&self) -> TokenStream {
+    pub fn to_tokens(&self) -> TokenStream {
         let mut tokens = Vec::new();
 
         for (name, tree) in self.0.iter() {
             let name = case::to_snake(name, MethodKind::Normal);
             let name = format_ident(&name);
-            let tree = tree.to_stream();
+            let tree = tree.to_tokens();
 
             tokens.push(quote! {
                 pub mod #name {

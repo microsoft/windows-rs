@@ -86,7 +86,7 @@ impl TypeGuid {
         ])
     }
 
-    pub fn to_stream(&self) -> TokenStream {
+    pub fn to_tokens(&self) -> TokenStream {
         let mut iter = self.0.iter().map(|value| match value {
             GuidConstant::U32(value) => Literal::u32_unsuffixed(*value),
             GuidConstant::U16(value) => Literal::u16_unsuffixed(*value),
