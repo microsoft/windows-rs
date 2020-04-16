@@ -15,7 +15,7 @@ pub use type_limits::TypeLimits;
 pub use type_reader::TypeReader;
 pub use type_stage::TypeStage;
 
-fn write_ident(name: &str) -> proc_macro2::Ident {
+fn format_ident(name: &str) -> proc_macro2::Ident {
     if name == "Self" {
         quote::format_ident!("{}_", name)
     } else {
@@ -23,7 +23,7 @@ fn write_ident(name: &str) -> proc_macro2::Ident {
     }
 }
 
-fn write_abi_ident(name: &str) -> proc_macro2::Ident {
+fn format_abi_ident(name: &str) -> proc_macro2::Ident {
     quote::format_ident!("abi_{}", name)
 }
 

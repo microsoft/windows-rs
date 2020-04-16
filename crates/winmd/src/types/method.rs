@@ -2,6 +2,8 @@ use crate::case;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
+use proc_macro2::TokenStream;
+use quote::quote;
 
 #[derive(Debug)]
 pub struct Method {
@@ -27,6 +29,30 @@ pub struct Param {
     pub array: bool,
     pub input: bool,
     pub by_ref: bool,
+}
+
+impl Param {
+    pub fn to_stream(&self) -> TokenStream {
+        quote! {}
+    }
+
+    pub fn to_abi_stream(&self, calling_namespace: &str) -> TokenStream {
+        let tokens = self.kind.to_abi_stream(calling_namespace);
+
+        if self.array {
+            if self.input {
+                quote! { u32, *const #tokens }
+            } else if self.by_ref {
+                quote! { *mut u32, *mut *mut #tokens }
+            } else {
+                quote! { u32, *mut #tokens }
+            }
+        } else if self.input {
+            tokens
+        } else {
+            quote! { *mut #tokens }
+        }
+    }
 }
 
 impl Method {

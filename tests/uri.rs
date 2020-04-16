@@ -2,7 +2,7 @@ winrt::import!(
     dependencies
         "os"
     modules
-        "windows.foundation"
+        "windows.foundation.collections"
 );
 
 #[test]
