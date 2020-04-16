@@ -14,11 +14,14 @@ pub struct Interface {
 impl Interface {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces = RequiredInterface::all(reader, &name);
+        let mut interfaces = Vec::new();
 
+        // Ensures that the default interface is first in line.
         let mut default_interface = RequiredInterface::from_type_def(reader, def);
         default_interface.kind = InterfaceKind::Default;
         interfaces.push(default_interface);
+
+        RequiredInterface::append(reader, &name, &mut interfaces);
 
         Self { name, interfaces }
     }
@@ -69,7 +72,6 @@ impl Interface {
                 #abi_methods
                 #phantoms
             }
-
         }
     }
 
@@ -78,9 +80,9 @@ impl Interface {
         let mut names = BTreeSet::new();
 
         // Must start with the default interface to avoid dropping methods from the default interface due to a collision.
-        debug_assert!(self.interfaces.last().unwrap().kind == InterfaceKind::Default);
+        debug_assert!(self.interfaces[0].kind == InterfaceKind::Default);
 
-        for interface in self.interfaces.iter().rev() {
+        for interface in &self.interfaces {
             for method in &interface.methods {
                 // If there are any collisions just drop and caller can QI for the right interface.
                 if names.contains(&method.name) {

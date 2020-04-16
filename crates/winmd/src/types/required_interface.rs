@@ -60,14 +60,20 @@ impl RequiredInterface {
         }
     }
 
-    pub fn all(reader: &TypeReader, name: &TypeName) -> Vec<RequiredInterface> {
+    pub fn append(reader: &TypeReader, name: &TypeName, all: &mut Vec<RequiredInterface>) {
         let mut interfaces = RequiredInterfaces::default();
         interfaces.insert_required(reader, name);
-        interfaces
-            .0
-            .into_iter()
-            .map(move |(name, kind)| RequiredInterface::from_type_name_and_kind(reader, name, kind))
-            .collect()
+
+        // Ensures that the default interface (if any) is first in line.
+        for (name, kind) in interfaces.0 {
+            let required = RequiredInterface::from_type_name_and_kind(reader, name, kind);
+
+            if kind == InterfaceKind::Default {
+                all.insert(0, required);
+            } else {
+                all.push(required);
+            }
+        }
     }
 
     pub fn to_abi_method_tokens(&self, calling_namespace: &str) -> TokenStream {
