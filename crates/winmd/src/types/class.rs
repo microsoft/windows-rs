@@ -92,13 +92,13 @@ impl Class {
             .find(|interface| interface.kind == InterfaceKind::Default)
     }
 
-    pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.to_stream(&self.name.namespace);
+    pub fn to_tokens(&self) -> TokenStream {
+        let name = self.name.to_tokens(&self.name.namespace);
         let type_name = self.type_name(&name);
         let methods = self.projected_methods();
 
         if let Some(default_interface) = self.default_interface() {
-            let guid = default_interface.guid.to_stream();
+            let guid = default_interface.guid.to_tokens();
 
             quote! {
                 #[repr(transparent)]

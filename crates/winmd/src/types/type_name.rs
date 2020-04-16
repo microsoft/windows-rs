@@ -110,7 +110,7 @@ impl TypeName {
             .collect()
     }
 
-    pub fn to_stream(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
         let namespace = self.to_namespace_stream(calling_namespace);
 
         if self.generics.is_empty() {
@@ -118,12 +118,12 @@ impl TypeName {
             quote! { #namespace#name }
         } else {
             let name = format_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_stream(calling_namespace));
+            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
             quote! { #namespace#name<#(#generics),*> }
         }
     }
 
-    pub fn to_abi_stream(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
         let namespace = self.to_namespace_stream(calling_namespace);
 
         if self.generics.is_empty() {
@@ -131,7 +131,7 @@ impl TypeName {
             quote! { #namespace#name }
         } else {
             let name = format_abi_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_stream(calling_namespace));
+            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
             quote! { #namespace#name<#(#generics),*> }
         }
     }
@@ -143,7 +143,7 @@ impl TypeName {
 
         let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
             let name = format_ident!("__{}", count);
-            let generic = generic.to_stream("");
+            let generic = generic.to_tokens("");
             quote! { #name: std::marker::PhantomData::<#generic>, }
         });
 
@@ -152,7 +152,7 @@ impl TypeName {
 
     pub fn constraints(&self) -> TokenStream {
         let generics = self.generics.iter().map(|generic| {
-            let generic = generic.to_stream("");
+            let generic = generic.to_tokens("");
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         });
 

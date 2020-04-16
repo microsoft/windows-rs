@@ -32,12 +32,12 @@ impl Struct {
             .collect()
     }
 
-    pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.to_stream(&self.name.namespace);
+    pub fn to_tokens(&self) -> TokenStream {
+        let name = self.name.to_tokens(&self.name.namespace);
 
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
-            let kind = field.1.to_stream(&self.name.namespace);
+            let kind = field.1.to_tokens(&self.name.namespace);
             quote! {
                 pub #name: #kind
             }

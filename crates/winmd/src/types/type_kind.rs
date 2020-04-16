@@ -149,7 +149,7 @@ impl TypeKind {
         }
     }
 
-    pub fn to_stream(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
         match self {
             Self::Bool => quote! { bool },
             Self::Char => quote! { u16 },
@@ -166,11 +166,11 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
-            Self::Class(name) => name.to_stream(calling_namespace),
-            Self::Interface(name) => name.to_stream(calling_namespace),
-            Self::Enum(name) => name.to_stream(calling_namespace),
-            Self::Struct(name) => name.to_stream(calling_namespace),
-            Self::Delegate(name) => name.to_stream(calling_namespace),
+            Self::Class(name) => name.to_tokens(calling_namespace),
+            Self::Interface(name) => name.to_tokens(calling_namespace),
+            Self::Enum(name) => name.to_tokens(calling_namespace),
+            Self::Struct(name) => name.to_tokens(calling_namespace),
+            Self::Delegate(name) => name.to_tokens(calling_namespace),
             Self::Generic(name) => {
                 let name = format_ident(name);
                 quote! { #name }
@@ -178,7 +178,7 @@ impl TypeKind {
         }
     }
 
-    pub fn to_abi_stream(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
         match self {
             Self::Bool => quote! { bool, },
             Self::Char => quote! { u16, },
@@ -198,11 +198,11 @@ impl TypeKind {
             Self::Class(_) => quote! { ::winrt::RawPtr, },
             Self::Interface(_) => quote! { ::winrt::RawPtr, },
             Self::Enum(name) => {
-                let name = name.to_stream(calling_namespace);
+                let name = name.to_tokens(calling_namespace);
                 quote! { #name, }
             }
             Self::Struct(name) => {
-                let name = name.to_stream(calling_namespace);
+                let name = name.to_tokens(calling_namespace);
                 quote! { #name, }
             }
             Self::Delegate(_) => quote! { ::winrt::RawPtr, },

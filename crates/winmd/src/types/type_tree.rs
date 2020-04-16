@@ -31,12 +31,12 @@ impl TypeTree {
     }
 
     /// Turn the tree into a token stream for code generation
-    pub fn to_stream(&self) -> TokenStream {
+    pub fn to_tokens(&self) -> TokenStream {
         TokenStream::from_iter(
             self.types
                 .iter()
-                .map(|t| t.to_stream())
-                .chain(std::iter::once(self.namespaces.to_stream())),
+                .map(|t| t.to_tokens())
+                .chain(std::iter::once(self.namespaces.to_tokens())),
         )
     }
 }

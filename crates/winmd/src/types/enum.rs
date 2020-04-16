@@ -40,8 +40,8 @@ impl Enum {
         Self { name, fields }
     }
 
-    pub fn to_stream(&self) -> TokenStream {
-        let name = self.name.to_stream(&self.name.namespace);
+    pub fn to_tokens(&self) -> TokenStream {
+        let name = self.name.to_tokens(&self.name.namespace);
         let default = format_ident(&self.fields[0].0);
 
         let repr = match self.fields[0].1 {
