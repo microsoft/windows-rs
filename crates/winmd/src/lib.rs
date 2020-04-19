@@ -6,14 +6,18 @@ mod flags;
 mod row;
 mod tables;
 mod type_limits;
+mod type_namespaces;
 mod type_reader;
 mod type_stage;
+mod type_tree;
 mod types;
 
 pub mod load_winmd;
 pub use type_limits::TypeLimits;
+pub(crate) use type_namespaces::TypeNamespaces;
 pub use type_reader::TypeReader;
 pub use type_stage::TypeStage;
+pub(crate) use type_tree::TypeTree;
 
 fn format_ident(name: &str) -> proc_macro2::Ident {
     if name == "Self" {

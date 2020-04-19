@@ -87,19 +87,13 @@ impl Class {
             .collect()
     }
 
-    fn default_interface(&self) -> Option<&RequiredInterface> {
-        self.interfaces
-            .iter()
-            .find(|interface| interface.kind == InterfaceKind::Default)
-    }
-
     pub fn to_tokens(&self) -> TokenStream {
         let name = self.name.to_tokens(&self.name.namespace);
         let type_name = self.type_name(&name);
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
 
-        if let Some(default_interface) = self.default_interface() {
-            let guid = default_interface.guid.to_tokens();
+        if self.interfaces[0].kind == InterfaceKind::Default {
+            let guid = self.interfaces[0].guid.to_tokens();
 
             quote! {
                 #[repr(transparent)]

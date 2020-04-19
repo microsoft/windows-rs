@@ -119,7 +119,10 @@ fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
     InterfaceKind::NonDefault
 }
 
-pub fn to_method_tokens(calling_namespace: &str, interfaces: &Vec<RequiredInterface>) -> TokenStream {
+pub fn to_method_tokens(
+    calling_namespace: &str,
+    interfaces: &Vec<RequiredInterface>,
+) -> TokenStream {
     let mut tokens = Vec::new();
     let mut names = BTreeSet::new();
 
@@ -133,8 +136,10 @@ pub fn to_method_tokens(calling_namespace: &str, interfaces: &Vec<RequiredInterf
             names.insert(&method.name);
 
             tokens.push(match interface.kind {
-                InterfaceKind::Default => method.to_default_tokens(calling_namespace),
-                InterfaceKind::NonDefault | InterfaceKind::Overrides => method.to_non_default_tokens(calling_namespace),
+                InterfaceKind::Default => method.to_default_tokens(calling_namespace, interface),
+                InterfaceKind::NonDefault | InterfaceKind::Overrides => {
+                    method.to_non_default_tokens(calling_namespace)
+                }
                 InterfaceKind::Constructors => method.to_constructor_tokens(calling_namespace),
                 InterfaceKind::Statics => method.to_static_tokens(calling_namespace),
             });

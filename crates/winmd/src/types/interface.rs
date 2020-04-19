@@ -46,7 +46,8 @@ impl Interface {
         let abi_name = self.name.to_abi_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
-        let default_interface = self.interfaces.last().unwrap();
+        let default_interface = &self.interfaces[0];
+        debug_assert!(default_interface.kind == InterfaceKind::Default);
         let guid = default_interface.guid.to_tokens();
 
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
