@@ -99,11 +99,20 @@ impl Class {
                 #[repr(transparent)]
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: ::winrt::IUnknown }
+                impl #name { #methods }
+                #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
-                impl #name { #methods }
-                #type_name
+                impl ::winrt::RuntimeType for #name {
+                    type Abi = ::winrt::RawPtr;
+                    fn abi(&self) -> Self::Abi {
+                        self.ptr.get()
+                    }
+                    fn set_abi(&mut self) -> *mut Self::Abi {
+                        self.ptr.set()
+                    }
+                }
             }
         } else {
             quote! {

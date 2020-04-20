@@ -32,10 +32,21 @@ impl Delegate {
     pub fn to_tokens(&self) -> TokenStream {
         let name = self.name.to_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
+        let constraints = self.name.constraints();
 
         quote! {
-            pub struct #name {
+            pub struct #name where #constraints {
+                ptr: ::winrt::IUnknown,
                 #phantoms
+            }
+            impl<#constraints> ::winrt::RuntimeType for #name {
+                type Abi = ::winrt::RawPtr;
+                fn abi(&self) -> Self::Abi {
+                    self.ptr.get()
+                }
+                fn set_abi(&mut self) -> *mut Self::Abi {
+                    self.ptr.set()
+                }
             }
         }
     }

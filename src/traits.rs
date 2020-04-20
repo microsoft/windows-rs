@@ -37,7 +37,6 @@ unsafe impl RuntimeCopy for i64 {}
 unsafe impl RuntimeCopy for u64 {}
 unsafe impl RuntimeCopy for f32 {}
 unsafe impl RuntimeCopy for f64 {}
-unsafe impl RuntimeCopy for Guid {}
 
 impl<T: RuntimeCopy> RuntimeType for T {
     type Abi = Self;

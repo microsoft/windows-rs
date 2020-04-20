@@ -72,6 +72,15 @@ impl Interface {
                 #abi_methods
                 #phantoms
             }
+            impl<#constraints> ::winrt::RuntimeType for #name {
+                type Abi = ::winrt::RawPtr;
+                fn abi(&self) -> Self::Abi {
+                    self.ptr.get()
+                }
+                fn set_abi(&mut self) -> *mut Self::Abi {
+                    self.ptr.set()
+                }
+            }
         }
     }
 }

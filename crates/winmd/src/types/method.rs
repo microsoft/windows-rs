@@ -154,6 +154,10 @@ impl Method {
         )
     }
 
+    fn to_abi_arg_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()))
+    }
+
     fn to_constraint_tokens(&self, calling_namespace: &str) -> TokenStream {
         let mut tokens = Vec::new();
 
@@ -193,15 +197,20 @@ impl Method {
         let method_name = format_ident(&self.name);
         let params = self.to_param_tokens(calling_namespace);
         let constraints = self.to_constraint_tokens(calling_namespace);
-        let args = quote! {};
+        let args = self.to_abi_arg_tokens();
         let abi_name = interface.name.to_abi_tokens(calling_namespace);
 
         if let Some(return_type) = &self.return_type {
+            let return_arg = return_type.to_abi_return_arg_tokens(calling_namespace);
             let return_type = return_type.to_return_tokens(calling_namespace);
+
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     unsafe {
-                        panic!();
+                        let mut __ok = std::mem::zeroed();
+                        ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
+                            self.ptr.get(), #args #return_arg
+                        ).and_then(|| std::mem::transmute_copy(&__ok))
                     }
                 }
             }
@@ -209,7 +218,6 @@ impl Method {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
                     unsafe {
-                        panic!();
                         ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
                             self.ptr.get(), #args
                         ).ok()
@@ -219,15 +227,15 @@ impl Method {
         }
     }
 
-    pub fn to_non_default_tokens(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_non_default_tokens(&self, _calling_namespace: &str) -> TokenStream {
         quote! {}
     }
 
-    pub fn to_constructor_tokens(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_constructor_tokens(&self, _calling_namespace: &str) -> TokenStream {
         quote! {}
     }
 
-    pub fn to_static_tokens(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_static_tokens(&self, _calling_namespace: &str) -> TokenStream {
         quote! {}
     }
 }
