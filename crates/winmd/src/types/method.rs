@@ -1,4 +1,4 @@
-use crate::case;
+use crate::case::to_snake;
 use crate::tables::{AttributeArg, MethodDef, TypeDef};
 use crate::types::{Param, RequiredInterface, TypeKind};
 use crate::TypeReader;
@@ -83,7 +83,7 @@ impl Method {
 
         for param in method.params(reader) {
             if return_type.is_none() || param.sequence(reader) != 0 {
-                let name = param.name(reader).to_string();
+                let name = to_snake(param.name(reader), MethodKind::Normal);
                 let input = param.flags(reader).input();
 
                 blob.read_modifiers();
@@ -151,6 +151,14 @@ impl Method {
                 .iter()
                 .enumerate()
                 .map(|(position, param)| param.to_tokens(calling_namespace, position)),
+        )
+    }
+
+    fn to_arg_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(
+            self.params
+                .iter()
+                .map(|param| {let name = format_ident(&param.name); quote! { #name, }})
         )
     }
 
@@ -227,8 +235,25 @@ impl Method {
         }
     }
 
-    pub fn to_non_default_tokens(&self, _calling_namespace: &str) -> TokenStream {
-        quote! {}
+    pub fn to_non_default_tokens(&self, calling_namespace: &str, interface: &RequiredInterface) -> TokenStream {
+        let method_name = format_ident(&self.name);
+        let params = self.to_param_tokens(calling_namespace);
+        let constraints = self.to_constraint_tokens(calling_namespace);
+        let args = self.to_arg_tokens();
+        let interface = interface.name.to_tokens(calling_namespace);
+
+        let return_type = if let Some(return_type) = &self.return_type {
+            return_type.to_return_tokens(calling_namespace)
+        } else {
+            quote! { () }
+        };
+
+
+        quote! {
+            pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
+                <#interface as From<&Self>>::from(self).#method_name(#args)
+            }
+        }
     }
 
     pub fn to_constructor_tokens(&self, _calling_namespace: &str) -> TokenStream {

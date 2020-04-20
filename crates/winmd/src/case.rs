@@ -89,5 +89,9 @@ mod tests {
             to_snake("Socks", MethodKind::Remove),
             "remove_socks".to_owned()
         );
+        assert_eq!(
+            to_snake("appointmentId", MethodKind::Normal),
+            "appointment_id".to_owned()
+        )
     }
 }
