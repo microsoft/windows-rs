@@ -26,7 +26,7 @@ impl RuntimeType for Guid {
     fn abi(&self) -> Self::Abi {
         self.clone()
     }
-    
+
     fn set_abi(&mut self) -> *mut Self::Abi {
         self as *mut Self::Abi
     }
