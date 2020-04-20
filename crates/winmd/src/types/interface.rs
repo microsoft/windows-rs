@@ -3,7 +3,6 @@ use crate::types::*;
 use crate::*;
 use proc_macro2::TokenStream;
 use quote::quote;
-use std::collections::*;
 
 #[derive(Debug)]
 pub struct Interface {
@@ -14,11 +13,14 @@ pub struct Interface {
 impl Interface {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces = RequiredInterface::all(reader, &name);
+        let mut interfaces = Vec::new();
 
+        // Ensures that the default interface is first in line.
         let mut default_interface = RequiredInterface::from_type_def(reader, def);
         default_interface.kind = InterfaceKind::Default;
         interfaces.push(default_interface);
+
+        RequiredInterface::append(reader, &name, &mut interfaces);
 
         Self { name, interfaces }
     }
@@ -44,15 +46,12 @@ impl Interface {
         let abi_name = self.name.to_abi_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
-        let default_interface = self.interfaces.last().unwrap();
+        let default_interface = &self.interfaces[0];
+        debug_assert!(default_interface.kind == InterfaceKind::Default);
         let guid = default_interface.guid.to_tokens();
 
-        let projected_methods = self.projected_methods();
-
-        let abi_methods = default_interface
-            .methods
-            .iter()
-            .map(|method| method.to_abi_tokens(&default_interface.name.namespace));
+        let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
+        let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
 
         quote! {
             #[repr(transparent)]
@@ -62,7 +61,7 @@ impl Interface {
                 #phantoms
             }
             impl<#constraints> #name {
-                #projected_methods
+                #methods
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
@@ -70,33 +69,19 @@ impl Interface {
             #[repr(C)]
             pub struct #abi_name where #constraints {
                 __base: [usize; 6],
-                #(#abi_methods)*
+                #abi_methods
                 #phantoms
             }
-
-        }
-    }
-
-    // TODO: this should share an implementation with interface methods
-    fn projected_methods(&self) -> TokenStream {
-        let mut names = BTreeSet::new();
-
-        // Must start with the default interface to avoid dropping methods from the default interface due to a collision.
-        debug_assert!(self.interfaces.last().unwrap().kind == InterfaceKind::Default);
-
-        for interface in self.interfaces.iter().rev() {
-            for method in &interface.methods {
-                // If there are any collisions just drop and caller can QI for the right interface.
-                if names.contains(&method.name) {
-                    continue;
+            impl<#constraints> ::winrt::RuntimeType for #name {
+                type Abi = ::winrt::RawPtr;
+                fn abi(&self) -> Self::Abi {
+                    self.ptr.get()
                 }
-
-                names.insert(&method.name);
-                //let method_name = format_ident(&method.name);
+                fn set_abi(&mut self) -> *mut Self::Abi {
+                    self.ptr.set()
+                }
             }
         }
-
-        quote! {}
     }
 }
 

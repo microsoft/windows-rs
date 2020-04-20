@@ -49,6 +49,15 @@ impl Struct {
             pub struct #name {
                 #(#fields),*
             }
+            impl ::winrt::RuntimeType for #name {
+                type Abi = Self;
+                fn abi(&self) -> Self::Abi {
+                    self.clone()
+                }
+                fn set_abi(&mut self) -> *mut Self::Abi {
+                    self as *mut Self::Abi
+                }
+            }
         }
     }
 }

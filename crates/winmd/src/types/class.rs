@@ -17,7 +17,8 @@ pub struct Class {
 impl Class {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
-        let mut interfaces = RequiredInterface::all(reader, &name);
+        let mut interfaces = Vec::new();
+        RequiredInterface::append(reader, &name, &mut interfaces);
         let mut bases = Vec::new();
         let mut base = def;
 
@@ -40,7 +41,7 @@ impl Class {
                 def: base,
             };
 
-            interfaces.append(&mut RequiredInterface::all(reader, &base));
+            RequiredInterface::append(reader, &base, &mut interfaces);
             bases.push(base);
         }
 
@@ -86,34 +87,37 @@ impl Class {
             .collect()
     }
 
-    fn default_interface(&self) -> Option<&RequiredInterface> {
-        self.interfaces
-            .iter()
-            .find(|interface| interface.kind == InterfaceKind::Default)
-    }
-
     pub fn to_tokens(&self) -> TokenStream {
         let name = self.name.to_tokens(&self.name.namespace);
         let type_name = self.type_name(&name);
-        let methods = self.projected_methods();
+        let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
 
-        if let Some(default_interface) = self.default_interface() {
-            let guid = default_interface.guid.to_tokens();
+        if self.interfaces[0].kind == InterfaceKind::Default {
+            let guid = self.interfaces[0].guid.to_tokens();
 
             quote! {
                 #[repr(transparent)]
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: ::winrt::IUnknown }
+                impl #name { #methods }
+                #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
-                impl #name { #methods }
-                #type_name
+                impl ::winrt::RuntimeType for #name {
+                    type Abi = ::winrt::RawPtr;
+                    fn abi(&self) -> Self::Abi {
+                        self.ptr.get()
+                    }
+                    fn set_abi(&mut self) -> *mut Self::Abi {
+                        self.ptr.set()
+                    }
+                }
             }
         } else {
             quote! {
                 pub struct #name {}
-                #methods
+                impl #name { #methods }
                 #type_name
             }
         }
@@ -127,11 +131,6 @@ impl Class {
                 const NAME: &'static str = #runtime_name;
             }
         }
-    }
-
-    // TODO: this should share an implementation with interface methods
-    fn projected_methods(&self) -> TokenStream {
-        quote! {}
     }
 }
 

@@ -1,5 +1,7 @@
+use super::RuntimeType;
+
 #[repr(C)]
-#[derive(Copy, Clone, Default, PartialEq)]
+#[derive(Clone, Default, PartialEq)]
 pub struct Guid {
     data1: u32,
     data2: u16,
@@ -15,6 +17,18 @@ impl Guid {
             data3,
             data4,
         }
+    }
+}
+
+impl RuntimeType for Guid {
+    type Abi = Self;
+
+    fn abi(&self) -> Self::Abi {
+        self.clone()
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        self as *mut Self::Abi
     }
 }
 

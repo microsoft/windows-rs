@@ -1,4 +1,5 @@
-use super::{Type, TypeNamespaces};
+use crate::types::Type;
+use crate::TypeNamespaces;
 use proc_macro2::TokenStream;
 use std::iter::FromIterator;
 

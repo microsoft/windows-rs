@@ -212,4 +212,32 @@ impl TypeKind {
             }
         }
     }
+
+    // TODO: should return CallSemantics enum with Blittable/Convertible/Generic
+    pub fn blittable(&self) -> bool {
+        match self {
+            Self::Bool
+            | Self::Char
+            | Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::F32
+            | Self::F64
+            | Self::Enum(_) => true,
+
+            Self::String
+            | Self::Object
+            | Self::Guid
+            | Self::Class(_)
+            | Self::Interface(_)
+            | Self::Struct(_)
+            | Self::Delegate(_)
+            | Self::Generic(_) => false,
+        }
+    }
 }

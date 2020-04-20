@@ -1,6 +1,6 @@
 use crate::case;
-use crate::tables::*;
-use crate::types::*;
+use crate::tables::{AttributeArg, MethodDef, TypeDef};
+use crate::types::{Param, RequiredInterface, TypeKind};
 use crate::TypeReader;
 use crate::*;
 use proc_macro2::TokenStream;
@@ -22,39 +22,6 @@ pub enum MethodKind {
     Set,
     Add,
     Remove,
-}
-
-#[derive(Debug)]
-pub struct Param {
-    pub name: String,
-    pub kind: TypeKind,
-    pub array: bool,
-    pub input: bool,
-    pub by_ref: bool,
-}
-
-impl Param {
-    pub fn to_tokens(&self) -> TokenStream {
-        quote! {}
-    }
-
-    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let tokens = self.kind.to_abi_tokens(calling_namespace);
-
-        if self.array {
-            if self.input {
-                quote! { u32, *const #tokens }
-            } else if self.by_ref {
-                quote! { *mut u32, *mut *mut #tokens }
-            } else {
-                quote! { u32, *mut #tokens }
-            }
-        } else if self.input {
-            tokens
-        } else {
-            quote! { *mut #tokens }
-        }
-    }
 }
 
 impl Method {
@@ -177,11 +144,106 @@ impl Method {
             pub #name: extern "system" fn(::winrt::RawPtr, #params) -> ::winrt::ErrorCode,
         }
     }
+
+    fn to_param_tokens(&self, calling_namespace: &str) -> TokenStream {
+        TokenStream::from_iter(
+            self.params
+                .iter()
+                .enumerate()
+                .map(|(position, param)| param.to_tokens(calling_namespace, position)),
+        )
+    }
+
+    fn to_abi_arg_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()))
+    }
+
+    fn to_constraint_tokens(&self, calling_namespace: &str) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for (position, param) in self.params.iter().enumerate() {
+            if !param.input || param.array {
+                continue;
+            }
+
+            match param.kind {
+                TypeKind::String
+                | TypeKind::Object
+                | TypeKind::Guid
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Struct(_)
+                | TypeKind::Delegate(_) => {
+                    let name = quote::format_ident!("__{}", position);
+                    let into = param.kind.to_tokens(calling_namespace);
+                    tokens.push(quote! { #name: Into<::winrt::Param<'a, #into>>, });
+                }
+                _ => {}
+            };
+        }
+
+        if !tokens.is_empty() {
+            tokens.insert(0, quote! { 'a, });
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    pub fn to_default_tokens(
+        &self,
+        calling_namespace: &str,
+        interface: &RequiredInterface,
+    ) -> TokenStream {
+        let method_name = format_ident(&self.name);
+        let params = self.to_param_tokens(calling_namespace);
+        let constraints = self.to_constraint_tokens(calling_namespace);
+        let args = self.to_abi_arg_tokens();
+        let abi_name = interface.name.to_abi_tokens(calling_namespace);
+
+        if let Some(return_type) = &self.return_type {
+            let return_arg = return_type.to_abi_return_arg_tokens(calling_namespace);
+            let return_type = return_type.to_return_tokens(calling_namespace);
+
+            quote! {
+                pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
+                    unsafe {
+                        let mut __ok = std::mem::zeroed();
+                        ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
+                            self.ptr.get(), #args #return_arg
+                        ).and_then(|| std::mem::transmute_copy(&__ok))
+                    }
+                }
+            }
+        } else {
+            quote! {
+                pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
+                    unsafe {
+                        ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
+                            self.ptr.get(), #args
+                        ).ok()
+                    }
+                }
+            }
+        }
+    }
+
+    pub fn to_non_default_tokens(&self, _calling_namespace: &str) -> TokenStream {
+        quote! {}
+    }
+
+    pub fn to_constructor_tokens(&self, _calling_namespace: &str) -> TokenStream {
+        quote! {}
+    }
+
+    pub fn to_static_tokens(&self, _calling_namespace: &str) -> TokenStream {
+        quote! {}
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::types::*;
 
     fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
         let reader = &TypeReader::from_os();

@@ -1,8 +1,8 @@
 use crate::tables::TypeDef;
 use crate::type_limits::TypeLimits;
 use crate::types::Type;
-use crate::types::TypeTree;
 use crate::TypeReader;
+use crate::TypeTree;
 
 use std::collections::*;
 
