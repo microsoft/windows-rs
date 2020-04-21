@@ -108,6 +108,8 @@ impl Class {
                 quote! {}
             };
 
+            let bases = self.to_base_conversions_tokens(&self.name.namespace, &name);
+
             quote! {
                 #[repr(transparent)]
                 #[derive(Default, Clone)]
@@ -130,6 +132,7 @@ impl Class {
                     }
                 }
                 #conversions
+                #bases
             }
         } else {
             quote! {
@@ -138,6 +141,38 @@ impl Class {
                 #type_name
             }
         }
+    }
+
+    pub fn to_base_conversions_tokens(
+        &self,
+        calling_namespace: &str,
+        from: &TokenStream,
+    ) -> TokenStream {
+        TokenStream::from_iter(self.bases.iter().map(|base| {
+            let into = base.to_tokens(calling_namespace);
+            quote! {
+                impl From<#from> for #into {
+                    fn from(value: #from) -> #into {
+                        #into::from(&value)
+                    }
+                }
+                impl From<&#from> for #into {
+                    fn from(value: &#from) -> #into {
+                        ::winrt::safe_query(value)
+                    }
+                }
+                impl<'a> Into<::winrt::Param<'a, #into>> for #from {
+                    fn into(self) -> ::winrt::Param<'a, #into> {
+                        ::winrt::Param::Owned(self.into())
+                    }
+                }
+                impl<'a> Into<::winrt::Param<'a, #into>> for &'a #from {
+                    fn into(self) -> ::winrt::Param<'a, #into> {
+                        ::winrt::Param::Owned(self.into())
+                    }
+                }
+            }
+        }))
     }
 
     fn type_name(&self, class_name: &TokenStream) -> TokenStream {
