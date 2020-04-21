@@ -1,7 +1,7 @@
+use crate::case::to_snake;
 use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
-
 use proc_macro2::TokenStream;
 use quote::quote;
 
@@ -17,7 +17,7 @@ impl Struct {
         let mut fields = Vec::new();
 
         for field in def.fields(reader) {
-            let name = field.name(reader).to_string();
+            let name = to_snake(field.name(reader), MethodKind::Normal);
             let kind = TypeKind::from_field(reader, field);
             fields.push((name, kind));
         }
