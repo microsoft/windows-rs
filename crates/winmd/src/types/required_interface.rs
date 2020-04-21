@@ -46,6 +46,10 @@ impl RequiredInterface {
     fn from_type_name_and_kind(reader: &TypeReader, name: TypeName, kind: InterfaceKind) -> Self {
         let guid = TypeGuid::from_type_def(reader, name.def);
 
+        if !name.generics.is_empty() {
+            // TODO: calculate generic GUID
+        }
+
         let methods = name
             .def
             .methods(reader)

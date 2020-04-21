@@ -17,9 +17,9 @@ pub enum GuidConstant {
 impl std::fmt::Debug for GuidConstant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::U32(value) => write!(f, "{:08X?}", value),
-            Self::U16(value) => write!(f, "{:04X?}", value),
-            Self::U8(value) => write!(f, "{:02X?}", value),
+            Self::U32(value) => write!(f, "{:08x?}", value),
+            Self::U16(value) => write!(f, "{:04x?}", value),
+            Self::U8(value) => write!(f, "{:02x?}", value),
         }
     }
 }

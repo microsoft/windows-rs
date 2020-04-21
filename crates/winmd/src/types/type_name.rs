@@ -19,6 +19,10 @@ pub struct TypeName {
 }
 
 impl TypeName {
+    pub fn signature(&self, reader: &TypeReader) -> String {
+        return String::new();
+    }
+
     pub fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
@@ -249,6 +253,33 @@ mod tests {
         assert_eq!(
             type_name.runtime_name(),
             String::from("Outer.Inner.MyType<Boolean, UInt8>")
+        );
+    }
+
+    #[test]
+    fn signature() {
+        let reader = &TypeReader::from_os();
+
+        assert!(TypeKind::Bool.signature(reader) == "b1");
+        assert!(TypeKind::Char.signature(reader) == "c2");
+        assert!(TypeKind::I8.signature(reader) == "i1");
+        assert!(TypeKind::U8.signature(reader) == "u1");
+        assert!(TypeKind::I16.signature(reader) == "i2");
+        assert!(TypeKind::U16.signature(reader) == "u2");
+        assert!(TypeKind::I32.signature(reader) == "i4");
+        assert!(TypeKind::U32.signature(reader) == "u4");
+        assert!(TypeKind::I64.signature(reader) == "i8");
+        assert!(TypeKind::U64.signature(reader) == "u8");
+        assert!(TypeKind::F32.signature(reader) == "f4");
+        assert!(TypeKind::F64.signature(reader) == "f8");
+        assert!(TypeKind::String.signature(reader) == "string");
+        assert!(TypeKind::Object.signature(reader) == "cinterface(IInspectable)");
+        assert!(TypeKind::Guid.signature(reader) == "g16");
+
+        let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Interface(name).signature(reader) == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
         );
     }
 }

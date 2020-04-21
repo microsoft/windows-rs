@@ -133,7 +133,7 @@ mod tests {
         let param = method.return_type.as_ref().unwrap();
         assert!(param.kind == TypeKind::String);
 
-        assert!(format!("{:#?}", &t.guid) == "96369F54-8EB6-48F0-ABCE-C1B211E627C3");
+        assert!(format!("{:#?}", &t.guid) == "96369f54-8eb6-48f0-abce-c1b211e627c3");
     }
 
     #[test]
