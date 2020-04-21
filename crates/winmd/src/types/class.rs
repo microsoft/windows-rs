@@ -98,11 +98,24 @@ impl Class {
                 interface.to_conversions_tokens(&self.name.namespace, &name, &TokenStream::new())
             }));
 
+            let new = if self.default_constructor {
+                quote! {
+                    pub fn new() -> ::winrt::Result<Self> {
+                        ::winrt::factory::<Self, ::winrt::IActivationFactory>()?.activate_instance::<Self>()
+                    }
+                }
+            } else {
+                quote! {}
+            };
+
             quote! {
                 #[repr(transparent)]
                 #[derive(Default, Clone)]
                 pub struct #name { ptr: ::winrt::IUnknown }
-                impl #name { #methods }
+                impl #name {
+                    #new
+                    #methods
+                }
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
