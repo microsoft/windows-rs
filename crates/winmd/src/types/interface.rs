@@ -51,7 +51,9 @@ impl Interface {
         let default_interface = &self.interfaces[0];
         debug_assert!(default_interface.kind == InterfaceKind::Default);
         let guid = default_interface.guid.to_tokens();
-        let conversions = TokenStream::from_iter(self.interfaces[1..].iter().map(|interface|interface.to_conversions_tokens(&self.name.namespace, &name, &constraints)));
+        let conversions = TokenStream::from_iter(self.interfaces.iter().skip(1).map(|interface| {
+            interface.to_conversions_tokens(&self.name.namespace, &name, &constraints)
+        }));
 
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
@@ -84,6 +86,16 @@ impl Interface {
                     self.ptr.set()
                 }
             }
+            // impl<'a, #constraints> Into<::winrt::Param<'a, #name>> for #name {
+            //     fn into(self) -> ::winrt::Param<'a, #name> {
+            //         ::winrt::Param::Owned(self)
+            //     }
+            // }
+            // impl<'a, #constraints> Into<::winrt::Param<'a, #name>> for &'a #name {
+            //     fn into(self) -> ::winrt::Param<'a, #name> {
+            //         ::winrt::Param::Borrowed(self)
+            //     }
+            // }
             #conversions
         }
     }

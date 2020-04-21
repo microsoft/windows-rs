@@ -33,11 +33,11 @@ impl Param {
                 | TypeKind::Class(_)
                 | TypeKind::Interface(_)
                 | TypeKind::Struct(_)
-                | TypeKind::Delegate(_) => {
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => {
                     let tokens = quote::format_ident!("__{}", position);
                     quote! { #name: #tokens, }
                 }
-                TypeKind::Generic(_) => quote! { #name: &#tokens, },
                 _ => quote! { #name: #tokens, },
             }
         } else {
@@ -110,7 +110,8 @@ impl Param {
                     | TypeKind::Class(_)
                     | TypeKind::Interface(_)
                     | TypeKind::Struct(_)
-                    | TypeKind::Delegate(_) => quote! { #name.into().abi(), },
+                    | TypeKind::Delegate(_)
+                    | TypeKind::Generic(_) => quote! { #name.into().abi(), },
                     _ => quote! { winrt::RuntimeType::abi(#name), },
                 }
             }

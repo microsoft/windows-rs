@@ -155,11 +155,10 @@ impl Method {
     }
 
     fn to_arg_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(
-            self.params
-                .iter()
-                .map(|param| {let name = format_ident(&param.name); quote! { #name, }})
-        )
+        TokenStream::from_iter(self.params.iter().map(|param| {
+            let name = format_ident(&param.name);
+            quote! { #name, }
+        }))
     }
 
     fn to_abi_arg_tokens(&self) -> TokenStream {
@@ -181,7 +180,8 @@ impl Method {
                 | TypeKind::Class(_)
                 | TypeKind::Interface(_)
                 | TypeKind::Struct(_)
-                | TypeKind::Delegate(_) => {
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => {
                     let name = quote::format_ident!("__{}", position);
                     let into = param.kind.to_tokens(calling_namespace);
                     tokens.push(quote! { #name: Into<::winrt::Param<'a, #into>>, });
@@ -235,7 +235,11 @@ impl Method {
         }
     }
 
-    pub fn to_non_default_tokens(&self, calling_namespace: &str, interface: &RequiredInterface) -> TokenStream {
+    pub fn to_non_default_tokens(
+        &self,
+        calling_namespace: &str,
+        interface: &RequiredInterface,
+    ) -> TokenStream {
         let method_name = format_ident(&self.name);
         let params = self.to_param_tokens(calling_namespace);
         let constraints = self.to_constraint_tokens(calling_namespace);
@@ -247,7 +251,6 @@ impl Method {
         } else {
             quote! { () }
         };
-
 
         quote! {
             pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {

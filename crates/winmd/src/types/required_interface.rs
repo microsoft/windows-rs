@@ -2,9 +2,9 @@ use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
 use proc_macro2::TokenStream;
+use quote::quote;
 use std::collections::*;
 use std::iter::FromIterator;
-use quote::quote;
 
 #[derive(Debug)]
 pub struct RequiredInterface {
@@ -85,7 +85,12 @@ impl RequiredInterface {
         )
     }
 
-    pub fn to_conversions_tokens(&self, calling_namespace: &str, from: &TokenStream, constraints: &TokenStream) -> TokenStream {
+    pub fn to_conversions_tokens(
+        &self,
+        calling_namespace: &str,
+        from: &TokenStream,
+        constraints: &TokenStream,
+    ) -> TokenStream {
         match self.kind {
             InterfaceKind::Default => {
                 let into = self.name.to_tokens(calling_namespace);
@@ -100,16 +105,16 @@ impl RequiredInterface {
                             unsafe { std::mem::transmute(value.clone()) }
                         }
                     }
-                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from {
-                        fn into(self) -> winrt::Param<'a, #into> {
-                            winrt::Param::Value(self.into())
-                        }
-                    }
-                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from {
-                        fn into(self) -> winrt::Param<'a, #into> {
-                            winrt::Param::Value(self.into())
-                        }
-                    }
+                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for #from {
+                    //     fn into(self) -> ::winrt::Param<'a, #into> {
+                    //         ::winrt::Param::Owned(self.into())
+                    //     }
+                    // }
+                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for &'a #from {
+                    //     fn into(self) -> ::winrt::Param<'a, #into> {
+                    //         ::winrt::Param::Owned(self.into())
+                    //     }
+                    // }
                 }
             }
             InterfaceKind::NonDefault => {
@@ -122,25 +127,24 @@ impl RequiredInterface {
                     }
                     impl<#constraints> From<&#from> for #into {
                         fn from(value: &#from) -> #into {
-                            winrt::safe_query(value)
+                            ::winrt::safe_query(value)
                         }
                     }
-                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for #from {
-                        fn into(self) -> winrt::Param<'a, #into> {
-                            winrt::Param::Value(self.into())
-                        }
-                    }
-                    impl<'a, #constraints> Into<winrt::Param<'a, #into>> for &'a #from {
-                        fn into(self) -> winrt::Param<'a, #into> {
-                            winrt::Param::Value(self.into())
-                        }
-                    }
+                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for #from {
+                    //     fn into(self) -> ::winrt::Param<'a, #into> {
+                    //         ::winrt::Param::Owned(self.into())
+                    //     }
+                    // }
+                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for &'a #from {
+                    //     fn into(self) -> ::winrt::Param<'a, #into> {
+                    //         ::winrt::Param::Owned(self.into())
+                    //     }
+                    // }
                 }
             }
-            _ => quote! {}
+            _ => quote! {},
         }
     }
-    
 }
 
 impl RequiredInterfaces {
