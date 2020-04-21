@@ -2,6 +2,7 @@ use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
 use proc_macro2::TokenStream;
+use quote::quote;
 use std::collections::*;
 use std::iter::FromIterator;
 
@@ -83,6 +84,67 @@ impl RequiredInterface {
                 .map(|method| method.to_abi_tokens(calling_namespace)),
         )
     }
+
+    pub fn to_conversions_tokens(
+        &self,
+        calling_namespace: &str,
+        from: &TokenStream,
+        constraints: &TokenStream,
+    ) -> TokenStream {
+        match self.kind {
+            InterfaceKind::Default => {
+                let into = self.name.to_tokens(calling_namespace);
+                quote! {
+                    impl<#constraints> From<#from> for #into {
+                        fn from(value: #from) -> #into {
+                            unsafe { std::mem::transmute(value) }
+                        }
+                    }
+                    impl<#constraints> From<&#from> for #into {
+                        fn from(value: &#from) -> #into {
+                            unsafe { std::mem::transmute(value.clone()) }
+                        }
+                    }
+                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for #from {
+                    //     fn into(self) -> ::winrt::Param<'a, #into> {
+                    //         ::winrt::Param::Owned(self.into())
+                    //     }
+                    // }
+                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for &'a #from {
+                    //     fn into(self) -> ::winrt::Param<'a, #into> {
+                    //         ::winrt::Param::Owned(self.into())
+                    //     }
+                    // }
+                }
+            }
+            InterfaceKind::NonDefault => {
+                let into = self.name.to_tokens(calling_namespace);
+                quote! {
+                    impl<#constraints> From<#from> for #into {
+                        fn from(value: #from) -> #into {
+                            #into::from(&value)
+                        }
+                    }
+                    impl<#constraints> From<&#from> for #into {
+                        fn from(value: &#from) -> #into {
+                            ::winrt::safe_query(value)
+                        }
+                    }
+                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for #from {
+                    //     fn into(self) -> ::winrt::Param<'a, #into> {
+                    //         ::winrt::Param::Owned(self.into())
+                    //     }
+                    // }
+                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for &'a #from {
+                    //     fn into(self) -> ::winrt::Param<'a, #into> {
+                    //         ::winrt::Param::Owned(self.into())
+                    //     }
+                    // }
+                }
+            }
+            _ => quote! {},
+        }
+    }
 }
 
 impl RequiredInterfaces {
@@ -138,10 +200,13 @@ pub fn to_method_tokens(
             tokens.push(match interface.kind {
                 InterfaceKind::Default => method.to_default_tokens(calling_namespace, interface),
                 InterfaceKind::NonDefault | InterfaceKind::Overrides => {
-                    method.to_non_default_tokens(calling_namespace)
+                    method.to_non_default_tokens(calling_namespace, interface)
                 }
-                InterfaceKind::Constructors => method.to_constructor_tokens(calling_namespace),
-                InterfaceKind::Statics => method.to_static_tokens(calling_namespace),
+                // TODO: do we need these two categories if we're only going to fold them anyway?
+                InterfaceKind::Constructors => {
+                    method.to_static_tokens(calling_namespace, interface)
+                }
+                InterfaceKind::Statics => method.to_static_tokens(calling_namespace, interface),
             });
         }
     }

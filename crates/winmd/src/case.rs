@@ -52,8 +52,9 @@ pub(crate) fn to_snake(camel: &str, kind: MethodKind) -> String {
         }
     }
 
-    // last character as lowercase
-    snake.extend(chars.next().unwrap().to_lowercase());
+    if let Some(last) = chars.next() {
+        snake.extend(last.to_lowercase());
+    }
 
     snake
 }
@@ -89,5 +90,10 @@ mod tests {
             to_snake("Socks", MethodKind::Remove),
             "remove_socks".to_owned()
         );
+        assert_eq!(
+            to_snake("appointmentId", MethodKind::Normal),
+            "appointment_id".to_owned()
+        );
+        assert_eq!(to_snake("a", MethodKind::Normal), "a".to_owned());
     }
 }

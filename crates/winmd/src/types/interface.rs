@@ -3,6 +3,7 @@ use crate::types::*;
 use crate::*;
 use proc_macro2::TokenStream;
 use quote::quote;
+use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct Interface {
@@ -42,13 +43,17 @@ impl Interface {
     }
 
     pub fn to_tokens(&self) -> TokenStream {
+        let definition = self.name.to_definition_tokens(&self.name.namespace);
+        let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
         let name = self.name.to_tokens(&self.name.namespace);
-        let abi_name = self.name.to_abi_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
         let default_interface = &self.interfaces[0];
         debug_assert!(default_interface.kind == InterfaceKind::Default);
         let guid = default_interface.guid.to_tokens();
+        let conversions = TokenStream::from_iter(self.interfaces.iter().skip(1).map(|interface| {
+            interface.to_conversions_tokens(&self.name.namespace, &name, &constraints)
+        }));
 
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
@@ -56,7 +61,7 @@ impl Interface {
         quote! {
             #[repr(transparent)]
             #[derive(Default, Clone)]
-            pub struct #name where #constraints {
+            pub struct #definition where #constraints {
                 ptr: ::winrt::IUnknown,
                 #phantoms
             }
@@ -67,7 +72,7 @@ impl Interface {
                 const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
             }
             #[repr(C)]
-            pub struct #abi_name where #constraints {
+            pub struct #abi_definition where #constraints {
                 __base: [usize; 6],
                 #abi_methods
                 #phantoms
@@ -81,6 +86,17 @@ impl Interface {
                     self.ptr.set()
                 }
             }
+            // impl<'a, #constraints> Into<::winrt::Param<'a, #name>> for #name {
+            //     fn into(self) -> ::winrt::Param<'a, #name> {
+            //         ::winrt::Param::Owned(self)
+            //     }
+            // }
+            // impl<'a, #constraints> Into<::winrt::Param<'a, #name>> for &'a #name {
+            //     fn into(self) -> ::winrt::Param<'a, #name> {
+            //         ::winrt::Param::Borrowed(self)
+            //     }
+            // }
+            #conversions
         }
     }
 }

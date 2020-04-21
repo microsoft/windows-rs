@@ -119,11 +119,40 @@ impl TypeName {
         } else {
             let name = format_ident(&self.name[..self.name.len() - 2]);
             let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #namespace#name<#(#generics),*> }
+            quote! { #namespace#name::<#(#generics),*> }
         }
     }
 
     pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
+        let namespace = self.to_namespace_stream(calling_namespace);
+
+        if self.generics.is_empty() {
+            let name = format_abi_ident(&self.name);
+            quote! { #namespace#name }
+        } else {
+            let name = format_abi_ident(&self.name[..self.name.len() - 2]);
+            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
+            quote! { #namespace#name::<#(#generics),*> }
+        }
+    }
+
+    // Note: ideally to_definition_tokens and to_abi_definiton_tokens would not be required
+    // and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
+    // weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
+    pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
+        let namespace = self.to_namespace_stream(calling_namespace);
+
+        if self.generics.is_empty() {
+            let name = format_ident(&self.name);
+            quote! { #namespace#name }
+        } else {
+            let name = format_ident(&self.name[..self.name.len() - 2]);
+            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
+            quote! { #namespace#name<#(#generics),*> }
+        }
+    }
+
+    pub fn to_abi_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
         let namespace = self.to_namespace_stream(calling_namespace);
 
         if self.generics.is_empty() {

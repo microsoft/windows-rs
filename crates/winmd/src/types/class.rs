@@ -1,9 +1,9 @@
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
-
 use proc_macro2::TokenStream;
 use quote::quote;
+use std::iter::FromIterator;
 
 /// A WinRT Class
 #[derive(Debug)]
@@ -94,6 +94,9 @@ impl Class {
 
         if self.interfaces[0].kind == InterfaceKind::Default {
             let guid = self.interfaces[0].guid.to_tokens();
+            let conversions = TokenStream::from_iter(self.interfaces.iter().map(|interface| {
+                interface.to_conversions_tokens(&self.name.namespace, &name, &TokenStream::new())
+            }));
 
             quote! {
                 #[repr(transparent)]
@@ -113,6 +116,7 @@ impl Class {
                         self.ptr.set()
                     }
                 }
+                #conversions
             }
         } else {
             quote! {
