@@ -1,6 +1,7 @@
 use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
+use std::collections::*;
 
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
@@ -11,7 +12,7 @@ pub struct Enum {
     pub fields: Vec<(String, EnumConstant)>,
 }
 
-#[derive(Debug)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub enum EnumConstant {
     U32(u32),
     I32(i32),
@@ -49,7 +50,20 @@ impl Enum {
             EnumConstant::I32(_) => format_ident!("i32"),
         };
 
-        let fields = self.fields.iter().map(|field| {
+        // Rust enum variants must be unique, but WinRT enums may contain duplicates
+        // so we remove any duplicates ensuring there is at least one of each value.
+        let mut values = BTreeSet::new();
+
+        let fields = self.fields.iter().filter(|field| {
+            if values.contains(&field.1) {
+                false
+            } else {
+                values.insert(field.1);
+                true
+            }
+        });
+
+        let fields = fields.map(|field| {
             let name = format_ident(&field.0);
 
             let value = match field.1 {

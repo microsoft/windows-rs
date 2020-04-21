@@ -1,15 +1,12 @@
-// import!(
-//     dependencies
-//         "os"
-//     modules
-//         "windows.foundation.numerics"
-//         "windows.ui.composition"
-// );
-
-// use winrt::*;
+winrt::import!(
+    dependencies
+        "os"
+    modules
+        "windows.ui.composition"
+);
 
 // #[test]
-// fn uri() -> Result<()> {
+// fn uri() -> winrt::Result<()> {
 //     if false {
 //         use windows::foundation::numerics::*;
 //         use windows::ui::composition::*;
