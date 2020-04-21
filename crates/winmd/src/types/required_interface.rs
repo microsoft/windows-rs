@@ -202,8 +202,11 @@ pub fn to_method_tokens(
                 InterfaceKind::NonDefault | InterfaceKind::Overrides => {
                     method.to_non_default_tokens(calling_namespace, interface)
                 }
-                InterfaceKind::Constructors => method.to_constructor_tokens(calling_namespace),
-                InterfaceKind::Statics => method.to_static_tokens(calling_namespace),
+                // TODO: do we need these two categories if we're only going to fold them anyway?
+                InterfaceKind::Constructors => {
+                    method.to_static_tokens(calling_namespace, interface)
+                }
+                InterfaceKind::Statics => method.to_static_tokens(calling_namespace, interface),
             });
         }
     }

@@ -26,50 +26,14 @@ impl<'a, T: RuntimeType> From<&'a T> for Param<'a, T> {
     }
 }
 
-pub enum StringParam<'a> {
-    Borrowed(&'a str),
-    Owned(String),
-    RuntimeBorrowed(&'a super::HString),
-    RuntimeOwned(super::HString),
-}
-
-impl<'a> StringParam<'a> {
-    pub fn abi(&mut self) -> RawPtr {
-        match self {
-            StringParam::Borrowed(value) => {
-                *self = StringParam::RuntimeOwned((*value).into());
-                self.abi()
-            }
-            StringParam::Owned(value) => {
-                *self = StringParam::RuntimeOwned(value.as_str().into());
-                self.abi()
-            }
-            StringParam::RuntimeOwned(value) => value.abi(),
-            StringParam::RuntimeBorrowed(value) => value.abi(),
-        }
+impl<'a> From<&'a str> for Param<'a, HString> {
+    fn from(value: &'a str) -> Param<'a, HString> {
+        Param::Owned((*value).into())
     }
 }
 
-impl<'a> From<&'a str> for StringParam<'a> {
-    fn from(value: &'a str) -> StringParam<'a> {
-        StringParam::Borrowed(value)
-    }
-}
-
-impl<'a> From<String> for StringParam<'a> {
-    fn from(value: String) -> StringParam<'a> {
-        StringParam::Owned(value)
-    }
-}
-
-impl<'a> From<HString> for StringParam<'a> {
-    fn from(value: HString) -> StringParam<'a> {
-        StringParam::RuntimeOwned(value)
-    }
-}
-
-impl<'a> From<&'a HString> for StringParam<'a> {
-    fn from(value: &'a HString) -> StringParam<'a> {
-        StringParam::RuntimeBorrowed(value)
+impl<'a> From<String> for Param<'a, HString> {
+    fn from(value: String) -> Param<'a, HString> {
+        Param::Owned(value.as_str().into())
     }
 }

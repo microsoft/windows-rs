@@ -259,12 +259,28 @@ impl Method {
         }
     }
 
-    pub fn to_constructor_tokens(&self, _calling_namespace: &str) -> TokenStream {
-        quote! {}
-    }
+    pub fn to_static_tokens(
+        &self,
+        calling_namespace: &str,
+        interface: &RequiredInterface,
+    ) -> TokenStream {
+        let method_name = format_ident(&self.name);
+        let params = self.to_param_tokens(calling_namespace);
+        let constraints = self.to_constraint_tokens(calling_namespace);
+        let args = self.to_arg_tokens();
+        let interface = interface.name.to_tokens(calling_namespace);
 
-    pub fn to_static_tokens(&self, _calling_namespace: &str) -> TokenStream {
-        quote! {}
+        let return_type = if let Some(return_type) = &self.return_type {
+            return_type.to_return_tokens(calling_namespace)
+        } else {
+            quote! { () }
+        };
+
+        quote! {
+            pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
+                ::winrt::factory::<Self, #interface>()?.#method_name(#args)
+            }
+        }
     }
 }
 
