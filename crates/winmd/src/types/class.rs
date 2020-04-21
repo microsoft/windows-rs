@@ -61,7 +61,7 @@ impl Class {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
                             let mut interface = RequiredInterface::from_type_def(reader, def);
-                            interface.kind = InterfaceKind::Constructors;
+                            interface.kind = InterfaceKind::Statics;
                             interfaces.push(interface);
                         }
                         None => default_constructor = true,
@@ -205,7 +205,7 @@ mod tests {
             .find(|interface| interface.name.name == "IUriRuntimeClassFactory")
             .unwrap();
 
-        assert!(interface.kind == InterfaceKind::Constructors);
+        assert!(interface.kind == InterfaceKind::Statics);
         assert!(interface.name.runtime_name() == "Windows.Foundation.IUriRuntimeClassFactory");
 
         let interface = t
@@ -233,7 +233,7 @@ mod tests {
             .find(|interface| interface.name.name == "IWwwFormUrlDecoderRuntimeClassFactory")
             .unwrap();
 
-        assert!(interface.kind == InterfaceKind::Constructors);
+        assert!(interface.kind == InterfaceKind::Statics);
         assert!(
             interface.name.runtime_name()
                 == "Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory"
