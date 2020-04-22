@@ -80,7 +80,15 @@ impl TypeName {
 
     // format: struct(Full.Type.Name;f4;f4;f4;f4)
     pub fn struct_signature(&self, reader: &TypeReader) -> String {
-        String::new()
+        let mut result = format!("struct({}.{}", self.namespace, self.name);
+
+        for field in self.def.fields(reader) {
+            result.push(';');
+            result.push_str(&TypeKind::from_field(reader, field).signature(reader));
+        }
+
+        result.push(')');
+        result
     }
 
     pub fn delegate_signature(&self, reader: &TypeReader) -> String {
@@ -414,6 +422,14 @@ mod tests {
         assert!(
             TypeKind::Class(name).signature(reader)
                 == "rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})"
+        );
+
+        // Simple struct
+        let def = reader.resolve_type_def(("Windows.Foundation", "Rect"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Struct(name).signature(reader)
+                == "struct(Windows.Foundation.Rect;f4;f4;f4;f4)"
         );
     }
 }
