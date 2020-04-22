@@ -37,7 +37,6 @@ impl TypeName {
         }
     }
 
-    // format: rc(Class.Type.Name;default_interface.signature())
     pub fn class_signature(&self, reader: &TypeReader) -> String {
         let mut map = RequiredInterfaces::default();
         map.insert_required(reader, self);
@@ -56,7 +55,6 @@ impl TypeName {
         )
     }
 
-    // format: enum(Full.Type.Name;i4/u4) i4/u4 depending on repr
     pub fn enum_signature(&self, reader: &TypeReader) -> String {
         format!(
             "enum({}.{};{})",
@@ -85,9 +83,12 @@ impl TypeName {
         String::new()
     }
 
-    // format: delegate({guid})
     pub fn delegate_signature(&self, reader: &TypeReader) -> String {
-        format!("delegate({})", self.interface_signature(reader))
+        if self.generics.is_empty() {
+            format!("delegate({})", self.interface_signature(reader))
+        } else {
+            self.interface_signature(reader)
+        }
     }
 
     pub fn from_type_def_or_ref(
@@ -396,7 +397,7 @@ mod tests {
         name.generics.clear();
         name.generics.push(TypeKind::Interface(stringable));
         assert!(
-            TypeKind::Interface(name).signature(reader) == "pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f};{96369f54-8eb6-48f0-abce-c1b211e627c3})"
+            TypeKind::Delegate(name).signature(reader) == "pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f};{96369f54-8eb6-48f0-abce-c1b211e627c3})"
         );
 
         // Class signature
