@@ -19,6 +19,85 @@ pub struct TypeName {
 }
 
 impl TypeName {
+    pub fn interface_signature(&self, reader: &TypeReader) -> String {
+        let guid = TypeGuid::from_type_def(reader, self.def);
+
+        if self.generics.is_empty() {
+            format!("{{{:#?}}}", guid)
+        } else {
+            let mut result = format!("pinterface({{{:#?}}}", guid);
+
+            for generic in &self.generics {
+                result.push(';');
+                result.push_str(&generic.signature(reader));
+            }
+
+            result.push(')');
+            result
+        }
+    }
+
+    pub fn class_signature(&self, reader: &TypeReader) -> String {
+        let mut map = RequiredInterfaces::default();
+        map.insert_required(reader, self);
+        let default = map
+            .0
+            .into_iter()
+            .find(|(_, kind)| *kind == InterfaceKind::Default)
+            .unwrap()
+            .0;
+
+        format!(
+            "rc({}.{};{})",
+            self.namespace,
+            self.name,
+            default.interface_signature(reader)
+        )
+    }
+
+    pub fn enum_signature(&self, reader: &TypeReader) -> String {
+        format!(
+            "enum({}.{};{})",
+            self.namespace,
+            self.name,
+            self.enum_type(reader)
+        )
+    }
+
+    fn enum_type(&self, reader: &TypeReader) -> &str {
+        for field in self.def.fields(reader) {
+            for constant in field.constants(reader) {
+                match constant.value_type(reader) {
+                    0x08 => return "i4",
+                    0x09 => return "u4",
+                    _ => panic!("Invalid enum type"),
+                };
+            }
+        }
+
+        panic!("Invalid enum");
+    }
+
+    pub fn struct_signature(&self, reader: &TypeReader) -> String {
+        let mut result = format!("struct({}.{}", self.namespace, self.name);
+
+        for field in self.def.fields(reader) {
+            result.push(';');
+            result.push_str(&TypeKind::from_field(reader, field).signature(reader));
+        }
+
+        result.push(')');
+        result
+    }
+
+    pub fn delegate_signature(&self, reader: &TypeReader) -> String {
+        if self.generics.is_empty() {
+            format!("delegate({})", self.interface_signature(reader))
+        } else {
+            self.interface_signature(reader)
+        }
+    }
+
     pub fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
@@ -249,6 +328,107 @@ mod tests {
         assert_eq!(
             type_name.runtime_name(),
             String::from("Outer.Inner.MyType<Boolean, UInt8>")
+        );
+    }
+
+    #[test]
+    fn signature() {
+        let reader = &TypeReader::from_os();
+
+        // Primitive signatures
+        assert!(TypeKind::Bool.signature(reader) == "b1");
+        assert!(TypeKind::Char.signature(reader) == "c2");
+        assert!(TypeKind::I8.signature(reader) == "i1");
+        assert!(TypeKind::U8.signature(reader) == "u1");
+        assert!(TypeKind::I16.signature(reader) == "i2");
+        assert!(TypeKind::U16.signature(reader) == "u2");
+        assert!(TypeKind::I32.signature(reader) == "i4");
+        assert!(TypeKind::U32.signature(reader) == "u4");
+        assert!(TypeKind::I64.signature(reader) == "i8");
+        assert!(TypeKind::U64.signature(reader) == "u8");
+        assert!(TypeKind::F32.signature(reader) == "f4");
+        assert!(TypeKind::F64.signature(reader) == "f8");
+        assert!(TypeKind::String.signature(reader) == "string");
+        assert!(TypeKind::Object.signature(reader) == "cinterface(IInspectable)");
+        assert!(TypeKind::Guid.signature(reader) == "g16");
+
+        // Non-generic interface signature
+        let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Interface(name).signature(reader) == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
+        );
+
+        // Generic interface signature
+        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
+        let mut name = def.into_type(reader).name().clone();
+        name.generics.clear();
+        name.generics.push(TypeKind::I32);
+        assert!(
+            TypeKind::Interface(name).signature(reader)
+                == "pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};i4)"
+        );
+
+        // Signed enum signature
+        let def = reader.resolve_type_def(("Windows.Foundation", "AsyncStatus"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Enum(name).signature(reader) == "enum(Windows.Foundation.AsyncStatus;i4)"
+        );
+
+        // Unsigned enum signature
+        let def = reader.resolve_type_def((
+            "Windows.ApplicationModel.Appointments",
+            "AppointmentDaysOfWeek",
+        ));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Enum(name).signature(reader)
+                == "enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)"
+        );
+
+        // Non-generic delegate signature
+        let def = reader.resolve_type_def(("Windows.Foundation", "AsyncActionCompletedHandler"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Delegate(name).signature(reader)
+                == "delegate({a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7})"
+        );
+
+        // Generic delegate signature
+        let stringable = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
+        let stringable = stringable.into_type(reader).name().clone();
+
+        let def = reader.resolve_type_def(("Windows.Foundation", "EventHandler`1"));
+        let mut name = def.into_type(reader).name().clone();
+        name.generics.clear();
+        name.generics.push(TypeKind::Interface(stringable));
+        assert!(
+            TypeKind::Delegate(name).signature(reader) == "pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f};{96369f54-8eb6-48f0-abce-c1b211e627c3})"
+        );
+
+        // Class signature
+        let def = reader.resolve_type_def(("Windows.Foundation", "Uri"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Class(name).signature(reader)
+                == "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
+        );
+
+        // Class with generic default interface signature
+        let def = reader.resolve_type_def(("Windows.Foundation", "WwwFormUrlDecoder"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Class(name).signature(reader)
+                == "rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})"
+        );
+
+        // Simple struct
+        let def = reader.resolve_type_def(("Windows.Foundation", "Rect"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            TypeKind::Struct(name).signature(reader)
+                == "struct(Windows.Foundation.Rect;f4;f4;f4;f4)"
         );
     }
 }

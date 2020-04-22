@@ -33,5 +33,8 @@ fn uri() -> winrt::Result<()> {
     let stringable: windows::foundation::IStringable = uri.into();
     assert!(stringable.to_string()? == uri.to_string()?);
 
+    //let query = uri.query_parsed()?;
+    //let size = query.size()?;
+
     Ok(())
 }

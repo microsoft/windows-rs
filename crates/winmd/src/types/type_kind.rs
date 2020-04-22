@@ -34,6 +34,32 @@ pub enum TypeKind {
 }
 
 impl TypeKind {
+    pub fn signature(&self, reader: &TypeReader) -> String {
+        match self {
+            Self::Bool => "b1".to_owned(),
+            Self::Char => "c2".to_owned(),
+            Self::I8 => "i1".to_owned(),
+            Self::U8 => "u1".to_owned(),
+            Self::I16 => "i2".to_owned(),
+            Self::U16 => "u2".to_owned(),
+            Self::I32 => "i4".to_owned(),
+            Self::U32 => "u4".to_owned(),
+            Self::I64 => "i8".to_owned(),
+            Self::U64 => "u8".to_owned(),
+            Self::F32 => "f4".to_owned(),
+            Self::F64 => "f8".to_owned(),
+            Self::String => "string".to_owned(),
+            Self::Object => "cinterface(IInspectable)".to_owned(),
+            Self::Guid => "g16".to_owned(),
+            Self::Class(name) => name.class_signature(reader),
+            Self::Interface(name) => name.interface_signature(reader),
+            Self::Enum(name) => name.enum_signature(reader),
+            Self::Struct(name) => name.struct_signature(reader),
+            Self::Delegate(name) => name.delegate_signature(reader),
+            Self::Generic(_) => panic!(),
+        }
+    }
+
     pub fn runtime_name(&self) -> String {
         match self {
             Self::Bool => "Boolean".to_owned(),
