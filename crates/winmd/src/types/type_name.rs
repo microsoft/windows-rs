@@ -333,6 +333,15 @@ mod tests {
             TypeKind::Interface(name).signature(reader) == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
         );
 
+        // Generic interface signature
+        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
+        let mut name = def.into_type(reader).name().clone();
+        name.generics.clear();
+        name.generics.push(TypeKind::I32);
+        assert!(
+            TypeKind::Interface(name).signature(reader) == "pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};i4)"
+        );
+
         // Signed enum signature
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncStatus"));
         let name = def.into_type(reader).name().clone();
@@ -352,6 +361,18 @@ mod tests {
         let name = def.into_type(reader).name().clone();
         assert!(
             TypeKind::Delegate(name).signature(reader) == "delegate({a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7})"
+        );
+
+        // Generic delegate signature
+        let stringable = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
+        let stringable = stringable.into_type(reader).name().clone();
+
+        let def = reader.resolve_type_def(("Windows.Foundation", "EventHandler`1"));
+        let mut name = def.into_type(reader).name().clone();
+        name.generics.clear();
+        name.generics.push(TypeKind::Interface(stringable));
+        assert!(
+            TypeKind::Interface(name).signature(reader) == "pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f};{96369f54-8eb6-48f0-abce-c1b211e627c3})"
         );
     }
 }
