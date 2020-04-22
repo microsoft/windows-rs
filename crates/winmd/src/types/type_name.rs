@@ -78,7 +78,6 @@ impl TypeName {
         panic!("Invalid enum");
     }
 
-    // format: struct(Full.Type.Name;f4;f4;f4;f4)
     pub fn struct_signature(&self, reader: &TypeReader) -> String {
         let mut result = format!("struct({}.{}", self.namespace, self.name);
 
