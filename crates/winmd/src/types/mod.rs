@@ -22,6 +22,6 @@ pub(crate) use r#struct::Struct;
 pub(crate) use r#type::Type;
 pub(crate) use required_interface::*;
 pub(crate) use required_interfaces::*;
-pub(crate) use type_guid::TypeGuid;
+pub(crate) use type_guid::{GuidConstant, TypeGuid};
 pub(crate) use type_kind::TypeKind;
 pub(crate) use type_name::TypeName;

@@ -4,6 +4,7 @@ use crate::codes::*;
 use crate::tables::*;
 use crate::types::*;
 use crate::*;
+use std::convert::TryInto;
 
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
@@ -19,6 +20,40 @@ pub struct TypeName {
 }
 
 impl TypeName {
+    pub fn guid(&self, reader: &TypeReader) -> TypeGuid {
+        if self.generics.is_empty() {
+            return TypeGuid::from_type_def(reader, self.def);
+        }
+
+        let mut data = vec![
+            0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
+            0xad, 0xee,
+        ];
+        data.extend_from_slice(self.interface_signature(reader).as_bytes());
+
+        let mut hash = sha1::Sha1::new();
+        hash.update(&data);
+        let bytes = hash.digest().bytes();
+
+        let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
+        let second = u16::from_be_bytes([bytes[4], bytes[5]]);
+        let third = u16::from_be_bytes([bytes[6], bytes[7]]);
+
+        TypeGuid([
+            GuidConstant::U32(first),
+            GuidConstant::U16(second),
+            GuidConstant::U16(third),
+            GuidConstant::U8(bytes[8]),
+            GuidConstant::U8(bytes[9]),
+            GuidConstant::U8(bytes[10]),
+            GuidConstant::U8(bytes[11]),
+            GuidConstant::U8(bytes[12]),
+            GuidConstant::U8(bytes[13]),
+            GuidConstant::U8(bytes[14]),
+            GuidConstant::U8(bytes[15]),
+        ])
+    }
+
     pub fn interface_signature(&self, reader: &TypeReader) -> String {
         let guid = TypeGuid::from_type_def(reader, self.def);
 
@@ -332,7 +367,30 @@ mod tests {
     }
 
     #[test]
-    fn signature() {
+    fn guids() {
+        let reader = &TypeReader::from_os();
+
+        // Non-generic interface guid
+        let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            format!("{{{:#?}}}", name.guid(reader)) == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
+        );
+
+        // Generic interface guid
+        let stringable = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
+        let stringable = stringable.into_type(reader).name().clone();
+        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
+        let mut name = def.into_type(reader).name().clone();
+        name.generics.clear();
+        name.generics.push(TypeKind::Interface(stringable));
+        assert!(
+            format!("{{{:#?}}}", name.guid(reader)) == "{14b954c2-2914-f30e-84a7-9473e2fb24e2}"
+        );
+    }
+
+    #[test]
+    fn signatures() {
         let reader = &TypeReader::from_os();
 
         // Primitive signatures
