@@ -51,13 +51,11 @@ impl TypeKind {
             Self::String => "string".to_owned(),
             Self::Object => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
-            Self::Class(name) => name.signature(reader), // format: rc(Class.Type.Name;default_interface.signature())
-            Self::Interface(name) => {
-                format!("{{{:#?}}}", TypeGuid::from_type_def(reader, name.def))
-            }
-            Self::Enum(name) => name.signature(reader), // format: enum(Full.Type.Name;i4/u4) i4/u4 depending on repr
-            Self::Struct(name) => name.signature(reader), // format: struct(Full.Type.Name;f4;f4;f4;f4)
-            Self::Delegate(name) => name.signature(reader), // format: delegate({guid})
+            Self::Class(name) => name.class_signature(reader),
+            Self::Interface(name) => name.interface_signature(reader),
+            Self::Enum(name) => name.enum_signature(reader),
+            Self::Struct(name) => name.struct_signature(reader),
+            Self::Delegate(name) => name.delegate_signature(reader),
             Self::Generic(_) => panic!(),
         }
     }
