@@ -105,7 +105,7 @@ impl RequiredInterface {
                     }
                     impl<#constraints> From<&#from> for #into {
                         fn from(value: &#from) -> #into {
-                            unsafe { std::mem::transmute(value.clone()) }
+                            #into::from(value.clone())
                         }
                     }
                     // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for #from {
