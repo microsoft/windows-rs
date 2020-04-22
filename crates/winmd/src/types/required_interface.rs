@@ -22,9 +22,6 @@ pub enum InterfaceKind {
     Statics,
 }
 
-#[derive(Default, Debug)]
-struct RequiredInterfaces(pub BTreeMap<TypeName, InterfaceKind>);
-
 impl RequiredInterface {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
@@ -148,40 +145,6 @@ impl RequiredInterface {
             _ => quote! {},
         }
     }
-}
-
-impl RequiredInterfaces {
-    fn insert_type_name(&mut self, reader: &TypeReader, name: TypeName, kind: InterfaceKind) {
-        if !self.0.contains_key(&name) {
-            self.insert_required(reader, &name);
-            self.0.insert(name, kind);
-        }
-    }
-
-    fn insert_required(&mut self, reader: &TypeReader, name: &TypeName) {
-        for required in name.def.interfaces(reader) {
-            let name =
-                TypeName::from_type_def_or_ref(reader, required.interface(reader), &name.generics);
-            let kind = kind(reader, required);
-            self.insert_type_name(reader, name, kind);
-        }
-    }
-}
-
-fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
-    for attribute in required.attributes(reader) {
-        let name = attribute.name(reader);
-
-        if matches!(
-            name,
-            ("Windows.Foundation.Metadata", "DefaultAttribute")
-                | ("Windows.Foundation.Metadata", "OverridableAttribute")
-        ) {
-            return InterfaceKind::Default;
-        }
-    }
-
-    InterfaceKind::NonDefault
 }
 
 pub fn to_method_tokens(
