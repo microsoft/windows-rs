@@ -36,13 +36,16 @@ impl TypeName {
 
         let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
         let second = u16::from_be_bytes([bytes[4], bytes[5]]);
-        let third = u16::from_be_bytes([bytes[6], bytes[7]]);
+        let mut third = u16::from_be_bytes([bytes[6], bytes[7]]);
+
+        third = (third & 0x0fff) | (5 << 12);
+        let fourth = (bytes[8] & 0x3f) | 0x80;
 
         TypeGuid([
             GuidConstant::U32(first),
             GuidConstant::U16(second),
             GuidConstant::U16(third),
-            GuidConstant::U8(bytes[8]),
+            GuidConstant::U8(fourth),
             GuidConstant::U8(bytes[9]),
             GuidConstant::U8(bytes[10]),
             GuidConstant::U8(bytes[11]),
@@ -386,8 +389,18 @@ mod tests {
         name.generics.push(TypeKind::Interface(stringable));
         assert!(
             format!("{{{:#?}}}", name.guid(reader, false))
-                == "{14b954c2-2914-f30e-84a7-9473e2fb24e2}"
+                == "{14b954c2-2914-530e-84a7-9473e2fb24e2}"
         );
+
+        // Generic interface guid
+        let stringable = reader.resolve_type_def(("Windows.Foundation", "IWwwFormUrlDecoderEntry"));
+        let stringable = stringable.into_type(reader).name().clone();
+        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVectorView`1"));
+        let mut name = def.into_type(reader).name().clone();
+        name.generics.clear();
+        name.generics.push(TypeKind::Interface(stringable));
+        let guid = name.guid(reader, false);
+        assert!(format!("{{{:#?}}}", guid) == "{b1f00d3b-1f06-5117-93ea-2a0d79116701}");
 
         // Unspecialized generic guid
         let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
