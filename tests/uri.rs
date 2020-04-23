@@ -39,15 +39,13 @@ fn uri() -> winrt::Result<()> {
     assert!(query.size()? == 3);
 
     assert!(query.get_at(0)?.name()? == "first");
+    assert!(query.get_at(0)?.value()? == "101");
 
-    // TODO: this call crashes (the second call to get_at)
-    // assert!(query.get_at(0)?.value()? == "101");
+    assert!(query.get_at(1)?.name()? == "second");
+    assert!(query.get_at(1)?.value()? == "102");
 
-    // assert!(query.get_at(1)?.name()? == "second");
-    // assert!(query.get_at(1)?.value()? == "102");
-
-    // assert!(query.get_at(2)?.name()? == "third");
-    // assert!(query.get_at(2)?.value()? == "103");
+    assert!(query.get_at(2)?.name()? == "third");
+    assert!(query.get_at(2)?.value()? == "103");
 
     Ok(())
 }
