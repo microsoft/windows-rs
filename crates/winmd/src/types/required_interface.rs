@@ -40,12 +40,13 @@ impl RequiredInterface {
         }
     }
 
-    fn from_type_name_and_kind(reader: &TypeReader, name: TypeName, kind: InterfaceKind) -> Self {
-        let guid = TypeGuid::from_type_def(reader, name.def);
-
-        if !name.generics.is_empty() {
-            // TODO: calculate generic GUID
-        }
+    fn from_type_name_and_kind(
+        reader: &TypeReader,
+        name: TypeName,
+        kind: InterfaceKind,
+        generics: bool,
+    ) -> Self {
+        let guid = name.guid(reader, generics);
 
         let methods = name
             .def
@@ -62,12 +63,14 @@ impl RequiredInterface {
     }
 
     pub fn append(reader: &TypeReader, name: &TypeName, interfaces: &mut Vec<RequiredInterface>) {
+        let generics = !name.generics.is_empty();
+
         let mut map = RequiredInterfaces::default();
         map.insert_required(reader, name);
 
         // Ensures that the default interface (if any) is first in line.
         for (name, kind) in map.0 {
-            let required = RequiredInterface::from_type_name_and_kind(reader, name, kind);
+            let required = RequiredInterface::from_type_name_and_kind(reader, name, kind, generics);
 
             if kind == InterfaceKind::Default {
                 interfaces.insert(0, required);

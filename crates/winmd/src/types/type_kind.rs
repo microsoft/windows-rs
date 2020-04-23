@@ -56,7 +56,7 @@ impl TypeKind {
             Self::Enum(name) => name.enum_signature(reader),
             Self::Struct(name) => name.struct_signature(reader),
             Self::Delegate(name) => name.delegate_signature(reader),
-            Self::Generic(_) => panic!(),
+            Self::Generic(_) => panic!("signature"),
         }
     }
 

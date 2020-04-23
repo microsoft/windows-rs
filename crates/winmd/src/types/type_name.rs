@@ -4,7 +4,6 @@ use crate::codes::*;
 use crate::tables::*;
 use crate::types::*;
 use crate::*;
-use std::convert::TryInto;
 
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
@@ -20,8 +19,8 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    pub fn guid(&self, reader: &TypeReader) -> TypeGuid {
-        if self.generics.is_empty() {
+    pub fn guid(&self, reader: &TypeReader, generics: bool) -> TypeGuid {
+        if self.generics.is_empty() || generics {
             return TypeGuid::from_type_def(reader, self.def);
         }
 
@@ -374,7 +373,8 @@ mod tests {
         let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
         let name = def.into_type(reader).name().clone();
         assert!(
-            format!("{{{:#?}}}", name.guid(reader)) == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
+            format!("{{{:#?}}}", name.guid(reader, false))
+                == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
         );
 
         // Generic interface guid
@@ -385,7 +385,16 @@ mod tests {
         name.generics.clear();
         name.generics.push(TypeKind::Interface(stringable));
         assert!(
-            format!("{{{:#?}}}", name.guid(reader)) == "{14b954c2-2914-f30e-84a7-9473e2fb24e2}"
+            format!("{{{:#?}}}", name.guid(reader, false))
+                == "{14b954c2-2914-f30e-84a7-9473e2fb24e2}"
+        );
+
+        // Unspecialized generic guid
+        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
+        let name = def.into_type(reader).name().clone();
+        assert!(
+            format!("{{{:#?}}}", name.guid(reader, true))
+                == "{913337e9-11a1-4345-a3a2-4e7f956e222d}"
         );
     }
 
