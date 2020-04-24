@@ -11,6 +11,7 @@ fn uri() -> winrt::Result<()> {
         use windows::foundation::numerics::*;
         use windows::ui::composition::*;
         use windows::ui::*;
+        use winrt::*;
 
         let compositor = Compositor::new()?;
         let visual = compositor.create_sprite_visual()?;
@@ -25,8 +26,15 @@ fn uri() -> winrt::Result<()> {
             }
         );
 
-        let brush = compositor.create_color_brush_with_color(red)?;
+        // Visual.set_brush expects a CompositionBrush but create_color_brush_with_color returns a
+        // CompositionColorBrush that logically derives from CompositionBrush.
+        let brush = compositor.create_color_brush_with_color(&red)?;
         visual.set_brush(brush)?;
+
+        // Visual.brush returns a CompositionBrush but we know that it's actually a CompositionColorBrush
+        // and need to convert it excplicitly since Rust/WinRT doesn't know that.
+        let brush: CompositionColorBrush = visual.brush()?.try_into().unwrap();
+        assert!(brush.color()? == red);
 
         visual.set_offset(Vector3 {
             x: 1.0,

@@ -71,8 +71,8 @@ pub fn safe_query<From: ComInterface, Into: ComInterface>(from: &From) -> Into {
 }
 
 #[repr(C)]
-struct abi_IUnknown {
-    query: extern "system" fn(RawPtr, &Guid, *mut RawPtr) -> ErrorCode,
+pub(crate) struct abi_IUnknown {
+    pub query: extern "system" fn(RawPtr, &Guid, *mut RawPtr) -> ErrorCode,
     addref: extern "system" fn(RawPtr) -> u32,
     release: extern "system" fn(RawPtr) -> u32,
 }
