@@ -42,12 +42,11 @@ impl Clone for IUnknown {
 
 impl Drop for IUnknown {
     fn drop(&mut self) {
-        println!("drop");
-        // if !self.ptr.is_null() {
-        //     unsafe {
-        //         ((*(*(self.ptr as *const *const abi_IUnknown))).release)(self.ptr);
-        //     }
-        // }
+        if !self.ptr.is_null() {
+            unsafe {
+                ((*(*(self.ptr as *const *const abi_IUnknown))).release)(self.ptr);
+            }
+        }
     }
 }
 

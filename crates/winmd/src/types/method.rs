@@ -217,8 +217,12 @@ impl Method {
                     unsafe {
                         let mut __ok = std::mem::zeroed();
                         ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
-                            self.ptr.get(), #args #return_arg
-                        ).and_then(|| std::mem::transmute_copy(&__ok))
+                            self.ptr.get(), #args #return_arg)
+                            .and_then(|| {
+                                let result = std::mem::transmute_copy(&__ok);
+                                std::mem::forget(__ok);
+                                result
+                            })
                     }
                 }
             }
