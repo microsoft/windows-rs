@@ -40,12 +40,13 @@ impl RequiredInterface {
         }
     }
 
-    fn from_type_name_and_kind(reader: &TypeReader, name: TypeName, kind: InterfaceKind) -> Self {
-        let guid = TypeGuid::from_type_def(reader, name.def);
-
-        if !name.generics.is_empty() {
-            // TODO: calculate generic GUID
-        }
+    fn from_type_name_and_kind(
+        reader: &TypeReader,
+        name: TypeName,
+        kind: InterfaceKind,
+        generics: bool,
+    ) -> Self {
+        let guid = name.guid(reader, generics);
 
         let methods = name
             .def
@@ -62,12 +63,14 @@ impl RequiredInterface {
     }
 
     pub fn append(reader: &TypeReader, name: &TypeName, interfaces: &mut Vec<RequiredInterface>) {
+        let generics = !name.generics.is_empty();
+
         let mut map = RequiredInterfaces::default();
         map.insert_required(reader, name);
 
         // Ensures that the default interface (if any) is first in line.
         for (name, kind) in map.0 {
-            let required = RequiredInterface::from_type_name_and_kind(reader, name, kind);
+            let required = RequiredInterface::from_type_name_and_kind(reader, name, kind, generics);
 
             if kind == InterfaceKind::Default {
                 interfaces.insert(0, required);
@@ -105,41 +108,39 @@ impl RequiredInterface {
                             #into::from(value.clone())
                         }
                     }
-                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for #from {
-                    //     fn into(self) -> ::winrt::Param<'a, #into> {
-                    //         ::winrt::Param::Owned(self.into())
-                    //     }
-                    // }
-                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for &'a #from {
-                    //     fn into(self) -> ::winrt::Param<'a, #into> {
-                    //         ::winrt::Param::Owned(self.into())
-                    //     }
-                    // }
                 }
             }
             InterfaceKind::NonDefault => {
                 let into = self.name.to_tokens(calling_namespace);
-                quote! {
-                    impl<#constraints> From<#from> for #into {
-                        fn from(value: #from) -> #into {
-                            #into::from(&value)
+                if self.name.generics.is_empty() {
+                    quote! {
+                        impl<#constraints> From<#from> for #into {
+                            fn from(value: #from) -> #into {
+                                #into::from(&value)
+                            }
+                        }
+                        impl<#constraints> From<&#from> for #into {
+                            fn from(value: &#from) -> #into {
+                                ::winrt::safe_query(value)
+                            }
                         }
                     }
-                    impl<#constraints> From<&#from> for #into {
-                        fn from(value: &#from) -> #into {
-                            ::winrt::safe_query(value)
+                } else {
+                    let guid = self.guid.to_tokens();
+
+                    quote! {
+                        impl<#constraints> From<#from> for #into {
+                            fn from(value: #from) -> #into {
+                                #into::from(&value)
+                            }
+                        }
+                        impl<#constraints> From<&#from> for #into {
+                            fn from(value: &#from) -> #into {
+                                const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                                unsafe { ::winrt::unsafe_query(value, &GUID) }
+                            }
                         }
                     }
-                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for #from {
-                    //     fn into(self) -> ::winrt::Param<'a, #into> {
-                    //         ::winrt::Param::Owned(self.into())
-                    //     }
-                    // }
-                    // impl<'a, #constraints> Into<::winrt::Param<'a, #into>> for &'a #from {
-                    //     fn into(self) -> ::winrt::Param<'a, #into> {
-                    //         ::winrt::Param::Owned(self.into())
-                    //     }
-                    // }
                 }
             }
             _ => quote! {},
