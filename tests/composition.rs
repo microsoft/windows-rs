@@ -26,13 +26,6 @@ fn uri() -> winrt::Result<()> {
             }
         );
 
-        let red = Color {
-            a: 255,
-            r: 255,
-            g: 0,
-            b: 0,
-        };
-
         // Visual.set_brush expects a CompositionBrush but create_color_brush_with_color returns a
         // CompositionColorBrush that logically derives from CompositionBrush.
         let brush = compositor.create_color_brush_with_color(&red)?;
