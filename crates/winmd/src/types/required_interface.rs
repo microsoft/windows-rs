@@ -62,13 +62,16 @@ impl RequiredInterface {
         }
     }
 
-    pub fn append(reader: &TypeReader, name: &TypeName, interfaces: &mut Vec<RequiredInterface>) {
+    pub fn append_default(
+        reader: &TypeReader,
+        name: &TypeName,
+        interfaces: &mut Vec<RequiredInterface>,
+    ) {
         let generics = !name.generics.is_empty();
 
         let mut map = RequiredInterfaces::default();
         map.insert_required(reader, name);
 
-        // Ensures that the default interface (if any) is first in line.
         for (name, kind) in map.0 {
             let required = RequiredInterface::from_type_name_and_kind(reader, name, kind, generics);
 
@@ -77,6 +80,23 @@ impl RequiredInterface {
             } else {
                 interfaces.push(required);
             }
+        }
+    }
+
+    pub fn append_required(
+        reader: &TypeReader,
+        name: &TypeName,
+        interfaces: &mut Vec<RequiredInterface>,
+    ) {
+        let generics = !name.generics.is_empty();
+
+        let mut map = RequiredInterfaces::default();
+        map.insert_required(reader, name);
+
+        for (name, kind) in map.0 {
+            interfaces.push(RequiredInterface::from_type_name_and_kind(
+                reader, name, kind, generics,
+            ));
         }
     }
 
