@@ -109,6 +109,7 @@ impl Class {
             };
 
             let bases = self.to_base_conversions_tokens(&self.name.namespace, &name);
+            let iterator = iterator_tokens(&self.name, &self.interfaces);
 
             quote! {
                 #[repr(transparent)]
@@ -133,6 +134,7 @@ impl Class {
                 }
                 #conversions
                 #bases
+                #iterator
             }
         } else {
             quote! {
