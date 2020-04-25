@@ -11,6 +11,7 @@ mod r#type;
 mod type_guid;
 mod type_kind;
 mod type_name;
+mod iterator;
 
 pub(crate) use class::Class;
 pub(crate) use delegate::Delegate;
@@ -25,3 +26,4 @@ pub(crate) use required_interfaces::*;
 pub(crate) use type_guid::{GuidConstant, TypeGuid};
 pub(crate) use type_kind::TypeKind;
 pub(crate) use type_name::TypeName;
+pub(crate) use iterator::*;

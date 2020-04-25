@@ -2,8 +2,21 @@ winrt::import!(
     dependencies
         "os"
     modules
-        "windows.foundation"
+        "windows.foundation.collections"
 );
+
+use windows::foundation::collections::*;
+use windows::foundation::*;
+use winrt::*;
+
+impl IntoIterator for &WwwFormUrlDecoder {
+    type Item = IWwwFormUrlDecoderEntry;
+    type IntoIter = VectorViewIterator<Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        VectorViewIterator::new(self.into())
+    }
+}
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -46,6 +59,10 @@ fn uri() -> winrt::Result<()> {
 
     assert!(query.get_at(2)?.name()? == "third");
     assert!(query.get_at(2)?.value()? == "103");
+
+    for entry in &query {
+        println!("{}", entry.name()?);
+    }
 
     Ok(())
 }

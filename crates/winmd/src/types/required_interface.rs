@@ -62,7 +62,10 @@ impl RequiredInterface {
         }
     }
 
-    pub fn append(reader: &TypeReader, name: &TypeName, interfaces: &mut Vec<RequiredInterface>) {
+    pub fn append(reader: &TypeReader, name: &TypeName, interfaces: &mut Vec<RequiredInterface>, base: bool) {
+        // TODO: this may be buggy. What if a base class also requires the same interface as a derived class?
+        // That's a pretty dumb setup but I'm not sure whether its caught by metadata validation.
+
         let generics = !name.generics.is_empty();
 
         let mut map = RequiredInterfaces::default();
@@ -72,7 +75,7 @@ impl RequiredInterface {
         for (name, kind) in map.0 {
             let required = RequiredInterface::from_type_name_and_kind(reader, name, kind, generics);
 
-            if kind == InterfaceKind::Default {
+            if kind == InterfaceKind::Default && !base {
                 interfaces.insert(0, required);
             } else {
                 interfaces.push(required);

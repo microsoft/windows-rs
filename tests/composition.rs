@@ -5,6 +5,33 @@ winrt::import!(
         "windows.ui.composition"
 );
 
+use windows::foundation::collections::*;
+use windows::ui::composition::*;
+use winrt::*;
+
+// impl<T: RuntimeType> Iterator for IIterator<T> {
+//     type Item = T;
+
+//     fn next(&mut self) -> Option<Self::Item> {
+//         let result = self.current().ok();
+
+//         if result.is_some() {
+//             self.move_next().ok()?;
+//         }
+
+//         result
+//     }
+// }
+
+impl IntoIterator for &VisualCollection {
+    type Item = Visual;
+    type IntoIter = IIterator<Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.first().unwrap()
+    }
+}
+
 #[test]
 fn uri() -> winrt::Result<()> {
     if false {
@@ -15,6 +42,16 @@ fn uri() -> winrt::Result<()> {
 
         let compositor = Compositor::new()?;
         let visual = compositor.create_sprite_visual()?;
+
+        // Hidden QI to IVisual happens before calling set_offset
+        visual.set_offset(Vector3 {
+            x: 1.0,
+            y: 2.0,
+            z: 3.0
+        })?;
+
+
+
         let red = Colors::red()?;
 
         assert!(
@@ -81,11 +118,12 @@ fn uri() -> winrt::Result<()> {
 
         // TODO: Collection iteration is still crude but at least the underlying collection interfaces are working.
 
-        let iterator = children.first()?;
-        assert!(iterator.has_current()?);
+        for v in &children {}
+
+        let mut iterator = children.into_iter();
 
         assert!(
-            iterator.current()?.offset()?
+            iterator.next().unwrap().offset()?
                 == Vector3 {
                     x: 1.0,
                     y: 0.0,
@@ -93,11 +131,8 @@ fn uri() -> winrt::Result<()> {
                 }
         );
 
-        assert!(iterator.move_next()?);
-        assert!(iterator.has_current()?);
-
         assert!(
-            iterator.current()?.offset()?
+            iterator.next().unwrap().offset()?
                 == Vector3 {
                     x: 2.0,
                     y: 0.0,
@@ -105,11 +140,8 @@ fn uri() -> winrt::Result<()> {
                 }
         );
 
-        assert!(iterator.move_next()?);
-        assert!(iterator.has_current()?);
-
         assert!(
-            iterator.current()?.offset()?
+            iterator.next().unwrap().offset()?
                 == Vector3 {
                     x: 3.0,
                     y: 0.0,
@@ -117,8 +149,7 @@ fn uri() -> winrt::Result<()> {
                 }
         );
 
-        assert!(iterator.move_next()? == false);
-        assert!(iterator.has_current()? == false);
+        assert!(iterator.next().is_none() == true);
     }
 
     Ok(())
