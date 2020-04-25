@@ -94,6 +94,12 @@ impl RequiredInterface {
         map.insert_required(reader, name);
 
         for (name, kind) in map.0 {
+            let mut kind = kind;
+
+            if kind == InterfaceKind::Default {
+                kind = InterfaceKind::NonDefault;
+            }
+
             interfaces.push(RequiredInterface::from_type_name_and_kind(
                 reader, name, kind, generics,
             ));
