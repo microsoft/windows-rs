@@ -31,7 +31,7 @@ fn composition() -> winrt::Result<()> {
     // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
     let options = DispatcherQueueOptions {
         size: std::mem::size_of::<DispatcherQueueOptions>() as u32,
-        thread_type: 2, // DQTYPE_THREAD_CURRENT
+        thread_type: 2,    // DQTYPE_THREAD_CURRENT
         apartment_type: 0, // DQTAT_COM_NONE
     };
     let _queue_controller = unsafe {
