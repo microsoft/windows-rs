@@ -57,12 +57,12 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> IntoIterator for &IVectorView<T> {
+            impl<T: ::winrt::RuntimeType> IntoIterator for IVectorView<T> {
                 type Item = T;
                 type IntoIter = VectorViewIterator<Self::Item>;
             
                 fn into_iter(self) -> Self::IntoIter {
-                    VectorViewIterator::new(self.clone())
+                    VectorViewIterator::new(self)
                 }
             }
         };
@@ -98,12 +98,12 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> IntoIterator for &IVector<T> {
+            impl<T: ::winrt::RuntimeType> IntoIterator for IVector<T> {
                 type Item = T;
                 type IntoIter = VectorIterator<Self::Item>;
             
                 fn into_iter(self) -> Self::IntoIter {
-                    VectorIterator::new(self.clone())
+                    VectorIterator::new(self)
                 }
             }
         };
