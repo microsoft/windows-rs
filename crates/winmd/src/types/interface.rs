@@ -21,7 +21,7 @@ impl Interface {
         default_interface.kind = InterfaceKind::Default;
         interfaces.push(default_interface);
 
-        RequiredInterface::append(reader, &name, &mut interfaces);
+        RequiredInterface::append_required(reader, &name, &mut interfaces);
 
         Self { name, interfaces }
     }
