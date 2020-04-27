@@ -42,7 +42,7 @@ pub fn value_type(_args: TokenStream, input: TokenStream) -> TokenStream {
         #[repr(C)]
         #[derive(Copy, Clone, Default, Debug, PartialEq)]
         #input
-        impl winrt::RuntimeType for #name {
+        impl ::winrt::RuntimeType for #name {
             type Abi = Self;
 
             fn abi(&self) -> Self::Abi {
@@ -53,7 +53,6 @@ pub fn value_type(_args: TokenStream, input: TokenStream) -> TokenStream {
                 self as *mut Self::Abi
             }
         }
-
     };
 
     output.into()
