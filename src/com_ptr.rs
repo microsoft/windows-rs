@@ -18,7 +18,7 @@ impl<T: ComInterface> ComPtr<T> {
                 self.ptr = std::ptr::null_mut();
             }
         }
-        &mut self.get()
+        &mut self.ptr as *mut _ as *mut _
     }
 
     #[inline]
