@@ -6,9 +6,7 @@ use quote::quote;
 use std::iter::FromIterator;
 
 pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
-    if name.name == "IIterator`1"
-        && name.namespace == "Windows.Foundation.Collections"
-    {
+    if name.name == "IIterator`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
             impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for IIterator<T> {
                 type Item = T;
@@ -26,9 +24,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         };
     }
 
-    if name.name == "IVectorView`1"
-        && name.namespace == "Windows.Foundation.Collections"
-    {
+    if name.name == "IVectorView`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
             pub struct VectorViewIterator<T: ::winrt::RuntimeType + 'static> {
                 vector: IVectorView<T>,
@@ -60,7 +56,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
             impl<T: ::winrt::RuntimeType> IntoIterator for IVectorView<T> {
                 type Item = T;
                 type IntoIter = VectorViewIterator<Self::Item>;
-            
+
                 fn into_iter(self) -> Self::IntoIter {
                     VectorViewIterator::new(self)
                 }
@@ -68,8 +64,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         };
     }
 
-    if name.name == "IVector`1" && name.namespace == "Windows.Foundation.Collections"
-    {
+    if name.name == "IVector`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
             pub struct VectorIterator<T: ::winrt::RuntimeType + 'static> {
                 vector: IVector<T>,
@@ -101,7 +96,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
             impl<T: ::winrt::RuntimeType> IntoIterator for IVector<T> {
                 type Item = T;
                 type IntoIter = VectorIterator<Self::Item>;
-            
+
                 fn into_iter(self) -> Self::IntoIter {
                     VectorIterator::new(self)
                 }
@@ -109,10 +104,69 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         };
     }
 
-    // TODO: do this for both classes and interfaces:
+    let mut iterable = None;
 
-    // TODO: next, search if any required interface is IVector, IVectorView, or Iteratable (in that order)
-    // and add an IntoItertor impl if that's the case
+    for interface in interfaces {
+        if interface.name.name == "IVectorView`1"
+            && interface.name.namespace == "Windows.Foundation.Collections"
+        {
+            let item = interface.name.generics[0].to_tokens(&name.namespace);
+            let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
+            let name = name.to_tokens(&name.namespace);
 
-    TokenStream::new()
+            return quote! {
+                impl IntoIterator for #name {
+                    type Item = #item;
+                    type IntoIter = #wfc VectorViewIterator<Self::Item>;
+
+                    fn into_iter(self) -> Self::IntoIter {
+                        #wfc VectorViewIterator::new(self.into())
+                    }
+                }
+            };
+        }
+
+        if interface.name.name == "IVectorView`1"
+            && interface.name.namespace == "Windows.Foundation.Collections"
+        {
+            let item = interface.name.generics[0].to_tokens(&name.namespace);
+            let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
+            let name = name.to_tokens(&name.namespace);
+
+            return quote! {
+                impl IntoIterator for #name {
+                    type Item = #item;
+                    type IntoIter = #wfc VectorIterator<Self::Item>;
+
+                    fn into_iter(self) -> Self::IntoIter {
+                        #wfc VectorIterator::new(self.into())
+                    }
+                }
+            };
+        }
+
+        if interface.name.name == "IIterable`1"
+            && interface.name.namespace == "Windows.Foundation.Collections"
+        {
+            iterable = Some(interface);
+        }
+    }
+
+    // if let Some(interface) = iterable {
+    //     let item = interface.name.generics[0].to_tokens(&name.namespace);
+    //     let name = name.to_tokens(&name.namespace);
+
+    //     return quote! {
+    //         impl IntoIterator for #name {
+    //             type Item = #item;
+    //             type IntoIter = VectorIterator<Self::Item>;
+
+    //             fn into_iter(self) -> Self::IntoIter {
+    //                 VectorIterator::new(self)
+    //             }
+    //         }
+    //     };
+    // }
+
+    quote! {}
 }
