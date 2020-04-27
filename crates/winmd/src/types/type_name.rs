@@ -289,7 +289,7 @@ impl TypeName {
         let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
             let name = format_ident!("__{}", count);
             let generic = generic.to_tokens("");
-            quote! { #name: std::marker::PhantomData::<#generic>, }
+            quote! { #name: ::std::marker::PhantomData::<#generic>, }
         });
 
         TokenStream::from_iter(phantoms)
@@ -320,7 +320,7 @@ impl TypeName {
         let count = source.count();
 
         if count > 0 {
-            tokens.resize(tokens.len() + count, quote! {super::});
+            tokens.resize(tokens.len() + count, quote! { super:: });
         }
 
         tokens.extend(destination.map(|destination| {

@@ -184,7 +184,7 @@ impl Method {
                 | TypeKind::Generic(_) => {
                     let name = quote::format_ident!("__{}", position);
                     let into = param.kind.to_tokens(calling_namespace);
-                    tokens.push(quote! { #name: Into<::winrt::Param<'a, #into>>, });
+                    tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
                 }
                 _ => {}
             };
@@ -215,12 +215,12 @@ impl Method {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     unsafe {
-                        let mut __ok = std::mem::zeroed();
+                        let mut __ok = ::std::mem::zeroed();
                         ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
                             self.ptr.get(), #args #return_arg)
                             .and_then(|| {
-                                let result = std::mem::transmute_copy(&__ok);
-                                std::mem::forget(__ok);
+                                let result = ::std::mem::transmute_copy(&__ok);
+                                ::std::mem::forget(__ok);
                                 result
                             })
                     }
@@ -258,7 +258,7 @@ impl Method {
 
         quote! {
             pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
-                <#interface as From<&Self>>::from(self).#method_name(#args)
+                <#interface as ::std::convert::From<&Self>>::from(self).#method_name(#args)
             }
         }
     }

@@ -151,22 +151,22 @@ impl Class {
         TokenStream::from_iter(self.bases.iter().map(|base| {
             let into = base.to_tokens(calling_namespace);
             quote! {
-                impl From<#from> for #into {
+                impl ::std::convert::From<#from> for #into {
                     fn from(value: #from) -> #into {
                         #into::from(&value)
                     }
                 }
-                impl From<&#from> for #into {
+                impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> #into {
                         ::winrt::safe_query(value)
                     }
                 }
-                impl<'a> Into<::winrt::Param<'a, #into>> for #from {
+                impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {
                     fn into(self) -> ::winrt::Param<'a, #into> {
                         ::winrt::Param::Owned(self.into())
                     }
                 }
-                impl<'a> Into<::winrt::Param<'a, #into>> for &'a #from {
+                impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for &'a #from {
                     fn into(self) -> ::winrt::Param<'a, #into> {
                         ::winrt::Param::Owned(self.into())
                     }
