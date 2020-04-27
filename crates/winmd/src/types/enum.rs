@@ -84,7 +84,7 @@ impl Enum {
             pub enum #name {
                 #(#fields),*
             }
-            impl Default for #name {
+            impl ::std::default::Default for #name {
                 fn default() -> Self {
                     Self::#default
                 }

@@ -124,12 +124,12 @@ impl RequiredInterface {
             InterfaceKind::Default => {
                 let into = self.name.to_tokens(calling_namespace);
                 quote! {
-                    impl<#constraints> From<#from> for #into {
+                    impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> #into {
                             unsafe { std::mem::transmute(value) }
                         }
                     }
-                    impl<#constraints> From<&#from> for #into {
+                    impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> #into {
                             #into::from(value.clone())
                         }
@@ -140,12 +140,12 @@ impl RequiredInterface {
                 let into = self.name.to_tokens(calling_namespace);
                 if self.name.generics.is_empty() {
                     quote! {
-                        impl<#constraints> From<#from> for #into {
+                        impl<#constraints> ::std::convert::From<#from> for #into {
                             fn from(value: #from) -> #into {
                                 #into::from(&value)
                             }
                         }
-                        impl<#constraints> From<&#from> for #into {
+                        impl<#constraints> ::std::convert::From<&#from> for #into {
                             fn from(value: &#from) -> #into {
                                 ::winrt::safe_query(value)
                             }
@@ -155,12 +155,12 @@ impl RequiredInterface {
                     let guid = self.guid.to_tokens();
 
                     quote! {
-                        impl<#constraints> From<#from> for #into {
+                        impl<#constraints> ::std::convert::From<#from> for #into {
                             fn from(value: #from) -> #into {
                                 #into::from(&value)
                             }
                         }
-                        impl<#constraints> From<&#from> for #into {
+                        impl<#constraints> ::std::convert::From<&#from> for #into {
                             fn from(value: &#from) -> #into {
                                 const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                                 unsafe { ::winrt::unsafe_query(value, &GUID) }
