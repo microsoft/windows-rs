@@ -10,7 +10,7 @@ extern "stdcall" {
     fn CreateDispatcherQueueController(
         options: DispatcherQueueOptions,
         dispatcherQueueController: *mut winrt::RawPtr,
-    ) -> i32;
+    ) -> winrt::ErrorCode;
 }
 
 #[repr(C)]
@@ -36,7 +36,7 @@ fn composition() -> winrt::Result<()> {
     };
     let _queue_controller = unsafe {
         let mut interop_ptr = winrt::IUnknown::default();
-        winrt::ErrorCode(CreateDispatcherQueueController(options, interop_ptr.set())).ok()?;
+        CreateDispatcherQueueController(options, interop_ptr.set()).ok()?;
         interop_ptr
     };
 

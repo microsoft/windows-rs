@@ -28,12 +28,12 @@ impl<'a, T: RuntimeType> From<&'a T> for Param<'a, T> {
 
 impl<'a> From<&'a str> for Param<'a, HString> {
     fn from(value: &'a str) -> Param<'a, HString> {
-        Param::Owned((*value).into())
+        Param::Owned(value.into())
     }
 }
 
 impl<'a> From<String> for Param<'a, HString> {
     fn from(value: String) -> Param<'a, HString> {
-        Param::Owned(value.as_str().into())
+        Param::Owned(value.into())
     }
 }

@@ -69,6 +69,7 @@ impl Interface {
                 #methods
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
+                type VTable = #abi_definition;
                 const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
             }
             #[repr(C)]

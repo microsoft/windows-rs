@@ -1,9 +1,19 @@
 use crate::*;
 
 #[repr(transparent)]
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct IUnknown {
     ptr: ComPtr<IUnknown>,
+}
+
+impl IUnknown {
+    pub fn get(&self) -> RawPtr {
+        self.ptr.get() as RawPtr
+    }
+
+    pub fn set(&mut self) -> *mut RawPtr {
+        self.ptr.set() as *mut RawPtr
+    }
 }
 
 unsafe impl ComInterface for IUnknown {

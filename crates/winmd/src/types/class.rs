@@ -110,6 +110,7 @@ impl Class {
 
             let bases = self.to_base_conversions_tokens(&self.name.namespace, &name);
 
+            let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             quote! {
                 #[repr(transparent)]
                 #[derive(Default, Clone)]
@@ -120,6 +121,7 @@ impl Class {
                 }
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
+                    type VTable = #abi_name;
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
                 impl ::winrt::RuntimeType for #name {
