@@ -34,7 +34,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                     self.first().unwrap()
                 }
             }
-        }
+        };
     }
 
     if name.name == "IVectorView`1" && name.namespace == "Windows.Foundation.Collections" {

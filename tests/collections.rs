@@ -8,4 +8,3 @@ winrt::import!(
 use windows::foundation::collections::*;
 use windows::foundation::*;
 use winrt::*;
-
