@@ -3,23 +3,21 @@ use crate::*;
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct Object {
-    ptr: IUnknown,
+    ptr: ComPtr<Object>,
 }
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
         unsafe {
             let mut ptr = std::ptr::null_mut();
-            ((*(*(self.ptr.get() as *const *const abi_IInspectable))).type_name)(
-                self.ptr.get(),
-                &mut ptr,
-            )
-            .and_then(|| std::mem::transmute(ptr))
+            ((*(*(self.ptr.get()))).type_name)(self.ptr.get(), &mut ptr)
+                .and_then(|| std::mem::transmute(ptr))
         }
     }
 }
 
 unsafe impl ComInterface for Object {
+    type VTable = abi_IInspectable;
     const GUID: Guid = Guid::from_values(
         0xAF86_E2E0,
         0xB12D,
@@ -32,16 +30,16 @@ impl RuntimeType for Object {
     type Abi = RawPtr;
 
     fn abi(&self) -> Self::Abi {
-        self.ptr.get()
+        self.ptr.get() as RawPtr
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        self.ptr.set()
+        self.ptr.set() as *mut RawPtr
     }
 }
 
 #[repr(C)]
-struct abi_IInspectable {
+pub struct abi_IInspectable {
     __base: [usize; 4],
-    type_name: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
+    type_name: extern "system" fn(*const *const object::abi_IInspectable, *mut RawPtr) -> ErrorCode,
 }
