@@ -24,6 +24,19 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         };
     }
 
+    if name.name == "IIterable`1" && name.namespace == "Windows.Foundation.Collections" {
+        return quote! {
+            impl<T: ::winrt::RuntimeType> ::std::iter::IntoIterator for IIterable<T> {
+                type Item = T;
+                type IntoIter = IIterator<Self::Item>;
+
+                fn into_iter(self) -> Self::IntoIter {
+                    self.first().unwrap()
+                }
+            }
+        }
+    }
+
     if name.name == "IVectorView`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
             pub struct VectorViewIterator<T: ::winrt::RuntimeType + 'static> {
@@ -39,7 +52,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> Iterator for VectorViewIterator<T> {
+            impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for VectorViewIterator<T> {
                 type Item = T;
 
                 fn next(&mut self) -> Option<Self::Item> {
@@ -53,7 +66,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> IntoIterator for IVectorView<T> {
+            impl<T: ::winrt::RuntimeType> ::std::iter::IntoIterator for IVectorView<T> {
                 type Item = T;
                 type IntoIter = VectorViewIterator<Self::Item>;
 
@@ -79,7 +92,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> Iterator for VectorIterator<T> {
+            impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for VectorIterator<T> {
                 type Item = T;
 
                 fn next(&mut self) -> Option<Self::Item> {
@@ -93,7 +106,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> IntoIterator for IVector<T> {
+            impl<T: ::winrt::RuntimeType> ::std::iter::IntoIterator for IVector<T> {
                 type Item = T;
                 type IntoIter = VectorIterator<Self::Item>;
 
@@ -115,7 +128,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
             let name = name.to_tokens(&name.namespace);
 
             return quote! {
-                impl IntoIterator for #name {
+                impl ::std::iter::IntoIterator for #name {
                     type Item = #item;
                     type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
@@ -134,7 +147,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
             let name = name.to_tokens(&name.namespace);
 
             return quote! {
-                impl IntoIterator for #name {
+                impl ::std::iter::IntoIterator for #name {
                     type Item = #item;
                     type IntoIter = #wfc VectorIterator<Self::Item>;
 
@@ -152,25 +165,24 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         }
     }
 
-    quote! {}
+    match iterable {
+        None => quote! {},
+        Some(interface) => {
+            let constraints = name.constraints();
+            let item = interface.name.generics[0].to_tokens(&name.namespace);
+            let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
+            let name = name.to_tokens(&name.namespace);
 
-    // match iterable {
-    //     None => quote! {},
-    //     Some(interface) => {
-    //         let item = interface.name.generics[0].to_tokens(&name.namespace);
-    //         let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-    //         let name = name.to_tokens(&name.namespace);
+            quote! {
+                impl<#constraints> ::std::iter::IntoIterator for #name {
+                    type Item = #item;
+                    type IntoIter = #wfc IIterator<Self::Item>;
 
-    //         quote! {
-    //             impl IntoIterator for #name {
-    //                 type Item = #item;
-    //                 type IntoIter = #wfc IIterator<Self::Item>;
-
-    //                 fn into_iter(self) -> Self::IntoIter {
-    //                     self.first()
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+                    fn into_iter(self) -> Self::IntoIter {
+                        self.first().unwrap()
+                    }
+                }
+            }
+        }
+    }
 }
