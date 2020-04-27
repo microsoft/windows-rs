@@ -22,7 +22,7 @@
         let count = source.count();
 
         if count > 0 {
-            tokens.resize(tokens.len() + count, quote! {super::});
+            tokens.resize(tokens.len() + count, quote! { super:: });
         }
 
         tokens.extend(destination.map(|destination| {

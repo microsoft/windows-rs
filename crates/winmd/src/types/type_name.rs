@@ -227,7 +227,7 @@ impl TypeName {
     }
 
     pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = self.to_namespace_stream(calling_namespace);
+        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
 
         if self.generics.is_empty() {
             let name = format_ident(&self.name);
@@ -240,7 +240,7 @@ impl TypeName {
     }
 
     pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = self.to_namespace_stream(calling_namespace);
+        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
 
         if self.generics.is_empty() {
             let name = format_abi_ident(&self.name);
@@ -256,7 +256,7 @@ impl TypeName {
     // and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
     // weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
     pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = self.to_namespace_stream(calling_namespace);
+        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
 
         if self.generics.is_empty() {
             let name = format_ident(&self.name);
@@ -269,7 +269,7 @@ impl TypeName {
     }
 
     pub fn to_abi_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = self.to_namespace_stream(calling_namespace);
+        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
 
         if self.generics.is_empty() {
             let name = format_abi_ident(&self.name);
@@ -302,33 +302,6 @@ impl TypeName {
         });
 
         TokenStream::from_iter(generics)
-    }
-
-    fn to_namespace_stream(&self, calling_namespace: &str) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        let mut source = calling_namespace.split('.').peekable();
-        let mut destination = self.namespace.split('.').peekable();
-
-        while source.peek() == destination.peek() {
-            if source.next().is_none() {
-                break;
-            }
-            destination.next();
-        }
-
-        let count = source.count();
-
-        if count > 0 {
-            tokens.resize(tokens.len() + count, quote! { super:: });
-        }
-
-        tokens.extend(destination.map(|destination| {
-            let destination = format_ident(&to_snake(destination, MethodKind::Normal));
-            quote! { #destination:: }
-        }));
-
-        TokenStream::from_iter(tokens)
     }
 }
 

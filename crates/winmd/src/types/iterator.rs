@@ -152,21 +152,25 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         }
     }
 
-    // if let Some(interface) = iterable {
-    //     let item = interface.name.generics[0].to_tokens(&name.namespace);
-    //     let name = name.to_tokens(&name.namespace);
+    quote! {}
 
-    //     return quote! {
-    //         impl IntoIterator for #name {
-    //             type Item = #item;
-    //             type IntoIter = VectorIterator<Self::Item>;
+    // match iterable {
+    //     None => quote! {},
+    //     Some(interface) => {
+    //         let item = interface.name.generics[0].to_tokens(&name.namespace);
+    //         let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
+    //         let name = name.to_tokens(&name.namespace);
 
-    //             fn into_iter(self) -> Self::IntoIter {
-    //                 VectorIterator::new(self)
+    //         quote! {
+    //             impl IntoIterator for #name {
+    //                 type Item = #item;
+    //                 type IntoIter = #wfc IIterator<Self::Item>;
+
+    //                 fn into_iter(self) -> Self::IntoIter {
+    //                     self.first()
+    //                 }
     //             }
     //         }
-    //     };
+    //     }
     // }
-
-    quote! {}
 }
