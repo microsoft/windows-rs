@@ -25,7 +25,6 @@ macro_rules! primitive_runtime_type {
             fn set_abi(&mut self) -> *mut Self::Abi {
                 self as *mut Self::Abi
             }
-
         })*
     };
 }
