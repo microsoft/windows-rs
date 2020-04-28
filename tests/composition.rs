@@ -31,7 +31,11 @@ fn create_dispatcher() -> winrt::IUnknown {
     };
 
     let mut interop_ptr = winrt::IUnknown::default();
-    unsafe { CreateDispatcherQueueController(options, interop_ptr.set()).ok().unwrap(); }
+    unsafe {
+        CreateDispatcherQueueController(options, interop_ptr.set())
+            .ok()
+            .unwrap();
+    }
     interop_ptr
 }
 
