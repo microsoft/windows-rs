@@ -1,9 +1,6 @@
-use crate::tables::*;
 use crate::types::*;
-use crate::*;
 use proc_macro2::TokenStream;
 use quote::quote;
-use std::iter::FromIterator;
 
 pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
     if name.name == "IIterator`1" && name.namespace == "Windows.Foundation.Collections" {

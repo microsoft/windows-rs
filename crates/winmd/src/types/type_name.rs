@@ -1,5 +1,4 @@
 use crate::blob::Blob;
-use crate::case::*;
 use crate::codes::*;
 use crate::tables::*;
 use crate::types::*;
