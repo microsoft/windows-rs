@@ -157,7 +157,7 @@ impl Class {
             quote! {
                 impl ::std::convert::From<#from> for #into {
                     fn from(value: #from) -> #into {
-                        #into::from(&value)
+                        <#into as ::std::convert::From<&#from>>::from(&value)
                     }
                 }
                 impl ::std::convert::From<&#from> for #into {
@@ -167,7 +167,7 @@ impl Class {
                 }
                 impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {
                     fn into(self) -> ::winrt::Param<'a, #into> {
-                        ::winrt::Param::Owned(self.into())
+                        ::winrt::Param::Owned(<#from as ::std::convert::Into<#into>>::into(self))
                     }
                 }
                 impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for &'a #from {

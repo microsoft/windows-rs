@@ -131,7 +131,7 @@ impl RequiredInterface {
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> #into {
-                            #into::from(value.clone())
+                            <#into as ::std::convert::From<#from>>::from(<#from as ::std::clone::Clone>::clone(value))
                         }
                     }
                 }
@@ -142,7 +142,7 @@ impl RequiredInterface {
                     quote! {
                         impl<#constraints> ::std::convert::From<#from> for #into {
                             fn from(value: #from) -> #into {
-                                #into::from(&value)
+                                <#into as ::std::convert::From<&#from>>::from(&value)
                             }
                         }
                         impl<#constraints> ::std::convert::From<&#from> for #into {
@@ -157,7 +157,7 @@ impl RequiredInterface {
                     quote! {
                         impl<#constraints> ::std::convert::From<#from> for #into {
                             fn from(value: #from) -> #into {
-                                #into::from(&value)
+                                <#into as ::std::convert::From<&#from>>::from(&value)
                             }
                         }
                         impl<#constraints> ::std::convert::From<&#from> for #into {
