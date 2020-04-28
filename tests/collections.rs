@@ -5,8 +5,9 @@ winrt::import!(
         "windows.foundation.collections"
 );
 
-use windows::foundation::*;
 use windows::foundation::collections::*;
+use windows::foundation::*;
+use std::iter::FromIterator;
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -31,7 +32,7 @@ fn uri() -> winrt::Result<()> {
 
     let mut result = String::new();
 
-    for entry in query { 
+    for entry in query {
         result.push_str(&entry.value()?.to_string());
     }
 
@@ -44,7 +45,7 @@ fn uri() -> winrt::Result<()> {
 
     let mut result = String::new();
 
-    for entry in iterable { 
+    for entry in iterable {
         result.push_str(&entry.name()?.to_string());
     }
 
@@ -57,7 +58,7 @@ fn uri() -> winrt::Result<()> {
 
     let mut result = String::new();
 
-    for entry in iterable { 
+    for entry in iterable {
         result.push_str(&entry.value()?.to_string());
     }
 
@@ -68,6 +69,8 @@ fn uri() -> winrt::Result<()> {
 
 #[test]
 fn property_set() -> winrt::Result<()> {
+    use winrt::*;
+
     let set = PropertySet::new()?;
 
     set.insert("A", PropertyValue::create_uint32(1)?)?;
@@ -76,14 +79,18 @@ fn property_set() -> winrt::Result<()> {
 
     assert!(set.size()? == 3);
 
-    let mut result = String::new();
+    let mut keys = Vec::new();
+    let mut values = 0;
 
-    for pair in set { 
-        result.push_str(&pair.key()?.to_string());
-    }
+    for pair in set {
+        keys.push(pair.key()?.to_string());
+        let pv: IPropertyValue = pair.value()?.try_into()?;
+        values += pv.get_uint32()?;
+    }    
 
-    println!("result {}", result);
-    assert!(result == "ABC");
+    keys.sort();
+    assert!(String::from_iter(keys) == "ABC");
+    assert!(values == 6);
 
     Ok(())
 }
