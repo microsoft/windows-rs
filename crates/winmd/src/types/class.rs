@@ -109,6 +109,7 @@ impl Class {
             };
 
             let bases = self.to_base_conversions_tokens(&self.name.namespace, &name);
+            let iterator = iterator_tokens(&self.name, &self.interfaces);
 
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             quote! {
@@ -135,6 +136,7 @@ impl Class {
                 }
                 #conversions
                 #bases
+                #iterator
             }
         } else {
             quote! {
@@ -218,6 +220,14 @@ mod tests {
             .iter()
             .find(|interface| interface.name.name == name)
             .unwrap()
+    }
+
+    fn count_default(class: &Class) -> usize {
+        class
+            .interfaces
+            .iter()
+            .filter(|interface| interface.kind == InterfaceKind::Default)
+            .count()
     }
 
     #[test]
@@ -337,6 +347,7 @@ mod tests {
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.ContainerVisual");
         assert!(t.bases[1].runtime_name() == "Windows.UI.Composition.Visual");
         assert!(t.bases[2].runtime_name() == "Windows.UI.Composition.CompositionObject");
+        assert!(count_default(&t) == 1);
         assert!(interface(&t, "ISpriteVisual").kind == InterfaceKind::Default);
         assert!(interface(&t, "IContainerVisual").kind == InterfaceKind::NonDefault);
         assert!(interface(&t, "IVisual").kind == InterfaceKind::NonDefault);
@@ -347,6 +358,7 @@ mod tests {
         assert!(t.bases.len() == 2);
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.Visual");
         assert!(t.bases[1].runtime_name() == "Windows.UI.Composition.CompositionObject");
+        assert!(count_default(&t) == 1);
         assert!(interface(&t, "IContainerVisual").kind == InterfaceKind::Default);
         assert!(interface(&t, "IVisual").kind == InterfaceKind::NonDefault);
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::NonDefault);
@@ -355,12 +367,14 @@ mod tests {
         assert!(t.interfaces[0].name.runtime_name() == "Windows.UI.Composition.IVisual");
         assert!(t.bases.len() == 1);
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.CompositionObject");
+        assert!(count_default(&t) == 1);
         assert!(interface(&t, "IVisual").kind == InterfaceKind::Default);
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::NonDefault);
 
         let t = class(("Windows.UI.Composition", "CompositionObject"));
         assert!(t.interfaces[0].name.runtime_name() == "Windows.UI.Composition.ICompositionObject");
         assert!(t.bases.is_empty());
+        assert!(count_default(&t) == 1);
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::Default);
     }
 

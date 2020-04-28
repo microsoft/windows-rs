@@ -115,12 +115,10 @@ impl Param {
                     _ => quote! { ::winrt::RuntimeType::abi(#name), },
                 }
             }
+        } else if self.kind.blittable() {
+            quote! { #name, }
         } else {
-            if self.kind.blittable() {
-                quote! { #name, }
-            } else {
-                quote! { ::winrt::RuntimeType::set_abi(#name), }
-            }
+            quote! { ::winrt::RuntimeType::set_abi(#name), }
         }
     }
 }

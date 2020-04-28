@@ -57,10 +57,11 @@ impl Interface {
 
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
+        let iterator = iterator_tokens(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]
-            #[derive(Default, Clone)]
+            #[derive(Default)]
             pub struct #definition where #constraints {
                 ptr: ::winrt::IUnknown,
                 #phantoms
@@ -71,6 +72,14 @@ impl Interface {
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
                 const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+            }
+            impl<#constraints> ::std::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self {
+                        ptr: self.ptr.clone(),
+                        #phantoms
+                    }
+                }
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
@@ -87,17 +96,8 @@ impl Interface {
                     self.ptr.set()
                 }
             }
-            // impl<'a, #constraints> Into<::winrt::Param<'a, #name>> for #name {
-            //     fn into(self) -> ::winrt::Param<'a, #name> {
-            //         ::winrt::Param::Owned(self)
-            //     }
-            // }
-            // impl<'a, #constraints> Into<::winrt::Param<'a, #name>> for &'a #name {
-            //     fn into(self) -> ::winrt::Param<'a, #name> {
-            //         ::winrt::Param::Borrowed(self)
-            //     }
-            // }
             #conversions
+            #iterator
         }
     }
 }
