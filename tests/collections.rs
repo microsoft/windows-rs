@@ -85,11 +85,12 @@ fn property_set() -> winrt::Result<()> {
     let mut keys = Vec::new();
     let mut values = 0;
 
-    for pair in set {
+    for pair in &set {
         keys.push(pair.key()?.to_string());
         let pv: IPropertyValue = pair.value()?.try_into()?;
         values += pv.get_uint32()?;
     }
+    assert!(set.size()? == 3);
 
     keys.sort();
     assert!(String::from_iter(keys) == "ABC");

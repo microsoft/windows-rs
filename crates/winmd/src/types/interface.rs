@@ -61,7 +61,7 @@ impl Interface {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Default, Clone)]
+            #[derive(Default)]
             pub struct #definition where #constraints {
                 ptr: ::winrt::IUnknown,
                 #phantoms
@@ -71,6 +71,14 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+            }
+            impl<#constraints> ::std::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self {
+                        ptr: self.ptr.clone(),
+                        #phantoms
+                    }
+                }
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
