@@ -39,6 +39,14 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                     self.first().unwrap()
                 }
             }
+            impl<'a, T: ::winrt::RuntimeType> ::std::iter::IntoIterator for &'a IIterable<T> {
+                type Item = T;
+                type IntoIter = IIterator<Self::Item>;
+
+                fn into_iter(self) -> Self::IntoIter {
+                    self.first().unwrap()
+                }
+            }
         };
     }
 
@@ -78,6 +86,14 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
 
                 fn into_iter(self) -> Self::IntoIter {
                     VectorViewIterator::new(self)
+                }
+            }
+            impl<'a, T: ::winrt::RuntimeType> ::std::iter::IntoIterator for &'a IVectorView<T> {
+                type Item = T;
+                type IntoIter = VectorViewIterator<Self::Item>;
+
+                fn into_iter(self) -> Self::IntoIter {
+                    VectorViewIterator::new(::std::clone::Clone::clone(self))
                 }
             }
         };
@@ -121,6 +137,14 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                     VectorIterator::new(self)
                 }
             }
+            impl<'a, T: ::winrt::RuntimeType> ::std::iter::IntoIterator for &'a IVector<T> {
+                type Item = T;
+                type IntoIter = VectorIterator<Self::Item>;
+
+                fn into_iter(self) -> Self::IntoIter {
+                    VectorIterator::new(::std::clone::Clone::clone(self))
+                }
+            }
         };
     }
 
@@ -138,6 +162,14 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
 
             return quote! {
                 impl ::std::iter::IntoIterator for #name {
+                    type Item = #item;
+                    type IntoIter = #wfc VectorViewIterator<Self::Item>;
+
+                    fn into_iter(self) -> Self::IntoIter {
+                        #wfc VectorViewIterator::new(self.into())
+                    }
+                }
+                impl<'a> ::std::iter::IntoIterator for &'a #name {
                     type Item = #item;
                     type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
@@ -164,6 +196,14 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
                         #wfc VectorIterator::new(self.into())
                     }
                 }
+                impl<'a> ::std::iter::IntoIterator for &'a #name {
+                    type Item = #item;
+                    type IntoIter = #wfc VectorIterator<Self::Item>;
+
+                    fn into_iter(self) -> Self::IntoIter {
+                        #wfc VectorIterator::new(self.into())
+                    }
+                }
             };
         }
 
@@ -183,7 +223,15 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
             let name = name.to_tokens(&name.namespace);
 
             quote! {
-                impl<#constraints> ::std::iter::IntoIterator for #name {
+               impl<#constraints> ::std::iter::IntoIterator for #name {
+                    type Item = #item;
+                    type IntoIter = #wfc IIterator<Self::Item>;
+
+                    fn into_iter(self) -> Self::IntoIter {
+                        self.first().unwrap()
+                    }
+                }
+                impl<'a, #constraints> ::std::iter::IntoIterator for &'a #name {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;
 
