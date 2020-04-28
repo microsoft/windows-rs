@@ -55,20 +55,6 @@ impl Param {
         }
     }
 
-    pub fn to_return_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let return_type = self.to_return_tokens(calling_namespace);
-        if self.array {
-            quote! { __ok }
-        } else {
-            quote! {
-                let abi = <#return_type as ::winrt::RuntimeType>::abi(&__ok);
-                let result = <#return_type as ::winrt::RuntimeType>::from_abi(abi);
-                ::std::mem::forget(__ok);
-                result
-            }
-        }
-    }
-
     pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
         let tokens = self.kind.to_abi_tokens(calling_namespace);
 

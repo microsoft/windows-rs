@@ -210,7 +210,6 @@ impl Method {
 
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.to_abi_return_arg_tokens(calling_namespace);
-            let return_abi_conversion = return_type.to_return_abi_tokens(calling_namespace);
             let return_type = return_type.to_return_tokens(calling_namespace);
 
             quote! {
@@ -219,9 +218,7 @@ impl Method {
                         let mut __ok: #return_type = ::std::mem::zeroed();
                         ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
                             self.ptr.get(), #args #return_arg)
-                            .and_then(|| {
-                                #return_abi_conversion
-                            })
+                            .and_then(|| __ok )
                     }
                 }
             }
