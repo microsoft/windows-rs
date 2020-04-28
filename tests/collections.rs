@@ -5,9 +5,9 @@ winrt::import!(
         "windows.foundation.collections"
 );
 
+use std::iter::FromIterator;
 use windows::foundation::collections::*;
 use windows::foundation::*;
-use std::iter::FromIterator;
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -71,7 +71,7 @@ fn uri() -> winrt::Result<()> {
 fn property_set() -> winrt::Result<()> {
     use winrt::*;
 
-    // The PropertySet class implements IIterable<IKeyValuePair<HString, Object>> so the following 
+    // The PropertySet class implements IIterable<IKeyValuePair<HString, Object>> so the following
     // for loop will excercise the IIterator<T> iterator implicitly.
 
     let set = PropertySet::new()?;
@@ -89,7 +89,7 @@ fn property_set() -> winrt::Result<()> {
         keys.push(pair.key()?.to_string());
         let pv: IPropertyValue = pair.value()?.try_into()?;
         values += pv.get_uint32()?;
-    }    
+    }
 
     keys.sort();
     assert!(String::from_iter(keys) == "ABC");

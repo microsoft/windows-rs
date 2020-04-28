@@ -6,6 +6,7 @@ winrt::import!(
 );
 
 #[test]
+
 fn uri() -> winrt::Result<()> {
     use windows::foundation::Uri;
 
