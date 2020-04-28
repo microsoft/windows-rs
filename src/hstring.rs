@@ -77,10 +77,6 @@ unsafe impl RuntimeType for HString {
         self.clear();
         &mut self.ptr
     }
-
-    unsafe fn from_abi(abi: Self::Abi) -> Self {
-        Self { ptr: abi }
-    }
 }
 
 impl Default for HString {

@@ -4,14 +4,15 @@
 /// trait for themselves
 ///
 /// # Safety
+///
 /// A type should only implement RuntimeType if the associated `Abi` type is safe to pass
 /// across FFI boundaries.
+/// The type itself must also be zero initializable and safe to drop if all bits are zeroable.
 pub unsafe trait RuntimeType {
     type Abi;
 
     fn abi(&self) -> Self::Abi;
     fn set_abi(&mut self) -> *mut Self::Abi;
-    unsafe fn from_abi(abi: Self::Abi) -> Self;
 }
 
 macro_rules! primitive_runtime_type {
@@ -24,9 +25,7 @@ macro_rules! primitive_runtime_type {
             fn set_abi(&mut self) -> *mut Self::Abi {
                 self as *mut Self::Abi
             }
-            unsafe fn from_abi(abi: Self::Abi) -> Self {
-                abi
-            }
+
         })*
     };
 }
