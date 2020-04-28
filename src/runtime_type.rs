@@ -6,112 +6,18 @@ pub trait RuntimeType {
     fn set_abi(&mut self) -> *mut Self::Abi;
 }
 
-impl RuntimeType for bool {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
+macro_rules! primitive_runtime_type {
+    ($($t:ty),+) => {
+        $(impl RuntimeType for $t {
+            type Abi = Self;
+            fn abi(&self) -> Self::Abi {
+                *self
+            }
+            fn set_abi(&mut self) -> *mut Self::Abi {
+                self as *mut Self::Abi
+            }
+        })*
+    };
 }
 
-impl RuntimeType for i8 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for u8 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for i16 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for u16 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for i32 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for u32 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for i64 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for u64 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for f32 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
-
-impl RuntimeType for f64 {
-    type Abi = Self;
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
-    }
-}
+primitive_runtime_type! { bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64 }

@@ -1,54 +1,32 @@
 use crate::*;
 
 #[repr(transparent)]
+#[derive(Default, Clone)]
 pub struct IUnknown {
-    ptr: RawPtr,
+    ptr: ComPtr<IUnknown>,
 }
 
 impl IUnknown {
     pub fn get(&self) -> RawPtr {
-        self.ptr
+        self.ptr.get() as RawPtr
     }
 
     pub fn set(&mut self) -> *mut RawPtr {
-        if !self.ptr.is_null() {
-            unsafe {
-                ((*(*(self.ptr as *const *const abi_IUnknown))).release)(self.ptr);
-                self.ptr = std::ptr::null_mut();
-            }
-        }
-        &mut self.ptr
+        self.ptr.set() as *mut RawPtr
     }
 }
 
-impl Default for IUnknown {
-    fn default() -> Self {
-        Self {
-            ptr: std::ptr::null_mut(),
-        }
-    }
+unsafe impl ComInterface for IUnknown {
+    type VTable = abi_IUnknown;
+    const GUID: Guid = Guid::from_values(
+        0x00000000,
+        0x0000,
+        0x0000,
+        [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
+    );
 }
 
-impl Clone for IUnknown {
-    fn clone(&self) -> IUnknown {
-        if !self.ptr.is_null() {
-            unsafe {
-                ((*(*(self.ptr as *const *const abi_IUnknown))).addref)(self.ptr);
-            }
-        }
-        IUnknown { ptr: self.ptr }
-    }
-}
-
-impl Drop for IUnknown {
-    fn drop(&mut self) {
-        if !self.ptr.is_null() {
-            unsafe {
-                ((*(*(self.ptr as *const *const abi_IUnknown))).release)(self.ptr);
-            }
-        }
-    }
-}
+type IUnknownPtr = *const *const <IUnknown as ComInterface>::VTable;
 
 // unsafe_query only exists to support generic interface queries that aren't yet supported by Rust because
 // it lacks good const function support to work out the guids in a generic and thus type safe manner. Once
@@ -59,9 +37,9 @@ pub unsafe fn unsafe_query<From: ComInterface, Into: ComInterface>(
     guid: &Guid,
 ) -> Into {
     let mut into = std::ptr::null_mut();
-    let from: RawPtr = std::mem::transmute_copy(from);
+    let from: IUnknownPtr = std::mem::transmute_copy(from);
     if !from.is_null() {
-        ((*(*(from as *const *const abi_IUnknown))).query)(from, guid, &mut into);
+        ((*(*(from as IUnknownPtr))).query)(from, guid, &mut into);
     }
     std::mem::transmute_copy(&into)
 }
@@ -71,8 +49,8 @@ pub fn safe_query<From: ComInterface, Into: ComInterface>(from: &From) -> Into {
 }
 
 #[repr(C)]
-pub(crate) struct abi_IUnknown {
-    pub query: extern "system" fn(RawPtr, &Guid, *mut RawPtr) -> ErrorCode,
-    addref: extern "system" fn(RawPtr) -> u32,
-    release: extern "system" fn(RawPtr) -> u32,
+pub struct abi_IUnknown {
+    pub(crate) query: extern "system" fn(IUnknownPtr, &Guid, *mut RawPtr) -> ErrorCode,
+    pub(crate) addref: extern "system" fn(IUnknownPtr) -> u32,
+    pub(crate) release: extern "system" fn(IUnknownPtr) -> u32,
 }

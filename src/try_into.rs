@@ -14,8 +14,12 @@ impl<From: ComInterface + Sized, Into: ComInterface> TryInto<Into> for &From {
                 return Ok(std::mem::transmute_copy(&into));
             }
 
-            ((*(*(from as *const *const abi_IUnknown))).query)(from, &Into::GUID, &mut into)
-                .ok()?;
+            ((*(*(from as *const *const abi_IUnknown))).query)(
+                from as *const *const abi_IUnknown,
+                &Into::GUID,
+                &mut into,
+            )
+            .ok()?;
 
             debug_assert!(!into.is_null());
 

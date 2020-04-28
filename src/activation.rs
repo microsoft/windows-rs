@@ -25,23 +25,21 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct IActivationFactory {
-    ptr: IUnknown,
+    ptr: ComPtr<IActivationFactory>,
 }
 
 impl IActivationFactory {
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
         let mut object = Object::default();
         unsafe {
-            ((*(*(self.ptr.get() as *const *const abi_IActivationFactory))).activate_instance)(
-                self.ptr.get(),
-                object.set_abi(),
-            )
-            .and_then(|| safe_query(&object))
+            ((*(*(self.ptr.get()))).activate_instance)(self.ptr.get(), object.set_abi())
+                .and_then(|| safe_query(&object))
         }
     }
 }
 
 unsafe impl ComInterface for IActivationFactory {
+    type VTable = abi_IActivationFactory;
     const GUID: Guid = Guid::from_values(
         0x0000_0035,
         0x0000,
@@ -51,7 +49,10 @@ unsafe impl ComInterface for IActivationFactory {
 }
 
 #[repr(C)]
-struct abi_IActivationFactory {
+pub struct abi_IActivationFactory {
     __base: [usize; 6],
-    activate_instance: extern "system" fn(RawPtr, *mut RawPtr) -> ErrorCode,
+    activate_instance: extern "system" fn(
+        *const *const activation::abi_IActivationFactory,
+        *mut RawPtr,
+    ) -> ErrorCode,
 }

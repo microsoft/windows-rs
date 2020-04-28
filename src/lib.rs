@@ -3,6 +3,7 @@
 mod activation;
 mod array;
 mod com_interface;
+mod com_ptr;
 mod error;
 mod events;
 mod guid;
@@ -20,6 +21,7 @@ mod weak;
 pub use activation::*;
 pub use array::*;
 pub use com_interface::*;
+pub use com_ptr::*;
 pub use error::*;
 pub use events::*;
 pub use guid::*;

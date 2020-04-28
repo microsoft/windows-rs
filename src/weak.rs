@@ -17,6 +17,7 @@ pub(crate) struct IWeakReferenceSource {
 }
 
 unsafe impl ComInterface for IWeakReferenceSource {
+    type VTable = IWeakReferenceSource;
     const GUID: Guid = Guid::from_values(
         0x0000_0038,
         0x0000,
