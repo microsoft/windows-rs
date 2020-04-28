@@ -2,7 +2,13 @@ use crate::types::*;
 use proc_macro2::TokenStream;
 use quote::quote;
 
+// Provides iterator support for the well-known WinRT collection interfaces and any classes or
+// interfaces that implement any of these interfaces. It also favors high-speed iteration and
+// only falls back to IIterator<T> if nothing faster is available. VectorIterator and
+// VectorViewIterator are faster iterators than IIterator<T> because they only require a single
+// vcall per iteration wheras IIterator<T> requires two.
 pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
+    // If the type is IIterator<T> then simply implement the Iterator trait over top.
     if name.name == "IIterator`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
             impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for IIterator<T> {
@@ -21,6 +27,8 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         };
     }
 
+    // If the type is IIterable<T> then implement the IntoIterator trait and rely on the resulting
+    // IIterator<T> returned by first() to implement the Iterator trait.
     if name.name == "IIterable`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
             impl<T: ::winrt::RuntimeType> ::std::iter::IntoIterator for IIterable<T> {
@@ -34,6 +42,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         };
     }
 
+    // If the type is IVectorView<T> then provide the VectorViewIterator fast iterator.
     if name.name == "IVectorView`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
             pub struct VectorViewIterator<T: ::winrt::RuntimeType + 'static> {
@@ -74,6 +83,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         };
     }
 
+    // If the type is IVector<T> then provide the VectorIterator fast iterator.
     if name.name == "IVector`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
             pub struct VectorIterator<T: ::winrt::RuntimeType + 'static> {
@@ -116,6 +126,8 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
 
     let mut iterable = None;
 
+    // If the class or interface is not one of the well-known collection interfaces, we then see whether it
+    // implements any one of them. Here is where we favor IVectorView/IVector over IIterable.
     for interface in interfaces {
         if interface.name.name == "IVectorView`1"
             && interface.name.namespace == "Windows.Foundation.Collections"
