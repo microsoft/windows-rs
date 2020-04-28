@@ -74,14 +74,11 @@ unsafe impl RuntimeType for HString {
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        println!("Going to clear");
         self.clear();
-        println!("Cleared {:?}", self.ptr);
         &mut self.ptr
     }
 
     unsafe fn from_abi(abi: Self::Abi) -> Self {
-        println!("Setting... {:?}", abi);
         Self { ptr: abi }
     }
 }

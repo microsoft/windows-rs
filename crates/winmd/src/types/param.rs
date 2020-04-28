@@ -60,7 +60,12 @@ impl Param {
         if self.array {
             quote! { __ok }
         } else {
-            quote! { unsafe { <#return_type as ::winrt::RuntimeType>::from_abi(<#return_type as ::winrt::RuntimeType>::abi(&__ok)) } }
+            quote! {
+                let abi = <#return_type as ::winrt::RuntimeType>::abi(&__ok);
+                let result = <#return_type as ::winrt::RuntimeType>::from_abi(abi);
+                ::std::mem::forget(__ok);
+                result
+            }
         }
     }
 

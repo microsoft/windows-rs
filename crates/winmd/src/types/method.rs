@@ -217,10 +217,11 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     unsafe {
                         let mut __ok: #return_type = ::std::mem::zeroed();
-
                         ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
                             self.ptr.get(), #args #return_arg)
-                            .and_then(|| { #return_abi_conversion })
+                            .and_then(|| {
+                                #return_abi_conversion
+                            })
                     }
                 }
             }
