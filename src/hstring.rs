@@ -1,24 +1,32 @@
-#![allow(dead_code)]
-
 use crate::*;
 use std::ptr;
 
+/// A handle to a Windows Runtime string
+///
+/// This handle should only be used for FFI purposes with Window Runtime APIs.
+///
+/// [MSDN Documentation](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring)
 #[repr(transparent)]
 pub struct HString {
     ptr: RawPtr,
 }
 
 impl HString {
+    /// Create a new HString
+    ///
+    /// This function does no allocation
     pub fn new() -> HString {
         Self {
             ptr: std::ptr::null_mut(),
         }
     }
 
+    /// Check whether the HString is the empty string or not
     pub fn is_empty(&self) -> bool {
         self.ptr.is_null()
     }
 
+    /// Read the length of the string
     pub fn len(&self) -> usize {
         if self.is_empty() {
             return 0;
@@ -27,17 +35,19 @@ impl HString {
         unsafe { (*(self.ptr as *const Header)).len as usize }
     }
 
-    pub fn as_chars(&self) -> &[u16] {
+    /// Get the string as 16-bit wide characters (wchars)
+    pub fn as_wide(&self) -> &[u16] {
         if self.is_empty() {
             return &[];
         }
 
         unsafe {
             let header = self.ptr as *const Header;
-            std::slice::from_raw_parts((*header).ptr, (*header).len as usize)
+            std::slice::from_raw_parts((*header).data, (*header).len as usize)
         }
     }
 
+    /// Clear the contents of the string and free the memory if the last handle to the string data
     pub fn clear(&mut self) {
         if self.is_empty() {
             return;
@@ -99,7 +109,7 @@ impl Drop for HString {
 impl std::fmt::Display for HString {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         use std::fmt::Write;
-        for c in std::char::decode_utf16(self.as_chars().iter().cloned()) {
+        for c in std::char::decode_utf16(self.as_wide().iter().cloned()) {
             f.write_char(c.map_err(|_| std::fmt::Error)?)?
         }
         Ok(())
@@ -119,12 +129,12 @@ impl From<&str> for HString {
             // place each utf-16 character into the buffer and
             // increase len as we go along
             for (index, wide) in value.encode_utf16().enumerate() {
-                ptr::write((*ptr).ptr.add(index) as *mut _, wide);
+                ptr::write((*ptr).data.add(index) as *mut _, wide);
                 (*ptr).len = index as u32 + 1;
             }
 
             // write a 0 byte to the end of the buffer
-            ptr::write((*ptr).ptr.offset((*ptr).len as isize) as *mut _, 0);
+            ptr::write((*ptr).data.offset((*ptr).len as isize) as *mut _, 0);
             Self { ptr: ptr as RawPtr }
         }
     }
@@ -144,7 +154,7 @@ impl From<&String> for HString {
 
 impl PartialEq for HString {
     fn eq(&self, other: &Self) -> bool {
-        self.as_chars() == other.as_chars()
+        self.as_wide() == other.as_wide()
     }
 }
 
@@ -162,13 +172,13 @@ impl PartialEq<str> for HString {
 
 impl PartialEq<&str> for HString {
     fn eq(&self, other: &&str) -> bool {
-        self.as_chars().iter().copied().eq(other.encode_utf16())
+        self.as_wide().iter().copied().eq(other.encode_utf16())
     }
 }
 
 impl<'a> From<&'a HString> for String {
     fn from(hstring: &HString) -> Self {
-        String::from_utf16(hstring.as_chars()).unwrap()
+        String::from_utf16(hstring.as_wide()).unwrap()
     }
 }
 
@@ -186,7 +196,7 @@ struct Header {
     len: u32,
     _0: u32,
     _1: u32,
-    ptr: *const u16,
+    data: *const u16,
     shared: std::mem::MaybeUninit<Shared>,
 }
 
@@ -210,7 +220,7 @@ impl Header {
         unsafe {
             (*header).flags = 0;
             (*header).len = len;
-            (*header).ptr = &(*(*header).shared.as_ptr()).buffer_start;
+            (*header).data = &(*(*header).shared.as_ptr()).buffer_start;
             (*(*header).shared.as_mut_ptr()).count = RefCount::new(1);
         }
         header as *mut Header
@@ -226,8 +236,8 @@ impl Header {
             let copy = Header::alloc(self.len);
             unsafe {
                 std::ptr::copy_nonoverlapping(
-                    self.ptr,
-                    (*copy).ptr as *mut u16,
+                    self.data,
+                    (*copy).data as *mut u16,
                     self.len as usize + 1,
                 );
                 copy as RawPtr
@@ -282,6 +292,22 @@ mod tests {
     #[test]
     fn debug_format() {
         let value = HString::from("Hello world");
-        assert!(format!("{:#?}", value) == "Hello world");
+        assert!(format!("{:?}", value) == "Hello world");
+    }
+
+    #[test]
+    fn abi_transfer() {
+        fn perform_transfer(from: HString, to: &mut HString) {
+            let from = std::mem::ManuallyDrop::new(from);
+            let to = to.set_abi();
+            let from = from.abi();
+            unsafe { *to = from };
+        }
+
+        let from = HString::from("Hello");
+        let mut to = HString::new();
+        perform_transfer(from, &mut to);
+
+        assert!(format!("{}", to) == "Hello");
     }
 }
