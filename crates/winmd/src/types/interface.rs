@@ -87,7 +87,7 @@ impl Interface {
                 #abi_methods
                 #phantoms
             }
-            impl<#constraints> ::winrt::RuntimeType for #name {
+            unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 type Abi = ::winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
                     self.ptr.get()

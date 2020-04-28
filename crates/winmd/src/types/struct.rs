@@ -49,7 +49,7 @@ impl Struct {
             pub struct #name {
                 #(#fields),*
             }
-            impl ::winrt::RuntimeType for #name {
+            unsafe impl ::winrt::RuntimeType for #name {
                 type Abi = Self;
                 fn abi(&self) -> Self::Abi {
                     self.clone()

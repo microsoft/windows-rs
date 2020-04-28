@@ -66,7 +66,7 @@ impl HString {
     }
 }
 
-impl RuntimeType for HString {
+unsafe impl RuntimeType for HString {
     type Abi = RawPtr;
 
     fn abi(&self) -> Self::Abi {

@@ -20,7 +20,7 @@ impl Guid {
     }
 }
 
-impl RuntimeType for Guid {
+unsafe impl RuntimeType for Guid {
     type Abi = Self;
 
     fn abi(&self) -> Self::Abi {
