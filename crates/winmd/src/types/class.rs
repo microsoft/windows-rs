@@ -172,7 +172,7 @@ impl Class {
                 }
                 impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for &'a #from {
                     fn into(self) -> ::winrt::Param<'a, #into> {
-                        ::winrt::Param::Owned(self.into())
+                        ::winrt::Param::Owned(<#into as ::std::convert::From<&#from>>::from(&self))
                     }
                 }
             }
