@@ -7,12 +7,6 @@ pub struct IUnknown {
 }
 
 impl IUnknown {
-    pub unsafe fn from_raw(ptr: RawPtr) -> Self {
-        IUnknown {
-            ptr: ComPtr::from_raw(ptr as *mut _),
-        }
-    }
-
     pub fn get(&self) -> RawPtr {
         self.ptr.get() as RawPtr
     }
