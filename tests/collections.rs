@@ -71,6 +71,9 @@ fn uri() -> winrt::Result<()> {
 fn property_set() -> winrt::Result<()> {
     use winrt::*;
 
+    // The PropertySet class implements IIterable<IKeyValuePair<HString, Object>> so the following 
+    // for loop will excercise the IIterator<T> iterator implicitly.
+
     let set = PropertySet::new()?;
 
     set.insert("A", PropertyValue::create_uint32(1)?)?;
