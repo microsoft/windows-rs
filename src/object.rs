@@ -36,6 +36,12 @@ unsafe impl RuntimeType for Object {
     fn set_abi(&mut self) -> *mut Self::Abi {
         self.ptr.set() as *mut RawPtr
     }
+
+    unsafe fn from_abi(abi: Self::Abi) -> Self {
+        Self {
+            ptr: ComPtr::from_raw(abi as *mut _),
+        }
+    }
 }
 
 #[repr(C)]

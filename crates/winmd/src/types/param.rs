@@ -55,6 +55,15 @@ impl Param {
         }
     }
 
+    pub fn to_return_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
+        let return_type = self.to_return_tokens(calling_namespace);
+        if self.array {
+            quote! { __ok }
+        } else {
+            quote! { unsafe { <#return_type as ::winrt::RuntimeType>::from_abi(<#return_type as ::winrt::RuntimeType>::abi(&__ok)) } }
+        }
+    }
+
     pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
         let tokens = self.kind.to_abi_tokens(calling_namespace);
 
@@ -79,12 +88,7 @@ impl Param {
         if self.array {
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut __ok), winrt::Array::<#return_type>::set_abi(&mut __ok), }
         } else {
-            match self.kind {
-                TypeKind::Generic(_) => {
-                    quote! { <#return_type as ::winrt::RuntimeType>::set_abi(&mut __ok) }
-                }
-                _ => quote! { &mut __ok },
-            }
+            quote! { <#return_type as ::winrt::RuntimeType>::set_abi(&mut __ok) }
         }
     }
 

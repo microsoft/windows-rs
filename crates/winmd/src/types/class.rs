@@ -133,6 +133,9 @@ impl Class {
                     fn set_abi(&mut self) -> *mut Self::Abi {
                         self.ptr.set()
                     }
+                    unsafe fn from_abi(abi: Self::Abi) -> Self {
+                        Self { ptr: ::winrt::IUnknown::from_raw(abi) }
+                    }
                 }
                 #conversions
                 #bases

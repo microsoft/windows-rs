@@ -11,6 +11,7 @@ pub unsafe trait RuntimeType {
 
     fn abi(&self) -> Self::Abi;
     fn set_abi(&mut self) -> *mut Self::Abi;
+    unsafe fn from_abi(abi: Self::Abi) -> Self;
 }
 
 macro_rules! primitive_runtime_type {
@@ -22,6 +23,9 @@ macro_rules! primitive_runtime_type {
             }
             fn set_abi(&mut self) -> *mut Self::Abi {
                 self as *mut Self::Abi
+            }
+            unsafe fn from_abi(abi: Self::Abi) -> Self {
+                abi
             }
         })*
     };

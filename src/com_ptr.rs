@@ -6,6 +6,10 @@ pub struct ComPtr<T: ComInterface> {
 }
 
 impl<T: ComInterface> ComPtr<T> {
+    pub unsafe fn from_raw(ptr: *mut *mut T::VTable) -> Self {
+        ComPtr { ptr }
+    }
+
     #[inline]
     pub fn get(&self) -> *const *const T::VTable {
         self.ptr as *const *const _

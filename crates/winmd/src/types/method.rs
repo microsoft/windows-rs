@@ -210,19 +210,17 @@ impl Method {
 
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.to_abi_return_arg_tokens(calling_namespace);
+            let return_abi_conversion = return_type.to_return_abi_tokens(calling_namespace);
             let return_type = return_type.to_return_tokens(calling_namespace);
 
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     unsafe {
-                        let mut __ok = ::std::mem::zeroed();
+                        let mut __ok: #return_type = ::std::mem::zeroed();
+
                         ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
                             self.ptr.get(), #args #return_arg)
-                            .and_then(|| {
-                                let result = ::std::mem::transmute_copy(&__ok);
-                                ::std::mem::forget(__ok);
-                                result
-                            })
+                            .and_then(|| { #return_abi_conversion })
                     }
                 }
             }

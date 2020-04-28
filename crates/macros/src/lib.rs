@@ -52,6 +52,10 @@ pub fn value_type(_args: TokenStream, input: TokenStream) -> TokenStream {
             fn set_abi(&mut self) -> *mut Self::Abi {
                 self as *mut Self::Abi
             }
+
+            unsafe fn from_abi(abi: Self::Abi) -> Self {
+                abi
+            }
         }
     };
 
