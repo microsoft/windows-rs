@@ -125,7 +125,7 @@ impl Class {
                     type VTable = #abi_name;
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
-                impl ::winrt::RuntimeType for #name {
+                unsafe impl ::winrt::RuntimeType for #name {
                     type Abi = ::winrt::RawPtr;
                     fn abi(&self) -> Self::Abi {
                         self.ptr.get()
