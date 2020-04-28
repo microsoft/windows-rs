@@ -25,8 +25,6 @@ fn uri() -> winrt::Result<()> {
     assert!(query.get_at(2)?.name()? == "C");
     assert!(query.get_at(2)?.value()? == "3");
 
-    // TODO: still need to figure out how to get this not to consume the `query` value.
-
     // This tests the IntoIterator support on the WwwFormUrlDecoder returned by query_parsed.
     // It should be using the fast IVectorView iterator.
 
