@@ -57,6 +57,7 @@ impl Interface {
 
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
+        let iterator = iterator_tokens(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]
@@ -86,17 +87,8 @@ impl Interface {
                     self.ptr.set()
                 }
             }
-            // impl<'a, #constraints> Into<::winrt::Param<'a, #name>> for #name {
-            //     fn into(self) -> ::winrt::Param<'a, #name> {
-            //         ::winrt::Param::Owned(self)
-            //     }
-            // }
-            // impl<'a, #constraints> Into<::winrt::Param<'a, #name>> for &'a #name {
-            //     fn into(self) -> ::winrt::Param<'a, #name> {
-            //         ::winrt::Param::Borrowed(self)
-            //     }
-            // }
             #conversions
+            #iterator
         }
     }
 }

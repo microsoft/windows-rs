@@ -5,47 +5,53 @@ use std::ptr;
 
 #[repr(transparent)]
 pub struct HString {
-    ptr: Option<ptr::NonNull<Header>>,
+    ptr: RawPtr,
 }
 
 impl HString {
     pub fn new() -> HString {
-        HString { ptr: None }
-    }
-
-    pub fn is_empty(&self) -> bool {
-        self.ptr.is_none()
-    }
-
-    pub fn len(&self) -> usize {
-        match self.ptr {
-            None => 0,
-            Some(ptr) => unsafe { ptr.as_ref().len as usize },
+        Self {
+            ptr: std::ptr::null_mut(),
         }
     }
 
+    pub fn is_empty(&self) -> bool {
+        self.ptr.is_null()
+    }
+
+    pub fn len(&self) -> usize {
+        if self.is_empty() {
+            return 0;
+        }
+
+        unsafe { (*(self.ptr as *const Header)).len as usize }
+    }
+
     pub fn as_chars(&self) -> &[u16] {
-        match self.ptr {
-            None => &[],
-            Some(ptr) => unsafe {
-                let header = ptr.as_ref();
-                std::slice::from_raw_parts(header.ptr, header.len as usize)
-            },
+        if self.is_empty() {
+            return &[];
+        }
+
+        unsafe {
+            let header = self.ptr as *const Header;
+            std::slice::from_raw_parts((*header).ptr, (*header).len as usize)
         }
     }
 
     pub fn clear(&mut self) {
-        if let Some(mut ptr) = self.ptr {
-            let header = unsafe { ptr.as_mut() };
-            debug_assert!(header.flags & REFERENCE_FLAG == 0);
+        if self.is_empty() {
+            return;
+        }
 
-            unsafe {
-                if 0 == (*header.shared.as_mut_ptr()).count.release() {
-                    HeapFree(GetProcessHeap(), 0, ptr.as_ptr() as *mut std::ffi::c_void);
-                }
+        unsafe {
+            let header = self.ptr as *mut Header;
+            debug_assert!((*header).flags & REFERENCE_FLAG == 0);
+
+            if 0 == (*((*header).shared.as_mut_ptr())).count.release() {
+                HeapFree(GetProcessHeap(), 0, self.ptr);
             }
 
-            self.ptr = None;
+            self.ptr = std::ptr::null_mut();
         }
     }
 }
@@ -55,26 +61,32 @@ impl RuntimeType for HString {
 
     fn abi(&self) -> Self::Abi {
         self.ptr
-            .map(|p| p.as_ptr())
-            .unwrap_or_else(std::ptr::null_mut) as RawPtr
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         self.clear();
-        &mut self.abi()
+        &mut self.ptr
     }
 }
 
 impl Default for HString {
     fn default() -> Self {
-        HString::new()
+        Self::new()
     }
 }
 
 impl Clone for HString {
     fn clone(&self) -> HString {
-        let ptr = self.ptr.map(|mut p| unsafe { p.as_mut().duplicate() });
-        HString { ptr }
+        if self.is_empty() {
+            return Self::new();
+        }
+
+        unsafe {
+            let header = self.ptr as *mut Header;
+            Self {
+                ptr: (*header).duplicate(),
+            }
+        }
     }
 }
 
@@ -113,9 +125,7 @@ impl From<&str> for HString {
 
             // write a 0 byte to the end of the buffer
             ptr::write((*ptr).ptr.offset((*ptr).len as isize) as *mut _, 0);
-            Self {
-                ptr: Some(ptr::NonNull::new_unchecked(ptr)),
-            }
+            Self { ptr: ptr as RawPtr }
         }
     }
 }
@@ -206,11 +216,11 @@ impl Header {
         header as *mut Header
     }
 
-    fn duplicate(&mut self) -> ptr::NonNull<Header> {
+    fn duplicate(&mut self) -> RawPtr {
         if self.flags & REFERENCE_FLAG == 0 {
             unsafe {
                 (*self.shared.as_ptr()).count.addref();
-                ptr::NonNull::new_unchecked(self)
+                self as *mut Header as RawPtr
             }
         } else {
             let copy = Header::alloc(self.len);
@@ -220,7 +230,7 @@ impl Header {
                     (*copy).ptr as *mut u16,
                     self.len as usize + 1,
                 );
-                ptr::NonNull::new_unchecked(copy)
+                copy as RawPtr
             }
         }
     }
