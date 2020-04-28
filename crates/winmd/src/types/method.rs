@@ -215,14 +215,10 @@ impl Method {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     unsafe {
-                        let mut __ok = ::std::mem::zeroed();
+                        let mut __ok: #return_type = ::std::mem::zeroed();
                         ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
                             self.ptr.get(), #args #return_arg)
-                            .and_then(|| {
-                                let result = ::std::mem::transmute_copy(&__ok);
-                                ::std::mem::forget(__ok);
-                                result
-                            })
+                            .and_then(|| __ok )
                     }
                 }
             }

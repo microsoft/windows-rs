@@ -1,5 +1,14 @@
-/// RuntimeType is used to constrain WinRT generic types to WinRT types
-pub trait RuntimeType {
+/// RuntimeType is used to constrain WinRT generic types to WinRT types.
+///
+/// It is highly unlikely that users of winrt will ever need to implement this
+/// trait for themselves
+///
+/// # Safety
+///
+/// A type should only implement RuntimeType if the associated `Abi` type is safe to pass
+/// across FFI boundaries.
+/// The type itself must also be zero initializable and safe to drop if all bits are zeroable.
+pub unsafe trait RuntimeType {
     type Abi;
 
     fn abi(&self) -> Self::Abi;
@@ -8,7 +17,7 @@ pub trait RuntimeType {
 
 macro_rules! primitive_runtime_type {
     ($($t:ty),+) => {
-        $(impl RuntimeType for $t {
+        $(unsafe impl RuntimeType for $t {
             type Abi = Self;
             fn abi(&self) -> Self::Abi {
                 *self

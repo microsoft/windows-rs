@@ -79,12 +79,7 @@ impl Param {
         if self.array {
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut __ok), winrt::Array::<#return_type>::set_abi(&mut __ok), }
         } else {
-            match self.kind {
-                TypeKind::Generic(_) => {
-                    quote! { <#return_type as ::winrt::RuntimeType>::set_abi(&mut __ok) }
-                }
-                _ => quote! { &mut __ok },
-            }
+            quote! { <#return_type as ::winrt::RuntimeType>::set_abi(&mut __ok) }
         }
     }
 

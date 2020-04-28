@@ -26,7 +26,7 @@ unsafe impl ComInterface for Object {
     );
 }
 
-impl RuntimeType for Object {
+unsafe impl RuntimeType for Object {
     type Abi = RawPtr;
 
     fn abi(&self) -> Self::Abi {
