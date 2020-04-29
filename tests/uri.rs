@@ -36,3 +36,38 @@ fn uri() -> winrt::Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn interface_conversion() -> winrt::Result<()> {
+    use windows::foundation::*;
+
+    // Convert from Uri class to default interface by value (dropping the uri).
+    let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
+    let default: IUriRuntimeClass = uri.into();
+    assert!(default.domain()? == "kennykerr.ca");
+
+    // Convert from Uri class to default interface by reference (retaining the uri).
+    let uri: &Uri = &Uri::create_uri("http://kennykerr.ca")?;
+    let default: IUriRuntimeClass = uri.into();
+    assert!(default.domain()? == uri.domain()?);
+
+    // Convert from Uri class to non-default non-generic interface by value.
+    let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
+    let default: IStringable = uri.into();
+    assert!(default.to_string()? == "http://kennykerr.ca/");
+
+    // Convert from Uri class to non-default non-generic interface by reference.
+    let uri: &Uri = &Uri::create_uri("http://kennykerr.ca")?;
+    let default: IStringable = uri.into();
+    assert!(default.to_string()? == uri.to_string()?);
+
+    // Convert from ??? class to default generic interface by value.
+
+    // Convert from ??? class to default generic interface by reference.
+
+    // Convert from ??? class to non-default generic interface by value.
+
+    // Convert from ??? class to non-default generic interface by reference.
+
+    Ok(())
+}

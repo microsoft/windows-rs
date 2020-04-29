@@ -126,7 +126,7 @@ impl RequiredInterface {
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> #into {
-                            unsafe { std::mem::transmute(value) }
+                            unsafe { ::std::mem::transmute(value) }
                         }
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
