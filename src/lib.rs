@@ -16,7 +16,7 @@
 //! // Make use of any WinRT APIs as needed.
 //! // For example, here is an example of using the Windows.Foundation.Uri class:
 //!
-//! fn main() -> Result<()> {
+//! fn main() -> winrt::Result<()> {
 //!     use windows::foundation::Uri;
 //!
 //!     let uri = Uri::create_uri("http://kennykerr.ca")?;
