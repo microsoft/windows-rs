@@ -88,7 +88,7 @@ impl Interface {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type Abi = *const *const <#name as ::winrt::ComInterface>::VTable;
+                type Abi = *const *const <Self as ::winrt::ComInterface>::VTable;
                 fn abi(&self) -> Self::Abi {
                     self.ptr.get()
                 }

@@ -27,7 +27,7 @@ unsafe impl ComInterface for Object {
 }
 
 unsafe impl RuntimeType for Object {
-    type Abi = *const *const abi_IInspectable;
+    type Abi = *const *const <Self as ComInterface>::VTable;
 
     fn abi(&self) -> Self::Abi {
         self.ptr.get()
