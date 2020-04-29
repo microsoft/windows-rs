@@ -28,27 +28,6 @@ unsafe impl ComInterface for IUnknown {
 
 type IUnknownPtr = *const *const <IUnknown as ComInterface>::VTable;
 
-/// Use QueryInterface to cast a ComInterface into another
-///
-///
-/// `unsafe_query` only exists to support generic interface queries that aren't yet supported by Rust because
-/// it lacks good const function support to work out the guids in a generic and thus type safe manner. Once
-/// const function support arrives, we should be able to remove this function and rely on ComInterface to
-/// calculate the guid for all types.
-pub unsafe fn unsafe_query<From: ComInterface, Into: ComInterface>(
-    from: &From,
-    guid: &Guid,
-) -> Into {
-    let mut into = std::ptr::null_mut();
-    let from = from.as_vtable() as IUnknownPtr;
-    if !from.is_null() {
-        let result = ((*(*(from))).query)(from, guid, &mut into);
-        debug_assert!(result.is_ok(), "unsafe_query: HRESULT 0x{:X}", result.0);
-        debug_assert!(!into.is_null(), "query interface returned a null pointer")
-    }
-    std::mem::transmute_copy(&into)
-}
-
 #[repr(C)]
 pub struct abi_IUnknown {
     pub(crate) query: extern "system" fn(IUnknownPtr, &Guid, *mut RawPtr) -> ErrorCode,
