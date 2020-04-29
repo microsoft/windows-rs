@@ -6,6 +6,7 @@ use winmd::*;
 use std::collections::BTreeSet;
 use std::path::{Path, PathBuf};
 
+/// A macro for generating WinRT modules into the current module
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
     let (_dependencies, namespaces) = parse_import_stream(stream);
@@ -25,11 +26,13 @@ pub fn import(stream: TokenStream) -> TokenStream {
     stream.into()
 }
 
+#[doc(hidden)]
 #[proc_macro_attribute]
 pub fn class(_args: TokenStream, input: TokenStream) -> TokenStream {
     input
 }
 
+#[doc(hidden)]
 #[proc_macro_attribute]
 pub fn value_type(_args: TokenStream, input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as ItemStruct);

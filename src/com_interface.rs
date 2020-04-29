@@ -1,6 +1,6 @@
 use crate::*;
 
-/// A ComInterface
+/// A COM interface
 ///
 /// # Safety
 /// Implementors of this trait must be transparent wrappers

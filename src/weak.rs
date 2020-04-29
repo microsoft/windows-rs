@@ -1,5 +1,6 @@
 use crate::*;
 
+#[allow(dead_code)]
 #[repr(C)]
 pub(crate) struct IWeakReference {
     __0: usize,

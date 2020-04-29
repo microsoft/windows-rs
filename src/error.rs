@@ -1,8 +1,10 @@
 #![allow(overflowing_literals)]
 
+/// An alias for `std::result::Result<T, winrt::Error>`
 #[must_use]
 pub type Result<T> = std::result::Result<T, Error>;
 
+/// A WinRT related error
 #[derive(Debug)]
 pub struct Error {
     code: ErrorCode,
@@ -10,6 +12,9 @@ pub struct Error {
 }
 
 impl Error {
+    pub const NULL_POINTER: Error = Error {
+        code: ErrorCode::E_POINTER,
+    };
     pub fn code(&self) -> ErrorCode {
         self.code
     }
@@ -17,6 +22,7 @@ impl Error {
 
 type HRESULT = i32;
 
+/// The ErrorCode (a.k.a HRESULT) of an error
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ErrorCode(pub HRESULT);
@@ -56,4 +62,5 @@ impl ErrorCode {
     }
 
     pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
+    pub(crate) const E_POINTER: ErrorCode = ErrorCode(0x8000_4003);
 }

@@ -1,5 +1,6 @@
 use crate::*;
 
+/// A WinRT array
 pub struct Array<T> {
     data: *mut T,
     len: u32,

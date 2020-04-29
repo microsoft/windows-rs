@@ -1,5 +1,8 @@
 use crate::*;
 
+/// A WinRT Object
+///
+/// Objects impelement the [IInspectable interface](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct Object {
