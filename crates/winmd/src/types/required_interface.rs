@@ -126,12 +126,12 @@ impl RequiredInterface {
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> #into {
-                            unsafe { std::mem::transmute(value) }
+                            unsafe { ::std::mem::transmute(value) }
                         }
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> #into {
-                            #into::from(value.clone())
+                            ::std::convert::From::from(::std::clone::Clone::clone(value))
                         }
                     }
                 }
@@ -142,7 +142,7 @@ impl RequiredInterface {
                     quote! {
                         impl<#constraints> ::std::convert::From<#from> for #into {
                             fn from(value: #from) -> #into {
-                                #into::from(&value)
+                                ::std::convert::From::from(&value)
                             }
                         }
                         impl<#constraints> ::std::convert::From<&#from> for #into {
@@ -157,7 +157,7 @@ impl RequiredInterface {
                     quote! {
                         impl<#constraints> ::std::convert::From<#from> for #into {
                             fn from(value: #from) -> #into {
-                                #into::from(&value)
+                                ::std::convert::From::from(&value)
                             }
                         }
                         impl<#constraints> ::std::convert::From<&#from> for #into {
