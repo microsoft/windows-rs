@@ -33,7 +33,7 @@ impl IActivationFactory {
         let mut object = Object::default();
         unsafe {
             ((*(*(self.ptr.get()))).activate_instance)(self.ptr.get(), object.set_abi())
-                .and_then(|| safe_query(&object))
+                .and_then(|| object.query())
         }
     }
 }
