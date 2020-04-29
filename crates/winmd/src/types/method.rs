@@ -213,7 +213,7 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     let this = self.ptr.get();
                     if this.is_null() {
-                        panic!("This pointer was null when calling {}", stringify!(#method_name));
+                        panic!("The `this` pointer was null when calling method");
                     }
                     unsafe {
                         let mut __ok: #return_type = ::std::mem::zeroed();
@@ -227,7 +227,7 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
                     let this = self.ptr.get();
                     if this.is_null() {
-                        panic!("This pointer was null when calling {}", stringify!(#method_name));
+                        panic!("The `this` pointer was null when calling method");
                     }
                     unsafe {
                         ((*(*(this))).#method_name)(this, #args).ok()
