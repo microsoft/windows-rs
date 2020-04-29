@@ -4,16 +4,16 @@ winrt::import!(
     modules
         "windows.foundation.collections"
 );
+use windows::foundation::Uri;
+use winrt::ComInterface;
+use winrt::RuntimeName;
 
 #[test]
-
 fn uri() -> winrt::Result<()> {
-    use windows::foundation::Uri;
-
-    assert_eq!(<Uri as winrt::RuntimeName>::NAME, "Windows.Foundation.Uri");
+    assert_eq!(Uri::NAME, "Windows.Foundation.Uri");
 
     assert_eq!(
-        <Uri as winrt::ComInterface>::GUID,
+        Uri::GUID,
         winrt::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 

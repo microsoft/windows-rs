@@ -5,11 +5,11 @@ winrt::import!(
         "windows.data.xml.dom"
 );
 
+use windows::data::xml::dom::XmlDocument;
+
 // Simple test to validate that default constructors are projected as static `new` methods.
 #[test]
 fn xml() -> winrt::Result<()> {
-    use windows::data::xml::dom::*;
-
     let doc = XmlDocument::new()?;
 
     doc.load_xml("<html>hello world</html>")?;

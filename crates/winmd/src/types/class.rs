@@ -162,7 +162,7 @@ impl Class {
                 }
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> #into {
-                        ::winrt::safe_query(value)
+                        <#from as ::winrt::ComInterface>::query(value)
                     }
                 }
                 impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {

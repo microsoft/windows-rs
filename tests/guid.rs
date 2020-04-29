@@ -1,15 +1,15 @@
-import!(
+winrt::import!(
     dependencies
         "os"
     modules
         "windows.foundation"
 );
 
-use windows::foundation::*;
-use winrt::*;
+use windows::foundation::GuidHelper;
+use winrt::Guid;
 
 #[test]
-fn guid_helper() -> Result<()> {
+fn guid_helper() -> winrt::Result<()> {
     let a = GuidHelper::create_new_guid()?;
     let b = GuidHelper::create_new_guid()?;
 
@@ -22,9 +22,9 @@ fn guid_helper() -> Result<()> {
 
 #[test]
 fn guid_from_string() {
-    let a = winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
+    let a = Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
 
-    let b = winrt::Guid::from_values(
+    let b = Guid::from_values(
         0xCFF52E04,
         0xCCA6,
         0x4614,
