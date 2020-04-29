@@ -221,8 +221,14 @@ impl TypeKind {
             Self::String => quote! { ::winrt::RawPtr, },
             Self::Object => quote! { ::winrt::RawPtr, },
             Self::Guid => quote! { ::winrt::Guid, },
-            Self::Class(_) => quote! { ::winrt::RawPtr, },
-            Self::Interface(_) => quote! { ::winrt::RawPtr, },
+            Self::Class(c) => {
+                let name = c.to_tokens(calling_namespace);
+                quote! { *const *const <#name as ::winrt::ComInterface>::VTable, }
+            }
+            Self::Interface(i) => {
+                let name = i.to_tokens(calling_namespace);
+                quote! { *const *const <#name as ::winrt::ComInterface>::VTable, }
+            }
             Self::Enum(name) => {
                 let name = name.to_tokens(calling_namespace);
                 quote! { #name, }

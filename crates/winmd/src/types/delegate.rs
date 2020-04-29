@@ -34,7 +34,7 @@ impl Delegate {
         let name = self.name.to_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
-        let abi_method = self.method.to_abi_tokens(&self.name.namespace);
+        let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.guid.to_tokens();
 
         quote! {
