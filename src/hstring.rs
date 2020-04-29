@@ -8,7 +8,7 @@ use std::ptr;
 /// [MSDN Documentation](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring)
 #[repr(transparent)]
 pub struct HString {
-    ptr: RawPtr,
+    ptr: *mut Header,
 }
 
 impl HString {
@@ -32,7 +32,7 @@ impl HString {
             return 0;
         }
 
-        unsafe { (*(self.ptr as *const Header)).len as usize }
+        unsafe { (*self.ptr).len as usize }
     }
 
     /// Get the string as 16-bit wide characters (wchars)
@@ -41,10 +41,8 @@ impl HString {
             return &[];
         }
 
-        unsafe {
-            let header = self.ptr as *const Header;
-            std::slice::from_raw_parts((*header).data, (*header).len as usize)
-        }
+        let header = self.ptr;
+        unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
     /// Clear the contents of the string and free the memory if the last handle to the string data
@@ -54,20 +52,20 @@ impl HString {
         }
 
         unsafe {
-            let header = self.ptr as *mut Header;
+            let header = self.ptr;
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
-            if 0 == (*((*header).shared.as_mut_ptr())).count.release() {
-                HeapFree(GetProcessHeap(), 0, self.ptr);
+            if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
+                HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
             }
-
-            self.ptr = std::ptr::null_mut();
         }
+
+        self.ptr = std::ptr::null_mut();
     }
 }
 
 unsafe impl RuntimeType for HString {
-    type Abi = RawPtr;
+    type Abi = *mut Header;
 
     fn abi(&self) -> Self::Abi {
         self.ptr
@@ -91,11 +89,8 @@ impl Clone for HString {
             return Self::new();
         }
 
-        unsafe {
-            let header = self.ptr as *mut Header;
-            Self {
-                ptr: (*header).duplicate(),
-            }
+        Self {
+            ptr: unsafe { (*self.ptr).duplicate() },
         }
     }
 }
@@ -124,19 +119,24 @@ impl std::fmt::Debug for HString {
 
 impl From<&str> for HString {
     fn from(value: &str) -> HString {
+        if value.is_empty() {
+            return HString::new();
+        }
+
         let mut ptr = Header::alloc(value.len() as u32);
-        unsafe {
-            // place each utf-16 character into the buffer and
-            // increase len as we go along
-            for (index, wide) in value.encode_utf16().enumerate() {
-                ptr::write((*ptr).data.add(index) as *mut _, wide);
+
+        // place each utf-16 character into the buffer and
+        // increase len as we go along
+        for (index, wide) in value.encode_utf16().enumerate() {
+            unsafe {
+                ptr::write((*ptr).data.add(index), wide);
                 (*ptr).len = index as u32 + 1;
             }
-
-            // write a 0 byte to the end of the buffer
-            ptr::write((*ptr).data.offset((*ptr).len as isize) as *mut _, 0);
-            Self { ptr: ptr as RawPtr }
         }
+
+        // write a 0 byte to the end of the buffer
+        unsafe { ptr::write((*ptr).data.offset((*ptr).len as isize), 0) };
+        Self { ptr }
     }
 }
 
@@ -191,12 +191,12 @@ impl From<HString> for String {
 const REFERENCE_FLAG: u32 = 1;
 
 #[repr(C)]
-struct Header {
+pub struct Header {
     flags: u32,
     len: u32,
     _0: u32,
     _1: u32,
-    data: *const u16,
+    data: *mut u16,
     shared: std::mem::MaybeUninit<Shared>,
 }
 
@@ -220,28 +220,24 @@ impl Header {
         unsafe {
             (*header).flags = 0;
             (*header).len = len;
-            (*header).data = &(*(*header).shared.as_ptr()).buffer_start;
+            (*header).data = &mut (*(*header).shared.as_mut_ptr()).buffer_start;
             (*(*header).shared.as_mut_ptr()).count = RefCount::new(1);
         }
-        header as *mut Header
+        header
     }
 
-    fn duplicate(&mut self) -> RawPtr {
+    fn duplicate(&mut self) -> *mut Header {
         if self.flags & REFERENCE_FLAG == 0 {
             unsafe {
                 (*self.shared.as_ptr()).count.addref();
-                self as *mut Header as RawPtr
+                self
             }
         } else {
             let copy = Header::alloc(self.len);
             unsafe {
-                std::ptr::copy_nonoverlapping(
-                    self.data,
-                    (*copy).data as *mut u16,
-                    self.len as usize + 1,
-                );
-                copy as RawPtr
+                std::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
             }
+            copy
         }
     }
 }
@@ -309,5 +305,11 @@ mod tests {
         perform_transfer(from, &mut to);
 
         assert!(format!("{}", to) == "Hello");
+    }
+
+    #[test]
+    fn from_empty_string() {
+        let h = HString::from("");
+        assert!(format!("{}", h) == "");
     }
 }

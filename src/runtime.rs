@@ -14,7 +14,7 @@ extern "system" {
     // TODO: get rid of these (not available on Windows 7) - we'll load these dynamically
     pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
     pub fn RoGetActivationFactory(
-        hstring: RawPtr,
+        hstring: *mut hstring::Header,
         interface: &Guid,
         result: *mut RawPtr,
     ) -> ErrorCode;
