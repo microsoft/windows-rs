@@ -16,11 +16,7 @@
 //! // Make use of any WinRT APIs as needed.
 //! // For example, here is an example of using the Windows.Foundation.Uri class:
 //!
-<<<<<<< HEAD
 //! fn main() -> winrt::Result<()> {
-=======
-//! fn main() -> Result<()> {
->>>>>>> Bootstrap docs
 //!     use windows::foundation::Uri;
 //!
 //!     let uri = Uri::create_uri("http://kennykerr.ca")?;
@@ -72,7 +68,6 @@ pub use runtime_type::RuntimeType;
 pub use try_into::TryInto;
 pub use unknown::IUnknown;
 pub use winrt_macros::import;
-
 
 /// A convenient alias of a void pointer
 pub type RawPtr = *mut std::ffi::c_void;
