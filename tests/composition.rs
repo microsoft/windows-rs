@@ -20,6 +20,65 @@ struct DispatcherQueueOptions {
     apartment_type: i32,
 }
 
+fn create_dispatcher() -> winrt::IUnknown {
+    // We need a DispatcherQueue on our thread to properly create a Compositor. Note that since
+    // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
+
+    let options = DispatcherQueueOptions {
+        size: std::mem::size_of::<DispatcherQueueOptions>() as u32,
+        thread_type: 2,    // DQTYPE_THREAD_CURRENT
+        apartment_type: 0, // DQTAT_COM_NONE
+    };
+
+    let mut interop_ptr = winrt::IUnknown::default();
+    unsafe {
+        CreateDispatcherQueueController(options, interop_ptr.set())
+            .ok()
+            .unwrap();
+    }
+    interop_ptr
+}
+
+#[test]
+fn class_hierarchy_conversion() -> winrt::Result<()> {
+    use windows::ui::composition::*;
+
+    let _dispatcher = create_dispatcher();
+    let compositor = Compositor::new()?;
+
+    // Convert from SpriteVisual class to base Visual class by value (dropping the sprite).
+    let sprite: SpriteVisual = compositor.create_sprite_visual()?;
+    sprite.set_comment("test")?;
+    let visual: Visual = sprite.into();
+    assert!(visual.comment()? == "test");
+
+    // Convert from SpriteVisual class to base Visual class by reference (retaining the sprite).
+    let sprite: &SpriteVisual = &compositor.create_sprite_visual()?;
+    sprite.set_comment("test")?;
+    let visual: Visual = sprite.into();
+    assert!(visual.comment()? == "test");
+    assert!(visual.comment()? == sprite.comment()?);
+
+    // Convert from SpriteVisual class to base Visual class *parameter* by value (dropping the sprite).
+    let container = compositor.create_container_visual()?;
+    let children = container.children()?;
+    let sprite: SpriteVisual = compositor.create_sprite_visual()?;
+    sprite.set_comment("test")?;
+    children.insert_at_bottom(sprite)?;
+    assert!(children.first()?.current()?.comment()? == "test");
+
+    // Convert from SpriteVisual class to base Visual class *parameter* by reference (retaining the sprite).
+    let container = compositor.create_container_visual()?;
+    let children = container.children()?;
+    let sprite: &SpriteVisual = &compositor.create_sprite_visual()?;
+    sprite.set_comment("test")?;
+    children.insert_at_bottom(sprite)?;
+    assert!(children.first()?.current()?.comment()? == "test");
+    assert!(children.first()?.current()?.comment()? == sprite.comment()?);
+
+    Ok(())
+}
+
 #[test]
 fn composition() -> winrt::Result<()> {
     use windows::foundation::numerics::*;
@@ -27,19 +86,7 @@ fn composition() -> winrt::Result<()> {
     use windows::ui::*;
     use winrt::*;
 
-    // We need a DispatcherQueue on our thread to properly create a Compositor. Note that since
-    // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
-    let options = DispatcherQueueOptions {
-        size: std::mem::size_of::<DispatcherQueueOptions>() as u32,
-        thread_type: 2,    // DQTYPE_THREAD_CURRENT
-        apartment_type: 0, // DQTAT_COM_NONE
-    };
-    let _queue_controller = unsafe {
-        let mut interop_ptr = winrt::IUnknown::default();
-        CreateDispatcherQueueController(options, interop_ptr.set()).ok()?;
-        interop_ptr
-    };
-
+    let _dispatcher = create_dispatcher();
     let compositor = Compositor::new()?;
     let visual = compositor.create_sprite_visual()?;
     let red = Colors::red()?;
