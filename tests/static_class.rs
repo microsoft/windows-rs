@@ -7,11 +7,10 @@ winrt::import!(
     modules
         "windows.foundation"
 );
+use windows::foundation::PropertyValue;
 
 #[test]
 fn static_class() -> winrt::Result<()> {
-    use windows::foundation::PropertyValue;
-
     assert_eq!(
         <PropertyValue as winrt::RuntimeName>::NAME,
         "Windows.Foundation.PropertyValue"

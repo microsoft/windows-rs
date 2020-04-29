@@ -147,7 +147,7 @@ impl RequiredInterface {
                         }
                         impl<#constraints> ::std::convert::From<&#from> for #into {
                             fn from(value: &#from) -> #into {
-                                ::winrt::safe_query(value)
+                                <#from as ::winrt::ComInterface>::query(value)
                             }
                         }
                     }

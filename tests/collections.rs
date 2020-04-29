@@ -6,8 +6,9 @@ winrt::import!(
 );
 
 use std::iter::FromIterator;
-use windows::foundation::collections::*;
-use windows::foundation::*;
+use windows::foundation::collections::{IIterable, IVectorView, PropertySet};
+use windows::foundation::{IPropertyValue, IWwwFormUrlDecoderEntry, PropertyValue, Uri};
+use winrt::TryInto;
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -67,8 +68,6 @@ fn uri() -> winrt::Result<()> {
 
 #[test]
 fn property_set() -> winrt::Result<()> {
-    use winrt::*;
-
     // The PropertySet class implements IIterable<IKeyValuePair<HString, Object>> so the following
     // for loop will excercise the IIterator<T> iterator implicitly.
 

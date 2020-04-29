@@ -1,6 +1,4 @@
-use winrt::import;
-
-import!(
+winrt::import!(
     dependencies
         "os"
     modules
@@ -13,7 +11,6 @@ fn signed_enum() {
     use windows::foundation::AsyncStatus;
 
     assert!(AsyncStatus::default() == AsyncStatus::Canceled);
-
     assert!(AsyncStatus::Canceled as i32 == 2);
     assert!(AsyncStatus::Completed as i32 == 1);
     assert!(AsyncStatus::Error as i32 == 3);
@@ -25,7 +22,6 @@ fn unsigned_enum() {
     use windows::application_model::appointments::AppointmentDaysOfWeek;
 
     assert!(AppointmentDaysOfWeek::default() == AppointmentDaysOfWeek::None);
-
     assert!(AppointmentDaysOfWeek::None as u32 == 0);
     assert!(AppointmentDaysOfWeek::Sunday as u32 == 0x1);
     assert!(AppointmentDaysOfWeek::Monday as u32 == 0x2);
