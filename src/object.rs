@@ -27,14 +27,14 @@ unsafe impl ComInterface for Object {
 }
 
 unsafe impl RuntimeType for Object {
-    type Abi = RawPtr;
+    type Abi = *const *const <Self as ComInterface>::VTable;
 
     fn abi(&self) -> Self::Abi {
-        self.ptr.get() as RawPtr
+        self.ptr.get()
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        self.ptr.set() as *mut RawPtr
+        self.ptr.set()
     }
 }
 

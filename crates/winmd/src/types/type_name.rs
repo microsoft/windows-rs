@@ -256,7 +256,6 @@ impl TypeName {
     // weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
     pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
         let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
-
         if self.generics.is_empty() {
             let name = format_ident(&self.name);
             quote! { #namespace#name }

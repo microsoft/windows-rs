@@ -115,7 +115,7 @@ impl Class {
             quote! {
                 #[repr(transparent)]
                 #[derive(Default, Clone)]
-                pub struct #name { ptr: ::winrt::IUnknown }
+                pub struct #name { ptr: ::winrt::ComPtr<#name> }
                 impl #name {
                     #new
                     #methods
@@ -126,7 +126,7 @@ impl Class {
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
-                    type Abi = ::winrt::RawPtr;
+                    type Abi = *const *const <Self as ::winrt::ComInterface>::VTable;
                     fn abi(&self) -> Self::Abi {
                         self.ptr.get()
                     }

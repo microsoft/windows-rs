@@ -53,6 +53,6 @@ pub struct abi_IActivationFactory {
     __base: [usize; 6],
     activate_instance: extern "system" fn(
         *const *const activation::abi_IActivationFactory,
-        *mut RawPtr,
+        *mut <Object as RuntimeType>::Abi,
     ) -> ErrorCode,
 }

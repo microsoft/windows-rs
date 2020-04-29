@@ -63,7 +63,7 @@ impl Interface {
             #[repr(transparent)]
             #[derive(Default)]
             pub struct #definition where #constraints {
-                ptr: ::winrt::IUnknown,
+                ptr: ::winrt::ComPtr<#name>,
                 #phantoms
             }
             impl<#constraints> #name {
@@ -88,7 +88,7 @@ impl Interface {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type Abi = ::winrt::RawPtr;
+                type Abi = *const *const <Self as ::winrt::ComInterface>::VTable;
                 fn abi(&self) -> Self::Abi {
                     self.ptr.get()
                 }

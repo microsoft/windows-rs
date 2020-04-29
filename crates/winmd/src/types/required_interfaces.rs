@@ -28,11 +28,7 @@ fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
     for attribute in required.attributes(reader) {
         let name = attribute.name(reader);
 
-        if matches!(
-            name,
-            ("Windows.Foundation.Metadata", "DefaultAttribute")
-                | ("Windows.Foundation.Metadata", "OverridableAttribute")
-        ) {
+        if matches!(name, ("Windows.Foundation.Metadata", "DefaultAttribute")) {
             return InterfaceKind::Default;
         }
     }

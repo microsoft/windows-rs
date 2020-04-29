@@ -110,7 +110,7 @@ impl RequiredInterface {
         TokenStream::from_iter(
             self.methods
                 .iter()
-                .map(|method| method.to_abi_tokens(calling_namespace)),
+                .map(|method| method.to_abi_tokens(&self.name, calling_namespace)),
         )
     }
 
@@ -191,7 +191,7 @@ pub fn to_method_tokens(
             names.insert(&method.name);
 
             tokens.push(match interface.kind {
-                InterfaceKind::Default => method.to_default_tokens(calling_namespace, interface),
+                InterfaceKind::Default => method.to_default_tokens(calling_namespace),
                 InterfaceKind::NonDefault | InterfaceKind::Overrides => {
                     method.to_non_default_tokens(calling_namespace, interface)
                 }

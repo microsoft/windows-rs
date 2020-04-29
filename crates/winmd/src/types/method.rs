@@ -1,5 +1,6 @@
 use crate::case::to_snake;
 use crate::tables::{AttributeArg, MethodDef, TypeDef};
+use crate::types::TypeName;
 use crate::types::{Param, RequiredInterface, TypeKind};
 use crate::TypeReader;
 use crate::*;
@@ -131,7 +132,8 @@ impl Method {
         case::to_snake(method.name(reader), MethodKind::Normal)
     }
 
-    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_abi_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
+        let abi_name = self_name.to_abi_tokens(calling_namespace);
         let name = format_ident(&self.name);
         let params = TokenStream::from_iter(
             self.params
@@ -141,7 +143,7 @@ impl Method {
         );
 
         quote! {
-            pub #name: extern "system" fn(::winrt::RawPtr, #params) -> ::winrt::ErrorCode,
+            pub #name: extern "system" fn(*const *const #abi_name, #params) -> ::winrt::ErrorCode,
         }
     }
 
@@ -197,16 +199,11 @@ impl Method {
         TokenStream::from_iter(tokens)
     }
 
-    pub fn to_default_tokens(
-        &self,
-        calling_namespace: &str,
-        interface: &RequiredInterface,
-    ) -> TokenStream {
+    pub fn to_default_tokens(&self, calling_namespace: &str) -> TokenStream {
         let method_name = format_ident(&self.name);
         let params = self.to_param_tokens(calling_namespace);
         let constraints = self.to_constraint_tokens(calling_namespace);
         let args = self.to_abi_arg_tokens();
-        let abi_name = interface.name.to_abi_tokens(calling_namespace);
 
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.to_abi_return_arg_tokens(calling_namespace);
@@ -216,7 +213,7 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     unsafe {
                         let mut __ok: #return_type = ::std::mem::zeroed();
-                        ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
+                        ((*(*(self.ptr.get()))).#method_name)(
                             self.ptr.get(), #args #return_arg)
                             .and_then(|| __ok )
                     }
@@ -226,7 +223,7 @@ impl Method {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
                     unsafe {
-                        ((*(*(self.ptr.get() as *const *const #abi_name))).#method_name)(
+                        ((*(*(self.ptr.get()))).#method_name)(
                             self.ptr.get(), #args
                         ).ok()
                     }

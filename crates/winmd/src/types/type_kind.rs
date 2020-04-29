@@ -218,11 +218,21 @@ impl TypeKind {
             Self::U64 => quote! { u64, },
             Self::F32 => quote! { f32, },
             Self::F64 => quote! { f64, },
-            Self::String => quote! { ::winrt::RawPtr, },
-            Self::Object => quote! { ::winrt::RawPtr, },
+            Self::String => {
+                quote! { <::winrt::HString as ::winrt::RuntimeType>::Abi, }
+            }
+            Self::Object => {
+                quote! { <::winrt::Object as ::winrt::RuntimeType>::Abi, }
+            }
             Self::Guid => quote! { ::winrt::Guid, },
-            Self::Class(_) => quote! { ::winrt::RawPtr, },
-            Self::Interface(_) => quote! { ::winrt::RawPtr, },
+            Self::Class(c) => {
+                let name = c.to_tokens(calling_namespace);
+                quote! { <#name as ::winrt::RuntimeType>::Abi, }
+            }
+            Self::Interface(i) => {
+                let name = i.to_tokens(calling_namespace);
+                quote! { <#name as ::winrt::RuntimeType>::Abi, }
+            }
             Self::Enum(name) => {
                 let name = name.to_tokens(calling_namespace);
                 quote! { #name, }
