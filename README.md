@@ -10,7 +10,7 @@ The Windows Runtime is based on Component Object Model (COM) APIs under the hood
 
 Start by adding the following to your Cargo.toml file:
 
-```
+```toml
 [dependencies]
 winrt = { git = "https://github.com/microsoft/winrt-rs" }
 ```
