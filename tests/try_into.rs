@@ -8,6 +8,8 @@ winrt::import!(
 #[test]
 fn try_into() -> winrt::Result<()> {
     use winrt::TryInto;
+    use winrt::ComInterface;
+
     use windows::foundation::Uri;
     use windows::foundation::IStringable;
     use windows::foundation::IClosable;
@@ -26,6 +28,14 @@ fn try_into() -> winrt::Result<()> {
     // its default interface GUID to resolve the query.
     let uri2: Uri = s.try_into().unwrap();
     assert!(uri2.domain()? == "kennykerr.ca");
+
+    // Given a null Uri...
+    let null_uri = Uri::default();
+    assert!(null_uri.is_null());
+
+    // ...the try_into succeeds, but returns a null IStringable.
+    let null_s: IStringable = null_uri.try_into().unwrap();
+    assert!(null_s.is_null());
 
     Ok(())
 }
