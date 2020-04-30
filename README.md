@@ -79,3 +79,5 @@ This program will print the following output:
 ```
 Color { a: 255, r: 255, g: 0, b: 0 }
 ```
+
+For a more complete example, take a look at Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs).
