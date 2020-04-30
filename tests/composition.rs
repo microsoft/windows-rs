@@ -9,7 +9,7 @@ winrt::import!(
 extern "stdcall" {
     fn CreateDispatcherQueueController(
         options: DispatcherQueueOptions,
-        dispatcherQueueController: *mut <winrt::IUnknown as winrt::RuntimeType>::Abi,
+        dispatcherQueueController: *mut winrt::ComInterfacePtr<winrt::IUnknown>,
     ) -> winrt::ErrorCode;
 }
 
@@ -21,7 +21,6 @@ struct DispatcherQueueOptions {
 }
 
 fn create_dispatcher() -> winrt::IUnknown {
-    use winrt::RuntimeType;
     // We need a DispatcherQueue on our thread to properly create a Compositor. Note that since
     // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
 

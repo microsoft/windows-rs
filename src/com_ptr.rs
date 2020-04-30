@@ -1,45 +1,32 @@
-use crate::unknown::abi_IUnknown;
-use crate::{ComInterface, RuntimeType};
+use crate::{ComInterface, ComInterfacePtr, Guid};
 
 /// A reference counted pointer to a COM interface
 #[repr(transparent)]
 pub struct ComPtr<T: ComInterface> {
-    ptr: *mut *mut T::VTable,
+    ptr: ComInterfacePtr<T>,
 }
 
 impl<T: ComInterface> ComPtr<T> {
-    #[inline]
-    pub fn get_iunknown(&self) -> *const *const abi_IUnknown {
-        self.ptr as *const *const abi_IUnknown
-    }
-
-    pub fn is_null(&self) -> bool {
-        self.ptr.is_null()
-    }
-}
-
-unsafe impl<T: ComInterface> RuntimeType for ComPtr<T> {
-    type Abi = *const *const T::VTable;
-    #[inline]
-    fn abi(&self) -> Self::Abi {
-        self.ptr as _
-    }
-
-    fn set_abi(&mut self) -> *mut Self::Abi {
+    pub fn set_abi(&mut self) -> *mut ComInterfacePtr<T> {
         if !self.ptr.is_null() {
             unsafe {
-                ((*(*(self.get_iunknown()))).release)(self.get_iunknown());
+                ((*(*(self.as_iunknown()))).release)(self.as_iunknown());
             }
             self.ptr = std::ptr::null_mut();
         }
-        &mut self.ptr as *mut _ as *mut _
+        &mut self.ptr as *mut _ as _
     }
+}
+
+unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
+    const GUID: Guid = T::GUID;
+    type VTable = T::VTable;
 }
 
 impl<T: ComInterface> Clone for ComPtr<T> {
     fn clone(&self) -> Self {
         if !self.ptr.is_null() {
-            unsafe { ((*(*(self.get_iunknown()))).addref)(self.get_iunknown()) };
+            unsafe { ((*(*(self.as_iunknown()))).addref)(self.as_iunknown()) };
         }
         Self { ptr: self.ptr }
     }
@@ -48,7 +35,7 @@ impl<T: ComInterface> Clone for ComPtr<T> {
 impl<T: ComInterface> Drop for ComPtr<T> {
     fn drop(&mut self) {
         if !self.ptr.is_null() {
-            unsafe { ((*(*(self.get_iunknown()))).release)(self.get_iunknown()) };
+            unsafe { ((*(*(self.as_iunknown()))).release)(self.as_iunknown()) };
         }
     }
 }

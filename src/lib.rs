@@ -56,7 +56,7 @@ mod unknown;
 #[doc(inline)]
 pub use activation::IActivationFactory;
 pub use array::Array;
-pub use com_interface::ComInterface;
+pub use com_interface::{ComInterface, ComInterfacePtr};
 pub use com_ptr::ComPtr;
 pub use error::*;
 pub use guid::Guid;

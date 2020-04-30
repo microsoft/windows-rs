@@ -14,8 +14,12 @@ pub unsafe trait ComInterface: Sized {
     const GUID: Guid;
     type VTable;
 
-    fn as_vtable(&self) -> *const *const Self::VTable {
+    fn as_vtable(&self) -> ComInterfacePtr<Self> {
         unsafe { std::mem::transmute_copy(self) }
+    }
+
+    fn as_iunknown(&self) -> ComInterfacePtr<IUnknown> {
+        self.as_vtable() as _
     }
 
     fn query<Into: ComInterface>(&self) -> Into {
@@ -41,11 +45,14 @@ pub unsafe trait ComInterface: Sized {
     /// Once const generics support arrives, we should be able to remove this function and
     /// rely on ComInterface to calculate the guid for all types.
     unsafe fn query_with_guid<Into: ComInterface>(&self, guid: &Guid) -> Into {
-        let mut into = std::ptr::null_mut();
-        let from = self.as_vtable() as *const *const <IUnknown as ComInterface>::VTable;
+        let mut into: Into = std::mem::zeroed();
+        let from = self.as_iunknown();
         if !from.is_null() {
-            ((*(*(from))).query)(from, guid, &mut into);
+            ((*(*(from))).query)(from, guid, &mut into as *mut _ as _);
         }
-        std::mem::transmute_copy(&into)
+        into
     }
 }
+
+/// A non-reference-counter pointer to a COM interface
+pub type ComInterfacePtr<T> = *const *const <T as ComInterface>::VTable;
