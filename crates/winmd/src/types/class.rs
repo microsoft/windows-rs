@@ -128,12 +128,10 @@ impl Class {
                 unsafe impl ::winrt::RuntimeType for #name {
                     type Abi = <::winrt::ComPtr<Self> as ::winrt::RuntimeType>::Abi;
                     fn abi(&self) -> Self::Abi {
-                        use ::winrt::RuntimeType;
-                        self.ptr.abi()
+                        <::winrt::ComPtr<Self> as ::winrt::RuntimeType>::abi(&self.ptr)
                     }
                     fn set_abi(&mut self) -> *mut Self::Abi {
-                        use ::winrt::RuntimeType;
-                        self.ptr.set_abi()
+                        <::winrt::ComPtr<Self> as ::winrt::RuntimeType>::set_abi(&mut self.ptr)
                     }
                 }
                 #conversions

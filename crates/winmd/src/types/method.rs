@@ -211,8 +211,8 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
-                    use ::winrt::RuntimeType;
-                    let this = self.ptr.abi();
+                    let this = <::winrt::ComPtr<Self> as ::winrt::RuntimeType>::abi(&self.ptr);
+
                     if this.is_null() {
                         panic!("The `this` pointer was null when calling method");
                     }
@@ -226,8 +226,8 @@ impl Method {
         } else {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
-                    use ::winrt::RuntimeType;
-                    let this = self.ptr.abi();
+                    let this = <::winrt::ComPtr<Self> as ::winrt::RuntimeType>::abi(&self.ptr);
+
                     if this.is_null() {
                         panic!("The `this` pointer was null when calling method");
                     }

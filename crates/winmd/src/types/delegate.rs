@@ -65,12 +65,10 @@ impl Delegate {
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 type Abi = ::winrt::RawPtr;
                 fn abi(&self) -> Self::Abi {
-                    use ::winrt::RuntimeType;
-                    self.ptr.abi() as Self::Abi
+                     <::winrt::IUnknown as ::winrt::RuntimeType>::abi(&self.ptr) as Self::Abi
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    use ::winrt::RuntimeType;
-                    self.ptr.set_abi() as  _
+                    <::winrt::IUnknown as ::winrt::RuntimeType>::set_abi(&mut self.ptr) as _
                 }
             }
         }
