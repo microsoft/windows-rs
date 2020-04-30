@@ -27,6 +27,7 @@ import!(
         "os"
     modules
         "windows.data.xml.dom"
+        "windows.foundation"
         "windows.ui"
 );
 ```
