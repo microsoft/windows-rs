@@ -15,7 +15,7 @@ Start by adding the following to your Cargo.toml file:
 winrt = { git = "https://github.com/microsoft/winrt-rs" }
 ```
 
-This will allow Cargo to download, build, and cache the Rust/WinRT support as a package directly from GitHub (once the repo is public).
+This will allow Cargo to download, build, and cache the Rust/WinRT support as a package directly from GitHub.
 
 Now use the `import` macro to import the desired winmd files and modules:
 
