@@ -42,7 +42,6 @@ mod array;
 mod com_interface;
 mod com_ptr;
 mod error;
-mod events;
 mod guid;
 mod hstring;
 mod object;
@@ -53,7 +52,6 @@ mod runtime_name;
 mod runtime_type;
 mod try_into;
 mod unknown;
-mod weak;
 
 #[doc(inline)]
 pub use activation::IActivationFactory;
@@ -69,7 +67,7 @@ pub use runtime_name::RuntimeName;
 pub use runtime_type::RuntimeType;
 pub use try_into::TryInto;
 pub use unknown::IUnknown;
-pub use winrt_macros::*;
+pub use winrt_macros::import;
 
 /// A convenient alias of a void pointer
 pub type RawPtr = *mut std::ffi::c_void;

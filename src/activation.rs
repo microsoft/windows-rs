@@ -35,7 +35,7 @@ pub struct IActivationFactory {
 impl IActivationFactory {
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
         if self.ptr.is_null() {
-            return Err(Error::NULL_POINTER);
+            panic!("The `this` pointer was null when calling method");
         }
 
         let mut object = Object::default();

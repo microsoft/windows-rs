@@ -2,7 +2,7 @@ use crate::*;
 
 /// A WinRT Object
 ///
-/// Objects impelement the [IInspectable interface](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
+/// Objects implement the [IInspectable interface](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct Object {
@@ -11,8 +11,11 @@ pub struct Object {
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
+        if self.ptr.is_null() {
+            panic!("The `this` pointer was null when calling method");
+        }
+        let mut ptr = std::ptr::null_mut();
         unsafe {
-            let mut ptr = std::ptr::null_mut();
             ((*(*(self.ptr.get()))).type_name)(self.ptr.get(), &mut ptr)
                 .and_then(|| std::mem::transmute(ptr))
         }

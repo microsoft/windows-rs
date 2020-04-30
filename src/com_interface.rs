@@ -22,6 +22,10 @@ pub unsafe trait ComInterface: Sized {
         unsafe { self.query_with_guid(&Into::GUID) }
     }
 
+    fn is_null(&self) -> bool {
+        self.as_vtable().is_null()
+    }
+
     /// Use QueryInterface to cast a ComInterface into another.
     ///
     /// If the call to QueryInterface fails, the returned ComInterface will be null.

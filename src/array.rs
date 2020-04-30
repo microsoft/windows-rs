@@ -25,6 +25,9 @@ impl<T: RuntimeType> Array<T> {
     }
 
     pub fn as_slice(&self) -> &[T] {
+        if self.data.is_null() {
+            return &[];
+        }
         unsafe { std::slice::from_raw_parts(self.data, self.len as usize) }
     }
 
