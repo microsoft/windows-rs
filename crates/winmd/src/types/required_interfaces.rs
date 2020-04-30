@@ -11,6 +11,8 @@ impl RequiredInterfaces {
         if !self.0.contains_key(&name) {
             self.insert_required(reader, &name);
             self.0.insert(name, kind);
+        } else if kind == InterfaceKind::Default {
+            self.0.insert(name, kind);
         }
     }
 

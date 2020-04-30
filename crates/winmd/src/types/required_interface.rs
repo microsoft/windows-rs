@@ -27,10 +27,12 @@ impl RequiredInterface {
         let name = TypeName::from_type_def(reader, def);
         let guid = TypeGuid::from_type_def(reader, def);
 
-        let methods = def
+        let mut methods = def
             .methods(reader)
             .map(|method| Method::from_method_def(reader, method, &name.generics))
             .collect();
+
+        rename_collisions(&mut methods);
 
         Self {
             name,
@@ -48,11 +50,13 @@ impl RequiredInterface {
     ) -> Self {
         let guid = name.guid(reader, generics);
 
-        let methods = name
+        let mut methods = name
             .def
             .methods(reader)
             .map(|method| Method::from_method_def(reader, method, &name.generics))
             .collect();
+
+        rename_collisions(&mut methods);
 
         Self {
             name,
@@ -201,4 +205,16 @@ pub fn to_method_tokens(
     }
 
     TokenStream::from_iter(tokens)
+}
+
+fn rename_collisions(methods: &mut Vec<Method>) {
+    let mut names = BTreeSet::new();
+
+    for method in methods {
+        if names.contains(&method.name) {
+            method.name = format!("{}2", method.name);
+        } else {
+            names.insert(&method.name);
+        }
+    }
 }

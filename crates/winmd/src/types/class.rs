@@ -338,6 +338,15 @@ mod tests {
     }
 
     #[test]
+    fn test_media_core() {
+        let t = class(("Windows.Media.Core", "TimedMetadataStreamDescriptor"));
+        assert!(t.default_constructor == false);
+        assert!(t.name.runtime_name() == "Windows.Media.Core.TimedMetadataStreamDescriptor");
+        assert!(t.interfaces[0].name.runtime_name() == "Windows.Media.Core.IMediaStreamDescriptor");
+        assert!(t.interfaces[0].kind == InterfaceKind::Default);
+    }
+
+    #[test]
     fn test_class_with_bases() {
         let t = class(("Windows.UI.Composition", "SpriteVisual"));
         assert!(t.default_constructor == false);
