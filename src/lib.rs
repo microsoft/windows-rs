@@ -1,11 +1,47 @@
-#![allow(dead_code)]
+//! A crate for providing native and familiar support for the Windows Runtime for Rust developers.
+//!
+//! To use, start by importing the modules that you need.
+//!
+//! ```rust
+//! use winrt::import;
+//!
+//! import!(
+//!     dependencies
+//!         "os"
+//!     modules
+//!         "windows.foundation"
+//!         "windows.ui"
+//! );
+//!
+//! // Make use of any WinRT APIs as needed.
+//! // For example, here is an example of using the Windows.Foundation.Uri class:
+//!
+//! fn main() -> winrt::Result<()> {
+//!     use windows::foundation::Uri;
+//!
+//!     let uri = Uri::create_uri("http://kennykerr.ca")?;
+//!     println!("domain: {}", uri.domain()?);
+//!     println!("port: {}", uri.port()?);
+//!     println!("string: {}", uri.to_string()?);
+//!
+//!     Ok(())
+//! }
+//! ```
+//!
+//! This program will print the following output:
+//!
+//! ```text
+//! domain: kennykerr.ca
+//! port: 80
+//! string: http://kennykerr.ca/
+//! ```
 
-mod activation;
+#[doc(hidden)]
+pub mod activation;
 mod array;
 mod com_interface;
 mod com_ptr;
 mod error;
-mod events;
 mod guid;
 mod hstring;
 mod object;
@@ -16,24 +52,22 @@ mod runtime_name;
 mod runtime_type;
 mod try_into;
 mod unknown;
-mod weak;
 
-pub use activation::*;
-pub use array::*;
-pub use com_interface::*;
-pub use com_ptr::*;
+#[doc(inline)]
+pub use activation::IActivationFactory;
+pub use array::Array;
+pub use com_interface::ComInterface;
+pub use com_ptr::ComPtr;
 pub use error::*;
-pub use events::*;
-pub use guid::*;
-pub use hstring::*;
-pub use object::*;
-pub use param::*;
-pub use ref_count::*;
-pub use runtime::*;
-pub use runtime_name::*;
-pub use runtime_type::*;
-pub use try_into::*;
-pub use unknown::*;
-pub use winrt_macros::*;
+pub use guid::Guid;
+pub use hstring::HString;
+pub use object::Object;
+pub use param::Param;
+pub use runtime_name::RuntimeName;
+pub use runtime_type::RuntimeType;
+pub use try_into::TryInto;
+pub use unknown::IUnknown;
+pub use winrt_macros::import;
 
+/// A convenient alias of a void pointer
 pub type RawPtr = *mut std::ffi::c_void;

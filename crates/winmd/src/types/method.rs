@@ -280,7 +280,7 @@ impl Method {
 
         quote! {
             pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
-                ::winrt::factory::<Self, #interface>()?.#method_name(#args)
+                ::winrt::activation::factory::<Self, #interface>()?.#method_name(#args)
             }
         }
     }

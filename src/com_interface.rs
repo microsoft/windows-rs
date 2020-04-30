@@ -1,6 +1,6 @@
 use crate::*;
 
-/// A ComInterface
+/// A COM interface
 ///
 /// # Safety
 /// Implementors of this trait must be transparent wrappers
@@ -20,6 +20,10 @@ pub unsafe trait ComInterface: Sized {
 
     fn query<Into: ComInterface>(&self) -> Into {
         unsafe { self.query_with_guid(&Into::GUID) }
+    }
+
+    fn is_null(&self) -> bool {
+        self.as_vtable().is_null()
     }
 
     /// Use QueryInterface to cast a ComInterface into another.

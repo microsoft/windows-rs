@@ -1,3 +1,4 @@
+use crate::runtime;
 use crate::*;
 
 // TODO: this should return `Result<&I>` e.g. a reference pointing to the factory cache.
@@ -9,19 +10,22 @@ use crate::*;
 pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
     let mut ptr = std::ptr::null_mut();
     unsafe {
-        let mut code = RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
+        let mut code =
+            runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
-            CoIncrementMTAUsage(&mut _cookie);
+            runtime::CoIncrementMTAUsage(&mut _cookie);
 
-            code = RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
+            code =
+                runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
         }
 
         code.and_then(|| std::mem::transmute_copy(&ptr))
     }
 }
 
+/// An [activation factory](https://docs.microsoft.com/en-us/windows/win32/api/activation/nn-activation-iactivationfactory) for activating WinRT types.
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct IActivationFactory {
@@ -30,6 +34,10 @@ pub struct IActivationFactory {
 
 impl IActivationFactory {
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
+        if self.ptr.is_null() {
+            panic!("The `this` pointer was null when calling method");
+        }
+
         let mut object = Object::default();
         unsafe {
             ((*(*(self.ptr.get()))).activate_instance)(self.ptr.get(), object.set_abi())

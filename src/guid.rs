@@ -1,5 +1,6 @@
 use super::RuntimeType;
 
+/// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/dotnet/api/system.guid?view=netcore-3.1)
 #[repr(C)]
 #[derive(Clone, Default, PartialEq)]
 pub struct Guid {

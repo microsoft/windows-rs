@@ -1,9 +1,7 @@
-use crate::*;
+use crate::{hstring, ErrorCode, Guid, RawPtr};
 
 #[link(name = "kernel32")]
 extern "system" {
-    pub fn LoadLibraryW(name: *const u16) -> RawPtr;
-    pub fn GetProcAddress(library: RawPtr, name: *const u8) -> RawPtr;
     pub fn GetProcessHeap() -> RawPtr;
     pub fn HeapAlloc(heap: RawPtr, flags: u32, bytes: usize) -> RawPtr;
     pub fn HeapFree(heap: RawPtr, flags: u32, ptr: RawPtr) -> i32;

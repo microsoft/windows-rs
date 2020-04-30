@@ -1,6 +1,6 @@
-use super::TypeTree;
 use crate::case;
 use crate::format_ident;
+use crate::type_tree::TypeTree;
 use crate::types::MethodKind;
 
 use proc_macro2::TokenStream;

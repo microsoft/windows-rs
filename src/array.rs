@@ -1,5 +1,6 @@
 use crate::*;
 
+/// A WinRT array
 pub struct Array<T> {
     data: *mut T,
     len: u32,
@@ -24,6 +25,9 @@ impl<T: RuntimeType> Array<T> {
     }
 
     pub fn as_slice(&self) -> &[T] {
+        if self.data.is_null() {
+            return &[];
+        }
         unsafe { std::slice::from_raw_parts(self.data, self.len as usize) }
     }
 

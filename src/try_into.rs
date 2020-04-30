@@ -1,5 +1,7 @@
-use crate::*;
+use crate::unknown::abi_IUnknown;
+use crate::{ComInterface, RawPtr, Result};
 
+/// An equivalent to `std::convert::TryInto` for converting between interfaces
 pub trait TryInto<T: ComInterface> {
     fn try_into(self) -> Result<T>;
 }

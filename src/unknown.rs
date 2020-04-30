@@ -1,5 +1,6 @@
 use crate::*;
 
+/// The [IUnknown interface](https://docs.microsoft.com/en-us/windows/win32/api/unknwn/nn-unknwn-iunknown)
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct IUnknown {

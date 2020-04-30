@@ -1,5 +1,8 @@
 use crate::*;
 
+/// A WinRT Object
+///
+/// Objects implement the [IInspectable interface](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct Object {
@@ -8,11 +11,15 @@ pub struct Object {
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
-        unsafe {
-            let mut ptr = std::ptr::null_mut();
-            ((*(*(self.ptr.get()))).type_name)(self.ptr.get(), &mut ptr)
-                .and_then(|| std::mem::transmute(ptr))
+        let this = self.ptr.get();
+        if this.is_null() {
+            panic!("The `this` pointer was null when calling method");
         }
+        let mut string = HString::default();
+        unsafe {
+            ((*(*(this))).type_name)(this, string.set_abi()).ok()?;
+        }
+        Ok(string)
     }
 }
 
@@ -41,5 +48,8 @@ unsafe impl RuntimeType for Object {
 #[repr(C)]
 pub struct abi_IInspectable {
     __base: [usize; 4],
-    type_name: extern "system" fn(*const *const object::abi_IInspectable, *mut RawPtr) -> ErrorCode,
+    type_name: extern "system" fn(
+        *const *const object::abi_IInspectable,
+        *mut <HString as RuntimeType>::Abi,
+    ) -> ErrorCode,
 }

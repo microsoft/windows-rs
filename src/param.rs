@@ -1,5 +1,6 @@
 use crate::*;
 
+/// A WinRT method parameter
 pub enum Param<'a, T: RuntimeType> {
     Borrowed(&'a T),
     Owned(T),

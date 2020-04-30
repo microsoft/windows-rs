@@ -1,11 +1,11 @@
+use crate::ref_count::RefCount;
+use crate::runtime;
 use crate::*;
 use std::ptr;
 
-/// A handle to a Windows Runtime string
+/// A handle to a [Windows Runtime string](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring)
 ///
 /// This handle should only be used for FFI purposes with Window Runtime APIs.
-///
-/// [MSDN Documentation](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring)
 #[repr(transparent)]
 pub struct HString {
     ptr: *mut Header,
@@ -56,7 +56,7 @@ impl HString {
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
             if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
-                HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
+                runtime::HeapFree(runtime::GetProcessHeap(), 0, self.ptr as RawPtr);
             }
         }
 
@@ -211,7 +211,8 @@ impl Header {
         debug_assert!(len != 0);
         // alloc enough space for header and two bytes per character
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
-        let header = unsafe { HeapAlloc(GetProcessHeap(), 0, alloc_size) as *mut Header };
+        let header =
+            unsafe { runtime::HeapAlloc(runtime::GetProcessHeap(), 0, alloc_size) as *mut Header };
 
         if header.is_null() {
             panic!("Could not successfully allocate for HString");

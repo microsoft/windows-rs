@@ -1,11 +1,10 @@
 use proc_macro::{TokenStream, TokenTree};
-use quote::quote;
-use syn::{parse_macro_input, ItemStruct};
-use winmd::*;
+use winmd::{TypeLimits, TypeReader, TypeStage};
 
 use std::collections::BTreeSet;
 use std::path::{Path, PathBuf};
 
+/// A macro for generating WinRT modules into the current module
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
     let (_dependencies, namespaces) = parse_import_stream(stream);
@@ -21,41 +20,8 @@ pub fn import(stream: TokenStream) -> TokenStream {
     let stage = TypeStage::from_limits(reader, &limits);
     let tree = stage.into_tree();
     let stream = tree.to_tokens();
-    //std::fs::write(r"c:\git\rust\dump.rs", stream.to_string()).unwrap();
+
     stream.into()
-}
-
-#[proc_macro_attribute]
-pub fn class(_args: TokenStream, input: TokenStream) -> TokenStream {
-    input
-}
-
-#[proc_macro_attribute]
-pub fn value_type(_args: TokenStream, input: TokenStream) -> TokenStream {
-    let input = parse_macro_input!(input as ItemStruct);
-    let name = &input.ident;
-
-    // TODO: if the struct is non-blittable then we need to generate a custom RuntimeType that ensures
-    // that a POD is returned across the ABI.
-
-    let output = quote! {
-        #[repr(C)]
-        #[derive(Copy, Clone, Default, Debug, PartialEq)]
-        #input
-        unsafe impl ::winrt::RuntimeType for #name {
-            type Abi = Self;
-
-            fn abi(&self) -> Self::Abi {
-                *self
-            }
-
-            fn set_abi(&mut self) -> *mut Self::Abi {
-                self as *mut Self::Abi
-            }
-        }
-    };
-
-    output.into()
 }
 
 #[derive(PartialEq)]

@@ -1,5 +1,7 @@
-use crate::*;
+use crate::unknown::abi_IUnknown;
+use crate::ComInterface;
 
+/// A reference counted pointer to a COM interface
 #[repr(transparent)]
 pub struct ComPtr<T: ComInterface> {
     ptr: *mut *mut T::VTable,
@@ -24,6 +26,10 @@ impl<T: ComInterface> ComPtr<T> {
     #[inline]
     pub fn get_iunknown(&self) -> *const *const abi_IUnknown {
         self.ptr as *const *const abi_IUnknown
+    }
+
+    pub fn is_null(&self) -> bool {
+        self.ptr.is_null()
     }
 }
 
