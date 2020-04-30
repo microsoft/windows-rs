@@ -40,7 +40,7 @@ impl IActivationFactory {
 
         let mut object = Object::default();
         unsafe {
-            ((*(*(self.ptr.get()))).activate_instance)(self.ptr.get(), object.set_abi())
+            ((*(*(self.ptr.abi()))).activate_instance)(self.ptr.abi(), object.set_abi())
                 .and_then(|| object.query())
         }
     }

@@ -7,13 +7,15 @@ pub struct IUnknown {
     ptr: ComPtr<IUnknown>,
 }
 
-impl IUnknown {
-    pub fn get(&self) -> RawPtr {
-        self.ptr.get() as RawPtr
+unsafe impl RuntimeType for IUnknown {
+    type Abi = <ComPtr<IUnknown> as RuntimeType>::Abi;
+
+    fn abi(&self) -> Self::Abi {
+        self.ptr.abi()
     }
 
-    pub fn set(&mut self) -> *mut RawPtr {
-        self.ptr.set() as *mut RawPtr
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        self.ptr.set_abi()
     }
 }
 
@@ -27,11 +29,10 @@ unsafe impl ComInterface for IUnknown {
     );
 }
 
-type IUnknownPtr = *const *const <IUnknown as ComInterface>::VTable;
-
 #[repr(C)]
 pub struct abi_IUnknown {
-    pub(crate) query: extern "system" fn(IUnknownPtr, &Guid, *mut RawPtr) -> ErrorCode,
-    pub(crate) addref: extern "system" fn(IUnknownPtr) -> u32,
-    pub(crate) release: extern "system" fn(IUnknownPtr) -> u32,
+    pub(crate) query:
+        extern "system" fn(<IUnknown as RuntimeType>::Abi, &Guid, *mut RawPtr) -> ErrorCode,
+    pub(crate) addref: extern "system" fn(<IUnknown as RuntimeType>::Abi) -> u32,
+    pub(crate) release: extern "system" fn(<IUnknown as RuntimeType>::Abi) -> u32,
 }
