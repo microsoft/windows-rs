@@ -2,12 +2,9 @@
 
 ## The Rust/WinRT language projection
 
-Provides native and familiar support for the Windows Runtime for Rust developers. 
+Rust/WinRT follows in the tradition established by [C++/WinRT](https://github.com/microsoft/cppwinrt) of building language projections for the Windows Runtime using standard languages and compilers, providing a natural and idiomatic way for Rust developers to call Windows APIs. Rust/WinRT lets you call any WinRT API past, present, and future using code generated on the fly directly from the metadata describing the API and right into your Rust package where you can call them as if they were just another Rust module.
 
-This repo is still in early and active development. You can find more information about future plans for
-[this project here](https://kennykerr.ca/2019/11/05/rust/).
-
-The Rust winmd parser is part of the [xlang](https://github.com/microsoft/xlang) family of projects that help developers create APIs that can run on multiple platforms and be used with a variety of languages.
+The Windows Runtime is based on Component Object Model (COM) APIs under the hood and is designed to be accessed through language projections like C++/WinRT and Rust/WinRT. Those language projections take the metadata describing various APIs and provide natural bindings for the target programming language. As you can imagine, this allows developers to more easily build apps and components for Windows using their desired language. You can then use those Windows APIs to build desktop apps, store apps, or something more unique like a component, NT service, or device driver.
 
 ## Getting started
 
