@@ -88,12 +88,14 @@ impl Interface {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type Abi = *const *const <Self as ::winrt::ComInterface>::VTable;
+                type Abi = <::winrt::ComPtr<Self> as ::winrt::RuntimeType>::Abi;
                 fn abi(&self) -> Self::Abi {
-                    self.ptr.get()
+                    use ::winrt::RuntimeType;
+                    self.ptr.abi()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set()
+                    use ::winrt::RuntimeType;
+                    self.ptr.set_abi()
                 }
             }
             #conversions

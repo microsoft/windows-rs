@@ -11,7 +11,7 @@ pub struct Object {
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
-        let this = self.ptr.get();
+        let this = self.ptr.abi();
         if this.is_null() {
             panic!("The `this` pointer was null when calling method");
         }
@@ -37,11 +37,11 @@ unsafe impl RuntimeType for Object {
     type Abi = *const *const <Self as ComInterface>::VTable;
 
     fn abi(&self) -> Self::Abi {
-        self.ptr.get()
+        self.ptr.abi()
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        self.ptr.set()
+        self.ptr.set_abi()
     }
 }
 
