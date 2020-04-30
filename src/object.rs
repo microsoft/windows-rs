@@ -11,14 +11,15 @@ pub struct Object {
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
-        if self.ptr.is_null() {
+        let this = self.ptr.get();
+        if this.is_null() {
             panic!("The `this` pointer was null when calling method");
         }
-        let mut ptr = std::ptr::null_mut();
+        let mut string = HString::default();
         unsafe {
-            ((*(*(self.ptr.get()))).type_name)(self.ptr.get(), &mut ptr)
-                .and_then(|| std::mem::transmute(ptr))
+            ((*(*(this))).type_name)(this, string.set_abi()).ok()?;
         }
+        Ok(string)
     }
 }
 
@@ -47,5 +48,8 @@ unsafe impl RuntimeType for Object {
 #[repr(C)]
 pub struct abi_IInspectable {
     __base: [usize; 4],
-    type_name: extern "system" fn(*const *const object::abi_IInspectable, *mut RawPtr) -> ErrorCode,
+    type_name: extern "system" fn(
+        *const *const object::abi_IInspectable,
+        *mut <HString as RuntimeType>::Abi,
+    ) -> ErrorCode,
 }
