@@ -26,55 +26,26 @@ import!(
     dependencies
         "os"
     modules
-        "windows.foundation"
+        "windows.data.xml.dom"
         "windows.ui"
 );
 ```
 
-Finally, make use of any WinRT APIs as needed. For example, here is an example of using the `Windows.Foundation.Uri` class:
+Finally, make use of any WinRT APIs as needed. For example, here is an example of using the `XmlDocument` class to parse an XML document:
 
 ```rust
 fn main() -> Result<()> {
-    use windows::foundation::*;
+    use windows::data::xml::dom::*;
 
-    let uri = Uri::create_uri("http://kennykerr.ca")?;
-    println!("domain: {}", uri.domain()?);
-    println!("port: {}", uri.port()?);
-    println!("string: {}", uri.to_string()?);
+    let doc = XmlDocument::new()?;
+    doc.load_xml("<html>hello world</html>")?;
 
-    Ok(())
-}
-```
-
-This program will print the following output:
-
-```
-domain: kennykerr.ca
-port: 80
-string: http://kennykerr.ca/
-```
-
-And here is an example of using the `Windows.UI.Colors` class to produce a red `Color` struct:
-
-```rust
-fn main() -> Result<()> {
-    use windows::ui::*;
-
-    let red = Colors::red()?;
-    assert!(red.a == 255);
-    assert!(red.r == 255);
-    assert!(red.g == 0);
-    assert!(red.b == 0);
-    println!("{:?}", red);
+    let root = doc.document_element()?;
+    assert!(root.node_name()? == "html");
+    assert!(root.inner_text()? == "hello world");
 
     Ok(())
 }
-```
-
-This program will print the following output:
-
-```
-Color { a: 255, r: 255, g: 0, b: 0 }
 ```
 
 For a more complete example, take a look at Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs).
