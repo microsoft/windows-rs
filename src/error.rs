@@ -12,9 +12,6 @@ pub struct Error {
 }
 
 impl Error {
-    pub const NULL_POINTER: Error = Error {
-        code: ErrorCode::E_POINTER,
-    };
     pub fn code(&self) -> ErrorCode {
         self.code
     }
@@ -62,5 +59,4 @@ impl ErrorCode {
     }
 
     pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
-    pub(crate) const E_POINTER: ErrorCode = ErrorCode(0x8000_4003);
 }
