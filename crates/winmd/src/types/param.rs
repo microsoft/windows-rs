@@ -107,6 +107,7 @@ impl Param {
                     | TypeKind::Struct(_)
                     | TypeKind::Delegate(_)
                     | TypeKind::Generic(_) => quote! { #name.into().abi(), },
+                    TypeKind::Enum(_) => quote! { ::winrt::RuntimeType::abi(&#name), },
                     _ => quote! { ::winrt::RuntimeType::abi(#name), },
                 }
             }

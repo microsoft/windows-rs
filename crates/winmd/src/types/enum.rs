@@ -1,7 +1,6 @@
 use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
-use std::collections::*;
 
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
@@ -52,20 +51,7 @@ impl Enum {
             EnumConstant::I32(_) => format_ident!("i32"),
         };
 
-        // Rust enum variants must be unique, but WinRT enums may contain duplicates
-        // so we remove any duplicates ensuring there is at least one of each value.
-        let mut values = BTreeSet::new();
-
-        let fields = self.fields.iter().filter(|field| {
-            if values.contains(&field.1) {
-                false
-            } else {
-                values.insert(field.1);
-                true
-            }
-        });
-
-        let fields = fields.map(|field| {
+        let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
 
             let value = match field.1 {
@@ -74,28 +60,31 @@ impl Enum {
             };
 
             quote! {
-                #name = #value
+                pub const #name: Self = Self { value: #value };
             }
         });
 
         quote! {
-            #[repr(#repr)]
-            #[derive(Copy, Clone, Debug, PartialEq)]
-            pub enum #name {
-                #(#fields),*
+            #[repr(transparent)]
+            #[derive(Copy, Clone, Debug, Eq, PartialEq)]
+            pub struct #name {
+                value: #repr
             }
             impl ::std::default::Default for #name {
                 fn default() -> Self {
                     Self::#default
                 }
             }
+            impl #name {
+                #(#fields)*
+            }
             unsafe impl ::winrt::RuntimeType for #name {
-                type Abi = Self;
+                type Abi = #repr;
                 fn abi(&self) -> Self::Abi {
-                    *self
+                    self.value
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    self as *mut Self::Abi
+                    &mut self.value
                 }
             }
         }
