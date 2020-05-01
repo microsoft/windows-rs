@@ -4,6 +4,7 @@ winrt::import!(
     modules
         "windows.foundation.collections"
 );
+
 use windows::foundation::Uri;
 use winrt::ComInterface;
 use winrt::RuntimeName;
@@ -17,8 +18,8 @@ fn uri() -> winrt::Result<()> {
         winrt::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 
-    let _null_uri = Uri::default();
-    // TODO: how to signal/test empty value?
+    let null_uri = Uri::default();
+    assert!(null_uri.is_null());
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
 
