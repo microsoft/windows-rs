@@ -12,7 +12,7 @@ use winrt::RuntimeType;
 fn signed_enum() {
     use windows::foundation::AsyncStatus;
 
-    assert!(AsyncStatus::default() == AsyncStatus::Canceled);
+    assert!(AsyncStatus::default().abi() == 0);
     assert!(AsyncStatus::Canceled.abi() == 2);
     assert!(AsyncStatus::Completed.abi() == 1);
     assert!(AsyncStatus::Error.abi() == 3);
@@ -23,7 +23,7 @@ fn signed_enum() {
 fn unsigned_enum() {
     use windows::application_model::appointments::AppointmentDaysOfWeek;
 
-    assert!(AppointmentDaysOfWeek::default() == AppointmentDaysOfWeek::None);
+    assert!(AppointmentDaysOfWeek::default().abi() == 0);
     assert!(AppointmentDaysOfWeek::None.abi() == 0);
     assert!(AppointmentDaysOfWeek::Sunday.abi() == 0x1);
     assert!(AppointmentDaysOfWeek::Monday.abi() == 0x2);

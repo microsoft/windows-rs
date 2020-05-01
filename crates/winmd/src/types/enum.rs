@@ -44,7 +44,6 @@ impl Enum {
     // avoid hte issue of duplicates below and also allow bit flags WinRT enums.
     pub fn to_tokens(&self) -> TokenStream {
         let name = self.name.to_tokens(&self.name.namespace);
-        let default = format_ident(&self.fields[0].0);
 
         let repr = match self.fields[0].1 {
             EnumConstant::U32(_) => format_ident!("u32"),
@@ -66,16 +65,12 @@ impl Enum {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Copy, Clone, Debug, Eq, PartialEq)]
+            #[derive(Copy, Clone, Default, Debug, Eq, PartialEq)]
             pub struct #name {
                 value: #repr
             }
-            impl ::std::default::Default for #name {
-                fn default() -> Self {
-                    Self::#default
-                }
-            }
             impl #name {
+                #![allow(non_upper_case_globals)]
                 #(#fields)*
             }
             unsafe impl ::winrt::RuntimeType for #name {
