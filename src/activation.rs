@@ -59,7 +59,7 @@ unsafe impl ComInterface for IActivationFactory {
 pub struct abi_IActivationFactory {
     __base: [usize; 6],
     activate_instance: extern "system" fn(
-        *const *const activation::abi_IActivationFactory,
+        RawComPtr<IActivationFactory>,
         *mut <Object as RuntimeType>::Abi,
     ) -> ErrorCode,
 }

@@ -25,7 +25,8 @@ unsafe impl ComInterface for IUnknown {
 
 #[repr(C)]
 pub struct abi_IUnknown {
-    pub(crate) query: extern "system" fn(RawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
-    pub(crate) addref: extern "system" fn(RawComPtr<IUnknown>) -> u32,
-    pub(crate) release: extern "system" fn(RawComPtr<IUnknown>) -> u32,
+    pub(crate) unknown_query_interface:
+        extern "system" fn(RawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
+    pub(crate) unknown_add_ref: extern "system" fn(RawComPtr<IUnknown>) -> u32,
+    pub(crate) unknown_release: extern "system" fn(RawComPtr<IUnknown>) -> u32,
 }

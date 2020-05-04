@@ -60,7 +60,7 @@ pub unsafe trait ComInterface: Sized {
     unsafe fn raw_query<T: ComInterface>(&self, guid: &Guid, ppv: &mut T) {
         let from = self.as_iunknown();
         if !from.is_null() {
-            ((*(*(from))).query)(from, guid, ppv as *mut _ as _);
+            ((*(*(from))).unknown_query_interface)(from, guid, ppv as *mut _ as _);
         }
     }
 }
