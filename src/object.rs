@@ -17,14 +17,14 @@ impl Object {
         }
         let mut string = HString::default();
         unsafe {
-            ((*(*(this))).type_name)(this, string.set_abi()).ok()?;
+            ((*(*(this))).inspectable_type_name)(this, string.set_abi()).ok()?;
         }
         Ok(string)
     }
 }
 
 unsafe impl ComInterface for Object {
-    type VTable = abi_IInspectable;
+    type VTable = abi_Object;
     const IID: Guid = Guid::from_values(
         0xAF86_E2E0,
         0xB12D,
@@ -46,10 +46,8 @@ unsafe impl RuntimeType for Object {
 }
 
 #[repr(C)]
-pub struct abi_IInspectable {
+pub struct abi_Object {
     __base: [usize; 4],
-    type_name: extern "system" fn(
-        *const *const object::abi_IInspectable,
-        *mut <HString as RuntimeType>::Abi,
-    ) -> ErrorCode,
+    inspectable_type_name:
+        extern "system" fn(RawComPtr<Object>, *mut <HString as RuntimeType>::Abi) -> ErrorCode,
 }

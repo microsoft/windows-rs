@@ -1,3 +1,4 @@
+use super::object::to_object_tokens;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
@@ -108,6 +109,7 @@ impl Class {
                 quote! {}
             };
 
+            let object = to_object_tokens(&name, &TokenStream::new());
             let bases = self.to_base_conversions_tokens(&self.name.namespace, &name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
 
@@ -135,6 +137,7 @@ impl Class {
                     }
                 }
                 #conversions
+                #object
                 #bases
                 #iterator
             }

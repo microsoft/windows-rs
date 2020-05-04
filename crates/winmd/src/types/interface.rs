@@ -1,3 +1,4 @@
+use super::object::to_object_tokens;
 use crate::tables::*;
 use crate::types::*;
 use crate::*;
@@ -55,6 +56,7 @@ impl Interface {
             interface.to_conversions_tokens(&self.name.namespace, &name, &constraints)
         }));
 
+        let object = to_object_tokens(&name, &constraints);
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
         let iterator = iterator_tokens(&self.name, &self.interfaces);
@@ -97,6 +99,7 @@ impl Interface {
                 }
             }
             #conversions
+            #object
             #iterator
         }
     }
