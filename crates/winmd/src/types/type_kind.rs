@@ -235,7 +235,7 @@ impl TypeKind {
             }
             Self::Enum(name) => {
                 let name = name.to_tokens(calling_namespace);
-                quote! { #name, }
+                quote! { <#name as ::winrt::RuntimeType>::Abi, }
             }
             Self::Struct(name) => {
                 let name = name.to_tokens(calling_namespace);
@@ -263,8 +263,7 @@ impl TypeKind {
             | Self::I64
             | Self::U64
             | Self::F32
-            | Self::F64
-            | Self::Enum(_) => true,
+            | Self::F64 => true,
 
             Self::String
             | Self::Object
@@ -273,6 +272,7 @@ impl TypeKind {
             | Self::Interface(_)
             | Self::Struct(_)
             | Self::Delegate(_)
+            | Self::Enum(_)
             | Self::Generic(_) => false,
         }
     }
