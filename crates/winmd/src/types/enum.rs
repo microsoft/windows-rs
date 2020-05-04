@@ -50,10 +50,9 @@ impl Enum {
             EnumConstant::I32(_) => format_ident!("i32"),
         };
 
-        let fields = self.fields.iter().map(|field| {
-            let name = format_ident(&field.0);
-
-            let value = match field.1 {
+        let fields = self.fields.iter().map(|(name, value)| {
+            let name = format_ident(&name);
+            let value = match value {
                 EnumConstant::U32(value) => quote! { #value },
                 EnumConstant::I32(value) => quote! { #value },
             };
@@ -62,6 +61,7 @@ impl Enum {
                 pub const #name: Self = Self { value: #value };
             }
         });
+        let bitwise = bitwise_operators(&name, &self.fields[0].1);
 
         quote! {
             #[repr(transparent)]
@@ -81,6 +81,30 @@ impl Enum {
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     &mut self.value
                 }
+            }
+            #bitwise
+        }
+    }
+}
+
+fn bitwise_operators(name: &TokenStream, value_type: &EnumConstant) -> TokenStream {
+    if matches!(value_type, EnumConstant::I32(_)) {
+        return quote! {};
+    }
+
+    quote! {
+        impl ::std::ops::BitOr for #name {
+            type Output = Self;
+
+            fn bitor(self, rhs: Self) -> Self {
+                Self { value: self.value | rhs.value }
+            }
+        }
+        impl ::std::ops::BitAnd for #name {
+            type Output = Self;
+
+            fn bitand(self, rhs: Self) -> Self {
+                Self { value: self.value & rhs.value }
             }
         }
     }
