@@ -88,9 +88,9 @@ impl Interface {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type Abi = ::winrt::ComInterfacePtr<Self>;
+                type Abi = ::winrt::RawComPtr<Self>;
                 fn abi(&self) -> Self::Abi {
-                    <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_vtable(&self.ptr)
+                    <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     self.ptr.set_abi()

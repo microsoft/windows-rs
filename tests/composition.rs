@@ -9,7 +9,7 @@ winrt::import!(
 extern "stdcall" {
     fn CreateDispatcherQueueController(
         options: DispatcherQueueOptions,
-        dispatcherQueueController: *mut winrt::ComInterfacePtr<winrt::IUnknown>,
+        dispatcherQueueController: *mut winrt::RawComPtr<winrt::IUnknown>,
     ) -> winrt::ErrorCode;
 }
 

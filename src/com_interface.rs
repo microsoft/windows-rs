@@ -6,28 +6,35 @@ use crate::*;
 /// Implementors of this trait must be transparent wrappers
 /// around pointers to the associated VTable for the interface.
 /// In other words, implementators must be exactly equivalent to
-/// *const *const Self::VTable.
+/// *mut *mut Self::VTable.
 ///
 /// VTables must be COM compliant VTables where the first three function
 /// pointers are the IUknown methods.
+///
+/// Additionally, because ComInterfaces are just pointers to vtables,
+/// it must be safe to zero initialize the interface.
 pub unsafe trait ComInterface: Sized {
     const GUID: Guid;
     type VTable;
 
-    fn as_vtable(&self) -> ComInterfacePtr<Self> {
+    #[inline(always)]
+    fn as_raw(&self) -> RawComPtr<Self> {
         unsafe { std::mem::transmute_copy(self) }
     }
 
-    fn as_iunknown(&self) -> ComInterfacePtr<IUnknown> {
-        self.as_vtable() as _
+    #[inline(always)]
+    fn as_iunknown(&self) -> RawComPtr<IUnknown> {
+        self.as_raw() as _
     }
 
+    #[inline(always)]
     fn query<Into: ComInterface>(&self) -> Into {
         unsafe { self.query_with_guid(&Into::GUID) }
     }
 
+    #[inline(always)]
     fn is_null(&self) -> bool {
-        self.as_vtable().is_null()
+        self.as_raw().is_null()
     }
 
     /// Use QueryInterface to cast a ComInterface into another.
@@ -46,13 +53,17 @@ pub unsafe trait ComInterface: Sized {
     /// rely on ComInterface to calculate the guid for all types.
     unsafe fn query_with_guid<Into: ComInterface>(&self, guid: &Guid) -> Into {
         let mut into: Into = std::mem::zeroed();
+        self.raw_query(guid, &mut into);
+        into
+    }
+
+    unsafe fn raw_query<T: ComInterface>(&self, guid: &Guid, ppv: &mut T) {
         let from = self.as_iunknown();
         if !from.is_null() {
-            ((*(*(from))).query)(from, guid, &mut into as *mut _ as _);
+            ((*(*(from))).query)(from, guid, ppv as *mut _ as _);
         }
-        into
     }
 }
 
-/// A non-reference-counter pointer to a COM interface
-pub type ComInterfacePtr<T> = *const *const <T as ComInterface>::VTable;
+/// A non-reference-counted pointer to a COM interface
+pub type RawComPtr<T> = *const *const <T as ComInterface>::VTable;

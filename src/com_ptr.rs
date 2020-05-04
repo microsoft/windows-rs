@@ -1,13 +1,13 @@
-use crate::{ComInterface, ComInterfacePtr, Guid};
+use crate::{ComInterface, Guid, RawComPtr};
 
 /// A reference counted pointer to a COM interface
 #[repr(transparent)]
 pub struct ComPtr<T: ComInterface> {
-    ptr: ComInterfacePtr<T>,
+    ptr: RawComPtr<T>,
 }
 
 impl<T: ComInterface> ComPtr<T> {
-    pub fn set_abi(&mut self) -> *mut ComInterfacePtr<T> {
+    pub fn set_abi(&mut self) -> *mut RawComPtr<T> {
         if !self.ptr.is_null() {
             unsafe {
                 ((*(*(self.as_iunknown()))).release)(self.as_iunknown());

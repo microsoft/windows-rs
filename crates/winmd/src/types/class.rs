@@ -126,9 +126,9 @@ impl Class {
                     const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
-                    type Abi = ::winrt::ComInterfacePtr<Self>;
+                    type Abi = ::winrt::RawComPtr<Self>;
                     fn abi(&self) -> Self::Abi {
-                        <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_vtable(&self.ptr)
+                        <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                     }
                     fn set_abi(&mut self) -> *mut Self::Abi {
                         self.ptr.set_abi()

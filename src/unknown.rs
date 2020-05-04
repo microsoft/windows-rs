@@ -8,7 +8,7 @@ pub struct IUnknown {
 }
 
 impl IUnknown {
-    pub fn set_abi(&mut self) -> *mut ComInterfacePtr<Self> {
+    pub fn set_abi(&mut self) -> *mut RawComPtr<Self> {
         self.ptr.set_abi()
     }
 }
@@ -25,8 +25,7 @@ unsafe impl ComInterface for IUnknown {
 
 #[repr(C)]
 pub struct abi_IUnknown {
-    pub(crate) query:
-        extern "system" fn(ComInterfacePtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
-    pub(crate) addref: extern "system" fn(ComInterfacePtr<IUnknown>) -> u32,
-    pub(crate) release: extern "system" fn(ComInterfacePtr<IUnknown>) -> u32,
+    pub(crate) query: extern "system" fn(RawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
+    pub(crate) addref: extern "system" fn(RawComPtr<IUnknown>) -> u32,
+    pub(crate) release: extern "system" fn(RawComPtr<IUnknown>) -> u32,
 }
