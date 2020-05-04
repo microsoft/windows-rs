@@ -85,7 +85,12 @@ impl Interface {
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
-                __base: [usize; 6],
+                pub unknown_query_interface: extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>, &::winrt::Guid, *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                pub unknown_add_ref: extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>) -> u32,
+                pub unknown_release: extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>) -> u32,
+                pub inspectable_iids: extern "system" fn(::winrt::RawComPtr<::winrt::Object>, *mut u32, *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode,
+                pub inspectable_type_name: extern "system" fn(::winrt::RawComPtr<::winrt::Object>, *mut <::winrt::HString as ::winrt::RuntimeType>::Abi) -> ::winrt::ErrorCode,
+                pub inspectable_trust_level: extern "system" fn(::winrt::RawComPtr<::winrt::Object>, *mut i32) -> ::winrt::ErrorCode,
                 #abi_methods
                 #phantoms
             }
