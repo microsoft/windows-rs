@@ -9,7 +9,7 @@ winrt::import!(
 extern "stdcall" {
     fn CreateDispatcherQueueController(
         options: DispatcherQueueOptions,
-        dispatcherQueueController: *mut winrt::RawPtr,
+        dispatcherQueueController: *mut winrt::RawComPtr<winrt::IUnknown>,
     ) -> winrt::ErrorCode;
 }
 
@@ -32,7 +32,7 @@ fn create_dispatcher() -> winrt::IUnknown {
 
     let mut interop_ptr = winrt::IUnknown::default();
     unsafe {
-        CreateDispatcherQueueController(options, interop_ptr.set())
+        CreateDispatcherQueueController(options, interop_ptr.set_abi())
             .ok()
             .unwrap();
     }

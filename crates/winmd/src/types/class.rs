@@ -123,15 +123,15 @@ impl Class {
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     type VTable = #abi_name;
-                    const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                    const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
-                    type Abi = *const *const <Self as ::winrt::ComInterface>::VTable;
+                    type Abi = ::winrt::RawComPtr<Self>;
                     fn abi(&self) -> Self::Abi {
-                        self.ptr.get()
+                        <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                     }
                     fn set_abi(&mut self) -> *mut Self::Abi {
-                        self.ptr.set()
+                        self.ptr.set_abi()
                     }
                 }
                 #conversions
