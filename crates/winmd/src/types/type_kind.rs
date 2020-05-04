@@ -218,32 +218,23 @@ impl TypeKind {
             Self::U64 => quote! { u64, },
             Self::F32 => quote! { f32, },
             Self::F64 => quote! { f64, },
+            Self::Guid => quote! { ::winrt::Guid, },
             Self::String => {
                 quote! { <::winrt::HString as ::winrt::RuntimeType>::Abi, }
             }
             Self::Object => {
                 quote! { <::winrt::Object as ::winrt::RuntimeType>::Abi, }
             }
-            Self::Guid => quote! { ::winrt::Guid, },
-            Self::Class(c) => {
-                let name = c.to_tokens(calling_namespace);
-                quote! { <#name as ::winrt::RuntimeType>::Abi, }
-            }
-            Self::Interface(i) => {
-                let name = i.to_tokens(calling_namespace);
-                quote! { <#name as ::winrt::RuntimeType>::Abi, }
-            }
-            Self::Enum(name) => {
-                let name = name.to_tokens(calling_namespace);
-                quote! { <#name as ::winrt::RuntimeType>::Abi, }
-            }
-            Self::Struct(name) => {
-                let name = name.to_tokens(calling_namespace);
-                quote! { #name, }
-            }
-            Self::Delegate(_) => quote! { ::winrt::RawPtr, },
             Self::Generic(name) => {
                 let name = format_ident(name);
+                quote! { <#name as ::winrt::RuntimeType>::Abi, }
+            }
+            Self::Class(name)
+            | Self::Interface(name)
+            | Self::Delegate(name)
+            | Self::Enum(name)
+            | Self::Struct(name) => {
+                let name = name.to_tokens(calling_namespace);
                 quote! { <#name as ::winrt::RuntimeType>::Abi, }
             }
         }

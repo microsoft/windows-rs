@@ -41,7 +41,7 @@ impl Delegate {
             #[repr(transparent)]
             #[derive(Default)]
             pub struct #definition where #constraints {
-                ptr: ::winrt::IUnknown,
+                ptr: ::winrt::ComPtr<#name>,
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
@@ -58,17 +58,20 @@ impl Delegate {
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
-                __base: [usize; 6],
+                pub unknown_query_interface:
+                extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>, &::winrt::Guid, *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                pub unknown_add_ref: extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>) -> u32,
+                pub unknown_release: extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>) -> u32,
                 #abi_method
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type Abi = ::winrt::RawPtr;
+                type Abi = ::winrt::RawComPtr<Self>;
                 fn abi(&self) -> Self::Abi {
-                     <::winrt::IUnknown as ::winrt::ComInterface>::as_raw(&self.ptr) as Self::Abi
+                    <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set_abi() as _
+                    self.ptr.set_abi()
                 }
             }
         }

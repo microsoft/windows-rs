@@ -1,11 +1,11 @@
-winrt::import!(
-    dependencies
-        "os"
-    modules
-        "windows.ui.xaml"
-);
+// winrt::import!(
+//     dependencies
+//         "os"
+//     modules
+//         "windows.ui.xaml"
+// );
 
-#[test]
-fn xaml() -> winrt::Result<()> {
-    Ok(())
-}
+// #[test]
+// fn xaml() -> winrt::Result<()> {
+//     Ok(())
+// }
