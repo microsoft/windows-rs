@@ -11,7 +11,7 @@ pub struct Object {
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
-        let this = self.ptr.get();
+        let this = self.ptr.as_raw();
         if this.is_null() {
             panic!("The `this` pointer was null when calling method");
         }
@@ -25,7 +25,7 @@ impl Object {
 
 unsafe impl ComInterface for Object {
     type VTable = abi_IInspectable;
-    const GUID: Guid = Guid::from_values(
+    const IID: Guid = Guid::from_values(
         0xAF86_E2E0,
         0xB12D,
         0x4C6A,
@@ -34,14 +34,14 @@ unsafe impl ComInterface for Object {
 }
 
 unsafe impl RuntimeType for Object {
-    type Abi = *const *const <Self as ComInterface>::VTable;
+    type Abi = RawComPtr<Object>;
 
     fn abi(&self) -> Self::Abi {
-        self.ptr.get()
+        self.ptr.as_raw()
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
-        self.ptr.set()
+        self.ptr.set_abi()
     }
 }
 

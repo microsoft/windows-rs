@@ -166,8 +166,8 @@ impl RequiredInterface {
                         }
                         impl<#constraints> ::std::convert::From<&#from> for #into {
                             fn from(value: &#from) -> #into {
-                                const GUID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
-                                unsafe { <#from as ::winrt::ComInterface>::query_with_guid(value, &GUID) }
+                                const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                                unsafe { <#from as ::winrt::ComInterface>::query_with_iid(value, &IID) }
                             }
                         }
                     }

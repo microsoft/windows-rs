@@ -8,18 +8,14 @@ pub struct IUnknown {
 }
 
 impl IUnknown {
-    pub fn get(&self) -> RawPtr {
-        self.ptr.get() as RawPtr
-    }
-
-    pub fn set(&mut self) -> *mut RawPtr {
-        self.ptr.set() as *mut RawPtr
+    pub fn set_abi(&mut self) -> *mut RawComPtr<Self> {
+        self.ptr.set_abi()
     }
 }
 
 unsafe impl ComInterface for IUnknown {
     type VTable = abi_IUnknown;
-    const GUID: Guid = Guid::from_values(
+    const IID: Guid = Guid::from_values(
         0x00000000,
         0x0000,
         0x0000,
@@ -27,11 +23,9 @@ unsafe impl ComInterface for IUnknown {
     );
 }
 
-type IUnknownPtr = *const *const <IUnknown as ComInterface>::VTable;
-
 #[repr(C)]
 pub struct abi_IUnknown {
-    pub(crate) query: extern "system" fn(IUnknownPtr, &Guid, *mut RawPtr) -> ErrorCode,
-    pub(crate) addref: extern "system" fn(IUnknownPtr) -> u32,
-    pub(crate) release: extern "system" fn(IUnknownPtr) -> u32,
+    pub(crate) query: extern "system" fn(RawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
+    pub(crate) addref: extern "system" fn(RawComPtr<IUnknown>) -> u32,
+    pub(crate) release: extern "system" fn(RawComPtr<IUnknown>) -> u32,
 }

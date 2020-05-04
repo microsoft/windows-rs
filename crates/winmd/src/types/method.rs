@@ -211,7 +211,8 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
-                    let this = self.ptr.get();
+                    let this = <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr);
+
                     if this.is_null() {
                         panic!("The `this` pointer was null when calling method");
                     }
@@ -225,7 +226,8 @@ impl Method {
         } else {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
-                    let this = self.ptr.get();
+                    let this = <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr);
+
                     if this.is_null() {
                         panic!("The `this` pointer was null when calling method");
                     }
