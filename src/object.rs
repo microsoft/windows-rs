@@ -24,7 +24,7 @@ impl Object {
 }
 
 unsafe impl ComInterface for Object {
-    type VTable = abi_Object;
+    type VTable = abi_IInspectable;
     const IID: Guid = Guid::from_values(
         0xAF86_E2E0,
         0xB12D,
@@ -46,7 +46,7 @@ unsafe impl RuntimeType for Object {
 }
 
 #[repr(C)]
-pub struct abi_Object {
+pub struct abi_IInspectable {
     __base: [usize; 4],
     inspectable_type_name:
         extern "system" fn(RawComPtr<Object>, *mut <HString as RuntimeType>::Abi) -> ErrorCode,

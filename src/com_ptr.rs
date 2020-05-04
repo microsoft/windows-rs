@@ -26,7 +26,7 @@ unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
 impl<T: ComInterface> Clone for ComPtr<T> {
     fn clone(&self) -> Self {
         if !self.ptr.is_null() {
-            unsafe { ((*(*(self.as_iunknown()))).unknown_addref)(self.as_iunknown()) };
+            unsafe { ((*(*(self.as_iunknown()))).unknown_add_ref)(self.as_iunknown()) };
         }
         Self { ptr: self.ptr }
     }
