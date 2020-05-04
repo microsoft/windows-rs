@@ -68,6 +68,7 @@ pub use runtime_type::RuntimeType;
 pub use try_into::TryInto;
 pub use unknown::IUnknown;
 pub use winrt_macros::import;
+pub use ref_count::RefCount;
 
 /// A convenient alias of a void pointer
 pub type RawPtr = *mut std::ffi::c_void;
