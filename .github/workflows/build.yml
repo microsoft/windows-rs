@@ -19,3 +19,17 @@ jobs:
 
     - name: fmt
       run: cargo fmt --all -- --check
+
+  min-supported:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: install
+      run: rustup install 1.40.0
+
+    - name: check
+      run: cargo +1.40.0 check --all --bins --examples
+
+    - name: tests
+      run: cargo +1.40.0 test --all 
