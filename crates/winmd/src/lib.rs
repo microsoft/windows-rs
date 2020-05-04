@@ -13,6 +13,7 @@ mod type_tree;
 mod types;
 
 pub mod load_winmd;
+pub use file::WinmdFile;
 pub use type_limits::TypeLimits;
 pub use type_reader::TypeReader;
 pub use type_stage::TypeStage;

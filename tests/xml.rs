@@ -1,6 +1,6 @@
 winrt::import!(
     dependencies
-        "os"
+        os
     modules
         "windows.data.xml.dom"
 );

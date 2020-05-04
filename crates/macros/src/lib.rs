@@ -9,9 +9,13 @@ use std::path::{Path, PathBuf};
 /// A macro for generating WinRT modules into the current module
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
-    let (_dependencies, namespaces) = parse_import_stream(stream);
+    let (dependencies, namespaces) = parse_import_stream(stream);
 
-    let reader = &TypeReader::from_os();
+    let dependencies = dependencies
+        .into_iter()
+        .map(|p| winmd::WinmdFile::new(p))
+        .collect();
+    let reader = &TypeReader::new(dependencies);
 
     let mut limits = TypeLimits::default();
 
@@ -66,6 +70,12 @@ fn parse_import_stream(stream: TokenStream) -> (BTreeSet<PathBuf>, BTreeSet<Stri
 
     loop {
         if state == ParseState::Both {
+            let next = stream.next();
+            assert!(
+                next.is_none(),
+                "Unexpected input at the end of the winrt::import: '{}'",
+                next.unwrap()
+            );
             break;
         }
         let category = parse_category(&mut stream);
@@ -92,7 +102,7 @@ fn parse_category(
     );
     match token {
         TokenTree::Ident(value) => {
-            let category = match value.to_string().as_ref() {
+            let category = match value.to_string().as_str() {
                 "dependencies" => ImportCategory::Dependency,
                 "modules" => ImportCategory::Namespace,
                 value => panic!(
@@ -109,7 +119,7 @@ fn parse_category(
         }
         _ => {
             panic!(
-                "winrt::import macro encountered an unrecognized token: {}. Expected `dependencies` or `modules`",
+                "winrt::import macro encountered an unrecognized token: '{}'. Expected `dependencies` or `modules`",
                 token
             );
         }
@@ -142,8 +152,42 @@ fn parse_dependencies(
         let token = stream.peek();
         match token {
             Some(TokenTree::Literal(value)) => {
-                dependencies.append(&mut to_dependencies(value.to_string().trim_matches('"')));
-                let _ = stream.next();
+                dependencies.append(&mut expand_paths(value.to_string().trim_matches('"')));
+                let _literal = stream.next();
+            }
+            Some(TokenTree::Ident(value)) if value.to_string().as_str() == "os" => {
+                let mut path = PathBuf::new();
+                let wind_dir_env = std::env::var("windir")
+                    .unwrap_or_else(|_| panic!("No `windir` environment variable found"));
+                path.push(wind_dir_env);
+                path.push(SYSTEM32);
+                path.push("winmetadata");
+                dependencies.append(&mut expand_paths(path));
+                let _os = stream.next();
+            }
+            Some(TokenTree::Ident(value)) if value.to_string().as_str() == "nuget" => {
+                let _nuget = stream.next();
+                let colon = stream.next();
+                assert!(
+                    matches!(colon, Some(TokenTree::Punct(value)) if value.as_char() == ':'),
+                    "`nuget` must be followed by a `:`"
+                );
+                let mut path = PathBuf::from(env!("HOME"));
+                path.push(".nuget");
+
+                while {
+                    let name = stream.next();
+                    match name {
+                        Some(TokenTree::Ident(value)) => path.push(value.to_string()),
+                        Some(_) => panic!("Unexpected input: a period seperated list of indentifiers must follow `nuget:`"),
+                        None => panic!("Unexpected end of input: a nuget package name must follow `nuget:`"),
+                    };
+                    matches!(stream.peek(), Some(TokenTree::Punct(value)) if value.as_char() == '.')
+                } {
+                    let _period = stream.next();
+                }
+
+                dependencies.append(&mut expand_paths(path));
             }
             _ => break,
         }
@@ -151,28 +195,12 @@ fn parse_dependencies(
     dependencies
 }
 
-enum Dependency {
-    Paths(BTreeSet<PathBuf>),
-    Nuget {
-        name: String,
-        version: Option<String>,
-    },
-}
-
 /// Returns the paths to resolved dependencies
-fn to_dependencies<P: AsRef<Path>>(dependency: P) -> BTreeSet<PathBuf> {
+fn expand_paths<P: AsRef<Path>>(dependency: P) -> BTreeSet<PathBuf> {
     let path = dependency.as_ref();
     let mut result = BTreeSet::new();
 
-    if path == Path::new("os") {
-        let mut path = PathBuf::new();
-        let wind_dir_env = std::env::var("windir")
-            .unwrap_or_else(|_| panic!("No `windir` environment variable found"));
-        path.push(wind_dir_env);
-        path.push(SYSTEM32);
-        path.push("winmetadata");
-        result.append(&mut to_dependencies(path));
-    } else if path.is_dir() {
+    if path.is_dir() {
         let paths = std::fs::read_dir(path).unwrap_or_else(|e| {
             panic!(
                 "Could not read dependecy directory at path {:?}: {}",
@@ -180,14 +208,13 @@ fn to_dependencies<P: AsRef<Path>>(dependency: P) -> BTreeSet<PathBuf> {
             )
         });
         for path in paths {
-            if let Ok(path) = path {
-                let path = path.path();
-                if path.is_file() {
-                    result.insert(path);
-                }
+            let path = path.expect("Could not read directory entry");
+            let path = path.path();
+            if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
+                result.insert(path);
             }
         }
-    } else if path.is_file() {
+    } else if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
         result.insert(path.to_path_buf());
     } else {
         panic!("Dependency {:?} is not a file or directory", path);
