@@ -33,7 +33,7 @@ fn unsigned_enum() {
     assert!(AppointmentDaysOfWeek::Friday.abi() == 0x20);
     assert!(AppointmentDaysOfWeek::Saturday.abi() == 0x40);
 
-    // TODO: Unsigned WinRT enums are meant to be used as bit flags:
-    // let weekend = AppointmentDaysOfWeek::Sunday | AppointmentDaysOfWeek::Saturday;
-    // assert!(weekend.abi() == 0x41);
+    // Use as bitflags
+    let weekend = AppointmentDaysOfWeek::Sunday | AppointmentDaysOfWeek::Saturday;
+    assert!(weekend.abi() == 0x41);
 }

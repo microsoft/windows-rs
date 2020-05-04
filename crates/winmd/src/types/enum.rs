@@ -82,6 +82,20 @@ impl Enum {
                     &mut self.value
                 }
             }
+            impl ::std::ops::BitOr for #name {
+                type Output = Self;
+
+                fn bitor(self, rhs: Self) -> Self {
+                    Self { value: self.value | rhs.value }
+                }
+            }
+            impl ::std::ops::BitAnd for #name {
+                type Output = Self;
+
+                fn bitand(self, rhs: Self) -> Self {
+                    Self { value: self.value & rhs.value }
+                }
+            }
         }
     }
 }
