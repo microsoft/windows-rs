@@ -88,8 +88,9 @@ impl Enum {
 }
 
 fn bitwise_operators(name: &TokenStream, value_type: &EnumConstant) -> TokenStream {
-    if matches!(value_type, EnumConstant::I32(_)) {
-        return quote! {};
+    match value_type {
+        EnumConstant::I32(_) => return quote! {},
+        _ => {}
     }
 
     quote! {
