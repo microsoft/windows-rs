@@ -152,7 +152,11 @@ fn parse_dependencies(
         let token = stream.peek();
         match token {
             Some(TokenTree::Literal(value)) => {
-                dependencies.append(&mut expand_paths(value.to_string().trim_matches('"')));
+                expand_paths(
+                    value.to_string().trim_matches('"'),
+                    &mut dependencies,
+                    false,
+                );
                 let _literal = stream.next();
             }
             Some(TokenTree::Ident(value)) if value.to_string().as_str() == "os" => {
@@ -162,7 +166,7 @@ fn parse_dependencies(
                 path.push(wind_dir_env);
                 path.push(SYSTEM32);
                 path.push("winmetadata");
-                dependencies.append(&mut expand_paths(path));
+                expand_paths(path, &mut dependencies, false);
                 let _os = stream.next();
             }
             Some(TokenTree::Ident(value)) if value.to_string().as_str() == "nuget" => {
@@ -187,7 +191,7 @@ fn parse_dependencies(
                     let _period = stream.next();
                 }
 
-                dependencies.append(&mut expand_paths(path));
+                expand_paths(path, &mut dependencies, true);
             }
             _ => break,
         }
@@ -196,9 +200,8 @@ fn parse_dependencies(
 }
 
 /// Returns the paths to resolved dependencies
-fn expand_paths<P: AsRef<Path>>(dependency: P) -> BTreeSet<PathBuf> {
+fn expand_paths<P: AsRef<Path>>(dependency: P, result: &mut BTreeSet<PathBuf>, recurse: bool) {
     let path = dependency.as_ref();
-    let mut result = BTreeSet::new();
 
     if path.is_dir() {
         let paths = std::fs::read_dir(path).unwrap_or_else(|e| {
@@ -212,6 +215,8 @@ fn expand_paths<P: AsRef<Path>>(dependency: P) -> BTreeSet<PathBuf> {
             let path = path.path();
             if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
                 result.insert(path);
+            } else if path.is_dir() && recurse {
+                expand_paths(path, result, recurse)
             }
         }
     } else if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
@@ -219,8 +224,6 @@ fn expand_paths<P: AsRef<Path>>(dependency: P) -> BTreeSet<PathBuf> {
     } else {
         panic!("Dependency {:?} is not a file or directory", path);
     }
-
-    result
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion
