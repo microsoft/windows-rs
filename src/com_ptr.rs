@@ -19,7 +19,7 @@ impl<T: ComInterface> ComPtr<T> {
 }
 
 unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
-    const GUID: Guid = T::GUID;
+    const IID: Guid = T::IID;
     type VTable = T::VTable;
 }
 

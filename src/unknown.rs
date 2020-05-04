@@ -15,7 +15,7 @@ impl IUnknown {
 
 unsafe impl ComInterface for IUnknown {
     type VTable = abi_IUnknown;
-    const GUID: Guid = Guid::from_values(
+    const IID: Guid = Guid::from_values(
         0x00000000,
         0x0000,
         0x0000,

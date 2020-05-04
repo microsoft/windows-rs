@@ -11,14 +11,13 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
     let mut ptr = std::ptr::null_mut();
     unsafe {
         let mut code =
-            runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
+            runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), &I::IID, &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
             runtime::CoIncrementMTAUsage(&mut _cookie);
 
-            code =
-                runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), &I::GUID, &mut ptr);
+            code = runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), &I::IID, &mut ptr);
         }
 
         code.and_then(|| std::mem::transmute_copy(&ptr))
@@ -48,7 +47,7 @@ impl IActivationFactory {
 
 unsafe impl ComInterface for IActivationFactory {
     type VTable = abi_IActivationFactory;
-    const GUID: Guid = Guid::from_values(
+    const IID: Guid = Guid::from_values(
         0x0000_0035,
         0x0000,
         0x0000,

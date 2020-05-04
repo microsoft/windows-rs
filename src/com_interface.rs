@@ -14,7 +14,7 @@ use crate::*;
 /// Additionally, because ComInterfaces are just pointers to vtables,
 /// it must be safe to zero initialize the interface.
 pub unsafe trait ComInterface: Sized {
-    const GUID: Guid;
+    const IID: Guid;
     type VTable;
 
     #[inline(always)]
@@ -29,7 +29,7 @@ pub unsafe trait ComInterface: Sized {
 
     #[inline(always)]
     fn query<Into: ComInterface>(&self) -> Into {
-        unsafe { self.query_with_guid(&Into::GUID) }
+        unsafe { self.query_with_iid(&Into::IID) }
     }
 
     #[inline(always)]
@@ -51,7 +51,7 @@ pub unsafe trait ComInterface: Sized {
     ///
     /// Once const generics support arrives, we should be able to remove this function and
     /// rely on ComInterface to calculate the guid for all types.
-    unsafe fn query_with_guid<Into: ComInterface>(&self, guid: &Guid) -> Into {
+    unsafe fn query_with_iid<Into: ComInterface>(&self, guid: &Guid) -> Into {
         let mut into: Into = std::mem::zeroed();
         self.raw_query(guid, &mut into);
         into
