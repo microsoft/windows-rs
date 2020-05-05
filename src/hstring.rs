@@ -230,7 +230,7 @@ impl Header {
     fn duplicate(&mut self) -> *mut Header {
         if self.flags & REFERENCE_FLAG == 0 {
             unsafe {
-                (*self.shared.as_ptr()).count.addref();
+                (*self.shared.as_ptr()).count.add_ref();
                 self
             }
         } else {

@@ -12,7 +12,7 @@ impl RefCount {
         }
     }
 
-    pub fn addref(&self) -> u32 {
+    pub fn add_ref(&self) -> u32 {
         self.value.fetch_add(1, Ordering::Relaxed) + 1
     }
 
