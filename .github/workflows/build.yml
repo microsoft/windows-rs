@@ -1,6 +1,10 @@
 name: Build and Test
 
-on: [pull_request]
+on: 
+  pull_request:
+  push:
+    branches:
+      - master
 
 env:
   RUSTFLAGS: -Dwarnings
