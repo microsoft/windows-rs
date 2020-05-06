@@ -31,6 +31,7 @@ impl Delegate {
     pub fn to_tokens(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens(&self.name.namespace);
         let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
+        let impl_definition = self.to_impl_definition_tokens();
         let name = self.name.to_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
@@ -79,4 +80,21 @@ impl Delegate {
             }
         }
     }
+
+    pub fn to_impl_definition_tokens(&self) -> TokenStream {
+        let namespace = to_namespace_tokens(&self.name.namespace, &self.name.namespace);
+
+        if self.name.generics.is_empty() {
+            let name = format_impl_ident(&self.name.name);
+            quote! { #namespace#name }
+        } else {
+            let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
+            let generics = self.name.generics.iter().map(|g| g.to_tokens(&self.name.namespace));
+            quote! { #namespace#name<#(#generics),*> }
+        }
+    }
+}
+
+fn format_impl_ident(name: &str) -> proc_macro2::Ident {
+    quote::format_ident!("impl_{}", name)
 }

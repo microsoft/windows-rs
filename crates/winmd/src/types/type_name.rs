@@ -303,6 +303,10 @@ impl TypeName {
     }
 }
 
+fn format_abi_ident(name: &str) -> proc_macro2::Ident {
+    quote::format_ident!("abi_{}", name)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
