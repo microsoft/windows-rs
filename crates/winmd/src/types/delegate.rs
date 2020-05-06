@@ -88,6 +88,24 @@ impl Delegate {
             }
             impl<#constraints #fn_constraint> #impl_name {
 
+                extern "system" fn unknown_add_ref(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
+                    unsafe {
+                        let this = this as *const Self as *mut Self;
+                        (*this).count.add_ref()
+                    }
+                }
+                extern "system" fn unknown_release(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
+                    unsafe {
+                        let this = this as *const Self as *mut Self;
+                        let remaining = (*this).count.release();
+            
+                        if remaining == 0 {
+                            Box::from_raw(this);
+                        }
+            
+                        remaining
+                    }
+                }
             }
         }
     }
@@ -115,7 +133,7 @@ impl Delegate {
         }
     }
 
-    pub fn to_impl_name_tokens(&self) -> TokenStream {
+    fn to_impl_name_tokens(&self) -> TokenStream {
         if self.name.generics.is_empty() {
             let name = format_impl_ident(&self.name.name);
             quote! { #name<F> }
