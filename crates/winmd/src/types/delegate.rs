@@ -88,6 +88,27 @@ impl Delegate {
             }
             impl<#constraints #fn_constraint> #impl_name {
 
+                extern "system" fn unknown_query_interface(
+                    this: ::winrt::RawComPtr<::winrt::IUnknown>,
+                    iid: &::winrt::Guid,
+                    interface: *mut ::winrt::RawPtr,
+                ) -> ::winrt::ErrorCode {
+                    unsafe {
+                        let this = this as *const Self as *mut Self;
+            
+                        if *iid == <#name as ::winrt::ComInterface>::IID
+                            || *iid == <::winrt::IUnknown as ::winrt::ComInterface>::IID
+                            || *iid == <::winrt::IAgileObject as ::winrt::ComInterface>::IID
+                        {
+                            *interface = this as ::winrt::RawPtr;
+                            (*this).count.add_ref();
+                            return ::winrt::ErrorCode(0);
+                        }
+            
+                        *interface = std::ptr::null_mut();
+                        ::winrt::ErrorCode(0x80004002)
+                    }
+                }
                 extern "system" fn unknown_add_ref(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
                     unsafe {
                         let this = this as *const Self as *mut Self;
