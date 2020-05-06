@@ -78,19 +78,23 @@ impl Delegate {
                     self.ptr.set_abi()
                 }
             }
+            #[repr(C)]
+            struct #impl_definition where #constraints {
+                vtable: *const #abi_definition,
+                count: ::winrt::RefCount,
+                invoke: F,
+            }
         }
     }
 
     pub fn to_impl_definition_tokens(&self) -> TokenStream {
-        let namespace = to_namespace_tokens(&self.name.namespace, &self.name.namespace);
-
         if self.name.generics.is_empty() {
             let name = format_impl_ident(&self.name.name);
-            quote! { #namespace#name }
+            quote! { #name<F: FnMut() -> ::winrt::Result<()>> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
             let generics = self.name.generics.iter().map(|g| g.to_tokens(&self.name.namespace));
-            quote! { #namespace#name<#(#generics),*> }
+            quote! { #name<#(#generics,)* F: FnMut() -> ::winrt::Result<()>> }
         }
     }
 }
