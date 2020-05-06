@@ -40,6 +40,7 @@ impl Delegate {
         let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.guid.to_tokens();
+        let invoke_sig = self.method.to_abi_impl_tokens(&self.name, &self.name.namespace);
 
         quote! {
             #[repr(transparent)]
@@ -127,7 +128,7 @@ impl Delegate {
                         remaining
                     }
                 }
-                extern "system" fn invoke(this: *const *const #abi_definition) -> ::winrt::ErrorCode {
+                #invoke_sig {
                     unsafe {
                         let this = this as *const Self as *mut Self;
                         ::winrt::ErrorCode(0)
