@@ -88,13 +88,21 @@ impl Delegate {
     }
 
     pub fn to_impl_definition_tokens(&self) -> TokenStream {
+        let params = self.method.params.iter().map(|param| param.to_fn_tokens(&self.name.namespace));
+
+        let return_type = if let Some(return_type) = &self.method.return_type {
+            return_type.to_return_tokens(&self.name.namespace)
+        } else {
+            quote! { () }
+        };
+
         if self.name.generics.is_empty() {
             let name = format_impl_ident(&self.name.name);
-            quote! { #name<F: FnMut() -> ::winrt::Result<()>> }
+            quote! { #name<F: FnMut(#(#params)*) -> ::winrt::Result<#return_type>> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
             let generics = self.name.generics.iter().map(|g| g.to_tokens(&self.name.namespace));
-            quote! { #name<#(#generics,)* F: FnMut() -> ::winrt::Result<()>> }
+            quote! { #name<#(#generics,)* F: FnMut(#(#params)*) -> ::winrt::Result<#return_type>> }
         }
     }
 }
