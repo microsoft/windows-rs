@@ -127,6 +127,12 @@ impl Delegate {
                         remaining
                     }
                 }
+                extern "system" fn invoke(this: *const *const #abi_definition) -> ::winrt::ErrorCode {
+                    unsafe {
+                        let this = this as *const Self as *mut Self;
+                        ::winrt::ErrorCode(0)
+                    }
+                }
             }
         }
     }
