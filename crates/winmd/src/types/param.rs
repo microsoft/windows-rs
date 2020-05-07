@@ -152,20 +152,21 @@ impl Param {
         let name = format_ident(&self.name);
 
         if self.array {
+            // TODO: delegate with array parameters are challenging to say the least.
+            // I'll get to them shortly.
             panic!("array");
             // if self.input {
-            //     quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()), }
+            //
             // } else if self.by_ref {
-            //     quote! { #name.set_abi_len(), #name.set_abi(), }
+            //
             // } else {
-            //     quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name), }
+            //
             // }
         } else if self.input {
             match self.kind {
                 TypeKind::Enum(_) => quote! { *::winrt::RuntimeType::from_abi(&#name) },
                 _ => quote! { ::winrt::RuntimeType::from_abi(&#name) },
             }
-            
         } else if self.kind.blittable() {
             quote! { #name, }
         } else {

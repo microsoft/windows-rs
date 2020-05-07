@@ -41,8 +41,14 @@ impl Delegate {
         let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.guid.to_tokens();
-        let invoke_sig = self.method.to_abi_impl_tokens(&self.name, &self.name.namespace);
-        let invoke_args = self.method.params.iter().map(|param| param.to_invoke_arg_tokens());
+        let invoke_sig = self
+            .method
+            .to_abi_impl_tokens(&self.name, &self.name.namespace);
+        let invoke_args = self
+            .method
+            .params
+            .iter()
+            .map(|param| param.to_invoke_arg_tokens());
 
         quote! {
             #[repr(transparent)]
@@ -119,7 +125,7 @@ impl Delegate {
                 ) -> ::winrt::ErrorCode {
                     unsafe {
                         let this = this as *const Self as *mut Self;
-            
+
                         if *iid == <#name as ::winrt::ComInterface>::IID
                             || *iid == <::winrt::IUnknown as ::winrt::ComInterface>::IID
                             || *iid == <::winrt::IAgileObject as ::winrt::ComInterface>::IID
@@ -128,7 +134,7 @@ impl Delegate {
                             (*this).count.add_ref();
                             return ::winrt::ErrorCode(0);
                         }
-            
+
                         *interface = std::ptr::null_mut();
                         ::winrt::ErrorCode(0x80004002)
                     }
@@ -143,11 +149,11 @@ impl Delegate {
                     unsafe {
                         let this = this as *const Self as *mut Self;
                         let remaining = (*this).count.release();
-            
+
                         if remaining == 0 {
                             Box::from_raw(this);
                         }
-            
+
                         remaining
                     }
                 }
@@ -162,7 +168,11 @@ impl Delegate {
     }
 
     fn to_fn_constraint_tokens(&self) -> TokenStream {
-        let params = self.method.params.iter().map(|param| param.to_fn_tokens(&self.name.namespace));
+        let params = self
+            .method
+            .params
+            .iter()
+            .map(|param| param.to_fn_tokens(&self.name.namespace));
 
         let return_type = if let Some(return_type) = &self.method.return_type {
             return_type.to_return_tokens(&self.name.namespace)
@@ -179,7 +189,11 @@ impl Delegate {
             quote! { #name<#fn_constraint> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
-            let generics = self.name.generics.iter().map(|g| g.to_tokens(&self.name.namespace));
+            let generics = self
+                .name
+                .generics
+                .iter()
+                .map(|g| g.to_tokens(&self.name.namespace));
             quote! { #name<#(#generics,)* #fn_constraint> }
         }
     }
@@ -190,7 +204,11 @@ impl Delegate {
             quote! { #name::<F> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
-            let generics = self.name.generics.iter().map(|g| g.to_tokens(&self.name.namespace));
+            let generics = self
+                .name
+                .generics
+                .iter()
+                .map(|g| g.to_tokens(&self.name.namespace));
             quote! { #name::<#(#generics,)* F> }
         }
     }
