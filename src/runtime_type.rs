@@ -38,4 +38,4 @@ macro_rules! primitive_runtime_type {
     };
 }
 
-primitive_runtime_type! { bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64 } // TODO: add Guid here
+primitive_runtime_type! { bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64 }
