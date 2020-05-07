@@ -40,7 +40,8 @@
 doc_comment::doctest!("../README.md");
 
 #[doc(hidden)]
-pub mod activation;
+pub mod factory;
+mod activation_factory;
 mod agile_object;
 mod array;
 mod com_interface;
@@ -58,7 +59,7 @@ mod try_into;
 mod unknown;
 
 #[doc(inline)]
-pub use activation::IActivationFactory;
+pub use activation_factory::IActivationFactory;
 pub use agile_object::IAgileObject;
 pub use array::Array;
 pub use com_interface::{ComInterface, RawComPtr};
@@ -74,6 +75,7 @@ pub use runtime_type::RuntimeType;
 pub use try_into::TryInto;
 pub use unknown::IUnknown;
 pub use winrt_macros::import;
+pub use factory::factory;
 
 /// A convenient alias of a void pointer
 pub type RawPtr = *mut std::ffi::c_void;

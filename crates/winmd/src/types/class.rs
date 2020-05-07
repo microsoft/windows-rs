@@ -102,7 +102,7 @@ impl Class {
             let new = if self.default_constructor {
                 quote! {
                     pub fn new() -> ::winrt::Result<Self> {
-                        ::winrt::activation::factory::<Self, ::winrt::IActivationFactory>()?.activate_instance::<Self>()
+                        ::winrt::factory::<Self, ::winrt::IActivationFactory>()?.activate_instance::<Self>()
                     }
                 }
             } else {
