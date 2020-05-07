@@ -2,7 +2,7 @@ winrt::import!(
     dependencies
         "os"
     modules
-        "windows.foundation"
+        "windows.foundation.collections"
 );
 
 use winrt::ComInterface;
@@ -64,6 +64,36 @@ fn generic() -> winrt::Result<()> {
     d.invoke(uri, uri.port()?)?;
 
     assert!(invoked);
+
+    Ok(())
+}
+
+#[test]
+fn event() -> winrt::Result<()> {
+    use windows::foundation::collections::*;
+    use windows::foundation::*;
+
+    let set = &PropertySet::new()?;
+    let mut invoked = false;
+
+    // TODO: Should be able to elide the delegate construction and simply say:
+    // set.map_changed(|sender, args| {...})?;
+    set.map_changed(
+        MapChangedEventHandler::<winrt::HString, winrt::Object>::new(|sender, args| {
+            invoked = true;
+            let map: IObservableMap<winrt::HString, winrt::Object> = set.into();
+            assert!(map.as_raw() == sender.as_raw());
+            assert!(args.key()? == "A");
+            assert!(args.collection_change()? == CollectionChange::ItemInserted);
+            Ok(())
+        }),
+    )?;
+
+    set.insert("A", PropertyValue::create_uint32(1)?)?;
+
+    // TODO: The PropertySet queries the delegate for itself and unfortunately that requires that it
+    // knows its own GUID but fails and so the delegate is not added to the event source.
+    assert!(!invoked);
 
     Ok(())
 }
