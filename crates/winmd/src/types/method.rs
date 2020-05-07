@@ -66,7 +66,7 @@ impl Method {
         let return_type = if blob.read_expected(0x01) {
             None
         } else {
-            let name = String::new();
+            let name = "__result".to_owned();
             let array = blob.peek_unsigned().0 == 0x1D;
             let kind = TypeKind::from_blob(&mut blob, generics);
             let input = false;
