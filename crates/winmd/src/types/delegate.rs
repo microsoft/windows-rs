@@ -53,6 +53,9 @@ impl Delegate {
             }
             impl<#constraints> #name {
                 #method
+                pub fn new<#fn_constraint>(invoke: F) -> Self {
+                    #impl_name::new(invoke)
+                }
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
@@ -97,6 +100,18 @@ impl Delegate {
                     invoke: #impl_name::invoke,
                     #phantoms
                 };
+                pub fn new(invoke: F) -> #name {
+                    let value = Self {
+                        vtable: &Self::VTABLE,
+                        count: ::winrt::RefCount::new(1),
+                        invoke,
+                    };
+                    unsafe {
+                        let mut result: #name = std::mem::zeroed();
+                        *<#name as ::winrt::RuntimeType>::set_abi(&mut result) = ::std::boxed::Box::into_raw(::std::boxed::Box::new(value)) as *const *const #abi_definition;
+                        result
+                    }
+                }
                 extern "system" fn unknown_query_interface(
                     this: ::winrt::RawComPtr<::winrt::IUnknown>,
                     iid: &::winrt::Guid,
