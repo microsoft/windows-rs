@@ -155,13 +155,6 @@ impl Param {
             // TODO: delegate with array parameters are challenging to say the least.
             // I'll get to them shortly.
             panic!("array");
-            // if self.input {
-            //
-            // } else if self.by_ref {
-            //
-            // } else {
-            //
-            // }
         } else if self.input {
             match self.kind {
                 TypeKind::Enum(_) => quote! { *::winrt::RuntimeType::from_abi(&#name) },
