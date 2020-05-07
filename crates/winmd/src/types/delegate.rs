@@ -41,6 +41,7 @@ impl Delegate {
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.guid.to_tokens();
         let invoke_sig = self.method.to_abi_impl_tokens(&self.name, &self.name.namespace);
+        let invoke_args = self.method.params.iter().map(|param| param.to_invoke_arg_tokens());
 
         quote! {
             #[repr(transparent)]
@@ -131,7 +132,8 @@ impl Delegate {
                 #invoke_sig {
                     unsafe {
                         let this = this as *const Self as *mut Self;
-                        ::winrt::ErrorCode(0)
+                        ((*this).invoke)(#(#invoke_args,)*).into()
+                        //::winrt::ErrorCode(0)
                     }
                 }
             }
