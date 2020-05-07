@@ -30,9 +30,9 @@ import!(
         "windows.ui"
 );
 
+// Finally, make use of any WinRT APIs as needed. For example, here is
+// an example of using the `XmlDocument` class to parse an XML document:
 fn main() -> Result<()> {
-    // Finally, make use of any WinRT APIs as needed. For example, here is
-    // an example of using the `XmlDocument` class to parse an XML document:
     use windows::data::xml::dom::*;
 
     let doc = XmlDocument::new()?;
