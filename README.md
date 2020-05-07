@@ -1,4 +1,4 @@
-[![Build status](https://github.com/microsoft/winrt-rs/workflows/Build%20and%20Test/badge.svg)](https://github.com/microsoft/winrt-rs/actions)
+[![Build and Test](https://github.com/microsoft/winrt-rs/workflows/Build%20and%20Test/badge.svg?event=push)](https://github.com/microsoft/winrt-rs/actions)
 
 ## The Rust/WinRT language projection
 
@@ -17,11 +17,10 @@ winrt = { git = "https://github.com/microsoft/winrt-rs" }
 
 This will allow Cargo to download, build, and cache the Rust/WinRT support as a package directly from GitHub.
 
-Now use the `import` macro to import the desired winmd files and modules:
-
 ```rust
 use winrt::*;
 
+// Now use the `import` macro to import the desired winmd files and modules:
 import!(
     dependencies
         "os"
@@ -30,11 +29,9 @@ import!(
         "windows.foundation"
         "windows.ui"
 );
-```
 
-Finally, make use of any WinRT APIs as needed. For example, here is an example of using the `XmlDocument` class to parse an XML document:
-
-```rust
+// Finally, make use of any WinRT APIs as needed. For example, here is
+// an example of using the `XmlDocument` class to parse an XML document:
 fn main() -> Result<()> {
     use windows::data::xml::dom::*;
 
