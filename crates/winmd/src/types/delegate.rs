@@ -34,6 +34,7 @@ impl Delegate {
         let fn_constraint = self.to_fn_constraint_tokens();
         let impl_definition = self.to_impl_definition_tokens(&fn_constraint);
         let name = self.name.to_tokens(&self.name.namespace);
+        let abi_name = self.name.to_abi_tokens(&self.name.namespace);
         let impl_name = self.to_impl_name_tokens();
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
@@ -89,7 +90,13 @@ impl Delegate {
                 invoke: F,
             }
             impl<#constraints #fn_constraint> #impl_name {
-
+                const VTABLE: #abi_definition = #abi_name {
+                    unknown_query_interface: #impl_name::unknown_query_interface,
+                    unknown_add_ref: #impl_name::unknown_add_ref,
+                    unknown_release: #impl_name::unknown_release,
+                    invoke: #impl_name::invoke,
+                    #phantoms
+                };
                 extern "system" fn unknown_query_interface(
                     this: ::winrt::RawComPtr<::winrt::IUnknown>,
                     iid: &::winrt::Guid,
@@ -133,7 +140,6 @@ impl Delegate {
                     unsafe {
                         let this = this as *const Self as *mut Self;
                         ((*this).invoke)(#(#invoke_args,)*).into()
-                        //::winrt::ErrorCode(0)
                     }
                 }
             }
@@ -166,7 +172,7 @@ impl Delegate {
     fn to_impl_name_tokens(&self) -> TokenStream {
         if self.name.generics.is_empty() {
             let name = format_impl_ident(&self.name.name);
-            quote! { #name<F> }
+            quote! { #name::<F> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
             let generics = self.name.generics.iter().map(|g| g.to_tokens(&self.name.namespace));
