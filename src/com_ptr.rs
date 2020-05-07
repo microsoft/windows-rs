@@ -7,6 +7,10 @@ pub struct ComPtr<T: ComInterface> {
 }
 
 impl<T: ComInterface> ComPtr<T> {
+    pub fn abi(&self) -> RawComPtr<T> {
+        self.ptr
+    }
+
     pub fn set_abi(&mut self) -> *mut RawComPtr<T> {
         if !self.ptr.is_null() {
             unsafe {
