@@ -4,6 +4,17 @@
 #[must_use]
 pub type Result<T> = std::result::Result<T, Error>;
 
+impl<T> std::convert::From<Result<T>> for ErrorCode {
+    fn from(result: Result<T>) -> Self {
+        if let Err(error) = result {
+            // TODO: call SetErrorInfo
+            return error.code();
+        }
+
+        ErrorCode(0)
+    }
+}
+
 /// A WinRT related error
 #[derive(Debug)]
 pub struct Error {

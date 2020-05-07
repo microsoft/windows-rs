@@ -25,10 +25,6 @@ fn format_ident(name: &str) -> proc_macro2::Ident {
     }
 }
 
-fn format_abi_ident(name: &str) -> proc_macro2::Ident {
-    quote::format_ident!("abi_{}", name)
-}
-
 #[cfg(target_pointer_width = "64")]
 const SYSTEM32: &str = "System32";
 

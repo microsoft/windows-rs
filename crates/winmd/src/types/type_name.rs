@@ -255,27 +255,24 @@ impl TypeName {
     // and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
     // weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
     pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
         if self.generics.is_empty() {
             let name = format_ident(&self.name);
-            quote! { #namespace#name }
+            quote! { #name }
         } else {
             let name = format_ident(&self.name[..self.name.len() - 2]);
             let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #namespace#name<#(#generics),*> }
+            quote! { #name<#(#generics),*> }
         }
     }
 
     pub fn to_abi_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
-
         if self.generics.is_empty() {
             let name = format_abi_ident(&self.name);
-            quote! { #namespace#name }
+            quote! { #name }
         } else {
             let name = format_abi_ident(&self.name[..self.name.len() - 2]);
             let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #namespace#name<#(#generics),*> }
+            quote! { #name<#(#generics),*> }
         }
     }
 
@@ -301,6 +298,10 @@ impl TypeName {
 
         TokenStream::from_iter(generics)
     }
+}
+
+fn format_abi_ident(name: &str) -> proc_macro2::Ident {
+    quote::format_ident!("abi_{}", name)
 }
 
 #[cfg(test)]

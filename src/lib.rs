@@ -41,6 +41,7 @@ doc_comment::doctest!("../README.md");
 
 #[doc(hidden)]
 pub mod activation;
+pub mod agile_object;
 mod array;
 mod com_interface;
 mod com_ptr;
@@ -58,6 +59,7 @@ mod unknown;
 
 #[doc(inline)]
 pub use activation::IActivationFactory;
+pub use agile_object::IAgileObject;
 pub use array::Array;
 pub use com_interface::{ComInterface, RawComPtr};
 pub use com_ptr::ComPtr;
@@ -66,6 +68,7 @@ pub use guid::Guid;
 pub use hstring::HString;
 pub use object::Object;
 pub use param::Param;
+pub use ref_count::RefCount;
 pub use runtime_name::RuntimeName;
 pub use runtime_type::RuntimeType;
 pub use try_into::TryInto;

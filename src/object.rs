@@ -47,7 +47,14 @@ unsafe impl RuntimeType for Object {
 
 #[repr(C)]
 pub struct abi_IInspectable {
-    __base: [usize; 4],
-    inspectable_type_name:
+    pub unknown_query_interface:
+        extern "system" fn(RawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
+    pub unknown_add_ref: extern "system" fn(RawComPtr<IUnknown>) -> u32,
+    pub unknown_release: extern "system" fn(RawComPtr<IUnknown>) -> u32,
+
+    pub inspectable_iids:
+        extern "system" fn(RawComPtr<Object>, *mut u32, *mut *mut Guid) -> ErrorCode,
+    pub inspectable_type_name:
         extern "system" fn(RawComPtr<Object>, *mut <HString as RuntimeType>::Abi) -> ErrorCode,
+    pub inspectable_trust_level: extern "system" fn(RawComPtr<Object>, *mut i32) -> ErrorCode,
 }

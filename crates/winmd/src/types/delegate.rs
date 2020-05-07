@@ -31,18 +31,37 @@ impl Delegate {
     pub fn to_tokens(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens(&self.name.namespace);
         let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
+        let fn_constraint = self.to_fn_constraint_tokens();
+        let impl_definition = self.to_impl_definition_tokens(&fn_constraint);
         let name = self.name.to_tokens(&self.name.namespace);
+        let abi_name = self.name.to_abi_tokens(&self.name.namespace);
+        let impl_name = self.to_impl_name_tokens();
         let phantoms = self.name.phantoms();
         let constraints = self.name.constraints();
+        let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.guid.to_tokens();
+        let invoke_sig = self
+            .method
+            .to_abi_impl_tokens(&self.name, &self.name.namespace);
+        let invoke_args = self
+            .method
+            .params
+            .iter()
+            .map(|param| param.to_invoke_arg_tokens());
 
         quote! {
             #[repr(transparent)]
             #[derive(Default)]
             pub struct #definition where #constraints {
-                ptr: ::winrt::IUnknown,
+                ptr: ::winrt::ComPtr<#name>,
                 #phantoms
+            }
+            impl<#constraints> #name {
+                #method
+                pub fn new<#fn_constraint>(invoke: F) -> Self {
+                    #impl_name::new(invoke)
+                }
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
@@ -58,19 +77,143 @@ impl Delegate {
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
-                __base: [usize; 6],
+                pub unknown_query_interface: extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>, &::winrt::Guid, *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                pub unknown_add_ref: extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>) -> u32,
+                pub unknown_release: extern "system" fn(::winrt::RawComPtr<::winrt::IUnknown>) -> u32,
                 #abi_method
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type Abi = ::winrt::RawPtr;
+                type Abi = ::winrt::RawComPtr<Self>;
                 fn abi(&self) -> Self::Abi {
-                     <::winrt::IUnknown as ::winrt::ComInterface>::as_raw(&self.ptr) as Self::Abi
+                    <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set_abi() as _
+                    self.ptr.set_abi()
+                }
+            }
+            #[repr(C)]
+            struct #impl_definition where #constraints {
+                vtable: *const #abi_definition,
+                count: ::winrt::RefCount,
+                invoke: F,
+            }
+            impl<#constraints #fn_constraint> #impl_name {
+                const VTABLE: #abi_definition = #abi_name {
+                    unknown_query_interface: #impl_name::unknown_query_interface,
+                    unknown_add_ref: #impl_name::unknown_add_ref,
+                    unknown_release: #impl_name::unknown_release,
+                    invoke: #impl_name::invoke,
+                    #phantoms
+                };
+                pub fn new(invoke: F) -> #name {
+                    let value = Self {
+                        vtable: &Self::VTABLE,
+                        count: ::winrt::RefCount::new(1),
+                        invoke,
+                    };
+                    unsafe {
+                        let mut result: #name = std::mem::zeroed();
+                        *<#name as ::winrt::RuntimeType>::set_abi(&mut result) = ::std::boxed::Box::into_raw(::std::boxed::Box::new(value)) as *const *const #abi_definition;
+                        result
+                    }
+                }
+                extern "system" fn unknown_query_interface(
+                    this: ::winrt::RawComPtr<::winrt::IUnknown>,
+                    iid: &::winrt::Guid,
+                    interface: *mut ::winrt::RawPtr,
+                ) -> ::winrt::ErrorCode {
+                    unsafe {
+                        let this = this as *const Self as *mut Self;
+
+                        if *iid == <#name as ::winrt::ComInterface>::IID
+                            || *iid == <::winrt::IUnknown as ::winrt::ComInterface>::IID
+                            || *iid == <::winrt::IAgileObject as ::winrt::ComInterface>::IID
+                        {
+                            *interface = this as ::winrt::RawPtr;
+                            (*this).count.add_ref();
+                            return ::winrt::ErrorCode(0);
+                        }
+
+                        *interface = std::ptr::null_mut();
+                        ::winrt::ErrorCode(0x80004002)
+                    }
+                }
+                extern "system" fn unknown_add_ref(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
+                    unsafe {
+                        let this = this as *const Self as *mut Self;
+                        (*this).count.add_ref()
+                    }
+                }
+                extern "system" fn unknown_release(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
+                    unsafe {
+                        let this = this as *const Self as *mut Self;
+                        let remaining = (*this).count.release();
+
+                        if remaining == 0 {
+                            Box::from_raw(this);
+                        }
+
+                        remaining
+                    }
+                }
+                #invoke_sig {
+                    unsafe {
+                        let this = this as *const Self as *mut Self;
+                        ((*this).invoke)(#(#invoke_args,)*).into()
+                    }
                 }
             }
         }
     }
+
+    fn to_fn_constraint_tokens(&self) -> TokenStream {
+        let params = self
+            .method
+            .params
+            .iter()
+            .map(|param| param.to_fn_tokens(&self.name.namespace));
+
+        let return_type = if let Some(return_type) = &self.method.return_type {
+            return_type.to_return_tokens(&self.name.namespace)
+        } else {
+            quote! { () }
+        };
+
+        quote! { F: FnMut(#(#params)*) -> ::winrt::Result<#return_type> }
+    }
+
+    fn to_impl_definition_tokens(&self, fn_constraint: &TokenStream) -> TokenStream {
+        if self.name.generics.is_empty() {
+            let name = format_impl_ident(&self.name.name);
+            quote! { #name<#fn_constraint> }
+        } else {
+            let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
+            let generics = self
+                .name
+                .generics
+                .iter()
+                .map(|g| g.to_tokens(&self.name.namespace));
+            quote! { #name<#(#generics,)* #fn_constraint> }
+        }
+    }
+
+    fn to_impl_name_tokens(&self) -> TokenStream {
+        if self.name.generics.is_empty() {
+            let name = format_impl_ident(&self.name.name);
+            quote! { #name::<F> }
+        } else {
+            let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
+            let generics = self
+                .name
+                .generics
+                .iter()
+                .map(|g| g.to_tokens(&self.name.namespace));
+            quote! { #name::<#(#generics,)* F> }
+        }
+    }
+}
+
+fn format_impl_ident(name: &str) -> proc_macro2::Ident {
+    quote::format_ident!("impl_{}", name)
 }

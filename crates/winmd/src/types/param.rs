@@ -45,6 +45,36 @@ impl Param {
         }
     }
 
+    pub fn to_fn_tokens(&self, calling_namespace: &str) -> TokenStream {
+        let tokens = self.kind.to_tokens(calling_namespace);
+
+        if self.array {
+            if self.input {
+                quote! { &[#tokens], }
+            } else if self.by_ref {
+                quote! { &mut ::winrt::Array<#tokens>, }
+            } else {
+                quote! { &mut [#tokens], }
+            }
+        } else if self.input {
+            match self.kind {
+                TypeKind::String
+                | TypeKind::Object
+                | TypeKind::Guid
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Struct(_)
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => {
+                    quote! { &#tokens, }
+                }
+                _ => quote! { #tokens, },
+            }
+        } else {
+            quote! { &mut #tokens, }
+        }
+    }
+
     pub fn to_return_tokens(&self, calling_namespace: &str) -> TokenStream {
         let tokens = self.kind.to_tokens(calling_namespace);
 
@@ -115,6 +145,25 @@ impl Param {
             quote! { #name, }
         } else {
             quote! { ::winrt::RuntimeType::set_abi(#name), }
+        }
+    }
+
+    pub fn to_invoke_arg_tokens(&self) -> TokenStream {
+        let name = format_ident(&self.name);
+
+        if self.array {
+            // TODO: delegate with array parameters are challenging to say the least.
+            // I'll get to them shortly.
+            panic!("array");
+        } else if self.input {
+            match self.kind {
+                TypeKind::Enum(_) => quote! { *::winrt::RuntimeType::from_abi(&#name) },
+                _ => quote! { ::winrt::RuntimeType::from_abi(&#name) },
+            }
+        } else if self.kind.blittable() {
+            quote! { #name, }
+        } else {
+            quote! { ::winrt::RuntimeType::from_mut_abi(#name) }
         }
     }
 }

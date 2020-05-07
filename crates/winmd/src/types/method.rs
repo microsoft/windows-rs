@@ -66,7 +66,7 @@ impl Method {
         let return_type = if blob.read_expected(0x01) {
             None
         } else {
-            let name = String::new();
+            let name = "__result".to_owned();
             let array = blob.peek_unsigned().0 == 0x1D;
             let kind = TypeKind::from_blob(&mut blob, generics);
             let input = false;
@@ -144,6 +144,24 @@ impl Method {
 
         quote! {
             pub #name: extern "system" fn(*const *const #abi_name, #params) -> ::winrt::ErrorCode,
+        }
+    }
+
+    pub fn to_abi_impl_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
+        let abi_name = self_name.to_abi_tokens(calling_namespace);
+        let name = format_ident(&self.name);
+        let params = self
+            .params
+            .iter()
+            .chain(self.return_type.iter())
+            .map(|param| {
+                let name = format_ident(&param.name);
+                let abi = param.to_abi_tokens(calling_namespace);
+                quote! { #name: #abi }
+            });
+
+        quote! {
+            extern "system" fn #name(this: *const *const #abi_name, #(#params)*) -> ::winrt::ErrorCode
         }
     }
 

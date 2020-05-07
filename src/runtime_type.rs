@@ -14,6 +14,14 @@ pub unsafe trait RuntimeType {
 
     fn abi(&self) -> Self::Abi;
     fn set_abi(&mut self) -> *mut Self::Abi;
+
+    fn from_abi(abi: &Self::Abi) -> &Self {
+        unsafe { std::mem::transmute_copy(&abi) }
+    }
+
+    fn from_mut_abi(abi: &mut Self::Abi) -> &mut Self {
+        unsafe { std::mem::transmute_copy(&abi) }
+    }
 }
 
 macro_rules! primitive_runtime_type {
