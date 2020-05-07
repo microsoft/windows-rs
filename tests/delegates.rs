@@ -32,7 +32,7 @@ fn non_generic() -> winrt::Result<()> {
 
     // TODO: delegates are function objects (logically) ans we should be able
     // to call them without an explicit `invoke` method e.g. `d(args);`
-    d.invoke(IAsyncAction::default(), AsyncStatus::Completed);
+    d.invoke(IAsyncAction::default(), AsyncStatus::Completed)?;
 
     assert!(invoked);
 
@@ -55,7 +55,9 @@ fn generic() -> winrt::Result<()> {
     let d = Handler::new(|sender, port| {
         invoked = true;
         assert!(uri.as_raw() == sender.as_raw());
-        assert!(port == 80);
+
+        // TODO: ideally primitives would be passed by value
+        assert!(*port == 80);
         Ok(())
     });
 
