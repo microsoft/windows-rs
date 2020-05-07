@@ -36,6 +36,9 @@
 //! string: http://kennykerr.ca/
 //! ```
 
+#[cfg(doctest)]
+doc_comment::doctest!("../README.md");
+
 #[doc(hidden)]
 pub mod activation;
 mod array;
