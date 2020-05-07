@@ -41,7 +41,7 @@ doc_comment::doctest!("../README.md");
 
 #[doc(hidden)]
 pub mod activation;
-pub mod agile_object;
+mod agile_object;
 mod array;
 mod com_interface;
 mod com_ptr;
