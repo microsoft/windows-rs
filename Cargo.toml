@@ -14,3 +14,6 @@ winrt_macros = { path = "crates/macros" }
 members = [
     "crates/*",
 ]
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
