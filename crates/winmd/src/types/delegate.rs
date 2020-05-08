@@ -10,6 +10,7 @@ pub struct Delegate {
     pub name: TypeName,
     pub method: Method,
     pub guid: TypeGuid,
+    pub signature: String,
 }
 
 impl Delegate {
@@ -21,7 +22,8 @@ impl Delegate {
             .unwrap();
         let method = Method::from_method_def(reader, method, &name.generics);
         let guid = TypeGuid::from_type_def(reader, def);
-        Self { name, method, guid }
+        let signature = name.base_delegate_signature(reader);
+        Self { name, method, guid, signature }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
@@ -41,6 +43,7 @@ impl Delegate {
         let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.guid.to_tokens();
+        let signature = &self.signature;
         let invoke_sig = self
             .method
             .to_abi_impl_tokens(&self.name, &self.name.namespace);
@@ -88,6 +91,9 @@ impl Delegate {
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 type Abi = ::winrt::RawComPtr<Self>;
+                fn signature() -> &'static str {
+                    #signature
+                }
                 fn abi(&self) -> Self::Abi {
                     <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                 }

@@ -55,6 +55,16 @@ impl TypeName {
         ])
     }
 
+    pub fn base_interface_signature(&self, reader: &TypeReader) -> String {
+        let guid = TypeGuid::from_type_def(reader, self.def);
+
+        if self.generics.is_empty() {
+            format!("{{{:#?}}}", guid)
+        } else {
+            format!("pinterface({{{:#?}}}", guid)
+        }
+    }
+
     pub fn interface_signature(&self, reader: &TypeReader) -> String {
         let guid = TypeGuid::from_type_def(reader, self.def);
 
@@ -124,6 +134,14 @@ impl TypeName {
 
         result.push(')');
         result
+    }
+
+    pub fn base_delegate_signature(&self, reader: &TypeReader) -> String {
+        if self.generics.is_empty() {
+            format!("delegate({})", self.base_interface_signature(reader))
+        } else {
+            self.base_interface_signature(reader)
+        }
     }
 
     pub fn delegate_signature(&self, reader: &TypeReader) -> String {

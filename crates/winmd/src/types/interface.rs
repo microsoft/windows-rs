@@ -10,7 +10,7 @@ use std::iter::FromIterator;
 pub struct Interface {
     pub name: TypeName,
     pub interfaces: Vec<RequiredInterface>,
-    //pub signature: String,
+    pub signature: String,
 }
 
 impl Interface {
@@ -24,9 +24,9 @@ impl Interface {
         interfaces.push(default_interface);
 
         RequiredInterface::append_required(reader, &name, &mut interfaces);
-        //let signature = name.interface_signature(reader);
+        let signature = name.base_interface_signature(reader);
 
-        Self { name, interfaces }
+        Self { name, interfaces, signature }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
@@ -62,6 +62,7 @@ impl Interface {
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
         let iterator = iterator_tokens(&self.name, &self.interfaces);
+        let signature = &self.signature;
 
         quote! {
             #[repr(transparent)]
@@ -101,6 +102,9 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 type Abi = ::winrt::RawComPtr<Self>;
+                fn signature() -> &'static str {
+                    #signature
+                }
                 fn abi(&self) -> Self::Abi {
                     <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                 }
