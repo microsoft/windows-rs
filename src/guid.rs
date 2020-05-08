@@ -11,6 +11,7 @@ pub struct Guid {
 }
 
 impl Guid {
+    // This is needed because Guid::default() is not a const function.
     pub const fn zeroed() -> Guid {
         Guid {
             data1: 0,
