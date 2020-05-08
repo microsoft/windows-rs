@@ -73,7 +73,10 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                fn iid() -> &'static ::winrt::Guid {
+                    const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                    &IID
+                }
             }
             impl<#constraints> ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {

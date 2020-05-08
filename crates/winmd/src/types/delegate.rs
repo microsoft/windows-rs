@@ -65,7 +65,10 @@ impl Delegate {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                fn iid() -> &'static ::winrt::Guid {
+                    const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                    &IID
+                }
             }
             impl<#constraints> ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
@@ -126,9 +129,9 @@ impl Delegate {
                     unsafe {
                         let this = this as *const Self as *mut Self;
 
-                        if *iid == <#name as ::winrt::ComInterface>::IID
-                            || *iid == <::winrt::IUnknown as ::winrt::ComInterface>::IID
-                            || *iid == <::winrt::IAgileObject as ::winrt::ComInterface>::IID
+                        if iid == <#name as ::winrt::ComInterface>::iid()
+                            || iid == <::winrt::IUnknown as ::winrt::ComInterface>::iid()
+                            || iid == <::winrt::IAgileObject as ::winrt::ComInterface>::iid()
                         {
                             *interface = this as ::winrt::RawPtr;
                             (*this).count.add_ref();

@@ -22,6 +22,13 @@ pub unsafe trait RuntimeType {
     fn from_mut_abi(abi: &mut Self::Abi) -> &mut Self {
         unsafe { std::mem::transmute_copy(&abi) }
     }
+
+    // TODO: code gen hard-coded values for signature where it is known and for generic types use a 
+    // std::sync::Once to initialize the value when needed.
+    // Make sure it produces the correct GUID before switching ComInterface over to providing an iid() method.
+    fn signature() -> &'static str {
+        panic!(); // TODO: drop when everyone has a signature
+    }
 }
 
 macro_rules! primitive_runtime_type {

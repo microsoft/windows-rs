@@ -23,8 +23,11 @@ impl<T: ComInterface> ComPtr<T> {
 }
 
 unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
-    const IID: Guid = T::IID;
     type VTable = T::VTable;
+
+    fn iid() -> &'static Guid {
+        T::iid()
+    }
 }
 
 impl<T: ComInterface> Clone for ComPtr<T> {

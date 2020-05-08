@@ -15,12 +15,14 @@ impl IUnknown {
 
 unsafe impl ComInterface for IUnknown {
     type VTable = abi_IUnknown;
-    const IID: Guid = Guid::from_values(
-        0x00000000,
-        0x0000,
-        0x0000,
-        [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
-    );
+
+    fn iid() -> &'static Guid {
+        const IID: Guid = Guid::from_values(        0x00000000,
+            0x0000,
+            0x0000,
+            [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],);
+        &IID
+    }
 }
 
 #[repr(C)]
