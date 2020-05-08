@@ -48,7 +48,7 @@ impl Delegate {
         let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.guid.to_tokens();
-        let signature = &self.signature;
+        let signature = self.name.to_signature_tokens(&self.signature);
         let invoke_sig = self
             .method
             .to_abi_impl_tokens(&self.name, &self.name.namespace);

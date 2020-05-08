@@ -18,7 +18,6 @@ pub struct TypeName {
 }
 
 impl TypeName {
-
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
         if self.generics.is_empty() {
             return quote! { #signature };
@@ -35,7 +34,6 @@ impl TypeName {
                 let first = self.generics[0].to_tokens("");
                 let second = self.generics[1].to_tokens("");
                 quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::signature(), <#first as ::winrt::RuntimeType>::signature()) }
-
             }
             _ => panic!(),
         };
