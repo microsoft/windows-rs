@@ -50,10 +50,31 @@ impl TypeName {
         }
     }
 
-    // pub fn to_guid_tokens(&self) -> TokenStream {
+    pub fn to_guid_tokens(&self, guid: &TypeGuid) -> TokenStream {
+        if self.generics.is_empty() {
+            let guid = guid.to_tokens();
 
-    // }
+            return quote! {
+                const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                &IID
+            };
+        }
 
+        let guid = guid.to_tokens();
+
+        quote! {
+            static mut IID: ::winrt::Guid = ::winrt::Guid::zeroed();
+            static ONCE: ::std::sync::Once = ::std::sync::Once::new();
+            unsafe {
+                ONCE.call_once(|| {
+                    IID = ::winrt::Guid::from_values(#guid);
+                });
+                &IID
+            }
+        }
+    }
+
+    // TODO: get rid of this and do all calculations at initialization time
     pub fn guid(&self, reader: &TypeReader, generics: bool) -> TypeGuid {
         if self.generics.is_empty() || generics {
             return TypeGuid::from_type_def(reader, self.def);

@@ -102,7 +102,6 @@ impl Class {
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
 
         if self.interfaces[0].kind == InterfaceKind::Default {
-            let guid = self.interfaces[0].guid.to_tokens();
             let conversions = TokenStream::from_iter(self.interfaces.iter().map(|interface| {
                 interface.to_conversions_tokens(&self.name.namespace, &name, &TokenStream::new())
             }));

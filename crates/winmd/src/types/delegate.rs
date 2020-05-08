@@ -47,7 +47,7 @@ impl Delegate {
         let constraints = self.name.constraints();
         let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
-        let guid = self.guid.to_tokens();
+        let guid = self.name.to_guid_tokens(&self.guid);
         let signature = self.name.to_signature_tokens(&self.signature);
         let invoke_sig = self
             .method
@@ -74,8 +74,7 @@ impl Delegate {
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
                 fn iid() -> &'static ::winrt::Guid {
-                    const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
-                    &IID
+                    #guid
                 }
             }
             impl<#constraints> ::std::clone::Clone for #name {

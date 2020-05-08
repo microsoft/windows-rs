@@ -57,7 +57,7 @@ impl Interface {
         let constraints = self.name.constraints();
         let default_interface = &self.interfaces[0];
         debug_assert!(default_interface.kind == InterfaceKind::Default);
-        let guid = default_interface.guid.to_tokens();
+        let guid = self.name.to_guid_tokens(&default_interface.guid);
         let conversions = TokenStream::from_iter(self.interfaces.iter().skip(1).map(|interface| {
             interface.to_conversions_tokens(&self.name.namespace, &name, &constraints)
         }));
@@ -81,8 +81,7 @@ impl Interface {
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
                 fn iid() -> &'static ::winrt::Guid {
-                    const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
-                    &IID
+                    #guid
                 }
             }
             impl<#constraints> ::std::clone::Clone for #name {

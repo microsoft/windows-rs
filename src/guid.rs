@@ -11,6 +11,15 @@ pub struct Guid {
 }
 
 impl Guid {
+    pub const fn zeroed() -> Guid {
+        Guid {
+            data1: 0,
+            data2: 0,
+            data3: 0,
+            data4: [0, 0, 0, 0, 0, 0, 0, 0],
+        }
+    }
+
     pub const fn from_values(data1: u32, data2: u16, data3: u16, data4: [u8; 8]) -> Guid {
         Guid {
             data1,
