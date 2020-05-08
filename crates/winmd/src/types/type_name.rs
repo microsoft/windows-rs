@@ -50,6 +50,10 @@ impl TypeName {
         }
     }
 
+    // pub fn to_guid_tokens(&self) -> TokenStream {
+
+    // }
+
     pub fn guid(&self, reader: &TypeReader, generics: bool) -> TypeGuid {
         if self.generics.is_empty() || generics {
             return TypeGuid::from_type_def(reader, self.def);

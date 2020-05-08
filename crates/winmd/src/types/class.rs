@@ -122,6 +122,7 @@ impl Class {
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = &self.signature;
 
+            let default_name = self.interfaces[0].name.to_tokens(&self.name.namespace);
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             quote! {
                 #[repr(transparent)]
@@ -135,8 +136,7 @@ impl Class {
                 unsafe impl ::winrt::ComInterface for #name {
                     type VTable = #abi_name;
                     fn iid() -> &'static ::winrt::Guid {
-                        const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
-                        &IID
+                        <#default_name as ::winrt::ComInterface>::iid()
                     }
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
