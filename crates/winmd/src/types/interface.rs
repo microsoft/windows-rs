@@ -10,6 +10,7 @@ use std::iter::FromIterator;
 pub struct Interface {
     pub name: TypeName,
     pub interfaces: Vec<RequiredInterface>,
+    //pub signature: String,
 }
 
 impl Interface {
@@ -23,6 +24,7 @@ impl Interface {
         interfaces.push(default_interface);
 
         RequiredInterface::append_required(reader, &name, &mut interfaces);
+        //let signature = name.interface_signature(reader);
 
         Self { name, interfaces }
     }
