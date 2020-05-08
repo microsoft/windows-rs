@@ -66,7 +66,7 @@ impl Interface {
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
         let iterator = iterator_tokens(&self.name, &self.interfaces);
-        let signature = &self.signature;
+        let signature = self.name.to_signature_tokens(&self.signature);
 
         quote! {
             #[repr(transparent)]
