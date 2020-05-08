@@ -24,6 +24,10 @@ impl Guid {
 unsafe impl RuntimeType for Guid {
     type Abi = Self;
 
+    fn signature() -> &'static str {
+        "g16"
+    }
+
     fn abi(&self) -> Self::Abi {
         self.clone()
     }

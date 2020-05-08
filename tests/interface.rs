@@ -9,8 +9,8 @@ use winrt::ComInterface;
 
 #[test]
 fn non_generic() -> winrt::Result<()> {
-    use windows::foundation::Uri;
     use windows::foundation::IStringable;
+    use windows::foundation::Uri;
 
     assert_eq!(
         IStringable::iid(),

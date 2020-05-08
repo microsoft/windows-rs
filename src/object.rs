@@ -27,16 +27,22 @@ unsafe impl ComInterface for Object {
     type VTable = abi_IInspectable;
 
     fn iid() -> &'static Guid {
-        const IID: Guid = Guid::from_values(0xAF86_E2E0,
+        const IID: Guid = Guid::from_values(
+            0xAF86_E2E0,
             0xB12D,
             0x4C6A,
-            [0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90],);
+            [0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90],
+        );
         &IID
     }
 }
 
 unsafe impl RuntimeType for Object {
     type Abi = RawComPtr<Object>;
+
+    fn signature() -> &'static str {
+        "cinterface(IInspectable)"
+    }
 
     fn abi(&self) -> Self::Abi {
         self.ptr.as_raw()

@@ -26,7 +26,11 @@ impl Interface {
         RequiredInterface::append_required(reader, &name, &mut interfaces);
         let signature = name.base_interface_signature(reader);
 
-        Self { name, interfaces, signature }
+        Self {
+            name,
+            interfaces,
+            signature,
+        }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {

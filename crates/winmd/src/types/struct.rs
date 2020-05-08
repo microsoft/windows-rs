@@ -24,7 +24,11 @@ impl Struct {
             fields.push((name, kind));
         }
 
-        Self { name, fields, signature }
+        Self {
+            name,
+            fields,
+            signature,
+        }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {

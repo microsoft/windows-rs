@@ -25,10 +25,12 @@ unsafe impl ComInterface for IActivationFactory {
     type VTable = abi_IActivationFactory;
 
     fn iid() -> &'static Guid {
-        const IID: Guid = Guid::from_values(        0x0000_0035,
+        const IID: Guid = Guid::from_values(
+            0x0000_0035,
             0x0000,
             0x0000,
-            [0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],);
+            [0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
+        );
         &IID
     }
 }

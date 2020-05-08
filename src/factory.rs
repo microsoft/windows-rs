@@ -17,7 +17,8 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             let mut _cookie = std::ptr::null_mut();
             runtime::CoIncrementMTAUsage(&mut _cookie);
 
-            code = runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), I::iid(), &mut ptr);
+            code =
+                runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), I::iid(), &mut ptr);
         }
 
         code.and_then(|| std::mem::transmute_copy(&ptr))

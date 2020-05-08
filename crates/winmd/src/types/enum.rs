@@ -39,7 +39,11 @@ impl Enum {
             }
         }
 
-        Self { name, fields, signature }
+        Self {
+            name,
+            fields,
+            signature,
+        }
     }
 
     // TODO: need to model WinRT enums as structs rather than Rust enums as that would

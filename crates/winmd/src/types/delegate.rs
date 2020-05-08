@@ -23,7 +23,12 @@ impl Delegate {
         let method = Method::from_method_def(reader, method, &name.generics);
         let guid = TypeGuid::from_type_def(reader, def);
         let signature = name.base_delegate_signature(reader);
-        Self { name, method, guid, signature }
+        Self {
+            name,
+            method,
+            guid,
+            signature,
+        }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
