@@ -1,4 +1,5 @@
-// This IL file represents a WinMD file similar to the following IDL:
+// Since the MIDL toolchain is Windows-only, this WinMD file is written in IL.
+// The WinMD generated from this IL is similar to what the following MIDL expresses:
 //
 // namespace RustWinRT.Tests
 // {
@@ -8,6 +9,9 @@
 //         String MaybeException();
 //     }
 // }
+//
+// Since there are currently no APIs in the Windows SDK that use noexcept,
+// this IL is needed to test that functionality.
 
 .assembly extern mscorlib
 {

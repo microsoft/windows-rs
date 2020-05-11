@@ -179,7 +179,7 @@ impl Method {
             extern "system" fn #name(this: *const *const #abi_name, #(#params)*) -> ::winrt::ErrorCode
         }
     }
-    
+
     fn to_param_tokens(&self, calling_namespace: &str) -> TokenStream {
         TokenStream::from_iter(
             self.params
@@ -296,7 +296,7 @@ impl Method {
 
     pub fn to_static_tokens(
         &self,
-        calling_namespace: &str,    
+        calling_namespace: &str,
         interface: &RequiredInterface,
     ) -> TokenStream {
         let method_name = format_ident(&self.name);
@@ -317,10 +317,9 @@ impl Method {
 
 #[cfg(test)]
 mod tests {
-    use std::env;
-    use std::path::Path;
     use super::*;
     use crate::types::*;
+    use std::path::Path;
 
     fn method((namespace, type_name): (&str, &str), method_name: &str, reader: &TypeReader) -> Method {
         let def = reader.resolve_type_def((namespace, type_name));
