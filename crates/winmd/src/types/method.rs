@@ -317,11 +317,12 @@ impl Method {
 
 #[cfg(test)]
 mod tests {
+    use std::env;
+    use std::path::Path;
     use super::*;
     use crate::types::*;
 
-    fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
-        let reader = &TypeReader::from_os();
+    fn method((namespace, type_name): (&str, &str), method_name: &str, reader: &TypeReader) -> Method {
         let def = reader.resolve_type_def((namespace, type_name));
 
         let t = match def.into_type(reader) {
@@ -337,12 +338,24 @@ mod tests {
             }
         }
 
-        panic!("Method not found");
+        panic!(format!("Method '{}' not found",  method_name));
     }
+    
+    #[test]
+    fn test_no_exception() {
+        let reader = &TypeReader::new(
+            vec!(file::WinmdFile::new(Path::new(env!("OUT_DIR")).join(Path::new("RustWinRT.Tests.winmd"))))
+        );
+            
+        let no_exception = method(("RustWinRT.Tests", "ITestNoException"), "no_exception", &reader);
+        assert!(no_exception.no_exception);
+        let maybe_exception = method(("RustWinRT.Tests", "ITestNoException"), "maybe_exception", &reader);
+        assert!(!maybe_exception.no_exception);
+      }
 
     #[test]
     fn test_to_string() {
-        let method = method(("Windows.Foundation", "IStringable"), "to_string");
+        let method = method(("Windows.Foundation", "IStringable"), "to_string", &TypeReader::from_os());
         assert!(method.kind == MethodKind::Normal);
         assert!(method.params.is_empty());
 
@@ -355,6 +368,7 @@ mod tests {
         let method = method(
             ("Windows.Foundation.Collections", "IObservableMap`2"),
             "map_changed",
+            &TypeReader::from_os()
         );
 
         assert!(method.kind == MethodKind::Add);
@@ -393,6 +407,7 @@ mod tests {
         let method = method(
             ("Windows.Foundation.Collections", "IObservableMap`2"),
             "remove_map_changed",
+            &TypeReader::from_os()
         );
 
         assert!(method.kind == MethodKind::Remove);
