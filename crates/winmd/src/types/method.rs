@@ -14,6 +14,7 @@ pub struct Method {
     pub kind: MethodKind,
     pub params: Vec<Param>,
     pub return_type: Option<Param>,
+    pub no_exception: bool
 }
 
 #[derive(Copy, Clone, PartialEq, Debug)]
@@ -102,11 +103,15 @@ impl Method {
             }
         }
 
+        let no_exception = 
+            method.find_attribute(reader, ("Windows.Foundation.Metadata", "NoExceptionAttribute")).is_some();
+
         Method {
             name,
             kind,
             params,
             return_type,
+            no_exception
         }
     }
 
@@ -130,6 +135,16 @@ impl Method {
         }
 
         case::to_snake(method.name(reader), MethodKind::Normal)
+    }
+
+    fn to_return_type_tokens(&self, calling_namespace: &str) -> TokenStream {
+        let return_type = match &self.return_type {
+            Some(param) => param.to_return_tokens(calling_namespace),
+            None => quote! { () }
+        };
+
+        
+        if self.no_exception { return_type } else { quote! { ::winrt::Result<#return_type> } }
     }
 
     pub fn to_abi_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
@@ -164,7 +179,7 @@ impl Method {
             extern "system" fn #name(this: *const *const #abi_name, #(#params)*) -> ::winrt::ErrorCode
         }
     }
-
+    
     fn to_param_tokens(&self, calling_namespace: &str) -> TokenStream {
         TokenStream::from_iter(
             self.params
@@ -223,12 +238,14 @@ impl Method {
         let constraints = self.to_constraint_tokens(calling_namespace);
         let args = self.to_abi_arg_tokens();
 
+        let return_tokens = self.to_return_type_tokens(calling_namespace);
+
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.to_abi_return_arg_tokens(calling_namespace);
             let return_type = return_type.to_return_tokens(calling_namespace);
 
             quote! {
-                pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
+                pub fn #method_name<#constraints>(&self, #params) -> #return_tokens {
                     let this = <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr);
 
                     if this.is_null() {
@@ -243,7 +260,7 @@ impl Method {
             }
         } else {
             quote! {
-                pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
+                pub fn #method_name<#constraints>(&self, #params) -> #return_tokens {
                     let this = <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr);
 
                     if this.is_null() {
@@ -268,14 +285,10 @@ impl Method {
         let args = self.to_arg_tokens();
         let interface = interface.name.to_tokens(calling_namespace);
 
-        let return_type = if let Some(return_type) = &self.return_type {
-            return_type.to_return_tokens(calling_namespace)
-        } else {
-            quote! { () }
-        };
+        let return_type = self.to_return_type_tokens(calling_namespace);
 
         quote! {
-            pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
+            pub fn #method_name<#constraints>(&self, #params) -> #return_type {
                 <#interface as ::std::convert::From<&Self>>::from(self).#method_name(#args)
             }
         }
@@ -283,7 +296,7 @@ impl Method {
 
     pub fn to_static_tokens(
         &self,
-        calling_namespace: &str,
+        calling_namespace: &str,    
         interface: &RequiredInterface,
     ) -> TokenStream {
         let method_name = format_ident(&self.name);
@@ -292,14 +305,10 @@ impl Method {
         let args = self.to_arg_tokens();
         let interface = interface.name.to_tokens(calling_namespace);
 
-        let return_type = if let Some(return_type) = &self.return_type {
-            return_type.to_return_tokens(calling_namespace)
-        } else {
-            quote! { () }
-        };
+        let return_type = self.to_return_type_tokens(calling_namespace);
 
         quote! {
-            pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
+            pub fn #method_name<#constraints>(#params) -> #return_type {
                 ::winrt::activation::factory::<Self, #interface>()?.#method_name(#args)
             }
         }
