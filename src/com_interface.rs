@@ -15,7 +15,9 @@ use crate::*;
 /// it must be safe to zero initialize the interface.
 pub unsafe trait ComInterface: Sized {
     type VTable;
-    fn iid() -> &'static Guid;
+
+    // TODO: this should be a const function returning &'static Guid
+    fn iid() -> Guid;
 
     #[inline(always)]
     fn as_raw(&self) -> RawComPtr<Self> {
@@ -29,7 +31,7 @@ pub unsafe trait ComInterface: Sized {
 
     #[inline(always)]
     fn query<Into: ComInterface>(&self) -> Into {
-        unsafe { self.query_with_iid(Into::iid()) }
+        unsafe { self.query_with_iid(&Into::iid()) }
     }
 
     #[inline(always)]
@@ -67,7 +69,3 @@ pub unsafe trait ComInterface: Sized {
 
 /// A non-reference-counted pointer to a COM interface
 pub type RawComPtr<T> = *const *const <T as ComInterface>::VTable;
-
-pub fn guid_of<T: ComInterface>() -> &'static Guid {
-    T::iid()
-}

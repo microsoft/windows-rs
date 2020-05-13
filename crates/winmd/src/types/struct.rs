@@ -58,8 +58,8 @@ impl Struct {
             }
             unsafe impl ::winrt::RuntimeType for #name {
                 type Abi = Self;
-                fn signature() -> &'static str {
-                    #signature
+                fn signature() -> String {
+                    #signature.to_owned()
                 }
                 fn abi(&self) -> Self::Abi {
                     self.clone()

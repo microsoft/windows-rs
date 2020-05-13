@@ -11,14 +11,14 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
     let mut ptr = std::ptr::null_mut();
     unsafe {
         let mut code =
-            runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), I::iid(), &mut ptr);
+            runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), &I::iid(), &mut ptr);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
             runtime::CoIncrementMTAUsage(&mut _cookie);
 
             code =
-                runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), I::iid(), &mut ptr);
+                runtime::RoGetActivationFactory(HString::from(C::NAME).abi(), &I::iid(), &mut ptr);
         }
 
         code.and_then(|| std::mem::transmute_copy(&ptr))

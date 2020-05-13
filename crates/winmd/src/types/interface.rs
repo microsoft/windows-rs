@@ -80,7 +80,7 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                fn iid() -> &'static ::winrt::Guid {
+                fn iid() -> ::winrt::Guid {
                     #guid
                 }
             }
@@ -105,7 +105,7 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 type Abi = ::winrt::RawComPtr<Self>;
-                fn signature() -> &'static str {
+                fn signature() -> String {
                     #signature
                 }
                 fn abi(&self) -> Self::Abi {

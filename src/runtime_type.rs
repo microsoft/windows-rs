@@ -23,18 +23,18 @@ pub unsafe trait RuntimeType {
         unsafe { std::mem::transmute_copy(&abi) }
     }
 
-    // TODO: code gen hard-coded values for signature where it is known and for generic types use a
-    // std::sync::Once to initialize the value when needed.
-    // Make sure it produces the correct GUID before switching ComInterface over to providing an iid() method.
-    fn signature() -> &'static str;
+    // TODO: this should be a const function returning &'static str
+    // It is only used internally by ComInterface::iid() which should
+    // itself be a const function.
+    fn signature() -> String;
 }
 
 macro_rules! primitive_runtime_type {
     ($(($t:ty, $s:literal)),+) => {
         $(unsafe impl RuntimeType for $t {
             type Abi = Self;
-            fn signature() -> &'static str {
-                $s
+            fn signature() -> String {
+                $s.to_owned()
             }
             fn abi(&self) -> Self::Abi {
                 *self

@@ -25,7 +25,7 @@ impl<T: ComInterface> ComPtr<T> {
 unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
     type VTable = T::VTable;
 
-    fn iid() -> &'static Guid {
+    fn iid() -> Guid {
         T::iid()
     }
 }

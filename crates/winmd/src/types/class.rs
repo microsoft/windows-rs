@@ -134,14 +134,14 @@ impl Class {
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     type VTable = #abi_name;
-                    fn iid() -> &'static ::winrt::Guid {
+                    fn iid() -> ::winrt::Guid {
                         <#default_name as ::winrt::ComInterface>::iid()
                     }
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
                     type Abi = ::winrt::RawComPtr<Self>;
-                    fn signature() -> &'static str {
-                        #signature
+                    fn signature() -> String {
+                        #signature.to_owned()
                     }
                     fn abi(&self) -> Self::Abi {
                         <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)

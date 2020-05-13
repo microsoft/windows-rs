@@ -34,8 +34,8 @@ impl Guid {
 unsafe impl RuntimeType for Guid {
     type Abi = Self;
 
-    fn signature() -> &'static str {
-        "g16"
+    fn signature() -> String {
+        "g16".to_owned()
     }
 
     fn abi(&self) -> Self::Abi {

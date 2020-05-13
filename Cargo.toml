@@ -12,6 +12,7 @@ winrt_macros = { path = "crates/macros" }
 
 [dev-dependencies]
 doc-comment = "0.3"
+sha1 = "0.6.0"
 
 [workspace]
 members = [

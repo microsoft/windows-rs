@@ -73,7 +73,7 @@ impl Delegate {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                fn iid() -> &'static ::winrt::Guid {
+                fn iid() -> ::winrt::Guid {
                     #guid
                 }
             }
@@ -95,7 +95,7 @@ impl Delegate {
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 type Abi = ::winrt::RawComPtr<Self>;
-                fn signature() -> &'static str {
+                fn signature() -> String {
                     #signature
                 }
                 fn abi(&self) -> Self::Abi {
@@ -139,9 +139,9 @@ impl Delegate {
                     unsafe {
                         let this = this as *const Self as *mut Self;
 
-                        if iid == <#name as ::winrt::ComInterface>::iid()
-                            || iid == <::winrt::IUnknown as ::winrt::ComInterface>::iid()
-                            || iid == <::winrt::IAgileObject as ::winrt::ComInterface>::iid()
+                        if iid == &<#name as ::winrt::ComInterface>::iid()
+                            || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::iid()
+                            || iid == &<::winrt::IAgileObject as ::winrt::ComInterface>::iid()
                         {
                             *interface = this as ::winrt::RawPtr;
                             (*this).count.add_ref();

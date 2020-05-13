@@ -15,7 +15,7 @@ fn non_generic() -> winrt::Result<()> {
 
     assert_eq!(
         Handler::iid(),
-        &winrt::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
+        winrt::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
     );
 
     let d = Handler::default();
@@ -91,9 +91,7 @@ fn event() -> winrt::Result<()> {
 
     set.insert("A", PropertyValue::create_uint32(1)?)?;
 
-    // TODO: The PropertySet queries the delegate for itself and unfortunately that requires that it
-    // knows its own GUID but fails and so the delegate is not added to the event source.
-    assert!(!invoked);
+    assert!(invoked);
 
     Ok(())
 }

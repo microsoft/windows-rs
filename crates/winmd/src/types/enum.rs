@@ -82,8 +82,8 @@ impl Enum {
             }
             unsafe impl ::winrt::RuntimeType for #name {
                 type Abi = #repr;
-                fn signature() -> &'static str {
-                    #signature
+                fn signature() -> String {
+                    #signature.to_owned()
                 }
                 fn abi(&self) -> Self::Abi {
                     self.value
