@@ -23,7 +23,7 @@ impl TypeName {
             return quote! { #signature.to_owned() };
         }
 
-        // I'm sure there's a more generic way of doing this, but as of now there are at
+        // TODO: I'm sure there's a more generic way of doing this, but as of now there are at
         // most two generic parameters.
         let format = match self.generics.len() {
             1 => {
@@ -59,7 +59,7 @@ impl TypeName {
             ];
             data.extend_from_slice(<Self as ::winrt::RuntimeType>::signature().as_bytes());
             // TODO: this introduces a direct dependency on the consumer of winrt-rs
-            // Replace with inline SHA1 implementation
+            // Replace with inline SHA1 implementation (that's also const)
             let mut hash = ::sha1::Sha1::new();
             hash.update(&data);
             let bytes = hash.digest().bytes();

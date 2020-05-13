@@ -142,33 +142,15 @@ impl RequiredInterface {
             }
             InterfaceKind::NonDefault => {
                 let into = self.name.to_tokens(calling_namespace);
-                if self.name.generics.is_empty() {
-                    quote! {
-                        impl<#constraints> ::std::convert::From<#from> for #into {
-                            fn from(value: #from) -> #into {
-                                ::std::convert::From::from(&value)
-                            }
-                        }
-                        impl<#constraints> ::std::convert::From<&#from> for #into {
-                            fn from(value: &#from) -> #into {
-                                <#from as ::winrt::ComInterface>::query(value)
-                            }
+                quote! {
+                    impl<#constraints> ::std::convert::From<#from> for #into {
+                        fn from(value: #from) -> #into {
+                            ::std::convert::From::from(&value)
                         }
                     }
-                } else {
-                    let guid = self.guid.to_tokens();
-
-                    quote! {
-                        impl<#constraints> ::std::convert::From<#from> for #into {
-                            fn from(value: #from) -> #into {
-                                ::std::convert::From::from(&value)
-                            }
-                        }
-                        impl<#constraints> ::std::convert::From<&#from> for #into {
-                            fn from(value: &#from) -> #into {
-                                const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
-                                unsafe { <#from as ::winrt::ComInterface>::query_with_iid(value, &IID) }
-                            }
+                    impl<#constraints> ::std::convert::From<&#from> for #into {
+                        fn from(value: &#from) -> #into {
+                            <#from as ::winrt::ComInterface>::query(value)
                         }
                     }
                 }

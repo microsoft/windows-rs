@@ -31,32 +31,16 @@ pub unsafe trait ComInterface: Sized {
 
     #[inline(always)]
     fn query<Into: ComInterface>(&self) -> Into {
-        unsafe { self.query_with_iid(&Into::iid()) }
+        unsafe {
+            let mut into: Into = std::mem::zeroed();
+            self.raw_query(&Into::iid(), &mut into);
+            into
+        }
     }
 
     #[inline(always)]
     fn is_null(&self) -> bool {
         self.as_raw().is_null()
-    }
-
-    /// Use QueryInterface to cast a ComInterface into another.
-    ///
-    /// If the call to QueryInterface fails, the returned ComInterface will be null.
-    ///
-    /// # Safety
-    /// The guid parameter must be a valid guid for the returned ComInterface.
-    /// Normally, the ComInterface has an associated GUID that you can use. When this
-    /// is the case, prefer using `ComInterface::query`. `query_with_guid` only exists
-    /// to support generic interface queries that aren't yet supported by Rust because
-    /// it lacks good const generics support to work out the guids in a generic ComInterface
-    /// where the GUID depends on the concrete type of the generic paramter.
-    ///
-    /// Once const generics support arrives, we should be able to remove this function and
-    /// rely on ComInterface to calculate the guid for all types.
-    unsafe fn query_with_iid<Into: ComInterface>(&self, guid: &Guid) -> Into {
-        let mut into: Into = std::mem::zeroed();
-        self.raw_query(guid, &mut into);
-        into
     }
 
     unsafe fn raw_query<T: ComInterface>(&self, guid: &Guid, ppv: &mut T) {
