@@ -46,8 +46,6 @@ impl Enum {
         }
     }
 
-    // TODO: need to model WinRT enums as structs rather than Rust enums as that would
-    // avoid hte issue of duplicates below and also allow bit flags WinRT enums.
     pub fn to_tokens(&self) -> TokenStream {
         let name = self.name.to_tokens(&self.name.namespace);
         let signature = &self.signature;
