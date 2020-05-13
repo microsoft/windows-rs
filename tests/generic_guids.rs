@@ -10,8 +10,11 @@ winrt::import!(
 fn generic_guids() -> winrt::Result<()> {
     use winrt::ComInterface;
 
-    type A = windows::foundation::collections::IIterable::<windows::foundation::IStringable>;
-    type B = windows::foundation::collections::IKeyValuePair::<winrt::HString, windows::foundation::IAsyncOperationWithProgress<A, f32>>;
+    type A = windows::foundation::collections::IIterable<windows::foundation::IStringable>;
+    type B = windows::foundation::collections::IKeyValuePair<
+        winrt::HString,
+        windows::foundation::IAsyncOperationWithProgress<A, f32>,
+    >;
 
     //
     // Generated Windows.Foundation GUIDs

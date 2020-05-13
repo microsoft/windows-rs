@@ -63,7 +63,7 @@ impl TypeName {
             let mut hash = ::sha1::Sha1::new();
             hash.update(&data);
             let bytes = hash.digest().bytes();
-    
+
             let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
             let second = u16::from_be_bytes([bytes[4], bytes[5]]);
             let mut third = u16::from_be_bytes([bytes[6], bytes[7]]);
