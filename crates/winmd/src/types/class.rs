@@ -125,7 +125,7 @@ impl Class {
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             quote! {
                 #[repr(transparent)]
-                #[derive(Default, Clone)]
+                #[derive(Default, Clone, PartialEq)]
                 pub struct #name { ptr: ::winrt::ComPtr<#name> }
                 impl #name {
                     #new
@@ -148,6 +148,15 @@ impl Class {
                     }
                     fn set_abi(&mut self) -> *mut Self::Abi {
                         self.ptr.set_abi()
+                    }
+                }
+                impl ::std::fmt::Debug for #name {
+                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                        write!(
+                            f,
+                            "{:?}",
+                            <Self as ::winrt::RuntimeType>::abi(self)
+                        )
                     }
                 }
                 #conversions

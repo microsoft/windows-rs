@@ -70,7 +70,7 @@ impl Interface {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Default)]
+            #[derive(Default, PartialEq)]
             pub struct #definition where #constraints {
                 ptr: ::winrt::ComPtr<#name>,
                 #phantoms
@@ -113,6 +113,15 @@ impl Interface {
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     self.ptr.set_abi()
+                }
+            }
+            impl<#constraints> ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(
+                        f,
+                        "{:?}",
+                        <Self as ::winrt::RuntimeType>::abi(self)
+                    )
                 }
             }
             #conversions
