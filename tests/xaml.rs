@@ -2,7 +2,7 @@ winrt::import!(
     dependencies
         "os"
     modules
-        "windows.ui.xaml"
+        "windows.ui.xaml.controls"
 );
 
 #[test]

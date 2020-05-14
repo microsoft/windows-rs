@@ -60,7 +60,7 @@ impl Delegate {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Default)]
+            #[derive(Default, PartialEq)]
             pub struct #definition where #constraints {
                 ptr: ::winrt::ComPtr<#name>,
                 #phantoms

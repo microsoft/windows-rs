@@ -1,4 +1,4 @@
-use crate::{ComInterface, Guid, RawComPtr};
+use crate::{ComInterface, Guid, IUnknown, RawComPtr};
 
 /// A reference counted pointer to a COM interface
 #[repr(transparent)]
@@ -52,5 +52,11 @@ impl<T: ComInterface> Default for ComPtr<T> {
         ComPtr {
             ptr: std::ptr::null_mut(),
         }
+    }
+}
+
+impl<T: ComInterface> PartialEq for ComPtr<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.query::<IUnknown>().as_raw() == other.query::<IUnknown>().as_raw()
     }
 }

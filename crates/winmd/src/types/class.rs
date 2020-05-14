@@ -125,7 +125,7 @@ impl Class {
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             quote! {
                 #[repr(transparent)]
-                #[derive(Default, Clone)]
+                #[derive(Default, Clone, PartialEq)]
                 pub struct #name { ptr: ::winrt::ComPtr<#name> }
                 impl #name {
                     #new
