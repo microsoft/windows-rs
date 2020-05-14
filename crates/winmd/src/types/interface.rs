@@ -115,6 +115,15 @@ impl Interface {
                     self.ptr.set_abi()
                 }
             }
+            impl<#constraints> ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(
+                        f,
+                        "{:?}",
+                        <Self as ::winrt::RuntimeType>::abi(self)
+                    )
+                }
+            }
             #conversions
             #object
             #iterator

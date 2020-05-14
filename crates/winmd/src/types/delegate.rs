@@ -105,6 +105,15 @@ impl Delegate {
                     self.ptr.set_abi()
                 }
             }
+            impl<#constraints> ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(
+                        f,
+                        "{:?}",
+                        <Self as ::winrt::RuntimeType>::abi(self)
+                    )
+                }
+            }
             #[repr(C)]
             struct #impl_definition where #constraints {
                 vtable: *const #abi_definition,
