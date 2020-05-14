@@ -2,7 +2,7 @@ winrt::import!(
     dependencies
         "os"
     modules
-        "windows.foundation"
+        "windows.foundation.collections"
 );
 
 use winrt::ComInterface;
@@ -14,7 +14,7 @@ fn non_generic() -> winrt::Result<()> {
     type Handler = windows::foundation::AsyncActionCompletedHandler;
 
     assert_eq!(
-        Handler::IID,
+        Handler::iid(),
         winrt::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
     );
 
@@ -62,6 +62,34 @@ fn generic() -> winrt::Result<()> {
     });
 
     d.invoke(uri, uri.port()?)?;
+
+    assert!(invoked);
+
+    Ok(())
+}
+
+#[test]
+fn event() -> winrt::Result<()> {
+    use windows::foundation::collections::*;
+    use windows::foundation::*;
+
+    let set = &PropertySet::new()?;
+    let mut invoked = false;
+
+    // TODO: Should be able to elide the delegate construction and simply say:
+    // set.map_changed(|sender, args| {...})?;
+    set.map_changed(
+        MapChangedEventHandler::<winrt::HString, winrt::Object>::new(|sender, args| {
+            invoked = true;
+            let map: IObservableMap<winrt::HString, winrt::Object> = set.into();
+            assert!(map.as_raw() == sender.as_raw());
+            assert!(args.key()? == "A");
+            assert!(args.collection_change()? == CollectionChange::ItemInserted);
+            Ok(())
+        }),
+    )?;
+
+    set.insert("A", PropertyValue::create_uint32(1)?)?;
 
     assert!(invoked);
 

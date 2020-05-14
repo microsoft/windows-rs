@@ -67,6 +67,10 @@ impl HString {
 unsafe impl RuntimeType for HString {
     type Abi = *mut Header;
 
+    fn signature() -> String {
+        "string".to_owned()
+    }
+
     fn abi(&self) -> Self::Abi {
         self.ptr
     }

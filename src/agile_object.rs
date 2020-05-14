@@ -8,12 +8,15 @@ pub struct IAgileObject {
 
 unsafe impl ComInterface for IAgileObject {
     type VTable = abi_IAgileObject;
-    const IID: Guid = Guid::from_values(
-        0x94EA2B94,
-        0xE9CC,
-        0x49E0,
-        [0xC0, 0xFF, 0xEE, 0x64, 0xCA, 0x8F, 0x5B, 0x90],
-    );
+
+    fn iid() -> Guid {
+        Guid::from_values(
+            0x94EA2B94,
+            0xE9CC,
+            0x49E0,
+            [0xC0, 0xFF, 0xEE, 0x64, 0xCA, 0x8F, 0x5B, 0x90],
+        )
+    }
 }
 
 #[repr(C)]

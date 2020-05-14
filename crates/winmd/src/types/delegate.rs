@@ -10,6 +10,7 @@ pub struct Delegate {
     pub name: TypeName,
     pub method: Method,
     pub guid: TypeGuid,
+    pub signature: String,
 }
 
 impl Delegate {
@@ -21,7 +22,13 @@ impl Delegate {
             .unwrap();
         let method = Method::from_method_def(reader, method, &name.generics);
         let guid = TypeGuid::from_type_def(reader, def);
-        Self { name, method, guid }
+        let signature = name.base_delegate_signature(reader);
+        Self {
+            name,
+            method,
+            guid,
+            signature,
+        }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
@@ -40,7 +47,8 @@ impl Delegate {
         let constraints = self.name.constraints();
         let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
-        let guid = self.guid.to_tokens();
+        let guid = self.name.to_guid_tokens(&self.guid);
+        let signature = self.name.to_signature_tokens(&self.signature);
         let invoke_sig = self
             .method
             .to_abi_impl_tokens(&self.name, &self.name.namespace);
@@ -65,7 +73,9 @@ impl Delegate {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                fn iid() -> ::winrt::Guid {
+                    #guid
+                }
             }
             impl<#constraints> ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
@@ -85,6 +95,9 @@ impl Delegate {
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 type Abi = ::winrt::RawComPtr<Self>;
+                fn signature() -> String {
+                    #signature
+                }
                 fn abi(&self) -> Self::Abi {
                     <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                 }
@@ -126,9 +139,9 @@ impl Delegate {
                     unsafe {
                         let this = this as *const Self as *mut Self;
 
-                        if *iid == <#name as ::winrt::ComInterface>::IID
-                            || *iid == <::winrt::IUnknown as ::winrt::ComInterface>::IID
-                            || *iid == <::winrt::IAgileObject as ::winrt::ComInterface>::IID
+                        if iid == &<#name as ::winrt::ComInterface>::iid()
+                            || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::iid()
+                            || iid == &<::winrt::IAgileObject as ::winrt::ComInterface>::iid()
                         {
                             *interface = this as ::winrt::RawPtr;
                             (*this).count.add_ref();

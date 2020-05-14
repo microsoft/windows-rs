@@ -9,6 +9,7 @@ use quote::{format_ident, quote};
 pub struct Enum {
     pub name: TypeName,
     pub fields: Vec<(String, EnumConstant)>,
+    pub signature: String,
 }
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
@@ -20,6 +21,7 @@ pub enum EnumConstant {
 impl Enum {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
+        let signature = name.enum_signature(reader);
         let mut fields = Vec::new();
 
         for field in def.fields(reader) {
@@ -37,13 +39,16 @@ impl Enum {
             }
         }
 
-        Self { name, fields }
+        Self {
+            name,
+            fields,
+            signature,
+        }
     }
 
-    // TODO: need to model WinRT enums as structs rather than Rust enums as that would
-    // avoid hte issue of duplicates below and also allow bit flags WinRT enums.
     pub fn to_tokens(&self) -> TokenStream {
         let name = self.name.to_tokens(&self.name.namespace);
+        let signature = &self.signature;
 
         let repr = match self.fields[0].1 {
             EnumConstant::U32(_) => format_ident!("u32"),
@@ -75,6 +80,9 @@ impl Enum {
             }
             unsafe impl ::winrt::RuntimeType for #name {
                 type Abi = #repr;
+                fn signature() -> String {
+                    #signature.to_owned()
+                }
                 fn abi(&self) -> Self::Abi {
                     self.value
                 }

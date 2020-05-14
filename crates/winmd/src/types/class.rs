@@ -13,6 +13,7 @@ pub struct Class {
     pub bases: Vec<TypeName>,
     pub interfaces: Vec<RequiredInterface>,
     pub default_constructor: bool,
+    pub signature: String,
 }
 
 impl Class {
@@ -22,6 +23,12 @@ impl Class {
         RequiredInterface::append_default(reader, &name, &mut interfaces);
         let mut bases = Vec::new();
         let mut base = def;
+
+        let signature = if !interfaces.is_empty() && interfaces[0].kind == InterfaceKind::Default {
+            name.class_signature(reader)
+        } else {
+            "".to_owned()
+        };
 
         loop {
             let (namespace, name) = base.extends(reader).name(reader);
@@ -77,6 +84,7 @@ impl Class {
             interfaces,
             bases,
             default_constructor,
+            signature,
         }
     }
 
@@ -94,7 +102,6 @@ impl Class {
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
 
         if self.interfaces[0].kind == InterfaceKind::Default {
-            let guid = self.interfaces[0].guid.to_tokens();
             let conversions = TokenStream::from_iter(self.interfaces.iter().map(|interface| {
                 interface.to_conversions_tokens(&self.name.namespace, &name, &TokenStream::new())
             }));
@@ -102,7 +109,7 @@ impl Class {
             let new = if self.default_constructor {
                 quote! {
                     pub fn new() -> ::winrt::Result<Self> {
-                        ::winrt::activation::factory::<Self, ::winrt::IActivationFactory>()?.activate_instance::<Self>()
+                        ::winrt::factory::<Self, ::winrt::IActivationFactory>()?.activate_instance::<Self>()
                     }
                 }
             } else {
@@ -112,7 +119,9 @@ impl Class {
             let object = to_object_tokens(&name, &TokenStream::new());
             let bases = self.to_base_conversions_tokens(&self.name.namespace, &name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
+            let signature = &self.signature;
 
+            let default_name = self.interfaces[0].name.to_tokens(&self.name.namespace);
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             quote! {
                 #[repr(transparent)]
@@ -125,10 +134,15 @@ impl Class {
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     type VTable = #abi_name;
-                    const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                    fn iid() -> ::winrt::Guid {
+                        <#default_name as ::winrt::ComInterface>::iid()
+                    }
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
                     type Abi = ::winrt::RawComPtr<Self>;
+                    fn signature() -> String {
+                        #signature.to_owned()
+                    }
                     fn abi(&self) -> Self::Abi {
                         <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                     }

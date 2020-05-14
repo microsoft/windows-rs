@@ -9,11 +9,13 @@ use quote::quote;
 pub struct Struct {
     pub name: TypeName,
     pub fields: Vec<(String, TypeKind)>, // TODO: might have to be a full Type to ensure we can write out nested structs for ABI layout
+    pub signature: String,
 }
 
 impl Struct {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
         let name = TypeName::from_type_def(reader, def);
+        let signature = name.struct_signature(reader);
         let mut fields = Vec::new();
 
         for field in def.fields(reader) {
@@ -22,7 +24,11 @@ impl Struct {
             fields.push((name, kind));
         }
 
-        Self { name, fields }
+        Self {
+            name,
+            fields,
+            signature,
+        }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
@@ -34,6 +40,7 @@ impl Struct {
 
     pub fn to_tokens(&self) -> TokenStream {
         let name = self.name.to_tokens(&self.name.namespace);
+        let signature = &self.signature;
 
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
@@ -51,6 +58,9 @@ impl Struct {
             }
             unsafe impl ::winrt::RuntimeType for #name {
                 type Abi = Self;
+                fn signature() -> String {
+                    #signature.to_owned()
+                }
                 fn abi(&self) -> Self::Abi {
                     self.clone()
                 }

@@ -18,7 +18,7 @@ impl<From: ComInterface + Sized, Into: ComInterface> TryInto<Into> for &From {
 
             ((*(*(from as *const *const abi_IUnknown))).unknown_query_interface)(
                 from as *const *const abi_IUnknown,
-                &Into::IID,
+                &Into::iid(),
                 &mut into,
             )
             .ok()?;

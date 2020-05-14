@@ -22,12 +22,20 @@ pub unsafe trait RuntimeType {
     fn from_mut_abi(abi: &mut Self::Abi) -> &mut Self {
         unsafe { std::mem::transmute_copy(&abi) }
     }
+
+    // TODO: this should be a const function returning &'static str
+    // It is only used internally by ComInterface::iid() which should
+    // itself be a const function.
+    fn signature() -> String;
 }
 
 macro_rules! primitive_runtime_type {
-    ($($t:ty),+) => {
+    ($(($t:ty, $s:literal)),+) => {
         $(unsafe impl RuntimeType for $t {
             type Abi = Self;
+            fn signature() -> String {
+                $s.to_owned()
+            }
             fn abi(&self) -> Self::Abi {
                 *self
             }
@@ -38,4 +46,16 @@ macro_rules! primitive_runtime_type {
     };
 }
 
-primitive_runtime_type! { bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64 }
+primitive_runtime_type! {
+    (bool, "b1"),
+    (i8, "i1"),
+    (u8, "u1"),
+    (i16, "i2"),
+    (u16, "u2"),
+    (i32, "i4"),
+    (u32, "u4"),
+    (i64, "i8"),
+    (u64, "u8"),
+    (f32, "f4"),
+    (f64, "f8")
+}

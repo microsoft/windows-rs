@@ -39,13 +39,14 @@
 #[cfg(doctest)]
 doc_comment::doctest!("../README.md");
 
-#[doc(hidden)]
-pub mod activation;
-pub mod agile_object;
+mod activation_factory;
+mod agile_object;
 mod array;
 mod com_interface;
 mod com_ptr;
 mod error;
+#[doc(hidden)]
+pub mod factory;
 mod guid;
 mod hstring;
 mod object;
@@ -58,12 +59,13 @@ mod try_into;
 mod unknown;
 
 #[doc(inline)]
-pub use activation::IActivationFactory;
+pub use activation_factory::IActivationFactory;
 pub use agile_object::IAgileObject;
 pub use array::Array;
 pub use com_interface::{ComInterface, RawComPtr};
 pub use com_ptr::ComPtr;
 pub use error::*;
+pub use factory::factory;
 pub use guid::Guid;
 pub use hstring::HString;
 pub use object::Object;

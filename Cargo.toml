@@ -9,6 +9,7 @@ repository = "https://github.com/microsoft/winrt-rs"
 
 [dependencies]
 winrt_macros = { path = "crates/macros" }
+sha1 = "0.6.0"
 
 [dev-dependencies]
 doc-comment = "0.3"

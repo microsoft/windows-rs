@@ -18,6 +18,46 @@ pub struct TypeName {
 }
 
 impl TypeName {
+    pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
+        if self.generics.is_empty() {
+            return quote! { #signature.to_owned() };
+        }
+
+        // TODO: I'm sure there's a more generic way of doing this, but as of now there are at
+        // most two generic parameters.
+        let format = match self.generics.len() {
+            1 => {
+                let first = self.generics[0].to_tokens("");
+                quote! { format!("pinterface({};{})", #signature, <#first as ::winrt::RuntimeType>::signature()) }
+            }
+            2 => {
+                let first = self.generics[0].to_tokens("");
+                let second = self.generics[1].to_tokens("");
+                quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::signature(), <#second as ::winrt::RuntimeType>::signature()) }
+            }
+            _ => panic!(),
+        };
+
+        quote! {
+            #format
+        }
+    }
+
+    pub fn to_guid_tokens(&self, guid: &TypeGuid) -> TokenStream {
+        if self.generics.is_empty() {
+            let guid = guid.to_tokens();
+
+            return quote! {
+                ::winrt::Guid::from_values(#guid)
+            };
+        }
+
+        quote! {
+            ::winrt::Guid::from_signature::<Self>()
+        }
+    }
+
+    // TODO: get rid of this and do all calculations at initialization time
     pub fn guid(&self, reader: &TypeReader, generics: bool) -> TypeGuid {
         if self.generics.is_empty() || generics {
             return TypeGuid::from_type_def(reader, self.def);
@@ -53,6 +93,11 @@ impl TypeName {
             GuidConstant::U8(bytes[14]),
             GuidConstant::U8(bytes[15]),
         ])
+    }
+
+    pub fn base_interface_signature(&self, reader: &TypeReader) -> String {
+        let guid = TypeGuid::from_type_def(reader, self.def);
+        format!("{{{:#?}}}", guid)
     }
 
     pub fn interface_signature(&self, reader: &TypeReader) -> String {
@@ -124,6 +169,14 @@ impl TypeName {
 
         result.push(')');
         result
+    }
+
+    pub fn base_delegate_signature(&self, reader: &TypeReader) -> String {
+        if self.generics.is_empty() {
+            format!("delegate({})", self.base_interface_signature(reader))
+        } else {
+            self.base_interface_signature(reader)
+        }
     }
 
     pub fn delegate_signature(&self, reader: &TypeReader) -> String {

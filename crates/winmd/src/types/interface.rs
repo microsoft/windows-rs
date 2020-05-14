@@ -10,6 +10,7 @@ use std::iter::FromIterator;
 pub struct Interface {
     pub name: TypeName,
     pub interfaces: Vec<RequiredInterface>,
+    pub signature: String,
 }
 
 impl Interface {
@@ -23,8 +24,13 @@ impl Interface {
         interfaces.push(default_interface);
 
         RequiredInterface::append_required(reader, &name, &mut interfaces);
+        let signature = name.base_interface_signature(reader);
 
-        Self { name, interfaces }
+        Self {
+            name,
+            interfaces,
+            signature,
+        }
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
@@ -51,7 +57,7 @@ impl Interface {
         let constraints = self.name.constraints();
         let default_interface = &self.interfaces[0];
         debug_assert!(default_interface.kind == InterfaceKind::Default);
-        let guid = default_interface.guid.to_tokens();
+        let guid = self.name.to_guid_tokens(&default_interface.guid);
         let conversions = TokenStream::from_iter(self.interfaces.iter().skip(1).map(|interface| {
             interface.to_conversions_tokens(&self.name.namespace, &name, &constraints)
         }));
@@ -60,6 +66,7 @@ impl Interface {
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
         let iterator = iterator_tokens(&self.name, &self.interfaces);
+        let signature = self.name.to_signature_tokens(&self.signature);
 
         quote! {
             #[repr(transparent)]
@@ -73,7 +80,9 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                const IID: ::winrt::Guid = ::winrt::Guid::from_values(#guid);
+                fn iid() -> ::winrt::Guid {
+                    #guid
+                }
             }
             impl<#constraints> ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
@@ -96,6 +105,9 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 type Abi = ::winrt::RawComPtr<Self>;
+                fn signature() -> String {
+                    #signature
+                }
                 fn abi(&self) -> Self::Abi {
                     <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
                 }
