@@ -53,24 +53,7 @@ impl TypeName {
         }
 
         quote! {
-            let mut data = vec![
-                0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
-                0xad, 0xee,
-            ];
-            data.extend_from_slice(<Self as ::winrt::RuntimeType>::signature().as_bytes());
-            // TODO: this introduces a direct dependency on the consumer of winrt-rs
-            // Replace with inline SHA1 implementation (that's also const)
-            let mut hash = ::sha1::Sha1::new();
-            hash.update(&data);
-            let bytes = hash.digest().bytes();
-
-            let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
-            let second = u16::from_be_bytes([bytes[4], bytes[5]]);
-            let mut third = u16::from_be_bytes([bytes[6], bytes[7]]);
-            third = (third & 0x0fff) | (5 << 12);
-            let fourth = (bytes[8] & 0x3f) | 0x80;
-
-            ::winrt::Guid::from_values(first, second, third, [fourth, bytes[9], bytes[10], bytes[11], bytes[12], bytes[13], bytes[14], bytes[15]])
+            ::winrt::Guid::from_signature::<Self>()
         }
     }
 
