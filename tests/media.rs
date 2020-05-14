@@ -2,10 +2,10 @@ winrt::import!(
     dependencies
         "os"
     modules
-        "windows.ui.xaml"
+        "windows.media.speech_synthesis"
 );
 
 #[test]
-fn xaml() -> winrt::Result<()> {
+fn media() -> winrt::Result<()> {
     Ok(())
 }
