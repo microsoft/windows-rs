@@ -176,20 +176,24 @@ fn parse_dependencies(
                     matches!(colon, Some(TokenTree::Punct(value)) if value.as_char() == ':'),
                     "`nuget` must be followed by a `:`"
                 );
-                let mut path = PathBuf::from(env!("HOME"));
-                path.push(".nuget");
+                let mut path = workspace_root();
 
+                path.push("target");
+                path.push("nuget");
+
+                let mut name = String::new();
                 while {
-                    let name = stream.next();
-                    match name {
-                        Some(TokenTree::Ident(value)) => path.push(value.to_string()),
+                    match stream.next() {
+                        Some(TokenTree::Ident(value)) => name.push_str(&value.to_string()),
                         Some(_) => panic!("Unexpected input: a period seperated list of indentifiers must follow `nuget:`"),
                         None => panic!("Unexpected end of input: a nuget package name must follow `nuget:`"),
                     };
                     matches!(stream.peek(), Some(TokenTree::Punct(value)) if value.as_char() == '.')
                 } {
                     let _period = stream.next();
+                    name.push('.');
                 }
+                path.push(name);
 
                 expand_paths(path, &mut dependencies, true);
             }
@@ -222,8 +226,23 @@ fn expand_paths<P: AsRef<Path>>(dependency: P, result: &mut BTreeSet<PathBuf>, r
     } else if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
         result.insert(path.to_path_buf());
     } else {
-        panic!("Dependency {:?} is not a file or directory", path);
+        panic!("Dependency {} is not a file or directory", path.display());
     }
+}
+
+fn workspace_root() -> PathBuf {
+    let output = std::process::Command::new("cargo")
+        .args(&["metadata"])
+        .output()
+        .expect("Could not run `cargo metadata`")
+        .stdout;
+    let value: serde_json::Map<String, serde_json::Value> =
+        serde_json::from_slice(&output).expect("`cargo metadata` did not return json.");
+    let path = match value.get("workspace_root") {
+        Some(serde_json::Value::String(s)) => s,
+        _ => panic!("`cargo metadata` json was not in expected format"),
+    };
+    PathBuf::from(path)
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion
