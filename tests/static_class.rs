@@ -3,7 +3,7 @@
 
 winrt::import!(
     dependencies
-        "os"
+        os
     modules
         "windows.foundation"
 );

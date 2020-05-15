@@ -1,6 +1,6 @@
 // import!(
 //     dependencies
-//         "os"
+//         os
 //     modules
 //         "windows.application_model.data_transfer"
 // );

@@ -80,7 +80,10 @@ impl WinmdFile {
         let dos = file.bytes.view_as::<ImageDosHeader>(0);
 
         if dos.signature != IMAGE_DOS_SIGNATURE {
-            panic!("Invalid file: signature does not match IMAGE_DOS_SIGNATURE");
+            panic!(
+                "Invalid file: file does not appear to be a winmd file - '{:?}'",
+                filename.as_ref()
+            );
         }
 
         let pe = file.bytes.view_as::<ImageNtHeader>(dos.lfanew as u32);

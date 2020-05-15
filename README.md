@@ -23,7 +23,7 @@ use winrt::*;
 // Now use the `import` macro to import the desired winmd files and modules:
 import!(
     dependencies
-        "os"
+        os
     modules
         "windows.data.xml.dom"
         "windows.foundation"
