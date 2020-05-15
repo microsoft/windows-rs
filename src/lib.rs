@@ -52,7 +52,7 @@ mod hstring;
 mod object;
 mod param;
 mod ref_count;
-mod runtime;
+pub mod runtime;
 mod runtime_name;
 mod runtime_type;
 mod try_into;
