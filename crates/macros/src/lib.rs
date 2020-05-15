@@ -173,7 +173,10 @@ fn parse_dependencies(
                 let _nuget = stream.next();
                 let colon = stream.next();
                 assert!(
-                    matches!(colon, Some(TokenTree::Punct(value)) if value.as_char() == ':'),
+                    match colon {
+                        Some(TokenTree::Punct(value)) if value.as_char() == ':' => true,
+                        _ => false,
+                    },
                     "`nuget` must be followed by a `:`"
                 );
                 let mut path = workspace_root();
@@ -188,7 +191,10 @@ fn parse_dependencies(
                         Some(_) => panic!("Unexpected input: a period seperated list of indentifiers must follow `nuget:`"),
                         None => panic!("Unexpected end of input: a nuget package name must follow `nuget:`"),
                     };
-                    matches!(stream.peek(), Some(TokenTree::Punct(value)) if value.as_char() == '.')
+                    match stream.peek() {
+                        Some(TokenTree::Punct(value)) if value.as_char() == '.' => true,
+                        _ => false,
+                    }
                 } {
                     let _period = stream.next();
                     name.push('.');
