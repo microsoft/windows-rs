@@ -21,7 +21,7 @@ fn async_get() -> winrt::Result<()> {
     let reader = DataReader::create_data_reader(stream)?;
     reader.load_async(3)?.get()?;
 
-    let mut bytes : [u8;3] = [0;3];
+    let mut bytes: [u8; 3] = [0; 3];
     reader.read_bytes(&mut bytes)?;
 
     assert!(bytes[0] == 1);

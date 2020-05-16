@@ -2,6 +2,23 @@ use crate::types::*;
 use proc_macro2::TokenStream;
 use quote::quote;
 
+pub fn async_get_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
+    let kind = async_kind(name);
+    if kind != AsyncKind::None {
+        return to_async_get_tokens(kind, name, &name.namespace);
+    }
+
+    for interface in interfaces {
+        let kind = async_kind(&interface.name);
+
+        if kind != AsyncKind::None {
+            return to_async_get_tokens(kind, &interface.name, &name.namespace);
+        }
+    }
+
+    TokenStream::new()
+}
+
 #[derive(PartialEq)]
 enum AsyncKind {
     None,
@@ -25,30 +42,14 @@ fn async_kind(name: &TypeName) -> AsyncKind {
     }
 }
 
-pub fn async_get_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
-    let kind = async_kind(name);
-    if kind != AsyncKind::None {
-        return to_async_get_tokens(kind, name, &name.namespace);
-    }
-
-    for interface in interfaces {
-        let kind = async_kind(&interface.name);
-
-        if kind != AsyncKind::None {
-            return to_async_get_tokens(kind, &interface.name, &name.namespace);
-        }
-    }
-
-    TokenStream::new()
-}
-
 fn to_async_get_tokens(kind: AsyncKind, name: &TypeName, calling_namespace: &str) -> TokenStream {
     let namespace = to_namespace_tokens("Windows.Foundation", calling_namespace);
 
     let return_type = match kind {
-        AsyncKind::Operation |
-        AsyncKind::OperationWithProgress => name.generics[0].to_tokens(calling_namespace),
-        _ => quote! { () }
+        AsyncKind::Operation | AsyncKind::OperationWithProgress => {
+            name.generics[0].to_tokens(calling_namespace)
+        }
+        _ => quote! { () },
     };
 
     let handler = match kind {
