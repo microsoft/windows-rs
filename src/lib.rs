@@ -7,7 +7,7 @@
 //!
 //! import!(
 //!     dependencies
-//!         "os"
+//!         os
 //!     modules
 //!         "windows.foundation"
 //!         "windows.ui"
