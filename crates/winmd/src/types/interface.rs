@@ -3,7 +3,7 @@ use crate::tables::*;
 use crate::types::*;
 use crate::*;
 use proc_macro2::TokenStream;
-use quote::quote;
+use quote::*;
 use std::iter::FromIterator;
 
 #[derive(Debug)]
@@ -67,6 +67,7 @@ impl Interface {
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
+        let async_get = async_get_tokens(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]
@@ -77,6 +78,7 @@ impl Interface {
             }
             impl<#constraints> #name {
                 #methods
+                #async_get
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
