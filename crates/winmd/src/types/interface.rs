@@ -49,46 +49,6 @@ impl Interface {
         dependencies
     }
 
-    fn to_async_get_tokens(&self) -> TokenStream {
-        if self.name.namespace != "Windows.Foundation" {
-            return TokenStream::new();
-        }
-
-        let (return_type, handler) = match self.name.name.as_ref() {
-            "IAsyncAction" => (quote! { () }, quote! { AsyncActionCompletedHandler }),
-            "IAsyncActionWithProgress`1" => (
-                quote! { () },
-                quote! { AsyncActionWithProgressCompletedHandler::<TProgress> },
-            ),
-            "IAsyncOperation`1" => (
-                quote! { TResult },
-                quote! { AsyncOperationCompletedHandler::<TResult> },
-            ),
-            "IAsyncOperationWithProgress`2" => (
-                quote! { TResult },
-                quote! { AsyncOperationWithProgressCompletedHandler::<TResult, TProgress> },
-            ),
-            _ => return TokenStream::new(),
-        };
-
-        quote! {
-            pub fn get(&self) -> ::winrt::Result<#return_type> {
-                if self.status()? == AsyncStatus::Started {
-                    unsafe {
-                        let event = ::winrt::runtime::CreateEventW(::std::ptr::null_mut(), 1, 0, ::std::ptr::null_mut());
-                        self.set_completed(#handler::new(|_sender, _args| {
-                            ::winrt::runtime::SetEvent(event);
-                            Ok(())
-                        }))?;
-                        ::winrt::runtime::WaitForSingleObject(event, 0xFFFFFFFF);
-                        ::winrt::runtime::CloseHandle(event);
-                    }
-                }
-                self.get_results()
-            }
-        }
-    }
-
     pub fn to_tokens(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens(&self.name.namespace);
         let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
@@ -107,7 +67,7 @@ impl Interface {
         let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
-        let async_get = self.to_async_get_tokens();
+        let async_get = async_get_tokens(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]

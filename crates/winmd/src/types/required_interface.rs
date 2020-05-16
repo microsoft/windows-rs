@@ -138,6 +138,16 @@ impl RequiredInterface {
                             ::std::convert::From::from(::std::clone::Clone::clone(value))
                         }
                     }
+                    impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {
+                        fn into(self) -> ::winrt::Param<'a, #into> {
+                            ::winrt::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        }
+                    }
+                    impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, #into>> for &'a #from {
+                        fn into(self) -> ::winrt::Param<'a, #into> {
+                            ::winrt::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                        }
+                    }
                 }
             }
             InterfaceKind::NonDefault => {
@@ -151,6 +161,16 @@ impl RequiredInterface {
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> #into {
                             <#from as ::winrt::ComInterface>::query(value)
+                        }
+                    }
+                    impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {
+                        fn into(self) -> ::winrt::Param<'a, #into> {
+                            ::winrt::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        }
+                    }
+                    impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, #into>> for &'a #from {
+                        fn into(self) -> ::winrt::Param<'a, #into> {
+                            ::winrt::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                         }
                     }
                 }

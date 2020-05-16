@@ -123,6 +123,8 @@ impl Class {
 
             let default_name = self.interfaces[0].name.to_tokens(&self.name.namespace);
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
+            let async_get = async_get_tokens(&self.name, &self.interfaces);
+
             quote! {
                 #[repr(transparent)]
                 #[derive(Default, Clone, PartialEq)]
@@ -130,6 +132,7 @@ impl Class {
                 impl #name {
                     #new
                     #methods
+                    #async_get
                 }
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
