@@ -1,0 +1,4 @@
+LIBRARY COMBASE
+EXPORTS
+CoIncrementMTAUsage
+RoGetActivationFactory

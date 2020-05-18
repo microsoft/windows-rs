@@ -1,0 +1,9 @@
+LIBRARY KERNEL32
+EXPORTS
+GetProcessHeap
+HeapAlloc
+HeapFree
+CreateEventW
+SetEvent
+WaitForSingleObject
+CloseHandle
