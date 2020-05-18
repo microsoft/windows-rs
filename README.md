@@ -47,3 +47,7 @@ fn main() -> Result<()> {
 ```
 
 For a more complete example, take a look at Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs).
+
+## Cross Platform Support
+
+While support for platforms other than Windows (i.e., *-windows-msvc targets) is possible and on the long term roadmap, support outside of Windows is not an immediate goal. If you're interested in support outside of Windows, please [let us know](https://github.com/microsoft/winrt-rs/issues/143).
