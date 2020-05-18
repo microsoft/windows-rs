@@ -71,7 +71,6 @@ impl Interface {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Default, PartialEq)]
             pub struct #definition where #constraints {
                 ptr: ::winrt::ComPtr<#name>,
                 #phantoms
@@ -124,6 +123,19 @@ impl Interface {
                         "{:?}",
                         <Self as ::winrt::RuntimeType>::abi(self)
                     )
+                }
+            }
+            impl<#constraints> ::std::default::Default for #name {
+                fn default() -> Self {
+                    Self {
+                        ptr: ::winrt::ComPtr::default(),
+                        #phantoms
+                    }
+                 }
+            }
+            impl<#constraints> ::std::cmp::PartialEq<Self> for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.ptr == other.ptr
                 }
             }
             #conversions
