@@ -17,7 +17,7 @@ fn main() {
     let lib = cc::windows_registry::find_tool(&target, "lib.exe").expect("lib.exe not found");
 
     for path in std::fs::read_dir("def")
-        .unwrap()
+        .expect("`def` folder not found")
         .map(|path| path.unwrap().path())
     {
         let mut cmd = lib.to_command();
