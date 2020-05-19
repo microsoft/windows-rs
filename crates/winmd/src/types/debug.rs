@@ -6,6 +6,7 @@ use quote::quote;
 
 pub fn debug_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let clean_name = &name.name;
+
     let default_impl = quote! { ::std::format!("{}({:?})", #clean_name, <Self as ::winrt::RuntimeType>::abi(self)) };
 
     let implements_istringable = interfaces.iter().any(|interface| {
@@ -45,6 +46,7 @@ pub fn debug_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> Tok
 
         }
     };
+
     to_tokens(name, &implementation)
 }
 
@@ -59,6 +61,7 @@ pub fn default_debug_tokens(name: &TypeName) -> TokenStream {
 fn to_tokens(name: &TypeName, implementation: &TokenStream) -> TokenStream {
     let constraints = &*name.constraints();
     let name = &*name.to_tokens(&name.namespace);
+
     quote! {
         impl<#constraints> ::std::fmt::Debug for #name {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
