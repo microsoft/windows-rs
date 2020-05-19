@@ -1,5 +1,6 @@
 use super::object::to_object_tokens;
 use crate::tables::*;
+use crate::types::debug;
 use crate::types::*;
 use crate::TypeReader;
 use proc_macro2::TokenStream;
@@ -124,6 +125,9 @@ impl Class {
             let default_name = self.interfaces[0].name.to_tokens(&self.name.namespace);
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             let async_get = async_get_tokens(&self.name, &self.interfaces);
+            let clean_name = &self.name.name;
+            let debug =
+                debug::debug_tokens(&name, &quote! {}, &self.interfaces, quote! { #clean_name });
 
             quote! {
                 #[repr(transparent)]
@@ -153,15 +157,7 @@ impl Class {
                         self.ptr.set_abi()
                     }
                 }
-                impl ::std::fmt::Debug for #name {
-                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                        write!(
-                            f,
-                            "{:?}",
-                            <Self as ::winrt::RuntimeType>::abi(self)
-                        )
-                    }
-                }
+                #debug
                 #conversions
                 #object
                 #bases
