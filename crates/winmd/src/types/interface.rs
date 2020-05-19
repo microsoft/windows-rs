@@ -1,5 +1,6 @@
 use super::object::to_object_tokens;
 use crate::tables::*;
+use crate::types::debug;
 use crate::types::*;
 use crate::*;
 use proc_macro2::TokenStream;
@@ -68,6 +69,7 @@ impl Interface {
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
         let async_get = async_get_tokens(&self.name, &self.interfaces);
+        let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]
@@ -116,15 +118,7 @@ impl Interface {
                     self.ptr.set_abi()
                 }
             }
-            impl<#constraints> ::std::fmt::Debug for #name {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    write!(
-                        f,
-                        "{:?}",
-                        <Self as ::winrt::RuntimeType>::abi(self)
-                    )
-                }
-            }
+            #debug
             impl<#constraints> ::std::default::Default for #name {
                 fn default() -> Self {
                     Self {

@@ -1,5 +1,6 @@
 mod async_get;
 mod class;
+mod debug;
 mod delegate;
 mod r#enum;
 mod interface;

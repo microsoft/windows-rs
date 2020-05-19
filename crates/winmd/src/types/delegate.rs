@@ -1,4 +1,5 @@
 use crate::tables::*;
+use crate::types::debug;
 use crate::types::*;
 use crate::TypeReader;
 
@@ -57,6 +58,7 @@ impl Delegate {
             .params
             .iter()
             .map(|param| param.to_invoke_arg_tokens());
+        let debug = debug::debug_tokens(&self.name, &Vec::new());
 
         quote! {
             #[repr(transparent)]
@@ -104,15 +106,7 @@ impl Delegate {
                     self.ptr.set_abi()
                 }
             }
-            impl<#constraints> ::std::fmt::Debug for #name {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    write!(
-                        f,
-                        "{:?}",
-                        <Self as ::winrt::RuntimeType>::abi(self)
-                    )
-                }
-            }
+            #debug
             impl<#constraints> ::std::default::Default for #name {
                 fn default() -> Self {
                     Self {
