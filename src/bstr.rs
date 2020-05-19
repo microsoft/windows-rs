@@ -1,5 +1,5 @@
-use core::ptr;
 use core::fmt;
+use core::ptr;
 
 type RawBStr = *mut u16;
 
@@ -13,15 +13,13 @@ extern "system" {
 /// This handle should be used in FFI to represent a COM BSTR.
 #[repr(transparent)]
 pub struct BStr {
-    ptr: RawBStr
+    ptr: RawBStr,
 }
 
 impl BStr {
     // Returns the length of the string.
     pub fn len(&self) -> usize {
-        unsafe {
-            SysStringLen(self.ptr) as usize
-        }
+        unsafe { SysStringLen(self.ptr) as usize }
     }
 
     /// Check whether the BSTR is the empty string or not
@@ -35,16 +33,14 @@ impl BStr {
             return &[];
         }
         let len = self.len();
-        unsafe {
-            std::slice::from_raw_parts(self.ptr, len)
-        }
+        unsafe { std::slice::from_raw_parts(self.ptr, len) }
     }
 }
 
 impl Default for BStr {
     fn default() -> Self {
         BStr {
-            ptr: ptr::null_mut()
+            ptr: ptr::null_mut(),
         }
     }
 }

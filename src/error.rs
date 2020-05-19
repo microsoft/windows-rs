@@ -1,6 +1,6 @@
 #![allow(overflowing_literals)]
-use core::fmt;
 use crate::*;
+use core::fmt;
 
 /// An alias for `std::result::Result<T, winrt::Error>`
 #[must_use]
@@ -60,10 +60,16 @@ impl ErrorCode {
             let mut restricted_error_info = IRestrictedErrorInfo::default();
             unsafe {
                 if GetRestrictedErrorInfo(&mut restricted_error_info).is_ok() {
-                    return Err(Error { code: self, info: Some(restricted_error_info) })
+                    return Err(Error {
+                        code: self,
+                        info: Some(restricted_error_info),
+                    });
                 }
             }
-            Err(Error { code: self, info: None })
+            Err(Error {
+                code: self,
+                info: None,
+            })
         }
     }
 
@@ -82,11 +88,13 @@ impl ErrorCode {
 #[repr(transparent)]
 #[derive(Default, Clone)]
 struct IRestrictedErrorInfo {
-    ptr: ComPtr<IRestrictedErrorInfo>
+    ptr: ComPtr<IRestrictedErrorInfo>,
 }
 
 impl IRestrictedErrorInfo {
-    pub fn get_error_details(&self) -> std::result::Result<(BStr, ErrorCode, BStr, BStr), ErrorCode> {
+    pub fn get_error_details(
+        &self,
+    ) -> std::result::Result<(BStr, ErrorCode, BStr, BStr), ErrorCode> {
         if self.ptr.is_null() {
             panic!("The `this` pointer was null when calling method");
         }
@@ -109,7 +117,7 @@ impl IRestrictedErrorInfo {
         // Avoid using `ok` or `and_then`, as those will trigger a roundtrip
         // into `get_error_details()` again, causing an infinite recursion!
         if err.is_err() {
-            return Err(err)
+            return Err(err);
         }
 
         Ok((desc, error_code, restricted_description, capability_sid))
@@ -123,7 +131,8 @@ unsafe impl ComInterface for IRestrictedErrorInfo {
             0x82ba7092,
             0x4c88,
             0x427d,
-            [0xa7, 0xbc, 0x16, 0xdd, 0x93, 0xfe, 0xb6, 0x7e])
+            [0xa7, 0xbc, 0x16, 0xdd, 0x93, 0xfe, 0xb6, 0x7e],
+        )
     }
 }
 
@@ -131,12 +140,11 @@ impl fmt::Debug for IRestrictedErrorInfo {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let mut dbg = f.debug_struct("IRestrictedErrorInfo");
         if let Ok((desc, error_code, restricted_desc, capability_sid)) = self.get_error_details() {
-                dbg
-                    .field("description", &desc)
-                    .field("error_code", &error_code)
-                    .field("restricted_description", &restricted_desc)
-                    .field("capability_sid", &capability_sid)
-                    .finish()
+            dbg.field("description", &desc)
+                .field("error_code", &error_code)
+                .field("restricted_description", &restricted_desc)
+                .field("capability_sid", &capability_sid)
+                .finish()
         } else {
             dbg.finish()
         }
@@ -146,7 +154,13 @@ impl fmt::Debug for IRestrictedErrorInfo {
 #[repr(C)]
 struct abi_IRestrictedErrorInfo {
     __base: [usize; 3],
-    get_error_details: extern "system" fn(RawComPtr<IRestrictedErrorInfo>, *mut BStr, *mut ErrorCode, *mut BStr, *mut BStr) -> ErrorCode,
+    get_error_details: extern "system" fn(
+        RawComPtr<IRestrictedErrorInfo>,
+        *mut BStr,
+        *mut ErrorCode,
+        *mut BStr,
+        *mut BStr,
+    ) -> ErrorCode,
     //get_reference: extern "system" fn(RawComPtr<IRestrictedErrorInfo>, ) -> ErrorCode,
 }
 
