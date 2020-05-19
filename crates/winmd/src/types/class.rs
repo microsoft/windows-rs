@@ -43,12 +43,7 @@ impl Class {
             let name = name.to_string();
             let generics = Vec::new();
 
-            let base = TypeName {
-                namespace,
-                name,
-                generics,
-                def: base,
-            };
+            let base = TypeName::new(namespace, name, generics, base);
 
             RequiredInterface::append_required(reader, &base, &mut interfaces);
             bases.push(base);

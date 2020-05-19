@@ -7,17 +7,56 @@ use crate::*;
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
+use std::cell::{Ref, RefCell};
 use std::iter::FromIterator;
 
-#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Debug, Clone)]
 pub struct TypeName {
     pub namespace: String,
     pub name: String,
     pub generics: Vec<TypeKind>,
     pub def: TypeDef,
+    constraints: RefCell<Option<TokenStream>>,
+}
+
+impl PartialEq for TypeName {
+    fn eq(&self, other: &Self) -> bool {
+        self.namespace == other.namespace
+            && self.name == other.name
+            && self.generics == other.generics
+            && self.def == other.def
+    }
+}
+
+impl Eq for TypeName {}
+
+impl PartialOrd for TypeName {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for TypeName {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        (&self.namespace, &self.name, &self.generics, &self.def).cmp(&(
+            &other.namespace,
+            &other.name,
+            &other.generics,
+            &other.def,
+        ))
+    }
 }
 
 impl TypeName {
+    pub fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef) -> Self {
+        Self {
+            namespace,
+            name,
+            generics,
+            def,
+            constraints: RefCell::new(None),
+        }
+    }
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
         if self.generics.is_empty() {
             return quote! { #signature.to_owned() };
@@ -215,12 +254,7 @@ impl TypeName {
             generics.push(TypeKind::Generic(name));
         }
 
-        Self {
-            namespace,
-            name,
-            generics,
-            def,
-        }
+        Self::new(namespace, name, generics, def)
     }
 
     pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
@@ -236,12 +270,7 @@ impl TypeName {
         let name = name.to_string();
         let generics = args;
 
-        Self {
-            namespace,
-            name,
-            generics,
-            def,
-        }
+        Self::new(namespace, name, generics, def)
     }
 
     pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
@@ -343,13 +372,19 @@ impl TypeName {
         TokenStream::from_iter(phantoms)
     }
 
-    pub fn constraints(&self) -> TokenStream {
+    pub fn constraints<'a>(&'a self) -> Ref<'a, TokenStream> {
+        let cache = self.constraints.borrow();
+        if let Some(_) = &*cache {
+            return Ref::map(cache, |t| t.as_ref().unwrap());
+        }
+        drop(cache);
         let generics = self.generics.iter().map(|generic| {
             let generic = generic.to_tokens("");
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         });
 
-        TokenStream::from_iter(generics)
+        *self.constraints.borrow_mut() = Some(TokenStream::from_iter(generics));
+        self.constraints()
     }
 }
 
@@ -365,16 +400,16 @@ mod tests {
 
     #[test]
     fn runtime_name() {
-        let mut type_name = TypeName {
-            name: String::from("MyType"),
-            namespace: String::from("Outer.Inner"),
-            generics: vec![],
-            def: TypeDef(Row {
+        let mut type_name = TypeName::new(
+            String::from("MyType"),
+            String::from("Outer.Inner"),
+            vec![],
+            TypeDef(Row {
                 index: 0,
                 table_index: TableIndex::InterfaceImpl,
                 file_index: 0,
             }),
-        };
+        );
 
         assert_eq!(type_name.runtime_name(), String::from("Outer.Inner.MyType"));
 
