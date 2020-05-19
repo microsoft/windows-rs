@@ -1,13 +1,14 @@
 use crate::types::RequiredInterface;
-use crate::types::TypeName;
+
 use proc_macro2::TokenStream;
 use quote::quote;
 
-pub fn debug_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
-    let constraints = name.constraints();
-    let clean_name = name.clean_name();
-    let name = name.to_tokens(&name.namespace);
-
+pub fn debug_tokens(
+    name: &TokenStream,
+    constraints: &TokenStream,
+    interfaces: &Vec<RequiredInterface>,
+    clean_name: TokenStream,
+) -> TokenStream {
     let default_impl = quote! { ::std::format!("{}({:?})", #clean_name, <Self as ::winrt::RuntimeType>::abi(self)) };
 
     let implements_istringable = interfaces.iter().any(|interface| {
@@ -47,6 +48,25 @@ pub fn debug_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> Tok
 
         }
     };
+    to_tokens(name, constraints, &implementation)
+}
+
+pub fn default_debug_tokens(
+    name: &TokenStream,
+    contraints: &TokenStream,
+    clean_name: &TokenStream,
+) -> TokenStream {
+    let implementation =
+        quote! { "{}({:?})", #clean_name, <Self as ::winrt::RuntimeType>::abi(self) };
+
+    to_tokens(name, contraints, &implementation)
+}
+
+fn to_tokens(
+    name: &TokenStream,
+    constraints: &TokenStream,
+    implementation: &TokenStream,
+) -> TokenStream {
     quote! {
         impl<#constraints> ::std::fmt::Debug for #name {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {

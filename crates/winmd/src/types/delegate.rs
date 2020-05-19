@@ -58,7 +58,8 @@ impl Delegate {
             .params
             .iter()
             .map(|param| param.to_invoke_arg_tokens());
-        let debug = debug::debug_tokens(&self.name, &Vec::new());
+        let clean_name = &self.name.name;
+        let debug = debug::default_debug_tokens(&name, &constraints, &quote! { #clean_name });
 
         quote! {
             #[repr(transparent)]

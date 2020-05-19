@@ -351,13 +351,6 @@ impl TypeName {
 
         TokenStream::from_iter(generics)
     }
-
-    pub fn clean_name(&self) -> &str {
-        if self.name.starts_with("#r") {
-            return &self.name[2..];
-        }
-        &self.name
-    }
 }
 
 fn format_abi_ident(name: &str) -> proc_macro2::Ident {

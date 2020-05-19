@@ -9,7 +9,7 @@ winrt::import!(
 use windows::data::xml::dom::XmlDocument;
 use windows::foundation::Uri;
 
-// Simple test to validate that default constructors are projected as static `new` methods.
+// Simple test to validate debugging works
 #[test]
 fn debugging() -> winrt::Result<()> {
     let doc = XmlDocument::new()?;

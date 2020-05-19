@@ -125,7 +125,9 @@ impl Class {
             let default_name = self.interfaces[0].name.to_tokens(&self.name.namespace);
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             let async_get = async_get_tokens(&self.name, &self.interfaces);
-            let debug = debug::debug_tokens(&self.name, &self.interfaces);
+            let clean_name = &self.name.name;
+            let debug =
+                debug::debug_tokens(&name, &quote! {}, &self.interfaces, quote! { #clean_name });
 
             quote! {
                 #[repr(transparent)]

@@ -69,7 +69,13 @@ impl Interface {
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
         let async_get = async_get_tokens(&self.name, &self.interfaces);
-        let debug = debug::debug_tokens(&self.name, &self.interfaces);
+        let clean_name = &self.name.name;
+        let debug = debug::debug_tokens(
+            &name,
+            &constraints,
+            &self.interfaces,
+            quote! { #clean_name },
+        );
 
         quote! {
             #[repr(transparent)]
