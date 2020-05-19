@@ -8,6 +8,7 @@ use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
 use std::cell::{Ref, RefCell};
+use std::collections::HashMap;
 use std::iter::FromIterator;
 
 #[derive(Debug, Clone)]
@@ -17,6 +18,7 @@ pub struct TypeName {
     pub generics: Vec<TypeKind>,
     pub def: TypeDef,
     constraints: RefCell<Option<TokenStream>>,
+    tokens: RefCell<HashMap<String, TokenStream>>,
 }
 
 impl PartialEq for TypeName {
@@ -55,6 +57,7 @@ impl TypeName {
             generics,
             def,
             constraints: RefCell::new(None),
+            tokens: RefCell::new(HashMap::new()),
         }
     }
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
@@ -307,17 +310,26 @@ impl TypeName {
             .collect()
     }
 
-    pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_tokens<'a>(&'a self, calling_namespace: &str) -> Ref<'a, TokenStream> {
+        let cache = self.tokens.borrow();
+        if let Some(_) = cache.get(calling_namespace) {
+            return Ref::map(cache, |s| s.get(calling_namespace).unwrap());
+        }
+        drop(cache);
         let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
 
-        if self.generics.is_empty() {
+        let result = if self.generics.is_empty() {
             let name = format_ident(&self.name);
             quote! { #namespace#name }
         } else {
             let name = format_ident(&self.name[..self.name.len() - 2]);
             let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
             quote! { #namespace#name::<#(#generics),*> }
-        }
+        };
+        let mut cache = self.tokens.borrow_mut();
+        cache.insert(calling_namespace.to_owned(), result);
+        drop(cache);
+        self.to_tokens(calling_namespace)
     }
 
     pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {

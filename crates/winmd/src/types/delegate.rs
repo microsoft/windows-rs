@@ -41,7 +41,7 @@ impl Delegate {
         let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
         let fn_constraint = self.to_fn_constraint_tokens();
         let impl_definition = self.to_impl_definition_tokens(&fn_constraint);
-        let name = self.name.to_tokens(&self.name.namespace);
+        let name = &*self.name.to_tokens(&self.name.namespace);
         let abi_name = self.name.to_abi_tokens(&self.name.namespace);
         let impl_name = self.to_impl_name_tokens();
         let phantoms = self.name.phantoms();
@@ -58,8 +58,7 @@ impl Delegate {
             .params
             .iter()
             .map(|param| param.to_invoke_arg_tokens());
-        let clean_name = &self.name.name;
-        let debug = debug::default_debug_tokens(&name, &constraints, &quote! { #clean_name });
+        let debug = debug::default_debug_tokens(&self.name);
 
         quote! {
             #[repr(transparent)]

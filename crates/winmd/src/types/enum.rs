@@ -47,7 +47,7 @@ impl Enum {
     }
 
     pub fn to_tokens(&self) -> TokenStream {
-        let name = self.name.to_tokens(&self.name.namespace);
+        let name = &*self.name.to_tokens(&self.name.namespace);
         let signature = &self.signature;
 
         let repr = match self.fields[0].1 {
