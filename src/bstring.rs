@@ -12,6 +12,16 @@ impl BString {
             ptr: std::ptr::null_mut(),
         }
     }
+
+    pub fn set_abi(&mut self) -> *mut RawPtr {
+        if !self.ptr.is_null() {
+            unsafe {
+                SysFreeString(self.ptr);
+            }
+            self.ptr = std::ptr::null_mut();
+        }
+        &mut self.ptr
+    }
 }
 
 impl Drop for BString {
@@ -22,8 +32,8 @@ impl Drop for BString {
     }
 }
 
-impl<'a> From<&'a BString> for String {
-    fn from(from: &BString) -> Self {
+impl From<BString> for String {
+    fn from(from: BString) -> Self {
         if from.ptr.is_null() {
             return String::new();
         }
@@ -35,11 +45,5 @@ impl<'a> From<&'a BString> for String {
             ))
             .unwrap()
         }
-    }
-}
-
-impl From<BString> for String {
-    fn from(bstring: BString) -> Self {
-        bstring.into()
     }
 }

@@ -1,4 +1,5 @@
 use crate::*;
+use crate::bstring::*;
 
 #[repr(transparent)]
 #[derive(Default, Clone)]
@@ -6,7 +7,16 @@ pub(crate) struct IErrorInfo {
     ptr: ComPtr<IErrorInfo>,
 }
 
-impl IErrorInfo {}
+impl IErrorInfo {
+    pub fn get_description(&self) -> Result<String> {
+        let mut description = BString::new();
+
+        unsafe {
+            ((*(*(self.ptr.as_raw()))).get_description)(self.ptr.as_raw(), description.set_abi())
+                .and_then(|| description.into())
+        }
+    }
+}
 
 unsafe impl ComInterface for IErrorInfo {
     type VTable = abi_IErrorInfo;
