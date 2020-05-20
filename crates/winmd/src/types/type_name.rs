@@ -60,6 +60,60 @@ impl TypeName {
             tokens: RefCell::new(HashMap::new()),
         }
     }
+
+    pub fn from_type_def_or_ref(
+        reader: &TypeReader,
+        code: TypeDefOrRef,
+        generics: &Vec<TypeKind>,
+    ) -> Self {
+        match code {
+            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
+            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
+            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
+        }
+    }
+
+    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> TypeName {
+        let (namespace, name) = type_ref.name(reader);
+        Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
+    }
+
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+        let (namespace, name) = def.name(reader);
+        let namespace = namespace.to_string();
+        let name = name.to_string();
+        let mut generics = Vec::new();
+
+        for generic in def.generics(reader) {
+            let name = generic.name(reader).to_string();
+            generics.push(TypeKind::Generic(name));
+        }
+
+        Self::new(namespace, name, generics, def)
+    }
+
+    pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
+        blob.read_unsigned();
+        let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
+        let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
+
+        for _ in 0..args.capacity() {
+            args.push(TypeKind::from_blob(blob, generics));
+        }
+        let (namespace, name) = def.name(blob.reader);
+        let namespace = namespace.to_string();
+        let name = name.to_string();
+        let generics = args;
+
+        Self::new(namespace, name, generics, def)
+    }
+
+    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
+        let mut blob = spec.sig(reader);
+        blob.read_unsigned();
+        TypeName::from_type_spec_blob(&mut blob, generics)
+    }
+
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
         if self.generics.is_empty() {
             return quote! { #signature.to_owned() };
@@ -229,59 +283,6 @@ impl TypeName {
         }
     }
 
-    pub fn from_type_def_or_ref(
-        reader: &TypeReader,
-        code: TypeDefOrRef,
-        generics: &Vec<TypeKind>,
-    ) -> Self {
-        match code {
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
-            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
-            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
-        }
-    }
-
-    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> TypeName {
-        let (namespace, name) = type_ref.name(reader);
-        Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
-    }
-
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let (namespace, name) = def.name(reader);
-        let namespace = namespace.to_string();
-        let name = name.to_string();
-        let mut generics = Vec::new();
-
-        for generic in def.generics(reader) {
-            let name = generic.name(reader).to_string();
-            generics.push(TypeKind::Generic(name));
-        }
-
-        Self::new(namespace, name, generics, def)
-    }
-
-    pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
-        blob.read_unsigned();
-        let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
-        let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
-
-        for _ in 0..args.capacity() {
-            args.push(TypeKind::from_blob(blob, generics));
-        }
-        let (namespace, name) = def.name(blob.reader);
-        let namespace = namespace.to_string();
-        let name = name.to_string();
-        let generics = args;
-
-        Self::new(namespace, name, generics, def)
-    }
-
-    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
-        let mut blob = spec.sig(reader);
-        blob.read_unsigned();
-        TypeName::from_type_spec_blob(&mut blob, generics)
-    }
-
     pub fn runtime_name(&self) -> String {
         let mut result = format!("{}.{}", self.namespace, self.name);
         let mut generics = self.generics.iter();
@@ -413,8 +414,8 @@ mod tests {
     #[test]
     fn runtime_name() {
         let mut type_name = TypeName::new(
-            String::from("MyType"),
             String::from("Outer.Inner"),
+            String::from("MyType"),
             vec![],
             TypeDef(Row {
                 index: 0,
