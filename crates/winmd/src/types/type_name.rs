@@ -303,18 +303,22 @@ impl TypeName {
     ///
     /// For example: `Vector<OtherType>`
     pub fn to_tokens<'a>(&'a self, calling_namespace: &str) -> Ref<'a, TokenStream> {
-        let cache = self.tokens.borrow();
+        {
+            let cache = self.tokens.borrow();
 
-        if let Some(_) = cache.get(calling_namespace) {
-            return Ref::map(cache, |s| s.get(calling_namespace).unwrap());
+            if let Some(_) = cache.get(calling_namespace) {
+                return Ref::map(cache, |s| s.get(calling_namespace).unwrap());
+            }
         }
-        drop(cache);
+
         let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
 
         let result = self.generate_tokens(Some(&namespace), calling_namespace, format_ident);
-        let mut cache = self.tokens.borrow_mut();
-        cache.insert(calling_namespace.to_owned(), result);
-        drop(cache);
+
+        self.tokens
+            .borrow_mut()
+            .insert(calling_namespace.to_owned(), result);
+
         self.to_tokens(calling_namespace)
     }
 
