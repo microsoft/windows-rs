@@ -50,6 +50,7 @@ impl Ord for TypeName {
 }
 
 impl TypeName {
+    /// Construct a new `TypeName` from the namespace, unqualified name, generics and `TypeDef`
     pub fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef) -> Self {
         let constraints = TokenStream::from_iter(generics.iter().map(|generic| {
             let generic = generic.to_tokens("");
@@ -135,7 +136,7 @@ impl TypeName {
                 let second = self.generics[1].to_tokens("");
                 quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::signature(), <#second as ::winrt::RuntimeType>::signature()) }
             }
-            _ => panic!(),
+            _ => panic!("Only types with two or fewer generics are supported"),
         };
 
         quote! {
