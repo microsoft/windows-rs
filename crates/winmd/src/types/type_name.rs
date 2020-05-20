@@ -299,6 +299,9 @@ impl TypeName {
             .collect()
     }
 
+    /// Crate tokens
+    ///
+    /// For example: `Vector<OtherType>`
     pub fn to_tokens<'a>(&'a self, calling_namespace: &str) -> Ref<'a, TokenStream> {
         let cache = self.tokens.borrow();
 
@@ -308,55 +311,62 @@ impl TypeName {
         drop(cache);
         let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
 
-        let result = if self.generics.is_empty() {
-            let name = format_ident(&self.name);
-            quote! { #namespace#name }
-        } else {
-            let name = format_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #namespace#name::<#(#generics),*> }
-        };
+        let result = self.generate_tokens(Some(&namespace), calling_namespace, format_ident);
         let mut cache = self.tokens.borrow_mut();
         cache.insert(calling_namespace.to_owned(), result);
         drop(cache);
         self.to_tokens(calling_namespace)
     }
 
+    /// Crate abi tokens
+    ///
+    /// For example: `abi_Vector<OtherType>`
     pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
         let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
+        self.generate_tokens(Some(&namespace), calling_namespace, format_abi_ident)
+    }
 
+    /// Crate definition tokens
+    ///
+    /// For example: `Vector::<OtherType>`
+    ///
+    /// Note: ideally to_definition_tokens and to_abi_definiton_tokens would not be required
+    /// and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
+    /// weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
+    pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
+        self.generate_tokens(None, calling_namespace, format_ident)
+    }
+
+    /// Crate abi definition tokens
+    ///
+    /// For example: `abi_Vector::<OtherType>`
+    pub fn to_abi_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
+        self.generate_tokens(None, calling_namespace, format_abi_ident)
+    }
+
+    /// Generate the definition tokens for a type
+    ///
+    /// This supports both regular and abi versions of the type and can be used both for
+    /// definition tokens and regular tokens. Definition tokens are those that require a
+    /// colon spearater between the name and the generics (e.g., `Vector::<OtherType>`) vs.  
+    /// `Vector<OtherType>`
+    fn generate_tokens<F>(
+        &self,
+        namespace: Option<&TokenStream>,
+        calling_namespace: &str,
+        format: F,
+    ) -> TokenStream
+    where
+        F: FnOnce(&str) -> proc_macro2::Ident,
+    {
         if self.generics.is_empty() {
-            let name = format_abi_ident(&self.name);
+            let name = format(&self.name);
             quote! { #namespace#name }
         } else {
-            let name = format_abi_ident(&self.name[..self.name.len() - 2]);
+            let colon_separated = namespace.map(|_| quote! { :: });
+            let name = format(&self.name[..self.name.len() - 2]);
             let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #namespace#name::<#(#generics),*> }
-        }
-    }
-
-    // Note: ideally to_definition_tokens and to_abi_definiton_tokens would not be required
-    // and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
-    // weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
-    pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        if self.generics.is_empty() {
-            let name = format_ident(&self.name);
-            quote! { #name }
-        } else {
-            let name = format_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #name<#(#generics),*> }
-        }
-    }
-
-    pub fn to_abi_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        if self.generics.is_empty() {
-            let name = format_abi_ident(&self.name);
-            quote! { #name }
-        } else {
-            let name = format_abi_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #name<#(#generics),*> }
+            quote! { #namespace#name#colon_separated<#(#generics),*> }
         }
     }
 
