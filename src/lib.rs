@@ -42,6 +42,7 @@ doc_comment::doctest!("../README.md");
 mod activation_factory;
 mod agile_object;
 mod array;
+mod bstring;
 mod com_interface;
 mod com_ptr;
 mod error;

@@ -10,15 +10,33 @@ extern "system" {
     pub fn SetEvent(handle: RawPtr) -> i32;
     pub fn WaitForSingleObject(handle: RawPtr, milliseconds: u32) -> u32;
     pub fn CloseHandle(handle: RawPtr) -> i32;
+
+    pub fn FormatMessageW(
+        flags: u32,
+        source: RawPtr,
+        code: u32,
+        language: u32,
+        buffer: *mut u16,
+        size: u32,
+        args: RawPtr,
+    ) -> u32;
 }
 
 #[link(name = "onecore")]
 extern "system" {
-    // TODO: get rid of these (not available on Windows 7) - we'll load these dynamically
     pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
+
     pub fn RoGetActivationFactory(
         hstring: *mut hstring::Header,
         interface: &Guid,
         result: *mut RawPtr,
     ) -> ErrorCode;
+}
+
+#[link(name = "oleaut32")]
+extern "system" {
+    pub fn SysStringLen(bstr: RawPtr) -> u32;
+    pub fn SysFreeString(bstr: RawPtr);
+    pub fn GetErrorInfo(reserved: u32, info: *mut RawPtr) -> ErrorCode;
+    pub fn SetErrorInfo(reserved: u32, info: RawPtr) -> ErrorCode;
 }
