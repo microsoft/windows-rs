@@ -192,11 +192,11 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
-            Self::Class(name) => name.to_tokens(calling_namespace),
-            Self::Interface(name) => name.to_tokens(calling_namespace),
-            Self::Enum(name) => name.to_tokens(calling_namespace),
-            Self::Struct(name) => name.to_tokens(calling_namespace),
-            Self::Delegate(name) => name.to_tokens(calling_namespace),
+            Self::Class(name) => name.to_tokens(calling_namespace).clone(),
+            Self::Interface(name) => name.to_tokens(calling_namespace).clone(),
+            Self::Enum(name) => name.to_tokens(calling_namespace).clone(),
+            Self::Struct(name) => name.to_tokens(calling_namespace).clone(),
+            Self::Delegate(name) => name.to_tokens(calling_namespace).clone(),
             Self::Generic(name) => {
                 let name = format_ident(name);
                 quote! { #name }
@@ -234,7 +234,7 @@ impl TypeKind {
             | Self::Delegate(name)
             | Self::Enum(name)
             | Self::Struct(name) => {
-                let name = name.to_tokens(calling_namespace);
+                let name = &*name.to_tokens(calling_namespace);
                 quote! { <#name as ::winrt::RuntimeType>::Abi, }
             }
         }

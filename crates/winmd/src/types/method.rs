@@ -266,7 +266,7 @@ impl Method {
         let params = self.to_param_tokens(calling_namespace);
         let constraints = self.to_constraint_tokens(calling_namespace);
         let args = self.to_arg_tokens();
-        let interface = interface.name.to_tokens(calling_namespace);
+        let interface = &*interface.name.to_tokens(calling_namespace);
 
         let return_type = if let Some(return_type) = &self.return_type {
             return_type.to_return_tokens(calling_namespace)
@@ -290,7 +290,7 @@ impl Method {
         let params = self.to_param_tokens(calling_namespace);
         let constraints = self.to_constraint_tokens(calling_namespace);
         let args = self.to_arg_tokens();
-        let interface = interface.name.to_tokens(calling_namespace);
+        let interface = &*interface.name.to_tokens(calling_namespace);
 
         let return_type = if let Some(return_type) = &self.return_type {
             return_type.to_return_tokens(calling_namespace)
