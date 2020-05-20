@@ -17,7 +17,7 @@ pub struct TypeName {
     pub name: String,
     pub generics: Vec<TypeKind>,
     pub def: TypeDef,
-    constraints: RefCell<Option<TokenStream>>,
+    constraints: TokenStream,
     tokens: RefCell<HashMap<String, TokenStream>>,
 }
 
@@ -51,12 +51,16 @@ impl Ord for TypeName {
 
 impl TypeName {
     pub fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef) -> Self {
+        let constraints = TokenStream::from_iter(generics.iter().map(|generic| {
+            let generic = generic.to_tokens("");
+            quote! { #generic: ::winrt::RuntimeType + 'static, }
+        }));
         Self {
             namespace,
             name,
             generics,
             def,
-            constraints: RefCell::new(None),
+            constraints,
             tokens: RefCell::new(HashMap::new()),
         }
     }
@@ -73,7 +77,7 @@ impl TypeName {
         }
     }
 
-    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> TypeName {
+    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> Self {
         let (namespace, name) = type_ref.name(reader);
         Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
     }
@@ -313,6 +317,7 @@ impl TypeName {
 
     pub fn to_tokens<'a>(&'a self, calling_namespace: &str) -> Ref<'a, TokenStream> {
         let cache = self.tokens.borrow();
+
         if let Some(_) = cache.get(calling_namespace) {
             return Ref::map(cache, |s| s.get(calling_namespace).unwrap());
         }
@@ -385,19 +390,8 @@ impl TypeName {
         TokenStream::from_iter(phantoms)
     }
 
-    pub fn constraints<'a>(&'a self) -> Ref<'a, TokenStream> {
-        let cache = self.constraints.borrow();
-        if let Some(_) = &*cache {
-            return Ref::map(cache, |t| t.as_ref().unwrap());
-        }
-        drop(cache);
-        let generics = self.generics.iter().map(|generic| {
-            let generic = generic.to_tokens("");
-            quote! { #generic: ::winrt::RuntimeType + 'static, }
-        });
-
-        *self.constraints.borrow_mut() = Some(TokenStream::from_iter(generics));
-        self.constraints()
+    pub fn constraints(&self) -> &TokenStream {
+        &self.constraints
     }
 }
 
