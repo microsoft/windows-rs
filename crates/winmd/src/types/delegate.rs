@@ -60,7 +60,6 @@ impl Delegate {
             .map(|param| param.to_invoke_arg_tokens());
         let debug = debug::default_debug_tokens(&self.name);
 
-
         quote! {
             #[repr(transparent)]
             pub struct #definition where #constraints {
