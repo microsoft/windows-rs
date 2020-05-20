@@ -11,42 +11,25 @@ use std::cell::{Ref, RefCell};
 use std::collections::HashMap;
 use std::iter::FromIterator;
 
+/// A type's name including module namespace and generics
 #[derive(Debug, Clone)]
 pub struct TypeName {
+    /// The type's module namespace as a period separated string
+    ///
+    /// e.g. "Outer.Inner"
     pub namespace: String,
+    /// The type's unqualified name without generics as a string
+    ///
+    /// e.g. "MyType"
     pub name: String,
+    /// A collection of the types generics
     pub generics: Vec<TypeKind>,
+    /// The type definition for this type
     pub def: TypeDef,
+    // A cached TokenStream of the types associated type constraints
     constraints: TokenStream,
+    // Cached TokenStream keyed off of the calling namespace
     tokens: RefCell<HashMap<String, TokenStream>>,
-}
-
-impl PartialEq for TypeName {
-    fn eq(&self, other: &Self) -> bool {
-        self.namespace == other.namespace
-            && self.name == other.name
-            && self.generics == other.generics
-            && self.def == other.def
-    }
-}
-
-impl Eq for TypeName {}
-
-impl PartialOrd for TypeName {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        Some(self.cmp(other))
-    }
-}
-
-impl Ord for TypeName {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        (&self.namespace, &self.name, &self.generics, &self.def).cmp(&(
-            &other.namespace,
-            &other.name,
-            &other.generics,
-            &other.def,
-        ))
-    }
 }
 
 impl TypeName {
@@ -393,6 +376,34 @@ impl TypeName {
 
     pub fn constraints(&self) -> &TokenStream {
         &self.constraints
+    }
+}
+
+impl PartialEq for TypeName {
+    fn eq(&self, other: &Self) -> bool {
+        self.namespace == other.namespace
+            && self.name == other.name
+            && self.generics == other.generics
+            && self.def == other.def
+    }
+}
+
+impl Eq for TypeName {}
+
+impl PartialOrd for TypeName {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for TypeName {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        (&self.namespace, &self.name, &self.generics, &self.def).cmp(&(
+            &other.namespace,
+            &other.name,
+            &other.generics,
+            &other.def,
+        ))
     }
 }
 
