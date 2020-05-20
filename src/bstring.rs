@@ -1,6 +1,5 @@
 use crate::runtime::*;
 use crate::*;
-use std::ptr;
 
 #[repr(transparent)]
 pub struct BString {

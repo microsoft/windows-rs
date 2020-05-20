@@ -46,6 +46,7 @@ mod bstring;
 mod com_interface;
 mod com_ptr;
 mod error;
+mod error_info;
 #[doc(hidden)]
 pub mod factory;
 mod guid;
@@ -53,6 +54,7 @@ mod hstring;
 mod object;
 mod param;
 mod ref_count;
+mod restricted_error_info;
 pub mod runtime;
 mod runtime_name;
 mod runtime_type;
