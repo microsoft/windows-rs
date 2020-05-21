@@ -14,9 +14,9 @@ extern "system" {
     pub fn FormatMessageW(
         flags: u32,
         source: RawPtr,
-        code: u32,
+        code: ErrorCode,
         language: u32,
-        buffer: *mut u16,
+        buffer: *mut RawPtr,
         size: u32,
         args: RawPtr,
     ) -> u32;

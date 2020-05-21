@@ -57,7 +57,26 @@ impl Error {
             }
         }
 
-        String::new()
+        let mut message = HeapString::new();
+
+        unsafe {
+            let size = FormatMessageW(
+                0x00001300, // FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS
+                std::ptr::null_mut(),
+                self.code,
+                0x00000400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
+                &mut message.ptr,
+                0,
+                std::ptr::null_mut(),
+            );
+
+            String::from_utf16_lossy(std::slice::from_raw_parts(
+                message.ptr as *const u16,
+                size as usize,
+            ))
+            .trim_end()
+            .to_owned()
+        }
     }
 }
 
@@ -159,6 +178,29 @@ impl From<BString> for String {
                 from.ptr as *const u16,
                 from.len(),
             ))
+        }
+    }
+}
+
+#[repr(transparent)]
+struct HeapString {
+    ptr: RawPtr,
+}
+
+impl HeapString {
+    pub fn new() -> HeapString {
+        Self {
+            ptr: std::ptr::null_mut(),
+        }
+    }
+}
+
+impl Drop for HeapString {
+    fn drop(&mut self) {
+        if !self.ptr.is_null() {
+            unsafe {
+                HeapFree(GetProcessHeap(), 0, self.ptr);
+            }
         }
     }
 }
