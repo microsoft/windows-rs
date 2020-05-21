@@ -5,7 +5,7 @@ use std::ptr;
 
 /// A handle to a [Windows Runtime string](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring)
 ///
-/// This handle should only be used for FFI purposes with Window Runtime APIs.
+/// This handle should only be used for FFI purposes with Windows Runtime APIs.
 #[repr(transparent)]
 pub struct HString {
     ptr: *mut Header,
