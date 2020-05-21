@@ -7,17 +7,101 @@ use crate::*;
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
+use std::cell::{Ref, RefCell};
+use std::collections::HashMap;
 use std::iter::FromIterator;
 
-#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
+/// A type's name including module namespace and generics
+#[derive(Debug, Clone)]
 pub struct TypeName {
+    /// The type's module namespace as a period separated string
+    ///
+    /// e.g. "Outer.Inner"
     pub namespace: String,
+    /// The type's unqualified name without generics as a string
+    ///
+    /// e.g. "MyType"
     pub name: String,
+    /// A collection of the types generics
     pub generics: Vec<TypeKind>,
+    /// The type definition for this type
     pub def: TypeDef,
+    // A cached TokenStream of the types associated type constraints
+    constraints: TokenStream,
+    // Cached TokenStream keyed off of the calling namespace
+    tokens: RefCell<HashMap<String, TokenStream>>,
 }
 
 impl TypeName {
+    /// Construct a new `TypeName` from the namespace, unqualified name, generics and `TypeDef`
+    pub fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef) -> Self {
+        let constraints = TokenStream::from_iter(generics.iter().map(|generic| {
+            let generic = generic.to_tokens("");
+            quote! { #generic: ::winrt::RuntimeType + 'static, }
+        }));
+        Self {
+            namespace,
+            name,
+            generics,
+            def,
+            constraints,
+            tokens: RefCell::new(HashMap::new()),
+        }
+    }
+
+    pub fn from_type_def_or_ref(
+        reader: &TypeReader,
+        code: TypeDefOrRef,
+        generics: &Vec<TypeKind>,
+    ) -> Self {
+        match code {
+            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
+            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
+            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
+        }
+    }
+
+    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> Self {
+        let (namespace, name) = type_ref.name(reader);
+        Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
+    }
+
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+        let (namespace, name) = def.name(reader);
+        let namespace = namespace.to_string();
+        let name = name.to_string();
+        let mut generics = Vec::new();
+
+        for generic in def.generics(reader) {
+            let name = generic.name(reader).to_string();
+            generics.push(TypeKind::Generic(name));
+        }
+
+        Self::new(namespace, name, generics, def)
+    }
+
+    pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
+        blob.read_unsigned();
+        let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
+        let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
+
+        for _ in 0..args.capacity() {
+            args.push(TypeKind::from_blob(blob, generics));
+        }
+        let (namespace, name) = def.name(blob.reader);
+        let namespace = namespace.to_string();
+        let name = name.to_string();
+        let generics = args;
+
+        Self::new(namespace, name, generics, def)
+    }
+
+    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
+        let mut blob = spec.sig(reader);
+        blob.read_unsigned();
+        TypeName::from_type_spec_blob(&mut blob, generics)
+    }
+
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
         if self.generics.is_empty() {
             return quote! { #signature.to_owned() };
@@ -35,7 +119,7 @@ impl TypeName {
                 let second = self.generics[1].to_tokens("");
                 quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::signature(), <#second as ::winrt::RuntimeType>::signature()) }
             }
-            _ => panic!(),
+            _ => panic!("Only types with two or fewer generics are supported"),
         };
 
         quote! {
@@ -187,69 +271,6 @@ impl TypeName {
         }
     }
 
-    pub fn from_type_def_or_ref(
-        reader: &TypeReader,
-        code: TypeDefOrRef,
-        generics: &Vec<TypeKind>,
-    ) -> Self {
-        match code {
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
-            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
-            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
-        }
-    }
-
-    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> TypeName {
-        let (namespace, name) = type_ref.name(reader);
-        Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
-    }
-
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let (namespace, name) = def.name(reader);
-        let namespace = namespace.to_string();
-        let name = name.to_string();
-        let mut generics = Vec::new();
-
-        for generic in def.generics(reader) {
-            let name = generic.name(reader).to_string();
-            generics.push(TypeKind::Generic(name));
-        }
-
-        Self {
-            namespace,
-            name,
-            generics,
-            def,
-        }
-    }
-
-    pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
-        blob.read_unsigned();
-        let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
-        let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
-
-        for _ in 0..args.capacity() {
-            args.push(TypeKind::from_blob(blob, generics));
-        }
-        let (namespace, name) = def.name(blob.reader);
-        let namespace = namespace.to_string();
-        let name = name.to_string();
-        let generics = args;
-
-        Self {
-            namespace,
-            name,
-            generics,
-            def,
-        }
-    }
-
-    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
-        let mut blob = spec.sig(reader);
-        blob.read_unsigned();
-        TypeName::from_type_spec_blob(&mut blob, generics)
-    }
-
     pub fn runtime_name(&self) -> String {
         let mut result = format!("{}.{}", self.namespace, self.name);
         let mut generics = self.generics.iter();
@@ -278,54 +299,78 @@ impl TypeName {
             .collect()
     }
 
-    pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
+    /// Crate tokens
+    ///
+    /// For example: `Vector<OtherType>`
+    pub fn to_tokens<'a>(&'a self, calling_namespace: &str) -> Ref<'a, TokenStream> {
+        {
+            let cache = self.tokens.borrow();
+
+            if let Some(_) = cache.get(calling_namespace) {
+                return Ref::map(cache, |s| s.get(calling_namespace).unwrap());
+            }
+        }
+
         let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
 
-        if self.generics.is_empty() {
-            let name = format_ident(&self.name);
-            quote! { #namespace#name }
-        } else {
-            let name = format_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #namespace#name::<#(#generics),*> }
-        }
+        let result = self.generate_tokens(Some(&namespace), calling_namespace, format_ident);
+
+        self.tokens
+            .borrow_mut()
+            .insert(calling_namespace.to_owned(), result);
+
+        self.to_tokens(calling_namespace)
     }
 
+    /// Crate abi tokens
+    ///
+    /// For example: `abi_Vector<OtherType>`
     pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
         let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
+        self.generate_tokens(Some(&namespace), calling_namespace, format_abi_ident)
+    }
 
+    /// Crate definition tokens
+    ///
+    /// For example: `Vector::<OtherType>`
+    ///
+    /// Note: ideally to_definition_tokens and to_abi_definiton_tokens would not be required
+    /// and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
+    /// weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
+    pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
+        self.generate_tokens(None, calling_namespace, format_ident)
+    }
+
+    /// Crate abi definition tokens
+    ///
+    /// For example: `abi_Vector::<OtherType>`
+    pub fn to_abi_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
+        self.generate_tokens(None, calling_namespace, format_abi_ident)
+    }
+
+    /// Generate the definition tokens for a type
+    ///
+    /// This supports both regular and abi versions of the type and can be used both for
+    /// definition tokens and regular tokens. Definition tokens are those that require a
+    /// colon spearater between the name and the generics (e.g., `Vector::<OtherType>`) vs.  
+    /// `Vector<OtherType>`
+    fn generate_tokens<F>(
+        &self,
+        namespace: Option<&TokenStream>,
+        calling_namespace: &str,
+        format: F,
+    ) -> TokenStream
+    where
+        F: FnOnce(&str) -> proc_macro2::Ident,
+    {
         if self.generics.is_empty() {
-            let name = format_abi_ident(&self.name);
+            let name = format(&self.name);
             quote! { #namespace#name }
         } else {
-            let name = format_abi_ident(&self.name[..self.name.len() - 2]);
+            let colon_separated = namespace.map(|_| quote! { :: });
+            let name = format(&self.name[..self.name.len() - 2]);
             let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #namespace#name::<#(#generics),*> }
-        }
-    }
-
-    // Note: ideally to_definition_tokens and to_abi_definiton_tokens would not be required
-    // and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
-    // weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
-    pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        if self.generics.is_empty() {
-            let name = format_ident(&self.name);
-            quote! { #name }
-        } else {
-            let name = format_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #name<#(#generics),*> }
-        }
-    }
-
-    pub fn to_abi_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        if self.generics.is_empty() {
-            let name = format_abi_ident(&self.name);
-            quote! { #name }
-        } else {
-            let name = format_abi_ident(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
-            quote! { #name<#(#generics),*> }
+            quote! { #namespace#name#colon_separated<#(#generics),*> }
         }
     }
 
@@ -343,13 +388,36 @@ impl TypeName {
         TokenStream::from_iter(phantoms)
     }
 
-    pub fn constraints(&self) -> TokenStream {
-        let generics = self.generics.iter().map(|generic| {
-            let generic = generic.to_tokens("");
-            quote! { #generic: ::winrt::RuntimeType + 'static, }
-        });
+    pub fn constraints(&self) -> &TokenStream {
+        &self.constraints
+    }
+}
 
-        TokenStream::from_iter(generics)
+impl PartialEq for TypeName {
+    fn eq(&self, other: &Self) -> bool {
+        self.namespace == other.namespace
+            && self.name == other.name
+            && self.generics == other.generics
+            && self.def == other.def
+    }
+}
+
+impl Eq for TypeName {}
+
+impl PartialOrd for TypeName {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for TypeName {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        (&self.namespace, &self.name, &self.generics, &self.def).cmp(&(
+            &other.namespace,
+            &other.name,
+            &other.generics,
+            &other.def,
+        ))
     }
 }
 
@@ -365,16 +433,16 @@ mod tests {
 
     #[test]
     fn runtime_name() {
-        let mut type_name = TypeName {
-            name: String::from("MyType"),
-            namespace: String::from("Outer.Inner"),
-            generics: vec![],
-            def: TypeDef(Row {
+        let mut type_name = TypeName::new(
+            String::from("Outer.Inner"),
+            String::from("MyType"),
+            vec![],
+            TypeDef(Row {
                 index: 0,
                 table_index: TableIndex::InterfaceImpl,
                 file_index: 0,
             }),
-        };
+        );
 
         assert_eq!(type_name.runtime_name(), String::from("Outer.Inner.MyType"));
 

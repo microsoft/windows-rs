@@ -1,4 +1,5 @@
 use crate::tables::*;
+use crate::types::debug;
 use crate::types::*;
 use crate::TypeReader;
 
@@ -40,11 +41,11 @@ impl Delegate {
         let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
         let fn_constraint = self.to_fn_constraint_tokens();
         let impl_definition = self.to_impl_definition_tokens(&fn_constraint);
-        let name = self.name.to_tokens(&self.name.namespace);
+        let name = &*self.name.to_tokens(&self.name.namespace);
         let abi_name = self.name.to_abi_tokens(&self.name.namespace);
         let impl_name = self.to_impl_name_tokens();
         let phantoms = self.name.phantoms();
-        let constraints = self.name.constraints();
+        let constraints = &*self.name.constraints();
         let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.name.to_guid_tokens(&self.guid);
@@ -57,10 +58,10 @@ impl Delegate {
             .params
             .iter()
             .map(|param| param.to_invoke_arg_tokens());
+        let debug = debug::default_debug_tokens(&self.name);
 
         quote! {
             #[repr(transparent)]
-            #[derive(Default, PartialEq)]
             pub struct #definition where #constraints {
                 ptr: ::winrt::ComPtr<#name>,
                 #phantoms
@@ -105,13 +106,18 @@ impl Delegate {
                     self.ptr.set_abi()
                 }
             }
-            impl<#constraints> ::std::fmt::Debug for #name {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    write!(
-                        f,
-                        "{:?}",
-                        <Self as ::winrt::RuntimeType>::abi(self)
-                    )
+            #debug
+            impl<#constraints> ::std::default::Default for #name {
+                fn default() -> Self {
+                    Self {
+                        ptr: ::winrt::ComPtr::default(),
+                        #phantoms
+                    }
+                 }
+            }
+            impl<#constraints> ::std::cmp::PartialEq<Self> for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.ptr == other.ptr
                 }
             }
             #[repr(C)]

@@ -1,5 +1,6 @@
 use super::object::to_object_tokens;
 use crate::tables::*;
+use crate::types::debug;
 use crate::types::*;
 use crate::TypeReader;
 use proc_macro2::TokenStream;
@@ -42,12 +43,7 @@ impl Class {
             let name = name.to_string();
             let generics = Vec::new();
 
-            let base = TypeName {
-                namespace,
-                name,
-                generics,
-                def: base,
-            };
+            let base = TypeName::new(namespace, name, generics, base);
 
             RequiredInterface::append_required(reader, &base, &mut interfaces);
             bases.push(base);
@@ -97,7 +93,7 @@ impl Class {
     }
 
     pub fn to_tokens(&self) -> TokenStream {
-        let name = self.name.to_tokens(&self.name.namespace);
+        let name = &*self.name.to_tokens(&self.name.namespace);
         let type_name = self.type_name(&name);
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
 
@@ -121,9 +117,10 @@ impl Class {
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = &self.signature;
 
-            let default_name = self.interfaces[0].name.to_tokens(&self.name.namespace);
+            let default_name = &*self.interfaces[0].name.to_tokens(&self.name.namespace);
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             let async_get = async_get_tokens(&self.name, &self.interfaces);
+            let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
             quote! {
                 #[repr(transparent)]
@@ -153,15 +150,7 @@ impl Class {
                         self.ptr.set_abi()
                     }
                 }
-                impl ::std::fmt::Debug for #name {
-                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                        write!(
-                            f,
-                            "{:?}",
-                            <Self as ::winrt::RuntimeType>::abi(self)
-                        )
-                    }
-                }
+                #debug
                 #conversions
                 #object
                 #bases
@@ -182,7 +171,7 @@ impl Class {
         from: &TokenStream,
     ) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {
-            let into = base.to_tokens(calling_namespace);
+            let into = &*base.to_tokens(calling_namespace);
             quote! {
                 impl ::std::convert::From<#from> for #into {
                     fn from(value: #from) -> #into {
