@@ -1,9 +1,9 @@
-use crate::*;
 use crate::bstring::*;
+use crate::*;
 
 #[repr(transparent)]
 #[derive(Default, Clone)]
-pub(crate) struct IErrorInfo {
+pub struct IErrorInfo {
     ptr: ComPtr<IErrorInfo>,
 }
 
@@ -32,7 +32,7 @@ unsafe impl ComInterface for IErrorInfo {
 }
 
 #[repr(C)]
-pub(crate) struct abi_IErrorInfo {
+pub struct abi_IErrorInfo {
     __base: [usize; 5],
     get_description: extern "system" fn(RawComPtr<IErrorInfo>, *mut RawPtr) -> ErrorCode,
 }
