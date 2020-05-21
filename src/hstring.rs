@@ -188,7 +188,7 @@ impl<'a> From<&'a HString> for String {
 
 impl From<HString> for String {
     fn from(hstring: HString) -> Self {
-        hstring.into()
+        String::from(&hstring)
     }
 }
 
@@ -316,5 +316,12 @@ mod tests {
     fn from_empty_string() {
         let h = HString::from("");
         assert!(format!("{}", h) == "");
+    }
+
+    #[test]
+    fn hstring_to_string() {
+        let h = HString::from("test");
+        let s = String::from(h);
+        assert!(s == "test");
     }
 }
