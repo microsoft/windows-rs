@@ -21,7 +21,9 @@ pub type Result<T> = std::result::Result<T, Error>;
 impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
-            // TODO: call SetErrorInfo
+            if !error.info.is_null() {
+                SetRestrictedErrorInfo(error.info.as_raw() as _);
+            }
             return error.code();
         }
 
