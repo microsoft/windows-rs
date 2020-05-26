@@ -39,15 +39,39 @@ impl Builder {
         self
     }
 
+    pub fn insert_nuget<T>(mut self, nuget_deps: T) -> Self
+    where
+        T: IntoIterator,
+        T::Item: std::string::ToString,
+    {
+        let new_deps = nuget_deps.into_iter().map(|i| i.to_string());
+        match &mut self.dependencies {
+            Dependencies::Os => self.dependencies = Dependencies::Nuget(new_deps.collect()),
+            Dependencies::Nuget(deps) => deps.extend(new_deps),
+            Dependencies::OsAndNuget(deps) => deps.extend(new_deps),
+        }
+        self
+    }
+
     pub fn output<P: AsRef<Path>>(mut self, path: P) -> Self {
         self.output = path.as_ref().to_owned();
         self
     }
 
     pub fn build(&self) -> Result<(), Box<dyn std::error::Error>> {
-        let tr = match self.dependencies {
+        let tr = match &self.dependencies {
             Dependencies::Os => winmd::TypeReader::from_os(),
-            _ => todo!(),
+            Dependencies::Nuget(deps) => {
+                let mut result = std::collections::BTreeSet::new();
+                for dep in deps {
+                    let dep = winmd::dependencies::nuget_root().join(dep);
+                    winmd::dependencies::expand_paths(dep, &mut result, true)
+                }
+
+                let dependencies = result.iter().map(winmd::WinmdFile::new).collect();
+                winmd::TypeReader::new(dependencies)
+            }
+            _ => todo!("Using both OS and NuGet dependencies is not currently supported"),
         };
 
         let mut tl = winmd::TypeLimits::default();

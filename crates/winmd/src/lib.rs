@@ -1,6 +1,7 @@
 mod blob;
 mod case;
 mod codes;
+
 mod file;
 mod flags;
 mod row;
@@ -12,6 +13,7 @@ mod type_stage;
 mod type_tree;
 mod types;
 
+pub mod dependencies;
 pub mod load_winmd;
 pub use file::WinmdFile;
 pub use type_limits::TypeLimits;
