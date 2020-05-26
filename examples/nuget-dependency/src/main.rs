@@ -1,9 +1,7 @@
-winrt::import!(
-    dependencies
-        nuget: Microsoft.Windows.SDK.Contracts
-    modules
-        "windows.foundation"
-);
+#![allow(overflowing_literals)]
+
+include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+
 use windows::foundation::PropertyValue;
 
 fn main() {

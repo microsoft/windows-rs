@@ -29,8 +29,13 @@ impl Default for Builder {
 }
 
 impl Builder {
-    pub fn insert_namespaces<T: Iterator<Item = String>>(mut self, namespaces: T) -> Self {
-        self.namespaces.extend(namespaces);
+    pub fn insert_namespaces<T>(mut self, namespaces: T) -> Self
+    where
+        T: IntoIterator,
+        T::Item: std::string::ToString,
+    {
+        self.namespaces
+            .extend(namespaces.into_iter().map(|s| s.to_string()));
         self
     }
 
@@ -71,7 +76,7 @@ impl Builder {
             });
 
             // workaround for, well, overflowing literals
-            writeln!(&mut stdin, "#![allow(overflowing_literals)]")?;
+            // writeln!(&mut stdin, "#![allow(overflowing_literals)]")?;
 
             let tokens = tt.to_tokens();
 
