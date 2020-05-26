@@ -78,6 +78,9 @@ impl Builder {
             // workaround for, well, overflowing literals
             // writeln!(&mut stdin, "#![allow(overflowing_literals)]")?;
 
+            // Only rerun if the
+            println!("cargo:rerun-if-env-changed={}", self.output.display());
+
             let tokens = tt.to_tokens();
 
             writeln!(&mut stdin, "{}", tokens)?;
