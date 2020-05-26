@@ -22,7 +22,9 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
             if !error.info.is_null() {
-                SetRestrictedErrorInfo(error.info.as_raw() as _);
+                unsafe {
+                    SetRestrictedErrorInfo(error.info.as_raw() as _);
+                }
             }
             return error.code();
         }
@@ -33,20 +35,44 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
 
 impl std::convert::From<ErrorCode> for Error {
     fn from(code: ErrorCode) -> Self {
-        let mut info = IErrorInfo::default();
         unsafe {
+            let mut info = IErrorInfo::default();
             GetErrorInfo(0, info.set_abi() as _);
+            let restricted: Result<IRestrictedErrorInfo> = info.try_into();
+
+            if let Ok(info) = restricted {
+                let info2: Result<ILanguageExceptionErrorInfo2> = info.try_into();
+
+                if let Ok(info2) = info2 {
+                    //info2.capture_propagation_context();
+                }
+
+                return Self { code, info };
+            }
+
+            let mut message = String::new();
+
+            if !info.is_null() {
+                message = info.get_description();
+            }
+
+            return Self::new(code, &message);
         }
-
-        let restricted: Result<IRestrictedErrorInfo> = info.try_into();
-
-        if let Ok(info) = restricted {}
-
-        panic!()
     }
 }
 
 impl Error {
+    pub fn new(code: ErrorCode, message: &str) -> Self {
+        unsafe {
+            let message: HString = message.into();
+            RoOriginateError(code, message.abi() as _);
+            let mut info = IErrorInfo::default();
+            GetErrorInfo(0, info.set_abi() as _);
+            let info: IRestrictedErrorInfo = info.try_into().unwrap();
+            return Self { code, info };
+        }
+    }
+
     pub fn code(&self) -> ErrorCode {
         self.code
     }

@@ -22,7 +22,7 @@ extern "system" {
     ) -> u32;
 }
 
-#[link(name = "onecore")]
+#[link(name = "onecore")] // RuntimeObject
 extern "system" {
     pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
 
@@ -31,6 +31,9 @@ extern "system" {
         interface: &Guid,
         result: *mut RawPtr,
     ) -> ErrorCode;
+
+    pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
+    pub fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
 }
 
 #[link(name = "oleaut32")]
@@ -38,5 +41,4 @@ extern "system" {
     pub fn SysStringLen(bstr: RawPtr) -> u32;
     pub fn SysFreeString(bstr: RawPtr);
     pub fn GetErrorInfo(reserved: u32, info: *mut RawPtr) -> ErrorCode;
-    pub fn SetErrorInfo(reserved: u32, info: RawPtr) -> ErrorCode;
 }
