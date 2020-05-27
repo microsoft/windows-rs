@@ -16,7 +16,7 @@ extern "system" {
         source: RawPtr,
         code: ErrorCode,
         language: u32,
-        buffer: *mut RawPtr,
+        buffer: *mut *mut u16,
         size: u32,
         args: RawPtr,
     ) -> u32;
@@ -38,7 +38,7 @@ extern "system" {
 
 #[link(name = "oleaut32")]
 extern "system" {
-    pub fn SysStringLen(bstr: RawPtr) -> u32;
-    pub fn SysFreeString(bstr: RawPtr);
-    pub fn GetErrorInfo(reserved: u32, info: *mut RawPtr) -> ErrorCode;
+    pub fn SysStringLen(bstr: *mut u16) -> u32;
+    pub fn SysFreeString(bstr: *mut u16);
+    pub fn GetErrorInfo(reserved: u32, info: *mut *mut u16) -> ErrorCode;
 }

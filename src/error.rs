@@ -35,32 +35,34 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
 
 impl std::convert::From<ErrorCode> for Error {
     fn from(code: ErrorCode) -> Self {
+        let mut info = IErrorInfo::default();
+
         unsafe {
-            let mut info = IErrorInfo::default();
             GetErrorInfo(0, info.set_abi() as _);
-            let restricted = info.query::<IRestrictedErrorInfo>();
-
-            if !restricted.is_null() {
-                let info2 = info.query::<ILanguageExceptionErrorInfo2>();
-
-                if !info2.is_null() {
-                    info2.capture_propagation_context();
-                }
-
-                return Self {
-                    code,
-                    info: restricted,
-                };
-            }
-
-            let mut message = String::new();
-
-            if !info.is_null() {
-                message = info.get_description();
-            }
-
-            return Self::new(code, &message);
         }
+
+        let restricted = info.query::<IRestrictedErrorInfo>();
+
+        if !restricted.is_null() {
+            let capture = info.query::<ILanguageExceptionErrorInfo2>();
+
+            if !capture.is_null() {
+                capture.capture_propagation_context();
+            }
+
+            return Self {
+                code,
+                info: restricted,
+            };
+        }
+
+        let mut message = String::new();
+
+        if !info.is_null() {
+            message = info.get_description();
+        }
+
+        Self::new(code, &message)
     }
 }
 
@@ -88,11 +90,16 @@ impl Error {
             }
         }
 
+        const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 0x00000100;
+        const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 0x00001000;
+        const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 0x00000200;
         let mut message = HeapString::new();
 
         unsafe {
             let size = FormatMessageW(
-                0x00001300, // FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS
+                FORMAT_MESSAGE_ALLOCATE_BUFFER
+                    | FORMAT_MESSAGE_FROM_SYSTEM
+                    | FORMAT_MESSAGE_IGNORE_INSERTS,
                 std::ptr::null_mut(),
                 self.code,
                 0x00000400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
@@ -159,7 +166,7 @@ impl ErrorCode {
 
 #[repr(transparent)]
 struct BString {
-    ptr: RawPtr,
+    ptr: *mut u16,
 }
 
 impl BString {
@@ -186,7 +193,7 @@ impl BString {
         }
     }
 
-    pub fn set_abi(&mut self) -> *mut RawPtr {
+    pub fn set_abi(&mut self) -> *mut *mut u16 {
         self.clear();
         &mut self.ptr
     }
@@ -215,7 +222,7 @@ impl From<BString> for String {
 
 #[repr(transparent)]
 struct HeapString {
-    ptr: RawPtr,
+    ptr: *mut u16,
 }
 
 impl HeapString {
@@ -230,7 +237,7 @@ impl Drop for HeapString {
     fn drop(&mut self) {
         if !self.ptr.is_null() {
             unsafe {
-                HeapFree(GetProcessHeap(), 0, self.ptr);
+                HeapFree(GetProcessHeap(), 0, self.ptr as _);
             }
         }
     }
@@ -274,7 +281,7 @@ unsafe impl ComInterface for IErrorInfo {
 #[repr(C)]
 struct abi_IErrorInfo {
     __base: [usize; 5],
-    get_description: extern "system" fn(RawComPtr<IErrorInfo>, *mut RawPtr) -> ErrorCode,
+    get_description: extern "system" fn(RawComPtr<IErrorInfo>, *mut *mut u16) -> ErrorCode,
 }
 
 #[repr(transparent)]
@@ -328,10 +335,10 @@ struct abi_IRestrictedErrorInfo {
     __base: [usize; 3],
     get_error_details: extern "system" fn(
         RawComPtr<IRestrictedErrorInfo>,
-        *mut RawPtr,
+        *mut *mut u16,
         *mut ErrorCode,
-        *mut RawPtr,
-        *mut RawPtr,
+        *mut *mut u16,
+        *mut *mut u16,
     ) -> ErrorCode,
 }
 
