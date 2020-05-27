@@ -21,9 +21,9 @@ pub type Result<T> = std::result::Result<T, Error>;
 impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
-            if !error.info.is_null() {
+            if let Some(info) = error.info.as_raw() {
                 unsafe {
-                    SetRestrictedErrorInfo(error.info.as_raw() as _);
+                    SetRestrictedErrorInfo(info.as_ptr() as _);
                 }
             }
 
@@ -265,12 +265,19 @@ impl IErrorInfo {
 
     pub fn get_description(&self) -> String {
         let mut description = BString::new();
+        match self.ptr.as_raw() {
+            Some(p) => {
+                unsafe {
+                    ((*(*p.as_ptr()).as_ptr()).get_description)(
+                        self.ptr.as_raw(),
+                        description.set_abi(),
+                    );
+                }
 
-        unsafe {
-            ((*(*(self.ptr.as_raw()))).get_description)(self.ptr.as_raw(), description.set_abi());
+                description.into()
+            }
+            None => String::new(),
         }
-
-        description.into()
     }
 }
 
@@ -305,10 +312,14 @@ impl IRestrictedErrorInfo {
         let mut message = BString::new();
         let mut unused = BString::new();
         let mut code = ErrorCode(0);
+        let p = match self.ptr.as_raw() {
+            Some(p) => p,
+            None => return (code, String::new()),
+        };
 
         unsafe {
-            ((*(*(self.ptr.as_raw()))).get_error_details)(
-                self.ptr.as_raw(),
+            ((*(*p.as_ptr()).as_ptr()).get_error_details)(
+                Some(p),
                 fallback.set_abi(),
                 &mut code,
                 message.set_abi(),
@@ -359,11 +370,13 @@ struct ILanguageExceptionErrorInfo2 {
 
 impl ILanguageExceptionErrorInfo2 {
     pub fn capture_propagation_context(&self) {
-        unsafe {
-            ((*(*(self.ptr.as_raw()))).capture_propagation_context)(
-                self.ptr.as_raw(),
-                std::ptr::null_mut(),
-            );
+        if let Some(p) = self.ptr.as_raw() {
+            unsafe {
+                ((*(*p.as_ptr()).as_ptr()).capture_propagation_context)(
+                    self.ptr.as_raw(),
+                    std::ptr::null_mut(),
+                );
+            }
         }
     }
 }

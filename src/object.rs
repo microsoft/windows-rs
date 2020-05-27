@@ -11,15 +11,20 @@ pub struct Object {
 
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
-        let this = self.ptr.as_raw();
-        if this.is_null() {
-            panic!("The `this` pointer was null when calling method");
+        match self.ptr.as_raw() {
+            None => panic!("The `this` pointer was null when calling method"),
+            Some(this) => {
+                let mut string = HString::default();
+                unsafe {
+                    ((*(*this.as_ptr()).as_ptr()).inspectable_type_name)(
+                        Some(this),
+                        string.set_abi(),
+                    )
+                    .ok()?;
+                }
+                Ok(string)
+            }
         }
-        let mut string = HString::default();
-        unsafe {
-            ((*(*(this))).inspectable_type_name)(this, string.set_abi()).ok()?;
-        }
-        Ok(string)
     }
 }
 

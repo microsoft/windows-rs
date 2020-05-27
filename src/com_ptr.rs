@@ -12,11 +12,11 @@ impl<T: ComInterface> ComPtr<T> {
     }
 
     pub fn set_abi(&mut self) -> *mut RawComPtr<T> {
-        if !self.ptr.is_null() {
+        if let Some(ptr) = self.as_iunknown() {
             unsafe {
-                ((*(*(self.as_iunknown()))).unknown_release)(self.as_iunknown());
+                ((*(*ptr.as_ptr()).as_ptr()).unknown_release)(self.as_iunknown());
             }
-            self.ptr = std::ptr::null_mut();
+            self.ptr = None;
         }
         &mut self.ptr as *mut _ as _
     }
@@ -32,8 +32,8 @@ unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
 
 impl<T: ComInterface> Clone for ComPtr<T> {
     fn clone(&self) -> Self {
-        if !self.ptr.is_null() {
-            unsafe { ((*(*(self.as_iunknown()))).unknown_add_ref)(self.as_iunknown()) };
+        if let Some(ptr) = self.as_iunknown() {
+            unsafe { ((*(*ptr.as_ptr()).as_ptr()).unknown_add_ref)(self.as_iunknown()) };
         }
         Self { ptr: self.ptr }
     }
@@ -41,17 +41,15 @@ impl<T: ComInterface> Clone for ComPtr<T> {
 
 impl<T: ComInterface> Drop for ComPtr<T> {
     fn drop(&mut self) {
-        if !self.ptr.is_null() {
-            unsafe { ((*(*(self.as_iunknown()))).unknown_release)(self.as_iunknown()) };
+        if let Some(ptr) = self.as_iunknown() {
+            unsafe { ((*(*ptr.as_ptr()).as_ptr()).unknown_release)(self.as_iunknown()) };
         }
     }
 }
 
 impl<T: ComInterface> Default for ComPtr<T> {
     fn default() -> Self {
-        ComPtr {
-            ptr: std::ptr::null_mut(),
-        }
+        ComPtr { ptr: None }
     }
 }
 

@@ -23,7 +23,10 @@ fn com_interface() -> winrt::Result<()> {
     // The class and the non-default interface have different vtable types, which
     // means we need to cast in order to compare their pointers (which won't match).
     let s: IStringable = uri.into();
-    assert!(s.as_raw() as winrt::RawPtr != uri.as_raw() as winrt::RawPtr);
+    assert!(
+        s.as_raw().unwrap().cast::<*mut winrt::IUnknown>()
+            != uri.as_raw().unwrap().cast::<*mut winrt::IUnknown>()
+    );
 
     // Here two different values of the same class won't share the same value as
     // they are unique instances even though they have the same vtable layout.
