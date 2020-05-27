@@ -114,7 +114,7 @@ impl Error {
 impl std::fmt::Debug for Error {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         fmt.debug_struct("Error")
-            .field("code", &self.code)
+            .field("code", &format_args!("{:#010X}", self.code.0))
             .field("message", &self.message())
             .finish()
     }
