@@ -95,7 +95,7 @@ impl Enum {
     }
 }
 
-fn bitwise_operators(name: &TokenStream, value_type: &EnumConstant) -> TokenStream {
+fn bitwise_operators(name: &TokenStream, value_type: EnumConstant) -> TokenStream {
     match value_type {
         EnumConstant::I32(_) => return quote! {},
         _ => {}

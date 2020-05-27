@@ -27,7 +27,7 @@ impl Attribute {
         }
     }
 
-    pub fn args(&self, reader: &TypeReader) -> Vec<(String, AttributeArg)> {
+    pub fn args(self, reader: &TypeReader) -> Vec<(String, AttributeArg)> {
         let (mut sig, mut values) = match self.constructor(reader) {
             AttributeType::MethodDef(method) => (reader.blob(method.0, 4), reader.blob(self.0, 2)),
             AttributeType::MemberRef(method) => (reader.blob(method.0, 2), reader.blob(self.0, 2)),

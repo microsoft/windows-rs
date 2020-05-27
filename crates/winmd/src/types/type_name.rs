@@ -306,7 +306,7 @@ impl TypeName {
         {
             let cache = self.tokens.borrow();
 
-            if let Some(_) = cache.get(calling_namespace) {
+            if cache.get(calling_namespace).is_some() {
                 return Ref::map(cache, |s| s.get(calling_namespace).unwrap());
             }
         }

@@ -30,9 +30,8 @@ fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
     for attribute in required.attributes(reader) {
         let name = attribute.name(reader);
 
-        match name {
-            ("Windows.Foundation.Metadata", "DefaultAttribute") => return InterfaceKind::Default,
-            _ => {}
+        if let ("Windows.Foundation.Metadata", "DefaultAttribute") = name {
+            return InterfaceKind::Default;
         }
     }
 

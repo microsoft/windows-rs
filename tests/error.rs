@@ -1,5 +1,3 @@
-#![allow(overflowing_literals)]
-
 winrt::import!(
     dependencies
         os

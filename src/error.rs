@@ -1,12 +1,10 @@
-#![allow(overflowing_literals)]
-
 use crate::runtime::*;
 use crate::*;
 
 /// The ErrorCode (a.k.a HRESULT) of an error
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, PartialEq)]
-pub struct ErrorCode(pub i32);
+pub struct ErrorCode(pub u32);
 
 /// A WinRT related error
 pub struct Error {
@@ -98,9 +96,9 @@ impl Error {
             }
         }
 
-        const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 0x00000100;
-        const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 0x00001000;
-        const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 0x00000200;
+        const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 0x0000_0100;
+        const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 0x0000_1000;
+        const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 0x0000_0200;
         let mut message = HeapString::new();
 
         unsafe {
@@ -110,7 +108,7 @@ impl Error {
                     | FORMAT_MESSAGE_IGNORE_INSERTS,
                 std::ptr::null_mut(),
                 self.code,
-                0x00000400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
+                0x0000_0400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
                 &mut message.ptr,
                 0,
                 std::ptr::null_mut(),
@@ -138,12 +136,12 @@ impl std::fmt::Debug for Error {
 impl ErrorCode {
     #[inline]
     pub fn is_ok(self) -> bool {
-        self.0 >= 0
+        self.0 & 0x8000_0000 == 0
     }
 
     #[inline]
     pub fn is_err(self) -> bool {
-        self.0 < 0
+        !self.is_ok()
     }
 
     #[inline]
