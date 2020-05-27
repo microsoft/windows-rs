@@ -22,7 +22,7 @@
 //     Ok(())
 // }
 
-// #[link(name = "onecore")]
+// #[link(name = "windowsapp")]
 // extern "system" {
 //     pub fn CoInitializeEx(reserved: usize, apartment: u32) -> ErrorCode;
 // }
