@@ -1,8 +1,9 @@
+use winrt::Builder;
+
 fn main() {
-    let current = std::env::current_dir().unwrap();
-    let src = current.join("nuget");
-    let target = current.join("target").join("nuget");
-    if !target.exists() {
-        std::os::windows::fs::symlink_dir(src, target).unwrap();
-    }
+    Builder::default()
+        .insert_namespaces(&["windows.foundation"])
+        .insert_nuget(&["Microsoft.Windows.SDK.Contracts"])
+        .build()
+        .unwrap();
 }

@@ -9,3 +9,4 @@ winmd_macros = { path = "macros" }
 quote = "1.0"
 proc-macro2 = "1.0"
 sha1 = "0.6.0"
+serde_json = "1.0"

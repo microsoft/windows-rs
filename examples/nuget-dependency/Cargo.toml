@@ -7,4 +7,10 @@ edition = "2018"
 [dependencies]
 winrt = { path = "../.." }
 
+[build-dependencies]
+winrt = { path = "../.." }
+
+[package.metadata.nuget_dependencies]
+"Microsoft.Windows.SDK.Contracts" = "1.25.0"
+
 [workspace]

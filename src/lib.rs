@@ -75,6 +75,7 @@ pub use runtime_name::RuntimeName;
 pub use runtime_type::RuntimeType;
 pub use try_into::TryInto;
 pub use unknown::IUnknown;
+pub use winrt_build::Builder;
 pub use winrt_macros::import;
 
 /// A convenient alias of a void pointer

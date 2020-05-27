@@ -9,6 +9,7 @@ repository = "https://github.com/microsoft/winrt-rs"
 
 [dependencies]
 winrt_macros = { path = "crates/macros" }
+winrt-build = { path = "crates/winrt-build" }
 sha1 = "0.6.0"
 
 [dev-dependencies]

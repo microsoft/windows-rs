@@ -1,7 +1,15 @@
 # Nuget Dependency File
 
-This is an example of a project with a dependency on a nuget package. Nuget based 
-winmd files are expected to be found in `$project_root\target\nuget\$name_of_package`.
+This is an example of a project with a dependency on a nuget package.
+
+## Installation
+
+To install the NuGet based dependency use [`cargo nuget`](https://github.com/rylev/cargo-nuget).
+
+```
+cargo install --git https://github.com/rylev/cargo-nuget
+cargo nuget install
+```
 
 ## Running the example
 
