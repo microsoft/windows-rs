@@ -66,7 +66,7 @@ impl Enum {
                 pub const #name: Self = Self { value: #value };
             }
         });
-        let bitwise = bitwise_operators(&name, &self.fields[0].1);
+        let bitwise = bitwise_operators(&name, self.fields[0].1);
 
         quote! {
             #[repr(transparent)]
@@ -95,7 +95,7 @@ impl Enum {
     }
 }
 
-fn bitwise_operators(name: &TokenStream, value_type: &EnumConstant) -> TokenStream {
+fn bitwise_operators(name: &TokenStream, value_type: EnumConstant) -> TokenStream {
     match value_type {
         EnumConstant::I32(_) => return quote! {},
         _ => {}
