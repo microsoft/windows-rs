@@ -66,7 +66,7 @@ impl Enum {
                 pub const #name: Self = Self { value: #value };
             }
         });
-        let bitwise = bitwise_operators(&name, &self.fields[0].1);
+        let bitwise = bitwise_operators(&name, self.fields[0].1);
 
         quote! {
             #[repr(transparent)]
