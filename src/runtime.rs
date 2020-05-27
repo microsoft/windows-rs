@@ -22,7 +22,7 @@ extern "system" {
     ) -> u32;
 }
 
-#[link(name = "onecore")] // RuntimeObject
+#[link(name = "onecore")]
 extern "system" {
     pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
 
