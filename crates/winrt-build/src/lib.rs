@@ -114,10 +114,7 @@ impl Builder {
                 std::io::copy(&mut s, &mut f).unwrap();
             });
 
-            // workaround for, well, overflowing literals
-            // writeln!(&mut stdin, "#![allow(overflowing_literals)]")?;
-
-            // Only rerun if the
+            // Only rerun if the output file has changed
             println!("cargo:rerun-if-env-changed={}", self.output.display());
 
             let tokens = tt.to_tokens();
