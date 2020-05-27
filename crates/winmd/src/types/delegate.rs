@@ -142,7 +142,8 @@ impl Delegate {
                     };
                     unsafe {
                         let mut result: #name = std::mem::zeroed();
-                        *<#name as ::winrt::RuntimeType>::set_abi(&mut result) = ::std::boxed::Box::into_raw(::std::boxed::Box::new(value)) as *const *const #abi_definition;
+                        let ptr = ::std::ptr::NonNull::new_unchecked(::std::boxed::Box::into_raw(::std::boxed::Box::new(value)));
+                        *<#name as ::winrt::RuntimeType>::set_abi(&mut result) = Some(ptr.cast());
                         result
                     }
                 }
@@ -152,7 +153,7 @@ impl Delegate {
                     interface: *mut ::winrt::RawPtr,
                 ) -> ::winrt::ErrorCode {
                     unsafe {
-                        let this = this as *const Self as *mut Self;
+                        let this: *mut Self = this.map(|s| s.cast::<Self>()).unwrap().as_ptr();
 
                         if iid == &<#name as ::winrt::ComInterface>::iid()
                             || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::iid()
@@ -169,13 +170,13 @@ impl Delegate {
                 }
                 extern "system" fn unknown_add_ref(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
                     unsafe {
-                        let this = this as *const Self as *mut Self;
+                        let this: *mut Self = this.map(|s| s.cast::<Self>()).unwrap().as_ptr();
                         (*this).count.add_ref()
                     }
                 }
                 extern "system" fn unknown_release(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
                     unsafe {
-                        let this = this as *const Self as *mut Self;
+                        let this: *mut Self = this.map(|s| s.cast::<Self>()).unwrap().as_ptr();
                         let remaining = (*this).count.release();
 
                         if remaining == 0 {
@@ -187,7 +188,8 @@ impl Delegate {
                 }
                 #invoke_sig {
                     unsafe {
-                        let this = this as *const Self as *mut Self;
+                        let this: *mut Self = this.map(|s| s.cast::<Self>()).unwrap().as_ptr();
+
                         ((*this).invoke)(#(#invoke_args,)*).into()
                     }
                 }

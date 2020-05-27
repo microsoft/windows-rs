@@ -133,7 +133,7 @@ impl Method {
     }
 
     pub fn to_abi_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
-        let abi_name = self_name.to_abi_tokens(calling_namespace);
+        let type_name = &*self_name.to_tokens(calling_namespace);
         let name = format_ident(&self.name);
         let params = TokenStream::from_iter(
             self.params
@@ -143,12 +143,12 @@ impl Method {
         );
 
         quote! {
-            pub #name: extern "system" fn(*const *const #abi_name, #params) -> ::winrt::ErrorCode,
+            pub #name: extern "system" fn(::winrt::RawComPtr<#type_name>, #params) -> ::winrt::ErrorCode,
         }
     }
 
     pub fn to_abi_impl_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
-        let abi_name = self_name.to_abi_tokens(calling_namespace);
+        let type_name = &*self_name.to_tokens(calling_namespace);
         let name = format_ident(&self.name);
         let params = self
             .params
@@ -161,7 +161,7 @@ impl Method {
             });
 
         quote! {
-            extern "system" fn #name(this: *const *const #abi_name, #(#params)*) -> ::winrt::ErrorCode
+            extern "system" fn #name(this: ::winrt::RawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
         }
     }
 
@@ -231,13 +231,15 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     let this = <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr);
 
-                    if this.is_null() {
-                        panic!("The `this` pointer was null when calling method");
-                    }
-                    unsafe {
-                        let mut __ok: #return_type = ::std::mem::zeroed();
-                        ((*(*(this))).#method_name)(this, #args #return_arg)
-                            .and_then(|| __ok )
+                    match this {
+                        None => panic!("The `this` pointer was null when calling method"),
+                        Some(this) => {
+                            unsafe {
+                                let mut __ok: #return_type = ::std::mem::zeroed();
+                                ((*(*this.as_ptr()).as_ptr()).#method_name)(Some(this), #args #return_arg)
+                                    .and_then(|| __ok )
+                            }
+                        }
                     }
                 }
             }
@@ -246,11 +248,13 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
                     let this = <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr);
 
-                    if this.is_null() {
-                        panic!("The `this` pointer was null when calling method");
-                    }
-                    unsafe {
-                        ((*(*(this))).#method_name)(this, #args).ok()
+                    match this {
+                        None => panic!("The `this` pointer was null when calling method"),
+                        Some(this) => {
+                            unsafe {
+                                ((*(*this.as_ptr()).as_ptr()).#method_name)(Some(this), #args).ok()
+                            }
+                        }
                     }
                 }
             }

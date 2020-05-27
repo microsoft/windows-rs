@@ -9,14 +9,18 @@ pub struct IActivationFactory {
 
 impl IActivationFactory {
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
-        if self.ptr.is_null() {
-            panic!("The `this` pointer was null when calling method");
-        }
-
-        let mut object = Object::default();
-        unsafe {
-            ((*(*(self.ptr.as_raw()))).activate_instance)(self.ptr.as_raw(), object.set_abi())
-                .and_then(|| object.query())
+        match self.ptr.as_raw() {
+            None => panic!("The `this` pointer was null when calling method"),
+            Some(ptr) => {
+                let mut object = Object::default();
+                unsafe {
+                    ((*(*ptr.as_ptr()).as_ptr()).activate_instance)(
+                        self.ptr.as_raw(),
+                        object.set_abi(),
+                    )
+                    .and_then(|| object.query())
+                }
+            }
         }
     }
 }
