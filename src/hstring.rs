@@ -5,7 +5,7 @@ use std::ptr;
 
 /// A handle to a [Windows Runtime string](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring)
 ///
-/// This handle should only be used for FFI purposes with Window Runtime APIs.
+/// This handle should only be used for FFI purposes with Windows Runtime APIs.
 #[repr(transparent)]
 pub struct HString {
     ptr: *mut Header,
@@ -188,7 +188,7 @@ impl<'a> From<&'a HString> for String {
 
 impl From<HString> for String {
     fn from(hstring: HString) -> Self {
-        hstring.into()
+        String::from(&hstring)
     }
 }
 
@@ -316,5 +316,12 @@ mod tests {
     fn from_empty_string() {
         let h = HString::from("");
         assert!(format!("{}", h) == "");
+    }
+
+    #[test]
+    fn hstring_to_string() {
+        let h = HString::from("test");
+        let s = String::from(h);
+        assert!(s == "test");
     }
 }

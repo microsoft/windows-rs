@@ -53,9 +53,9 @@ impl Interface {
     pub fn to_tokens(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens(&self.name.namespace);
         let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
-        let name = self.name.to_tokens(&self.name.namespace);
+        let name = &*self.name.to_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
-        let constraints = self.name.constraints();
+        let constraints = &*self.name.constraints();
         let default_interface = &self.interfaces[0];
         debug_assert!(default_interface.kind == InterfaceKind::Default);
         let guid = self.name.to_guid_tokens(&default_interface.guid);
@@ -69,13 +69,7 @@ impl Interface {
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
         let async_get = async_get_tokens(&self.name, &self.interfaces);
-        let clean_name = &self.name.name;
-        let debug = debug::debug_tokens(
-            &name,
-            &constraints,
-            &self.interfaces,
-            quote! { #clean_name },
-        );
+        let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]
