@@ -26,6 +26,7 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
                     SetRestrictedErrorInfo(error.info.as_raw() as _);
                 }
             }
+
             return error.code();
         }
 
@@ -68,14 +69,20 @@ impl std::convert::From<ErrorCode> for Error {
 
 impl Error {
     pub fn new(code: ErrorCode, message: &str) -> Self {
+        let message: HString = message.into();
+
         unsafe {
-            let message: HString = message.into();
             RoOriginateError(code, message.abi() as _);
-            let mut info = IErrorInfo::default();
-            GetErrorInfo(0, info.set_abi() as _);
-            let info = info.query::<IRestrictedErrorInfo>();
-            return Self { code, info };
         }
+
+        let mut info = IErrorInfo::default();
+
+        unsafe {
+            GetErrorInfo(0, info.set_abi() as _);
+        }
+
+        let info = info.query::<IRestrictedErrorInfo>();
+        Self { code, info }
     }
 
     pub fn code(&self) -> ErrorCode {
@@ -85,6 +92,7 @@ impl Error {
     pub fn message(&self) -> String {
         if !self.info.is_null() {
             let (code, message) = self.info.get_error_details();
+
             if self.code == code {
                 return message.trim_end().to_owned();
             }
@@ -189,6 +197,7 @@ impl BString {
             unsafe {
                 SysFreeString(self.ptr);
             }
+
             self.ptr = std::ptr::null_mut();
         }
     }
