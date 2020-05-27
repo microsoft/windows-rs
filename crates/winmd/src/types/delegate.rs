@@ -208,7 +208,7 @@ impl Delegate {
             quote! { () }
         };
 
-        quote! { F: FnMut(#(#params)*) -> ::winrt::Result<#return_type> }
+        quote! { F: FnMut(#(#params)*) -> ::winrt::Result<#return_type> + 'static }
     }
 
     fn to_impl_definition_tokens(&self, fn_constraint: &TokenStream) -> TokenStream {
