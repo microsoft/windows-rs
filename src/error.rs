@@ -38,16 +38,19 @@ impl std::convert::From<ErrorCode> for Error {
         unsafe {
             let mut info = IErrorInfo::default();
             GetErrorInfo(0, info.set_abi() as _);
-            let restricted: Result<IRestrictedErrorInfo> = info.try_into();
+            let restricted = info.query::<IRestrictedErrorInfo>();
 
-            if let Ok(info) = restricted {
-                let info2: Result<ILanguageExceptionErrorInfo2> = info.try_into();
+            if !restricted.is_null() {
+                let info2 = info.query::<ILanguageExceptionErrorInfo2>();
 
-                if let Ok(info2) = info2 {
-                    //info2.capture_propagation_context();
+                if !info2.is_null() {
+                    info2.capture_propagation_context();
                 }
 
-                return Self { code, info };
+                return Self {
+                    code,
+                    info: restricted,
+                };
             }
 
             let mut message = String::new();
@@ -68,7 +71,7 @@ impl Error {
             RoOriginateError(code, message.abi() as _);
             let mut info = IErrorInfo::default();
             GetErrorInfo(0, info.set_abi() as _);
-            let info: IRestrictedErrorInfo = info.try_into().unwrap();
+            let info = info.query::<IRestrictedErrorInfo>();
             return Self { code, info };
         }
     }
@@ -281,10 +284,6 @@ struct IRestrictedErrorInfo {
 }
 
 impl IRestrictedErrorInfo {
-    pub fn set_abi(&mut self) -> *mut RawComPtr<Self> {
-        self.ptr.set_abi()
-    }
-
     pub fn get_error_details(&self) -> (ErrorCode, String) {
         let mut fallback = BString::new();
         let mut message = BString::new();
@@ -343,10 +342,6 @@ struct ILanguageExceptionErrorInfo2 {
 }
 
 impl ILanguageExceptionErrorInfo2 {
-    pub fn set_abi(&mut self) -> *mut RawComPtr<Self> {
-        self.ptr.set_abi()
-    }
-
     pub fn capture_propagation_context(&self) {
         unsafe {
             ((*(*(self.ptr.as_raw()))).capture_propagation_context)(
