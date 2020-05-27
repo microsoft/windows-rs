@@ -160,12 +160,7 @@ fn parse_dependencies(
                 let _literal = stream.next();
             }
             Some(TokenTree::Ident(value)) if value.to_string().as_str() == "os" => {
-                let mut path = PathBuf::new();
-                let wind_dir_env = std::env::var("windir")
-                    .unwrap_or_else(|_| panic!("No `windir` environment variable found"));
-                path.push(wind_dir_env);
-                path.push(SYSTEM32);
-                path.push("winmetadata");
+                let path = winmd::dependencies::system_metadata_root();
                 dependencies::expand_paths(path, &mut dependencies, false);
                 let _os = stream.next();
             }
@@ -217,9 +212,3 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     }
     result
 }
-
-#[cfg(target_pointer_width = "64")]
-const SYSTEM32: &str = "System32";
-
-#[cfg(target_pointer_width = "32")]
-const SYSTEM32: &str = "SysNative";

@@ -30,9 +30,19 @@ pub fn expand_paths<P: AsRef<Path>>(dependency: P, result: &mut BTreeSet<PathBuf
 
 pub fn nuget_root() -> PathBuf {
     let mut path = workspace_root();
-
     path.push("target");
     path.push("nuget");
+    path
+}
+
+pub fn system_metadata_root() -> PathBuf {
+    let mut path = PathBuf::new();
+    let wind_dir_env = std::env::var("windir")
+        .unwrap_or_else(|_| panic!("No `windir` environment variable found"));
+    path.push(wind_dir_env);
+    path.push(SYSTEM32);
+    path.push("winmetadata");
+
     path
 }
 
@@ -50,3 +60,9 @@ fn workspace_root() -> PathBuf {
     };
     PathBuf::from(path)
 }
+
+#[cfg(target_pointer_width = "64")]
+const SYSTEM32: &str = "System32";
+
+#[cfg(target_pointer_width = "32")]
+const SYSTEM32: &str = "SysNative";

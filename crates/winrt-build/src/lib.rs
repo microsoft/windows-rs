@@ -17,6 +17,33 @@ pub enum Dependencies {
     OsAndNuget(Vec<String>),
 }
 
+impl Dependencies {
+    fn winmds(&self) -> Vec<winmd::WinmdFile> {
+        let mut result = std::collections::BTreeSet::new();
+        let deps = match self {
+            Dependencies::Os => vec![winmd::dependencies::system_metadata_root()],
+            Dependencies::Nuget(deps) => deps
+                .iter()
+                .map(|d| winmd::dependencies::nuget_root().join(d))
+                .collect(),
+            Dependencies::OsAndNuget(deps) => {
+                let mut deps: Vec<PathBuf> = deps
+                    .iter()
+                    .map(|d| winmd::dependencies::nuget_root().join(d))
+                    .collect();
+
+                deps.push(winmd::dependencies::system_metadata_root());
+                deps
+            }
+        };
+        for dep in deps {
+            let dep = winmd::dependencies::nuget_root().join(dep);
+            winmd::dependencies::expand_paths(dep, &mut result, true)
+        }
+        result.iter().map(winmd::WinmdFile::new).collect()
+    }
+}
+
 impl Default for Builder {
     fn default() -> Self {
         Self {
@@ -46,7 +73,7 @@ impl Builder {
     {
         let new_deps = nuget_deps.into_iter().map(|i| i.to_string());
         match &mut self.dependencies {
-            Dependencies::Os => self.dependencies = Dependencies::Nuget(new_deps.collect()),
+            Dependencies::Os => self.dependencies = Dependencies::OsAndNuget(new_deps.collect()),
             Dependencies::Nuget(deps) => deps.extend(new_deps),
             Dependencies::OsAndNuget(deps) => deps.extend(new_deps),
         }
@@ -59,20 +86,8 @@ impl Builder {
     }
 
     pub fn build(&self) -> Result<(), Box<dyn std::error::Error>> {
-        let tr = match &self.dependencies {
-            Dependencies::Os => winmd::TypeReader::from_os(),
-            Dependencies::Nuget(deps) => {
-                let mut result = std::collections::BTreeSet::new();
-                for dep in deps {
-                    let dep = winmd::dependencies::nuget_root().join(dep);
-                    winmd::dependencies::expand_paths(dep, &mut result, true)
-                }
-
-                let dependencies = result.iter().map(winmd::WinmdFile::new).collect();
-                winmd::TypeReader::new(dependencies)
-            }
-            _ => todo!("Using both OS and NuGet dependencies is not currently supported"),
-        };
+        let dependencies = self.dependencies.winmds();
+        let tr = winmd::TypeReader::new(dependencies);
 
         let mut tl = winmd::TypeLimits::default();
         for ns in &self.namespaces {
