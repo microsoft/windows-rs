@@ -1,5 +1,8 @@
 use crate::*;
 
+/// The [IAgileObject](https://docs.microsoft.com/en-us/windows/win32/api/objidl/nn-objidl-iagileobject)
+/// interface is a marker interface indicating that the implementation can be
+/// called from any COM apartment.
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct IAgileObject {

@@ -1,6 +1,7 @@
 use crate::*;
 
-/// The [IUnknown interface](https://docs.microsoft.com/en-us/windows/win32/api/unknwn/nn-unknwn-iunknown)
+/// The [IUnknown](https://docs.microsoft.com/en-us/windows/win32/api/unknwn/nn-unknwn-iunknown) interface
+/// is the interface that all other COM and WinRT interfaces inherit from (directly or indirectly).
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct IUnknown {
