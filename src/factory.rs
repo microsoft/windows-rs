@@ -2,20 +2,21 @@ use crate::runtime::*;
 use crate::*;
 
 type DllGetActivationFactory = extern "system" fn(
-        RawComPtr<IActivationFactory>,
-        *mut <Object as RuntimeType>::Abi,
+        name: *mut hstring::Header,
+        factory: *mut RawComPtr<IActivationFactory>,
     ) -> ErrorCode;
 
 pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
     let mut factory = std::ptr::null_mut();
+    let name = HString::from(C::NAME);
     unsafe {
         let mut code =
-            RoGetActivationFactory(HString::from(C::NAME).abi(), &I::iid(), &mut factory);
+            RoGetActivationFactory(name.abi(), &I::iid(), &mut factory);
 
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
             CoIncrementMTAUsage(&mut _cookie);
-            code = RoGetActivationFactory(HString::from(C::NAME).abi(), &I::iid(), &mut factory);
+            code = RoGetActivationFactory(name.abi(), &I::iid(), &mut factory);
         }
 
         if code.is_ok() {
@@ -47,10 +48,13 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             }
 
             let library_call: DllGetActivationFactory = std::mem::transmute(library_call);
+            let mut default_factory: IActivationFactory = std::mem::zeroed();
 
-            //let default_factory: IActivationFactory = 
+            if library_call(name.abi(), default_factory.set_abi()).is_err() {
+                continue;
+            }
 
-
+            return Ok(default_factory.query());
         }
 
         Err(original)
