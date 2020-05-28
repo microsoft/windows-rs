@@ -176,7 +176,7 @@ impl Delegate {
                 }
                 extern "system" fn unknown_release(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
                     unsafe {
-                        let this: *mut Self = this.as_raw() as _;                        let remaining = (*this).count.release();
+                        let this: *mut Self = this.as_raw() as _;
                         let remaining = (*this).count.release();
 
                         if remaining == 0 {
