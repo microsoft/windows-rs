@@ -143,7 +143,7 @@ impl Method {
         );
 
         quote! {
-            pub #name: extern "system" fn(::winrt::RawComPtr<#type_name>, #params) -> ::winrt::ErrorCode,
+            pub #name: extern "system" fn(::winrt::NonNullRawComPtr<#type_name>, #params) -> ::winrt::ErrorCode,
         }
     }
 
@@ -161,7 +161,7 @@ impl Method {
             });
 
         quote! {
-            extern "system" fn #name(this: ::winrt::RawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
+            extern "system" fn #name(this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
         }
     }
 
@@ -234,7 +234,7 @@ impl Method {
                         Some(this) => {
                             unsafe {
                                 let mut __ok: #return_type = ::std::mem::zeroed();
-                                (this.vtable().#method_name)(Some(this), #args #return_arg)
+                                (this.vtable().#method_name)(this, #args #return_arg)
                                     .and_then(|| __ok )
                             }
                         }
@@ -248,7 +248,7 @@ impl Method {
                         None => panic!("The `this` pointer was null when calling method"),
                         Some(this) => {
                             unsafe {
-                                (this.vtable().#method_name)(Some(this), #args).ok()
+                                (this.vtable().#method_name)(this, #args).ok()
                             }
                         }
                     }
