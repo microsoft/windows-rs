@@ -42,8 +42,7 @@ doc_comment::doctest!("../README.md");
 mod activation_factory;
 mod agile_object;
 mod array;
-mod com_interface;
-mod com_ptr;
+mod com;
 mod error;
 #[doc(hidden)]
 pub mod factory;
@@ -51,30 +50,25 @@ mod guid;
 mod hstring;
 mod object;
 mod param;
-mod ref_count;
 pub mod runtime;
 mod runtime_name;
 mod runtime_type;
 mod try_into;
-mod unknown;
 
 #[doc(inline)]
 pub use activation_factory::IActivationFactory;
 pub use agile_object::IAgileObject;
 pub use array::Array;
-pub use com_interface::{ComInterface, NonNullRawComPtr, RawComPtr};
-pub use com_ptr::ComPtr;
+pub use com::*;
 pub use error::*;
 pub use factory::factory;
 pub use guid::Guid;
 pub use hstring::HString;
 pub use object::Object;
 pub use param::Param;
-pub use ref_count::RefCount;
 pub use runtime_name::RuntimeName;
 pub use runtime_type::RuntimeType;
 pub use try_into::TryInto;
-pub use unknown::IUnknown;
 pub use winrt_build::Builder;
 pub use winrt_macros::import;
 
