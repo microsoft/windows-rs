@@ -1,17 +1,11 @@
 use crate::runtime::*;
 use crate::*;
 
-// extern "system" fn(
-//     RawComPtr<IActivationFactory>,
-//     *mut <Object as RuntimeType>::Abi,
-// ) -> ErrorCode;
+type DllGetActivationFactory = extern "system" fn(
+        RawComPtr<IActivationFactory>,
+        *mut <Object as RuntimeType>::Abi,
+    ) -> ErrorCode;
 
-// TODO: this should return `Result<&I>` e.g. a reference pointing to the factory cache.
-// So this function needs to be implemented as some sort of atomic/singleton where RoGetActivationFactory
-// is only called once and the result is then cached. Here's how I do it in C++ - it's critical
-// that this is super fast. Also, load RoGetActivationFactory dynamically and fall back to LoadLibrary
-// and implement DLL garbage collection for those. Version 0.1 can probably just pin everything.
-// https://github.com/microsoft/cppwinrt/blob/master/strings/base_activation.h
 pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
     let mut factory = std::ptr::null_mut();
     unsafe {
@@ -45,6 +39,18 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             if library.handle.is_null() {
                 continue;
             }
+
+            let library_call = GetProcAddress(library.handle, b"DllGetActivationFactory".as_ptr());
+
+            if library_call.is_null() {
+                continue;
+            }
+
+            let library_call: DllGetActivationFactory = std::mem::transmute(library_call);
+
+            //let default_factory: IActivationFactory = 
+
+
         }
 
         Err(original)
