@@ -21,7 +21,7 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
         if let Err(error) = result {
             if let Some(info) = error.info.as_raw() {
                 unsafe {
-                    SetRestrictedErrorInfo(info.as_ptr() as _);
+                    SetRestrictedErrorInfo(info.as_raw() as _);
                 }
             }
 
@@ -263,13 +263,10 @@ impl IErrorInfo {
 
     pub fn get_description(&self) -> String {
         let mut description = BString::new();
-        match self.ptr.as_raw() {
+        match self.ptr.abi() {
             Some(p) => {
                 unsafe {
-                    ((*(*p.as_ptr()).as_ptr()).get_description)(
-                        self.ptr.as_raw(),
-                        description.set_abi(),
-                    );
+                    (p.vtable().get_description)(Some(p), description.set_abi());
                 }
 
                 description.into()
@@ -295,7 +292,7 @@ unsafe impl ComInterface for IErrorInfo {
 #[repr(C)]
 struct abi_IErrorInfo {
     __base: [usize; 5],
-    get_description: extern "system" fn(RawComPtr<IErrorInfo>, *mut *mut u16) -> ErrorCode,
+    get_description: unsafe extern "system" fn(RawComPtr<IErrorInfo>, *mut *mut u16) -> ErrorCode,
 }
 
 #[repr(transparent)]
@@ -310,13 +307,13 @@ impl IRestrictedErrorInfo {
         let mut message = BString::new();
         let mut unused = BString::new();
         let mut code = ErrorCode(0);
-        let p = match self.ptr.as_raw() {
+        let p = match self.ptr.abi() {
             Some(p) => p,
             None => return (code, String::new()),
         };
 
         unsafe {
-            ((*(*p.as_ptr()).as_ptr()).get_error_details)(
+            (p.vtable().get_error_details)(
                 Some(p),
                 fallback.set_abi(),
                 &mut code,
@@ -351,7 +348,7 @@ unsafe impl ComInterface for IRestrictedErrorInfo {
 #[repr(C)]
 struct abi_IRestrictedErrorInfo {
     __base: [usize; 3],
-    get_error_details: extern "system" fn(
+    get_error_details: unsafe extern "system" fn(
         RawComPtr<IRestrictedErrorInfo>,
         *mut *mut u16,
         *mut ErrorCode,
@@ -368,12 +365,9 @@ struct ILanguageExceptionErrorInfo2 {
 
 impl ILanguageExceptionErrorInfo2 {
     pub fn capture_propagation_context(&self) {
-        if let Some(p) = self.ptr.as_raw() {
+        if let Some(p) = self.ptr.abi() {
             unsafe {
-                ((*(*p.as_ptr()).as_ptr()).capture_propagation_context)(
-                    self.ptr.as_raw(),
-                    std::ptr::null_mut(),
-                );
+                (p.vtable().capture_propagation_context)(p, std::ptr::null_mut());
             }
         }
     }
@@ -395,6 +389,8 @@ unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
 #[repr(C)]
 struct abi_ILanguageExceptionErrorInfo2 {
     __base: [usize; 5],
-    capture_propagation_context:
-        extern "system" fn(RawComPtr<ILanguageExceptionErrorInfo2>, RawPtr) -> ErrorCode,
+    capture_propagation_context: unsafe extern "system" fn(
+        NonNullRawComPtr<ILanguageExceptionErrorInfo2>,
+        RawPtr,
+    ) -> ErrorCode,
 }

@@ -37,7 +37,8 @@ pub unsafe trait ComInterface: Sized {
     /// for at most the lifetime of `&self`
     #[inline(always)]
     fn as_iunknown(&self) -> RawComPtr<IUnknown> {
-        self.as_raw().map(|s| s.cast())
+        // Safe because all ComInterfaces inherit from IUnknown
+        self.as_raw().map(|s| unsafe { s.cast() })
     }
 
     #[inline(always)]
@@ -51,22 +52,22 @@ pub unsafe trait ComInterface: Sized {
         }
     }
 
+    /// Check whether the ComInterface is currently null
     #[inline(always)]
     fn is_null(&self) -> bool {
         self.as_raw().is_none()
     }
 
-    unsafe fn raw_query<T: ComInterface>(&self, guid: &Guid, ppv: &mut T) {
-        let from = self.as_iunknown();
-        if let Some(from) = from {
-            ((*(*from.as_ptr()).as_ptr()).unknown_query_interface)(
-                Some(from),
-                guid,
-                ppv as *mut _ as _,
-            );
+    /// Query for a particular interface by iid.
+    ///
+    /// # Safety
+    /// The supplied `Guid` must be a valid GUID for the ComInterface `T`
+    /// This function should really only be used for generic types which
+    /// [currently](https://github.com/microsoft/winrt-rs/issues/136) do
+    /// not know their iids at compile time.
+    unsafe fn raw_query<T: ComInterface>(&self, iid: &Guid, ppv: &mut T) {
+        if let Some(from) = self.as_iunknown() {
+            (from.vtable().unknown_query_interface)(from, iid, ppv as *mut _ as _);
         }
     }
 }
-
-/// A non-reference-counted pointer to a COM interface
-pub type RawComPtr<T> = Option<std::ptr::NonNull<std::ptr::NonNull<<T as ComInterface>::VTable>>>;
