@@ -1,8 +1,8 @@
 use crate::*;
 
-/// A WinRT Object
+/// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 ///
-/// Objects implement the [IInspectable interface](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
+/// Objects implement the [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable) interface.
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct Object {
@@ -10,6 +10,7 @@ pub struct Object {
 }
 
 impl Object {
+    /// Returns the full-qualified type name of the WinRT object.
     pub fn type_name(&self) -> Result<HString> {
         match self.ptr.abi() {
             None => panic!("The `this` pointer was null when calling method"),

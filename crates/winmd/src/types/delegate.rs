@@ -137,7 +137,7 @@ impl Delegate {
                 pub fn new(invoke: F) -> #name {
                     let value = Self {
                         vtable: &Self::VTABLE,
-                        count: ::winrt::RefCount::new(1),
+                        count: ::winrt::RefCount::new(),
                         invoke,
                     };
                     unsafe {

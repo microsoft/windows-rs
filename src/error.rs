@@ -1,93 +1,53 @@
 use crate::runtime::*;
 use crate::*;
 
-/// The ErrorCode (a.k.a HRESULT) of an error
+/// An `ErrorCode`, sometimes called an `HRESULT`, is the error code associated with a WinRT error.
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ErrorCode(pub u32);
 
-/// A WinRT related error
+/// A WinRT error object consisting of both an error code as well as detailed error information for debugging.
 pub struct Error {
     code: ErrorCode,
     info: IRestrictedErrorInfo,
 }
 
-/// An alias for `std::result::Result<T, winrt::Error>`
+/// An alias for `std::result::Result<T, winrt::Error>`.
 #[must_use]
 pub type Result<T> = std::result::Result<T, Error>;
 
-impl<T> std::convert::From<Result<T>> for ErrorCode {
-    fn from(result: Result<T>) -> Self {
-        if let Err(error) = result {
-            if let Some(info) = error.info.as_raw() {
-                unsafe {
-                    SetRestrictedErrorInfo(info.as_raw() as _);
-                }
-            }
-
-            return error.code();
-        }
-
-        ErrorCode(0)
-    }
-}
-
-impl std::convert::From<ErrorCode> for Error {
-    fn from(code: ErrorCode) -> Self {
-        let mut info = IErrorInfo::default();
-
-        unsafe {
-            GetErrorInfo(0, info.set_abi() as _);
-        }
-
-        let restricted = info.query::<IRestrictedErrorInfo>();
-
-        if !restricted.is_null() {
-            let capture = info.query::<ILanguageExceptionErrorInfo2>();
-
-            if !capture.is_null() {
-                capture.capture_propagation_context();
-            }
-
-            return Self {
-                code,
-                info: restricted,
-            };
-        }
-
-        let mut message = String::new();
-
-        if !info.is_null() {
-            message = info.get_description();
-        }
-
-        Self::new(code, &message)
-    }
-}
-
 impl Error {
+    /// This creates a new WinRT error object, capturing the stack and other information about the
+    /// point of failure.
     pub fn new(code: ErrorCode, message: &str) -> Self {
         let message: HString = message.into();
 
+        // RoOriginateError creates the error object and associates it with the thread.
         unsafe {
             RoOriginateError(code, message.abi() as _);
         }
 
         let mut info = IErrorInfo::default();
 
+        // GetErrorInfo retrieves the error object from the thread.
         unsafe {
             GetErrorInfo(0, info.set_abi() as _);
         }
 
+        // The error information is then associated with the returning error object and no longer
+        // associated with the thread.
         let info = info.query::<IRestrictedErrorInfo>();
         Self { code, info }
     }
 
+    /// The error code describing the error.
     pub fn code(&self) -> ErrorCode {
         self.code
     }
 
+    /// The error message describing the error.
     pub fn message(&self) -> String {
+        // First attempt to retrieve the restricted error information.
         if !self.info.is_null() {
             let (code, message) = self.info.get_error_details();
 
@@ -101,6 +61,7 @@ impl Error {
         const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 0x0000_0200;
         let mut message = HeapString::new();
 
+        // If that fails simply ask for the generic formatted message for the error code.
         unsafe {
             let size = FormatMessageW(
                 FORMAT_MESSAGE_ALLOCATE_BUFFER
@@ -124,31 +85,29 @@ impl Error {
     }
 }
 
-impl std::fmt::Debug for Error {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        fmt.debug_struct("Error")
-            .field("code", &format_args!("{:#010X}", self.code.0))
-            .field("message", &self.message())
-            .finish()
-    }
-}
-
 impl ErrorCode {
+    /// Returns `true` if `self` is a success code.
     #[inline]
     pub fn is_ok(self) -> bool {
         self.0 & 0x8000_0000 == 0
     }
 
+    /// Returns `true` if `self` is a failure code.
     #[inline]
     pub fn is_err(self) -> bool {
         !self.is_ok()
     }
 
+    /// Asserts that `self` is a success code.
+    ///
+    /// This will  invoke the `panic!` macro if `self` is a failure code and display
+    /// the `HRESULT` value for diagnostics.
     #[inline]
     pub fn unwrap(self) {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
 
+    /// Converts the `ErrorCode` to `Result<()>`.
     #[inline]
     pub fn ok(self) -> Result<()> {
         if self.is_ok() {
@@ -158,16 +117,85 @@ impl ErrorCode {
         }
     }
 
+    /// Calls `op` if `self` is a success code, otherwise returns `ErrorCode`
+    /// converted to `Result<T>`.
     #[inline]
-    pub fn and_then<F, T>(self, value: F) -> Result<T>
+    pub fn and_then<F, T>(self, op: F) -> Result<T>
     where
         F: FnOnce() -> T,
     {
         self.ok()?;
-        Ok(value())
+        Ok(op())
     }
 
+    /// Indicates that COM has not been initialized.
     pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
+}
+
+impl<T> std::convert::From<Result<T>> for ErrorCode {
+    fn from(result: Result<T>) -> Self {
+        if let Err(error) = result {
+            if let Some(info) = error.info.as_raw() {
+                // Set the error information on the thread if the result is `Err`
+                // so that the caller can pick it up.
+                unsafe {
+                    SetRestrictedErrorInfo(info.as_raw() as _);
+                }
+            }
+
+            return error.code();
+        }
+
+        ErrorCode(0)
+    }
+}
+
+impl std::convert::From<ErrorCode> for Error {
+    fn from(code: ErrorCode) -> Self {
+        let mut info = IErrorInfo::default();
+
+        // GetErrorInfo retrieves the error object from the thread, if any.
+        unsafe {
+            GetErrorInfo(0, info.set_abi() as _);
+        }
+
+        // Hopefully it has richer information via IRestrictedErrorInfo.
+        let restricted = info.query::<IRestrictedErrorInfo>();
+
+        if !restricted.is_null() {
+            let capture = info.query::<ILanguageExceptionErrorInfo2>();
+
+            // If it does (and running on a recent version of Windows) then
+            // capture_propagation_context adds a breadcrumb to the error info
+            // to make debugging easier.
+            if !capture.is_null() {
+                capture.capture_propagation_context();
+            }
+
+            return Self {
+                code,
+                info: restricted,
+            };
+        }
+
+        let mut message = String::new();
+
+        // Otherwise, for older APIs we attempt to get the error message.
+        if !info.is_null() {
+            message = info.get_description();
+        }
+
+        Self::new(code, &message)
+    }
+}
+
+impl std::fmt::Debug for Error {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        fmt.debug_struct("Error")
+            .field("code", &format_args!("{:#010X}", self.code.0))
+            .field("message", &self.message())
+            .finish()
+    }
 }
 
 #[repr(transparent)]
