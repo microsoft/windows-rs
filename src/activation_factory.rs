@@ -9,17 +9,13 @@ pub struct IActivationFactory {
 
 impl IActivationFactory {
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
-        match self.ptr.as_raw() {
+        match self.ptr.abi() {
             None => panic!("The `this` pointer was null when calling method"),
             Some(ptr) => {
                 let mut object = Object::default();
-                unsafe {
-                    ((*(*ptr.as_ptr()).as_ptr()).activate_instance)(
-                        self.ptr.as_raw(),
-                        object.set_abi(),
-                    )
+
+                unsafe { (ptr.vtable().activate_instance)(ptr, object.set_abi()) }
                     .and_then(|| object.query())
-                }
             }
         }
     }
@@ -41,8 +37,8 @@ unsafe impl ComInterface for IActivationFactory {
 #[repr(C)]
 pub struct abi_IActivationFactory {
     __base: [usize; 6],
-    activate_instance: extern "system" fn(
-        RawComPtr<IActivationFactory>,
+    activate_instance: unsafe extern "system" fn(
+        NonNullRawComPtr<IActivationFactory>,
         *mut <Object as RuntimeType>::Abi,
     ) -> ErrorCode,
 }

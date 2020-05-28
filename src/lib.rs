@@ -62,7 +62,7 @@ mod unknown;
 pub use activation_factory::IActivationFactory;
 pub use agile_object::IAgileObject;
 pub use array::Array;
-pub use com_interface::{ComInterface, RawComPtr};
+pub use com_interface::{ComInterface, NonNullRawComPtr, RawComPtr};
 pub use com_ptr::ComPtr;
 pub use error::*;
 pub use factory::factory;

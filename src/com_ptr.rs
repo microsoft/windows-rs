@@ -13,12 +13,11 @@ impl<T: ComInterface> ComPtr<T> {
 
     pub fn set_abi(&mut self) -> *mut RawComPtr<T> {
         if let Some(ptr) = self.as_iunknown() {
-            unsafe {
-                ((*(*ptr.as_ptr()).as_ptr()).unknown_release)(self.as_iunknown());
-            }
+            (ptr.vtable().unknown_release)(ptr);
+
             self.ptr = None;
         }
-        &mut self.ptr as *mut _ as _
+        &mut self.ptr
     }
 }
 
@@ -33,7 +32,7 @@ unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
 impl<T: ComInterface> Clone for ComPtr<T> {
     fn clone(&self) -> Self {
         if let Some(ptr) = self.as_iunknown() {
-            unsafe { ((*(*ptr.as_ptr()).as_ptr()).unknown_add_ref)(self.as_iunknown()) };
+            (ptr.vtable().unknown_add_ref)(ptr);
         }
         Self { ptr: self.ptr }
     }
@@ -42,7 +41,7 @@ impl<T: ComInterface> Clone for ComPtr<T> {
 impl<T: ComInterface> Drop for ComPtr<T> {
     fn drop(&mut self) {
         if let Some(ptr) = self.as_iunknown() {
-            unsafe { ((*(*ptr.as_ptr()).as_ptr()).unknown_release)(self.as_iunknown()) };
+            (ptr.vtable().unknown_release)(ptr);
         }
     }
 }

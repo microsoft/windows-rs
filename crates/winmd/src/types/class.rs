@@ -125,7 +125,7 @@ impl Class {
             quote! {
                 #[repr(transparent)]
                 #[derive(Default, Clone, PartialEq)]
-                pub struct #name { ptr: ::winrt::ComPtr<#name> }
+                pub struct #name { ptr: ::winrt::ComPtr<#default_name> }
                 impl #name {
                     #new
                     #methods
@@ -139,12 +139,12 @@ impl Class {
                     }
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
-                    type Abi = ::winrt::RawComPtr<Self>;
+                    type Abi = ::winrt::RawComPtr<#default_name>;
                     fn signature() -> String {
                         #signature.to_owned()
                     }
                     fn abi(&self) -> Self::Abi {
-                        <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
+                        self.ptr.abi()
                     }
                     fn set_abi(&mut self) -> *mut Self::Abi {
                         self.ptr.set_abi()

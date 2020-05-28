@@ -100,7 +100,7 @@ impl Delegate {
                     #signature
                 }
                 fn abi(&self) -> Self::Abi {
-                    <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
+                    self.ptr.abi()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     self.ptr.set_abi()
@@ -142,8 +142,8 @@ impl Delegate {
                     };
                     unsafe {
                         let mut result: #name = std::mem::zeroed();
-                        let ptr = ::std::ptr::NonNull::new_unchecked(::std::boxed::Box::into_raw(::std::boxed::Box::new(value)));
-                        *<#name as ::winrt::RuntimeType>::set_abi(&mut result) = Some(ptr.cast());
+                        let ptr: ::std::ptr::NonNull<Self> = ::std::ptr::NonNull::new_unchecked(::std::boxed::Box::into_raw(::std::boxed::Box::new(value)));
+                        *<#name as ::winrt::RuntimeType>::set_abi(&mut result) = Some(::winrt::NonNullRawComPtr::new(ptr.cast()));
                         result
                     }
                 }
@@ -153,7 +153,7 @@ impl Delegate {
                     interface: *mut ::winrt::RawPtr,
                 ) -> ::winrt::ErrorCode {
                     unsafe {
-                        let this: *mut Self = this.map(|s| s.cast::<Self>()).unwrap().as_ptr();
+                        let this: *mut Self = this.unwrap().as_raw() as _;
 
                         if iid == &<#name as ::winrt::ComInterface>::iid()
                             || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::iid()
@@ -170,13 +170,13 @@ impl Delegate {
                 }
                 extern "system" fn unknown_add_ref(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
                     unsafe {
-                        let this: *mut Self = this.map(|s| s.cast::<Self>()).unwrap().as_ptr();
+                        let this: *mut Self = this.unwrap().as_raw() as _;
                         (*this).count.add_ref()
                     }
                 }
                 extern "system" fn unknown_release(this: ::winrt::RawComPtr<::winrt::IUnknown>) -> u32 {
                     unsafe {
-                        let this: *mut Self = this.map(|s| s.cast::<Self>()).unwrap().as_ptr();
+                        let this: *mut Self = this.unwrap().as_raw() as _;                        let remaining = (*this).count.release();
                         let remaining = (*this).count.release();
 
                         if remaining == 0 {
@@ -188,8 +188,7 @@ impl Delegate {
                 }
                 #invoke_sig {
                     unsafe {
-                        let this: *mut Self = this.map(|s| s.cast::<Self>()).unwrap().as_ptr();
-
+                        let this: *mut Self = this.unwrap().as_raw() as _;
                         ((*this).invoke)(#(#invoke_args,)*).into()
                     }
                 }

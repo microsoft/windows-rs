@@ -112,7 +112,7 @@ impl Interface {
                     #signature
                 }
                 fn abi(&self) -> Self::Abi {
-                    <::winrt::ComPtr<Self> as ::winrt::ComInterface>::as_raw(&self.ptr)
+                    self.ptr.abi()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
                     self.ptr.set_abi()

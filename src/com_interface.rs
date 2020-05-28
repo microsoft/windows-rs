@@ -37,7 +37,7 @@ pub unsafe trait ComInterface: Sized {
     /// for at most the lifetime of `&self`
     #[inline(always)]
     fn as_iunknown(&self) -> RawComPtr<IUnknown> {
-        self.as_raw().map(|s| s.cast())
+        self.as_raw().map(|s| unsafe { s.cast() })
     }
 
     #[inline(always)]
@@ -51,22 +51,73 @@ pub unsafe trait ComInterface: Sized {
         }
     }
 
+    /// Check whether the ComInterface is currently null
     #[inline(always)]
     fn is_null(&self) -> bool {
         self.as_raw().is_none()
     }
 
     unsafe fn raw_query<T: ComInterface>(&self, guid: &Guid, ppv: &mut T) {
-        let from = self.as_iunknown();
-        if let Some(from) = from {
-            ((*(*from.as_ptr()).as_ptr()).unknown_query_interface)(
-                Some(from),
-                guid,
-                ppv as *mut _ as _,
-            );
+        if let Some(from) = self.as_iunknown() {
+            (from.vtable().unknown_query_interface)(from, guid, ppv as *mut _ as _);
         }
     }
 }
 
 /// A non-reference-counted pointer to a COM interface
-pub type RawComPtr<T> = Option<std::ptr::NonNull<std::ptr::NonNull<<T as ComInterface>::VTable>>>;
+pub type RawComPtr<T> = Option<NonNullRawComPtr<T>>;
+
+#[repr(transparent)]
+pub struct NonNullRawComPtr<T: ComInterface> {
+    inner: std::ptr::NonNull<std::ptr::NonNull<<T as ComInterface>::VTable>>,
+}
+
+impl<T: ComInterface> NonNullRawComPtr<T> {
+    pub fn new(inner: std::ptr::NonNull<std::ptr::NonNull<<T as ComInterface>::VTable>>) -> Self {
+        Self { inner }
+    }
+
+    pub fn vtable(&self) -> &<T as ComInterface>::VTable {
+        unsafe { &(*(*self.inner.as_ptr()).as_ptr()) }
+    }
+
+    pub unsafe fn cast<U: ComInterface>(self) -> NonNullRawComPtr<U> {
+        NonNullRawComPtr {
+            inner: self.inner.cast(),
+        }
+    }
+
+    pub fn as_raw(self) -> *mut std::ptr::NonNull<<T as ComInterface>::VTable> {
+        self.inner.as_ptr()
+    }
+}
+
+unsafe impl<T: ComInterface> ComInterface for NonNullRawComPtr<T> {
+    type VTable = <T as ComInterface>::VTable;
+
+    fn iid() -> Guid {
+        T::iid()
+    }
+}
+
+impl<T: ComInterface> PartialEq for NonNullRawComPtr<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.inner == other.inner
+    }
+}
+
+impl<T: ComInterface> Clone for NonNullRawComPtr<T> {
+    fn clone(&self) -> Self {
+        Self {
+            inner: self.inner.clone(),
+        }
+    }
+}
+
+impl<T: ComInterface> Copy for NonNullRawComPtr<T> {}
+
+impl<T: ComInterface> std::fmt::Debug for NonNullRawComPtr<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("{:?}", self.inner))
+    }
+}
