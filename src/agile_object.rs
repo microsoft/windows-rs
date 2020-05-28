@@ -22,7 +22,7 @@ unsafe impl ComInterface for IAgileObject {
 #[repr(C)]
 pub struct abi_IAgileObject {
     pub unknown_query_interface:
-        extern "system" fn(RawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
-    pub unknown_add_ref: extern "system" fn(RawComPtr<IUnknown>) -> u32,
-    pub unknown_release: extern "system" fn(RawComPtr<IUnknown>) -> u32,
+        unsafe extern "system" fn(RawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
+    pub unknown_add_ref: unsafe extern "system" fn(RawComPtr<IUnknown>) -> u32,
+    pub unknown_release: unsafe extern "system" fn(RawComPtr<IUnknown>) -> u32,
 }
