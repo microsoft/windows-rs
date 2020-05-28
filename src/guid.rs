@@ -1,6 +1,7 @@
 use super::RuntimeType;
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/dotnet/api/system.guid?view=netcore-3.1)
+/// used to uniquely identify COM and WinRT interfaces.
 #[repr(C)]
 #[derive(Clone, Default, PartialEq)]
 pub struct Guid {
@@ -11,7 +12,7 @@ pub struct Guid {
 }
 
 impl Guid {
-    // This is needed because Guid::default() is not a const function.
+    /// Creates a `Guid` represented by the all-zero byte-pattern.
     pub const fn zeroed() -> Guid {
         Guid {
             data1: 0,
@@ -21,6 +22,7 @@ impl Guid {
         }
     }
 
+    /// Creates a `Guid` with the given constant values.
     pub const fn from_values(data1: u32, data2: u16, data3: u16, data4: [u8; 8]) -> Guid {
         Guid {
             data1,
@@ -30,6 +32,9 @@ impl Guid {
         }
     }
 
+    /// Creates a `Guid` for a "generic" WinRT type.
+    ///
+    /// Note this needs to be a const function as soon as [Rust supports it](https://github.com/microsoft/winrt-rs/issues/136).
     pub fn from_signature<T: RuntimeType>() -> Guid {
         let mut data = vec![
             0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
