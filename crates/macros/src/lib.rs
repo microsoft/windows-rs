@@ -48,7 +48,7 @@ impl Parse for ImportMacro {
     fn parse(input: ParseStream) -> parse::Result<Self> {
         let _ = input.parse::<keywords::dependencies>()?;
         let dependencies: Dependencies = input.parse()?;
-        let _ = input.parse::<keywords::modules>()?;
+        let _ = input.parse::<keywords::types>()?;
         let types: Types = input.parse()?;
 
         Ok(ImportMacro {
@@ -63,7 +63,7 @@ mod keywords {
     syn::custom_keyword!(os);
     syn::custom_keyword!(nuget);
     syn::custom_keyword!(dependencies);
-    syn::custom_keyword!(modules);
+    syn::custom_keyword!(types);
 }
 
 /// A parsed `dependencies` section of the `import!` macro

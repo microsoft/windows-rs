@@ -1,7 +1,7 @@
 winrt::import!(
     dependencies
         os
-    modules
+    types
         windows::data::xml::dom::XmlDocument
         windows::foundation::Uri
 );

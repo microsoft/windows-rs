@@ -1,6 +1,6 @@
 //! A crate for providing native and familiar support for the Windows Runtime for Rust developers.
 //!
-//! To use, start by importing the modules that you need.
+//! To use, start by importing the types that you need.
 //!
 //! ```rust
 //! use winrt::import;
@@ -8,7 +8,7 @@
 //! import!(
 //!     dependencies
 //!         os
-//!     modules
+//!     types
 //!         windows::foundation::Uri
 //! );
 //!

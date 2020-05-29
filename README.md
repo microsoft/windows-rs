@@ -24,7 +24,7 @@ use winrt::*;
 import!(
     dependencies
         os
-    modules
+    types
         windows::data::xml::dom::*
         windows::foundation::*
         windows::ui::*

@@ -4,7 +4,7 @@
 winrt::import!(
     dependencies
         os
-    modules
+    types
         windows::foundation::PropertyValue
 );
 use windows::foundation::PropertyValue;

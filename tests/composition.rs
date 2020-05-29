@@ -1,7 +1,7 @@
 winrt::import!(
     dependencies
         os
-    modules
+    types
         windows::ui::{Color, Colors}
         windows::ui::composition::{Compositor, SpriteVisual, Visual}
 );
