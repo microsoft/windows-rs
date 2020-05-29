@@ -31,7 +31,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
 
             let path: Vec<u16> = path
                 .encode_utf16()
-                .chain("dll".encode_utf16())
+                .chain(".dll".encode_utf16())
                 .chain(std::iter::once(0))
                 .collect();
 
@@ -41,7 +41,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
                 continue;
             }
 
-            let library_call = GetProcAddress(library.handle, b"DllGetActivationFactory".as_ptr());
+            let library_call = GetProcAddress(library.handle, b"DllGetActivationFactory\0".as_ptr());
 
             if library_call.is_null() {
                 continue;
@@ -54,6 +54,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
                 continue;
             }
 
+            std::mem::forget(library);
             return Ok(default_factory.query());
         }
 
