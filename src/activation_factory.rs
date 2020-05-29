@@ -1,6 +1,7 @@
 use crate::*;
 
-/// An [activation factory](https://docs.microsoft.com/en-us/windows/win32/api/activation/nn-activation-iactivationfactory) for activating WinRT types.
+/// The [IActivationFactory](https://docs.microsoft.com/en-us/windows/win32/api/activation/nn-activation-iactivationfactory)
+/// interface is the interface that WinRT activation factories implement at a minimum.
 #[repr(transparent)]
 #[derive(Default, Clone)]
 pub struct IActivationFactory {
@@ -8,6 +9,7 @@ pub struct IActivationFactory {
 }
 
 impl IActivationFactory {
+    /// Creates a new instance of the WinRT class that the activation factory represents.
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
         match self.ptr.abi() {
             None => panic!("The `this` pointer was null when calling method"),

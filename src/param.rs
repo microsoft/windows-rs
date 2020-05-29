@@ -1,6 +1,6 @@
 use crate::*;
 
-/// A WinRT method parameter
+/// A WinRT method parameter used to accept either a reference or value.
 pub enum Param<'a, T: RuntimeType> {
     Borrowed(&'a T),
     Owned(T),
