@@ -3,6 +3,7 @@ extern crate proc_macro;
 use proc_macro::TokenStream;
 use proc_macro2::Span;
 use syn::parse::{self, Parse, ParseStream};
+use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
 use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
@@ -44,25 +45,10 @@ struct ImportMacro {
 
 impl Parse for ImportMacro {
     fn parse(input: ParseStream) -> parse::Result<Self> {
-        let category: ImportCategory = input.parse()?;
-        let (dependencies, namespace_limits) = match category {
-            ImportCategory::Namespace => {
-                let namespace_limits: NamespaceLimits = input.parse()?;
-                let category: ImportCategory = input.parse()?;
-                // TODO: don't panic here
-                assert!(matches!(category, ImportCategory::Dependency));
-                let dependencies: Dependencies = input.parse()?;
-                (dependencies, namespace_limits)
-            }
-            ImportCategory::Dependency => {
-                let dependencies: Dependencies = input.parse()?;
-                let category: ImportCategory = input.parse()?;
-                // TODO: don't panic here
-                assert!(matches!(category, ImportCategory::Namespace));
-                let namespace_limits: NamespaceLimits = input.parse()?;
-                (dependencies, namespace_limits)
-            }
-        };
+        let _ = input.parse::<keywords::dependencies>()?;
+        let dependencies: Dependencies = input.parse()?;
+        let _ = input.parse::<keywords::modules>()?;
+        let namespace_limits: NamespaceLimits = input.parse()?;
 
         Ok(ImportMacro {
             dependencies,
@@ -71,79 +57,55 @@ impl Parse for ImportMacro {
     }
 }
 
-#[derive(PartialEq, Debug)]
-enum ImportCategory {
-    Dependency,
-    Namespace,
-}
-
-impl Parse for ImportCategory {
-    fn parse(input: ParseStream) -> parse::Result<Self> {
-        let name: Ident = input.parse()?;
-        let result = match name.to_string().as_str() {
-            "dependencies" => Ok(ImportCategory::Dependency),
-            "modules" => Ok(ImportCategory::Namespace),
-            _ => {
-                return Err(Error::new(
-                    name.span(),
-                    "expected `dependency` or `modules`",
-                ))
-            }
-        };
-        let lookahead = input.lookahead1();
-        if lookahead.peek(Token![:]) {
-            let _ = input.parse::<Token![:]>()?;
-        }
-
-        result
-    }
+mod keywords {
+    syn::custom_keyword!(os);
+    syn::custom_keyword!(nuget);
+    syn::custom_keyword!(dependencies);
+    syn::custom_keyword!(modules);
 }
 
 #[derive(Debug)]
 struct Dependencies(BTreeSet<PathBuf>);
-mod keywords {
-    syn::custom_keyword!(os);
-    syn::custom_keyword!(nuget);
-}
 
 impl Parse for Dependencies {
     fn parse(input: ParseStream) -> parse::Result<Self> {
+        enum Keyword {
+            Os,
+            Nuget,
+        }
         let mut dependencies = BTreeSet::new();
-        loop {
-            let is_os = input.peek(keywords::os);
-            let is_nuget = input.peek(keywords::os);
-
-            if is_os {
+        while let Some(keyword) = {
+            if input.peek(keywords::os) {
                 let _ = input.parse::<keywords::os>();
-                let path = winmd::dependencies::system_metadata_root();
-
-                dependencies::expand_paths(path, &mut dependencies, false);
-            } else if is_nuget {
+                Some(Keyword::Os)
+            } else if input.peek(keywords::nuget) {
                 let _ = input.parse::<keywords::nuget>();
-                input.parse::<Token![:]>()?;
-                let mut package = vec![];
-                loop {
-                    let ident: Ident = input.parse()?;
-                    package.push(ident);
-                    let peek = input.peek(Token![,]);
-                    if peek {
-                        let _: Token![,] = input.parse()?;
-                    } else {
-                        break;
-                    }
-                }
-
-                let name = package
-                    .iter()
-                    .map(|ident| ident.to_string())
-                    .collect::<Vec<String>>()
-                    .join(".");
-                let mut path = winmd::dependencies::nuget_root();
-                path.push(name);
-
-                dependencies::expand_paths(path, &mut dependencies, true);
+                Some(Keyword::Nuget)
             } else {
-                break;
+                None
+            }
+        } {
+            match keyword {
+                Keyword::Os => {
+                    let path = winmd::dependencies::system_metadata_root();
+
+                    dependencies::expand_paths(path, &mut dependencies, false);
+                }
+                Keyword::Nuget => {
+                    input.parse::<Token![:]>()?;
+
+                    let package = Punctuated::<Ident, Token![.]>::parse_separated_nonempty(input)?;
+
+                    let name = package
+                        .iter()
+                        .map(|ident| ident.to_string())
+                        .collect::<Vec<String>>()
+                        .join(".");
+                    let mut path = winmd::dependencies::nuget_root();
+                    path.push(name);
+
+                    dependencies::expand_paths(path, &mut dependencies, true);
+                }
             }
         }
         Ok(Dependencies(dependencies))

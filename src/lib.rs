@@ -9,8 +9,7 @@
 //!     dependencies
 //!         os
 //!     modules
-//!         "windows.foundation"
-//!         "windows.ui"
+//!         windows::foundation::Uri
 //! );
 //!
 //! // Make use of any WinRT APIs as needed.
