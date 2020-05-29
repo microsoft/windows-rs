@@ -7,7 +7,7 @@ This is an example of a project with a dependency on a nuget package.
 To install the NuGet based dependency use [`cargo nuget`](https://github.com/rylev/cargo-nuget).
 
 ```
-cargo install --git https://github.com/rylev/cargo-nuget
+cargo install --git https://github.com/microsoft/winrt-rs cargo-nuget
 cargo nuget install
 ```
 
