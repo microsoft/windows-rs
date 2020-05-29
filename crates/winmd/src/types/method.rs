@@ -143,7 +143,7 @@ impl Method {
         );
 
         quote! {
-            pub #name: extern "system" fn(::winrt::NonNullRawComPtr<#type_name>, #params) -> ::winrt::ErrorCode,
+            pub #name: unsafe extern "system" fn(::winrt::NonNullRawComPtr<#type_name>, #params) -> ::winrt::ErrorCode,
         }
     }
 
@@ -161,7 +161,7 @@ impl Method {
             });
 
         quote! {
-            extern "system" fn #name(this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
+            unsafe extern "system" fn #name(this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
         }
     }
 
