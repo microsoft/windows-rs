@@ -1,5 +1,5 @@
 use super::{interface::ComInterface, raw_ptr::RawComPtr, unknown::IUnknown};
-use crate::Guid;
+use crate::{AbiTransferable, Guid};
 
 /// A reference counted pointer to a COM interface.
 ///
@@ -9,16 +9,17 @@ pub struct ComPtr<T: ComInterface> {
     ptr: RawComPtr<T>,
 }
 
-impl<T: ComInterface> ComPtr<T> {
+ unsafe impl<T: ComInterface> AbiTransferable for ComPtr<T> {
+     type Abi = RawComPtr<T>;
     /// Get a raw non-reference-counted pointer to the COM interface.
-    pub fn abi(&self) -> RawComPtr<T> {
+    fn get_abi(&self) -> RawComPtr<T> {
         self.ptr
     }
 
     /// Set the COM interface pointer.
     ///
     /// This will call release on any existing interface pointer.
-    pub fn set_abi(&mut self) -> *mut RawComPtr<T> {
+     fn set_abi(&mut self) -> *mut RawComPtr<T> {
         if let Some(ptr) = self.as_iunknown() {
             (ptr.vtable().unknown_release)(ptr);
 

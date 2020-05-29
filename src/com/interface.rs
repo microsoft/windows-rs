@@ -11,7 +11,7 @@ use crate::*;
 /// `VTable` must be a COM compliant vtable where the first three function
 /// pointers are the `IUnknown` methods. And because ComInterfaces are just
 /// pointers to vtables, it must be safe to zero-initialize the interface.
-pub unsafe trait ComInterface: Sized {
+pub unsafe trait ComInterface: Sized + crate::AbiTransferable {
     type VTable;
 
     // TODO: this should be a const function returning &'static Guid

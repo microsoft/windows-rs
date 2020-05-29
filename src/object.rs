@@ -12,7 +12,7 @@ pub struct Object {
 impl Object {
     /// Returns the fully-qualified type name of the WinRT object.
     pub fn type_name(&self) -> Result<HString> {
-        match self.ptr.abi() {
+        match self.get_abi() {
             None => panic!("The `this` pointer was null when calling method"),
             Some(this) => {
                 let mut string = HString::default();
@@ -39,14 +39,16 @@ unsafe impl ComInterface for Object {
 }
 
 unsafe impl RuntimeType for Object {
-    type Abi = RawComPtr<Object>;
-
     fn signature() -> String {
         "cinterface(IInspectable)".to_owned()
     }
+}
 
-    fn abi(&self) -> Self::Abi {
-        self.ptr.abi()
+unsafe impl AbiTransferable for Object {
+    type Abi = RawComPtr<Object>;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr.get_abi()
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
@@ -62,7 +64,7 @@ pub struct abi_IInspectable {
         unsafe extern "system" fn(NonNullRawComPtr<Object>, *mut u32, *mut *mut Guid) -> ErrorCode,
     pub inspectable_type_name: unsafe extern "system" fn(
         NonNullRawComPtr<Object>,
-        *mut <HString as RuntimeType>::Abi,
+        *mut <HString as AbiTransferable>::Abi,
     ) -> ErrorCode,
     pub inspectable_trust_level:
         unsafe extern "system" fn(NonNullRawComPtr<Object>, *mut i32) -> ErrorCode,

@@ -38,6 +38,7 @@
 #[cfg(doctest)]
 doc_comment::doctest!("../README.md");
 
+mod abi_transferable;
 mod activation_factory;
 mod agile_object;
 mod array;
@@ -54,6 +55,7 @@ mod runtime_name;
 mod runtime_type;
 mod try_into;
 
+pub use abi_transferable::AbiTransferable;
 #[doc(inline)]
 pub use activation_factory::IActivationFactory;
 pub use agile_object::IAgileObject;

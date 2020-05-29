@@ -6,6 +6,8 @@ winrt::import!(
         windows::ui::composition::{Compositor, SpriteVisual, Visual}
 );
 
+use winrt::AbiTransferable;
+
 #[link(name = "coremessaging")]
 extern "stdcall" {
     fn CreateDispatcherQueueController(

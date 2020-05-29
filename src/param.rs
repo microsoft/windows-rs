@@ -1,27 +1,27 @@
 use crate::*;
 
 /// A WinRT method parameter used to accept either a reference or value.
-pub enum Param<'a, T: RuntimeType> {
+pub enum Param<'a, T: AbiTransferable> {
     Borrowed(&'a T),
     Owned(T),
 }
 
-impl<'a, T: RuntimeType> Param<'a, T> {
-    pub fn abi(&mut self) -> T::Abi {
+impl<'a, T: AbiTransferable> Param<'a, T> {
+    pub fn get_abi(&mut self) -> T::Abi {
         match self {
-            Param::Borrowed(value) => value.abi(),
-            Param::Owned(value) => value.abi(),
+            Param::Borrowed(value) => value.get_abi(),
+            Param::Owned(value) => value.get_abi(),
         }
     }
 }
 
-impl<'a, T: RuntimeType> From<T> for Param<'a, T> {
+impl<'a, T: AbiTransferable> From<T> for Param<'a, T> {
     fn from(value: T) -> Param<'a, T> {
         Param::Owned(value)
     }
 }
 
-impl<'a, T: RuntimeType> From<&'a T> for Param<'a, T> {
+impl<'a, T: AbiTransferable> From<&'a T> for Param<'a, T> {
     fn from(value: &'a T) -> Param<'a, T> {
         Param::Borrowed(value)
     }
