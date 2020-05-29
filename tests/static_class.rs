@@ -4,8 +4,8 @@
 winrt::import!(
     dependencies
         os
-    modules
-        "windows.foundation"
+    types
+        windows::foundation::PropertyValue
 );
 use windows::foundation::PropertyValue;
 use winrt::RuntimeName;

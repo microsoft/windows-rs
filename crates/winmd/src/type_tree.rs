@@ -44,16 +44,22 @@ impl TypeTree {
 
 #[cfg(test)]
 mod tests {
-    use crate::TypeLimits;
     use crate::TypeReader;
     use crate::TypeStage;
+    use crate::{NamespaceTypes, TypeLimit, TypeLimits};
 
     #[test]
     fn test_dependency_inclusion() {
         let reader = &TypeReader::from_os();
-        let mut limits = TypeLimits::default();
-        limits.insert(reader, "windows.foundation");
-        limits.insert(reader, "windows.ui");
+        let mut limits = TypeLimits::new(reader);
+        limits.insert(NamespaceTypes {
+            namespace: "windows.foundation".to_owned(),
+            limit: TypeLimit::All,
+        });
+        limits.insert(NamespaceTypes {
+            namespace: "windows.ui".to_owned(),
+            limit: TypeLimit::All,
+        });
         let stage = TypeStage::from_limits(reader, &limits);
 
         // Since Windows.Foundation depends on Windows.Foundation.Collections and

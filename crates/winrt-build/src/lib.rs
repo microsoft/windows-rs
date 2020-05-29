@@ -89,9 +89,12 @@ impl Builder {
         let dependencies = self.dependencies.winmds();
         let tr = winmd::TypeReader::new(dependencies);
 
-        let mut tl = winmd::TypeLimits::default();
+        let mut tl = winmd::TypeLimits::new(&tr);
         for ns in &self.namespaces {
-            tl.insert(&tr, &ns);
+            tl.insert(winmd::NamespaceTypes {
+                namespace: ns.clone(),
+                limit: winmd::TypeLimit::All,
+            });
         }
 
         let ts = winmd::TypeStage::from_limits(&tr, &tl);

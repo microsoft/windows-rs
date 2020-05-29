@@ -1,9 +1,9 @@
 winrt::import!(
     dependencies
         os
-    modules
-        "windows.foundation"
-        "windows.foundation.collections"
+    types
+        windows::foundation::*
+        windows::foundation::collections::*
 );
 
 use std::iter::FromIterator;

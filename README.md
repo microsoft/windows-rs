@@ -24,10 +24,10 @@ use winrt::*;
 import!(
     dependencies
         os
-    modules
-        "windows.data.xml.dom"
-        "windows.foundation"
-        "windows.ui"
+    types
+        windows::data::xml::dom::*
+        windows::foundation::*
+        windows::ui::*
 );
 
 // Finally, make use of any WinRT APIs as needed. For example, here is

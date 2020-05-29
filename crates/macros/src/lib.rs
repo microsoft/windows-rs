@@ -1,7 +1,13 @@
 extern crate proc_macro;
 
-use proc_macro::{TokenStream, TokenTree};
-use winmd::{dependencies, TypeLimits, TypeReader, TypeStage};
+use proc_macro::TokenStream;
+use proc_macro2::Span;
+use syn::parse::{self, Parse, ParseStream};
+use syn::punctuated::Punctuated;
+use syn::spanned::Spanned;
+use syn::{parse_macro_input, Error, Ident, Token, UseTree};
+
+use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage};
 
 use std::collections::BTreeSet;
 use std::path::PathBuf;
@@ -9,196 +15,124 @@ use std::path::PathBuf;
 /// A macro for generating WinRT modules into the current module
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
-    let (dependencies, namespaces) = parse_import_stream(stream);
+    let import = parse_macro_input!(stream as ImportMacro);
 
-    let dependencies = dependencies
+    let dependencies = import
+        .dependencies
+        .0
         .into_iter()
         .map(|p| winmd::WinmdFile::new(p))
         .collect();
     let reader = &TypeReader::new(dependencies);
 
-    let mut limits = TypeLimits::default();
+    let mut limits = TypeLimits::new(reader);
 
-    for namespace in namespaces {
-        limits.insert(reader, &namespace);
+    for limit in import.types.0 {
+        limits.insert(limit);
     }
 
     let stage = TypeStage::from_limits(reader, &limits);
     let tree = stage.into_tree();
     let stream = tree.to_tokens();
-    //std::fs::write(r"c:\git\rust\dump.rs", stream.to_string()).unwrap();
     stream.into()
 }
 
-#[derive(PartialEq)]
-enum ImportCategory {
-    Dependency,
-    Namespace,
+/// A parsed `import!` macro
+#[derive(Debug)]
+struct ImportMacro {
+    dependencies: Dependencies,
+    types: Types,
 }
 
-#[derive(PartialEq, Clone, Copy)]
-enum ParseState {
-    Neither,
-    ParsedNamespace,
-    ParsedDependency,
-    Both,
-}
-impl ParseState {
-    fn parsed_namespace(self) -> Self {
-        match self {
-            ParseState::Neither => ParseState::ParsedNamespace,
-            ParseState::ParsedDependency => ParseState::Both,
-            _ => self,
-        }
-    }
-    fn parsed_dependency(self) -> Self {
-        match self {
-            ParseState::Neither => ParseState::ParsedDependency,
-            ParseState::ParsedNamespace => ParseState::Both,
-            _ => self,
-        }
+impl Parse for ImportMacro {
+    fn parse(input: ParseStream) -> parse::Result<Self> {
+        let _ = input.parse::<keywords::dependencies>()?;
+        let dependencies: Dependencies = input.parse()?;
+        let _ = input.parse::<keywords::types>()?;
+        let types: Types = input.parse()?;
+
+        Ok(ImportMacro {
+            dependencies,
+            types,
+        })
     }
 }
 
-/// Parse `import!` macro and return a set of paths to dependencies and
-/// a set to all the namespaces referenced
-fn parse_import_stream(stream: TokenStream) -> (BTreeSet<PathBuf>, BTreeSet<String>) {
-    let mut dependencies = BTreeSet::<PathBuf>::new();
-    let mut modules = BTreeSet::<String>::new();
-    let mut stream = stream.into_iter().peekable();
-    let mut state = ParseState::Neither;
+/// keywords used in the `import!` macro
+mod keywords {
+    syn::custom_keyword!(os);
+    syn::custom_keyword!(nuget);
+    syn::custom_keyword!(dependencies);
+    syn::custom_keyword!(types);
+}
 
-    loop {
-        if state == ParseState::Both {
-            let next = stream.next();
-            assert!(
-                next.is_none(),
-                "Unexpected input at the end of the winrt::import: '{}'",
-                next.unwrap()
-            );
-            break;
+/// A parsed `dependencies` section of the `import!` macro
+#[derive(Debug)]
+struct Dependencies(BTreeSet<PathBuf>);
+
+impl Parse for Dependencies {
+    fn parse(input: ParseStream) -> parse::Result<Self> {
+        enum Keyword {
+            Os,
+            Nuget,
         }
-        let category = parse_category(&mut stream);
-        match category {
-            ImportCategory::Namespace => {
-                modules.extend(parse_namespace(&mut stream));
-                state = state.parsed_namespace();
+        let mut dependencies = BTreeSet::new();
+        while let Some(keyword) = {
+            if input.peek(keywords::os) {
+                let _ = input.parse::<keywords::os>();
+                Some(Keyword::Os)
+            } else if input.peek(keywords::nuget) {
+                let _ = input.parse::<keywords::nuget>();
+                Some(Keyword::Nuget)
+            } else {
+                None
             }
-            ImportCategory::Dependency => {
-                dependencies.extend(parse_dependencies(&mut stream));
-                state = state.parsed_dependency();
-            }
-        }
-    }
+        } {
+            match keyword {
+                Keyword::Os => {
+                    let path = winmd::dependencies::system_metadata_root();
 
-    (dependencies, modules)
-}
+                    dependencies::expand_paths(path, &mut dependencies, false);
+                }
+                Keyword::Nuget => {
+                    input.parse::<Token![:]>()?;
 
-fn parse_category(
-    stream: &mut std::iter::Peekable<impl std::iter::Iterator<Item = TokenTree>>,
-) -> ImportCategory {
-    let token = stream.next().expect(
-        "Unexpected end of winrt::import macro. Expected either `dependencies` or `modules`",
-    );
-    match token {
-        TokenTree::Ident(value) => {
-            let category = match value.to_string().as_str() {
-                "dependencies" => ImportCategory::Dependency,
-                "modules" => ImportCategory::Namespace,
-                value => panic!(
-                    "winrt::import macro expects either `dependencies` or `modules` but found `{}`",
-                    value
-                ),
-            };
-            if let Some(TokenTree::Punct(p)) = stream.peek() {
-                if p.as_char() == ':' {
-                    let _ = stream.next();
+                    let package = Punctuated::<Ident, Token![.]>::parse_separated_nonempty(input)?;
+
+                    let name = package
+                        .iter()
+                        .map(|ident| ident.to_string())
+                        .collect::<Vec<String>>()
+                        .join(".");
+                    let mut path = winmd::dependencies::nuget_root();
+                    path.push(name);
+
+                    dependencies::expand_paths(path, &mut dependencies, true);
                 }
             }
-            category
         }
-        _ => {
-            panic!(
-                "winrt::import macro encountered an unrecognized token: '{}'. Expected `dependencies` or `modules`",
-                token
-            );
-        }
+        Ok(Dependencies(dependencies))
     }
 }
 
-fn parse_namespace(
-    stream: &mut std::iter::Peekable<impl std::iter::Iterator<Item = TokenTree>>,
-) -> BTreeSet<String> {
-    let mut modules = BTreeSet::<String>::new();
-    loop {
-        let token = stream.peek();
-        match token {
-            Some(TokenTree::Literal(value)) => {
-                modules.insert(namespace_literal_to_rough_namespace(&value.to_string()));
-                let _ = stream.next();
+/// A parsed `types` section of the `import!` macro
+#[derive(Debug)]
+struct Types(BTreeSet<NamespaceTypes>);
+
+impl Parse for Types {
+    fn parse(input: ParseStream) -> parse::Result<Self> {
+        let mut limits = BTreeSet::<NamespaceTypes>::new();
+        loop {
+            if input.is_empty() {
+                break;
             }
-            _ => break,
+
+            let use_tree: syn::UseTree = input.parse()?;
+
+            limits.insert(use_tree_to_namespace_types(use_tree)?);
         }
+        Ok(Self(limits))
     }
-    modules
-}
-
-fn parse_dependencies(
-    stream: &mut std::iter::Peekable<impl std::iter::Iterator<Item = TokenTree>>,
-) -> BTreeSet<PathBuf> {
-    let mut dependencies = BTreeSet::<PathBuf>::new();
-
-    loop {
-        let token = stream.peek();
-        match token {
-            Some(TokenTree::Literal(value)) => {
-                dependencies::expand_paths(
-                    value.to_string().trim_matches('"'),
-                    &mut dependencies,
-                    false,
-                );
-                let _literal = stream.next();
-            }
-            Some(TokenTree::Ident(value)) if value.to_string().as_str() == "os" => {
-                let path = winmd::dependencies::system_metadata_root();
-                dependencies::expand_paths(path, &mut dependencies, false);
-                let _os = stream.next();
-            }
-            Some(TokenTree::Ident(value)) if value.to_string().as_str() == "nuget" => {
-                let _nuget = stream.next();
-                let colon = stream.next();
-                assert!(
-                    match colon {
-                        Some(TokenTree::Punct(value)) if value.as_char() == ':' => true,
-                        _ => false,
-                    },
-                    "`nuget` must be followed by a `:`"
-                );
-                let mut path = winmd::dependencies::nuget_root();
-
-                let mut name = String::new();
-                while {
-                    match stream.next() {
-                        Some(TokenTree::Ident(value)) => name.push_str(&value.to_string()),
-                        Some(_) => panic!("Unexpected input: a period seperated list of indentifiers must follow `nuget:`"),
-                        None => panic!("Unexpected end of input: a nuget package name must follow `nuget:`"),
-                    };
-                    match stream.peek() {
-                        Some(TokenTree::Punct(value)) if value.as_char() == '.' => true,
-                        _ => false,
-                    }
-                } {
-                    let _period = stream.next();
-                    name.push('.');
-                }
-                path.push(name);
-
-                dependencies::expand_paths(path, &mut dependencies, true);
-            }
-            _ => break,
-        }
-    }
-    dependencies
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion
@@ -211,4 +145,74 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
         }
     }
     result
+}
+
+fn use_tree_to_namespace_types(use_tree: syn::UseTree) -> parse::Result<NamespaceTypes> {
+    fn recurse(tree: UseTree, current: &mut String) -> parse::Result<NamespaceTypes> {
+        fn check_for_module_instead_of_type(name: &str, span: Span) -> parse::Result<()> {
+            let error = Err(Error::new(
+                span,
+                "Expected `*` or type name, but found what appears to be a module",
+            ));
+            if name.to_lowercase() == name {
+                return error;
+            }
+            Ok(())
+        }
+
+        match tree {
+            UseTree::Path(p) => {
+                if !current.is_empty() {
+                    current.push('.');
+                }
+
+                current.push_str(&p.ident.to_string());
+
+                recurse(*p.tree, current)
+            }
+            UseTree::Glob(_) => {
+                let namespace = namespace_literal_to_rough_namespace(&current.clone());
+                Ok(NamespaceTypes {
+                    namespace,
+                    limit: TypeLimit::All,
+                })
+            }
+            UseTree::Group(g) => {
+                let namespace = namespace_literal_to_rough_namespace(&current.clone());
+
+                let mut types = Vec::with_capacity(g.items.len());
+                for tree in g.items {
+                    match &tree {
+                        UseTree::Name(n) => {
+                            let name = n.ident.to_string();
+                            check_for_module_instead_of_type(&name, n.span())?;
+                            types.push(name);
+                        }
+                        UseTree::Rename(_) => {
+                            return Err(Error::new(tree.span(), "Renaming syntax is not supported"))
+                        }
+                        _ => return Err(Error::new(tree.span(), "Nested paths not allowed")),
+                    }
+                }
+                Ok(NamespaceTypes {
+                    namespace,
+                    limit: TypeLimit::Some(types),
+                })
+            }
+            UseTree::Name(n) => {
+                let namespace = namespace_literal_to_rough_namespace(&current.clone());
+                let name = n.ident.to_string();
+                check_for_module_instead_of_type(&name, n.span())?;
+                Ok(NamespaceTypes {
+                    namespace,
+                    limit: TypeLimit::Some(vec![name]),
+                })
+            }
+            UseTree::Rename(r) => {
+                return Err(Error::new(r.span(), "Renaming syntax is not supported"))
+            }
+        }
+    }
+
+    recurse(use_tree, &mut String::new())
 }

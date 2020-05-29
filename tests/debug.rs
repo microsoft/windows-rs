@@ -1,9 +1,9 @@
 winrt::import!(
     dependencies
         os
-    modules
-        "windows.data.xml.dom"
-        "windows.foundation.collections"
+    types
+        windows::data::xml::dom::XmlDocument
+        windows::foundation::Uri
 );
 
 use windows::data::xml::dom::XmlDocument;

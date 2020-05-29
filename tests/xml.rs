@@ -1,8 +1,8 @@
 winrt::import!(
     dependencies
         os
-    modules
-        "windows.data.xml.dom"
+    types
+        windows::data::xml::dom::*
 );
 
 use windows::data::xml::dom::XmlDocument;
