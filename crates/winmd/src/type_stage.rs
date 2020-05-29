@@ -15,9 +15,11 @@ impl TypeStage {
     pub fn from_limits(reader: &TypeReader, limits: &TypeLimits) -> Self {
         let mut stage = Self::default();
 
-        for namespace in &limits.0 {
-            for def in reader.namespace_types(&namespace) {
-                stage.insert(reader, *def);
+        for limit in limits.limits() {
+            for (type_name, def) in reader.namespace_types(&limit.namespace) {
+                if limit.contains_type(type_name) {
+                    stage.insert(reader, *def);
+                }
             }
         }
 
@@ -48,6 +50,7 @@ impl TypeStage {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::{NamespaceTypes, TypeLimit};
 
     #[test]
     fn test_dependency_inclusion() {
@@ -56,8 +59,11 @@ mod tests {
         // Windows.Foundation depends on types in Windows.Foundation.Collections
         // Since Windows.Foundation.Collections is not added to the type limits,
         // only the types that are actually needed will be included.
-        let mut limits = TypeLimits::default();
-        limits.insert(reader, "windows.foundation");
+        let mut limits = TypeLimits::new(reader);
+        limits.insert(NamespaceTypes {
+            namespace: "windows.foundation".to_owned(),
+            limit: TypeLimit::All,
+        });
         let stage = TypeStage::from_limits(reader, &limits);
 
         // Windows.Foundation.WwwFormUrlDecoder depends on Windows.Foundation.Collections.IVectorView`1

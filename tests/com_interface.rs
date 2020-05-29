@@ -1,8 +1,8 @@
 winrt::import!(
     dependencies
         os
-    modules
-        "windows.foundation"
+    types
+        windows::foundation::{IStringable, IUriRuntimeClass, Uri}
 );
 
 #[test]

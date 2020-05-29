@@ -1,8 +1,8 @@
 winrt::import!(
     dependencies
         os
-    modules
-        "windows.storage.streams"
+    types
+        windows::storage::streams::{DataReader, DataWriter, InMemoryRandomAccessStream}
 );
 
 #[test]

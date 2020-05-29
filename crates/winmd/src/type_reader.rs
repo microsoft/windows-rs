@@ -66,8 +66,8 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if the namespace does not exist
-    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = &TypeDef> {
-        self.types[namespace].values()
+    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = (&str, &TypeDef)> {
+        self.types[namespace].iter().map(|(n, t)| (n.as_str(), t))
     }
 
     /// Resolve a type definition given its namespace and type name

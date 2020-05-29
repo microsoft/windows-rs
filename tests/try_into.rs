@@ -1,8 +1,8 @@
 winrt::import!(
     dependencies
         os
-    modules
-        "windows.foundation"
+    types
+        windows::foundation::{IClosable, IStringable, Uri}
 );
 
 #[test]
@@ -10,9 +10,7 @@ fn try_into() -> winrt::Result<()> {
     use winrt::ComInterface;
     use winrt::TryInto;
 
-    use windows::foundation::IClosable;
-    use windows::foundation::IStringable;
-    use windows::foundation::Uri;
+    use windows::foundation::{IClosable, IStringable, Uri};
 
     let uri = Uri::create_uri("http://kennykerr.ca")?;
 

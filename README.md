@@ -20,14 +20,14 @@ This will allow Cargo to download, build, and cache the Rust/WinRT support as a 
 ```rust
 use winrt::*;
 
-// Now use the `import` macro to import the desired winmd files and modules:
+// Now use the `import` macro to import the desired winmd files and types:
 import!(
     dependencies
         os
-    modules
-        "windows.data.xml.dom"
-        "windows.foundation"
-        "windows.ui"
+    types
+        windows::data::xml::dom::*
+        windows::foundation::*
+        windows::ui::*
 );
 
 // Finally, make use of any WinRT APIs as needed. For example, here is

@@ -1,9 +1,9 @@
 winrt::import!(
     dependencies
         os
-    modules
-        "windows.foundation"
-        "windows.application_model.appointments"
+    types
+        windows::foundation::*
+        windows::application_model::appointments::AppointmentDaysOfWeek
 );
 
 use winrt::RuntimeType;
