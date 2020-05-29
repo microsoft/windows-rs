@@ -7,7 +7,7 @@ use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
 use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
-use winmd::{dependencies, NamespaceLimit, TypeLimit, TypeLimits, TypeReader, TypeStage};
+use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage};
 
 use std::collections::BTreeSet;
 use std::path::PathBuf;
@@ -27,7 +27,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
 
     let mut limits = TypeLimits::new(reader);
 
-    for limit in import.namespace_limits.0 {
+    for limit in import.types.0 {
         limits.insert(limit);
     }
 
@@ -37,10 +37,11 @@ pub fn import(stream: TokenStream) -> TokenStream {
     stream.into()
 }
 
+/// A parsed `import!` macro
 #[derive(Debug)]
 struct ImportMacro {
     dependencies: Dependencies,
-    namespace_limits: NamespaceLimits,
+    types: Types,
 }
 
 impl Parse for ImportMacro {
@@ -48,15 +49,16 @@ impl Parse for ImportMacro {
         let _ = input.parse::<keywords::dependencies>()?;
         let dependencies: Dependencies = input.parse()?;
         let _ = input.parse::<keywords::modules>()?;
-        let namespace_limits: NamespaceLimits = input.parse()?;
+        let types: Types = input.parse()?;
 
         Ok(ImportMacro {
             dependencies,
-            namespace_limits,
+            types,
         })
     }
 }
 
+/// keywords used in the `import!` macro
 mod keywords {
     syn::custom_keyword!(os);
     syn::custom_keyword!(nuget);
@@ -64,6 +66,7 @@ mod keywords {
     syn::custom_keyword!(modules);
 }
 
+/// A parsed `dependencies` section of the `import!` macro
 #[derive(Debug)]
 struct Dependencies(BTreeSet<PathBuf>);
 
@@ -112,12 +115,13 @@ impl Parse for Dependencies {
     }
 }
 
+/// A parsed `types` section of the `import!` macro
 #[derive(Debug)]
-struct NamespaceLimits(BTreeSet<NamespaceLimit>);
+struct Types(BTreeSet<NamespaceTypes>);
 
-impl Parse for NamespaceLimits {
+impl Parse for Types {
     fn parse(input: ParseStream) -> parse::Result<Self> {
-        let mut limits = BTreeSet::<NamespaceLimit>::new();
+        let mut limits = BTreeSet::<NamespaceTypes>::new();
         loop {
             if input.is_empty() {
                 break;
@@ -125,9 +129,9 @@ impl Parse for NamespaceLimits {
 
             let use_tree: syn::UseTree = input.parse()?;
 
-            limits.insert(use_tree_to_namespace_limit(use_tree)?);
+            limits.insert(use_tree_to_namespace_types(use_tree)?);
         }
-        Ok(NamespaceLimits(limits))
+        Ok(Self(limits))
     }
 }
 
@@ -143,8 +147,8 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     result
 }
 
-fn use_tree_to_namespace_limit(use_tree: syn::UseTree) -> parse::Result<NamespaceLimit> {
-    fn recurse(tree: UseTree, current: &mut String) -> parse::Result<NamespaceLimit> {
+fn use_tree_to_namespace_types(use_tree: syn::UseTree) -> parse::Result<NamespaceTypes> {
+    fn recurse(tree: UseTree, current: &mut String) -> parse::Result<NamespaceTypes> {
         fn check_for_module_instead_of_type(name: &str, span: Span) -> parse::Result<()> {
             let error = Err(Error::new(
                 span,
@@ -168,7 +172,7 @@ fn use_tree_to_namespace_limit(use_tree: syn::UseTree) -> parse::Result<Namespac
             }
             UseTree::Glob(_) => {
                 let namespace = namespace_literal_to_rough_namespace(&current.clone());
-                Ok(NamespaceLimit {
+                Ok(NamespaceTypes {
                     namespace,
                     limit: TypeLimit::All,
                 })
@@ -190,7 +194,7 @@ fn use_tree_to_namespace_limit(use_tree: syn::UseTree) -> parse::Result<Namespac
                         _ => return Err(Error::new(tree.span(), "Nested paths not allowed")),
                     }
                 }
-                Ok(NamespaceLimit {
+                Ok(NamespaceTypes {
                     namespace,
                     limit: TypeLimit::Some(types),
                 })
@@ -199,7 +203,7 @@ fn use_tree_to_namespace_limit(use_tree: syn::UseTree) -> parse::Result<Namespac
                 let namespace = namespace_literal_to_rough_namespace(&current.clone());
                 let name = n.ident.to_string();
                 check_for_module_instead_of_type(&name, n.span())?;
-                Ok(NamespaceLimit {
+                Ok(NamespaceTypes {
                     namespace,
                     limit: TypeLimit::Some(vec![name]),
                 })

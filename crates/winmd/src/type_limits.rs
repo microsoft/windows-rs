@@ -5,7 +5,7 @@ use std::collections::BTreeSet;
 /// The set of relevant namespaces and types
 pub struct TypeLimits<'a> {
     reader: &'a TypeReader,
-    inner: BTreeSet<NamespaceLimit>,
+    inner: BTreeSet<NamespaceTypes>,
 }
 
 impl<'a> TypeLimits<'a> {
@@ -19,7 +19,7 @@ impl<'a> TypeLimits<'a> {
     /// Insert a namespace into the set of relevant namespaces
     ///
     /// expects the namespace in the form: `parent::namespace::*`s
-    pub fn insert(&mut self, mut limit: NamespaceLimit) {
+    pub fn insert(&mut self, mut limit: NamespaceTypes) {
         let namespace = match self
             .reader
             .types
@@ -34,18 +34,19 @@ impl<'a> TypeLimits<'a> {
         self.inner.insert(limit);
     }
 
-    pub fn limits(&self) -> impl Iterator<Item = &NamespaceLimit> {
+    pub fn limits(&self) -> impl Iterator<Item = &NamespaceTypes> {
         self.inner.iter()
     }
 }
 
-#[derive(Default, Debug, Ord, PartialOrd, Eq, PartialEq)]
-pub struct NamespaceLimit {
+/// A namespace's relevant types
+#[derive(Debug, Ord, PartialOrd, Eq, PartialEq)]
+pub struct NamespaceTypes {
     pub namespace: String,
     pub limit: TypeLimit,
 }
 
-impl NamespaceLimit {
+impl NamespaceTypes {
     pub fn contains_type(&self, typ: &str) -> bool {
         match &self.limit {
             TypeLimit::All => true,
@@ -54,14 +55,11 @@ impl NamespaceLimit {
     }
 }
 
+/// A limit on the types in a namespace.
 #[derive(Debug, Ord, PartialOrd, Eq, PartialEq)]
 pub enum TypeLimit {
+    /// All the types in a namespace
     All,
+    /// Some types in the namespace
     Some(Vec<String>),
-}
-
-impl Default for TypeLimit {
-    fn default() -> Self {
-        TypeLimit::All
-    }
 }

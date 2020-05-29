@@ -46,17 +46,17 @@ impl TypeTree {
 mod tests {
     use crate::TypeReader;
     use crate::TypeStage;
-    use crate::{NamespaceLimit, TypeLimit, TypeLimits};
+    use crate::{NamespaceTypes, TypeLimit, TypeLimits};
 
     #[test]
     fn test_dependency_inclusion() {
         let reader = &TypeReader::from_os();
         let mut limits = TypeLimits::new(reader);
-        limits.insert(NamespaceLimit {
+        limits.insert(NamespaceTypes {
             namespace: "windows.foundation".to_owned(),
             limit: TypeLimit::All,
         });
-        limits.insert(NamespaceLimit {
+        limits.insert(NamespaceTypes {
             namespace: "windows.ui".to_owned(),
             limit: TypeLimit::All,
         });

@@ -91,7 +91,7 @@ impl Builder {
 
         let mut tl = winmd::TypeLimits::new(&tr);
         for ns in &self.namespaces {
-            tl.insert(winmd::NamespaceLimit {
+            tl.insert(winmd::NamespaceTypes {
                 namespace: ns.clone(),
                 limit: winmd::TypeLimit::All,
             });

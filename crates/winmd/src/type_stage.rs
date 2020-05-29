@@ -50,7 +50,7 @@ impl TypeStage {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::{NamespaceLimit, TypeLimit};
+    use crate::{NamespaceTypes, TypeLimit};
 
     #[test]
     fn test_dependency_inclusion() {
@@ -60,7 +60,7 @@ mod tests {
         // Since Windows.Foundation.Collections is not added to the type limits,
         // only the types that are actually needed will be included.
         let mut limits = TypeLimits::new(reader);
-        limits.insert(NamespaceLimit {
+        limits.insert(NamespaceTypes {
             namespace: "windows.foundation".to_owned(),
             limit: TypeLimit::All,
         });
