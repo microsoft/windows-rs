@@ -7,7 +7,7 @@ A simple utility for working with NuGet packages in a Rust project in a way that
 To install `cargo nuget` run the following:
 
 ```
-cargo install --git https://github.com/rylev/cargo-nuget
+cargo install --git https://github.com/microsoft/winrt-rs cargo-nuget
 ```
 
 ## Usage
