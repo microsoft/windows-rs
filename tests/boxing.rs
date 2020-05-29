@@ -2,7 +2,7 @@ winrt::import!(
     dependencies
         os
     modules
-        "windows.foundation"
+        windows::foundation::{IPropertyValue, PropertyValue}
 );
 
 use windows::foundation::{IPropertyValue, PropertyValue};

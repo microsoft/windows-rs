@@ -2,8 +2,8 @@ winrt::import!(
     dependencies
         os
     modules
-        "windows.ui"
-        "windows.ui.composition"
+        windows::ui::{Color, Colors}
+        windows::ui::composition::{Compositor, SpriteVisual, Visual}
 );
 
 #[link(name = "coremessaging")]

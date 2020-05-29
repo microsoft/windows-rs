@@ -2,16 +2,15 @@ winrt::import!(
     dependencies
         os
     modules
-        "windows.foundation"
-        "windows.foundation.collections"
+        windows::foundation::*
+        windows::foundation::collections::*
 );
 
 use winrt::ComInterface;
 
 #[test]
 fn non_generic() -> winrt::Result<()> {
-    use windows::foundation::AsyncStatus;
-    use windows::foundation::IAsyncAction;
+    use windows::foundation::{AsyncStatus, IAsyncAction};
     type Handler = windows::foundation::AsyncActionCompletedHandler;
 
     assert_eq!(

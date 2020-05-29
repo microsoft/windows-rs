@@ -2,7 +2,7 @@ winrt::import!(
     dependencies
         os
     modules
-        "windows.media.speech_synthesis"
+        windows::media::speech_synthesis::SpeechSynthesisStream
 );
 
 #[test]
