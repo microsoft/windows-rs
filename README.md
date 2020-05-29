@@ -20,7 +20,7 @@ This will allow Cargo to download, build, and cache the Rust/WinRT support as a 
 ```rust
 use winrt::*;
 
-// Now use the `import` macro to import the desired winmd files and modules:
+// Now use the `import` macro to import the desired winmd files and types:
 import!(
     dependencies
         os
