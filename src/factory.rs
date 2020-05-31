@@ -48,7 +48,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
                 .collect();
 
             // Attempt to load the DLL.
-            let library: Library = LoadLibraryW(path.as_ptr()).into();
+            let library = Library::from_handle(LoadLibraryW(path.as_ptr()));
 
             if library.handle.is_null() {
                 continue;
@@ -63,19 +63,21 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             }
 
             let library_call: DllGetActivationFactory = std::mem::transmute(library_call);
-            let mut default_factory: IActivationFactory = std::mem::zeroed();
+            let mut factory: IActivationFactory = std::mem::zeroed();
 
             // Now call DllGetActivationFactory to request the given class.
-            if library_call(name.abi(), default_factory.set_abi()).is_err() {
+            if library_call(name.abi(), factory.set_abi()).is_err() {
                 continue;
             }
+
+            debug_assert!(!factory.is_null());
 
             // If we get this far it means the factory has been loaded and will be returned
             // to the caller. At this point we need to pin the library to avoid it unloading
             // while there are outstanding references. Unloading is only supported for
             // components loaded via RoGetActivationFactory.
             std::mem::forget(library);
-            return Ok(default_factory.query());
+            return Ok(factory.query());
         }
 
         Err(original)
@@ -101,8 +103,8 @@ impl Drop for Library {
     }
 }
 
-impl From<RawPtr> for Library {
-    fn from(handle: RawPtr) -> Library {
+impl Library {
+    unsafe fn from_handle(handle: RawPtr) -> Self {
         Library { handle }
     }
 }
