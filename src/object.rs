@@ -10,7 +10,7 @@ pub struct Object {
 }
 
 impl Object {
-    /// Returns the full-qualified type name of the WinRT object.
+    /// Returns the fully-qualified type name of the WinRT object.
     pub fn type_name(&self) -> Result<HString> {
         match self.ptr.abi() {
             None => panic!("The `this` pointer was null when calling method"),

@@ -25,6 +25,7 @@ impl HString {
 
     /// Returns `true` if the string is empty.
     pub fn is_empty(&self) -> bool {
+        // An empty HSTRING is represented by a null pointer.
         self.ptr.is_null()
     }
 
@@ -55,6 +56,8 @@ impl HString {
         }
 
         unsafe {
+            // This flag indicates a "fast pass" string created by some languages where the
+            // header is allocated on the stack. Such strings must never be freed.
             let header = self.ptr;
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
@@ -216,8 +219,9 @@ struct Shared {
 impl Header {
     fn alloc(len: u32) -> *mut Header {
         debug_assert!(len != 0);
-        // Alloc enough space for header and two bytes per character.
+        // Allocate enough space for header and two bytes per character.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
+
         let header =
             unsafe { runtime::HeapAlloc(runtime::GetProcessHeap(), 0, alloc_size) as *mut Header };
 
@@ -236,11 +240,13 @@ impl Header {
 
     fn duplicate(&mut self) -> *mut Header {
         if self.flags & REFERENCE_FLAG == 0 {
+            // If this is not a "fast pass" string then simply increment the reference count.
             unsafe {
                 (*self.shared.as_ptr()).count.add_ref();
                 self
             }
         } else {
+            // Otherwise, allocate a new string and copy the value into the new string.
             let copy = Header::alloc(self.len);
             unsafe {
                 std::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);

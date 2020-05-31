@@ -21,6 +21,10 @@ impl IActivationFactory {
             }
         }
     }
+
+    pub fn set_abi(&mut self) -> *mut RawComPtr<Self> {
+        self.ptr.set_abi()
+    }
 }
 
 unsafe impl ComInterface for IActivationFactory {

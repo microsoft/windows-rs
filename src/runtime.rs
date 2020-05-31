@@ -11,6 +11,10 @@ extern "system" {
     pub fn WaitForSingleObject(handle: RawPtr, milliseconds: u32) -> u32;
     pub fn CloseHandle(handle: RawPtr) -> i32;
 
+    pub fn LoadLibraryW(name: *const u16) -> RawPtr;
+    pub fn FreeLibrary(library: RawPtr) -> i32;
+    pub fn GetProcAddress(library: RawPtr, name: *const u8) -> RawPtr;
+
     pub fn FormatMessageW(
         flags: u32,
         source: RawPtr,

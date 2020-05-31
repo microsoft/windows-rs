@@ -7,10 +7,11 @@ use crate::*;
 /// around pointers to the associated vtable for the interface.
 /// In other words, implementators must be exactly equivalent to
 /// `*mut *mut Self::VTable`.
+///
+/// `VTable` must be a COM compliant vtable where the first three function
+/// pointers are the `IUnknown` methods. And because ComInterfaces are just
+/// pointers to vtables, it must be safe to zero-initialize the interface.
 pub unsafe trait ComInterface: Sized {
-    /// `VTable` must be a COM compliant vtable where the first three function
-    /// pointers are the `IUnknown` methods. And because ComInterfaces are just
-    /// pointers to vtables, it must be safe to zero-initialize the interface.
     type VTable;
 
     // TODO: this should be a const function returning &'static Guid
@@ -42,7 +43,7 @@ pub unsafe trait ComInterface: Sized {
     #[inline(always)]
     fn query<Into: ComInterface>(&self) -> Into {
         unsafe {
-            // Safe because `ComInterfaces` must by definition be safe to zero-intialize.
+            // Safe because `ComInterfaces` must by definition be safe to zero-initialize.
             let mut into: Into = std::mem::zeroed();
             // Safe because the supplied `IID` is the `IID` of the supplied queried type.
             self.raw_query(&Into::iid(), &mut into);
