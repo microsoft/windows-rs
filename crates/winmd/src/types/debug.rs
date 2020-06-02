@@ -16,10 +16,14 @@ pub fn debug_tokens(type_name: &TypeName, interfaces: &Vec<RequiredInterface>) -
         type_name.name == "IStringable" && type_name.namespace == "Windows.Foundation";
 
     let implementation = if implements_istringable && !is_istringable {
+        let istringable_namespace = crate::types::namespace::to_namespace_tokens(
+            "Windows.Foundation",
+            &type_name.namespace,
+        );
         quote! {
             "{:?}",
             {
-                let s: crate::windows::foundation::IStringable = self.into();
+                let s: #istringable_namespace IStringable = self.into();
                 s
             }
         }
