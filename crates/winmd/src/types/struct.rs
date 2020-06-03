@@ -57,11 +57,13 @@ impl Struct {
                 #(#fields),*
             }
             unsafe impl ::winrt::RuntimeType for #name {
-                type Abi = Self;
                 fn signature() -> String {
                     #signature.to_owned()
                 }
-                fn abi(&self) -> Self::Abi {
+            }
+            unsafe impl ::winrt::AbiTransferable for #name {
+                type Abi = Self;
+                fn get_abi(&self) -> Self::Abi {
                     self.clone()
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {

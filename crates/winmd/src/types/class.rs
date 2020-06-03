@@ -139,15 +139,17 @@ impl Class {
                     }
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
-                    type Abi = ::winrt::RawComPtr<#default_name>;
                     fn signature() -> String {
                         #signature.to_owned()
                     }
-                    fn abi(&self) -> Self::Abi {
-                        self.ptr.abi()
+                }
+                unsafe impl ::winrt::AbiTransferable for #name {
+                    type Abi = ::winrt::RawComPtr<#default_name>;
+                    fn get_abi(&self) -> Self::Abi {
+                        <::winrt::ComPtr<#default_name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
                     }
                     fn set_abi(&mut self) -> *mut Self::Abi {
-                        self.ptr.set_abi()
+                        <::winrt::ComPtr<#default_name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
                     }
                 }
                 #debug

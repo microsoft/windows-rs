@@ -102,15 +102,17 @@ impl Interface {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type Abi = ::winrt::RawComPtr<Self>;
                 fn signature() -> String {
                     #signature
                 }
-                fn abi(&self) -> Self::Abi {
-                    self.ptr.abi()
+            }
+            unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
+                type Abi = ::winrt::RawComPtr<Self>;
+                fn get_abi(&self) -> Self::Abi {
+                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set_abi()
+                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
                 }
             }
             #debug

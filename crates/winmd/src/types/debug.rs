@@ -6,8 +6,7 @@ use quote::quote;
 
 pub fn debug_tokens(type_name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let name = &type_name.name;
-    let default_impl =
-        quote! { ::std::format!("{}({:?})", #name, <Self as ::winrt::RuntimeType>::abi(self)) };
+    let default_impl = quote! { ::std::format!("{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self)) };
 
     let implements_istringable = interfaces.iter().any(|interface| {
         interface.name.name == "IStringable" && interface.name.namespace == "Windows.Foundation"
@@ -46,7 +45,8 @@ pub fn debug_tokens(type_name: &TypeName, interfaces: &Vec<RequiredInterface>) -
 
 pub fn default_debug_tokens(type_name: &TypeName) -> TokenStream {
     let name = &type_name.name;
-    let implementation = quote! { "{}({:?})", #name, <Self as ::winrt::RuntimeType>::abi(self) };
+    let implementation =
+        quote! { "{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self) };
 
     to_tokens(type_name, &implementation)
 }

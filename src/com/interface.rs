@@ -11,22 +11,11 @@ use crate::*;
 /// `VTable` must be a COM compliant vtable where the first three function
 /// pointers are the `IUnknown` methods. And because ComInterfaces are just
 /// pointers to vtables, it must be safe to zero-initialize the interface.
-pub unsafe trait ComInterface: Sized {
+pub unsafe trait ComInterface: Sized + crate::AbiTransferable {
     type VTable;
 
     // TODO: this should be a const function returning &'static Guid
     fn iid() -> Guid;
-
-    /// Turn a `ComInterface` into a `RawComPtr`.
-    ///
-    /// Note: `RawComPtr`s do not perform `IUnknown` reference counting.
-    /// Therefore it is important to only hold on to the returned `RawComPtr`
-    /// for at most the lifetime of `&self`.
-    #[inline(always)]
-    fn as_raw(&self) -> RawComPtr<Self> {
-        // Safe because `ComInterface`s are by definition `RawComPtr`s.
-        unsafe { std::mem::transmute_copy(self) }
-    }
 
     /// Get the `ComInterface` as a `RawComPtr<IUnknown>`.
     ///
@@ -35,8 +24,9 @@ pub unsafe trait ComInterface: Sized {
     /// for at most the lifetime of `&self`.
     #[inline(always)]
     fn as_iunknown(&self) -> RawComPtr<IUnknown> {
-        // Safe because all ComInterfaces inherit from IUnknown.
-        self.as_raw().map(|s| unsafe { s.cast() })
+        // Safe because `ComInterface`s are by definition `RawComPtr`s.
+        let raw: RawComPtr<Self> = unsafe { std::mem::transmute_copy(self) };
+        Some(raw?.as_iunknown())
     }
 
     /// Query for a particular interface.
@@ -54,7 +44,7 @@ pub unsafe trait ComInterface: Sized {
     /// Check whether the ComInterface is currently null.
     #[inline(always)]
     fn is_null(&self) -> bool {
-        self.as_raw().is_none()
+        self.as_iunknown().is_none()
     }
 
     /// Query for a particular interface by iid.
@@ -66,7 +56,7 @@ pub unsafe trait ComInterface: Sized {
     /// not know their iids at compile time.
     unsafe fn raw_query<T: ComInterface>(&self, iid: &Guid, ppv: &mut T) {
         if let Some(from) = self.as_iunknown() {
-            (from.vtable().unknown_query_interface)(from, iid, ppv as *mut _ as _);
+            (from.vtable().unknown_query_interface)(from, iid, ppv as *mut T as _);
         }
     }
 }

@@ -8,12 +8,6 @@ pub struct IUnknown {
     ptr: ComPtr<IUnknown>,
 }
 
-impl IUnknown {
-    pub fn set_abi(&mut self) -> *mut RawComPtr<Self> {
-        self.ptr.set_abi()
-    }
-}
-
 unsafe impl ComInterface for IUnknown {
     type VTable = abi_IUnknown;
 
@@ -24,6 +18,18 @@ unsafe impl ComInterface for IUnknown {
             0x0000,
             [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
         )
+    }
+}
+
+unsafe impl AbiTransferable for IUnknown {
+    type Abi = RawComPtr<Self>;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr.get_abi()
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        self.ptr.set_abi()
     }
 }
 

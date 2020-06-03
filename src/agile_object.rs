@@ -22,6 +22,18 @@ unsafe impl ComInterface for IAgileObject {
     }
 }
 
+unsafe impl AbiTransferable for IAgileObject {
+    type Abi = RawComPtr<Self>;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr.get_abi()
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        self.ptr.set_abi()
+    }
+}
+
 #[repr(C)]
 pub struct abi_IAgileObject {
     pub unknown_query_interface:

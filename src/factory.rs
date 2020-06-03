@@ -10,7 +10,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let mut code = RoGetActivationFactory(name.abi(), &I::iid(), &mut factory);
+        let mut code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
 
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
@@ -19,7 +19,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.abi(), &I::iid(), &mut factory);
+            code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
         }
 
         // If this succeeded then retun the resulting factory interface.
@@ -66,7 +66,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             let mut factory: IActivationFactory = std::mem::zeroed();
 
             // Now call DllGetActivationFactory to request the given class.
-            if library_call(name.abi(), factory.set_abi()).is_err() {
+            if library_call(name.get_abi(), factory.set_abi()).is_err() {
                 continue;
             }
 
