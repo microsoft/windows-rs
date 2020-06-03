@@ -1,16 +1,22 @@
+mod cargo;
+mod error;
+
 use cargo_toml::{Manifest, Value};
 use futures::future::{BoxFuture, FutureExt};
 use structopt::StructOpt;
-use thiserror::Error;
 
 use std::ffi::OsString;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 
+use error::Error;
+
 fn main() {
-    let Opt::Nuget { subcommand } = Opt::from_args();
+    let Opt::Winrt { subcommand } = Opt::from_args();
     match subcommand {
         Subcommand::Install(i) => i.perform().unwrap(),
+        Subcommand::Run(r) => r.perform().unwrap(),
+        Subcommand::Build(b) => b.perform().unwrap(),
     }
 }
 
@@ -18,8 +24,8 @@ fn main() {
 #[derive(StructOpt, Debug)]
 #[structopt(bin_name = "cargo")]
 enum Opt {
-    #[structopt(name = "nuget")]
-    Nuget {
+    #[structopt(name = "winrt")]
+    Winrt {
         #[structopt(subcommand)]
         subcommand: Subcommand,
     },
@@ -28,65 +34,87 @@ enum Opt {
 #[derive(Debug, StructOpt)]
 enum Subcommand {
     Install(Install),
-}
-
-#[derive(Debug, Error)]
-enum Error {
-    #[error("No Cargo.toml could be found")]
-    NoCargoToml,
-    #[error("There was an error downloading the NuGet package {0}")]
-    DownloadError(Box<dyn std::error::Error>),
-    #[error("The Cargo.toml file was malformed")]
-    MalformedManifest,
-    #[error("There was some other error {0}")]
-    Other(Box<dyn std::error::Error>),
+    Build(Build),
+    Run(Run),
 }
 
 #[derive(Debug, StructOpt)]
-pub struct Install {}
+pub struct Build {
+    #[structopt(short, long)]
+    force: bool,
+}
+
+impl Build {
+    fn perform(&self) -> Result<(), Error> {
+        let install = Install { force: self.force };
+        install.perform()?;
+        cargo::build()
+    }
+}
+
+#[derive(Debug, StructOpt)]
+pub struct Run {
+    #[structopt(short, long)]
+    force: bool,
+}
+
+impl Run {
+    fn perform(&self) -> Result<(), Error> {
+        let install = Install { force: self.force };
+        install.perform()?;
+        cargo::run()
+    }
+}
+
+#[derive(Debug, StructOpt)]
+pub struct Install {
+    #[structopt(short, long)]
+    force: bool,
+}
 
 impl Install {
-    fn perform(&self) -> Result<(), Error> {
-        let bytes = std::fs::read("Cargo.toml").map_err(|_| Error::NoCargoToml)?;
-        let manifest = Manifest::from_slice(&bytes).map_err(|_| Error::MalformedManifest)?;
-        let deps = get_deps(manifest)?;
-        let downloaded_deps = download_dependencies(deps)?;
+    fn perform(&self) -> error::Result<()> {
+        let manifest = cargo::workspace_manifest()?;
+        let deps = get_dependency_descriptors(manifest)?;
+
+        self.ensure_dependencies(deps)?;
+
+        Ok(())
+    }
+
+    fn ensure_dependencies(
+        &self,
+        dependency_descriptors: Vec<DependencyDescriptor>,
+    ) -> error::Result<()> {
+        let dependency_descriptors = dependency_descriptors
+            .into_iter()
+            .filter(|d| !d.already_saved())
+            .collect();
+        let downloaded_deps = download_dependencies(dependency_descriptors)?;
         for dep in downloaded_deps {
-            let dep_directory = workspace_root()
-                .join("target")
-                .join("nuget")
-                .join(&dep.dependency.name);
-            // create the dependency directory
-            std::fs::create_dir_all(&dep_directory).unwrap();
-            for winmd in dep.winmds() {
-                winmd.write(&dep_directory).unwrap();
-            }
-
-            for dll in dep.dlls() {
-                dll.write(&dep_directory).unwrap();
-            }
+            dep.save()?;
         }
-
         Ok(())
     }
 }
 
-fn workspace_root() -> PathBuf {
-    // TODO: improve this
-    PathBuf::new()
-}
-
-fn get_deps(manifest: Manifest) -> Result<Vec<Dependency>, Error> {
+fn get_dependency_descriptors(manifest: Manifest) -> error::Result<Vec<DependencyDescriptor>> {
     let metadata = manifest.package.and_then(|p| p.metadata);
     match metadata {
         Some(Value::Table(mut t)) => {
-            let deps = match t.remove("nuget_dependencies") {
+            let mut deps = match t.remove("winrt") {
                 Some(Value::Table(deps)) => deps,
+                None => return Ok(Vec::new()),
+                _ => return Err(Error::MalformedManifest.into()),
+            };
+            let deps = match deps.remove("dependencies") {
+                Some(Value::Table(deps)) => deps,
+                None => return Ok(Vec::new()),
                 _ => return Err(Error::MalformedManifest.into()),
             };
             deps.into_iter()
                 .map(|(key, value)| match value {
-                    Value::String(version) => Ok(Dependency::new(key, version)),
+                    Value::String(version) => Ok(DependencyDescriptor::new(key, version)),
                     _ => Err(Error::MalformedManifest.into()),
                 })
                 .collect()
@@ -96,12 +124,12 @@ fn get_deps(manifest: Manifest) -> Result<Vec<Dependency>, Error> {
 }
 
 #[derive(Debug)]
-struct Dependency {
+struct DependencyDescriptor {
     name: String,
     version: String,
 }
 
-impl Dependency {
+impl DependencyDescriptor {
     fn new(name: String, version: String) -> Self {
         Self { name, version }
     }
@@ -113,11 +141,11 @@ impl Dependency {
         )
     }
 
-    async fn download(&self) -> Result<Vec<u8>, Error> {
+    async fn download(&self) -> error::Result<Vec<u8>> {
         fn try_download(
             url: String,
             recursion_amount: u8,
-        ) -> BoxFuture<'static, Result<Vec<u8>, Error>> {
+        ) -> BoxFuture<'static, error::Result<Vec<u8>>> {
             async move {
                 if recursion_amount == 0 {
                     return Err(Error::DownloadError(
@@ -145,7 +173,8 @@ impl Dependency {
                     }
                     _ => {
                         return Err(Error::DownloadError(
-                            anyhow::anyhow!("Non-successful response: {}", res.status()).into(),
+                            anyhow::anyhow!("Non-successful response: {} {}", url, res.status())
+                                .into(),
                         ))
                     }
                 }
@@ -155,18 +184,28 @@ impl Dependency {
 
         try_download(self.url(), 5).await
     }
+
+    fn already_saved(&self) -> bool {
+        self.directory_path().exists()
+    }
+
+    fn directory_path(&self) -> PathBuf {
+        cargo::workspace_target_path()
+            .join("nuget")
+            .join(&self.name)
+    }
 }
 
 struct DownloadedDependency {
-    dependency: Dependency,
+    descriptor: DependencyDescriptor,
     contents: (Vec<Winmd>, Vec<Dll>),
 }
 
 impl DownloadedDependency {
-    fn new(dependency: Dependency, bytes: Vec<u8>) -> Result<Self, Error> {
+    fn new(descriptor: DependencyDescriptor, bytes: Vec<u8>) -> error::Result<Self> {
         let contents = Self::read_contents(&bytes)?;
         Ok(Self {
-            dependency,
+            descriptor,
             contents,
         })
     }
@@ -179,7 +218,7 @@ impl DownloadedDependency {
         &self.contents.1
     }
 
-    fn read_contents(zip: &[u8]) -> Result<(Vec<Winmd>, Vec<Dll>), Error> {
+    fn read_contents(zip: &[u8]) -> error::Result<(Vec<Winmd>, Vec<Dll>)> {
         let reader = std::io::Cursor::new(zip);
         let mut zip = zip::ZipArchive::new(reader).map_err(|e| Error::Other(Box::new(e)))?;
         let mut winmds = Vec::new();
@@ -222,9 +261,29 @@ impl DownloadedDependency {
         }
         Ok((winmds, dlls))
     }
+
+    fn save(self) -> error::Result<()> {
+        let dep_directory = self.descriptor.directory_path();
+        // create the dependency directory
+        if !dep_directory.exists() {
+            std::fs::create_dir_all(&dep_directory).unwrap();
+        }
+
+        for winmd in self.winmds() {
+            winmd.write(&dep_directory).unwrap();
+        }
+
+        for dll in self.dlls() {
+            dll.write(&dep_directory).unwrap();
+        }
+
+        Ok(())
+    }
 }
 
-fn download_dependencies(deps: Vec<Dependency>) -> Result<Vec<DownloadedDependency>, Error> {
+fn download_dependencies(
+    deps: Vec<DependencyDescriptor>,
+) -> error::Result<Vec<DownloadedDependency>> {
     tokio::runtime::Runtime::new().unwrap().block_on(async {
         let results = deps.into_iter().map(|dep| async move {
             let bytes = dep.download().await?;
@@ -242,7 +301,11 @@ struct Winmd {
 
 impl Winmd {
     fn write(&self, dir: &Path) -> std::io::Result<()> {
-        std::fs::write(dir.join(&self.name), &self.contents)
+        let path = dir.join(&self.name);
+        if !path.exists() {
+            return std::fs::write(dir.join(&self.name), &self.contents);
+        }
+        Ok(())
     }
 }
 
@@ -259,12 +322,11 @@ impl Dll {
             std::fs::write(&path, &self.contents).unwrap();
         }
         for profile in &["debug", "release"] {
-            let profile_path = workspace_root().join("target").join(profile);
+            let profile_path = cargo::workspace_target_path().join(profile);
             std::fs::create_dir_all(&profile_path).unwrap();
             let arch = self.name.parent().unwrap();
             let dll_path = profile_path.join(&self.name.strip_prefix(&arch).unwrap());
-            if arch.as_os_str() == "win10-x64" && std::fs::read_link(&dll_path).is_err() {
-                println!("{} {:?}", dll_path.display(), dll_path.exists());
+            if arch.as_os_str() == "win-x64" && std::fs::read_link(&dll_path).is_err() {
                 std::os::windows::fs::symlink_file(&path, dll_path).unwrap();
             }
         }

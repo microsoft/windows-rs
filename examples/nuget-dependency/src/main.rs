@@ -1,7 +1,17 @@
-include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+winrt::import!(
+    dependencies
+        os
+        nuget: Microsoft.AI.MachineLearning
+    types
+        microsoft::ai::machine_learning::*
+);
 
-use windows::foundation::PropertyValue;
+fn main() -> winrt::Result<()> {
+    use microsoft::ai::machine_learning::*;
 
-fn main() {
-    let _value = PropertyValue::create_boolean(true).unwrap();
+    let tensor = TensorBoolean::create()?;
+    assert!(tensor.tensor_kind()? == TensorKind::Boolean);
+    println!("Tensor: {:?}", tensor);
+
+    Ok(())
 }
