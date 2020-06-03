@@ -6,6 +6,7 @@ winrt::import!(
         windows::foundation::collections::*
 );
 
+use winrt::AbiTransferable;
 use winrt::ComInterface;
 
 #[test]
@@ -42,6 +43,7 @@ fn non_generic() -> winrt::Result<()> {
 #[test]
 fn generic() -> winrt::Result<()> {
     use windows::foundation::Uri;
+
     type Handler = windows::foundation::TypedEventHandler<Uri, i32>;
 
     // TODO: Handler::IID is not correct for generic types
@@ -55,7 +57,7 @@ fn generic() -> winrt::Result<()> {
     let uri_clone = uri.clone();
     let d = Handler::new(move |sender, port| {
         tx.send(true).unwrap();
-        assert!(uri_clone.as_raw() == sender.as_raw());
+        assert!(uri_clone.get_abi() == sender.get_abi());
 
         // TODO: ideally primitives would be passed by value
         assert!(*port == 80);
@@ -86,7 +88,7 @@ fn event() -> winrt::Result<()> {
             tx.send(true).unwrap();
             let set = set_clone.clone();
             let map: IObservableMap<winrt::HString, winrt::Object> = set.into();
-            assert!(map.as_raw() == sender.as_raw());
+            assert!(map.get_abi() == sender.get_abi());
             assert!(args.key()? == "A");
             assert!(args.collection_change()? == CollectionChange::ItemInserted);
             Ok(())

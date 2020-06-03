@@ -95,15 +95,17 @@ impl Delegate {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type Abi = ::winrt::RawComPtr<Self>;
                 fn signature() -> String {
                     #signature
                 }
-                fn abi(&self) -> Self::Abi {
-                    self.ptr.abi()
+            }
+            unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
+                type Abi = ::winrt::RawComPtr<Self>;
+                fn get_abi(&self) -> Self::Abi {
+                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {
-                    self.ptr.set_abi()
+                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
                 }
             }
             #debug
@@ -143,7 +145,7 @@ impl Delegate {
                     unsafe {
                         let mut result: #name = std::mem::zeroed();
                         let ptr: ::std::ptr::NonNull<Self> = ::std::ptr::NonNull::new_unchecked(::std::boxed::Box::into_raw(::std::boxed::Box::new(value)));
-                        *<#name as ::winrt::RuntimeType>::set_abi(&mut result) = Some(::winrt::NonNullRawComPtr::new(ptr.cast()));
+                        *<#name as ::winrt::AbiTransferable>::set_abi(&mut result) = Some(::winrt::NonNullRawComPtr::new(ptr.cast()));
                         result
                     }
                 }

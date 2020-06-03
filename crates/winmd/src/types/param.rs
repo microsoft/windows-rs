@@ -109,7 +109,7 @@ impl Param {
         if self.array {
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut __ok), winrt::Array::<#return_type>::set_abi(&mut __ok), }
         } else {
-            quote! { <#return_type as ::winrt::RuntimeType>::set_abi(&mut __ok) }
+            quote! { <#return_type as ::winrt::AbiTransferable>::set_abi(&mut __ok) }
         }
     }
 
@@ -136,15 +136,15 @@ impl Param {
                     | TypeKind::Interface(_)
                     | TypeKind::Struct(_)
                     | TypeKind::Delegate(_)
-                    | TypeKind::Generic(_) => quote! { #name.into().abi(), },
-                    TypeKind::Enum(_) => quote! { ::winrt::RuntimeType::abi(&#name), },
-                    _ => quote! { ::winrt::RuntimeType::abi(#name), },
+                    | TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
+                    TypeKind::Enum(_) => quote! { ::winrt::AbiTransferable::get_abi(&#name), },
+                    _ => quote! { ::winrt::AbiTransferable::get_abi(#name), },
                 }
             }
         } else if self.kind.blittable() {
             quote! { #name, }
         } else {
-            quote! { ::winrt::RuntimeType::set_abi(#name), }
+            quote! { ::winrt::AbiTransferable::set_abi(#name), }
         }
     }
 
@@ -157,13 +157,13 @@ impl Param {
             panic!("array");
         } else if self.input {
             match self.kind {
-                TypeKind::Enum(_) => quote! { *::winrt::RuntimeType::from_abi(&#name) },
-                _ => quote! { ::winrt::RuntimeType::from_abi(&#name) },
+                TypeKind::Enum(_) => quote! { *::winrt::AbiTransferable::from_abi(&#name) },
+                _ => quote! { ::winrt::AbiTransferable::from_abi(&#name) },
             }
         } else if self.kind.blittable() {
             quote! { #name, }
         } else {
-            quote! { ::winrt::RuntimeType::from_mut_abi(#name) }
+            quote! { ::winrt::AbiTransferable::from_mut_abi(#name) }
         }
     }
 }

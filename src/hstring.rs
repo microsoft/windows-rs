@@ -70,20 +70,22 @@ impl HString {
     }
 }
 
-unsafe impl RuntimeType for HString {
+unsafe impl AbiTransferable for HString {
     type Abi = *mut Header;
 
-    fn signature() -> String {
-        "string".to_owned()
-    }
-
-    fn abi(&self) -> Self::Abi {
+    fn get_abi(&self) -> Self::Abi {
         self.ptr
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         self.clear();
         &mut self.ptr
+    }
+}
+
+unsafe impl RuntimeType for HString {
+    fn signature() -> String {
+        "string".to_owned()
     }
 }
 
@@ -310,7 +312,7 @@ mod tests {
         fn perform_transfer(from: HString, to: &mut HString) {
             let from = std::mem::ManuallyDrop::new(from);
             let to = to.set_abi();
-            let from = from.abi();
+            let from = from.get_abi();
             unsafe { *to = from };
         }
 

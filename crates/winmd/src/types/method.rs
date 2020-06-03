@@ -229,7 +229,8 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
-                    match self.ptr.abi() {
+                    use ::winrt::AbiTransferable;
+                    match self.ptr.get_abi() {
                         None => panic!("The `this` pointer was null when calling method"),
                         Some(this) => {
                             unsafe {
@@ -244,7 +245,8 @@ impl Method {
         } else {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
-                    match self.ptr.abi() {
+                    use ::winrt::AbiTransferable;
+                    match self.ptr.get_abi() {
                         None => panic!("The `this` pointer was null when calling method"),
                         Some(this) => {
                             unsafe {

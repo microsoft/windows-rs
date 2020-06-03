@@ -79,11 +79,13 @@ impl Enum {
                 #(#fields)*
             }
             unsafe impl ::winrt::RuntimeType for #name {
-                type Abi = #repr;
                 fn signature() -> String {
                     #signature.to_owned()
                 }
-                fn abi(&self) -> Self::Abi {
+            }
+            unsafe impl ::winrt::AbiTransferable for #name {
+                type Abi = #repr;
+                fn get_abi(&self) -> Self::Abi {
                     self.value
                 }
                 fn set_abi(&mut self) -> *mut Self::Abi {

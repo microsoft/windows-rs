@@ -220,14 +220,14 @@ impl TypeKind {
             Self::F64 => quote! { f64, },
             Self::Guid => quote! { ::winrt::Guid, },
             Self::String => {
-                quote! { <::winrt::HString as ::winrt::RuntimeType>::Abi, }
+                quote! { <::winrt::HString as ::winrt::AbiTransferable>::Abi, }
             }
             Self::Object => {
-                quote! { <::winrt::Object as ::winrt::RuntimeType>::Abi, }
+                quote! { <::winrt::Object as ::winrt::AbiTransferable>::Abi, }
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
-                quote! { <#name as ::winrt::RuntimeType>::Abi, }
+                quote! { <#name as ::winrt::AbiTransferable>::Abi, }
             }
             Self::Class(name)
             | Self::Interface(name)
@@ -235,7 +235,7 @@ impl TypeKind {
             | Self::Enum(name)
             | Self::Struct(name) => {
                 let name = &*name.to_tokens(calling_namespace);
-                quote! { <#name as ::winrt::RuntimeType>::Abi, }
+                quote! { <#name as ::winrt::AbiTransferable>::Abi, }
             }
         }
     }

@@ -24,7 +24,7 @@ impl Error {
 
         // RoOriginateError creates the error object and associates it with the thread.
         unsafe {
-            RoOriginateError(code, message.abi() as _);
+            RoOriginateError(code, message.get_abi() as _);
         }
 
         let mut info = IErrorInfo::default();
@@ -135,7 +135,7 @@ impl ErrorCode {
 impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
-            if let Some(info) = error.info.as_raw() {
+            if let Some(info) = error.info.get_abi() {
                 // Set the error information on the thread if the result is `Err`
                 // so that the caller can pick it up.
                 unsafe {
@@ -285,13 +285,9 @@ struct IErrorInfo {
 }
 
 impl IErrorInfo {
-    pub fn set_abi(&mut self) -> *mut RawComPtr<Self> {
-        self.ptr.set_abi()
-    }
-
     pub fn get_description(&self) -> String {
         let mut description = BString::new();
-        match self.ptr.abi() {
+        match self.get_abi() {
             Some(p) => {
                 unsafe {
                     (p.vtable().get_description)(Some(p), description.set_abi());
@@ -317,6 +313,18 @@ unsafe impl ComInterface for IErrorInfo {
     }
 }
 
+unsafe impl AbiTransferable for IErrorInfo {
+    type Abi = RawComPtr<Self>;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr.get_abi()
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        self.ptr.set_abi()
+    }
+}
+
 #[repr(C)]
 struct abi_IErrorInfo {
     __base: [usize; 5],
@@ -335,7 +343,7 @@ impl IRestrictedErrorInfo {
         let mut message = BString::new();
         let mut unused = BString::new();
         let mut code = ErrorCode(0);
-        let p = match self.ptr.abi() {
+        let p = match self.ptr.get_abi() {
             Some(p) => p,
             None => return (code, String::new()),
         };
@@ -373,6 +381,18 @@ unsafe impl ComInterface for IRestrictedErrorInfo {
     }
 }
 
+unsafe impl AbiTransferable for IRestrictedErrorInfo {
+    type Abi = RawComPtr<Self>;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr.get_abi()
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        self.ptr.set_abi()
+    }
+}
+
 #[repr(C)]
 struct abi_IRestrictedErrorInfo {
     __base: [usize; 3],
@@ -393,7 +413,7 @@ struct ILanguageExceptionErrorInfo2 {
 
 impl ILanguageExceptionErrorInfo2 {
     pub fn capture_propagation_context(&self) {
-        if let Some(p) = self.ptr.abi() {
+        if let Some(p) = self.get_abi() {
             unsafe {
                 (p.vtable().capture_propagation_context)(p, std::ptr::null_mut());
             }
@@ -411,6 +431,18 @@ unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
             0x424C,
             [0xB6, 0x20, 0x28, 0x22, 0x91, 0x57, 0x34, 0xDD],
         )
+    }
+}
+
+unsafe impl AbiTransferable for ILanguageExceptionErrorInfo2 {
+    type Abi = RawComPtr<Self>;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr.get_abi()
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        self.ptr.set_abi()
     }
 }
 

@@ -1,4 +1,4 @@
-use super::RuntimeType;
+use super::{AbiTransferable, RuntimeType};
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/dotnet/api/system.guid?view=netcore-3.1)
 /// used to uniquely identify COM and WinRT interfaces.
@@ -63,19 +63,20 @@ impl Guid {
     }
 }
 
-unsafe impl RuntimeType for Guid {
+unsafe impl AbiTransferable for Guid {
     type Abi = Self;
 
-    fn signature() -> String {
-        "g16".to_owned()
-    }
-
-    fn abi(&self) -> Self::Abi {
+    fn get_abi(&self) -> Self::Abi {
         self.clone()
     }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         self as *mut Self::Abi
+    }
+}
+unsafe impl RuntimeType for Guid {
+    fn signature() -> String {
+        "g16".to_owned()
     }
 }
 
