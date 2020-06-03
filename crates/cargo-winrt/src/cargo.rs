@@ -1,9 +1,48 @@
 use cargo_toml::Manifest;
 
 use std::path::PathBuf;
-use std::process::Command;
+use std::process::{Command, Stdio};
 
 use crate::error::{self, Error};
+
+pub fn run() -> error::Result<()> {
+    let mut cmd = cargo();
+    cmd.args(&["run"]);
+
+    perform(&mut cmd)
+}
+
+pub fn build() -> error::Result<()> {
+    let mut cmd = cargo();
+    cmd.args(&["build"]);
+
+    perform(&mut cmd)
+}
+
+fn perform(cmd: &mut Command) -> error::Result<()> {
+    let output = cmd
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .unwrap();
+    let mut o = output
+        .stdout
+        .expect("Child process's stdout was not configured");
+    let t1 = std::thread::spawn(move || {
+        let mut stdout = std::io::stdout();
+        std::io::copy(&mut o, &mut stdout).unwrap();
+    });
+    let mut e = output
+        .stderr
+        .expect("Child process's stderr was not configured");
+    let t2 = std::thread::spawn(move || {
+        let mut stdout = std::io::stderr();
+        std::io::copy(&mut e, &mut stdout).unwrap();
+    });
+    t1.join().unwrap();
+    t2.join().unwrap();
+    Ok(())
+}
 
 pub fn workspace_manifest() -> error::Result<Manifest> {
     let bytes = std::fs::read(workspace_manifest_path()).map_err(|_| Error::NoCargoToml)?;
