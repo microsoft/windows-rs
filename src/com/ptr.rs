@@ -3,6 +3,12 @@ use crate::{AbiTransferable, Guid};
 
 /// A reference counted pointer to a COM interface.
 ///
+/// This is the preferred way to work with COM interfaces. If you need
+/// a new handle to the COM Interface, calling `clone` on the `ComPtr`,
+/// will automatically call `AddRef` and increment the reference count.
+/// Additionally, dropping the `ComPtr` calls `Release` ensuring that the
+/// COM interface is disposed of when no more handles to it exist.
+///
 /// This pointer can be null.
 #[repr(transparent)]
 pub struct ComPtr<T: ComInterface> {
