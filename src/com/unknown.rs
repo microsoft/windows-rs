@@ -33,8 +33,6 @@ unsafe impl AbiTransferable for IUnknown {
     }
 }
 
-
-
 #[repr(C)]
 pub struct abi_IUnknown {
     pub unknown_query_interface:
