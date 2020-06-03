@@ -135,7 +135,7 @@ impl ErrorCode {
 impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
-            if let Some(info) = error.info.as_raw() {
+            if let Some(info) = error.info.get_abi() {
                 // Set the error information on the thread if the result is `Err`
                 // so that the caller can pick it up.
                 unsafe {

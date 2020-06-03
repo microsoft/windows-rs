@@ -1,4 +1,5 @@
 use super::interface::ComInterface;
+use super::unknown::IUnknown;
 use crate::{AbiTransferable, Guid};
 
 /// A non-reference-counted pointer to a COM interface.
@@ -36,9 +37,14 @@ impl<T: ComInterface> NonNullRawComPtr<T> {
     pub fn as_raw(self) -> *mut std::ptr::NonNull<<T as ComInterface>::VTable> {
         self.inner.as_ptr()
     }
+
+    pub fn as_iunknown(&self) -> NonNullRawComPtr<IUnknown> {
+        // Safe because all ComInterfaces must be castable to IUnknown
+        unsafe { self.cast::<IUnknown>() }
+    }
 }
 
-unsafe impl<T: ComInterface> AbiTransferable for NonNullRawComPtr<T>    {
+unsafe impl<T: ComInterface> AbiTransferable for NonNullRawComPtr<T> {
     type Abi = Self;
 
     fn get_abi(&self) -> Self::Abi {
