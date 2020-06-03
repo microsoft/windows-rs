@@ -79,8 +79,8 @@ impl Enum {
                 #(#fields)*
             }
             unsafe impl ::winrt::RuntimeType for #name {
-                fn signature() -> String {
-                    #signature.to_owned()
+                fn signature() -> &'static str {
+                    #signature
                 }
             }
             unsafe impl ::winrt::AbiTransferable for #name {

@@ -39,8 +39,8 @@ unsafe impl ComInterface for Object {
 }
 
 unsafe impl RuntimeType for Object {
-    fn signature() -> String {
-        "cinterface(IInspectable)".to_owned()
+    fn signature() -> &'static str {
+        "cinterface(IInspectable)"
     }
 }
 

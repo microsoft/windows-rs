@@ -95,7 +95,7 @@ impl Delegate {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                fn signature() -> String {
+                fn signature() -> &'static str {
                     #signature
                 }
             }

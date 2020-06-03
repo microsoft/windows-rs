@@ -104,7 +104,7 @@ impl TypeName {
 
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
         if self.generics.is_empty() {
-            return quote! { #signature.to_owned() };
+            return quote! { #signature };
         }
 
         // TODO: I'm sure there's a more generic way of doing this, but as of now there are at
@@ -123,7 +123,15 @@ impl TypeName {
         };
 
         quote! {
-            #format
+            static mut VAL: &'static str = "";
+            static INIT: ::std::sync::Once = ::std::sync::Once::new();
+            unsafe {
+                INIT.call_once(|| {
+                    VAL = ::std::boxed::Box::leak(#format.into_boxed_str());
+                });
+                VAL
+            }
+
         }
     }
 

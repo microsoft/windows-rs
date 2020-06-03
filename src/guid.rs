@@ -75,8 +75,8 @@ unsafe impl AbiTransferable for Guid {
     }
 }
 unsafe impl RuntimeType for Guid {
-    fn signature() -> String {
-        "g16".to_owned()
+    fn signature() -> &'static str {
+        "g16"
     }
 }
 

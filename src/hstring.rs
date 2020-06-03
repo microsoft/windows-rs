@@ -84,8 +84,8 @@ unsafe impl AbiTransferable for HString {
 }
 
 unsafe impl RuntimeType for HString {
-    fn signature() -> String {
-        "string".to_owned()
+    fn signature() -> &'static str {
+        "string"
     }
 }
 
