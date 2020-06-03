@@ -43,8 +43,8 @@ use std::path::PathBuf;
 /// as a 3rd-party NuGet dependency. It then generates all types inside of the `microsoft::ai::machine_learning`
 /// namespace.
 ///
-/// ```rust
-/// winrt::import!(
+/// ```rust,ignore
+/// import!(
 ///     dependencies
 ///         os
 ///         nuget: Microsoft.AI.MachineLearning
