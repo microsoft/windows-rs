@@ -1,4 +1,4 @@
-
+include!(concat!(env!("OUT_DIR"), "/winrt.rs"));
 
 fn main() -> winrt::Result<()> {
     use microsoft::ai::machine_learning::*;
@@ -8,7 +8,7 @@ fn main() -> winrt::Result<()> {
     assert!(tensor.tensor_kind()? == TensorKind::Boolean);
     println!("Tensor: {:?}", tensor);
     let uri = Uri::create_uri("http://kennykerr.ca:80")?;
-    println!("Port: {:?}", uri.port()?); d
+    println!("Port: {:?}", uri.port()?);
 
     Ok(())
 }

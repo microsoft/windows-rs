@@ -9,7 +9,7 @@ use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
 use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage};
 
-use std::{collections::BTreeSet, path::PathBuf, env , fs, process::Stdio, io::Write};
+use std::{collections::BTreeSet, env, fs, io::Write, path::PathBuf, process::Stdio};
 
 /// A macro for generating WinRT modules into the current module
 ///
@@ -59,7 +59,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
 #[proc_macro]
 pub fn build(stream: TokenStream) -> TokenStream {
     let tokens = to_tokens(stream);
-    
+
     let path = PathBuf::from(env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"));
     fs::create_dir_all(&path).expect("Failed to ensure `OUT_DIR` is created");
     let path = path.join("winrt.rs");
@@ -74,25 +74,25 @@ pub fn build(stream: TokenStream) -> TokenStream {
         let mut stdin = child.stdin.unwrap();
         let stdout = child.stdout.unwrap();
 
-         let t = std::thread::spawn(move || {
-             let mut s = stdout;
-             std::io::copy(&mut s, &mut file).unwrap();
-         });
+        let t = std::thread::spawn(move || {
+            let mut s = stdout;
+            std::io::copy(&mut s, &mut file).unwrap();
+        });
 
-         // Only rerun if the output file has changed
-         println!("cargo:rerun-if-env-changed={}", path.display());
+        // Only rerun if the output file has changed
+        println!("cargo:rerun-if-env-changed={}", path.display());
 
-         writeln!(&mut stdin, "{}", tokens).unwrap();
-         // drop stdin to close that end of the pipe
-         drop(stdin);
+        writeln!(&mut stdin, "{}", tokens).unwrap();
+        // drop stdin to close that end of the pipe
+        drop(stdin);
 
-         t.join().unwrap();
-     }
+        t.join().unwrap();
+    }
 
-     let status = cmd.status().unwrap();
-     assert!(status.success());
+    let status = cmd.status().unwrap();
+    assert!(status.success());
 
-     TokenStream::new()
+    TokenStream::new()
 }
 
 fn to_tokens(stream: TokenStream) -> TokenStream {

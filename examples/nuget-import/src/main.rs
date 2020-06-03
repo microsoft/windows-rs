@@ -17,5 +17,5 @@ fn main() -> winrt::Result<()> {
     let uri = Uri::create_uri("http://kennykerr.ca:80")?;
     println!("Port: {:?}", uri.port()?);
 
-    Ok(()) d
+    Ok(())
 }

@@ -6,3 +6,5 @@ winrt::build!(
         microsoft::ai::machine_learning::*
         windows::foundation::Uri
 );
+
+fn main() {}
