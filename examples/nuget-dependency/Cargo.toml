@@ -10,7 +10,7 @@ winrt = { path = "../.." }
 [build-dependencies]
 winrt = { path = "../.." }
 
-[package.metadata.nuget_dependencies]
-"Microsoft.Windows.SDK.Contracts" = "1.25.0"
+[package.metadata.winrt.dependencies]
+"Microsoft.AI.MachineLearning" = "1.3.0"
 
 [workspace]
