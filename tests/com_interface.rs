@@ -24,12 +24,9 @@ fn com_interface() -> winrt::Result<()> {
     // The class and the non-default interface have different vtable types, which
     // means we need to cast in order to compare their pointers (which won't match).
     let s: IStringable = uri.into();
-    unsafe {
-        assert!(
-            s.get_abi().unwrap().cast::<winrt::IUnknown>()
-                != uri.get_abi().unwrap().cast::<winrt::IUnknown>()
-        );
-    }
+
+    assert!(s.as_iunknown() != uri.as_iunknown());
+
     // Here two different values of the same class won't share the same value as
     // they are unique instances even though they have the same vtable layout.
     let other = &Uri::create_uri("http://microsoft.com")?;
