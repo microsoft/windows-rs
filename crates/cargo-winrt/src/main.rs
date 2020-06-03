@@ -86,10 +86,15 @@ impl Install {
         &self,
         dependency_descriptors: Vec<DependencyDescriptor>,
     ) -> error::Result<()> {
-        let dependency_descriptors = dependency_descriptors
-            .into_iter()
-            .filter(|d| !d.already_saved())
-            .collect();
+        let dependency_descriptors = if self.force {
+            dependency_descriptors
+        } else {
+            dependency_descriptors
+                .into_iter()
+                .filter(|d| !d.already_saved())
+                .collect()
+        };
+
         let downloaded_deps = download_dependencies(dependency_descriptors)?;
         for dep in downloaded_deps {
             dep.save()?;
@@ -226,10 +231,13 @@ impl DownloadedDependency {
         for i in 0..zip.len() {
             let mut file = zip.by_index(i).unwrap();
             let path = file.sanitized_name();
+
             match path.extension() {
                 Some(e)
-                    if e == "winmd"
-                        && path.parent().and_then(Path::to_str) == Some("lib\\uap10.0") =>
+                    if e == "winmd" && {
+                        let parent = path.parent().and_then(Path::to_str);
+                        parent == Some(r#"lib\uap10.0"#) || parent == Some(r#"ref\netstandard2.0"#)
+                    } =>
                 {
                     let name = path.file_name().unwrap().to_owned();
                     let mut contents = Vec::with_capacity(file.size() as usize);
@@ -245,7 +253,7 @@ impl DownloadedDependency {
                         .components()
                         .filter(|c| match c {
                             std::path::Component::Normal(p) => *p != "native" && *p != "runtimes",
-                            _ => panic!("Unexpected component"),
+                            _ => false,
                         })
                         .collect();
                     let mut contents = Vec::with_capacity(file.size() as usize);
