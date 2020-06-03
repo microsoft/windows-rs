@@ -11,7 +11,7 @@ use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, Typ
 
 use std::{collections::BTreeSet, fs, io::Write, path::PathBuf, process::Stdio};
 
-/// A macro for generating WinRT modules into the current module. 
+/// A macro for generating WinRT modules into the current module.
 ///
 /// This macro can be used to import WinRT APIs from OS dependencies as well
 /// as NuGet packages. Use the `import` macro to directly include the generated code
