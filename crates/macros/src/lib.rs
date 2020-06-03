@@ -13,6 +13,45 @@ use std::collections::BTreeSet;
 use std::path::PathBuf;
 
 /// A macro for generating WinRT modules into the current module
+///
+/// This macro can be used to import WinRT APIs from OS dependencies as well
+/// as NuGet packages.
+///
+/// # Usage
+/// To use, first specify which dependencies you are relying on. This can be both
+/// `os` for depending on WinRT metadata shipped with Windows or `nuget: My.Package`
+/// for NuGet packages.
+///
+/// ## NuGet
+/// NuGet dependencies are expected in a well defined place. The `winmd` metadata files
+/// should be in the cargo workspace's `target` directory in a subdirectory `nuget\My.Package`
+/// where `My.Package` is the name of the NuGet package.
+///
+/// Any DLLs needed for the NuGet package to work should be next to work must be next to the final
+/// executable.
+///
+/// Instead of handling this yourself, you can use the [`cargo winrt`](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo-winrt)
+/// helper subcommand.
+///
+/// ## Types
+/// After specifying the dependencies, you must then specify which types you want to use. These
+/// follow the same convention as Rust `use` paths. Types know which other types they depend on so
+/// `import` will generate any other WinRT types needed for the specified type to work.
+///
+/// # Example
+/// The following `import!` depends on both `os` metadata (i.e., metadata shipped on Windows 10), as well
+/// as a 3rd-party NuGet dependency. It then generates all types inside of the `microsoft::ai::machine_learning`
+/// namespace.
+///
+/// ```rust,ignore
+/// import!(
+///     dependencies
+///         os
+///         nuget: Microsoft.AI.MachineLearning
+///     types
+///         microsoft::ai::machine_learning::*
+/// );
+/// ```
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
     let import = parse_macro_input!(stream as ImportMacro);
