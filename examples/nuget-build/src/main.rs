@@ -1,11 +1,4 @@
-winrt::import!(
-    dependencies
-        nuget: Microsoft.AI.MachineLearning
-        nuget: Microsoft.Windows.SDK.Contracts
-    types
-        microsoft::ai::machine_learning::*
-        windows::foundation::Uri
-);
+
 
 fn main() -> winrt::Result<()> {
     use microsoft::ai::machine_learning::*;
@@ -15,7 +8,7 @@ fn main() -> winrt::Result<()> {
     assert!(tensor.tensor_kind()? == TensorKind::Boolean);
     println!("Tensor: {:?}", tensor);
     let uri = Uri::create_uri("http://kennykerr.ca:80")?;
-    println!("Port: {:?}", uri.port()?);
+    println!("Port: {:?}", uri.port()?); d
 
     Ok(())
 }

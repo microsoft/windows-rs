@@ -9,8 +9,7 @@ use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
 use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage};
 
-use std::collections::BTreeSet;
-use std::path::PathBuf;
+use std::{collections::BTreeSet, path::PathBuf, env , fs, process::Stdio, io::Write};
 
 /// A macro for generating WinRT modules into the current module
 ///
@@ -54,6 +53,49 @@ use std::path::PathBuf;
 /// ```
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
+    to_tokens(stream)
+}
+
+#[proc_macro]
+pub fn build(stream: TokenStream) -> TokenStream {
+    let tokens = to_tokens(stream);
+    
+    let path = PathBuf::from(env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"));
+    fs::create_dir_all(&path).expect("Failed to ensure `OUT_DIR` is created");
+    let path = path.join("winrt.rs");
+    let mut file = fs::File::create(&path).expect("Failed to create winrt.rs");
+
+    let mut cmd = std::process::Command::new("rustfmt");
+    cmd.arg("--emit").arg("stdout");
+    cmd.stdin(Stdio::piped());
+    cmd.stdout(Stdio::piped());
+    {
+        let child = cmd.spawn().unwrap();
+        let mut stdin = child.stdin.unwrap();
+        let stdout = child.stdout.unwrap();
+
+         let t = std::thread::spawn(move || {
+             let mut s = stdout;
+             std::io::copy(&mut s, &mut file).unwrap();
+         });
+
+         // Only rerun if the output file has changed
+         println!("cargo:rerun-if-env-changed={}", path.display());
+
+         writeln!(&mut stdin, "{}", tokens).unwrap();
+         // drop stdin to close that end of the pipe
+         drop(stdin);
+
+         t.join().unwrap();
+     }
+
+     let status = cmd.status().unwrap();
+     assert!(status.success());
+
+     TokenStream::new()
+}
+
+fn to_tokens(stream: TokenStream) -> TokenStream {
     let import = parse_macro_input!(stream as ImportMacro);
 
     let dependencies = import
@@ -72,8 +114,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
 
     let stage = TypeStage::from_limits(reader, &limits);
     let tree = stage.into_tree();
-    let stream = tree.to_tokens();
-    stream.into()
+    tree.to_tokens().into()
 }
 
 /// A parsed `import!` macro
