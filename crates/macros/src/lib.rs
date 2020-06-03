@@ -9,7 +9,7 @@ use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
 use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage};
 
-use std::{collections::BTreeSet, env, fs, io::Write, path::PathBuf, process::Stdio};
+use std::{collections::BTreeSet, fs, io::Write, path::PathBuf, process::Stdio};
 
 /// A macro for generating WinRT modules into the current module
 ///
@@ -60,7 +60,10 @@ pub fn import(stream: TokenStream) -> TokenStream {
 pub fn build(stream: TokenStream) -> TokenStream {
     let tokens = to_tokens(stream);
 
-    let path = PathBuf::from(env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"));
+    // TODO: OUT_DIR is not available from the proc_macro..
+    // let path = PathBuf::from(env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"));
+    let path = PathBuf::from("C:\\git\\rust");
+
     fs::create_dir_all(&path).expect("Failed to ensure `OUT_DIR` is created");
     let path = path.join("winrt.rs");
     let mut file = fs::File::create(&path).expect("Failed to create winrt.rs");

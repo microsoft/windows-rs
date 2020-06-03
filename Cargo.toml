@@ -17,7 +17,6 @@ doc-comment = "0.3"
 [workspace]
 members = [
     "crates/*",
-    "examples/*",
 ]
 
 [package.metadata.docs.rs]
