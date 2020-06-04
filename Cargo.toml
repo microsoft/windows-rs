@@ -10,7 +10,7 @@ documentation = "https://docs.rs/winrt"
 readme = "README.md"
 
 [dependencies]
-winrt_macros = { path = "crates/macros" }
+winrt_macros = { path = "crates/macros",  version = "0.7" }
 sha1 = "0.6.0"
 
 [dev-dependencies]

@@ -5,7 +5,7 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-winrt_gen_macros = { path = "macros" }
+winrt_gen_macros = { path = "macros",  version = "0.7" }
 quote = "1.0"
 proc-macro2 = "1.0"
 sha1 = "0.6.0"
