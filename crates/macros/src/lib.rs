@@ -2,6 +2,7 @@ extern crate proc_macro;
 
 use proc_macro::TokenStream;
 use proc_macro2::Span;
+use quote::quote;
 use syn::parse::{self, Parse, ParseStream};
 use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
@@ -9,7 +10,7 @@ use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
 use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage};
 
-use std::{collections::BTreeSet, fs, io::Write, path::PathBuf, process::Stdio};
+use std::{collections::BTreeSet, path::PathBuf};
 
 /// A macro for generating WinRT modules into the current module.
 ///
@@ -62,6 +63,10 @@ pub fn import(stream: TokenStream) -> TokenStream {
 /// This macro can be used to import WinRT APIs from OS dependencies as well
 /// as NuGet packages. It is only intended for use from a crate's build.rs script.
 ///
+/// The macro generates a single `build` function which can be used in build scripts
+/// to generate the WinRT bindings. After using the `build` macro, call the
+/// generated `build` function somewhere in the build.rs script's main function.
+///
 /// # Usage
 /// To use, first specify which dependencies you are relying on. This can be both
 /// `os` for depending on WinRT metadata shipped with Windows or `nuget: My.Package`
@@ -100,45 +105,47 @@ pub fn import(stream: TokenStream) -> TokenStream {
 #[proc_macro]
 pub fn build(stream: TokenStream) -> TokenStream {
     let tokens = to_tokens(stream);
+    let tokens = tokens.to_string();
 
-    // OUT_DIR is not available from the proc_macro
-    let path = PathBuf::from(
-        std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set"),
-    );
-    let path = path.join("target");
+    let tokens = quote! {
+        fn build() {
+            use ::std::io::Write;
+            let mut path = ::std::path::PathBuf::from(
+                ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
+            );
 
-    fs::create_dir_all(&path).expect("Failed to ensure directory is created");
-    let path = path.join("winrt.rs");
-    let mut file = fs::File::create(&path).expect("Failed to create winrt.rs");
+            path.push("winrt.rs");
+            let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
 
-    let mut cmd = std::process::Command::new("rustfmt");
-    cmd.arg("--emit").arg("stdout");
-    cmd.stdin(Stdio::piped());
-    cmd.stdout(Stdio::piped());
-    {
-        let child = cmd.spawn().unwrap();
-        let mut stdin = child.stdin.unwrap();
-        let stdout = child.stdout.unwrap();
+            let mut cmd = ::std::process::Command::new("rustfmt");
+            cmd.arg("--emit").arg("stdout");
+            cmd.stdin(::std::process::Stdio::piped());
+            cmd.stdout(::std::process::Stdio::piped());
+            {
+                let child = cmd.spawn().unwrap();
+                let mut stdin = child.stdin.unwrap();
+                let stdout = child.stdout.unwrap();
 
-        let t = std::thread::spawn(move || {
-            let mut s = stdout;
-            std::io::copy(&mut s, &mut file).unwrap();
-        });
+                let t = ::std::thread::spawn(move || {
+                    let mut s = stdout;
+                    ::std::io::copy(&mut s, &mut file).unwrap();
+                });
 
-        // Only rerun if the output file has changed
-        println!("cargo:rerun-if-env-changed={}", path.display());
+                // Only rerun if the output file has changed
+                println!("cargo:rerun-if-env-changed={}", path.display());
 
-        writeln!(&mut stdin, "{}", tokens).unwrap();
-        // drop stdin to close that end of the pipe
-        drop(stdin);
+                writeln!(&mut stdin, "{}", #tokens).unwrap();
+                // drop stdin to close that end of the pipe
+                ::std::mem::drop(stdin);
 
-        t.join().unwrap();
-    }
+                t.join().unwrap();
+            }
 
-    let status = cmd.status().unwrap();
-    assert!(status.success());
-
-    TokenStream::new()
+            let status = cmd.status().unwrap();
+            assert!(status.success(), "Could not successfully build");
+        }
+    };
+    tokens.into()
 }
 
 fn to_tokens(stream: TokenStream) -> TokenStream {

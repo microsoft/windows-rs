@@ -1,4 +1,4 @@
-include!(concat!(env!("CARGO_MANIFEST_DIR"), "/target/winrt.rs"));
+include!(concat!(env!("OUT_DIR"), "/winrt.rs"));
 
 fn main() -> winrt::Result<()> {
     use microsoft::ai::machine_learning::*;
