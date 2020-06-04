@@ -11,5 +11,5 @@ pub use interface::ComInterface;
 pub use ptr::ComPtr;
 pub use raw_ptr::{NonNullRawComPtr, RawComPtr};
 pub use ref_count::RefCount;
-pub use unknown::{IUnknown, abi_IUnknown};
 pub use try_into::TryInto;
+pub use unknown::{abi_IUnknown, IUnknown};

@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{AbiTransferable, HString};
 
 /// A WinRT method parameter used to accept either a reference or value.
 pub enum Param<'a, T: AbiTransferable> {
