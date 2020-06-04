@@ -8,7 +8,9 @@ use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
 use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
-use winrt_gen::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage, WinmdFile};
+use winrt_gen::{
+    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage, WinmdFile,
+};
 
 use std::{collections::BTreeSet, path::PathBuf};
 
