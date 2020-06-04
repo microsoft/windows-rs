@@ -7,4 +7,6 @@ winrt::build!(
         windows::foundation::Uri
 );
 
-fn main() {}
+fn main() {
+    build()
+}
