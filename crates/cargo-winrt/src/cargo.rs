@@ -45,7 +45,6 @@ fn perform(cmd: &mut Command) -> error::Result<()> {
 }
 
 pub fn package_manifest() -> error::Result<Manifest> {
-    println!("{}", package_manifest_path()?.display());
     let bytes = std::fs::read(package_manifest_path()?).map_err(|_| Error::NoCargoToml)?;
     Manifest::from_slice(&bytes).map_err(|_| Error::MalformedManifest)
 }

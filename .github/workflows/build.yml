@@ -15,9 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: cargo-winrt
-      run: cargo install --git https://github.com/microsoft/winrt-rs cargo-winrt
-
     - name: check
       run: cargo check --all --bins --examples
 
@@ -31,9 +28,6 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-
-    - name: cargo-winrt
-      run: cargo install --git https://github.com/microsoft/winrt-rs cargo-winrt
 
     - name: install
       run: rustup install 1.40.0
