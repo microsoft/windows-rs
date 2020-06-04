@@ -77,8 +77,7 @@ pub use param::Param;
 pub use runtime_name::RuntimeName;
 pub use runtime_type::RuntimeType;
 pub use try_into::TryInto;
-pub use winrt_build::Builder;
-pub use winrt_macros::import;
+pub use winrt_macros::{build, import};
 
 /// A convenient alias of a void pointer
 pub type RawPtr = *mut std::ffi::c_void;

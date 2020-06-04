@@ -1,0 +1,14 @@
+[package]
+name = "nuget-import"
+version = "0.1.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+winrt = { path = "../.." }
+
+[package.metadata.winrt.dependencies]
+"Microsoft.AI.MachineLearning" = "1.3.0"
+"Microsoft.Windows.SDK.Contracts" = "10.0.19041.1"
+
+[workspace]

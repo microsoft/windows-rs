@@ -9,13 +9,13 @@ use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
 use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage};
 
-use std::collections::BTreeSet;
-use std::path::PathBuf;
+use std::{collections::BTreeSet, fs, io::Write, path::PathBuf, process::Stdio};
 
-/// A macro for generating WinRT modules into the current module
+/// A macro for generating WinRT modules into the current module.
 ///
 /// This macro can be used to import WinRT APIs from OS dependencies as well
-/// as NuGet packages.
+/// as NuGet packages. Use the `import` macro to directly include the generated code
+/// into any module.
 ///
 /// # Usage
 /// To use, first specify which dependencies you are relying on. This can be both
@@ -54,6 +54,94 @@ use std::path::PathBuf;
 /// ```
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
+    to_tokens(stream)
+}
+
+/// A macro for generating WinRT modules to a .rs file at build time.
+///
+/// This macro can be used to import WinRT APIs from OS dependencies as well
+/// as NuGet packages. It is only intended for use from a crate's build.rs script.
+///
+/// # Usage
+/// To use, first specify which dependencies you are relying on. This can be both
+/// `os` for depending on WinRT metadata shipped with Windows or `nuget: My.Package`
+/// for NuGet packages.
+///
+/// ## NuGet
+/// NuGet dependencies are expected in a well defined place. The `winmd` metadata files
+/// should be in the cargo workspace's `target` directory in a subdirectory `nuget\My.Package`
+/// where `My.Package` is the name of the NuGet package.
+///
+/// Any DLLs needed for the NuGet package to work should be next to work must be next to the final
+/// executable.
+///
+/// Instead of handling this yourself, you can use the [`cargo winrt`](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo-winrt)
+/// helper subcommand.
+///
+/// ## Types
+/// After specifying the dependencies, you must then specify which types you want to use. These
+/// follow the same convention as Rust `use` paths. Types know which other types they depend on so
+/// `import` will generate any other WinRT types needed for the specified type to work.
+///
+/// # Example
+/// The following `build!` depends on both `os` metadata (i.e., metadata shipped on Windows 10), as well
+/// as a 3rd-party NuGet dependency. It then generates all types inside of the `microsoft::ai::machine_learning`
+/// namespace.
+///
+/// ```rust,ignore
+/// build!(
+///     dependencies
+///         os
+///         nuget: Microsoft.AI.MachineLearning
+///     types
+///         microsoft::ai::machine_learning::*
+/// );
+/// ```
+#[proc_macro]
+pub fn build(stream: TokenStream) -> TokenStream {
+    let tokens = to_tokens(stream);
+
+    // OUT_DIR is not available from the proc_macro
+    let path = PathBuf::from(
+        std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set"),
+    );
+    let path = path.join("target");
+
+    fs::create_dir_all(&path).expect("Failed to ensure directory is created");
+    let path = path.join("winrt.rs");
+    let mut file = fs::File::create(&path).expect("Failed to create winrt.rs");
+
+    let mut cmd = std::process::Command::new("rustfmt");
+    cmd.arg("--emit").arg("stdout");
+    cmd.stdin(Stdio::piped());
+    cmd.stdout(Stdio::piped());
+    {
+        let child = cmd.spawn().unwrap();
+        let mut stdin = child.stdin.unwrap();
+        let stdout = child.stdout.unwrap();
+
+        let t = std::thread::spawn(move || {
+            let mut s = stdout;
+            std::io::copy(&mut s, &mut file).unwrap();
+        });
+
+        // Only rerun if the output file has changed
+        println!("cargo:rerun-if-env-changed={}", path.display());
+
+        writeln!(&mut stdin, "{}", tokens).unwrap();
+        // drop stdin to close that end of the pipe
+        drop(stdin);
+
+        t.join().unwrap();
+    }
+
+    let status = cmd.status().unwrap();
+    assert!(status.success());
+
+    TokenStream::new()
+}
+
+fn to_tokens(stream: TokenStream) -> TokenStream {
     let import = parse_macro_input!(stream as ImportMacro);
 
     let dependencies = import
@@ -72,8 +160,7 @@ pub fn import(stream: TokenStream) -> TokenStream {
 
     let stage = TypeStage::from_limits(reader, &limits);
     let tree = stage.into_tree();
-    let stream = tree.to_tokens();
-    stream.into()
+    tree.to_tokens().into()
 }
 
 /// A parsed `import!` macro

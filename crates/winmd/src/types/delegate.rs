@@ -189,10 +189,8 @@ impl Delegate {
                     }
                 }
                 #invoke_sig {
-                    unsafe {
-                        let this: *mut Self = this.as_raw() as _;
-                        ((*this).invoke)(#(#invoke_args,)*).into()
-                    }
+                    let this: *mut Self = this.as_raw() as _;
+                    ((*this).invoke)(#(#invoke_args,)*).into()
                 }
             }
         }
