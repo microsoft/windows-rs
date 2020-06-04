@@ -3,6 +3,9 @@ name = "cargo-winrt"
 version = "0.7.0"
 authors = ["Microsoft"]
 edition = "2018"
+license = "MIT"
+description = "A simple utility for working with WinRT in a Rust project"
+readme = "README.md"
 
 [dependencies]
 structopt = "0.3"
