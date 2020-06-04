@@ -1,11 +1,11 @@
 [package]
-name = "winrt-gen"
+name = "winrt_gen"
 version = "0.7.0"
 authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-winrt-gen-macros = { path = "macros" }
+winrt_gen_macros = { path = "macros" }
 quote = "1.0"
 proc-macro2 = "1.0"
 sha1 = "0.6.0"
