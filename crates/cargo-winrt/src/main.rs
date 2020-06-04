@@ -74,7 +74,7 @@ pub struct Install {
 
 impl Install {
     fn perform(&self) -> error::Result<()> {
-        let manifest = cargo::workspace_manifest()?;
+        let manifest = cargo::package_manifest()?;
         let deps = get_dependency_descriptors(manifest)?;
 
         self.ensure_dependencies(deps)?;
@@ -91,8 +91,12 @@ impl Install {
         } else {
             dependency_descriptors
                 .into_iter()
-                .filter(|d| !d.already_saved())
-                .collect()
+                .filter_map(|d| match d.already_saved() {
+                    Ok(true) => None,
+                    Ok(false) => Some(Ok(d)),
+                    Err(e) => Some(Err(e)),
+                })
+                .collect::<error::Result<Vec<DependencyDescriptor>>>()?
         };
 
         let downloaded_deps = download_dependencies(dependency_descriptors)?;
@@ -190,14 +194,14 @@ impl DependencyDescriptor {
         try_download(self.url(), 5).await
     }
 
-    fn already_saved(&self) -> bool {
-        self.directory_path().exists()
+    fn already_saved(&self) -> error::Result<bool> {
+        Ok(self.directory_path()?.exists())
     }
 
-    fn directory_path(&self) -> PathBuf {
-        cargo::workspace_target_path()
+    fn directory_path(&self) -> error::Result<PathBuf> {
+        Ok(cargo::workspace_target_path()?
             .join("nuget")
-            .join(&self.name)
+            .join(&self.name))
     }
 }
 
@@ -271,7 +275,7 @@ impl DownloadedDependency {
     }
 
     fn save(self) -> error::Result<()> {
-        let dep_directory = self.descriptor.directory_path();
+        let dep_directory = self.descriptor.directory_path()?;
         // create the dependency directory
         if !dep_directory.exists() {
             std::fs::create_dir_all(&dep_directory).unwrap();
@@ -323,14 +327,14 @@ struct Dll {
 }
 
 impl Dll {
-    fn write(&self, dir: &Path) -> std::io::Result<()> {
+    fn write(&self, dir: &Path) -> error::Result<()> {
         let path = dir.join(&self.name);
         std::fs::create_dir_all(path.parent().unwrap()).unwrap();
         if !path.exists() {
             std::fs::write(&path, &self.contents).unwrap();
         }
         for profile in &["debug", "release"] {
-            let profile_path = cargo::workspace_target_path().join(profile);
+            let profile_path = cargo::workspace_target_path()?.join(profile);
             std::fs::create_dir_all(&profile_path).unwrap();
             let arch = self.name.parent().unwrap();
             let dll_path = profile_path.join(&self.name.strip_prefix(&arch).unwrap());
