@@ -59,7 +59,6 @@ mod param;
 mod runtime;
 mod runtime_name;
 mod runtime_type;
-mod try_into;
 
 #[doc(hidden)]
 pub use abi_transferable::AbiTransferable;
@@ -85,8 +84,6 @@ pub use runtime::*;
 pub use runtime_name::RuntimeName;
 #[doc(hidden)]
 pub use runtime_type::RuntimeType;
-#[doc(hidden)]
-pub use try_into::TryInto;
 pub use winrt_macros::{build, import};
 
 #[doc(hidden)]

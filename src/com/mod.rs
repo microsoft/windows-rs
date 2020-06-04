@@ -4,10 +4,12 @@ mod interface;
 mod ptr;
 mod raw_ptr;
 mod ref_count;
-pub(crate) mod unknown;
+mod try_into;
+mod unknown;
 
 pub use interface::ComInterface;
 pub use ptr::ComPtr;
 pub use raw_ptr::{NonNullRawComPtr, RawComPtr};
 pub use ref_count::RefCount;
-pub use unknown::IUnknown;
+pub use unknown::{IUnknown, abi_IUnknown};
+pub use try_into::TryInto;
