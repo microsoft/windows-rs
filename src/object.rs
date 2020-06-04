@@ -58,7 +58,7 @@ unsafe impl AbiTransferable for Object {
 
 #[repr(C)]
 pub struct abi_IInspectable {
-    iunknown: crate::com::unknown::abi_IUnknown,
+    iunknown: abi_IUnknown,
 
     pub inspectable_iids:
         unsafe extern "system" fn(NonNullRawComPtr<Object>, *mut u32, *mut *mut Guid) -> ErrorCode,

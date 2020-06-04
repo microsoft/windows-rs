@@ -1,5 +1,4 @@
-use super::interface::ComInterface;
-use super::unknown::IUnknown;
+use super::{ComInterface, IUnknown};
 use crate::{AbiTransferable, Guid};
 
 /// A non-reference-counted pointer to a COM interface.

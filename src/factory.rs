@@ -1,4 +1,3 @@
-use crate::runtime::*;
 use crate::*;
 
 /// Attempts to load the factory interface for the given WinRT class.

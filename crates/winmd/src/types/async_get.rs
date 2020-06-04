@@ -64,13 +64,13 @@ fn to_async_get_tokens(kind: AsyncKind, name: &TypeName, calling_namespace: &str
         pub fn get(&self) -> ::winrt::Result<#return_type> {
             if self.status()? == #namespace AsyncStatus::Started {
                 unsafe {
-                    let event = ::winrt::runtime::CreateEventW(::std::ptr::null_mut(), 1, 0, ::std::ptr::null_mut());
+                    let event = ::winrt::CreateEventW(::std::ptr::null_mut(), 1, 0, ::std::ptr::null_mut());
                     self.set_completed(#namespace #handler::new(move |_sender, _args| {
-                        ::winrt::runtime::SetEvent(event);
+                        ::winrt::SetEvent(event);
                         Ok(())
                     }))?;
-                    ::winrt::runtime::WaitForSingleObject(event, 0xFFFFFFFF);
-                    ::winrt::runtime::CloseHandle(event);
+                    ::winrt::WaitForSingleObject(event, 0xFFFFFFFF);
+                    ::winrt::CloseHandle(event);
                 }
             }
             self.get_results()
