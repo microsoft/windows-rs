@@ -1,7 +1,4 @@
-use crate::com::RefCount;
-use crate::runtime;
 use crate::*;
-use std::ptr;
 
 /// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring).
 ///
@@ -62,7 +59,7 @@ impl HString {
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
             if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
-                runtime::HeapFree(runtime::GetProcessHeap(), 0, self.ptr as RawPtr);
+                HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
             }
         }
 
@@ -141,13 +138,13 @@ impl From<&str> for HString {
         // increase len as we go along.
         for (index, wide) in value.encode_utf16().enumerate() {
             unsafe {
-                ptr::write((*ptr).data.add(index), wide);
+                std::ptr::write((*ptr).data.add(index), wide);
                 (*ptr).len = index as u32 + 1;
             }
         }
 
         // Write a 0 byte to the end of the buffer.
-        unsafe { ptr::write((*ptr).data.offset((*ptr).len as isize), 0) };
+        unsafe { std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0) };
         Self { ptr }
     }
 }
@@ -224,8 +221,7 @@ impl Header {
         // Allocate enough space for header and two bytes per character.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
 
-        let header =
-            unsafe { runtime::HeapAlloc(runtime::GetProcessHeap(), 0, alloc_size) as *mut Header };
+        let header = unsafe { HeapAlloc(GetProcessHeap(), 0, alloc_size) as *mut Header };
 
         if header.is_null() {
             panic!("Could not successfully allocate for HString");
