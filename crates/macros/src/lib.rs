@@ -102,7 +102,9 @@ pub fn build(stream: TokenStream) -> TokenStream {
     let tokens = to_tokens(stream);
 
     // OUT_DIR is not available from the proc_macro
-    let path = PathBuf::from(std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set"));
+    let path = PathBuf::from(
+        std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set"),
+    );
     let path = path.join("target");
 
     fs::create_dir_all(&path).expect("Failed to ensure directory is created");
