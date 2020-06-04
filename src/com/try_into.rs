@@ -1,4 +1,5 @@
-use crate::{ComInterface, Result};
+use super::ComInterface;
+use crate::Result;
 
 /// An equivalent to `std::convert::TryInto` for converting between interfaces.
 pub trait TryInto<T: ComInterface> {

@@ -51,33 +51,40 @@ mod agile_object;
 mod array;
 mod com;
 mod error;
-#[doc(hidden)]
-pub mod factory;
+mod factory;
 mod guid;
 mod hstring;
 mod object;
 mod param;
-pub mod runtime;
+mod runtime;
 mod runtime_name;
 mod runtime_type;
-mod try_into;
 
+#[doc(hidden)]
 pub use abi_transferable::AbiTransferable;
-#[doc(inline)]
+#[doc(hidden)]
 pub use activation_factory::IActivationFactory;
+#[doc(hidden)]
 pub use agile_object::IAgileObject;
 pub use array::Array;
+#[doc(hidden)]
 pub use com::*;
 pub use error::*;
+#[doc(hidden)]
 pub use factory::factory;
+#[doc(hidden)]
 pub use guid::Guid;
 pub use hstring::HString;
 pub use object::Object;
+#[doc(hidden)]
 pub use param::Param;
+#[doc(hidden)]
+pub use runtime::*;
+#[doc(hidden)]
 pub use runtime_name::RuntimeName;
+#[doc(hidden)]
 pub use runtime_type::RuntimeType;
-pub use try_into::TryInto;
 pub use winrt_macros::{build, import};
 
-/// A convenient alias of a void pointer
+#[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;
