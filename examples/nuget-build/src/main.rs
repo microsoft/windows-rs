@@ -1,6 +1,4 @@
-// TODO: OUT_DIR is not available from the proc_macro..
-// include!(concat!(env!("OUT_DIR"), "/winrt.rs"));
-include!("C:\\git\\rust\\winrt.rs");
+include!(concat!(env!("CARGO_MANIFEST_DIR"), "/target/winrt.rs"));
 
 fn main() -> winrt::Result<()> {
     use microsoft::ai::machine_learning::*;

@@ -101,11 +101,11 @@ pub fn import(stream: TokenStream) -> TokenStream {
 pub fn build(stream: TokenStream) -> TokenStream {
     let tokens = to_tokens(stream);
 
-    // TODO: OUT_DIR is not available from the proc_macro..
-    // let path = PathBuf::from(env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"));
-    let path = PathBuf::from("C:\\git\\rust");
+    // OUT_DIR is not available from the proc_macro
+    let path = PathBuf::from(std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set"));
+    let path = path.join("target");
 
-    fs::create_dir_all(&path).expect("Failed to ensure `OUT_DIR` is created");
+    fs::create_dir_all(&path).expect("Failed to ensure directory is created");
     let path = path.join("winrt.rs");
     let mut file = fs::File::create(&path).expect("Failed to create winrt.rs");
 
