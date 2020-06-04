@@ -8,7 +8,9 @@ use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
 use syn::{parse_macro_input, Error, Ident, Token, UseTree};
 
-use winmd::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage};
+use winrt_gen::{
+    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage, WinmdFile,
+};
 
 use std::{collections::BTreeSet, path::PathBuf};
 
@@ -155,7 +157,7 @@ fn to_tokens(stream: TokenStream) -> TokenStream {
         .dependencies
         .0
         .into_iter()
-        .map(|p| winmd::WinmdFile::new(p))
+        .map(|p| WinmdFile::new(p))
         .collect();
     let reader = &TypeReader::new(dependencies);
 
@@ -223,7 +225,7 @@ impl Parse for Dependencies {
         } {
             match keyword {
                 Keyword::Os => {
-                    let path = winmd::dependencies::system_metadata_root();
+                    let path = dependencies::system_metadata_root();
 
                     dependencies::expand_paths(path, &mut dependencies, false);
                 }
@@ -237,7 +239,7 @@ impl Parse for Dependencies {
                         .map(|ident| ident.to_string())
                         .collect::<Vec<String>>()
                         .join(".");
-                    let mut path = winmd::dependencies::nuget_root();
+                    let mut path = dependencies::nuget_root();
                     path.push(name);
 
                     dependencies::expand_paths(path, &mut dependencies, true);

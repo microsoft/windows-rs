@@ -7,8 +7,6 @@ winrt::build!(
         windows::foundation::Uri
 );
 
-use std::process::Command;
-
 fn main() {
     build();
 }

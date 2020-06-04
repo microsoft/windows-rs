@@ -6,6 +6,8 @@ edition = "2018"
 license = "MIT"
 description = "Windows Runtime language projection"
 repository = "https://github.com/microsoft/winrt-rs"
+documentation = "https://docs.rs/winrt"
+readme = "README.md"
 
 [dependencies]
 winrt_macros = { path = "crates/macros" }

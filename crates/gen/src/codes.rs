@@ -3,7 +3,7 @@ use crate::row::Row;
 use crate::tables::*;
 use crate::TypeReader;
 
-use winmd_macros::type_code;
+use winrt_gen_macros::type_code;
 
 pub trait Decode {
     fn decode(code: u32, file: u16) -> Self;

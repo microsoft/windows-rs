@@ -1,13 +1,12 @@
 [package]
-name = "winmd_macros"
+name = "winrt_gen"
 version = "0.7.0"
 authors = ["Microsoft"]
 edition = "2018"
 
-[lib]
-proc-macro = true
-
 [dependencies]
-syn = { version = "1.0", features = ["full"] }
+winrt_gen_macros = { path = "macros" }
 quote = "1.0"
 proc-macro2 = "1.0"
+sha1 = "0.6.0"
+serde_json = "1.0"
