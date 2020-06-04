@@ -44,35 +44,65 @@ fn perform(cmd: &mut Command) -> error::Result<()> {
     Ok(())
 }
 
-pub fn workspace_manifest() -> error::Result<Manifest> {
-    let bytes = std::fs::read(workspace_manifest_path()).map_err(|_| Error::NoCargoToml)?;
+pub fn package_manifest() -> error::Result<Manifest> {
+    let bytes = std::fs::read(package_manifest_path()?).map_err(|_| Error::NoCargoToml)?;
     Manifest::from_slice(&bytes).map_err(|_| Error::MalformedManifest)
 }
 
-pub fn workspace_root_path() -> PathBuf {
-    let output = cargo()
+pub fn metadata() -> error::Result<Metadata> {
+    let result = cargo()
         .args(&["metadata"])
         .output()
-        .expect("Could not run `cargo metadata`")
-        .stdout;
-    let value: serde_json::Map<String, serde_json::Value> =
+        .expect("Could not run `cargo metadata`");
+    if !result.status.success() {
+        let err = String::from_utf8_lossy(&result.stderr);
+        return if err.contains("package believes it's in a workspace") {
+            Err(CargoError::NotInWorkspace.into())
+        } else {
+            Err(Error::Other(anyhow::anyhow!("Error: {}", err).into()))
+        };
+    }
+    let output = result.stdout;
+    let value: Metadata =
         serde_json::from_slice(&output).expect("`cargo metadata` did not return json.");
-    let path = match value.get("workspace_root") {
-        Some(serde_json::Value::String(s)) => s,
-        _ => panic!("`cargo metadata` json was not in expected format"),
-    };
-    PathBuf::from(path)
+    Ok(value)
 }
 
-pub fn workspace_manifest_path() -> PathBuf {
-    workspace_root_path().join("Cargo.toml")
+pub fn package_manifest_path() -> error::Result<PathBuf> {
+    let current = std::env::current_dir().expect("Could not find current directory");
+    let mut current = current.as_path();
+    loop {
+        let manifest = current.join("Cargo.toml");
+        if manifest.exists() {
+            return Ok(manifest);
+        }
+        current = current
+            .parent()
+            .expect("Current directory has no parent, but it must");
+    }
 }
 
-pub fn workspace_target_path() -> PathBuf {
-    workspace_root_path().join("target")
+pub fn workspace_target_path() -> error::Result<PathBuf> {
+    Ok(metadata()?.target_directory)
 }
 
 pub fn cargo() -> Command {
     // TODO: check that cargo is installed and display nice error to user when not
     Command::new("cargo")
+}
+
+#[derive(Debug)]
+pub enum CargoError {
+    NotInWorkspace,
+}
+
+impl std::convert::From<CargoError> for error::Error {
+    fn from(cargo_error: CargoError) -> Self {
+        error::Error::CargoError(cargo_error)
+    }
+}
+
+#[derive(serde::Deserialize)]
+pub struct Metadata {
+    target_directory: PathBuf,
 }

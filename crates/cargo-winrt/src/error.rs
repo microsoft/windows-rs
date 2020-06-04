@@ -10,6 +10,8 @@ pub enum Error {
     DownloadError(Box<dyn std::error::Error>),
     #[error("The Cargo.toml file was malformed")]
     MalformedManifest,
+    #[error("There was an error with Cargo")]
+    CargoError(crate::cargo::CargoError),
     #[error("There was some other error {0}")]
     Other(Box<dyn std::error::Error>),
 }
