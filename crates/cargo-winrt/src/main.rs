@@ -1,6 +1,7 @@
 mod cargo;
 mod error;
 
+use anyhow::{anyhow, bail, Context};
 use cargo_toml::{Manifest, Value};
 use futures::future::{BoxFuture, FutureExt};
 use structopt::StructOpt;
@@ -13,10 +14,13 @@ use error::Error;
 
 fn main() {
     let Opt::Winrt { subcommand } = Opt::from_args();
-    match subcommand {
-        Subcommand::Install(i) => i.perform().unwrap(),
-        Subcommand::Run(r) => r.perform().unwrap(),
-        Subcommand::Build(b) => b.perform().unwrap(),
+    let result = match subcommand {
+        Subcommand::Install(i) => i.perform(),
+        Subcommand::Run(r) => r.perform(),
+        Subcommand::Build(b) => b.perform(),
+    };
+    if let Err(ref e) = result {
+        eprintln!("{}: {}", console::style("error").red(), e);
     }
 }
 
@@ -45,7 +49,7 @@ pub struct Build {
 }
 
 impl Build {
-    fn perform(&self) -> Result<(), Error> {
+    fn perform(&self) -> anyhow::Result<()> {
         let install = Install { force: self.force };
         install.perform()?;
         cargo::build()
@@ -59,7 +63,7 @@ pub struct Run {
 }
 
 impl Run {
-    fn perform(&self) -> Result<(), Error> {
+    fn perform(&self) -> anyhow::Result<()> {
         let install = Install { force: self.force };
         install.perform()?;
         cargo::run()
@@ -73,7 +77,7 @@ pub struct Install {
 }
 
 impl Install {
-    fn perform(&self) -> error::Result<()> {
+    fn perform(&self) -> anyhow::Result<()> {
         let manifest = cargo::package_manifest()?;
         let deps = get_dependency_descriptors(manifest)?;
 
@@ -85,7 +89,7 @@ impl Install {
     fn ensure_dependencies(
         &self,
         dependency_descriptors: Vec<DependencyDescriptor>,
-    ) -> error::Result<()> {
+    ) -> anyhow::Result<()> {
         let dependency_descriptors = if self.force {
             dependency_descriptors
         } else {
@@ -96,7 +100,7 @@ impl Install {
                     Ok(false) => Some(Ok(d)),
                     Err(e) => Some(Err(e)),
                 })
-                .collect::<error::Result<Vec<DependencyDescriptor>>>()?
+                .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
         };
 
         let downloaded_deps = download_dependencies(dependency_descriptors)?;
@@ -107,28 +111,34 @@ impl Install {
     }
 }
 
-fn get_dependency_descriptors(manifest: Manifest) -> error::Result<Vec<DependencyDescriptor>> {
+fn get_dependency_descriptors(manifest: Manifest) -> anyhow::Result<Vec<DependencyDescriptor>> {
     let metadata = manifest.package.and_then(|p| p.metadata);
     match metadata {
         Some(Value::Table(mut t)) => {
             let mut deps = match t.remove("winrt") {
                 Some(Value::Table(deps)) => deps,
                 None => return Ok(Vec::new()),
-                _ => return Err(Error::MalformedManifest.into()),
+                Some(w) => anyhow::bail!(Error::MalformedManifest(
+                    anyhow!("expected `winrt` as map, found {}", w).into(),
+                )),
             };
             let deps = match deps.remove("dependencies") {
                 Some(Value::Table(deps)) => deps,
                 None => return Ok(Vec::new()),
-                _ => return Err(Error::MalformedManifest.into()),
+                Some(d) => anyhow::bail!(Error::MalformedManifest(
+                    anyhow!("expected `dependecies` as map, found {}", d).into(),
+                )),
             };
             deps.into_iter()
                 .map(|(key, value)| match value {
                     Value::String(version) => Ok(DependencyDescriptor::new(key, version)),
-                    _ => Err(Error::MalformedManifest.into()),
+                    v @ _ => bail!(Error::MalformedManifest(
+                        anyhow::anyhow!("expected `version` as string, found {}", v).into(),
+                    )),
                 })
                 .collect()
         }
-        _ => return Err(Error::MalformedManifest.into()),
+        _ => Ok(Vec::new()),
     }
 }
 
@@ -150,14 +160,14 @@ impl DependencyDescriptor {
         )
     }
 
-    async fn download(&self) -> error::Result<Vec<u8>> {
+    async fn download(&self) -> anyhow::Result<Vec<u8>> {
         fn try_download(
             url: String,
             recursion_amount: u8,
-        ) -> BoxFuture<'static, error::Result<Vec<u8>>> {
+        ) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
             async move {
                 if recursion_amount == 0 {
-                    return Err(Error::DownloadError(
+                    bail!(Error::DownloadError(
                         anyhow::anyhow!("Too many redirects").into(),
                     ));
                 }
@@ -180,12 +190,9 @@ impl DependencyDescriptor {
 
                         try_download(url.to_owned(), recursion_amount - 1).await
                     }
-                    _ => {
-                        return Err(Error::DownloadError(
-                            anyhow::anyhow!("Non-successful response: {} {}", url, res.status())
-                                .into(),
-                        ))
-                    }
+                    s => bail!(Error::DownloadError(
+                        anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
+                    )),
                 }
             }
             .boxed()
@@ -194,11 +201,11 @@ impl DependencyDescriptor {
         try_download(self.url(), 5).await
     }
 
-    fn already_saved(&self) -> error::Result<bool> {
+    fn already_saved(&self) -> anyhow::Result<bool> {
         Ok(self.directory_path()?.exists())
     }
 
-    fn directory_path(&self) -> error::Result<PathBuf> {
+    fn directory_path(&self) -> anyhow::Result<PathBuf> {
         Ok(cargo::workspace_target_path()?
             .join("nuget")
             .join(&self.name))
@@ -211,7 +218,7 @@ struct DownloadedDependency {
 }
 
 impl DownloadedDependency {
-    fn new(descriptor: DependencyDescriptor, bytes: Vec<u8>) -> error::Result<Self> {
+    fn new(descriptor: DependencyDescriptor, bytes: Vec<u8>) -> anyhow::Result<Self> {
         let contents = Self::read_contents(&bytes)?;
         Ok(Self {
             descriptor,
@@ -227,13 +234,13 @@ impl DownloadedDependency {
         &self.contents.1
     }
 
-    fn read_contents(zip: &[u8]) -> error::Result<(Vec<Winmd>, Vec<Dll>)> {
+    fn read_contents(zip: &[u8]) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
         let reader = std::io::Cursor::new(zip);
-        let mut zip = zip::ZipArchive::new(reader).map_err(|e| Error::Other(Box::new(e)))?;
+        let mut zip = zip::ZipArchive::new(reader)?;
         let mut winmds = Vec::new();
         let mut dlls = Vec::new();
         for i in 0..zip.len() {
-            let mut file = zip.by_index(i).unwrap();
+            let mut file = zip.by_index(i)?;
             let path = file.sanitized_name();
 
             match path.extension() {
@@ -243,7 +250,10 @@ impl DownloadedDependency {
                         parent == Some(r#"lib\uap10.0"#) || parent == Some(r#"ref\netstandard2.0"#)
                     } =>
                 {
-                    let name = path.file_name().unwrap().to_owned();
+                    let name = path
+                        .file_name()
+                        .context("windmd file name is not utf-8")?
+                        .to_owned();
                     let mut contents = Vec::with_capacity(file.size() as usize);
 
                     if let Err(e) = file.read_to_end(&mut contents) {
@@ -274,15 +284,16 @@ impl DownloadedDependency {
         Ok((winmds, dlls))
     }
 
-    fn save(self) -> error::Result<()> {
+    fn save(self) -> anyhow::Result<()> {
         let dep_directory = self.descriptor.directory_path()?;
         // create the dependency directory
         if !dep_directory.exists() {
-            std::fs::create_dir_all(&dep_directory).unwrap();
+            std::fs::create_dir_all(&dep_directory)
+                .context("failed to create nuget dependency directory")?;
         }
 
         for winmd in self.winmds() {
-            winmd.write(&dep_directory).unwrap();
+            winmd.write(&dep_directory)?;
         }
 
         for dll in self.dlls() {
@@ -295,7 +306,7 @@ impl DownloadedDependency {
 
 fn download_dependencies(
     deps: Vec<DependencyDescriptor>,
-) -> error::Result<Vec<DownloadedDependency>> {
+) -> anyhow::Result<Vec<DownloadedDependency>> {
     tokio::runtime::Runtime::new().unwrap().block_on(async {
         let results = deps.into_iter().map(|dep| async move {
             let bytes = dep.download().await?;
@@ -327,19 +338,19 @@ struct Dll {
 }
 
 impl Dll {
-    fn write(&self, dir: &Path) -> error::Result<()> {
+    fn write(&self, dir: &Path) -> anyhow::Result<()> {
         let path = dir.join(&self.name);
-        std::fs::create_dir_all(path.parent().unwrap()).unwrap();
+        std::fs::create_dir_all(path.parent().unwrap())?;
         if !path.exists() {
-            std::fs::write(&path, &self.contents).unwrap();
+            std::fs::write(&path, &self.contents)?;
         }
         for profile in &["debug", "release"] {
             let profile_path = cargo::workspace_target_path()?.join(profile);
-            std::fs::create_dir_all(&profile_path).unwrap();
+            std::fs::create_dir_all(&profile_path)?;
             let arch = self.name.parent().unwrap();
             let dll_path = profile_path.join(&self.name.strip_prefix(&arch).unwrap());
             if arch.as_os_str() == "win-x64" && std::fs::read_link(&dll_path).is_err() {
-                std::os::windows::fs::symlink_file(&path, dll_path).unwrap();
+                std::os::windows::fs::symlink_file(&path, dll_path)?;
             }
         }
 

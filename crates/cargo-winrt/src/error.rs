@@ -1,17 +1,18 @@
+use std::error::Error as StdError;
 use thiserror::Error;
 
-pub type Result<T> = std::result::Result<T, Error>;
+type DynError = dyn StdError + Send + Sync + 'static;
 
 #[derive(Debug, Error)]
 pub enum Error {
-    #[error("No Cargo.toml could be found")]
+    #[error("no `Cargo.toml` could be found")]
     NoCargoToml,
-    #[error("There was an error downloading the NuGet package {0}")]
-    DownloadError(Box<dyn std::error::Error>),
-    #[error("The Cargo.toml file was malformed")]
-    MalformedManifest,
-    #[error("There was an error with Cargo")]
+    #[error("there was an error downloading the NuGet package\n\t{0}")]
+    DownloadError(Box<DynError>),
+    #[error("the Cargo.toml file was malformed\n\t{0}")]
+    MalformedManifest(Box<DynError>),
+    #[error("{0}")]
     CargoError(crate::cargo::CargoError),
-    #[error("There was some other error {0}")]
-    Other(Box<dyn std::error::Error>),
+    #[error("there was some unexpected IO error\n\t{0}")]
+    IO(#[from] std::io::Error),
 }

@@ -1,65 +1,65 @@
+use anyhow::Context;
 use cargo_toml::Manifest;
+use thiserror::Error;
 
 use std::path::PathBuf;
 use std::process::{Command, Stdio};
 
 use crate::error::{self, Error};
 
-pub fn run() -> error::Result<()> {
+pub fn run() -> anyhow::Result<()> {
     let mut cmd = cargo();
     cmd.args(&["run"]);
 
     perform(&mut cmd)
 }
 
-pub fn build() -> error::Result<()> {
+pub fn build() -> anyhow::Result<()> {
     let mut cmd = cargo();
     cmd.args(&["build"]);
 
     perform(&mut cmd)
 }
 
-fn perform(cmd: &mut Command) -> error::Result<()> {
-    let output = cmd
-        .stdout(Stdio::piped())
-        .stderr(Stdio::piped())
-        .spawn()
-        .unwrap();
+fn perform(cmd: &mut Command) -> anyhow::Result<()> {
+    let output = cmd.stdout(Stdio::piped()).stderr(Stdio::piped()).spawn()?;
     let mut o = output
         .stdout
         .expect("Child process's stdout was not configured");
-    let t1 = std::thread::spawn(move || {
+    let t1: std::thread::JoinHandle<anyhow::Result<()>> = std::thread::spawn(move || {
         let mut stdout = std::io::stdout();
-        std::io::copy(&mut o, &mut stdout).unwrap();
+        std::io::copy(&mut o, &mut stdout)?;
+        Ok(())
     });
     let mut e = output
         .stderr
         .expect("Child process's stderr was not configured");
-    let t2 = std::thread::spawn(move || {
-        let mut stdout = std::io::stderr();
-        std::io::copy(&mut e, &mut stdout).unwrap();
-    });
-    t1.join().unwrap();
-    t2.join().unwrap();
+
+    let mut stdout = std::io::stderr();
+    std::io::copy(&mut e, &mut stdout)?;
+
+    t1.join().unwrap()?;
     Ok(())
 }
 
-pub fn package_manifest() -> error::Result<Manifest> {
+pub fn package_manifest() -> anyhow::Result<Manifest> {
     let bytes = std::fs::read(package_manifest_path()?).map_err(|_| Error::NoCargoToml)?;
-    Manifest::from_slice(&bytes).map_err(|_| Error::MalformedManifest)
+    Ok(Manifest::from_slice(&bytes).map_err(|e| Error::MalformedManifest(Box::new(e)))?)
 }
 
-pub fn metadata() -> error::Result<Metadata> {
+pub fn metadata() -> anyhow::Result<Metadata> {
     let result = cargo()
         .args(&["metadata"])
         .output()
         .expect("Could not run `cargo metadata`");
     if !result.status.success() {
         let err = String::from_utf8_lossy(&result.stderr);
-        return if err.contains("package believes it's in a workspace") {
+        return if err.contains("package believes it's in a workspace")
+            || err.contains("could not find `Cargo.toml`")
+        {
             Err(CargoError::NotInWorkspace.into())
         } else {
-            Err(Error::Other(anyhow::anyhow!("Error: {}", err).into()))
+            anyhow::bail!("{}", err)
         };
     }
     let output = result.stdout;
@@ -68,8 +68,10 @@ pub fn metadata() -> error::Result<Metadata> {
     Ok(value)
 }
 
-pub fn package_manifest_path() -> error::Result<PathBuf> {
-    let current = std::env::current_dir().expect("Could not find current directory");
+pub fn package_manifest_path() -> anyhow::Result<PathBuf> {
+    let _ = metadata()?;
+    let current =
+        std::env::current_dir().context("failed to get current directory in search of manifest")?;
     let mut current = current.as_path();
     loop {
         let manifest = current.join("Cargo.toml");
@@ -82,7 +84,7 @@ pub fn package_manifest_path() -> error::Result<PathBuf> {
     }
 }
 
-pub fn workspace_target_path() -> error::Result<PathBuf> {
+pub fn workspace_target_path() -> anyhow::Result<PathBuf> {
     Ok(metadata()?.target_directory)
 }
 
@@ -91,8 +93,9 @@ pub fn cargo() -> Command {
     Command::new("cargo")
 }
 
-#[derive(Debug)]
+#[derive(Error, Debug)]
 pub enum CargoError {
+    #[error("you are not currently in cargo workspace")]
     NotInWorkspace,
 }
 
