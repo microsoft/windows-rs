@@ -57,7 +57,8 @@ use std::{collections::BTreeSet, path::PathBuf};
 /// ```
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
-    to_tokens(stream)
+    let import = parse_macro_input!(stream as ImportMacro);
+    import.to_tokens()
 }
 
 /// A macro for generating WinRT modules to a .rs file at build time.
@@ -106,7 +107,14 @@ pub fn import(stream: TokenStream) -> TokenStream {
 /// ```
 #[proc_macro]
 pub fn build(stream: TokenStream) -> TokenStream {
-    let tokens = to_tokens(stream);
+    let import = parse_macro_input!(stream as ImportMacro);
+    let winmd_paths = import.winmd_paths().iter().map(|p| p.display().to_string());
+
+    let change_if = quote! {
+        #(println!("cargo:rerun-if-changed={}", #winmd_paths);)*
+    };
+
+    let tokens = import.to_tokens();
     let tokens = tokens.to_string();
 
     let tokens = quote! {
@@ -133,8 +141,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
                     ::std::io::copy(&mut s, &mut file).unwrap();
                 });
 
-                // Only rerun if the output file has changed
-                println!("cargo:rerun-if-env-changed={}", path.display());
+                #change_if
 
                 writeln!(&mut stdin, "{}", #tokens).unwrap();
                 // drop stdin to close that end of the pipe
@@ -150,33 +157,37 @@ pub fn build(stream: TokenStream) -> TokenStream {
     tokens.into()
 }
 
-fn to_tokens(stream: TokenStream) -> TokenStream {
-    let import = parse_macro_input!(stream as ImportMacro);
-
-    let dependencies = import
-        .dependencies
-        .0
-        .into_iter()
-        .map(|p| WinmdFile::new(p))
-        .collect();
-    let reader = &TypeReader::new(dependencies);
-
-    let mut limits = TypeLimits::new(reader);
-
-    for limit in import.types.0 {
-        limits.insert(limit);
-    }
-
-    let stage = TypeStage::from_limits(reader, &limits);
-    let tree = stage.into_tree();
-    tree.to_tokens().into()
-}
-
 /// A parsed `import!` macro
 #[derive(Debug)]
 struct ImportMacro {
     dependencies: Dependencies,
     types: Types,
+}
+
+impl ImportMacro {
+    fn winmd_paths(&self) -> &BTreeSet<PathBuf> {
+        &self.dependencies.0
+    }
+
+    fn to_tokens(self) -> TokenStream {
+        let dependencies = self
+            .dependencies
+            .0
+            .iter()
+            .map(|p| WinmdFile::new(p))
+            .collect();
+        let reader = &TypeReader::new(dependencies);
+
+        let mut limits = TypeLimits::new(reader);
+
+        for limit in self.types.0 {
+            limits.insert(limit);
+        }
+
+        let stage = TypeStage::from_limits(reader, &limits);
+        let tree = stage.into_tree();
+        tree.to_tokens().into()
+    }
 }
 
 impl Parse for ImportMacro {
