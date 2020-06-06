@@ -125,7 +125,7 @@ impl Param {
                 quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name), }
             }
         } else if self.input {
-            if self.kind.blittable() {
+            if self.kind.primitive() {
                 quote! { #name, }
             } else {
                 match self.kind {
@@ -141,7 +141,7 @@ impl Param {
                     _ => quote! { ::winrt::AbiTransferable::get_abi(#name), },
                 }
             }
-        } else if self.kind.blittable() {
+        } else if self.kind.primitive() {
             quote! { #name, }
         } else {
             quote! { ::winrt::AbiTransferable::set_abi(#name), }
@@ -160,7 +160,7 @@ impl Param {
                 TypeKind::Enum(_) => quote! { *::winrt::AbiTransferable::from_abi(&#name) },
                 _ => quote! { ::winrt::AbiTransferable::from_abi(&#name) },
             }
-        } else if self.kind.blittable() {
+        } else if self.kind.primitive() {
             quote! { #name, }
         } else {
             quote! { ::winrt::AbiTransferable::from_mut_abi(#name) }

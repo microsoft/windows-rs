@@ -240,8 +240,7 @@ impl TypeKind {
         }
     }
 
-    // TODO: should return CallSemantics enum with Blittable/Convertible/Generic
-    pub fn blittable(&self) -> bool {
+    pub fn primitive(&self) -> bool {
         match self {
             Self::Bool
             | Self::Char
@@ -255,16 +254,7 @@ impl TypeKind {
             | Self::U64
             | Self::F32
             | Self::F64 => true,
-
-            Self::String
-            | Self::Object
-            | Self::Guid
-            | Self::Class(_)
-            | Self::Interface(_)
-            | Self::Struct(_)
-            | Self::Delegate(_)
-            | Self::Enum(_)
-            | Self::Generic(_) => false,
+            _ => false,
         }
     }
 }
