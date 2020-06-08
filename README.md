@@ -1,3 +1,5 @@
+[![crates.io](https://img.shields.io/crates/v/winrt.svg)](https://crates.io/crates/winrt)
+[![docs.rs](https://docs.rs/winrt/badge.svg)](https://docs.rs/winrt/0.7.0/winrt)
 [![Build and Test](https://github.com/microsoft/winrt-rs/workflows/Build%20and%20Test/badge.svg?event=push)](https://github.com/microsoft/winrt-rs/actions)
 
 ## The Rust/WinRT language projection
@@ -47,6 +49,13 @@ fn main() -> Result<()> {
 ```
 
 For a more complete example, take a look at Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs).
+
+## IDE Support
+
+WinRT is developed with and tested for the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) VS Code extension. We want WinRT-rs to work well with rust-analyzer, so if you run into issues, please file a bug report so we can look into it. There are, however, a few things to note about WinRT-rs and rust-analyzer:
+
+* WinRT-rs can sometimes generate _a lot_ of code causing rust-analyzer to slow down. This can mean it may take upwards of a several minutes when running rust-analyzer for the first time on a code base where large WinRT namespaces are used. Additionally, it may take a second for some code completion hints to show. These are known issues. We hope to work with the rust-analyzer team to address these performance concerns. 
+* If you generate code using a `winrt::build!` in a build script, it is important to turn on the "rust-analyzer.cargo.loadOutDirsFromCheck" setting in VS Code. This runs `cargo check` so that rust-analyzer is aware of generated code in the `OUT_DIR`. Leaving this setting off will cause rust-analyzer to not recognize the generated namespaces breaking code completion. 
 
 ## Cross-platform support
 
