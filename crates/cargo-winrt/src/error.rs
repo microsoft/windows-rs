@@ -4,7 +4,7 @@ use thiserror::Error;
 type DynError = dyn StdError + Send + Sync + 'static;
 
 #[derive(Debug, Error)]
-pub enum Error {
+pub(crate) enum Error {
     #[error("no `Cargo.toml` could be found")]
     NoCargoToml,
     #[error("there was an error downloading the NuGet package\n\t{0}")]
