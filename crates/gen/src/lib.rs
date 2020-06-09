@@ -24,7 +24,10 @@ fn format_ident(name: &str) -> proc_macro2::Ident {
     if name == "Self" {
         quote::format_ident!("{}_", name)
     } else {
-        quote::format_ident!("r#{}", name)
+        match syn::parse_str::<proc_macro2::Ident>(name) {
+            Ok(i) => i,
+            Err(_) => quote::format_ident!("r#{}", name),
+        }
     }
 }
 
