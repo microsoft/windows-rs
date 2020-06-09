@@ -69,7 +69,7 @@ impl Error {
                 std::ptr::null_mut(),
                 self.code,
                 0x0000_0400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
-                &mut message.ptr,
+                message.set_abi(),
                 0,
                 std::ptr::null_mut(),
             );
@@ -226,8 +226,16 @@ impl BString {
             self.ptr = std::ptr::null_mut();
         }
     }
+}
 
-    pub fn set_abi(&mut self) -> *mut *mut u16 {
+unsafe impl AbiTransferable for BString {
+    type Abi = *mut u16;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
         self.clear();
         &mut self.ptr
     }
@@ -264,6 +272,18 @@ impl HeapString {
         Self {
             ptr: std::ptr::null_mut(),
         }
+    }
+}
+
+unsafe impl AbiTransferable for HeapString {
+    type Abi = *mut u16;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        &mut self.ptr
     }
 }
 
@@ -327,7 +347,10 @@ unsafe impl AbiTransferable for IErrorInfo {
 #[repr(C)]
 struct abi_IErrorInfo {
     __base: [usize; 5],
-    get_description: unsafe extern "system" fn(RawComPtr<IErrorInfo>, *mut *mut u16) -> ErrorCode,
+    get_description: unsafe extern "system" fn(
+        RawComPtr<IErrorInfo>,
+        *mut <BString as AbiTransferable>::Abi,
+    ) -> ErrorCode,
 }
 
 #[repr(transparent)]
@@ -397,10 +420,10 @@ struct abi_IRestrictedErrorInfo {
     __base: [usize; 3],
     get_error_details: unsafe extern "system" fn(
         RawComPtr<IRestrictedErrorInfo>,
-        *mut *mut u16,
+        *mut <BString as AbiTransferable>::Abi,
         *mut ErrorCode,
-        *mut *mut u16,
-        *mut *mut u16,
+        *mut <BString as AbiTransferable>::Abi,
+        *mut <BString as AbiTransferable>::Abi,
     ) -> ErrorCode,
 }
 
