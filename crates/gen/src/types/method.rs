@@ -229,30 +229,20 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
-                    use ::winrt::AbiTransferable;
-                    match self.ptr.get_abi() {
-                        None => panic!("The `this` pointer was null when calling method"),
-                        Some(this) => {
-                            unsafe {
-                                let mut __ok: #return_type = ::std::mem::zeroed();
-                                (this.vtable().#method_name)(this, #args #return_arg)
-                                    .and_then(|| __ok )
-                            }
-                        }
+                    let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
+                    unsafe {
+                        let mut __ok: #return_type = ::std::mem::zeroed();
+                        (this.vtable().#method_name)(this, #args #return_arg)
+                            .and_then(|| __ok )
                     }
                 }
             }
         } else {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
-                    use ::winrt::AbiTransferable;
-                    match self.ptr.get_abi() {
-                        None => panic!("The `this` pointer was null when calling method"),
-                        Some(this) => {
-                            unsafe {
-                                (this.vtable().#method_name)(this, #args).ok()
-                            }
-                        }
+                    let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
+                    unsafe {
+                        (this.vtable().#method_name)(this, #args).ok()
                     }
                 }
             }

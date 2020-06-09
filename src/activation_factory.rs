@@ -11,15 +11,14 @@ pub struct IActivationFactory {
 impl IActivationFactory {
     /// Creates a new instance of the WinRT class that the activation factory represents.
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
-        match self.get_abi() {
-            None => panic!("The `this` pointer was null when calling method"),
-            Some(ptr) => {
-                let mut object = Object::default();
+        let ptr = self
+            .get_abi()
+            .expect("The `this` pointer was null when calling method");
 
-                unsafe { (ptr.vtable().activate_instance)(ptr, object.set_abi()) }
-                    .and_then(|| object.query())
-            }
-        }
+        let mut object = Object::default();
+
+        unsafe { (ptr.vtable().activate_instance)(ptr, object.set_abi()) }
+            .and_then(|| object.query())
     }
 }
 
