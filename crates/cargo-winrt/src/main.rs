@@ -1,8 +1,8 @@
 mod cargo;
 mod error;
+mod manifest;
 
-use anyhow::{anyhow, bail, Context};
-use cargo_toml::{Manifest, Value};
+use anyhow::{bail, Context};
 use futures::future::{BoxFuture, FutureExt};
 use structopt::StructOpt;
 
@@ -11,6 +11,7 @@ use std::io::Read;
 use std::path::{Path, PathBuf};
 
 use error::Error;
+use manifest::Manifest;
 
 fn main() {
     let Opt::Winrt { subcommand } = Opt::from_args();
@@ -79,11 +80,17 @@ pub struct Install {
 impl Install {
     fn perform(&self) -> anyhow::Result<()> {
         let manifest = cargo::package_manifest()?;
-        let deps = get_dependency_descriptors(manifest)?;
-
-        self.ensure_dependencies(deps)?;
-
+        let local_dependencies = manifest.local_dependencies()?;
+        for dep_manifest in local_dependencies {
+            self.install_from_manifest(dep_manifest)?;
+        }
+        self.install_from_manifest(manifest)?;
         Ok(())
+    }
+
+    fn install_from_manifest(&self, manifest: Manifest) -> anyhow::Result<()> {
+        let deps = manifest.get_dependency_descriptors()?;
+        self.ensure_dependencies(deps)
     }
 
     fn ensure_dependencies(
@@ -108,37 +115,6 @@ impl Install {
             dep.save()?;
         }
         Ok(())
-    }
-}
-
-fn get_dependency_descriptors(manifest: Manifest) -> anyhow::Result<Vec<DependencyDescriptor>> {
-    let metadata = manifest.package.and_then(|p| p.metadata);
-    match metadata {
-        Some(Value::Table(mut t)) => {
-            let mut deps = match t.remove("winrt") {
-                Some(Value::Table(deps)) => deps,
-                None => return Ok(Vec::new()),
-                Some(w) => anyhow::bail!(Error::MalformedManifest(
-                    anyhow!("expected `winrt` as map, found {}", w).into(),
-                )),
-            };
-            let deps = match deps.remove("dependencies") {
-                Some(Value::Table(deps)) => deps,
-                None => return Ok(Vec::new()),
-                Some(d) => anyhow::bail!(Error::MalformedManifest(
-                    anyhow!("expected `dependecies` as map, found {}", d).into(),
-                )),
-            };
-            deps.into_iter()
-                .map(|(key, value)| match value {
-                    Value::String(version) => Ok(DependencyDescriptor::new(key, version)),
-                    v @ _ => bail!(Error::MalformedManifest(
-                        anyhow::anyhow!("expected `version` as string, found {}", v).into(),
-                    )),
-                })
-                .collect()
-        }
-        _ => Ok(Vec::new()),
     }
 }
 

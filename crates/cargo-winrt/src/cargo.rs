@@ -1,20 +1,20 @@
 use anyhow::Context;
-use cargo_toml::Manifest;
 use thiserror::Error;
 
 use std::path::PathBuf;
 use std::process::{Command, Stdio};
 
 use crate::error::{self, Error};
+use crate::manifest::Manifest;
 
-pub fn run() -> anyhow::Result<()> {
+pub(crate) fn run() -> anyhow::Result<()> {
     let mut cmd = cargo();
     cmd.args(&["run"]);
 
     perform(&mut cmd)
 }
 
-pub fn build() -> anyhow::Result<()> {
+pub(crate) fn build() -> anyhow::Result<()> {
     let mut cmd = cargo();
     cmd.args(&["build"]);
 
@@ -42,12 +42,12 @@ fn perform(cmd: &mut Command) -> anyhow::Result<()> {
     Ok(())
 }
 
-pub fn package_manifest() -> anyhow::Result<Manifest> {
+pub(crate) fn package_manifest() -> anyhow::Result<Manifest> {
     let bytes = std::fs::read(package_manifest_path()?).map_err(|_| Error::NoCargoToml)?;
-    Ok(Manifest::from_slice(&bytes).map_err(|e| Error::MalformedManifest(Box::new(e)))?)
+    Ok(Manifest::from_slice(&bytes).map_err(|e| Error::MalformedManifest(e.into()))?)
 }
 
-pub fn metadata() -> anyhow::Result<Metadata> {
+pub(crate) fn metadata() -> anyhow::Result<Metadata> {
     let result = cargo()
         .args(&["metadata"])
         .output()
@@ -68,7 +68,7 @@ pub fn metadata() -> anyhow::Result<Metadata> {
     Ok(value)
 }
 
-pub fn package_manifest_path() -> anyhow::Result<PathBuf> {
+pub(crate) fn package_manifest_path() -> anyhow::Result<PathBuf> {
     let _ = metadata()?;
     let current =
         std::env::current_dir().context("failed to get current directory in search of manifest")?;
@@ -84,17 +84,17 @@ pub fn package_manifest_path() -> anyhow::Result<PathBuf> {
     }
 }
 
-pub fn workspace_target_path() -> anyhow::Result<PathBuf> {
+pub(crate) fn workspace_target_path() -> anyhow::Result<PathBuf> {
     Ok(metadata()?.target_directory)
 }
 
-pub fn cargo() -> Command {
+pub(crate) fn cargo() -> Command {
     // TODO: check that cargo is installed and display nice error to user when not
     Command::new("cargo")
 }
 
 #[derive(Error, Debug)]
-pub enum CargoError {
+pub(crate) enum CargoError {
     #[error("you are not currently in cargo workspace")]
     NotInWorkspace,
 }
@@ -106,6 +106,6 @@ impl std::convert::From<CargoError> for error::Error {
 }
 
 #[derive(serde::Deserialize)]
-pub struct Metadata {
+pub(crate) struct Metadata {
     target_directory: PathBuf,
 }
