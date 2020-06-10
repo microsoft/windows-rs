@@ -19,7 +19,7 @@ impl<'a> TypeLimits<'a> {
     /// Insert a namespace into the set of relevant namespaces
     ///
     /// expects the namespace in the form: `parent::namespace::*`s
-    pub fn insert(&mut self, mut limit: NamespaceTypes) {
+    pub fn insert(&mut self, mut limit: NamespaceTypes) -> Result<(), String> {
         let namespace = match self
             .reader
             .types
@@ -27,11 +27,12 @@ impl<'a> TypeLimits<'a> {
             .find(|(name, _)| name.to_lowercase() == limit.namespace)
         {
             Some((n, _)) => n,
-            None => panic!("Namespace `{}` not found in winmd files", limit.namespace),
+            None => return Err(limit.namespace),
         };
 
         limit.namespace = namespace.clone();
         self.inner.insert(limit);
+        Ok(())
     }
 
     pub fn limits(&self) -> impl Iterator<Item = &NamespaceTypes> {
