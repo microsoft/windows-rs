@@ -60,10 +60,12 @@ mod tests {
         // Since Windows.Foundation.Collections is not added to the type limits,
         // only the types that are actually needed will be included.
         let mut limits = TypeLimits::new(reader);
-        limits.insert(NamespaceTypes {
-            namespace: "windows.foundation".to_owned(),
-            limit: TypeLimit::All,
-        });
+        limits
+            .insert(NamespaceTypes {
+                namespace: "windows.foundation".to_owned(),
+                limit: TypeLimit::All,
+            })
+            .unwrap();
         let stage = TypeStage::from_limits(reader, &limits);
 
         // Windows.Foundation.WwwFormUrlDecoder depends on Windows.Foundation.Collections.IVectorView`1
