@@ -229,22 +229,27 @@ impl Parse for Dependencies {
             Nuget,
         }
         let mut dependencies = BTreeSet::new();
-        while let Some(keyword) = {
-            if input.peek(keywords::os) {
-                let _ = input.parse::<keywords::os>();
-                Some(Keyword::Os)
-            } else if input.peek(keywords::nuget) {
-                let _ = input.parse::<keywords::nuget>();
-                Some(Keyword::Nuget)
+        while let Some((keyword, keyword_span)) = {
+            if let Some(k) = input.parse::<Option<keywords::os>>()? {
+                Some((Keyword::Os, k.span()))
+            } else if let Some(k) = input.parse::<Option<keywords::nuget>>()? {
+                Some((Keyword::Nuget, k.span()))
             } else {
                 None
             }
         } {
             match keyword {
                 Keyword::Os => {
-                    let path = dependencies::system_metadata_root();
+                    let path = dependencies::system_metadata_root().ok_or_else(|| {
+                        syn::Error::new(keyword_span, "'windir' environment variable is not set. Perhaps you're trying to use operating system dependencies on a non-Windows OS?")
+                    })?;
 
-                    dependencies::expand_paths(path, &mut dependencies, false);
+                    dependencies::expand_paths(&path, &mut dependencies, false).map_err(|_| {
+                        syn::Error::new(
+                            keyword_span,
+                            format!("system metadata cannot be found at '{}'", path.display()),
+                        )
+                    })?;
                 }
                 Keyword::Nuget => {
                     input.parse::<Token![:]>()?;
@@ -259,7 +264,12 @@ impl Parse for Dependencies {
                     let mut path = dependencies::nuget_root();
                     path.push(name);
 
-                    dependencies::expand_paths(path, &mut dependencies, true);
+                    dependencies::expand_paths(path, &mut dependencies, true).map_err(|e| {
+                        syn::Error::new_spanned(
+                            package,
+                            format!("could not read dependency: {}", e),
+                        )
+                    })?;
                 }
             }
         }
