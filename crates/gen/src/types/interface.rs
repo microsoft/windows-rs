@@ -19,7 +19,7 @@ impl Interface {
         let mut interfaces = Vec::new();
 
         // Ensures that the default interface is first in line.
-        let mut default_interface = RequiredInterface::from_type_def(reader, name.def);
+        let mut default_interface = RequiredInterface::from_type_def(reader, name.def, &name.namespace); // TODO: RequiredInterface::from_type_name
         default_interface.kind = InterfaceKind::Default;
         interfaces.push(default_interface);
 
@@ -54,7 +54,7 @@ impl Interface {
         let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
         let name = self.name.to_tokens(&self.name.namespace);
         let phantoms = self.name.phantoms();
-        let constraints = &*self.name.constraints();
+        let constraints = &self.name.constraints;
         let default_interface = &self.interfaces[0];
         debug_assert!(default_interface.kind == InterfaceKind::Default);
         let guid = self.name.to_guid_tokens(&default_interface.guid);

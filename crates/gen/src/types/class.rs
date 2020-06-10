@@ -38,11 +38,7 @@ impl Class {
             }
 
             base = reader.resolve_type_def((base_namespace, base_name));
-            let base_namespace = base_namespace.to_string();
-            let base_name = base_name.to_string();
-            let generics = Vec::new();
-
-            let base = TypeName::new(base_namespace, base_name, generics, base);
+            let base = TypeName::from_type_def(reader, base, &name.namespace);
 
             RequiredInterface::append_required(reader, &base, &mut interfaces);
             bases.push(base);
@@ -56,6 +52,7 @@ impl Class {
                     let mut interface = RequiredInterface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
+                        &name.namespace
                     );
                     interface.kind = InterfaceKind::Statics;
                     interfaces.push(interface);
@@ -63,7 +60,7 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            let mut interface = RequiredInterface::from_type_def(reader, def);
+                            let mut interface = RequiredInterface::from_type_def(reader, def, &name.namespace);
                             interface.kind = InterfaceKind::Statics;
                             interfaces.push(interface);
                         }

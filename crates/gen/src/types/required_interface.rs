@@ -23,13 +23,13 @@ pub enum InterfaceKind {
 }
 
 impl RequiredInterface {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace:&str) -> Self {
+        let name = TypeName::from_type_def(reader, def, calling_namespace);
         let guid = TypeGuid::from_type_def(reader, def);
 
         let mut methods = def
             .methods(reader)
-            .map(|method| Method::from_method_def(reader, method, &name.generics))
+            .map(|method| Method::from_method_def(reader, method, &name.generics, calling_namespace))
             .collect();
 
         rename_collisions(&mut methods);
@@ -47,13 +47,14 @@ impl RequiredInterface {
         name: TypeName,
         kind: InterfaceKind,
         generics: bool,
+        calling_namespace: &str
     ) -> Self {
         let guid = name.guid(reader, generics);
 
         let mut methods = name
             .def
             .methods(reader)
-            .map(|method| Method::from_method_def(reader, method, &name.generics))
+            .map(|method| Method::from_method_def(reader, method, &name.generics, calling_namespace))
             .collect();
 
         rename_collisions(&mut methods);
@@ -74,10 +75,10 @@ impl RequiredInterface {
         let generics = !name.generics.is_empty();
 
         let mut map = RequiredInterfaces::default();
-        map.insert_required(reader, name);
+        map.insert_required(reader, name, &name.namespace);
 
-        for (name, kind) in map.0 {
-            let required = RequiredInterface::from_type_name_and_kind(reader, name, kind, generics);
+        for (append_name, kind) in map.0 {
+            let required = RequiredInterface::from_type_name_and_kind(reader, append_name, kind, generics, &name.namespace);
 
             if kind == InterfaceKind::Default {
                 interfaces.insert(0, required);
@@ -95,9 +96,9 @@ impl RequiredInterface {
         let generics = !name.generics.is_empty();
 
         let mut map = RequiredInterfaces::default();
-        map.insert_required(reader, name);
+        map.insert_required(reader, name, &name.namespace);
 
-        for (name, kind) in map.0 {
+        for (append_name, kind) in map.0 {
             let mut kind = kind;
 
             if kind == InterfaceKind::Default {
@@ -105,7 +106,7 @@ impl RequiredInterface {
             }
 
             interfaces.push(RequiredInterface::from_type_name_and_kind(
-                reader, name, kind, generics,
+                reader, append_name, kind, generics, &name.namespace
             ));
         }
     }

@@ -20,7 +20,7 @@ impl Delegate {
             .methods(reader)
             .find(|method| method.name(reader) == "Invoke")
             .unwrap();
-        let method = Method::from_method_def(reader, method, &name.generics);
+        let method = Method::from_method_def(reader, method, &name.generics, &name.namespace);
         let guid = TypeGuid::from_type_def(reader, name.def);
         let signature = name.base_delegate_signature(reader);
         Self {
@@ -44,7 +44,7 @@ impl Delegate {
         let abi_name = self.name.to_abi_tokens(&self.name.namespace);
         let impl_name = self.to_impl_name_tokens();
         let phantoms = self.name.phantoms();
-        let constraints = &*self.name.constraints();
+        let constraints = &self.name.constraints;
         let method = self.method.to_default_tokens(&self.name.namespace);
         let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
         let guid = self.name.to_guid_tokens(&self.guid);

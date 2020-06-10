@@ -16,7 +16,7 @@ pub enum Type {
 
 impl Type {
     pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
+        let name = TypeName::from_type_def(reader, def, "");
         match def.category(reader) {
             TypeCategory::Interface => Self::Interface(Interface::from_type_name(reader, name)),
             TypeCategory::Class => Self::Class(Class::from_type_name(reader, name)),

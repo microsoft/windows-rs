@@ -30,6 +30,7 @@ impl Method {
         reader: &TypeReader,
         method: MethodDef,
         generics: &Vec<TypeKind>,
+        calling_namespace: &str,
     ) -> Method {
         let (name, kind) = if method.flags(reader).special() {
             let name = method.name(reader);
@@ -68,7 +69,7 @@ impl Method {
         } else {
             let name = "__result".to_owned();
             let array = blob.peek_unsigned().0 == 0x1D;
-            let kind = TypeKind::from_blob(&mut blob, generics);
+            let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
             let input = false;
             let by_ref = true;
             Some(Param {
@@ -90,7 +91,7 @@ impl Method {
                 blob.read_modifiers();
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
-                let kind = TypeKind::from_blob(&mut blob, generics);
+                let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
 
                 params.push(Param {
                     name,

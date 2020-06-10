@@ -7,7 +7,6 @@ use crate::*;
 use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
-use std::cell::{Ref, RefCell};
 use std::iter::FromIterator;
 
 /// A type's name including module namespace and generics
@@ -26,7 +25,7 @@ pub struct TypeName {
     /// The type definition for this type
     pub def: TypeDef,
     // A cached TokenStream of the types associated type constraints
-    constraints: TokenStream,
+    pub constraints: TokenStream,
     // The namespace of the type being tokenized.
     calling_namespace: String,
     // Cached TokenStream for the calling namespace
@@ -34,8 +33,7 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    /// Construct a new `TypeName` from the namespace, unqualified name, generics and `TypeDef`
-    pub fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef) -> Self {
+    fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef, calling_namespace: &str) -> Self {
         let constraints = TokenStream::from_iter(generics.iter().map(|generic| {
             let generic = generic.to_tokens("");
             quote! { #generic: ::winrt::RuntimeType + 'static, }
@@ -55,23 +53,24 @@ impl TypeName {
         reader: &TypeReader,
         code: TypeDefOrRef,
         generics: &Vec<TypeKind>,
+        calling_namespace: &str
     ) -> Self {
         match code {
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value),
-            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value),
-            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
+            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value,calling_namespace),
+            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value,calling_namespace),
+            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics,calling_namespace),
         }
     }
 
-    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef) -> Self {
+    fn from_type_ref(reader: &TypeReader, type_ref: TypeRef,calling_namespace:&str) -> Self {
         let (namespace, name) = type_ref.name(reader);
-        Self::from_type_def(reader, reader.resolve_type_def((namespace, name)))
+        Self::from_type_def(reader, reader.resolve_type_def((namespace, name)),calling_namespace)
     }
 
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace: &str) -> Self {
         let (namespace, name) = def.name(reader);
-        let namespace = namespace.to_string();
-        let name = name.to_string();
+        let owned_namespace = namespace.to_string();
+        let owned_name = name.to_string();
         let mut generics = Vec::new();
 
         for generic in def.generics(reader) {
@@ -79,31 +78,31 @@ impl TypeName {
             generics.push(TypeKind::Generic(name));
         }
 
-        //let calling_namespace = if calling_namespace.is_empty() { &namespace } else { calling_namespace };
+        let calling_namespace = if calling_namespace.is_empty() { namespace } else { calling_namespace };
 
-        Self::new(namespace, name, generics, def)
+        Self::new(owned_namespace, owned_name, generics, def, calling_namespace)
     }
 
-    pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
+    pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>, calling_namespace: &str) -> Self {
         blob.read_unsigned();
         let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {
-            args.push(TypeKind::from_blob(blob, generics));
+            args.push(TypeKind::from_blob(blob, generics, calling_namespace));
         }
         let (namespace, name) = def.name(blob.reader);
         let namespace = namespace.to_string();
         let name = name.to_string();
         let generics = args;
 
-        Self::new(namespace, name, generics, def)
+        Self::new(namespace, name, generics, def, calling_namespace)
     }
 
-    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
+    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>, calling_namespace:&str) -> Self {
         let mut blob = spec.sig(reader);
         blob.read_unsigned();
-        TypeName::from_type_spec_blob(&mut blob, generics)
+        Self::from_type_spec_blob(&mut blob, generics, calling_namespace)
     }
 
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
@@ -208,7 +207,7 @@ impl TypeName {
 
     pub fn class_signature(&self, reader: &TypeReader) -> String {
         let mut map = RequiredInterfaces::default();
-        map.insert_required(reader, self);
+        map.insert_required(reader, self, &self.calling_namespace);
         let default = map
             .0
             .into_iter()
@@ -252,7 +251,7 @@ impl TypeName {
 
         for field in self.def.fields(reader) {
             result.push(';');
-            result.push_str(&TypeKind::from_field(reader, field).signature(reader));
+            result.push_str(&TypeKind::from_field(reader, field, &self.calling_namespace).signature(reader));
         }
 
         result.push(')');
@@ -307,8 +306,8 @@ impl TypeName {
     ///
     /// For example: `Vector<OtherType>`
     pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
-        self.generate_tokens(Some(&namespace), calling_namespace, format_ident)
+        let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
+        self.generate_tokens(Some(&namespace), &self.calling_namespace, format_ident)
     }
 
     /// Crate abi tokens
@@ -375,10 +374,6 @@ impl TypeName {
         });
 
         TokenStream::from_iter(phantoms)
-    }
-
-    pub fn constraints(&self) -> &TokenStream {
-        &self.constraints
     }
 }
 

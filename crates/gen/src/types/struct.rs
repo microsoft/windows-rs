@@ -18,9 +18,9 @@ impl Struct {
         let mut fields = Vec::new();
 
         for field in name.def.fields(reader) {
-            let name = to_snake(field.name(reader), MethodKind::Normal);
-            let kind = TypeKind::from_field(reader, field);
-            fields.push((name, kind));
+            let field_name = to_snake(field.name(reader), MethodKind::Normal);
+            let kind = TypeKind::from_field(reader, field, &name.namespace);
+            fields.push((field_name, kind));
         }
 
         Self {
