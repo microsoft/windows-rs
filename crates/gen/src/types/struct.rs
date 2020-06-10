@@ -13,12 +13,11 @@ pub struct Struct {
 }
 
 impl Struct {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
+    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let signature = name.struct_signature(reader);
         let mut fields = Vec::new();
 
-        for field in def.fields(reader) {
+        for field in name.def.fields(reader) {
             let name = to_snake(field.name(reader), MethodKind::Normal);
             let kind = TypeKind::from_field(reader, field);
             fields.push((name, kind));

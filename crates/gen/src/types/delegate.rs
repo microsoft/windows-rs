@@ -15,14 +15,13 @@ pub struct Delegate {
 }
 
 impl Delegate {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
-        let method = def
+    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
+        let method = name.def
             .methods(reader)
             .find(|method| method.name(reader) == "Invoke")
             .unwrap();
         let method = Method::from_method_def(reader, method, &name.generics);
-        let guid = TypeGuid::from_type_def(reader, def);
+        let guid = TypeGuid::from_type_def(reader, name.def);
         let signature = name.base_delegate_signature(reader);
         Self {
             name,

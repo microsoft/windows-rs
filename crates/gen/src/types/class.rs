@@ -18,12 +18,11 @@ pub struct Class {
 }
 
 impl Class {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
+    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let mut interfaces = Vec::new();
         RequiredInterface::append_default(reader, &name, &mut interfaces);
         let mut bases = Vec::new();
-        let mut base = def;
+        let mut base = name.def;
 
         let signature = if !interfaces.is_empty() && interfaces[0].kind == InterfaceKind::Default {
             name.class_signature(reader)
@@ -32,18 +31,18 @@ impl Class {
         };
 
         loop {
-            let (namespace, name) = base.extends(reader).name(reader);
+            let (base_namespace, base_name) = base.extends(reader).name(reader);
 
-            if (namespace, name) == ("System", "Object") {
+            if (base_namespace, base_name) == ("System", "Object") {
                 break;
             }
 
-            base = reader.resolve_type_def((namespace, name));
-            let namespace = namespace.to_string();
-            let name = name.to_string();
+            base = reader.resolve_type_def((base_namespace, base_name));
+            let base_namespace = base_namespace.to_string();
+            let base_name = base_name.to_string();
             let generics = Vec::new();
 
-            let base = TypeName::new(namespace, name, generics, base);
+            let base = TypeName::new(base_namespace, base_name, generics, base);
 
             RequiredInterface::append_required(reader, &base, &mut interfaces);
             bases.push(base);
@@ -51,7 +50,7 @@ impl Class {
 
         let mut default_constructor = false;
 
-        for attribute in def.attributes(reader) {
+        for attribute in name.def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
                     let mut interface = RequiredInterface::from_type_def(
