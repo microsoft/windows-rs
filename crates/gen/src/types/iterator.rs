@@ -158,7 +158,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         {
             let item = interface.name.generics[0].to_tokens(&name.namespace);
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = &*name.to_tokens(&name.namespace);
+            let name = name.to_tokens(&name.namespace);
 
             return quote! {
                 impl ::std::iter::IntoIterator for #name {
@@ -185,7 +185,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         {
             let item = interface.name.generics[0].to_tokens(&name.namespace);
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = &*name.to_tokens(&name.namespace);
+            let name = name.to_tokens(&name.namespace);
 
             return quote! {
                 impl ::std::iter::IntoIterator for #name {
@@ -220,7 +220,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
             let constraints = &*name.constraints();
             let item = interface.name.generics[0].to_tokens(&name.namespace);
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = &*name.to_tokens(&name.namespace);
+            let name = name.to_tokens(&name.namespace);
 
             quote! {
                impl<#constraints> ::std::iter::IntoIterator for #name {

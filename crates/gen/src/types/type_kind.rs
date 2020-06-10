@@ -234,7 +234,7 @@ impl TypeKind {
             | Self::Delegate(name)
             | Self::Enum(name)
             | Self::Struct(name) => {
-                let name = &*name.to_tokens(calling_namespace);
+                let name = name.to_tokens(calling_namespace);
                 quote! { <#name as ::winrt::AbiTransferable>::Abi, }
             }
         }

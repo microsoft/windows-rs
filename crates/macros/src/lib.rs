@@ -59,7 +59,8 @@ use std::{collections::BTreeSet, path::PathBuf};
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
     let import = parse_macro_input!(stream as ImportMacro);
-    import.to_tokens()
+    let _tokens = import.to_tokens();
+    TokenStream::new()
 }
 
 /// A macro for generating WinRT modules to a .rs file at build time.
@@ -170,6 +171,8 @@ impl ImportMacro {
     }
 
     fn to_tokens(self) -> TokenStream {
+        let now = std::time::SystemTime::now();
+
         let dependencies = self
             .dependencies
             .0
@@ -177,8 +180,12 @@ impl ImportMacro {
             .map(|p| WinmdFile::new(p))
             .collect();
         let reader = &TypeReader::new(dependencies);
+        println!("TypeReader {}s", now.elapsed().unwrap().as_secs());
+        let now = std::time::SystemTime::now();
 
         let mut limits = TypeLimits::new(reader);
+        println!("TypeLimits {}s", now.elapsed().unwrap().as_secs());
+        let now = std::time::SystemTime::now();
 
         for limit in self.types.0 {
             let types = limit.types;
@@ -191,8 +198,17 @@ impl ImportMacro {
         }
 
         let stage = TypeStage::from_limits(reader, &limits);
+        println!("TypeStage {}s", now.elapsed().unwrap().as_secs());
+        let now = std::time::SystemTime::now();
+
         let tree = stage.into_tree();
-        tree.to_tokens().into()
+        println!("TypeTree {}s", now.elapsed().unwrap().as_secs());
+        let now = std::time::SystemTime::now();
+
+        let tokens = tree.to_tokens().into();
+        println!("TokenStream {}s", now.elapsed().unwrap().as_secs());
+
+        tokens
     }
 }
 

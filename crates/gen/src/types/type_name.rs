@@ -8,7 +8,6 @@ use proc_macro2::TokenStream;
 use quote::{format_ident, quote};
 
 use std::cell::{Ref, RefCell};
-use std::collections::HashMap;
 use std::iter::FromIterator;
 
 /// A type's name including module namespace and generics
@@ -28,13 +27,10 @@ pub struct TypeName {
     pub def: TypeDef,
     // A cached TokenStream of the types associated type constraints
     constraints: TokenStream,
-    // Cached TokenStream keyed off of the calling namespace
-    tokens: RefCell<HashMap<String, TokenStream>>,
-
-    // TODO: remove `tokens` above.
-    tokens2: TokenStream,
-
+    // The namespace of the type being tokenized.
     calling_namespace: String,
+    // Cached TokenStream for the calling namespace
+    tokens: TokenStream,
 }
 
 impl TypeName {
@@ -50,8 +46,7 @@ impl TypeName {
             generics,
             def,
             constraints,
-            tokens: RefCell::new(HashMap::new()),
-            tokens2: TokenStream::new(),
+            tokens: TokenStream::new(),
             calling_namespace: String::new(),
         }
     }
@@ -311,24 +306,9 @@ impl TypeName {
     /// Crate tokens
     ///
     /// For example: `Vector<OtherType>`
-    pub fn to_tokens<'a>(&'a self, calling_namespace: &str) -> Ref<'a, TokenStream> {
-        {
-            let cache = self.tokens.borrow();
-
-            if cache.get(calling_namespace).is_some() {
-                return Ref::map(cache, |s| s.get(calling_namespace).unwrap());
-            }
-        }
-
+    pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
         let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
-
-        let result = self.generate_tokens(Some(&namespace), calling_namespace, format_ident);
-
-        self.tokens
-            .borrow_mut()
-            .insert(calling_namespace.to_owned(), result);
-
-        self.to_tokens(calling_namespace)
+        self.generate_tokens(Some(&namespace), calling_namespace, format_ident)
     }
 
     /// Crate abi tokens
