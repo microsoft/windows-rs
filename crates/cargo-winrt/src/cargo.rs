@@ -2,44 +2,17 @@ use anyhow::Context;
 use thiserror::Error;
 
 use std::path::PathBuf;
-use std::process::{Command, Stdio};
+use std::process::{Command, Output, Stdio};
 
 use crate::error::{self, Error};
 use crate::manifest::Manifest;
 
 pub(crate) fn run() -> anyhow::Result<()> {
-    let mut cmd = cargo();
-    cmd.args(&["run"]);
-
-    perform(&mut cmd)
+    Cargo::new()?.args(&["run"]).execute()
 }
 
 pub(crate) fn build() -> anyhow::Result<()> {
-    let mut cmd = cargo();
-    cmd.args(&["build"]);
-
-    perform(&mut cmd)
-}
-
-fn perform(cmd: &mut Command) -> anyhow::Result<()> {
-    let output = cmd.stdout(Stdio::piped()).stderr(Stdio::piped()).spawn()?;
-    let mut o = output
-        .stdout
-        .expect("Child process's stdout was not configured");
-    let t1: std::thread::JoinHandle<anyhow::Result<()>> = std::thread::spawn(move || {
-        let mut stdout = std::io::stdout();
-        std::io::copy(&mut o, &mut stdout)?;
-        Ok(())
-    });
-    let mut e = output
-        .stderr
-        .expect("Child process's stderr was not configured");
-
-    let mut stdout = std::io::stderr();
-    std::io::copy(&mut e, &mut stdout)?;
-
-    t1.join().unwrap()?;
-    Ok(())
+    Cargo::new()?.args(&["build"]).execute()
 }
 
 pub(crate) fn package_manifest() -> anyhow::Result<Manifest> {
@@ -48,10 +21,7 @@ pub(crate) fn package_manifest() -> anyhow::Result<Manifest> {
 }
 
 pub(crate) fn metadata() -> anyhow::Result<Metadata> {
-    let result = cargo()
-        .args(&["metadata"])
-        .output()
-        .expect("Could not run `cargo metadata`");
+    let result = Cargo::new()?.args(&["metadata"]).output()?;
     if !result.status.success() {
         let err = String::from_utf8_lossy(&result.stderr);
         return if err.contains("package believes it's in a workspace")
@@ -88,11 +58,6 @@ pub(crate) fn workspace_target_path() -> anyhow::Result<PathBuf> {
     Ok(metadata()?.target_directory)
 }
 
-pub(crate) fn cargo() -> Command {
-    // TODO: check that cargo is installed and display nice error to user when not
-    Command::new("cargo")
-}
-
 #[derive(Error, Debug)]
 pub(crate) enum CargoError {
     #[error("you are not currently in cargo workspace")]
@@ -108,4 +73,53 @@ impl std::convert::From<CargoError> for error::Error {
 #[derive(serde::Deserialize)]
 pub(crate) struct Metadata {
     target_directory: PathBuf,
+}
+
+struct Cargo {
+    command: Command,
+}
+
+impl Cargo {
+    fn new() -> anyhow::Result<Self> {
+        // TODO: check that cargo is installed and display nice error to user when not
+
+        Ok(Self {
+            command: Command::new("cargo"),
+        })
+    }
+
+    fn args<I: IntoIterator<Item = S>, S: AsRef<std::ffi::OsStr>>(mut self, args: I) -> Self {
+        self.command.args(args);
+        self
+    }
+
+    fn output(mut self) -> anyhow::Result<Output> {
+        Ok(self.command.output()?)
+    }
+
+    fn execute(mut self) -> anyhow::Result<()> {
+        self.command.args(&["--color", "always"]);
+        let output = self
+            .command
+            .stdout(Stdio::piped())
+            .stderr(Stdio::piped())
+            .spawn()?;
+        let mut o = output
+            .stdout
+            .expect("Child process's stdout was not configured");
+        let t1: std::thread::JoinHandle<anyhow::Result<()>> = std::thread::spawn(move || {
+            let mut stdout = std::io::stdout();
+            std::io::copy(&mut o, &mut stdout)?;
+            Ok(())
+        });
+        let mut e = output
+            .stderr
+            .expect("Child process's stderr was not configured");
+
+        let mut stdout = std::io::stderr();
+        std::io::copy(&mut e, &mut stdout)?;
+
+        t1.join().unwrap()?;
+        Ok(())
+    }
 }
