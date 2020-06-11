@@ -38,14 +38,16 @@ impl TypeName {
             let generic = generic.to_tokens("");
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         }));
+        let namespace_ident = to_namespace_tokens(&namespace, calling_namespace);
+        let tokens = generate_tokens(&name,  &namespace_ident, &generics, calling_namespace, format_ident);
         Self {
             namespace,
             name,
             generics,
             def,
             constraints,
-            tokens: TokenStream::new(),
-            calling_namespace: String::new(),
+            tokens,
+            calling_namespace : calling_namespace.to_owned(),
         }
     }
 
@@ -306,8 +308,12 @@ impl TypeName {
     ///
     /// For example: `Vector<OtherType>`
     pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
-        self.generate_tokens(Some(&namespace), &self.calling_namespace, format_ident)
+        // if calling_namespace != self.calling_namespace {
+        //     assert_eq!(calling_namespace, self.calling_namespace);
+        // }
+        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
+        self.generate_tokens(Some(&namespace), calling_namespace, format_ident)
+        //self.tokens.clone()
     }
 
     /// Crate abi tokens
@@ -407,4 +413,24 @@ impl Ord for TypeName {
 
 fn format_abi_ident(name: &str) -> proc_macro2::Ident {
     quote::format_ident!("abi_{}", name)
+}
+
+fn generate_tokens<F>(
+    name: &str,
+    namespace: &TokenStream,
+    generics: &Vec<TypeKind>,
+    calling_namespace: &str,
+    format: F,
+) -> TokenStream
+where
+    F: FnOnce(&str) -> proc_macro2::Ident,
+{
+    if generics.is_empty() {
+        let name = format(name);
+        quote! { #namespace#name }
+    } else {
+        let name = format(&name[..name.len() - 2]);
+        let generics = generics.iter().map(|g| g.to_tokens(calling_namespace));
+        quote! { #namespace#name::<#(#generics),*> }
+    }
 }
