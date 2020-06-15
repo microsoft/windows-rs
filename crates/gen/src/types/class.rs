@@ -114,7 +114,7 @@ impl Class {
             let signature = &self.signature;
 
             let default_name = &self.interfaces[0].name.tokens;
-            let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
+            let abi_name = self.interfaces[0].name.to_abi_tokens();
             let async_get = async_get_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
 

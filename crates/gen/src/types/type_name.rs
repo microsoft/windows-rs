@@ -307,9 +307,9 @@ impl TypeName {
     /// Crate abi tokens
     ///
     /// For example: `abi_Vector<OtherType>`
-    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
-        self.generate_tokens(Some(&namespace), calling_namespace, format_abi_ident)
+    pub fn to_abi_tokens(&self) -> TokenStream {
+        let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
+        self.generate_tokens(Some(&namespace),  format_abi_ident)
     }
 
     /// Crate definition tokens
@@ -319,15 +319,15 @@ impl TypeName {
     /// Note: ideally to_definition_tokens and to_abi_definiton_tokens would not be required
     /// and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
     /// weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
-    pub fn to_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        self.generate_tokens(None, calling_namespace, format_ident)
+    pub fn to_definition_tokens(&self) -> TokenStream {
+        self.generate_tokens(None,  format_ident)
     }
 
     /// Crate abi definition tokens
     ///
     /// For example: `abi_Vector::<OtherType>`
-    pub fn to_abi_definition_tokens(&self, calling_namespace: &str) -> TokenStream {
-        self.generate_tokens(None, calling_namespace, format_abi_ident)
+    pub fn to_abi_definition_tokens(&self) -> TokenStream {
+        self.generate_tokens(None,  format_abi_ident)
     }
 
     /// Generate the definition tokens for a type
@@ -339,7 +339,6 @@ impl TypeName {
     fn generate_tokens<F>(
         &self,
         namespace: Option<&TokenStream>,
-        calling_namespace: &str,
         format: F,
     ) -> TokenStream
     where
@@ -351,7 +350,7 @@ impl TypeName {
         } else {
             let colon_separated = namespace.map(|_| quote! { :: });
             let name = format(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens(calling_namespace));
+            let generics = self.generics.iter().map(|g| g.to_tokens(&self.calling_namespace));
             quote! { #namespace#name#colon_separated<#(#generics),*> }
         }
     }
