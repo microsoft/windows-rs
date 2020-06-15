@@ -35,7 +35,7 @@ pub struct TypeName {
 impl TypeName {
     fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef, calling_namespace: &str) -> Self {
         let constraints = TokenStream::from_iter(generics.iter().map(|generic| {
-            let generic = generic.to_tokens("");
+            let generic = generic.to_tokens(calling_namespace);
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         }));
         let namespace_ident = to_namespace_tokens(&namespace, calling_namespace);
@@ -116,12 +116,12 @@ impl TypeName {
         // most two generic parameters.
         let format = match self.generics.len() {
             1 => {
-                let first = self.generics[0].to_tokens("");
+                let first = self.generics[0].to_tokens(&self.calling_namespace);
                 quote! { format!("pinterface({};{})", #signature, <#first as ::winrt::RuntimeType>::signature()) }
             }
             2 => {
-                let first = self.generics[0].to_tokens("");
-                let second = self.generics[1].to_tokens("");
+                let first = self.generics[0].to_tokens(&self.calling_namespace);
+                let second = self.generics[1].to_tokens(&self.calling_namespace);
                 quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::signature(), <#second as ::winrt::RuntimeType>::signature()) }
             }
             _ => panic!("Only types with two or fewer generics are supported"),
@@ -308,12 +308,9 @@ impl TypeName {
     ///
     /// For example: `Vector<OtherType>`
     pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
-        // if calling_namespace != self.calling_namespace {
-        //     assert_eq!(calling_namespace, self.calling_namespace);
-        // }
-        let namespace = to_namespace_tokens(&self.namespace, calling_namespace);
-        self.generate_tokens(Some(&namespace), calling_namespace, format_ident)
-        //self.tokens.clone()
+        // let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
+        // self.generate_tokens(Some(&namespace), &self.calling_namespace, format_ident)
+        self.tokens.clone()
     }
 
     /// Crate abi tokens
@@ -375,7 +372,7 @@ impl TypeName {
 
         let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
             let name = format_ident!("__{}", count);
-            let generic = generic.to_tokens("");
+            let generic = generic.to_tokens(&self.calling_namespace);
             quote! { #name: ::std::marker::PhantomData::<#generic>, }
         });
 
