@@ -206,7 +206,9 @@ impl ImportMacro {
         println!("TypeTree {}s", now.elapsed().unwrap().as_secs());
         let now = std::time::SystemTime::now();
 
-        let tokens = tree.to_tokens().into();
+        let tokens = tree.to_tokens()
+        .collect::<proc_macro2::TokenStream>()
+        .into();
         println!("TokenStream {}s", now.elapsed().unwrap().as_secs());
 
         tokens
