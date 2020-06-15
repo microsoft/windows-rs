@@ -192,7 +192,9 @@ impl ImportMacro {
 
         let stage = TypeStage::from_limits(reader, &limits);
         let tree = stage.into_tree();
-        tree.to_tokens().into()
+        tree.to_tokens()
+            .collect::<proc_macro2::TokenStream>()
+            .into()
     }
 }
 
