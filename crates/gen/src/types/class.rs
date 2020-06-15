@@ -91,11 +91,11 @@ impl Class {
     pub fn to_tokens(&self) -> TokenStream {
         let name = &self.name.tokens;
         let type_name = self.type_name(&name);
-        let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
+        let methods = to_method_tokens( &self.interfaces);
 
         if self.interfaces[0].kind == InterfaceKind::Default {
             let conversions = TokenStream::from_iter(self.interfaces.iter().map(|interface| {
-                interface.to_conversions_tokens(&self.name.namespace, &name, &TokenStream::new())
+                interface.to_conversions_tokens( &name, &TokenStream::new())
             }));
 
             let new = if self.default_constructor {
@@ -109,7 +109,7 @@ impl Class {
             };
 
             let object = to_object_tokens(&name, &TokenStream::new());
-            let bases = self.to_base_conversions_tokens(&self.name.namespace, &name);
+            let bases = self.to_base_conversions_tokens(&name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = &self.signature;
 
@@ -165,7 +165,6 @@ impl Class {
 
     pub fn to_base_conversions_tokens(
         &self,
-        calling_namespace: &str,
         from: &TokenStream,
     ) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {

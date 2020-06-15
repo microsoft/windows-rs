@@ -45,13 +45,13 @@ impl Delegate {
         let impl_name = self.to_impl_name_tokens();
         let phantoms = self.name.phantoms();
         let constraints = &self.name.constraints;
-        let method = self.method.to_default_tokens(&self.name.namespace);
-        let abi_method = self.method.to_abi_tokens(&self.name, &self.name.namespace);
+        let method = self.method.to_default_tokens();
+        let abi_method = self.method.to_abi_tokens(&self.name);
         let guid = self.name.to_guid_tokens(&self.guid);
         let signature = self.name.to_signature_tokens(&self.signature);
         let invoke_sig = self
             .method
-            .to_abi_impl_tokens(&self.name, &self.name.namespace);
+            .to_abi_impl_tokens(&self.name);
         let invoke_args = self
             .method
             .params
@@ -200,10 +200,10 @@ impl Delegate {
             .method
             .params
             .iter()
-            .map(|param| param.to_fn_tokens(&self.name.namespace));
+            .map(|param| param.to_fn_tokens());
 
         let return_type = if let Some(return_type) = &self.method.return_type {
-            return_type.to_return_tokens(&self.name.namespace)
+            return_type.to_return_tokens()
         } else {
             quote! { () }
         };
@@ -221,7 +221,7 @@ impl Delegate {
                 .name
                 .generics
                 .iter()
-                .map(|g| g.to_tokens(&self.name.namespace));
+                .map(|g| g.to_tokens());
             quote! { #name<#(#generics,)* #fn_constraint> }
         }
     }
@@ -236,7 +236,7 @@ impl Delegate {
                 .name
                 .generics
                 .iter()
-                .map(|g| g.to_tokens(&self.name.namespace));
+                .map(|g| g.to_tokens());
             quote! { #name::<#(#generics,)* F> }
         }
     }

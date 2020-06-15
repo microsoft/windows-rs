@@ -156,7 +156,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         if interface.name.name == "IVectorView`1"
             && interface.name.namespace == "Windows.Foundation.Collections"
         {
-            let item = interface.name.generics[0].to_tokens(&name.namespace);
+            let item = interface.name.generics[0].to_tokens();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
             let name = &name.tokens;
 
@@ -183,7 +183,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         if interface.name.name == "IVectorView`1"
             && interface.name.namespace == "Windows.Foundation.Collections"
         {
-            let item = interface.name.generics[0].to_tokens(&name.namespace);
+            let item = interface.name.generics[0].to_tokens();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
             let name = &name.tokens;
 
@@ -218,7 +218,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> 
         None => quote! {},
         Some(interface) => {
             let constraints = &name.constraints;
-            let item = interface.name.generics[0].to_tokens(&name.namespace);
+            let item = interface.name.generics[0].to_tokens();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
             let name = &name.tokens;
 

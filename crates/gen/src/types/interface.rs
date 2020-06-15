@@ -59,12 +59,12 @@ impl Interface {
         debug_assert!(default_interface.kind == InterfaceKind::Default);
         let guid = self.name.to_guid_tokens(&default_interface.guid);
         let conversions = TokenStream::from_iter(self.interfaces.iter().skip(1).map(|interface| {
-            interface.to_conversions_tokens(&self.name.namespace, &name, &constraints)
+            interface.to_conversions_tokens(&name, &constraints)
         }));
 
         let object = to_object_tokens(&name, &constraints);
-        let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
-        let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
+        let methods = to_method_tokens(&self.interfaces);
+        let abi_methods = default_interface.to_abi_method_tokens();
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
         let async_get = async_get_tokens(&self.name, &self.interfaces);

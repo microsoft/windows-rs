@@ -133,14 +133,14 @@ impl Method {
         case::to_snake(method.name(reader), MethodKind::Normal)
     }
 
-    pub fn to_abi_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
+    pub fn to_abi_tokens(&self, self_name: &TypeName) -> TokenStream {
         let type_name = &self_name.tokens;
         let name = format_ident(&self.name);
         let params = TokenStream::from_iter(
             self.params
                 .iter()
                 .chain(self.return_type.iter())
-                .map(|param| param.to_abi_tokens(calling_namespace)),
+                .map(|param| param.to_abi_tokens()),
         );
 
         quote! {
@@ -148,7 +148,7 @@ impl Method {
         }
     }
 
-    pub fn to_abi_impl_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
+    pub fn to_abi_impl_tokens(&self, self_name: &TypeName) -> TokenStream {
         let type_name = &self_name.tokens;
         let name = format_ident(&self.name);
         let params = self
@@ -157,7 +157,7 @@ impl Method {
             .chain(self.return_type.iter())
             .map(|param| {
                 let name = format_ident(&param.name);
-                let abi = param.to_abi_tokens(calling_namespace);
+                let abi = param.to_abi_tokens();
                 quote! { #name: #abi }
             });
 
@@ -166,12 +166,12 @@ impl Method {
         }
     }
 
-    fn to_param_tokens(&self, calling_namespace: &str) -> TokenStream {
+    fn to_param_tokens(&self) -> TokenStream {
         TokenStream::from_iter(
             self.params
                 .iter()
                 .enumerate()
-                .map(|(position, param)| param.to_tokens(calling_namespace, position)),
+                .map(|(position, param)| param.to_tokens(position)),
         )
     }
 
@@ -186,7 +186,7 @@ impl Method {
         TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()))
     }
 
-    fn to_constraint_tokens(&self, calling_namespace: &str) -> TokenStream {
+    fn to_constraint_tokens(&self) -> TokenStream {
         let mut tokens = Vec::new();
 
         for (position, param) in self.params.iter().enumerate() {
@@ -204,7 +204,7 @@ impl Method {
                 | TypeKind::Delegate(_)
                 | TypeKind::Generic(_) => {
                     let name = quote::format_ident!("__{}", position);
-                    let into = param.kind.to_tokens(calling_namespace);
+                    let into = param.kind.to_tokens();
                     tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
                 }
                 _ => {}
@@ -218,15 +218,15 @@ impl Method {
         TokenStream::from_iter(tokens)
     }
 
-    pub fn to_default_tokens(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_default_tokens(&self) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = self.to_param_tokens(calling_namespace);
-        let constraints = self.to_constraint_tokens(calling_namespace);
+        let params = self.to_param_tokens();
+        let constraints = self.to_constraint_tokens();
         let args = self.to_abi_arg_tokens();
 
         if let Some(return_type) = &self.return_type {
-            let return_arg = return_type.to_abi_return_arg_tokens(calling_namespace);
-            let return_type = return_type.to_return_tokens(calling_namespace);
+            let return_arg = return_type.to_abi_return_arg_tokens();
+            let return_type = return_type.to_return_tokens();
 
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
@@ -252,17 +252,16 @@ impl Method {
 
     pub fn to_non_default_tokens(
         &self,
-        calling_namespace: &str,
         interface: &RequiredInterface,
     ) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = self.to_param_tokens(calling_namespace);
-        let constraints = self.to_constraint_tokens(calling_namespace);
+        let params = self.to_param_tokens();
+        let constraints = self.to_constraint_tokens();
         let args = self.to_arg_tokens();
         let interface = &interface.name.tokens;
 
         let return_type = if let Some(return_type) = &self.return_type {
-            return_type.to_return_tokens(calling_namespace)
+            return_type.to_return_tokens()
         } else {
             quote! { () }
         };
@@ -276,17 +275,16 @@ impl Method {
 
     pub fn to_static_tokens(
         &self,
-        calling_namespace: &str,
         interface: &RequiredInterface,
     ) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = self.to_param_tokens(calling_namespace);
-        let constraints = self.to_constraint_tokens(calling_namespace);
+        let params = self.to_param_tokens();
+        let constraints = self.to_constraint_tokens();
         let args = self.to_arg_tokens();
         let interface = &interface.name.tokens;
 
         let return_type = if let Some(return_type) = &self.return_type {
-            return_type.to_return_tokens(calling_namespace)
+            return_type.to_return_tokens()
         } else {
             quote! { () }
         };

@@ -43,7 +43,7 @@ impl Struct {
 
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
-            let kind = field.1.to_tokens(&self.name.namespace);
+            let kind = field.1.to_tokens();
             quote! {
                 pub #name: #kind
             }

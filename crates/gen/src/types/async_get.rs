@@ -47,7 +47,7 @@ fn to_async_get_tokens(kind: AsyncKind, name: &TypeName, calling_namespace: &str
 
     let return_type = match kind {
         AsyncKind::Operation | AsyncKind::OperationWithProgress => {
-            name.generics[0].to_tokens(calling_namespace)
+            name.generics[0].to_tokens()
         }
         _ => quote! { () },
     };

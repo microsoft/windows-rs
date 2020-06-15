@@ -35,11 +35,11 @@ pub struct TypeName {
 impl TypeName {
     fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef, calling_namespace: &str) -> Self {
         let constraints = TokenStream::from_iter(generics.iter().map(|generic| {
-            let generic = generic.to_tokens(calling_namespace);
+            let generic = generic.to_tokens();
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         }));
         let namespace_ident = to_namespace_tokens(&namespace, calling_namespace);
-        let tokens = generate_tokens(&name,  &namespace_ident, &generics, calling_namespace, format_ident);
+        let tokens = generate_tokens(&name,  &namespace_ident, &generics,  format_ident);
         Self {
             namespace,
             name,
@@ -116,12 +116,12 @@ impl TypeName {
         // most two generic parameters.
         let format = match self.generics.len() {
             1 => {
-                let first = self.generics[0].to_tokens(&self.calling_namespace);
+                let first = self.generics[0].to_tokens();
                 quote! { format!("pinterface({};{})", #signature, <#first as ::winrt::RuntimeType>::signature()) }
             }
             2 => {
-                let first = self.generics[0].to_tokens(&self.calling_namespace);
-                let second = self.generics[1].to_tokens(&self.calling_namespace);
+                let first = self.generics[0].to_tokens();
+                let second = self.generics[1].to_tokens();
                 quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::signature(), <#second as ::winrt::RuntimeType>::signature()) }
             }
             _ => panic!("Only types with two or fewer generics are supported"),
@@ -350,7 +350,7 @@ impl TypeName {
         } else {
             let colon_separated = namespace.map(|_| quote! { :: });
             let name = format(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens(&self.calling_namespace));
+            let generics = self.generics.iter().map(|g| g.to_tokens());
             quote! { #namespace#name#colon_separated<#(#generics),*> }
         }
     }
@@ -362,7 +362,7 @@ impl TypeName {
 
         let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
             let name = format_ident!("__{}", count);
-            let generic = generic.to_tokens(&self.calling_namespace);
+            let generic = generic.to_tokens();
             quote! { #name: ::std::marker::PhantomData::<#generic>, }
         });
 
@@ -406,7 +406,6 @@ fn generate_tokens<F>(
     name: &str,
     namespace: &TokenStream,
     generics: &Vec<TypeKind>,
-    calling_namespace: &str,
     format: F,
 ) -> TokenStream
 where
@@ -417,7 +416,7 @@ where
         quote! { #namespace#name }
     } else {
         let name = format(&name[..name.len() - 2]);
-        let generics = generics.iter().map(|g| g.to_tokens(calling_namespace));
+        let generics = generics.iter().map(|g| g.to_tokens());
         quote! { #namespace#name::<#(#generics),*> }
     }
 }
