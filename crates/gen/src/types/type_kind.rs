@@ -194,11 +194,11 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
-            Self::Class(name) => name.to_tokens(calling_namespace).clone(),
-            Self::Interface(name) => name.to_tokens(calling_namespace).clone(),
-            Self::Enum(name) => name.to_tokens(calling_namespace).clone(),
-            Self::Struct(name) => name.to_tokens(calling_namespace).clone(),
-            Self::Delegate(name) => name.to_tokens(calling_namespace).clone(),
+            Self::Class(name) => name.tokens.clone(),
+            Self::Interface(name) => name.tokens.clone(),
+            Self::Enum(name) => name.tokens.clone(),
+            Self::Struct(name) => name.tokens.clone(),
+            Self::Delegate(name) => name.tokens.clone(),
             Self::Generic(name) => {
                 let name = format_ident(name);
                 quote! { #name }
@@ -236,7 +236,7 @@ impl TypeKind {
             | Self::Delegate(name)
             | Self::Enum(name)
             | Self::Struct(name) => {
-                let name = name.to_tokens(calling_namespace);
+                let name = &name.tokens;
                 quote! { <#name as ::winrt::AbiTransferable>::Abi, }
             }
         }

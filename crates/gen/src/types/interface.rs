@@ -52,7 +52,7 @@ impl Interface {
     pub fn to_tokens(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens(&self.name.namespace);
         let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
-        let name = self.name.to_tokens(&self.name.namespace);
+        let name = &self.name.tokens;
         let phantoms = self.name.phantoms();
         let constraints = &self.name.constraints;
         let default_interface = &self.interfaces[0];

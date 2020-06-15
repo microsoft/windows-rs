@@ -28,8 +28,8 @@ pub struct TypeName {
     pub constraints: TokenStream,
     // The namespace of the type being tokenized.
     calling_namespace: String,
-    // Cached TokenStream for the calling namespace
-    tokens: TokenStream,
+    /// Cached TokenStream for the calling namespace
+    pub tokens: TokenStream,
 }
 
 impl TypeName {
@@ -302,15 +302,6 @@ impl TypeName {
         std::iter::once(self.def)
             .chain(self.generics.iter().flat_map(|i| i.dependencies()))
             .collect()
-    }
-
-    /// Crate tokens
-    ///
-    /// For example: `Vector<OtherType>`
-    pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
-        // let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
-        // self.generate_tokens(Some(&namespace), &self.calling_namespace, format_ident)
-        self.tokens.clone()
     }
 
     /// Crate abi tokens

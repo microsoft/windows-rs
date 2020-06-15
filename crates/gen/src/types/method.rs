@@ -134,7 +134,7 @@ impl Method {
     }
 
     pub fn to_abi_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
-        let type_name = self_name.to_tokens(calling_namespace);
+        let type_name = &self_name.tokens;
         let name = format_ident(&self.name);
         let params = TokenStream::from_iter(
             self.params
@@ -149,7 +149,7 @@ impl Method {
     }
 
     pub fn to_abi_impl_tokens(&self, self_name: &TypeName, calling_namespace: &str) -> TokenStream {
-        let type_name = self_name.to_tokens(calling_namespace);
+        let type_name = &self_name.tokens;
         let name = format_ident(&self.name);
         let params = self
             .params
@@ -259,7 +259,7 @@ impl Method {
         let params = self.to_param_tokens(calling_namespace);
         let constraints = self.to_constraint_tokens(calling_namespace);
         let args = self.to_arg_tokens();
-        let interface = interface.name.to_tokens(calling_namespace);
+        let interface = &interface.name.tokens;
 
         let return_type = if let Some(return_type) = &self.return_type {
             return_type.to_return_tokens(calling_namespace)
@@ -283,7 +283,7 @@ impl Method {
         let params = self.to_param_tokens(calling_namespace);
         let constraints = self.to_constraint_tokens(calling_namespace);
         let args = self.to_arg_tokens();
-        let interface = interface.name.to_tokens(calling_namespace);
+        let interface = &interface.name.tokens;
 
         let return_type = if let Some(return_type) = &self.return_type {
             return_type.to_return_tokens(calling_namespace)

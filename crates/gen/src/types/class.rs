@@ -89,7 +89,7 @@ impl Class {
     }
 
     pub fn to_tokens(&self) -> TokenStream {
-        let name = self.name.to_tokens(&self.name.namespace);
+        let name = &self.name.tokens;
         let type_name = self.type_name(&name);
         let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
 
@@ -113,7 +113,7 @@ impl Class {
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = &self.signature;
 
-            let default_name = self.interfaces[0].name.to_tokens(&self.name.namespace);
+            let default_name = &self.interfaces[0].name.tokens;
             let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
             let async_get = async_get_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
@@ -169,7 +169,7 @@ impl Class {
         from: &TokenStream,
     ) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {
-            let into = base.to_tokens(calling_namespace);
+            let into = &base.tokens;
             quote! {
                 impl ::std::convert::From<#from> for #into {
                     fn from(value: #from) -> #into {
