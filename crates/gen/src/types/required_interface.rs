@@ -23,13 +23,15 @@ pub enum InterfaceKind {
 }
 
 impl RequiredInterface {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace:&str) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace: &str) -> Self {
         let name = TypeName::from_type_def(reader, def, calling_namespace);
         let guid = TypeGuid::from_type_def(reader, def);
 
         let mut methods = def
             .methods(reader)
-            .map(|method| Method::from_method_def(reader, method, &name.generics, calling_namespace))
+            .map(|method| {
+                Method::from_method_def(reader, method, &name.generics, calling_namespace)
+            })
             .collect();
 
         rename_collisions(&mut methods);
@@ -47,14 +49,16 @@ impl RequiredInterface {
         name: TypeName,
         kind: InterfaceKind,
         generics: bool,
-        calling_namespace: &str
+        calling_namespace: &str,
     ) -> Self {
         let guid = name.guid(reader, generics);
 
         let mut methods = name
             .def
             .methods(reader)
-            .map(|method| Method::from_method_def(reader, method, &name.generics, calling_namespace))
+            .map(|method| {
+                Method::from_method_def(reader, method, &name.generics, calling_namespace)
+            })
             .collect();
 
         rename_collisions(&mut methods);
@@ -78,7 +82,13 @@ impl RequiredInterface {
         map.insert_required(reader, name, &name.namespace);
 
         for (append_name, kind) in map.0 {
-            let required = RequiredInterface::from_type_name_and_kind(reader, append_name, kind, generics, &name.namespace);
+            let required = RequiredInterface::from_type_name_and_kind(
+                reader,
+                append_name,
+                kind,
+                generics,
+                &name.namespace,
+            );
 
             if kind == InterfaceKind::Default {
                 interfaces.insert(0, required);
@@ -106,7 +116,11 @@ impl RequiredInterface {
             }
 
             interfaces.push(RequiredInterface::from_type_name_and_kind(
-                reader, append_name, kind, generics, &name.namespace
+                reader,
+                append_name,
+                kind,
+                generics,
+                &name.namespace,
             ));
         }
     }
@@ -180,9 +194,7 @@ impl RequiredInterface {
     }
 }
 
-pub fn to_method_tokens(
-    interfaces: &Vec<RequiredInterface>,
-) -> TokenStream {
+pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let mut tokens = Vec::new();
     let mut names = BTreeSet::new();
 

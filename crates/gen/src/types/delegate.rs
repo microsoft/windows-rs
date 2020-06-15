@@ -16,7 +16,8 @@ pub struct Delegate {
 
 impl Delegate {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
-        let method = name.def
+        let method = name
+            .def
             .methods(reader)
             .find(|method| method.name(reader) == "Invoke")
             .unwrap();
@@ -49,9 +50,7 @@ impl Delegate {
         let abi_method = self.method.to_abi_tokens(&self.name);
         let guid = self.name.to_guid_tokens(&self.guid);
         let signature = self.name.to_signature_tokens(&self.signature);
-        let invoke_sig = self
-            .method
-            .to_abi_impl_tokens(&self.name);
+        let invoke_sig = self.method.to_abi_impl_tokens(&self.name);
         let invoke_args = self
             .method
             .params
@@ -196,11 +195,7 @@ impl Delegate {
     }
 
     fn to_fn_constraint_tokens(&self) -> TokenStream {
-        let params = self
-            .method
-            .params
-            .iter()
-            .map(|param| param.to_fn_tokens());
+        let params = self.method.params.iter().map(|param| param.to_fn_tokens());
 
         let return_type = if let Some(return_type) = &self.method.return_type {
             return_type.to_return_tokens()
@@ -217,11 +212,7 @@ impl Delegate {
             quote! { #name<#fn_constraint> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
-            let generics = self
-                .name
-                .generics
-                .iter()
-                .map(|g| g.to_tokens());
+            let generics = self.name.generics.iter().map(|g| g.to_tokens());
             quote! { #name<#(#generics,)* #fn_constraint> }
         }
     }
@@ -232,11 +223,7 @@ impl Delegate {
             quote! { #name::<F> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
-            let generics = self
-                .name
-                .generics
-                .iter()
-                .map(|g| g.to_tokens());
+            let generics = self.name.generics.iter().map(|g| g.to_tokens());
             quote! { #name::<#(#generics,)* F> }
         }
     }

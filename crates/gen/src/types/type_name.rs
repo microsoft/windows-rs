@@ -33,13 +33,19 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    fn new(namespace: String, name: String, generics: Vec<TypeKind>, def: TypeDef, calling_namespace: &str) -> Self {
+    fn new(
+        namespace: String,
+        name: String,
+        generics: Vec<TypeKind>,
+        def: TypeDef,
+        calling_namespace: &str,
+    ) -> Self {
         let constraints = TokenStream::from_iter(generics.iter().map(|generic| {
             let generic = generic.to_tokens();
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         }));
         let namespace_ident = to_namespace_tokens(&namespace, calling_namespace);
-        let tokens = generate_tokens(&name,  &namespace_ident, &generics,  format_ident);
+        let tokens = generate_tokens(&name, &namespace_ident, &generics, format_ident);
         Self {
             namespace,
             name,
@@ -47,7 +53,7 @@ impl TypeName {
             def,
             constraints,
             tokens,
-            calling_namespace : calling_namespace.to_owned(),
+            calling_namespace: calling_namespace.to_owned(),
         }
     }
 
@@ -55,18 +61,24 @@ impl TypeName {
         reader: &TypeReader,
         code: TypeDefOrRef,
         generics: &Vec<TypeKind>,
-        calling_namespace: &str
+        calling_namespace: &str,
     ) -> Self {
         match code {
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value,calling_namespace),
-            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value,calling_namespace),
-            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics,calling_namespace),
+            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value, calling_namespace),
+            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value, calling_namespace),
+            TypeDefOrRef::TypeSpec(value) => {
+                Self::from_type_spec(reader, value, generics, calling_namespace)
+            }
         }
     }
 
-    fn from_type_ref(reader: &TypeReader, type_ref: TypeRef,calling_namespace:&str) -> Self {
+    fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, calling_namespace: &str) -> Self {
         let (namespace, name) = type_ref.name(reader);
-        Self::from_type_def(reader, reader.resolve_type_def((namespace, name)),calling_namespace)
+        Self::from_type_def(
+            reader,
+            reader.resolve_type_def((namespace, name)),
+            calling_namespace,
+        )
     }
 
     pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace: &str) -> Self {
@@ -80,12 +92,26 @@ impl TypeName {
             generics.push(TypeKind::Generic(name));
         }
 
-        let calling_namespace = if calling_namespace.is_empty() { namespace } else { calling_namespace };
+        let calling_namespace = if calling_namespace.is_empty() {
+            namespace
+        } else {
+            calling_namespace
+        };
 
-        Self::new(owned_namespace, owned_name, generics, def, calling_namespace)
+        Self::new(
+            owned_namespace,
+            owned_name,
+            generics,
+            def,
+            calling_namespace,
+        )
     }
 
-    pub fn from_type_spec_blob(blob: &mut Blob, generics: &Vec<TypeKind>, calling_namespace: &str) -> Self {
+    pub fn from_type_spec_blob(
+        blob: &mut Blob,
+        generics: &Vec<TypeKind>,
+        calling_namespace: &str,
+    ) -> Self {
         blob.read_unsigned();
         let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
@@ -101,7 +127,12 @@ impl TypeName {
         Self::new(namespace, name, generics, def, calling_namespace)
     }
 
-    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>, calling_namespace:&str) -> Self {
+    pub fn from_type_spec(
+        reader: &TypeReader,
+        spec: TypeSpec,
+        generics: &Vec<TypeKind>,
+        calling_namespace: &str,
+    ) -> Self {
         let mut blob = spec.sig(reader);
         blob.read_unsigned();
         Self::from_type_spec_blob(&mut blob, generics, calling_namespace)
@@ -253,7 +284,9 @@ impl TypeName {
 
         for field in self.def.fields(reader) {
             result.push(';');
-            result.push_str(&TypeKind::from_field(reader, field, &self.calling_namespace).signature(reader));
+            result.push_str(
+                &TypeKind::from_field(reader, field, &self.calling_namespace).signature(reader),
+            );
         }
 
         result.push(')');
@@ -309,7 +342,7 @@ impl TypeName {
     /// For example: `abi_Vector<OtherType>`
     pub fn to_abi_tokens(&self) -> TokenStream {
         let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
-        self.generate_tokens(Some(&namespace),  format_abi_ident)
+        self.generate_tokens(Some(&namespace), format_abi_ident)
     }
 
     /// Crate definition tokens
@@ -320,14 +353,14 @@ impl TypeName {
     /// and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
     /// weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
     pub fn to_definition_tokens(&self) -> TokenStream {
-        self.generate_tokens(None,  format_ident)
+        self.generate_tokens(None, format_ident)
     }
 
     /// Crate abi definition tokens
     ///
     /// For example: `abi_Vector::<OtherType>`
     pub fn to_abi_definition_tokens(&self) -> TokenStream {
-        self.generate_tokens(None,  format_abi_ident)
+        self.generate_tokens(None, format_abi_ident)
     }
 
     /// Generate the definition tokens for a type
@@ -336,11 +369,7 @@ impl TypeName {
     /// definition tokens and regular tokens. Definition tokens are those that require a
     /// colon spearater between the name and the generics (e.g., `Vector::<OtherType>`) vs.  
     /// `Vector<OtherType>`
-    fn generate_tokens<F>(
-        &self,
-        namespace: Option<&TokenStream>,
-        format: F,
-    ) -> TokenStream
+    fn generate_tokens<F>(&self, namespace: Option<&TokenStream>, format: F) -> TokenStream
     where
         F: FnOnce(&str) -> proc_macro2::Ident,
     {

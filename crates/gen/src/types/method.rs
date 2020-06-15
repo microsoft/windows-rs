@@ -250,10 +250,7 @@ impl Method {
         }
     }
 
-    pub fn to_non_default_tokens(
-        &self,
-        interface: &RequiredInterface,
-    ) -> TokenStream {
+    pub fn to_non_default_tokens(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
         let params = self.to_param_tokens();
         let constraints = self.to_constraint_tokens();
@@ -273,10 +270,7 @@ impl Method {
         }
     }
 
-    pub fn to_static_tokens(
-        &self,
-        interface: &RequiredInterface,
-    ) -> TokenStream {
+    pub fn to_static_tokens(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
         let params = self.to_param_tokens();
         let constraints = self.to_constraint_tokens();

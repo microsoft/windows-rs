@@ -52,7 +52,7 @@ impl Class {
                     let mut interface = RequiredInterface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
-                        &name.namespace
+                        &name.namespace,
                     );
                     interface.kind = InterfaceKind::Statics;
                     interfaces.push(interface);
@@ -60,7 +60,8 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            let mut interface = RequiredInterface::from_type_def(reader, def, &name.namespace);
+                            let mut interface =
+                                RequiredInterface::from_type_def(reader, def, &name.namespace);
                             interface.kind = InterfaceKind::Statics;
                             interfaces.push(interface);
                         }
@@ -91,12 +92,14 @@ impl Class {
     pub fn to_tokens(&self) -> TokenStream {
         let name = &self.name.tokens;
         let type_name = self.type_name(&name);
-        let methods = to_method_tokens( &self.interfaces);
+        let methods = to_method_tokens(&self.interfaces);
 
         if self.interfaces[0].kind == InterfaceKind::Default {
-            let conversions = TokenStream::from_iter(self.interfaces.iter().map(|interface| {
-                interface.to_conversions_tokens( &name, &TokenStream::new())
-            }));
+            let conversions = TokenStream::from_iter(
+                self.interfaces
+                    .iter()
+                    .map(|interface| interface.to_conversions_tokens(&name, &TokenStream::new())),
+            );
 
             let new = if self.default_constructor {
                 quote! {
@@ -163,10 +166,7 @@ impl Class {
         }
     }
 
-    pub fn to_base_conversions_tokens(
-        &self,
-        from: &TokenStream,
-    ) -> TokenStream {
+    pub fn to_base_conversions_tokens(&self, from: &TokenStream) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {
             let into = &base.tokens;
             quote! {
