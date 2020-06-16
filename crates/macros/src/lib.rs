@@ -172,21 +172,15 @@ impl ImportMacro {
     }
 
     fn to_tokens(self) -> TokenStream {
-        let now = std::time::SystemTime::now();
-
         let dependencies = self
             .dependencies
             .0
             .iter()
             .map(|p| WinmdFile::new(p))
             .collect();
-        let reader = &TypeReader::new(dependencies);
-        println!("TypeReader {}s", now.elapsed().unwrap().as_secs());
-        let now = std::time::SystemTime::now();
 
+        let reader = &TypeReader::new(dependencies);
         let mut limits = TypeLimits::new(reader);
-        println!("TypeLimits {}s", now.elapsed().unwrap().as_secs());
-        let now = std::time::SystemTime::now();
 
         for limit in self.types.0 {
             let types = limit.types;
@@ -199,20 +193,11 @@ impl ImportMacro {
         }
 
         let stage = TypeStage::from_limits(reader, &limits);
-        println!("TypeStage {}s", now.elapsed().unwrap().as_secs());
-        let now = std::time::SystemTime::now();
-
         let tree = stage.into_tree();
-        println!("TypeTree {}s", now.elapsed().unwrap().as_secs());
-        let now = std::time::SystemTime::now();
 
-        let tokens = tree
-            .to_tokens()
+        tree.to_tokens()
             .collect::<proc_macro2::TokenStream>()
-            .into();
-        println!("TokenStream {}s", now.elapsed().unwrap().as_secs());
-
-        tokens
+            .into()
     }
 }
 
