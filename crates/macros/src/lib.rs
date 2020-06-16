@@ -59,9 +59,7 @@ use std::{collections::BTreeSet, path::PathBuf};
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
     let import = parse_macro_input!(stream as ImportMacro);
-    let tokens = import.to_tokens();
-    //TokenStream::new()
-    tokens
+    import.to_tokens()
 }
 
 /// A macro for generating WinRT modules to a .rs file at build time.
