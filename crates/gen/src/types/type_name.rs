@@ -45,7 +45,7 @@ impl TypeName {
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         }));
         let namespace_ident = to_namespace_tokens(&namespace, calling_namespace);
-        let tokens = generate_tokens(&name, &namespace_ident, &generics, format_ident);
+        let tokens = generate_tokens(&name, Some(&namespace_ident), &generics, format_ident);
         Self {
             namespace,
             name,
@@ -342,7 +342,12 @@ impl TypeName {
     /// For example: `abi_Vector<OtherType>`
     pub fn to_abi_tokens(&self) -> TokenStream {
         let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
-        self.generate_tokens(Some(&namespace), format_abi_ident)
+        generate_tokens(
+            &self.name,
+            Some(&namespace),
+            &self.generics,
+            format_abi_ident,
+        )
     }
 
     /// Crate definition tokens
@@ -353,35 +358,14 @@ impl TypeName {
     /// and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
     /// weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
     pub fn to_definition_tokens(&self) -> TokenStream {
-        self.generate_tokens(None, format_ident)
+        generate_tokens(&self.name, None, &self.generics, format_ident)
     }
 
     /// Crate abi definition tokens
     ///
     /// For example: `abi_Vector::<OtherType>`
     pub fn to_abi_definition_tokens(&self) -> TokenStream {
-        self.generate_tokens(None, format_abi_ident)
-    }
-
-    /// Generate the definition tokens for a type
-    ///
-    /// This supports both regular and abi versions of the type and can be used both for
-    /// definition tokens and regular tokens. Definition tokens are those that require a
-    /// colon spearater between the name and the generics (e.g., `Vector::<OtherType>`) vs.  
-    /// `Vector<OtherType>`
-    fn generate_tokens<F>(&self, namespace: Option<&TokenStream>, format: F) -> TokenStream
-    where
-        F: FnOnce(&str) -> proc_macro2::Ident,
-    {
-        if self.generics.is_empty() {
-            let name = format(&self.name);
-            quote! { #namespace#name }
-        } else {
-            let colon_separated = namespace.map(|_| quote! { :: });
-            let name = format(&self.name[..self.name.len() - 2]);
-            let generics = self.generics.iter().map(|g| g.to_tokens());
-            quote! { #namespace#name#colon_separated<#(#generics),*> }
-        }
+        generate_tokens(&self.name, None, &self.generics, format_abi_ident)
     }
 
     pub fn phantoms(&self) -> TokenStream {
@@ -433,7 +417,7 @@ fn format_abi_ident(name: &str) -> proc_macro2::Ident {
 
 fn generate_tokens<F>(
     name: &str,
-    namespace: &TokenStream,
+    namespace: Option<&TokenStream>,
     generics: &Vec<TypeKind>,
     format: F,
 ) -> TokenStream
@@ -444,9 +428,10 @@ where
         let name = format(name);
         quote! { #namespace#name }
     } else {
+        let colon_separated = namespace.map(|_| quote! { :: });
         let name = format(&name[..name.len() - 2]);
         let generics = generics.iter().map(|g| g.to_tokens());
-        quote! { #namespace#name::<#(#generics),*> }
+        quote! { #namespace#name#colon_separated<#(#generics),*> }
     }
 }
 
