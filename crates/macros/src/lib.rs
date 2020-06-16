@@ -176,8 +176,8 @@ impl ImportMacro {
             .iter()
             .map(|p| WinmdFile::new(p))
             .collect();
-        let reader = &TypeReader::new(dependencies);
 
+        let reader = &TypeReader::new(dependencies);
         let mut limits = TypeLimits::new(reader);
 
         for limit in self.types.0 {
@@ -192,6 +192,7 @@ impl ImportMacro {
 
         let stage = TypeStage::from_limits(reader, &limits);
         let tree = stage.into_tree();
+
         tree.to_tokens()
             .collect::<proc_macro2::TokenStream>()
             .into()
