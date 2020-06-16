@@ -101,12 +101,13 @@ impl RequiredInterface {
     pub fn append_required(
         reader: &TypeReader,
         name: &TypeName,
+        calling_namespace: &str,
         interfaces: &mut Vec<RequiredInterface>,
     ) {
         let generics = !name.generics.is_empty();
 
         let mut map = RequiredInterfaces::default();
-        map.insert_required(reader, name, &name.namespace);
+        map.insert_required(reader, name, calling_namespace);
 
         for (append_name, kind) in map.0 {
             let mut kind = kind;
@@ -120,7 +121,7 @@ impl RequiredInterface {
                 append_name,
                 kind,
                 generics,
-                &name.namespace,
+                calling_namespace,
             ));
         }
     }

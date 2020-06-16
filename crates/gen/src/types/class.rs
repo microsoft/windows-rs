@@ -40,7 +40,7 @@ impl Class {
             base = reader.resolve_type_def((base_namespace, base_name));
             let base = TypeName::from_type_def(reader, base, &name.namespace);
 
-            RequiredInterface::append_required(reader, &base, &mut interfaces);
+            RequiredInterface::append_required(reader, &base, &name.namespace, &mut interfaces);
             bases.push(base);
         }
 
