@@ -9,16 +9,16 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let mut code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
+        let mut code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory)?;
 
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
-            CoIncrementMTAUsage(&mut _cookie);
+            CoIncrementMTAUsage(&mut _cookie)?;
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
+            code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory)?;
         }
 
         // If this succeeded then retun the resulting factory interface.

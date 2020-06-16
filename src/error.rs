@@ -22,8 +22,10 @@ impl Error {
         let message: HString = message.into();
 
         // RoOriginateError creates the error object and associates it with the thread.
+        // Need to ignore the result, as that is the delay-load error, which would mean
+        // that there's no WinRT to tell about the error.
         unsafe {
-            RoOriginateError(code, message.get_abi() as _);
+            let _ = RoOriginateError(code, message.get_abi() as _);
         }
 
         let mut info = IErrorInfo::default();
@@ -137,8 +139,10 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
             if let Some(info) = error.info.get_abi() {
                 // Set the error information on the thread if the result is `Err`
                 // so that the caller can pick it up.
+                // Need to ignore the result, as that is the delay-load error, which would mean
+                // that there's no WinRT to tell about the error.
                 unsafe {
-                    SetRestrictedErrorInfo(info.as_raw() as _);
+                    let _ = SetRestrictedErrorInfo(info.as_raw() as _);
                 }
             }
 

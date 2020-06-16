@@ -15,6 +15,8 @@ extern "system" {
     pub fn FreeLibrary(library: RawPtr) -> i32;
     pub fn GetProcAddress(library: RawPtr, name: *const u8) -> RawPtr;
 
+    pub fn GetLastError() -> u32;
+
     pub fn FormatMessageW(
         flags: u32,
         source: RawPtr,
@@ -26,18 +28,55 @@ extern "system" {
     ) -> u32;
 }
 
-#[link(name = "windowsapp")]
-extern "system" {
-    pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
+unsafe fn load_proc(library: &[u16], sym: &str) -> Result<RawPtr, ErrorCode> {
+    let library = LoadLibraryW(library.as_ptr());
+    if library.is_null() {
+        return Err(ErrorCode(0x8007_0000 | GetLastError()));
+    }
+    let addr = GetProcAddress(library, sym.as_ptr());
+    if addr.is_null() {
+        return Err(ErrorCode(0x8007_0000 | GetLastError()));
+    }
+    Ok(addr)
+}
 
-    pub fn RoGetActivationFactory(
-        hstring: *mut hstring::Header,
-        interface: &Guid,
-        result: *mut RawPtr,
-    ) -> ErrorCode;
+macro_rules! demand_load {
+    ( $( $library:literal {
+        $(pub extern $($abi: literal)? fn $sym:ident ( $( $param: ident : $pty: ty ),* $(,)? ) -> $rt: ty;)*
+    } )* ) => {
+        $($(
+            #[allow(non_snake_case)]
+            pub unsafe fn $sym( $( $param: $pty ),* ) -> Result<$rt, ErrorCode> {
+                // Thread-safe initialize VALUE to load_proc() result once, including any error.
+                // Could replace with static_init crate?
+                use std::{sync::Once, mem::MaybeUninit};
+                static ONCE: Once = Once::new();
+                static mut VALUE: MaybeUninit<Result<RawPtr, ErrorCode>> = MaybeUninit::uninit();
+                ONCE.call_once(|| {
+                    VALUE = MaybeUninit::new(
+                        load_proc(wchar::wch_c!($library), concat!(stringify!($sym), "\0"))
+                    )
+                });
 
-    pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
-    pub fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
+                // Transmute doesn't work on generic types, as you can't constrain to a
+                // function pointer.
+                type FnPtr = extern $($abi)? fn ( $( $param: $pty ),* ) -> $rt;
+                let f = std::mem::transmute::<RawPtr, FnPtr>(VALUE.assume_init()?);
+                Ok( (f)( $( $param ),* ) )
+            }
+        )*)*
+    };
+}
+
+demand_load! {
+    "ole32.dll" {
+        pub extern "system" fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
+    }
+    "combase.dll" {
+        pub extern "system" fn RoGetActivationFactory(hstring: *mut hstring::Header, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
+        pub extern "system" fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
+        pub extern "system" fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
+    }
 }
 
 #[link(name = "oleaut32")]
