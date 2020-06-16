@@ -139,7 +139,6 @@ impl Interface {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
