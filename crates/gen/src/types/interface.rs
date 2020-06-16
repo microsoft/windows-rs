@@ -20,7 +20,7 @@ impl Interface {
 
         // Ensures that the default interface is first in line.
         let mut default_interface =
-            RequiredInterface::from_type_def(reader, name.def, &name.namespace); // TODO: RequiredInterface::from_type_name
+            RequiredInterface::from_type_def(reader, name.def, &name.namespace);
         default_interface.kind = InterfaceKind::Default;
         interfaces.push(default_interface);
 
