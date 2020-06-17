@@ -56,7 +56,7 @@ We believe that WinRT bindings can map to 100% safe Rust. However, often times W
 
 We take these safety gurantees very seriously. Please let us know if you run into issues where you see Rust's memory safety guarantees being violated through use of this crate. 
 
-## IDE Support
+## IDE support
 
 WinRT is developed with and tested for the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) VS Code extension. We want WinRT-rs to work well with rust-analyzer, so if you run into issues, please file a bug report so we can look into it. There are, however, a few things to note about WinRT-rs and rust-analyzer:
 
@@ -66,3 +66,9 @@ WinRT is developed with and tested for the [rust-analyzer](https://marketplace.v
 ## Cross-platform support
 
 While support for platforms other than Windows (i.e., *-windows-msvc targets) is possible and on the long-term roadmap, support outside of Windows is not an immediate goal. If you are interested in support outside of Windows, please [let us know](https://github.com/microsoft/winrt-rs/issues/143).
+
+## Project Reunion
+
+Project Reunion is a set of libraries, frameworks, components, and tools that you can use to access powerful Windows platform functionality from all kinds of apps on many versions of Windows. Project Reunion combines the power of Win32 native applications alongside modern APIs, so your apps light up everywhere your users are.
+
+Other Project Reunion components include [WinUI](https://github.com/microsoft/microsoft-ui-xaml), WebView2, MSIX, [Rust/WinRT](https://github.com/microsoft/winrt-rs), and [C#/WinRT](https://github.com/microsoft/cswinrt). If you'd like to learn more, contribute to Project Reunion, or have app model questions, visit [Project Reunion on GitHub](https://github.com/microsoft/ProjectReunion).
