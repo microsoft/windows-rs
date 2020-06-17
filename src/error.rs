@@ -131,6 +131,19 @@ impl ErrorCode {
 
     /// Indicates that COM has not been initialized.
     pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
+
+    /// Creates a failure code from GetLastError()
+    #[inline]
+    pub(crate) fn last_win32_error() -> Self {
+        Self::from_win32(unsafe { GetLastError() })
+    }
+
+    /// Creates a failure code with the provided win32 error code.
+    #[inline]
+    pub(crate) fn from_win32(error: u32) -> Self {
+        // equivalent to MAKE_WIN32_HRESULT(error)
+        Self(0x8007_0000 | error & 0xFFFF)
+    }
 }
 
 impl<T> std::convert::From<Result<T>> for ErrorCode {

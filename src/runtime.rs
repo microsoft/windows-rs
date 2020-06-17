@@ -1,5 +1,7 @@
 use crate::{hstring, ErrorCode, Guid, RawPtr};
 
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 0x0000_0800;
+
 #[link(name = "kernel32")]
 extern "system" {
     pub fn GetProcessHeap() -> RawPtr;
@@ -11,7 +13,7 @@ extern "system" {
     pub fn WaitForSingleObject(handle: RawPtr, milliseconds: u32) -> u32;
     pub fn CloseHandle(handle: RawPtr) -> i32;
 
-    pub fn LoadLibraryW(name: *const u16) -> RawPtr;
+    pub fn LoadLibraryExW(name: *const u16, file: RawPtr, flags: u32) -> RawPtr;
     pub fn FreeLibrary(library: RawPtr) -> i32;
     pub fn GetProcAddress(library: RawPtr, name: *const u8) -> RawPtr;
 
@@ -28,14 +30,23 @@ extern "system" {
     ) -> u32;
 }
 
-unsafe fn load_proc(library: &[u16], sym: &str) -> Result<RawPtr, ErrorCode> {
-    let library = LoadLibraryW(library.as_ptr());
+unsafe fn load_proc(library_name: &str, sym: &str) -> Result<RawPtr, ErrorCode> {
+    let library_name = library_name
+        .encode_utf16()
+        .chain(std::iter::once(0))
+        .collect::<Vec<u16>>();
+
+    let library = LoadLibraryExW(
+        library_name.as_ptr(),
+        std::ptr::null_mut(),
+        LOAD_LIBRARY_SEARCH_SYSTEM32,
+    );
     if library.is_null() {
-        return Err(ErrorCode(0x8007_0000 | GetLastError()));
+        return Err(ErrorCode::last_win32_error());
     }
     let addr = GetProcAddress(library, sym.as_ptr());
     if addr.is_null() {
-        return Err(ErrorCode(0x8007_0000 | GetLastError()));
+        return Err(ErrorCode::last_win32_error());
     }
     Ok(addr)
 }
@@ -54,12 +65,12 @@ macro_rules! demand_load {
                 static mut VALUE: MaybeUninit<Result<RawPtr, ErrorCode>> = MaybeUninit::uninit();
                 ONCE.call_once(|| {
                     VALUE = MaybeUninit::new(
-                        load_proc(wchar::wch_c!($library), concat!(stringify!($sym), "\0"))
+                        load_proc($library, concat!(stringify!($sym), "\0"))
                     )
                 });
 
-                // Transmute doesn't work on generic types, as you can't constrain to a
-                // function pointer.
+                // transmute() doesn't work on generic types, as you can't constrain to a
+                // function pointer, so it must be done here outside load_proc().
                 type FnPtr = extern "system" fn ( $( $param: $pty ),* ) -> $rt;
                 let f = std::mem::transmute::<RawPtr, FnPtr>(VALUE.assume_init()?);
                 Ok( (f)( $( $param ),* ) )
