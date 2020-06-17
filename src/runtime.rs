@@ -42,7 +42,7 @@ unsafe fn load_proc(library: &[u16], sym: &str) -> Result<RawPtr, ErrorCode> {
 
 macro_rules! demand_load {
     ( $( $library:literal {
-        $(pub extern $($abi: literal)? fn $sym:ident ( $( $param: ident : $pty: ty ),* $(,)? ) -> $rt: ty;)*
+        $(pub fn $sym:ident ( $( $param: ident : $pty: ty ),* $(,)? ) -> $rt: ty;)*
     } )* ) => {
         $($(
             #[allow(non_snake_case)]
@@ -60,7 +60,7 @@ macro_rules! demand_load {
 
                 // Transmute doesn't work on generic types, as you can't constrain to a
                 // function pointer.
-                type FnPtr = extern $($abi)? fn ( $( $param: $pty ),* ) -> $rt;
+                type FnPtr = extern "system" fn ( $( $param: $pty ),* ) -> $rt;
                 let f = std::mem::transmute::<RawPtr, FnPtr>(VALUE.assume_init()?);
                 Ok( (f)( $( $param ),* ) )
             }
@@ -70,12 +70,12 @@ macro_rules! demand_load {
 
 demand_load! {
     "ole32.dll" {
-        pub extern "system" fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
+        pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
     }
     "combase.dll" {
-        pub extern "system" fn RoGetActivationFactory(hstring: *mut hstring::Header, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
-        pub extern "system" fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
-        pub extern "system" fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
+        pub fn RoGetActivationFactory(hstring: *mut hstring::Header, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
+        pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
+        pub fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
     }
 }
 
