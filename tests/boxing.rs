@@ -19,8 +19,26 @@ fn boxing() -> winrt::Result<()> {
     let object = PropertyValue::create_uint32_array(&[1, 2, 3])?;
     let pv: IPropertyValue = object.try_into()?;
     let mut array = winrt::Array::new();
+    assert!(array.is_empty());
+    assert!(array.len() == 0);
+
     pv.get_uint32_array(&mut array)?;
-    assert!(array.as_slice() == [1, 2, 3]);
+    assert!(array[..] == [1, 2, 3]);
+    assert!(!array.is_empty());
+    assert!(array.len() == 3);
+
+    let object =
+        PropertyValue::create_string_array(&["Hello".into(), "Rust".into(), "WinRT".into()])?;
+    let pv: IPropertyValue = object.try_into()?;
+    let mut array = winrt::Array::new();
+    assert!(array.is_empty());
+    assert!(array.len() == 0);
+
+    pv.get_string_array(&mut array)?;
+    assert!(array[..] == ["Hello", "Rust", "WinRT"]);
+    assert!(!array.is_empty());
+    assert!(array.len() == 3);
+    array.clear();
 
     Ok(())
 }

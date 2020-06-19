@@ -46,3 +46,8 @@ extern "system" {
     pub fn SysFreeString(bstr: *mut u16);
     pub fn GetErrorInfo(reserved: u32, info: *mut *mut u16) -> ErrorCode;
 }
+
+#[link(name = "ole32")]
+extern "system" {
+    pub fn CoTaskMemFree(ptr: RawPtr);
+}
