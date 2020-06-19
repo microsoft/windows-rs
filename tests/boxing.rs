@@ -20,7 +20,7 @@ fn boxing() -> winrt::Result<()> {
     let pv: IPropertyValue = object.try_into()?;
     let mut array = winrt::Array::new();
     pv.get_uint32_array(&mut array)?;
-    assert!(array.as_slice() == [1, 2, 3]);
+    assert!(array[..] == [1, 2, 3]);
 
     Ok(())
 }

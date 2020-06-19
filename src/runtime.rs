@@ -38,6 +38,7 @@ extern "system" {
 
     pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
     pub fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
+    pub fn CoTaskMemFree(ptr: RawPtr);
 }
 
 #[link(name = "oleaut32")]
