@@ -30,21 +30,23 @@ extern "system" {
     ) -> u32;
 }
 
-unsafe fn load_proc(library_name: &str, sym: &str) -> Result<RawPtr, ErrorCode> {
+fn load_proc(library_name: &str, sym: &str) -> Result<RawPtr, ErrorCode> {
     let library_name = library_name
         .encode_utf16()
         .chain(std::iter::once(0))
         .collect::<Vec<u16>>();
 
-    let library = LoadLibraryExW(
-        library_name.as_ptr(),
-        std::ptr::null_mut(),
-        LOAD_LIBRARY_SEARCH_SYSTEM32,
-    );
+    let library = unsafe {
+        LoadLibraryExW(
+            library_name.as_ptr(),
+            std::ptr::null_mut(),
+            LOAD_LIBRARY_SEARCH_SYSTEM32,
+        )
+    };
     if library.is_null() {
         return Err(ErrorCode::last_win32_error());
     }
-    let addr = GetProcAddress(library, sym.as_ptr());
+    let addr = unsafe { GetProcAddress(library, sym.as_ptr()) };
     if addr.is_null() {
         return Err(ErrorCode::last_win32_error());
     }
