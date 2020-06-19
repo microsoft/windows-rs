@@ -38,6 +38,7 @@ fn boxing() -> winrt::Result<()> {
     assert!(array[..] == ["Hello", "Rust", "WinRT"]);
     assert!(!array.is_empty());
     assert!(array.len() == 3);
+    array.clear();
 
     Ok(())
 }

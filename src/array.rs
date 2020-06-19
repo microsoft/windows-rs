@@ -37,9 +37,15 @@ impl<T: RuntimeType> Array<T> {
             return;
         }
 
+        let mut data = std::ptr::null_mut();
+        let mut len = 0;
+
+        std::mem::swap(&mut data, &mut self.data);
+        std::mem::swap(&mut len, &mut self.len);
+
         unsafe {
-            std::ptr::drop_in_place(&mut self[..]);
-            CoTaskMemFree(self.data as _);
+            std::ptr::drop_in_place(std::slice::from_raw_parts_mut(data, len as usize));
+            CoTaskMemFree(data as _);
         }
     }
 
@@ -57,7 +63,7 @@ impl<T: RuntimeType> std::ops::Deref for Array<T> {
     type Target = [T];
 
     fn deref(&self) -> &[T] {
-        if self.data.is_null() {
+        if self.is_empty() {
             return &[];
         }
 
@@ -67,7 +73,7 @@ impl<T: RuntimeType> std::ops::Deref for Array<T> {
 
 impl<T: RuntimeType> std::ops::DerefMut for Array<T> {
     fn deref_mut(&mut self) -> &mut [T] {
-        if self.data.is_null() {
+        if self.is_empty() {
             return &mut [];
         }
 
