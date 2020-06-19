@@ -38,7 +38,6 @@ extern "system" {
 
     pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
     pub fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
-    pub fn CoTaskMemFree(ptr: RawPtr);
 }
 
 #[link(name = "oleaut32")]
@@ -46,4 +45,9 @@ extern "system" {
     pub fn SysStringLen(bstr: *mut u16) -> u32;
     pub fn SysFreeString(bstr: *mut u16);
     pub fn GetErrorInfo(reserved: u32, info: *mut *mut u16) -> ErrorCode;
+}
+
+#[link(name = "ole32")]
+extern "system" {
+    pub fn CoTaskMemFree(ptr: RawPtr);
 }
