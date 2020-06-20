@@ -1,10 +1,11 @@
 mod blob;
 mod case;
 mod codes;
-
+mod element_type;
 mod file;
 mod flags;
 mod row;
+mod signatures;
 mod tables;
 mod type_limits;
 mod type_namespaces;

@@ -1,6 +1,5 @@
 use super::object::to_object_tokens;
 use crate::tables::*;
-use crate::types::debug;
 use crate::types::*;
 use crate::TypeReader;
 use proc_macro2::TokenStream;
@@ -14,6 +13,7 @@ pub struct Class {
     pub bases: Vec<TypeName>,
     pub interfaces: Vec<RequiredInterface>,
     pub default_constructor: bool,
+    pub is_agile: bool,
     pub signature: String,
 }
 
@@ -50,6 +50,7 @@ impl Class {
         }
 
         let mut default_constructor = false;
+        let mut is_agile = false;
 
         for attribute in def.attributes(reader) {
             match attribute.name(reader) {
@@ -71,6 +72,12 @@ impl Class {
                         None => default_constructor = true,
                     }
                 }
+                ("Windows.Foundation.Metadata", "MarshalingBehaviorAttribute") => {
+                    let args = attribute.args(reader);
+                    if let AttributeArg::I16(marshaling_type) = args[0].1 {
+                        is_agile = marshaling_type == 2; // MarshalingType.Agile
+                    }
+                }
                 _ => {}
             }
         }
@@ -80,6 +87,7 @@ impl Class {
             interfaces,
             bases,
             default_constructor,
+            is_agile,
             signature,
         }
     }
@@ -122,6 +130,17 @@ impl Class {
             let async_get = async_get_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
+            let send_sync = if self.is_agile {
+                let constraints = &*self.name.constraints();
+                let name = &*self.name.to_tokens(&self.name.namespace);
+                quote! {
+                    unsafe impl<#constraints> ::std::marker::Send for #name {}
+                    unsafe impl<#constraints> ::std::marker::Sync for #name {}
+                }
+            } else {
+                quote! {}
+            };
+
             quote! {
                 #[repr(transparent)]
                 #[derive(Default, Clone, PartialEq)]
@@ -157,6 +176,7 @@ impl Class {
                 #object
                 #bases
                 #iterator
+                #send_sync
             }
         } else {
             quote! {
@@ -256,6 +276,7 @@ mod tests {
         assert!(t.default_constructor == false);
         assert!(t.bases.is_empty());
         assert!(t.interfaces.len() == 5);
+        assert!(t.is_agile);
 
         let interface = t
             .interfaces
@@ -422,5 +443,20 @@ mod tests {
 
         assert!(interface.kind == InterfaceKind::Default);
         assert!(interface.name.runtime_name() == "Windows.UI.Composition.ICompositor");
+    }
+
+    #[test]
+    fn test_is_agile() {
+        // MarshalType.Standard
+        let t = class(("Windows.UI.Core", "CoreWindow"));
+        assert!(t.is_agile == false);
+
+        // MarshalType.None
+        let t = class(("Windows.System.Display", "DisplayRequest"));
+        assert!(t.is_agile == false);
+
+        // MarshalType.Agile
+        let t = class(("Windows.Foundation", "Uri"));
+        assert!(t.is_agile == true);
     }
 }
