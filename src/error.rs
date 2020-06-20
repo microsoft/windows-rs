@@ -22,8 +22,10 @@ impl Error {
         let message: HString = message.into();
 
         // RoOriginateError creates the error object and associates it with the thread.
+        // Need to ignore the result, as that is the delay-load error, which would mean
+        // that there's no WinRT to tell about the error.
         unsafe {
-            RoOriginateError(code, message.get_abi() as _);
+            let _ = RoOriginateError(code, message.get_abi() as _);
         }
 
         let mut info = IErrorInfo::default();
@@ -129,6 +131,19 @@ impl ErrorCode {
 
     /// Indicates that COM has not been initialized.
     pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
+
+    /// Creates a failure code from GetLastError()
+    #[inline]
+    pub(crate) fn last_win32_error() -> Self {
+        Self::from_win32(unsafe { GetLastError() })
+    }
+
+    /// Creates a failure code with the provided win32 error code.
+    #[inline]
+    pub(crate) fn from_win32(error: u32) -> Self {
+        // equivalent to MAKE_WIN32_HRESULT(error)
+        Self(0x8007_0000 | error & 0xFFFF)
+    }
 }
 
 impl<T> std::convert::From<Result<T>> for ErrorCode {
@@ -137,8 +152,10 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
             if let Some(info) = error.info.get_abi() {
                 // Set the error information on the thread if the result is `Err`
                 // so that the caller can pick it up.
+                // Need to ignore the result, as that is the delay-load error, which would mean
+                // that there's no WinRT to tell about the error.
                 unsafe {
-                    SetRestrictedErrorInfo(info.as_raw() as _);
+                    let _ = SetRestrictedErrorInfo(info.as_raw() as _);
                 }
             }
 

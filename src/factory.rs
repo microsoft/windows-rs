@@ -9,19 +9,27 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let mut code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
+        let code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
+
+        // Treat any delay-load errors like standard errors, so that the heuristics
+        // below can still load registration-free libraries on Windows versions below 10.
+        let mut code = code.unwrap_or_else(|code| code);
 
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
         if code == ErrorCode::NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
-            CoIncrementMTAUsage(&mut _cookie);
+
+            // Won't get any delay-load errors here if we got NOT_INITIALIZED, so quiet the
+            // warning from the #[must_use] on the returned Result<>.
+            let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
+            code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory)
+                .unwrap_or_else(|code| code);
         }
 
-        // If this succeeded then retun the resulting factory interface.
+        // If this succeeded then return the resulting factory interface.
         if code.is_ok() {
             return Ok(std::mem::transmute_copy(&factory));
         }
@@ -47,7 +55,8 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
                 .collect();
 
             // Attempt to load the DLL.
-            let library = Library::from_handle(LoadLibraryW(path.as_ptr()));
+            let library =
+                Library::from_handle(LoadLibraryExW(path.as_ptr(), std::ptr::null_mut(), 0));
 
             if library.handle.is_null() {
                 continue;
