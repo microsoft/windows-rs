@@ -52,8 +52,8 @@ pub fn default_debug_tokens(type_name: &TypeName) -> TokenStream {
 }
 
 fn to_tokens(type_name: &TypeName, implementation: &TokenStream) -> TokenStream {
-    let constraints = &*type_name.constraints();
-    let name = &*type_name.to_tokens(&type_name.namespace);
+    let constraints = &type_name.constraints;
+    let name = &type_name.tokens;
     quote! {
         impl<#constraints> ::std::fmt::Debug for #name {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {

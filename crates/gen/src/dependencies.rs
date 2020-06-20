@@ -1,30 +1,43 @@
 use std::collections::BTreeSet;
+use std::io;
 use std::path::{Path, PathBuf};
 
 /// Returns the paths to resolved dependencies
-pub fn expand_paths<P: AsRef<Path>>(dependency: P, result: &mut BTreeSet<PathBuf>, recurse: bool) {
+pub fn expand_paths<P: AsRef<Path>>(
+    dependency: P,
+    result: &mut BTreeSet<PathBuf>,
+    recurse: bool,
+) -> io::Result<()> {
     let path = dependency.as_ref();
 
     if path.is_dir() {
-        let paths = std::fs::read_dir(path).unwrap_or_else(|e| {
-            panic!(
-                "Could not read dependecy directory at path {:?}: {}",
-                path, e
-            )
-        });
+        let paths = std::fs::read_dir(path)?;
         for path in paths {
             let path = path.expect("Could not read directory entry");
             let path = path.path();
             if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
                 result.insert(path);
             } else if path.is_dir() && recurse {
-                expand_paths(path, result, recurse)
+                expand_paths(path, result, recurse)?
             }
         }
+        Ok(())
     } else if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
         result.insert(path.to_path_buf());
+        Ok(())
+    } else if !path.exists() {
+        Err(io::Error::new(
+            io::ErrorKind::NotFound,
+            format!("dependency path '{}' does not exist", path.display()),
+        ))
     } else {
-        panic!("Dependency {} is not a file or directory", path.display());
+        Err(io::Error::new(
+            io::ErrorKind::NotFound,
+            format!(
+                "dependency path '{}' is not a directory or winmd file",
+                path.display()
+            ),
+        ))
     }
 }
 
@@ -35,15 +48,13 @@ pub fn nuget_root() -> PathBuf {
     path
 }
 
-pub fn system_metadata_root() -> PathBuf {
-    let mut path = PathBuf::new();
-    let wind_dir_env = std::env::var("windir")
-        .unwrap_or_else(|_| panic!("No `windir` environment variable found"));
-    path.push(wind_dir_env);
+pub fn system_metadata_root() -> Option<PathBuf> {
+    let wind_dir_env = std::env::var("windir").ok()?;
+    let mut path = PathBuf::from(wind_dir_env);
     path.push(SYSTEM32);
     path.push("winmetadata");
 
-    path
+    Some(path)
 }
 
 fn workspace_root() -> PathBuf {

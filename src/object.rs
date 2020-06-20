@@ -12,16 +12,15 @@ pub struct Object {
 impl Object {
     /// Returns the fully-qualified type name of the WinRT object.
     pub fn type_name(&self) -> Result<HString> {
-        match self.get_abi() {
-            None => panic!("The `this` pointer was null when calling method"),
-            Some(this) => {
-                let mut string = HString::default();
-                unsafe {
-                    (this.vtable().inspectable_type_name)(this, string.set_abi()).ok()?;
-                }
-                Ok(string)
-            }
+        let this = self
+            .get_abi()
+            .expect("The `this` pointer was null when calling method");
+
+        let mut string = HString::default();
+        unsafe {
+            (this.vtable().inspectable_type_name)(this, string.set_abi()).ok()?;
         }
+        Ok(string)
     }
 }
 

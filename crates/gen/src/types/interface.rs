@@ -15,16 +15,16 @@ pub struct Interface {
 }
 
 impl Interface {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
+    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let mut interfaces = Vec::new();
 
         // Ensures that the default interface is first in line.
-        let mut default_interface = RequiredInterface::from_type_def(reader, def);
+        let mut default_interface =
+            RequiredInterface::from_type_def(reader, name.def, &name.namespace);
         default_interface.kind = InterfaceKind::Default;
         interfaces.push(default_interface);
 
-        RequiredInterface::append_required(reader, &name, &mut interfaces);
+        RequiredInterface::append_required(reader, &name, &name.namespace, &mut interfaces);
         let signature = name.base_interface_signature(reader);
 
         Self {
@@ -51,21 +51,24 @@ impl Interface {
     }
 
     pub fn to_tokens(&self) -> TokenStream {
-        let definition = self.name.to_definition_tokens(&self.name.namespace);
-        let abi_definition = self.name.to_abi_definition_tokens(&self.name.namespace);
-        let name = &*self.name.to_tokens(&self.name.namespace);
+        let definition = self.name.to_definition_tokens();
+        let abi_definition = self.name.to_abi_definition_tokens();
+        let name = &self.name.tokens;
         let phantoms = self.name.phantoms();
-        let constraints = &*self.name.constraints();
+        let constraints = &self.name.constraints;
         let default_interface = &self.interfaces[0];
         debug_assert!(default_interface.kind == InterfaceKind::Default);
         let guid = self.name.to_guid_tokens(&default_interface.guid);
-        let conversions = TokenStream::from_iter(self.interfaces.iter().skip(1).map(|interface| {
-            interface.to_conversions_tokens(&self.name.namespace, &name, &constraints)
-        }));
+        let conversions = TokenStream::from_iter(
+            self.interfaces
+                .iter()
+                .skip(1)
+                .map(|interface| interface.to_conversions_tokens(&name, &constraints)),
+        );
 
         let object = to_object_tokens(&name, &constraints);
-        let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
-        let abi_methods = default_interface.to_abi_method_tokens(&default_interface.name.namespace);
+        let methods = to_method_tokens(&self.interfaces);
+        let abi_methods = default_interface.to_abi_method_tokens();
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
         let async_get = async_get_tokens(&self.name, &self.interfaces);
@@ -142,7 +145,8 @@ mod tests {
 
     fn interface((namespace, type_name): (&str, &str)) -> Interface {
         let reader = &TypeReader::from_os();
-        let t = reader.resolve_type((namespace, type_name));
+        let t = reader.resolve_type_def((namespace, type_name));
+        let t = Type::from_type_def(reader, t);
 
         match t {
             Type::Interface(t) => t,

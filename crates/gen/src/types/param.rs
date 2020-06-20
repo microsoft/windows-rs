@@ -13,9 +13,9 @@ pub struct Param {
 }
 
 impl Param {
-    pub fn to_tokens(&self, calling_namespace: &str, position: usize) -> TokenStream {
+    pub fn to_tokens(&self, position: usize) -> TokenStream {
         let name = format_ident(&self.name);
-        let tokens = self.kind.to_tokens(calling_namespace);
+        let tokens = self.kind.to_tokens();
 
         if self.array {
             if self.input {
@@ -45,8 +45,8 @@ impl Param {
         }
     }
 
-    pub fn to_fn_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let tokens = self.kind.to_tokens(calling_namespace);
+    pub fn to_fn_tokens(&self) -> TokenStream {
+        let tokens = self.kind.to_tokens();
 
         if self.array {
             if self.input {
@@ -75,8 +75,8 @@ impl Param {
         }
     }
 
-    pub fn to_return_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let tokens = self.kind.to_tokens(calling_namespace);
+    pub fn to_return_tokens(&self) -> TokenStream {
+        let tokens = self.kind.to_tokens();
 
         if self.array {
             quote! { ::winrt::Array<#tokens> }
@@ -85,8 +85,8 @@ impl Param {
         }
     }
 
-    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let tokens = self.kind.to_abi_tokens(calling_namespace);
+    pub fn to_abi_tokens(&self) -> TokenStream {
+        let tokens = self.kind.to_abi_tokens();
 
         if self.array {
             if self.input {
@@ -103,8 +103,8 @@ impl Param {
         }
     }
 
-    pub fn to_abi_return_arg_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let return_type = self.kind.to_tokens(calling_namespace);
+    pub fn to_abi_return_arg_tokens(&self) -> TokenStream {
+        let return_type = self.kind.to_tokens();
 
         if self.array {
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut __ok), winrt::Array::<#return_type>::set_abi(&mut __ok), }
@@ -125,7 +125,7 @@ impl Param {
                 quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name), }
             }
         } else if self.input {
-            if self.kind.blittable() {
+            if self.kind.primitive() {
                 quote! { #name, }
             } else {
                 match self.kind {
@@ -141,7 +141,7 @@ impl Param {
                     _ => quote! { ::winrt::AbiTransferable::get_abi(#name), },
                 }
             }
-        } else if self.kind.blittable() {
+        } else if self.kind.primitive() {
             quote! { #name, }
         } else {
             quote! { ::winrt::AbiTransferable::set_abi(#name), }
@@ -160,7 +160,7 @@ impl Param {
                 TypeKind::Enum(_) => quote! { *::winrt::AbiTransferable::from_abi(&#name) },
                 _ => quote! { ::winrt::AbiTransferable::from_abi(&#name) },
             }
-        } else if self.kind.blittable() {
+        } else if self.kind.primitive() {
             quote! { #name, }
         } else {
             quote! { ::winrt::AbiTransferable::from_mut_abi(#name) }

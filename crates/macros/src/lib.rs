@@ -12,6 +12,7 @@ use winrt_gen::{
     dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage, WinmdFile,
 };
 
+use std::convert::{TryFrom, TryInto};
 use std::{collections::BTreeSet, path::PathBuf};
 
 /// A macro for generating WinRT modules into the current module.
@@ -158,10 +159,9 @@ pub fn build(stream: TokenStream) -> TokenStream {
 }
 
 /// A parsed `import!` macro
-#[derive(Debug)]
 struct ImportMacro {
     dependencies: Dependencies,
-    types: Types,
+    types: TypesDeclarations,
 }
 
 impl ImportMacro {
@@ -176,17 +176,26 @@ impl ImportMacro {
             .iter()
             .map(|p| WinmdFile::new(p))
             .collect();
-        let reader = &TypeReader::new(dependencies);
 
+        let reader = &TypeReader::new(dependencies);
         let mut limits = TypeLimits::new(reader);
 
         for limit in self.types.0 {
-            limits.insert(limit);
+            let types = limit.types;
+            let syntax = limit.syntax;
+            if let Err(e) = limits.insert(types).map_err(|ns| {
+                syn::Error::new_spanned(syntax, format!("'{}' is not a known namespace", ns))
+            }) {
+                return e.to_compile_error().into();
+            };
         }
 
         let stage = TypeStage::from_limits(reader, &limits);
         let tree = stage.into_tree();
-        tree.to_tokens().into()
+
+        tree.to_tokens()
+            .collect::<proc_macro2::TokenStream>()
+            .into()
     }
 }
 
@@ -195,7 +204,7 @@ impl Parse for ImportMacro {
         let _ = input.parse::<keywords::dependencies>()?;
         let dependencies: Dependencies = input.parse()?;
         let _ = input.parse::<keywords::types>()?;
-        let types: Types = input.parse()?;
+        let types: TypesDeclarations = input.parse()?;
 
         Ok(ImportMacro {
             dependencies,
@@ -223,22 +232,27 @@ impl Parse for Dependencies {
             Nuget,
         }
         let mut dependencies = BTreeSet::new();
-        while let Some(keyword) = {
-            if input.peek(keywords::os) {
-                let _ = input.parse::<keywords::os>();
-                Some(Keyword::Os)
-            } else if input.peek(keywords::nuget) {
-                let _ = input.parse::<keywords::nuget>();
-                Some(Keyword::Nuget)
+        while let Some((keyword, keyword_span)) = {
+            if let Some(k) = input.parse::<Option<keywords::os>>()? {
+                Some((Keyword::Os, k.span()))
+            } else if let Some(k) = input.parse::<Option<keywords::nuget>>()? {
+                Some((Keyword::Nuget, k.span()))
             } else {
                 None
             }
         } {
             match keyword {
                 Keyword::Os => {
-                    let path = dependencies::system_metadata_root();
+                    let path = dependencies::system_metadata_root().ok_or_else(|| {
+                        syn::Error::new(keyword_span, "'windir' environment variable is not set. Perhaps you're trying to use operating system dependencies on a non-Windows OS?")
+                    })?;
 
-                    dependencies::expand_paths(path, &mut dependencies, false);
+                    dependencies::expand_paths(&path, &mut dependencies, false).map_err(|_| {
+                        syn::Error::new(
+                            keyword_span,
+                            format!("system metadata cannot be found at '{}'", path.display()),
+                        )
+                    })?;
                 }
                 Keyword::Nuget => {
                     input.parse::<Token![:]>()?;
@@ -253,7 +267,12 @@ impl Parse for Dependencies {
                     let mut path = dependencies::nuget_root();
                     path.push(name);
 
-                    dependencies::expand_paths(path, &mut dependencies, true);
+                    dependencies::expand_paths(path, &mut dependencies, true).map_err(|e| {
+                        syn::Error::new_spanned(
+                            package,
+                            format!("could not read dependency: {}", e),
+                        )
+                    })?;
                 }
             }
         }
@@ -262,20 +281,51 @@ impl Parse for Dependencies {
 }
 
 /// A parsed `types` section of the `import!` macro
-#[derive(Debug)]
-struct Types(BTreeSet<NamespaceTypes>);
+struct TypesDeclarations(BTreeSet<TypesDeclaration>);
 
-impl Parse for Types {
+struct TypesDeclaration {
+    types: NamespaceTypes,
+    syntax: syn::UseTree,
+}
+impl std::cmp::PartialOrd for TypesDeclaration {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+impl std::cmp::Ord for TypesDeclaration {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.types.cmp(&other.types)
+    }
+}
+impl PartialEq for TypesDeclaration {
+    fn eq(&self, other: &Self) -> bool {
+        self.types == other.types
+    }
+}
+impl Eq for TypesDeclaration {}
+
+impl TryFrom<syn::UseTree> for TypesDeclaration {
+    type Error = syn::Error;
+    fn try_from(tree: UseTree) -> Result<Self, Self::Error> {
+        Ok(Self {
+            types: use_tree_to_namespace_types(&tree)?,
+            syntax: tree,
+        })
+    }
+}
+
+impl Parse for TypesDeclarations {
     fn parse(input: ParseStream) -> parse::Result<Self> {
-        let mut limits = BTreeSet::<NamespaceTypes>::new();
+        let mut limits = BTreeSet::new();
         loop {
             if input.is_empty() {
                 break;
             }
 
             let use_tree: syn::UseTree = input.parse()?;
+            let limit: TypesDeclaration = use_tree.try_into()?;
 
-            limits.insert(use_tree_to_namespace_types(use_tree)?);
+            limits.insert(limit);
         }
         Ok(Self(limits))
     }
@@ -293,8 +343,8 @@ fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     result
 }
 
-fn use_tree_to_namespace_types(use_tree: syn::UseTree) -> parse::Result<NamespaceTypes> {
-    fn recurse(tree: UseTree, current: &mut String) -> parse::Result<NamespaceTypes> {
+fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> parse::Result<NamespaceTypes> {
+    fn recurse(tree: &UseTree, current: &mut String) -> parse::Result<NamespaceTypes> {
         fn check_for_module_instead_of_type(name: &str, span: Span) -> parse::Result<()> {
             let error = Err(Error::new(
                 span,
@@ -314,7 +364,7 @@ fn use_tree_to_namespace_types(use_tree: syn::UseTree) -> parse::Result<Namespac
 
                 current.push_str(&p.ident.to_string());
 
-                recurse(*p.tree, current)
+                recurse(&*p.tree, current)
             }
             UseTree::Glob(_) => {
                 let namespace = namespace_literal_to_rough_namespace(&current.clone());
@@ -327,8 +377,8 @@ fn use_tree_to_namespace_types(use_tree: syn::UseTree) -> parse::Result<Namespac
                 let namespace = namespace_literal_to_rough_namespace(&current.clone());
 
                 let mut types = Vec::with_capacity(g.items.len());
-                for tree in g.items {
-                    match &tree {
+                for tree in &g.items {
+                    match tree {
                         UseTree::Name(n) => {
                             let name = n.ident.to_string();
                             check_for_module_instead_of_type(&name, n.span())?;

@@ -3,7 +3,6 @@ use crate::codes::Decode;
 use crate::file::{TableIndex, View, WinmdFile};
 use crate::row::Row;
 use crate::tables::TypeDef;
-use crate::types::Type;
 
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
@@ -83,15 +82,6 @@ impl TypeReader {
         }
 
         panic!("Could not find type `{}.{}`", namespace, type_name);
-    }
-
-    pub fn resolve_type(&self, (namespace, type_name): (&str, &str)) -> Type {
-        Type::from_type_def(self, self.resolve_type_def((namespace, type_name)))
-    }
-
-    /// Resolve a type's definition ([`TypeDef`]) to a [`Type`]
-    pub fn type_info(&self, def: TypeDef) -> Type {
-        Type::from_type_def(self, def)
     }
 
     /// Read a [`u32`] value from a specific [`Row`] and column

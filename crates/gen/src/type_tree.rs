@@ -1,7 +1,6 @@
 use crate::type_namespaces::TypeNamespaces;
 use crate::types::Type;
 use proc_macro2::TokenStream;
-use std::iter::FromIterator;
 
 /// A namespaced tree of types
 #[derive(Default)]
@@ -32,13 +31,11 @@ impl TypeTree {
     }
 
     /// Turn the tree into a token stream for code generation
-    pub fn to_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(
-            self.types
-                .iter()
-                .map(|t| t.to_tokens())
-                .chain(std::iter::once(self.namespaces.to_tokens())),
-        )
+    pub fn to_tokens<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+        self.types
+            .iter()
+            .map(|t| t.to_tokens())
+            .chain(self.namespaces.to_tokens())
     }
 }
 
@@ -52,14 +49,18 @@ mod tests {
     fn test_dependency_inclusion() {
         let reader = &TypeReader::from_os();
         let mut limits = TypeLimits::new(reader);
-        limits.insert(NamespaceTypes {
-            namespace: "windows.foundation".to_owned(),
-            limit: TypeLimit::All,
-        });
-        limits.insert(NamespaceTypes {
-            namespace: "windows.ui".to_owned(),
-            limit: TypeLimit::All,
-        });
+        limits
+            .insert(NamespaceTypes {
+                namespace: "windows.foundation".to_owned(),
+                limit: TypeLimit::All,
+            })
+            .unwrap();
+        limits
+            .insert(NamespaceTypes {
+                namespace: "windows.ui".to_owned(),
+                limit: TypeLimit::All,
+            })
+            .unwrap();
         let stage = TypeStage::from_limits(reader, &limits);
 
         // Since Windows.Foundation depends on Windows.Foundation.Collections and

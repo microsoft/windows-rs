@@ -22,8 +22,10 @@ impl Error {
         let message: HString = message.into();
 
         // RoOriginateError creates the error object and associates it with the thread.
+        // Need to ignore the result, as that is the delay-load error, which would mean
+        // that there's no WinRT to tell about the error.
         unsafe {
-            RoOriginateError(code, message.get_abi() as _);
+            let _ = RoOriginateError(code, message.get_abi() as _);
         }
 
         let mut info = IErrorInfo::default();
@@ -69,7 +71,7 @@ impl Error {
                 std::ptr::null_mut(),
                 self.code,
                 0x0000_0400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
-                &mut message.ptr,
+                message.set_abi(),
                 0,
                 std::ptr::null_mut(),
             );
@@ -129,6 +131,19 @@ impl ErrorCode {
 
     /// Indicates that COM has not been initialized.
     pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
+
+    /// Creates a failure code from GetLastError()
+    #[inline]
+    pub(crate) fn last_win32_error() -> Self {
+        Self::from_win32(unsafe { GetLastError() })
+    }
+
+    /// Creates a failure code with the provided win32 error code.
+    #[inline]
+    pub(crate) fn from_win32(error: u32) -> Self {
+        // equivalent to MAKE_WIN32_HRESULT(error)
+        Self(0x8007_0000 | error & 0xFFFF)
+    }
 }
 
 impl<T> std::convert::From<Result<T>> for ErrorCode {
@@ -137,8 +152,10 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
             if let Some(info) = error.info.get_abi() {
                 // Set the error information on the thread if the result is `Err`
                 // so that the caller can pick it up.
+                // Need to ignore the result, as that is the delay-load error, which would mean
+                // that there's no WinRT to tell about the error.
                 unsafe {
-                    SetRestrictedErrorInfo(info.as_raw() as _);
+                    let _ = SetRestrictedErrorInfo(info.as_raw() as _);
                 }
             }
 
@@ -226,8 +243,16 @@ impl BString {
             self.ptr = std::ptr::null_mut();
         }
     }
+}
 
-    pub fn set_abi(&mut self) -> *mut *mut u16 {
+unsafe impl AbiTransferable for BString {
+    type Abi = *mut u16;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
         self.clear();
         &mut self.ptr
     }
@@ -264,6 +289,18 @@ impl HeapString {
         Self {
             ptr: std::ptr::null_mut(),
         }
+    }
+}
+
+unsafe impl AbiTransferable for HeapString {
+    type Abi = *mut u16;
+
+    fn get_abi(&self) -> Self::Abi {
+        self.ptr
+    }
+
+    fn set_abi(&mut self) -> *mut Self::Abi {
+        &mut self.ptr
     }
 }
 
@@ -327,7 +364,10 @@ unsafe impl AbiTransferable for IErrorInfo {
 #[repr(C)]
 struct abi_IErrorInfo {
     __base: [usize; 5],
-    get_description: unsafe extern "system" fn(RawComPtr<IErrorInfo>, *mut *mut u16) -> ErrorCode,
+    get_description: unsafe extern "system" fn(
+        RawComPtr<IErrorInfo>,
+        *mut <BString as AbiTransferable>::Abi,
+    ) -> ErrorCode,
 }
 
 #[repr(transparent)]
@@ -397,10 +437,10 @@ struct abi_IRestrictedErrorInfo {
     __base: [usize; 3],
     get_error_details: unsafe extern "system" fn(
         RawComPtr<IRestrictedErrorInfo>,
-        *mut *mut u16,
+        *mut <BString as AbiTransferable>::Abi,
         *mut ErrorCode,
-        *mut *mut u16,
-        *mut *mut u16,
+        *mut <BString as AbiTransferable>::Abi,
+        *mut <BString as AbiTransferable>::Abi,
     ) -> ErrorCode,
 }
 
