@@ -1,5 +1,4 @@
 use crate::element_type::ElementType;
-use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 
@@ -24,7 +23,7 @@ impl Enum {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let signature = name.enum_signature(reader);
         let mut fields = Vec::new();
-      
+
         let mut underlying_type = None;
 
         for field in name.def.fields(reader) {

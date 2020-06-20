@@ -130,8 +130,8 @@ impl Class {
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
             let send_sync = if self.is_agile {
-                let constraints = &*self.name.constraints();
-                let name = &*self.name.to_tokens(&self.name.namespace);
+                let constraints = &self.name.constraints;
+                let name = &self.name.tokens;
                 quote! {
                     unsafe impl<#constraints> ::std::marker::Send for #name {}
                     unsafe impl<#constraints> ::std::marker::Sync for #name {}

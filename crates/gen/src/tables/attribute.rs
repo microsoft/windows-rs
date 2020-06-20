@@ -3,7 +3,7 @@ use crate::codes::{AttributeType, HasAttribute, MemberRefParent, TypeDefOrRef};
 use crate::element_type::ElementType;
 use crate::row::Row;
 use crate::tables::TypeDef;
-use crate::types::Enum;
+use crate::types::{Enum, TypeName};
 use crate::TypeReader;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -71,13 +71,14 @@ impl Attribute {
                         )
                     } else {
                         // Can't resolve it until we know it's an enum, because System.Type won't actually resolve.
-                        let type_def = match type_def_or_ref {
-                            TypeDefOrRef::TypeDef(type_def) => type_def,
-                            TypeDefOrRef::TypeRef(type_ref) => type_ref.resolve(reader),
-                            _ => panic!("Expected a TypeDef or TypeRef!"),
-                        };
+                        let type_name = TypeName::from_type_def_or_ref(
+                            reader,
+                            type_def_or_ref,
+                            &Vec::new(),
+                            "",
+                        );
 
-                        let e = Enum::from_type_def(reader, type_def);
+                        let e = Enum::from_type_name(reader, type_name);
                         read_enum(&e.underlying_type, &mut values)
                     }
                 }
