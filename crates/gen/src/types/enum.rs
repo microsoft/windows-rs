@@ -1,4 +1,3 @@
-use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 
@@ -19,12 +18,11 @@ pub enum EnumConstant {
 }
 
 impl Enum {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
+    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let signature = name.enum_signature(reader);
         let mut fields = Vec::new();
 
-        for field in def.fields(reader) {
+        for field in name.def.fields(reader) {
             for constant in field.constants(reader) {
                 let name = field.name(reader).to_string();
                 let mut value = constant.value(reader);
@@ -47,7 +45,7 @@ impl Enum {
     }
 
     pub fn to_tokens(&self) -> TokenStream {
-        let name = &*self.name.to_tokens(&self.name.namespace);
+        let name = &self.name.tokens;
         let signature = &self.signature;
 
         let repr = match self.fields[0].1 {

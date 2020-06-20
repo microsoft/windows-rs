@@ -7,27 +7,22 @@ use proc_macro2::TokenStream;
 use quote::quote;
 
 use std::collections::*;
-use std::iter::FromIterator;
 
 #[derive(Default)]
 pub struct TypeNamespaces(pub BTreeMap<String, TypeTree>);
 
 impl TypeNamespaces {
-    pub fn to_tokens(&self) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for (name, tree) in self.0.iter() {
+    pub fn to_tokens<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+        self.0.iter().map(|(name, tree)| {
             let name = case::to_snake(name, MethodKind::Normal);
             let name = format_ident(&name);
             let tree = tree.to_tokens();
 
-            tokens.push(quote! {
+            quote! {
                 pub mod #name {
-                    #tree
+                    #(#tree)*
                 }
-            });
-        }
-
-        TokenStream::from_iter(tokens)
+            }
+        })
     }
 }

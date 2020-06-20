@@ -18,12 +18,11 @@ pub struct Class {
 }
 
 impl Class {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def);
+    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let mut interfaces = Vec::new();
         RequiredInterface::append_default(reader, &name, &mut interfaces);
         let mut bases = Vec::new();
-        let mut base = def;
+        let mut base = name.def;
 
         let signature = if !interfaces.is_empty() && interfaces[0].kind == InterfaceKind::Default {
             name.class_signature(reader)
@@ -32,31 +31,28 @@ impl Class {
         };
 
         loop {
-            let (namespace, name) = base.extends(reader).name(reader);
+            let (base_namespace, base_name) = base.extends(reader).name(reader);
 
-            if (namespace, name) == ("System", "Object") {
+            if (base_namespace, base_name) == ("System", "Object") {
                 break;
             }
 
-            base = reader.resolve_type_def((namespace, name));
-            let namespace = namespace.to_string();
-            let name = name.to_string();
-            let generics = Vec::new();
+            base = reader.resolve_type_def((base_namespace, base_name));
+            let base = TypeName::from_type_def(reader, base, &name.namespace);
 
-            let base = TypeName::new(namespace, name, generics, base);
-
-            RequiredInterface::append_required(reader, &base, &mut interfaces);
+            RequiredInterface::append_required(reader, &base, &name.namespace, &mut interfaces);
             bases.push(base);
         }
 
         let mut default_constructor = false;
 
-        for attribute in def.attributes(reader) {
+        for attribute in name.def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
                     let mut interface = RequiredInterface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
+                        &name.namespace,
                     );
                     interface.kind = InterfaceKind::Statics;
                     interfaces.push(interface);
@@ -64,7 +60,8 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            let mut interface = RequiredInterface::from_type_def(reader, def);
+                            let mut interface =
+                                RequiredInterface::from_type_def(reader, def, &name.namespace);
                             interface.kind = InterfaceKind::Statics;
                             interfaces.push(interface);
                         }
@@ -93,14 +90,16 @@ impl Class {
     }
 
     pub fn to_tokens(&self) -> TokenStream {
-        let name = &*self.name.to_tokens(&self.name.namespace);
+        let name = &self.name.tokens;
         let type_name = self.type_name(&name);
-        let methods = to_method_tokens(&self.name.namespace, &self.interfaces);
+        let methods = to_method_tokens(&self.interfaces);
 
         if self.interfaces[0].kind == InterfaceKind::Default {
-            let conversions = TokenStream::from_iter(self.interfaces.iter().map(|interface| {
-                interface.to_conversions_tokens(&self.name.namespace, &name, &TokenStream::new())
-            }));
+            let conversions = TokenStream::from_iter(
+                self.interfaces
+                    .iter()
+                    .map(|interface| interface.to_conversions_tokens(&name, &TokenStream::new())),
+            );
 
             let new = if self.default_constructor {
                 quote! {
@@ -113,12 +112,12 @@ impl Class {
             };
 
             let object = to_object_tokens(&name, &TokenStream::new());
-            let bases = self.to_base_conversions_tokens(&self.name.namespace, &name);
+            let bases = self.to_base_conversions_tokens(&name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = &self.signature;
 
-            let default_name = &*self.interfaces[0].name.to_tokens(&self.name.namespace);
-            let abi_name = self.interfaces[0].name.to_abi_tokens(&self.name.namespace);
+            let default_name = &self.interfaces[0].name.tokens;
+            let abi_name = self.interfaces[0].name.to_abi_tokens();
             let async_get = async_get_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
@@ -167,13 +166,9 @@ impl Class {
         }
     }
 
-    pub fn to_base_conversions_tokens(
-        &self,
-        calling_namespace: &str,
-        from: &TokenStream,
-    ) -> TokenStream {
+    pub fn to_base_conversions_tokens(&self, from: &TokenStream) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {
-            let into = &*base.to_tokens(calling_namespace);
+            let into = &base.tokens;
             quote! {
                 impl ::std::convert::From<#from> for #into {
                     fn from(value: #from) -> #into {

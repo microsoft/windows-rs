@@ -96,36 +96,71 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, _generics: &Vec<TypeKind>) -> Self {
-        Self::from_type_name(reader, TypeName::from_type_def(reader, def))
+    pub fn from_type_def(
+        reader: &TypeReader,
+        def: TypeDef,
+        _generics: &Vec<TypeKind>,
+        calling_namespace: &str,
+    ) -> Self {
+        Self::from_type_name(
+            reader,
+            TypeName::from_type_def(reader, def, calling_namespace),
+        )
     }
 
-    pub fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, generics: &Vec<TypeKind>) -> Self {
+    pub fn from_type_ref(
+        reader: &TypeReader,
+        type_ref: TypeRef,
+        generics: &Vec<TypeKind>,
+        calling_namespace: &str,
+    ) -> Self {
         let (namespace, name) = type_ref.name(reader);
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
         } else {
-            Self::from_type_def(reader, reader.resolve_type_def((namespace, name)), generics)
+            Self::from_type_def(
+                reader,
+                reader.resolve_type_def((namespace, name)),
+                generics,
+                calling_namespace,
+            )
         }
     }
 
-    pub fn from_type_spec(reader: &TypeReader, spec: TypeSpec, generics: &Vec<TypeKind>) -> Self {
-        TypeKind::Interface(TypeName::from_type_spec(reader, spec, generics))
+    pub fn from_type_spec(
+        reader: &TypeReader,
+        spec: TypeSpec,
+        generics: &Vec<TypeKind>,
+        calling_namespace: &str,
+    ) -> Self {
+        TypeKind::Interface(TypeName::from_type_spec(
+            reader,
+            spec,
+            generics,
+            calling_namespace,
+        ))
     }
 
-    pub fn from_type_def_or_ref(
+    fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
         generics: &Vec<TypeKind>,
+        calling_namespace: &str,
     ) -> Self {
         match code {
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value, generics),
-            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value, generics),
-            TypeDefOrRef::TypeSpec(value) => Self::from_type_spec(reader, value, generics),
+            TypeDefOrRef::TypeRef(value) => {
+                Self::from_type_ref(reader, value, generics, calling_namespace)
+            }
+            TypeDefOrRef::TypeDef(value) => {
+                Self::from_type_def(reader, value, generics, calling_namespace)
+            }
+            TypeDefOrRef::TypeSpec(value) => {
+                Self::from_type_spec(reader, value, generics, calling_namespace)
+            }
         }
     }
 
-    pub fn from_blob(blob: &mut Blob, generics: &Vec<TypeKind>) -> Self {
+    pub fn from_blob(blob: &mut Blob, generics: &Vec<TypeKind>, calling_namespace: &str) -> Self {
         blob.read_expected(0x1D);
         blob.read_modifiers();
 
@@ -148,20 +183,22 @@ impl TypeKind {
                 blob.reader,
                 TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index),
                 generics,
+                calling_namespace,
             ),
             0x13 => generics[blob.read_unsigned() as usize].clone(),
-            0x15 => {
-                Self::from_type_name(blob.reader, TypeName::from_type_spec_blob(blob, generics))
-            }
+            0x15 => Self::from_type_name(
+                blob.reader,
+                TypeName::from_type_spec_blob(blob, generics, calling_namespace),
+            ),
             _ => panic!("TypeKind::from_blob"),
         }
     }
 
-    pub fn from_field(reader: &TypeReader, field: Field) -> Self {
+    pub fn from_field(reader: &TypeReader, field: Field, calling_namespace: &str) -> Self {
         let mut blob = field.sig(reader);
         blob.read_unsigned();
         blob.read_modifiers();
-        Self::from_blob(&mut blob, &Vec::new())
+        Self::from_blob(&mut blob, &Vec::new(), calling_namespace)
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
@@ -175,7 +212,7 @@ impl TypeKind {
         }
     }
 
-    pub fn to_tokens(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_tokens(&self) -> TokenStream {
         match self {
             Self::Bool => quote! { bool },
             Self::Char => quote! { u16 },
@@ -192,11 +229,11 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
-            Self::Class(name) => name.to_tokens(calling_namespace).clone(),
-            Self::Interface(name) => name.to_tokens(calling_namespace).clone(),
-            Self::Enum(name) => name.to_tokens(calling_namespace).clone(),
-            Self::Struct(name) => name.to_tokens(calling_namespace).clone(),
-            Self::Delegate(name) => name.to_tokens(calling_namespace).clone(),
+            Self::Class(name) => name.tokens.clone(),
+            Self::Interface(name) => name.tokens.clone(),
+            Self::Enum(name) => name.tokens.clone(),
+            Self::Struct(name) => name.tokens.clone(),
+            Self::Delegate(name) => name.tokens.clone(),
             Self::Generic(name) => {
                 let name = format_ident(name);
                 quote! { #name }
@@ -204,7 +241,7 @@ impl TypeKind {
         }
     }
 
-    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
+    pub fn to_abi_tokens(&self) -> TokenStream {
         match self {
             Self::Bool => quote! { bool, },
             Self::Char => quote! { u16, },
@@ -234,7 +271,7 @@ impl TypeKind {
             | Self::Delegate(name)
             | Self::Enum(name)
             | Self::Struct(name) => {
-                let name = &*name.to_tokens(calling_namespace);
+                let name = &name.tokens;
                 quote! { <#name as ::winrt::AbiTransferable>::Abi, }
             }
         }

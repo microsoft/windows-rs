@@ -13,9 +13,9 @@ pub struct Param {
 }
 
 impl Param {
-    pub fn to_tokens(&self, calling_namespace: &str, position: usize) -> TokenStream {
+    pub fn to_tokens(&self, position: usize) -> TokenStream {
         let name = format_ident(&self.name);
-        let tokens = self.kind.to_tokens(calling_namespace);
+        let tokens = self.kind.to_tokens();
 
         if self.array {
             if self.input {
@@ -45,8 +45,8 @@ impl Param {
         }
     }
 
-    pub fn to_fn_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let tokens = self.kind.to_tokens(calling_namespace);
+    pub fn to_fn_tokens(&self) -> TokenStream {
+        let tokens = self.kind.to_tokens();
 
         if self.array {
             if self.input {
@@ -75,8 +75,8 @@ impl Param {
         }
     }
 
-    pub fn to_return_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let tokens = self.kind.to_tokens(calling_namespace);
+    pub fn to_return_tokens(&self) -> TokenStream {
+        let tokens = self.kind.to_tokens();
 
         if self.array {
             quote! { ::winrt::Array<#tokens> }
@@ -85,8 +85,8 @@ impl Param {
         }
     }
 
-    pub fn to_abi_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let tokens = self.kind.to_abi_tokens(calling_namespace);
+    pub fn to_abi_tokens(&self) -> TokenStream {
+        let tokens = self.kind.to_abi_tokens();
 
         if self.array {
             if self.input {
@@ -103,8 +103,8 @@ impl Param {
         }
     }
 
-    pub fn to_abi_return_arg_tokens(&self, calling_namespace: &str) -> TokenStream {
-        let return_type = self.kind.to_tokens(calling_namespace);
+    pub fn to_abi_return_arg_tokens(&self) -> TokenStream {
+        let return_type = self.kind.to_tokens();
 
         if self.array {
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut __ok), winrt::Array::<#return_type>::set_abi(&mut __ok), }
