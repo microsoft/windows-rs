@@ -15,7 +15,7 @@ fn send_sync() -> winrt::Result<()> {
     let url = Uri::create_uri("http://kennykerr.ca")?;
 
     thread::spawn(move || {
-        println!("{:?}", url);
+        assert_eq!("http://kennykerr.ca/", &format!("{:?}", url));
     });
 
     Ok(())

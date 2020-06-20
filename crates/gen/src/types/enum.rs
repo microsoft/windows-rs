@@ -48,9 +48,9 @@ impl Enum {
         }
 
         Self {
-            name: name,
-            fields: fields,
-            signature: signature,
+            name,
+            fields,
+            signature,
             underlying_type: underlying_type.unwrap(),
         }
     }
