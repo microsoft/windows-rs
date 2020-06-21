@@ -37,7 +37,7 @@ impl Attribute {
         };
 
         let prolog = values.read_u16();
-        assert!(prolog == 0x0001, "CustomAttribute Prolog must be 0x0001"); // Required by spec.
+        debug_assert!(prolog == 0x0001, "CustomAttribute Prolog must be 0x0001"); // Required by spec.
 
         let _this_and_gen_param_count = sig.read_unsigned();
         let fixed_arg_count = sig.read_unsigned();
@@ -121,8 +121,6 @@ impl Attribute {
 
 fn read_enum(element_type: &ElementType, blob: &mut Blob) -> AttributeArg {
     match element_type {
-        //ElementType::Boolean => AttributeArg::Bool(blob.read_bool()),
-        //ElementType::Char => AttributeArg::Char(blob.read_char()),
         ElementType::I1 => AttributeArg::I8(blob.read_i8()),
         ElementType::U1 => AttributeArg::U8(blob.read_u8()),
         ElementType::I2 => AttributeArg::I16(blob.read_i16()),
