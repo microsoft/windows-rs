@@ -1,7 +1,6 @@
 use crate::blob::Blob;
 use crate::codes::{Decode, TypeDefOrRef};
 
-#[allow(dead_code)]
 pub enum ElementType {
     Void,
     Boolean,
