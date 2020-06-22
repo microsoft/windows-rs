@@ -86,20 +86,23 @@ impl Param {
     }
 
     pub fn to_abi_tokens(&self) -> TokenStream {
+        let name = format_ident(&self.name);
         let tokens = self.kind.to_abi_tokens();
 
         if self.array {
+            let name_size = quote::format_ident!("__{}Size", &self.name);
+
             if self.input {
-                quote! { u32, *const #tokens }
+                quote! { #name_size: u32, #name: *const #tokens }
             } else if self.by_ref {
-                quote! { *mut u32, *mut *mut #tokens }
+                quote! { #name_size: *mut u32, #name: *mut *mut #tokens }
             } else {
-                quote! { u32, *mut #tokens }
+                quote! { #name_size: u32, #name: *mut #tokens }
             }
         } else if self.input {
-            tokens
+            quote! { #name: #tokens }
         } else {
-            quote! { *mut #tokens }
+            quote! { #name: *mut #tokens }
         }
     }
 
@@ -152,18 +155,25 @@ impl Param {
         let name = format_ident(&self.name);
 
         if self.array {
-            // TODO: delegate with array parameters are challenging to say the least.
-            // I'll get to them shortly.
-            panic!("array");
-        } else if self.input {
-            match self.kind {
-                TypeKind::Enum(_) => quote! { *::winrt::AbiTransferable::from_abi(&#name) },
-                _ => quote! { ::winrt::AbiTransferable::from_abi(&#name) },
+            let name_size = quote::format_ident!("__{}Size", name);
+            if self.input {
+                quote! { ::std::slice::from_raw_parts(&::winrt::AbiTransferable::from_abi(&#name), #name_size as usize) }
+            } else if self.by_ref {
+                // TODO: need to take resulting array and detach back onto the ABI
+                quote! { &mut ::winrt::Array::new() }
+            } else {
+                quote! { ::std::slice::from_raw_parts_mut(::winrt::AbiTransferable::from_mut_abi(&mut *#name), #name_size as usize) }
             }
-        } else if self.kind.primitive() {
-            quote! { #name, }
+        } else if self.input {
+            if self.kind.primitive() {
+                quote! { #name }
+            } else if let TypeKind::Enum(_) = self.kind {
+                quote! { *::winrt::AbiTransferable::from_abi(&#name) }
+            } else {
+                quote! { ::winrt::AbiTransferable::from_abi(&#name) }
+            }
         } else {
-            quote! { ::winrt::AbiTransferable::from_mut_abi(#name) }
+            quote! { ::winrt::AbiTransferable::from_mut_abi(&mut *#name) }
         }
     }
 }

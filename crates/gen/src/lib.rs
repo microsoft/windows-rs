@@ -19,6 +19,7 @@ pub use file::WinmdFile;
 pub use type_limits::{NamespaceTypes, TypeLimit, TypeLimits};
 pub use type_reader::TypeReader;
 pub use type_stage::TypeStage;
+pub use types::Type;
 
 fn format_ident(name: &str) -> proc_macro2::Ident {
     if name == "Self" {

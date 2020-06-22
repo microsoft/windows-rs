@@ -156,9 +156,8 @@ impl Method {
             .iter()
             .chain(self.return_type.iter())
             .map(|param| {
-                let name = format_ident(&param.name);
                 let abi = param.to_abi_tokens();
-                quote! { #name: #abi }
+                quote! { #abi }
             });
 
         quote! {
