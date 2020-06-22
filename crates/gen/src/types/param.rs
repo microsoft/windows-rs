@@ -90,7 +90,7 @@ impl Param {
         let tokens = self.kind.to_abi_tokens();
 
         if self.array {
-            let name_size = quote::format_ident!("__{}Size", &self.name);
+            let name_size = quote::format_ident!("__{}_size", &self.name);
 
             if self.input {
                 quote! { #name_size: u32, #name: *const #tokens }
@@ -155,14 +155,15 @@ impl Param {
         let name = format_ident(&self.name);
 
         if self.array {
-            let name_size = quote::format_ident!("__{}Size", name);
+            let kind = self.kind.to_tokens();
+            let name_size = quote::format_ident!("__{}_size", name);
             if self.input {
-                quote! { ::winrt::AbiTransferable::slice_from_abi(&#name, #name_size as usize) }
+                quote! { <#kind as ::winrt::AbiTransferable>::slice_from_abi(#name, #name_size as usize) }
             } else if self.by_ref {
                 // TODO: need to take resulting array and detach back onto the ABI
                 quote! { &mut ::winrt::Array::new() }
             } else {
-                quote! { ::winrt::AbiTransferable::slice_from_mut_abi(&mut #name, #name_size as usize) }
+                quote! { <#kind as ::winrt::AbiTransferable>::slice_from_mut_abi(#name, #name_size as usize) }
             }
         } else if self.input {
             if self.kind.primitive() {

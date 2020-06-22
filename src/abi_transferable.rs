@@ -24,11 +24,11 @@ pub unsafe trait AbiTransferable: Sized {
         unsafe { std::mem::transmute_copy(&abi) }
     }
 
-    fn slice_from_abi(abi: &Self::Abi, len: usize) -> &[Self] {
+    fn slice_from_abi<'a>(abi: *const Self::Abi, len: usize) -> &'a [Self] {
         unsafe { std::slice::from_raw_parts(std::mem::transmute_copy(&abi), len) }
     }
 
-    fn slice_from_mut_abi(abi: &mut Self::Abi, len: usize) -> &mut [Self] {
+    fn slice_from_mut_abi<'a>(abi: *mut Self::Abi, len: usize) -> &'a mut [Self] {
         unsafe { std::slice::from_raw_parts_mut(std::mem::transmute_copy(&abi), len) }
     }
 }
