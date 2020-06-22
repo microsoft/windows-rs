@@ -346,7 +346,7 @@ unsafe impl AbiTransferable for IErrorInfo {
 
 #[repr(C)]
 struct abi_IErrorInfo {
-    __base: [usize; 5],
+    base__: [usize; 5],
     get_description: unsafe extern "system" fn(
         RawComPtr<IErrorInfo>,
         *mut <BString as AbiTransferable>::Abi,
@@ -417,7 +417,7 @@ unsafe impl AbiTransferable for IRestrictedErrorInfo {
 
 #[repr(C)]
 struct abi_IRestrictedErrorInfo {
-    __base: [usize; 3],
+    base__: [usize; 3],
     get_error_details: unsafe extern "system" fn(
         RawComPtr<IRestrictedErrorInfo>,
         *mut <BString as AbiTransferable>::Abi,
@@ -470,7 +470,7 @@ unsafe impl AbiTransferable for ILanguageExceptionErrorInfo2 {
 
 #[repr(C)]
 struct abi_ILanguageExceptionErrorInfo2 {
-    __base: [usize; 5],
+    base__: [usize; 5],
     capture_propagation_context: unsafe extern "system" fn(
         NonNullRawComPtr<ILanguageExceptionErrorInfo2>,
         RawPtr,

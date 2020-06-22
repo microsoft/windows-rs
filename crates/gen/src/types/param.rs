@@ -35,7 +35,7 @@ impl Param {
                 | TypeKind::Struct(_)
                 | TypeKind::Delegate(_)
                 | TypeKind::Generic(_) => {
-                    let tokens = quote::format_ident!("__{}", position);
+                    let tokens = quote::format_ident!("{}__", position);
                     quote! { #name: #tokens, }
                 }
                 _ => quote! { #name: #tokens, },
@@ -90,7 +90,7 @@ impl Param {
         let tokens = self.kind.to_abi_tokens();
 
         if self.array {
-            let name_size = quote::format_ident!("__{}_size", &self.name);
+            let name_size = quote::format_ident!("{}_size__", &self.name);
 
             if self.input {
                 quote! { #name_size: u32, #name: *const #tokens }
@@ -110,9 +110,9 @@ impl Param {
         let return_type = self.kind.to_tokens();
 
         if self.array {
-            quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut __ok), winrt::Array::<#return_type>::set_abi(&mut __ok), }
+            quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
         } else {
-            quote! { <#return_type as ::winrt::AbiTransferable>::set_abi(&mut __ok) }
+            quote! { <#return_type as ::winrt::AbiTransferable>::set_abi(&mut result__) }
         }
     }
 
@@ -156,7 +156,7 @@ impl Param {
 
         if self.array {
             let kind = self.kind.to_tokens();
-            let name_size = quote::format_ident!("__{}_size", name);
+            let name_size = quote::format_ident!("{}_size__", name);
             if self.input {
                 quote! { <#kind as ::winrt::AbiTransferable>::slice_from_abi(#name, #name_size as usize) }
             } else if self.by_ref {
