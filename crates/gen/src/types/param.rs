@@ -157,12 +157,12 @@ impl Param {
         if self.array {
             let name_size = quote::format_ident!("__{}Size", name);
             if self.input {
-                quote! { ::std::slice::from_raw_parts(&::winrt::AbiTransferable::from_abi(&#name), #name_size as usize) }
+                quote! { ::winrt::AbiTransferable::slice_from_abi(&#name, #name_size as usize) }
             } else if self.by_ref {
                 // TODO: need to take resulting array and detach back onto the ABI
                 quote! { &mut ::winrt::Array::new() }
             } else {
-                quote! { ::std::slice::from_raw_parts_mut(::winrt::AbiTransferable::from_mut_abi(&mut *#name), #name_size as usize) }
+                quote! { ::winrt::AbiTransferable::slice_from_mut_abi(&mut #name, #name_size as usize) }
             }
         } else if self.input {
             if self.kind.primitive() {
