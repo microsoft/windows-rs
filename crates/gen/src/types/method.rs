@@ -202,7 +202,7 @@ impl Method {
                 | TypeKind::Struct(_)
                 | TypeKind::Delegate(_)
                 | TypeKind::Generic(_) => {
-                    let name = quote::format_ident!("t{}__", position);
+                    let name = quote::format_ident!("T{}__", position);
                     let into = param.kind.to_tokens();
                     tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
                 }

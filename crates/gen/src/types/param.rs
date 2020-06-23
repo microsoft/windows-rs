@@ -35,7 +35,7 @@ impl Param {
                 | TypeKind::Struct(_)
                 | TypeKind::Delegate(_)
                 | TypeKind::Generic(_) => {
-                    let tokens = quote::format_ident!("t{}__", position);
+                    let tokens = quote::format_ident!("T{}__", position);
                     quote! { #name: #tokens, }
                 }
                 _ => quote! { #name: #tokens, },

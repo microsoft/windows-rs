@@ -80,9 +80,7 @@ impl Delegate {
             }
         } else {
             quote! {
-                #invoke_sig {
-                    ((*this).invoke)(#(#invoke_args,)*).into()
-                }
+                ((*this).invoke)(#(#invoke_args,)*).into()
             }
         };
 
