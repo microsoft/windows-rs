@@ -270,7 +270,7 @@ fn unzip(bytes: &[u8]) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
     Ok((winmds, dlls))
 }
 
-fn extract_files<F: std::io::Read>(
+fn extract_files<F: Read>(
     path: &Path,
     mut file: F,
     file_size: u64,
