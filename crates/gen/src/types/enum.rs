@@ -51,7 +51,7 @@ impl Enum {
             name,
             fields,
             signature,
-            underlying_type: underlying_type.unwrap(),
+            underlying_type: underlying_type.expect("Enum must have an underlying type"),
         }
     }
 

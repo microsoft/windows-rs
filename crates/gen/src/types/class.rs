@@ -71,8 +71,8 @@ impl Class {
                 }
                 ("Windows.Foundation.Metadata", "MarshalingBehaviorAttribute") => {
                     let args = attribute.args(reader);
-                    if let AttributeArg::I16(marshaling_type) = args[0].1 {
-                        is_agile = marshaling_type == 2; // MarshalingType.Agile
+                    if let AttributeArg::I16(2) = args[0].1 {
+                        is_agile = true; // MarshalingType.Agile
                     }
                 }
                 _ => {}
