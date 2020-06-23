@@ -134,18 +134,24 @@ impl ErrorCode {
 impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
-            if let Some(info) = error.info.get_abi() {
-                // Set the error information on the thread if the result is `Err`
-                // so that the caller can pick it up.
-                unsafe {
-                    SetRestrictedErrorInfo(info.as_raw() as _);
-                }
-            }
-
-            return error.code();
+            return error.into();
         }
 
         ErrorCode(0)
+    }
+}
+
+impl std::convert::From<Error> for ErrorCode {
+    fn from(error: Error) -> Self {
+        if let Some(info) = error.info.get_abi() {
+            // Set the error information on the thread if the result is `Err`
+            // so that the caller can pick it up.
+            unsafe {
+                SetRestrictedErrorInfo(info.as_raw() as _);
+            }
+        }
+
+        return error.code();
     }
 }
 
