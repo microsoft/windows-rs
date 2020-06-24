@@ -89,8 +89,25 @@ pub struct Install {
     verbose: bool,
 }
 
+use once_cell::sync::OnceCell;
+static VERBOSITY: OnceCell<bool> = OnceCell::new();
+
+#[inline(always)]
+fn verbose() -> bool {
+    VERBOSITY.get().copied().unwrap_or(false)
+}
+
+macro_rules! debug {
+    ($($arg:tt)*) => {
+        if verbose() {
+            eprintln!("\t{}", format!($($arg)*));
+        }
+    };
+}
+
 impl Install {
     fn perform(&self) -> anyhow::Result<()> {
+        let _ = VERBOSITY.set(self.verbose);
         let manifest = cargo::package_manifest()?;
         let local_dependencies = manifest.local_dependencies()?;
         for dep_manifest in local_dependencies {
@@ -101,13 +118,11 @@ impl Install {
     }
 
     fn install_from_manifest(&self, manifest: Manifest) -> anyhow::Result<()> {
-        if self.verbose {
-            println!(
-                "\t{} dependencies for {}",
-                console::style("Resolving").green().bold(),
-                manifest.package_name()
-            );
-        }
+        debug!(
+            "{} dependencies for {}",
+            console::style("Resolving").green().bold(),
+            manifest.package_name()
+        );
         let deps = manifest.get_dependency_descriptors()?;
         self.ensure_dependencies(deps)
     }
@@ -128,17 +143,15 @@ impl Install {
                 })
                 .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
         };
-        if self.verbose {
-            println!(
-                "\t{} {} nuget dependencies",
-                console::style("Installing").green().bold(),
-                dependency_descriptors.len()
-            );
-        }
+        debug!(
+            "{} {} nuget dependencies",
+            console::style("Installing").green().bold(),
+            dependency_descriptors.len()
+        );
 
         let deps = self.get_dependencies(dependency_descriptors)?;
         for dep in deps {
-            dep.save(self.verbose)?;
+            dep.save()?;
         }
         Ok(())
     }
@@ -154,8 +167,8 @@ impl Install {
                     console::style("Fetching").green().bold(),
                     dep.name()
                 );
-                let raw = dep.get(self.verbose).await?;
-                Ok(ResolvedDependency::new(dep, raw, self.verbose)?)
+                let raw = dep.get().await?;
+                Ok(ResolvedDependency::new(dep, raw)?)
             });
 
             futures::future::try_join_all(results).await
@@ -171,18 +184,18 @@ enum DependencyDescriptor {
 }
 
 impl DependencyDescriptor {
-    async fn get(&self, verbose: bool) -> anyhow::Result<RawNuget> {
+    async fn get(&self) -> anyhow::Result<RawNuget> {
         match self {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
-                let bytes = try_download(url, 5, verbose).await?;
+                let bytes = try_download(url, 5).await?;
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
                 })
             }
             DependencyDescriptor::Url { url, name } => {
-                let bytes = try_download(url.as_str().to_owned(), 5, verbose).await?;
+                let bytes = try_download(url.as_str().to_owned(), 5).await?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
@@ -223,11 +236,7 @@ impl DependencyDescriptor {
     }
 }
 
-fn try_download(
-    url: String,
-    recursion_amount: u8,
-    verbose: bool,
-) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
+fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
     async move {
         if recursion_amount == 0 {
             bail!(Error::DownloadError(
@@ -239,9 +248,7 @@ fn try_download(
             .map_err(|e| Error::DownloadError(e.into()))?;
         match res.status().into() {
             200u16 => {
-                if verbose {
-                    println!("\t retrieved data from {}", url);
-                }
+                debug!(" retrieved data from {}", url);
                 let bytes = res
                     .bytes()
                     .await
@@ -254,7 +261,7 @@ fn try_download(
 
                 let url = redirect_url.to_str().unwrap();
 
-                try_download(url.to_owned(), recursion_amount - 1, verbose).await
+                try_download(url.to_owned(), recursion_amount - 1).await
             }
             s => bail!(Error::DownloadError(
                 anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
@@ -270,13 +277,11 @@ enum RawNuget {
 }
 
 impl RawNuget {
-    fn contents(&self, verbose: bool) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
-        if verbose {
-            println!("\t starting extraction of '{}'", self.name());
-        }
+    fn contents(&self) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+        debug!(" starting extraction of '{}'", self.name());
         match self {
-            RawNuget::Zipped { bytes, .. } => unzip(bytes, verbose),
-            RawNuget::Unzipped { path, .. } => unpack(path, verbose),
+            RawNuget::Zipped { bytes, .. } => unzip(bytes),
+            RawNuget::Unzipped { path, .. } => unpack(path),
         }
     }
 
@@ -288,13 +293,12 @@ impl RawNuget {
     }
 }
 
-fn unpack<P: AsRef<Path>>(path: P, verbose: bool) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+fn unpack<P: AsRef<Path>>(path: P) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
     fn recursively_extract_files(
         root: &Path,
         path: PathBuf,
         winmds: &mut Vec<Winmd>,
         dlls: &mut Vec<Dll>,
-        verbose: bool,
     ) -> anyhow::Result<()> {
         if path.is_dir() {
             let dir = std::fs::read_dir(&path)
@@ -303,7 +307,7 @@ fn unpack<P: AsRef<Path>>(path: P, verbose: bool) -> anyhow::Result<(Vec<Winmd>,
             for entry in dir {
                 let entry = entry?;
                 let path = entry.path();
-                recursively_extract_files(root, path, winmds, dlls, verbose)?;
+                recursively_extract_files(root, path, winmds, dlls)?;
             }
         } else {
             let file = std::fs::File::open(&path)
@@ -312,7 +316,7 @@ fn unpack<P: AsRef<Path>>(path: P, verbose: bool) -> anyhow::Result<(Vec<Winmd>,
             let path = path
                 .strip_prefix(root)
                 .expect("path must have root as a prefix");
-            extract_files(path, file, file_size, winmds, dlls, verbose)?;
+            extract_files(path, file, file_size, winmds, dlls)?;
         }
         Ok(())
     }
@@ -324,12 +328,11 @@ fn unpack<P: AsRef<Path>>(path: P, verbose: bool) -> anyhow::Result<(Vec<Winmd>,
         path.as_ref().to_path_buf(),
         &mut winmds,
         &mut dlls,
-        verbose,
     )?;
     Ok((winmds, dlls))
 }
 
-fn unzip(bytes: &[u8], verbose: bool) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+fn unzip(bytes: &[u8]) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
     let reader = std::io::Cursor::new(bytes);
     let mut zip = zip::ZipArchive::new(reader)?;
     let mut winmds = Vec::new();
@@ -338,7 +341,7 @@ fn unzip(bytes: &[u8], verbose: bool) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> 
         let file = zip.by_index(i)?;
         let path = file.sanitized_name();
         let file_size = file.size();
-        extract_files(&path, file, file_size, &mut winmds, &mut dlls, verbose)?;
+        extract_files(&path, file, file_size, &mut winmds, &mut dlls)?;
     }
     Ok((winmds, dlls))
 }
@@ -349,11 +352,8 @@ fn extract_files<F: Read>(
     file_size: u64,
     winmds: &mut Vec<Winmd>,
     dlls: &mut Vec<Dll>,
-    verbose: bool,
 ) -> anyhow::Result<()> {
-    if verbose {
-        println!("\t   searching zip file: {:?}", path.display());
-    }
+    debug!("   searching zip file: {:?}", path.display());
     match path.extension() {
         Some(e)
             if e == "winmd" && {
@@ -365,13 +365,7 @@ fn extract_files<F: Read>(
                 .file_name()
                 .context("windmd file name is not utf-8")?
                 .to_owned();
-            if verbose {
-                println!(
-                    "\t {} winmd file {:?}",
-                    console::style("found").green(),
-                    name
-                );
-            }
+            debug!(" {} winmd file {:?}", console::style("found").green(), name);
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
@@ -392,9 +386,7 @@ fn extract_files<F: Read>(
                     _ => false,
                 })
                 .collect();
-            if verbose {
-                println!("\t {} dll {:?}", console::style("found").green(), name);
-            }
+            debug!("{} dll {:?}", console::style("found").green(), name);
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
@@ -418,8 +410,8 @@ struct ResolvedDependency {
 }
 
 impl ResolvedDependency {
-    fn new(descriptor: DependencyDescriptor, raw: RawNuget, verbose: bool) -> anyhow::Result<Self> {
-        let contents = raw.contents(verbose)?;
+    fn new(descriptor: DependencyDescriptor, raw: RawNuget) -> anyhow::Result<Self> {
+        let contents = raw.contents()?;
         Ok(Self {
             descriptor,
             contents,
@@ -434,15 +426,13 @@ impl ResolvedDependency {
         &self.contents.1
     }
 
-    fn save(self, verbose: bool) -> anyhow::Result<()> {
-        if verbose {
-            println!(
-                "\t{} {} winmd files and {} dlls",
-                console::style("Saving").green().bold(),
-                self.winmds().len(),
-                self.dlls().len(),
-            );
-        }
+    fn save(self) -> anyhow::Result<()> {
+        debug!(
+            "{} {} winmd files and {} dlls",
+            console::style("Saving").green().bold(),
+            self.winmds().len(),
+            self.dlls().len(),
+        );
         let dep_directory = self.descriptor.directory_path()?;
         // create the dependency directory
         if !dep_directory.exists() {
@@ -451,25 +441,21 @@ impl ResolvedDependency {
         }
 
         for winmd in self.winmds() {
-            if verbose {
-                println!(
-                    "\t writing winmd file {:?} into {}",
-                    winmd.name,
-                    dep_directory.display()
-                );
-            }
+            debug!(
+                "writing winmd file {:?} into {}",
+                winmd.name,
+                dep_directory.display()
+            );
             winmd.write(&dep_directory)?;
         }
 
         for dll in self.dlls() {
-            if verbose {
-                println!(
-                    "\t writing dll file {:?} into {}",
-                    dll.name,
-                    dep_directory.display()
-                );
-            }
-            dll.write(&dep_directory, verbose).unwrap();
+            debug!(
+                "writing dll file {:?} into {}",
+                dll.name,
+                dep_directory.display()
+            );
+            dll.write(&dep_directory).unwrap();
         }
 
         Ok(())
@@ -497,16 +483,11 @@ struct Dll {
 }
 
 impl Dll {
-    fn write(&self, dir: &Path, verbose: bool) -> anyhow::Result<()> {
+    fn write(&self, dir: &Path) -> anyhow::Result<()> {
         let arch = self.name.parent().unwrap();
         let proper_arch = arch.as_os_str() == ARCH;
         if !proper_arch {
-            if verbose {
-                println!(
-                    "\t   not creating symlink for {} because of differing architecture to host architecture",
-                    self.name.display(),
-                );
-            }
+            debug!("   not creating symlink for {} because of differing architecture to host architecture", self.name.display());
             return Ok(());
         }
         let path = dir.join(&self.name);
@@ -519,22 +500,18 @@ impl Dll {
             std::fs::create_dir_all(&profile_path)?;
             let dll_path = profile_path.join(&self.name.strip_prefix(&arch).unwrap());
             if std::fs::read_link(&dll_path).is_err() {
-                if verbose {
-                    println!(
-                        "\t   creating symlink for {} in {}",
-                        self.name.display(),
-                        profile
-                    );
-                }
+                debug!(
+                    "   creating symlink for {} in {}",
+                    self.name.display(),
+                    profile
+                );
                 std::os::windows::fs::symlink_file(&path, dll_path)?;
             } else {
-                if verbose {
-                    println!(
-                        "\t   not creating symlink for {} in {} because it already exists",
-                        self.name.display(),
-                        profile
-                    );
-                }
+                debug!(
+                    "   not creating symlink for {} in {} because it already exists",
+                    self.name.display(),
+                    profile
+                );
             }
         }
 
