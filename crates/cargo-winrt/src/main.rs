@@ -119,62 +119,43 @@ impl Install {
 }
 
 #[derive(Debug)]
-struct DependencyDescriptor {
-    name: String,
-    version: String,
+enum DependencyDescriptor {
+    NugetOrg { name: String, version: String },
+    Url { name: String, url: reqwest::Url },
+    Local { name: String, path: PathBuf },
 }
 
 impl DependencyDescriptor {
-    fn new(name: String, version: String) -> Self {
-        Self { name, version }
-    }
-
-    fn url(&self) -> String {
-        format!(
-            "https://www.nuget.org/api/v2/package/{}/{}",
-            self.name, self.version
-        )
-    }
-
-    async fn download(&self) -> anyhow::Result<Vec<u8>> {
-        fn try_download(
-            url: String,
-            recursion_amount: u8,
-        ) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
-            async move {
-                if recursion_amount == 0 {
-                    bail!(Error::DownloadError(
-                        anyhow::anyhow!("Too many redirects").into(),
-                    ));
-                }
-                let res = reqwest::get(&url)
-                    .await
-                    .map_err(|e| Error::DownloadError(e.into()))?;
-                match res.status().into() {
-                    200u16 => {
-                        let bytes = res
-                            .bytes()
-                            .await
-                            .map_err(|e| Error::DownloadError(e.into()))?;
-                        Ok(bytes.into_iter().collect())
-                    }
-                    302 => {
-                        let headers = res.headers();
-                        let redirect_url = headers.get("Location").unwrap();
-
-                        let url = redirect_url.to_str().unwrap();
-
-                        try_download(url.to_owned(), recursion_amount - 1).await
-                    }
-                    s => bail!(Error::DownloadError(
-                        anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
-                    )),
-                }
+    async fn get(&self) -> anyhow::Result<RawNuget> {
+        match self {
+            DependencyDescriptor::NugetOrg { name, version } => {
+                let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
+                let bytes = try_download(url, 5).await?;
+                Ok(RawNuget::Zipped { bytes })
             }
-            .boxed()
-        }
+            DependencyDescriptor::Url { url, .. } => {
+                let bytes = try_download(url.as_str().to_owned(), 5).await?;
 
-        try_download(self.url(), 5).await
+                Ok(RawNuget::Zipped { bytes })
+            }
+            DependencyDescriptor::Local { path: p, .. } => {
+                let mut path = cargo::package_manifest_path()?
+                    .parent()
+                    .expect("package mainfest must have parent path")
+                    .to_owned();
+                path.extend(p);
+
+                Ok(RawNuget::Unzipped { path })
+            }
+        }
+    }
+
+    fn name(&self) -> &str {
+        match self {
+            DependencyDescriptor::NugetOrg { name, .. } => name,
+            DependencyDescriptor::Url { name, .. } => name,
+            DependencyDescriptor::Local { name, .. } => name,
+        }
     }
 
     fn already_saved(&self) -> anyhow::Result<bool> {
@@ -184,18 +165,166 @@ impl DependencyDescriptor {
     fn directory_path(&self) -> anyhow::Result<PathBuf> {
         Ok(cargo::workspace_target_path()?
             .join("nuget")
-            .join(&self.name))
+            .join(&self.name()))
     }
 }
 
-struct DownloadedDependency {
+fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
+    async move {
+        if recursion_amount == 0 {
+            bail!(Error::DownloadError(
+                anyhow::anyhow!("Too many redirects").into(),
+            ));
+        }
+        let res = reqwest::get(&url)
+            .await
+            .map_err(|e| Error::DownloadError(e.into()))?;
+        match res.status().into() {
+            200u16 => {
+                let bytes = res
+                    .bytes()
+                    .await
+                    .map_err(|e| Error::DownloadError(e.into()))?;
+                Ok(bytes.into_iter().collect())
+            }
+            302 => {
+                let headers = res.headers();
+                let redirect_url = headers.get("Location").unwrap();
+
+                let url = redirect_url.to_str().unwrap();
+
+                try_download(url.to_owned(), recursion_amount - 1).await
+            }
+            s => bail!(Error::DownloadError(
+                anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
+            )),
+        }
+    }
+    .boxed()
+}
+
+enum RawNuget {
+    Zipped { bytes: Vec<u8> },
+    Unzipped { path: PathBuf },
+}
+
+impl RawNuget {
+    fn contents(&self) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+        match self {
+            RawNuget::Zipped { bytes } => unzip(bytes),
+            RawNuget::Unzipped { path } => unpack(path),
+        }
+    }
+}
+
+fn unpack<P: AsRef<Path>>(path: P) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+    fn recursively_extract_files(
+        root: &Path,
+        path: PathBuf,
+        winmds: &mut Vec<Winmd>,
+        dlls: &mut Vec<Dll>,
+    ) -> anyhow::Result<()> {
+        if path.is_dir() {
+            let dir = std::fs::read_dir(&path)
+                .with_context(|| format!("could not read the nuget folder: {}", path.display()))?;
+
+            for entry in dir {
+                let entry = entry?;
+                let path = entry.path();
+                recursively_extract_files(root, path, winmds, dlls)?;
+            }
+        } else {
+            let file = std::fs::File::open(&path)
+                .with_context(|| format!("could not read the nuget file: {}", path.display()))?;
+            let file_size = file.metadata().map(|md| md.len()).unwrap_or(1024);
+            let path = path
+                .strip_prefix(root)
+                .expect("path must have root as a prefix");
+            extract_files(path, file, file_size, winmds, dlls)?;
+        }
+        Ok(())
+    }
+
+    let mut winmds = Vec::new();
+    let mut dlls = Vec::new();
+    recursively_extract_files(
+        path.as_ref(),
+        path.as_ref().to_path_buf(),
+        &mut winmds,
+        &mut dlls,
+    )?;
+    Ok((winmds, dlls))
+}
+
+fn unzip(bytes: &[u8]) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+    let reader = std::io::Cursor::new(bytes);
+    let mut zip = zip::ZipArchive::new(reader)?;
+    let mut winmds = Vec::new();
+    let mut dlls = Vec::new();
+    for i in 0..zip.len() {
+        let file = zip.by_index(i)?;
+        let path = file.sanitized_name();
+        let file_size = file.size();
+        extract_files(&path, file, file_size, &mut winmds, &mut dlls)?;
+    }
+    Ok((winmds, dlls))
+}
+
+fn extract_files<F: Read>(
+    path: &Path,
+    mut file: F,
+    file_size: u64,
+    winmds: &mut Vec<Winmd>,
+    dlls: &mut Vec<Dll>,
+) -> anyhow::Result<()> {
+    match path.extension() {
+        Some(e)
+            if e == "winmd" && {
+                let parent = path.parent().and_then(Path::to_str);
+                parent == Some(r#"lib\uap10.0"#) || parent == Some(r#"ref\netstandard2.0"#)
+            } =>
+        {
+            let name = path
+                .file_name()
+                .context("windmd file name is not utf-8")?
+                .to_owned();
+            let mut contents = Vec::with_capacity(file_size as usize);
+
+            if let Err(e) = file.read_to_end(&mut contents) {
+                eprintln!("Could not read winmd file: {:?}", e);
+                return Ok(());
+            }
+            winmds.push(Winmd { name, contents });
+        }
+        Some(e) if e == "dll" && path.starts_with("runtimes") => {
+            let name: PathBuf = path
+                .components()
+                .filter(|c| match c {
+                    std::path::Component::Normal(p) => *p != "native" && *p != "runtimes",
+                    _ => false,
+                })
+                .collect();
+            let mut contents = Vec::with_capacity(file_size as usize);
+
+            if let Err(e) = file.read_to_end(&mut contents) {
+                eprintln!("Could not read dll: {:?}", e);
+                return Ok(());
+            }
+            dlls.push(Dll { name, contents });
+        }
+        _ => {}
+    }
+    Ok(())
+}
+
+struct ResolvedDependency {
     descriptor: DependencyDescriptor,
     contents: (Vec<Winmd>, Vec<Dll>),
 }
 
-impl DownloadedDependency {
-    fn new(descriptor: DependencyDescriptor, bytes: Vec<u8>) -> anyhow::Result<Self> {
-        let contents = Self::read_contents(&bytes)?;
+impl ResolvedDependency {
+    fn new(descriptor: DependencyDescriptor, raw: RawNuget) -> anyhow::Result<Self> {
+        let contents = raw.contents()?;
         Ok(Self {
             descriptor,
             contents,
@@ -208,56 +337,6 @@ impl DownloadedDependency {
 
     fn dlls(&self) -> &[Dll] {
         &self.contents.1
-    }
-
-    fn read_contents(zip: &[u8]) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
-        let reader = std::io::Cursor::new(zip);
-        let mut zip = zip::ZipArchive::new(reader)?;
-        let mut winmds = Vec::new();
-        let mut dlls = Vec::new();
-        for i in 0..zip.len() {
-            let mut file = zip.by_index(i)?;
-            let path = file.sanitized_name();
-
-            match path.extension() {
-                Some(e)
-                    if e == "winmd" && {
-                        let parent = path.parent().and_then(Path::to_str);
-                        parent == Some(r#"lib\uap10.0"#) || parent == Some(r#"ref\netstandard2.0"#)
-                    } =>
-                {
-                    let name = path
-                        .file_name()
-                        .context("windmd file name is not utf-8")?
-                        .to_owned();
-                    let mut contents = Vec::with_capacity(file.size() as usize);
-
-                    if let Err(e) = file.read_to_end(&mut contents) {
-                        eprintln!("Could not read winmd file: {:?}", e);
-                        continue;
-                    }
-                    winmds.push(Winmd { name, contents });
-                }
-                Some(e) if e == "dll" && path.starts_with("runtimes") => {
-                    let name: PathBuf = path
-                        .components()
-                        .filter(|c| match c {
-                            std::path::Component::Normal(p) => *p != "native" && *p != "runtimes",
-                            _ => false,
-                        })
-                        .collect();
-                    let mut contents = Vec::with_capacity(file.size() as usize);
-
-                    if let Err(e) = file.read_to_end(&mut contents) {
-                        eprintln!("Could not read dll: {:?}", e);
-                        continue;
-                    }
-                    dlls.push(Dll { name, contents });
-                }
-                _ => {}
-            }
-        }
-        Ok((winmds, dlls))
     }
 
     fn save(self) -> anyhow::Result<()> {
@@ -282,11 +361,11 @@ impl DownloadedDependency {
 
 fn download_dependencies(
     deps: Vec<DependencyDescriptor>,
-) -> anyhow::Result<Vec<DownloadedDependency>> {
+) -> anyhow::Result<Vec<ResolvedDependency>> {
     tokio::runtime::Runtime::new().unwrap().block_on(async {
         let results = deps.into_iter().map(|dep| async move {
-            let bytes = dep.download().await?;
-            Ok(DownloadedDependency::new(dep, bytes)?)
+            let raw = dep.get().await?;
+            Ok(ResolvedDependency::new(dep, raw)?)
         });
 
         futures::future::try_join_all(results).await

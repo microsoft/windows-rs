@@ -21,6 +21,19 @@ To install NuGet packages, add NuGet dependencies to your projects Cargo.toml fi
 "Win2D.uwp" = "1.25.0"
 ```
 
+Nuget packages at a given URL are also supported:
+
+```toml
+[package.metadata.winrt.dependencies]
+"Win2D.uwp" = { url = "http://example.com/my/nuget/package" }
+```
+
+As well as unzipped on your local file system:
+```toml
+[package.metadata.winrt.dependencies]
+"Win2D.uwp" = { path = "../../my-nuget-package" }
+```
+
 Then to install run:
 
 ```
