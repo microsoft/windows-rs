@@ -47,11 +47,16 @@ enum Subcommand {
 pub struct Build {
     #[structopt(short, long)]
     force: bool,
+    #[structopt(short, long)]
+    verbose: bool,
 }
 
 impl Build {
     fn perform(&self) -> anyhow::Result<()> {
-        let install = Install { force: self.force };
+        let install = Install {
+            force: self.force,
+            verbose: self.verbose,
+        };
         install.perform()?;
         cargo::build()
     }
@@ -61,11 +66,16 @@ impl Build {
 pub struct Run {
     #[structopt(short, long)]
     force: bool,
+    #[structopt(short, long)]
+    verbose: bool,
 }
 
 impl Run {
     fn perform(&self) -> anyhow::Result<()> {
-        let install = Install { force: self.force };
+        let install = Install {
+            force: self.force,
+            verbose: self.verbose,
+        };
         install.perform()?;
         cargo::run()
     }
@@ -75,6 +85,8 @@ impl Run {
 pub struct Install {
     #[structopt(short, long)]
     force: bool,
+    #[structopt(short, long)]
+    verbose: bool,
 }
 
 impl Install {
@@ -110,11 +122,30 @@ impl Install {
                 .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
         };
 
-        let downloaded_deps = get_dependencies(dependency_descriptors)?;
-        for dep in downloaded_deps {
+        let deps = self.get_dependencies(dependency_descriptors)?;
+        for dep in deps {
             dep.save()?;
         }
         Ok(())
+    }
+
+    fn get_dependencies(
+        &self,
+        deps: Vec<DependencyDescriptor>,
+    ) -> anyhow::Result<Vec<ResolvedDependency>> {
+        tokio::runtime::Runtime::new().unwrap().block_on(async {
+            let results = deps.into_iter().map(|dep| async move {
+                println!(
+                    "\t{}: fetching {}",
+                    console::style("Fetching").green().bold(),
+                    dep.name()
+                );
+                let raw = dep.get(self.verbose).await?;
+                Ok(ResolvedDependency::new(dep, raw, self.verbose)?)
+            });
+
+            futures::future::try_join_all(results).await
+        })
     }
 }
 
@@ -126,26 +157,35 @@ enum DependencyDescriptor {
 }
 
 impl DependencyDescriptor {
-    async fn get(&self) -> anyhow::Result<RawNuget> {
+    async fn get(&self, verbose: bool) -> anyhow::Result<RawNuget> {
         match self {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
-                let bytes = try_download(url, 5).await?;
-                Ok(RawNuget::Zipped { bytes })
+                let bytes = try_download(url, 5, verbose).await?;
+                Ok(RawNuget::Zipped {
+                    bytes,
+                    name: name.clone(),
+                })
             }
-            DependencyDescriptor::Url { url, .. } => {
-                let bytes = try_download(url.as_str().to_owned(), 5).await?;
+            DependencyDescriptor::Url { url, name } => {
+                let bytes = try_download(url.as_str().to_owned(), 5, verbose).await?;
 
-                Ok(RawNuget::Zipped { bytes })
+                Ok(RawNuget::Zipped {
+                    bytes,
+                    name: name.clone(),
+                })
             }
-            DependencyDescriptor::Local { path: p, .. } => {
+            DependencyDescriptor::Local { path: p, name } => {
                 let mut path = cargo::package_manifest_path()?
                     .parent()
                     .expect("package mainfest must have parent path")
                     .to_owned();
                 path.extend(p);
 
-                Ok(RawNuget::Unzipped { path })
+                Ok(RawNuget::Unzipped {
+                    path,
+                    name: name.clone(),
+                })
             }
         }
     }
@@ -169,7 +209,11 @@ impl DependencyDescriptor {
     }
 }
 
-fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
+fn try_download(
+    url: String,
+    recursion_amount: u8,
+    verbose: bool,
+) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
     async move {
         if recursion_amount == 0 {
             bail!(Error::DownloadError(
@@ -181,6 +225,9 @@ fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow:
             .map_err(|e| Error::DownloadError(e.into()))?;
         match res.status().into() {
             200u16 => {
+                if verbose {
+                    println!("\t retrieved data from {}", url);
+                }
                 let bytes = res
                     .bytes()
                     .await
@@ -193,7 +240,7 @@ fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow:
 
                 let url = redirect_url.to_str().unwrap();
 
-                try_download(url.to_owned(), recursion_amount - 1).await
+                try_download(url.to_owned(), recursion_amount - 1, verbose).await
             }
             s => bail!(Error::DownloadError(
                 anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
@@ -204,25 +251,36 @@ fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow:
 }
 
 enum RawNuget {
-    Zipped { bytes: Vec<u8> },
-    Unzipped { path: PathBuf },
+    Zipped { name: String, bytes: Vec<u8> },
+    Unzipped { name: String, path: PathBuf },
 }
 
 impl RawNuget {
-    fn contents(&self) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+    fn contents(&self, verbose: bool) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+        if verbose {
+            println!("\t starting extraction of '{}'", self.name());
+        }
         match self {
-            RawNuget::Zipped { bytes } => unzip(bytes),
-            RawNuget::Unzipped { path } => unpack(path),
+            RawNuget::Zipped { bytes, .. } => unzip(bytes, verbose),
+            RawNuget::Unzipped { path, .. } => unpack(path, verbose),
+        }
+    }
+
+    fn name(&self) -> &str {
+        match self {
+            RawNuget::Zipped { name, .. } => name,
+            RawNuget::Unzipped { name, .. } => name,
         }
     }
 }
 
-fn unpack<P: AsRef<Path>>(path: P) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+fn unpack<P: AsRef<Path>>(path: P, verbose: bool) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
     fn recursively_extract_files(
         root: &Path,
         path: PathBuf,
         winmds: &mut Vec<Winmd>,
         dlls: &mut Vec<Dll>,
+        verbose: bool,
     ) -> anyhow::Result<()> {
         if path.is_dir() {
             let dir = std::fs::read_dir(&path)
@@ -231,7 +289,7 @@ fn unpack<P: AsRef<Path>>(path: P) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
             for entry in dir {
                 let entry = entry?;
                 let path = entry.path();
-                recursively_extract_files(root, path, winmds, dlls)?;
+                recursively_extract_files(root, path, winmds, dlls, verbose)?;
             }
         } else {
             let file = std::fs::File::open(&path)
@@ -240,7 +298,7 @@ fn unpack<P: AsRef<Path>>(path: P) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
             let path = path
                 .strip_prefix(root)
                 .expect("path must have root as a prefix");
-            extract_files(path, file, file_size, winmds, dlls)?;
+            extract_files(path, file, file_size, winmds, dlls, verbose)?;
         }
         Ok(())
     }
@@ -252,11 +310,12 @@ fn unpack<P: AsRef<Path>>(path: P) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
         path.as_ref().to_path_buf(),
         &mut winmds,
         &mut dlls,
+        verbose,
     )?;
     Ok((winmds, dlls))
 }
 
-fn unzip(bytes: &[u8]) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+fn unzip(bytes: &[u8], verbose: bool) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
     let reader = std::io::Cursor::new(bytes);
     let mut zip = zip::ZipArchive::new(reader)?;
     let mut winmds = Vec::new();
@@ -265,7 +324,7 @@ fn unzip(bytes: &[u8]) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
         let file = zip.by_index(i)?;
         let path = file.sanitized_name();
         let file_size = file.size();
-        extract_files(&path, file, file_size, &mut winmds, &mut dlls)?;
+        extract_files(&path, file, file_size, &mut winmds, &mut dlls, verbose)?;
     }
     Ok((winmds, dlls))
 }
@@ -276,7 +335,11 @@ fn extract_files<F: Read>(
     file_size: u64,
     winmds: &mut Vec<Winmd>,
     dlls: &mut Vec<Dll>,
+    verbose: bool,
 ) -> anyhow::Result<()> {
+    if verbose {
+        println!("\t   searching zip file: {:?}", path.display());
+    }
     match path.extension() {
         Some(e)
             if e == "winmd" && {
@@ -288,6 +351,13 @@ fn extract_files<F: Read>(
                 .file_name()
                 .context("windmd file name is not utf-8")?
                 .to_owned();
+            if verbose {
+                println!(
+                    "\t {} winmd file {:?}",
+                    console::style("found").green(),
+                    name
+                );
+            }
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
@@ -308,6 +378,9 @@ fn extract_files<F: Read>(
                     _ => false,
                 })
                 .collect();
+            if verbose {
+                println!("\t {} dll {:?}", console::style("found").green(), name);
+            }
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
@@ -331,8 +404,8 @@ struct ResolvedDependency {
 }
 
 impl ResolvedDependency {
-    fn new(descriptor: DependencyDescriptor, raw: RawNuget) -> anyhow::Result<Self> {
-        let contents = raw.contents()?;
+    fn new(descriptor: DependencyDescriptor, raw: RawNuget, verbose: bool) -> anyhow::Result<Self> {
+        let contents = raw.contents(verbose)?;
         Ok(Self {
             descriptor,
             contents,
@@ -365,22 +438,6 @@ impl ResolvedDependency {
 
         Ok(())
     }
-}
-
-fn get_dependencies(deps: Vec<DependencyDescriptor>) -> anyhow::Result<Vec<ResolvedDependency>> {
-    tokio::runtime::Runtime::new().unwrap().block_on(async {
-        let results = deps.into_iter().map(|dep| async move {
-            println!(
-                "\t{}: fetching {}",
-                console::style("Fetching").green().bold(),
-                dep.name()
-            );
-            let raw = dep.get().await?;
-            Ok(ResolvedDependency::new(dep, raw)?)
-        });
-
-        futures::future::try_join_all(results).await
-    })
 }
 
 struct Winmd {
