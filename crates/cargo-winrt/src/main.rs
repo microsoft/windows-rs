@@ -21,7 +21,7 @@ fn main() {
         Subcommand::Build(b) => b.perform(),
     };
     if let Err(ref e) = result {
-        eprintln!("{}: {}", console::style("error").red(), e);
+        eprintln!("{}: {}", console::style("error").red().bold(), e);
     }
 }
 
@@ -47,11 +47,16 @@ enum Subcommand {
 pub struct Build {
     #[structopt(short, long)]
     force: bool,
+    #[structopt(short, long)]
+    verbose: bool,
 }
 
 impl Build {
     fn perform(&self) -> anyhow::Result<()> {
-        let install = Install { force: self.force };
+        let install = Install {
+            force: self.force,
+            verbose: self.verbose,
+        };
         install.perform()?;
         cargo::build()
     }
@@ -61,11 +66,16 @@ impl Build {
 pub struct Run {
     #[structopt(short, long)]
     force: bool,
+    #[structopt(short, long)]
+    verbose: bool,
 }
 
 impl Run {
     fn perform(&self) -> anyhow::Result<()> {
-        let install = Install { force: self.force };
+        let install = Install {
+            force: self.force,
+            verbose: self.verbose,
+        };
         install.perform()?;
         cargo::run()
     }
@@ -75,10 +85,29 @@ impl Run {
 pub struct Install {
     #[structopt(short, long)]
     force: bool,
+    #[structopt(short, long)]
+    verbose: bool,
+}
+
+use once_cell::sync::OnceCell;
+static VERBOSITY: OnceCell<bool> = OnceCell::new();
+
+#[inline(always)]
+fn verbose() -> bool {
+    VERBOSITY.get().copied().unwrap_or(false)
+}
+
+macro_rules! debug {
+    ($($arg:tt)*) => {
+        if verbose() {
+            eprintln!("\t{}", format!($($arg)*));
+        }
+    };
 }
 
 impl Install {
     fn perform(&self) -> anyhow::Result<()> {
+        let _ = VERBOSITY.set(self.verbose);
         let manifest = cargo::package_manifest()?;
         let local_dependencies = manifest.local_dependencies()?;
         for dep_manifest in local_dependencies {
@@ -89,6 +118,11 @@ impl Install {
     }
 
     fn install_from_manifest(&self, manifest: Manifest) -> anyhow::Result<()> {
+        debug!(
+            "{} dependencies for {}",
+            console::style("Resolving").green().bold(),
+            manifest.package_name()
+        );
         let deps = manifest.get_dependency_descriptors()?;
         self.ensure_dependencies(deps)
     }
@@ -109,12 +143,36 @@ impl Install {
                 })
                 .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
         };
+        debug!(
+            "{} {} nuget dependencies",
+            console::style("Installing").green().bold(),
+            dependency_descriptors.len()
+        );
 
-        let downloaded_deps = download_dependencies(dependency_descriptors)?;
-        for dep in downloaded_deps {
+        let deps = self.get_dependencies(dependency_descriptors)?;
+        for dep in deps {
             dep.save()?;
         }
         Ok(())
+    }
+
+    fn get_dependencies(
+        &self,
+        deps: Vec<DependencyDescriptor>,
+    ) -> anyhow::Result<Vec<ResolvedDependency>> {
+        tokio::runtime::Runtime::new().unwrap().block_on(async {
+            let results = deps.into_iter().map(|dep| async move {
+                println!(
+                    "\t{}: {}",
+                    console::style("Fetching").green().bold(),
+                    dep.name()
+                );
+                let raw = dep.get().await?;
+                Ok(ResolvedDependency::new(dep, raw)?)
+            });
+
+            futures::future::try_join_all(results).await
+        })
     }
 }
 
@@ -131,21 +189,30 @@ impl DependencyDescriptor {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
                 let bytes = try_download(url, 5).await?;
-                Ok(RawNuget::Zipped { bytes })
+                Ok(RawNuget::Zipped {
+                    bytes,
+                    name: name.clone(),
+                })
             }
-            DependencyDescriptor::Url { url, .. } => {
+            DependencyDescriptor::Url { url, name } => {
                 let bytes = try_download(url.as_str().to_owned(), 5).await?;
 
-                Ok(RawNuget::Zipped { bytes })
+                Ok(RawNuget::Zipped {
+                    bytes,
+                    name: name.clone(),
+                })
             }
-            DependencyDescriptor::Local { path: p, .. } => {
+            DependencyDescriptor::Local { path: p, name } => {
                 let mut path = cargo::package_manifest_path()?
                     .parent()
                     .expect("package mainfest must have parent path")
                     .to_owned();
                 path.extend(p);
 
-                Ok(RawNuget::Unzipped { path })
+                Ok(RawNuget::Unzipped {
+                    path,
+                    name: name.clone(),
+                })
             }
         }
     }
@@ -181,6 +248,7 @@ fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow:
             .map_err(|e| Error::DownloadError(e.into()))?;
         match res.status().into() {
             200u16 => {
+                debug!(" retrieved data from {}", url);
                 let bytes = res
                     .bytes()
                     .await
@@ -204,15 +272,23 @@ fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow:
 }
 
 enum RawNuget {
-    Zipped { bytes: Vec<u8> },
-    Unzipped { path: PathBuf },
+    Zipped { name: String, bytes: Vec<u8> },
+    Unzipped { name: String, path: PathBuf },
 }
 
 impl RawNuget {
     fn contents(&self) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+        debug!(" starting extraction of '{}'", self.name());
         match self {
-            RawNuget::Zipped { bytes } => unzip(bytes),
-            RawNuget::Unzipped { path } => unpack(path),
+            RawNuget::Zipped { bytes, .. } => unzip(bytes),
+            RawNuget::Unzipped { path, .. } => unpack(path),
+        }
+    }
+
+    fn name(&self) -> &str {
+        match self {
+            RawNuget::Zipped { name, .. } => name,
+            RawNuget::Unzipped { name, .. } => name,
         }
     }
 }
@@ -277,6 +353,7 @@ fn extract_files<F: Read>(
     winmds: &mut Vec<Winmd>,
     dlls: &mut Vec<Dll>,
 ) -> anyhow::Result<()> {
+    debug!("   searching zip file: {:?}", path.display());
     match path.extension() {
         Some(e)
             if e == "winmd" && {
@@ -288,29 +365,68 @@ fn extract_files<F: Read>(
                 .file_name()
                 .context("windmd file name is not utf-8")?
                 .to_owned();
+            debug!(" {} winmd file {:?}", console::style("found").green(), name);
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
-                eprintln!("Could not read winmd file: {:?}", e);
+                eprintln!(
+                    "{}: could not read winmd file {}",
+                    console::style("warning").red(),
+                    e
+                );
                 return Ok(());
             }
             winmds.push(Winmd { name, contents });
         }
         Some(e) if e == "dll" && path.starts_with("runtimes") => {
-            let name: PathBuf = path
-                .components()
-                .filter(|c| match c {
-                    std::path::Component::Normal(p) => *p != "native" && *p != "runtimes",
-                    _ => false,
-                })
-                .collect();
+            let mut name: Option<OsString> = None;
+            let mut arch: Option<OsString> = None;
+            for component in path.components() {
+                match component {
+                    std::path::Component::Normal(s) if s.to_string_lossy().starts_with("win10") => {
+                        arch = Some(s.to_owned());
+                    }
+                    std::path::Component::Normal(s) if s.to_string_lossy().ends_with("dll") => {
+                        name = Some(s.to_owned());
+                    }
+                    std::path::Component::Normal(s) if s.to_string_lossy() == "debug" => {
+                        // skip debug dlls
+                        return Ok(());
+                    }
+                    _ => {}
+                }
+            }
+            let (name, arch) = match (name, arch) {
+                (Some(n), Some(a)) => (n, a),
+                _ => {
+                    return Err(anyhow::anyhow!(
+                        "{} is not a valid dll path",
+                        path.display()
+                    ))
+                }
+            };
+            debug!(
+                "{} dll {:?} with arch {:?} at path {}",
+                console::style("found").green(),
+                name,
+                arch,
+                path.display()
+            );
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
-                eprintln!("Could not read dll: {:?}", e);
+                eprintln!(
+                    "{}: could not read dll file {}",
+                    console::style("warning").red(),
+                    e
+                );
                 return Ok(());
             }
-            dlls.push(Dll { name, contents });
+            dlls.push(Dll {
+                name,
+                arch,
+                contents,
+            });
         }
         _ => {}
     }
@@ -340,6 +456,12 @@ impl ResolvedDependency {
     }
 
     fn save(self) -> anyhow::Result<()> {
+        debug!(
+            "{} {} winmd files and {} dlls",
+            console::style("Saving").green().bold(),
+            self.winmds().len(),
+            self.dlls().len(),
+        );
         let dep_directory = self.descriptor.directory_path()?;
         // create the dependency directory
         if !dep_directory.exists() {
@@ -348,28 +470,25 @@ impl ResolvedDependency {
         }
 
         for winmd in self.winmds() {
+            debug!(
+                "writing winmd file {:?} into {}",
+                winmd.name,
+                dep_directory.display()
+            );
             winmd.write(&dep_directory)?;
         }
 
         for dll in self.dlls() {
+            debug!(
+                "writing dll file {:?} into {}",
+                dll.name,
+                dep_directory.display()
+            );
             dll.write(&dep_directory).unwrap();
         }
 
         Ok(())
     }
-}
-
-fn download_dependencies(
-    deps: Vec<DependencyDescriptor>,
-) -> anyhow::Result<Vec<ResolvedDependency>> {
-    tokio::runtime::Runtime::new().unwrap().block_on(async {
-        let results = deps.into_iter().map(|dep| async move {
-            let raw = dep.get().await?;
-            Ok(ResolvedDependency::new(dep, raw)?)
-        });
-
-        futures::future::try_join_all(results).await
-    })
 }
 
 struct Winmd {
@@ -388,12 +507,18 @@ impl Winmd {
 }
 
 struct Dll {
-    name: PathBuf,
+    name: OsString,
+    arch: OsString,
     contents: Vec<u8>,
 }
 
 impl Dll {
     fn write(&self, dir: &Path) -> anyhow::Result<()> {
+        let proper_arch = self.arch.as_os_str() == ARCH;
+        if !proper_arch {
+            debug!("   not creating symlink for {:?} because of differing architecture to host architecture: {:?} != {:?}", self.name, self.arch, ARCH);
+            return Ok(());
+        }
         let path = dir.join(&self.name);
         std::fs::create_dir_all(path.parent().unwrap())?;
         if !path.exists() {
@@ -402,13 +527,33 @@ impl Dll {
         for profile in &["debug", "release"] {
             let profile_path = cargo::workspace_target_path()?.join(profile);
             std::fs::create_dir_all(&profile_path)?;
-            let arch = self.name.parent().unwrap();
-            let dll_path = profile_path.join(&self.name.strip_prefix(&arch).unwrap());
-            if arch.as_os_str() == "win-x64" && std::fs::read_link(&dll_path).is_err() {
+            let dll_path = profile_path.join(&self.name);
+            if std::fs::read_link(&dll_path).is_err() {
+                debug!(
+                    "   creating symlink for {:?} in {}: '{}' <-> '{}'",
+                    self.name,
+                    profile,
+                    path.display(),
+                    dll_path.display()
+                );
                 std::os::windows::fs::symlink_file(&path, dll_path)?;
+            } else {
+                debug!(
+                    "   not creating symlink for {:?} in {} because it already exists",
+                    self.name, profile
+                );
             }
         }
 
         Ok(())
     }
 }
+
+#[cfg(target_arch = "x86_64")]
+const ARCH: &str = "win10-x64";
+#[cfg(target_arch = "x86")]
+const ARCH: &str = "win10-x86";
+#[cfg(target_arch = "arm")]
+const ARCH: &str = "win10-arm";
+#[cfg(target_arch = "aarch64")]
+const ARCH: &str = "win10-arm64";
