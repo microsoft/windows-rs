@@ -4,6 +4,9 @@ pub struct TypeFlags(pub u32);
 #[derive(Default)]
 pub struct ParamFlags(pub u32);
 
+#[derive(Default)]
+pub struct FieldFlags(pub u32);
+
 impl MethodFlags {
     pub fn special(&self) -> bool {
         self.0 & 0b1000_0000_0000 != 0
@@ -25,6 +28,16 @@ impl ParamFlags {
     }
 }
 
+impl FieldFlags {
+    pub fn literal(&self) -> bool {
+        self.0 & 0b100_0000 != 0
+    }
+
+    pub fn is_static(&self) -> bool {
+        self.0 & 0b1_0000 != 0
+    }
+}
+
 #[derive(PartialEq)]
 pub enum TypeCategory {
     Interface,
@@ -43,24 +56,6 @@ pub enum ParamCategory {
     Primitive,
     String,
     Struct,
-}
-
-#[allow(dead_code)]
-pub enum ElementType {
-    Bool,
-    Char,
-    I8,
-    U8,
-    I16,
-    U16,
-    I32,
-    U32,
-    I64,
-    U64,
-    F32,
-    F64,
-    String,
-    Object,
 }
 
 #[derive(Copy, Clone, PartialEq)]

@@ -1,6 +1,7 @@
 use crate::blob::Blob;
 use crate::codes::HasConstant;
 use crate::file::TableIndex;
+use crate::flags::FieldFlags;
 use crate::row::Row;
 use crate::tables::Constant;
 use crate::TypeReader;
@@ -15,6 +16,10 @@ impl Field {
 
     pub fn sig(self, reader: &TypeReader) -> Blob {
         reader.blob(self.0, 2)
+    }
+
+    pub fn flags(self, reader: &TypeReader) -> FieldFlags {
+        FieldFlags(reader.u32(self.0, 0))
     }
 
     pub fn constants(self, reader: &TypeReader) -> impl Iterator<Item = Constant> {

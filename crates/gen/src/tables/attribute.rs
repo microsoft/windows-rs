@@ -1,6 +1,9 @@
-use super::TypeDef;
-use crate::codes::{AttributeType, HasAttribute, MemberRefParent};
+use crate::blob::Blob;
+use crate::codes::{AttributeType, HasAttribute, MemberRefParent, TypeDefOrRef};
+use crate::element_type::ElementType;
 use crate::row::Row;
+use crate::tables::TypeDef;
+use crate::types::{Enum, TypeName};
 use crate::TypeReader;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -33,31 +36,51 @@ impl Attribute {
             AttributeType::MemberRef(method) => (reader.blob(method.0, 2), reader.blob(self.0, 2)),
         };
 
-        values.read_u16();
-        sig.read_unsigned();
-        let count = sig.read_unsigned();
-        sig.read_unsigned();
+        let prolog = values.read_u16();
+        debug_assert!(prolog == 0x0001, "CustomAttribute Prolog must be 0x0001"); // Required by spec.
 
-        let mut args: Vec<(String, AttributeArg)> = Vec::with_capacity(count as usize);
+        let _this_and_gen_param_count = sig.read_unsigned();
+        let fixed_arg_count = sig.read_unsigned();
+        let _ret_type = sig.read_unsigned();
 
-        for _ in 0..count {
-            let arg = match sig.read_unsigned() {
-                0x04 => AttributeArg::I8(values.read_i8()),
-                0x05 => AttributeArg::U8(values.read_u8()),
-                0x06 => AttributeArg::I16(values.read_i16()),
-                0x07 => AttributeArg::U16(values.read_u16()),
-                0x08 => AttributeArg::I32(values.read_i32()),
-                0x09 => AttributeArg::U32(values.read_u32()),
-                0x0A => AttributeArg::I64(values.read_i64()),
-                0x0B => AttributeArg::U64(values.read_u64()),
-                0x0E => AttributeArg::String(values.read_str().to_string()),
-                0x11 | 0x12 => {
-                    sig.read_unsigned();
-                    let name = values.read_str();
-                    let index = name.rfind('.').unwrap();
-                    AttributeArg::TypeDef(
-                        reader.resolve_type_def((&name[0..index], &name[index + 1..])),
-                    )
+        let mut args: Vec<(String, AttributeArg)> = Vec::with_capacity(fixed_arg_count as usize);
+
+        for _ in 0..fixed_arg_count {
+            let arg = match ElementType::from_blob(&mut sig) {
+                ElementType::I1 => AttributeArg::I8(values.read_i8()),
+                ElementType::U1 => AttributeArg::U8(values.read_u8()),
+                ElementType::I2 => AttributeArg::I16(values.read_i16()),
+                ElementType::U2 => AttributeArg::U16(values.read_u16()),
+                ElementType::I4 => AttributeArg::I32(values.read_i32()),
+                ElementType::U4 => AttributeArg::U32(values.read_u32()),
+                ElementType::I8 => AttributeArg::I64(values.read_i64()),
+                ElementType::U8 => AttributeArg::U64(values.read_u64()),
+                ElementType::String => AttributeArg::String(values.read_str().to_string()),
+                ElementType::ValueType(type_def_or_ref) | ElementType::Class(type_def_or_ref) => {
+                    let (namespace, type_name) = match type_def_or_ref {
+                        TypeDefOrRef::TypeDef(type_def) => type_def.name(reader),
+                        TypeDefOrRef::TypeRef(type_ref) => type_ref.name(reader),
+                        _ => panic!("Expected a TypeDef or TypeRef!"),
+                    };
+
+                    if namespace == "System" && type_name == "Type" {
+                        let name = values.read_str();
+                        let index = name.rfind('.').unwrap();
+                        AttributeArg::TypeDef(
+                            reader.resolve_type_def((&name[0..index], &name[index + 1..])),
+                        )
+                    } else {
+                        // Can't resolve it until we know it's an enum, because System.Type won't actually resolve.
+                        let type_name = TypeName::from_type_def_or_ref(
+                            reader,
+                            type_def_or_ref,
+                            &Vec::new(),
+                            "",
+                        );
+
+                        let e = Enum::from_type_name(reader, type_name);
+                        read_enum(&e.underlying_type, &mut values)
+                    }
                 }
                 _ => panic!(),
             };
@@ -65,10 +88,10 @@ impl Attribute {
             args.push((String::new(), arg));
         }
 
-        let count = values.read_u16();
-        args.reserve(count as usize);
+        let named_arg_count = values.read_u16();
+        args.reserve(named_arg_count as usize);
 
-        for _ in 0..count {
+        for _ in 0..named_arg_count {
             let name = values.read_str().to_string();
             let arg = match values.read_u8() {
                 0x02 => AttributeArg::Bool(values.read_u8() != 0),
@@ -93,6 +116,20 @@ impl Attribute {
         }
 
         args
+    }
+}
+
+fn read_enum(element_type: &ElementType, blob: &mut Blob) -> AttributeArg {
+    match element_type {
+        ElementType::I1 => AttributeArg::I8(blob.read_i8()),
+        ElementType::U1 => AttributeArg::U8(blob.read_u8()),
+        ElementType::I2 => AttributeArg::I16(blob.read_i16()),
+        ElementType::U2 => AttributeArg::U16(blob.read_u16()),
+        ElementType::I4 => AttributeArg::I32(blob.read_i32()),
+        ElementType::U4 => AttributeArg::U32(blob.read_u32()),
+        ElementType::I8 => AttributeArg::I64(blob.read_i64()),
+        ElementType::U8 => AttributeArg::U64(blob.read_u64()),
+        _ => panic!("Invalid underlying enum type encountered!"),
     }
 }
 
