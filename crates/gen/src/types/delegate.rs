@@ -62,7 +62,7 @@ impl Delegate {
             if return_type.array {
                 quote! {
                     match ((*this).invoke)(#(#invoke_args,)*) {
-                        ::std::result::Result::Ok(result__) => {
+                        ::std::result::Result::Ok(_) => {
                             ::winrt::ErrorCode(0)
                         }
                         ::std::result::Result::Err(result__) => result__.into()
@@ -71,7 +71,7 @@ impl Delegate {
             } else {
                 quote! {
                     match ((*this).invoke)(#(#invoke_args,)*) {
-                        ::std::result::Result::Ok(result__) => {
+                        ::std::result::Result::Ok(_) => {
                             ::winrt::ErrorCode(0)
                         }
                         ::std::result::Result::Err(result__) => result__.into()
