@@ -472,7 +472,7 @@ impl Dll {
             std::fs::create_dir_all(&profile_path)?;
             let arch = self.name.parent().unwrap();
             let dll_path = profile_path.join(&self.name.strip_prefix(&arch).unwrap());
-            if arch.as_os_str() == "win-x64" && std::fs::read_link(&dll_path).is_err() {
+            if arch.as_os_str() == ARCH && std::fs::read_link(&dll_path).is_err() {
                 std::os::windows::fs::symlink_file(&path, dll_path)?;
             }
         }
@@ -480,3 +480,12 @@ impl Dll {
         Ok(())
     }
 }
+
+#[cfg(target_arch = "x86_64")]
+const ARCH: &str = "win10-x64";
+#[cfg(target_arch = "x86")]
+const ARCH: &str = "win10-x86";
+#[cfg(target_arch = "arm")]
+const ARCH: &str = "win10-arm";
+#[cfg(target_arch = "aarch64")]
+const ARCH: &str = "win10-arm64";
