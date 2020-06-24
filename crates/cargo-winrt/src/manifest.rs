@@ -91,7 +91,11 @@ fn dependency_descriptors_from_metadata(
                         path: path.into(),
                     }),
                     _ => bail!(Error::MalformedManifest(
-                        anyhow!("expected either a `version`, `url`, or `path` string").into(),
+                        anyhow!(
+                            "expected either a `version`, `url`, or `path` string for nuget package '{}'",
+                            key
+                        )
+                        .into(),
                     )),
                 }
             }

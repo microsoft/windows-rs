@@ -21,7 +21,7 @@ fn main() {
         Subcommand::Build(b) => b.perform(),
     };
     if let Err(ref e) = result {
-        eprintln!("{}: {}", console::style("error").red(), e);
+        eprintln!("{}: {}", console::style("error").red().bold(), e);
     }
 }
 
@@ -110,7 +110,7 @@ impl Install {
                 .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
         };
 
-        let downloaded_deps = download_dependencies(dependency_descriptors)?;
+        let downloaded_deps = get_dependencies(dependency_descriptors)?;
         for dep in downloaded_deps {
             dep.save()?;
         }
@@ -291,7 +291,11 @@ fn extract_files<F: Read>(
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
-                eprintln!("Could not read winmd file: {:?}", e);
+                eprintln!(
+                    "{}: could not read winmd file {}",
+                    console::style("warning").red(),
+                    e
+                );
                 return Ok(());
             }
             winmds.push(Winmd { name, contents });
@@ -307,7 +311,11 @@ fn extract_files<F: Read>(
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
-                eprintln!("Could not read dll: {:?}", e);
+                eprintln!(
+                    "{}: could not read dll file {}",
+                    console::style("warning").red(),
+                    e
+                );
                 return Ok(());
             }
             dlls.push(Dll { name, contents });
@@ -359,11 +367,14 @@ impl ResolvedDependency {
     }
 }
 
-fn download_dependencies(
-    deps: Vec<DependencyDescriptor>,
-) -> anyhow::Result<Vec<ResolvedDependency>> {
+fn get_dependencies(deps: Vec<DependencyDescriptor>) -> anyhow::Result<Vec<ResolvedDependency>> {
     tokio::runtime::Runtime::new().unwrap().block_on(async {
         let results = deps.into_iter().map(|dep| async move {
+            println!(
+                "\t{}: fetching {}",
+                console::style("Fetching").green().bold(),
+                dep.name()
+            );
             let raw = dep.get().await?;
             Ok(ResolvedDependency::new(dep, raw)?)
         });
