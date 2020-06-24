@@ -13,6 +13,14 @@ impl Manifest {
         Ok(Manifest(ManifestImpl::from_slice(data)?))
     }
 
+    pub(crate) fn package_name(&self) -> &str {
+        self.0
+            .package
+            .as_ref()
+            .map(|p| p.name.as_ref())
+            .unwrap_or("")
+    }
+
     pub(crate) fn get_dependency_descriptors(self) -> anyhow::Result<Vec<DependencyDescriptor>> {
         let metadata = self.0.package.and_then(|p| p.metadata);
 

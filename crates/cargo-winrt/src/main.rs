@@ -101,6 +101,13 @@ impl Install {
     }
 
     fn install_from_manifest(&self, manifest: Manifest) -> anyhow::Result<()> {
+        if self.verbose {
+            println!(
+                "\t{} dependencies for {}",
+                console::style("Resolving").green().bold(),
+                manifest.package_name()
+            );
+        }
         let deps = manifest.get_dependency_descriptors()?;
         self.ensure_dependencies(deps)
     }
@@ -121,10 +128,17 @@ impl Install {
                 })
                 .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
         };
+        if self.verbose {
+            println!(
+                "\t{} {} nuget dependencies",
+                console::style("Installing").green().bold(),
+                dependency_descriptors.len()
+            );
+        }
 
         let deps = self.get_dependencies(dependency_descriptors)?;
         for dep in deps {
-            dep.save()?;
+            dep.save(self.verbose)?;
         }
         Ok(())
     }
@@ -420,7 +434,15 @@ impl ResolvedDependency {
         &self.contents.1
     }
 
-    fn save(self) -> anyhow::Result<()> {
+    fn save(self, verbose: bool) -> anyhow::Result<()> {
+        if verbose {
+            println!(
+                "\t{} {} winmd files and {} dlls",
+                console::style("Saving").green().bold(),
+                self.winmds().len(),
+                self.dlls().len(),
+            );
+        }
         let dep_directory = self.descriptor.directory_path()?;
         // create the dependency directory
         if !dep_directory.exists() {
@@ -429,11 +451,25 @@ impl ResolvedDependency {
         }
 
         for winmd in self.winmds() {
+            if verbose {
+                println!(
+                    "\t writing winmd file {:?} into {}",
+                    winmd.name,
+                    dep_directory.display()
+                );
+            }
             winmd.write(&dep_directory)?;
         }
 
         for dll in self.dlls() {
-            dll.write(&dep_directory).unwrap();
+            if verbose {
+                println!(
+                    "\t writing dll file {:?} into {}",
+                    dll.name,
+                    dep_directory.display()
+                );
+            }
+            dll.write(&dep_directory, verbose).unwrap();
         }
 
         Ok(())
@@ -461,7 +497,18 @@ struct Dll {
 }
 
 impl Dll {
-    fn write(&self, dir: &Path) -> anyhow::Result<()> {
+    fn write(&self, dir: &Path, verbose: bool) -> anyhow::Result<()> {
+        let arch = self.name.parent().unwrap();
+        let proper_arch = arch.as_os_str() == ARCH;
+        if !proper_arch {
+            if verbose {
+                println!(
+                    "\t   not creating symlink for {} because of differing architecture to host architecture",
+                    self.name.display(),
+                );
+            }
+            return Ok(());
+        }
         let path = dir.join(&self.name);
         std::fs::create_dir_all(path.parent().unwrap())?;
         if !path.exists() {
@@ -470,10 +517,24 @@ impl Dll {
         for profile in &["debug", "release"] {
             let profile_path = cargo::workspace_target_path()?.join(profile);
             std::fs::create_dir_all(&profile_path)?;
-            let arch = self.name.parent().unwrap();
             let dll_path = profile_path.join(&self.name.strip_prefix(&arch).unwrap());
-            if arch.as_os_str() == ARCH && std::fs::read_link(&dll_path).is_err() {
+            if std::fs::read_link(&dll_path).is_err() {
+                if verbose {
+                    println!(
+                        "\t   creating symlink for {} in {}",
+                        self.name.display(),
+                        profile
+                    );
+                }
                 std::os::windows::fs::symlink_file(&path, dll_path)?;
+            } else {
+                if verbose {
+                    println!(
+                        "\t   not creating symlink for {} in {} because it already exists",
+                        self.name.display(),
+                        profile
+                    );
+                }
             }
         }
 
