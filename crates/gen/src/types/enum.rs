@@ -1,3 +1,4 @@
+use crate::element_type::ElementType;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 
@@ -9,6 +10,7 @@ pub struct Enum {
     pub name: TypeName,
     pub fields: Vec<(String, EnumConstant)>,
     pub signature: String,
+    pub underlying_type: ElementType,
 }
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
@@ -22,6 +24,8 @@ impl Enum {
         let signature = name.enum_signature(reader);
         let mut fields = Vec::new();
 
+        let mut underlying_type = None;
+
         for field in name.def.fields(reader) {
             for constant in field.constants(reader) {
                 let name = field.name(reader).to_string();
@@ -33,6 +37,12 @@ impl Enum {
                     _ => panic!("Enum::from_type_def"),
                 };
 
+                let flags = field.flags(reader);
+                if underlying_type.is_none() && flags.is_static() && flags.literal() {
+                    let field_type = ElementType::from_blob(&mut field.sig(reader));
+                    underlying_type = Some(field_type);
+                }
+
                 fields.push((name, value));
             }
         }
@@ -41,6 +51,7 @@ impl Enum {
             name,
             fields,
             signature,
+            underlying_type: underlying_type.expect("Enum must have an underlying type"),
         }
     }
 
