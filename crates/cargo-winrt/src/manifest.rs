@@ -73,7 +73,28 @@ fn dependency_descriptors_from_metadata(
     };
     deps.into_iter()
         .map(|(key, value)| match value {
-            Value::String(version) => Ok(DependencyDescriptor::new(key, version)),
+            Value::String(version) => Ok(DependencyDescriptor::NugetOrg { name: key, version }),
+            Value::Table(mut t) => {
+                let version = t.remove("version");
+                let url = t.remove("url");
+                let path = t.remove("path");
+                match (version, url, path) {
+                    (Some(Value::String(version)), None, None) => {
+                        Ok(DependencyDescriptor::NugetOrg { name: key, version })
+                    }
+                    (None, Some(Value::String(url)), None) => Ok(DependencyDescriptor::Url {
+                        name: key,
+                        url: reqwest::Url::parse(&url)?, // TODO add error context here
+                    }),
+                    (None, None, Some(Value::String(path))) => Ok(DependencyDescriptor::Local {
+                        name: key,
+                        path: path.into(),
+                    }),
+                    _ => bail!(Error::MalformedManifest(
+                        anyhow!("expected either a `version`, `url`, or `path` string").into(),
+                    )),
+                }
+            }
             v @ _ => bail!(Error::MalformedManifest(
                 anyhow!("expected `version` as string, found {}", v).into(),
             )),
