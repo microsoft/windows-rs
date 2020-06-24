@@ -163,7 +163,7 @@ impl Install {
         tokio::runtime::Runtime::new().unwrap().block_on(async {
             let results = deps.into_iter().map(|dep| async move {
                 println!(
-                    "\t{}: fetching {}",
+                    "\t{}: {}",
                     console::style("Fetching").green().bold(),
                     dep.name()
                 );
@@ -379,14 +379,39 @@ fn extract_files<F: Read>(
             winmds.push(Winmd { name, contents });
         }
         Some(e) if e == "dll" && path.starts_with("runtimes") => {
-            let name: PathBuf = path
-                .components()
-                .filter(|c| match c {
-                    std::path::Component::Normal(p) => *p != "native" && *p != "runtimes",
-                    _ => false,
-                })
-                .collect();
-            debug!("{} dll {:?}", console::style("found").green(), name);
+            let mut name: Option<OsString> = None;
+            let mut arch: Option<OsString> = None;
+            for component in path.components() {
+                match component {
+                    std::path::Component::Normal(s) if s.to_string_lossy().starts_with("win10") => {
+                        arch = Some(s.to_owned());
+                    }
+                    std::path::Component::Normal(s) if s.to_string_lossy().ends_with("dll") => {
+                        name = Some(s.to_owned());
+                    }
+                    std::path::Component::Normal(s) if s.to_string_lossy() == "debug" => {
+                        // skip debug dlls
+                        return Ok(());
+                    }
+                    _ => {}
+                }
+            }
+            let (name, arch) = match (name, arch) {
+                (Some(n), Some(a)) => (n, a),
+                _ => {
+                    return Err(anyhow::anyhow!(
+                        "{} is not a valid dll path",
+                        path.display()
+                    ))
+                }
+            };
+            debug!(
+                "{} dll {:?} with arch {:?} at path {}",
+                console::style("found").green(),
+                name,
+                arch,
+                path.display()
+            );
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
@@ -397,7 +422,11 @@ fn extract_files<F: Read>(
                 );
                 return Ok(());
             }
-            dlls.push(Dll { name, contents });
+            dlls.push(Dll {
+                name,
+                arch,
+                contents,
+            });
         }
         _ => {}
     }
@@ -478,16 +507,16 @@ impl Winmd {
 }
 
 struct Dll {
-    name: PathBuf,
+    name: OsString,
+    arch: OsString,
     contents: Vec<u8>,
 }
 
 impl Dll {
     fn write(&self, dir: &Path) -> anyhow::Result<()> {
-        let arch = self.name.parent().unwrap();
-        let proper_arch = arch.as_os_str() == ARCH;
+        let proper_arch = self.arch.as_os_str() == ARCH;
         if !proper_arch {
-            debug!("   not creating symlink for {} because of differing architecture to host architecture", self.name.display());
+            debug!("   not creating symlink for {:?} because of differing architecture to host architecture: {:?} != {:?}", self.name, self.arch, ARCH);
             return Ok(());
         }
         let path = dir.join(&self.name);
@@ -498,19 +527,20 @@ impl Dll {
         for profile in &["debug", "release"] {
             let profile_path = cargo::workspace_target_path()?.join(profile);
             std::fs::create_dir_all(&profile_path)?;
-            let dll_path = profile_path.join(&self.name.strip_prefix(&arch).unwrap());
+            let dll_path = profile_path.join(&self.name);
             if std::fs::read_link(&dll_path).is_err() {
                 debug!(
-                    "   creating symlink for {} in {}",
-                    self.name.display(),
-                    profile
+                    "   creating symlink for {:?} in {}: '{}' <-> '{}'",
+                    self.name,
+                    profile,
+                    path.display(),
+                    dll_path.display()
                 );
                 std::os::windows::fs::symlink_file(&path, dll_path)?;
             } else {
                 debug!(
-                    "   not creating symlink for {} in {} because it already exists",
-                    self.name.display(),
-                    profile
+                    "   not creating symlink for {:?} in {} because it already exists",
+                    self.name, profile
                 );
             }
         }
