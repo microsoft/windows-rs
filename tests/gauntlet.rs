@@ -19,7 +19,7 @@ fn test_self() -> Result<()> {
 }
 
 #[test]
-fn tests() -> Result<()> {
+fn params() -> Result<()> {
     let tests = TestRunner::make_tests()?;
 
     {
@@ -169,6 +169,113 @@ fn tests() -> Result<()> {
         let mut b = Nested::default();
         let c = tests.param15(&a, &a, &mut b)?;
         assert!(a == b && a == c);
+    }
+
+    Ok(())
+}
+
+#[test]
+fn arrays() -> Result<()> {
+    let tests = TestRunner::make_tests()?;
+
+    {
+        let a: [bool; 3] = [true, false, true];
+        let mut b = [false; 3];
+        let mut c = Array::new();
+        let d = tests.array1(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [u8; 3] = [1, 2, 3];
+        let mut b = [0; 3];
+        let mut c = Array::new();
+        let d = tests.array2(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [u16; 3] = [1, 2, 3];
+        let mut b = [0; 3];
+        let mut c = Array::new();
+        let d = tests.array3(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [u32; 3] = [1, 2, 3];
+        let mut b = [0; 3];
+        let mut c = Array::new();
+        let d = tests.array4(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [u64; 3] = [1, 2, 3];
+        let mut b = [0; 3];
+        let mut c = Array::new();
+        let d = tests.array5(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [i16; 3] = [1, 2, 3];
+        let mut b = [0; 3];
+        let mut c = Array::new();
+        let d = tests.array6(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [i32; 3] = [1, 2, 3];
+        let mut b = [0; 3];
+        let mut c = Array::new();
+        let d = tests.array7(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [i64; 3] = [1, 2, 3];
+        let mut b = [0; 3];
+        let mut c = Array::new();
+        let d = tests.array8(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [f32; 3] = [1.0, 2.0, 3.0];
+        let mut b = [0.0; 3];
+        let mut c = Array::new();
+        let d = tests.array9(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [f64; 3] = [1.0, 2.0, 3.0];
+        let mut b = [0.0; 3];
+        let mut c = Array::new();
+        let d = tests.array10(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
     }
 
     Ok(())
