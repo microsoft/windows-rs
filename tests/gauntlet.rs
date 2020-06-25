@@ -278,5 +278,25 @@ fn arrays() -> Result<()> {
         assert!(a == d[..]);
     }
 
+    {
+        let a: [u16; 3] = [0x61, 0x62, 0x63]; // WinRT char e.g. L'a' , L'b', L'c'
+        let mut b = [0; 3];
+        let mut c = Array::new();
+        let d = tests.array11(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let a: [HString; 3] = ["apples".into(), "oranges".into(), "pears".into()];
+        let mut b = [HString::new(), HString::new(), HString::new()];
+        let mut c = Array::new();
+        let d = tests.array12(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
     Ok(())
 }
