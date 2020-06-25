@@ -1,4 +1,4 @@
-winrt::import!(
+import!(
     dependencies
         nuget: Microsoft.Windows.SDK.Contracts
         nuget: KennyKerr.Windows.TestWinRT
@@ -7,17 +7,19 @@ winrt::import!(
         windows::foundation::*
 );
 
+use winrt::*;
 use test_component::*;
+use windows::foundation::*;
 
 #[test]
-fn test_self() -> winrt::Result<()> {
+fn test_self() -> Result<()> {
     TestRunner::test_self()?;
 
     Ok(())
 }
 
 #[test]
-fn tests() -> winrt::Result<()> {
+fn tests() -> Result<()> {
     let tests = TestRunner::make_tests()?;
 
     {
@@ -98,8 +100,8 @@ fn tests() -> winrt::Result<()> {
     }
 
     {
-        let a: winrt::HString = "WinRT".into();
-        let mut b = winrt::HString::new();
+        let a: HString = "WinRT".into();
+        let mut b = HString::new();
         let c = tests.param12(&a, &mut b)?;
         assert!(a == b && a == c);
     }
@@ -115,11 +117,27 @@ fn tests() -> winrt::Result<()> {
             g: -7,
             h: 8.0,
             i: 9.0,
-            j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+            j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
         };
 
         let mut b = Blittable::default();
         let c = tests.param13(&a, &a, &mut b)?;
+        assert!(a == b && a == c);
+    }
+
+    {
+        let object = PropertyValue::create_int64(1234)?;
+        let pv: IReference<i64> = object.try_into()?;
+
+        let a = NonBlittable {
+            a: false,
+            b: 0x57, // WinRT char
+            c: "WinRT".into(),
+            d: pv
+        };
+
+        let mut b = NonBlittable::default();
+        let c = tests.param14(&a, &a, &mut b)?;
         assert!(a == b && a == c);
     }
 
