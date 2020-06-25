@@ -6,7 +6,7 @@ use crate::row::Row;
 use crate::tables::Constant;
 use crate::TypeReader;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct Field(pub Row);
 
 impl Field {

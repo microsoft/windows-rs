@@ -1,7 +1,7 @@
 use crate::row::Row;
 use crate::TypeReader;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct GenericParam(pub Row);
 
 impl GenericParam {

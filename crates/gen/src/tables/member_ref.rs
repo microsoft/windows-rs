@@ -2,7 +2,7 @@ use crate::codes::MemberRefParent;
 use crate::row::Row;
 use crate::TypeReader;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct MemberRef(pub Row);
 
 impl MemberRef {

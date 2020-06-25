@@ -4,7 +4,7 @@ use crate::file::TableIndex;
 use crate::row::Row;
 use crate::TypeReader;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct InterfaceImpl(pub Row);
 
 impl InterfaceImpl {
