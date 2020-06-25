@@ -141,5 +141,35 @@ fn tests() -> Result<()> {
         assert!(a == b && a == c);
     }
 
+    {
+        let object = PropertyValue::create_int64(1234)?;
+        let pv: IReference<i64> = object.try_into()?;
+
+        let a = Nested {
+            blittable: Blittable {
+                a: 1,
+                b: 2,
+                c: 3,
+                d: 4,
+                e: -5,
+                f: -6,
+                g: -7,
+                h: 8.0,
+                i: 9.0,
+                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+            },
+            non_blittable: NonBlittable {
+                a: false,
+                b: 0x57, // WinRT char
+                c: "WinRT".into(),
+                d: pv,
+            },
+        };
+
+        let mut b = Nested::default();
+        let c = tests.param15(&a, &a, &mut b)?;
+        assert!(a == b && a == c);
+    }
+
     Ok(())
 }
