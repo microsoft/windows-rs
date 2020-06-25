@@ -2,7 +2,7 @@ use super::TypeDef;
 use crate::row::Row;
 use crate::TypeReader;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct TypeRef(pub Row);
 
 impl TypeRef {
