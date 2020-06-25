@@ -100,7 +100,7 @@ impl Interface {
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
-                __base: [ usize; 6],
+                base__: [ usize; 6],
                 #abi_methods
                 #phantoms
             }

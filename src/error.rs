@@ -149,20 +149,24 @@ impl ErrorCode {
 impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
-            if let Some(info) = error.info.get_abi() {
-                // Set the error information on the thread if the result is `Err`
-                // so that the caller can pick it up.
-                // Need to ignore the result, as that is the delay-load error, which would mean
-                // that there's no WinRT to tell about the error.
-                unsafe {
-                    let _ = SetRestrictedErrorInfo(info.as_raw() as _);
-                }
-            }
-
-            return error.code();
+            return error.into();
         }
 
         ErrorCode(0)
+    }
+}
+
+impl std::convert::From<Error> for ErrorCode {
+    fn from(error: Error) -> Self {
+        if let Some(info) = error.info.get_abi() {
+            // Set the error information on the thread if the result is `Err`
+            // so that the caller can pick it up.
+            unsafe {
+                let _ = SetRestrictedErrorInfo(info.as_raw() as _);
+            }
+        }
+
+        return error.code();
     }
 }
 
@@ -363,7 +367,7 @@ unsafe impl AbiTransferable for IErrorInfo {
 
 #[repr(C)]
 struct abi_IErrorInfo {
-    __base: [usize; 5],
+    base__: [usize; 5],
     get_description: unsafe extern "system" fn(
         RawComPtr<IErrorInfo>,
         *mut <BString as AbiTransferable>::Abi,
@@ -434,7 +438,7 @@ unsafe impl AbiTransferable for IRestrictedErrorInfo {
 
 #[repr(C)]
 struct abi_IRestrictedErrorInfo {
-    __base: [usize; 3],
+    base__: [usize; 3],
     get_error_details: unsafe extern "system" fn(
         RawComPtr<IRestrictedErrorInfo>,
         *mut <BString as AbiTransferable>::Abi,
@@ -487,7 +491,7 @@ unsafe impl AbiTransferable for ILanguageExceptionErrorInfo2 {
 
 #[repr(C)]
 struct abi_ILanguageExceptionErrorInfo2 {
-    __base: [usize; 5],
+    base__: [usize; 5],
     capture_propagation_context: unsafe extern "system" fn(
         NonNullRawComPtr<ILanguageExceptionErrorInfo2>,
         RawPtr,

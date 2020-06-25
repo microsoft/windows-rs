@@ -67,7 +67,7 @@ impl Method {
         let return_type = if blob.read_expected(0x01) {
             None
         } else {
-            let name = "__result".to_owned();
+            let name = "result__".to_owned();
             let array = blob.peek_unsigned().0 == 0x1D;
             let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
             let input = false;
@@ -156,9 +156,8 @@ impl Method {
             .iter()
             .chain(self.return_type.iter())
             .map(|param| {
-                let name = format_ident(&param.name);
                 let abi = param.to_abi_tokens();
-                quote! { #name: #abi }
+                quote! { #abi }
             });
 
         quote! {
@@ -203,7 +202,7 @@ impl Method {
                 | TypeKind::Struct(_)
                 | TypeKind::Delegate(_)
                 | TypeKind::Generic(_) => {
-                    let name = quote::format_ident!("__{}", position);
+                    let name = quote::format_ident!("T{}__", position);
                     let into = param.kind.to_tokens();
                     tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
                 }
@@ -232,9 +231,9 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
                     unsafe {
-                        let mut __ok: #return_type = ::std::mem::zeroed();
+                        let mut result__: #return_type = ::std::mem::zeroed();
                         (this.vtable().#method_name)(this, #args #return_arg)
-                            .and_then(|| __ok )
+                            .and_then(|| result__ )
                     }
                 }
             }
