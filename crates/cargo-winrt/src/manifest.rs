@@ -92,7 +92,7 @@ fn dependency_descriptors_from_metadata(
                     }
                     (None, Some(Value::String(url)), None) => Ok(DependencyDescriptor::Url {
                         name: key,
-                        url: reqwest::Url::parse(&url)?, // TODO add error context here
+                        url,
                     }),
                     (None, None, Some(Value::String(path))) => Ok(DependencyDescriptor::Local {
                         name: key,

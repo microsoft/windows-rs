@@ -2,52 +2,131 @@ mod cargo;
 mod error;
 mod manifest;
 
+use error::Error;
+use manifest::Manifest;
+
 use anyhow::{bail, Context};
-use futures::future::{BoxFuture, FutureExt};
-use structopt::StructOpt;
+use curl::easy::Easy;
 
 use std::ffi::OsString;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 
-use error::Error;
-use manifest::Manifest;
-
+macro_rules! cmd_err {
+    ($($arg:tt)*) => {
+        eprintln!("{}: {}", console::style("error").red().bold(), format!($($arg)*));
+    };
+}
 fn main() {
-    let Opt::Winrt { subcommand } = Opt::from_args();
+    let subcommand = match parse_args() {
+        Ok(s) => s,
+        Err(e) => {
+            match e {
+                ArgsError::MissingSubcommand => cmd_err!("missing subcommand"),
+                ArgsError::NoSuchSubcommand(c) => cmd_err!("no such subcommand: {}", c),
+                ArgsError::Pico(pico_args::Error::UnusedArgsLeft(args)) => {
+                    cmd_err!("too many arguments supplied: {:?}", args)
+                }
+                ArgsError::Pico(e) => cmd_err!("there was an error: {}", e),
+            };
+            let _ = print_help();
+            std::process::exit(1);
+        }
+    };
     let result = match subcommand {
         Subcommand::Install(i) => i.perform(),
         Subcommand::Run(r) => r.perform(),
         Subcommand::Build(b) => b.perform(),
+        Subcommand::Help => print_help(),
     };
     if let Err(ref e) = result {
-        eprintln!("{}: {}", console::style("error").red().bold(), e);
+        cmd_err!("{}", e);
     }
 }
 
-/// A utility for interacting with nuget packages
-#[derive(StructOpt, Debug)]
-#[structopt(bin_name = "cargo")]
-enum Opt {
-    #[structopt(name = "winrt")]
-    Winrt {
-        #[structopt(subcommand)]
-        subcommand: Subcommand,
-    },
+fn parse_args() -> Result<Subcommand, ArgsError> {
+    // Get the current binary name
+    let binary = std::env::args().next().map(|s| PathBuf::from(s));
+    // test whether the binary is cargo or a standalone invocation
+    let is_cargo_subcommand = match binary
+        .as_ref()
+        .and_then(|p| Some(p.file_name()?.to_string_lossy()))
+        .as_deref()
+    {
+        Some("cargo.exe") => true,
+        Some("cargo") => true,
+        Some(concat!(env!("CARGO_PKG_NAME"), ".exe")) => false,
+        Some(env!("CARGO_PKG_NAME")) => false,
+        b => panic!(
+            "Not running as stand alone binary or as cargo subcommand. Binary name is {}",
+            b.unwrap_or_else(|| "<null>")
+        ),
+    };
+    let mut args = pico_args::Arguments::from_env();
+    if is_cargo_subcommand {
+        debug_assert!(args.subcommand()?.as_deref() == Some("winrt"));
+    }
+    if args.contains(["-h", "--help"]) {
+        return Ok(Subcommand::Help);
+    }
+
+    let subcommand = args.subcommand()?;
+    let verbose = args.contains(["-v", "--verbose"]);
+    let force = args.contains(["-f", "--force"]);
+    args.finish()?;
+    let subcommand = match subcommand.as_deref() {
+        Some("install") => Subcommand::Install(Install { verbose, force }),
+        Some("run") => Subcommand::Run(Run { verbose, force }),
+        Some("build") => Subcommand::Build(Build { verbose, force }),
+        Some(_) => return Err(ArgsError::NoSuchSubcommand(subcommand.unwrap())),
+        None => return Err(ArgsError::MissingSubcommand),
+    };
+    Ok(subcommand)
 }
 
-#[derive(Debug, StructOpt)]
+fn print_help() -> anyhow::Result<()> {
+    println!(
+        r#"
+USAGE:
+    cargo winrt <SUBCOMMAND>
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+SUBCOMMANDS:
+    build
+    help       Prints this message or the help of the given subcommand(s)
+    install
+    run 
+            "#
+    );
+    Ok(())
+}
+
+enum ArgsError {
+    Pico(pico_args::Error),
+    NoSuchSubcommand(String),
+    MissingSubcommand,
+}
+
+impl std::convert::From<pico_args::Error> for ArgsError {
+    fn from(e: pico_args::Error) -> Self {
+        ArgsError::Pico(e)
+    }
+}
+
+#[derive(Debug)]
 enum Subcommand {
     Install(Install),
     Build(Build),
     Run(Run),
+    Help,
 }
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug)]
 pub struct Build {
-    #[structopt(short, long)]
     force: bool,
-    #[structopt(short, long)]
     verbose: bool,
 }
 
@@ -62,11 +141,9 @@ impl Build {
     }
 }
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug)]
 pub struct Run {
-    #[structopt(short, long)]
     force: bool,
-    #[structopt(short, long)]
     verbose: bool,
 }
 
@@ -81,11 +158,9 @@ impl Run {
     }
 }
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug)]
 pub struct Install {
-    #[structopt(short, long)]
     force: bool,
-    #[structopt(short, long)]
     verbose: bool,
 }
 
@@ -160,42 +235,40 @@ impl Install {
         &self,
         deps: Vec<DependencyDescriptor>,
     ) -> anyhow::Result<Vec<ResolvedDependency>> {
-        tokio::runtime::Runtime::new().unwrap().block_on(async {
-            let results = deps.into_iter().map(|dep| async move {
+        deps.into_iter()
+            .map(|dep| {
                 println!(
                     "\t{}: {}",
                     console::style("Fetching").green().bold(),
                     dep.name()
                 );
-                let raw = dep.get().await?;
+                let raw = dep.get()?;
                 Ok(ResolvedDependency::new(dep, raw)?)
-            });
-
-            futures::future::try_join_all(results).await
-        })
+            })
+            .collect()
     }
 }
 
 #[derive(Debug)]
 enum DependencyDescriptor {
     NugetOrg { name: String, version: String },
-    Url { name: String, url: reqwest::Url },
+    Url { name: String, url: String },
     Local { name: String, path: PathBuf },
 }
 
 impl DependencyDescriptor {
-    async fn get(&self) -> anyhow::Result<RawNuget> {
+    fn get(&self) -> anyhow::Result<RawNuget> {
         match self {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
-                let bytes = try_download(url, 5).await?;
+                let bytes = try_download(url, 5)?;
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
                 })
             }
             DependencyDescriptor::Url { url, name } => {
-                let bytes = try_download(url.as_str().to_owned(), 5).await?;
+                let bytes = try_download(url.as_str().to_owned(), 5)?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
@@ -236,39 +309,71 @@ impl DependencyDescriptor {
     }
 }
 
-fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
-    async move {
-        if recursion_amount == 0 {
-            bail!(Error::DownloadError(
-                anyhow::anyhow!("Too many redirects").into(),
-            ));
-        }
-        let res = reqwest::get(&url)
-            .await
-            .map_err(|e| Error::DownloadError(e.into()))?;
-        match res.status().into() {
-            200u16 => {
-                debug!(" retrieved data from {}", url);
-                let bytes = res
-                    .bytes()
-                    .await
-                    .map_err(|e| Error::DownloadError(e.into()))?;
-                Ok(bytes.into_iter().collect())
-            }
-            302 => {
-                let headers = res.headers();
-                let redirect_url = headers.get("Location").unwrap();
-
-                let url = redirect_url.to_str().unwrap();
-
-                try_download(url.to_owned(), recursion_amount - 1).await
-            }
-            s => bail!(Error::DownloadError(
-                anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
-            )),
-        }
+fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
+    if recursion_amount == 0 {
+        bail!(Error::DownloadError(
+            anyhow::anyhow!("Too many redirects").into(),
+        ));
     }
-    .boxed()
+    let mut handle = Easy::new();
+    handle
+        .url(&url)
+        .map_err(|e| Error::DownloadError(e.into()))?;
+    let status = &mut None;
+    {
+        let mut transfer = handle.transfer();
+        transfer
+            .header_function(|header| {
+                let header = std::str::from_utf8(header).unwrap();
+                if header.starts_with("HTTP/1.1 ") {
+                    let n = &header[9..12];
+                    *status = Some(n.parse::<u16>().expect("Should be number"));
+                }
+                true
+            })
+            .unwrap();
+        debug!(" making request to {}", url);
+        transfer.perform()?;
+    }
+    match status.expect("HTTP request did not have a status code") {
+        200u16 => {
+            debug!(" retrieved data from {}", url);
+            let mut bytes = Vec::new();
+            {
+                let mut transfer = handle.transfer();
+                transfer
+                    .write_function(|d| {
+                        bytes.extend(d);
+                        Ok(d.len())
+                    })
+                    .map_err(|e| Error::DownloadError(e.into()))?;
+                transfer.perform()?;
+            }
+            Ok(bytes)
+        }
+        302 => {
+            let redirect_url = &mut None;
+            {
+                let mut transfer = handle.transfer();
+                transfer
+                    .header_function(|header| {
+                        let header = std::str::from_utf8(header).unwrap();
+                        if header.starts_with("Location: ") {
+                            *redirect_url = Some(header[10..header.len() - 2].to_owned())
+                        }
+                        true
+                    })
+                    .map_err(|e| Error::DownloadError(e.into()))?;
+                transfer.perform()?;
+            }
+            let redirect_url = redirect_url.take().unwrap();
+
+            try_download(redirect_url, recursion_amount - 1)
+        }
+        s => bail!(Error::DownloadError(
+            anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
+        )),
+    }
 }
 
 enum RawNuget {

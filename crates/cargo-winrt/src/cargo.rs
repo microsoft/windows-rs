@@ -32,10 +32,8 @@ pub(crate) fn metadata() -> anyhow::Result<Metadata> {
             anyhow::bail!("{}", err)
         };
     }
-    let output = result.stdout;
-    let value: Metadata =
-        serde_json::from_slice(&output).expect("`cargo metadata` did not return json.");
-    Ok(value)
+
+    Ok(Metadata::parse(&result.stdout))
 }
 
 pub(crate) fn package_manifest_path() -> anyhow::Result<PathBuf> {
@@ -70,9 +68,26 @@ impl std::convert::From<CargoError> for error::Error {
     }
 }
 
-#[derive(serde::Deserialize)]
 pub(crate) struct Metadata {
     target_directory: PathBuf,
+}
+
+impl Metadata {
+    fn parse(data: &[u8]) -> Self {
+        let value: serde_json::Value =
+            serde_json::from_slice(&data).expect("`cargo metadata` did not return json.");
+        let td = value
+            .as_object()
+            .expect("`cargo metadata` was not an object");
+        let string = td
+            .get("target_directory")
+            .and_then(|td| td.as_str())
+            .expect("`cargo metadata` 'target_directory' was not a string")
+            .to_owned();
+        Metadata {
+            target_directory: PathBuf::from(string),
+        }
+    }
 }
 
 struct Cargo {
