@@ -104,5 +104,24 @@ fn tests() -> winrt::Result<()> {
         assert!(a == b && a == c);
     }
 
+    {
+        let a = Blittable {
+            a: 1,
+            b: 2,
+            c: 3,
+            d: 4,
+            e: -5,
+            f: -6,
+            g: -7,
+            h: 8.0,
+            i: 9.0,
+            j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+        };
+
+        let mut b = Blittable::default();
+        let c = tests.param13(&a, &a, &mut b)?;
+        assert!(a == b && a == c);
+    }
+
     Ok(())
 }
