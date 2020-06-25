@@ -6,7 +6,7 @@ use error::Error;
 use manifest::Manifest;
 
 use anyhow::{bail, Context};
-use futures::future::{BoxFuture, FutureExt};
+use curl::easy::Easy;
 
 use std::ffi::OsString;
 use std::io::Read;
@@ -235,42 +235,40 @@ impl Install {
         &self,
         deps: Vec<DependencyDescriptor>,
     ) -> anyhow::Result<Vec<ResolvedDependency>> {
-        tokio::runtime::Runtime::new().unwrap().block_on(async {
-            let results = deps.into_iter().map(|dep| async move {
+        deps.into_iter()
+            .map(|dep| {
                 println!(
                     "\t{}: {}",
                     console::style("Fetching").green().bold(),
                     dep.name()
                 );
-                let raw = dep.get().await?;
+                let raw = dep.get()?;
                 Ok(ResolvedDependency::new(dep, raw)?)
-            });
-
-            futures::future::try_join_all(results).await
-        })
+            })
+            .collect()
     }
 }
 
 #[derive(Debug)]
 enum DependencyDescriptor {
     NugetOrg { name: String, version: String },
-    Url { name: String, url: reqwest::Url },
+    Url { name: String, url: String },
     Local { name: String, path: PathBuf },
 }
 
 impl DependencyDescriptor {
-    async fn get(&self) -> anyhow::Result<RawNuget> {
+    fn get(&self) -> anyhow::Result<RawNuget> {
         match self {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
-                let bytes = try_download(url, 5).await?;
+                let bytes = try_download(url, 5)?;
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
                 })
             }
             DependencyDescriptor::Url { url, name } => {
-                let bytes = try_download(url.as_str().to_owned(), 5).await?;
+                let bytes = try_download(url.as_str().to_owned(), 5)?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
@@ -311,39 +309,71 @@ impl DependencyDescriptor {
     }
 }
 
-fn try_download(url: String, recursion_amount: u8) -> BoxFuture<'static, anyhow::Result<Vec<u8>>> {
-    async move {
-        if recursion_amount == 0 {
-            bail!(Error::DownloadError(
-                anyhow::anyhow!("Too many redirects").into(),
-            ));
-        }
-        let res = reqwest::get(&url)
-            .await
-            .map_err(|e| Error::DownloadError(e.into()))?;
-        match res.status().into() {
-            200u16 => {
-                debug!(" retrieved data from {}", url);
-                let bytes = res
-                    .bytes()
-                    .await
-                    .map_err(|e| Error::DownloadError(e.into()))?;
-                Ok(bytes.into_iter().collect())
-            }
-            302 => {
-                let headers = res.headers();
-                let redirect_url = headers.get("Location").unwrap();
-
-                let url = redirect_url.to_str().unwrap();
-
-                try_download(url.to_owned(), recursion_amount - 1).await
-            }
-            s => bail!(Error::DownloadError(
-                anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
-            )),
-        }
+fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
+    if recursion_amount == 0 {
+        bail!(Error::DownloadError(
+            anyhow::anyhow!("Too many redirects").into(),
+        ));
     }
-    .boxed()
+    let mut handle = Easy::new();
+    handle
+        .url(&url)
+        .map_err(|e| Error::DownloadError(e.into()))?;
+    let status = &mut None;
+    {
+        let mut transfer = handle.transfer();
+        transfer
+            .header_function(|header| {
+                let header = std::str::from_utf8(header).unwrap();
+                if header.starts_with("HTTP/1.1 ") {
+                    let n = &header[9..12];
+                    *status = Some(n.parse::<u16>().expect("Should be number"));
+                }
+                true
+            })
+            .unwrap();
+        debug!(" making request to {}", url);
+        transfer.perform()?;
+    }
+    match status.expect("HTTP request did not have a status code") {
+        200u16 => {
+            debug!(" retrieved data from {}", url);
+            let mut bytes = Vec::new();
+            {
+                let mut transfer = handle.transfer();
+                transfer
+                    .write_function(|d| {
+                        bytes.extend(d);
+                        Ok(d.len())
+                    })
+                    .map_err(|e| Error::DownloadError(e.into()))?;
+                transfer.perform()?;
+            }
+            Ok(bytes)
+        }
+        302 => {
+            let redirect_url = &mut None;
+            {
+                let mut transfer = handle.transfer();
+                transfer
+                    .header_function(|header| {
+                        let header = std::str::from_utf8(header).unwrap();
+                        if header.starts_with("Location: ") {
+                            *redirect_url = Some(header[10..header.len() - 2].to_owned())
+                        }
+                        true
+                    })
+                    .map_err(|e| Error::DownloadError(e.into()))?;
+                transfer.perform()?;
+            }
+            let redirect_url = redirect_url.take().unwrap();
+
+            try_download(redirect_url, recursion_amount - 1)
+        }
+        s => bail!(Error::DownloadError(
+            anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
+        )),
+    }
 }
 
 enum RawNuget {
