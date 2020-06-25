@@ -1,6 +1,7 @@
 use crate::blob::Blob;
 use crate::codes::{Decode, TypeDefOrRef};
 
+#[derive(Debug)]
 pub enum ElementType {
     Void,
     Boolean,
@@ -44,29 +45,6 @@ impl ElementType {
             0x12 => ElementType::Class(TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index)),
 
             unknown_type => panic!(format!("Unexpected ElementType: {:x}", unknown_type)),
-        }
-    }
-}
-
-impl std::fmt::Debug for ElementType {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            ElementType::Void => write!(f, "ElementType::Void"),
-            ElementType::Boolean => write!(f, "ElementType::Boolean"),
-            ElementType::Char => write!(f, "ElementType::Char"),
-            ElementType::I1 => write!(f, "ElementType::I1"),
-            ElementType::U1 => write!(f, "ElementType::U1"),
-            ElementType::I2 => write!(f, "ElementType::I2"),
-            ElementType::U2 => write!(f, "ElementType::U2"),
-            ElementType::I4 => write!(f, "ElementType::I4"),
-            ElementType::U4 => write!(f, "ElementType::U4"),
-            ElementType::I8 => write!(f, "ElementType::I8"),
-            ElementType::U8 => write!(f, "ElementType::U8"),
-            ElementType::R4 => write!(f, "ElementType::R4"),
-            ElementType::R8 => write!(f, "ElementType::R8"),
-            ElementType::String => write!(f, "ElementType::String"),
-            ElementType::ValueType(_) => write!(f, "ElementType::ValueType"),
-            ElementType::Class(_) => write!(f, "ElementType::Class"),
         }
     }
 }

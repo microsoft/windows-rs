@@ -6,7 +6,7 @@ use crate::flags::{MethodCategory, MethodFlags};
 use crate::row::Row;
 use crate::TypeReader;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct MethodDef(pub Row);
 
 impl MethodDef {
