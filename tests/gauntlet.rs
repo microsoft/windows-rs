@@ -7,9 +7,9 @@ import!(
         windows::foundation::*
 );
 
-use winrt::*;
 use test_component::*;
 use windows::foundation::*;
+use winrt::*;
 
 #[test]
 fn test_self() -> Result<()> {
@@ -133,7 +133,7 @@ fn tests() -> Result<()> {
             a: false,
             b: 0x57, // WinRT char
             c: "WinRT".into(),
-            d: pv
+            d: pv,
         };
 
         let mut b = NonBlittable::default();
