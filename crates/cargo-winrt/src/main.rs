@@ -2,52 +2,131 @@ mod cargo;
 mod error;
 mod manifest;
 
+use error::Error;
+use manifest::Manifest;
+
 use anyhow::{bail, Context};
 use futures::future::{BoxFuture, FutureExt};
-use structopt::StructOpt;
 
 use std::ffi::OsString;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 
-use error::Error;
-use manifest::Manifest;
-
+macro_rules! cmd_err {
+    ($($arg:tt)*) => {
+        eprintln!("{}: {}", console::style("error").red().bold(), format!($($arg)*));
+    };
+}
 fn main() {
-    let Opt::Winrt { subcommand } = Opt::from_args();
+    let subcommand = match parse_args() {
+        Ok(s) => s,
+        Err(e) => {
+            match e {
+                ArgsError::MissingSubcommand => cmd_err!("missing subcommand"),
+                ArgsError::NoSuchSubcommand(c) => cmd_err!("no such subcommand: {}", c),
+                ArgsError::Pico(pico_args::Error::UnusedArgsLeft(args)) => {
+                    cmd_err!("too many arguments supplied: {:?}", args)
+                }
+                ArgsError::Pico(e) => cmd_err!("there was an error: {}", e),
+            };
+            let _ = print_help();
+            std::process::exit(1);
+        }
+    };
     let result = match subcommand {
         Subcommand::Install(i) => i.perform(),
         Subcommand::Run(r) => r.perform(),
         Subcommand::Build(b) => b.perform(),
+        Subcommand::Help => print_help(),
     };
     if let Err(ref e) = result {
-        eprintln!("{}: {}", console::style("error").red().bold(), e);
+        cmd_err!("{}", e);
     }
 }
 
-/// A utility for interacting with nuget packages
-#[derive(StructOpt, Debug)]
-#[structopt(bin_name = "cargo")]
-enum Opt {
-    #[structopt(name = "winrt")]
-    Winrt {
-        #[structopt(subcommand)]
-        subcommand: Subcommand,
-    },
+fn parse_args() -> Result<Subcommand, ArgsError> {
+    // Get the current binary name
+    let binary = std::env::args().next().map(|s| PathBuf::from(s));
+    // test whether the binary is cargo or a standalone invocation
+    let is_cargo_subcommand = match binary
+        .as_ref()
+        .and_then(|p| Some(p.file_name()?.to_string_lossy()))
+        .as_deref()
+    {
+        Some("cargo.exe") => true,
+        Some("cargo") => true,
+        Some(concat!(env!("CARGO_PKG_NAME"), ".exe")) => false,
+        Some(env!("CARGO_PKG_NAME")) => false,
+        b => panic!(
+            "Not running as stand alone binary or as cargo subcommand. Binary name is {}",
+            b.unwrap_or_else(|| "<null>")
+        ),
+    };
+    let mut args = pico_args::Arguments::from_env();
+    if is_cargo_subcommand {
+        debug_assert!(args.subcommand()?.as_deref() == Some("winrt"));
+    }
+    if args.contains(["-h", "--help"]) {
+        return Ok(Subcommand::Help);
+    }
+
+    let subcommand = args.subcommand()?;
+    let verbose = args.contains(["-v", "--verbose"]);
+    let force = args.contains(["-f", "--force"]);
+    args.finish()?;
+    let subcommand = match subcommand.as_deref() {
+        Some("install") => Subcommand::Install(Install { verbose, force }),
+        Some("run") => Subcommand::Run(Run { verbose, force }),
+        Some("build") => Subcommand::Build(Build { verbose, force }),
+        Some(_) => return Err(ArgsError::NoSuchSubcommand(subcommand.unwrap())),
+        None => return Err(ArgsError::MissingSubcommand),
+    };
+    Ok(subcommand)
 }
 
-#[derive(Debug, StructOpt)]
+fn print_help() -> anyhow::Result<()> {
+    println!(
+        r#"
+USAGE:
+    cargo winrt <SUBCOMMAND>
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+SUBCOMMANDS:
+    build
+    help       Prints this message or the help of the given subcommand(s)
+    install
+    run 
+            "#
+    );
+    Ok(())
+}
+
+enum ArgsError {
+    Pico(pico_args::Error),
+    NoSuchSubcommand(String),
+    MissingSubcommand,
+}
+
+impl std::convert::From<pico_args::Error> for ArgsError {
+    fn from(e: pico_args::Error) -> Self {
+        ArgsError::Pico(e)
+    }
+}
+
+#[derive(Debug)]
 enum Subcommand {
     Install(Install),
     Build(Build),
     Run(Run),
+    Help,
 }
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug)]
 pub struct Build {
-    #[structopt(short, long)]
     force: bool,
-    #[structopt(short, long)]
     verbose: bool,
 }
 
@@ -62,11 +141,9 @@ impl Build {
     }
 }
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug)]
 pub struct Run {
-    #[structopt(short, long)]
     force: bool,
-    #[structopt(short, long)]
     verbose: bool,
 }
 
@@ -81,11 +158,9 @@ impl Run {
     }
 }
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug)]
 pub struct Install {
-    #[structopt(short, long)]
     force: bool,
-    #[structopt(short, long)]
     verbose: bool,
 }
 
