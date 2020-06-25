@@ -298,5 +298,184 @@ fn arrays() -> Result<()> {
         assert!(a == d[..]);
     }
 
+    {
+        let a: [Blittable; 3] = [
+            Blittable {
+                a: 1,
+                b: 2,
+                c: 3,
+                d: 4,
+                e: -5,
+                f: -6,
+                g: -7,
+                h: 8.0,
+                i: 9.0,
+                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+            },
+            Blittable {
+                a: 10,
+                b: 20,
+                c: 30,
+                d: 40,
+                e: -50,
+                f: -60,
+                g: -70,
+                h: 80.0,
+                i: 90.0,
+                j: Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
+            },
+            Blittable {
+                a: 1,
+                b: 2,
+                c: 3,
+                d: 4,
+                e: -5,
+                f: -6,
+                g: -7,
+                h: 8.0,
+                i: 9.0,
+                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+            },
+        ];
+
+        let mut b = [
+            Blittable::default(),
+            Blittable::default(),
+            Blittable::default(),
+        ];
+
+        let mut c = Array::new();
+        let d = tests.array13(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let object = PropertyValue::create_int64(123)?;
+        let first: IReference<i64> = object.try_into()?;
+
+        let object = PropertyValue::create_int64(456)?;
+        let second: IReference<i64> = object.try_into()?;
+
+        let object = PropertyValue::create_int64(789)?;
+        let third: IReference<i64> = object.try_into()?;
+
+        let a: [NonBlittable; 3] = [
+            NonBlittable {
+                a: false,
+                b: 0x61, // WinRT char
+                c: "first".into(),
+                d: first,
+            },
+            NonBlittable {
+                a: true,
+                b: 0x62, // WinRT char
+                c: "second".into(),
+                d: second,
+            },
+            NonBlittable {
+                a: false,
+                b: 0x64, // WinRT char
+                c: "third".into(),
+                d: third,
+            },
+        ];
+
+        let mut b = [
+            NonBlittable::default(),
+            NonBlittable::default(),
+            NonBlittable::default(),
+        ];
+
+        let mut c = Array::new();
+        let d = tests.array14(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
+    {
+        let object = PropertyValue::create_int64(123)?;
+        let first: IReference<i64> = object.try_into()?;
+
+        let object = PropertyValue::create_int64(456)?;
+        let second: IReference<i64> = object.try_into()?;
+
+        let object = PropertyValue::create_int64(789)?;
+        let third: IReference<i64> = object.try_into()?;
+
+        let a: [Nested; 3] = [
+            Nested {
+                blittable: Blittable {
+                    a: 1,
+                    b: 2,
+                    c: 3,
+                    d: 4,
+                    e: -5,
+                    f: -6,
+                    g: -7,
+                    h: 8.0,
+                    i: 9.0,
+                    j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                },
+                non_blittable: NonBlittable {
+                    a: false,
+                    b: 0x61, // WinRT char
+                    c: "first".into(),
+                    d: first,
+                },
+            },
+            Nested {
+                blittable: Blittable {
+                    a: 10,
+                    b: 20,
+                    c: 30,
+                    d: 40,
+                    e: -50,
+                    f: -60,
+                    g: -70,
+                    h: 80.0,
+                    i: 90.0,
+                    j: Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
+                },
+                non_blittable: NonBlittable {
+                    a: true,
+                    b: 0x62, // WinRT char
+                    c: "second".into(),
+                    d: second,
+                },
+            },
+            Nested {
+                blittable: Blittable {
+                    a: 1,
+                    b: 2,
+                    c: 3,
+                    d: 4,
+                    e: -5,
+                    f: -6,
+                    g: -7,
+                    h: 8.0,
+                    i: 9.0,
+                    j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                },
+                non_blittable: NonBlittable {
+                    a: false,
+                    b: 0x63, // WinRT char
+                    c: "third".into(),
+                    d: third,
+                },
+            },
+        ];
+
+        let mut b = [Nested::default(), Nested::default(), Nested::default()];
+
+        let mut c = Array::new();
+        let d = tests.array15(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+    }
+
     Ok(())
 }
