@@ -374,7 +374,7 @@ impl TypeName {
         }
 
         let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
-            let name = format_ident!("__{}", count);
+            let name = format_ident!("t{}__", count);
             let generic = generic.to_tokens();
             quote! { #name: ::std::marker::PhantomData::<#generic>, }
         });

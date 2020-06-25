@@ -6,7 +6,7 @@
 /// must also be exactly equivalent to their associated types
 /// in layout and abi such that it is safe to transmute between the
 /// two types
-pub unsafe trait AbiTransferable {
+pub unsafe trait AbiTransferable: Sized {
     type Abi;
 
     fn get_abi(&self) -> Self::Abi;
@@ -22,6 +22,14 @@ pub unsafe trait AbiTransferable {
         // This must be safe for the implementing type to
         // correctly implement this trait
         unsafe { std::mem::transmute_copy(&abi) }
+    }
+
+    fn slice_from_abi<'a>(abi: *const Self::Abi, len: usize) -> &'a [Self] {
+        unsafe { std::slice::from_raw_parts(std::mem::transmute_copy(&abi), len) }
+    }
+
+    fn slice_from_mut_abi<'a>(abi: *mut Self::Abi, len: usize) -> &'a mut [Self] {
+        unsafe { std::slice::from_raw_parts_mut(std::mem::transmute_copy(&abi), len) }
     }
 }
 
