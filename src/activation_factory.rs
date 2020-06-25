@@ -49,7 +49,7 @@ unsafe impl AbiTransferable for IActivationFactory {
 
 #[repr(C)]
 pub struct abi_IActivationFactory {
-    __base: [usize; 6],
+    base__: [usize; 6],
     activate_instance: unsafe extern "system" fn(
         NonNullRawComPtr<IActivationFactory>,
         *mut <Object as AbiTransferable>::Abi,

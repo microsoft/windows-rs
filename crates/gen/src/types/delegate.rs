@@ -58,6 +58,32 @@ impl Delegate {
             .map(|param| param.to_invoke_arg_tokens());
         let debug = debug::default_debug_tokens(&self.name);
 
+        let invoke_upcall = if let Some(return_type) = &self.method.return_type {
+            if return_type.array {
+                quote! {
+                    match ((*this).invoke)(#(#invoke_args,)*) {
+                        ::std::result::Result::Ok(_) => {
+                            ::winrt::ErrorCode(0)
+                        }
+                        ::std::result::Result::Err(result__) => result__.into()
+                    }
+                }
+            } else {
+                quote! {
+                    match ((*this).invoke)(#(#invoke_args,)*) {
+                        ::std::result::Result::Ok(_) => {
+                            ::winrt::ErrorCode(0)
+                        }
+                        ::std::result::Result::Err(result__) => result__.into()
+                    }
+                }
+            }
+        } else {
+            quote! {
+                ((*this).invoke)(#(#invoke_args,)*).into()
+            }
+        };
+
         quote! {
             #[repr(transparent)]
             pub struct #definition where #constraints {
@@ -188,7 +214,7 @@ impl Delegate {
                 }
                 #invoke_sig {
                     let this: *mut Self = this.as_raw() as _;
-                    ((*this).invoke)(#(#invoke_args,)*).into()
+                    #invoke_upcall
                 }
             }
         }
