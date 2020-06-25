@@ -17,6 +17,7 @@ macro_rules! cmd_err {
         eprintln!("{}: {}", console::style("error").red().bold(), format!($($arg)*));
     };
 }
+
 fn main() {
     let subcommand = match parse_args() {
         Ok(s) => s,
@@ -45,35 +46,22 @@ fn main() {
 }
 
 fn parse_args() -> Result<Subcommand, ArgsError> {
-    // Get the current binary name
-    let binary = std::env::args().next().map(|s| PathBuf::from(s));
-    // test whether the binary is cargo or a standalone invocation
-    let is_cargo_subcommand = match binary
-        .as_ref()
-        .and_then(|p| Some(p.file_name()?.to_string_lossy()))
-        .as_deref()
-    {
-        Some("cargo.exe") => true,
-        Some("cargo") => true,
-        Some(concat!(env!("CARGO_PKG_NAME"), ".exe")) => false,
-        Some(env!("CARGO_PKG_NAME")) => false,
-        b => panic!(
-            "Not running as stand alone binary or as cargo subcommand. Binary name is {}",
-            b.unwrap_or_else(|| "<null>")
-        ),
-    };
     let mut args = pico_args::Arguments::from_env();
-    if is_cargo_subcommand {
-        debug_assert!(args.subcommand()?.as_deref() == Some("winrt"));
-    }
     if args.contains(["-h", "--help"]) {
         return Ok(Subcommand::Help);
     }
 
-    let subcommand = args.subcommand()?;
+    let mut subcommand = args.subcommand()?;
+    if subcommand.as_deref() == Some("winrt") {
+        // presumably running in cargo subcommand mode,
+        // so the subcommand is actually the 3rd command line arg
+        subcommand = args.subcommand()?;
+    }
+
     let verbose = args.contains(["-v", "--verbose"]);
     let force = args.contains(["-f", "--force"]);
     args.finish()?;
+
     let subcommand = match subcommand.as_deref() {
         Some("install") => Subcommand::Install(Install { verbose, force }),
         Some("run") => Subcommand::Run(Run { verbose, force }),
@@ -81,6 +69,7 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
         Some(_) => return Err(ArgsError::NoSuchSubcommand(subcommand.unwrap())),
         None => return Err(ArgsError::MissingSubcommand),
     };
+
     Ok(subcommand)
 }
 
