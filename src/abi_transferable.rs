@@ -24,12 +24,23 @@ pub unsafe trait AbiTransferable: Sized {
         unsafe { std::mem::transmute_copy(&abi) }
     }
 
-    fn slice_from_abi<'a>(abi: *const Self::Abi, len: usize) -> &'a [Self] {
-        unsafe { std::slice::from_raw_parts(std::mem::transmute_copy(&abi), len) }
+    /// Convert a pointer to a `Self::Abi` and and a length to a slice
+    ///
+    /// # Safety
+    /// The `abi` pointer must be a valid pointer to an array of `Self::Abi` items of
+    /// `len` size for the lifetime `'a`. Nothing can mutate that array while
+    /// the slice exists
+    unsafe fn slice_from_abi<'a>(abi: *const Self::Abi, len: usize) -> &'a [Self] {
+        std::slice::from_raw_parts(std::mem::transmute_copy(&abi), len)
     }
 
-    fn slice_from_mut_abi<'a>(abi: *mut Self::Abi, len: usize) -> &'a mut [Self] {
-        unsafe { std::slice::from_raw_parts_mut(std::mem::transmute_copy(&abi), len) }
+    /// Convert a pointer to a `Self::Abi` and and a length to a mutable slice
+    ///
+    /// # Safety
+    /// The same rules apply as with `slice_from_abi` but no other references into
+    /// the slice are allowed while the slice exists.
+    unsafe fn slice_from_mut_abi<'a>(abi: *mut Self::Abi, len: usize) -> &'a mut [Self] {
+        std::slice::from_raw_parts_mut(std::mem::transmute_copy(&abi), len)
     }
 }
 
