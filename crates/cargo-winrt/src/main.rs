@@ -12,13 +12,19 @@ use std::ffi::OsString;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 
+fn main() {
+    if let Err(i) = run() {
+        std::process::exit(i);
+    }
+}
+
 macro_rules! cmd_err {
     ($($arg:tt)*) => {
         eprintln!("{}: {}", console::style("error").red().bold(), format!($($arg)*));
     };
 }
 
-fn main() {
+fn run() -> Result<(), i32> {
     let subcommand = match parse_args() {
         Ok(s) => s,
         Err(e) => {
@@ -31,7 +37,7 @@ fn main() {
                 ArgsError::Pico(e) => cmd_err!("there was an error: {}", e),
             };
             let _ = print_help();
-            std::process::exit(1);
+            return Err(1);
         }
     };
     let result = match subcommand {
@@ -42,7 +48,9 @@ fn main() {
     };
     if let Err(ref e) = result {
         cmd_err!("{}", e);
+        return Err(1);
     }
+    Ok(())
 }
 
 fn parse_args() -> Result<Subcommand, ArgsError> {
