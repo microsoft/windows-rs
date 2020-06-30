@@ -42,6 +42,12 @@ pub unsafe trait AbiTransferable: Sized {
     unsafe fn slice_from_mut_abi<'a>(abi: *mut Self::Abi, len: usize) -> &'a mut [Self] {
         std::slice::from_raw_parts_mut(std::mem::transmute_copy(&abi), len)
     }
+
+    fn into_abi(self) -> Self::Abi {
+        let abi = unsafe { std::mem::transmute_copy(&self) };
+        std::mem::forget(self);
+        abi
+    }
 }
 
 macro_rules! primitive_transferable_type {

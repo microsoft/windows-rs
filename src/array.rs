@@ -57,6 +57,12 @@ impl<T: RuntimeType> Array<T> {
         self.clear();
         &mut self.data as *mut _ as *mut _
     }
+
+    pub unsafe fn into_abi(self) -> (*mut T::Abi, u32) {
+        let abi = (self.data as *mut _, self.len);
+        std::mem::forget(self);
+        abi
+    }
 }
 
 impl<T: RuntimeType> std::ops::Deref for Array<T> {

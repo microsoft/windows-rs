@@ -19,6 +19,18 @@ fn test_self() -> Result<()> {
 }
 
 #[test]
+fn delegate_params() -> Result<()> {
+    let tests = TestRunner::make_tests()?;
+
+    tests.param1_call(Param1Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    Ok(())
+}
+
+#[test]
 fn params() -> Result<()> {
     let tests = TestRunner::make_tests()?;
 
