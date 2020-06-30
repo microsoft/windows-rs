@@ -19,18 +19,6 @@ fn test_self() -> Result<()> {
 }
 
 #[test]
-fn delegate_params() -> Result<()> {
-    let tests = TestRunner::make_tests()?;
-
-    tests.param1_call(Param1Handler::new(|a, b| {
-        *b = a;
-        Ok(a)
-    }))?;
-
-    Ok(())
-}
-
-#[test]
 fn params() -> Result<()> {
     let tests = TestRunner::make_tests()?;
 
@@ -488,6 +476,93 @@ fn arrays() -> Result<()> {
         assert!(a == c[..]);
         assert!(a == d[..]);
     }
+
+    Ok(())
+}
+
+#[test]
+fn delegate_params() -> Result<()> {
+    let tests = TestRunner::make_tests()?;
+
+    tests.param1_call(Param1Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param2_call(Param2Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param3_call(Param3Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param4_call(Param4Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param5_call(Param5Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param6_call(Param6Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param7_call(Param7Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param8_call(Param8Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param9_call(Param9Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param10_call(Param10Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param11_call(Param11Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param12_call(Param12Handler::new(|a, b| {
+        *b = a.clone();
+        Ok(a.clone())
+    }))?;
+
+    tests.param13_call(Param13Handler::new(|a, b, c| {
+        assert_eq!(a, b);
+        *c = a.clone();
+        Ok(a.clone())
+    }))?;
+
+    // TODO: these are non-blittable structs so they need separate ABIs
+
+    // tests.param14_call(Param14Handler::new(|a, b, c| {
+    //     assert_eq!(a, b);
+    //     *c = a.clone();
+    //     Ok(a.clone())
+    // }))?;
+
+    // tests.param15_call(Param15Handler::new(|a, b, c| {
+    //     assert_eq!(a, b);
+    //     *c = a.clone();
+    //     Ok(a.clone())
+    // }))?;
 
     Ok(())
 }
