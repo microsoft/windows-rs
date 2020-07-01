@@ -23,7 +23,7 @@ impl<T: RuntimeType> Array<T> {
 
     pub fn with_len(len: usize) -> Self {
         unsafe {
-            assert!(len < u32::MAX as usize);
+            assert!(len < 0xFFFF_FFFF as usize);
             let data = CoTaskMemAlloc(len * std::mem::size_of::<T>()) as *mut T;
 
             if data.is_null() {
