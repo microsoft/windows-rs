@@ -591,7 +591,7 @@ fn delegate_params() -> Result<()> {
 //     assert!(d[..] == [true, false, true]);
 //     assert!(c.len() == 3);
 //     assert!(c[..] == [true, false, true]);
-    
+
 //     tests.array1_call(Array1Handler::new(|a, b, c| {
 //         assert_eq!(a.len(), b.len());
 //         assert_eq!(c.len(), 0);

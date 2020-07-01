@@ -1,8 +1,8 @@
+use crate::format_ident;
 use crate::tables::*;
 use crate::types::debug;
 use crate::types::*;
 use crate::TypeReader;
-use crate::*;
 
 use proc_macro2::TokenStream;
 use quote::quote;
