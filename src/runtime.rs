@@ -53,6 +53,19 @@ fn load_proc(library_name: &str, sym: &str) -> Result<RawPtr, ErrorCode> {
     Ok(addr)
 }
 
+#[link(name = "oleaut32")]
+extern "system" {
+    pub fn SysStringLen(bstr: *mut u16) -> u32;
+    pub fn SysFreeString(bstr: *mut u16);
+    pub fn GetErrorInfo(reserved: u32, info: *mut *mut u16) -> ErrorCode;
+}
+
+#[link(name = "ole32")]
+extern "system" {
+    pub fn CoTaskMemAlloc(len: usize) -> RawPtr;
+    pub fn CoTaskMemFree(ptr: RawPtr);
+}
+
 macro_rules! demand_load {
     ( $( $library:literal {
         $(pub fn $sym:ident ( $( $param: ident : $pty: ty ),* $(,)? ) -> $rt: ty;)*
@@ -90,16 +103,4 @@ demand_load! {
         pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
         pub fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
     }
-}
-
-#[link(name = "oleaut32")]
-extern "system" {
-    pub fn SysStringLen(bstr: *mut u16) -> u32;
-    pub fn SysFreeString(bstr: *mut u16);
-    pub fn GetErrorInfo(reserved: u32, info: *mut *mut u16) -> ErrorCode;
-}
-
-#[link(name = "ole32")]
-extern "system" {
-    pub fn CoTaskMemFree(ptr: RawPtr);
 }

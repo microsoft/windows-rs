@@ -21,6 +21,21 @@ impl<T: RuntimeType> Array<T> {
         Self::default()
     }
 
+    pub fn with_len(len: usize) -> Self {
+        unsafe {
+            assert!(len < u32::MAX as usize);
+            let data = CoTaskMemAlloc(len * std::mem::size_of::<T>()) as *mut T;
+
+            if data.is_null() {
+                panic!("Could not successfully allocate for Array");
+            }
+
+            std::ptr::write_bytes(data, 0, len);
+            let len = len as u32;
+            Self { data, len }
+        }
+    }
+
     /// Returns `true` if the array is empty.
     pub fn is_empty(&self) -> bool {
         self.len == 0
