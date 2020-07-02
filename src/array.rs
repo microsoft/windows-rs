@@ -21,19 +21,24 @@ impl<T: RuntimeType> Array<T> {
         Self::default()
     }
 
+    /// Creates an array of the given length with default values.
     pub fn with_len(len: usize) -> Self {
-        unsafe {
-            assert!(len < 0xFFFF_FFFF as usize);
-            let data = CoTaskMemAlloc(len * std::mem::size_of::<T>()) as *mut T;
+        assert!(len < std::u32::MAX as usize);
 
-            if data.is_null() {
-                panic!("Could not successfully allocate for Array");
-            }
+        // WinRT arrays must be allocated with CoTaskMemAlloc.
+        let data = unsafe { CoTaskMemAlloc(len * std::mem::size_of::<T>()) as *mut T };
 
-            std::ptr::write_bytes(data, 0, len);
-            let len = len as u32;
-            Self { data, len }
+        if data.is_null() {
+            panic!("Could not successfully allocate for Array");
         }
+
+        // It is safe to zero-initialize WinRT types.
+        unsafe {
+            std::ptr::write_bytes(data, 0, len);
+        }
+
+        let len = len as u32;
+        Self { data, len }
     }
 
     /// Returns `true` if the array is empty.
@@ -64,16 +69,16 @@ impl<T: RuntimeType> Array<T> {
         }
     }
 
-    pub unsafe fn set_abi_len(&mut self) -> *mut u32 {
+    pub fn set_abi_len(&mut self) -> *mut u32 {
         &mut self.len
     }
 
-    pub unsafe fn set_abi(&mut self) -> *mut *mut T::Abi {
+    pub fn set_abi(&mut self) -> *mut *mut T::Abi {
         self.clear();
         &mut self.data as *mut _ as *mut _
     }
 
-    pub unsafe fn into_abi(self) -> (*mut T::Abi, u32) {
+    pub fn into_abi(self) -> (*mut T::Abi, u32) {
         let abi = (self.data as *mut _, self.len);
         std::mem::forget(self);
         abi
