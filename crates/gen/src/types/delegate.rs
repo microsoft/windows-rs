@@ -72,7 +72,7 @@ impl Delegate {
                             *#result_size = ok_data_len__;
                             ::winrt::ErrorCode(0)
                         }
-                        ::std::result::Result::Err(err__) => err__.into()
+                        ::std::result::Result::Err(err) => err.into()
                     }
                 }
             } else {
@@ -85,7 +85,7 @@ impl Delegate {
                             *#return_name = <#return_kind as ::winrt::AbiTransferable>::into_abi(ok__);
                             ::winrt::ErrorCode(0)
                         }
-                        ::std::result::Result::Err(err__) => err__.into()
+                        ::std::result::Result::Err(err) => err.into()
                     }
                 }
             }
