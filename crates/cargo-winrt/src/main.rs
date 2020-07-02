@@ -485,7 +485,7 @@ fn extract_files<F: Read>(
             let mut arch: Option<OsString> = None;
             for component in path.components() {
                 match component {
-                    std::path::Component::Normal(s) if s.to_string_lossy().starts_with("win10") => {
+                    std::path::Component::Normal(s) if s.to_string_lossy().starts_with("win") => {
                         arch = Some(s.to_owned());
                     }
                     std::path::Component::Normal(s) if s.to_string_lossy().ends_with("dll") => {
@@ -500,11 +500,11 @@ fn extract_files<F: Read>(
             }
             let (name, arch) = match (name, arch) {
                 (Some(n), Some(a)) => (n, a),
-                _ => {
+                (_, _) => {
                     return Err(anyhow::anyhow!(
                         "{} is not a valid dll path",
                         path.display()
-                    ))
+                    ));
                 }
             };
             debug!(
@@ -616,9 +616,9 @@ struct Dll {
 
 impl Dll {
     fn write(&self, dir: &Path) -> anyhow::Result<()> {
-        let proper_arch = self.arch.as_os_str() == ARCH;
+        let proper_arch = ARCHES.contains(&&*self.arch.to_string_lossy());
         if !proper_arch {
-            debug!("   not creating symlink for {:?} because of differing architecture to host architecture: {:?} != {:?}", self.name, self.arch, ARCH);
+            debug!("   not creating symlink for {:?} because of differing architecture to host architecture: {:?} not in {:?}", self.name, self.arch, ARCHES);
             return Ok(());
         }
         let path = dir.join(&self.name);
@@ -652,10 +652,10 @@ impl Dll {
 }
 
 #[cfg(target_arch = "x86_64")]
-const ARCH: &str = "win10-x64";
+const ARCHES: &[&str] = &["win10-x64", "win-x64"];
 #[cfg(target_arch = "x86")]
-const ARCH: &str = "win10-x86";
+const ARCHES: &[&str] = &["win10-x86", "win-x86"];
 #[cfg(target_arch = "arm")]
-const ARCH: &str = "win10-arm";
+const ARCHES: &[&str] = &["win10-arm", "win-arm"];
 #[cfg(target_arch = "aarch64")]
-const ARCH: &str = "win10-arm64";
+const ARCHES: &[&str] = &["win10-arm64", "win-arm64"];
