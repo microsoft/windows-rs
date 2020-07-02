@@ -22,6 +22,7 @@ jobs:
         toolchain: ${{ matrix.rust }}
         profile: minimal
         override: true
+        components: rustfmt
 
     - name: cargo winrt
       run: cargo install --path ./crates/cargo-winrt
