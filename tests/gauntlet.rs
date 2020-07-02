@@ -607,3 +607,51 @@ fn delegate_params() -> Result<()> {
 
 //     Ok(())
 // }
+
+#[test]
+fn collections() -> Result<()> {
+    {
+        let v = TestRunner::create_int32_vector()?;
+        assert_eq!(v.size()?, 0);
+        v.append(1)?;
+        assert_eq!(v.size()?, 1);
+        assert_eq!(v.get_at(0)?, 1);
+        v.replace_all(&[1, 2, 3])?;
+        assert_eq!(v.size()?, 3);
+        assert_eq!(v.get_at(0)?, 1);
+        assert_eq!(v.get_at(1)?, 2);
+        assert_eq!(v.get_at(2)?, 3);
+    }
+
+    {
+        let v = TestRunner::create_string_vector()?;
+        assert_eq!(v.size()?, 0);
+        v.append("one")?;
+        assert_eq!(v.size()?, 1);
+        assert_eq!(v.get_at(0)?, "one");
+        v.replace_all(&["one".into(), "two".into(), "three".into()])?;
+        assert_eq!(v.size()?, 3);
+        assert_eq!(v.get_at(0)?, "one");
+        assert_eq!(v.get_at(1)?, "two");
+        assert_eq!(v.get_at(2)?, "three");
+    }
+
+    {
+        let one: IStringable = Uri::create_uri("http://kennykerr.ca/one")?.into();
+        let two: IStringable = Uri::create_uri("http://kennykerr.ca/two")?.into();
+        let three: IStringable = Uri::create_uri("http://kennykerr.ca/three")?.into();
+
+        let v = TestRunner::create_stringable_vector()?;
+        assert_eq!(v.size()?, 0);
+        v.append(&one)?;
+        assert_eq!(v.size()?, 1);
+        assert_eq!(v.get_at(0)?.to_string()?, "http://kennykerr.ca/one");
+        v.replace_all(&[one, two, three])?;
+        assert_eq!(v.size()?, 3);
+        assert_eq!(v.get_at(0)?.to_string()?, "http://kennykerr.ca/one");
+        assert_eq!(v.get_at(1)?.to_string()?, "http://kennykerr.ca/two");
+        assert_eq!(v.get_at(2)?.to_string()?, "http://kennykerr.ca/three");
+    }
+
+    Ok(())
+}
