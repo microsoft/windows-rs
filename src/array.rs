@@ -78,6 +78,14 @@ impl<T: RuntimeType> Array<T> {
         std::mem::forget(self);
         abi
     }
+
+    // pub unsafe fn from_mut_abi<'a>(data: *mut *mut T::Abi, len: *mut u32) -> ArrayProxy<T> {
+    //     ArrayProxy {
+    //         data,
+    //         len,
+    //         array: Array::new()
+    //     }
+    // }
 }
 
 impl<T: RuntimeType> std::ops::Deref for Array<T> {
@@ -107,6 +115,34 @@ impl<T: RuntimeType> Drop for Array<T> {
         self.clear();
     }
 }
+
+// struct ArrayProxy<T: RuntimeType> {
+//     data: *mut T,
+//     len: *mut u32,
+//     array: Array<T>,
+// }
+
+// impl<T: RuntimeType> std::ops::Deref for ArrayProxy<T> {
+//     type Target = Array<T>;
+
+//     fn deref(&self) -> &Array<T> {
+//         panic!();
+//     }
+// }
+
+// impl<T: RuntimeType> std::ops::DerefMut for ArrayProxy<T> {
+//     fn deref_mut(&mut self) -> &mut Array<T> {
+//         &mut self.array
+//     }
+// }
+
+// impl<T: RuntimeType> Drop for ArrayProxy<T> {
+//     fn drop(&mut self) {
+//         let (data, len) = self.array.into_abi();
+//         *self.data = data;
+//         *self.len = len;
+//     }
+// }
 
 #[cfg(test)]
 mod tests {
