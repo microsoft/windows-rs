@@ -18,10 +18,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: ${{ matrix.rust }}
-          profile: minimal
-          override: true
+      with:
+        toolchain: ${{ matrix.rust }}
+        profile: minimal
+        override: true
 
     - name: cargo winrt
       run: cargo install --path ./crates/cargo-winrt
