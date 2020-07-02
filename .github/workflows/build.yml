@@ -10,42 +10,29 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  build:
+  test:
     runs-on: windows-latest
+    strategy: 
+      matrix: 
+        rust: [1.40.0, stable]
     steps:
     - uses: actions/checkout@v2
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: ${{ matrix.rust }}
+        profile: minimal
+        override: true
+        components: rustfmt
 
     - name: cargo winrt
-      run: cargo install --git https://github.com/microsoft/winrt-rs cargo-winrt
+      run: cargo install --path ./crates/cargo-winrt
 
     - name: winrt install
       run: cargo winrt install
-
-    - name: check
-      run: cargo check --all --bins --examples
 
     - name: tests
       run: cargo test --all 
 
     - name: fmt
       run: cargo fmt --all -- --check
-
-  min-supported:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: install
-      run: rustup install 1.40.0
-
-    - name: cargo winrt
-      run: cargo install --git https://github.com/microsoft/winrt-rs cargo-winrt
-
-    - name: winrt install
-      run: cargo winrt install
-
-    - name: check
-      run: cargo +1.40.0 check --all --bins --examples
-
-    - name: tests
-      run: cargo +1.40.0 test --all 
+      if: matrix.rust == 'stable'

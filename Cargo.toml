@@ -19,6 +19,7 @@ doc-comment = "0.3"
 [workspace]
 members = [
     "crates/*",
+    "examples/*"
 ]
 
 [package.metadata.docs.rs]
@@ -28,3 +29,4 @@ targets = ["x86_64-pc-windows-msvc", "i686-pc-windows-msvc"]
 [package.metadata.winrt.dependencies]
 "Microsoft.Windows.SDK.Contracts" = "10.0.19041.1"
 "KennyKerr.Windows.TestWinRT" = "1.0.10"
+"Microsoft.AI.MachineLearning" = "1.3.0"
