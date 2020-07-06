@@ -19,9 +19,6 @@
 
 ## Changed
 
-* `TypeLimits::insert` now returns a `Result::Err` when the namespace is not found [#220](https://github.com/microsoft/winrt-rs/pull/220)
-* `TypeNamespaces::to_tokens` returns an iterator of `TokenStream` instead of a `TokenStream` [#223](https://github.com/microsoft/winrt-rs/pull/223)
-
 ## Fixed
 
 * Properly move dlls over from NuGet packages when dlls are in `win10-$ARCH` folders [#234](https://github.com/microsoft/winrt-rs/pull/234)
