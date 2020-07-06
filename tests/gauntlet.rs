@@ -477,5 +477,150 @@ fn arrays() -> Result<()> {
         assert!(a == d[..]);
     }
 
+    {
+        let a: [IStringable; 3] = [
+            Uri::create_uri("http://kennykerr.ca/one")?.into(),
+            Uri::create_uri("http://kennykerr.ca/two")?.into(),
+            Uri::create_uri("http://kennykerr.ca/three")?.into(),
+        ];
+
+        let mut b = [
+            IStringable::default(),
+            IStringable::default(),
+            IStringable::default(),
+        ];
+
+        let mut c = Array::new();
+        let d = tests.array16(&a, &mut b, &mut c)?;
+        assert!(a == b);
+        assert!(a == c[..]);
+        assert!(a == d[..]);
+
+        assert_eq!(c[0].to_string()?, "http://kennykerr.ca/one");
+        assert_eq!(c[1].to_string()?, "http://kennykerr.ca/two");
+        assert_eq!(c[2].to_string()?, "http://kennykerr.ca/three");
+    }
+
+    Ok(())
+}
+
+#[test]
+fn delegate_params() -> Result<()> {
+    let tests = TestRunner::make_tests()?;
+
+    tests.param1_call(Param1Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param2_call(Param2Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param3_call(Param3Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param4_call(Param4Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param5_call(Param5Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param6_call(Param6Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param7_call(Param7Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param8_call(Param8Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param9_call(Param9Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param10_call(Param10Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param11_call(Param11Handler::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    tests.param12_call(Param12Handler::new(|a, b| {
+        *b = a.clone();
+        Ok(a.clone())
+    }))?;
+
+    tests.param13_call(Param13Handler::new(|a, b, c| {
+        assert_eq!(a, b);
+        *c = a.clone();
+        Ok(a.clone())
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn collections() -> Result<()> {
+    {
+        let v = TestRunner::create_int32_vector()?;
+        assert_eq!(v.size()?, 0);
+        v.append(1)?;
+        assert_eq!(v.size()?, 1);
+        assert_eq!(v.get_at(0)?, 1);
+        v.replace_all(&[1, 2, 3])?;
+        assert_eq!(v.size()?, 3);
+        assert_eq!(v.get_at(0)?, 1);
+        assert_eq!(v.get_at(1)?, 2);
+        assert_eq!(v.get_at(2)?, 3);
+    }
+
+    {
+        let v = TestRunner::create_string_vector()?;
+        assert_eq!(v.size()?, 0);
+        v.append("one")?;
+        assert_eq!(v.size()?, 1);
+        assert_eq!(v.get_at(0)?, "one");
+        v.replace_all(&["one".into(), "two".into(), "three".into()])?;
+        assert_eq!(v.size()?, 3);
+        assert_eq!(v.get_at(0)?, "one");
+        assert_eq!(v.get_at(1)?, "two");
+        assert_eq!(v.get_at(2)?, "three");
+    }
+
+    {
+        let one: IStringable = Uri::create_uri("http://kennykerr.ca/one")?.into();
+        let two: IStringable = Uri::create_uri("http://kennykerr.ca/two")?.into();
+        let three: IStringable = Uri::create_uri("http://kennykerr.ca/three")?.into();
+
+        let v = TestRunner::create_stringable_vector()?;
+        assert_eq!(v.size()?, 0);
+        v.append(&one)?;
+        assert_eq!(v.size()?, 1);
+        assert_eq!(v.get_at(0)?.to_string()?, "http://kennykerr.ca/one");
+        v.replace_all(&[one, two, three])?;
+        assert_eq!(v.size()?, 3);
+        assert_eq!(v.get_at(0)?.to_string()?, "http://kennykerr.ca/one");
+        assert_eq!(v.get_at(1)?.to_string()?, "http://kennykerr.ca/two");
+        assert_eq!(v.get_at(2)?.to_string()?, "http://kennykerr.ca/three");
+    }
+
     Ok(())
 }

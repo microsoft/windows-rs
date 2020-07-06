@@ -1,3 +1,4 @@
+use crate::format_ident;
 use crate::tables::*;
 use crate::types::debug;
 use crate::types::*;
@@ -60,21 +61,31 @@ impl Delegate {
 
         let invoke_upcall = if let Some(return_type) = &self.method.return_type {
             if return_type.array {
+                let result = format_ident(&return_type.name);
+                let result_size = quote::format_ident!("array_size_{}", &return_type.name);
+
                 quote! {
                     match ((*this).invoke)(#(#invoke_args,)*) {
-                        ::std::result::Result::Ok(_) => {
+                        ::std::result::Result::Ok(ok__) => {
+                            let (ok_data__, ok_data_len__) = ok__.into_abi();
+                            *#result = ok_data__;
+                            *#result_size = ok_data_len__;
                             ::winrt::ErrorCode(0)
                         }
-                        ::std::result::Result::Err(result__) => result__.into()
+                        ::std::result::Result::Err(err) => err.into()
                     }
                 }
             } else {
+                let return_name = format_ident(&return_type.name);
+                let return_kind = return_type.kind.to_tokens();
+
                 quote! {
                     match ((*this).invoke)(#(#invoke_args,)*) {
-                        ::std::result::Result::Ok(_) => {
+                        ::std::result::Result::Ok(ok__) => {
+                            *#return_name = <#return_kind as ::winrt::AbiTransferable>::into_abi(ok__);
                             ::winrt::ErrorCode(0)
                         }
-                        ::std::result::Result::Err(result__) => result__.into()
+                        ::std::result::Result::Err(err) => err.into()
                     }
                 }
             }

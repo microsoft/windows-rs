@@ -14,7 +14,7 @@ pub unsafe trait AbiTransferable: Sized {
 
     fn from_abi(abi: &Self::Abi) -> &Self {
         // This must be safe for the implementing type to
-        // correctly implement this trait
+        // correctly implement this trait.
         unsafe { std::mem::transmute_copy(&abi) }
     }
 
@@ -24,23 +24,32 @@ pub unsafe trait AbiTransferable: Sized {
         unsafe { std::mem::transmute_copy(&abi) }
     }
 
-    /// Convert a pointer to a `Self::Abi` and and a length to a slice
+    /// Convert a pointer to a `Self::Abi` and and a length to a slice.
     ///
     /// # Safety
     /// The `abi` pointer must be a valid pointer to an array of `Self::Abi` items of
     /// `len` size for the lifetime `'a`. Nothing can mutate that array while
-    /// the slice exists
+    /// the slice exists.
     unsafe fn slice_from_abi<'a>(abi: *const Self::Abi, len: usize) -> &'a [Self] {
         std::slice::from_raw_parts(std::mem::transmute_copy(&abi), len)
     }
 
-    /// Convert a pointer to a `Self::Abi` and and a length to a mutable slice
+    /// Convert a pointer to a `Self::Abi` and and a length to a mutable slice.
     ///
     /// # Safety
     /// The same rules apply as with `slice_from_abi` but no other references into
     /// the slice are allowed while the slice exists.
     unsafe fn slice_from_mut_abi<'a>(abi: *mut Self::Abi, len: usize) -> &'a mut [Self] {
         std::slice::from_raw_parts_mut(std::mem::transmute_copy(&abi), len)
+    }
+
+    /// Converts and consumes the ABI transferable type into its ABI representation.
+    fn into_abi(self) -> Self::Abi {
+        // This must be safe for the implementing type to
+        // correctly implement this trait.
+        let abi = unsafe { std::mem::transmute_copy(&self) };
+        std::mem::forget(self);
+        abi
     }
 }
 
