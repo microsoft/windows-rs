@@ -1,6 +1,6 @@
 [package]
 name = "winrt_macros"
-version = "0.7.0"
+version = "0.7.1"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
@@ -13,4 +13,4 @@ proc-macro = true
 syn = "1.0"
 quote = "1.0"
 proc-macro2 = "1.0"
-winrt_gen = { path = "../gen", version = "0.7" }
+winrt_gen = { path = "../gen", version = "0.7.1" }
