@@ -56,7 +56,7 @@ We believe that WinRT bindings can map to 100% safe Rust. However, often times W
 
 We take these safety gurantees very seriously. Please let us know if you run into issues where you see Rust's memory safety guarantees being violated through use of this crate. 
 
-## Backwards Compatibility 
+## Backwards compatibility 
 
 This project is under heavy development. Both the `winrt` crate and `cargo-winrt` are expected to have many breaking changes before reaching 1.0. Until then, breaking changes will be signified by a bump in the 0.X (e.g., 0.7.0 to 0.8.0) version number meaning that 0.X.Y (e.g., 0.7.0 to 0.7.1) version bumps will only happen when there are no breaking changes. 
 
