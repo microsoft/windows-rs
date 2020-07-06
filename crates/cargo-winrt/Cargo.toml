@@ -1,6 +1,6 @@
 [package]
 name = "cargo-winrt"
-version = "0.7.0"
+version = "0.7.1"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
