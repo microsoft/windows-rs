@@ -56,6 +56,12 @@ We believe that WinRT bindings can map to 100% safe Rust. However, often times W
 
 We take these safety gurantees very seriously. Please let us know if you run into issues where you see Rust's memory safety guarantees being violated through use of this crate. 
 
+## Backwards Compatibility 
+
+This project is under heavy development. Both the `winrt` crate and `cargo-winrt` are expected to have many breaking changes before reaching 1.0. Until then, breaking changes will be signified by a bump in the 0.X (e.g., 0.7.0 to 0.8.0) version number meaning that 0.X.Y (e.g., 0.7.0 to 0.7.1) version bumps will only happen when there are no breaking changes. 
+
+Other crates under the WinRT-rs umbrella such as `winrt_gen` and `winrt_macros` are considered implementation details at this point, and breaking changes can happen at any time even in 0.X.Y version bumps. These crates will generally follow in lockstep with the version of `winrt`. 
+
 ## IDE support
 
 WinRT is developed with and tested for the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) VS Code extension. We want WinRT-rs to work well with rust-analyzer, so if you run into issues, please file a bug report so we can look into it. There are, however, a few things to note about WinRT-rs and rust-analyzer:
