@@ -90,13 +90,13 @@ fn to_async_tokens(
                 type Output = ::winrt::Result<#return_type>;
 
                 fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
-                    if self.status().expect("Failed to get async status") == #namespace AsyncStatus::Started {
+                    if self.status()? == #namespace AsyncStatus::Started {
                         let waker = context.waker().clone();
 
                         self.set_completed(#namespace #handler::new(move |_sender, _args| {
                             waker.wake_by_ref();
                             Ok(())
-                        })).expect("Failed to set async completed handler");
+                        }))?;
 
                         ::std::task::Poll::Pending
                     } else {
