@@ -2,7 +2,10 @@ use crate::types::*;
 use proc_macro2::TokenStream;
 use quote::quote;
 
-pub fn get_async_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> (TokenStream, TokenStream) {
+pub fn get_async_tokens(
+    name: &TypeName,
+    interfaces: &Vec<RequiredInterface>,
+) -> (TokenStream, TokenStream) {
     let kind = async_kind(name);
     if kind != AsyncKind::None {
         return to_async_tokens(kind, name, name);
@@ -42,7 +45,11 @@ fn async_kind(name: &TypeName) -> AsyncKind {
     }
 }
 
-fn to_async_tokens(kind: AsyncKind, name: &TypeName, self_name: &TypeName) -> (TokenStream, TokenStream) {
+fn to_async_tokens(
+    kind: AsyncKind,
+    name: &TypeName,
+    self_name: &TypeName,
+) -> (TokenStream, TokenStream) {
     let namespace = to_namespace_tokens("Windows.Foundation", &self_name.namespace);
 
     let return_type = match kind {
@@ -87,7 +94,7 @@ fn to_async_tokens(kind: AsyncKind, name: &TypeName, self_name: &TypeName) -> (T
                         let waker = context.waker().clone();
 
                         self.set_completed(#namespace #handler::new(move |_sender, _args| {
-                            waker.wake_by_ref(); // TODO: or just wake?
+                            waker.wake_by_ref();
                             Ok(())
                         })).expect("Failed to set async completed handler");
 
@@ -97,6 +104,6 @@ fn to_async_tokens(kind: AsyncKind, name: &TypeName, self_name: &TypeName) -> (T
                     }
                 }
             }
-        }
+        },
     )
 }
