@@ -1,4 +1,4 @@
-mod async_get;
+mod futures;
 mod class;
 mod debug;
 mod delegate;
@@ -17,7 +17,7 @@ mod type_guid;
 mod type_kind;
 mod type_name;
 
-pub(crate) use async_get::*;
+pub(crate) use futures::*;
 pub(crate) use class::Class;
 pub(crate) use delegate::Delegate;
 pub(crate) use interface::Interface;
