@@ -624,3 +624,126 @@ fn collections() -> Result<()> {
 
     Ok(())
 }
+
+async fn async_await() -> Result<()> {
+    let tests = TestRunner::make_tests()?;
+
+    // Success and failure with no delay
+
+    tests
+        .async1(TestRunner::create_async_action(0)?, false)?
+        .await?;
+    assert_eq!(
+        tests
+            .async1(TestRunner::create_async_action(0)?, true)?
+            .await
+            .unwrap_err()
+            .message(),
+        "test"
+    );
+
+    tests
+        .async2(TestRunner::create_async_action(0)?, false, 0)?
+        .await?;
+    assert_eq!(
+        tests
+            .async2(TestRunner::create_async_action(0)?, true, 0)?
+            .await
+            .unwrap_err()
+            .message(),
+        "test"
+    );
+
+    assert_eq!(
+        tests
+            .async3(TestRunner::create_async_action(0)?, false, 123)?
+            .await?,
+        123
+    );
+    assert_eq!(
+        tests
+            .async3(TestRunner::create_async_action(0)?, true, 123)?
+            .await
+            .unwrap_err()
+            .message(),
+        "test"
+    );
+
+    assert_eq!(
+        tests
+            .async4(TestRunner::create_async_action(0)?, false, 123, 0)?
+            .await?,
+        123
+    );
+    assert_eq!(
+        tests
+            .async4(TestRunner::create_async_action(0)?, true, 123, 0)?
+            .await
+            .unwrap_err()
+            .message(),
+        "test"
+    );
+
+    // Success and failure with initial delay
+
+    tests
+        .async1(TestRunner::create_async_action(200)?, false)?
+        .await?;
+    assert_eq!(
+        tests
+            .async1(TestRunner::create_async_action(200)?, true)?
+            .await
+            .unwrap_err()
+            .message(),
+        "test"
+    );
+
+    tests
+        .async2(TestRunner::create_async_action(200)?, false, 0)?
+        .await?;
+    assert_eq!(
+        tests
+            .async2(TestRunner::create_async_action(200)?, true, 0)?
+            .await
+            .unwrap_err()
+            .message(),
+        "test"
+    );
+
+    assert_eq!(
+        tests
+            .async3(TestRunner::create_async_action(200)?, false, 123)?
+            .await?,
+        123
+    );
+    assert_eq!(
+        tests
+            .async3(TestRunner::create_async_action(200)?, true, 123)?
+            .await
+            .unwrap_err()
+            .message(),
+        "test"
+    );
+
+    assert_eq!(
+        tests
+            .async4(TestRunner::create_async_action(200)?, false, 123, 0)?
+            .await?,
+        123
+    );
+    assert_eq!(
+        tests
+            .async4(TestRunner::create_async_action(200)?, true, 123, 0)?
+            .await
+            .unwrap_err()
+            .message(),
+        "test"
+    );
+
+    Ok(())
+}
+
+#[test]
+fn test_async_await() -> Result<()> {
+    futures::executor::block_on(async_await())
+}

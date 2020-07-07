@@ -126,7 +126,7 @@ impl Class {
 
             let default_name = &self.interfaces[0].name.tokens;
             let abi_name = self.interfaces[0].name.to_abi_tokens();
-            let async_get = async_get_tokens(&self.name, &self.interfaces);
+            let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
             let send_sync = if self.is_agile {
@@ -176,6 +176,7 @@ impl Class {
                 #bases
                 #iterator
                 #send_sync
+                #future
             }
         } else {
             quote! {

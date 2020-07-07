@@ -71,7 +71,7 @@ impl Interface {
         let abi_methods = default_interface.to_abi_method_tokens();
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
-        let async_get = async_get_tokens(&self.name, &self.interfaces);
+        let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
         let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
         quote! {
@@ -135,6 +135,7 @@ impl Interface {
             #conversions
             #object
             #iterator
+            #future
         }
     }
 }
