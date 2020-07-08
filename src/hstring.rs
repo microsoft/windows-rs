@@ -127,7 +127,7 @@ impl std::fmt::Debug for HString {
 }
 
 impl From<&str> for HString {
-    fn from(value: &str) -> HString {
+    fn from(value: &str) -> Self {
         if value.is_empty() {
             return HString::new();
         }
@@ -150,13 +150,13 @@ impl From<&str> for HString {
 }
 
 impl From<String> for HString {
-    fn from(value: String) -> HString {
+    fn from(value: String) -> Self {
         value.as_str().into()
     }
 }
 
 impl From<&String> for HString {
-    fn from(value: &String) -> HString {
+    fn from(value: &String) -> Self {
         value.as_str().into()
     }
 }

@@ -144,12 +144,12 @@ impl RequiredInterface {
                 let into = &self.name.tokens;
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
-                        fn from(value: #from) -> #into {
+                        fn from(value: #from) -> Self {
                             unsafe { ::std::mem::transmute(value) }
                         }
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
-                        fn from(value: &#from) -> #into {
+                        fn from(value: &#from) -> Self {
                             ::std::convert::From::from(::std::clone::Clone::clone(value))
                         }
                     }
@@ -169,12 +169,12 @@ impl RequiredInterface {
                 let into = &self.name.tokens;
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
-                        fn from(value: #from) -> #into {
+                        fn from(value: #from) -> Self {
                             ::std::convert::From::from(&value)
                         }
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
-                        fn from(value: &#from) -> #into {
+                        fn from(value: &#from) -> Self {
                             <#from as ::winrt::ComInterface>::query(value)
                         }
                     }

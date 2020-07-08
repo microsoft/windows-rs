@@ -16,25 +16,25 @@ impl<'a, T: AbiTransferable> Param<'a, T> {
 }
 
 impl<'a, T: AbiTransferable> From<T> for Param<'a, T> {
-    fn from(value: T) -> Param<'a, T> {
+    fn from(value: T) -> Self {
         Param::Owned(value)
     }
 }
 
 impl<'a, T: AbiTransferable> From<&'a T> for Param<'a, T> {
-    fn from(value: &'a T) -> Param<'a, T> {
+    fn from(value: &'a T) -> Self {
         Param::Borrowed(value)
     }
 }
 
 impl<'a> From<&'a str> for Param<'a, HString> {
-    fn from(value: &'a str) -> Param<'a, HString> {
+    fn from(value: &'a str) -> Self {
         Param::Owned(value.into())
     }
 }
 
 impl<'a> From<String> for Param<'a, HString> {
-    fn from(value: String) -> Param<'a, HString> {
+    fn from(value: String) -> Self {
         Param::Owned(value.into())
     }
 }
