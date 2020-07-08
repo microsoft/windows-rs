@@ -20,6 +20,7 @@ pub enum InterfaceKind {
     NonDefault,
     Overrides,
     Statics,
+    Composable,
 }
 
 impl RequiredInterface {
