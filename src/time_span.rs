@@ -5,7 +5,7 @@ use crate::*;
 /// TimeSpan represents the WinRT [TimeSpan](https://docs.microsoft.com/en-us/uwp/api/Windows.Foundation.TimeSpan)
 /// struct and provides convertibility with `std::time::Duration`.
 #[repr(C)]
-#[derive(Clone, Default, Debug, PartialEq)]
+#[derive(Copy, Clone, Default, Debug, PartialEq)]
 pub struct TimeSpan {
     pub duration: i64,
 }
