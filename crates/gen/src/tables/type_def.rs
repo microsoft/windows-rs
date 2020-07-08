@@ -82,6 +82,8 @@ impl TypeDef {
             true
         } else if flags.interface() {
             false
+        } else if self.name(reader) == ("Windows.Foundation", "TimeSpan") {
+            true
         } else {
             match self.extends(reader).name(reader) {
                 ("System", "ValueType") => self.has_attribute(

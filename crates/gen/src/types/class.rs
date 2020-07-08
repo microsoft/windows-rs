@@ -192,12 +192,12 @@ impl Class {
             let into = &base.tokens;
             quote! {
                 impl ::std::convert::From<#from> for #into {
-                    fn from(value: #from) -> #into {
+                    fn from(value: #from) -> Self {
                         ::std::convert::Into::<#into>::into(&value)
                     }
                 }
                 impl ::std::convert::From<&#from> for #into {
-                    fn from(value: &#from) -> #into {
+                    fn from(value: &#from) -> Self {
                         <#from as ::winrt::ComInterface>::query(value)
                     }
                 }

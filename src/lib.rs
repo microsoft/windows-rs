@@ -59,6 +59,7 @@ mod param;
 mod runtime;
 mod runtime_name;
 mod runtime_type;
+mod time_span;
 
 #[doc(hidden)]
 pub use abi_transferable::AbiTransferable;
@@ -84,6 +85,7 @@ pub use runtime::*;
 pub use runtime_name::RuntimeName;
 #[doc(hidden)]
 pub use runtime_type::RuntimeType;
+pub use time_span::TimeSpan;
 pub use winrt_macros::{build, import};
 
 #[doc(hidden)]
