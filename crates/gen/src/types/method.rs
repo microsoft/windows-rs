@@ -165,15 +165,13 @@ impl Method {
         }
     }
 
-    fn to_abi_arg_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()))
-    }
-
     pub fn to_default_tokens(&self) -> TokenStream {
         let method_name = format_ident(&self.name);
         let params = to_param_tokens(&self.params);
         let constraints = to_constraint_tokens(&self.params);
-        let args = self.to_abi_arg_tokens();
+
+        let args =
+            TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()));
 
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.to_abi_return_arg_tokens();
@@ -245,15 +243,11 @@ impl Method {
         let method_name = format_ident(&self.name);
         let interface = &interface.name.tokens;
 
-        let return_type = if let Some(return_type) = &self.return_type {
-            return_type.to_return_tokens()
-        } else {
-            quote! { () }
-        };
-
         if self.params.len() == 2 {
+            // For non-aggregation scenarios this is just a default constructor, hence the
+            // "new" method name in line with non-composable default constructors.
             quote! {
-                pub fn new() -> ::winrt::Result<#return_type> {
+                pub fn new() -> ::winrt::Result<Self> {
                     ::winrt::factory::<Self, #interface>()?.#method_name(::winrt::Object::default(), &mut ::winrt::Object::default())
                 }
             }
@@ -264,7 +258,7 @@ impl Method {
             let params = to_param_tokens(params);
 
             quote! {
-                pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
+                pub fn #method_name<#constraints>(#params) -> ::winrt::Result<Self> {
                     ::winrt::factory::<Self, #interface>()?.#method_name(#args ::winrt::Object::default(), &mut ::winrt::Object::default())
                 }
             }
