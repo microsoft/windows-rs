@@ -88,7 +88,7 @@ impl Class {
                     // The only argument is a MarshalingType enum and the Agile variant
                     // has a value of 2 as a signed 32-bit integer.
                     let (_name, arg) = &attribute.args(reader)[0];
-                    
+
                     if let AttributeArg::I32(2) = arg {
                         is_agile = true;
                     }
