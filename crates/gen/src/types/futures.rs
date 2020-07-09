@@ -62,7 +62,7 @@ fn to_async_tokens(
         AsyncKind::ActionWithProgress => quote! { AsyncActionWithProgressCompletedHandler },
         AsyncKind::Operation => quote! { AsyncOperationCompletedHandler },
         AsyncKind::OperationWithProgress => quote! { AsyncOperationWithProgressCompletedHandler },
-        _ => panic!(),
+        _ => panic!("Unexpected AsyncKind"),
     };
 
     let constraints = &self_name.constraints;

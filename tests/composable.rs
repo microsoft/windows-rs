@@ -11,7 +11,5 @@ use winrt::*;
 
 #[test]
 fn composable() -> Result<()> {
-
-
     Ok(())
 }

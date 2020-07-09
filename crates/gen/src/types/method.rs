@@ -181,6 +181,23 @@ impl Method {
         }))
     }
 
+    fn to_composable_param_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(
+            self.params
+                .iter()
+                .take(self.params.len() - 2)
+                .enumerate()
+                .map(|(position, param)| param.to_tokens(position)),
+        )
+    }
+
+    fn to_composable_arg_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(self.params.iter().take(self.params.len() - 2).map(|param| {
+            let name = format_ident(&param.name);
+            quote! { #name, }
+        }))
+    }
+
     fn to_abi_arg_tokens(&self) -> TokenStream {
         TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()))
     }
@@ -286,6 +303,26 @@ impl Method {
         quote! {
             pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
                 ::winrt::factory::<Self, #interface>()?.#method_name(#args)
+            }
+        }
+    }
+
+    pub fn to_composable_tokens(&self, interface: &RequiredInterface) -> TokenStream {
+        let method_name = format_ident(&self.name);
+        let params = self.to_composable_param_tokens();
+        let constraints = self.to_constraint_tokens();
+        let args = self.to_composable_arg_tokens();
+        let interface = &interface.name.tokens;
+
+        let return_type = if let Some(return_type) = &self.return_type {
+            return_type.to_return_tokens()
+        } else {
+            quote! { () }
+        };
+
+        quote! {
+            pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
+                ::winrt::factory::<Self, #interface>()?.#method_name(#args, ::winrt::Object::default(), &mut ::winrt::Object::default())
             }
         }
     }

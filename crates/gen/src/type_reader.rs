@@ -134,7 +134,7 @@ impl TypeReader {
             0..=3 => (initial_byte & 0x7f, 1),
             4..=5 => (initial_byte & 0x3f, 2),
             6 => (initial_byte & 0x1f, 4),
-            _ => panic!(),
+            _ => panic!("Invalid blob size"),
         };
         for byte in &file.bytes[offset + 1..offset + blob_size_bytes] {
             blob_size = blob_size.checked_shl(8).unwrap_or(0) + byte;

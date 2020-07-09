@@ -69,9 +69,25 @@ impl Class {
                         None => default_constructor = true,
                     }
                 }
+                ("Windows.Foundation.Metadata", "ComposableAttribute") => {
+                    for (_name, arg) in attribute.args(reader) {
+                        if let AttributeArg::I32(value) = arg {
+                            if value == 2 {
+                                // public
+                                let mut interface = RequiredInterface::from_type_def(
+                                    reader,
+                                    attribute_factory(reader, attribute).unwrap(),
+                                    &name.namespace,
+                                );
+                                interface.kind = InterfaceKind::Composable;
+                                interfaces.push(interface);
+                            }
+                        }
+                    }
+                }
                 ("Windows.Foundation.Metadata", "MarshalingBehaviorAttribute") => {
                     let args = attribute.args(reader);
-                    if let AttributeArg::I16(2) = args[0].1 {
+                    if let AttributeArg::I32(2) = args[0].1 {
                         is_agile = true; // MarshalingType.Agile
                     }
                 }

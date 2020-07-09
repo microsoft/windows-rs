@@ -24,8 +24,6 @@ impl Enum {
         let signature = name.enum_signature(reader);
         let mut fields = Vec::new();
 
-        let mut underlying_type = None;
-
         for field in name.def.fields(reader) {
             for constant in field.constants(reader) {
                 let name = field.name(reader).to_string();
@@ -37,21 +35,20 @@ impl Enum {
                     _ => panic!("Enum::from_type_def"),
                 };
 
-                let flags = field.flags(reader);
-                if underlying_type.is_none() && flags.is_static() && flags.literal() {
-                    let field_type = ElementType::from_blob(&mut field.sig(reader));
-                    underlying_type = Some(field_type);
-                }
-
                 fields.push((name, value));
             }
         }
+
+        let underlying_type = match fields[0].1 {
+            EnumConstant::U32(_) => ElementType::U4,
+            EnumConstant::I32(_) => ElementType::I4,
+        };
 
         Self {
             name,
             fields,
             signature,
-            underlying_type: underlying_type.expect("Enum must have an underlying type"),
+            underlying_type,
         }
     }
 
