@@ -181,27 +181,6 @@ impl Method {
         }))
     }
 
-    fn to_composable_param_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(
-            self.params
-                .iter()
-                .take(self.params.len() - 2)
-                .enumerate()
-                .map(|(position, param)| param.to_tokens(position)),
-        )
-    }
-
-    fn to_composable_arg_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(self.params.iter().take(self.params.len() - 2).map(|param| {
-            let name = format_ident(&param.name);
-            quote! { #name, }
-        }))
-    }
-
-    fn to_abi_arg_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()))
-    }
-
     fn to_constraint_tokens(&self) -> TokenStream {
         let mut tokens = Vec::new();
 
@@ -233,6 +212,60 @@ impl Method {
         }
 
         TokenStream::from_iter(tokens)
+    }
+
+    fn to_composable_param_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(
+            self.params
+                .iter()
+                .take(self.params.len() - 2)
+                .enumerate()
+                .map(|(position, param)| param.to_tokens(position)),
+        )
+    }
+
+    fn to_composable_arg_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(self.params.iter().take(self.params.len() - 2).map(|param| {
+            let name = format_ident(&param.name);
+            quote! { #name, }
+        }))
+    }
+
+    fn to_composable_constraint_tokens(&self) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        for (position, param) in self.params.iter().take(self.params.len() - 2).enumerate() {
+            if !param.input || param.array {
+                continue;
+            }
+
+            match param.kind {
+                TypeKind::String
+                | TypeKind::Object
+                | TypeKind::Guid
+                | TypeKind::TimeSpan
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Struct(_)
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => {
+                    let name = quote::format_ident!("T{}__", position);
+                    let into = param.kind.to_tokens();
+                    tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
+                }
+                _ => {}
+            };
+        }
+
+        if !tokens.is_empty() {
+            tokens.insert(0, quote! { 'a, });
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn to_abi_arg_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()))
     }
 
     pub fn to_default_tokens(&self) -> TokenStream {
@@ -309,9 +342,6 @@ impl Method {
 
     pub fn to_composable_tokens(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = self.to_composable_param_tokens();
-        let constraints = self.to_constraint_tokens();
-        let args = self.to_composable_arg_tokens();
         let interface = &interface.name.tokens;
 
         let return_type = if let Some(return_type) = &self.return_type {
@@ -320,9 +350,21 @@ impl Method {
             quote! { () }
         };
 
-        quote! {
-            pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
-                ::winrt::factory::<Self, #interface>()?.#method_name(#args, ::winrt::Object::default(), &mut ::winrt::Object::default())
+        if self.params.len() == 2 {
+            quote! {
+                pub fn new() -> ::winrt::Result<#return_type> {
+                    ::winrt::factory::<Self, #interface>()?.#method_name(::winrt::Object::default(), &mut ::winrt::Object::default())
+                }
+            }
+        } else {
+            let params = self.to_composable_param_tokens();
+            let constraints = self.to_composable_constraint_tokens();
+            let args = self.to_composable_arg_tokens();
+
+            quote! {
+                pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
+                    ::winrt::factory::<Self, #interface>()?.#method_name(#args ::winrt::Object::default(), &mut ::winrt::Object::default())
+                }
             }
         }
     }

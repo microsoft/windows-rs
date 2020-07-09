@@ -11,5 +11,11 @@ use winrt::*;
 
 #[test]
 fn composable() -> Result<()> {
+    let c = Composable::new()?;
+    assert_eq!(c.value()?, 0);
+
+    let c = Composable::create_instance2(123)?;
+    assert_eq!(c.value()?, 123);
+
     Ok(())
 }
