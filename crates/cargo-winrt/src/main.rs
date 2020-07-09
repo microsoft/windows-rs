@@ -181,20 +181,27 @@ fn elapsed(duration: Duration) -> String {
     }
 }
 
-fn print_status<D>(status: &str, message: D)
-where
-    D: std::fmt::Display,
-{
-    println!("{:>12} {}", console::style(status).green().bold(), message);
+macro_rules! print_status {
+    ($status:expr, $message:expr) => ({
+        println!("{:>12} {}", console::style($status).green().bold(), $message);
+    });
+    ($status:expr, $message_fmt:expr, $($message_args:tt)*) => ({
+        println!("{:>12} {}", console::style($status).green().bold(), format!($message_fmt, $($message_args)*));
+    });
 }
 
-fn print_verbose_status<D>(status: &str, message: D)
-where
-    D: std::fmt::Display,
-{
-    if verbose() {
-        eprintln!("{:>12} {}", console::style(status).green().bold(), message);
-    }
+macro_rules! print_verbose_status {
+    ($status:expr, $message:expr) => ({
+        if verbose() {
+            eprintln!("{:>12} {}", console::style($status).green().bold(), $message);
+        }
+
+    });
+    ($status:expr, $message_fmt:expr, $($message_args:tt)*) => ({
+        if verbose() {
+            eprintln!("{:>12} {}", console::style($status).green().bold(), format!($message_fmt, $($message_args)*));
+        }
+    });
 }
 
 impl Install {
@@ -210,13 +217,13 @@ impl Install {
         self.install_from_manifest(manifest)?;
 
         let time_elapsed = elapsed(start_time.elapsed());
-        print_status("Finished", &format!("in {}", time_elapsed));
+        print_status!("Finished", "in {}", time_elapsed);
 
         Ok(())
     }
 
     fn install_from_manifest(&self, manifest: Manifest) -> anyhow::Result<()> {
-        print_verbose_status("Resolving", manifest.package_name());
+        print_verbose_status!("Resolving", manifest.package_name());
         let deps = manifest.get_dependency_descriptors()?;
         self.ensure_dependencies(deps)
     }
@@ -238,9 +245,10 @@ impl Install {
                 .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
         };
 
-        print_verbose_status(
+        print_verbose_status!(
             "Installing",
-            format_args!("{} nuget dependencies", dependency_descriptors.len()),
+            "{} nuget dependencies",
+            dependency_descriptors.len()
         );
 
         let deps = self.get_dependencies(dependency_descriptors)?;
@@ -256,7 +264,7 @@ impl Install {
     ) -> anyhow::Result<Vec<ResolvedDependency>> {
         deps.into_iter()
             .map(|dep| {
-                print_status("Fetching", dep.name());
+                print_status!("Fetching", dep.name());
                 let raw = dep.get()?;
                 Ok(ResolvedDependency::new(dep, raw)?)
             })
@@ -347,12 +355,12 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
                 true
             })
             .unwrap();
-        print_verbose_status("Requesting", &url);
+        print_verbose_status!("Requesting", &url);
         transfer.perform()?;
     }
     match status.expect("HTTP request did not have a status code") {
         200u16 => {
-            print_verbose_status("Retrieved", format_args!("data from {}", url));
+            print_verbose_status!("Retrieved", "data from {}", url);
             let mut bytes = Vec::new();
             {
                 let mut transfer = handle.transfer();
@@ -398,7 +406,7 @@ enum RawNuget {
 
 impl RawNuget {
     fn contents(&self) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
-        print_verbose_status("Starting", format_args!("extraction of '{}'", self.name()));
+        print_verbose_status!("Starting", "extraction of '{}'", self.name());
         match self {
             RawNuget::Zipped { bytes, .. } => unzip(bytes),
             RawNuget::Unzipped { path, .. } => unpack(path),
@@ -473,7 +481,7 @@ fn extract_files<F: Read>(
     winmds: &mut Vec<Winmd>,
     dlls: &mut Vec<Dll>,
 ) -> anyhow::Result<()> {
-    print_verbose_status("Searching", format_args!("zip file: {}", path.display()));
+    print_verbose_status!("Searching", "zip file: {}", path.display());
     match path.extension() {
         Some(e)
             if e == "winmd" && {
@@ -485,7 +493,7 @@ fn extract_files<F: Read>(
                 .file_name()
                 .context("windmd file name is not utf-8")?
                 .to_owned();
-            print_verbose_status("Found", format_args!("winmd file: {:?}", name));
+            print_verbose_status!("Found", "winmd file: {:?}", name);
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
@@ -526,14 +534,12 @@ fn extract_files<F: Read>(
                 }
             };
 
-            print_verbose_status(
+            print_verbose_status!(
                 "Found",
-                &format_args!(
-                    "dll {:?} with arch {:?} at path {}",
-                    name,
-                    arch,
-                    path.display()
-                ),
+                "dll {:?} with arch {:?} at path {}",
+                name,
+                arch,
+                path.display()
             );
 
             let mut contents = Vec::with_capacity(file_size as usize);
@@ -580,13 +586,11 @@ impl ResolvedDependency {
     }
 
     fn save(self) -> anyhow::Result<()> {
-        print_verbose_status(
+        print_verbose_status!(
             "Saving",
-            format_args!(
-                "{} winmd files and {} dlls",
-                self.winmds().len(),
-                self.dlls().len()
-            ),
+            "{} winmd files and {} dlls",
+            self.winmds().len(),
+            self.dlls().len()
         );
 
         let dep_directory = self.descriptor.directory_path()?;
@@ -597,21 +601,21 @@ impl ResolvedDependency {
         }
 
         for winmd in self.winmds() {
-            print_verbose_status(
+            print_verbose_status!(
                 "Writing",
-                format_args!(
-                    "winmd file {:?} into {}",
-                    winmd.name,
-                    dep_directory.display()
-                ),
+                "winmd file {:?} into {}",
+                winmd.name,
+                dep_directory.display()
             );
             winmd.write(&dep_directory)?;
         }
 
         for dll in self.dlls() {
-            print_verbose_status(
+            print_verbose_status!(
                 "Writing",
-                format_args!("dll file {:?} into {}", dll.name, dep_directory.display()),
+                "dll file {:?} into {}",
+                dll.name,
+                dep_directory.display(),
             );
             dll.write(&dep_directory).unwrap();
         }
@@ -645,7 +649,12 @@ impl Dll {
     fn write(&self, dir: &Path) -> anyhow::Result<()> {
         let proper_arch = ARCHES.contains(&&*self.arch.to_string_lossy());
         if !proper_arch {
-            print_verbose_status("", format_args!("   not creating symlink for {:?} because of differing architecture to host architecture: {:?} not in {:?}", self.name, self.arch, ARCHES));
+            print_verbose_status!(
+                "",
+                "   not creating symlink for {:?} because of differing architecture to host architecture: {:?} not in {:?}",
+                self.name,
+                self.arch,
+                ARCHES);
             return Ok(());
         }
         let path = dir.join(&self.name);
@@ -658,24 +667,21 @@ impl Dll {
             std::fs::create_dir_all(&profile_path)?;
             let dll_path = profile_path.join(&self.name);
             if std::fs::read_link(&dll_path).is_err() {
-                print_verbose_status(
+                print_verbose_status!(
                     "Creating",
-                    format_args!(
-                        "symlink for {:?} in {}: '{}' <-> '{}'",
-                        self.name,
-                        profile,
-                        path.display(),
-                        dll_path.display()
-                    ),
+                    "symlink for {:?} in {}: '{}' <-> '{}'",
+                    self.name,
+                    profile,
+                    path.display(),
+                    dll_path.display()
                 );
                 std::os::windows::fs::symlink_file(&path, dll_path)?;
             } else {
-                print_verbose_status(
+                print_verbose_status!(
                     "",
-                    format_args!(
-                        "   not creating symlink for {:?} in {} because it already exists",
-                        self.name, profile
-                    ),
+                    "   not creating symlink for {:?} in {} because it already exists",
+                    self.name,
+                    profile
                 );
             }
         }
