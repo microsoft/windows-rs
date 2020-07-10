@@ -60,7 +60,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
                 let code = (code & ((1 << #bits) - 1), (code >> #bits) - 1);
                 match code.0 {
                     #decodes
-                    _ => panic!(),
+                    _ => panic!("Failed to decode type code"),
                 }
             }
         }
