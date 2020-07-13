@@ -11,6 +11,7 @@ use curl::easy::Easy;
 use std::ffi::OsString;
 use std::io::Read;
 use std::path::{Path, PathBuf};
+use std::time::{Duration, Instant};
 
 fn main() {
     if let Err(i) = run() {
@@ -169,16 +170,44 @@ fn verbose() -> bool {
     VERBOSITY.get().copied().unwrap_or(false)
 }
 
-macro_rules! debug {
-    ($($arg:tt)*) => {
+/// Formats the elapsed time to match Cargo's output.
+fn elapsed(duration: Duration) -> String {
+    let secs = duration.as_secs();
+
+    if secs >= 60 {
+        format!("{}m {:02}s", secs / 60, secs % 60)
+    } else {
+        format!("{}.{:02}s", secs, duration.subsec_nanos() / 10_000_000)
+    }
+}
+
+macro_rules! print_status {
+    ($status:expr, $message:expr) => ({
+        println!("{:>12} {}", console::style($status).green().bold(), $message);
+    });
+    ($status:expr, $message_fmt:expr, $($message_args:tt)*) => ({
+        println!("{:>12} {}", console::style($status).green().bold(), format!($message_fmt, $($message_args)*));
+    });
+}
+
+macro_rules! print_verbose_status {
+    ($status:expr, $message:expr) => ({
         if verbose() {
-            eprintln!("\t{}", format!($($arg)*));
+            eprintln!("{:>12} {}", console::style($status).green().bold(), $message);
         }
-    };
+
+    });
+    ($status:expr, $message_fmt:expr, $($message_args:tt)*) => ({
+        if verbose() {
+            eprintln!("{:>12} {}", console::style($status).green().bold(), format!($message_fmt, $($message_args)*));
+        }
+    });
 }
 
 impl Install {
     fn perform(&self) -> anyhow::Result<()> {
+        let start_time = Instant::now();
+
         let _ = VERBOSITY.set(self.verbose);
         let manifest = cargo::package_manifest()?;
         let local_dependencies = manifest.local_dependencies()?;
@@ -186,15 +215,15 @@ impl Install {
             self.install_from_manifest(dep_manifest)?;
         }
         self.install_from_manifest(manifest)?;
+
+        let time_elapsed = elapsed(start_time.elapsed());
+        print_status!("Finished", "in {}", time_elapsed);
+
         Ok(())
     }
 
     fn install_from_manifest(&self, manifest: Manifest) -> anyhow::Result<()> {
-        debug!(
-            "{} dependencies for {}",
-            console::style("Resolving").green().bold(),
-            manifest.package_name()
-        );
+        print_verbose_status!("Resolving", manifest.package_name());
         let deps = manifest.get_dependency_descriptors()?;
         self.ensure_dependencies(deps)
     }
@@ -215,9 +244,10 @@ impl Install {
                 })
                 .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
         };
-        debug!(
-            "{} {} nuget dependencies",
-            console::style("Installing").green().bold(),
+
+        print_verbose_status!(
+            "Installing",
+            "{} nuget dependencies",
             dependency_descriptors.len()
         );
 
@@ -234,11 +264,7 @@ impl Install {
     ) -> anyhow::Result<Vec<ResolvedDependency>> {
         deps.into_iter()
             .map(|dep| {
-                println!(
-                    "\t{}: {}",
-                    console::style("Fetching").green().bold(),
-                    dep.name()
-                );
+                print_status!("Fetching", dep.name());
                 let raw = dep.get()?;
                 Ok(ResolvedDependency::new(dep, raw)?)
             })
@@ -329,12 +355,12 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
                 true
             })
             .unwrap();
-        debug!(" making request to {}", url);
+        print_verbose_status!("Requesting", &url);
         transfer.perform()?;
     }
     match status.expect("HTTP request did not have a status code") {
         200u16 => {
-            debug!(" retrieved data from {}", url);
+            print_verbose_status!("Retrieved", "data from {}", url);
             let mut bytes = Vec::new();
             {
                 let mut transfer = handle.transfer();
@@ -380,7 +406,7 @@ enum RawNuget {
 
 impl RawNuget {
     fn contents(&self) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
-        debug!(" starting extraction of '{}'", self.name());
+        print_verbose_status!("Starting", "extraction of '{}'", self.name());
         match self {
             RawNuget::Zipped { bytes, .. } => unzip(bytes),
             RawNuget::Unzipped { path, .. } => unpack(path),
@@ -455,7 +481,7 @@ fn extract_files<F: Read>(
     winmds: &mut Vec<Winmd>,
     dlls: &mut Vec<Dll>,
 ) -> anyhow::Result<()> {
-    debug!("   searching zip file: {:?}", path.display());
+    print_verbose_status!("Searching", "zip file: {}", path.display());
     match path.extension() {
         Some(e)
             if e == "winmd" && {
@@ -467,7 +493,7 @@ fn extract_files<F: Read>(
                 .file_name()
                 .context("windmd file name is not utf-8")?
                 .to_owned();
-            debug!(" {} winmd file {:?}", console::style("found").green(), name);
+            print_verbose_status!("Found", "winmd file: {:?}", name);
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
@@ -507,13 +533,15 @@ fn extract_files<F: Read>(
                     ));
                 }
             };
-            debug!(
-                "{} dll {:?} with arch {:?} at path {}",
-                console::style("found").green(),
+
+            print_verbose_status!(
+                "Found",
+                "dll {:?} with arch {:?} at path {}",
                 name,
                 arch,
                 path.display()
             );
+
             let mut contents = Vec::with_capacity(file_size as usize);
 
             if let Err(e) = file.read_to_end(&mut contents) {
@@ -558,12 +586,13 @@ impl ResolvedDependency {
     }
 
     fn save(self) -> anyhow::Result<()> {
-        debug!(
-            "{} {} winmd files and {} dlls",
-            console::style("Saving").green().bold(),
+        print_verbose_status!(
+            "Saving",
+            "{} winmd files and {} dlls",
             self.winmds().len(),
-            self.dlls().len(),
+            self.dlls().len()
         );
+
         let dep_directory = self.descriptor.directory_path()?;
         // create the dependency directory
         if !dep_directory.exists() {
@@ -572,8 +601,9 @@ impl ResolvedDependency {
         }
 
         for winmd in self.winmds() {
-            debug!(
-                "writing winmd file {:?} into {}",
+            print_verbose_status!(
+                "Writing",
+                "winmd file {:?} into {}",
                 winmd.name,
                 dep_directory.display()
             );
@@ -581,10 +611,11 @@ impl ResolvedDependency {
         }
 
         for dll in self.dlls() {
-            debug!(
-                "writing dll file {:?} into {}",
+            print_verbose_status!(
+                "Writing",
+                "dll file {:?} into {}",
                 dll.name,
-                dep_directory.display()
+                dep_directory.display(),
             );
             dll.write(&dep_directory).unwrap();
         }
@@ -618,7 +649,12 @@ impl Dll {
     fn write(&self, dir: &Path) -> anyhow::Result<()> {
         let proper_arch = ARCHES.contains(&&*self.arch.to_string_lossy());
         if !proper_arch {
-            debug!("   not creating symlink for {:?} because of differing architecture to host architecture: {:?} not in {:?}", self.name, self.arch, ARCHES);
+            print_verbose_status!(
+                "",
+                "   not creating symlink for {:?} because of differing architecture to host architecture: {:?} not in {:?}",
+                self.name,
+                self.arch,
+                ARCHES);
             return Ok(());
         }
         let path = dir.join(&self.name);
@@ -631,8 +667,9 @@ impl Dll {
             std::fs::create_dir_all(&profile_path)?;
             let dll_path = profile_path.join(&self.name);
             if std::fs::read_link(&dll_path).is_err() {
-                debug!(
-                    "   creating symlink for {:?} in {}: '{}' <-> '{}'",
+                print_verbose_status!(
+                    "Creating",
+                    "symlink for {:?} in {}: '{}' <-> '{}'",
                     self.name,
                     profile,
                     path.display(),
@@ -640,9 +677,11 @@ impl Dll {
                 );
                 std::os::windows::fs::symlink_file(&path, dll_path)?;
             } else {
-                debug!(
+                print_verbose_status!(
+                    "",
                     "   not creating symlink for {:?} in {} because it already exists",
-                    self.name, profile
+                    self.name,
+                    profile
                 );
             }
         }
