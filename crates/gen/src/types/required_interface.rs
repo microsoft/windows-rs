@@ -20,6 +20,7 @@ pub enum InterfaceKind {
     NonDefault,
     Overrides,
     Statics,
+    Composable,
 }
 
 impl RequiredInterface {
@@ -214,6 +215,7 @@ pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
                     method.to_non_default_tokens(interface)
                 }
                 InterfaceKind::Statics => method.to_static_tokens(interface),
+                InterfaceKind::Composable => method.to_composable_tokens(interface),
             });
         }
     }

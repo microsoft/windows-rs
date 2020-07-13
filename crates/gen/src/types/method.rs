@@ -165,64 +165,13 @@ impl Method {
         }
     }
 
-    fn to_param_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(
-            self.params
-                .iter()
-                .enumerate()
-                .map(|(position, param)| param.to_tokens(position)),
-        )
-    }
-
-    fn to_arg_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(self.params.iter().map(|param| {
-            let name = format_ident(&param.name);
-            quote! { #name, }
-        }))
-    }
-
-    fn to_abi_arg_tokens(&self) -> TokenStream {
-        TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()))
-    }
-
-    fn to_constraint_tokens(&self) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for (position, param) in self.params.iter().enumerate() {
-            if !param.input || param.array {
-                continue;
-            }
-
-            match param.kind {
-                TypeKind::String
-                | TypeKind::Object
-                | TypeKind::Guid
-                | TypeKind::TimeSpan
-                | TypeKind::Class(_)
-                | TypeKind::Interface(_)
-                | TypeKind::Struct(_)
-                | TypeKind::Delegate(_)
-                | TypeKind::Generic(_) => {
-                    let name = quote::format_ident!("T{}__", position);
-                    let into = param.kind.to_tokens();
-                    tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
-                }
-                _ => {}
-            };
-        }
-
-        if !tokens.is_empty() {
-            tokens.insert(0, quote! { 'a, });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
     pub fn to_default_tokens(&self) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = self.to_param_tokens();
-        let constraints = self.to_constraint_tokens();
-        let args = self.to_abi_arg_tokens();
+        let params = to_param_tokens(&self.params);
+        let constraints = to_constraint_tokens(&self.params);
+
+        let args =
+            TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()));
 
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.to_abi_return_arg_tokens();
@@ -252,9 +201,9 @@ impl Method {
 
     pub fn to_non_default_tokens(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = self.to_param_tokens();
-        let constraints = self.to_constraint_tokens();
-        let args = self.to_arg_tokens();
+        let params = to_param_tokens(&self.params);
+        let constraints = to_constraint_tokens(&self.params);
+        let args = to_arg_tokens(&self.params);
         let interface = &interface.name.tokens;
 
         let return_type = if let Some(return_type) = &self.return_type {
@@ -272,9 +221,9 @@ impl Method {
 
     pub fn to_static_tokens(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = self.to_param_tokens();
-        let constraints = self.to_constraint_tokens();
-        let args = self.to_arg_tokens();
+        let params = to_param_tokens(&self.params);
+        let constraints = to_constraint_tokens(&self.params);
+        let args = to_arg_tokens(&self.params);
         let interface = &interface.name.tokens;
 
         let return_type = if let Some(return_type) = &self.return_type {
@@ -289,6 +238,81 @@ impl Method {
             }
         }
     }
+
+    pub fn to_composable_tokens(&self, interface: &RequiredInterface) -> TokenStream {
+        let method_name = format_ident(&self.name);
+        let interface = &interface.name.tokens;
+
+        if self.params.len() == 2 {
+            // For non-aggregation scenarios this is just a default constructor, hence the
+            // "new" method name in line with non-composable default constructors.
+            quote! {
+                pub fn new() -> ::winrt::Result<Self> {
+                    ::winrt::factory::<Self, #interface>()?.#method_name(::winrt::Object::default(), &mut ::winrt::Object::default())
+                }
+            }
+        } else {
+            let params = &self.params[..self.params.len() - 2];
+            let constraints = to_constraint_tokens(params);
+            let args = to_arg_tokens(params);
+            let params = to_param_tokens(params);
+
+            quote! {
+                pub fn #method_name<#constraints>(#params) -> ::winrt::Result<Self> {
+                    ::winrt::factory::<Self, #interface>()?.#method_name(#args ::winrt::Object::default(), &mut ::winrt::Object::default())
+                }
+            }
+        }
+    }
+}
+
+fn to_param_tokens(params: &[Param]) -> TokenStream {
+    TokenStream::from_iter(
+        params
+            .iter()
+            .enumerate()
+            .map(|(position, param)| param.to_tokens(position)),
+    )
+}
+
+fn to_arg_tokens(params: &[Param]) -> TokenStream {
+    TokenStream::from_iter(params.iter().map(|param| {
+        let name = format_ident(&param.name);
+        quote! { #name, }
+    }))
+}
+
+fn to_constraint_tokens(params: &[Param]) -> TokenStream {
+    let mut tokens = Vec::new();
+
+    for (position, param) in params.iter().enumerate() {
+        if !param.input || param.array {
+            continue;
+        }
+
+        match param.kind {
+            TypeKind::String
+            | TypeKind::Object
+            | TypeKind::Guid
+            | TypeKind::TimeSpan
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Struct(_)
+            | TypeKind::Delegate(_)
+            | TypeKind::Generic(_) => {
+                let name = quote::format_ident!("T{}__", position);
+                let into = param.kind.to_tokens();
+                tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
+            }
+            _ => {}
+        };
+    }
+
+    if !tokens.is_empty() {
+        tokens.insert(0, quote! { 'a, });
+    }
+
+    TokenStream::from_iter(tokens)
 }
 
 #[cfg(test)]

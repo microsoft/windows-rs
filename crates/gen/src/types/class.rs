@@ -69,10 +69,28 @@ impl Class {
                         None => default_constructor = true,
                     }
                 }
+                ("Windows.Foundation.Metadata", "ComposableAttribute") => {
+                    // One of the arguments is a CompositionType enum and the Public variant
+                    // has a value of 2 as a signed 32-bit integer.
+                    for (_name, arg) in attribute.args(reader) {
+                        if let AttributeArg::I32(2) = arg {
+                            let mut interface = RequiredInterface::from_type_def(
+                                reader,
+                                attribute_factory(reader, attribute).unwrap(),
+                                &name.namespace,
+                            );
+                            interface.kind = InterfaceKind::Composable;
+                            interfaces.push(interface);
+                        }
+                    }
+                }
                 ("Windows.Foundation.Metadata", "MarshalingBehaviorAttribute") => {
-                    let args = attribute.args(reader);
-                    if let AttributeArg::I16(2) = args[0].1 {
-                        is_agile = true; // MarshalingType.Agile
+                    // The only argument is a MarshalingType enum and the Agile variant
+                    // has a value of 2 as a signed 32-bit integer.
+                    let (_name, arg) = &attribute.args(reader)[0];
+
+                    if let AttributeArg::I32(2) = arg {
+                        is_agile = true;
                     }
                 }
                 _ => {}
