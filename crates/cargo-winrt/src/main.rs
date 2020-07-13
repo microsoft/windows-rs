@@ -258,14 +258,14 @@ impl DependencyDescriptor {
         match self {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
-                let bytes = try_download(url, 5)?;
+                let bytes = try_download(url, 5, false)?;
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
                 })
             }
             DependencyDescriptor::Url { url, name } => {
-                let bytes = try_download(url.as_str().to_owned(), 5)?;
+                let bytes = try_download(url.as_str().to_owned(), 5, false)?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
@@ -306,7 +306,7 @@ impl DependencyDescriptor {
     }
 }
 
-fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
+fn try_download(url: String, recursion_amount: u8, redirect: bool) -> anyhow::Result<Vec<u8>> {
     if recursion_amount == 0 {
         bail!(Error::DownloadError(
             anyhow::anyhow!("Too many redirects").into(),
@@ -318,6 +318,9 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
         .map_err(|e| Error::DownloadError(e.into()))?;
     let status = &mut None;
     {
+        if redirect {
+            handle.nobody(true)?;
+        }
         let mut transfer = handle.transfer();
         transfer
             .header_function(|header| {
@@ -337,6 +340,7 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
             debug!(" retrieved data from {}", url);
             let mut bytes = Vec::new();
             {
+                handle.nobody(false)?;
                 let mut transfer = handle.transfer();
                 transfer
                     .write_function(|d| {
@@ -365,7 +369,7 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
             }
             let redirect_url = redirect_url.take().unwrap();
 
-            try_download(redirect_url, recursion_amount - 1)
+            try_download(redirect_url, recursion_amount - 1, true)
         }
         s => bail!(Error::DownloadError(
             anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
