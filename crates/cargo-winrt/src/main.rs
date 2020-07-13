@@ -267,7 +267,7 @@ impl DependencyDescriptor {
                 })
             }
             DependencyDescriptor::Url { url, name } => {
-                let bytes = try_download(url.as_str().to_owned(), 5, false)?;
+                let bytes = try_download(url.as_str().to_owned(), 5, true)?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
