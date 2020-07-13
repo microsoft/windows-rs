@@ -12,6 +12,8 @@ use std::ffi::OsString;
 use std::io::Read;
 use std::path::{Path, PathBuf};
 
+use indicatif::{ProgressBar, ProgressStyle};
+
 fn main() {
     if let Err(i) = run() {
         std::process::exit(i);
@@ -317,6 +319,7 @@ fn try_download(url: String, recursion_amount: u8, redirect: bool) -> anyhow::Re
         .url(&url)
         .map_err(|e| Error::DownloadError(e.into()))?;
     let status = &mut None;
+    let content_length = &mut None;
     {
         if redirect {
             handle.nobody(true)?;
@@ -329,18 +332,32 @@ fn try_download(url: String, recursion_amount: u8, redirect: bool) -> anyhow::Re
                     let n = &header[9..12];
                     *status = Some(n.parse::<u16>().expect("Should be number"));
                 }
+                if header.starts_with("Content-Length: ") {
+                    *content_length = Some(header[16..header.len() - 2].to_owned())
+                }
                 true
             })
             .unwrap();
         debug!(" making request to {}", url);
         transfer.perform()?;
     }
+
+    let content_length = content_length.take().unwrap_or_default();
+    let cl: u64 = content_length.parse().unwrap_or_default();
+
     match status.expect("HTTP request did not have a status code") {
         200u16 => {
             debug!(" retrieved data from {}", url);
+
+            let pb = ProgressBar::new(cl);
+            pb.set_style(ProgressStyle::default_bar()
+                .template("{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {bytes}/{total_bytes} ({eta})")
+                .progress_chars("#>-"));
+
             let mut bytes = Vec::new();
             {
                 handle.nobody(false)?;
+                handle.progress(true)?;
                 let mut transfer = handle.transfer();
                 transfer
                     .write_function(|d| {
@@ -348,6 +365,10 @@ fn try_download(url: String, recursion_amount: u8, redirect: bool) -> anyhow::Re
                         Ok(d.len())
                     })
                     .map_err(|e| Error::DownloadError(e.into()))?;
+                transfer.progress_function(|_, a, _, _| {
+                    pb.set_position(a as u64);
+                    true
+                })?;
                 transfer.perform()?;
             }
             Ok(bytes)
