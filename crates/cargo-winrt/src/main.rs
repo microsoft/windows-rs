@@ -13,6 +13,8 @@ use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::time::{Duration, Instant};
 
+use indicatif::{ProgressBar, ProgressStyle};
+
 fn main() {
     if let Err(i) = run() {
         std::process::exit(i);
@@ -284,14 +286,14 @@ impl DependencyDescriptor {
         match self {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
-                let bytes = try_download(url, 5)?;
+                let bytes = try_download(url, 5, false)?;
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
                 })
             }
             DependencyDescriptor::Url { url, name } => {
-                let bytes = try_download(url.as_str().to_owned(), 5)?;
+                let bytes = try_download(url.as_str().to_owned(), 5, true)?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
@@ -332,7 +334,7 @@ impl DependencyDescriptor {
     }
 }
 
-fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
+fn try_download(url: String, recursion_amount: u8, redirect: bool) -> anyhow::Result<Vec<u8>> {
     if recursion_amount == 0 {
         bail!(Error::DownloadError(
             anyhow::anyhow!("Too many redirects").into(),
@@ -343,7 +345,11 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
         .url(&url)
         .map_err(|e| Error::DownloadError(e.into()))?;
     let status = &mut None;
+    let content_length = &mut None;
     {
+        if redirect {
+            handle.nobody(true)?;
+        }
         let mut transfer = handle.transfer();
         transfer
             .header_function(|header| {
@@ -352,17 +358,32 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
                     let n = &header[9..12];
                     *status = Some(n.parse::<u16>().expect("Should be number"));
                 }
+                if header.starts_with("Content-Length: ") {
+                    *content_length = Some(header[16..header.len() - 2].to_owned())
+                }
                 true
             })
             .unwrap();
         print_verbose_status!("Requesting", &url);
         transfer.perform()?;
     }
+
+    let content_length = content_length.take().unwrap_or_default();
+    let cl: u64 = content_length.parse().unwrap_or_default();
+
     match status.expect("HTTP request did not have a status code") {
         200u16 => {
             print_verbose_status!("Retrieved", "data from {}", url);
+
+            let pb = ProgressBar::new(cl);
+            pb.set_style(ProgressStyle::default_bar()
+                .template("{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {bytes}/{total_bytes} ({eta})")
+                .progress_chars("#>-"));
+
             let mut bytes = Vec::new();
             {
+                handle.nobody(false)?;
+                handle.progress(true)?;
                 let mut transfer = handle.transfer();
                 transfer
                     .write_function(|d| {
@@ -370,6 +391,10 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
                         Ok(d.len())
                     })
                     .map_err(|e| Error::DownloadError(e.into()))?;
+                transfer.progress_function(|_, a, _, _| {
+                    pb.set_position(a as u64);
+                    true
+                })?;
                 transfer.perform()?;
             }
             Ok(bytes)
@@ -391,7 +416,7 @@ fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
             }
             let redirect_url = redirect_url.take().unwrap();
 
-            try_download(redirect_url, recursion_amount - 1)
+            try_download(redirect_url, recursion_amount - 1, true)
         }
         s => bail!(Error::DownloadError(
             anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
