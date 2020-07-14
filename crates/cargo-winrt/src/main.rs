@@ -369,13 +369,13 @@ fn try_download(url: String, recursion_amount: u8, redirect: bool) -> anyhow::Re
     }
 
     let content_length = content_length.take().unwrap_or_default();
-    let cl: u64 = content_length.parse().unwrap_or_default();
+    let total_size: u64 = content_length.parse().unwrap_or_default();
 
     match status.expect("HTTP request did not have a status code") {
         200u16 => {
             print_verbose_status!("Retrieved", "data from {}", url);
 
-            let pb = ProgressBar::new(cl);
+            let pb = ProgressBar::new(total_size);
             pb.set_style(ProgressStyle::default_bar()
                 .template("{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {bytes}/{total_bytes} ({eta})")
                 .progress_chars("#>-"));
