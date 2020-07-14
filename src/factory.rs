@@ -3,13 +3,13 @@ use crate::*;
 /// Attempts to load the factory interface for the given WinRT class.
 ///
 /// Note that factory caching still needs to be implemented.
-pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
-    let mut factory = std::ptr::null_mut();
+pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
+    let mut factory = I::default();
     let name = HString::from(C::NAME);
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
+        let code = RoGetActivationFactory(name.get_abi(), &I::iid(), factory.set_abi() as _);
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -25,13 +25,13 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory)
+            code = RoGetActivationFactory(name.get_abi(), &I::iid(), factory.set_abi() as _)
                 .unwrap_or_else(|code| code);
         }
 
         // If this succeeded then return the resulting factory interface.
         if code.is_ok() {
-            return Ok(std::mem::transmute_copy(&factory));
+            return Ok(factory);
         }
 
         // If not, first capture the error information from the failure above so that we
