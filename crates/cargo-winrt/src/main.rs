@@ -270,7 +270,11 @@ impl Install {
         self.install_from_manifest(manifest)?;
 
         let time_elapsed = elapsed(start_time.elapsed());
-        print_status!("Finished", "in {}", time_elapsed);
+        print_status!(
+            "Finished",
+            "installing WinRT dependencies in {}",
+            time_elapsed
+        );
 
         Ok(())
     }
