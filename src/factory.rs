@@ -16,7 +16,7 @@ impl<C: RuntimeName, I: ComInterface> FactoryCache<C, I> {
             _i: PhantomData,
         }
     }
-    
+
     pub fn call<R, F: FnOnce(&I) -> Result<R>>(&mut self, callback: F) -> Result<R> {
         loop {
             unsafe {
@@ -27,7 +27,7 @@ impl<C: RuntimeName, I: ComInterface> FactoryCache<C, I> {
                 }
 
                 let name = HString::from(C::NAME);
-                
+
                 let mut code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut ptr)
                     .unwrap_or_else(|code| code);
 
@@ -94,9 +94,9 @@ impl<C: RuntimeName, I: ComInterface> FactoryCache<C, I> {
                         .is_null()
                     {
                         std::mem::forget(factory);
-                    } else {
-                        return callback(&factory);
                     }
+                } else {
+                    return callback(&factory);
                 }
             }
         }
@@ -154,10 +154,7 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
             path = &path[..pos];
 
             // Turn the resulting namespace portion into a DLL name.
-            let path: Vec<u16> = path
-                .encode_utf16()
-                .chain(".dll\0".encode_utf16())
-                .collect();
+            let path: Vec<u16> = path.encode_utf16().chain(".dll\0".encode_utf16()).collect();
 
             // Attempt to load the DLL.
             let library =

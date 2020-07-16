@@ -2,10 +2,10 @@ use super::object::to_object_tokens;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
+use crate::*;
 use proc_macro2::TokenStream;
 use quote::quote;
 use std::iter::FromIterator;
-use crate::*;
 
 /// A WinRT Class
 #[derive(Debug)]
@@ -120,6 +120,7 @@ impl Class {
         let name = &self.name.tokens;
         let type_name = self.type_name(&name);
         let methods = to_method_tokens(&self.interfaces);
+        let call_factory = self.to_call_factory_tokens();
 
         if self.interfaces[0].kind == InterfaceKind::Default {
             let conversions = TokenStream::from_iter(
@@ -131,7 +132,7 @@ impl Class {
             let new = if self.default_constructor {
                 quote! {
                     pub fn new() -> ::winrt::Result<Self> {
-                        ::winrt::factory::<Self, ::winrt::IActivationFactory>()?.activate_instance::<Self>()
+                        Self::IActivationFactory(|f| f.activate_instance::<Self>())
                     }
                 }
             } else {
@@ -147,7 +148,6 @@ impl Class {
             let abi_name = self.interfaces[0].name.to_abi_tokens();
             let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
-            let call_factory = self.to_call_factory_tokens();
 
             let send_sync = if self.is_agile {
                 let constraints = &self.name.constraints;
@@ -202,7 +202,10 @@ impl Class {
         } else {
             quote! {
                 pub struct #name {}
-                impl #name { #methods }
+                impl #name {
+                    #methods
+                    #call_factory
+                }
                 #type_name
             }
         }
@@ -245,11 +248,14 @@ impl Class {
         }
 
         for interface in &self.interfaces {
-            if interface.kind != InterfaceKind::Statics && interface.kind != InterfaceKind::Composable {
+            if interface.kind != InterfaceKind::Statics
+                && interface.kind != InterfaceKind::Composable
+            {
                 continue;
             }
 
-            let interface_namespace = to_namespace_tokens(&interface.name.namespace, &self.name.namespace);
+            let interface_namespace =
+                to_namespace_tokens(&interface.name.namespace, &self.name.namespace);
             let interface_name = format_ident(&interface.name.name);
             let interface_tokens = quote! { #interface_namespace #interface_name };
             tokens.push(self.to_named_call_factory(&interface.name.name, &interface_tokens));
