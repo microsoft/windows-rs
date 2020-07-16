@@ -5,6 +5,7 @@ use crate::TypeReader;
 use proc_macro2::TokenStream;
 use quote::quote;
 use std::iter::FromIterator;
+use crate::*;
 
 /// A WinRT Class
 #[derive(Debug)]
@@ -146,6 +147,7 @@ impl Class {
             let abi_name = self.interfaces[0].name.to_abi_tokens();
             let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
+            let call_factory = self.to_call_factory_tokens();
 
             let send_sync = if self.is_agile {
                 let constraints = &self.name.constraints;
@@ -166,6 +168,7 @@ impl Class {
                     #new
                     #methods
                     #async_get
+                    #call_factory
                 }
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
@@ -231,6 +234,47 @@ impl Class {
                 }
             }
         }))
+    }
+
+    fn to_call_factory_tokens(&self) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        if self.default_constructor {
+            let interface_tokens = quote! { ::winrt::IActivationFactory };
+            tokens.push(self.to_named_call_factory("IActivationFactory", &interface_tokens));
+        }
+
+        for interface in &self.interfaces {
+            if interface.kind != InterfaceKind::Statics && interface.kind != InterfaceKind::Composable {
+                continue;
+            }
+
+            let interface_namespace = to_namespace_tokens(&interface.name.namespace, &self.name.namespace);
+            let interface_name = format_ident(&interface.name.name);
+            let interface_tokens = quote! { #interface_namespace #interface_name };
+            tokens.push(self.to_named_call_factory(&interface.name.name, &interface_tokens));
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn to_named_call_factory(&self, method_name: &str, interface: &TokenStream) -> TokenStream {
+        let self_name = &self.name.tokens;
+        let method_name = format_ident(method_name);
+        quote! {
+            #[allow(non_snake_case)]
+            fn #method_name<R, F: FnOnce(&#interface) -> ::winrt::Result<R>>(
+                callback: F,
+            ) -> ::winrt::Result<R> {
+                static mut SHARED: ::winrt::FactoryCache<#self_name, #interface> =
+                    ::winrt::FactoryCache {
+                        shared: ::std::sync::atomic::AtomicPtr::new(::std::ptr::null_mut()),
+                        _c: ::std::marker::PhantomData,
+                        _i: ::std::marker::PhantomData,
+                    };
+                unsafe { SHARED.call(callback) }
+            }
+        }
     }
 
     fn type_name(&self, class_name: &TokenStream) -> TokenStream {
