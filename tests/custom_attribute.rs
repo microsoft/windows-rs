@@ -1,13 +1,3 @@
-// This is used to make sure our dependencies are picked up by cargo winrt
-import!(
-    dependencies
-        nuget: Microsoft.Windows.SDK.Contracts
-        nuget: KennyKerr.Windows.TestWinRT
-    types
-        test_component::*
-        windows::foundation::*
-);
-
 use std::path::{Path, PathBuf};
 use winrt::*;
 use winrt_gen::{load_winmd, AttributeArg, TypeReader};
