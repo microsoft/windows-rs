@@ -92,8 +92,14 @@ impl Attribute {
         args.reserve(named_arg_count as usize);
 
         for _ in 0..named_arg_count {
+            let id = values.read_u8();
+            debug_assert!(
+                id == 0x53 || id == 0x54,
+                "A NamedArg must start with an id of 0x53 (Field) or 0x54 (Property)"
+            );
+            let arg_type = values.read_u8();
             let name = values.read_str().to_string();
-            let arg = match values.read_u8() {
+            let arg = match arg_type {
                 0x02 => AttributeArg::Bool(values.read_u8() != 0),
                 0x08 => AttributeArg::I32(values.read_i32()),
                 0x0E => AttributeArg::String(values.read_str().to_string()),
