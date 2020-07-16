@@ -1,8 +1,8 @@
 use super::object::to_object_tokens;
+use crate::format_ident;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
-use crate::*;
 use proc_macro2::TokenStream;
 use quote::quote;
 use std::iter::FromIterator;
@@ -256,6 +256,7 @@ impl Class {
 
             let interface_namespace =
                 to_namespace_tokens(&interface.name.namespace, &self.name.namespace);
+
             let interface_name = format_ident(&interface.name.name);
             let interface_tokens = quote! { #interface_namespace #interface_name };
             tokens.push(self.to_named_call_factory(&interface.name.name, &interface_tokens));
@@ -267,6 +268,7 @@ impl Class {
     fn to_named_call_factory(&self, method_name: &str, interface: &TokenStream) -> TokenStream {
         let self_name = &self.name.tokens;
         let method_name = format_ident(method_name);
+
         quote! {
             #[allow(non_snake_case)]
             fn #method_name<R, F: FnOnce(&#interface) -> ::winrt::Result<R>>(

@@ -2,6 +2,7 @@ use crate::*;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
+/// Attempts to load and cache the factory interface for the given WinRT class.
 pub struct FactoryCache<C: RuntimeName, I: ComInterface> {
     pub shared: AtomicPtr<std::ffi::c_void>,
     pub _c: PhantomData<C>,
@@ -9,25 +10,21 @@ pub struct FactoryCache<C: RuntimeName, I: ComInterface> {
 }
 
 impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
-    pub fn new() -> Self {
-        Self {
-            shared: AtomicPtr::new(std::ptr::null_mut()),
-            _c: PhantomData,
-            _i: PhantomData,
-        }
-    }
-
     pub fn call<R, F: FnOnce(&I) -> Result<R>>(&mut self, callback: F) -> Result<R> {
         unsafe {
             loop {
+                // Attempt to load a previously cached factory pointer.
                 let ptr = self.shared.load(Ordering::Relaxed);
 
+                // If a pointer is found, the cache is primed and we're good to go.
                 if !ptr.is_null() {
                     return callback(std::mem::transmute(&ptr));
                 }
 
+                // Otherwise, we load the factory the usual way.
                 let factory = factory::<C, I>()?;
 
+                // If the factory is agile, we can safely cache it.
                 if factory.is_agile() {
                     if self
                         .shared
@@ -41,6 +38,8 @@ impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
                         std::mem::forget(factory);
                     }
                 } else {
+                    // Otherwise, for non-agile factories we simply use the factory
+                    // and discard after use as it is not safe to cache.
                     return callback(&factory);
                 }
             }
@@ -48,12 +47,7 @@ impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
     }
 }
 
-// Indicates that COM has not been initialized.
-const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
-
 /// Attempts to load the factory interface for the given WinRT class.
-///
-/// Note that factory caching still needs to be implemented.
 pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
     let mut factory = I::default();
     let name = HString::from(C::NAME);
@@ -163,3 +157,6 @@ impl Library {
         Library { handle }
     }
 }
+
+// Indicates that COM has not been initialized.
+const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
