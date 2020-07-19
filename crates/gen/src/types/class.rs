@@ -1,4 +1,5 @@
 use super::object::to_object_tokens;
+use crate::format_ident;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
@@ -119,6 +120,7 @@ impl Class {
         let name = &self.name.tokens;
         let type_name = self.type_name(&name);
         let methods = to_method_tokens(&self.interfaces);
+        let call_factory = self.to_call_factory_tokens();
 
         if self.interfaces[0].kind == InterfaceKind::Default {
             let conversions = TokenStream::from_iter(
@@ -130,7 +132,7 @@ impl Class {
             let new = if self.default_constructor {
                 quote! {
                     pub fn new() -> ::winrt::Result<Self> {
-                        ::winrt::factory::<Self, ::winrt::IActivationFactory>()?.activate_instance::<Self>()
+                        Self::IActivationFactory(|f| f.activate_instance::<Self>())
                     }
                 }
             } else {
@@ -166,6 +168,7 @@ impl Class {
                     #new
                     #methods
                     #async_get
+                    #call_factory
                 }
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
@@ -199,7 +202,10 @@ impl Class {
         } else {
             quote! {
                 pub struct #name {}
-                impl #name { #methods }
+                impl #name {
+                    #methods
+                    #call_factory
+                }
                 #type_name
             }
         }
@@ -231,6 +237,52 @@ impl Class {
                 }
             }
         }))
+    }
+
+    fn to_call_factory_tokens(&self) -> TokenStream {
+        let mut tokens = Vec::new();
+
+        if self.default_constructor {
+            let interface_tokens = quote! { ::winrt::IActivationFactory };
+            tokens.push(self.to_named_call_factory("IActivationFactory", &interface_tokens));
+        }
+
+        for interface in &self.interfaces {
+            if interface.kind != InterfaceKind::Statics
+                && interface.kind != InterfaceKind::Composable
+            {
+                continue;
+            }
+
+            let interface_namespace =
+                to_namespace_tokens(&interface.name.namespace, &self.name.namespace);
+
+            let interface_name = format_ident(&interface.name.name);
+            let interface_tokens = quote! { #interface_namespace #interface_name };
+            tokens.push(self.to_named_call_factory(&interface.name.name, &interface_tokens));
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    fn to_named_call_factory(&self, method_name: &str, interface: &TokenStream) -> TokenStream {
+        let self_name = &self.name.tokens;
+        let method_name = format_ident(method_name);
+
+        quote! {
+            #[allow(non_snake_case)]
+            fn #method_name<R, F: FnOnce(&#interface) -> ::winrt::Result<R>>(
+                callback: F,
+            ) -> ::winrt::Result<R> {
+                static mut SHARED: ::winrt::FactoryCache<#self_name, #interface> =
+                    ::winrt::FactoryCache {
+                        shared: ::std::sync::atomic::AtomicPtr::new(::std::ptr::null_mut()),
+                        _c: ::std::marker::PhantomData,
+                        _i: ::std::marker::PhantomData,
+                    };
+                unsafe { SHARED.call(callback) }
+            }
+        }
     }
 
     fn type_name(&self, class_name: &TokenStream) -> TokenStream {

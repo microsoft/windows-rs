@@ -23,6 +23,7 @@ fn uri() -> winrt::Result<()> {
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
 
+    assert!(uri.is_agile());
     assert!(uri.domain()? == "kennykerr.ca");
     assert!(uri.port()? == 80);
 

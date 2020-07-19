@@ -224,7 +224,7 @@ impl Method {
         let params = to_param_tokens(&self.params);
         let constraints = to_constraint_tokens(&self.params);
         let args = to_arg_tokens(&self.params);
-        let interface = &interface.name.tokens;
+        let interface = format_ident(&interface.name.name);
 
         let return_type = if let Some(return_type) = &self.return_type {
             return_type.to_return_tokens()
@@ -234,21 +234,21 @@ impl Method {
 
         quote! {
             pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type> {
-                ::winrt::factory::<Self, #interface>()?.#method_name(#args)
+                Self::#interface(|f| f.#method_name(#args))
             }
         }
     }
 
     pub fn to_composable_tokens(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let interface = &interface.name.tokens;
+        let interface = format_ident(&interface.name.name);
 
         if self.params.len() == 2 {
             // For non-aggregation scenarios this is just a default constructor, hence the
             // "new" method name in line with non-composable default constructors.
             quote! {
                 pub fn new() -> ::winrt::Result<Self> {
-                    ::winrt::factory::<Self, #interface>()?.#method_name(::winrt::Object::default(), &mut ::winrt::Object::default())
+                    Self::#interface(|f| f.#method_name(::winrt::Object::default(), &mut ::winrt::Object::default()))
                 }
             }
         } else {
@@ -259,7 +259,7 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(#params) -> ::winrt::Result<Self> {
-                    ::winrt::factory::<Self, #interface>()?.#method_name(#args ::winrt::Object::default(), &mut ::winrt::Object::default())
+                    Self::#interface(|f| f.#method_name(#args ::winrt::Object::default(), &mut ::winrt::Object::default()))
                 }
             }
         }
