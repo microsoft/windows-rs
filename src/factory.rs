@@ -1,15 +1,60 @@
 use crate::*;
+use std::marker::PhantomData;
+use std::sync::atomic::{AtomicPtr, Ordering};
+
+/// Attempts to load and cache the factory interface for the given WinRT class.
+pub struct FactoryCache<C: RuntimeName, I: ComInterface> {
+    pub shared: AtomicPtr<std::ffi::c_void>,
+    pub _c: PhantomData<C>,
+    pub _i: PhantomData<I>,
+}
+
+impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
+    pub fn call<R, F: FnOnce(&I) -> Result<R>>(&mut self, callback: F) -> Result<R> {
+        unsafe {
+            loop {
+                // Attempt to load a previously cached factory pointer.
+                let ptr = self.shared.load(Ordering::Relaxed);
+
+                // If a pointer is found, the cache is primed and we're good to go.
+                if !ptr.is_null() {
+                    return callback(std::mem::transmute(&ptr));
+                }
+
+                // Otherwise, we load the factory the usual way.
+                let factory = factory::<C, I>()?;
+
+                // If the factory is agile, we can safely cache it.
+                if factory.is_agile() {
+                    if self
+                        .shared
+                        .compare_and_swap(
+                            std::ptr::null_mut(),
+                            std::mem::transmute_copy(&factory),
+                            Ordering::Relaxed,
+                        )
+                        .is_null()
+                    {
+                        std::mem::forget(factory);
+                    }
+                } else {
+                    // Otherwise, for non-agile factories we simply use the factory
+                    // and discard after use as it is not safe to cache.
+                    return callback(&factory);
+                }
+            }
+        }
+    }
+}
 
 /// Attempts to load the factory interface for the given WinRT class.
-///
-/// Note that factory caching still needs to be implemented.
-pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
-    let mut factory = std::ptr::null_mut();
+pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
+    let mut factory = I::default();
     let name = HString::from(C::NAME);
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory);
+        let code = RoGetActivationFactory(name.get_abi(), &I::iid(), factory.set_abi() as _);
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -17,7 +62,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
 
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
-        if code == ErrorCode::NOT_INITIALIZED {
+        if code == NOT_INITIALIZED {
             let mut _cookie = std::ptr::null_mut();
 
             // Won't get any delay-load errors here if we got NOT_INITIALIZED, so quiet the
@@ -25,13 +70,13 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.get_abi(), &I::iid(), &mut factory)
+            code = RoGetActivationFactory(name.get_abi(), &I::iid(), factory.set_abi() as _)
                 .unwrap_or_else(|code| code);
         }
 
         // If this succeeded then return the resulting factory interface.
         if code.is_ok() {
-            return Ok(std::mem::transmute_copy(&factory));
+            return Ok(factory);
         }
 
         // If not, first capture the error information from the failure above so that we
@@ -48,11 +93,7 @@ pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
             path = &path[..pos];
 
             // Turn the resulting namespace portion into a DLL name.
-            let path: Vec<u16> = path
-                .encode_utf16()
-                .chain(".dll".encode_utf16())
-                .chain(std::iter::once(0))
-                .collect();
+            let path: Vec<u16> = path.encode_utf16().chain(".dll\0".encode_utf16()).collect();
 
             // Attempt to load the DLL.
             let library =
@@ -116,3 +157,6 @@ impl Library {
         Library { handle }
     }
 }
+
+// Indicates that COM has not been initialized.
+const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);

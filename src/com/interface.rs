@@ -47,6 +47,12 @@ pub unsafe trait ComInterface: Sized + crate::AbiTransferable {
         self.as_iunknown().is_none()
     }
 
+    /// Check whether the ComInterface is agile.
+    fn is_agile(&self) -> bool {
+        let agile: IAgileObject = self.query();
+        !agile.is_null()
+    }
+
     /// Query for a particular interface by iid.
     ///
     /// # Safety

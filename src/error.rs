@@ -129,9 +129,6 @@ impl ErrorCode {
         Ok(op())
     }
 
-    /// Indicates that COM has not been initialized.
-    pub(crate) const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
-
     /// Creates a failure code from GetLastError()
     #[inline]
     pub(crate) fn last_win32_error() -> Self {

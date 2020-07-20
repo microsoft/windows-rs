@@ -72,7 +72,7 @@ pub use array::Array;
 pub use com::*;
 pub use error::*;
 #[doc(hidden)]
-pub use factory::factory;
+pub use factory::{factory, FactoryCache};
 #[doc(hidden)]
 pub use guid::Guid;
 pub use hstring::HString;
