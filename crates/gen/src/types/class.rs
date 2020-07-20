@@ -275,7 +275,7 @@ impl Class {
                 callback: F,
             ) -> ::winrt::Result<R> {
                 static mut SHARED: ::winrt::FactoryCache<#self_name, #interface> =
-                    ::winrt::FactoryCache::new(::std::sync::atomic::AtomicPtr::new(::std::ptr::null_mut()));
+                    ::winrt::FactoryCache::new();
                 unsafe { SHARED.call(callback) }
             }
         }

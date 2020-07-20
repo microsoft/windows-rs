@@ -10,9 +10,9 @@ pub struct FactoryCache<C, I> {
 }
 
 impl<C, I> FactoryCache<C, I> {
-    pub const fn new(shared: AtomicPtr<std::ffi::c_void>) -> Self {
+    pub const fn new() -> Self {
         Self {
-            shared,
+            shared: AtomicPtr::new(::std::ptr::null_mut()),
             _c: PhantomData,
             _i: PhantomData,
         }
