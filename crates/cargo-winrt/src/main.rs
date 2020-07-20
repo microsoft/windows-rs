@@ -56,10 +56,6 @@ fn run() -> Result<(), i32> {
 
 fn parse_args() -> Result<Subcommand, ArgsError> {
     let mut args = pico_args::Arguments::from_env();
-    if args.contains(["-h", "--help"]) {
-        return Ok(Subcommand::Help(Help { subcommand: None }));
-    }
-
     let mut subcommand = args.subcommand()?;
     if subcommand.as_deref() == Some("winrt") {
         // presumably running in cargo subcommand mode,
@@ -67,30 +63,27 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
         subcommand = args.subcommand()?;
     }
 
+    if args.contains(["-h", "--help"]) {
+        return Ok(Subcommand::Help(Help { subcommand }));
+    }
+
+    let verbose = args.contains(["-v", "--verbose"]);
+    let force = args.contains(["-f", "--force"]);
     let subcommand = match subcommand.as_deref() {
         Some("install") => {
-            let verbose = args.contains(["-v", "--verbose"]);
-            let force = args.contains(["-f", "--force"]);
             args.finish()?;
             Subcommand::Install(Install { verbose, force })
         }
         Some("run") => {
-            let verbose = args.contains(["-v", "--verbose"]);
-            let force = args.contains(["-f", "--force"]);
             args.finish()?;
             Subcommand::Run(Run { verbose, force })
         }
         Some("build") => {
-            let verbose = args.contains(["-v", "--verbose"]);
-            let force = args.contains(["-f", "--force"]);
             args.finish()?;
             Subcommand::Build(Build { verbose, force })
         }
         Some("help") => {
-            let subcommand = match args.free()?.first() {
-                Some(s) => Some(s.to_owned()),
-                None => None,
-            };
+            let subcommand = args.free()?.first().map(String::to_owned);
             Subcommand::Help(Help { subcommand })
         }
         Some(_) => return Err(ArgsError::NoSuchSubcommand(subcommand.unwrap())),
@@ -100,7 +93,7 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
     Ok(subcommand)
 }
 
-fn print_help() -> anyhow::Result<()> {
+fn print_help() {
     println!(
         r#"
 This utility assists with WinRT operations on the current crate.
@@ -120,7 +113,6 @@ SUBCOMMANDS:
 See 'cargo winrt help <command>' for more information on a specific command.
             "#
     );
-    Ok(())
 }
 
 enum ArgsError {
@@ -159,7 +151,7 @@ impl Build {
         cargo::build()
     }
 
-    fn print_help() -> anyhow::Result<()> {
+    fn print_help() {
         println!(
             r#"
 Installs the WinRT dependencies and performs a `cargo build`
@@ -172,7 +164,6 @@ OPTIONS:
     -v, --verbose    Use verbose output
             "#
         );
-        Ok(())
     }
 }
 
@@ -192,7 +183,7 @@ impl Run {
         cargo::run()
     }
 
-    fn print_help() -> anyhow::Result<()> {
+    fn print_help() {
         println!(
             r#"
 Installs the WinRT dependencies and performs a `cargo run`
@@ -205,7 +196,6 @@ OPTIONS:
     -v, --verbose    Use verbose output
             "#
         );
-        Ok(())
     }
 }
 
@@ -248,7 +238,6 @@ macro_rules! print_verbose_status {
         if verbose() {
             eprintln!("{:>12} {}", console::style($status).green().bold(), $message);
         }
-
     });
     ($status:expr, $message_fmt:expr, $($message_args:tt)*) => ({
         if verbose() {
@@ -328,7 +317,7 @@ impl Install {
             .collect()
     }
 
-    fn print_help() -> anyhow::Result<()> {
+    fn print_help() {
         println!(
             r#"
 Installs the WinRT dependencies of the package locally
@@ -341,7 +330,6 @@ OPTIONS:
     -v, --verbose    Use verbose output
             "#
         );
-        Ok(())
     }
 }
 
@@ -365,9 +353,10 @@ impl Help {
             },
             None => crate::print_help(),
         }
+        Ok(())
     }
 
-    fn print_help() -> anyhow::Result<()> {
+    fn print_help() {
         println!(
             r#"
 Prints this message or the help of the given subcommand
@@ -376,7 +365,6 @@ USAGE:
     cargo winrt help [SUBCOMMAND]
 "#
         );
-        Ok(())
     }
 }
 
