@@ -45,7 +45,7 @@ fn run() -> Result<(), i32> {
         Subcommand::Install(i) => i.perform(),
         Subcommand::Run(r) => r.perform(),
         Subcommand::Build(b) => b.perform(),
-        Subcommand::Help => print_help(),
+        Subcommand::Help(h) => h.perform(),
     };
     if let Err(ref e) = result {
         cmd_err!("{}", e);
@@ -57,7 +57,7 @@ fn run() -> Result<(), i32> {
 fn parse_args() -> Result<Subcommand, ArgsError> {
     let mut args = pico_args::Arguments::from_env();
     if args.contains(["-h", "--help"]) {
-        return Ok(Subcommand::Help);
+        return Ok(Subcommand::Help(Help { subcommand: None }));
     }
 
     let mut subcommand = args.subcommand()?;
@@ -67,14 +67,32 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
         subcommand = args.subcommand()?;
     }
 
-    let verbose = args.contains(["-v", "--verbose"]);
-    let force = args.contains(["-f", "--force"]);
-    args.finish()?;
-
     let subcommand = match subcommand.as_deref() {
-        Some("install") => Subcommand::Install(Install { verbose, force }),
-        Some("run") => Subcommand::Run(Run { verbose, force }),
-        Some("build") => Subcommand::Build(Build { verbose, force }),
+        Some("install") => {
+            let verbose = args.contains(["-v", "--verbose"]);
+            let force = args.contains(["-f", "--force"]);
+            args.finish()?;
+            Subcommand::Install(Install { verbose, force })
+        }
+        Some("run") => {
+            let verbose = args.contains(["-v", "--verbose"]);
+            let force = args.contains(["-f", "--force"]);
+            args.finish()?;
+            Subcommand::Run(Run { verbose, force })
+        }
+        Some("build") => {
+            let verbose = args.contains(["-v", "--verbose"]);
+            let force = args.contains(["-f", "--force"]);
+            args.finish()?;
+            Subcommand::Build(Build { verbose, force })
+        }
+        Some("help") => {
+            let subcommand = match args.free()?.first() {
+                Some(s) => Some(s.to_owned()),
+                None => None,
+            };
+            Subcommand::Help(Help { subcommand })
+        }
         Some(_) => return Err(ArgsError::NoSuchSubcommand(subcommand.unwrap())),
         None => return Err(ArgsError::MissingSubcommand),
     };
@@ -85,18 +103,21 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
 fn print_help() -> anyhow::Result<()> {
     println!(
         r#"
-USAGE:
-    cargo winrt <SUBCOMMAND>
+This utility assists with WinRT operations on the current crate.
 
-FLAGS:
+USAGE:
+    cargo winrt [OPTIONS] [SUBCOMMAND]
+
+OPTIONS:
     -h, --help       Prints help information
     -V, --version    Prints version information
 
 SUBCOMMANDS:
-    build
-    help       Prints this message or the help of the given subcommand(s)
-    install
-    run 
+    build      Installs the WinRT dependencies and performs a `cargo build`
+    install    Installs the WinRT dependencies of the package locally
+    run        Installs the WinRT dependencies and performs a `cargo run`
+
+See 'cargo winrt help <command>' for more information on a specific command.
             "#
     );
     Ok(())
@@ -119,7 +140,7 @@ enum Subcommand {
     Install(Install),
     Build(Build),
     Run(Run),
-    Help,
+    Help(Help),
 }
 
 #[derive(Debug)]
@@ -137,6 +158,22 @@ impl Build {
         install.perform()?;
         cargo::build()
     }
+
+    fn print_help() -> anyhow::Result<()> {
+        println!(
+            r#"
+Installs the WinRT dependencies and performs a `cargo build`
+
+USAGE:
+    cargo winrt build [OPTIONS]
+
+OPTIONS:
+    -f, --force      Forces reinstallation of WinRT dependencies
+    -v, --verbose    Use verbose output
+            "#
+        );
+        Ok(())
+    }
 }
 
 #[derive(Debug)]
@@ -153,6 +190,22 @@ impl Run {
         };
         install.perform()?;
         cargo::run()
+    }
+
+    fn print_help() -> anyhow::Result<()> {
+        println!(
+            r#"
+Installs the WinRT dependencies and performs a `cargo run`
+
+USAGE:
+    cargo winrt run [OPTIONS]
+
+OPTIONS:
+    -f, --force      Forces reinstallation of WinRT dependencies
+    -v, --verbose    Use verbose output
+            "#
+        );
+        Ok(())
     }
 }
 
@@ -217,7 +270,11 @@ impl Install {
         self.install_from_manifest(manifest)?;
 
         let time_elapsed = elapsed(start_time.elapsed());
-        print_status!("Finished", "in {}", time_elapsed);
+        print_status!(
+            "Finished",
+            "installing WinRT dependencies in {}",
+            time_elapsed
+        );
 
         Ok(())
     }
@@ -269,6 +326,57 @@ impl Install {
                 Ok(ResolvedDependency::new(dep, raw)?)
             })
             .collect()
+    }
+
+    fn print_help() -> anyhow::Result<()> {
+        println!(
+            r#"
+Installs the WinRT dependencies of the package locally
+
+USAGE:
+    cargo winrt install [OPTIONS]
+
+OPTIONS:
+    -f, --force      Forces the installation, even if up to date
+    -v, --verbose    Use verbose output
+            "#
+        );
+        Ok(())
+    }
+}
+
+#[derive(Debug)]
+struct Help {
+    subcommand: Option<String>,
+}
+
+impl Help {
+    fn perform(&self) -> anyhow::Result<()> {
+        match &self.subcommand {
+            Some(subcommand) => match subcommand.as_str() {
+                "install" => Install::print_help(),
+                "build" => Build::print_help(),
+                "run" => Run::print_help(),
+                "help" => Help::print_help(),
+                unknown => {
+                    eprintln!("error: The subcommand '{}' wasn't recognized", unknown);
+                    Help::print_help()
+                }
+            },
+            None => crate::print_help(),
+        }
+    }
+
+    fn print_help() -> anyhow::Result<()> {
+        println!(
+            r#"
+Prints this message or the help of the given subcommand
+
+USAGE:
+    cargo winrt help [SUBCOMMAND]
+"#
+        );
+        Ok(())
     }
 }
 
