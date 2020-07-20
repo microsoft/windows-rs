@@ -11,5 +11,4 @@ winrt = { path = "../.." }
 winrt = { path = "../.." }
 
 [package.metadata.winrt.dependencies]
-"Microsoft.AI.MachineLearning" = "1.3.0"
 "Microsoft.Windows.SDK.Contracts" = "10.0.19041.1"
