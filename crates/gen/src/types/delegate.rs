@@ -130,7 +130,7 @@ impl Delegate {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                const SIGNATURE: &'static [u8] = { #signature };
+                const SIGNATURE: ::winrt::ConstString = { #signature };
             }
             unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
                 type Abi = ::winrt::RawComPtr<Self>;

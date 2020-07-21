@@ -35,17 +35,13 @@ impl Guid {
     /// Creates a `Guid` for a "generic" WinRT type.
     ///
     /// Note this needs to be a const function as soon as [Rust supports it](https://github.com/microsoft/winrt-rs/issues/136).
-    pub const fn from_signature(signature: &[u8]) -> Guid {
-        let data: [u8; BUFFER_SIZE] = [
+    pub const fn from_signature(signature: crate::ConstString) -> Guid {
+        let data = crate::ConstString::from_slice(&[
             0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
-            0xad, 0xee, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        ];
-        let data = copy_slice(data, signature, 16);
+            0xad, 0xee,
+        ]);
+
+        let data = data.push_other(signature);
 
         let hash = const_sha1::sha1(&data);
         let bytes = hash.data;
@@ -87,7 +83,7 @@ unsafe impl AbiTransferable for Guid {
     }
 }
 unsafe impl RuntimeType for Guid {
-    const SIGNATURE: &'static [u8] = b"g16";
+    const SIGNATURE: crate::ConstString = crate::ConstString::from_slice(b"g16");
 }
 
 impl std::fmt::Debug for Guid {
@@ -168,18 +164,4 @@ impl HexReader for std::str::Bytes<'_> {
     fn next_u32(&mut self) -> u32 {
         self.next_u8().into()
     }
-}
-
-const BUFFER_SIZE: usize = 167;
-pub const fn copy_slice(
-    mut array: [u8; BUFFER_SIZE],
-    slice: &[u8],
-    array_offset: usize,
-) -> [u8; BUFFER_SIZE] {
-    let mut i = 0;
-    while i < slice.len() {
-        array[array_offset + i] = slice[i];
-        i += 1;
-    }
-    array
 }

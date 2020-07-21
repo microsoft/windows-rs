@@ -90,3 +90,5 @@ pub use winrt_macros::{build, import};
 
 #[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;
+
+pub use const_sha1::ConstString;
