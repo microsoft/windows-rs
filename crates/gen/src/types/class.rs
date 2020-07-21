@@ -248,8 +248,9 @@ impl Class {
         }
 
         for interface in &self.interfaces {
-            if interface.kind != InterfaceKind::Statics
-                && interface.kind != InterfaceKind::Composable
+            if (interface.kind != InterfaceKind::Statics
+                && interface.kind != InterfaceKind::Composable)
+                || interface.methods.len() == 0
             {
                 continue;
             }
