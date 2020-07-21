@@ -139,8 +139,9 @@ impl TypeName {
     }
 
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
+        let signature = proc_macro2::Literal::byte_string(signature.as_bytes());
         if self.generics.is_empty() {
-            return quote! { #signature.to_owned() };
+            return quote! { #signature };
         }
 
         // TODO: I'm sure there's a more generic way of doing this, but as of now there are at
@@ -148,12 +149,46 @@ impl TypeName {
         let format = match self.generics.len() {
             1 => {
                 let first = self.generics[0].to_tokens();
-                quote! { format!("pinterface({};{})", #signature, <#first as ::winrt::RuntimeType>::signature()) }
+                quote! {
+                    const BUFFER_SIZE: usize = 167;
+                    let data: [u8; BUFFER_SIZE] = [
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    ];
+                    pub const fn copy_slice(
+                        mut array: [u8; BUFFER_SIZE],
+                        slice: &[u8],
+                        array_offset: usize,
+                    ) -> [u8; BUFFER_SIZE] {
+                        let mut i = 0;
+                        while i < slice.len() {
+                            array[array_offset + i] = slice[i];
+                            i += 1;
+                        }
+                        array
+                    }
+                    let first = b"pinterface(";
+                    let data = copy_slice(data, first, 0);
+                    let s1 = #signature;
+                    let data = copy_slice(data, s1, first.len());
+                    let second = b";";
+                    let data = copy_slice(data, second, first.len() + s1.len());
+                    let s2 = <#first as ::winrt::RuntimeType>::SIGNATURE;
+                    let data = copy_slice(data, s2, first.len() + s1.len() + second.len());
+                    let third = b")";
+                    let data = copy_slice(data, third, first.len() + s1.len() + second.len() + s2.len());
+                    &data
+                }
             }
             2 => {
-                let first = self.generics[0].to_tokens();
-                let second = self.generics[1].to_tokens();
-                quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::signature(), <#second as ::winrt::RuntimeType>::signature()) }
+                // let first = self.generics[0].to_tokens();
+                // let second = self.generics[1].to_tokens();
+                // quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::SIGNATURE, <#second as ::winrt::RuntimeType>::SIGNATURE) }
+                quote! { &[] }
             }
             _ => panic!("Only types with two or fewer generics are supported"),
         };
@@ -173,7 +208,7 @@ impl TypeName {
         }
 
         quote! {
-            ::winrt::Guid::from_signature::<Self>()
+            ::winrt::Guid::from_signature(<Self as ::winrt::RuntimeType>::SIGNATURE)
         }
     }
 

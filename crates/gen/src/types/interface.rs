@@ -86,9 +86,7 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                fn iid() -> ::winrt::Guid {
-                    #guid
-                }
+                const IID: ::winrt::Guid = { #guid };
             }
             impl<#constraints> ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
@@ -105,9 +103,7 @@ impl Interface {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                fn signature() -> String {
-                    #signature
-                }
+                const SIGNATURE: &'static [u8] = { #signature };
             }
             unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
                 type Abi = ::winrt::RawComPtr<Self>;

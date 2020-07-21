@@ -14,8 +14,7 @@ use crate::*;
 pub unsafe trait ComInterface: Sized + crate::AbiTransferable {
     type VTable;
 
-    // TODO: this should be a const function returning &'static Guid
-    fn iid() -> Guid;
+    const IID: Guid;
 
     /// Get the `ComInterface` as a `RawComPtr<IUnknown>`.
     ///
@@ -36,7 +35,7 @@ pub unsafe trait ComInterface: Sized + crate::AbiTransferable {
             // Safe because `ComInterfaces` must by definition be safe to zero-initialize.
             let mut into: Into = std::mem::zeroed();
             // Safe because the supplied `IID` is the `IID` of the supplied queried type.
-            self.raw_query(&Into::iid(), &mut into);
+            self.raw_query(&Into::IID, &mut into);
             into
         }
     }

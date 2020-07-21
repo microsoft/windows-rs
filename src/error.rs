@@ -340,14 +340,14 @@ impl IErrorInfo {
 unsafe impl ComInterface for IErrorInfo {
     type VTable = abi_IErrorInfo;
 
-    fn iid() -> Guid {
+    const IID: Guid = {
         Guid::from_values(
             0x1CF2_B120,
             0x547D,
             0x101B,
             [0x8E, 0x65, 0x08, 0x00, 0x2B, 0x2B, 0xD1, 0x19],
         )
-    }
+    };
 }
 
 unsafe impl AbiTransferable for IErrorInfo {
@@ -411,14 +411,14 @@ impl IRestrictedErrorInfo {
 unsafe impl ComInterface for IRestrictedErrorInfo {
     type VTable = abi_IRestrictedErrorInfo;
 
-    fn iid() -> Guid {
+    const IID: Guid = {
         Guid::from_values(
             0x82BA_7092,
             0x4C88,
             0x427D,
             [0xA7, 0xBC, 0x16, 0xDD, 0x93, 0xFE, 0xB6, 0x7E],
         )
-    }
+    };
 }
 
 unsafe impl AbiTransferable for IRestrictedErrorInfo {
@@ -464,14 +464,14 @@ impl ILanguageExceptionErrorInfo2 {
 unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
     type VTable = abi_ILanguageExceptionErrorInfo2;
 
-    fn iid() -> Guid {
+    const IID: Guid = {
         Guid::from_values(
             0x5746_E5C4,
             0x5B97,
             0x424C,
             [0xB6, 0x20, 0x28, 0x22, 0x91, 0x57, 0x34, 0xDD],
         )
-    }
+    };
 }
 
 unsafe impl AbiTransferable for ILanguageExceptionErrorInfo2 {

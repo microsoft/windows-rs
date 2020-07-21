@@ -39,7 +39,7 @@ impl Struct {
 
     pub fn to_tokens(&self) -> TokenStream {
         let name = &self.name.tokens;
-        let signature = &self.signature;
+        let signature = proc_macro2::Literal::byte_string(&self.signature.as_bytes());
 
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
@@ -56,9 +56,7 @@ impl Struct {
                 #(#fields),*
             }
             unsafe impl ::winrt::RuntimeType for #name {
-                fn signature() -> String {
-                    #signature.to_owned()
-                }
+                const SIGNATURE: &'static [u8] = { #signature };
             }
             unsafe impl ::winrt::AbiTransferable for #name {
                 type Abi = Self;

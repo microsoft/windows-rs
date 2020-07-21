@@ -54,7 +54,7 @@ impl Enum {
 
     pub fn to_tokens(&self) -> TokenStream {
         let name = &self.name.tokens;
-        let signature = &self.signature;
+        let signature = proc_macro2::Literal::byte_string(&self.signature.as_bytes());
 
         let repr = match self.fields[0].1 {
             EnumConstant::U32(_) => format_ident!("u32"),
@@ -85,9 +85,7 @@ impl Enum {
                 #(#fields)*
             }
             unsafe impl ::winrt::RuntimeType for #name {
-                fn signature() -> String {
-                    #signature.to_owned()
-                }
+                const SIGNATURE: &'static [u8] = { #signature };
             }
             unsafe impl ::winrt::AbiTransferable for #name {
                 type Abi = #repr;

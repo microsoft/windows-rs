@@ -35,29 +35,41 @@ impl Guid {
     /// Creates a `Guid` for a "generic" WinRT type.
     ///
     /// Note this needs to be a const function as soon as [Rust supports it](https://github.com/microsoft/winrt-rs/issues/136).
-    pub fn from_signature<T: RuntimeType>() -> Guid {
-        let mut data = vec![
+    pub const fn from_signature(signature: &[u8]) -> Guid {
+        let data: [u8; BUFFER_SIZE] = [
             0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
-            0xad, 0xee,
+            0xad, 0xee, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         ];
-        data.extend_from_slice(T::signature().as_bytes());
+        let data = copy_slice(data, signature, 16);
 
-        let mut hash = sha1::Sha1::new();
-        hash.update(&data);
-        let bytes = hash.digest().bytes();
+        let hash = const_sha1::sha1(&data);
+        let bytes = hash.data;
 
-        let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
-        let second = u16::from_be_bytes([bytes[4], bytes[5]]);
-        let mut third = u16::from_be_bytes([bytes[6], bytes[7]]);
+        let first = bytes[0].to_be();
+        let second = bytes[1].to_be() as u16;
+        let mut third = (bytes[1].to_be() >> 16) as u16;
         third = (third & 0x0fff) | (5 << 12);
-        let fourth = (bytes[8] & 0x3f) | 0x80;
+        let fourth = bytes[2].to_be_bytes();
+        let fifth = bytes[3].to_be_bytes();
 
         Self::from_values(
             first,
             second,
             third,
             [
-                fourth, bytes[9], bytes[10], bytes[11], bytes[12], bytes[13], bytes[14], bytes[15],
+                ((fourth[0] & 0x3f) | 0x80) as u8,
+                fourth[1],
+                fourth[2],
+                fourth[3],
+                fifth[0],
+                fifth[1],
+                fifth[2],
+                fifth[3],
             ],
         )
     }
@@ -75,9 +87,7 @@ unsafe impl AbiTransferable for Guid {
     }
 }
 unsafe impl RuntimeType for Guid {
-    fn signature() -> String {
-        "g16".to_owned()
-    }
+    const SIGNATURE: &'static [u8] = b"g16";
 }
 
 impl std::fmt::Debug for Guid {
@@ -158,4 +168,18 @@ impl HexReader for std::str::Bytes<'_> {
     fn next_u32(&mut self) -> u32 {
         self.next_u8().into()
     }
+}
+
+const BUFFER_SIZE: usize = 167;
+pub const fn copy_slice(
+    mut array: [u8; BUFFER_SIZE],
+    slice: &[u8],
+    array_offset: usize,
+) -> [u8; BUFFER_SIZE] {
+    let mut i = 0;
+    while i < slice.len() {
+        array[array_offset + i] = slice[i];
+        i += 1;
+    }
+    array
 }

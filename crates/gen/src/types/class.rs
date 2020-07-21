@@ -142,7 +142,7 @@ impl Class {
             let object = to_object_tokens(&name, &TokenStream::new());
             let bases = self.to_base_conversions_tokens(&name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
-            let signature = &self.signature;
+            let signature = proc_macro2::Literal::byte_string(&self.signature.as_bytes());
 
             let default_name = &self.interfaces[0].name.tokens;
             let abi_name = self.interfaces[0].name.to_abi_tokens();
@@ -173,14 +173,12 @@ impl Class {
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     type VTable = #abi_name;
-                    fn iid() -> ::winrt::Guid {
-                        <#default_name as ::winrt::ComInterface>::iid()
-                    }
+                    const IID: ::winrt::Guid = {
+                        <#default_name as ::winrt::ComInterface>::IID
+                    };
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
-                    fn signature() -> String {
-                        #signature.to_owned()
-                    }
+                    const SIGNATURE: &'static [u8] = { #signature };
                 }
                 unsafe impl ::winrt::AbiTransferable for #name {
                     type Abi = ::winrt::RawComPtr<#default_name>;
