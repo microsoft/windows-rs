@@ -117,6 +117,10 @@ impl RequiredInterface {
                 kind = InterfaceKind::NonDefault;
             }
 
+            if interfaces.iter().any(|i| i.name == append_name) {
+                continue;
+            }
+
             interfaces.push(RequiredInterface::from_type_name_and_kind(
                 reader,
                 append_name,
