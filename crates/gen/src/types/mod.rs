@@ -27,7 +27,7 @@ pub(crate) use namespace::*;
 pub(crate) use param::Param;
 pub(crate) use r#enum::Enum;
 pub(crate) use r#struct::Struct;
-pub(crate) use r#type::Type;
+pub use r#type::Type;
 pub(crate) use required_interface::*;
 pub(crate) use required_interfaces::*;
 pub(crate) use type_guid::{GuidConstant, TypeGuid};

@@ -11,8 +11,9 @@ mod type_namespaces;
 mod type_reader;
 mod type_stage;
 mod type_tree;
-mod types;
+pub mod types;
 
+pub use types::Type;
 pub mod dependencies;
 pub mod load_winmd;
 pub use file::WinmdFile;
@@ -25,10 +26,7 @@ fn format_ident(name: &str) -> proc_macro2::Ident {
     if name == "Self" {
         quote::format_ident!("{}_", name)
     } else {
-        match syn::parse_str::<proc_macro2::Ident>(name) {
-            Ok(i) => i,
-            Err(_) => quote::format_ident!("r#{}", name),
-        }
+        quote::format_ident!("r#{}", name)
     }
 }
 
