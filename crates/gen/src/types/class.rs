@@ -122,7 +122,7 @@ impl Class {
         let methods = to_method_tokens(&self.interfaces);
         let call_factory = self.to_call_factory_tokens();
 
-        if self.interfaces[0].kind == InterfaceKind::Default {
+        if let Some(default_interface) = self.interfaces.iter().find(|i|i.kind == InterfaceKind::Default) {
             let conversions = TokenStream::from_iter(
                 self.interfaces
                     .iter()
@@ -144,8 +144,8 @@ impl Class {
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = &self.signature;
 
-            let default_name = &self.interfaces[0].name.tokens;
-            let abi_name = self.interfaces[0].name.to_abi_tokens();
+            let default_name = &default_interface.name.tokens;
+            let abi_name = default_interface.name.to_abi_tokens();
             let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
 

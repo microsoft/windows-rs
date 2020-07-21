@@ -91,11 +91,7 @@ impl RequiredInterface {
                 &name.namespace,
             );
 
-            if kind == InterfaceKind::Default {
-                interfaces.insert(0, required);
-            } else {
-                interfaces.push(required);
-            }
+            interfaces.push(required);
         }
     }
 
