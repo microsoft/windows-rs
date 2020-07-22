@@ -33,39 +33,36 @@ impl Guid {
     }
 
     /// Creates a `Guid` for a "generic" WinRT type.
-    ///
-    /// Note this needs to be a const function as soon as [Rust supports it](https://github.com/microsoft/winrt-rs/issues/136).
     pub const fn from_signature(signature: crate::ConstString) -> Guid {
         let data = crate::ConstString::from_slice(&[
             0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
             0xad, 0xee,
         ]);
 
+        let first = signature.get(0);
         let data = data.push_other(signature);
 
-        let hash = const_sha1::sha1(&data);
-        let bytes = hash.data;
+        let hash = const_sha1::sha1(&data).data;
 
-        let first = bytes[0].to_be();
-        let second = bytes[1].to_be() as u16;
-        let mut third = (bytes[1].to_be() >> 16) as u16;
-        third = (third & 0x0fff) | (5 << 12);
-        let fourth = bytes[2].to_be_bytes();
-        let fifth = bytes[3].to_be_bytes();
+        let second = hash[1].to_be_bytes();
+        let mut data3 = u16::from_be_bytes([second[2], second[3]]);
+        data3 = (data3 & 0x0fff) | (5 << 12);
+        let third = hash[2].to_be_bytes();
+        let fourth = hash[3].to_be_bytes();
 
         Self::from_values(
-            first,
-            second,
-            third,
+            first as u32,
+            u16::from_be_bytes([second[0], second[1]]),
+            data3,
             [
-                ((fourth[0] & 0x3f) | 0x80) as u8,
+                ((third[0] & 0x3f) | 0x80) as u8,
+                third[1],
+                third[2],
+                third[3],
+                fourth[0],
                 fourth[1],
                 fourth[2],
                 fourth[3],
-                fifth[0],
-                fifth[1],
-                fifth[2],
-                fifth[3],
             ],
         )
     }

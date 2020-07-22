@@ -144,31 +144,28 @@ impl TypeName {
             return quote! { ::winrt::ConstString::from_slice(#signature) };
         }
 
-        // TODO: I'm sure there's a more generic way of doing this, but as of now there are at
-        // most two generic parameters.
-        let format = match self.generics.len() {
-            1 => {
-                let first = self.generics[0].to_tokens();
-                quote! {
-                    let string = ::winrt::ConstString::new();
-                    let string = string.push_slice(b"pinterface(");
-                    let string = string.push_slice(#signature);
+        let generics = self.generics.iter().enumerate().map(|(index, g)| {
+            let g = g.to_tokens();
+            let semi = if index != self.generics.len() - 1 {
+                Some(quote! {
                     let string = string.push_slice(b";");
-                    let string = string.push_other(<#first as ::winrt::RuntimeType>::SIGNATURE);
-                    string.push_slice(b")")
-                }
-            }
-            2 => {
-                // let first = self.generics[0].to_tokens();
-                // let second = self.generics[1].to_tokens();
-                // quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::SIGNATURE, <#second as ::winrt::RuntimeType>::SIGNATURE) }
-                quote! { ::winrt::ConstString::new() }
-            }
-            _ => panic!("Only types with two or fewer generics are supported"),
-        };
+                })
+            } else {
+                None
+            };
 
+            quote! {
+                let string = string.push_other(<#g as ::winrt::RuntimeType>::SIGNATURE);
+                #semi
+            }
+        });
         quote! {
-            #format
+            let string = ::winrt::ConstString::new();
+            let string = string.push_slice(b"pinterface(");
+            let string = string.push_slice(#signature);
+            let string = string.push_slice(b";");
+            #(#generics)*
+            string.push_slice(b")")
         }
     }
 
