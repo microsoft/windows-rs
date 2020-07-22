@@ -173,12 +173,10 @@ impl Class {
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     type VTable = #abi_name;
-                    const IID: ::winrt::Guid = {
-                        <#default_name as ::winrt::ComInterface>::IID
-                    };
+                    const IID: ::winrt::Guid = <#default_name as ::winrt::ComInterface>::IID;
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
-                    const SIGNATURE: ::winrt::ConstBuffer = { ::winrt::ConstBuffer::from_slice(#signature) };
+                    const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
                 }
                 unsafe impl ::winrt::AbiTransferable for #name {
                     type Abi = ::winrt::RawComPtr<#default_name>;

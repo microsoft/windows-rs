@@ -109,9 +109,7 @@ impl Delegate {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                const IID: ::winrt::Guid = {
-                    #guid
-                };
+                const IID: ::winrt::Guid = #guid;
             }
             impl<#constraints> ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {

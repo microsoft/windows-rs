@@ -56,7 +56,7 @@ impl Struct {
                 #(#fields),*
             }
             unsafe impl ::winrt::RuntimeType for #name {
-                const SIGNATURE: ::winrt::ConstBuffer = { ::winrt::ConstBuffer::from_slice(#signature) };
+                const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
             unsafe impl ::winrt::AbiTransferable for #name {
                 type Abi = Self;
