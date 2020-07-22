@@ -33,8 +33,8 @@ impl Guid {
     }
 
     /// Creates a `Guid` for a "generic" WinRT type.
-    pub const fn from_signature(signature: crate::ConstString) -> Guid {
-        let data = crate::ConstString::from_slice(&[
+    pub const fn from_signature(signature: crate::ConstBuffer) -> Guid {
+        let data = crate::ConstBuffer::from_slice(&[
             0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
             0xad, 0xee,
         ]);
@@ -50,7 +50,7 @@ impl Guid {
         let fourth = (bytes[8] & 0x3f) | 0x80;
 
         Self::from_values(
-            bytes[0] as u32,
+            first,
             second,
             third,
             [
@@ -72,7 +72,7 @@ unsafe impl AbiTransferable for Guid {
     }
 }
 unsafe impl RuntimeType for Guid {
-    const SIGNATURE: crate::ConstString = crate::ConstString::from_slice(b"g16");
+    const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"g16");
 }
 
 impl std::fmt::Debug for Guid {

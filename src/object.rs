@@ -38,8 +38,8 @@ unsafe impl ComInterface for Object {
 }
 
 unsafe impl RuntimeType for Object {
-    const SIGNATURE: crate::ConstString =
-        crate::ConstString::from_slice(b"cinterface(IInspectable)");
+    const SIGNATURE: crate::ConstBuffer =
+        crate::ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }
 
 unsafe impl AbiTransferable for Object {

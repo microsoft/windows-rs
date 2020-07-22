@@ -141,7 +141,7 @@ impl TypeName {
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
         let signature = proc_macro2::Literal::byte_string(signature.as_bytes());
         if self.generics.is_empty() {
-            return quote! { ::winrt::ConstString::from_slice(#signature) };
+            return quote! { ::winrt::ConstBuffer::from_slice(#signature) };
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
@@ -160,7 +160,7 @@ impl TypeName {
             }
         });
         quote! {
-            let string = ::winrt::ConstString::new();
+            let string = ::winrt::ConstBuffer::new();
             let string = string.push_slice(b"pinterface(");
             let string = string.push_slice(#signature);
             let string = string.push_slice(b";");

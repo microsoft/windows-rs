@@ -81,7 +81,7 @@ unsafe impl AbiTransferable for HString {
 }
 
 unsafe impl RuntimeType for HString {
-    const SIGNATURE: crate::ConstString = crate::ConstString::from_slice(b"string");
+    const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"string");
 }
 
 impl Default for HString {
