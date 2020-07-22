@@ -26,7 +26,7 @@ impl Interface {
             InterfaceKind::Default,
         ));
 
-        RequiredInterface::append_required(reader, &name, &name.namespace, &mut interfaces);
+        RequiredInterface::insert(reader, &name, &name.namespace, true, &mut interfaces);
         let signature = name.base_interface_signature(reader);
 
         Self {

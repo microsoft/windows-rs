@@ -77,33 +77,11 @@ impl RequiredInterface {
         }
     }
 
-    pub fn append_default(
-        reader: &TypeReader,
-        name: &TypeName,
-        interfaces: &mut BTreeSet<RequiredInterface>,
-    ) {
-        let generics = !name.generics.is_empty();
-
-        let mut map = RequiredInterfaces::default();
-        map.insert_required(reader, name, &name.namespace);
-
-        for (append_name, kind) in map.0 {
-            let required = RequiredInterface::from_type_name_and_kind(
-                reader,
-                append_name,
-                kind,
-                generics,
-                &name.namespace,
-            );
-
-            interfaces.insert(required);
-        }
-    }
-
-    pub fn append_required(
+    pub fn insert(
         reader: &TypeReader,
         name: &TypeName,
         calling_namespace: &str,
+        strip_default: bool,
         interfaces: &mut BTreeSet<RequiredInterface>,
     ) {
         let generics = !name.generics.is_empty();
@@ -112,11 +90,11 @@ impl RequiredInterface {
         map.insert_required(reader, name, calling_namespace);
 
         for (append_name, kind) in map.0 {
-            let mut kind = kind;
-
-            if kind == InterfaceKind::Default {
-                kind = InterfaceKind::NonDefault;
-            }
+            let kind = if strip_default {
+                InterfaceKind::NonDefault
+            } else {
+                kind
+            };
 
             interfaces.insert(RequiredInterface::from_type_name_and_kind(
                 reader,

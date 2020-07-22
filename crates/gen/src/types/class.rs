@@ -22,7 +22,7 @@ pub struct Class {
 impl Class {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let mut interfaces = BTreeSet::new();
-        RequiredInterface::append_default(reader, &name, &mut interfaces);
+        RequiredInterface::insert(reader, &name, &name.namespace, false, &mut interfaces);
         let mut bases = Vec::new();
         let mut base = name.def;
 
@@ -42,7 +42,7 @@ impl Class {
             base = reader.resolve_type_def((base_namespace, base_name));
             let base = TypeName::from_type_def(reader, base, &name.namespace);
 
-            RequiredInterface::append_required(reader, &base, &name.namespace, &mut interfaces);
+            RequiredInterface::insert(reader, &base, &name.namespace, true, &mut interfaces);
             bases.push(base);
         }
 
