@@ -239,6 +239,7 @@ impl TypeName {
     }
 
     pub fn class_signature(&self, reader: &TypeReader) -> String {
+        // TODO: this is a convoluted way of getting the default interface...
         let mut map = RequiredInterfaces::default();
         map.insert_required(reader, self, &self.calling_namespace);
         let default = map
