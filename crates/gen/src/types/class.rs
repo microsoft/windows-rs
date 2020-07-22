@@ -51,17 +51,22 @@ impl Class {
         for attribute in name.def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    interfaces.push( RequiredInterface::from_type_def(
+                    interfaces.push(RequiredInterface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
                         &name.namespace,
-                        InterfaceKind::Statics
+                        InterfaceKind::Statics,
                     ));
                 }
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            interfaces.push(RequiredInterface::from_type_def(reader, def, &name.namespace, InterfaceKind::Statics));
+                            interfaces.push(RequiredInterface::from_type_def(
+                                reader,
+                                def,
+                                &name.namespace,
+                                InterfaceKind::Statics,
+                            ));
                         }
                         None => default_constructor = true,
                     }
@@ -75,7 +80,7 @@ impl Class {
                                 reader,
                                 attribute_factory(reader, attribute).unwrap(),
                                 &name.namespace,
-                                InterfaceKind::Composable
+                                InterfaceKind::Composable,
                             ));
                         }
                     }

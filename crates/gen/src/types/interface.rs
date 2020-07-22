@@ -18,7 +18,12 @@ impl Interface {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let mut interfaces = Vec::new();
 
-        interfaces.push(RequiredInterface::from_type_def(reader, name.def, &name.namespace, InterfaceKind::Default));
+        interfaces.push(RequiredInterface::from_type_def(
+            reader,
+            name.def,
+            &name.namespace,
+            InterfaceKind::Default,
+        ));
 
         RequiredInterface::append_required(reader, &name, &name.namespace, &mut interfaces);
         let signature = name.base_interface_signature(reader);

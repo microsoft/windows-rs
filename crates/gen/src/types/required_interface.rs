@@ -24,7 +24,12 @@ pub enum InterfaceKind {
 }
 
 impl RequiredInterface {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace: &str, kind: InterfaceKind) -> Self {
+    pub fn from_type_def(
+        reader: &TypeReader,
+        def: TypeDef,
+        calling_namespace: &str,
+        kind: InterfaceKind,
+    ) -> Self {
         let name = TypeName::from_type_def(reader, def, calling_namespace);
         let guid = TypeGuid::from_type_def(reader, def);
 
