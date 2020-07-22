@@ -42,13 +42,8 @@ impl RequiredInterfaces {
 }
 
 fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
-    for attribute in required.attributes(reader) {
-        let name = attribute.name(reader);
-
-        if let ("Windows.Foundation.Metadata", "DefaultAttribute") = name {
-            return InterfaceKind::Default;
-        }
+    match required.is_default(reader) {
+        true => InterfaceKind::Default,
+        false => InterfaceKind::NonDefault,
     }
-
-    InterfaceKind::NonDefault
 }

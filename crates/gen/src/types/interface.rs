@@ -56,7 +56,13 @@ impl Interface {
         let name = &self.name.tokens;
         let phantoms = self.name.phantoms();
         let constraints = &self.name.constraints;
-        let default_interface = self.interfaces.iter().find(|i|i.kind == InterfaceKind::Default).unwrap();
+
+        let default_interface = self
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         let guid = self.name.to_guid_tokens(&default_interface.guid);
 
         let conversions = TokenStream::from_iter(

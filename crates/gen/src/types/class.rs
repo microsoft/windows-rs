@@ -25,7 +25,7 @@ impl Class {
         let mut bases = Vec::new();
         let mut base = name.def;
 
-        let signature = if interfaces.iter().any(|i|i.kind == InterfaceKind::Default) {
+        let signature = if interfaces.iter().any(|i| i.kind == InterfaceKind::Default) {
             name.class_signature(reader)
         } else {
             String::new()
@@ -122,7 +122,11 @@ impl Class {
         let methods = to_method_tokens(&self.interfaces);
         let call_factory = self.to_call_factory_tokens();
 
-        if let Some(default_interface) = self.interfaces.iter().find(|i|i.kind == InterfaceKind::Default) {
+        if let Some(default_interface) = self
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+        {
             let conversions = TokenStream::from_iter(
                 self.interfaces
                     .iter()
@@ -444,7 +448,13 @@ mod tests {
     #[test]
     fn test_media_core() {
         let t = class(("Windows.Media.Core", "TimedMetadataStreamDescriptor"));
-        let default = t.interfaces.iter().find(|i|i.kind == InterfaceKind::Default).unwrap();
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         assert!(t.default_constructor == false);
         assert!(t.name.runtime_name() == "Windows.Media.Core.TimedMetadataStreamDescriptor");
         assert!(default.name.runtime_name() == "Windows.Media.Core.IMediaStreamDescriptor");
@@ -454,7 +464,13 @@ mod tests {
     #[test]
     fn test_class_with_bases() {
         let t = class(("Windows.UI.Composition", "SpriteVisual"));
-        let default = t.interfaces.iter().find(|i|i.kind == InterfaceKind::Default).unwrap();
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         assert!(t.default_constructor == false);
         assert!(t.name.runtime_name() == "Windows.UI.Composition.SpriteVisual");
         assert!(default.name.runtime_name() == "Windows.UI.Composition.ISpriteVisual");
@@ -469,7 +485,13 @@ mod tests {
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::NonDefault);
 
         let t = class(("Windows.UI.Composition", "ContainerVisual"));
-        let default = t.interfaces.iter().find(|i|i.kind == InterfaceKind::Default).unwrap();
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         assert!(default.name.runtime_name() == "Windows.UI.Composition.IContainerVisual");
         assert!(t.bases.len() == 2);
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.Visual");
@@ -480,7 +502,13 @@ mod tests {
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::NonDefault);
 
         let t = class(("Windows.UI.Composition", "Visual"));
-        let default = t.interfaces.iter().find(|i|i.kind == InterfaceKind::Default).unwrap();
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         assert!(default.name.runtime_name() == "Windows.UI.Composition.IVisual");
         assert!(t.bases.len() == 1);
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.CompositionObject");
@@ -489,7 +517,13 @@ mod tests {
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::NonDefault);
 
         let t = class(("Windows.UI.Composition", "CompositionObject"));
-        let default = t.interfaces.iter().find(|i|i.kind == InterfaceKind::Default).unwrap();
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         assert!(default.name.runtime_name() == "Windows.UI.Composition.ICompositionObject");
         assert!(t.bases.is_empty());
         assert!(count_default(&t) == 1);
