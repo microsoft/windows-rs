@@ -39,30 +39,22 @@ impl Guid {
             0xad, 0xee,
         ]);
 
-        let first = signature.get(0);
         let data = data.push_other(signature);
 
-        let hash = const_sha1::sha1(&data).data;
+        let bytes = const_sha1::sha1(&data).bytes();
+        let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
 
-        let second = hash[1].to_be_bytes();
-        let mut data3 = u16::from_be_bytes([second[2], second[3]]);
-        data3 = (data3 & 0x0fff) | (5 << 12);
-        let third = hash[2].to_be_bytes();
-        let fourth = hash[3].to_be_bytes();
+        let second = u16::from_be_bytes([bytes[4], bytes[5]]);
+        let mut third = u16::from_be_bytes([bytes[6], bytes[7]]);
+        third = (third & 0x0fff) | (5 << 12);
+        let fourth = (bytes[8] & 0x3f) | 0x80;
 
         Self::from_values(
-            first as u32,
-            u16::from_be_bytes([second[0], second[1]]),
-            data3,
+            bytes[0] as u32,
+            second,
+            third,
             [
-                ((third[0] & 0x3f) | 0x80) as u8,
-                third[1],
-                third[2],
-                third[3],
-                fourth[0],
-                fourth[1],
-                fourth[2],
-                fourth[3],
+                fourth, bytes[9], bytes[10], bytes[11], bytes[12], bytes[13], bytes[14], bytes[15],
             ],
         )
     }

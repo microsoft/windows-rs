@@ -178,8 +178,10 @@ impl TypeName {
             };
         }
 
+        let typ = self.to_tokens();
+
         quote! {
-            ::winrt::Guid::from_signature(<Self as ::winrt::RuntimeType>::SIGNATURE)
+            ::winrt::Guid::from_signature(<#typ as ::winrt::RuntimeType>::SIGNATURE)
         }
     }
 
@@ -343,7 +345,15 @@ impl TypeName {
             .collect()
     }
 
-    /// Crate abi tokens
+    /// Create tokens
+    ///
+    /// For example: `Vector<OtherType>`
+    pub fn to_tokens(&self) -> TokenStream {
+        let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
+        generate_tokens(&self.name, Some(&namespace), &self.generics, format_ident)
+    }
+
+    /// Create abi tokens
     ///
     /// For example: `abi_Vector<OtherType>`
     pub fn to_abi_tokens(&self) -> TokenStream {
@@ -356,7 +366,7 @@ impl TypeName {
         )
     }
 
-    /// Crate definition tokens
+    /// Create definition tokens
     ///
     /// For example: `Vector::<OtherType>`
     ///
@@ -367,7 +377,7 @@ impl TypeName {
         generate_tokens(&self.name, None, &self.generics, format_ident)
     }
 
-    /// Crate abi definition tokens
+    /// Create abi definition tokens
     ///
     /// For example: `abi_Vector::<OtherType>`
     pub fn to_abi_definition_tokens(&self) -> TokenStream {

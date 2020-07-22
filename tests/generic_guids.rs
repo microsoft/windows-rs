@@ -21,6 +21,12 @@ fn generic_guids() -> winrt::Result<()> {
     // Generated Windows.Foundation GUIDs
     //
 
+    const SIG: winrt::ConstString =
+        <windows::foundation::IAsyncActionWithProgress<A> as winrt::RuntimeType>::SIGNATURE;
+    const GUID: winrt::Guid = winrt::Guid::from_signature(SIG);
+    println!("{}", std::str::from_utf8(SIG.as_slice()).unwrap());
+    println!("{:08X?}", SIG.as_slice()[0] as u32);
+    println!("{:?}", GUID);
     assert_eq!(
         windows::foundation::IAsyncActionWithProgress::<A>::IID,
         winrt::Guid::from("DD725452-2DA3-5103-9C7D-22EE9BB14AD3")
