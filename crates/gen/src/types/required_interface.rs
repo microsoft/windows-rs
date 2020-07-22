@@ -86,7 +86,7 @@ impl RequiredInterface {
     ) {
         let generics = !name.generics.is_empty();
 
-        let mut map = RequiredInterfaces::default();
+        let mut map = InterfacesStage::default();
         map.insert_required(reader, name, calling_namespace);
 
         for (append_name, kind) in map.0 {
@@ -235,9 +235,9 @@ fn rename_collisions(methods: &mut Vec<Method>) {
 }
 
 #[derive(Default, Debug)]
-struct RequiredInterfaces(pub BTreeMap<TypeName, InterfaceKind>);
+struct InterfacesStage(pub BTreeMap<TypeName, InterfaceKind>);
 
-impl RequiredInterfaces {
+impl InterfacesStage {
     fn insert_type_name(
         &mut self,
         reader: &TypeReader,
