@@ -5,20 +5,21 @@ use crate::types::*;
 use crate::*;
 use proc_macro2::TokenStream;
 use quote::*;
+use std::collections::BTreeSet;
 use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct Interface {
     pub name: TypeName,
-    pub interfaces: Vec<RequiredInterface>,
+    pub interfaces: BTreeSet<RequiredInterface>,
     pub signature: String,
 }
 
 impl Interface {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
-        let mut interfaces = Vec::new();
+        let mut interfaces = BTreeSet::new();
 
-        interfaces.push(RequiredInterface::from_type_def(
+        interfaces.insert(RequiredInterface::from_type_def(
             reader,
             name.def,
             &name.namespace,
@@ -69,7 +70,7 @@ impl Interface {
         let conversions = TokenStream::from_iter(
             self.interfaces
                 .iter()
-                .skip(1)
+                .filter(|interface| interface.kind != InterfaceKind::Default)
                 .map(|interface| interface.to_conversions_tokens(&name, &constraints)),
         );
 
@@ -167,7 +168,13 @@ mod tests {
         let t = interface(("Windows.Foundation", "IStringable"));
         assert!(t.name.runtime_name() == "Windows.Foundation.IStringable");
         assert!(t.interfaces.len() == 1);
-        let t = &t.interfaces[0];
+
+        let t = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         assert!(t.name.runtime_name() == "Windows.Foundation.IStringable");
         assert!(t.kind == InterfaceKind::Default);
 

@@ -80,7 +80,7 @@ impl RequiredInterface {
     pub fn append_default(
         reader: &TypeReader,
         name: &TypeName,
-        interfaces: &mut Vec<RequiredInterface>,
+        interfaces: &mut BTreeSet<RequiredInterface>,
     ) {
         let generics = !name.generics.is_empty();
 
@@ -96,7 +96,7 @@ impl RequiredInterface {
                 &name.namespace,
             );
 
-            interfaces.push(required);
+            interfaces.insert(required);
         }
     }
 
@@ -104,7 +104,7 @@ impl RequiredInterface {
         reader: &TypeReader,
         name: &TypeName,
         calling_namespace: &str,
-        interfaces: &mut Vec<RequiredInterface>,
+        interfaces: &mut BTreeSet<RequiredInterface>,
     ) {
         let generics = !name.generics.is_empty();
 
@@ -118,11 +118,7 @@ impl RequiredInterface {
                 kind = InterfaceKind::NonDefault;
             }
 
-            if interfaces.iter().any(|i| i.name == append_name) {
-                continue;
-            }
-
-            interfaces.push(RequiredInterface::from_type_name_and_kind(
+            interfaces.insert(RequiredInterface::from_type_name_and_kind(
                 reader,
                 append_name,
                 kind,
@@ -201,7 +197,27 @@ impl RequiredInterface {
     }
 }
 
-pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
+impl PartialEq for RequiredInterface {
+    fn eq(&self, other: &Self) -> bool {
+        self.name == other.name
+    }
+}
+
+impl Eq for RequiredInterface {}
+
+impl Ord for RequiredInterface {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        <TypeName as Ord>::cmp(&self.name, &other.name)
+    }
+}
+
+impl PartialOrd for RequiredInterface {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+pub fn to_method_tokens(interfaces: &BTreeSet<RequiredInterface>) -> TokenStream {
     let mut tokens = Vec::new();
     let mut names = BTreeSet::new();
 

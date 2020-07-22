@@ -5,6 +5,7 @@ use crate::types::*;
 use crate::TypeReader;
 use proc_macro2::TokenStream;
 use quote::quote;
+use std::collections::BTreeSet;
 use std::iter::FromIterator;
 
 /// A WinRT Class
@@ -12,7 +13,7 @@ use std::iter::FromIterator;
 pub struct Class {
     pub name: TypeName,
     pub bases: Vec<TypeName>,
-    pub interfaces: Vec<RequiredInterface>,
+    pub interfaces: BTreeSet<RequiredInterface>,
     pub default_constructor: bool,
     pub is_agile: bool,
     pub signature: String,
@@ -20,7 +21,7 @@ pub struct Class {
 
 impl Class {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
-        let mut interfaces = Vec::new();
+        let mut interfaces = BTreeSet::new();
         RequiredInterface::append_default(reader, &name, &mut interfaces);
         let mut bases = Vec::new();
         let mut base = name.def;
@@ -51,7 +52,7 @@ impl Class {
         for attribute in name.def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    interfaces.push(RequiredInterface::from_type_def(
+                    interfaces.insert(RequiredInterface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
                         &name.namespace,
@@ -61,7 +62,7 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            interfaces.push(RequiredInterface::from_type_def(
+                            interfaces.insert(RequiredInterface::from_type_def(
                                 reader,
                                 def,
                                 &name.namespace,
@@ -76,7 +77,7 @@ impl Class {
                     // has a value of 2 as a signed 32-bit integer.
                     for (_name, arg) in attribute.args(reader) {
                         if let AttributeArg::I32(2) = arg {
-                            interfaces.push(RequiredInterface::from_type_def(
+                            interfaces.insert(RequiredInterface::from_type_def(
                                 reader,
                                 attribute_factory(reader, attribute).unwrap(),
                                 &name.namespace,

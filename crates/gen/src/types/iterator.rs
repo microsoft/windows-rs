@@ -1,13 +1,14 @@
 use crate::types::*;
 use proc_macro2::TokenStream;
 use quote::quote;
+use std::collections::BTreeSet;
 
 // Provides iterator support for the well-known WinRT collection interfaces and any classes or
 // interfaces that implement any of these interfaces. It also favors high-speed iteration and
 // only falls back to IIterator<T> if nothing faster is available. VectorIterator and
 // VectorViewIterator are faster iterators than IIterator<T> because they only require a single
 // vcall per iteration wheras IIterator<T> requires two.
-pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
+pub fn iterator_tokens(name: &TypeName, interfaces: &BTreeSet<RequiredInterface>) -> TokenStream {
     // If the type is IIterator<T> then simply implement the Iterator trait over top.
     if name.name == "IIterator`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
