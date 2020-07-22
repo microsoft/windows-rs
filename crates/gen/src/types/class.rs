@@ -51,21 +51,17 @@ impl Class {
         for attribute in name.def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    let mut interface = RequiredInterface::from_type_def(
+                    interfaces.push( RequiredInterface::from_type_def(
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
                         &name.namespace,
-                    );
-                    interface.kind = InterfaceKind::Statics;
-                    interfaces.push(interface);
+                        InterfaceKind::Statics
+                    ));
                 }
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            let mut interface =
-                                RequiredInterface::from_type_def(reader, def, &name.namespace);
-                            interface.kind = InterfaceKind::Statics;
-                            interfaces.push(interface);
+                            interfaces.push(RequiredInterface::from_type_def(reader, def, &name.namespace, InterfaceKind::Statics));
                         }
                         None => default_constructor = true,
                     }
@@ -75,13 +71,12 @@ impl Class {
                     // has a value of 2 as a signed 32-bit integer.
                     for (_name, arg) in attribute.args(reader) {
                         if let AttributeArg::I32(2) = arg {
-                            let mut interface = RequiredInterface::from_type_def(
+                            interfaces.push(RequiredInterface::from_type_def(
                                 reader,
                                 attribute_factory(reader, attribute).unwrap(),
                                 &name.namespace,
-                            );
-                            interface.kind = InterfaceKind::Composable;
-                            interfaces.push(interface);
+                                InterfaceKind::Composable
+                            ));
                         }
                     }
                 }

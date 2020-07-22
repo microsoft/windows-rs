@@ -18,11 +18,7 @@ impl Interface {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let mut interfaces = Vec::new();
 
-        // Ensures that the default interface is first in line.
-        let mut default_interface =
-            RequiredInterface::from_type_def(reader, name.def, &name.namespace);
-        default_interface.kind = InterfaceKind::Default;
-        interfaces.push(default_interface);
+        interfaces.push(RequiredInterface::from_type_def(reader, name.def, &name.namespace, InterfaceKind::Default));
 
         RequiredInterface::append_required(reader, &name, &name.namespace, &mut interfaces);
         let signature = name.base_interface_signature(reader);

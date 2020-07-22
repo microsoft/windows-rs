@@ -24,7 +24,7 @@ pub enum InterfaceKind {
 }
 
 impl RequiredInterface {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace: &str) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace: &str, kind: InterfaceKind) -> Self {
         let name = TypeName::from_type_def(reader, def, calling_namespace);
         let guid = TypeGuid::from_type_def(reader, def);
 
@@ -41,7 +41,7 @@ impl RequiredInterface {
             name,
             guid,
             methods,
-            kind: InterfaceKind::NonDefault,
+            kind,
         }
     }
 
@@ -232,5 +232,50 @@ fn rename_collisions(methods: &mut Vec<Method>) {
         } else {
             names.insert(&method.name);
         }
+    }
+}
+
+#[derive(Default, Debug)]
+struct RequiredInterfaces(pub BTreeMap<TypeName, InterfaceKind>);
+
+impl RequiredInterfaces {
+    fn insert_type_name(
+        &mut self,
+        reader: &TypeReader,
+        name: TypeName,
+        kind: InterfaceKind,
+        calling_namespace: &str,
+    ) {
+        if !self.0.contains_key(&name) {
+            self.insert_required(reader, &name, calling_namespace);
+            self.0.insert(name, kind);
+        } else if kind == InterfaceKind::Default {
+            self.0.insert(name, kind);
+        }
+    }
+
+    pub fn insert_required(
+        &mut self,
+        reader: &TypeReader,
+        name: &TypeName,
+        calling_namespace: &str,
+    ) {
+        for required in name.def.interfaces(reader) {
+            let name = TypeName::from_type_def_or_ref(
+                reader,
+                required.interface(reader),
+                &name.generics,
+                calling_namespace,
+            );
+            let kind = kind(reader, required);
+            self.insert_type_name(reader, name, kind, calling_namespace);
+        }
+    }
+}
+
+fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
+    match required.is_default(reader) {
+        true => InterfaceKind::Default,
+        false => InterfaceKind::NonDefault,
     }
 }
