@@ -456,6 +456,8 @@ mod tests {
             .find(|i| i.kind == InterfaceKind::Default)
             .unwrap();
 
+        assert!(1 == t.interfaces.iter().filter(|i| i.kind == InterfaceKind::Default).count());
+
         assert!(t.default_constructor == false);
         assert!(t.name.runtime_name() == "Windows.Media.Core.TimedMetadataStreamDescriptor");
         assert!(default.name.runtime_name() == "Windows.Media.Core.IMediaStreamDescriptor");
