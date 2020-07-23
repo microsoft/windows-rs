@@ -6,67 +6,6 @@ use quote::quote;
 use std::collections::*;
 use std::iter::FromIterator;
 
-pub fn add_type(
-    vec: &mut Vec<RequiredInterface>,
-    reader: &TypeReader,
-    def: TypeDef,
-    calling_namespace: &str,
-    kind: InterfaceKind,
-) {
-    vec.push(RequiredInterface::from_type_def(
-        reader,
-        def,
-        calling_namespace,
-        kind,
-    ));
-}
-
-pub fn add_dependencies(
-    vec: &mut Vec<RequiredInterface>,
-    reader: &TypeReader,
-    name: &TypeName,
-    calling_namespace: &str,
-    strip_default: bool,
-) {
-    let generics = !name.generics.is_empty();
-
-    for required in name.def.interfaces(reader) {
-        let is_default = required.is_default(reader);
-        let required = required.interface(reader);
-
-        let required_name =
-            TypeName::from_type_def_or_ref(reader, required, &name.generics, calling_namespace);
-
-        if let Some(index) = vec.iter().position(|i| i.name == required_name) {
-            if !strip_default && vec[index].kind == InterfaceKind::NonDefault && is_default {
-                vec[index].kind = InterfaceKind::Default;
-            }
-        } else {
-            let kind = if !strip_default && is_default {
-                InterfaceKind::Default
-            } else {
-                InterfaceKind::NonDefault
-            };
-
-            add_dependencies(
-                vec,
-                reader,
-                &required_name,
-                calling_namespace,
-                strip_default,
-            );
-
-            vec.push(RequiredInterface::from_type_name_and_kind(
-                reader,
-                required_name,
-                kind,
-                generics,
-                calling_namespace,
-            ));
-        }
-    }
-}
-
 #[derive(Debug)]
 pub struct RequiredInterface {
     pub name: TypeName,
@@ -85,7 +24,7 @@ pub enum InterfaceKind {
 }
 
 impl RequiredInterface {
-    pub fn from_type_def(
+    fn from_type_def(
         reader: &TypeReader,
         def: TypeDef,
         calling_namespace: &str,
@@ -207,25 +146,68 @@ impl RequiredInterface {
     }
 }
 
-impl PartialEq for RequiredInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.name == other.name
+pub fn add_type(
+    vec: &mut Vec<RequiredInterface>,
+    reader: &TypeReader,
+    def: TypeDef,
+    calling_namespace: &str,
+    kind: InterfaceKind,
+) {
+    vec.push(RequiredInterface::from_type_def(
+        reader,
+        def,
+        calling_namespace,
+        kind,
+    ));
+}
+
+pub fn add_dependencies(
+    vec: &mut Vec<RequiredInterface>,
+    reader: &TypeReader,
+    name: &TypeName,
+    calling_namespace: &str,
+    strip_default: bool,
+) {
+    let generics = !name.generics.is_empty();
+
+    for required in name.def.interfaces(reader) {
+        let is_default = required.is_default(reader);
+        let required = required.interface(reader);
+
+        let required_name =
+            TypeName::from_type_def_or_ref(reader, required, &name.generics, calling_namespace);
+
+        if let Some(index) = vec.iter().position(|i| i.name == required_name) {
+            if !strip_default && vec[index].kind == InterfaceKind::NonDefault && is_default {
+                vec[index].kind = InterfaceKind::Default;
+            }
+        } else {
+            let kind = if !strip_default && is_default {
+                InterfaceKind::Default
+            } else {
+                InterfaceKind::NonDefault
+            };
+
+            add_dependencies(
+                vec,
+                reader,
+                &required_name,
+                calling_namespace,
+                strip_default,
+            );
+
+            vec.push(RequiredInterface::from_type_name_and_kind(
+                reader,
+                required_name,
+                kind,
+                generics,
+                calling_namespace,
+            ));
+        }
     }
 }
 
-impl Eq for RequiredInterface {}
 
-impl Ord for RequiredInterface {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        <TypeName as Ord>::cmp(&self.name, &other.name)
-    }
-}
-
-impl PartialOrd for RequiredInterface {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        Some(self.cmp(other))
-    }
-}
 
 pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let mut tokens = Vec::new();
