@@ -13,7 +13,7 @@ use std::iter::FromIterator;
 pub struct Class {
     pub name: TypeName,
     pub bases: Vec<TypeName>,
-    pub interfaces: BTreeSet<RequiredInterface>,
+    pub interfaces: Vec<RequiredInterface>,
     pub default_constructor: bool,
     pub is_agile: bool,
     pub signature: String,
@@ -21,8 +21,8 @@ pub struct Class {
 
 impl Class {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
-        let mut interfaces = BTreeSet::new();
-        RequiredInterface::insert(reader, &name, &name.namespace, false, &mut interfaces);
+        let mut interfaces = Vec::new();
+        add_dependencies(&mut interfaces, reader, &name, &name.namespace, false);
         let mut bases = Vec::new();
         let mut base = name.def;
 
@@ -42,7 +42,7 @@ impl Class {
             base = reader.resolve_type_def((base_namespace, base_name));
             let base = TypeName::from_type_def(reader, base, &name.namespace);
 
-            RequiredInterface::insert(reader, &base, &name.namespace, true, &mut interfaces);
+            add_dependencies(&mut interfaces, reader, &base, &name.namespace, true);
             bases.push(base);
         }
 
@@ -52,22 +52,24 @@ impl Class {
         for attribute in name.def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    interfaces.insert(RequiredInterface::from_type_def(
+                    add_type(
+                        &mut interfaces,
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
                         &name.namespace,
                         InterfaceKind::Statics,
-                    ));
+                    );
                 }
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            interfaces.insert(RequiredInterface::from_type_def(
+                            add_type(
+                                &mut interfaces,
                                 reader,
                                 def,
                                 &name.namespace,
                                 InterfaceKind::Statics,
-                            ));
+                            );
                         }
                         None => default_constructor = true,
                     }
@@ -77,12 +79,13 @@ impl Class {
                     // has a value of 2 as a signed 32-bit integer.
                     for (_name, arg) in attribute.args(reader) {
                         if let AttributeArg::I32(2) = arg {
-                            interfaces.insert(RequiredInterface::from_type_def(
+                            add_type(
+                                &mut interfaces,
                                 reader,
                                 attribute_factory(reader, attribute).unwrap(),
                                 &name.namespace,
                                 InterfaceKind::Composable,
-                            ));
+                            );
                         }
                     }
                 }
@@ -456,7 +459,13 @@ mod tests {
             .find(|i| i.kind == InterfaceKind::Default)
             .unwrap();
 
-        assert!(1 == t.interfaces.iter().filter(|i| i.kind == InterfaceKind::Default).count());
+        assert!(
+            1 == t
+                .interfaces
+                .iter()
+                .filter(|i| i.kind == InterfaceKind::Default)
+                .count()
+        );
 
         assert!(t.default_constructor == false);
         assert!(t.name.runtime_name() == "Windows.Media.Core.TimedMetadataStreamDescriptor");

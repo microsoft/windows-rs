@@ -4,7 +4,7 @@ use proc_macro2::TokenStream;
 use quote::quote;
 use std::collections::BTreeSet;
 
-pub fn debug_tokens(type_name: &TypeName, interfaces: &BTreeSet<RequiredInterface>) -> TokenStream {
+pub fn debug_tokens(type_name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let name = &type_name.name;
     let default_impl = quote! { ::std::format!("{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self)) };
 

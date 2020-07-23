@@ -8,7 +8,7 @@ use std::collections::BTreeSet;
 // only falls back to IIterator<T> if nothing faster is available. VectorIterator and
 // VectorViewIterator are faster iterators than IIterator<T> because they only require a single
 // vcall per iteration wheras IIterator<T> requires two.
-pub fn iterator_tokens(name: &TypeName, interfaces: &BTreeSet<RequiredInterface>) -> TokenStream {
+pub fn iterator_tokens(name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
     // If the type is IIterator<T> then simply implement the Iterator trait over top.
     if name.name == "IIterator`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {

@@ -11,22 +11,23 @@ use std::iter::FromIterator;
 #[derive(Debug)]
 pub struct Interface {
     pub name: TypeName,
-    pub interfaces: BTreeSet<RequiredInterface>,
+    pub interfaces: Vec<RequiredInterface>,
     pub signature: String,
 }
 
 impl Interface {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
-        let mut interfaces = BTreeSet::new();
+        let mut interfaces = Vec::new();
 
-        interfaces.insert(RequiredInterface::from_type_def(
+        add_type(
+            &mut interfaces,
             reader,
             name.def,
             &name.namespace,
             InterfaceKind::Default,
-        ));
+        );
 
-        RequiredInterface::insert(reader, &name, &name.namespace, true, &mut interfaces);
+        add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
         let signature = name.base_interface_signature(reader);
 
         Self {

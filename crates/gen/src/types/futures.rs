@@ -5,7 +5,7 @@ use std::collections::BTreeSet;
 
 pub fn get_async_tokens(
     name: &TypeName,
-    interfaces: &BTreeSet<RequiredInterface>,
+    interfaces: &Vec<RequiredInterface>,
 ) -> (TokenStream, TokenStream) {
     let kind = async_kind(name);
     if kind != AsyncKind::None {
