@@ -5,7 +5,6 @@ use crate::types::*;
 use crate::TypeReader;
 use proc_macro2::TokenStream;
 use quote::quote;
-use std::collections::BTreeSet;
 use std::iter::FromIterator;
 
 /// A WinRT Class

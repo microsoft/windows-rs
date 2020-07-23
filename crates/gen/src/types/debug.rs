@@ -2,7 +2,6 @@ use crate::types::RequiredInterface;
 use crate::types::TypeName;
 use proc_macro2::TokenStream;
 use quote::quote;
-use std::collections::BTreeSet;
 
 pub fn debug_tokens(type_name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let name = &type_name.name;

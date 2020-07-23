@@ -1,7 +1,6 @@
 use crate::types::*;
 use proc_macro2::TokenStream;
 use quote::quote;
-use std::collections::BTreeSet;
 
 // Provides iterator support for the well-known WinRT collection interfaces and any classes or
 // interfaces that implement any of these interfaces. It also favors high-speed iteration and

@@ -138,35 +138,6 @@ impl RequiredInterface {
         }
     }
 
-    pub fn insert(
-        reader: &TypeReader,
-        name: &TypeName,
-        calling_namespace: &str,
-        strip_default: bool,
-        interfaces: &mut BTreeSet<RequiredInterface>,
-    ) {
-        let generics = !name.generics.is_empty();
-
-        let mut map = InterfacesStage::default();
-        map.insert_required(reader, name, calling_namespace);
-
-        for (append_name, kind) in map.0 {
-            let kind = if strip_default {
-                InterfaceKind::NonDefault
-            } else {
-                kind
-            };
-
-            interfaces.insert(RequiredInterface::from_type_name_and_kind(
-                reader,
-                append_name,
-                kind,
-                generics,
-                calling_namespace,
-            ));
-        }
-    }
-
     pub fn to_abi_method_tokens(&self) -> TokenStream {
         TokenStream::from_iter(
             self.methods
@@ -292,50 +263,5 @@ fn rename_collisions(methods: &mut Vec<Method>) {
         } else {
             names.insert(&method.name);
         }
-    }
-}
-
-#[derive(Default, Debug)]
-struct InterfacesStage(pub BTreeMap<TypeName, InterfaceKind>);
-
-impl InterfacesStage {
-    fn insert_type_name(
-        &mut self,
-        reader: &TypeReader,
-        name: TypeName,
-        kind: InterfaceKind,
-        calling_namespace: &str,
-    ) {
-        if !self.0.contains_key(&name) {
-            self.insert_required(reader, &name, calling_namespace);
-            self.0.insert(name, kind);
-        } else if kind == InterfaceKind::Default {
-            self.0.insert(name, kind);
-        }
-    }
-
-    pub fn insert_required(
-        &mut self,
-        reader: &TypeReader,
-        name: &TypeName,
-        calling_namespace: &str,
-    ) {
-        for required in name.def.interfaces(reader) {
-            let name = TypeName::from_type_def_or_ref(
-                reader,
-                required.interface(reader),
-                &name.generics,
-                calling_namespace,
-            );
-            let kind = kind(reader, required);
-            self.insert_type_name(reader, name, kind, calling_namespace);
-        }
-    }
-}
-
-fn kind(reader: &TypeReader, required: InterfaceImpl) -> InterfaceKind {
-    match required.is_default(reader) {
-        true => InterfaceKind::Default,
-        false => InterfaceKind::NonDefault,
     }
 }

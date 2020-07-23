@@ -5,7 +5,6 @@ use crate::types::*;
 use crate::*;
 use proc_macro2::TokenStream;
 use quote::*;
-use std::collections::BTreeSet;
 use std::iter::FromIterator;
 
 #[derive(Debug)]
