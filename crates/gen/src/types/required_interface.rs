@@ -207,8 +207,6 @@ pub fn add_dependencies(
     }
 }
 
-
-
 pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let mut tokens = Vec::new();
     let mut names = BTreeSet::new();
