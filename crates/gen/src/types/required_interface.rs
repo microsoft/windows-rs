@@ -24,7 +24,12 @@ pub enum InterfaceKind {
 }
 
 impl RequiredInterface {
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace: &str) -> Self {
+    fn from_type_def(
+        reader: &TypeReader,
+        def: TypeDef,
+        calling_namespace: &str,
+        kind: InterfaceKind,
+    ) -> Self {
         let name = TypeName::from_type_def(reader, def, calling_namespace);
         let guid = TypeGuid::from_type_def(reader, def);
 
@@ -41,7 +46,7 @@ impl RequiredInterface {
             name,
             guid,
             methods,
-            kind: InterfaceKind::NonDefault,
+            kind,
         }
     }
 
@@ -69,65 +74,6 @@ impl RequiredInterface {
             guid,
             methods,
             kind,
-        }
-    }
-
-    pub fn append_default(
-        reader: &TypeReader,
-        name: &TypeName,
-        interfaces: &mut Vec<RequiredInterface>,
-    ) {
-        let generics = !name.generics.is_empty();
-
-        let mut map = RequiredInterfaces::default();
-        map.insert_required(reader, name, &name.namespace);
-
-        for (append_name, kind) in map.0 {
-            let required = RequiredInterface::from_type_name_and_kind(
-                reader,
-                append_name,
-                kind,
-                generics,
-                &name.namespace,
-            );
-
-            if kind == InterfaceKind::Default {
-                interfaces.insert(0, required);
-            } else {
-                interfaces.push(required);
-            }
-        }
-    }
-
-    pub fn append_required(
-        reader: &TypeReader,
-        name: &TypeName,
-        calling_namespace: &str,
-        interfaces: &mut Vec<RequiredInterface>,
-    ) {
-        let generics = !name.generics.is_empty();
-
-        let mut map = RequiredInterfaces::default();
-        map.insert_required(reader, name, calling_namespace);
-
-        for (append_name, kind) in map.0 {
-            let mut kind = kind;
-
-            if kind == InterfaceKind::Default {
-                kind = InterfaceKind::NonDefault;
-            }
-
-            if interfaces.iter().any(|i| i.name == append_name) {
-                continue;
-            }
-
-            interfaces.push(RequiredInterface::from_type_name_and_kind(
-                reader,
-                append_name,
-                kind,
-                generics,
-                calling_namespace,
-            ));
         }
     }
 
@@ -196,6 +142,67 @@ impl RequiredInterface {
                 }
             }
             _ => quote! {},
+        }
+    }
+}
+
+pub fn add_type(
+    vec: &mut Vec<RequiredInterface>,
+    reader: &TypeReader,
+    def: TypeDef,
+    calling_namespace: &str,
+    kind: InterfaceKind,
+) {
+    vec.push(RequiredInterface::from_type_def(
+        reader,
+        def,
+        calling_namespace,
+        kind,
+    ));
+}
+
+pub fn add_dependencies(
+    vec: &mut Vec<RequiredInterface>,
+    reader: &TypeReader,
+    name: &TypeName,
+    calling_namespace: &str,
+    strip_default: bool,
+) {
+    let generics = !name.generics.is_empty();
+
+    for required in name.def.interfaces(reader) {
+        let is_default = required.is_default(reader);
+        let required = required.interface(reader);
+
+        let required_name =
+            TypeName::from_type_def_or_ref(reader, required, &name.generics, calling_namespace);
+
+        if let Some(index) = vec.iter().position(|i| i.name == required_name) {
+            if !strip_default && vec[index].kind == InterfaceKind::NonDefault && is_default {
+                vec[index].kind = InterfaceKind::Default;
+            }
+        } else {
+            let kind = if !strip_default && is_default {
+                InterfaceKind::Default
+            } else {
+                InterfaceKind::NonDefault
+            };
+
+            add_dependencies(
+                vec,
+                reader,
+                &required_name,
+                calling_namespace,
+                strip_default,
+            );
+
+            vec.push(RequiredInterface::from_type_name_and_kind(
+                reader,
+                required_name,
+                kind,
+                generics,
+                calling_namespace,
+            ));
         }
     }
 }

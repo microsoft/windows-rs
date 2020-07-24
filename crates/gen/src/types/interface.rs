@@ -18,13 +18,15 @@ impl Interface {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let mut interfaces = Vec::new();
 
-        // Ensures that the default interface is first in line.
-        let mut default_interface =
-            RequiredInterface::from_type_def(reader, name.def, &name.namespace);
-        default_interface.kind = InterfaceKind::Default;
-        interfaces.push(default_interface);
+        add_type(
+            &mut interfaces,
+            reader,
+            name.def,
+            &name.namespace,
+            InterfaceKind::Default,
+        );
 
-        RequiredInterface::append_required(reader, &name, &name.namespace, &mut interfaces);
+        add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
         let signature = name.base_interface_signature(reader);
 
         Self {
@@ -56,13 +58,19 @@ impl Interface {
         let name = &self.name.tokens;
         let phantoms = self.name.phantoms();
         let constraints = &self.name.constraints;
-        let default_interface = &self.interfaces[0];
-        debug_assert!(default_interface.kind == InterfaceKind::Default);
+
+        let default_interface = self
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         let guid = self.name.to_guid_tokens(&default_interface.guid);
+
         let conversions = TokenStream::from_iter(
             self.interfaces
                 .iter()
-                .skip(1)
+                .filter(|interface| interface.kind != InterfaceKind::Default)
                 .map(|interface| interface.to_conversions_tokens(&name, &constraints)),
         );
 
@@ -160,7 +168,13 @@ mod tests {
         let t = interface(("Windows.Foundation", "IStringable"));
         assert!(t.name.runtime_name() == "Windows.Foundation.IStringable");
         assert!(t.interfaces.len() == 1);
-        let t = &t.interfaces[0];
+
+        let t = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         assert!(t.name.runtime_name() == "Windows.Foundation.IStringable");
         assert!(t.kind == InterfaceKind::Default);
 

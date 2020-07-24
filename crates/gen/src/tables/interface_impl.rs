@@ -27,4 +27,8 @@ impl InterfaceImpl {
         self.attributes(reader)
             .any(|attribute| attribute.name(reader) == name)
     }
+
+    pub fn is_default(self, reader: &TypeReader) -> bool {
+        self.has_attribute(reader, ("Windows.Foundation.Metadata", "DefaultAttribute"))
+    }
 }

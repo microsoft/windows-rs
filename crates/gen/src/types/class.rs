@@ -21,14 +21,14 @@ pub struct Class {
 impl Class {
     pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
         let mut interfaces = Vec::new();
-        RequiredInterface::append_default(reader, &name, &mut interfaces);
+        add_dependencies(&mut interfaces, reader, &name, &name.namespace, false);
         let mut bases = Vec::new();
         let mut base = name.def;
 
-        let signature = if !interfaces.is_empty() && interfaces[0].kind == InterfaceKind::Default {
+        let signature = if interfaces.iter().any(|i| i.kind == InterfaceKind::Default) {
             name.class_signature(reader)
         } else {
-            "".to_owned()
+            String::new()
         };
 
         loop {
@@ -41,7 +41,7 @@ impl Class {
             base = reader.resolve_type_def((base_namespace, base_name));
             let base = TypeName::from_type_def(reader, base, &name.namespace);
 
-            RequiredInterface::append_required(reader, &base, &name.namespace, &mut interfaces);
+            add_dependencies(&mut interfaces, reader, &base, &name.namespace, true);
             bases.push(base);
         }
 
@@ -51,21 +51,24 @@ impl Class {
         for attribute in name.def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    let mut interface = RequiredInterface::from_type_def(
+                    add_type(
+                        &mut interfaces,
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
                         &name.namespace,
+                        InterfaceKind::Statics,
                     );
-                    interface.kind = InterfaceKind::Statics;
-                    interfaces.push(interface);
                 }
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            let mut interface =
-                                RequiredInterface::from_type_def(reader, def, &name.namespace);
-                            interface.kind = InterfaceKind::Statics;
-                            interfaces.push(interface);
+                            add_type(
+                                &mut interfaces,
+                                reader,
+                                def,
+                                &name.namespace,
+                                InterfaceKind::Statics,
+                            );
                         }
                         None => default_constructor = true,
                     }
@@ -75,13 +78,13 @@ impl Class {
                     // has a value of 2 as a signed 32-bit integer.
                     for (_name, arg) in attribute.args(reader) {
                         if let AttributeArg::I32(2) = arg {
-                            let mut interface = RequiredInterface::from_type_def(
+                            add_type(
+                                &mut interfaces,
                                 reader,
                                 attribute_factory(reader, attribute).unwrap(),
                                 &name.namespace,
+                                InterfaceKind::Composable,
                             );
-                            interface.kind = InterfaceKind::Composable;
-                            interfaces.push(interface);
                         }
                     }
                 }
@@ -122,7 +125,11 @@ impl Class {
         let methods = to_method_tokens(&self.interfaces);
         let call_factory = self.to_call_factory_tokens();
 
-        if self.interfaces[0].kind == InterfaceKind::Default {
+        if let Some(default_interface) = self
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+        {
             let conversions = TokenStream::from_iter(
                 self.interfaces
                     .iter()
@@ -144,8 +151,8 @@ impl Class {
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = &self.signature;
 
-            let default_name = &self.interfaces[0].name.tokens;
-            let abi_name = self.interfaces[0].name.to_abi_tokens();
+            let default_name = &default_interface.name.tokens;
+            let abi_name = default_interface.name.to_abi_tokens();
             let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
@@ -444,18 +451,40 @@ mod tests {
     #[test]
     fn test_media_core() {
         let t = class(("Windows.Media.Core", "TimedMetadataStreamDescriptor"));
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
+        assert!(
+            1 == t
+                .interfaces
+                .iter()
+                .filter(|i| i.kind == InterfaceKind::Default)
+                .count()
+        );
+
         assert!(t.default_constructor == false);
         assert!(t.name.runtime_name() == "Windows.Media.Core.TimedMetadataStreamDescriptor");
-        assert!(t.interfaces[0].name.runtime_name() == "Windows.Media.Core.IMediaStreamDescriptor");
-        assert!(t.interfaces[0].kind == InterfaceKind::Default);
+        assert!(default.name.runtime_name() == "Windows.Media.Core.IMediaStreamDescriptor");
+        assert!(default.kind == InterfaceKind::Default);
     }
 
     #[test]
     fn test_class_with_bases() {
         let t = class(("Windows.UI.Composition", "SpriteVisual"));
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
         assert!(t.default_constructor == false);
         assert!(t.name.runtime_name() == "Windows.UI.Composition.SpriteVisual");
-        assert!(t.interfaces[0].name.runtime_name() == "Windows.UI.Composition.ISpriteVisual");
+        assert!(default.name.runtime_name() == "Windows.UI.Composition.ISpriteVisual");
         assert!(t.bases.len() == 3);
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.ContainerVisual");
         assert!(t.bases[1].runtime_name() == "Windows.UI.Composition.Visual");
@@ -467,7 +496,14 @@ mod tests {
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::NonDefault);
 
         let t = class(("Windows.UI.Composition", "ContainerVisual"));
-        assert!(t.interfaces[0].name.runtime_name() == "Windows.UI.Composition.IContainerVisual");
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
+        assert!(default.name.runtime_name() == "Windows.UI.Composition.IContainerVisual");
         assert!(t.bases.len() == 2);
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.Visual");
         assert!(t.bases[1].runtime_name() == "Windows.UI.Composition.CompositionObject");
@@ -477,7 +513,14 @@ mod tests {
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::NonDefault);
 
         let t = class(("Windows.UI.Composition", "Visual"));
-        assert!(t.interfaces[0].name.runtime_name() == "Windows.UI.Composition.IVisual");
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
+        assert!(default.name.runtime_name() == "Windows.UI.Composition.IVisual");
         assert!(t.bases.len() == 1);
         assert!(t.bases[0].runtime_name() == "Windows.UI.Composition.CompositionObject");
         assert!(count_default(&t) == 1);
@@ -485,7 +528,14 @@ mod tests {
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::NonDefault);
 
         let t = class(("Windows.UI.Composition", "CompositionObject"));
-        assert!(t.interfaces[0].name.runtime_name() == "Windows.UI.Composition.ICompositionObject");
+
+        let default = t
+            .interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap();
+
+        assert!(default.name.runtime_name() == "Windows.UI.Composition.ICompositionObject");
         assert!(t.bases.is_empty());
         assert!(count_default(&t) == 1);
         assert!(interface(&t, "ICompositionObject").kind == InterfaceKind::Default);
