@@ -42,7 +42,10 @@ pub(crate) fn to_snake(camel: &str, kind: MethodKind) -> String {
 
         if previous.is_lowercase() || next.is_lowercase() && since_last_underscore > 1 {
             since_last_underscore = 0;
-            snake.push('_');
+
+            if previous != '_' {
+                snake.push('_');
+            }
         }
 
         for c in current.to_lowercase() {
@@ -69,31 +72,44 @@ mod tests {
             to_snake("Windows", MethodKind::Normal),
             "windows".to_owned()
         );
+
         assert_eq!(
             to_snake("ApplicationModel", MethodKind::Normal),
             "application_model".to_owned()
         );
+
         assert_eq!(to_snake("foo", MethodKind::Normal), "foo".to_owned());
+
         assert_eq!(
             to_snake("UIProgramming", MethodKind::Normal),
             "ui_programming".to_owned()
         );
+
         assert_eq!(
             to_snake("UIProgramming", MethodKind::Set),
             "set_ui_programming".to_owned()
         );
+
         assert_eq!(
             to_snake("CreateUInt8Array", MethodKind::Normal),
             "create_uint8_array".to_owned()
         );
+
         assert_eq!(
             to_snake("Socks", MethodKind::Remove),
             "remove_socks".to_owned()
         );
+
         assert_eq!(
             to_snake("appointmentId", MethodKind::Normal),
             "appointment_id".to_owned()
         );
+
         assert_eq!(to_snake("a", MethodKind::Normal), "a".to_owned());
+
+        assert_eq!(
+            to_snake("CreateField_Default", MethodKind::Normal),
+            "create_field_default".to_owned()
+        );
     }
 }
