@@ -3,6 +3,7 @@ extern crate proc_macro;
 use proc_macro::TokenStream;
 use proc_macro2::Span;
 use quote::quote;
+use rayon::iter::ParallelIterator;
 use syn::parse::{self, Parse, ParseStream};
 use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
@@ -188,9 +189,14 @@ impl ImportMacro {
         let stage = TypeStage::from_limits(reader, &limits);
         let tree = stage.into_tree();
 
-        tree.to_tokens()
-            .collect::<proc_macro2::TokenStream>()
-            .into()
+        let s = tree
+            .to_tokens()
+            .map(|s| s.into_string())
+            .reduce(String::new, |mut accum, n| {
+                accum.push_str(&n);
+                accum
+            });
+        s.parse::<TokenStream>().unwrap()
     }
 }
 

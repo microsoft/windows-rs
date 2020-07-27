@@ -3,7 +3,7 @@ use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
 
-use proc_macro2::TokenStream;
+use squote::TokenStream;
 
 #[derive(Debug)]
 pub enum Type {

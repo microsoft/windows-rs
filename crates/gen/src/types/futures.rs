@@ -1,6 +1,5 @@
 use crate::types::*;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 
 pub fn get_async_tokens(
     name: &TypeName,
