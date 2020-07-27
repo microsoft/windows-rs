@@ -12,6 +12,7 @@ pub enum Type {
     Enum(Enum),
     Struct(Struct),
     Delegate(Delegate),
+    Object,
 }
 
 impl Type {
@@ -33,6 +34,7 @@ impl Type {
             Type::Enum(t) => t.to_tokens(),
             Type::Struct(t) => t.to_tokens(),
             Type::Delegate(t) => t.to_tokens(),
+            Type::Object => crate::object::get_object_tokens(),
         }
     }
 
@@ -43,6 +45,7 @@ impl Type {
             Type::Enum(t) => &t.name,
             Type::Struct(t) => &t.name,
             Type::Delegate(t) => &t.name,
+            Type::Object => panic!("Type.name"),
         }
     }
 
@@ -54,6 +57,7 @@ impl Type {
             Type::Enum(_t) => Vec::new(),
             Type::Struct(t) => t.dependencies(),
             Type::Delegate(t) => t.dependencies(),
+            Type::Object => Vec::new(),
         }
     }
 }

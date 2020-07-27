@@ -30,6 +30,10 @@ impl TypeTree {
         }
     }
 
+    pub fn add_extensions(&mut self) {
+        self.insert("Windows.Foundation".to_string(), Type::Object);
+    }
+
     /// Turn the tree into a token stream for code generation
     pub fn to_tokens<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         self.types
