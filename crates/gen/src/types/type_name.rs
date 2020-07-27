@@ -27,7 +27,7 @@ pub struct TypeName {
     // A cached TokenStream of the types associated type constraints
     pub constraints: TokenStream,
     // The namespace of the type being tokenized.
-    calling_namespace: String,
+    pub calling_namespace: String,
     /// Cached TokenStream for the calling namespace
     pub tokens: TokenStream,
 }
@@ -537,7 +537,7 @@ mod tests {
         assert!(TypeKind::F32.signature(reader) == "f4");
         assert!(TypeKind::F64.signature(reader) == "f8");
         assert!(TypeKind::String.signature(reader) == "string");
-        assert!(TypeKind::Object.signature(reader) == "cinterface(IInspectable)");
+        assert!(TypeKind::Object(String::new()).signature(reader) == "cinterface(IInspectable)");
         assert!(TypeKind::Guid.signature(reader) == "g16");
 
         // Non-generic interface signature

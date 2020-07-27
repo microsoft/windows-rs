@@ -15,7 +15,7 @@ impl IActivationFactory {
             .get_abi()
             .expect("The `this` pointer was null when calling method");
 
-        let mut object = Object::default();
+        let mut object = IUnknown::default();
 
         unsafe { (ptr.vtable().activate_instance)(ptr, object.set_abi()) }
             .and_then(|| object.query())
@@ -52,6 +52,6 @@ pub struct abi_IActivationFactory {
     base__: [usize; 6],
     activate_instance: unsafe extern "system" fn(
         NonNullRawComPtr<IActivationFactory>,
-        *mut <Object as AbiTransferable>::Abi,
+        *mut <IUnknown as AbiTransferable>::Abi,
     ) -> ErrorCode,
 }

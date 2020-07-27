@@ -9,8 +9,8 @@ winrt::import!(
 fn class() -> winrt::Result<()> {
     let uri = windows::foundation::Uri::create_uri("http://kennykerr.ca")?;
 
-    // All WinRT classes are convertible to winrt::Object.
-    let object: winrt::Object = uri.into();
+    // All WinRT classes are convertible to Object.
+    let object: windows::foundation::Object = uri.into();
 
     assert!(object.type_name()? == "Windows.Foundation.Uri");
 
@@ -22,8 +22,8 @@ fn interface() -> winrt::Result<()> {
     let uri = windows::foundation::Uri::create_uri("http://kennykerr.ca")?;
     let stringable: windows::foundation::IStringable = uri.into();
 
-    // All WinRT interfaces are convertible to winrt::Object.
-    let object: winrt::Object = stringable.into();
+    // All WinRT interfaces are convertible to Object.
+    let object: windows::foundation::Object = stringable.into();
 
     assert!(object.type_name()? == "Windows.Foundation.Uri");
 

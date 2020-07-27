@@ -23,7 +23,7 @@ pub enum TypeKind {
     F32,
     F64,
     String,
-    Object,
+    Object(String),
     Guid,
     TimeSpan,
     Class(TypeName),
@@ -50,7 +50,7 @@ impl TypeKind {
             Self::F32 => "f4".to_owned(),
             Self::F64 => "f8".to_owned(),
             Self::String => "string".to_owned(),
-            Self::Object => "cinterface(IInspectable)".to_owned(),
+            Self::Object(_) => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
             Self::TimeSpan => "struct(Windows.Foundation.TimeSpan;i8)".to_owned(),
             Self::Class(name) => name.class_signature(reader),
@@ -77,7 +77,7 @@ impl TypeKind {
             Self::F32 => "Single".to_owned(),
             Self::F64 => "Double".to_owned(),
             Self::String => "String".to_owned(),
-            Self::Object => "Object".to_owned(),
+            Self::Object(_) => "Object".to_owned(),
             Self::Guid => "Guid".to_owned(),
             Self::TimeSpan => "Windows.Foundation.TimeSpan".to_owned(),
             Self::Class(name) => name.runtime_name(),
@@ -183,7 +183,7 @@ impl TypeKind {
             0x0C => TypeKind::F32,
             0x0D => TypeKind::F64,
             0x0E => TypeKind::String,
-            0x1C => TypeKind::Object,
+            0x1C => TypeKind::Object(calling_namespace.to_string()),
             0x11 | 0x12 => Self::from_type_def_or_ref(
                 blob.reader,
                 TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index),
@@ -232,7 +232,10 @@ impl TypeKind {
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
             Self::String => quote! { ::winrt::HString },
-            Self::Object => quote! { ::winrt::Object },
+            Self::Object(calling_namespace) => {
+                let wf = to_namespace_tokens("Windows.Foundation", &calling_namespace);
+                quote! { #wf Object }
+            }
             Self::Guid => quote! { ::winrt::Guid },
             Self::TimeSpan => quote! { ::winrt::TimeSpan },
             Self::Class(name) => name.tokens.clone(),
@@ -266,8 +269,9 @@ impl TypeKind {
             Self::String => {
                 quote! { <::winrt::HString as ::winrt::AbiTransferable>::Abi, }
             }
-            Self::Object => {
-                quote! { <::winrt::Object as ::winrt::AbiTransferable>::Abi, }
+            Self::Object(calling_namespace) => {
+                let wf = to_namespace_tokens("Windows.Foundation", &calling_namespace);
+                quote! { <#wf Object as ::winrt::AbiTransferable>::Abi, }
             }
             Self::Generic(name) => {
                 let name = format_ident(name);

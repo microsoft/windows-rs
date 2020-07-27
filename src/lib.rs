@@ -54,7 +54,6 @@ mod error;
 mod factory;
 mod guid;
 mod hstring;
-mod object;
 mod param;
 mod runtime;
 mod runtime_name;
@@ -76,7 +75,6 @@ pub use factory::{factory, FactoryCache};
 #[doc(hidden)]
 pub use guid::Guid;
 pub use hstring::HString;
-pub use object::Object;
 #[doc(hidden)]
 pub use param::Param;
 #[doc(hidden)]

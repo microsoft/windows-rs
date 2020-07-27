@@ -240,15 +240,17 @@ impl Method {
     }
 
     pub fn to_composable_tokens(&self, interface: &RequiredInterface) -> TokenStream {
+        let calling_namespace = &interface.name.calling_namespace;
         let method_name = format_ident(&self.name);
         let interface = format_ident(&interface.name.name);
+        let wf = crate::types::namespace::to_namespace_tokens("Windows.Foundation", calling_namespace);
 
         if self.params.len() == 2 {
             // For non-aggregation scenarios this is just a default constructor, hence the
             // "new" method name in line with non-composable default constructors.
             quote! {
                 pub fn new() -> ::winrt::Result<Self> {
-                    Self::#interface(|f| f.#method_name(::winrt::Object::default(), &mut ::winrt::Object::default()))
+                    Self::#interface(|f| f.#method_name(#wf Object::default(), &mut #wf Object::default()))
                 }
             }
         } else {
@@ -259,7 +261,7 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(#params) -> ::winrt::Result<Self> {
-                    Self::#interface(|f| f.#method_name(#args ::winrt::Object::default(), &mut ::winrt::Object::default()))
+                    Self::#interface(|f| f.#method_name(#args #wf Object::default(), &mut #wf Object::default()))
                 }
             }
         }
@@ -292,7 +294,7 @@ fn to_constraint_tokens(params: &[Param]) -> TokenStream {
 
         match param.kind {
             TypeKind::String
-            | TypeKind::Object
+            | TypeKind::Object(_)
             | TypeKind::Guid
             | TypeKind::TimeSpan
             | TypeKind::Class(_)

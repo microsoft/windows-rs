@@ -28,7 +28,7 @@ impl Param {
         } else if self.input {
             match self.kind {
                 TypeKind::String
-                | TypeKind::Object
+                | TypeKind::Object(_)
                 | TypeKind::Guid
                 | TypeKind::TimeSpan
                 | TypeKind::Class(_)
@@ -60,7 +60,7 @@ impl Param {
         } else if self.input {
             match self.kind {
                 TypeKind::String
-                | TypeKind::Object
+                | TypeKind::Object(_)
                 | TypeKind::Guid
                 | TypeKind::TimeSpan
                 | TypeKind::Class(_)
@@ -135,7 +135,7 @@ impl Param {
             } else {
                 match self.kind {
                     TypeKind::String
-                    | TypeKind::Object
+                    | TypeKind::Object(_)
                     | TypeKind::Guid
                     | TypeKind::TimeSpan
                     | TypeKind::Class(_)

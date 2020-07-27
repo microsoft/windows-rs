@@ -1,4 +1,3 @@
-use super::object::to_object_tokens;
 use crate::tables::*;
 use crate::types::debug;
 use crate::types::*;
@@ -74,13 +73,13 @@ impl Interface {
                 .map(|interface| interface.to_conversions_tokens(&name, &constraints)),
         );
 
-        let object = to_object_tokens(&name, &constraints);
         let methods = to_method_tokens(&self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens();
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
         let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
         let debug = debug::debug_tokens(&self.name, &self.interfaces);
+        let wf = to_namespace_tokens("Windows.Foundation", &self.name.namespace);
 
         quote! {
             #[repr(transparent)]
@@ -140,8 +139,17 @@ impl Interface {
                     self.ptr == other.ptr
                 }
             }
+            impl<#constraints> ::std::convert::From<#name> for #wf Object {
+                fn from(value: #name) -> Self {
+                    unsafe { ::std::mem::transmute(value) }
+                }
+            }
+            impl<#constraints> ::std::convert::From<&#name> for #wf Object {
+                fn from(value: &#name) -> Self {
+                    ::std::convert::From::from(::std::clone::Clone::clone(value))
+                }
+            }
             #conversions
-            #object
             #iterator
             #future
         }

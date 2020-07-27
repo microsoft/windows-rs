@@ -26,7 +26,7 @@ fn xaml() -> winrt::Result<()> {
     );
 
     assert_eq!(
-        DataTemplateKey::create_instance_with_type(winrt::Object::default())
+        DataTemplateKey::create_instance_with_type(windows::foundation::Object::default())
             .unwrap_err()
             .code(),
         winrt::ErrorCode(0x8007_0057) // invalid argument
