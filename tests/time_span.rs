@@ -10,7 +10,7 @@ winrt::import!(
 use std::time::Duration;
 use test_component::TestRunner;
 use windows::foundation::*;
-use winrt::TryInto;
+use winrt::ComInterface;
 
 #[test]
 fn conversion() -> winrt::Result<()> {
@@ -27,7 +27,7 @@ fn conversion() -> winrt::Result<()> {
 #[test]
 fn duration_param() -> winrt::Result<()> {
     let object = PropertyValue::create_time_span(Duration::from_millis(1234))?;
-    let pv: IPropertyValue = object.try_into()?;
+    let pv: IPropertyValue = object.query();
     assert!(pv.get_time_span()? == Duration::from_millis(1234).into());
 
     Ok(())
@@ -36,7 +36,7 @@ fn duration_param() -> winrt::Result<()> {
 #[test]
 fn time_span_param() -> winrt::Result<()> {
     let object = PropertyValue::create_time_span(TestRunner::create_time_span(1234)?)?;
-    let pv: IPropertyValue = object.try_into()?;
+    let pv: IPropertyValue = object.query();
     assert!(pv.get_time_span()? == Duration::from_millis(1234).into());
 
     Ok(())

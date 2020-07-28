@@ -180,6 +180,18 @@ impl ImportMacro {
         let reader = &TypeReader::new(dependencies);
         let mut limits = TypeLimits::new(reader);
 
+        // Force IReference<T> from the Windows.Foundation namespace to be included to support
+        // boxing provided by Object, which is always included.
+        limits
+            .insert(NamespaceTypes {
+                namespace: "windows.foundation".to_owned(),
+                limit: TypeLimit::Some(vec![
+                    "IReference`1".to_string(),
+                    "PropertyValue".to_string(),
+                ]),
+            })
+            .unwrap();
+
         for limit in self.types.0 {
             let types = limit.types;
             let syntax = limit.syntax;

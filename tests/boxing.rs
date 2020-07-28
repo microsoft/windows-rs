@@ -6,18 +6,18 @@ winrt::import!(
 );
 
 use windows::foundation::{IPropertyValue, PropertyValue};
-use winrt::TryInto;
+use winrt::ComInterface;
 
 #[test]
 fn boxing() -> winrt::Result<()> {
     // TODO: this is explicit boxing - still need to wrap this up neatly.
 
     let object = PropertyValue::create_string("hello")?;
-    let pv: IPropertyValue = object.try_into()?;
+    let pv: IPropertyValue = object.query();
     assert!(pv.get_string()? == "hello");
 
     let object = PropertyValue::create_uint32_array(&[1, 2, 3])?;
-    let pv: IPropertyValue = object.try_into()?;
+    let pv: IPropertyValue = object.query();
     let mut array = winrt::Array::new();
     assert!(array.is_empty());
     assert!(array.len() == 0);
@@ -29,7 +29,7 @@ fn boxing() -> winrt::Result<()> {
 
     let object =
         PropertyValue::create_string_array(&["Hello".into(), "Rust".into(), "WinRT".into()])?;
-    let pv: IPropertyValue = object.try_into()?;
+    let pv: IPropertyValue = object.query();
     let mut array = winrt::Array::new();
     assert!(array.is_empty());
     assert!(array.len() == 0);

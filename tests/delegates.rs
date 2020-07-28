@@ -83,8 +83,8 @@ fn event() -> winrt::Result<()> {
     let set_clone = set.clone();
     // TODO: Should be able to elide the delegate construction and simply say:
     // set.map_changed(|sender, args| {...})?;
-    set.map_changed(
-        MapChangedEventHandler::<winrt::HString, Object>::new(move |sender, args| {
+    set.map_changed(MapChangedEventHandler::<winrt::HString, Object>::new(
+        move |sender, args| {
             tx.send(true).unwrap();
             let set = set_clone.clone();
             let map: IObservableMap<winrt::HString, Object> = set.into();
@@ -92,8 +92,8 @@ fn event() -> winrt::Result<()> {
             assert!(args.key()? == "A");
             assert!(args.collection_change()? == CollectionChange::ItemInserted);
             Ok(())
-        }),
-    )?;
+        },
+    ))?;
 
     set.insert("A", PropertyValue::create_uint32(1)?)?;
 

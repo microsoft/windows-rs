@@ -243,7 +243,8 @@ impl Method {
         let calling_namespace = &interface.name.calling_namespace;
         let method_name = format_ident(&self.name);
         let interface = format_ident(&interface.name.name);
-        let wf = crate::types::namespace::to_namespace_tokens("Windows.Foundation", calling_namespace);
+        let wf =
+            crate::types::namespace::to_namespace_tokens("Windows.Foundation", calling_namespace);
 
         if self.params.len() == 2 {
             // For non-aggregation scenarios this is just a default constructor, hence the

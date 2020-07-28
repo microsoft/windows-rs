@@ -70,5 +70,24 @@ pub fn get_object_tokens() -> TokenStream {
             pub inspectable_trust_level:
                 unsafe extern "system" fn(::winrt::NonNullRawComPtr<Object>, *mut i32) -> ::winrt::ErrorCode,
         }
+
+        impl ::std::convert::TryFrom<i32> for Object {
+            type Error = ::winrt::Error;
+            fn try_from(value: i32) -> ::winrt::Result<Self> {
+                PropertyValue::create_int32(value)
+            }
+        }
+        impl ::std::convert::TryFrom<Object> for i32 {
+            type Error = ::winrt::Error;
+            fn try_from(value: Object) -> ::winrt::Result<Self> {
+                <Object as ::winrt::ComInterface>::try_query::<IReference<i32>>(&value)?.value()
+            }
+        }
+        impl ::std::convert::TryFrom<&Object> for i32 {
+            type Error = ::winrt::Error;
+            fn try_from(value: &Object) -> ::winrt::Result<Self> {
+                <Object as ::winrt::ComInterface>::try_query::<IReference<i32>>(value)?.value()
+            }
+        }
     }
 }

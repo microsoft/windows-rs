@@ -7,6 +7,7 @@ winrt::import!(
 );
 
 use winrt::AbiTransferable;
+use winrt::ComInterface;
 
 #[link(name = "coremessaging")]
 extern "stdcall" {
@@ -87,7 +88,6 @@ fn composition() -> winrt::Result<()> {
     use windows::foundation::numerics::Vector3;
     use windows::ui::composition::{CompositionColorBrush, Compositor};
     use windows::ui::{Color, Colors};
-    use winrt::TryInto;
 
     let _dispatcher = create_dispatcher();
     let compositor = Compositor::new()?;
@@ -110,7 +110,7 @@ fn composition() -> winrt::Result<()> {
 
     // Visual.brush returns a CompositionBrush but we know that it's actually a CompositionColorBrush
     // and need to convert it excplicitly since Rust/WinRT doesn't know that.
-    let brush: CompositionColorBrush = visual.brush()?.try_into().unwrap();
+    let brush: CompositionColorBrush = visual.brush()?.query();
     assert!(brush.color()? == red);
 
     visual.set_offset(Vector3 {

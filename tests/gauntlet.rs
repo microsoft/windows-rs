@@ -127,7 +127,7 @@ fn params() -> Result<()> {
 
     {
         let object = PropertyValue::create_int64(1234)?;
-        let pv: IReference<i64> = object.try_into()?;
+        let pv: IReference<i64> = object.query();
 
         let a = NonBlittable {
             a: false,
@@ -143,7 +143,7 @@ fn params() -> Result<()> {
 
     {
         let object = PropertyValue::create_int64(1234)?;
-        let pv: IReference<i64> = object.try_into()?;
+        let pv: IReference<i64> = object.query();
 
         let a = Nested {
             blittable: Blittable {
@@ -353,13 +353,13 @@ fn arrays() -> Result<()> {
 
     {
         let object = PropertyValue::create_int64(123)?;
-        let first: IReference<i64> = object.try_into()?;
+        let first: IReference<i64> = object.query();
 
         let object = PropertyValue::create_int64(456)?;
-        let second: IReference<i64> = object.try_into()?;
+        let second: IReference<i64> = object.query();
 
         let object = PropertyValue::create_int64(789)?;
-        let third: IReference<i64> = object.try_into()?;
+        let third: IReference<i64> = object.query();
 
         let a: [NonBlittable; 3] = [
             NonBlittable {
@@ -397,13 +397,13 @@ fn arrays() -> Result<()> {
 
     {
         let object = PropertyValue::create_int64(123)?;
-        let first: IReference<i64> = object.try_into()?;
+        let first: IReference<i64> = object.query();
 
         let object = PropertyValue::create_int64(456)?;
-        let second: IReference<i64> = object.try_into()?;
+        let second: IReference<i64> = object.query();
 
         let object = PropertyValue::create_int64(789)?;
-        let third: IReference<i64> = object.try_into()?;
+        let third: IReference<i64> = object.query();
 
         let a: [Nested; 3] = [
             Nested {
