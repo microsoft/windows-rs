@@ -27,7 +27,7 @@ macro_rules! test_with_scalar {
     ($value1:ident, $value2:ident, $op:tt, $expected:ident) => {
         let result = $value1.clone() $op $value2;
         assert_eq!(result, $expected);
-    
+
         let result = &$value1 $op $value2;
         assert_eq!(result, $expected);
     }
