@@ -6,10 +6,11 @@ winrt::import!(
         windows::foundation::collections::*
 );
 
+use std::convert::*;
 use std::iter::FromIterator;
 use windows::foundation::collections::{IIterable, IVectorView, PropertySet};
-use windows::foundation::{IPropertyValue, IWwwFormUrlDecoderEntry, PropertyValue, Uri};
-use winrt::ComInterface;
+use windows::foundation::Object;
+use windows::foundation::{IWwwFormUrlDecoderEntry, Uri};
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -74,9 +75,9 @@ fn property_set() -> winrt::Result<()> {
 
     let set = PropertySet::new()?;
 
-    set.insert("A", PropertyValue::create_uint32(1)?)?;
-    set.insert("B", PropertyValue::create_uint32(2)?)?;
-    set.insert("C", PropertyValue::create_uint32(3)?)?;
+    set.insert("A", Object::try_from(1)?);
+    set.insert("B", Object::try_from(2)?);
+    set.insert("C", Object::try_from(3)?);
 
     assert!(set.size()? == 3);
 
@@ -85,8 +86,7 @@ fn property_set() -> winrt::Result<()> {
 
     for pair in &set {
         keys.push(pair.key()?.to_string());
-        let pv: IPropertyValue = pair.value()?.query();
-        values += pv.get_uint32()?;
+        values += i32::try_from(pair.value()?)?;
     }
     assert!(set.size()? == 3);
 
