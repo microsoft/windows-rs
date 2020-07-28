@@ -7,6 +7,7 @@ import!(
         windows::foundation::*
 );
 
+use std::convert::TryFrom;
 use test_component::*;
 use windows::foundation::*;
 use winrt::*;
@@ -126,7 +127,7 @@ fn params() -> Result<()> {
     }
 
     {
-        let object = PropertyValue::create_int64(1234)?;
+        let object = Object::try_from(1234_i64)?;
         let pv: IReference<i64> = object.query();
 
         let a = NonBlittable {
@@ -142,7 +143,7 @@ fn params() -> Result<()> {
     }
 
     {
-        let object = PropertyValue::create_int64(1234)?;
+        let object = Object::try_from(1234_i64)?;
         let pv: IReference<i64> = object.query();
 
         let a = Nested {
@@ -352,13 +353,13 @@ fn arrays() -> Result<()> {
     }
 
     {
-        let object = PropertyValue::create_int64(123)?;
+        let object = Object::try_from(123_i64)?;
         let first: IReference<i64> = object.query();
 
-        let object = PropertyValue::create_int64(456)?;
+        let object = Object::try_from(456_i64)?;
         let second: IReference<i64> = object.query();
 
-        let object = PropertyValue::create_int64(789)?;
+        let object = Object::try_from(789_i64)?;
         let third: IReference<i64> = object.query();
 
         let a: [NonBlittable; 3] = [
@@ -396,13 +397,13 @@ fn arrays() -> Result<()> {
     }
 
     {
-        let object = PropertyValue::create_int64(123)?;
+        let object = Object::try_from(123_i64)?;
         let first: IReference<i64> = object.query();
 
-        let object = PropertyValue::create_int64(456)?;
+        let object = Object::try_from(456_i64)?;
         let second: IReference<i64> = object.query();
 
-        let object = PropertyValue::create_int64(789)?;
+        let object = Object::try_from(789_i64)?;
         let third: IReference<i64> = object.query();
 
         let a: [Nested; 3] = [

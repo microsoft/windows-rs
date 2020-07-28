@@ -6,6 +6,7 @@ winrt::import!(
         windows::foundation::collections::*
 );
 
+use std::convert::TryFrom;
 use winrt::AbiTransferable;
 use winrt::ComInterface;
 
@@ -95,7 +96,7 @@ fn event() -> winrt::Result<()> {
         },
     ))?;
 
-    set.insert("A", PropertyValue::create_uint32(1)?)?;
+    set.insert("A", Object::try_from(1_u32)?)?;
 
     assert!(rx.recv().unwrap());
 
