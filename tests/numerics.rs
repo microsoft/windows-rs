@@ -7,23 +7,39 @@ winrt::import!(
 
 use windows::foundation::numerics::*;
 
+macro_rules! test_with_same {
+    ($value1:ident, $value2:ident, $op:tt, $expected:ident) => {
+        let result = $value1.clone() $op $value2.clone();
+        assert_eq!(result, $expected);
+
+        let result = $value1.clone() $op &$value2;
+        assert_eq!(result, $expected);
+
+        let result = &$value1 $op $value2.clone();
+        assert_eq!(result, $expected);
+
+        let result = &$value1 $op &$value2;
+        assert_eq!(result, $expected);
+    }
+}
+
+macro_rules! test_with_scalar {
+    ($value1:ident, $value2:ident, $op:tt, $expected:ident) => {
+        let result = $value1.clone() $op $value2;
+        assert_eq!(result, $expected);
+    
+        let result = &$value1 $op $value2;
+        assert_eq!(result, $expected);
+    }
+}
+
 #[test]
 fn vector2_add() {
     let value1 = Vector2 { x: 5.0, y: 50.0 };
     let value2 = Vector2 { x: 15.0, y: 25.0 };
     let expected = Vector2 { x: 20.0, y: 75.0 };
 
-    let result = value1.clone() + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() + &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 + &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, +, expected);
 }
 
 #[test]
@@ -32,17 +48,7 @@ fn vector2_sub() {
     let value2 = Vector2 { x: 15.0, y: 20.0 };
     let expected = Vector2 { x: -10.0, y: 30.0 };
 
-    let result = value1.clone() - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() - &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 - &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, -, expected);
 }
 
 #[test]
@@ -51,26 +57,12 @@ fn vector2_div() {
     let value2 = Vector2 { x: 20.0, y: 25.0 };
     let expected = Vector2 { x: 0.5, y: 2.0 };
 
-    let result = value1.clone() / value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() / &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 / value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 / &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, /, expected);
 
     let value2 = 2.0;
     let expected = Vector2 { x: 5.0, y: 25.0 };
 
-    let result = value1.clone() / value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 / value2;
-    assert_eq!(result, expected);
+    test_with_scalar!(value1, value2, /, expected);
 }
 
 #[test]
@@ -79,26 +71,12 @@ fn vector2_mul() {
     let value2 = Vector2 { x: 15.0, y: 25.0 };
     let expected = Vector2 { x: 75.0, y: 1250.0 };
 
-    let result = value1.clone() * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() * &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 * &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, *, expected);
 
     let value2 = 2.5;
     let expected = Vector2 { x: 12.5, y: 125.0 };
 
-    let result = value1.clone() * value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2;
-    assert_eq!(result, expected);
+    test_with_scalar!(value1, value2, *, expected);
 }
 
 #[test]
@@ -119,17 +97,7 @@ fn vector3_add() {
         z: 21.0,
     };
 
-    let result = value1.clone() + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() + &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 + &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, +, expected);
 }
 
 #[test]
@@ -150,17 +118,7 @@ fn vector3_sub() {
         z: 15.0,
     };
 
-    let result = value1.clone() - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() - &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 - &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, -, expected);
 }
 
 #[test]
@@ -181,17 +139,7 @@ fn vector3_div() {
         z: 1.0,
     };
 
-    let result = value1.clone() / value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() / &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 / value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 / &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, /, expected);
 
     let value2 = 2.0;
     let expected = Vector3 {
@@ -200,11 +148,7 @@ fn vector3_div() {
         z: 50.0,
     };
 
-    let result = value1.clone() / value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 / value2;
-    assert_eq!(result, expected);
+    test_with_scalar!(value1, value2, /, expected);
 }
 
 #[test]
@@ -225,17 +169,7 @@ fn vector3_mul() {
         z: 54.0,
     };
 
-    let result = value1.clone() * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() * &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 * &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, *, expected);
 
     let value2 = 2.5;
     let expected = Vector3 {
@@ -244,11 +178,7 @@ fn vector3_mul() {
         z: 45.0,
     };
 
-    let result = value1.clone() * value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2;
-    assert_eq!(result, expected);
+    test_with_scalar!(value1, value2, *, expected);
 }
 
 #[test]
@@ -272,17 +202,7 @@ fn vector4_add() {
         w: 70.0,
     };
 
-    let result = value1.clone() + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() + &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 + &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, +, expected);
 }
 
 #[test]
@@ -306,17 +226,7 @@ fn vector4_sub() {
         w: 56.0,
     };
 
-    let result = value1.clone() - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() - &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 - &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, -, expected);
 }
 
 #[test]
@@ -340,17 +250,7 @@ fn vector4_div() {
         w: 0.1,
     };
 
-    let result = value1.clone() / value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() / &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 / value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 / &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, /, expected);
 
     let value2 = 2.0;
     let expected = Vector4 {
@@ -360,11 +260,7 @@ fn vector4_div() {
         w: 0.5,
     };
 
-    let result = value1.clone() / value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 / value2;
-    assert_eq!(result, expected);
+    test_with_scalar!(value1, value2, /, expected);
 }
 
 #[test]
@@ -388,17 +284,7 @@ fn vector4_mul() {
         w: 25.0,
     };
 
-    let result = value1.clone() * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() * &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 * &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, *, expected);
 
     let value2 = 2.5;
     let expected = Vector4 {
@@ -408,11 +294,7 @@ fn vector4_mul() {
         w: 6.25,
     };
 
-    let result = value1.clone() * value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2;
-    assert_eq!(result, expected);
+    test_with_scalar!(value1, value2, *, expected);
 }
 
 #[test]
@@ -442,17 +324,7 @@ fn matrix3x2_add() {
         m32: 16.0,
     };
 
-    let result = value1.clone() + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() + &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 + &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, +, expected);
 }
 
 #[test]
@@ -482,17 +354,7 @@ fn matrix3x2_sub() {
         m32: 9.0,
     };
 
-    let result = value1.clone() - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() - &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 - &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, -, expected);
 }
 
 #[test]
@@ -522,17 +384,7 @@ fn matrix3x2_mul() {
         m32: 150.0,
     };
 
-    let result = value1.clone() * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() * &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 * &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, *, expected);
 
     let value2 = 2.0;
     let expected = Matrix3x2 {
@@ -544,11 +396,7 @@ fn matrix3x2_mul() {
         m32: 22.0,
     };
 
-    let result = value1.clone() * value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2;
-    assert_eq!(result, expected);
+    test_with_scalar!(value1, value2, *, expected);
 }
 
 #[test]
@@ -608,17 +456,7 @@ fn matrix4x4_add() {
         m44: 2.0,
     };
 
-    let result = value1.clone() + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() + &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 + value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 + &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, +, expected);
 }
 
 #[test]
@@ -678,17 +516,7 @@ fn matrix4x4_sub() {
         m44: -2.0,
     };
 
-    let result = value1.clone() - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() - &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 - value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 - &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, -, expected);
 }
 
 #[test]
@@ -748,17 +576,7 @@ fn matrix4x4_mul() {
         m44: 125.0,
     };
 
-    let result = value1.clone() * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = value1.clone() * &value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2.clone();
-    assert_eq!(result, expected);
-
-    let result = &value1 * &value2;
-    assert_eq!(result, expected);
+    test_with_same!(value1, value2, *, expected);
 
     let value2 = 2.0;
     let expected = Matrix4x4 {
@@ -780,9 +598,5 @@ fn matrix4x4_mul() {
         m44: 2.0,
     };
 
-    let result = value1.clone() * value2;
-    assert_eq!(result, expected);
-
-    let result = &value1 * value2;
-    assert_eq!(result, expected);
+    test_with_scalar!(value1, value2, *, expected);
 }
