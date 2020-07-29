@@ -14,7 +14,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies]
-winrt = "0.7.1"
+winrt = "0.7.2"
 ```
 
 This will allow Cargo to download, build, and cache the Rust/WinRT support as a package directly from crates.io.

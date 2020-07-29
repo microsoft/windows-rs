@@ -264,8 +264,42 @@ impl Parse for Dependencies {
                         .map(|ident| ident.to_string())
                         .collect::<Vec<String>>()
                         .join(".");
-                    let mut path = dependencies::nuget_root();
-                    path.push(name);
+                    let nuget_path =
+                        std::fs::read_dir(dependencies::nuget_root()).map_err(|e| {
+                            syn::Error::new_spanned(
+                                &package,
+                                format!("could not read nuget directory: {}", e),
+                            )
+                        })?;
+
+                    let mut dependency_path_iter = nuget_path
+                        .into_iter()
+                        .filter_map(|entry| entry.ok())
+                        .filter(|entry| {
+                            if let Some(entry) = entry.file_name().to_str().map(str::to_owned) {
+                                entry.starts_with(&name)
+                            } else {
+                                false
+                            }
+                        })
+                        .map(|entry| entry.path());
+
+                    let path = dependency_path_iter.next().ok_or_else(|| {
+                        syn::Error::new_spanned(
+                            &package,
+                            format!(
+                                "could not find folder for dependency '{}' in target\nuget folder",
+                                name
+                            ),
+                        )
+                    })?;
+                    // Check for multiple versions
+                    if dependency_path_iter.next().is_some() {
+                        return Err(syn::Error::new_spanned(
+                            &package,
+                            format!("multiple nuget package versions found for '{}'", name),
+                        ));
+                    }
 
                     dependencies::expand_paths(path, &mut dependencies, true).map_err(|e| {
                         syn::Error::new_spanned(
