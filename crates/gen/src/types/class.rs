@@ -169,7 +169,7 @@ impl Class {
 
             quote! {
                 #[repr(transparent)]
-                #[derive(Default, Clone, PartialEq)]
+                #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
                 pub struct #name { ptr: ::winrt::ComPtr<#default_name> }
                 impl #name {
                     #new
