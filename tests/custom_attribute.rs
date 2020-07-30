@@ -8,10 +8,8 @@ fn find_winmds<P: AsRef<Path>>(directory: P) -> Vec<PathBuf> {
         let entry = entry.unwrap();
         let path = entry.path();
         if path.is_file() {
-            if let Some(ext) = path.extension() {
-                if ext == "winmd" {
-                    result.push(path.clone());
-                }
+            if let Some("winmd") = path.extension().and_then(|s| s.to_str()) {
+                result.push(path);
             }
         }
     }
@@ -23,12 +21,12 @@ fn named_arguments() -> Result<()> {
     // Get our WinMD files from the target directory
     let files = {
         let mut files = Vec::new();
-        let paths = [
-            "target/nuget/Microsoft.Windows.SDK.Contracts",
-            "target/nuget/KennyKerr.Windows.TestWinRT",
-        ];
-        for path in &paths {
-            files.append(&mut find_winmds(path));
+        for entry in std::fs::read_dir("target/nuget").unwrap() {
+            let entry = entry.unwrap();
+            let path = entry.path();
+            if path.is_dir() {
+                files.append(&mut find_winmds(path));
+            }
         }
         files
     };

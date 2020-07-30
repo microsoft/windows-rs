@@ -5,7 +5,7 @@ mod manifest;
 use error::Error;
 use manifest::Manifest;
 
-use anyhow::{bail, Context};
+use anyhow::Context;
 use curl::easy::Easy;
 
 use std::ffi::OsString;
@@ -299,7 +299,7 @@ impl Install {
 
         let deps = self.get_dependencies(dependency_descriptors)?;
         for dep in deps {
-            dep.save()?;
+            dep.save(self.force)?;
         }
         Ok(())
     }
@@ -380,14 +380,14 @@ impl DependencyDescriptor {
         match self {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
-                let bytes = try_download(url, 5)?;
+                let bytes = try_download(url)?;
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
                 })
             }
             DependencyDescriptor::Url { url, name } => {
-                let bytes = try_download(url.as_str().to_owned(), 5)?;
+                let bytes = try_download(url.as_str().to_owned())?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
@@ -417,81 +417,62 @@ impl DependencyDescriptor {
         }
     }
 
+    fn version(&self) -> &str {
+        match self {
+            DependencyDescriptor::NugetOrg { version, .. } => version,
+            DependencyDescriptor::Url { .. } => "unknown",
+            DependencyDescriptor::Local { .. } => "unknown",
+        }
+    }
+
     fn already_saved(&self) -> anyhow::Result<bool> {
         Ok(self.directory_path()?.exists())
     }
 
     fn directory_path(&self) -> anyhow::Result<PathBuf> {
-        Ok(cargo::workspace_target_path()?
-            .join("nuget")
-            .join(&self.name()))
+        Ok(cargo::workspace_target_path()?.join("nuget").join(&format!(
+            "{}-{}",
+            self.name(),
+            self.version()
+        )))
     }
 }
 
-fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
-    if recursion_amount == 0 {
-        bail!(Error::DownloadError(
-            anyhow::anyhow!("Too many redirects").into(),
-        ));
-    }
+fn try_download(url: String) -> anyhow::Result<Vec<u8>> {
     let mut handle = Easy::new();
     handle
         .url(&url)
         .map_err(|e| Error::DownloadError(e.into()))?;
-    let status = &mut None;
+    // Instruct curl to follow redirections
+    handle
+        .follow_location(true)
+        .map_err(|e| Error::DownloadError(e.into()))?;
+    // Optionally set the max number of redirects
+    handle
+        .max_redirections(5)
+        .map_err(|e| Error::DownloadError(e.into()))?;
+
+    let mut bytes = Vec::new();
     {
         let mut transfer = handle.transfer();
         transfer
-            .header_function(|header| {
-                let header = std::str::from_utf8(header).unwrap();
-                if header.starts_with("HTTP/1.1 ") {
-                    let n = &header[9..12];
-                    *status = Some(n.parse::<u16>().expect("Should be number"));
-                }
-                true
+            .write_function(|d| {
+                bytes.extend_from_slice(d);
+                Ok(d.len())
             })
-            .unwrap();
+            .map_err(|e| Error::DownloadError(e.into()))?;
         print_verbose_status!("Requesting", &url);
-        transfer.perform()?;
+        transfer
+            .perform()
+            .map_err(|e| Error::DownloadError(e.into()))?;
     }
-    match status.expect("HTTP request did not have a status code") {
-        200u16 => {
-            print_verbose_status!("Retrieved", "data from {}", url);
-            let mut bytes = Vec::new();
-            {
-                let mut transfer = handle.transfer();
-                transfer
-                    .write_function(|d| {
-                        bytes.extend(d);
-                        Ok(d.len())
-                    })
-                    .map_err(|e| Error::DownloadError(e.into()))?;
-                transfer.perform()?;
-            }
-            Ok(bytes)
-        }
-        302 => {
-            let redirect_url = &mut None;
-            {
-                let mut transfer = handle.transfer();
-                transfer
-                    .header_function(|header| {
-                        let header = std::str::from_utf8(header).unwrap();
-                        if header.starts_with("Location: ") {
-                            *redirect_url = Some(header[10..header.len() - 2].to_owned())
-                        }
-                        true
-                    })
-                    .map_err(|e| Error::DownloadError(e.into()))?;
-                transfer.perform()?;
-            }
-            let redirect_url = redirect_url.take().unwrap();
 
-            try_download(redirect_url, recursion_amount - 1)
-        }
-        s => bail!(Error::DownloadError(
-            anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
-        )),
+    match handle
+        .response_code()
+        .map_err(|e| Error::DownloadError(e.into()))?
+    {
+        200 => Ok(bytes),
+        code => Err(Error::DownloadError(curl::Error::new(code as _).into()).into()),
     }
 }
 
@@ -681,7 +662,7 @@ impl ResolvedDependency {
         &self.contents.1
     }
 
-    fn save(self) -> anyhow::Result<()> {
+    fn save(self, force: bool) -> anyhow::Result<()> {
         print_verbose_status!(
             "Saving",
             "{} winmd files and {} dlls",
@@ -690,6 +671,27 @@ impl ResolvedDependency {
         );
 
         let dep_directory = self.descriptor.directory_path()?;
+        // delete any old directories
+        if let Ok(parent_dir) = std::fs::read_dir(dep_directory.parent().unwrap()) {
+            for entry in parent_dir {
+                let entry = match entry {
+                    Ok(e) => e,
+                    Err(_) => continue,
+                };
+                let name = entry.file_name();
+                let name = name.to_str();
+                if entry.path().is_dir()
+                    && name
+                        .map(|s| {
+                            s.starts_with(self.descriptor.name())
+                                && !s.ends_with(self.descriptor.version())
+                        })
+                        .unwrap_or(false)
+                {
+                    let _ = std::fs::remove_dir_all(&entry.path());
+                }
+            }
+        }
         // create the dependency directory
         if !dep_directory.exists() {
             std::fs::create_dir_all(&dep_directory)
@@ -703,7 +705,7 @@ impl ResolvedDependency {
                 winmd.name,
                 dep_directory.display()
             );
-            winmd.write(&dep_directory)?;
+            winmd.write(&dep_directory, force)?;
         }
 
         for dll in self.dlls() {
@@ -713,7 +715,7 @@ impl ResolvedDependency {
                 dll.name,
                 dep_directory.display(),
             );
-            dll.write(&dep_directory).unwrap();
+            dll.write(&dep_directory, force).unwrap();
         }
 
         Ok(())
@@ -726,10 +728,10 @@ struct Winmd {
 }
 
 impl Winmd {
-    fn write(&self, dir: &Path) -> std::io::Result<()> {
+    fn write(&self, dir: &Path, force: bool) -> std::io::Result<()> {
         let path = dir.join(&self.name);
-        if !path.exists() {
-            return std::fs::write(dir.join(&self.name), &self.contents);
+        if !path.exists() || force {
+            return std::fs::write(path, &self.contents);
         }
         Ok(())
     }
@@ -742,7 +744,7 @@ struct Dll {
 }
 
 impl Dll {
-    fn write(&self, dir: &Path) -> anyhow::Result<()> {
+    fn write(&self, dir: &Path, force: bool) -> anyhow::Result<()> {
         let proper_arch = ARCHES.contains(&&*self.arch.to_string_lossy());
         if !proper_arch {
             print_verbose_status!(
@@ -755,7 +757,7 @@ impl Dll {
         }
         let path = dir.join(&self.name);
         std::fs::create_dir_all(path.parent().unwrap())?;
-        if !path.exists() {
+        if !path.exists() || force {
             std::fs::write(&path, &self.contents)?;
         }
         for profile in &["debug", "release"] {

@@ -8,7 +8,7 @@
 /// A type should only implement RuntimeType if the associated `Abi` type is safe to pass
 /// across FFI boundaries. The type itself must also be zero-initializable and safe to
 /// drop if all bits are zeroable. RuntimeTypes must be safe to use in WinRT generics.
-pub unsafe trait RuntimeType: crate::AbiTransferable {
+pub unsafe trait RuntimeType: crate::AbiTransferable + Clone {
     // TODO: this should be a const function returning &'static str
     // It is only used internally by ComInterface::iid() which should
     // itself be a const function.

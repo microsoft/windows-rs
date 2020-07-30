@@ -239,14 +239,18 @@ impl TypeName {
     }
 
     pub fn class_signature(&self, reader: &TypeReader) -> String {
-        let mut map = RequiredInterfaces::default();
-        map.insert_required(reader, self, &self.calling_namespace);
-        let default = map
-            .0
-            .into_iter()
-            .find(|(_, kind)| *kind == InterfaceKind::Default)
-            .unwrap()
-            .0;
+        let default = self
+            .def
+            .interfaces(reader)
+            .find(|i| i.is_default(reader))
+            .unwrap();
+
+        let default = TypeName::from_type_def_or_ref(
+            reader,
+            default.interface(reader),
+            &self.generics,
+            &self.calling_namespace,
+        );
 
         format!(
             "rc({}.{};{})",

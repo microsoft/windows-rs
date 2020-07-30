@@ -51,7 +51,7 @@ impl Struct {
 
         quote! {
             #[repr(C)]
-            #[derive(Clone, Default, Debug, PartialEq)]
+            #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq)]
             pub struct #name {
                 #(#fields),*
             }

@@ -1,5 +1,15 @@
 # Changelog
 
+# [0.7.2] - 2020-07-27
+
+* Support for async await [#251](https://github.com/microsoft/winrt-rs/pull/251)
+* Add TimeSpan <> std::time::Duration interop [#253](https://github.com/microsoft/winrt-rs/pull/253)
+* Support for creating composable types [#255](https://github.com/microsoft/winrt-rs/pull/255)
+* Implement factory caching [#263](https://github.com/microsoft/winrt-rs/pull/263)
+* Various improvements to cargo-winrt
+* And more!
+
+
 # [0.7.1] - 2020-07-06
 
 ## Added

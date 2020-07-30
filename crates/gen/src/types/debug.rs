@@ -1,6 +1,5 @@
 use crate::types::RequiredInterface;
 use crate::types::TypeName;
-
 use proc_macro2::TokenStream;
 use quote::quote;
 
