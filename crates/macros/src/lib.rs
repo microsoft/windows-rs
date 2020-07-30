@@ -174,7 +174,7 @@ impl ImportMacro {
             .dependencies
             .0
             .iter()
-            .map(|p| WinmdFile::new(p))
+            .map(WinmdFile::new)
             .collect();
 
         let reader = &TypeReader::new(dependencies);
@@ -404,9 +404,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> parse::Result<Namespa
                     limit: TypeLimit::Some(vec![name]),
                 })
             }
-            UseTree::Rename(r) => {
-                return Err(Error::new(r.span(), "Renaming syntax is not supported"))
-            }
+            UseTree::Rename(r) => Err(Error::new(r.span(), "Renaming syntax is not supported")),
         }
     }
 

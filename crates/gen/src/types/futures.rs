@@ -4,7 +4,7 @@ use quote::quote;
 
 pub fn get_async_tokens(
     name: &TypeName,
-    interfaces: &Vec<RequiredInterface>,
+    interfaces: &[RequiredInterface],
 ) -> (TokenStream, TokenStream) {
     let kind = async_kind(name);
     if kind != AsyncKind::None {

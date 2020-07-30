@@ -196,7 +196,7 @@ impl RequiredInterface {
     }
 }
 
-pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
+pub fn to_method_tokens(interfaces: &[RequiredInterface]) -> TokenStream {
     let mut tokens = Vec::new();
     let mut names = BTreeSet::new();
 
