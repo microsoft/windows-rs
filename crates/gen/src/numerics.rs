@@ -19,22 +19,28 @@ pub fn generate_struct_extensions(winrt_struct: &Struct) -> TokenStream {
                 Operation::Mul,
             ];
             let impls = ops.iter().map(|op| {
-                let impl_with_same = op.to_tokens_with_same(winrt_struct);
+                let impl_with_same_type = op.to_tokens_with_same_type(winrt_struct);
                 let impl_with_scalar = match op {
                     Operation::Div | Operation::Mul => op.to_tokens_with_scalar(winrt_struct),
                     _ => quote! {},
                 };
                 quote! {
-                    #impl_with_same
+                    #impl_with_same_type
                     #impl_with_scalar
                 }
             });
-            TokenStream::from_iter(impls)
+            //TokenStream::from_iter(impls)
+            let vector_functions = to_tokens_vector_functions(winrt_struct);
+            println!("{}", vector_functions.to_string());
+            quote! {
+                #(#impls)*
+                #vector_functions
+            }
         }
         ("Windows.Foundation.Numerics", "Matrix3x2")
         | ("Windows.Foundation.Numerics", "Matrix4x4") => {
             let ops = [Operation::Add, Operation::Sub];
-            let impl_with_same = ops.iter().map(|op| op.to_tokens_with_same(winrt_struct));
+            let impl_with_same_type = ops.iter().map(|op| op.to_tokens_with_same_type(winrt_struct));
             let impl_with_scalar = Operation::Mul.to_tokens_with_scalar(winrt_struct);
             let rows = match &winrt_struct.name.name as &str {
                 "Matrix3x2" => {
@@ -74,9 +80,9 @@ pub fn generate_struct_extensions(winrt_struct: &Struct) -> TokenStream {
                 }
                 _ => panic!(),
             };
-            let impl_custom = Operation::Mul.to_tokes_with_same_custom(winrt_struct, &rows);
+            let impl_custom = Operation::Mul.to_tokens_with_same_type_custom(winrt_struct, &rows);
             quote! {
-                #(#impl_with_same)*
+                #(#impl_with_same_type)*
                 #impl_with_scalar
                 #impl_custom
             }
@@ -95,7 +101,7 @@ enum Operation {
 }
 
 impl Operation {
-    pub fn to_tokens_with_same(&self, winrt_struct: &Struct) -> TokenStream {
+    pub fn to_tokens_with_same_type(&self, winrt_struct: &Struct) -> TokenStream {
         let struct_name = &winrt_struct.name.tokens;
         let (op_name, op_fn, symbol) = self.get_name_fn_and_symbol();
         let fields = winrt_struct.fields.iter().map(|field| {
@@ -105,10 +111,10 @@ impl Operation {
             }
         });
         let fields = &quote! { #(#fields),* };
-        let permutations = Self::get_same_permutations(struct_name);
+        let permutations = Self::get_same_type_permutations(struct_name);
         let impls = permutations.iter().map(|(lhs, rhs)| {
             quote! {
-                impl std::ops::#op_name<#rhs> for #lhs {
+                impl ::std::ops::#op_name<#rhs> for #lhs {
                     type Output = #struct_name;
                     fn #op_fn(self, rhs: #rhs) -> #struct_name {
                         #struct_name {
@@ -134,7 +140,7 @@ impl Operation {
         let permutations = vec![struct_name.clone(), quote! { &#struct_name }];
         let impls = permutations.iter().map(|lhs| {
             quote! {
-                impl std::ops::#op_name<f32> for #lhs {
+                impl ::std::ops::#op_name<f32> for #lhs {
                     type Output = #struct_name;
                     fn #op_fn(self, rhs: f32) -> #struct_name {
                         #struct_name {
@@ -147,17 +153,17 @@ impl Operation {
         TokenStream::from_iter(impls)
     }
 
-    pub fn to_tokes_with_same_custom(
+    pub fn to_tokens_with_same_type_custom(
         &self,
         winrt_struct: &Struct,
         custom_fields: &TokenStream,
     ) -> TokenStream {
         let struct_name = &winrt_struct.name.tokens;
         let (op_name, op_fn, _) = self.get_name_fn_and_symbol();
-        let permutations = Self::get_same_permutations(struct_name);
+        let permutations = Self::get_same_type_permutations(struct_name);
         let impls = permutations.iter().map(|(lhs, rhs)| {
             quote! {
-                impl std::ops::#op_name<#rhs> for #lhs {
+                impl ::std::ops::#op_name<#rhs> for #lhs {
                     type Output = #struct_name;
                     fn #op_fn(self, rhs: #rhs) -> #struct_name {
                         #struct_name {
@@ -170,7 +176,7 @@ impl Operation {
         TokenStream::from_iter(impls)
     }
 
-    fn get_same_permutations(struct_name: &TokenStream) -> Vec<(TokenStream, TokenStream)> {
+    fn get_same_type_permutations(struct_name: &TokenStream) -> Vec<(TokenStream, TokenStream)> {
         vec![
             (struct_name.clone(), struct_name.clone()),
             (struct_name.clone(), quote! { &#struct_name }),
@@ -187,4 +193,95 @@ impl Operation {
             Operation::Mul => (quote! {Mul}, quote! {mul}, quote! {*}),
         }
     }
+}
+
+fn to_tokens_vector_functions(winrt_struct: &Struct) -> TokenStream {
+    let struct_name = &winrt_struct.name.tokens;
+    let fields_zero = field_assignment_to_tokens(winrt_struct, 0.0);
+    let fields_one = field_assignment_to_tokens(winrt_struct, 1.0);
+
+    let unit_functions = {
+        let unit_functions = winrt_struct.fields.iter().map(|field| {
+            let name_string = &field.0;
+            let unit_fn_name = format_ident(&format!("unit_{}", field.0));
+
+            let fields = winrt_struct.fields.iter().map(|field| {
+                let name = format_ident(&field.0);
+                let value = if &field.0 == name_string {
+                    quote!{ 1.0 }
+                } else {
+                    quote!{ 0.0 }
+                };
+                quote! {
+                    #name: #value
+                }
+            });
+
+            quote! {
+                pub fn #unit_fn_name() -> Self {
+                    Self {
+                        #(#fields),*
+                    }
+                }
+            }
+        });
+        TokenStream::from_iter(unit_functions)
+    };
+
+    let dot = {
+        let fields = winrt_struct.fields.iter().map(|field| {
+            let name = format_ident(&field.0);
+            quote! {
+                self.#name * rhs.#name
+            }
+        });
+        quote! {
+            pub fn dot(&self, rhs: &#struct_name) -> f32 {
+                #(#fields)+*
+            }
+        }
+    };
+
+    quote! {
+        impl #struct_name {
+            pub fn zero() -> Self {
+                Self {
+                    #fields_zero
+                }
+            }
+            pub fn one() -> Self {
+                Self {
+                    #fields_one
+                }
+            }
+            #unit_functions
+            #dot
+            pub fn length_squared(&self) -> f32 {
+                self.dot(self)
+            }
+            pub fn length(&self) -> f32 {
+                self.length_squared().sqrt()
+            }
+            pub fn distance(&self, value: &#struct_name) -> f32 {
+                (self - value).length()
+            }
+            pub fn distance_squared(&self, value: &#struct_name) -> f32 {
+                (self - value).length_squared()
+            }
+            pub fn normalize(&self) -> Self {
+                self / self.length()
+            }
+        }
+    }
+}
+
+fn field_assignment_to_tokens(winrt_struct: &Struct, value: f32) -> TokenStream {
+    let value = quote! { #value };
+    let fields = winrt_struct.fields.iter().map(|field| {
+        let name = format_ident(&field.0);
+        quote! {
+            #name: #value,
+        }
+    });
+    TokenStream::from_iter(fields)
 }
