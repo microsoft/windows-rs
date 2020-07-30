@@ -170,12 +170,7 @@ impl ImportMacro {
     }
 
     fn to_tokens(self) -> TokenStream {
-        let dependencies = self
-            .dependencies
-            .0
-            .iter()
-            .map(WinmdFile::new)
-            .collect();
+        let dependencies = self.dependencies.0.iter().map(WinmdFile::new).collect();
 
         let reader = &TypeReader::new(dependencies);
         let mut limits = TypeLimits::new(reader);
