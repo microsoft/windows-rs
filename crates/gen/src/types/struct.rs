@@ -2,8 +2,7 @@ use crate::case::to_snake;
 use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 
 #[derive(Debug)]
 pub struct Struct {

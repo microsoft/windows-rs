@@ -4,8 +4,7 @@ use crate::tables::*;
 use crate::types::*;
 use crate::*;
 
-use proc_macro2::TokenStream;
-use quote::{format_ident, quote};
+use squote::{format_ident, quote, Ident, TokenStream};
 
 use std::iter::FromIterator;
 
@@ -60,7 +59,7 @@ impl TypeName {
     pub fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
@@ -109,7 +108,7 @@ impl TypeName {
 
     pub fn from_type_spec_blob(
         blob: &mut Blob,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         blob.read_unsigned();
@@ -130,7 +129,7 @@ impl TypeName {
     pub fn from_type_spec(
         reader: &TypeReader,
         spec: TypeSpec,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         let mut blob = spec.sig(reader);
@@ -415,18 +414,18 @@ impl Ord for TypeName {
     }
 }
 
-fn format_abi_ident(name: &str) -> proc_macro2::Ident {
-    quote::format_ident!("abi_{}", name)
+fn format_abi_ident(name: &str) -> Ident {
+    squote::format_ident!("abi_{}", name)
 }
 
 fn generate_tokens<F>(
     name: &str,
     namespace: Option<&TokenStream>,
-    generics: &Vec<TypeKind>,
+    generics: &[TypeKind],
     format: F,
 ) -> TokenStream
 where
-    F: FnOnce(&str) -> proc_macro2::Ident,
+    F: FnOnce(&str) -> Ident,
 {
     if generics.is_empty() {
         let name = format(name);
