@@ -1,7 +1,7 @@
 use std::convert::*;
 use std::iter::FromIterator;
 use winrt::collections::{IIterable, IVectorView, PropertySet};
-use winrt::{Object, IWwwFormUrlDecoderEntry,  Uri};
+use winrt::{IWwwFormUrlDecoderEntry, Object, Uri};
 
 #[test]
 fn uri() -> winrt::Result<()> {

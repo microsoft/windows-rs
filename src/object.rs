@@ -71,7 +71,6 @@ pub struct abi_IInspectable {
         unsafe extern "system" fn(NonNullRawComPtr<Object>, *mut i32) -> ErrorCode,
 }
 
-
 macro_rules! primitive_boxed_type {
     ($(($t:ty, $m:ident)),+) => {
         $(impl std::convert::TryFrom<$t> for Object {

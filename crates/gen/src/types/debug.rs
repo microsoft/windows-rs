@@ -9,7 +9,7 @@ pub fn debug_tokens(type_name: &TypeName, interfaces: &[RequiredInterface]) -> T
     let implements_istringable = interfaces.iter().any(|interface| {
         interface.name.name == "IStringable" && interface.name.namespace == "Windows.Foundation"
     });
-    
+
     let is_istringable =
         type_name.name == "IStringable" && type_name.namespace == "Windows.Foundation";
 

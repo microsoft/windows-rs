@@ -23,8 +23,8 @@ macro_rules! primitive_try_from_test {
 #[test]
 fn boxing_into() -> winrt::Result<()> {
     use std::convert::{TryFrom, TryInto};
-    use winrt::Object;
     use winrt::HString;
+    use winrt::Object;
 
     primitive_try_into_test! {
         true,
