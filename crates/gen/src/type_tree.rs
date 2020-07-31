@@ -6,8 +6,8 @@ use squote::TokenStream;
 /// A namespaced tree of types
 #[derive(Default)]
 pub struct TypeTree {
-    types: Vec<Type>,
-    namespaces: TypeNamespaces,
+    pub types: Vec<Type>,
+    pub namespaces: TypeNamespaces,
 }
 
 impl TypeTree {

@@ -180,9 +180,9 @@ impl ImportMacro {
         let mut limits = TypeLimits::new(reader);
 
         let foundation_namespaces = &[
-            "windows.foundation",
-            "windows.foundation.collections",
-            "windows.foundation.numerics"
+            "Windows.Foundation",
+            "Windows.Foundation.Collections",
+            "Windows.Foundation.Numerics"
         ];
 
         if self.foundation {
