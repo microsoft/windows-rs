@@ -30,6 +30,18 @@ impl TypeTree {
         }
     }
 
+    pub fn remove(&mut self, namespace: &str) {
+        if let Some(pos) = namespace.find('.') {
+            if let Some(tree) = self.namespaces.0.get_mut(&namespace[..pos]) {
+                tree.remove(&namespace[pos + 1..])
+            }
+        } else {
+            self.namespaces
+                .0
+                .remove(namespace);
+        }
+    }
+
     /// Turn the tree into a token stream for code generation
     pub fn to_tokens<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         self.types

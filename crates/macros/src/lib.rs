@@ -160,6 +160,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
 /// A parsed `import!` macro
 struct ImportMacro {
+    foundation: bool,
     dependencies: Dependencies,
     types: TypesDeclarations,
 }
@@ -180,6 +181,18 @@ impl ImportMacro {
         let reader = &TypeReader::new(dependencies);
         let mut limits = TypeLimits::new(reader);
 
+        let foundation_namespaces = &[
+            "windows.foundation",
+            "windows.foundation.collections",
+            "windows.foundation.numerics"
+        ];
+
+        if self.foundation {
+            for namespace in foundation_namespaces {
+                limits.insert(NamespaceTypes { namespace: namespace.to_string(), limit: TypeLimit::All }).unwrap();
+            }
+        }
+
         for limit in self.types.0 {
             let types = limit.types;
             let syntax = limit.syntax;
@@ -191,7 +204,13 @@ impl ImportMacro {
         }
 
         let stage = TypeStage::from_limits(reader, &limits);
-        let tree = stage.into_tree();
+        let mut tree = stage.into_tree();
+
+        if !self.foundation {
+            for namespace in foundation_namespaces {
+                tree.remove(namespace);
+            }
+        }
 
         tree.to_tokens()
             .collect::<proc_macro2::TokenStream>()
@@ -201,12 +220,14 @@ impl ImportMacro {
 
 impl Parse for ImportMacro {
     fn parse(input: ParseStream) -> parse::Result<Self> {
+        let foundation = input.parse::<keywords::foundation>().is_ok();
         let _ = input.parse::<keywords::dependencies>()?;
         let dependencies: Dependencies = input.parse()?;
         let _ = input.parse::<keywords::types>()?;
         let types: TypesDeclarations = input.parse()?;
 
         Ok(ImportMacro {
+            foundation,
             dependencies,
             types,
         })
@@ -219,6 +240,7 @@ mod keywords {
     syn::custom_keyword!(nuget);
     syn::custom_keyword!(dependencies);
     syn::custom_keyword!(types);
+    syn::custom_keyword!(foundation);
 }
 
 /// A parsed `dependencies` section of the `import!` macro

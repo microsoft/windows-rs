@@ -42,6 +42,15 @@
 //! string: http://kennykerr.ca/
 //! ```
 
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/winrt.rs"));
+}
+
+extern crate self as winrt;
+pub use bindings::windows::foundation::*;
+pub use bindings::windows::foundation::collections as collections;
+pub use bindings::windows::foundation::numerics as numerics;
+
 #[cfg(doctest)]
 doc_comment::doctest!("../README.md");
 
