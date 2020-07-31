@@ -97,6 +97,7 @@ impl Delegate {
 
         quote! {
             #[repr(transparent)]
+            #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
             pub struct #definition where #constraints {
                 ptr: ::winrt::ComPtr<#name>,
                 #phantoms
@@ -110,14 +111,6 @@ impl Delegate {
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
                 const IID: ::winrt::Guid = #guid;
-            }
-            impl<#constraints> ::std::clone::Clone for #name {
-                fn clone(&self) -> Self {
-                    Self {
-                        ptr: self.ptr.clone(),
-                        #phantoms
-                    }
-                }
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
@@ -140,19 +133,6 @@ impl Delegate {
                 }
             }
             #debug
-            impl<#constraints> ::std::default::Default for #name {
-                fn default() -> Self {
-                    Self {
-                        ptr: ::winrt::ComPtr::default(),
-                        #phantoms
-                    }
-                 }
-            }
-            impl<#constraints> ::std::cmp::PartialEq<Self> for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    self.ptr == other.ptr
-                }
-            }
             #[repr(C)]
             struct #impl_definition where #constraints {
                 vtable: *const #abi_definition,

@@ -163,7 +163,7 @@ impl std::convert::From<Error> for ErrorCode {
             }
         }
 
-        return error.code();
+        error.code()
     }
 }
 
@@ -195,12 +195,12 @@ impl std::convert::From<ErrorCode> for Error {
             };
         }
 
-        let mut message = String::new();
-
         // Otherwise, for older APIs we attempt to get the error message.
-        if !info.is_null() {
-            message = info.get_description();
-        }
+        let message = if !info.is_null() {
+            info.get_description()
+        } else {
+            String::new()
+        };
 
         Self::new(code, &message)
     }

@@ -5,7 +5,7 @@ mod manifest;
 use error::Error;
 use manifest::Manifest;
 
-use anyhow::{bail, Context};
+use anyhow::Context;
 use curl::easy::Easy;
 
 use std::ffi::OsString;
@@ -380,14 +380,14 @@ impl DependencyDescriptor {
         match self {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
-                let bytes = try_download(url, 5)?;
+                let bytes = try_download(url)?;
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
                 })
             }
             DependencyDescriptor::Url { url, name } => {
-                let bytes = try_download(url.as_str().to_owned(), 5)?;
+                let bytes = try_download(url.as_str().to_owned())?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
@@ -438,70 +438,41 @@ impl DependencyDescriptor {
     }
 }
 
-fn try_download(url: String, recursion_amount: u8) -> anyhow::Result<Vec<u8>> {
-    if recursion_amount == 0 {
-        bail!(Error::DownloadError(
-            anyhow::anyhow!("Too many redirects").into(),
-        ));
-    }
+fn try_download(url: String) -> anyhow::Result<Vec<u8>> {
     let mut handle = Easy::new();
     handle
         .url(&url)
         .map_err(|e| Error::DownloadError(e.into()))?;
-    let status = &mut None;
+    // Instruct curl to follow redirections
+    handle
+        .follow_location(true)
+        .map_err(|e| Error::DownloadError(e.into()))?;
+    // Optionally set the max number of redirects
+    handle
+        .max_redirections(5)
+        .map_err(|e| Error::DownloadError(e.into()))?;
+
+    let mut bytes = Vec::new();
     {
         let mut transfer = handle.transfer();
         transfer
-            .header_function(|header| {
-                let header = std::str::from_utf8(header).unwrap();
-                if header.starts_with("HTTP/1.1 ") {
-                    let n = &header[9..12];
-                    *status = Some(n.parse::<u16>().expect("Should be number"));
-                }
-                true
+            .write_function(|d| {
+                bytes.extend_from_slice(d);
+                Ok(d.len())
             })
-            .unwrap();
+            .map_err(|e| Error::DownloadError(e.into()))?;
         print_verbose_status!("Requesting", &url);
-        transfer.perform()?;
+        transfer
+            .perform()
+            .map_err(|e| Error::DownloadError(e.into()))?;
     }
-    match status.expect("HTTP request did not have a status code") {
-        200u16 => {
-            print_verbose_status!("Retrieved", "data from {}", url);
-            let mut bytes = Vec::new();
-            {
-                let mut transfer = handle.transfer();
-                transfer
-                    .write_function(|d| {
-                        bytes.extend(d);
-                        Ok(d.len())
-                    })
-                    .map_err(|e| Error::DownloadError(e.into()))?;
-                transfer.perform()?;
-            }
-            Ok(bytes)
-        }
-        302 => {
-            let redirect_url = &mut None;
-            {
-                let mut transfer = handle.transfer();
-                transfer
-                    .header_function(|header| {
-                        let header = std::str::from_utf8(header).unwrap();
-                        if header.starts_with("Location: ") {
-                            *redirect_url = Some(header[10..header.len() - 2].to_owned())
-                        }
-                        true
-                    })
-                    .map_err(|e| Error::DownloadError(e.into()))?;
-                transfer.perform()?;
-            }
-            let redirect_url = redirect_url.take().unwrap();
 
-            try_download(redirect_url, recursion_amount - 1)
-        }
-        s => bail!(Error::DownloadError(
-            anyhow::anyhow!("Non-successful response: {} {}", url, s).into(),
-        )),
+    match handle
+        .response_code()
+        .map_err(|e| Error::DownloadError(e.into()))?
+    {
+        200 => Ok(bytes),
+        code => Err(Error::DownloadError(curl::Error::new(code as _).into()).into()),
     }
 }
 

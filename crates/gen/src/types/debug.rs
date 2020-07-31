@@ -3,7 +3,7 @@ use crate::types::TypeName;
 use proc_macro2::TokenStream;
 use quote::quote;
 
-pub fn debug_tokens(type_name: &TypeName, interfaces: &Vec<RequiredInterface>) -> TokenStream {
+pub fn debug_tokens(type_name: &TypeName, interfaces: &[RequiredInterface]) -> TokenStream {
     let name = &type_name.name;
     let default_impl = quote! { ::std::format!("{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self)) };
 

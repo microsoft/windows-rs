@@ -2,6 +2,7 @@ use std::sync::atomic::{self, AtomicI32, Ordering};
 
 /// A thread-safe reference count for use with COM implementations.
 #[repr(transparent)]
+#[derive(Default)]
 pub struct RefCount {
     value: AtomicI32,
 }

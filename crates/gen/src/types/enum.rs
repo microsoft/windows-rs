@@ -76,7 +76,7 @@ impl Enum {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Copy, Clone, Default, Debug, Eq, PartialEq)]
+            #[derive(::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::Eq, ::std::cmp::PartialEq)]
             pub struct #name {
                 value: #repr
             }
