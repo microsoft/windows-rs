@@ -202,13 +202,12 @@ impl ImportMacro {
     }
 
     fn to_tokens(self) -> proc_macro2::TokenStream {
-        match self
-            .to_tokens_string()
-            .map(|s| s.parse::<proc_macro2::TokenStream>().unwrap())
-        {
-            Ok(ts) => ts,
-            Err(ts) => ts,
-        }
+        self.to_tokens_string()
+            .map(|s| {
+                s.parse::<proc_macro2::TokenStream>()
+                    .expect("Internal error: the code code produce by the macro was not a valid token stream")
+            })
+            .unwrap_or_else(|ts| ts)
     }
 }
 
