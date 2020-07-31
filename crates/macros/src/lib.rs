@@ -116,7 +116,6 @@ pub fn build(stream: TokenStream) -> TokenStream {
         #(println!("cargo:rerun-if-changed={}", #winmd_paths);)*
     };
 
-    let start = std::time::Instant::now();
     let tokens = match import.to_tokens_string() {
         Ok(t) => t,
         Err(t) => return t.into(),
