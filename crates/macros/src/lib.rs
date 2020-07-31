@@ -191,9 +191,8 @@ impl ImportMacro {
 
         let s = tree
             .to_tokens()
-            .map(|s| s.into_string())
-            .reduce(String::new, |mut accum, n| {
-                accum.push_str(&n);
+            .reduce(squote::TokenStream::new, |mut accum, n| {
+                accum.combine(&n);
                 accum
             });
         s.parse::<TokenStream>().unwrap()
