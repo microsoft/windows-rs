@@ -84,13 +84,13 @@ impl Struct {
                         }
                     }
                 }
-                
+
                 impl ::std::convert::From<TimeSpan> for ::std::time::Duration {
                     fn from(value: TimeSpan) -> Self {
                         ::std::time::Duration::from_nanos((value.duration * 100) as u64)
                     }
                 }
-                
+
                 impl<'a> ::std::convert::Into<::winrt::Param<'a, TimeSpan>> for ::std::time::Duration {
                     fn into(self) -> ::winrt::Param<'a, TimeSpan> {
                         ::winrt::Param::Owned(self.into())
