@@ -1,4 +1,3 @@
-use super::object::to_object_tokens;
 use crate::format_ident;
 use crate::tables::*;
 use crate::types::*;
@@ -145,7 +144,6 @@ impl Class {
                 quote! {}
             };
 
-            let object = to_object_tokens(&name, &TokenStream::new());
             let bases = self.to_base_conversions_tokens(&name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = &self.signature;
@@ -197,9 +195,18 @@ impl Class {
                         <::winrt::ComPtr<#default_name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
                     }
                 }
+                impl ::std::convert::From<#name> for ::winrt::Object {
+                    fn from(value: #name) -> Self {
+                        unsafe { ::std::mem::transmute(value) }
+                    }
+                }
+                impl ::std::convert::From<&#name> for ::winrt::Object {
+                    fn from(value: &#name) -> Self {
+                        ::std::convert::From::from(::std::clone::Clone::clone(value))
+                    }
+                }
                 #debug
                 #conversions
-                #object
                 #bases
                 #iterator
                 #send_sync

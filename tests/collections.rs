@@ -1,7 +1,7 @@
+use std::convert::*;
 use std::iter::FromIterator;
 use winrt::collections::{IIterable, IVectorView, PropertySet};
-use winrt::TryInto;
-use winrt::{IPropertyValue, IWwwFormUrlDecoderEntry, PropertyValue, Uri};
+use winrt::{Object, IWwwFormUrlDecoderEntry,  Uri};
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -66,9 +66,9 @@ fn property_set() -> winrt::Result<()> {
 
     let set = PropertySet::new()?;
 
-    set.insert("A", PropertyValue::create_uint32(1)?)?;
-    set.insert("B", PropertyValue::create_uint32(2)?)?;
-    set.insert("C", PropertyValue::create_uint32(3)?)?;
+    set.insert("A", Object::try_from(1)?)?;
+    set.insert("B", Object::try_from(2)?)?;
+    set.insert("C", Object::try_from(3)?)?;
 
     assert!(set.size()? == 3);
 
@@ -77,8 +77,7 @@ fn property_set() -> winrt::Result<()> {
 
     for pair in &set {
         keys.push(pair.key()?.to_string());
-        let pv: IPropertyValue = pair.value()?.try_into()?;
-        values += pv.get_uint32()?;
+        values += i32::try_from(pair.value()?)?;
     }
     assert!(set.size()? == 3);
 

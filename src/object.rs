@@ -17,9 +17,11 @@ impl Object {
             .expect("The `this` pointer was null when calling method");
 
         let mut string = HString::default();
+
         unsafe {
             (this.vtable().inspectable_type_name)(this, string.set_abi()).ok()?;
         }
+
         Ok(string)
     }
 }
@@ -67,4 +69,72 @@ pub struct abi_IInspectable {
     ) -> ErrorCode,
     pub inspectable_trust_level:
         unsafe extern "system" fn(NonNullRawComPtr<Object>, *mut i32) -> ErrorCode,
+}
+
+
+macro_rules! primitive_boxed_type {
+    ($(($t:ty, $m:ident)),+) => {
+        $(impl std::convert::TryFrom<$t> for Object {
+            type Error = Error;
+            fn try_from(value: $t) -> Result<Self> {
+                PropertyValue::$m(value)
+            }
+        }
+        impl std::convert::TryFrom<Object> for $t {
+            type Error = Error;
+            fn try_from(value: Object) -> Result<Self> {
+                <Object as ComInterface>::try_query::<IReference<$t>>(&value)?.value()
+            }
+        }
+        impl std::convert::TryFrom<&Object> for $t {
+            type Error = Error;
+            fn try_from(value: &Object) -> Result<Self> {
+                <Object as ComInterface>::try_query::<IReference<$t>>(value)?.value()
+            }
+        })*
+    };
+}
+
+primitive_boxed_type! {
+    (bool, create_boolean),
+    (u8, create_uint8),
+    (i16, create_int16),
+    (u16, create_uint16),
+    (i32, create_int32),
+    (u32, create_uint32),
+    (i64, create_int64),
+    (u64, create_uint64),
+    (f32, create_single),
+    (f64, create_double)
+}
+
+impl std::convert::TryFrom<&str> for Object {
+    type Error = Error;
+    fn try_from(value: &str) -> Result<Self> {
+        PropertyValue::create_string(value)
+    }
+}
+impl std::convert::TryFrom<HString> for Object {
+    type Error = Error;
+    fn try_from(value: HString) -> Result<Self> {
+        PropertyValue::create_string(value)
+    }
+}
+impl std::convert::TryFrom<&HString> for Object {
+    type Error = Error;
+    fn try_from(value: &HString) -> Result<Self> {
+        PropertyValue::create_string(value)
+    }
+}
+impl std::convert::TryFrom<Object> for HString {
+    type Error = Error;
+    fn try_from(value: Object) -> Result<Self> {
+        <Object as ComInterface>::try_query::<IReference<HString>>(&value)?.value()
+    }
+}
+impl std::convert::TryFrom<&Object> for HString {
+    type Error = Error;
+    fn try_from(value: &Object) -> Result<Self> {
+        <Object as ComInterface>::try_query::<IReference<HString>>(value)?.value()
+    }
 }
