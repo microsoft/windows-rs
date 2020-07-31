@@ -1,3 +1,11 @@
+winrt::import!(
+    dependencies
+        nuget: Microsoft.Windows.SDK.Contracts
+        nuget: KennyKerr.Windows.TestWinRT
+    types
+        test_component::TestRunner
+);
+
 #[test]
 fn class() -> winrt::Result<()> {
     let uri = winrt::Uri::create_uri("http://kennykerr.ca")?;
@@ -28,6 +36,28 @@ fn boxing() -> winrt::Result<()> {
     let object = winrt::PropertyValue::create_string("hello")?;
 
     assert!(object.type_name()? == "Windows.Foundation.IReference`1<String>");
+
+    Ok(())
+}
+
+#[test]
+fn object_param() -> winrt::Result<()> {
+    let uri = winrt::Uri::create_uri("http://kennykerr.ca")?;
+
+    let name = test_component::TestRunner::expect_object(&uri)?;
+    assert_eq!(name, "Windows.Foundation.Uri");
+
+    let name = test_component::TestRunner::expect_object(uri)?;
+    assert_eq!(name, "Windows.Foundation.Uri");
+
+    let uri = winrt::Uri::create_uri("http://kennykerr.ca")?;
+    let stringable: winrt::IStringable = uri.into();
+
+    let name = test_component::TestRunner::expect_object(&stringable)?;
+    assert_eq!(name, "Windows.Foundation.Uri");
+
+    let name = test_component::TestRunner::expect_object(stringable)?;
+    assert_eq!(name, "Windows.Foundation.Uri");
 
     Ok(())
 }

@@ -126,6 +126,16 @@ impl Interface {
                     ::std::convert::From::from(::std::clone::Clone::clone(value))
                 }
             }
+            impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
+                fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                    ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
+                }
+            }
+            impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for &'a #name {
+                fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                    ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
+                }
+            }
             #debug
             #conversions
             #iterator
