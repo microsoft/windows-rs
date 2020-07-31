@@ -60,7 +60,7 @@ impl TypeName {
     pub fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
@@ -109,7 +109,7 @@ impl TypeName {
 
     pub fn from_type_spec_blob(
         blob: &mut Blob,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         blob.read_unsigned();
@@ -130,7 +130,7 @@ impl TypeName {
     pub fn from_type_spec(
         reader: &TypeReader,
         spec: TypeSpec,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         let mut blob = spec.sig(reader);
@@ -422,7 +422,7 @@ fn format_abi_ident(name: &str) -> proc_macro2::Ident {
 fn generate_tokens<F>(
     name: &str,
     namespace: Option<&TokenStream>,
-    generics: &Vec<TypeKind>,
+    generics: &[TypeKind],
     format: F,
 ) -> TokenStream
 where

@@ -29,7 +29,7 @@ impl Method {
     pub fn from_method_def(
         reader: &TypeReader,
         method: MethodDef,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Method {
         let (name, kind) = if method.flags(reader).special() {
