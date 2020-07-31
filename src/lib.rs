@@ -9,18 +9,20 @@
 //!     dependencies
 //!         os
 //!     types
-//!         windows::foundation::Uri
+//!         windows::data::xml::dom::*
 //! );
 //!
 //! // Make use of any WinRT APIs as needed.
 //! // For example, here is an example of using the Windows.Foundation.Uri class:
 //! fn main() -> winrt::Result<()> {
-//!     use windows::foundation::Uri;
-//!
-//!     let uri = Uri::create_uri("http://kennykerr.ca")?;
-//!     println!("domain: {}", uri.domain()?);
-//!     println!("port: {}", uri.port()?);
-//!     println!("string: {}", uri.to_string()?);
+//!     use windows::data::xml::dom::*;
+//!     
+//!     let doc = XmlDocument::new()?;
+//!     doc.load_xml("<html>hello world</html>")?;
+//!     
+//!     let root = doc.document_element()?;
+//!     assert!(root.node_name()? == "html");
+//!     assert!(root.inner_text()? == "hello world");
 //!
 //!     Ok(())
 //! }
@@ -33,14 +35,6 @@
 //! above, can be found [here](https://docs.microsoft.com/en-us/uwp/api/Windows.Foundation.Uri?view=winrt-19041). Of
 //! course, when using these APIs from Rust, you will have to remember to translate CamelCase to snake_case as is
 //! the convention in Rust.
-//!
-//! This program will print the following output:
-//!
-//! ```text
-//! domain: kennykerr.ca
-//! port: 80
-//! string: http://kennykerr.ca/
-//! ```
 
 mod bindings {
     include!(concat!(env!("OUT_DIR"), "/winrt.rs"));

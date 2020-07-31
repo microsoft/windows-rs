@@ -1,14 +1,6 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::foundation::*
-        windows::foundation::collections::*
-);
-
 use std::iter::FromIterator;
-use windows::foundation::collections::{IIterable, IVectorView, PropertySet};
-use windows::foundation::{IPropertyValue, IWwwFormUrlDecoderEntry, PropertyValue, Uri};
+use winrt::collections::{IIterable, IVectorView, PropertySet};
+use winrt::{IPropertyValue, IWwwFormUrlDecoderEntry, PropertyValue, Uri};
 use winrt::TryInto;
 
 #[test]

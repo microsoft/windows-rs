@@ -1,10 +1,10 @@
 include!(concat!(env!("OUT_DIR"), "/winrt.rs"));
 
 fn main() -> winrt::Result<()> {
-    use windows::foundation::Uri;
+    use windows::ui::Colors;
 
-    let uri = Uri::create_uri("http://kennykerr.ca:80")?;
-    println!("Port: {:?}", uri.port()?);
+    let red = Colors::red()?;
+    println!("Red: {:?}", red);
 
     Ok(())
 }

@@ -4,11 +4,9 @@ import!(
         nuget: KennyKerr.Windows.TestWinRT
     types
         test_component::*
-        windows::foundation::*
 );
 
 use test_component::*;
-use windows::foundation::*;
 use winrt::*;
 
 #[test]

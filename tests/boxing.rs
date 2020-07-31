@@ -1,11 +1,4 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::foundation::{IPropertyValue, PropertyValue}
-);
-
-use windows::foundation::{IPropertyValue, PropertyValue};
+use winrt::{IPropertyValue, PropertyValue};
 use winrt::TryInto;
 
 #[test]

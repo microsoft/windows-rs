@@ -4,13 +4,11 @@ winrt::import!(
         nuget: KennyKerr.Windows.TestWinRT
     types
         test_component::*
-        windows::foundation::*
 );
 
 use std::time::Duration;
 use test_component::TestRunner;
-use windows::foundation::*;
-use winrt::TryInto;
+use winrt::*;
 
 #[test]
 fn conversion() -> winrt::Result<()> {

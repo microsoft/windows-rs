@@ -28,7 +28,6 @@ import!(
         os
     types
         windows::data::xml::dom::*
-        windows::foundation::*
         windows::ui::*
 );
 

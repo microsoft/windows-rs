@@ -2,7 +2,7 @@ winrt::build!(
     dependencies
         nuget: Microsoft.Windows.SDK.Contracts
     types
-        windows::foundation::Uri
+        windows::ui::Colors
 );
 
 fn main() {
