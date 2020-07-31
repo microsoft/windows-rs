@@ -2,8 +2,7 @@ use crate::element_type::ElementType;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 
-use proc_macro2::TokenStream;
-use quote::{format_ident, quote};
+use squote::{format_ident, quote, TokenStream};
 
 #[derive(Debug)]
 pub struct Enum {

@@ -1,7 +1,6 @@
 use crate::types::RequiredInterface;
 use crate::types::TypeName;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 
 pub fn debug_tokens(type_name: &TypeName, interfaces: &[RequiredInterface]) -> TokenStream {
     let name = &type_name.name;

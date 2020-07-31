@@ -4,8 +4,7 @@ use crate::types::TypeName;
 use crate::types::{Param, RequiredInterface, TypeKind};
 use crate::TypeReader;
 use crate::*;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 use std::iter::FromIterator;
 
 #[derive(Debug)]
@@ -300,7 +299,7 @@ fn to_constraint_tokens(params: &[Param]) -> TokenStream {
             | TypeKind::Struct(_)
             | TypeKind::Delegate(_)
             | TypeKind::Generic(_) => {
-                let name = quote::format_ident!("T{}__", position);
+                let name = squote::format_ident!("T{}__", position);
                 let into = param.kind.to_tokens();
                 tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
             }

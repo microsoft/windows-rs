@@ -3,8 +3,7 @@ use crate::tables::*;
 use crate::types::debug;
 use crate::types::*;
 use crate::*;
-use proc_macro2::TokenStream;
-use quote::*;
+use squote::{quote, TokenStream};
 use std::iter::FromIterator;
 
 #[derive(Debug)]

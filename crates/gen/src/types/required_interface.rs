@@ -1,8 +1,7 @@
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 use std::collections::*;
 use std::iter::FromIterator;
 

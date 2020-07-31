@@ -3,6 +3,7 @@ extern crate proc_macro;
 use proc_macro::TokenStream;
 use proc_macro2::Span;
 use quote::quote;
+use rayon::iter::ParallelIterator;
 use syn::parse::{self, Parse, ParseStream};
 use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
@@ -59,7 +60,7 @@ use std::{collections::BTreeSet, path::PathBuf};
 #[proc_macro]
 pub fn import(stream: TokenStream) -> TokenStream {
     let import = parse_macro_input!(stream as ImportMacro);
-    import.to_tokens()
+    import.to_tokens().into()
 }
 
 /// A macro for generating WinRT modules to a .rs file at build time.
@@ -115,8 +116,10 @@ pub fn build(stream: TokenStream) -> TokenStream {
         #(println!("cargo:rerun-if-changed={}", #winmd_paths);)*
     };
 
-    let tokens = import.to_tokens();
-    let tokens = tokens.to_string();
+    let tokens = match import.to_tokens_string() {
+        Ok(t) => t,
+        Err(t) => return t.into(),
+    };
 
     let tokens = quote! {
         fn build() {
@@ -169,7 +172,7 @@ impl ImportMacro {
         &self.dependencies.0
     }
 
-    fn to_tokens(self) -> TokenStream {
+    fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
         let dependencies = self.dependencies.0.iter().map(WinmdFile::new).collect();
 
         let reader = &TypeReader::new(dependencies);
@@ -181,16 +184,29 @@ impl ImportMacro {
             if let Err(e) = limits.insert(types).map_err(|ns| {
                 syn::Error::new_spanned(syntax, format!("'{}' is not a known namespace", ns))
             }) {
-                return e.to_compile_error().into();
+                return Err(e.to_compile_error());
             };
         }
 
         let stage = TypeStage::from_limits(reader, &limits);
         let tree = stage.into_tree();
 
-        tree.to_tokens()
-            .collect::<proc_macro2::TokenStream>()
-            .into()
+        let ts = tree
+            .to_tokens()
+            .reduce(squote::TokenStream::new, |mut accum, n| {
+                accum.combine(&n);
+                accum
+            });
+        Ok(ts.into_string())
+    }
+
+    fn to_tokens(self) -> proc_macro2::TokenStream {
+        self.to_tokens_string()
+            .map(|s| {
+                s.parse::<proc_macro2::TokenStream>()
+                    .expect("Internal error: the code code produce by the macro was not a valid token stream")
+            })
+            .unwrap_or_else(|ts| ts)
     }
 }
 

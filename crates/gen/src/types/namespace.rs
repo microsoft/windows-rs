@@ -1,8 +1,7 @@
 use super::*;
 use crate::*;
 use case::to_snake;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 use std::iter::FromIterator;
 
 pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
