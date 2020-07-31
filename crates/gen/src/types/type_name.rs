@@ -4,8 +4,7 @@ use crate::tables::*;
 use crate::types::*;
 use crate::*;
 
-use proc_macro2::TokenStream;
-use quote::{format_ident, quote};
+use squote::{format_ident, quote, Ident, TokenStream};
 
 use std::iter::FromIterator;
 
@@ -415,8 +414,8 @@ impl Ord for TypeName {
     }
 }
 
-fn format_abi_ident(name: &str) -> proc_macro2::Ident {
-    quote::format_ident!("abi_{}", name)
+fn format_abi_ident(name: &str) -> Ident {
+    squote::format_ident!("abi_{}", name)
 }
 
 fn generate_tokens<F>(
@@ -426,7 +425,7 @@ fn generate_tokens<F>(
     format: F,
 ) -> TokenStream
 where
-    F: FnOnce(&str) -> proc_macro2::Ident,
+    F: FnOnce(&str) -> Ident,
 {
     if generics.is_empty() {
         let name = format(name);

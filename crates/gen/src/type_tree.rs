@@ -1,6 +1,7 @@
 use crate::type_namespaces::TypeNamespaces;
 use crate::types::Type;
-use proc_macro2::TokenStream;
+use rayon::prelude::*;
+use squote::TokenStream;
 
 /// A namespaced tree of types
 #[derive(Default)]
@@ -31,9 +32,9 @@ impl TypeTree {
     }
 
     /// Turn the tree into a token stream for code generation
-    pub fn to_tokens<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+    pub fn to_tokens<'a>(&'a self) -> impl ParallelIterator<Item = TokenStream> + 'a {
         self.types
-            .iter()
+            .par_iter()
             .map(|t| t.to_tokens())
             .chain(self.namespaces.to_tokens())
     }

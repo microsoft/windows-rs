@@ -21,9 +21,9 @@ pub use type_limits::{NamespaceTypes, TypeLimit, TypeLimits};
 pub use type_reader::TypeReader;
 pub use type_stage::TypeStage;
 
-fn format_ident(name: &str) -> proc_macro2::Ident {
+fn format_ident(name: &str) -> squote::Ident {
     if name == "Self" {
-        quote::format_ident!("{}_", name)
+        squote::format_ident!("{}_", name)
     } else {
         // keywords list based on https://doc.rust-lang.org/reference/keywords.html
         match name {
@@ -33,8 +33,8 @@ fn format_ident(name: &str) -> proc_macro2::Ident {
             | "override" | "priv" | "pub" | "ref" | "return" | "Self" | "self" | "static"
             | "struct" | "super" | "trait" | "true" | "type" | "typeof" | "unsafe" | "unsized"
             | "use" | "virtual" | "where" | "while" | "yield" | "try" | "async" | "await"
-            | "dyn" => quote::format_ident!("r#{}", name),
-            _ => quote::format_ident!("{}", name),
+            | "dyn" => squote::format_ident!("r#{}", name),
+            _ => squote::format_ident!("{}", name),
         }
     }
 }

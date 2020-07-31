@@ -1,8 +1,7 @@
 use crate::tables::*;
 use crate::TypeReader;
 
-use proc_macro2::{Literal, TokenStream};
-use quote::quote;
+use squote::{quote, Literal, TokenStream};
 
 #[derive(Clone, Default, PartialEq)]
 pub struct TypeGuid(pub [GuidConstant; 11]);

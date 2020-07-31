@@ -1,6 +1,5 @@
 use crate::types::*;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 
 // Provides iterator support for the well-known WinRT collection interfaces and any classes or
 // interfaces that implement any of these interfaces. It also favors high-speed iteration and

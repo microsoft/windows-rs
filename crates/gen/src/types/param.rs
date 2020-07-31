@@ -1,7 +1,6 @@
 use crate::types::*;
 use crate::*;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 
 #[derive(Debug)]
 pub struct Param {
@@ -36,7 +35,7 @@ impl Param {
                 | TypeKind::Struct(_)
                 | TypeKind::Delegate(_)
                 | TypeKind::Generic(_) => {
-                    let tokens = quote::format_ident!("T{}__", position);
+                    let tokens = squote::format_ident!("T{}__", position);
                     quote! { #name: #tokens, }
                 }
                 _ => quote! { #name: #tokens, },
@@ -92,7 +91,7 @@ impl Param {
         let tokens = self.kind.to_abi_tokens();
 
         if self.array {
-            let name_size = quote::format_ident!("array_size_{}", &self.name);
+            let name_size = squote::format_ident!("array_size_{}", &self.name);
 
             if self.input {
                 quote! { #name_size: u32, #name: *const #tokens }
@@ -159,7 +158,7 @@ impl Param {
 
         if self.array {
             let kind = self.kind.to_tokens();
-            let name_size = quote::format_ident!("array_size_{}", name);
+            let name_size = squote::format_ident!("array_size_{}", name);
             if self.input {
                 quote! { <#kind as ::winrt::AbiTransferable>::slice_from_abi(#name, #name_size as usize) }
             } else if self.by_ref {
