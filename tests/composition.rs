@@ -84,9 +84,9 @@ fn class_hierarchy_conversion() -> winrt::Result<()> {
 
 #[test]
 fn composition() -> winrt::Result<()> {
-    use winrt::numerics::Vector3;
     use windows::ui::composition::{CompositionColorBrush, Compositor};
     use windows::ui::{Color, Colors};
+    use winrt::numerics::Vector3;
     use winrt::TryInto;
 
     let _dispatcher = create_dispatcher();

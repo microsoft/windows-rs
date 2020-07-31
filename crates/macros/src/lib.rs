@@ -182,12 +182,17 @@ impl ImportMacro {
         let foundation_namespaces = &[
             "Windows.Foundation",
             "Windows.Foundation.Collections",
-            "Windows.Foundation.Numerics"
+            "Windows.Foundation.Numerics",
         ];
 
         if self.foundation {
             for namespace in foundation_namespaces {
-                limits.insert(NamespaceTypes { namespace: namespace.to_string(), limit: TypeLimit::All }).unwrap();
+                limits
+                    .insert(NamespaceTypes {
+                        namespace: namespace.to_string(),
+                        limit: TypeLimit::All,
+                    })
+                    .unwrap();
             }
         }
 

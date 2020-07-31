@@ -37,9 +37,7 @@ impl TypeTree {
                 tree.remove(&namespace[pos + 1..])
             }
         } else {
-            self.namespaces
-                .0
-                .remove(namespace);
+            self.namespaces.0.remove(namespace);
         }
     }
 

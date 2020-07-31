@@ -3,7 +3,6 @@ use winrt::{IStringable, Uri};
 
 #[test]
 fn non_generic() -> winrt::Result<()> {
-
     assert_eq!(
         IStringable::iid(),
         winrt::Guid::from("96369F54-8EB6-48F0-ABCE-C1B211E627C3")

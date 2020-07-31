@@ -1,6 +1,6 @@
-use winrt::Uri;
 use winrt::ComInterface;
 use winrt::RuntimeName;
+use winrt::Uri;
 
 #[test]
 fn uri() -> winrt::Result<()> {

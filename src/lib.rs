@@ -41,9 +41,9 @@ mod bindings {
 }
 
 extern crate self as winrt;
+pub use bindings::windows::foundation::collections;
+pub use bindings::windows::foundation::numerics;
 pub use bindings::windows::foundation::*;
-pub use bindings::windows::foundation::collections as collections;
-pub use bindings::windows::foundation::numerics as numerics;
 
 #[cfg(doctest)]
 doc_comment::doctest!("../README.md");

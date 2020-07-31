@@ -1,5 +1,5 @@
-use winrt::{IPropertyValue, PropertyValue};
 use winrt::TryInto;
+use winrt::{IPropertyValue, PropertyValue};
 
 #[test]
 fn boxing() -> winrt::Result<()> {
