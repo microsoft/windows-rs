@@ -214,7 +214,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &[RequiredInterface]) -> Tok
     }
 
     match iterable {
-        None => quote! {},
+        None => TokenStream::new(),
         Some(interface) => {
             let constraints = &name.constraints;
             let item = interface.name.generics[0].to_tokens();

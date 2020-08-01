@@ -55,7 +55,7 @@ pub unsafe trait ComInterface: Sized + crate::AbiTransferable {
 
             unsafe { Ok(std::mem::transmute_copy(&into)) }
         } else {
-            Err(ErrorCode(0x8000_4002).into())
+            Err(ErrorCode::E_NOINTERFACE.into())
         }
     }
 

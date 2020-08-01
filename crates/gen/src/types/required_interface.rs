@@ -140,7 +140,7 @@ impl RequiredInterface {
                     }
                 }
             }
-            _ => quote! {},
+            _ => TokenStream::new(),
         }
     }
 }

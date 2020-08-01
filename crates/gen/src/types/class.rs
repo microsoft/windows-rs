@@ -141,7 +141,7 @@ impl Class {
                     }
                 }
             } else {
-                quote! {}
+                TokenStream::new()
             };
 
             let bases = self.to_base_conversions_tokens(&name);
@@ -161,7 +161,7 @@ impl Class {
                     unsafe impl<#constraints> ::std::marker::Sync for #name {}
                 }
             } else {
-                quote! {}
+                TokenStream::new()
             };
 
             quote! {
@@ -273,7 +273,7 @@ impl Class {
         for interface in &self.interfaces {
             if (interface.kind != InterfaceKind::Statics
                 && interface.kind != InterfaceKind::Composable)
-                || interface.methods.len() == 0
+                || interface.methods.is_empty()
             {
                 continue;
             }
