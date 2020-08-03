@@ -58,9 +58,7 @@ unsafe impl<T: ComInterface> AbiTransferable for NonNullRawComPtr<T> {
 unsafe impl<T: ComInterface> ComInterface for NonNullRawComPtr<T> {
     type VTable = <T as ComInterface>::VTable;
 
-    fn iid() -> Guid {
-        T::iid()
-    }
+    const IID: Guid = T::IID;
 }
 
 impl<T: ComInterface> PartialEq for NonNullRawComPtr<T> {

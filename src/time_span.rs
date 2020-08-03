@@ -11,9 +11,8 @@ pub struct TimeSpan {
 }
 
 unsafe impl RuntimeType for TimeSpan {
-    fn signature() -> String {
-        "struct(Windows.Foundation.TimeSpan;i8)".to_owned()
-    }
+    const SIGNATURE: crate::ConstBuffer =
+        crate::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
 }
 
 unsafe impl AbiTransferable for TimeSpan {

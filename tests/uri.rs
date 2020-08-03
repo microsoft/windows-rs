@@ -14,7 +14,7 @@ fn uri() -> winrt::Result<()> {
     assert_eq!(Uri::NAME, "Windows.Foundation.Uri");
 
     assert_eq!(
-        Uri::iid(),
+        Uri::IID,
         winrt::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 

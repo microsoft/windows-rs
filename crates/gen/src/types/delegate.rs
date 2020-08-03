@@ -109,9 +109,7 @@ impl Delegate {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                fn iid() -> ::winrt::Guid {
-                    #guid
-                }
+                const IID: ::winrt::Guid = #guid;
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
@@ -122,9 +120,7 @@ impl Delegate {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                fn signature() -> String {
-                    #signature
-                }
+                const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
             unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
                 type Abi = ::winrt::RawComPtr<Self>;
@@ -171,9 +167,9 @@ impl Delegate {
                     unsafe {
                         let this: *mut Self = this.as_raw() as _;
 
-                        if iid == &<#name as ::winrt::ComInterface>::iid()
-                            || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::iid()
-                            || iid == &<::winrt::IAgileObject as ::winrt::ComInterface>::iid()
+                        if iid == &<#name as ::winrt::ComInterface>::IID
+                            || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::IID
+                            || iid == &<::winrt::IAgileObject as ::winrt::ComInterface>::IID
                         {
                             *interface = this as ::winrt::RawPtr;
                             (*this).count.add_ref();

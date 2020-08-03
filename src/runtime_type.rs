@@ -9,33 +9,27 @@
 /// across FFI boundaries. The type itself must also be zero-initializable and safe to
 /// drop if all bits are zeroable. RuntimeTypes must be safe to use in WinRT generics.
 pub unsafe trait RuntimeType: crate::AbiTransferable + Clone {
-    // TODO: this should be a const function returning &'static str
-    // It is only used internally by ComInterface::iid() which should
-    // itself be a const function.
-    fn signature() -> String;
+    const SIGNATURE: crate::ConstBuffer;
 }
 
 macro_rules! primitive_runtime_type {
     ($(($t:ty, $s:literal)),+) => {
         $(unsafe impl RuntimeType for $t {
-
-            fn signature() -> String {
-                $s.to_owned()
-            }
+            const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice($s);
         })*
     };
 }
 
 primitive_runtime_type! {
-    (bool, "b1"),
-    (i8, "i1"),
-    (u8, "u1"),
-    (i16, "i2"),
-    (u16, "u2"),
-    (i32, "i4"),
-    (u32, "u4"),
-    (i64, "i8"),
-    (u64, "u8"),
-    (f32, "f4"),
-    (f64, "f8")
+    (bool, b"b1"),
+    (i8, b"i1"),
+    (u8, b"u1"),
+    (i16, b"i2"),
+    (u16, b"u2"),
+    (i32, b"i4"),
+    (u32, b"u4"),
+    (i64, b"i8"),
+    (u64, b"u8"),
+    (f32, b"f4"),
+    (f64, b"f8")
 }
