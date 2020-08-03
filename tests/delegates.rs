@@ -8,7 +8,7 @@ fn non_generic() -> winrt::Result<()> {
     type Handler = winrt::AsyncActionCompletedHandler;
 
     assert_eq!(
-        Handler::iid(),
+        Handler::IID,
         winrt::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
     );
 

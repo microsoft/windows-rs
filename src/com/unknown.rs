@@ -11,14 +11,14 @@ pub struct IUnknown {
 unsafe impl ComInterface for IUnknown {
     type VTable = abi_IUnknown;
 
-    fn iid() -> Guid {
+    const IID: Guid = {
         Guid::from_values(
             0x0000_0000,
             0x0000,
             0x0000,
             [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
         )
-    }
+    };
 }
 
 unsafe impl AbiTransferable for IUnknown {
