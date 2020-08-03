@@ -6,7 +6,7 @@ winrt::import!(
 );
 
 use windows::data::xml::dom::XmlDocument;
-use winrt::windows::foundation::Uri;
+use winrt::foundation::Uri;
 
 // Simple test to validate debugging works
 #[test]

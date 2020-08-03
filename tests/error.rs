@@ -16,7 +16,7 @@ fn originate() {
 
 #[test]
 fn bad_uri() {
-    let result = winrt::windows::foundation::Uri::create_uri("INVALID");
+    let result = winrt::foundation::Uri::create_uri("INVALID");
     let error: winrt::Error = result.unwrap_err();
 
     assert_eq!(error.code(), winrt::ErrorCode(0x80070057));

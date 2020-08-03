@@ -9,7 +9,7 @@ use winrt::AbiTransferable;
 
 #[test]
 fn signed_enum() {
-    use winrt::windows::foundation::AsyncStatus;
+    use winrt::foundation::AsyncStatus;
 
     assert!(AsyncStatus::default().get_abi() == 0);
     assert!(AsyncStatus::Canceled.get_abi() == 2);

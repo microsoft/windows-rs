@@ -43,7 +43,7 @@ mod bindings {
 extern crate self as winrt;
 
 #[doc(hidden)]
-pub use bindings::windows;
+pub use bindings::windows::foundation;
 
 #[cfg(doctest)]
 doc_comment::doctest!("../README.md");

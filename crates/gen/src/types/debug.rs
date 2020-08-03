@@ -17,7 +17,7 @@ pub fn debug_tokens(type_name: &TypeName, interfaces: &[RequiredInterface]) -> T
         quote! {
             "{:?}",
             {
-                let s: ::winrt::windows::foundation::IStringable = self.into();
+                let s: ::winrt::foundation::IStringable = self.into();
                 s
             }
         }

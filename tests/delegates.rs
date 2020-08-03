@@ -1,7 +1,7 @@
 use std::convert::*;
 use winrt::{AbiTransferable,ComInterface};
-use winrt::windows::foundation::{Uri, AsyncStatus, IAsyncAction, AsyncActionCompletedHandler, TypedEventHandler};
-use winrt::windows::foundation::collections::{PropertySet, MapChangedEventHandler, CollectionChange, IObservableMap};
+use winrt::foundation::{Uri, AsyncStatus, IAsyncAction, AsyncActionCompletedHandler, TypedEventHandler};
+use winrt::foundation::collections::{PropertySet, MapChangedEventHandler, CollectionChange, IObservableMap};
 
 #[test]
 fn non_generic() -> winrt::Result<()> {

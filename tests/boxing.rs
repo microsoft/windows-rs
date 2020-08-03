@@ -1,4 +1,4 @@
-use winrt::windows::foundation::{IPropertyValue, PropertyValue};
+use winrt::foundation::{IPropertyValue, PropertyValue};
 use std::convert::{TryFrom, TryInto};
 use winrt::HString;
 use winrt::Object;

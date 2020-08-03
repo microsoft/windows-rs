@@ -22,7 +22,7 @@ impl TypeNamespaces {
                 quote! {
                     pub mod #name {
                         #(#tokens)*
-                        pub use ::winrt::windows::foundation::*;
+                        pub use ::winrt::foundation::*;
                     }
                 }
             } else {

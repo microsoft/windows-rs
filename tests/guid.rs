@@ -1,5 +1,5 @@
 use winrt::Guid;
-use winrt::windows::foundation::GuidHelper;
+use winrt::foundation::GuidHelper;
 
 #[test]
 fn guid_helper() -> winrt::Result<()> {

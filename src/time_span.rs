@@ -1,4 +1,4 @@
-use crate::windows::foundation::TimeSpan;
+use crate::foundation::TimeSpan;
 use crate::Param;
 
 impl std::convert::From<std::time::Duration> for TimeSpan {
