@@ -213,6 +213,8 @@ impl ImportMacro {
             for namespace in foundation_namespaces {
                 tree.remove(namespace);
             }
+
+            tree.reexport();
         }
 
         let ts = tree
@@ -221,6 +223,7 @@ impl ImportMacro {
                 accum.combine(&n);
                 accum
             });
+
         Ok(ts.into_string())
     }
 

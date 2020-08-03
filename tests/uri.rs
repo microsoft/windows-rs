@@ -1,6 +1,6 @@
 use winrt::ComInterface;
 use winrt::RuntimeName;
-use winrt::Uri;
+use winrt::windows::foundation::{Uri,IUriRuntimeClass, IStringable};
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -23,10 +23,10 @@ fn uri() -> winrt::Result<()> {
     // Calls QueryInterface followed by IStringable::ToString under the hood
     assert!(uri.to_string()? == "http://kennykerr.ca/");
 
-    let default: winrt::IUriRuntimeClass = uri.into();
+    let default: IUriRuntimeClass = uri.into();
     assert!(default.domain()? == uri.domain()?);
 
-    let stringable: winrt::IStringable = uri.into();
+    let stringable: IStringable = uri.into();
     assert!(stringable.to_string()? == uri.to_string()?);
 
     Ok(())
@@ -34,8 +34,6 @@ fn uri() -> winrt::Result<()> {
 
 #[test]
 fn interface_conversion() -> winrt::Result<()> {
-    use winrt::*;
-
     // Convert from Uri class to default interface by value (dropping the uri).
     let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
     let default: IUriRuntimeClass = uri.into();

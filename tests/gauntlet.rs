@@ -7,17 +7,17 @@ import!(
 );
 
 use test_component::*;
-use winrt::*;
+use winrt::windows::foundation::{PropertyValue, IReference};
 
 #[test]
-fn test_self() -> Result<()> {
+fn test_self() -> winrt::Result<()> {
     TestRunner::test_self()?;
 
     Ok(())
 }
 
 #[test]
-fn params() -> Result<()> {
+fn params() -> winrt::Result<()> {
     let tests = TestRunner::make_tests()?;
 
     {
@@ -115,7 +115,7 @@ fn params() -> Result<()> {
             g: -7,
             h: 8.0,
             i: 9.0,
-            j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+            j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
         };
 
         let mut b = Blittable::default();
@@ -154,7 +154,7 @@ fn params() -> Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
             non_blittable: NonBlittable {
                 a: false,
@@ -173,7 +173,7 @@ fn params() -> Result<()> {
 }
 
 #[test]
-fn arrays() -> Result<()> {
+fn arrays() -> winrt::Result<()> {
     let tests = TestRunner::make_tests()?;
 
     {
@@ -308,7 +308,7 @@ fn arrays() -> Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
             Blittable {
                 a: 10,
@@ -320,7 +320,7 @@ fn arrays() -> Result<()> {
                 g: -70,
                 h: 80.0,
                 i: 90.0,
-                j: Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
+                j: winrt::Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
             },
             Blittable {
                 a: 1,
@@ -332,7 +332,7 @@ fn arrays() -> Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
         ];
 
@@ -415,7 +415,7 @@ fn arrays() -> Result<()> {
                     g: -7,
                     h: 8.0,
                     i: 9.0,
-                    j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                    j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
                 },
                 non_blittable: NonBlittable {
                     a: false,
@@ -435,7 +435,7 @@ fn arrays() -> Result<()> {
                     g: -70,
                     h: 80.0,
                     i: 90.0,
-                    j: Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
+                    j: winrt::Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
                 },
                 non_blittable: NonBlittable {
                     a: true,
@@ -455,7 +455,7 @@ fn arrays() -> Result<()> {
                     g: -7,
                     h: 8.0,
                     i: 9.0,
-                    j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                    j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
                 },
                 non_blittable: NonBlittable {
                     a: false,
@@ -503,7 +503,7 @@ fn arrays() -> Result<()> {
 }
 
 #[test]
-fn delegate_params() -> Result<()> {
+fn delegate_params() -> winrt::Result<()> {
     let tests = TestRunner::make_tests()?;
 
     tests.param1_call(Param1Handler::new(|a, b| {
@@ -576,7 +576,7 @@ fn delegate_params() -> Result<()> {
 }
 
 #[test]
-fn collections() -> Result<()> {
+fn collections() -> winrt::Result<()> {
     {
         let v = TestRunner::create_int32_vector()?;
         assert_eq!(v.size()?, 0);
@@ -623,7 +623,7 @@ fn collections() -> Result<()> {
     Ok(())
 }
 
-async fn async_await() -> Result<()> {
+async fn async_await() -> winrt::Result<()> {
     let tests = TestRunner::make_tests()?;
 
     // Success and failure with no delay
@@ -742,6 +742,6 @@ async fn async_await() -> Result<()> {
 }
 
 #[test]
-fn test_async_await() -> Result<()> {
+fn test_async_await() -> winrt::Result<()> {
     futures::executor::block_on(async_await())
 }

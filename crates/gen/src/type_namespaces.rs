@@ -16,11 +16,20 @@ impl TypeNamespaces {
         self.0.par_iter().map(|(name, tree)| {
             let name = case::to_snake(name, MethodKind::Normal);
             let name = format_ident(&name);
-            let tree = tree.to_tokens().collect::<Vec<_>>();
+            let tokens = tree.to_tokens().collect::<Vec<_>>();
 
-            quote! {
-                pub mod #name {
-                    #(#tree)*
+            if tree.foundation {
+                quote! {
+                    pub mod #name {
+                        #(#tokens)*
+                        pub use ::winrt::windows::foundation::*;
+                    }
+                }
+            } else {
+                quote! {
+                    pub mod #name {
+                        #(#tokens)*
+                    }
                 }
             }
         })

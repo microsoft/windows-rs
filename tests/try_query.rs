@@ -1,8 +1,8 @@
+use winrt::ComInterface;
+use winrt::windows::foundation::{IClosable, IStringable, Uri};
+
 #[test]
 fn try_into() -> winrt::Result<()> {
-    use winrt::ComInterface;
-    use winrt::{IClosable, IStringable, Uri};
-
     let uri = Uri::create_uri("http://kennykerr.ca")?;
 
     // Uri implements IStringable so this query should succeed.

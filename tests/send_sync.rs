@@ -1,5 +1,5 @@
 use std::thread;
-use winrt::Uri;
+use winrt::windows::foundation::Uri;
 
 // Simple test to validate that types with MarshalingType.Agile are marked Send and Sync
 // (if this compiles it worked)

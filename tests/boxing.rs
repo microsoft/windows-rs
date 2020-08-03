@@ -1,4 +1,8 @@
-use winrt::{IPropertyValue, PropertyValue};
+use winrt::windows::foundation::{IPropertyValue, PropertyValue};
+use std::convert::{TryFrom, TryInto};
+use winrt::HString;
+use winrt::Object;
+use winrt::ComInterface;
 
 macro_rules! primitive_try_into_test {
     ($($v:literal),+) => {
@@ -22,10 +26,6 @@ macro_rules! primitive_try_from_test {
 
 #[test]
 fn boxing_into() -> winrt::Result<()> {
-    use std::convert::{TryFrom, TryInto};
-    use winrt::HString;
-    use winrt::Object;
-
     primitive_try_into_test! {
         true,
         false,
@@ -81,8 +81,6 @@ fn boxing_into() -> winrt::Result<()> {
 
 #[test]
 fn explicit_boxing() -> winrt::Result<()> {
-    use winrt::ComInterface;
-
     let object = PropertyValue::create_string("hello")?;
     let pv: IPropertyValue = object.query();
     assert!(pv.get_string()? == "hello");

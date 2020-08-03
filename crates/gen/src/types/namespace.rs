@@ -9,17 +9,17 @@ pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
         return TokenStream::new();
     }
 
-    if destination == "Windows.Foundation" {
-        return quote! { ::winrt:: };
-    }
+    // if destination == "Windows.Foundation" {
+    //     return quote! { ::winrt:: };
+    // }
 
-    if destination == "Windows.Foundation.Collections" {
-        return quote! { ::winrt::collections:: };
-    }
+    // if destination == "Windows.Foundation.Collections" {
+    //     return quote! { ::winrt::collections:: };
+    // }
 
-    if destination == "Windows.Foundation.Numerics" {
-        return quote! { ::winrt::numerics:: };
-    }
+    // if destination == "Windows.Foundation.Numerics" {
+    //     return quote! { ::winrt::numerics:: };
+    // }
 
     let mut tokens = Vec::new();
 

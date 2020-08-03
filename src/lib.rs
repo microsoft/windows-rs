@@ -41,9 +41,9 @@ mod bindings {
 }
 
 extern crate self as winrt;
-pub use bindings::windows::foundation::collections;
-pub use bindings::windows::foundation::numerics;
-pub use bindings::windows::foundation::*;
+
+#[doc(hidden)]
+pub use bindings::windows;
 
 #[cfg(doctest)]
 doc_comment::doctest!("../README.md");
@@ -62,6 +62,7 @@ mod param;
 mod runtime;
 mod runtime_name;
 mod runtime_type;
+pub mod time_span;
 
 #[doc(hidden)]
 pub use abi_transferable::AbiTransferable;

@@ -48,8 +48,6 @@ impl Struct {
             }
         });
 
-        let extensions = self.extension_tokens();
-
         quote! {
             #[repr(C)]
             #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq)]
@@ -68,35 +66,6 @@ impl Struct {
                     self as *mut Self::Abi
                 }
             }
-            #extensions
         }
-    }
-
-    fn extension_tokens(&self) -> TokenStream {
-        if self.name.name == "TimeSpan" && self.name.namespace == "Windows.Foundation" {
-            return quote! {
-                impl ::std::convert::From<std::time::Duration> for TimeSpan {
-                    fn from(value: ::std::time::Duration) -> Self {
-                        Self {
-                            duration: (value.as_nanos() / 100) as i64,
-                        }
-                    }
-                }
-
-                impl ::std::convert::From<TimeSpan> for ::std::time::Duration {
-                    fn from(value: TimeSpan) -> Self {
-                        ::std::time::Duration::from_nanos((value.duration * 100) as u64)
-                    }
-                }
-
-                impl<'a> ::std::convert::Into<::winrt::Param<'a, TimeSpan>> for ::std::time::Duration {
-                    fn into(self) -> ::winrt::Param<'a, TimeSpan> {
-                        ::winrt::Param::Owned(self.into())
-                    }
-                }
-            };
-        }
-
-        TokenStream::new()
     }
 }

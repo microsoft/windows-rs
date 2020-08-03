@@ -6,9 +6,11 @@ winrt::import!(
         test_component::TestRunner
 );
 
+use windows::foundation::{Uri, IStringable, PropertyValue};
+
 #[test]
 fn class() -> winrt::Result<()> {
-    let uri = winrt::Uri::create_uri("http://kennykerr.ca")?;
+    let uri = Uri::create_uri("http://kennykerr.ca")?;
 
     // All WinRT classes are convertible to winrt::Object.
     let object: winrt::Object = uri.into();
@@ -20,8 +22,8 @@ fn class() -> winrt::Result<()> {
 
 #[test]
 fn interface() -> winrt::Result<()> {
-    let uri = winrt::Uri::create_uri("http://kennykerr.ca")?;
-    let stringable: winrt::IStringable = uri.into();
+    let uri = Uri::create_uri("http://kennykerr.ca")?;
+    let stringable: IStringable = uri.into();
 
     // All WinRT interfaces are convertible to winrt::Object.
     let object: winrt::Object = stringable.into();
@@ -33,7 +35,7 @@ fn interface() -> winrt::Result<()> {
 
 #[test]
 fn boxing() -> winrt::Result<()> {
-    let object = winrt::PropertyValue::create_string("hello")?;
+    let object = PropertyValue::create_string("hello")?;
 
     assert!(object.type_name()? == "Windows.Foundation.IReference`1<String>");
 
@@ -42,7 +44,7 @@ fn boxing() -> winrt::Result<()> {
 
 #[test]
 fn object_param() -> winrt::Result<()> {
-    let uri = winrt::Uri::create_uri("http://kennykerr.ca")?;
+    let uri = Uri::create_uri("http://kennykerr.ca")?;
 
     let name = test_component::TestRunner::expect_object(&uri)?;
     assert_eq!(name, "Windows.Foundation.Uri");
@@ -50,8 +52,8 @@ fn object_param() -> winrt::Result<()> {
     let name = test_component::TestRunner::expect_object(uri)?;
     assert_eq!(name, "Windows.Foundation.Uri");
 
-    let uri = winrt::Uri::create_uri("http://kennykerr.ca")?;
-    let stringable: winrt::IStringable = uri.into();
+    let uri = Uri::create_uri("http://kennykerr.ca")?;
+    let stringable: IStringable = uri.into();
 
     let name = test_component::TestRunner::expect_object(&stringable)?;
     assert_eq!(name, "Windows.Foundation.Uri");

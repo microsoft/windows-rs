@@ -1,12 +1,9 @@
+use winrt::AbiTransferable;
+use winrt::ComInterface;
+use winrt::windows::foundation::{IStringable,IUriRuntimeClass, Uri};
+
 #[test]
 fn com_interface() -> winrt::Result<()> {
-    use winrt::AbiTransferable;
-    use winrt::ComInterface;
-
-    use winrt::IStringable;
-    use winrt::IUriRuntimeClass;
-    use winrt::Uri;
-
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
 
     // The class and the default interface have the same vtable types, which

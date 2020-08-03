@@ -8,11 +8,11 @@ winrt::import!(
 
 use std::time::Duration;
 use test_component::TestRunner;
-use winrt::*;
+use winrt::windows::foundation::{TimeSpan, PropertyValue, IPropertyValue};
 
 #[test]
 fn conversion() -> winrt::Result<()> {
-    let a: winrt::TimeSpan = Duration::from_millis(1234).into();
+    let a: TimeSpan = Duration::from_millis(1234).into();
     let b = TestRunner::create_time_span(1234)?;
     assert_eq!(a, b);
 

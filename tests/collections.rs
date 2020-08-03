@@ -1,7 +1,7 @@
 use std::convert::*;
 use std::iter::FromIterator;
-use winrt::collections::{IIterable, IVectorView, PropertySet};
-use winrt::{IWwwFormUrlDecoderEntry, Object, Uri};
+use winrt::windows::foundation::collections::{IIterable, IVectorView, PropertySet};
+use winrt::windows::foundation::{IWwwFormUrlDecoderEntry, Uri};
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -66,9 +66,9 @@ fn property_set() -> winrt::Result<()> {
 
     let set = PropertySet::new()?;
 
-    set.insert("A", Object::try_from(1)?)?;
-    set.insert("B", Object::try_from(2)?)?;
-    set.insert("C", Object::try_from(3)?)?;
+    set.insert("A", winrt::Object::try_from(1)?)?;
+    set.insert("B", winrt::Object::try_from(2)?)?;
+    set.insert("C", winrt::Object::try_from(3)?)?;
 
     assert!(set.size()? == 3);
 

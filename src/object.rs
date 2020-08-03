@@ -1,4 +1,5 @@
 use crate::*;
+use crate::windows::foundation::{PropertyValue, IReference};
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 ///
