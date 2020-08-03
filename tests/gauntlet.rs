@@ -1,4 +1,4 @@
-import!(
+winrt::import!(
     dependencies
         nuget: Microsoft.Windows.SDK.Contracts
         nuget: KennyKerr.Windows.TestWinRT
@@ -7,7 +7,8 @@ import!(
 );
 
 use test_component::*;
-use winrt::windows::foundation::{PropertyValue, IReference};
+use windows::foundation::{PropertyValue, IReference, IStringable, Uri};
+use winrt::ComInterface;
 
 #[test]
 fn test_self() -> winrt::Result<()> {
@@ -98,8 +99,8 @@ fn params() -> winrt::Result<()> {
     }
 
     {
-        let a: HString = "WinRT".into();
-        let mut b = HString::new();
+        let a: winrt::HString = "WinRT".into();
+        let mut b = winrt::HString::new();
         let c = tests.param12(&a, &mut b)?;
         assert!(a == b && a == c);
     }
@@ -179,7 +180,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [bool; 3] = [true, false, true];
         let mut b = [false; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array1(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -189,7 +190,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [u8; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array2(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -199,7 +200,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [u16; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array3(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -209,7 +210,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [u32; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array4(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -219,7 +220,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [u64; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array5(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -229,7 +230,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [i16; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array6(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -239,7 +240,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [i32; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array7(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -249,7 +250,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [i64; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array8(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -259,7 +260,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [f32; 3] = [1.0, 2.0, 3.0];
         let mut b = [0.0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array9(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -269,7 +270,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [f64; 3] = [1.0, 2.0, 3.0];
         let mut b = [0.0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array10(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -279,7 +280,7 @@ fn arrays() -> winrt::Result<()> {
     {
         let a: [u16; 3] = [0x61, 0x62, 0x63]; // WinRT char e.g. L'a' , L'b', L'c'
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array11(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -287,9 +288,9 @@ fn arrays() -> winrt::Result<()> {
     }
 
     {
-        let a: [HString; 3] = ["apples".into(), "oranges".into(), "pears".into()];
-        let mut b = [HString::new(), HString::new(), HString::new()];
-        let mut c = Array::new();
+        let a: [winrt::HString; 3] = ["apples".into(), "oranges".into(), "pears".into()];
+        let mut b = [winrt::HString::new(), winrt::HString::new(), winrt::HString::new()];
+        let mut c = winrt::Array::new();
         let d = tests.array12(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -342,7 +343,7 @@ fn arrays() -> winrt::Result<()> {
             Blittable::default(),
         ];
 
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array13(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -386,7 +387,7 @@ fn arrays() -> winrt::Result<()> {
             NonBlittable::default(),
         ];
 
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array14(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -468,7 +469,7 @@ fn arrays() -> winrt::Result<()> {
 
         let mut b = [Nested::default(), Nested::default(), Nested::default()];
 
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array15(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -488,7 +489,7 @@ fn arrays() -> winrt::Result<()> {
             IStringable::default(),
         ];
 
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array16(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);

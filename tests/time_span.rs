@@ -9,6 +9,7 @@ winrt::import!(
 use std::time::Duration;
 use test_component::TestRunner;
 use winrt::windows::foundation::{TimeSpan, PropertyValue, IPropertyValue};
+use winrt::ComInterface;
 
 #[test]
 fn conversion() -> winrt::Result<()> {
