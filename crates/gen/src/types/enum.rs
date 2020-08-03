@@ -2,7 +2,7 @@ use crate::element_type::ElementType;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 
-use squote::{format_ident, quote, TokenStream};
+use squote::{format_ident, quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct Enum {
@@ -53,7 +53,7 @@ impl Enum {
 
     pub fn to_tokens(&self) -> TokenStream {
         let name = &self.name.tokens;
-        let signature = proc_macro2::Literal::byte_string(&self.signature.as_bytes());
+        let signature = Literal::byte_string(&self.signature.as_bytes());
 
         let repr = match self.fields[0].1 {
             EnumConstant::U32(_) => format_ident!("u32"),

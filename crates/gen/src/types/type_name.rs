@@ -4,7 +4,7 @@ use crate::tables::*;
 use crate::types::*;
 use crate::*;
 
-use squote::{format_ident, quote, Ident, TokenStream};
+use squote::{format_ident, quote, Ident, Literal, TokenStream};
 
 use std::iter::FromIterator;
 
@@ -138,7 +138,7 @@ impl TypeName {
     }
 
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
-        let signature = proc_macro2::Literal::byte_string(signature.as_bytes());
+        let signature = Literal::byte_string(signature.as_bytes());
         if self.generics.is_empty() {
             return quote! { ::winrt::ConstBuffer::from_slice(#signature) };
         }

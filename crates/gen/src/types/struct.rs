@@ -2,7 +2,7 @@ use crate::case::to_snake;
 use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
-use squote::{quote, TokenStream};
+use squote::{quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct Struct {
@@ -38,7 +38,7 @@ impl Struct {
 
     pub fn to_tokens(&self) -> TokenStream {
         let name = &self.name.tokens;
-        let signature = proc_macro2::Literal::byte_string(&self.signature.as_bytes());
+        let signature = Literal::byte_string(&self.signature.as_bytes());
 
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);

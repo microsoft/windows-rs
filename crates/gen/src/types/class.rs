@@ -3,7 +3,7 @@ use crate::format_ident;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
-use squote::{quote, TokenStream};
+use squote::{quote, Literal, TokenStream};
 use std::iter::FromIterator;
 
 /// A WinRT Class
@@ -148,7 +148,7 @@ impl Class {
             let object = to_object_tokens(&name, &TokenStream::new());
             let bases = self.to_base_conversions_tokens(&name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
-            let signature = proc_macro2::Literal::byte_string(&self.signature.as_bytes());
+            let signature = Literal::byte_string(&self.signature.as_bytes());
 
             let default_name = &default_interface.name.tokens;
             let abi_name = default_interface.name.to_abi_tokens();
