@@ -7,7 +7,7 @@ winrt::import!(
 );
 
 use test_component::*;
-use windows::foundation::{PropertyValue, IReference, IStringable, Uri};
+use windows::foundation::{IReference, IStringable, PropertyValue, Uri};
 use winrt::ComInterface;
 
 #[test]
@@ -289,7 +289,11 @@ fn arrays() -> winrt::Result<()> {
 
     {
         let a: [winrt::HString; 3] = ["apples".into(), "oranges".into(), "pears".into()];
-        let mut b = [winrt::HString::new(), winrt::HString::new(), winrt::HString::new()];
+        let mut b = [
+            winrt::HString::new(),
+            winrt::HString::new(),
+            winrt::HString::new(),
+        ];
         let mut c = winrt::Array::new();
         let d = tests.array12(&a, &mut b, &mut c)?;
         assert!(a == b);

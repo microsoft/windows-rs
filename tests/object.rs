@@ -6,7 +6,7 @@ winrt::import!(
         test_component::TestRunner
 );
 
-use windows::foundation::{Uri, IStringable, PropertyValue};
+use windows::foundation::{IStringable, PropertyValue, Uri};
 
 #[test]
 fn class() -> winrt::Result<()> {

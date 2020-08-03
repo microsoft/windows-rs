@@ -1,5 +1,5 @@
-use winrt::ComInterface;
 use winrt::foundation::{IStringable, Uri};
+use winrt::ComInterface;
 
 #[test]
 fn non_generic() -> winrt::Result<()> {

@@ -1,8 +1,8 @@
-use winrt::foundation::{IPropertyValue, PropertyValue};
 use std::convert::{TryFrom, TryInto};
+use winrt::foundation::{IPropertyValue, PropertyValue};
+use winrt::ComInterface;
 use winrt::HString;
 use winrt::Object;
-use winrt::ComInterface;
 
 macro_rules! primitive_try_into_test {
     ($($v:literal),+) => {

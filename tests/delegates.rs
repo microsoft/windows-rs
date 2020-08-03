@@ -1,7 +1,11 @@
 use std::convert::*;
-use winrt::{AbiTransferable,ComInterface};
-use winrt::foundation::{Uri, AsyncStatus, IAsyncAction, AsyncActionCompletedHandler, TypedEventHandler};
-use winrt::foundation::collections::{PropertySet, MapChangedEventHandler, CollectionChange, IObservableMap};
+use winrt::foundation::collections::{
+    CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
+};
+use winrt::foundation::{
+    AsyncActionCompletedHandler, AsyncStatus, IAsyncAction, TypedEventHandler, Uri,
+};
+use winrt::{AbiTransferable, ComInterface};
 
 #[test]
 fn non_generic() -> winrt::Result<()> {
@@ -35,7 +39,6 @@ fn non_generic() -> winrt::Result<()> {
 
 #[test]
 fn generic() -> winrt::Result<()> {
-
     type Handler = TypedEventHandler<Uri, i32>;
 
     // TODO: Handler::IID is not correct for generic types

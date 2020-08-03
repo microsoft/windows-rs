@@ -47,7 +47,11 @@ impl TypeTree {
             .0
             .entry("Windows".to_string())
             .or_default()
-            .namespaces.0.entry("Foundation".to_string()).or_default().foundation = true;
+            .namespaces
+            .0
+            .entry("Foundation".to_string())
+            .or_default()
+            .foundation = true;
     }
 
     /// Turn the tree into a token stream for code generation

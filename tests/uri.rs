@@ -1,6 +1,6 @@
+use winrt::foundation::{IStringable, IUriRuntimeClass, Uri};
 use winrt::ComInterface;
 use winrt::RuntimeName;
-use winrt::foundation::{Uri,IUriRuntimeClass, IStringable};
 
 #[test]
 fn uri() -> winrt::Result<()> {
