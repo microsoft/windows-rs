@@ -57,6 +57,7 @@ mod error;
 mod factory;
 mod guid;
 mod hstring;
+mod numerics;
 mod object;
 mod param;
 mod runtime;

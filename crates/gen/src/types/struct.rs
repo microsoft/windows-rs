@@ -48,8 +48,6 @@ impl Struct {
             }
         });
 
-        let extensions = crate::numerics::generate_struct_extensions(self);
-
         quote! {
             #[repr(C)]
             #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq)]
@@ -68,7 +66,6 @@ impl Struct {
                     self as *mut Self::Abi
                 }
             }
-            #extensions
         }
     }
 }

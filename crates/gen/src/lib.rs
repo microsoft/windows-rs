@@ -4,7 +4,6 @@ mod codes;
 mod element_type;
 mod file;
 mod flags;
-mod numerics;
 mod row;
 mod tables;
 mod type_limits;
