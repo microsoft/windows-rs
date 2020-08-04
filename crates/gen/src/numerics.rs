@@ -1,7 +1,6 @@
 use crate::format_ident;
 use crate::types::*;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 use std::iter::FromIterator;
 
 pub fn generate_struct_extensions(winrt_struct: &Struct) -> TokenStream {
