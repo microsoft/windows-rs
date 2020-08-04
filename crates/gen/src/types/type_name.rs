@@ -4,8 +4,7 @@ use crate::tables::*;
 use crate::types::*;
 use crate::*;
 
-use proc_macro2::TokenStream;
-use quote::{format_ident, quote};
+use squote::{format_ident, quote, Ident, Literal, TokenStream};
 
 use std::iter::FromIterator;
 
@@ -60,7 +59,7 @@ impl TypeName {
     pub fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
@@ -109,7 +108,7 @@ impl TypeName {
 
     pub fn from_type_spec_blob(
         blob: &mut Blob,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         blob.read_unsigned();
@@ -130,7 +129,7 @@ impl TypeName {
     pub fn from_type_spec(
         reader: &TypeReader,
         spec: TypeSpec,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         let mut blob = spec.sig(reader);
@@ -139,27 +138,33 @@ impl TypeName {
     }
 
     pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
+        let signature = Literal::byte_string(signature.as_bytes());
         if self.generics.is_empty() {
-            return quote! { #signature.to_owned() };
+            return quote! { ::winrt::ConstBuffer::from_slice(#signature) };
         }
 
-        // TODO: I'm sure there's a more generic way of doing this, but as of now there are at
-        // most two generic parameters.
-        let format = match self.generics.len() {
-            1 => {
-                let first = self.generics[0].to_tokens();
-                quote! { format!("pinterface({};{})", #signature, <#first as ::winrt::RuntimeType>::signature()) }
-            }
-            2 => {
-                let first = self.generics[0].to_tokens();
-                let second = self.generics[1].to_tokens();
-                quote! { format!("pinterface({};{};{})", #signature, <#first as ::winrt::RuntimeType>::signature(), <#second as ::winrt::RuntimeType>::signature()) }
-            }
-            _ => panic!("Only types with two or fewer generics are supported"),
-        };
+        let generics = self.generics.iter().enumerate().map(|(index, g)| {
+            let g = g.to_tokens();
+            let semi = if index != self.generics.len() - 1 {
+                Some(quote! {
+                    let string = string.push_slice(b";");
+                })
+            } else {
+                None
+            };
 
+            quote! {
+                let string = string.push_other(<#g as ::winrt::RuntimeType>::SIGNATURE);
+                #semi
+            }
+        });
         quote! {
-            #format
+            let string = ::winrt::ConstBuffer::new();
+            let string = string.push_slice(b"pinterface(");
+            let string = string.push_slice(#signature);
+            let string = string.push_slice(b";");
+            #(#generics)*
+            string.push_slice(b")")
         }
     }
 
@@ -172,8 +177,10 @@ impl TypeName {
             };
         }
 
+        let typ = self.to_tokens();
+
         quote! {
-            ::winrt::Guid::from_signature::<Self>()
+            ::winrt::Guid::from_signature(<#typ as ::winrt::RuntimeType>::SIGNATURE)
         }
     }
 
@@ -341,7 +348,15 @@ impl TypeName {
             .collect()
     }
 
-    /// Crate abi tokens
+    /// Create tokens
+    ///
+    /// For example: `Vector<OtherType>`
+    pub fn to_tokens(&self) -> TokenStream {
+        let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
+        generate_tokens(&self.name, Some(&namespace), &self.generics, format_ident)
+    }
+
+    /// Create abi tokens
     ///
     /// For example: `abi_Vector<OtherType>`
     pub fn to_abi_tokens(&self) -> TokenStream {
@@ -354,7 +369,7 @@ impl TypeName {
         )
     }
 
-    /// Crate definition tokens
+    /// Create definition tokens
     ///
     /// For example: `Vector::<OtherType>`
     ///
@@ -365,7 +380,7 @@ impl TypeName {
         generate_tokens(&self.name, None, &self.generics, format_ident)
     }
 
-    /// Crate abi definition tokens
+    /// Create abi definition tokens
     ///
     /// For example: `abi_Vector::<OtherType>`
     pub fn to_abi_definition_tokens(&self) -> TokenStream {
@@ -415,18 +430,18 @@ impl Ord for TypeName {
     }
 }
 
-fn format_abi_ident(name: &str) -> proc_macro2::Ident {
-    quote::format_ident!("abi_{}", name)
+fn format_abi_ident(name: &str) -> Ident {
+    squote::format_ident!("abi_{}", name)
 }
 
 fn generate_tokens<F>(
     name: &str,
     namespace: Option<&TokenStream>,
-    generics: &Vec<TypeKind>,
+    generics: &[TypeKind],
     format: F,
 ) -> TokenStream
 where
-    F: FnOnce(&str) -> proc_macro2::Ident,
+    F: FnOnce(&str) -> Ident,
 {
     if generics.is_empty() {
         let name = format(name);

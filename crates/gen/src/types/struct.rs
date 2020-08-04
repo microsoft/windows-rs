@@ -2,8 +2,7 @@ use crate::case::to_snake;
 use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct Struct {
@@ -39,7 +38,7 @@ impl Struct {
 
     pub fn to_tokens(&self) -> TokenStream {
         let name = &self.name.tokens;
-        let signature = &self.signature;
+        let signature = Literal::byte_string(&self.signature.as_bytes());
 
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
@@ -57,14 +56,12 @@ impl Struct {
 
         quote! {
             #[repr(C)]
-            #[derive(Clone, Default, Debug, PartialEq)]
+            #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq)]
             pub struct #name {
                 #(#fields),*
             }
             unsafe impl ::winrt::RuntimeType for #name {
-                fn signature() -> String {
-                    #signature.to_owned()
-                }
+                const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
             unsafe impl ::winrt::AbiTransferable for #name {
                 type Abi = Self;

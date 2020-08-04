@@ -39,9 +39,7 @@ unsafe impl<T: ComInterface> AbiTransferable for ComPtr<T> {
 unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
     type VTable = T::VTable;
 
-    fn iid() -> Guid {
-        T::iid()
-    }
+    const IID: Guid = T::IID;
 }
 
 impl<T: ComInterface> Clone for ComPtr<T> {

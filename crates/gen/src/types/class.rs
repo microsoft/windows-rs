@@ -3,8 +3,7 @@ use crate::format_ident;
 use crate::tables::*;
 use crate::types::*;
 use crate::TypeReader;
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, Literal, TokenStream};
 use std::iter::FromIterator;
 
 /// A WinRT Class
@@ -149,7 +148,7 @@ impl Class {
             let object = to_object_tokens(&name, &TokenStream::new());
             let bases = self.to_base_conversions_tokens(&name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
-            let signature = &self.signature;
+            let signature = Literal::byte_string(&self.signature.as_bytes());
 
             let default_name = &default_interface.name.tokens;
             let abi_name = default_interface.name.to_abi_tokens();
@@ -169,7 +168,7 @@ impl Class {
 
             quote! {
                 #[repr(transparent)]
-                #[derive(Default, Clone, PartialEq)]
+                #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
                 pub struct #name { ptr: ::winrt::ComPtr<#default_name> }
                 impl #name {
                     #new
@@ -180,14 +179,10 @@ impl Class {
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
                     type VTable = #abi_name;
-                    fn iid() -> ::winrt::Guid {
-                        <#default_name as ::winrt::ComInterface>::iid()
-                    }
+                    const IID: ::winrt::Guid = <#default_name as ::winrt::ComInterface>::IID;
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
-                    fn signature() -> String {
-                        #signature.to_owned()
-                    }
+                    const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
                 }
                 unsafe impl ::winrt::AbiTransferable for #name {
                     type Abi = ::winrt::RawComPtr<#default_name>;

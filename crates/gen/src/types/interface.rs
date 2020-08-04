@@ -3,8 +3,7 @@ use crate::tables::*;
 use crate::types::debug;
 use crate::types::*;
 use crate::*;
-use proc_macro2::TokenStream;
-use quote::*;
+use squote::{quote, TokenStream};
 use std::iter::FromIterator;
 
 #[derive(Debug)]
@@ -84,6 +83,7 @@ impl Interface {
 
         quote! {
             #[repr(transparent)]
+            #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
             pub struct #definition where #constraints {
                 ptr: ::winrt::ComPtr<#name>,
                 #phantoms
@@ -94,17 +94,7 @@ impl Interface {
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
                 type VTable = #abi_definition;
-                fn iid() -> ::winrt::Guid {
-                    #guid
-                }
-            }
-            impl<#constraints> ::std::clone::Clone for #name {
-                fn clone(&self) -> Self {
-                    Self {
-                        ptr: self.ptr.clone(),
-                        #phantoms
-                    }
-                }
+                const IID: ::winrt::Guid = #guid;
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
@@ -113,9 +103,7 @@ impl Interface {
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                fn signature() -> String {
-                    #signature
-                }
+                const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
             unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
                 type Abi = ::winrt::RawComPtr<Self>;
@@ -127,19 +115,6 @@ impl Interface {
                 }
             }
             #debug
-            impl<#constraints> ::std::default::Default for #name {
-                fn default() -> Self {
-                    Self {
-                        ptr: ::winrt::ComPtr::default(),
-                        #phantoms
-                    }
-                 }
-            }
-            impl<#constraints> ::std::cmp::PartialEq<Self> for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    self.ptr == other.ptr
-                }
-            }
             #conversions
             #object
             #iterator

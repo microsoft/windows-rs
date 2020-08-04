@@ -5,8 +5,7 @@ use crate::tables::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 
-use proc_macro2::TokenStream;
-use quote::quote;
+use squote::{quote, TokenStream};
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeKind {
@@ -102,7 +101,7 @@ impl TypeKind {
     pub fn from_type_def(
         reader: &TypeReader,
         def: TypeDef,
-        _generics: &Vec<TypeKind>,
+        _generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         Self::from_type_name(
@@ -114,7 +113,7 @@ impl TypeKind {
     pub fn from_type_ref(
         reader: &TypeReader,
         type_ref: TypeRef,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         let (namespace, name) = type_ref.name(reader);
@@ -135,7 +134,7 @@ impl TypeKind {
     pub fn from_type_spec(
         reader: &TypeReader,
         spec: TypeSpec,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         TypeKind::Interface(TypeName::from_type_spec(
@@ -149,7 +148,7 @@ impl TypeKind {
     fn from_type_def_or_ref(
         reader: &TypeReader,
         code: TypeDefOrRef,
-        generics: &Vec<TypeKind>,
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
@@ -165,7 +164,7 @@ impl TypeKind {
         }
     }
 
-    pub fn from_blob(blob: &mut Blob, generics: &Vec<TypeKind>, calling_namespace: &str) -> Self {
+    pub fn from_blob(blob: &mut Blob, generics: &[TypeKind], calling_namespace: &str) -> Self {
         blob.read_expected(0x1D);
         blob.read_modifiers();
 

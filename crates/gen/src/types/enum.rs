@@ -2,8 +2,7 @@ use crate::element_type::ElementType;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 
-use proc_macro2::TokenStream;
-use quote::{format_ident, quote};
+use squote::{format_ident, quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct Enum {
@@ -54,7 +53,7 @@ impl Enum {
 
     pub fn to_tokens(&self) -> TokenStream {
         let name = &self.name.tokens;
-        let signature = &self.signature;
+        let signature = Literal::byte_string(&self.signature.as_bytes());
 
         let repr = match self.fields[0].1 {
             EnumConstant::U32(_) => format_ident!("u32"),
@@ -76,7 +75,7 @@ impl Enum {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Copy, Clone, Default, Debug, Eq, PartialEq)]
+            #[derive(::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::Eq, ::std::cmp::PartialEq)]
             pub struct #name {
                 value: #repr
             }
@@ -85,9 +84,7 @@ impl Enum {
                 #(#fields)*
             }
             unsafe impl ::winrt::RuntimeType for #name {
-                fn signature() -> String {
-                    #signature.to_owned()
-                }
+                const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
             unsafe impl ::winrt::AbiTransferable for #name {
                 type Abi = #repr;

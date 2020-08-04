@@ -33,20 +33,17 @@ impl Guid {
     }
 
     /// Creates a `Guid` for a "generic" WinRT type.
-    ///
-    /// Note this needs to be a const function as soon as [Rust supports it](https://github.com/microsoft/winrt-rs/issues/136).
-    pub fn from_signature<T: RuntimeType>() -> Guid {
-        let mut data = vec![
+    pub const fn from_signature(signature: crate::ConstBuffer) -> Guid {
+        let data = crate::ConstBuffer::from_slice(&[
             0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
             0xad, 0xee,
-        ];
-        data.extend_from_slice(T::signature().as_bytes());
+        ]);
 
-        let mut hash = sha1::Sha1::new();
-        hash.update(&data);
-        let bytes = hash.digest().bytes();
+        let data = data.push_other(signature);
 
+        let bytes = const_sha1::sha1(&data).bytes();
         let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
+
         let second = u16::from_be_bytes([bytes[4], bytes[5]]);
         let mut third = u16::from_be_bytes([bytes[6], bytes[7]]);
         third = (third & 0x0fff) | (5 << 12);
@@ -75,9 +72,7 @@ unsafe impl AbiTransferable for Guid {
     }
 }
 unsafe impl RuntimeType for Guid {
-    fn signature() -> String {
-        "g16".to_owned()
-    }
+    const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"g16");
 }
 
 impl std::fmt::Debug for Guid {
