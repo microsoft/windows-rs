@@ -1,4 +1,3 @@
-use super::object::to_object_tokens;
 use crate::tables::*;
 use crate::types::debug;
 use crate::types::*;
@@ -73,7 +72,6 @@ impl Interface {
                 .map(|interface| interface.to_conversions_tokens(&name, &constraints)),
         );
 
-        let object = to_object_tokens(&name, &constraints);
         let methods = to_method_tokens(&self.interfaces);
         let abi_methods = default_interface.to_abi_method_tokens();
         let iterator = iterator_tokens(&self.name, &self.interfaces);
@@ -114,9 +112,28 @@ impl Interface {
                     <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
                 }
             }
+            impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {
+                fn from(value: #name) -> Self {
+                    unsafe { ::std::mem::transmute(value) }
+                }
+            }
+            impl<#constraints> ::std::convert::From<&#name> for ::winrt::Object {
+                fn from(value: &#name) -> Self {
+                    ::std::convert::From::from(::std::clone::Clone::clone(value))
+                }
+            }
+            impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
+                fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                    ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
+                }
+            }
+            impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for &'a #name {
+                fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                    ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
+                }
+            }
             #debug
             #conversions
-            #object
             #iterator
             #future
         }

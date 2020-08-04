@@ -16,11 +16,18 @@ impl TypeNamespaces {
         self.0.par_iter().map(|(name, tree)| {
             let name = case::to_snake(name, MethodKind::Normal);
             let name = format_ident(&name);
-            let tree = tree.to_tokens().collect::<Vec<_>>();
+            let tokens = tree.to_tokens().collect::<Vec<_>>();
+
+            let foundation = if tree.include_foundation {
+                quote! { pub use ::winrt::foundation; }
+            } else {
+                TokenStream::new()
+            };
 
             quote! {
                 pub mod #name {
-                    #(#tree)*
+                    #(#tokens)*
+                    #foundation
                 }
             }
         })

@@ -104,7 +104,7 @@ impl Delegate {
             impl<#constraints> #name {
                 #method
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
-                    #impl_name::new(invoke)
+                    #impl_name::make(invoke)
                 }
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
@@ -146,7 +146,7 @@ impl Delegate {
                     invoke: #impl_name::invoke,
                     #phantoms
                 };
-                pub fn new(invoke: F) -> #name {
+                pub fn make(invoke: F) -> #name {
                     let value = Self {
                         vtable: &Self::VTABLE,
                         count: ::winrt::RefCount::new(),
@@ -177,7 +177,7 @@ impl Delegate {
                         }
 
                         *interface = std::ptr::null_mut();
-                        ::winrt::ErrorCode(0x80004002)
+                        ::winrt::ErrorCode::E_NOINTERFACE
                     }
                 }
                 extern "system" fn unknown_add_ref(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {

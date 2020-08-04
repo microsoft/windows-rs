@@ -27,11 +27,10 @@ impl TypeStage {
     }
 
     fn insert(&mut self, reader: &TypeReader, def: TypeDef) {
-        if !self.0.contains_key(&def) {
-            let info = def.into_type(reader);
-            let depends = info.dependencies();
-            self.0.insert(def, info);
-            for def in depends {
+        if let btree_map::Entry::Vacant(entry) = self.0.entry(def) {
+            let info = entry.insert(def.into_type(reader));
+
+            for def in info.dependencies() {
                 self.insert(reader, def);
             }
         }

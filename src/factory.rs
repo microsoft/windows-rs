@@ -70,10 +70,10 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
 
         // If this fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
-        if code == NOT_INITIALIZED {
+        if code == ErrorCode::CO_E_NOTINITIALIZED {
             let mut _cookie = std::ptr::null_mut();
 
-            // Won't get any delay-load errors here if we got NOT_INITIALIZED, so quiet the
+            // Won't get any delay-load errors here if we got CO_E_NOTINITIALIZED, so quiet the
             // warning from the #[must_use] on the returned Result<>.
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
@@ -165,6 +165,3 @@ impl Library {
         Library { handle }
     }
 }
-
-// Indicates that COM has not been initialized.
-const NOT_INITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);

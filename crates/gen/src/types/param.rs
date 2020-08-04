@@ -29,7 +29,6 @@ impl Param {
                 TypeKind::String
                 | TypeKind::Object
                 | TypeKind::Guid
-                | TypeKind::TimeSpan
                 | TypeKind::Class(_)
                 | TypeKind::Interface(_)
                 | TypeKind::Struct(_)
@@ -61,7 +60,6 @@ impl Param {
                 TypeKind::String
                 | TypeKind::Object
                 | TypeKind::Guid
-                | TypeKind::TimeSpan
                 | TypeKind::Class(_)
                 | TypeKind::Interface(_)
                 | TypeKind::Struct(_)
@@ -136,7 +134,6 @@ impl Param {
                     TypeKind::String
                     | TypeKind::Object
                     | TypeKind::Guid
-                    | TypeKind::TimeSpan
                     | TypeKind::Class(_)
                     | TypeKind::Interface(_)
                     | TypeKind::Struct(_)

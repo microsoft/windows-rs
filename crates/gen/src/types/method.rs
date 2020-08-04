@@ -293,7 +293,6 @@ fn to_constraint_tokens(params: &[Param]) -> TokenStream {
             TypeKind::String
             | TypeKind::Object
             | TypeKind::Guid
-            | TypeKind::TimeSpan
             | TypeKind::Class(_)
             | TypeKind::Interface(_)
             | TypeKind::Struct(_)

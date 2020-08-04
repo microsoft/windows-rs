@@ -141,6 +141,9 @@ impl ErrorCode {
         // equivalent to MAKE_WIN32_HRESULT(error)
         Self(0x8007_0000 | error & 0xFFFF)
     }
+
+    pub const CO_E_NOTINITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
+    pub const E_NOINTERFACE: ErrorCode = ErrorCode(0x8000_4002);
 }
 
 impl<T> std::convert::From<Result<T>> for ErrorCode {

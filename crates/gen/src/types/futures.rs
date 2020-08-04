@@ -49,8 +49,6 @@ fn to_async_tokens(
     name: &TypeName,
     self_name: &TypeName,
 ) -> (TokenStream, TokenStream) {
-    let namespace = to_namespace_tokens("Windows.Foundation", &self_name.namespace);
-
     let return_type = match kind {
         AsyncKind::Operation | AsyncKind::OperationWithProgress => name.generics[0].to_tokens(),
         _ => quote! { () },
@@ -70,10 +68,10 @@ fn to_async_tokens(
     (
         quote! {
             pub fn get(&self) -> ::winrt::Result<#return_type> {
-                if self.status()? == #namespace AsyncStatus::Started {
+                if self.status()? == ::winrt::foundation::AsyncStatus::Started {
                     unsafe {
                         let event = ::winrt::CreateEventW(::std::ptr::null_mut(), 1, 0, ::std::ptr::null_mut());
-                        self.set_completed(#namespace #handler::new(move |_sender, _args| {
+                        self.set_completed(::winrt::foundation:: #handler::new(move |_sender, _args| {
                             ::winrt::SetEvent(event);
                             Ok(())
                         }))?;
@@ -89,10 +87,10 @@ fn to_async_tokens(
                 type Output = ::winrt::Result<#return_type>;
 
                 fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
-                    if self.status()? == #namespace AsyncStatus::Started {
+                    if self.status()? == ::winrt::foundation::AsyncStatus::Started {
                         let waker = context.waker().clone();
 
-                        self.set_completed(#namespace #handler::new(move |_sender, _args| {
+                        self.set_completed(::winrt::foundation:: #handler::new(move |_sender, _args| {
                             waker.wake_by_ref();
                             Ok(())
                         }))?;

@@ -3,11 +3,10 @@ winrt::import!(
         os
     types
         windows::data::xml::dom::XmlDocument
-        windows::foundation::Uri
 );
 
 use windows::data::xml::dom::XmlDocument;
-use windows::foundation::Uri;
+use winrt::foundation::Uri;
 
 // Simple test to validate debugging works
 #[test]

@@ -6,8 +6,9 @@ use squote::TokenStream;
 /// A namespaced tree of types
 #[derive(Default)]
 pub struct TypeTree {
-    types: Vec<Type>,
-    namespaces: TypeNamespaces,
+    pub types: Vec<Type>,
+    pub namespaces: TypeNamespaces,
+    pub include_foundation: bool,
 }
 
 impl TypeTree {
@@ -29,6 +30,24 @@ impl TypeTree {
                 .types
                 .push(t);
         }
+    }
+
+    pub fn remove(&mut self, namespace: &str) {
+        if let Some(pos) = namespace.find('.') {
+            if let Some(tree) = self.namespaces.0.get_mut(&namespace[..pos]) {
+                tree.remove(&namespace[pos + 1..])
+            }
+        } else {
+            self.namespaces.0.remove(namespace);
+        }
+    }
+
+    pub fn reexport(&mut self) {
+        self.namespaces
+            .0
+            .entry("Windows".to_string())
+            .or_default()
+            .include_foundation = true;
     }
 
     /// Turn the tree into a token stream for code generation

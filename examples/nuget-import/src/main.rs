@@ -2,14 +2,14 @@ winrt::import!(
     dependencies
         nuget: Microsoft.Windows.SDK.Contracts
     types
-        windows::foundation::Uri
+        windows::ui::Colors
 );
 
 fn main() -> winrt::Result<()> {
-    use windows::foundation::Uri;
+    use windows::ui::Colors;
 
-    let uri = Uri::create_uri("http://kennykerr.ca:80")?;
-    println!("Port: {:?}", uri.port()?);
+    let red = Colors::red()?;
+    println!("Red: {:?}", red);
 
     Ok(())
 }

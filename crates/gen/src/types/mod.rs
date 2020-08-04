@@ -7,7 +7,6 @@ mod interface;
 mod iterator;
 mod method;
 mod namespace;
-mod object;
 mod param;
 mod required_interface;
 mod r#struct;

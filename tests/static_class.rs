@@ -1,13 +1,7 @@
 // This tests uses PropertyValue to test static WinRT classes - those classes that lack a default interface
 // and thus only provide static methods.
 
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::foundation::PropertyValue
-);
-use windows::foundation::PropertyValue;
+use winrt::foundation::PropertyValue;
 use winrt::RuntimeName;
 
 #[test]
