@@ -1,12 +1,5 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::foundation::Uri
-);
-
 use std::thread;
-use windows::foundation::Uri;
+use winrt::foundation::Uri;
 
 // Simple test to validate that types with MarshalingType.Agile are marked Send and Sync
 // (if this compiles it worked)

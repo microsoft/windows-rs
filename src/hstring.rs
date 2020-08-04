@@ -183,6 +183,12 @@ impl PartialEq<&str> for HString {
     }
 }
 
+impl PartialEq<HString> for &str {
+    fn eq(&self, other: &HString) -> bool {
+        other == self
+    }
+}
+
 impl<'a> From<&'a HString> for String {
     fn from(hstring: &HString) -> Self {
         String::from_utf16(hstring.as_wide()).unwrap()

@@ -69,9 +69,7 @@ impl<T: ComInterface> PartialEq for NonNullRawComPtr<T> {
 
 impl<T: ComInterface> Clone for NonNullRawComPtr<T> {
     fn clone(&self) -> Self {
-        Self {
-            inner: self.inner.clone(),
-        }
+        Self { inner: self.inner }
     }
 }
 

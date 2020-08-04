@@ -24,7 +24,6 @@ pub enum TypeKind {
     String,
     Object,
     Guid,
-    TimeSpan,
     Class(TypeName),
     Interface(TypeName),
     Enum(TypeName),
@@ -51,7 +50,6 @@ impl TypeKind {
             Self::String => "string".to_owned(),
             Self::Object => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
-            Self::TimeSpan => "struct(Windows.Foundation.TimeSpan;i8)".to_owned(),
             Self::Class(name) => name.class_signature(reader),
             Self::Interface(name) => name.interface_signature(reader),
             Self::Enum(name) => name.enum_signature(reader),
@@ -78,7 +76,6 @@ impl TypeKind {
             Self::String => "String".to_owned(),
             Self::Object => "Object".to_owned(),
             Self::Guid => "Guid".to_owned(),
-            Self::TimeSpan => "Windows.Foundation.TimeSpan".to_owned(),
             Self::Class(name) => name.runtime_name(),
             Self::Interface(name) => name.runtime_name(),
             Self::Enum(name) => name.runtime_name(),
@@ -119,8 +116,6 @@ impl TypeKind {
         let (namespace, name) = type_ref.name(reader);
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
-        } else if (namespace, name) == ("Windows.Foundation", "TimeSpan") {
-            TypeKind::TimeSpan
         } else {
             Self::from_type_def(
                 reader,
@@ -233,7 +228,6 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
-            Self::TimeSpan => quote! { ::winrt::TimeSpan },
             Self::Class(name) => name.tokens.clone(),
             Self::Interface(name) => name.tokens.clone(),
             Self::Enum(name) => name.tokens.clone(),
@@ -261,7 +255,6 @@ impl TypeKind {
             Self::F32 => quote! { f32, },
             Self::F64 => quote! { f64, },
             Self::Guid => quote! { ::winrt::Guid, },
-            Self::TimeSpan => quote! { ::winrt::TimeSpan, },
             Self::String => {
                 quote! { <::winrt::HString as ::winrt::AbiTransferable>::Abi, }
             }

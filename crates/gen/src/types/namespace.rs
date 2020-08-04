@@ -5,8 +5,11 @@ use squote::{quote, TokenStream};
 use std::iter::FromIterator;
 
 pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
-    let mut tokens = Vec::new();
+    if destination == source {
+        return TokenStream::new();
+    }
 
+    let mut tokens = Vec::new();
     let mut source = source.split('.').peekable();
     let mut destination = destination.split('.').peekable();
 

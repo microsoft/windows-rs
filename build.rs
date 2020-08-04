@@ -1,8 +1,8 @@
-winrt::build!(
+winrt_macros::build!(
+    foundation
     dependencies
         nuget: Microsoft.Windows.SDK.Contracts
     types
-        windows::ui::Colors
 );
 
 fn main() {

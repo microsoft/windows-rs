@@ -1,18 +1,15 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::foundation::*
-        windows::foundation::collections::*
-);
-
-use winrt::AbiTransferable;
-use winrt::ComInterface;
+use std::convert::*;
+use winrt::foundation::collections::{
+    CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
+};
+use winrt::foundation::{
+    AsyncActionCompletedHandler, AsyncStatus, IAsyncAction, TypedEventHandler, Uri,
+};
+use winrt::{AbiTransferable, ComInterface};
 
 #[test]
 fn non_generic() -> winrt::Result<()> {
-    use windows::foundation::{AsyncStatus, IAsyncAction};
-    type Handler = windows::foundation::AsyncActionCompletedHandler;
+    type Handler = AsyncActionCompletedHandler;
 
     assert_eq!(
         Handler::IID,
@@ -42,9 +39,7 @@ fn non_generic() -> winrt::Result<()> {
 
 #[test]
 fn generic() -> winrt::Result<()> {
-    use windows::foundation::Uri;
-
-    type Handler = windows::foundation::TypedEventHandler<Uri, i32>;
+    type Handler = TypedEventHandler<Uri, i32>;
 
     // TODO: Handler::IID is not correct for generic types
 
@@ -74,9 +69,6 @@ fn generic() -> winrt::Result<()> {
 
 #[test]
 fn event() -> winrt::Result<()> {
-    use windows::foundation::collections::*;
-    use windows::foundation::*;
-
     let set = PropertySet::new()?;
     let (tx, rx) = std::sync::mpsc::channel();
 
@@ -95,7 +87,7 @@ fn event() -> winrt::Result<()> {
         }),
     )?;
 
-    set.insert("A", PropertyValue::create_uint32(1)?)?;
+    set.insert("A", winrt::Object::try_from(1_u32)?)?;
 
     assert!(rx.recv().unwrap());
 

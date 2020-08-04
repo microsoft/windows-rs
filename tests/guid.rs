@@ -1,11 +1,4 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::foundation::GuidHelper
-);
-
-use windows::foundation::GuidHelper;
+use winrt::foundation::GuidHelper;
 use winrt::Guid;
 
 #[test]

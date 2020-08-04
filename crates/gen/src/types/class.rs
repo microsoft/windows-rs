@@ -1,4 +1,3 @@
-use super::object::to_object_tokens;
 use crate::format_ident;
 use crate::tables::*;
 use crate::types::*;
@@ -142,10 +141,9 @@ impl Class {
                     }
                 }
             } else {
-                quote! {}
+                TokenStream::new()
             };
 
-            let object = to_object_tokens(&name, &TokenStream::new());
             let bases = self.to_base_conversions_tokens(&name);
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = Literal::byte_string(&self.signature.as_bytes());
@@ -163,7 +161,7 @@ impl Class {
                     unsafe impl<#constraints> ::std::marker::Sync for #name {}
                 }
             } else {
-                quote! {}
+                TokenStream::new()
             };
 
             quote! {
@@ -193,9 +191,28 @@ impl Class {
                         <::winrt::ComPtr<#default_name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
                     }
                 }
+                impl ::std::convert::From<#name> for ::winrt::Object {
+                    fn from(value: #name) -> Self {
+                        unsafe { ::std::mem::transmute(value) }
+                    }
+                }
+                impl ::std::convert::From<&#name> for ::winrt::Object {
+                    fn from(value: &#name) -> Self {
+                        ::std::convert::From::from(::std::clone::Clone::clone(value))
+                    }
+                }
+                impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
+                    fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                        ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
+                    }
+                }
+                impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for &'a #name {
+                    fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                        ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
+                    }
+                }
                 #debug
                 #conversions
-                #object
                 #bases
                 #iterator
                 #send_sync
@@ -252,7 +269,7 @@ impl Class {
         for interface in &self.interfaces {
             if (interface.kind != InterfaceKind::Statics
                 && interface.kind != InterfaceKind::Composable)
-                || interface.methods.len() == 0
+                || interface.methods.is_empty()
             {
                 continue;
             }

@@ -2,7 +2,6 @@ winrt::import!(
     dependencies
         os
     types
-        windows::foundation::*
         windows::application_model::appointments::AppointmentDaysOfWeek
 );
 
@@ -10,7 +9,7 @@ use winrt::AbiTransferable;
 
 #[test]
 fn signed_enum() {
-    use windows::foundation::AsyncStatus;
+    use winrt::foundation::AsyncStatus;
 
     assert!(AsyncStatus::default().get_abi() == 0);
     assert!(AsyncStatus::Canceled.get_abi() == 2);

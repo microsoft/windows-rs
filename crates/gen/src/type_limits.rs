@@ -24,7 +24,7 @@ impl<'a> TypeLimits<'a> {
             .reader
             .types
             .iter()
-            .find(|(name, _)| name.to_lowercase() == limit.namespace)
+            .find(|(name, _)| name.to_lowercase() == limit.namespace.to_lowercase())
         {
             Some((n, _)) => n,
             None => return Err(limit.namespace),

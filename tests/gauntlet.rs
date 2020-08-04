@@ -1,25 +1,24 @@
-import!(
+winrt::import!(
     dependencies
         nuget: Microsoft.Windows.SDK.Contracts
         nuget: KennyKerr.Windows.TestWinRT
     types
         test_component::*
-        windows::foundation::*
 );
 
 use test_component::*;
-use windows::foundation::*;
-use winrt::*;
+use windows::foundation::{IReference, IStringable, PropertyValue, Uri};
+use winrt::ComInterface;
 
 #[test]
-fn test_self() -> Result<()> {
+fn test_self() -> winrt::Result<()> {
     TestRunner::test_self()?;
 
     Ok(())
 }
 
 #[test]
-fn params() -> Result<()> {
+fn params() -> winrt::Result<()> {
     let tests = TestRunner::make_tests()?;
 
     {
@@ -100,8 +99,8 @@ fn params() -> Result<()> {
     }
 
     {
-        let a: HString = "WinRT".into();
-        let mut b = HString::new();
+        let a: winrt::HString = "WinRT".into();
+        let mut b = winrt::HString::new();
         let c = tests.param12(&a, &mut b)?;
         assert!(a == b && a == c);
     }
@@ -117,7 +116,7 @@ fn params() -> Result<()> {
             g: -7,
             h: 8.0,
             i: 9.0,
-            j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+            j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
         };
 
         let mut b = Blittable::default();
@@ -127,7 +126,7 @@ fn params() -> Result<()> {
 
     {
         let object = PropertyValue::create_int64(1234)?;
-        let pv: IReference<i64> = object.try_into()?;
+        let pv: IReference<i64> = object.query();
 
         let a = NonBlittable {
             a: false,
@@ -143,7 +142,7 @@ fn params() -> Result<()> {
 
     {
         let object = PropertyValue::create_int64(1234)?;
-        let pv: IReference<i64> = object.try_into()?;
+        let pv: IReference<i64> = object.query();
 
         let a = Nested {
             blittable: Blittable {
@@ -156,7 +155,7 @@ fn params() -> Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
             non_blittable: NonBlittable {
                 a: false,
@@ -175,13 +174,13 @@ fn params() -> Result<()> {
 }
 
 #[test]
-fn arrays() -> Result<()> {
+fn arrays() -> winrt::Result<()> {
     let tests = TestRunner::make_tests()?;
 
     {
         let a: [bool; 3] = [true, false, true];
         let mut b = [false; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array1(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -191,7 +190,7 @@ fn arrays() -> Result<()> {
     {
         let a: [u8; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array2(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -201,7 +200,7 @@ fn arrays() -> Result<()> {
     {
         let a: [u16; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array3(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -211,7 +210,7 @@ fn arrays() -> Result<()> {
     {
         let a: [u32; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array4(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -221,7 +220,7 @@ fn arrays() -> Result<()> {
     {
         let a: [u64; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array5(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -231,7 +230,7 @@ fn arrays() -> Result<()> {
     {
         let a: [i16; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array6(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -241,7 +240,7 @@ fn arrays() -> Result<()> {
     {
         let a: [i32; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array7(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -251,7 +250,7 @@ fn arrays() -> Result<()> {
     {
         let a: [i64; 3] = [1, 2, 3];
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array8(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -261,7 +260,7 @@ fn arrays() -> Result<()> {
     {
         let a: [f32; 3] = [1.0, 2.0, 3.0];
         let mut b = [0.0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array9(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -271,7 +270,7 @@ fn arrays() -> Result<()> {
     {
         let a: [f64; 3] = [1.0, 2.0, 3.0];
         let mut b = [0.0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array10(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -281,7 +280,7 @@ fn arrays() -> Result<()> {
     {
         let a: [u16; 3] = [0x61, 0x62, 0x63]; // WinRT char e.g. L'a' , L'b', L'c'
         let mut b = [0; 3];
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array11(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -289,9 +288,13 @@ fn arrays() -> Result<()> {
     }
 
     {
-        let a: [HString; 3] = ["apples".into(), "oranges".into(), "pears".into()];
-        let mut b = [HString::new(), HString::new(), HString::new()];
-        let mut c = Array::new();
+        let a: [winrt::HString; 3] = ["apples".into(), "oranges".into(), "pears".into()];
+        let mut b = [
+            winrt::HString::new(),
+            winrt::HString::new(),
+            winrt::HString::new(),
+        ];
+        let mut c = winrt::Array::new();
         let d = tests.array12(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -310,7 +313,7 @@ fn arrays() -> Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
             Blittable {
                 a: 10,
@@ -322,7 +325,7 @@ fn arrays() -> Result<()> {
                 g: -70,
                 h: 80.0,
                 i: 90.0,
-                j: Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
+                j: winrt::Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
             },
             Blittable {
                 a: 1,
@@ -334,7 +337,7 @@ fn arrays() -> Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
         ];
 
@@ -344,7 +347,7 @@ fn arrays() -> Result<()> {
             Blittable::default(),
         ];
 
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array13(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -353,13 +356,13 @@ fn arrays() -> Result<()> {
 
     {
         let object = PropertyValue::create_int64(123)?;
-        let first: IReference<i64> = object.try_into()?;
+        let first: IReference<i64> = object.query();
 
         let object = PropertyValue::create_int64(456)?;
-        let second: IReference<i64> = object.try_into()?;
+        let second: IReference<i64> = object.query();
 
         let object = PropertyValue::create_int64(789)?;
-        let third: IReference<i64> = object.try_into()?;
+        let third: IReference<i64> = object.query();
 
         let a: [NonBlittable; 3] = [
             NonBlittable {
@@ -388,7 +391,7 @@ fn arrays() -> Result<()> {
             NonBlittable::default(),
         ];
 
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array14(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -397,13 +400,13 @@ fn arrays() -> Result<()> {
 
     {
         let object = PropertyValue::create_int64(123)?;
-        let first: IReference<i64> = object.try_into()?;
+        let first: IReference<i64> = object.query();
 
         let object = PropertyValue::create_int64(456)?;
-        let second: IReference<i64> = object.try_into()?;
+        let second: IReference<i64> = object.query();
 
         let object = PropertyValue::create_int64(789)?;
-        let third: IReference<i64> = object.try_into()?;
+        let third: IReference<i64> = object.query();
 
         let a: [Nested; 3] = [
             Nested {
@@ -417,7 +420,7 @@ fn arrays() -> Result<()> {
                     g: -7,
                     h: 8.0,
                     i: 9.0,
-                    j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                    j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
                 },
                 non_blittable: NonBlittable {
                     a: false,
@@ -437,7 +440,7 @@ fn arrays() -> Result<()> {
                     g: -70,
                     h: 80.0,
                     i: 90.0,
-                    j: Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
+                    j: winrt::Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
                 },
                 non_blittable: NonBlittable {
                     a: true,
@@ -457,7 +460,7 @@ fn arrays() -> Result<()> {
                     g: -7,
                     h: 8.0,
                     i: 9.0,
-                    j: Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                    j: winrt::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
                 },
                 non_blittable: NonBlittable {
                     a: false,
@@ -470,7 +473,7 @@ fn arrays() -> Result<()> {
 
         let mut b = [Nested::default(), Nested::default(), Nested::default()];
 
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array15(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -490,7 +493,7 @@ fn arrays() -> Result<()> {
             IStringable::default(),
         ];
 
-        let mut c = Array::new();
+        let mut c = winrt::Array::new();
         let d = tests.array16(&a, &mut b, &mut c)?;
         assert!(a == b);
         assert!(a == c[..]);
@@ -505,7 +508,7 @@ fn arrays() -> Result<()> {
 }
 
 #[test]
-fn delegate_params() -> Result<()> {
+fn delegate_params() -> winrt::Result<()> {
     let tests = TestRunner::make_tests()?;
 
     tests.param1_call(Param1Handler::new(|a, b| {
@@ -578,7 +581,7 @@ fn delegate_params() -> Result<()> {
 }
 
 #[test]
-fn collections() -> Result<()> {
+fn collections() -> winrt::Result<()> {
     {
         let v = TestRunner::create_int32_vector()?;
         assert_eq!(v.size()?, 0);
@@ -625,7 +628,7 @@ fn collections() -> Result<()> {
     Ok(())
 }
 
-async fn async_await() -> Result<()> {
+async fn async_await() -> winrt::Result<()> {
     let tests = TestRunner::make_tests()?;
 
     // Success and failure with no delay
@@ -744,6 +747,6 @@ async fn async_await() -> Result<()> {
 }
 
 #[test]
-fn test_async_await() -> Result<()> {
+fn test_async_await() -> winrt::Result<()> {
     futures::executor::block_on(async_await())
 }
