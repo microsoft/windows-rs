@@ -8,7 +8,7 @@ use squote::TokenStream;
 pub struct TypeTree {
     pub types: Vec<Type>,
     pub namespaces: TypeNamespaces,
-    pub foundation: bool,
+    pub include_foundation: bool,
 }
 
 impl TypeTree {
@@ -47,11 +47,7 @@ impl TypeTree {
             .0
             .entry("Windows".to_string())
             .or_default()
-            .namespaces
-            .0
-            .entry("Foundation".to_string())
-            .or_default()
-            .foundation = true;
+            .include_foundation = true;
     }
 
     /// Turn the tree into a token stream for code generation

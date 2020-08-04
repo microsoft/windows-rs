@@ -18,18 +18,16 @@ impl TypeNamespaces {
             let name = format_ident(&name);
             let tokens = tree.to_tokens().collect::<Vec<_>>();
 
-            if tree.foundation {
-                quote! {
-                    pub mod #name {
-                        #(#tokens)*
-                        pub use ::winrt::foundation::*;
-                    }
-                }
+            let foundation = if tree.include_foundation {
+                quote! { pub use ::winrt::foundation; }
             } else {
-                quote! {
-                    pub mod #name {
-                        #(#tokens)*
-                    }
+                TokenStream::new()
+            };
+
+            quote! {
+                pub mod #name {
+                    #(#tokens)*
+                    #foundation
                 }
             }
         })

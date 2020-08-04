@@ -182,6 +182,7 @@ impl ImportMacro {
         let foundation_namespaces = &[
             "Windows.Foundation",
             "Windows.Foundation.Collections",
+            "Windows.Foundation.Diagnostics",
             "Windows.Foundation.Numerics",
         ];
 
