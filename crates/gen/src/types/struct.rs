@@ -48,11 +48,7 @@ impl Struct {
             }
         });
 
-        let extensions = self.add_extensions();
-        let temp = extensions.to_string();
-        if !temp.trim().is_empty() {
-            std::fs::write(format!("numerics_{}.txt", self.name.name), temp).unwrap();
-        }
+        let extensions = crate::numerics::generate_struct_extensions(self);
 
         quote! {
             #[repr(C)]
@@ -74,9 +70,5 @@ impl Struct {
             }
             #extensions
         }
-    }
-
-    fn add_extensions(&self) -> TokenStream {
-        crate::numerics::generate_struct_extensions(self)
     }
 }
