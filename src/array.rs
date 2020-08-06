@@ -24,15 +24,24 @@ impl<T: RuntimeType> Array<T> {
     /// Creates an array of the given length with default values.
     pub fn with_len(len: usize) -> Self {
         assert!(len < std::u32::MAX as usize);
+        let bytes_amount = len
+            .checked_mul(std::mem::size_of::<T>())
+            .expect("Attempted to allocate too large an Array");
 
         // WinRT arrays must be allocated with CoTaskMemAlloc.
-        let data = unsafe { CoTaskMemAlloc(len * std::mem::size_of::<T>()) as *mut T };
+        // SAFETY: the call to CoTaskMemAlloc is safe to perform
+        // if len is zero and overflow was checked above.
+        // We ensured we alloc enough space by multiplying len * size_of::<T>
+        let data = unsafe { CoTaskMemAlloc(bytes_amount) as *mut T };
 
         if data.is_null() {
             panic!("Could not successfully allocate for Array");
         }
 
-        // It is safe to zero-initialize WinRT types.
+        // SAFETY: It is by definition safe to zero-initialize WinRT types.
+        // `write_bytes` will write 0 to (len * size_of::<T>())
+        // bytes making the entire array zero initialized. We have assured
+        // above that the data ptr is not null.
         unsafe {
             std::ptr::write_bytes(data, 0, len);
         }
@@ -63,21 +72,40 @@ impl<T: RuntimeType> Array<T> {
         std::mem::swap(&mut data, &mut self.data);
         std::mem::swap(&mut len, &mut self.len);
 
+        // SAFETY: At this point, self has been reset to zero so any panics in T's destructor would
+        // only leak data not leave the array in bad state.
         unsafe {
+            // Call the destructors of all the elements of the old array
+            // SAFETY: the slice cannot be used after the call to `drop_in_place`
             std::ptr::drop_in_place(std::slice::from_raw_parts_mut(data, len as usize));
+            // Free the data memory where the elements were
+            // SAFETY: we have unique access to the data pointer at this point
+            // so freeing it is the right thing to do
             CoTaskMemFree(data as _);
         }
     }
 
+    #[doc(hidden)]
+    /// Get a mutable pointer to the array's length
+    ///
+    /// This function is safe but writing to the pointer is not. Calling this without
+    /// a subsequent call to `set_abi` is likely to either leak memory or cause UB
     pub fn set_abi_len(&mut self) -> *mut u32 {
         &mut self.len
     }
 
+    #[doc(hidden)]
+    /// Get a mutable pointer to the array's data
+    ///
+    /// This function is safe but writing to the pointer is not. Calling this without
+    /// a subsequent call to `set_abi_len` is likely to either leak memory or cause UB
     pub fn set_abi(&mut self) -> *mut *mut T::Abi {
         self.clear();
         &mut self.data as *mut _ as *mut _
     }
 
+    #[doc(hidden)]
+    /// Turn the array into a pointer to its data and its length
     pub fn into_abi(self) -> (*mut T::Abi, u32) {
         let abi = (self.data as *mut _, self.len);
         std::mem::forget(self);
@@ -93,6 +121,7 @@ impl<T: RuntimeType> std::ops::Deref for Array<T> {
             return &[];
         }
 
+        // SAFETY: data must not be null if the array is not empty
         unsafe { std::slice::from_raw_parts(self.data, self.len as usize) }
     }
 }
@@ -103,6 +132,7 @@ impl<T: RuntimeType> std::ops::DerefMut for Array<T> {
             return &mut [];
         }
 
+        // SAFETY: data must not be null if the array is not empty
         unsafe { std::slice::from_raw_parts_mut(self.data, self.len as usize) }
     }
 }
