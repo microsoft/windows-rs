@@ -310,7 +310,7 @@ impl Parse for Dependencies {
                         std::fs::read_dir(dependencies::nuget_root()).map_err(|e| {
                             syn::Error::new_spanned(
                                 &package,
-                                format!("could not read nuget directory: {}", e),
+                                format!("could not read nuget directory: {}. Do you need to run `cargo winrt install`?", e),
                             )
                         })?;
 
@@ -330,7 +330,7 @@ impl Parse for Dependencies {
                         syn::Error::new_spanned(
                             &package,
                             format!(
-                                "could not find folder for dependency '{}' in target\nuget folder",
+                                "could not find folder for dependency '{}' in target\\nuget folder. Do you need to run `cargo winrt install`?",
                                 name
                             ),
                         )
