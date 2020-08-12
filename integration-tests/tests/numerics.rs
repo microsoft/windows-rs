@@ -1,11 +1,4 @@
-winrt::import!(
-    dependencies
-        nuget: Microsoft.Windows.SDK.Contracts
-    types
-        windows::foundation::numerics::*
-);
-
-use windows::foundation::numerics::*;
+use tests::windows::foundation::numerics::*;
 
 macro_rules! test_with_same_type {
     ($value1:ident, $value2:ident, $op:tt, $expected:ident) => {

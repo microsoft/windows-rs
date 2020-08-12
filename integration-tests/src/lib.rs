@@ -1,0 +1,1 @@
+winrt::include_bindings!();

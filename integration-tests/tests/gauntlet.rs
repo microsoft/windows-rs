@@ -1,13 +1,5 @@
-winrt::import!(
-    dependencies
-        nuget: Microsoft.Windows.SDK.Contracts
-        nuget: KennyKerr.Windows.TestWinRT
-    types
-        test_component::*
-);
-
-use test_component::*;
-use windows::foundation::{IReference, IStringable, PropertyValue, Uri};
+use tests::test_component::*;
+use tests::windows::foundation::{IReference, IStringable, PropertyValue, Uri};
 use winrt::ComInterface;
 
 #[test]

@@ -1,10 +1,3 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::application_model::appointments::AppointmentDaysOfWeek
-);
-
 use winrt::AbiTransferable;
 
 #[test]
@@ -20,7 +13,7 @@ fn signed_enum() {
 
 #[test]
 fn unsigned_enum() {
-    use windows::application_model::appointments::AppointmentDaysOfWeek;
+    use tests::windows::application_model::appointments::AppointmentDaysOfWeek;
 
     assert!(AppointmentDaysOfWeek::default().get_abi() == 0);
     assert!(AppointmentDaysOfWeek::None.get_abi() == 0);

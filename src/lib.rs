@@ -1,16 +1,20 @@
 //! A crate for providing native and familiar support for the Windows Runtime for Rust developers.
 //!
-//! To use, start by importing the types that you need.
+//! To use, start by importing the types that you need inside of a build script.
 //!
-//! ```rust
-//! use winrt::import;
+//! ```rust,ignore
+//! use winrt::build;
 //!
-//! import!(
-//!     dependencies
-//!         os
+//! build!(
 //!     types
 //!         windows::data::xml::dom::*
 //! );
+//! ```
+//!
+//! Then use those types inside your crate.
+//! ```rust,ignore
+//! // Include generated types
+//! winrt::include_bindings!()
 //!
 //! // Make use of any WinRT APIs as needed.
 //! // For example, here is an example of using the Windows.Foundation.Uri class:
@@ -36,8 +40,15 @@
 //! course, when using these APIs from Rust, you will have to remember to translate CamelCase to snake_case as is
 //! the convention in Rust.
 
+#[macro_export]
+macro_rules! include_bindings {
+    () => {
+        include!(concat!(env!("OUT_DIR"), "/winrt.rs"));
+    };
+}
+
 mod bindings {
-    include!(concat!(env!("OUT_DIR"), "/winrt.rs"));
+    include_bindings!();
 }
 
 extern crate self as winrt;
@@ -89,7 +100,7 @@ pub use runtime::*;
 pub use runtime_name::RuntimeName;
 #[doc(hidden)]
 pub use runtime_type::RuntimeType;
-pub use winrt_macros::{build, import};
+pub use winrt_macros::build;
 
 #[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;

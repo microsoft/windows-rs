@@ -1,11 +1,4 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::ui::xaml::*
-);
-
-use windows::ui::xaml::*;
+use tests::windows::ui::xaml::*;
 use winrt::ComInterface;
 
 #[test]

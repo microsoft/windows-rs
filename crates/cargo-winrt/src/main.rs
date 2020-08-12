@@ -1,9 +1,9 @@
-mod cargo;
 mod error;
-mod manifest;
 
 use error::Error;
-use manifest::Manifest;
+pub use winrt_dependency_management::{
+    cargo, manifest::Manifest, DependencyDescriptor as DependencyDescriptorImpl,
+};
 
 use anyhow::Context;
 use curl::easy::Easy;
@@ -252,10 +252,6 @@ impl Install {
 
         let _ = VERBOSITY.set(self.verbose);
         let manifest = cargo::package_manifest()?;
-        let local_dependencies = manifest.local_dependencies()?;
-        for dep_manifest in local_dependencies {
-            self.install_from_manifest(dep_manifest)?;
-        }
         self.install_from_manifest(manifest)?;
 
         let time_elapsed = elapsed(start_time.elapsed());
@@ -276,13 +272,17 @@ impl Install {
 
     fn ensure_dependencies(
         &self,
-        dependency_descriptors: Vec<DependencyDescriptor>,
+        dependency_descriptors: Vec<DependencyDescriptorImpl>,
     ) -> anyhow::Result<()> {
         let dependency_descriptors = if self.force {
             dependency_descriptors
+                .into_iter()
+                .map(|d| DependencyDescriptor(d))
+                .collect()
         } else {
             dependency_descriptors
                 .into_iter()
+                .map(|d| DependencyDescriptor(d))
                 .filter_map(|d| match d.already_saved() {
                     Ok(true) => None,
                     Ok(false) => Some(Ok(d)),
@@ -368,17 +368,12 @@ USAGE:
     }
 }
 
-#[derive(Debug)]
-enum DependencyDescriptor {
-    NugetOrg { name: String, version: String },
-    Url { name: String, url: String },
-    Local { name: String, path: PathBuf },
-}
+struct DependencyDescriptor(DependencyDescriptorImpl);
 
 impl DependencyDescriptor {
     fn get(&self) -> anyhow::Result<RawNuget> {
-        match self {
-            DependencyDescriptor::NugetOrg { name, version } => {
+        match &self.0 {
+            DependencyDescriptorImpl::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
                 let bytes = try_download(url)?;
                 Ok(RawNuget::Zipped {
@@ -386,7 +381,7 @@ impl DependencyDescriptor {
                     name: name.clone(),
                 })
             }
-            DependencyDescriptor::Url { url, name } => {
+            DependencyDescriptorImpl::Url { url, name } => {
                 let bytes = try_download(url.as_str().to_owned())?;
 
                 Ok(RawNuget::Zipped {
@@ -394,7 +389,7 @@ impl DependencyDescriptor {
                     name: name.clone(),
                 })
             }
-            DependencyDescriptor::Local { path: p, name } => {
+            DependencyDescriptorImpl::Local { path: p, name } => {
                 let mut path = cargo::package_manifest_path()?
                     .parent()
                     .expect("package mainfest must have parent path")
@@ -410,19 +405,11 @@ impl DependencyDescriptor {
     }
 
     fn name(&self) -> &str {
-        match self {
-            DependencyDescriptor::NugetOrg { name, .. } => name,
-            DependencyDescriptor::Url { name, .. } => name,
-            DependencyDescriptor::Local { name, .. } => name,
-        }
+        self.0.name()
     }
 
     fn version(&self) -> &str {
-        match self {
-            DependencyDescriptor::NugetOrg { version, .. } => version,
-            DependencyDescriptor::Url { .. } => "unknown",
-            DependencyDescriptor::Local { .. } => "unknown",
-        }
+        self.0.version()
     }
 
     fn already_saved(&self) -> anyhow::Result<bool> {

@@ -1,11 +1,3 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::ui::{Color, Colors}
-        windows::ui::composition::{Compositor, SpriteVisual, Visual}
-);
-
 use winrt::AbiTransferable;
 
 #[link(name = "coremessaging")]
@@ -44,7 +36,7 @@ fn create_dispatcher() -> winrt::IUnknown {
 
 #[test]
 fn class_hierarchy_conversion() -> winrt::Result<()> {
-    use windows::ui::composition::{Compositor, SpriteVisual, Visual};
+    use tests::windows::ui::composition::{Compositor, SpriteVisual, Visual};
 
     let _dispatcher = create_dispatcher();
     let compositor = Compositor::new()?;
@@ -84,9 +76,9 @@ fn class_hierarchy_conversion() -> winrt::Result<()> {
 
 #[test]
 fn composition() -> winrt::Result<()> {
-    use windows::foundation::numerics::Vector3;
-    use windows::ui::composition::{CompositionColorBrush, Compositor};
-    use windows::ui::{Color, Colors};
+    use tests::windows::foundation::numerics::Vector3;
+    use tests::windows::ui::composition::{CompositionColorBrush, Compositor};
+    use tests::windows::ui::{Color, Colors};
     use winrt::ComInterface;
 
     let _dispatcher = create_dispatcher();

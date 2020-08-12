@@ -1,12 +1,4 @@
-import!(
-    dependencies
-        nuget: Microsoft.Windows.SDK.Contracts
-        nuget: KennyKerr.Windows.TestWinRT
-    types
-        test_component::*
-);
-
-use test_component::*;
+use tests::test_component::*;
 use winrt::*;
 
 #[test]

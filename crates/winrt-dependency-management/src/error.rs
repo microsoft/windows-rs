@@ -7,12 +7,10 @@ type DynError = dyn StdError + Send + Sync + 'static;
 pub(crate) enum Error {
     #[error("no `Cargo.toml` could be found")]
     NoCargoToml,
-    #[error("there was an error downloading the NuGet package\n\t{0}")]
-    DownloadError(Box<DynError>),
     #[error("the Cargo.toml file was malformed\n\t{0}")]
     MalformedManifest(Box<DynError>),
     #[error("{0}")]
-    CargoError(super::cargo::CargoError),
+    CargoError(crate::cargo::CargoError),
     #[error("there was some unexpected IO error\n\t{0}")]
     IO(#[from] std::io::Error),
 }

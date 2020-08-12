@@ -1,13 +1,5 @@
-winrt::import!(
-    dependencies
-        nuget: Microsoft.Windows.SDK.Contracts
-        nuget: KennyKerr.Windows.TestWinRT
-    types
-        test_component::*
-);
-
 use std::time::Duration;
-use test_component::TestRunner;
+use tests::test_component::TestRunner;
 use winrt::foundation::{IPropertyValue, PropertyValue, TimeSpan};
 use winrt::ComInterface;
 
