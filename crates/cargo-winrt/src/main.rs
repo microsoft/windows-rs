@@ -380,7 +380,7 @@ USAGE:
 }
 
 #[derive(Debug)]
-struct Version {}
+struct Version;
 
 impl Version {
     fn perform(&self) -> anyhow::Result<()> {
