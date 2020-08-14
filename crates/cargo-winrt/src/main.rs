@@ -67,7 +67,7 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
     }
 
     if args.contains(["-V", "--version"]) {
-        return Ok(Subcommand::Version(Version {}));
+        return Ok(Subcommand::Version(Version));
     }
 
     if args.contains(["-h", "--help"]) {}
@@ -93,7 +93,7 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
         }
         Some("version") => {
             args.finish()?;
-            Subcommand::Version(Version {})
+            Subcommand::Version(Version)
         }
         Some(_) => return Err(ArgsError::NoSuchSubcommand(subcommand.unwrap())),
         None => return Err(ArgsError::MissingSubcommand),
