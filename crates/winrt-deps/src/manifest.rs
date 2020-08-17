@@ -28,11 +28,11 @@ impl Manifest {
             .unwrap_or("")
     }
 
-    pub fn get_dependency_descriptors(self) -> anyhow::Result<Vec<DependencyDescriptor>> {
+    pub fn get_dependencies(self) -> anyhow::Result<Vec<DependencyDescriptor>> {
         let local_dependencies = self
             .local_dependencies()?
             .into_iter()
-            .map(|d| d.get_dependency_descriptors())
+            .map(|d| d.get_dependencies())
             .collect::<anyhow::Result<Vec<Vec<DependencyDescriptor>>>>()?;
         let metadata = self.inner.package.and_then(|p| p.metadata);
 

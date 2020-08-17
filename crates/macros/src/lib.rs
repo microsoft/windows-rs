@@ -6,6 +6,7 @@ use syn::parse::{self, Parse, ParseStream};
 use syn::spanned::Spanned;
 use syn::{parse_macro_input, Error, UseTree};
 
+use winrt_deps::cargo;
 use winrt_gen::{
     dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage, WinmdFile,
 };
@@ -201,7 +202,6 @@ mod keywords {
     syn::custom_keyword!(foundation);
 }
 
-use winrt_dependency_management::cargo;
 /// A parsed `dependencies` section of the `import!` macro
 #[derive(Debug)]
 struct Dependencies(BTreeSet<PathBuf>);
@@ -209,7 +209,7 @@ struct Dependencies(BTreeSet<PathBuf>);
 impl Dependencies {
     fn parse() -> Result<Self, Box<dyn std::error::Error + 'static>> {
         let mut dependencies = BTreeSet::new();
-        let deps = cargo::package_manifest()?.get_dependency_descriptors()?;
+        let deps = cargo::package_manifest()?.get_dependencies()?;
         for dep in deps {
             let nuget_path = std::fs::read_dir(dependencies::nuget_root())?;
             let name = dep.name();

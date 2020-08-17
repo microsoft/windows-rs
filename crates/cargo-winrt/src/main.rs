@@ -1,9 +1,7 @@
 mod error;
 
 use error::Error;
-pub use winrt_dependency_management::{
-    cargo, manifest::Manifest, DependencyDescriptor as DependencyDescriptorImpl,
-};
+pub use winrt_deps::{cargo, manifest::Manifest, DependencyDescriptor};
 
 use anyhow::Context;
 use curl::easy::Easy;
@@ -266,29 +264,25 @@ impl Install {
 
     fn install_from_manifest(&self, manifest: Manifest) -> anyhow::Result<()> {
         print_verbose_status!("Resolving", manifest.package_name());
-        let deps = manifest.get_dependency_descriptors()?;
+        let deps = manifest.get_dependencies()?;
         self.ensure_dependencies(deps)
     }
 
     fn ensure_dependencies(
         &self,
-        dependency_descriptors: Vec<DependencyDescriptorImpl>,
+        dependency_descriptors: Vec<DependencyDescriptor>,
     ) -> anyhow::Result<()> {
+        let dependency_descriptors = dependency_descriptors.into_iter().map(|d| Dependency(d));
         let dependency_descriptors = if self.force {
-            dependency_descriptors
-                .into_iter()
-                .map(|d| DependencyDescriptor(d))
-                .collect()
+            dependency_descriptors.collect()
         } else {
             dependency_descriptors
-                .into_iter()
-                .map(|d| DependencyDescriptor(d))
                 .filter_map(|d| match d.already_saved() {
                     Ok(true) => None,
                     Ok(false) => Some(Ok(d)),
                     Err(e) => Some(Err(e)),
                 })
-                .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
+                .collect::<anyhow::Result<Vec<Dependency>>>()?
         };
 
         print_verbose_status!(
@@ -304,10 +298,7 @@ impl Install {
         Ok(())
     }
 
-    fn get_dependencies(
-        &self,
-        deps: Vec<DependencyDescriptor>,
-    ) -> anyhow::Result<Vec<ResolvedDependency>> {
+    fn get_dependencies(&self, deps: Vec<Dependency>) -> anyhow::Result<Vec<ResolvedDependency>> {
         deps.into_iter()
             .map(|dep| {
                 print_status!("Fetching", dep.name());
@@ -368,12 +359,12 @@ USAGE:
     }
 }
 
-struct DependencyDescriptor(DependencyDescriptorImpl);
+struct Dependency(DependencyDescriptor);
 
-impl DependencyDescriptor {
+impl Dependency {
     fn get(&self) -> anyhow::Result<RawNuget> {
         match &self.0 {
-            DependencyDescriptorImpl::NugetOrg { name, version } => {
+            DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
                 let bytes = try_download(url)?;
                 Ok(RawNuget::Zipped {
@@ -381,7 +372,7 @@ impl DependencyDescriptor {
                     name: name.clone(),
                 })
             }
-            DependencyDescriptorImpl::Url { url, name } => {
+            DependencyDescriptor::Url { url, name } => {
                 let bytes = try_download(url.as_str().to_owned())?;
 
                 Ok(RawNuget::Zipped {
@@ -389,7 +380,7 @@ impl DependencyDescriptor {
                     name: name.clone(),
                 })
             }
-            DependencyDescriptorImpl::Local { path: p, name } => {
+            DependencyDescriptor::Local { path: p, name } => {
                 let mut path = cargo::package_manifest_path()?
                     .parent()
                     .expect("package mainfest must have parent path")
@@ -628,12 +619,12 @@ fn extract_files<F: Read>(
 }
 
 struct ResolvedDependency {
-    descriptor: DependencyDescriptor,
+    descriptor: Dependency,
     contents: (Vec<Winmd>, Vec<Dll>),
 }
 
 impl ResolvedDependency {
-    fn new(descriptor: DependencyDescriptor, raw: RawNuget) -> anyhow::Result<Self> {
+    fn new(descriptor: Dependency, raw: RawNuget) -> anyhow::Result<Self> {
         let contents = raw.contents()?;
         Ok(Self {
             descriptor,
