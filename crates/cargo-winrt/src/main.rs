@@ -13,6 +13,8 @@ use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::time::{Duration, Instant};
 
+const VERSION: &str = env!("CARGO_PKG_VERSION");
+
 fn main() {
     if let Err(i) = run() {
         std::process::exit(i);
@@ -46,6 +48,7 @@ fn run() -> Result<(), i32> {
         Subcommand::Run(r) => r.perform(),
         Subcommand::Build(b) => b.perform(),
         Subcommand::Help(h) => h.perform(),
+        Subcommand::Version(v) => v.perform(),
     };
     if let Err(ref e) = result {
         cmd_err!("{}", e);
@@ -63,9 +66,11 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
         subcommand = args.subcommand()?;
     }
 
-    if args.contains(["-h", "--help"]) {
-        return Ok(Subcommand::Help(Help { subcommand }));
+    if args.contains(["-V", "--version"]) {
+        return Ok(Subcommand::Version(Version));
     }
+
+    if args.contains(["-h", "--help"]) {}
 
     let verbose = args.contains(["-v", "--verbose"]);
     let force = args.contains(["-f", "--force"]);
@@ -85,6 +90,10 @@ fn parse_args() -> Result<Subcommand, ArgsError> {
         Some("help") => {
             let subcommand = args.free()?.first().map(String::to_owned);
             Subcommand::Help(Help { subcommand })
+        }
+        Some("version") => {
+            args.finish()?;
+            Subcommand::Version(Version)
         }
         Some(_) => return Err(ArgsError::NoSuchSubcommand(subcommand.unwrap())),
         None => return Err(ArgsError::MissingSubcommand),
@@ -133,6 +142,7 @@ enum Subcommand {
     Build(Build),
     Run(Run),
     Help(Help),
+    Version(Version),
 }
 
 #[derive(Debug)]
@@ -346,6 +356,7 @@ impl Help {
                 "build" => Build::print_help(),
                 "run" => Run::print_help(),
                 "help" => Help::print_help(),
+                "version" => Version::print_help(),
                 unknown => {
                     eprintln!("error: The subcommand '{}' wasn't recognized", unknown);
                     Help::print_help()
@@ -363,6 +374,27 @@ Prints this message or the help of the given subcommand
 
 USAGE:
     cargo winrt help [SUBCOMMAND]
+"#
+        );
+    }
+}
+
+#[derive(Debug)]
+struct Version;
+
+impl Version {
+    fn perform(&self) -> anyhow::Result<()> {
+        println!("cargo-winrt {}", VERSION);
+        Ok(())
+    }
+
+    fn print_help() {
+        println!(
+            r#"
+Prints version information for cargo-winrt
+
+USAGE:
+    cargo winrt version
 "#
         );
     }
