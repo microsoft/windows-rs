@@ -1,67 +1,18 @@
-extern crate proc_macro;
-
 use proc_macro::TokenStream;
 use proc_macro2::Span;
 use quote::quote;
 use rayon::iter::ParallelIterator;
 use syn::parse::{self, Parse, ParseStream};
-use syn::punctuated::Punctuated;
 use syn::spanned::Spanned;
-use syn::{parse_macro_input, Error, Ident, Token, UseTree};
+use syn::{parse_macro_input, Error, UseTree};
 
+use winrt_deps::cargo;
 use winrt_gen::{
     dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage, WinmdFile,
 };
 
 use std::convert::{TryFrom, TryInto};
 use std::{collections::BTreeSet, path::PathBuf};
-
-/// A macro for generating WinRT modules into the current module.
-///
-/// This macro can be used to import WinRT APIs from OS dependencies as well
-/// as NuGet packages. Use the `import` macro to directly include the generated code
-/// into any module.
-///
-/// # Usage
-/// To use, first specify which dependencies you are relying on. This can be both
-/// `os` for depending on WinRT metadata shipped with Windows or `nuget: My.Package`
-/// for NuGet packages.
-///
-/// ## NuGet
-/// NuGet dependencies are expected in a well defined place. The `winmd` metadata files
-/// should be in the cargo workspace's `target` directory in a subdirectory `nuget\My.Package`
-/// where `My.Package` is the name of the NuGet package.
-///
-/// Any DLLs needed for the NuGet package to work should be next to work must be next to the final
-/// executable.
-///
-/// Instead of handling this yourself, you can use the [`cargo winrt`](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo-winrt)
-/// helper subcommand.
-///
-/// ## Types
-/// After specifying the dependencies, you must then specify which types you want to use. These
-/// follow the same convention as Rust `use` paths. Types know which other types they depend on so
-/// `import` will generate any other WinRT types needed for the specified type to work.
-///
-/// # Example
-/// The following `import!` depends on both `os` metadata (i.e., metadata shipped on Windows 10), as well
-/// as a 3rd-party NuGet dependency. It then generates all types inside of the `microsoft::ai::machine_learning`
-/// namespace.
-///
-/// ```rust,ignore
-/// import!(
-///     dependencies
-///         os
-///         nuget: Microsoft.AI.MachineLearning
-///     types
-///         microsoft::ai::machine_learning::*
-/// );
-/// ```
-#[proc_macro]
-pub fn import(stream: TokenStream) -> TokenStream {
-    let import = parse_macro_input!(stream as ImportMacro);
-    import.to_tokens().into()
-}
 
 /// A macro for generating WinRT modules to a .rs file at build time.
 ///
@@ -122,41 +73,27 @@ pub fn build(stream: TokenStream) -> TokenStream {
     };
 
     let tokens = quote! {
-        fn build() {
-            use ::std::io::Write;
-            let mut path = ::std::path::PathBuf::from(
-                ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
-            );
+        #change_if
+        use ::std::io::Write;
+        let mut path = ::std::path::PathBuf::from(
+            ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
+        );
 
-            path.push("winrt.rs");
-            let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
+        path.push("winrt.rs");
+        let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
+        file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
-            let mut cmd = ::std::process::Command::new("rustfmt");
-            cmd.arg("--emit").arg("stdout");
-            cmd.stdin(::std::process::Stdio::piped());
-            cmd.stdout(::std::process::Stdio::piped());
-            {
-                let child = cmd.spawn().unwrap();
-                let mut stdin = child.stdin.unwrap();
-                let stdout = child.stdout.unwrap();
-
-                let t = ::std::thread::spawn(move || {
-                    let mut s = stdout;
-                    ::std::io::copy(&mut s, &mut file).unwrap();
-                });
-
-                #change_if
-
-                writeln!(&mut stdin, "{}", #tokens).unwrap();
-                // drop stdin to close that end of the pipe
-                ::std::mem::drop(stdin);
-
-                t.join().unwrap();
+        let mut cmd = ::std::process::Command::new("rustfmt");
+        cmd.arg(&path);
+        let output = cmd.output();
+        match output {
+            Err(_) => eprintln!("Could not execute rustfmt"),
+            Ok(o) if !o.status.success() => {
+                let stderr = String::from_utf8_lossy(&o.stderr);
+                eprintln!("rustfmt did not exit properly: {:?}\n{}", o.status.code(), stderr);
             }
-
-            let status = cmd.status().unwrap();
-            assert!(status.success(), "Could not successfully build");
-        }
+            _ => {}
+        };
     };
     tokens.into()
 }
@@ -227,22 +164,13 @@ impl ImportMacro {
 
         Ok(ts.into_string())
     }
-
-    fn to_tokens(self) -> proc_macro2::TokenStream {
-        self.to_tokens_string()
-            .map(|s| {
-                s.parse::<proc_macro2::TokenStream>()
-                    .expect("Internal error: the code code produce by the macro was not a valid token stream")
-            })
-            .unwrap_or_else(|ts| ts)
-    }
 }
 
 impl Parse for ImportMacro {
     fn parse(input: ParseStream) -> parse::Result<Self> {
+        let dependencies = Dependencies::parse()
+            .map_err(|e| syn::Error::new(proc_macro2::Span::call_site(), format!("{}", e)))?;
         let foundation = input.parse::<keywords::foundation>().is_ok();
-        let _ = input.parse::<keywords::dependencies>()?;
-        let dependencies: Dependencies = input.parse()?;
         let _ = input.parse::<keywords::types>()?;
         let types: TypesDeclarations = input.parse()?;
 
@@ -254,9 +182,8 @@ impl Parse for ImportMacro {
     }
 }
 
-/// keywords used in the `import!` macro
+/// keywords used in the `build!` macro
 mod keywords {
-    syn::custom_keyword!(os);
     syn::custom_keyword!(nuget);
     syn::custom_keyword!(dependencies);
     syn::custom_keyword!(types);
@@ -267,90 +194,35 @@ mod keywords {
 #[derive(Debug)]
 struct Dependencies(BTreeSet<PathBuf>);
 
-impl Parse for Dependencies {
-    fn parse(input: ParseStream) -> parse::Result<Self> {
-        enum Keyword {
-            Os,
-            Nuget,
-        }
+impl Dependencies {
+    fn parse() -> Result<Self, Box<dyn std::error::Error + 'static>> {
         let mut dependencies = BTreeSet::new();
-        while let Some((keyword, keyword_span)) = {
-            if let Some(k) = input.parse::<Option<keywords::os>>()? {
-                Some((Keyword::Os, k.span()))
-            } else if let Some(k) = input.parse::<Option<keywords::nuget>>()? {
-                Some((Keyword::Nuget, k.span()))
-            } else {
-                None
-            }
-        } {
-            match keyword {
-                Keyword::Os => {
-                    let path = dependencies::system_metadata_root().ok_or_else(|| {
-                        syn::Error::new(keyword_span, "'windir' environment variable is not set. Perhaps you're trying to use operating system dependencies on a non-Windows OS?")
-                    })?;
-
-                    dependencies::expand_paths(&path, &mut dependencies, false).map_err(|_| {
-                        syn::Error::new(
-                            keyword_span,
-                            format!("system metadata cannot be found at '{}'", path.display()),
-                        )
-                    })?;
-                }
-                Keyword::Nuget => {
-                    input.parse::<Token![:]>()?;
-
-                    let package = Punctuated::<Ident, Token![.]>::parse_separated_nonempty(input)?;
-
-                    let name = package
-                        .iter()
-                        .map(|ident| ident.to_string())
-                        .collect::<Vec<String>>()
-                        .join(".");
-                    let nuget_path =
-                        std::fs::read_dir(dependencies::nuget_root()).map_err(|e| {
-                            syn::Error::new_spanned(
-                                &package,
-                                format!("could not read nuget directory: {}. Do you need to run `cargo winrt install`?", e),
-                            )
-                        })?;
-
-                    let mut dependency_path_iter = nuget_path
-                        .into_iter()
-                        .filter_map(|entry| entry.ok())
-                        .filter(|entry| {
-                            if let Some(entry) = entry.file_name().to_str().map(str::to_owned) {
-                                entry.starts_with(&name)
-                            } else {
-                                false
-                            }
-                        })
-                        .map(|entry| entry.path());
-
-                    let path = dependency_path_iter.next().ok_or_else(|| {
-                        syn::Error::new_spanned(
-                            &package,
-                            format!(
-                                "could not find folder for dependency '{}' in target\\nuget folder. Do you need to run `cargo winrt install`?",
-                                name
-                            ),
-                        )
-                    })?;
-                    // Check for multiple versions
-                    if dependency_path_iter.next().is_some() {
-                        return Err(syn::Error::new_spanned(
-                            &package,
-                            format!("multiple nuget package versions found for '{}'", name),
-                        ));
+        let deps = cargo::package_manifest()?.get_dependencies()?;
+        for dep in deps {
+            let nuget_path = std::fs::read_dir(dependencies::nuget_root())?;
+            let name = dep.name();
+            let mut dependency_path_iter = nuget_path
+                .filter_map(|entry| entry.ok())
+                .filter(|entry| entry.path().is_dir())
+                .filter(|entry| {
+                    if let Some(entry) = entry.file_name().to_str().map(str::to_owned) {
+                        entry.starts_with(&name)
+                    } else {
+                        false
                     }
+                })
+                .map(|entry| entry.path());
 
-                    dependencies::expand_paths(path, &mut dependencies, true).map_err(|e| {
-                        syn::Error::new_spanned(
-                            package,
-                            format!("could not read dependency: {}", e),
-                        )
-                    })?;
-                }
+            let path = dependency_path_iter
+                .next()
+                .ok_or_else(|| format!("No directory for dependency '{}'", dep.name()))?;
+            // Check for multiple versions
+            if dependency_path_iter.next().is_some() {
+                return Err(format!("multiple nuget package versions found for '{}'", name).into());
             }
+
+            dependencies::expand_paths(path, &mut dependencies, true)
+                .map_err(|e| format!("could not read dependency: {}", e))?;
         }
         Ok(Dependencies(dependencies))
     }

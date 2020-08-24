@@ -1,13 +1,6 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::storage::streams::{DataReader, DataWriter, InMemoryRandomAccessStream}
-);
-
 #[test]
 fn async_get() -> winrt::Result<()> {
-    use windows::storage::streams::*;
+    use tests::windows::storage::streams::*;
 
     let stream = &InMemoryRandomAccessStream::new()?;
 
@@ -32,7 +25,7 @@ fn async_get() -> winrt::Result<()> {
 }
 
 async fn async_await() -> winrt::Result<()> {
-    use windows::storage::streams::*;
+    use tests::windows::storage::streams::*;
 
     let stream = &InMemoryRandomAccessStream::new()?;
 

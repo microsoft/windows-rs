@@ -6,39 +6,55 @@ use cargo_toml::{Manifest as ManifestImpl, Value};
 
 use std::path::PathBuf;
 
-pub(crate) struct Manifest(ManifestImpl);
+#[derive(Debug)]
+pub struct Manifest {
+    inner: ManifestImpl,
+    path: PathBuf,
+}
 
 impl Manifest {
-    pub(crate) fn from_slice(data: &[u8]) -> anyhow::Result<Self> {
-        Ok(Manifest(ManifestImpl::from_slice(data)?))
+    pub(crate) fn from_slice(data: &[u8], path: PathBuf) -> anyhow::Result<Self> {
+        Ok(Manifest {
+            inner: ManifestImpl::from_slice(data)?,
+            path,
+        })
     }
 
-    pub(crate) fn package_name(&self) -> &str {
-        self.0
+    pub fn package_name(&self) -> &str {
+        self.inner
             .package
             .as_ref()
             .map(|p| p.name.as_ref())
             .unwrap_or("")
     }
 
-    pub(crate) fn get_dependency_descriptors(self) -> anyhow::Result<Vec<DependencyDescriptor>> {
-        let metadata = self.0.package.and_then(|p| p.metadata);
+    pub fn get_dependencies(self) -> anyhow::Result<Vec<DependencyDescriptor>> {
+        let local_dependencies = self
+            .local_dependencies()?
+            .into_iter()
+            .map(|d| d.get_dependencies())
+            .collect::<anyhow::Result<Vec<Vec<DependencyDescriptor>>>>()?;
+        let metadata = self.inner.package.and_then(|p| p.metadata);
 
-        let from_metadata = match metadata {
+        let mut from_metadata = match metadata {
             Some(md) => dependency_descriptors_from_metadata(md)?,
             _ => Vec::new(),
         };
+        for dep in local_dependencies {
+            from_metadata.extend(dep);
+        }
 
         Ok(from_metadata)
     }
 
-    pub(crate) fn local_dependencies(&self) -> anyhow::Result<Vec<Self>> {
-        self.0
+    fn local_dependencies(&self) -> anyhow::Result<Vec<Self>> {
+        self.inner
             .dependencies
             .iter()
             .filter_map(|(name, dependency)| {
                 let details = dependency.detail()?;
                 let path = details.path.as_ref()?;
+                let path = self.path.parent().unwrap().join(path);
                 Some((name, path))
             })
             .map(|(name, path)| {
@@ -51,7 +67,7 @@ impl Manifest {
                         path.display()
                     )
                 })?;
-                let m = Self::from_slice(&file)?;
+                let m = Self::from_slice(&file, path)?;
                 Ok(m)
             })
             .collect()

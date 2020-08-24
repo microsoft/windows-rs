@@ -1,11 +1,4 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::data::xml::dom::XmlDocument
-);
-
-use windows::data::xml::dom::XmlDocument;
+use tests::windows::data::xml::dom::XmlDocument;
 use winrt::foundation::Uri;
 
 // Simple test to validate debugging works

@@ -1,11 +1,4 @@
-winrt::import!(
-    dependencies
-        os
-    types
-        windows::data::xml::dom::*
-);
-
-use windows::data::xml::dom::XmlDocument;
+use tests::windows::data::xml::dom::XmlDocument;
 
 // Simple test to validate that default constructors are projected as static `new` methods.
 #[test]

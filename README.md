@@ -19,22 +19,43 @@ winrt = "0.7.2"
 
 This will allow Cargo to download, build, and cache the Rust/WinRT support as a package directly from crates.io.
 
+
+Next, specify your WinRT dependencies in your Cargo.toml file:
+
+```toml
+[package.metadata.winrt.dependencies]
+"Microsoft.Windows.SDK.Contracts" = "10.0.19041.1"
+```
+
+This automatically downloads the dependency from NuGet and places the WinRT metadata files in a well-known spot.
+
+Then, generate the code by specifying which types you need inside of a build.rs build script.
+
 ```rust
 use winrt::*;
 
-// Now use the `import` macro to import the desired winmd files and types:
-import!(
-    dependencies
-        os
-    types
-        windows::data::xml::dom::*
-        windows::ui::*
-);
+fn main() {
+    build!(
+        types
+            windows::data::xml::dom::*
+            windows::ui::*
+    );
+}
+```
+
+Then use those types inside your crate.
+
+```rust
+use winrt::*;
+
+mod bindings {
+    include_bindings!();
+}
 
 // Finally, make use of any WinRT APIs as needed. For example, here is
 // an example of using the `XmlDocument` class to parse an XML document:
 fn main() -> Result<()> {
-    use windows::data::xml::dom::*;
+    use bindings::windows::data::xml::dom::*;
 
     let doc = XmlDocument::new()?;
     doc.load_xml("<html>hello world</html>")?;

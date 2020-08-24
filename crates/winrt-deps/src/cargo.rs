@@ -7,17 +7,18 @@ use std::process::{Command, Output, Stdio};
 use crate::error::{self, Error};
 use crate::manifest::Manifest;
 
-pub(crate) fn run() -> anyhow::Result<()> {
+pub fn run() -> anyhow::Result<()> {
     Cargo::new()?.args(&["run"]).execute()
 }
 
-pub(crate) fn build() -> anyhow::Result<()> {
+pub fn build() -> anyhow::Result<()> {
     Cargo::new()?.args(&["build"]).execute()
 }
 
-pub(crate) fn package_manifest() -> anyhow::Result<Manifest> {
-    let bytes = std::fs::read(package_manifest_path()?).map_err(|_| Error::NoCargoToml)?;
-    Ok(Manifest::from_slice(&bytes).map_err(|e| Error::MalformedManifest(e.into()))?)
+pub fn package_manifest() -> anyhow::Result<Manifest> {
+    let path = package_manifest_path()?;
+    let bytes = std::fs::read(&path).map_err(|_| Error::NoCargoToml)?;
+    Ok(Manifest::from_slice(&bytes, path).map_err(|e| Error::MalformedManifest(e.into()))?)
 }
 
 pub(crate) fn metadata() -> anyhow::Result<Metadata> {
@@ -36,7 +37,7 @@ pub(crate) fn metadata() -> anyhow::Result<Metadata> {
     Ok(Metadata::parse(&result.stdout))
 }
 
-pub(crate) fn package_manifest_path() -> anyhow::Result<PathBuf> {
+pub fn package_manifest_path() -> anyhow::Result<PathBuf> {
     let _ = metadata()?;
     let current =
         std::env::current_dir().context("failed to get current directory in search of manifest")?;
@@ -52,12 +53,12 @@ pub(crate) fn package_manifest_path() -> anyhow::Result<PathBuf> {
     }
 }
 
-pub(crate) fn workspace_target_path() -> anyhow::Result<PathBuf> {
+pub fn workspace_target_path() -> anyhow::Result<PathBuf> {
     Ok(metadata()?.target_directory)
 }
 
 #[derive(Error, Debug)]
-pub(crate) enum CargoError {
+pub enum CargoError {
     #[error("you are not currently in cargo workspace")]
     NotInWorkspace,
 }

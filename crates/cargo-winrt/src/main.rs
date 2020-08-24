@@ -1,9 +1,7 @@
-mod cargo;
 mod error;
-mod manifest;
 
 use error::Error;
-use manifest::Manifest;
+pub use winrt_deps::{cargo, manifest::Manifest, DependencyDescriptor};
 
 use anyhow::Context;
 use curl::easy::Easy;
@@ -262,10 +260,6 @@ impl Install {
 
         let _ = VERBOSITY.set(self.verbose);
         let manifest = cargo::package_manifest()?;
-        let local_dependencies = manifest.local_dependencies()?;
-        for dep_manifest in local_dependencies {
-            self.install_from_manifest(dep_manifest)?;
-        }
         self.install_from_manifest(manifest)?;
 
         let time_elapsed = elapsed(start_time.elapsed());
@@ -280,7 +274,7 @@ impl Install {
 
     fn install_from_manifest(&self, manifest: Manifest) -> anyhow::Result<()> {
         print_verbose_status!("Resolving", manifest.package_name());
-        let deps = manifest.get_dependency_descriptors()?;
+        let deps = manifest.get_dependencies()?;
         self.ensure_dependencies(deps)
     }
 
@@ -288,17 +282,17 @@ impl Install {
         &self,
         dependency_descriptors: Vec<DependencyDescriptor>,
     ) -> anyhow::Result<()> {
+        let dependency_descriptors = dependency_descriptors.into_iter().map(|d| Dependency(d));
         let dependency_descriptors = if self.force {
-            dependency_descriptors
+            dependency_descriptors.collect()
         } else {
             dependency_descriptors
-                .into_iter()
                 .filter_map(|d| match d.already_saved() {
                     Ok(true) => None,
                     Ok(false) => Some(Ok(d)),
                     Err(e) => Some(Err(e)),
                 })
-                .collect::<anyhow::Result<Vec<DependencyDescriptor>>>()?
+                .collect::<anyhow::Result<Vec<Dependency>>>()?
         };
 
         print_verbose_status!(
@@ -314,10 +308,7 @@ impl Install {
         Ok(())
     }
 
-    fn get_dependencies(
-        &self,
-        deps: Vec<DependencyDescriptor>,
-    ) -> anyhow::Result<Vec<ResolvedDependency>> {
+    fn get_dependencies(&self, deps: Vec<Dependency>) -> anyhow::Result<Vec<ResolvedDependency>> {
         deps.into_iter()
             .map(|dep| {
                 print_status!("Fetching", dep.name());
@@ -400,16 +391,11 @@ USAGE:
     }
 }
 
-#[derive(Debug)]
-enum DependencyDescriptor {
-    NugetOrg { name: String, version: String },
-    Url { name: String, url: String },
-    Local { name: String, path: PathBuf },
-}
+struct Dependency(DependencyDescriptor);
 
-impl DependencyDescriptor {
+impl Dependency {
     fn get(&self) -> anyhow::Result<RawNuget> {
-        match self {
+        match &self.0 {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
                 let bytes = try_download(url)?;
@@ -442,19 +428,11 @@ impl DependencyDescriptor {
     }
 
     fn name(&self) -> &str {
-        match self {
-            DependencyDescriptor::NugetOrg { name, .. } => name,
-            DependencyDescriptor::Url { name, .. } => name,
-            DependencyDescriptor::Local { name, .. } => name,
-        }
+        self.0.name()
     }
 
     fn version(&self) -> &str {
-        match self {
-            DependencyDescriptor::NugetOrg { version, .. } => version,
-            DependencyDescriptor::Url { .. } => "unknown",
-            DependencyDescriptor::Local { .. } => "unknown",
-        }
+        self.0.version()
     }
 
     fn already_saved(&self) -> anyhow::Result<bool> {
@@ -673,12 +651,12 @@ fn extract_files<F: Read>(
 }
 
 struct ResolvedDependency {
-    descriptor: DependencyDescriptor,
+    descriptor: Dependency,
     contents: (Vec<Winmd>, Vec<Dll>),
 }
 
 impl ResolvedDependency {
-    fn new(descriptor: DependencyDescriptor, raw: RawNuget) -> anyhow::Result<Self> {
+    fn new(descriptor: Dependency, raw: RawNuget) -> anyhow::Result<Self> {
         let contents = raw.contents()?;
         Ok(Self {
             descriptor,
