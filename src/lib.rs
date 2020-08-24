@@ -61,6 +61,7 @@ macro_rules! include_bindings {
 }
 
 mod bindings {
+    #![allow(unused_variables)]
     include_bindings!();
 }
 

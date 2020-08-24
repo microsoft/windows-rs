@@ -73,6 +73,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
     };
 
     let tokens = quote! {
+        #change_if
         use ::std::io::Write;
         let mut path = ::std::path::PathBuf::from(
             ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
@@ -80,32 +81,19 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
         path.push("winrt.rs");
         let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
+        file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
         let mut cmd = ::std::process::Command::new("rustfmt");
-        cmd.arg("--emit").arg("stdout");
-        cmd.stdin(::std::process::Stdio::piped());
-        cmd.stdout(::std::process::Stdio::piped());
-        {
-            let child = cmd.spawn().unwrap();
-            let mut stdin = child.stdin.unwrap();
-            let stdout = child.stdout.unwrap();
-
-            let t = ::std::thread::spawn(move || {
-                let mut s = stdout;
-                ::std::io::copy(&mut s, &mut file).unwrap();
-            });
-
-            #change_if
-
-            writeln!(&mut stdin, "{}", #tokens).unwrap();
-            // drop stdin to close that end of the pipe
-            ::std::mem::drop(stdin);
-
-            t.join().unwrap();
-        }
-
-        let status = cmd.status().unwrap();
-        assert!(status.success(), "Could not successfully build");
+        cmd.arg(&path);
+        let output = cmd.output();
+        match output {
+            Err(_) => eprintln!("Could not execute rustfmt"),
+            Ok(o) if !o.status.success() => {
+                let stderr = String::from_utf8_lossy(&o.stderr);
+                eprintln!("rustfmt did not exit properly: {:?}\n{}", o.status.code(), stderr);
+            }
+            _ => {}
+        };
     };
     tokens.into()
 }
