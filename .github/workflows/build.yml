@@ -14,7 +14,7 @@ jobs:
     runs-on: windows-latest
     strategy: 
       matrix: 
-        rust: [beta]
+        rust: [stable]
     steps:
     - uses: actions/checkout@v2
     - uses: actions-rs/toolchain@v1
@@ -35,4 +35,4 @@ jobs:
 
     - name: fmt
       run: cargo fmt --all -- --check
-      if: matrix.rust == 'beta'
+      if: matrix.rust == 'stable'
