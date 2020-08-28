@@ -394,7 +394,7 @@ USAGE:
 struct Dependency(DependencyDescriptor);
 
 impl Dependency {
-    fn get(&self) -> anyhow::Result<RawNuget> {
+    fn get(&self) -> anyhow::Result<RawDependency> {
         match &self.0 {
             DependencyDescriptor::NugetOrg { name, version } => {
                 let url = format!("https://www.nuget.org/api/v2/package/{}/{}", name, version);
@@ -402,17 +402,19 @@ impl Dependency {
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
-                })
+                }
+                .into())
             }
-            DependencyDescriptor::Url { url, name } => {
+            DependencyDescriptor::UrlNuget { url, name } => {
                 let bytes = try_download(url.as_str().to_owned())?;
 
                 Ok(RawNuget::Zipped {
                     bytes,
                     name: name.clone(),
-                })
+                }
+                .into())
             }
-            DependencyDescriptor::Local { path: p, name } => {
+            DependencyDescriptor::LocalNuget { path: p, name } => {
                 let mut path = cargo::package_manifest_path()?
                     .parent()
                     .expect("package mainfest must have parent path")
@@ -420,6 +422,16 @@ impl Dependency {
                 path.extend(p);
 
                 Ok(RawNuget::Unzipped {
+                    path,
+                    name: name.clone(),
+                }
+                .into())
+            }
+            DependencyDescriptor::Local { path: p, name } => {
+                let mut path = cargo::package_manifest_path()?.parent().unwrap().to_owned();
+                path.extend(p);
+
+                Ok(RawDependency::Blob {
                     path,
                     name: name.clone(),
                 })
@@ -483,6 +495,49 @@ fn try_download(url: String) -> anyhow::Result<Vec<u8>> {
     {
         200 => Ok(bytes),
         code => Err(Error::DownloadError(curl::Error::new(code as _).into()).into()),
+    }
+}
+
+enum RawDependency {
+    Nuget(RawNuget),
+    Blob { path: PathBuf, name: String },
+}
+
+impl RawDependency {
+    fn contents(&self) -> anyhow::Result<(Vec<Winmd>, Vec<Dll>)> {
+        match self {
+            RawDependency::Nuget(r) => r.contents(),
+            RawDependency::Blob { path, .. } => {
+                let mut winmds = Vec::new();
+                let dlls = Vec::new();
+                for entry in std::fs::read_dir(path)? {
+                    let entry = entry?;
+                    let path = entry.path();
+                    if !path.is_file() {
+                        continue;
+                    }
+                    let extension = path.extension().and_then(|e| e.to_str());
+                    match extension {
+                        Some("winmd") => {
+                            let contents = std::fs::read(path)?;
+                            winmds.push(Winmd {
+                                name: entry.file_name(),
+                                contents,
+                            })
+                        }
+                        Some("dll") => todo!("Handle dlls"),
+                        _ => {}
+                    }
+                }
+                Ok((winmds, dlls))
+            }
+        }
+    }
+}
+
+impl From<RawNuget> for RawDependency {
+    fn from(nuget: RawNuget) -> Self {
+        RawDependency::Nuget(nuget)
     }
 }
 
@@ -656,7 +711,7 @@ struct ResolvedDependency {
 }
 
 impl ResolvedDependency {
-    fn new(descriptor: Dependency, raw: RawNuget) -> anyhow::Result<Self> {
+    fn new(descriptor: Dependency, raw: RawDependency) -> anyhow::Result<Self> {
         let contents = raw.contents()?;
         Ok(Self {
             descriptor,

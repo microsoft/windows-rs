@@ -51,9 +51,6 @@ use std::{collections::BTreeSet, path::PathBuf};
 ///
 /// ```rust,ignore
 /// build!(
-///     dependencies
-///         os
-///         nuget: Microsoft.AI.MachineLearning
 ///     types
 ///         microsoft::ai::machine_learning::*
 /// );

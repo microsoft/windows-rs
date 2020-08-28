@@ -99,29 +99,47 @@ fn dependency_descriptors_from_metadata(
         .map(|(key, value)| match value {
             Value::String(version) => Ok(DependencyDescriptor::NugetOrg { name: key, version }),
             Value::Table(mut t) => {
-                let version = t.remove("version");
-                let url = t.remove("url");
-                let path = t.remove("path");
-                match (version, url, path) {
-                    (Some(Value::String(version)), None, None) => {
-                        Ok(DependencyDescriptor::NugetOrg { name: key, version })
-                    }
-                    (None, Some(Value::String(url)), None) => Ok(DependencyDescriptor::Url {
-                        name: key,
-                        url,
-                    }),
-                    (None, None, Some(Value::String(path))) => Ok(DependencyDescriptor::Local {
-                        name: key,
-                        path: path.into(),
-                    }),
-                    _ => bail!(Error::MalformedManifest(
+                if t.len() > 1 {
+                    bail!(Error::MalformedManifest(
                         anyhow!(
-                            "expected either a `version`, `url`, or `path` string for nuget package '{}'",
+                            "expected either a `version`, `url`, `path`, or `blob` string for winrt package '{}'",
                             key
                         )
                         .into(),
-                    )),
+                    ));
                 }
+
+                if let Some(Value::String(version)) = t.remove("version") {
+                    return Ok(DependencyDescriptor::NugetOrg { name: key, version })
+                }
+
+                if let Some(Value::String(path)) = t.remove("path") {
+                    return Ok(DependencyDescriptor::LocalNuget {
+                        name: key,
+                        path: path.into(),
+                    });
+                }
+
+                if let Some(Value::String(url)) = t.remove("url") {
+                    return Ok(DependencyDescriptor::UrlNuget {
+                        name: key,
+                        url,
+                    });
+                }
+                if let Some(Value::String(path)) = t.remove("blob") {
+                    return Ok(DependencyDescriptor::Local {
+                        name: key,
+                        path: path.into(),
+                    });
+                }
+
+                bail!(Error::MalformedManifest(
+                    anyhow!(
+                        "expected either a `version`, `url`, `path`, or `blob` string for nuget package '{}'",
+                        key
+                    )
+                    .into(),
+                ));
             }
             v @ _ => bail!(Error::MalformedManifest(
                 anyhow!("expected `version` as string, found {}", v).into(),
