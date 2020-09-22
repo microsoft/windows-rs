@@ -111,10 +111,22 @@ pub use runtime::*;
 pub use runtime_name::RuntimeName;
 #[doc(hidden)]
 pub use runtime_type::RuntimeType;
-pub use winrt_macros::build;
+pub use winrt_macros::{build, implements};
 
 #[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;
 
 #[doc(hidden)]
 pub use const_sha1::ConstBuffer;
+
+// TODO: this is just a test to help bootstrap attribute parsing - delete before completing feature.
+#[implements(
+    windows::foundation::Uri,
+    windows::foundation::IStringable,
+    windows::foundation::{IClosable, IPropertyValue},
+    windows::ui::{
+        composition::{SpriteVisual, ISpriteVisual},
+        xaml::Application
+    }
+)]
+pub struct Thing {}

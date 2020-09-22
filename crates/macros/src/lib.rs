@@ -1,6 +1,8 @@
 mod build;
+mod implements;
 
 use build::BuildMacro;
+use implements::Implements;
 
 use proc_macro::TokenStream;
 use quote::quote;
@@ -88,6 +90,27 @@ pub fn build(stream: TokenStream) -> TokenStream {
         };
     };
     tokens.into()
+}
+
+// Rust structs can use the winrt::implement macro to implement entire WinRT classes or
+// any combination of existing COM and WinRT interfaces. If the attribute TokenStream contains
+// the name of a WinRT class then all of its interfaces are implemented. Otherwise, whatever
+// interfaces are contained within the attribute TokenStream are implemented as a local
+// implementation.
+#[proc_macro_attribute]
+pub fn implements(attribute: TokenStream, input: TokenStream) -> TokenStream {
+    // 1. Something like this for parsing the list of class and/or interfaces.
+    // https://github.com/microsoft/com-rs/blob/3693ab2e198709f3eb4c705facc3bbdd1fb5ca69/macros/support/src/class/class.rs#L57
+    // 2. Then lookup up metadata in target/nuget? folder.
+    // 3. Then build the scaffolding for implementing the interfaces.
+    // 4. Then the Rust compiler checks that the methods are implemented and compiles it all together.
+
+    let output = input.clone();
+
+    let implements = parse_macro_input!(attribute as Implements);
+    // let class = parse_macro_input!(input as ImplementsClass);
+
+    output
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion
