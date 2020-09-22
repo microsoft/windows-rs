@@ -107,7 +107,7 @@ pub fn implements(attribute: TokenStream, input: TokenStream) -> TokenStream {
 
     let output = input.clone();
 
-    let implements = parse_macro_input!(attribute as Implements);
+    let _implements = parse_macro_input!(attribute as Implements);
     // let class = parse_macro_input!(input as ImplementsClass);
 
     output

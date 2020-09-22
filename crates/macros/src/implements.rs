@@ -17,7 +17,7 @@ impl Parse for Implements {
         let reader = TypeReader::from_build();
 
         loop {
-            use_tree_to_types(reader, &input.parse::<UseTree>()?, &mut types);
+            use_tree_to_types(reader, &input.parse::<UseTree>()?, &mut types)?;
 
             if input.parse::<Token!(,)>().is_err() {
                 break;
@@ -31,7 +31,7 @@ impl Parse for Implements {
 pub struct ImplementsClass {}
 
 impl Parse for ImplementsClass {
-    fn parse(input: ParseStream) -> Result<Self> {
+    fn parse(_input: ParseStream) -> Result<Self> {
         Ok(Self {})
     }
 }
@@ -79,7 +79,7 @@ fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>)
 
                 let def = match namespace_types.get(&name.ident.to_string()) {
                     Some(def) => def,
-                    Non => return Err(Error::new(name.span(), "Metadata not found for type name")),
+                    None => return Err(Error::new(name.span(), "Metadata not found for type name")),
                 };
 
                 types.push(Type::from_type_def(reader, *def));
