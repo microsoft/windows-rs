@@ -23,6 +23,25 @@ impl TypeReader {
         Self::new(crate::load_winmd::from_os())
     }
 
+    pub fn from_build() -> &'static Self {
+        use std::{mem::MaybeUninit, sync::Once};
+        static ONCE: Once = Once::new();
+        static mut VALUE: MaybeUninit<TypeReader> = MaybeUninit::uninit();
+
+        ONCE.call_once(|| {
+            // This is safe because `Once` provides thread-safe one-time initialization
+            unsafe {
+                VALUE = MaybeUninit::new(
+                    // TODO: load all the winmd files from the target/nuget folder
+                    Self::from_os(),
+                )
+            }
+        });
+
+        // This is safe because `call_once` has already been called.
+        unsafe { &*VALUE.as_ptr() }
+    }
+
     /// Create a new [`TypeReader`] from a [`WinmdFile`]s
     pub fn new(files: Vec<WinmdFile>) -> Self {
         let mut reader = Self {

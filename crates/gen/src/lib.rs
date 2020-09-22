@@ -21,6 +21,7 @@ pub use type_limits::{NamespaceTypes, TypeLimit, TypeLimits};
 pub use type_reader::TypeReader;
 pub use type_stage::TypeStage;
 pub use type_tree::TypeTree;
+pub use types::Type;
 
 fn format_ident(name: &str) -> squote::Ident {
     if name == "Self" {
