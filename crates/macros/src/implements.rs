@@ -6,8 +6,10 @@ use syn::{
 
 use crate::namespace_literal_to_rough_namespace;
 use winrt_gen::{Type, TypeReader};
+use quote::quote;
+use std::iter::FromIterator;
 
-pub struct Implements(Vec<Type>);
+struct Implements(Vec<Type>);
 
 impl Parse for Implements {
     fn parse(input: ParseStream) -> Result<Self> {
@@ -28,7 +30,7 @@ impl Parse for Implements {
     }
 }
 
-pub struct ImplementsClass {}
+struct ImplementsClass {}
 
 impl Parse for ImplementsClass {
     fn parse(_input: ParseStream) -> Result<Self> {
@@ -106,4 +108,25 @@ fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>)
     }
 
     recurse(reader, tree, types, &mut String::new())
+}
+
+pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let input_stream = input.clone();
+
+    let _implements = syn::parse_macro_input!(attribute as Implements);
+    // let class = parse_macro_input!(input as ImplementsClass);
+
+    // Then lookup up metadata in target/nuget? folder.
+
+    // Then build the scaffolding for implementing the interfaces.
+
+    let output = quote! {
+        
+    };
+
+    let mut tokens = Vec::new();
+    tokens.push(output.into());
+    tokens.push(input_stream);
+
+    proc_macro::TokenStream::from_iter(tokens)
 }

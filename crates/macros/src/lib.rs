@@ -2,7 +2,6 @@ mod build;
 mod implements;
 
 use build::BuildMacro;
-use implements::Implements;
 
 use proc_macro::TokenStream;
 use quote::quote;
@@ -99,18 +98,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
 // implementation.
 #[proc_macro_attribute]
 pub fn implements(attribute: TokenStream, input: TokenStream) -> TokenStream {
-    // 1. Something like this for parsing the list of class and/or interfaces.
-    // https://github.com/microsoft/com-rs/blob/3693ab2e198709f3eb4c705facc3bbdd1fb5ca69/macros/support/src/class/class.rs#L57
-    // 2. Then lookup up metadata in target/nuget? folder.
-    // 3. Then build the scaffolding for implementing the interfaces.
-    // 4. Then the Rust compiler checks that the methods are implemented and compiles it all together.
-
-    let output = input.clone();
-
-    let _implements = parse_macro_input!(attribute as Implements);
-    // let class = parse_macro_input!(input as ImplementsClass);
-
-    output
+    implements::to_tokens(attribute, input)
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion
