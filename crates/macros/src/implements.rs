@@ -1,27 +1,16 @@
-use syn::{
-    parse::{Error, Parse, ParseStream, Result},
-    spanned::Spanned,
-    Token, UseTree,
-};
+use syn::spanned::Spanned;
 
-use crate::namespace_literal_to_rough_namespace;
-use winrt_gen::{Type, TypeReader};
-use quote::quote;
-use std::iter::FromIterator;
+struct Implements(Vec<winrt_gen::Type>);
 
-struct Implements(Vec<Type>);
-
-impl Parse for Implements {
-    fn parse(input: ParseStream) -> Result<Self> {
-        println!("{:?}", input);
+impl syn::parse::Parse for Implements {
+    fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut types = Vec::new();
-
-        let reader = TypeReader::from_build();
+        let reader = winrt_gen::TypeReader::from_build();
 
         loop {
-            use_tree_to_types(reader, &input.parse::<UseTree>()?, &mut types)?;
+            use_tree_to_types(reader, &input.parse::<syn::UseTree>()?, &mut types)?;
 
-            if input.parse::<Token!(,)>().is_err() {
+            if input.parse::<syn::Token!(,)>().is_err() {
                 break;
             }
         }
@@ -30,23 +19,15 @@ impl Parse for Implements {
     }
 }
 
-struct ImplementsClass {}
-
-impl Parse for ImplementsClass {
-    fn parse(_input: ParseStream) -> Result<Self> {
-        Ok(Self {})
-    }
-}
-
-fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>) -> Result<()> {
+fn use_tree_to_types(reader: &winrt_gen::TypeReader, tree: &syn::UseTree, types: &mut Vec<winrt_gen::Type>) -> syn::parse::Result<()> {
     fn recurse(
-        reader: &TypeReader,
-        tree: &UseTree,
-        types: &mut Vec<Type>,
+        reader: &winrt_gen::TypeReader,
+        tree: &syn::UseTree,
+        types: &mut Vec<winrt_gen::Type>,
         current: &mut String,
-    ) -> Result<()> {
+    ) -> syn::parse::Result<()> {
         match tree {
-            UseTree::Path(path) => {
+            syn::UseTree::Path(path) => {
                 if !current.is_empty() {
                     current.push('.');
                 }
@@ -54,7 +35,7 @@ fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>)
                 current.push_str(&path.ident.to_string());
                 recurse(reader, &*path.tree, types, current)?;
             }
-            UseTree::Group(group) => {
+            syn::UseTree::Group(group) => {
                 let prev = current.clone();
 
                 for tree in &group.items {
@@ -62,8 +43,8 @@ fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>)
                     *current = prev.clone();
                 }
             }
-            UseTree::Name(name) => {
-                let namespace = namespace_literal_to_rough_namespace(&current.clone());
+            syn::UseTree::Name(name) => {
+                let namespace = crate::namespace_literal_to_rough_namespace(&current.clone());
 
                 let namespace_types = match reader
                     .types
@@ -72,7 +53,7 @@ fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>)
                 {
                     Some((_, types)) => types,
                     None => {
-                        return Err(Error::new(
+                        return Err(syn::parse::Error::new(
                             name.span(),
                             "Metadata not found for type namespace",
                         ))
@@ -81,10 +62,10 @@ fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>)
 
                 let def = match namespace_types.get(&name.ident.to_string()) {
                     Some(def) => def,
-                    None => return Err(Error::new(name.span(), "Metadata not found for type name")),
+                    None => return Err(syn::parse::Error::new(name.span(), "Metadata not found for type name")),
                 };
 
-                types.push(Type::from_type_def(reader, *def));
+                types.push(winrt_gen::Type::from_type_def(reader, *def));
 
                 // TODO
                 // If type is a class, add any required interfaces.
@@ -94,13 +75,13 @@ fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>)
                 // but any number of interfaces.
                 //
 
-                println!("implement: {}.{}", def.name(reader).0, def.name(reader).1);
+                //println!("implement: {}.{}", def.name(reader).0, def.name(reader).1);
             }
-            UseTree::Glob(glob) => {
-                return Err(Error::new(glob.span(), "Glob syntax is not supported"))
+            syn::UseTree::Glob(glob) => {
+                return Err(syn::parse::Error::new(glob.span(), "Glob syntax is not supported"))
             }
-            UseTree::Rename(rename) => {
-                return Err(Error::new(rename.span(), "Rename syntax is not supported"))
+            syn::UseTree::Rename(rename) => {
+                return Err(syn::parse::Error::new(rename.span(), "Rename syntax is not supported"))
             }
         }
 
@@ -111,22 +92,16 @@ fn use_tree_to_types(reader: &TypeReader, tree: &UseTree, types: &mut Vec<Type>)
 }
 
 pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let input_stream = input.clone();
+    let _input_stream = input.clone();
 
     let _implements = syn::parse_macro_input!(attribute as Implements);
-    // let class = parse_macro_input!(input as ImplementsClass);
+    let input = syn::parse_macro_input!(input as syn::ItemStruct);
 
-    // Then lookup up metadata in target/nuget? folder.
+    let tokens = quote::quote! {
+        #input
 
-    // Then build the scaffolding for implementing the interfaces.
-
-    let output = quote! {
-        
+        // Build the scaffolding for implementing the interfaces.
     };
 
-    let mut tokens = Vec::new();
-    tokens.push(output.into());
-    tokens.push(input_stream);
-
-    proc_macro::TokenStream::from_iter(tokens)
+    tokens.into()
 }

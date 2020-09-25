@@ -120,13 +120,13 @@ pub type RawPtr = *mut std::ffi::c_void;
 pub use const_sha1::ConstBuffer;
 
 // TODO: this is just a test to help bootstrap attribute parsing - delete before completing feature.
-#[implements(
-    windows::foundation::Uri,
-    windows::foundation::IStringable,
-    windows::foundation::{IClosable, IPropertyValue},
-    windows::ui::{
-        composition::{SpriteVisual, ISpriteVisual},
-        xaml::Application
-    }
-)]
-pub struct Thing {}
+// #[implements(
+//     windows::foundation::Uri,
+//     windows::foundation::IStringable,
+//     windows::foundation::{IClosable, IPropertyValue},
+//     windows::ui::{
+//         composition::{SpriteVisual, ISpriteVisual},
+//         xaml::Application
+//     }
+// )]
+// pub struct Thing {}
