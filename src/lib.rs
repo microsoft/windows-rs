@@ -86,6 +86,7 @@ mod runtime;
 mod runtime_name;
 mod runtime_type;
 pub mod time_span;
+mod implements;
 
 #[doc(hidden)]
 pub use abi_transferable::AbiTransferable;
@@ -112,6 +113,7 @@ pub use runtime_name::RuntimeName;
 #[doc(hidden)]
 pub use runtime_type::RuntimeType;
 pub use winrt_macros::{build, implements};
+pub use implements::Implements;
 
 #[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;

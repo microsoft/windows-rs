@@ -71,9 +71,10 @@ fn use_tree_to_types(reader: &winrt_gen::TypeReader, tree: &syn::UseTree, types:
                 // If type is a class, add any required interfaces.
                 // If type is an interface, add any required interfaces.
                 // If any other kind of type, return an error.
-                // There may also be at most one class being implemented
-                // but any number of interfaces.
-                //
+                // If more than one class, return an error.
+                // If dupe interface, produce warning but continue, 
+                //   unless warning is unavoidable (same interface required by different mentioned interfaces)
+                // Finally, remove any dupes (TypeName can be used as key for set container)
 
                 //println!("implement: {}.{}", def.name(reader).0, def.name(reader).1);
             }
@@ -94,11 +95,34 @@ fn use_tree_to_types(reader: &winrt_gen::TypeReader, tree: &syn::UseTree, types:
 pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let _input_stream = input.clone();
 
-    let _implements = syn::parse_macro_input!(attribute as Implements);
+    let implements = syn::parse_macro_input!(attribute as Implements);
     let input = syn::parse_macro_input!(input as syn::ItemStruct);
+    let impl_name = input.ident.clone();
+    let box_name = quote::format_ident!("impl_{}", impl_name.to_string());
+
+    let vtable_pointers = implements.0.iter().map(|typ| {
+        //let typ: proc_macro::TokenStream = typ.to_tokens().into();
+        quote::quote! {
+            *const i32 //#typ
+        }
+    });
 
     let tokens = quote::quote! {
         #input
+        impl ::std::convert::Into<::winrt::foundation::IStringable> for #impl_name {
+            fn into(self) -> ::winrt::foundation::IStringable {
+                panic!();
+            }
+        }
+        #[repr(C)]
+        struct #box_name {
+            vtables: (#(#vtable_pointers),*),
+            references: ::winrt::RefCount,
+            implementation: #impl_name,
+        }
+        impl #box_name {
+
+        }
 
         // Build the scaffolding for implementing the interfaces.
     };
