@@ -101,7 +101,7 @@ pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStr
     let box_name = quote::format_ident!("impl_{}", impl_name.to_string());
 
     let vtables = implements.0.iter().map(|typ| {
-        let typ  = typ.name().to_tokens().parse::<proc_macro2::TokenStream>().unwrap();
+        let typ  = typ.name().to_binding_tokens().parse::<proc_macro2::TokenStream>().unwrap();
         quote::quote! {
             *const #typ
         }
@@ -113,11 +113,11 @@ pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStr
 
     let tokens = quote::quote! {
         #input
-        impl ::std::convert::Into<::winrt::foundation::IStringable> for #impl_name {
-            fn into(self) -> ::winrt::foundation::IStringable {
-                panic!();
-            }
-        }
+        // impl ::std::convert::Into<::winrt::foundation::IStringable> for #impl_name {
+        //     fn into(self) -> ::winrt::foundation::IStringable {
+        //         panic!();
+        //     }
+        // }
         #[repr(C)]
         struct #box_name {
             vtables: (#vtables),

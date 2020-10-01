@@ -33,3 +33,15 @@ pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
 
     TokenStream::from_iter(tokens)
 }
+
+pub fn to_binding_namespace_tokens(destination: &str) -> TokenStream {
+    let mut tokens = vec![quote! { ::winrt_bindings:: }];
+    let destination = destination.split('.').peekable();
+
+    tokens.extend(destination.map(|destination| {
+        let destination = format_ident(&to_snake(destination, MethodKind::Normal));
+        quote! { #destination:: }
+    }));
+
+    TokenStream::from_iter(tokens)
+}

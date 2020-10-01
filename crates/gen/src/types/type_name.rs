@@ -370,11 +370,13 @@ impl TypeName {
     }
 
     pub fn to_binding_tokens(&self) -> TokenStream {
-        // ::winrt_bindings::windows::foundation::Uri
-        // TODO: then create a video showing how to set up a winrt_bindings based project
-        // maybe a hello world started project on github
-        // maybe some typical example repos for multi-crate projects to share code gen
-        panic!();
+        let namespace = to_binding_namespace_tokens(&self.namespace);
+        generate_tokens(
+            &self.name,
+            Some(&namespace),
+            &self.generics,
+            format_abi_ident,
+        )
     }
 
     /// Create definition tokens
