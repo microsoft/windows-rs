@@ -100,12 +100,16 @@ pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStr
     let impl_name = input.ident.clone();
     let box_name = quote::format_ident!("impl_{}", impl_name.to_string());
 
-    let vtable_pointers = implements.0.iter().map(|typ| {
-        //let typ: proc_macro::TokenStream = typ.to_tokens().into();
+    let vtables = implements.0.iter().map(|typ| {
+        let typ  = typ.name().to_tokens().parse::<proc_macro2::TokenStream>().unwrap();
         quote::quote! {
-            *const i32 //#typ
+            *const #typ
         }
     });
+
+    let vtables = quote::quote! {
+        #(#vtables),*
+    };
 
     let tokens = quote::quote! {
         #input
@@ -116,7 +120,7 @@ pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStr
         }
         #[repr(C)]
         struct #box_name {
-            vtables: (#(#vtable_pointers),*),
+            vtables: (#vtables),
             references: ::winrt::RefCount,
             implementation: #impl_name,
         }
@@ -126,6 +130,8 @@ pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStr
 
         // Build the scaffolding for implementing the interfaces.
     };
+
+    println!("{}", tokens.to_string());
 
     tokens.into()
 }

@@ -369,6 +369,14 @@ impl TypeName {
         )
     }
 
+    pub fn to_binding_tokens(&self) -> TokenStream {
+        // ::winrt_bindings::windows::foundation::Uri
+        // TODO: then create a video showing how to set up a winrt_bindings based project
+        // maybe a hello world started project on github
+        // maybe some typical example repos for multi-crate projects to share code gen
+        panic!();
+    }
+
     /// Create definition tokens
     ///
     /// For example: `Vector::<OtherType>`
