@@ -369,7 +369,7 @@ impl TypeName {
         )
     }
 
-    pub fn to_binding_tokens(&self) -> TokenStream {
+    pub fn to_binding_abi_tokens(&self) -> TokenStream {
         let namespace = to_binding_namespace_tokens(&self.namespace);
         generate_tokens(
             &self.name,
@@ -377,6 +377,11 @@ impl TypeName {
             &self.generics,
             format_abi_ident,
         )
+    }
+
+    pub fn to_binding_tokens(&self) -> TokenStream {
+        let namespace = to_binding_namespace_tokens(&self.namespace);
+        generate_tokens(&self.name, Some(&namespace), &self.generics, format_ident)
     }
 
     /// Create definition tokens

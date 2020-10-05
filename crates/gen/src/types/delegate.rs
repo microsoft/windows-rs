@@ -113,9 +113,7 @@ impl Delegate {
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
-                pub unknown_query_interface: extern "system" fn(::winrt::NonNullRawComPtr<::winrt::IUnknown>, &::winrt::Guid, *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                pub unknown_add_ref: extern "system" fn(::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32,
-                pub unknown_release: extern "system" fn(::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32,
+                pub unknown: ::winrt::abi_IUnknown,
                 #abi_method
                 #phantoms
             }
@@ -140,9 +138,11 @@ impl Delegate {
             }
             impl<#constraints #fn_constraint> #impl_name {
                 const VTABLE: #abi_definition = #abi_name {
-                    unknown_query_interface: #impl_name::unknown_query_interface,
-                    unknown_add_ref: #impl_name::unknown_add_ref,
-                    unknown_release: #impl_name::unknown_release,
+                    unknown: ::winrt::abi_IUnknown {
+                        query_interface: #impl_name::query_interface,
+                        add_ref: #impl_name::add_ref,
+                        release: #impl_name::release,
+                    },
                     invoke: #impl_name::invoke,
                     #phantoms
                 };
@@ -159,7 +159,7 @@ impl Delegate {
                         result
                     }
                 }
-                extern "system" fn unknown_query_interface(
+                extern "system" fn query_interface(
                     this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>,
                     iid: &::winrt::Guid,
                     interface: *mut ::winrt::RawPtr,
@@ -180,13 +180,13 @@ impl Delegate {
                         ::winrt::ErrorCode::E_NOINTERFACE
                     }
                 }
-                extern "system" fn unknown_add_ref(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
+                extern "system" fn add_ref(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
                     unsafe {
                         let this: *mut Self = this.as_raw() as _;
                         (*this).count.add_ref()
                     }
                 }
-                extern "system" fn unknown_release(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
+                extern "system" fn release(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
                     unsafe {
                         let this: *mut Self = this.as_raw() as _;
                         let remaining = (*this).count.release();

@@ -79,6 +79,7 @@ mod error;
 mod factory;
 mod guid;
 mod hstring;
+mod implements;
 mod numerics;
 mod object;
 mod param;
@@ -86,7 +87,6 @@ mod runtime;
 mod runtime_name;
 mod runtime_type;
 pub mod time_span;
-mod implements;
 
 #[doc(hidden)]
 pub use abi_transferable::AbiTransferable;
@@ -103,7 +103,8 @@ pub use factory::{factory, FactoryCache};
 #[doc(hidden)]
 pub use guid::Guid;
 pub use hstring::HString;
-pub use object::Object;
+pub use implements::Implements;
+pub use object::{abi_IInspectable, Object};
 #[doc(hidden)]
 pub use param::Param;
 #[doc(hidden)]
@@ -113,7 +114,6 @@ pub use runtime_name::RuntimeName;
 #[doc(hidden)]
 pub use runtime_type::RuntimeType;
 pub use winrt_macros::{build, implements};
-pub use implements::Implements;
 
 #[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;

@@ -50,6 +50,17 @@ impl Interface {
         dependencies
     }
 
+    pub fn default_interface(&self) -> &RequiredInterface {
+        self.interfaces
+            .iter()
+            .find(|i| i.kind == InterfaceKind::Default)
+            .unwrap()
+    }
+
+    pub fn to_vtable_initializer_tokens(&self) -> TokenStream {
+        panic!();
+    }
+
     pub fn to_tokens(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens();
         let abi_definition = self.name.to_abi_definition_tokens();
@@ -57,11 +68,7 @@ impl Interface {
         let phantoms = self.name.phantoms();
         let constraints = &self.name.constraints;
 
-        let default_interface = self
-            .interfaces
-            .iter()
-            .find(|i| i.kind == InterfaceKind::Default)
-            .unwrap();
+        let default_interface = self.default_interface();
 
         let guid = self.name.to_guid_tokens(&default_interface.guid);
 
@@ -96,7 +103,7 @@ impl Interface {
             }
             #[repr(C)]
             pub struct #abi_definition where #constraints {
-                base__: [ usize; 6],
+                pub inspectable: ::winrt::abi_IInspectable,
                 #abi_methods
                 #phantoms
             }

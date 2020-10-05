@@ -10,7 +10,7 @@ pub struct IAgileObject {
 }
 
 unsafe impl ComInterface for IAgileObject {
-    type VTable = abi_IAgileObject;
+    type VTable = abi_IUnknown;
 
     const IID: Guid = {
         Guid::from_values(
@@ -32,12 +32,4 @@ unsafe impl AbiTransferable for IAgileObject {
     fn set_abi(&mut self) -> *mut Self::Abi {
         self.ptr.set_abi()
     }
-}
-
-#[repr(C)]
-pub struct abi_IAgileObject {
-    pub unknown_query_interface:
-        unsafe extern "system" fn(RawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
-    pub unknown_add_ref: unsafe extern "system" fn(RawComPtr<IUnknown>) -> u32,
-    pub unknown_release: unsafe extern "system" fn(RawComPtr<IUnknown>) -> u32,
 }

@@ -19,7 +19,11 @@ impl syn::parse::Parse for Implements {
     }
 }
 
-fn use_tree_to_types(reader: &winrt_gen::TypeReader, tree: &syn::UseTree, types: &mut Vec<winrt_gen::Type>) -> syn::parse::Result<()> {
+fn use_tree_to_types(
+    reader: &winrt_gen::TypeReader,
+    tree: &syn::UseTree,
+    types: &mut Vec<winrt_gen::Type>,
+) -> syn::parse::Result<()> {
     fn recurse(
         reader: &winrt_gen::TypeReader,
         tree: &syn::UseTree,
@@ -62,7 +66,12 @@ fn use_tree_to_types(reader: &winrt_gen::TypeReader, tree: &syn::UseTree, types:
 
                 let def = match namespace_types.get(&name.ident.to_string()) {
                     Some(def) => def,
-                    None => return Err(syn::parse::Error::new(name.span(), "Metadata not found for type name")),
+                    None => {
+                        return Err(syn::parse::Error::new(
+                            name.span(),
+                            "Metadata not found for type name",
+                        ))
+                    }
                 };
 
                 types.push(winrt_gen::Type::from_type_def(reader, *def));
@@ -72,17 +81,23 @@ fn use_tree_to_types(reader: &winrt_gen::TypeReader, tree: &syn::UseTree, types:
                 // If type is an interface, add any required interfaces.
                 // If any other kind of type, return an error.
                 // If more than one class, return an error.
-                // If dupe interface, produce warning but continue, 
+                // If dupe interface, produce warning but continue,
                 //   unless warning is unavoidable (same interface required by different mentioned interfaces)
                 // Finally, remove any dupes (TypeName can be used as key for set container)
 
                 //println!("implement: {}.{}", def.name(reader).0, def.name(reader).1);
             }
             syn::UseTree::Glob(glob) => {
-                return Err(syn::parse::Error::new(glob.span(), "Glob syntax is not supported"))
+                return Err(syn::parse::Error::new(
+                    glob.span(),
+                    "Glob syntax is not supported",
+                ))
             }
             syn::UseTree::Rename(rename) => {
-                return Err(syn::parse::Error::new(rename.span(), "Rename syntax is not supported"))
+                return Err(syn::parse::Error::new(
+                    rename.span(),
+                    "Rename syntax is not supported",
+                ))
             }
         }
 
@@ -92,7 +107,10 @@ fn use_tree_to_types(reader: &winrt_gen::TypeReader, tree: &syn::UseTree, types:
     recurse(reader, tree, types, &mut String::new())
 }
 
-pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn to_tokens(
+    attribute: proc_macro::TokenStream,
+    input: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
     let _input_stream = input.clone();
 
     let implements = syn::parse_macro_input!(attribute as Implements);
@@ -100,19 +118,56 @@ pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStr
     let impl_name = input.ident.clone();
     let box_name = quote::format_ident!("impl_{}", impl_name.to_string());
 
-    let vtables = implements.0.iter().map(|typ| {
-        let typ  = typ.name().to_binding_tokens().parse::<proc_macro2::TokenStream>().unwrap();
-        quote::quote! {
-            *const #typ
-        }
-    });
+    let mut vtables = vec![];
+    let mut vtable_ctors = vec![];
+    let mut method_impls = vec![];
 
-    let vtables = quote::quote! {
-        #(#vtables),*
-    };
+    for typ in implements.0 {
+        if let winrt_gen::Type::Interface(typ) = typ {
+            // TODO: maybe delay conversion to proc_macro2 until later in the pipeline.
+            let name = typ
+                .name
+                .to_binding_abi_tokens()
+                .parse::<proc_macro2::TokenStream>()
+                .unwrap();
+            let mut initializers = vec![];
+
+            for method in &typ.default_interface().methods {
+                let method_name = quote::format_ident!("{}", &method.name);
+                initializers.push(quote::quote! { #method_name: #box_name::#method_name });
+
+                let method = method
+                    .to_binding_abi_impl_tokens(&typ.name)
+                    .parse::<proc_macro2::TokenStream>()
+                    .unwrap();
+                method_impls.push(quote::quote! {
+                    #method { panic!(); }
+                });
+            }
+
+            vtable_ctors.push(quote::quote! {
+                #name {
+                    inspectable: ::winrt::abi_IInspectable {
+                        unknown: ::winrt::abi_IUnknown {
+                            query_interface: #box_name::unknown_query_interface,
+                            add_ref: #box_name::unknown_add_ref,
+                            release: #box_name::unknown_release,
+                        },
+                        inspectable_iids: #box_name::inspectable_iids,
+                        inspectable_type_name: #box_name::inspectable_type_name,
+                        inspectable_trust_level: #box_name::inspectable_trust_level,
+                    },
+                    #(#initializers)*,
+                }
+            });
+
+            vtables.push(name);
+        }
+    }
 
     let tokens = quote::quote! {
         #input
+        // TODO: something like this takes the place of C++/WinRT's make/make_self functions.
         // impl ::std::convert::Into<::winrt::foundation::IStringable> for #impl_name {
         //     fn into(self) -> ::winrt::foundation::IStringable {
         //         panic!();
@@ -120,12 +175,36 @@ pub fn to_tokens(attribute: proc_macro::TokenStream, input: proc_macro::TokenStr
         // }
         #[repr(C)]
         struct #box_name {
-            vtables: (#vtables),
+            vtable: (#(*const #vtables),*),
             references: ::winrt::RefCount,
             implementation: #impl_name,
         }
         impl #box_name {
+            const VTABLE: (#(#vtables),*) = (#(#vtable_ctors),*);
 
+            extern "system" fn unknown_query_interface(
+                this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>,
+                iid: &::winrt::Guid,
+                interface: *mut ::winrt::RawPtr,
+            ) -> ::winrt::ErrorCode {
+                panic!();
+            }
+            extern "system" fn unknown_add_ref(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
+                panic!();
+            }
+            extern "system" fn unknown_release(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
+                panic!();
+            }
+            extern "system" fn inspectable_iids(this: ::winrt::NonNullRawComPtr<::winrt::Object>, count: *mut u32, values: *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode {
+                panic!();
+            }
+            extern "system" fn inspectable_type_name(this: ::winrt::NonNullRawComPtr<::winrt::Object>, name: *mut <::winrt::HString as ::winrt::AbiTransferable>::Abi) -> ::winrt::ErrorCode {
+                panic!();
+            }
+            extern "system" fn inspectable_trust_level(this: ::winrt::NonNullRawComPtr<::winrt::Object>, level: *mut i32) -> ::winrt::ErrorCode {
+                panic!();
+            }
+            #(#method_impls)*
         }
 
         // Build the scaffolding for implementing the interfaces.

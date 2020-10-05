@@ -164,6 +164,23 @@ impl Method {
         }
     }
 
+    pub fn to_binding_abi_impl_tokens(&self, self_name: &TypeName) -> TokenStream {
+        let type_name = self_name.to_binding_tokens();
+        let name = format_ident(&self.name);
+        let params = self
+            .params
+            .iter()
+            .chain(self.return_type.iter())
+            .map(|param| {
+                let abi = param.to_abi_tokens();
+                quote! { #abi }
+            });
+
+        quote! {
+            unsafe extern "system" fn #name(this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
+        }
+    }
+
     pub fn to_default_tokens(&self) -> TokenStream {
         let method_name = format_ident(&self.name);
         let params = to_param_tokens(&self.params);
