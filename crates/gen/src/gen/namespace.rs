@@ -1,8 +1,5 @@
-use super::*;
-use crate::*;
 use squote::{quote, TokenStream};
 use std::iter::FromIterator;
-use to_snake;
 
 pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
     if destination == source {
@@ -27,7 +24,7 @@ pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
     }
 
     tokens.extend(destination.map(|destination| {
-        let destination = format_ident(&to_snake(destination, MethodKind::Normal));
+        let destination = crate::format_ident(&crate::to_snake(destination, crate::MethodKind::Normal));
         quote! { #destination:: }
     }));
 
@@ -39,7 +36,7 @@ pub fn to_binding_namespace_tokens(destination: &str) -> TokenStream {
     let destination = destination.split('.').peekable();
 
     tokens.extend(destination.map(|destination| {
-        let destination = format_ident(&to_snake(destination, MethodKind::Normal));
+        let destination = crate::format_ident(&crate::to_snake(destination, crate::MethodKind::Normal));
         quote! { #destination:: }
     }));
 

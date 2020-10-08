@@ -10,15 +10,6 @@ pub struct Method {
     pub return_type: Option<Param>,
 }
 
-#[derive(Copy, Clone, PartialEq, Debug)]
-pub enum MethodKind {
-    Normal,
-    Get,
-    Set,
-    Add,
-    Remove,
-}
-
 impl Method {
     pub fn from_method_def(
         reader: &TypeReader,
