@@ -43,7 +43,7 @@ impl TypeName {
 
     pub fn to_constraint_tokens(&self) -> TokenStream {
         TokenStream::from_iter(self.generics.iter().map(|generic| {
-            let generic = generic.to_tokens();
+            let generic = generic.gen();
             quote! { #generic: ::winrt::RuntimeType + 'static, }
         }))
     }
@@ -136,7 +136,7 @@ impl TypeName {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.to_tokens();
+            let g = g.gen();
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     let string = string.push_slice(b";");
@@ -162,14 +162,14 @@ impl TypeName {
 
     pub fn to_guid_tokens(&self, guid: &TypeGuid) -> TokenStream {
         if self.generics.is_empty() {
-            let guid = guid.to_tokens();
+            let guid = guid.gen();
 
             return quote! {
                 ::winrt::Guid::from_values(#guid)
             };
         }
 
-        let typ = self.to_tokens();
+        let typ = self.gen();
 
         quote! {
             ::winrt::Guid::from_signature(<#typ as ::winrt::RuntimeType>::SIGNATURE)
@@ -343,7 +343,7 @@ impl TypeName {
     /// Create tokens
     ///
     /// For example: `Vector<OtherType>`
-    pub fn to_tokens(&self) -> TokenStream {
+    pub fn gen(&self) -> TokenStream {
         let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
         generate_tokens(&self.name, Some(&namespace), &self.generics, format_ident)
     }
@@ -381,7 +381,7 @@ impl TypeName {
     /// For example: `Vector::<OtherType>`
     ///
     /// Note: ideally to_definition_tokens and to_abi_definiton_tokens would not be required
-    /// and we would simply use to_tokens and to_abi_tokens everywhere but Rust is really
+    /// and we would simply use gen and to_abi_tokens everywhere but Rust is really
     /// weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
     pub fn to_definition_tokens(&self) -> TokenStream {
         generate_tokens(&self.name, None, &self.generics, format_ident)
@@ -401,7 +401,7 @@ impl TypeName {
 
         let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
             let name = format_ident!("t{}__", count);
-            let generic = generic.to_tokens();
+            let generic = generic.gen();
             quote! { #name: ::std::marker::PhantomData::<#generic>, }
         });
 
@@ -456,7 +456,7 @@ where
     } else {
         let colon_separated = namespace.map(|_| quote! { :: });
         let name = format(&name[..name.len() - 2]);
-        let generics = generics.iter().map(|g| g.to_tokens());
+        let generics = generics.iter().map(|g| g.gen());
         quote! { #namespace#name#colon_separated<#(#generics),*> }
     }
 }

@@ -32,12 +32,12 @@ impl Delegate {
         self.method.dependencies()
     }
 
-    pub fn to_tokens(&self) -> TokenStream {
+    pub fn gen(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens();
         let abi_definition = self.name.to_abi_definition_tokens();
         let fn_constraint = self.to_fn_constraint_tokens();
         let impl_definition = self.to_impl_definition_tokens(&fn_constraint);
-        let name = self.name.to_tokens();
+        let name = self.name.gen();
         let abi_name = self.name.to_abi_tokens();
         let impl_name = self.to_impl_name_tokens();
         let phantoms = self.name.phantoms();
@@ -72,7 +72,7 @@ impl Delegate {
                 }
             } else {
                 let return_name = format_ident(&return_type.name);
-                let return_kind = return_type.kind.to_tokens();
+                let return_kind = return_type.kind.gen();
 
                 quote! {
                     match ((*this).invoke)(#(#invoke_args,)*) {
@@ -220,7 +220,7 @@ impl Delegate {
             quote! { #name<#fn_constraint> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
-            let generics = self.name.generics.iter().map(|g| g.to_tokens());
+            let generics = self.name.generics.iter().map(|g| g.gen());
             quote! { #name<#(#generics,)* #fn_constraint> }
         }
     }
@@ -231,7 +231,7 @@ impl Delegate {
             quote! { #name::<F> }
         } else {
             let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
-            let generics = self.name.generics.iter().map(|g| g.to_tokens());
+            let generics = self.name.generics.iter().map(|g| g.gen());
             quote! { #name::<#(#generics,)* F> }
         }
     }

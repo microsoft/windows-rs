@@ -114,8 +114,8 @@ impl Class {
             .collect()
     }
 
-    pub fn to_tokens(&self) -> TokenStream {
-        let name = self.name.to_tokens();
+    pub fn gen(&self) -> TokenStream {
+        let name = self.name.gen();
         let type_name = self.type_name(&name);
         let methods = to_method_tokens(&self.interfaces);
         let call_factory = self.to_call_factory_tokens();
@@ -145,7 +145,7 @@ impl Class {
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = Literal::byte_string(&self.signature.as_bytes());
 
-            let default_name = default_interface.name.to_tokens();
+            let default_name = default_interface.name.gen();
             let abi_name = default_interface.name.to_abi_tokens();
             let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
             let debug = debug_tokens(&self.name, &self.interfaces);
@@ -228,7 +228,7 @@ impl Class {
 
     pub fn to_base_conversions_tokens(&self, from: &TokenStream) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {
-            let into = base.to_tokens();
+            let into = base.gen();
             quote! {
                 impl ::std::convert::From<#from> for #into {
                     fn from(value: #from) -> Self {
@@ -282,7 +282,7 @@ impl Class {
     }
 
     fn to_named_call_factory(&self, method_name: &str, interface: &TokenStream) -> TokenStream {
-        let self_name = self.name.to_tokens();
+        let self_name = self.name.gen();
         let method_name = format_ident(method_name);
 
         quote! {

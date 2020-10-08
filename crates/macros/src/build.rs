@@ -68,7 +68,7 @@ impl BuildMacro {
         }
 
         let ts = tree
-            .to_tokens()
+            .gen()
             .reduce(squote::TokenStream::new, |mut accum, n| {
                 accum.combine(&n);
                 accum

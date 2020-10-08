@@ -33,13 +33,13 @@ impl Struct {
             .collect()
     }
 
-    pub fn to_tokens(&self) -> TokenStream {
-        let name = self.name.to_tokens();
+    pub fn gen(&self) -> TokenStream {
+        let name = self.name.gen();
         let signature = Literal::byte_string(&self.signature.as_bytes());
 
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
-            let kind = field.1.to_tokens();
+            let kind = field.1.gen();
             quote! {
                 pub #name: #kind
             }

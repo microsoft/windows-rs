@@ -100,7 +100,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
 // implementation.
 #[proc_macro_attribute]
 pub fn implements(attribute: TokenStream, input: TokenStream) -> TokenStream {
-    implements::to_tokens(attribute, input)
+    implements::gen(attribute, input)
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion

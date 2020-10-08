@@ -116,7 +116,7 @@ impl Method {
     }
 
     pub fn to_abi_tokens(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = self_name.to_tokens();
+        let type_name = self_name.gen();
         let name = format_ident(&self.name);
         let params = TokenStream::from_iter(
             self.params
@@ -131,7 +131,7 @@ impl Method {
     }
 
     pub fn to_abi_impl_tokens(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = self_name.to_tokens();
+        let type_name = self_name.gen();
         let name = format_ident(&self.name);
         let params = self
             .params
@@ -203,7 +203,7 @@ impl Method {
         let params = to_param_tokens(&self.params);
         let constraints = to_constraint_tokens(&self.params);
         let args = to_arg_tokens(&self.params);
-        let interface = interface.name.to_tokens();
+        let interface = interface.name.gen();
 
         let return_type = if let Some(return_type) = &self.return_type {
             return_type.to_return_tokens()
@@ -270,7 +270,7 @@ fn to_param_tokens(params: &[Param]) -> TokenStream {
         params
             .iter()
             .enumerate()
-            .map(|(position, param)| param.to_tokens(position)),
+            .map(|(position, param)| param.gen(position)),
     )
 }
 
@@ -299,7 +299,7 @@ fn to_constraint_tokens(params: &[Param]) -> TokenStream {
             | TypeKind::Delegate(_)
             | TypeKind::Generic(_) => {
                 let name = squote::format_ident!("T{}__", position);
-                let into = param.kind.to_tokens();
+                let into = param.kind.gen();
                 tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
             }
             _ => {}

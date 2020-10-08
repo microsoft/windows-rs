@@ -155,9 +155,9 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &[RequiredInterface]) -> Tok
         if interface.name.name == "IVectorView`1"
             && interface.name.namespace == "Windows.Foundation.Collections"
         {
-            let item = interface.name.generics[0].to_tokens();
+            let item = interface.name.generics[0].gen();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = name.to_tokens();
+            let name = name.gen();
 
             return quote! {
                 impl ::std::iter::IntoIterator for #name {
@@ -182,9 +182,9 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &[RequiredInterface]) -> Tok
         if interface.name.name == "IVectorView`1"
             && interface.name.namespace == "Windows.Foundation.Collections"
         {
-            let item = interface.name.generics[0].to_tokens();
+            let item = interface.name.generics[0].gen();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = name.to_tokens();
+            let name = name.gen();
 
             return quote! {
                 impl ::std::iter::IntoIterator for #name {
@@ -217,9 +217,9 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &[RequiredInterface]) -> Tok
         None => TokenStream::new(),
         Some(interface) => {
             let constraints = name.to_constraint_tokens();
-            let item = interface.name.generics[0].to_tokens();
+            let item = interface.name.generics[0].gen();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = name.to_tokens();
+            let name = name.gen();
 
             quote! {
                impl<#constraints> ::std::iter::IntoIterator for #name {

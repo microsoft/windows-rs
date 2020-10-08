@@ -89,11 +89,11 @@ impl TypeTree {
     }
 
     /// Turn the tree into a token stream for code generation
-    pub fn to_tokens<'a>(&'a self) -> impl ParallelIterator<Item = TokenStream> + 'a {
+    pub fn gen<'a>(&'a self) -> impl ParallelIterator<Item = TokenStream> + 'a {
         self.types
             .par_iter()
-            .map(|t| t.to_tokens())
-            .chain(self.namespaces.to_tokens())
+            .map(|t| t.gen())
+            .chain(self.namespaces.gen())
     }
 }
 

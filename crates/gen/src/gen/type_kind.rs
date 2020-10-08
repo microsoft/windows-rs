@@ -205,7 +205,7 @@ impl TypeKind {
         }
     }
 
-    pub fn to_tokens(&self) -> TokenStream {
+    pub fn gen(&self) -> TokenStream {
         match self {
             Self::Bool => quote! { bool },
             Self::Char => quote! { u16 },
@@ -222,11 +222,11 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
-            Self::Class(name) => name.to_tokens(),
-            Self::Interface(name) => name.to_tokens(),
-            Self::Enum(name) => name.to_tokens(),
-            Self::Struct(name) => name.to_tokens(),
-            Self::Delegate(name) => name.to_tokens(),
+            Self::Class(name) => name.gen(),
+            Self::Interface(name) => name.gen(),
+            Self::Enum(name) => name.gen(),
+            Self::Struct(name) => name.gen(),
+            Self::Delegate(name) => name.gen(),
             Self::Generic(name) => {
                 let name = format_ident(name);
                 quote! { #name }
@@ -264,7 +264,7 @@ impl TypeKind {
             | Self::Delegate(name)
             | Self::Enum(name)
             | Self::Struct(name) => {
-                let name = name.to_tokens();
+                let name = name.gen();
                 quote! { <#name as ::winrt::AbiTransferable>::Abi, }
             }
         }

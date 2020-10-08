@@ -11,9 +11,9 @@ pub struct Param {
 }
 
 impl Param {
-    pub fn to_tokens(&self, position: usize) -> TokenStream {
+    pub fn gen(&self, position: usize) -> TokenStream {
         let name = format_ident(&self.name);
-        let tokens = self.kind.to_tokens();
+        let tokens = self.kind.gen();
 
         if self.array {
             if self.input {
@@ -44,7 +44,7 @@ impl Param {
     }
 
     pub fn to_fn_tokens(&self) -> TokenStream {
-        let tokens = self.kind.to_tokens();
+        let tokens = self.kind.gen();
 
         if self.array {
             if self.input {
@@ -74,7 +74,7 @@ impl Param {
     }
 
     pub fn to_return_tokens(&self) -> TokenStream {
-        let tokens = self.kind.to_tokens();
+        let tokens = self.kind.gen();
 
         if self.array {
             quote! { ::winrt::Array<#tokens> }
@@ -105,7 +105,7 @@ impl Param {
     }
 
     pub fn to_abi_return_arg_tokens(&self) -> TokenStream {
-        let return_type = self.kind.to_tokens();
+        let return_type = self.kind.gen();
 
         if self.array {
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
@@ -153,7 +153,7 @@ impl Param {
         let name = format_ident(&self.name);
 
         if self.array {
-            let kind = self.kind.to_tokens();
+            let kind = self.kind.gen();
             let name_size = squote::format_ident!("array_size_{}", name);
             if self.input {
                 quote! { <#kind as ::winrt::AbiTransferable>::slice_from_abi(#name, #name_size as usize) }

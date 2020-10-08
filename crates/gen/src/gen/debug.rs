@@ -33,7 +33,7 @@ pub fn debug_tokens(type_name: &crate::TypeName, interfaces: &[crate::RequiredIn
         }
     };
 
-    to_tokens(type_name, &implementation)
+    gen(type_name, &implementation)
 }
 
 pub fn default_debug_tokens(type_name: &crate::TypeName) -> TokenStream {
@@ -41,12 +41,12 @@ pub fn default_debug_tokens(type_name: &crate::TypeName) -> TokenStream {
     let implementation =
         quote! { "{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self) };
 
-    to_tokens(type_name, &implementation)
+    gen(type_name, &implementation)
 }
 
-fn to_tokens(type_name: &crate::TypeName, implementation: &TokenStream) -> TokenStream {
+fn gen(type_name: &crate::TypeName, implementation: &TokenStream) -> TokenStream {
     let constraints = type_name.to_constraint_tokens();
-    let name = type_name.to_tokens();
+    let name = type_name.gen();
     quote! {
         impl<#constraints> ::std::fmt::Debug for #name {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {

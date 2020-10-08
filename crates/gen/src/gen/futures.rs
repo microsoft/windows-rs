@@ -50,7 +50,7 @@ fn to_async_tokens(
     self_name: &TypeName,
 ) -> (TokenStream, TokenStream) {
     let return_type = match kind {
-        AsyncKind::Operation | AsyncKind::OperationWithProgress => name.generics[0].to_tokens(),
+        AsyncKind::Operation | AsyncKind::OperationWithProgress => name.generics[0].gen(),
         _ => quote! { () },
     };
 
@@ -63,7 +63,7 @@ fn to_async_tokens(
     };
 
     let constraints = self_name.to_constraint_tokens();
-    let name = self_name.to_tokens();
+    let name = self_name.gen();
 
     (
         quote! {

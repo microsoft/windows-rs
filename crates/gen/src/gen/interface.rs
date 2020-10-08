@@ -58,10 +58,10 @@ impl Interface {
         panic!();
     }
 
-    pub fn to_tokens(&self) -> TokenStream {
+    pub fn gen(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens();
         let abi_definition = self.name.to_abi_definition_tokens();
-        let name = self.name.to_tokens();
+        let name = self.name.gen();
         let phantoms = self.name.phantoms();
         let constraints = self.name.to_constraint_tokens();
 

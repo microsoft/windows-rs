@@ -107,7 +107,7 @@ fn use_tree_to_types(
     recurse(reader, tree, types, &mut String::new())
 }
 
-pub fn to_tokens(
+pub fn gen(
     attribute: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
