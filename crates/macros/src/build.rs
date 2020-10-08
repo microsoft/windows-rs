@@ -6,10 +6,12 @@ use syn::spanned::Spanned;
 use syn::{Error, UseTree};
 
 use winrt_deps::cargo;
-use winrt_gen::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
+use winrt_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
 
 use std::convert::{TryFrom, TryInto};
-use std::{collections::BTreeSet, path::PathBuf};
+use std::{collections::BTreeSet, path::PathBuf, path::Path};
+
+use std::io;
 
 /// A parsed `build!` macro
 pub struct BuildMacro {
@@ -109,7 +111,7 @@ impl Dependencies {
         let mut dependencies = BTreeSet::new();
         let deps = cargo::package_manifest()?.get_dependencies()?;
         for dep in deps {
-            let nuget_path = std::fs::read_dir(dependencies::nuget_root()).map_err(|e| format!("Did you forget to run `cargo winrt install`? Could not read nuget directory: {}", e))?;
+            let nuget_path = std::fs::read_dir(nuget_root()).map_err(|e| format!("Did you forget to run `cargo winrt install`? Could not read nuget directory: {}", e))?;
             let name = dep.name();
             let mut dependency_path_iter = nuget_path
                 .filter_map(|entry| entry.ok())
@@ -131,7 +133,7 @@ impl Dependencies {
                 return Err(format!("multiple nuget package versions found for '{}'", name).into());
             }
 
-            dependencies::expand_paths(path, &mut dependencies, true)
+            expand_paths(path, &mut dependencies, true)
                 .map_err(|e| format!("could not read dependency: {}", e))?;
         }
         Ok(Dependencies(dependencies))
@@ -255,4 +257,65 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> parse::Result<Namespa
     }
 
     recurse(use_tree, &mut String::new())
+}
+
+/// Returns the paths to resolved dependencies
+fn expand_paths<P: AsRef<Path>>(
+    dependency: P,
+    result: &mut BTreeSet<PathBuf>,
+    recurse: bool,
+) -> io::Result<()> {
+    let path = dependency.as_ref();
+
+    if path.is_dir() {
+        let paths = std::fs::read_dir(path)?;
+        for path in paths {
+            let path = path.expect("Could not read directory entry");
+            let path = path.path();
+            if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
+                result.insert(path);
+            } else if path.is_dir() && recurse {
+                expand_paths(path, result, recurse)?
+            }
+        }
+        Ok(())
+    } else if path.is_file() && path.extension() == Some(std::ffi::OsStr::new("winmd")) {
+        result.insert(path.to_path_buf());
+        Ok(())
+    } else if !path.exists() {
+        Err(io::Error::new(
+            io::ErrorKind::NotFound,
+            format!("dependency path '{}' does not exist", path.display()),
+        ))
+    } else {
+        Err(io::Error::new(
+            io::ErrorKind::NotFound,
+            format!(
+                "dependency path '{}' is not a directory or winmd file",
+                path.display()
+            ),
+        ))
+    }
+}
+
+fn nuget_root() -> PathBuf {
+    let mut path = workspace_root();
+    path.push("target");
+    path.push("nuget");
+    path
+}
+
+fn workspace_root() -> PathBuf {
+    let output = std::process::Command::new("cargo")
+        .args(&["metadata"])
+        .output()
+        .expect("Could not run `cargo metadata`")
+        .stdout;
+    let value: serde_json::Map<String, serde_json::Value> =
+        serde_json::from_slice(&output).expect("`cargo metadata` did not return json.");
+    let path = match value.get("workspace_root") {
+        Some(serde_json::Value::String(s)) => s,
+        _ => panic!("`cargo metadata` json was not in expected format"),
+    };
+    PathBuf::from(path)
 }
