@@ -1,4 +1,4 @@
-use crate::case::to_snake;
+use crate::to_snake;
 use crate::winmd::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};

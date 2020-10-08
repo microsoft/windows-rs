@@ -1,6 +1,4 @@
 use crate::Blob;
-use crate::*;
-use crate::*;
 use crate::winmd::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};

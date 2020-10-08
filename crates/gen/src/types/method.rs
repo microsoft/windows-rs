@@ -1,4 +1,4 @@
-use crate::case::to_snake;
+use crate::to_snake;
 use crate::winmd::{AttributeArg, MethodDef, TypeDef};
 use crate::types::TypeName;
 use crate::types::{Param, RequiredInterface, TypeKind};
@@ -35,14 +35,14 @@ impl Method {
             let name = method.name(reader);
 
             if name.starts_with("get") {
-                (case::to_snake(&name[4..], MethodKind::Get), MethodKind::Get)
+                (to_snake(&name[4..], MethodKind::Get), MethodKind::Get)
             } else if name.starts_with("put") {
-                (case::to_snake(&name[4..], MethodKind::Set), MethodKind::Set)
+                (to_snake(&name[4..], MethodKind::Set), MethodKind::Set)
             } else if name.starts_with("add") {
-                (case::to_snake(&name[4..], MethodKind::Add), MethodKind::Add)
+                (to_snake(&name[4..], MethodKind::Add), MethodKind::Add)
             } else if name.starts_with("remove") {
                 (
-                    case::to_snake(&name[7..], MethodKind::Remove),
+                    to_snake(&name[7..], MethodKind::Remove),
                     MethodKind::Remove,
                 )
             } else {
@@ -124,12 +124,12 @@ impl Method {
         {
             for (_, arg) in attribute.args(reader) {
                 if let AttributeArg::String(name) = arg {
-                    return case::to_snake(&name, MethodKind::Normal);
+                    return to_snake(&name, MethodKind::Normal);
                 }
             }
         }
 
-        case::to_snake(method.name(reader), MethodKind::Normal)
+        to_snake(method.name(reader), MethodKind::Normal)
     }
 
     pub fn to_abi_tokens(&self, self_name: &TypeName) -> TokenStream {

@@ -1,6 +1,6 @@
 use super::*;
 use crate::*;
-use case::to_snake;
+use to_snake;
 use squote::{quote, TokenStream};
 use std::iter::FromIterator;
 

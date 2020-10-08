@@ -1,4 +1,3 @@
-use crate::*;
 use crate::winmd::*;
 use crate::types::*;
 use crate::TypeReader;
