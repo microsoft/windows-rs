@@ -17,4 +17,4 @@ proc-macro2 = "1.0"
 cargo_toml = "0.8"
 winrt-gen = { path = "../gen", version = "0.7.2" }
 rayon = "1.3"
-winrt-deps = { path = "../winrt-deps", version = "0.1" }
+winrt-deps = { path = "../deps", version = "0.1" }
