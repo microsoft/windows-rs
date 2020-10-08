@@ -29,7 +29,7 @@ use syn::parse_macro_input;
 /// Any DLLs needed for the NuGet package to work should be next to work must be next to the final
 /// executable.
 ///
-/// Instead of handling this yourself, you can use the [`cargo winrt`](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo-winrt)
+/// Instead of handling this yourself, you can use the [`cargo winrt`](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo)
 /// helper subcommand.
 ///
 /// ## Types

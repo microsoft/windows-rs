@@ -9,7 +9,7 @@ use std::path::{Path, PathBuf};
 pub fn from_os() -> Vec<WinmdFile> {
     let windir = std::env::var("windir").expect("No `windir` environent variable set");
     let mut path = PathBuf::from(windir);
-    path.push(super::SYSTEM32);
+    path.push(crate::SYSTEM32);
     path.push("winmetadata");
     from_dir(path)
 }

@@ -7,7 +7,7 @@ use syn::{Error, UseTree};
 
 use winrt_deps::cargo;
 use winrt_gen::{
-    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, WinmdFile,
+    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, WinmdFile, TypeTree,
 };
 
 use std::convert::{TryFrom, TryInto};

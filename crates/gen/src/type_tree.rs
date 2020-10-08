@@ -97,7 +97,7 @@ impl TypeTree {
 #[cfg(test)]
 mod tests {
     use crate::TypeReader;
-    use crate::{NamespaceTypes, TypeLimit, TypeLimits};
+    use crate::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 
     #[test]
     fn test_dependency_inclusion() {

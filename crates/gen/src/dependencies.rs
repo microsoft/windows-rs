@@ -51,7 +51,7 @@ pub fn nuget_root() -> PathBuf {
 pub fn system_metadata_root() -> Option<PathBuf> {
     let wind_dir_env = std::env::var("windir").ok()?;
     let mut path = PathBuf::from(wind_dir_env);
-    path.push(SYSTEM32);
+    path.push(crate::SYSTEM32);
     path.push("winmetadata");
 
     Some(path)
@@ -71,9 +71,3 @@ fn workspace_root() -> PathBuf {
     };
     PathBuf::from(path)
 }
-
-#[cfg(target_pointer_width = "64")]
-const SYSTEM32: &str = "System32";
-
-#[cfg(target_pointer_width = "32")]
-const SYSTEM32: &str = "SysNative";
