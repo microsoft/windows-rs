@@ -23,6 +23,38 @@ impl TypeReader {
         Self::new(WinmdFile::from_os())
     }
 
+    pub fn from_iter<I: IntoIterator<Item = std::path::PathBuf>>(files: I) -> Self {
+        let mut reader = Self {
+            files: Vec::default(),
+            types: BTreeMap::default(),
+        };
+        for (file_index, file) in files.into_iter().enumerate() {
+            let file = WinmdFile::new(file);
+            let row_count = file.type_def_table().row_count;
+            reader.files.push(file);
+
+            for row in 0..row_count {
+                let def = TypeDef(Row::new(row, TableIndex::TypeDef, file_index as u16));
+
+                if def.ignore(&reader) {
+                    continue;
+                }
+
+                let (namespace, name) = def.name(&reader);
+                let namespace = namespace.to_string();
+                let name = name.to_string();
+
+                reader
+                    .types
+                    .entry(namespace)
+                    .or_default()
+                    .entry(name)
+                    .or_insert(def);
+            }
+        }
+        reader
+    }
+
     pub fn from_build() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();

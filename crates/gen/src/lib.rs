@@ -12,7 +12,7 @@ pub use type_limits::{NamespaceTypes, TypeLimit, TypeLimits};
 pub use type_reader::TypeReader;
 pub use type_tree::TypeTree;
 pub use types::{Type,Class,Interface,Delegate,Struct, Enum, TypeName};
-pub use winmd::*;
+use winmd::*;
 use to_snake::to_snake;
 
 fn format_ident(name: &str) -> squote::Ident {

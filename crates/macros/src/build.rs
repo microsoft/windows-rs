@@ -7,7 +7,7 @@ use syn::{Error, UseTree};
 
 use winrt_deps::cargo;
 use winrt_gen::{
-    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, WinmdFile, TypeTree,
+    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree,
 };
 
 use std::convert::{TryFrom, TryInto};
@@ -26,9 +26,7 @@ impl BuildMacro {
     }
 
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
-        let dependencies = self.dependencies.0.iter().map(WinmdFile::new).collect();
-
-        let reader = &TypeReader::new(dependencies);
+        let reader = &TypeReader::from_iter(self.dependencies.0);
         let mut limits = TypeLimits::new(reader);
 
         let foundation_namespaces = &[
