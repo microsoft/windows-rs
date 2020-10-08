@@ -1,9 +1,9 @@
 use super::{Attribute, Param, TypeDef};
 use crate::Blob;
-use crate::codes::HasAttribute;
-use crate::file::TableIndex;
-use crate::flags::{MethodCategory, MethodFlags};
-use crate::row::Row;
+use crate::HasAttribute;
+use crate::TableIndex;
+use crate::{MethodCategory, MethodFlags};
+use crate::Row;
 use crate::TypeReader;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]

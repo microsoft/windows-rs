@@ -1,5 +1,5 @@
 use crate::Blob;
-use crate::codes::{Decode, TypeDefOrRef};
+use crate::{Decode, TypeDefOrRef};
 
 #[derive(Debug)]
 pub enum ElementType {

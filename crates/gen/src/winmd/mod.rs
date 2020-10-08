@@ -11,6 +11,10 @@ mod type_ref;
 mod type_spec;
 mod element_type;
 mod blob;
+mod codes;
+mod file;
+mod flags;
+mod row;
 
 pub use attribute::*;
 pub use constant::*;
@@ -25,3 +29,7 @@ pub use type_ref::*;
 pub use type_spec::*;
 pub use element_type::*;
 pub use blob::*;
+pub use codes::*;
+pub use file::*;
+pub use flags::*;
+pub use row::*;

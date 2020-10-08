@@ -1,4 +1,4 @@
-use crate::file::TableIndex;
+use crate::TableIndex;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct Row {

@@ -1,5 +1,5 @@
 use crate::Blob;
-use crate::row::Row;
+use crate::Row;
 use crate::TypeReader;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]

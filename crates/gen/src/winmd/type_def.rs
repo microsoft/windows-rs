@@ -1,8 +1,8 @@
 use super::Attribute;
-use crate::codes::{HasAttribute, TypeDefOrRef, TypeOrMethodDef};
-use crate::file::TableIndex;
-use crate::flags::{TypeCategory, TypeFlags};
-use crate::row::Row;
+use crate::{HasAttribute, TypeDefOrRef, TypeOrMethodDef};
+use crate::TableIndex;
+use crate::{TypeCategory, TypeFlags};
+use crate::Row;
 use crate::winmd::{Field, GenericParam, InterfaceImpl, MethodDef};
 use crate::types::Type;
 use crate::TypeReader;

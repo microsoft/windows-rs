@@ -1,8 +1,4 @@
 mod case;
-mod codes;
-mod file;
-mod flags;
-mod row;
 mod winmd;
 mod type_limits;
 mod type_namespaces;
@@ -11,13 +7,11 @@ mod type_tree;
 mod types;
 
 pub mod dependencies;
-pub use file::WinmdFile;
 pub use winmd::AttributeArg;
 pub use type_limits::{NamespaceTypes, TypeLimit, TypeLimits};
 pub use type_reader::TypeReader;
 pub use type_tree::TypeTree;
 pub use types::{Type,Class,Interface,Delegate,Struct, Enum, TypeName};
-pub use flags::TypeCategory;
 use winmd::*;
 
 fn format_ident(name: &str) -> squote::Ident {

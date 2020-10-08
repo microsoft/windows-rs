@@ -1,7 +1,7 @@
 use crate::Blob;
-use crate::codes::{AttributeType, HasAttribute, MemberRefParent, TypeDefOrRef};
+use crate::{AttributeType, HasAttribute, MemberRefParent, TypeDefOrRef};
 use crate::ElementType;
-use crate::row::Row;
+use crate::Row;
 use crate::winmd::TypeDef;
 use crate::types::{Enum, TypeName};
 use crate::TypeReader;

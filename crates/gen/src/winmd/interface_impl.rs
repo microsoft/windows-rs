@@ -1,7 +1,7 @@
 use super::Attribute;
-use crate::codes::{HasAttribute, TypeDefOrRef};
-use crate::file::TableIndex;
-use crate::row::Row;
+use crate::{HasAttribute, TypeDefOrRef};
+use crate::TableIndex;
+use crate::Row;
 use crate::TypeReader;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]

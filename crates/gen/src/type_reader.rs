@@ -1,7 +1,7 @@
 use crate::Blob;
-use crate::codes::Decode;
-use crate::file::{TableIndex, View, WinmdFile};
-use crate::row::Row;
+use crate::Decode;
+use crate::{TableIndex, View, WinmdFile};
+use crate::Row;
 use crate::winmd::TypeDef;
 
 use std::cmp::Ordering;

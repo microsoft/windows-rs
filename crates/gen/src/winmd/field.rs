@@ -1,8 +1,8 @@
 use crate::Blob;
-use crate::codes::HasConstant;
-use crate::file::TableIndex;
-use crate::flags::FieldFlags;
-use crate::row::Row;
+use crate::HasConstant;
+use crate::TableIndex;
+use crate::FieldFlags;
+use crate::Row;
 use crate::winmd::Constant;
 use crate::TypeReader;
 

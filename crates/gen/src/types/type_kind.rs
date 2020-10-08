@@ -1,6 +1,6 @@
 use crate::Blob;
-use crate::codes::*;
-use crate::flags::*;
+use crate::*;
+use crate::*;
 use crate::winmd::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
