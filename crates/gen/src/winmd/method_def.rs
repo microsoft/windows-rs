@@ -1,5 +1,5 @@
 use super::{Attribute, Param, TypeDef};
-use crate::blob::Blob;
+use crate::Blob;
 use crate::codes::HasAttribute;
 use crate::file::TableIndex;
 use crate::flags::{MethodCategory, MethodFlags};

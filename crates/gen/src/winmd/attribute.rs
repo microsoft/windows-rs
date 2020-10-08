@@ -1,8 +1,8 @@
-use crate::blob::Blob;
+use crate::Blob;
 use crate::codes::{AttributeType, HasAttribute, MemberRefParent, TypeDefOrRef};
-use crate::element_type::ElementType;
+use crate::ElementType;
 use crate::row::Row;
-use crate::tables::TypeDef;
+use crate::winmd::TypeDef;
 use crate::types::{Enum, TypeName};
 use crate::TypeReader;
 

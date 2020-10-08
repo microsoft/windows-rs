@@ -1,4 +1,4 @@
-use crate::tables::*;
+use crate::winmd::*;
 use crate::TypeReader;
 
 use squote::{quote, Literal, TokenStream};

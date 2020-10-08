@@ -1,7 +1,7 @@
-use crate::blob::Blob;
+use crate::Blob;
 use crate::codes::*;
 use crate::flags::*;
-use crate::tables::*;
+use crate::winmd::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 

@@ -1,4 +1,4 @@
-use crate::blob::Blob;
+use crate::Blob;
 use crate::row::Row;
 use crate::TypeReader;
 

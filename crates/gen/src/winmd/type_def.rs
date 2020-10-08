@@ -3,7 +3,7 @@ use crate::codes::{HasAttribute, TypeDefOrRef, TypeOrMethodDef};
 use crate::file::TableIndex;
 use crate::flags::{TypeCategory, TypeFlags};
 use crate::row::Row;
-use crate::tables::{Field, GenericParam, InterfaceImpl, MethodDef};
+use crate::winmd::{Field, GenericParam, InterfaceImpl, MethodDef};
 use crate::types::Type;
 use crate::TypeReader;
 

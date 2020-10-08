@@ -70,6 +70,33 @@ impl TableData {
 }
 
 impl WinmdFile {
+    /// Get [`WinmdFile`]s from the operating system
+    ///
+    /// This searches well known paths for Windows metadata related to
+    /// operating system APIs.
+    pub fn from_os() -> Vec<WinmdFile> {
+        let windir = std::env::var("windir").expect("No `windir` environent variable set");
+        let mut path = std::path::PathBuf::from(windir);
+        path.push(crate::SYSTEM32);
+        path.push("winmetadata");
+        Self::from_dir(path)
+    }
+    
+    /// Get [`WinmdFile`]s from a directory
+    pub fn from_dir<P: AsRef<std::path::Path>>(directory: P) -> Vec<WinmdFile> {
+        let files = std::fs::read_dir(directory)
+            .unwrap()
+            .filter_map(|value| value.ok())
+            .map(|value| value.path());
+        // TODO: filter out directories and non-metadata files
+        Self::from_files(files)
+    }
+    
+    /// Get [`WinmdFile`]s from an iterator of file paths
+    pub fn from_files<P: IntoIterator<Item = std::path::PathBuf>>(filenames: P) -> Vec<WinmdFile> {
+        filenames.into_iter().map(WinmdFile::new).collect()
+    }
+
     pub fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
         let bytes = std::fs::read(filename.as_ref())
             .unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename.as_ref(), e));

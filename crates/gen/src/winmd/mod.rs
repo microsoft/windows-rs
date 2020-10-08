@@ -9,6 +9,8 @@ mod param;
 mod type_def;
 mod type_ref;
 mod type_spec;
+mod element_type;
+mod blob;
 
 pub use attribute::*;
 pub use constant::*;
@@ -21,3 +23,5 @@ pub use param::*;
 pub use type_def::*;
 pub use type_ref::*;
 pub use type_spec::*;
+pub use element_type::*;
+pub use blob::*;

@@ -1,4 +1,4 @@
-use crate::element_type::ElementType;
+use crate::ElementType;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 

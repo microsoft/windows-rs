@@ -1,5 +1,5 @@
 use crate::case::to_snake;
-use crate::tables::{AttributeArg, MethodDef, TypeDef};
+use crate::winmd::{AttributeArg, MethodDef, TypeDef};
 use crate::types::TypeName;
 use crate::types::{Param, RequiredInterface, TypeKind};
 use crate::TypeReader;

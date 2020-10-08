@@ -1,11 +1,9 @@
-mod blob;
 mod case;
 mod codes;
-mod element_type;
 mod file;
 mod flags;
 mod row;
-mod tables;
+mod winmd;
 mod type_limits;
 mod type_namespaces;
 mod type_reader;
@@ -13,15 +11,14 @@ mod type_tree;
 mod types;
 
 pub mod dependencies;
-pub mod load_winmd;
 pub use file::WinmdFile;
-pub use tables::AttributeArg;
+pub use winmd::AttributeArg;
 pub use type_limits::{NamespaceTypes, TypeLimit, TypeLimits};
 pub use type_reader::TypeReader;
 pub use type_tree::TypeTree;
 pub use types::{Type,Class,Interface,Delegate,Struct, Enum, TypeName};
 pub use flags::TypeCategory;
-use tables::*;
+use winmd::*;
 
 fn format_ident(name: &str) -> squote::Ident {
     if name == "Self" {

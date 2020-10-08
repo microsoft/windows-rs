@@ -1,4 +1,4 @@
-use crate::tables::*;
+use crate::winmd::*;
 use crate::types::debug;
 use crate::types::*;
 use crate::*;

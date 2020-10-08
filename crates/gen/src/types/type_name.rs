@@ -1,6 +1,6 @@
-use crate::blob::Blob;
+use crate::Blob;
 use crate::codes::*;
-use crate::tables::*;
+use crate::winmd::*;
 use crate::types::*;
 use crate::*;
 

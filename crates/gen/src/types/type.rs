@@ -1,5 +1,5 @@
 use crate::flags::*;
-use crate::tables::*;
+use crate::winmd::*;
 use crate::types::*;
 use crate::TypeReader;
 

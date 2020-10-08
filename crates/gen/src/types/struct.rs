@@ -1,5 +1,5 @@
 use crate::case::to_snake;
-use crate::tables::*;
+use crate::winmd::*;
 use crate::types::*;
 use crate::{format_ident, TypeReader};
 use squote::{quote, Literal, TokenStream};

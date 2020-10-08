@@ -1,8 +1,8 @@
-use crate::blob::Blob;
+use crate::Blob;
 use crate::codes::Decode;
 use crate::file::{TableIndex, View, WinmdFile};
 use crate::row::Row;
-use crate::tables::TypeDef;
+use crate::winmd::TypeDef;
 
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
@@ -20,7 +20,7 @@ pub struct TypeReader {
 
 impl TypeReader {
     pub fn from_os() -> Self {
-        Self::new(crate::load_winmd::from_os())
+        Self::new(WinmdFile::from_os())
     }
 
     pub fn from_build() -> &'static Self {
