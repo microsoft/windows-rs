@@ -7,7 +7,7 @@ use syn::{Error, UseTree};
 
 use winrt_deps::cargo;
 use winrt_gen::{
-    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeStage, WinmdFile,
+    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, WinmdFile,
 };
 
 use std::convert::{TryFrom, TryInto};
@@ -59,8 +59,7 @@ impl BuildMacro {
             };
         }
 
-        let stage = TypeStage::from_limits(reader, &limits);
-        let mut tree = stage.into_tree();
+        let mut tree = TypeTree::from_limits(reader, &limits);
 
         if !self.foundation {
             for namespace in foundation_namespaces {

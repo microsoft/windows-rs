@@ -36,8 +36,6 @@ impl TypeName {
         def: TypeDef,
         calling_namespace: &str,
     ) -> Self {
-        let namespace_ident = to_namespace_tokens(&namespace, calling_namespace);
-        let tokens = generate_tokens(&name, Some(&namespace_ident), &generics, format_ident);
         Self {
             namespace,
             name,
@@ -340,12 +338,10 @@ impl TypeName {
         result
     }
 
-    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
-        stage.insert(reader, self.def);
-
-        for generic in &self.generics {
-            generic.insert_dependencies(reader, stage);
-        }
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        std::iter::once(self.def)
+            .chain(self.generics.iter().flat_map(|i| i.dependencies()))
+            .collect()
     }
 
     /// Create tokens

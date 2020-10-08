@@ -12,6 +12,41 @@ pub struct TypeTree {
 }
 
 impl TypeTree {
+    pub fn from_limits(reader: &crate::TypeReader, limits: &crate::TypeLimits) -> Self {
+        let mut tree = TypeTree::default();
+        let mut set = std::collections::BTreeSet::new();
+
+        for limit in limits.limits() {
+            match &limit.limit {
+                crate::type_limits::TypeLimit::All => {
+                    for def in reader.types[&limit.namespace].values() {
+                        tree.insert2(reader, &mut set, *def);
+                    }
+                }
+                crate::type_limits::TypeLimit::Some(types) => {
+                    let namespace = &reader.types[&limit.namespace];
+                    for name in types {
+                        tree.insert2(reader,&mut set, namespace[name]);
+                    }
+                }
+            }
+        }
+
+        tree
+    }
+
+    fn insert2(&mut self, reader: &crate::TypeReader, set: &mut std::collections::BTreeSet<crate::TypeDef>, def: crate::TypeDef) {
+        if set.insert(def) {
+            let t = Type::from_type_def(reader, def);
+
+            for def in t.dependencies() {
+                self.insert2(reader, set, def);
+            }
+
+            self.insert(t.name().namespace.clone(), t);
+        }
+    }
+
     /// Insert a [`Type`] into [`TypeTree`]
     ///
     /// This recursively searchs the tree for an entry corresponding to the namespace
@@ -62,7 +97,6 @@ impl TypeTree {
 #[cfg(test)]
 mod tests {
     use crate::TypeReader;
-    use crate::TypeStage;
     use crate::{NamespaceTypes, TypeLimit, TypeLimits};
 
     #[test]
@@ -81,11 +115,10 @@ mod tests {
                 limit: TypeLimit::All,
             })
             .unwrap();
-        let stage = TypeStage::from_limits(reader, &limits);
 
         // Since Windows.Foundation depends on Windows.Foundation.Collections and
         // Windows.UI doesn't have dependencies, we should only see those namespaces.
-        let root = stage.into_tree();
+        let root = TypeTree::from_limits(reader, &limits);
 
         // There is one root namespace.
         assert!(root.namespaces.0.len() == 1);

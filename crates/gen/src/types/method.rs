@@ -110,14 +110,12 @@ impl Method {
         }
     }
 
-    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
-        if let Some(param) = &self.return_type {
-            param.kind.insert_dependencies(reader, stage);
-        }
-
-        for param in &self.params {
-            param.kind.insert_dependencies(reader, stage);
-        }
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.return_type
+            .iter()
+            .chain(self.params.iter())
+            .flat_map(|i| i.kind.dependencies())
+            .collect()
     }
 
     fn name(reader: &TypeReader, method: MethodDef) -> String {

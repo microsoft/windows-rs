@@ -9,7 +9,6 @@ mod tables;
 mod type_limits;
 mod type_namespaces;
 mod type_reader;
-mod type_stage;
 mod type_tree;
 mod types;
 
@@ -19,10 +18,10 @@ pub use file::WinmdFile;
 pub use tables::AttributeArg;
 pub use type_limits::{NamespaceTypes, TypeLimit, TypeLimits};
 pub use type_reader::TypeReader;
-pub use type_stage::TypeStage;
 pub use type_tree::TypeTree;
 pub use types::{Type,Class,Interface,Delegate,Struct, Enum, TypeName};
 pub use flags::TypeCategory;
+use tables::*;
 
 fn format_ident(name: &str) -> squote::Ident {
     if name == "Self" {

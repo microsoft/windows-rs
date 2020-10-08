@@ -200,15 +200,15 @@ impl TypeKind {
         Self::from_blob(&mut blob, &Vec::new(), calling_namespace)
     }
 
-    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
         match self {
-            TypeKind::Class(name) => name.insert_dependencies(reader, stage),
-            TypeKind::Interface(name) => name.insert_dependencies(reader, stage),
-            TypeKind::Enum(name) => name.insert_dependencies(reader, stage),
-            TypeKind::Struct(name) => name.insert_dependencies(reader, stage),
-            TypeKind::Delegate(name) => name.insert_dependencies(reader, stage),
-            _ => {}
-        };
+            TypeKind::Class(name) => name.dependencies(),
+            TypeKind::Interface(name) => name.dependencies(),
+            TypeKind::Enum(name) => name.dependencies(),
+            TypeKind::Struct(name) => name.dependencies(),
+            TypeKind::Delegate(name) => name.dependencies(),
+            _ => Vec::new(),
+        }
     }
 
     pub fn to_tokens(&self) -> TokenStream {

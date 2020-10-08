@@ -29,10 +29,11 @@ impl Struct {
         }
     }
 
-    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
-        for field in &self.fields {
-            field.1.insert_dependencies(reader, stage);
-        }
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.fields
+            .iter()
+            .flat_map(|i| i.1.dependencies())
+            .collect()
     }
 
     pub fn to_tokens(&self) -> TokenStream {

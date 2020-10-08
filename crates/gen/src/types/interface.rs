@@ -34,16 +34,20 @@ impl Interface {
         }
     }
 
-    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        let mut dependencies = Vec::new();
+
         for interface in &self.interfaces {
-            interface.name.insert_dependencies(reader, stage);
+            dependencies.append(&mut interface.name.dependencies());
 
             if interface.kind == InterfaceKind::Default {
                 for method in &interface.methods {
-                    method.insert_dependencies(reader, stage);
+                    dependencies.append(&mut method.dependencies());
                 }
             }
         }
+
+        dependencies
     }
 
     pub fn default_interface(&self) -> &RequiredInterface {

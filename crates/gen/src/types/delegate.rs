@@ -32,8 +32,8 @@ impl Delegate {
         }
     }
 
-    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
-        self.method.insert_dependencies(reader, stage);
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.method.dependencies()
     }
 
     pub fn to_tokens(&self) -> TokenStream {

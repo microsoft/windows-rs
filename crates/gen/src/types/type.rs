@@ -46,13 +46,13 @@ impl Type {
         }
     }
 
-    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
         match self {
-            Type::Class(t) => t.insert_dependencies(reader, stage),
-            Type::Interface(t) => t.insert_dependencies(reader, stage),
-            Type::Enum(_t) => {}
-            Type::Struct(t) => t.insert_dependencies(reader, stage),
-            Type::Delegate(t) => t.insert_dependencies(reader, stage),
-        };
+            Type::Class(t) => t.dependencies(),
+            Type::Interface(t) => t.dependencies(),
+            Type::Enum(_t) => Vec::new(),
+            Type::Struct(t) => t.dependencies(),
+            Type::Delegate(t) => t.dependencies(),
+        }
     }
 }

@@ -109,14 +109,12 @@ impl Class {
         }
     }
 
-    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
-        for interface in &self.interfaces {
-            interface.name.insert_dependencies(reader, stage);
-        }
-
-        for base in &self.bases {
-            stage.insert(reader, base.def);
-        }
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.interfaces
+            .iter()
+            .flat_map(|i| i.name.dependencies())
+            .chain(self.bases.iter().map(|i| i.def))
+            .collect()
     }
 
     pub fn to_tokens(&self) -> TokenStream {
