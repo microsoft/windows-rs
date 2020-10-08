@@ -80,7 +80,7 @@ We take these safety gurantees very seriously. Please let us know if you run int
 
 This project is under heavy development. Both the `winrt` crate and `cargo-winrt` are expected to have many breaking changes before reaching 1.0. Until then, breaking changes will be signified by a bump in the 0.X (e.g., 0.7.0 to 0.8.0) version number meaning that 0.X.Y (e.g., 0.7.0 to 0.7.1) version bumps will only happen when there are no breaking changes. 
 
-Other crates under the WinRT-rs umbrella such as `winrt_gen` and `winrt_macros` are considered implementation details at this point, and breaking changes can happen at any time even in 0.X.Y version bumps. These crates will generally follow in lockstep with the version of `winrt`. 
+Other crates under the WinRT-rs umbrella such as `winrt-gen` and `winrt-macros` are considered implementation details at this point, and breaking changes can happen at any time even in 0.X.Y version bumps. These crates will generally follow in lockstep with the version of `winrt`. 
 
 ## IDE support
 

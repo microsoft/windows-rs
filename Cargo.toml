@@ -10,15 +10,15 @@ documentation = "https://docs.rs/winrt"
 readme = "README.md"
 
 [dependencies]
-winrt_macros = { path = "crates/macros",  version = "0.7.2" }
+winrt-macros = { path = "crates/macros",  version = "0.7.2" }
 const-sha1 = "0.2"
 
 [build-dependencies]
-winrt_macros = { path = "crates/macros",  version = "0.7.2" }
+winrt-macros = { path = "crates/macros",  version = "0.7.2" }
 
 [dev-dependencies]
 doc-comment = "0.3"
-winrt_gen = { path = "crates/gen" }
+winrt-gen = { path = "crates/gen" }
 
 [workspace]
 members = [
