@@ -54,34 +54,34 @@ impl Interface {
             .unwrap()
     }
 
-    pub fn to_vtable_initializer_tokens(&self) -> TokenStream {
+    pub fn gen_vtable_initializer(&self) -> TokenStream {
         panic!();
     }
 
     pub fn gen(&self) -> TokenStream {
-        let definition = self.name.to_definition_tokens();
-        let abi_definition = self.name.to_abi_definition_tokens();
+        let definition = self.name.gen_definition();
+        let abi_definition = self.name.gen_abi_definition();
         let name = self.name.gen();
         let phantoms = self.name.phantoms();
-        let constraints = self.name.to_constraint_tokens();
+        let constraints = self.name.gen_constraint();
 
         let default_interface = self.default_interface();
 
-        let guid = self.name.to_guid_tokens(&default_interface.guid);
+        let guid = self.name.gen_guid(&default_interface.guid);
 
         let conversions = TokenStream::from_iter(
             self.interfaces
                 .iter()
                 .filter(|interface| interface.kind != InterfaceKind::Default)
-                .map(|interface| interface.to_conversions_tokens(&name, &constraints)),
+                .map(|interface| interface.gen_conversions(&name, &constraints)),
         );
 
-        let methods = to_method_tokens(&self.interfaces);
-        let abi_methods = default_interface.to_abi_method_tokens();
-        let iterator = iterator_tokens(&self.name, &self.interfaces);
-        let signature = self.name.to_signature_tokens(&self.signature);
-        let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
-        let debug = debug_tokens(&self.name, &self.interfaces);
+        let methods = gen_method(&self.interfaces);
+        let abi_methods = default_interface.gen_abi_method();
+        let iterator = gen_iterator(&self.name, &self.interfaces);
+        let signature = self.name.gen_signature(&self.signature);
+        let (async_get, future) = gen_async(&self.name, &self.interfaces);
+        let debug = gen_debug(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]

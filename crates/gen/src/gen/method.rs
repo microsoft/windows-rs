@@ -115,14 +115,14 @@ impl Method {
         to_snake(method.name(reader), MethodKind::Normal)
     }
 
-    pub fn to_abi_tokens(&self, self_name: &TypeName) -> TokenStream {
+    pub fn gen_abi(&self, self_name: &TypeName) -> TokenStream {
         let type_name = self_name.gen();
         let name = format_ident(&self.name);
         let params = TokenStream::from_iter(
             self.params
                 .iter()
                 .chain(self.return_type.iter())
-                .map(|param| param.to_abi_tokens()),
+                .map(|param| param.gen_abi()),
         );
 
         quote! {
@@ -130,7 +130,7 @@ impl Method {
         }
     }
 
-    pub fn to_abi_impl_tokens(&self, self_name: &TypeName) -> TokenStream {
+    pub fn gen_abi_impl(&self, self_name: &TypeName) -> TokenStream {
         let type_name = self_name.gen();
         let name = format_ident(&self.name);
         let params = self
@@ -138,7 +138,7 @@ impl Method {
             .iter()
             .chain(self.return_type.iter())
             .map(|param| {
-                let abi = param.to_abi_tokens();
+                let abi = param.gen_abi();
                 quote! { #abi }
             });
 
@@ -147,15 +147,15 @@ impl Method {
         }
     }
 
-    pub fn to_binding_abi_impl_tokens(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = self_name.to_binding_tokens();
+    pub fn gen_binding_abi_impl(&self, self_name: &TypeName) -> TokenStream {
+        let type_name = self_name.gen_binding();
         let name = format_ident(&self.name);
         let params = self
             .params
             .iter()
             .chain(self.return_type.iter())
             .map(|param| {
-                let abi = param.to_abi_tokens();
+                let abi = param.gen_abi();
                 quote! { #abi }
             });
 
@@ -164,17 +164,17 @@ impl Method {
         }
     }
 
-    pub fn to_default_tokens(&self) -> TokenStream {
+    pub fn gen_default(&self) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = to_param_tokens(&self.params);
-        let constraints = to_constraint_tokens(&self.params);
+        let params = gen_param(&self.params);
+        let constraints = gen_constraint(&self.params);
 
         let args =
-            TokenStream::from_iter(self.params.iter().map(|param| param.to_abi_arg_tokens()));
+            TokenStream::from_iter(self.params.iter().map(|param| param.gen_abi_arg()));
 
         if let Some(return_type) = &self.return_type {
-            let return_arg = return_type.to_abi_return_arg_tokens();
-            let return_type = return_type.to_return_tokens();
+            let return_arg = return_type.gen_abi_return_arg();
+            let return_type = return_type.gen_return();
 
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
@@ -198,15 +198,15 @@ impl Method {
         }
     }
 
-    pub fn to_non_default_tokens(&self, interface: &RequiredInterface) -> TokenStream {
+    pub fn gen_non_default(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = to_param_tokens(&self.params);
-        let constraints = to_constraint_tokens(&self.params);
-        let args = to_arg_tokens(&self.params);
+        let params = gen_param(&self.params);
+        let constraints = gen_constraint(&self.params);
+        let args = gen_arg(&self.params);
         let interface = interface.name.gen();
 
         let return_type = if let Some(return_type) = &self.return_type {
-            return_type.to_return_tokens()
+            return_type.gen_return()
         } else {
             quote! { () }
         };
@@ -218,15 +218,15 @@ impl Method {
         }
     }
 
-    pub fn to_static_tokens(&self, interface: &RequiredInterface) -> TokenStream {
+    pub fn gen_static(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
-        let params = to_param_tokens(&self.params);
-        let constraints = to_constraint_tokens(&self.params);
-        let args = to_arg_tokens(&self.params);
+        let params = gen_param(&self.params);
+        let constraints = gen_constraint(&self.params);
+        let args = gen_arg(&self.params);
         let interface = format_ident(&interface.name.name);
 
         let return_type = if let Some(return_type) = &self.return_type {
-            return_type.to_return_tokens()
+            return_type.gen_return()
         } else {
             quote! { () }
         };
@@ -238,7 +238,7 @@ impl Method {
         }
     }
 
-    pub fn to_composable_tokens(&self, interface: &RequiredInterface) -> TokenStream {
+    pub fn gen_composable(&self, interface: &RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
         let interface = format_ident(&interface.name.name);
 
@@ -252,9 +252,9 @@ impl Method {
             }
         } else {
             let params = &self.params[..self.params.len() - 2];
-            let constraints = to_constraint_tokens(params);
-            let args = to_arg_tokens(params);
-            let params = to_param_tokens(params);
+            let constraints = gen_constraint(params);
+            let args = gen_arg(params);
+            let params = gen_param(params);
 
             quote! {
                 pub fn #method_name<#constraints>(#params) -> ::winrt::Result<Self> {
@@ -265,7 +265,7 @@ impl Method {
     }
 }
 
-fn to_param_tokens(params: &[Param]) -> TokenStream {
+fn gen_param(params: &[Param]) -> TokenStream {
     TokenStream::from_iter(
         params
             .iter()
@@ -274,14 +274,14 @@ fn to_param_tokens(params: &[Param]) -> TokenStream {
     )
 }
 
-fn to_arg_tokens(params: &[Param]) -> TokenStream {
+fn gen_arg(params: &[Param]) -> TokenStream {
     TokenStream::from_iter(params.iter().map(|param| {
         let name = format_ident(&param.name);
         quote! { #name, }
     }))
 }
 
-fn to_constraint_tokens(params: &[Param]) -> TokenStream {
+fn gen_constraint(params: &[Param]) -> TokenStream {
     let mut tokens = Vec::new();
 
     for (position, param) in params.iter().enumerate() {

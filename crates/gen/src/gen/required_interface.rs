@@ -65,15 +65,15 @@ impl RequiredInterface {
         }
     }
 
-    pub fn to_abi_method_tokens(&self) -> TokenStream {
+    pub fn gen_abi_method(&self) -> TokenStream {
         TokenStream::from_iter(
             self.methods
                 .iter()
-                .map(|method| method.to_abi_tokens(&self.name)),
+                .map(|method| method.gen_abi(&self.name)),
         )
     }
 
-    pub fn to_conversions_tokens(
+    pub fn gen_conversions(
         &self,
         from: &TokenStream,
         constraints: &TokenStream,
@@ -195,7 +195,7 @@ pub fn add_dependencies(
     }
 }
 
-pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
+pub fn gen_method(interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let mut tokens = Vec::new();
     let mut names = BTreeSet::new();
 
@@ -209,12 +209,12 @@ pub fn to_method_tokens(interfaces: &Vec<RequiredInterface>) -> TokenStream {
             names.insert(&method.name);
 
             tokens.push(match interface.kind {
-                InterfaceKind::Default => method.to_default_tokens(),
+                InterfaceKind::Default => method.gen_default(),
                 InterfaceKind::NonDefault | InterfaceKind::Overrides => {
-                    method.to_non_default_tokens(interface)
+                    method.gen_non_default(interface)
                 }
-                InterfaceKind::Statics => method.to_static_tokens(interface),
-                InterfaceKind::Composable => method.to_composable_tokens(interface),
+                InterfaceKind::Statics => method.gen_static(interface),
+                InterfaceKind::Composable => method.gen_composable(interface),
             });
         }
     }

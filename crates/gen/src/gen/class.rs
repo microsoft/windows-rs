@@ -117,8 +117,8 @@ impl Class {
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
         let type_name = self.type_name(&name);
-        let methods = to_method_tokens(&self.interfaces);
-        let call_factory = self.to_call_factory_tokens();
+        let methods = gen_method(&self.interfaces);
+        let call_factory = self.gen_call_factory();
 
         if let Some(default_interface) = self
             .interfaces
@@ -128,7 +128,7 @@ impl Class {
             let conversions = TokenStream::from_iter(
                 self.interfaces
                     .iter()
-                    .map(|interface| interface.to_conversions_tokens(&name, &TokenStream::new())),
+                    .map(|interface| interface.gen_conversions(&name, &TokenStream::new())),
             );
 
             let new = if self.default_constructor {
@@ -141,17 +141,17 @@ impl Class {
                 TokenStream::new()
             };
 
-            let bases = self.to_base_conversions_tokens(&name);
-            let iterator = iterator_tokens(&self.name, &self.interfaces);
+            let bases = self.gen_base_conversions(&name);
+            let iterator = gen_iterator(&self.name, &self.interfaces);
             let signature = Literal::byte_string(&self.signature.as_bytes());
 
             let default_name = default_interface.name.gen();
-            let abi_name = default_interface.name.to_abi_tokens();
-            let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
-            let debug = debug_tokens(&self.name, &self.interfaces);
+            let abi_name = default_interface.name.gen_abi();
+            let (async_get, future) = gen_async(&self.name, &self.interfaces);
+            let debug = gen_debug(&self.name, &self.interfaces);
 
             let send_sync = if self.is_agile {
-                let constraints = self.name.to_constraint_tokens();
+                let constraints = self.name.gen_constraint();
                 quote! {
                     unsafe impl<#constraints> ::std::marker::Send for #name {}
                     unsafe impl<#constraints> ::std::marker::Sync for #name {}
@@ -226,7 +226,7 @@ impl Class {
         }
     }
 
-    pub fn to_base_conversions_tokens(&self, from: &TokenStream) -> TokenStream {
+    pub fn gen_base_conversions(&self, from: &TokenStream) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {
             let into = base.gen();
             quote! {
@@ -254,7 +254,7 @@ impl Class {
         }))
     }
 
-    fn to_call_factory_tokens(&self) -> TokenStream {
+    fn gen_call_factory(&self) -> TokenStream {
         let mut tokens = Vec::new();
 
         if self.default_constructor {
@@ -271,7 +271,7 @@ impl Class {
             }
 
             let interface_namespace =
-                to_namespace_tokens(&interface.name.namespace, &self.name.namespace);
+                gen_namespace(&interface.name.namespace, &self.name.namespace);
 
             let interface_name = format_ident(&interface.name.name);
             let interface_tokens = quote! { #interface_namespace #interface_name };

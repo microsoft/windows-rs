@@ -43,7 +43,7 @@ impl Param {
         }
     }
 
-    pub fn to_fn_tokens(&self) -> TokenStream {
+    pub fn gen_fn(&self) -> TokenStream {
         let tokens = self.kind.gen();
 
         if self.array {
@@ -73,7 +73,7 @@ impl Param {
         }
     }
 
-    pub fn to_return_tokens(&self) -> TokenStream {
+    pub fn gen_return(&self) -> TokenStream {
         let tokens = self.kind.gen();
 
         if self.array {
@@ -83,9 +83,9 @@ impl Param {
         }
     }
 
-    pub fn to_abi_tokens(&self) -> TokenStream {
+    pub fn gen_abi(&self) -> TokenStream {
         let name = format_ident(&self.name);
-        let tokens = self.kind.to_abi_tokens();
+        let tokens = self.kind.gen_abi();
 
         if self.array {
             let name_size = squote::format_ident!("array_size_{}", &self.name);
@@ -104,7 +104,7 @@ impl Param {
         }
     }
 
-    pub fn to_abi_return_arg_tokens(&self) -> TokenStream {
+    pub fn gen_abi_return_arg(&self) -> TokenStream {
         let return_type = self.kind.gen();
 
         if self.array {
@@ -114,7 +114,7 @@ impl Param {
         }
     }
 
-    pub fn to_abi_arg_tokens(&self) -> TokenStream {
+    pub fn gen_abi_arg(&self) -> TokenStream {
         let name = format_ident(&self.name);
 
         if self.array {
@@ -149,7 +149,7 @@ impl Param {
         }
     }
 
-    pub fn to_invoke_arg_tokens(&self) -> TokenStream {
+    pub fn gen_invoke_arg(&self) -> TokenStream {
         let name = format_ident(&self.name);
 
         if self.array {

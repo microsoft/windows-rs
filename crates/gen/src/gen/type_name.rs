@@ -41,7 +41,7 @@ impl TypeName {
         }
     }
 
-    pub fn to_constraint_tokens(&self) -> TokenStream {
+    pub fn gen_constraint(&self) -> TokenStream {
         TokenStream::from_iter(self.generics.iter().map(|generic| {
             let generic = generic.gen();
             quote! { #generic: ::winrt::RuntimeType + 'static, }
@@ -129,7 +129,7 @@ impl TypeName {
         Self::from_type_spec_blob(&mut blob, generics, calling_namespace)
     }
 
-    pub fn to_signature_tokens(&self, signature: &str) -> TokenStream {
+    pub fn gen_signature(&self, signature: &str) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
         if self.generics.is_empty() {
             return quote! { ::winrt::ConstBuffer::from_slice(#signature) };
@@ -160,7 +160,7 @@ impl TypeName {
         }
     }
 
-    pub fn to_guid_tokens(&self, guid: &TypeGuid) -> TokenStream {
+    pub fn gen_guid(&self, guid: &TypeGuid) -> TokenStream {
         if self.generics.is_empty() {
             let guid = guid.gen();
 
@@ -344,16 +344,16 @@ impl TypeName {
     ///
     /// For example: `Vector<OtherType>`
     pub fn gen(&self) -> TokenStream {
-        let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
-        generate_tokens(&self.name, Some(&namespace), &self.generics, format_ident)
+        let namespace = gen_namespace(&self.namespace, &self.calling_namespace);
+        gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
     }
 
     /// Create abi tokens
     ///
     /// For example: `abi_Vector<OtherType>`
-    pub fn to_abi_tokens(&self) -> TokenStream {
-        let namespace = to_namespace_tokens(&self.namespace, &self.calling_namespace);
-        generate_tokens(
+    pub fn gen_abi(&self) -> TokenStream {
+        let namespace = gen_namespace(&self.namespace, &self.calling_namespace);
+        gen_format(
             &self.name,
             Some(&namespace),
             &self.generics,
@@ -361,9 +361,9 @@ impl TypeName {
         )
     }
 
-    pub fn to_binding_abi_tokens(&self) -> TokenStream {
-        let namespace = to_binding_namespace_tokens(&self.namespace);
-        generate_tokens(
+    pub fn gen_binding_abi(&self) -> TokenStream {
+        let namespace = gen_binding_namespace(&self.namespace);
+        gen_format(
             &self.name,
             Some(&namespace),
             &self.generics,
@@ -371,27 +371,27 @@ impl TypeName {
         )
     }
 
-    pub fn to_binding_tokens(&self) -> TokenStream {
-        let namespace = to_binding_namespace_tokens(&self.namespace);
-        generate_tokens(&self.name, Some(&namespace), &self.generics, format_ident)
+    pub fn gen_binding(&self) -> TokenStream {
+        let namespace = gen_binding_namespace(&self.namespace);
+        gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
     }
 
     /// Create definition tokens
     ///
     /// For example: `Vector::<OtherType>`
     ///
-    /// Note: ideally to_definition_tokens and to_abi_definiton_tokens would not be required
-    /// and we would simply use gen and to_abi_tokens everywhere but Rust is really
+    /// Note: ideally gen_definition and to_abi_definiton_tokens would not be required
+    /// and we would simply use gen and gen_abi everywhere but Rust is really
     /// weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
-    pub fn to_definition_tokens(&self) -> TokenStream {
-        generate_tokens(&self.name, None, &self.generics, format_ident)
+    pub fn gen_definition(&self) -> TokenStream {
+        gen_format(&self.name, None, &self.generics, format_ident)
     }
 
     /// Create abi definition tokens
     ///
     /// For example: `abi_Vector::<OtherType>`
-    pub fn to_abi_definition_tokens(&self) -> TokenStream {
-        generate_tokens(&self.name, None, &self.generics, format_abi_ident)
+    pub fn gen_abi_definition(&self) -> TokenStream {
+        gen_format(&self.name, None, &self.generics, format_abi_ident)
     }
 
     pub fn phantoms(&self) -> TokenStream {
@@ -441,7 +441,7 @@ fn format_abi_ident(name: &str) -> Ident {
     squote::format_ident!("abi_{}", name)
 }
 
-fn generate_tokens<F>(
+fn gen_format<F>(
     name: &str,
     namespace: Option<&TokenStream>,
     generics: &[TypeKind],

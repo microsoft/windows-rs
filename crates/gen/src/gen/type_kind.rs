@@ -234,7 +234,7 @@ impl TypeKind {
         }
     }
 
-    pub fn to_abi_tokens(&self) -> TokenStream {
+    pub fn gen_abi(&self) -> TokenStream {
         match self {
             Self::Bool => quote! { bool, },
             Self::Char => quote! { u16, },

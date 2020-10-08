@@ -1,20 +1,20 @@
 use crate::*;
 use squote::{quote, TokenStream};
 
-pub fn get_async_tokens(
+pub fn gen_async(
     name: &TypeName,
     interfaces: &[RequiredInterface],
 ) -> (TokenStream, TokenStream) {
     let kind = async_kind(name);
     if kind != AsyncKind::None {
-        return to_async_tokens(kind, name, name);
+        return gen_async_kind(kind, name, name);
     }
 
     for interface in interfaces {
         let kind = async_kind(&interface.name);
 
         if kind != AsyncKind::None {
-            return to_async_tokens(kind, &interface.name, name);
+            return gen_async_kind(kind, &interface.name, name);
         }
     }
 
@@ -44,7 +44,7 @@ fn async_kind(name: &TypeName) -> AsyncKind {
     }
 }
 
-fn to_async_tokens(
+fn gen_async_kind(
     kind: AsyncKind,
     name: &TypeName,
     self_name: &TypeName,
@@ -62,7 +62,7 @@ fn to_async_tokens(
         _ => panic!("Unexpected AsyncKind"),
     };
 
-    let constraints = self_name.to_constraint_tokens();
+    let constraints = self_name.gen_constraint();
     let name = self_name.gen();
 
     (

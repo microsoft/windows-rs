@@ -33,26 +33,26 @@ impl Delegate {
     }
 
     pub fn gen(&self) -> TokenStream {
-        let definition = self.name.to_definition_tokens();
-        let abi_definition = self.name.to_abi_definition_tokens();
-        let fn_constraint = self.to_fn_constraint_tokens();
-        let impl_definition = self.to_impl_definition_tokens(&fn_constraint);
+        let definition = self.name.gen_definition();
+        let abi_definition = self.name.gen_abi_definition();
+        let fn_constraint = self.gen_fn_constraint();
+        let impl_definition = self.gen_impl_definition(&fn_constraint);
         let name = self.name.gen();
-        let abi_name = self.name.to_abi_tokens();
-        let impl_name = self.to_impl_name_tokens();
+        let abi_name = self.name.gen_abi();
+        let impl_name = self.gen_impl_name();
         let phantoms = self.name.phantoms();
-        let constraints = self.name.to_constraint_tokens();
-        let method = self.method.to_default_tokens();
-        let abi_method = self.method.to_abi_tokens(&self.name);
-        let guid = self.name.to_guid_tokens(&self.guid);
-        let signature = self.name.to_signature_tokens(&self.signature);
-        let invoke_sig = self.method.to_abi_impl_tokens(&self.name);
+        let constraints = self.name.gen_constraint();
+        let method = self.method.gen_default();
+        let abi_method = self.method.gen_abi(&self.name);
+        let guid = self.name.gen_guid(&self.guid);
+        let signature = self.name.gen_signature(&self.signature);
+        let invoke_sig = self.method.gen_abi_impl(&self.name);
         let invoke_args = self
             .method
             .params
             .iter()
-            .map(|param| param.to_invoke_arg_tokens());
-        let debug = default_debug_tokens(&self.name);
+            .map(|param| param.gen_invoke_arg());
+        let debug = default_gen_debug(&self.name);
 
         let invoke_upcall = if let Some(return_type) = &self.method.return_type {
             if return_type.array {
@@ -202,11 +202,11 @@ impl Delegate {
         }
     }
 
-    fn to_fn_constraint_tokens(&self) -> TokenStream {
-        let params = self.method.params.iter().map(|param| param.to_fn_tokens());
+    fn gen_fn_constraint(&self) -> TokenStream {
+        let params = self.method.params.iter().map(|param| param.gen_fn());
 
         let return_type = if let Some(return_type) = &self.method.return_type {
-            return_type.to_return_tokens()
+            return_type.gen_return()
         } else {
             quote! { () }
         };
@@ -214,7 +214,7 @@ impl Delegate {
         quote! { F: FnMut(#(#params)*) -> ::winrt::Result<#return_type> + 'static }
     }
 
-    fn to_impl_definition_tokens(&self, fn_constraint: &TokenStream) -> TokenStream {
+    fn gen_impl_definition(&self, fn_constraint: &TokenStream) -> TokenStream {
         if self.name.generics.is_empty() {
             let name = format_impl_ident(&self.name.name);
             quote! { #name<#fn_constraint> }
@@ -225,7 +225,7 @@ impl Delegate {
         }
     }
 
-    fn to_impl_name_tokens(&self) -> TokenStream {
+    fn gen_impl_name(&self) -> TokenStream {
         if self.name.generics.is_empty() {
             let name = format_impl_ident(&self.name.name);
             quote! { #name::<F> }

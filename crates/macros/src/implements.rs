@@ -127,7 +127,7 @@ pub fn gen(
             // TODO: maybe delay conversion to proc_macro2 until later in the pipeline.
             let name = typ
                 .name
-                .to_binding_abi_tokens()
+                .gen_binding_abi()
                 .parse::<proc_macro2::TokenStream>()
                 .unwrap();
             let mut initializers = vec![];
@@ -137,7 +137,7 @@ pub fn gen(
                 initializers.push(quote::quote! { #method_name: #box_name::#method_name });
 
                 let method = method
-                    .to_binding_abi_impl_tokens(&typ.name)
+                    .gen_binding_abi_impl(&typ.name)
                     .parse::<proc_macro2::TokenStream>()
                     .unwrap();
                 method_impls.push(quote::quote! {

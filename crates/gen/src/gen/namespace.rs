@@ -1,7 +1,7 @@
 use squote::{quote, TokenStream};
 use std::iter::FromIterator;
 
-pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
+pub fn gen_namespace(destination: &str, source: &str) -> TokenStream {
     if destination == source {
         return TokenStream::new();
     }
@@ -31,7 +31,7 @@ pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
     TokenStream::from_iter(tokens)
 }
 
-pub fn to_binding_namespace_tokens(destination: &str) -> TokenStream {
+pub fn gen_binding_namespace(destination: &str) -> TokenStream {
     let mut tokens = vec![quote! { ::winrt_bindings:: }];
     let destination = destination.split('.').peekable();
 
