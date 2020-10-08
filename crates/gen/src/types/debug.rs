@@ -1,8 +1,6 @@
-use crate::types::RequiredInterface;
-use crate::types::TypeName;
 use squote::{quote, TokenStream};
 
-pub fn debug_tokens(type_name: &TypeName, interfaces: &[RequiredInterface]) -> TokenStream {
+pub fn debug_tokens(type_name: &crate::TypeName, interfaces: &[crate::RequiredInterface]) -> TokenStream {
     let name = &type_name.name;
     let default_impl = quote! { ::std::format!("{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self)) };
 
@@ -38,7 +36,7 @@ pub fn debug_tokens(type_name: &TypeName, interfaces: &[RequiredInterface]) -> T
     to_tokens(type_name, &implementation)
 }
 
-pub fn default_debug_tokens(type_name: &TypeName) -> TokenStream {
+pub fn default_debug_tokens(type_name: &crate::TypeName) -> TokenStream {
     let name = &type_name.name;
     let implementation =
         quote! { "{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self) };
@@ -46,7 +44,7 @@ pub fn default_debug_tokens(type_name: &TypeName) -> TokenStream {
     to_tokens(type_name, &implementation)
 }
 
-fn to_tokens(type_name: &TypeName, implementation: &TokenStream) -> TokenStream {
+fn to_tokens(type_name: &crate::TypeName, implementation: &TokenStream) -> TokenStream {
     let constraints = type_name.to_constraint_tokens();
     let name = type_name.to_tokens();
     quote! {

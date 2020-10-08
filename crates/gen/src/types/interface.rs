@@ -1,6 +1,3 @@
-use crate::types::debug;
-use crate::types::*;
-use crate::winmd::*;
 use crate::*;
 use squote::{quote, TokenStream};
 use std::iter::FromIterator;
@@ -84,7 +81,7 @@ impl Interface {
         let iterator = iterator_tokens(&self.name, &self.interfaces);
         let signature = self.name.to_signature_tokens(&self.signature);
         let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
-        let debug = debug::debug_tokens(&self.name, &self.interfaces);
+        let debug = debug_tokens(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]

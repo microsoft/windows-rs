@@ -1,5 +1,4 @@
 use crate::winmd::*;
-use crate::Row;
 use crate::TypeReader;
 
 use winrt_gen_macros::type_code;

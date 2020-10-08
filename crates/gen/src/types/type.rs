@@ -1,6 +1,4 @@
-use crate::types::*;
-use crate::winmd::*;
-use crate::TypeReader;
+use crate::*;
 
 use squote::TokenStream;
 

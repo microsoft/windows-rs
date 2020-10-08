@@ -1,8 +1,3 @@
-use crate::to_snake;
-use crate::types::TypeName;
-use crate::types::{Param, RequiredInterface, TypeKind};
-use crate::winmd::{AttributeArg, MethodDef, TypeDef};
-use crate::TypeReader;
 use crate::*;
 use squote::{quote, TokenStream};
 use std::iter::FromIterator;
@@ -330,7 +325,7 @@ fn to_constraint_tokens(params: &[Param]) -> TokenStream {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::types::*;
+    use crate::*;
 
     fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
         let reader = &TypeReader::from_os();

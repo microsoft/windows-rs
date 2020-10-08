@@ -1,4 +1,4 @@
-use crate::types::MethodKind;
+use crate::MethodKind;
 
 /// Change a CamelCase string to snake case
 ///  

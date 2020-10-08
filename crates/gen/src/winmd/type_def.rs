@@ -1,11 +1,4 @@
-use super::Attribute;
-use crate::types::Type;
-use crate::winmd::{Field, GenericParam, InterfaceImpl, MethodDef};
-use crate::Row;
-use crate::TableIndex;
-use crate::TypeReader;
-use crate::{HasAttribute, TypeDefOrRef, TypeOrMethodDef};
-use crate::{TypeCategory, TypeFlags};
+use crate::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct TypeDef(pub Row);

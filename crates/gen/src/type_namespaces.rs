@@ -8,7 +8,7 @@ pub struct TypeNamespaces(pub BTreeMap<String, crate::type_tree::TypeTree>);
 impl TypeNamespaces {
     pub fn to_tokens<'a>(&'a self) -> impl ParallelIterator<Item = TokenStream> + 'a {
         self.0.par_iter().map(|(name, tree)| {
-            let name = crate::to_snake(name, crate::types::MethodKind::Normal);
+            let name = crate::to_snake(name, crate::MethodKind::Normal);
             let name = crate::format_ident(&name);
             let tokens = tree.to_tokens().collect::<Vec<_>>();
 

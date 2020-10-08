@@ -1,5 +1,5 @@
 use crate::type_namespaces::TypeNamespaces;
-use crate::types::Type;
+use crate::Type;
 use rayon::prelude::*;
 use squote::TokenStream;
 

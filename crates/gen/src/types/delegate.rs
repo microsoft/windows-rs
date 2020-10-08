@@ -1,8 +1,4 @@
-use crate::format_ident;
-use crate::types::debug;
-use crate::types::*;
-use crate::winmd::*;
-use crate::TypeReader;
+use crate::*;
 
 use squote::{quote, TokenStream};
 
@@ -56,7 +52,7 @@ impl Delegate {
             .params
             .iter()
             .map(|param| param.to_invoke_arg_tokens());
-        let debug = debug::default_debug_tokens(&self.name);
+        let debug = default_debug_tokens(&self.name);
 
         let invoke_upcall = if let Some(return_type) = &self.method.return_type {
             if return_type.array {

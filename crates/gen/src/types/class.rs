@@ -1,7 +1,4 @@
-use crate::format_ident;
-use crate::types::*;
-use crate::winmd::*;
-use crate::TypeReader;
+use crate::*;
 use squote::{quote, Literal, TokenStream};
 use std::iter::FromIterator;
 
@@ -151,7 +148,7 @@ impl Class {
             let default_name = default_interface.name.to_tokens();
             let abi_name = default_interface.name.to_abi_tokens();
             let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
-            let debug = debug::debug_tokens(&self.name, &self.interfaces);
+            let debug = debug_tokens(&self.name, &self.interfaces);
 
             let send_sync = if self.is_agile {
                 let constraints = self.name.to_constraint_tokens();

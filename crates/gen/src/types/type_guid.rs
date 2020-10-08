@@ -1,6 +1,4 @@
-use crate::winmd::*;
-use crate::TypeReader;
-
+use crate::*;
 use squote::{quote, Literal, TokenStream};
 
 #[derive(Clone, Default, PartialEq)]

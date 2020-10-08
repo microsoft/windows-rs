@@ -1,6 +1,4 @@
-use crate::types::*;
-use crate::winmd::*;
-use crate::TypeReader;
+use crate::*;
 use squote::{quote, TokenStream};
 use std::collections::*;
 use std::iter::FromIterator;

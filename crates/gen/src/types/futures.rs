@@ -1,4 +1,4 @@
-use crate::types::*;
+use crate::*;
 use squote::{quote, TokenStream};
 
 pub fn get_async_tokens(

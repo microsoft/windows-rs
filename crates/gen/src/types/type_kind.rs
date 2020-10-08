@@ -1,8 +1,4 @@
-use crate::types::*;
-use crate::winmd::*;
-use crate::Blob;
-use crate::{format_ident, TypeReader};
-
+use crate::*;
 use squote::{quote, TokenStream};
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]

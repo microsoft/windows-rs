@@ -1,4 +1,4 @@
-use crate::types::*;
+use crate::*;
 use squote::{quote, TokenStream};
 
 // Provides iterator support for the well-known WinRT collection interfaces and any classes or
