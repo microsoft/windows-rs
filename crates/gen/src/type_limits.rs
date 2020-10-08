@@ -47,15 +47,6 @@ pub struct NamespaceTypes {
     pub limit: TypeLimit,
 }
 
-impl NamespaceTypes {
-    pub fn contains_type(&self, typ: &str) -> bool {
-        match &self.limit {
-            TypeLimit::All => true,
-            TypeLimit::Some(types) => types.iter().any(|t| t == typ),
-        }
-    }
-}
-
 /// A limit on the types in a namespace.
 #[derive(Debug, Ord, PartialOrd, Eq, PartialEq)]
 pub enum TypeLimit {

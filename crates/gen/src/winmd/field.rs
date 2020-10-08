@@ -1,9 +1,9 @@
-use crate::Blob;
-use crate::HasConstant;
-use crate::TableIndex;
-use crate::FieldFlags;
-use crate::Row;
 use crate::winmd::Constant;
+use crate::Blob;
+use crate::FieldFlags;
+use crate::HasConstant;
+use crate::Row;
+use crate::TableIndex;
 use crate::TypeReader;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]

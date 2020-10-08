@@ -1,5 +1,5 @@
-use crate::winmd::*;
 use crate::types::*;
+use crate::winmd::*;
 use crate::TypeReader;
 use squote::{quote, TokenStream};
 use std::collections::*;

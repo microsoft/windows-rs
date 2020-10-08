@@ -1,7 +1,7 @@
 use crate::to_snake;
-use crate::winmd::{AttributeArg, MethodDef, TypeDef};
 use crate::types::TypeName;
 use crate::types::{Param, RequiredInterface, TypeKind};
+use crate::winmd::{AttributeArg, MethodDef, TypeDef};
 use crate::TypeReader;
 use crate::*;
 use squote::{quote, TokenStream};
@@ -41,10 +41,7 @@ impl Method {
             } else if name.starts_with("add") {
                 (to_snake(&name[4..], MethodKind::Add), MethodKind::Add)
             } else if name.starts_with("remove") {
-                (
-                    to_snake(&name[7..], MethodKind::Remove),
-                    MethodKind::Remove,
-                )
+                (to_snake(&name[7..], MethodKind::Remove), MethodKind::Remove)
             } else {
                 // A delegate's 'Invoke' method is "special" but lacks a preamble.
                 ("invoke".to_owned(), MethodKind::Normal)

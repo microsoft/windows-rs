@@ -1,6 +1,6 @@
 use crate::to_snake;
-use crate::winmd::*;
 use crate::types::*;
+use crate::winmd::*;
 use crate::{format_ident, TypeReader};
 use squote::{quote, Literal, TokenStream};
 

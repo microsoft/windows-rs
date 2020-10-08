@@ -1,6 +1,6 @@
 use crate::format_ident;
-use crate::winmd::*;
 use crate::types::*;
+use crate::winmd::*;
 use crate::TypeReader;
 use squote::{quote, Literal, TokenStream};
 use std::iter::FromIterator;

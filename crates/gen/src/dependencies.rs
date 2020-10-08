@@ -48,15 +48,6 @@ pub fn nuget_root() -> PathBuf {
     path
 }
 
-pub fn system_metadata_root() -> Option<PathBuf> {
-    let wind_dir_env = std::env::var("windir").ok()?;
-    let mut path = PathBuf::from(wind_dir_env);
-    path.push(crate::SYSTEM32);
-    path.push("winmetadata");
-
-    Some(path)
-}
-
 fn workspace_root() -> PathBuf {
     let output = std::process::Command::new("cargo")
         .args(&["metadata"])

@@ -77,11 +77,11 @@ impl WinmdFile {
     pub fn from_os() -> Vec<WinmdFile> {
         let windir = std::env::var("windir").expect("No `windir` environent variable set");
         let mut path = std::path::PathBuf::from(windir);
-        path.push(crate::SYSTEM32);
+        path.push(SYSTEM32);
         path.push("winmetadata");
         Self::from_dir(path)
     }
-    
+
     /// Get [`WinmdFile`]s from a directory
     pub fn from_dir<P: AsRef<std::path::Path>>(directory: P) -> Vec<WinmdFile> {
         let files = std::fs::read_dir(directory)
@@ -91,7 +91,7 @@ impl WinmdFile {
         // TODO: filter out directories and non-metadata files
         Self::from_files(files)
     }
-    
+
     /// Get [`WinmdFile`]s from an iterator of file paths
     pub fn from_files<P: IntoIterator<Item = std::path::PathBuf>>(filenames: P) -> Vec<WinmdFile> {
         filenames.into_iter().map(WinmdFile::new).collect()
@@ -722,6 +722,12 @@ impl View for [u8] {
         &self[cli_offset as usize..cli_offset as usize + index]
     }
 }
+
+#[cfg(target_pointer_width = "64")]
+const SYSTEM32: &str = "System32";
+
+#[cfg(target_pointer_width = "32")]
+const SYSTEM32: &str = "SysNative";
 
 const IMAGE_DOS_SIGNATURE: u16 = 0x5A4D;
 const MAGIC_PE32: u16 = 0x10B;

@@ -6,9 +6,7 @@ use syn::spanned::Spanned;
 use syn::{Error, UseTree};
 
 use winrt_deps::cargo;
-use winrt_gen::{
-    dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree,
-};
+use winrt_gen::{dependencies, NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
 
 use std::convert::{TryFrom, TryInto};
 use std::{collections::BTreeSet, path::PathBuf};

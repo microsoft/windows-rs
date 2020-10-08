@@ -1,8 +1,8 @@
 use super::Attribute;
-use crate::{HasAttribute, TypeDefOrRef};
-use crate::TableIndex;
 use crate::Row;
+use crate::TableIndex;
 use crate::TypeReader;
+use crate::{HasAttribute, TypeDefOrRef};
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct InterfaceImpl(pub Row);

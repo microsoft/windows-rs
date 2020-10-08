@@ -1,5 +1,5 @@
-use crate::WinmdFile;
 use crate::TypeReader;
+use crate::WinmdFile;
 
 use std::convert::TryInto;
 

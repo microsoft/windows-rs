@@ -1,8 +1,8 @@
 use super::*;
 use crate::*;
-use to_snake;
 use squote::{quote, TokenStream};
 use std::iter::FromIterator;
+use to_snake;
 
 pub fn to_namespace_tokens(destination: &str, source: &str) -> TokenStream {
     if destination == source {

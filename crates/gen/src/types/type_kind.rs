@@ -1,6 +1,6 @@
-use crate::Blob;
-use crate::winmd::*;
 use crate::types::*;
+use crate::winmd::*;
+use crate::Blob;
 use crate::{format_ident, TypeReader};
 
 use squote::{quote, TokenStream};

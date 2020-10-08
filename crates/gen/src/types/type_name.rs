@@ -1,6 +1,6 @@
-use crate::Blob;
-use crate::winmd::*;
 use crate::types::*;
+use crate::winmd::*;
+use crate::Blob;
 use crate::*;
 
 use squote::{format_ident, quote, Ident, Literal, TokenStream};
@@ -467,8 +467,8 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::TableIndex;
     use crate::Row;
+    use crate::TableIndex;
 
     #[test]
     fn runtime_name() {

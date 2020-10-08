@@ -26,7 +26,7 @@ impl TypeTree {
                 crate::type_limits::TypeLimit::Some(types) => {
                     let namespace = &reader.types[&limit.namespace];
                     for name in types {
-                        tree.insert2(reader,&mut set, namespace[name]);
+                        tree.insert2(reader, &mut set, namespace[name]);
                     }
                 }
             }
@@ -35,7 +35,12 @@ impl TypeTree {
         tree
     }
 
-    fn insert2(&mut self, reader: &crate::TypeReader, set: &mut std::collections::BTreeSet<crate::TypeDef>, def: crate::TypeDef) {
+    fn insert2(
+        &mut self,
+        reader: &crate::TypeReader,
+        set: &mut std::collections::BTreeSet<crate::TypeDef>,
+        def: crate::TypeDef,
+    ) {
         if set.insert(def) {
             let t = Type::from_type_def(reader, def);
 

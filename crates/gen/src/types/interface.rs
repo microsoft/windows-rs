@@ -1,6 +1,6 @@
-use crate::winmd::*;
 use crate::types::debug;
 use crate::types::*;
+use crate::winmd::*;
 use crate::*;
 use squote::{quote, TokenStream};
 use std::iter::FromIterator;

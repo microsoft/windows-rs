@@ -1,10 +1,10 @@
+use crate::types::{Enum, TypeName};
+use crate::winmd::TypeDef;
 use crate::Blob;
-use crate::{AttributeType, HasAttribute, MemberRefParent, TypeDefOrRef};
 use crate::ElementType;
 use crate::Row;
-use crate::winmd::TypeDef;
-use crate::types::{Enum, TypeName};
 use crate::TypeReader;
+use crate::{AttributeType, HasAttribute, MemberRefParent, TypeDefOrRef};
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Attribute(pub Row);
