@@ -1,13 +1,11 @@
-use crate::type_namespaces::TypeNamespaces;
-use crate::Type;
 use rayon::prelude::*;
 use squote::TokenStream;
 
 /// A namespaced tree of types
 #[derive(Default)]
 pub struct TypeTree {
-    pub types: Vec<Type>,
-    pub namespaces: TypeNamespaces,
+    pub types: Vec<crate::gen::Type>,
+    pub namespaces: crate::TypeNamespaces,
     pub include_foundation: bool,
 }
 
@@ -42,7 +40,7 @@ impl TypeTree {
         def: crate::TypeDef,
     ) {
         if set.insert(def) {
-            let t = Type::from_type_def(reader, def);
+            let t = crate::gen::Type::from_type_def(reader, def);
 
             for def in t.dependencies() {
                 self.insert2(reader, set, def);
@@ -55,7 +53,7 @@ impl TypeTree {
     /// Insert a [`Type`] into [`TypeTree`]
     ///
     /// This recursively searchs the tree for an entry corresponding to the namespace
-    pub fn insert(&mut self, namespace: String, t: Type) {
+    pub fn insert(&mut self, namespace: String, t: crate::gen::Type) {
         if let Some(pos) = namespace.find('.') {
             self.namespaces
                 .0

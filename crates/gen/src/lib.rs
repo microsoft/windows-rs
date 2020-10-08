@@ -7,12 +7,15 @@ mod type_tree;
 pub mod gen;
 mod winmd;
 mod method_kind;
+mod interface_kind;
 
 use format_ident::format_ident;
 use to_snake::to_snake;
 pub use type_limits::{NamespaceTypes, TypeLimit, TypeLimits};
 pub use type_reader::TypeReader;
 pub use type_tree::TypeTree;
+use type_namespaces::TypeNamespaces;
 pub use gen::*;
 use winmd::*;
 use method_kind::MethodKind;
+use interface_kind::InterfaceKind;
