@@ -76,17 +76,19 @@ pub fn build(stream: TokenStream) -> TokenStream {
         let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
         file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
-        let mut cmd = ::std::process::Command::new("rustfmt");
-        cmd.arg(&path);
-        let output = cmd.output();
-        match output {
-            Err(_) => eprintln!("Could not execute rustfmt"),
-            Ok(o) if !o.status.success() => {
-                let stderr = String::from_utf8_lossy(&o.stderr);
-                eprintln!("rustfmt did not exit properly: {:?}\n{}", o.status.code(), stderr);
-            }
-            _ => {}
-        };
+        // TODO:make this an opt in with a "feature"?
+        //
+        // let mut cmd = ::std::process::Command::new("rustfmt");
+        // cmd.arg(&path);
+        // let output = cmd.output();
+        // match output {
+        //     Err(_) => eprintln!("Could not execute rustfmt"),
+        //     Ok(o) if !o.status.success() => {
+        //         let stderr = String::from_utf8_lossy(&o.stderr);
+        //         eprintln!("rustfmt did not exit properly: {:?}\n{}", o.status.code(), stderr);
+        //     }
+        //     _ => {}
+        // };
     };
     tokens.into()
 }

@@ -200,15 +200,15 @@ impl TypeKind {
         Self::from_blob(&mut blob, &Vec::new(), calling_namespace)
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
         match self {
-            TypeKind::Class(name) => name.dependencies(),
-            TypeKind::Interface(name) => name.dependencies(),
-            TypeKind::Enum(name) => name.dependencies(),
-            TypeKind::Struct(name) => name.dependencies(),
-            TypeKind::Delegate(name) => name.dependencies(),
-            _ => Vec::new(),
-        }
+            TypeKind::Class(name) => name.insert_dependencies(reader, stage),
+            TypeKind::Interface(name) => name.insert_dependencies(reader, stage),
+            TypeKind::Enum(name) => name.insert_dependencies(reader, stage),
+            TypeKind::Struct(name) => name.insert_dependencies(reader, stage),
+            TypeKind::Delegate(name) => name.insert_dependencies(reader, stage),
+            _ => {}
+        };
     }
 
     pub fn to_tokens(&self) -> TokenStream {
@@ -228,11 +228,11 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
-            Self::Class(name) => name.tokens.clone(),
-            Self::Interface(name) => name.tokens.clone(),
-            Self::Enum(name) => name.tokens.clone(),
-            Self::Struct(name) => name.tokens.clone(),
-            Self::Delegate(name) => name.tokens.clone(),
+            Self::Class(name) => name.to_tokens(),
+            Self::Interface(name) => name.to_tokens(),
+            Self::Enum(name) => name.to_tokens(),
+            Self::Struct(name) => name.to_tokens(),
+            Self::Delegate(name) => name.to_tokens(),
             Self::Generic(name) => {
                 let name = format_ident(name);
                 quote! { #name }
@@ -270,7 +270,7 @@ impl TypeKind {
             | Self::Delegate(name)
             | Self::Enum(name)
             | Self::Struct(name) => {
-                let name = &name.tokens;
+                let name = name.to_tokens();
                 quote! { <#name as ::winrt::AbiTransferable>::Abi, }
             }
         }

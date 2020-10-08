@@ -91,7 +91,7 @@ impl RequiredInterface {
     ) -> TokenStream {
         match self.kind {
             InterfaceKind::Default => {
-                let into = &self.name.tokens;
+                let into = self.name.to_tokens();
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
@@ -116,7 +116,7 @@ impl RequiredInterface {
                 }
             }
             InterfaceKind::NonDefault => {
-                let into = &self.name.tokens;
+                let into = self.name.to_tokens();
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {

@@ -29,15 +29,14 @@ impl Struct {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.fields
-            .iter()
-            .flat_map(|i| i.1.dependencies())
-            .collect()
+    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
+        for field in &self.fields {
+            field.1.insert_dependencies(reader, stage);
+        }
     }
 
     pub fn to_tokens(&self) -> TokenStream {
-        let name = &self.name.tokens;
+        let name = self.name.to_tokens();
         let signature = Literal::byte_string(&self.signature.as_bytes());
 
         let fields = self.fields.iter().map(|field| {

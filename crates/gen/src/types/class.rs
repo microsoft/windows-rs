@@ -109,16 +109,18 @@ impl Class {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.interfaces
-            .iter()
-            .flat_map(|i| i.name.dependencies())
-            .chain(self.bases.iter().map(|i| i.def))
-            .collect()
+    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
+        for interface in &self.interfaces {
+            interface.name.insert_dependencies(reader, stage);
+        }
+
+        for base in &self.bases {
+            stage.insert(reader, base.def);
+        }
     }
 
     pub fn to_tokens(&self) -> TokenStream {
-        let name = &self.name.tokens;
+        let name = self.name.to_tokens();
         let type_name = self.type_name(&name);
         let methods = to_method_tokens(&self.interfaces);
         let call_factory = self.to_call_factory_tokens();
@@ -148,14 +150,13 @@ impl Class {
             let iterator = iterator_tokens(&self.name, &self.interfaces);
             let signature = Literal::byte_string(&self.signature.as_bytes());
 
-            let default_name = &default_interface.name.tokens;
+            let default_name = default_interface.name.to_tokens();
             let abi_name = default_interface.name.to_abi_tokens();
             let (async_get, future) = get_async_tokens(&self.name, &self.interfaces);
             let debug = debug::debug_tokens(&self.name, &self.interfaces);
 
             let send_sync = if self.is_agile {
-                let constraints = &self.name.constraints;
-                let name = &self.name.tokens;
+                let constraints = self.name.to_constraint_tokens();
                 quote! {
                     unsafe impl<#constraints> ::std::marker::Send for #name {}
                     unsafe impl<#constraints> ::std::marker::Sync for #name {}
@@ -232,7 +233,7 @@ impl Class {
 
     pub fn to_base_conversions_tokens(&self, from: &TokenStream) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {
-            let into = &base.tokens;
+            let into = base.to_tokens();
             quote! {
                 impl ::std::convert::From<#from> for #into {
                     fn from(value: #from) -> Self {
@@ -286,7 +287,7 @@ impl Class {
     }
 
     fn to_named_call_factory(&self, method_name: &str, interface: &TokenStream) -> TokenStream {
-        let self_name = &self.name.tokens;
+        let self_name = self.name.to_tokens();
         let method_name = format_ident(method_name);
 
         quote! {

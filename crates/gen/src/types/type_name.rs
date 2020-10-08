@@ -23,12 +23,9 @@ pub struct TypeName {
     pub generics: Vec<TypeKind>,
     /// The type definition for this type
     pub def: TypeDef,
-    // A cached TokenStream of the types associated type constraints
-    pub constraints: TokenStream,
+
     // The namespace of the type being tokenized.
     calling_namespace: String,
-    /// Cached TokenStream for the calling namespace
-    pub tokens: TokenStream,
 }
 
 impl TypeName {
@@ -39,10 +36,6 @@ impl TypeName {
         def: TypeDef,
         calling_namespace: &str,
     ) -> Self {
-        let constraints = TokenStream::from_iter(generics.iter().map(|generic| {
-            let generic = generic.to_tokens();
-            quote! { #generic: ::winrt::RuntimeType + 'static, }
-        }));
         let namespace_ident = to_namespace_tokens(&namespace, calling_namespace);
         let tokens = generate_tokens(&name, Some(&namespace_ident), &generics, format_ident);
         Self {
@@ -50,10 +43,15 @@ impl TypeName {
             name,
             generics,
             def,
-            constraints,
-            tokens,
             calling_namespace: calling_namespace.to_owned(),
         }
+    }
+
+    pub fn to_constraint_tokens(&self) -> TokenStream {
+        TokenStream::from_iter(self.generics.iter().map(|generic| {
+            let generic = generic.to_tokens();
+            quote! { #generic: ::winrt::RuntimeType + 'static, }
+        }))
     }
 
     pub fn from_type_def_or_ref(
@@ -342,10 +340,12 @@ impl TypeName {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        std::iter::once(self.def)
-            .chain(self.generics.iter().flat_map(|i| i.dependencies()))
-            .collect()
+    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
+        stage.insert(reader, self.def);
+
+        for generic in &self.generics {
+            generic.insert_dependencies(reader, stage);
+        }
     }
 
     /// Create tokens

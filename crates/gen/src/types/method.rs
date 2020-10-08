@@ -110,12 +110,14 @@ impl Method {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.return_type
-            .iter()
-            .chain(self.params.iter())
-            .flat_map(|i| i.kind.dependencies())
-            .collect()
+    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
+        if let Some(param) = &self.return_type {
+            param.kind.insert_dependencies(reader, stage);
+        }
+
+        for param in &self.params {
+            param.kind.insert_dependencies(reader, stage);
+        }
     }
 
     fn name(reader: &TypeReader, method: MethodDef) -> String {
@@ -133,7 +135,7 @@ impl Method {
     }
 
     pub fn to_abi_tokens(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = &self_name.tokens;
+        let type_name = self_name.to_tokens();
         let name = format_ident(&self.name);
         let params = TokenStream::from_iter(
             self.params
@@ -148,7 +150,7 @@ impl Method {
     }
 
     pub fn to_abi_impl_tokens(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = &self_name.tokens;
+        let type_name = self_name.to_tokens();
         let name = format_ident(&self.name);
         let params = self
             .params
@@ -220,7 +222,7 @@ impl Method {
         let params = to_param_tokens(&self.params);
         let constraints = to_constraint_tokens(&self.params);
         let args = to_arg_tokens(&self.params);
-        let interface = &interface.name.tokens;
+        let interface = interface.name.to_tokens();
 
         let return_type = if let Some(return_type) = &self.return_type {
             return_type.to_return_tokens()

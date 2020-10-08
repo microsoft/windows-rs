@@ -114,7 +114,7 @@ impl Dependencies {
         let mut dependencies = BTreeSet::new();
         let deps = cargo::package_manifest()?.get_dependencies()?;
         for dep in deps {
-            let nuget_path = std::fs::read_dir(dependencies::nuget_root())?;
+            let nuget_path = std::fs::read_dir(dependencies::nuget_root()).map_err(|e| format!("Did you forget to run `cargo winrt install`? Could not read nuget directory: {}", e))?;
             let name = dep.name();
             let mut dependency_path_iter = nuget_path
                 .filter_map(|entry| entry.ok())

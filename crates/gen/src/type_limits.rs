@@ -5,7 +5,7 @@ use std::collections::BTreeSet;
 /// The set of relevant namespaces and types
 pub struct TypeLimits<'a> {
     reader: &'a TypeReader,
-    inner: BTreeSet<NamespaceTypes>,
+    pub inner: BTreeSet<NamespaceTypes>,
 }
 
 impl<'a> TypeLimits<'a> {

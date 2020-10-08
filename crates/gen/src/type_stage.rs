@@ -7,72 +7,82 @@ use crate::TypeReader;
 use std::collections::*;
 
 /// A map between type def and the fully resolved types
-#[derive(Default, Debug)]
-pub struct TypeStage(pub BTreeMap<TypeDef, Type>);
+#[derive(Default)]
+pub struct TypeStage { key: BTreeSet<TypeDef>, tree: TypeTree }
 
 impl TypeStage {
     /// Resolve types from the relevant types in a [`TypeLimit`]
     pub fn from_limits(reader: &TypeReader, limits: &TypeLimits) -> Self {
         let mut stage = Self::default();
 
+        // tODO: perhaps the slowness is because the reader is enumerated for every limit 
+        // perhaps flip it around so that the namespaces are only enumerated once.
         for limit in limits.limits() {
-            for (type_name, def) in reader.namespace_types(&limit.namespace) {
-                if limit.contains_type(type_name) {
-                    stage.insert(reader, *def);
+            //println!("{}", limit.namespace);
+
+            match &limit.limit {
+                crate::type_limits::TypeLimit::All => {
+                    for def in reader.types[&limit.namespace].values() {
+                        stage.insert(reader, *def);
+                    }
+                }
+                crate::type_limits::TypeLimit::Some(types) => {
+                    let namespace = &reader.types[&limit.namespace];
+                    for name in types {
+                        stage.insert(reader,namespace[name]);
+                    }
                 }
             }
+
+            // for (type_name, def) in reader.namespace_types(&limit.namespace) {
+            //     if limit.contains_type(type_name) {
+            //         stage.insert(reader, *def);
+            //     }
+            // }
         }
 
         stage
     }
 
-    fn insert(&mut self, reader: &TypeReader, def: TypeDef) {
-        if let btree_map::Entry::Vacant(entry) = self.0.entry(def) {
-            let info = entry.insert(def.into_type(reader));
+    // TODO: collapse TypeStage and TypeTree so we don't need the temporary BTreeMap in TypeStage 
+    // and instead just build the TypeTree directly while inserting here. Then into_tree can just return
+    // the finished product.
 
-            for def in info.dependencies() {
-                self.insert(reader, def);
-            }
+    pub fn insert(&mut self, reader: &TypeReader, def: TypeDef) {
+        if self.key.insert(def) {
+            let t = def.into_type(reader);
+            t.insert_dependencies(reader, self);
+            self.tree.insert(t.name().namespace.clone(), t);
         }
+
+        // if let btree_map::Entry::Vacant(entry) = self.key.entry(def) {
+        //     let info = entry.insert(def.into_type(reader));
+
+        //     for def in info.dependencies() {
+        //         self.insert(reader, def);
+        //     }
+        // }
     }
+
+    // pub fn insert(&mut self, reader: &TypeReader, def: TypeDef) {
+    //     if !self.0.contains_key(&def) {
+    //         self.0.insert(def, def.into_type(reader));
+    //         self.0[&def].insert_dependencies(reader, self);
+    //     }
+
+
+    //     // if let btree_map::Entry::Vacant(entry) = self.0.entry(def) {
+    //     //     entry.insert(def.into_type(reader)).insert_dependencies(reader, self);
+    //     // }
+    // }
 
     /// Resolve the types into a type tree for code generation
     pub fn into_tree(self) -> TypeTree {
-        let mut tree = TypeTree::default();
-        self.0
-            .into_iter()
-            .for_each(|(_, t)| tree.insert(t.name().namespace.clone(), t));
-        tree
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::{NamespaceTypes, TypeLimit};
-
-    #[test]
-    fn test_dependency_inclusion() {
-        let reader = &TypeReader::from_os();
-
-        // Windows.Foundation depends on types in Windows.Foundation.Collections
-        // Since Windows.Foundation.Collections is not added to the type limits,
-        // only the types that are actually needed will be included.
-        let mut limits = TypeLimits::new(reader);
-        limits
-            .insert(NamespaceTypes {
-                namespace: "windows.foundation".to_owned(),
-                limit: TypeLimit::All,
-            })
-            .unwrap();
-        let stage = TypeStage::from_limits(reader, &limits);
-
-        // Windows.Foundation.WwwFormUrlDecoder depends on Windows.Foundation.Collections.IVectorView`1
-        // so that's included.
-        assert!(stage.0.values().any(|t| t.name().name == "IVectorView`1"));
-
-        // Windows.Foundation does not however depend on Windows.Foundation.Collections.PropertySet
-        // so that's not included.
-        assert!(stage.0.values().any(|t| t.name().name == "PropertySet") == false);
+        self.tree
+        // let mut tree = TypeTree::default();
+        // self.key
+        //     .into_iter()
+        //     .for_each(|(_, t)| tree.insert(t.name().namespace.clone(), t));
+        // tree
     }
 }

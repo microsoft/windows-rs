@@ -32,8 +32,8 @@ impl Delegate {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.method.dependencies()
+    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
+        self.method.insert_dependencies(reader, stage);
     }
 
     pub fn to_tokens(&self) -> TokenStream {
@@ -41,11 +41,11 @@ impl Delegate {
         let abi_definition = self.name.to_abi_definition_tokens();
         let fn_constraint = self.to_fn_constraint_tokens();
         let impl_definition = self.to_impl_definition_tokens(&fn_constraint);
-        let name = &self.name.tokens;
+        let name = self.name.to_tokens();
         let abi_name = self.name.to_abi_tokens();
         let impl_name = self.to_impl_name_tokens();
         let phantoms = self.name.phantoms();
-        let constraints = &self.name.constraints;
+        let constraints = self.name.to_constraint_tokens();
         let method = self.method.to_default_tokens();
         let abi_method = self.method.to_abi_tokens(&self.name);
         let guid = self.name.to_guid_tokens(&self.guid);

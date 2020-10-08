@@ -62,8 +62,8 @@ fn to_async_tokens(
         _ => panic!("Unexpected AsyncKind"),
     };
 
-    let constraints = &self_name.constraints;
-    let name = &self_name.tokens;
+    let constraints = self_name.to_constraint_tokens();
+    let name = self_name.to_tokens();
 
     (
         quote! {

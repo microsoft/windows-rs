@@ -157,7 +157,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &[RequiredInterface]) -> Tok
         {
             let item = interface.name.generics[0].to_tokens();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = &name.tokens;
+            let name = name.to_tokens();
 
             return quote! {
                 impl ::std::iter::IntoIterator for #name {
@@ -184,7 +184,7 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &[RequiredInterface]) -> Tok
         {
             let item = interface.name.generics[0].to_tokens();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = &name.tokens;
+            let name = name.to_tokens();
 
             return quote! {
                 impl ::std::iter::IntoIterator for #name {
@@ -216,10 +216,10 @@ pub fn iterator_tokens(name: &TypeName, interfaces: &[RequiredInterface]) -> Tok
     match iterable {
         None => TokenStream::new(),
         Some(interface) => {
-            let constraints = &name.constraints;
+            let constraints = name.to_constraint_tokens();
             let item = interface.name.generics[0].to_tokens();
             let wfc = to_namespace_tokens(&interface.name.namespace, &name.namespace);
-            let name = &name.tokens;
+            let name = name.to_tokens();
 
             quote! {
                impl<#constraints> ::std::iter::IntoIterator for #name {

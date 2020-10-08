@@ -34,20 +34,16 @@ impl Interface {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        let mut dependencies = Vec::new();
-
+    pub fn insert_dependencies(&self, reader: &crate::TypeReader, stage: &mut crate::TypeStage) {
         for interface in &self.interfaces {
-            dependencies.append(&mut interface.name.dependencies());
+            interface.name.insert_dependencies(reader, stage);
 
             if interface.kind == InterfaceKind::Default {
                 for method in &interface.methods {
-                    dependencies.append(&mut method.dependencies());
+                    method.insert_dependencies(reader, stage);
                 }
             }
         }
-
-        dependencies
     }
 
     pub fn default_interface(&self) -> &RequiredInterface {
@@ -64,9 +60,9 @@ impl Interface {
     pub fn to_tokens(&self) -> TokenStream {
         let definition = self.name.to_definition_tokens();
         let abi_definition = self.name.to_abi_definition_tokens();
-        let name = &self.name.tokens;
+        let name = self.name.to_tokens();
         let phantoms = self.name.phantoms();
-        let constraints = &self.name.constraints;
+        let constraints = self.name.to_constraint_tokens();
 
         let default_interface = self.default_interface();
 
