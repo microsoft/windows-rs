@@ -45,7 +45,7 @@ pub unsafe trait ComInterface: Sized + crate::AbiTransferable {
         let from = self.as_iunknown();
 
         if let Some(ptr) = from {
-            unsafe { (ptr.vtable().unknown_query_interface)(ptr, &Into::IID, &mut into).ok()? };
+            unsafe { (ptr.vtable().query_interface)(ptr, &Into::IID, &mut into).ok()? };
 
             debug_assert!(
                 !into.is_null(),
@@ -79,7 +79,7 @@ pub unsafe trait ComInterface: Sized + crate::AbiTransferable {
     /// not know their iids at compile time.
     unsafe fn raw_query<T: ComInterface>(&self, iid: &Guid, ppv: &mut T) {
         if let Some(from) = self.as_iunknown() {
-            (from.vtable().unknown_query_interface)(from, iid, ppv as *mut T as _);
+            (from.vtable().query_interface)(from, iid, ppv as *mut T as _);
         }
     }
 }

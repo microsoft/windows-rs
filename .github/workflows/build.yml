@@ -25,7 +25,7 @@ jobs:
         components: rustfmt
 
     - name: cargo winrt
-      run: cargo install --path ./crates/cargo-winrt
+      run: cargo install --path ./crates/cargo
 
     - name: winrt install
       run: cargo winrt install

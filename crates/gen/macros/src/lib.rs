@@ -32,11 +32,11 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         }
 
         variants.push(quote!(
-            #name(#name),
+            #name(winmd::#name),
         ));
 
         decodes.push(quote!(
-            #enumerator => Self::#name(#name(Row::new(code.1, TableIndex::#table, file))),
+            #enumerator => Self::#name(winmd:: #name(winmd::Row::new(code.1, winmd::TableIndex::#table, file))),
         ));
 
         encodes.push(quote!(

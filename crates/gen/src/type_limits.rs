@@ -5,7 +5,7 @@ use std::collections::BTreeSet;
 /// The set of relevant namespaces and types
 pub struct TypeLimits<'a> {
     reader: &'a TypeReader,
-    inner: BTreeSet<NamespaceTypes>,
+    pub inner: BTreeSet<NamespaceTypes>,
 }
 
 impl<'a> TypeLimits<'a> {
@@ -45,15 +45,6 @@ impl<'a> TypeLimits<'a> {
 pub struct NamespaceTypes {
     pub namespace: String,
     pub limit: TypeLimit,
-}
-
-impl NamespaceTypes {
-    pub fn contains_type(&self, typ: &str) -> bool {
-        match &self.limit {
-            TypeLimit::All => true,
-            TypeLimit::Some(types) => types.iter().any(|t| t == typ),
-        }
-    }
 }
 
 /// A limit on the types in a namespace.

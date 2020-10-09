@@ -1,26 +1,57 @@
-use crate::blob::Blob;
-use crate::codes::Decode;
-use crate::file::{TableIndex, View, WinmdFile};
-use crate::row::Row;
-use crate::tables::TypeDef;
-
+use crate::*;
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
 
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
     /// The parsed Windows metadata files the [`TypeReader`] has access to
-    pub files: Vec<WinmdFile>,
+    pub files: Vec<winmd::File>,
     /// Types known to this [`TypeReader`]
     ///
     /// This is a mapping between namespace names and the types inside
     /// that namespace
-    pub types: BTreeMap<String, BTreeMap<String, TypeDef>>,
+    pub types: BTreeMap<String, BTreeMap<String, winmd::TypeDef>>,
 }
 
 impl TypeReader {
     pub fn from_os() -> Self {
-        Self::new(crate::load_winmd::from_os())
+        Self::new(winmd::File::from_os())
+    }
+
+    pub fn from_iter<I: IntoIterator<Item = std::path::PathBuf>>(files: I) -> Self {
+        let mut reader = Self {
+            files: Vec::default(),
+            types: BTreeMap::default(),
+        };
+        for (file_index, file) in files.into_iter().enumerate() {
+            let file = winmd::File::new(file);
+            let row_count = file.type_def_table().row_count;
+            reader.files.push(file);
+
+            for row in 0..row_count {
+                let def = winmd::TypeDef(winmd::Row::new(
+                    row,
+                    winmd::TableIndex::TypeDef,
+                    file_index as u16,
+                ));
+
+                if def.ignore(&reader) {
+                    continue;
+                }
+
+                let (namespace, name) = def.name(&reader);
+                let namespace = namespace.to_string();
+                let name = name.to_string();
+
+                reader
+                    .types
+                    .entry(namespace)
+                    .or_default()
+                    .entry(name)
+                    .or_insert(def);
+            }
+        }
+        reader
     }
 
     pub fn from_build() -> &'static Self {
@@ -42,8 +73,8 @@ impl TypeReader {
         unsafe { &*VALUE.as_ptr() }
     }
 
-    /// Create a new [`TypeReader`] from a [`WinmdFile`]s
-    pub fn new(files: Vec<WinmdFile>) -> Self {
+    /// Create a new [`TypeReader`] from a [`File`]s
+    pub fn new(files: Vec<winmd::File>) -> Self {
         let mut reader = Self {
             files: Vec::default(),
             types: BTreeMap::default(),
@@ -53,7 +84,11 @@ impl TypeReader {
             reader.files.push(file);
 
             for row in 0..row_count {
-                let def = TypeDef(Row::new(row, TableIndex::TypeDef, file_index as u16));
+                let def = winmd::TypeDef(winmd::Row::new(
+                    row,
+                    winmd::TableIndex::TypeDef,
+                    file_index as u16,
+                ));
 
                 if def.ignore(&reader) {
                     continue;
@@ -84,7 +119,10 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if the namespace does not exist
-    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = (&str, &TypeDef)> {
+    pub fn namespace_types(
+        &self,
+        namespace: &str,
+    ) -> impl Iterator<Item = (&str, &winmd::TypeDef)> {
         self.types[namespace].iter().map(|(n, t)| (n.as_str(), t))
     }
 
@@ -93,7 +131,7 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if no type definition for the given namespace and type name can be found
-    pub fn resolve_type_def(&self, (namespace, type_name): (&str, &str)) -> TypeDef {
+    pub fn resolve_type_def(&self, (namespace, type_name): (&str, &str)) -> winmd::TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(def) = types.get(type_name) {
                 return *def;
@@ -104,7 +142,7 @@ impl TypeReader {
     }
 
     /// Read a [`u32`] value from a specific [`Row`] and column
-    pub fn u32(&self, row: Row, column: u32) -> u32 {
+    pub fn u32(&self, row: winmd::Row, column: u32) -> u32 {
         let file = &self.files[row.file_index as usize];
         let table = &file.tables[row.table_index as usize];
         let offset = table.data + row.index * table.row_size + table.columns[column as usize].0;
@@ -117,7 +155,7 @@ impl TypeReader {
     }
 
     /// Read a [`&str`] value from a specific [`Row`] and column
-    pub fn str(&self, row: Row, column: u32) -> &str {
+    pub fn str(&self, row: winmd::Row, column: u32) -> &str {
         let file = &self.files[row.file_index as usize];
         let offset = (file.strings + self.u32(row, column)) as usize;
         let last = file.bytes[offset..]
@@ -128,11 +166,16 @@ impl TypeReader {
     }
 
     /// Read a `T: Decode` value from a specific [`Row`] and column
-    pub fn decode<T: Decode>(&self, row: Row, column: u32) -> T {
+    pub fn decode<T: Decode>(&self, row: winmd::Row, column: u32) -> T {
         T::decode(self.u32(row, column), row.file_index)
     }
 
-    pub fn list(&self, row: Row, table: TableIndex, column: u32) -> impl Iterator<Item = Row> {
+    pub fn list(
+        &self,
+        row: winmd::Row,
+        table: winmd::TableIndex,
+        column: u32,
+    ) -> impl Iterator<Item = winmd::Row> {
         let file = &self.files[row.file_index as usize];
         let first = self.u32(row, column) - 1;
 
@@ -142,10 +185,10 @@ impl TypeReader {
             file.tables[table as usize].row_count
         };
 
-        (first..last).map(move |value| Row::new(value, table, row.file_index))
+        (first..last).map(move |value| winmd::Row::new(value, table, row.file_index))
     }
 
-    pub fn blob(&self, row: Row, column: u32) -> Blob {
+    pub fn blob(&self, row: winmd::Row, column: u32) -> winmd::Blob {
         let file = &self.files[row.file_index as usize];
         let offset = (file.blobs + self.u32(row, column)) as usize;
         let initial_byte = file.bytes[offset];
@@ -158,16 +201,16 @@ impl TypeReader {
         for byte in &file.bytes[offset + 1..offset + blob_size_bytes] {
             blob_size = blob_size.checked_shl(8).unwrap_or(0) + byte;
         }
-        Blob::new(self, row.file_index, offset + blob_size_bytes)
+        winmd::Blob::new(self, row.file_index, offset + blob_size_bytes)
     }
 
     pub fn equal_range(
         &self,
         file: u16,
-        table: TableIndex,
+        table: winmd::TableIndex,
         column: u32,
         value: u32,
-    ) -> impl Iterator<Item = Row> {
+    ) -> impl Iterator<Item = winmd::Row> {
         let (first, last) = self.equal_range_of(
             table,
             file,
@@ -177,12 +220,12 @@ impl TypeReader {
             value,
         );
 
-        (first..last).map(move |row| Row::new(row, table, file))
+        (first..last).map(move |row| winmd::Row::new(row, table, file))
     }
 
     fn lower_bound_of(
         &self,
-        table: TableIndex,
+        table: winmd::TableIndex,
         file: u16,
         mut first: u32,
         last: u32,
@@ -193,7 +236,7 @@ impl TypeReader {
         while count > 0 {
             let count2 = count / 2;
             let middle = first + count2;
-            if self.u32(Row::new(middle, table, file), column) < value {
+            if self.u32(winmd::Row::new(middle, table, file), column) < value {
                 first = middle + 1;
                 count -= count2 + 1;
             } else {
@@ -203,8 +246,14 @@ impl TypeReader {
         first
     }
 
-    pub fn upper_bound(&self, file: u16, table: TableIndex, column: u32, value: u32) -> Row {
-        Row::new(
+    pub fn upper_bound(
+        &self,
+        file: u16,
+        table: winmd::TableIndex,
+        column: u32,
+        value: u32,
+    ) -> winmd::Row {
+        winmd::Row::new(
             self.upper_bound_of(
                 table,
                 file,
@@ -220,7 +269,7 @@ impl TypeReader {
 
     fn upper_bound_of(
         &self,
-        table: TableIndex,
+        table: winmd::TableIndex,
         file: u16,
         mut first: u32,
         last: u32,
@@ -232,7 +281,7 @@ impl TypeReader {
         while count > 0 {
             let count2 = count / 2;
             let middle = first + count2;
-            if value < self.u32(Row::new(middle, table, file), column) {
+            if value < self.u32(winmd::Row::new(middle, table, file), column) {
                 count = count2
             } else {
                 first = middle + 1;
@@ -245,7 +294,7 @@ impl TypeReader {
 
     fn equal_range_of(
         &self,
-        table: TableIndex,
+        table: winmd::TableIndex,
         file: u16,
         mut first: u32,
         mut last: u32,
@@ -260,7 +309,7 @@ impl TypeReader {
             }
             let count2 = count / 2;
             let middle = first + count2;
-            let middle_value = self.u32(Row::new(middle, table, file), column);
+            let middle_value = self.u32(winmd::Row::new(middle, table, file), column);
             match middle_value.cmp(&value) {
                 Ordering::Less => {
                     first = middle + 1;

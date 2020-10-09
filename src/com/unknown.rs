@@ -35,8 +35,9 @@ unsafe impl AbiTransferable for IUnknown {
 
 #[repr(C)]
 pub struct abi_IUnknown {
-    pub unknown_query_interface:
+    // TODO: remove unknown_ preamble as it's not longer needed
+    pub query_interface:
         unsafe extern "system" fn(NonNullRawComPtr<IUnknown>, &Guid, *mut RawPtr) -> ErrorCode,
-    pub unknown_add_ref: extern "system" fn(NonNullRawComPtr<IUnknown>) -> u32,
-    pub unknown_release: extern "system" fn(NonNullRawComPtr<IUnknown>) -> u32,
+    pub add_ref: extern "system" fn(NonNullRawComPtr<IUnknown>) -> u32,
+    pub release: extern "system" fn(NonNullRawComPtr<IUnknown>) -> u32,
 }

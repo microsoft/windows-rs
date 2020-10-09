@@ -1,4 +1,5 @@
 mod build;
+mod implements;
 
 use build::BuildMacro;
 
@@ -28,7 +29,7 @@ use syn::parse_macro_input;
 /// Any DLLs needed for the NuGet package to work should be next to work must be next to the final
 /// executable.
 ///
-/// Instead of handling this yourself, you can use the [`cargo winrt`](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo-winrt)
+/// Instead of handling this yourself, you can use the [`cargo winrt`](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo)
 /// helper subcommand.
 ///
 /// ## Types
@@ -75,19 +76,31 @@ pub fn build(stream: TokenStream) -> TokenStream {
         let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
         file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
-        let mut cmd = ::std::process::Command::new("rustfmt");
-        cmd.arg(&path);
-        let output = cmd.output();
-        match output {
-            Err(_) => eprintln!("Could not execute rustfmt"),
-            Ok(o) if !o.status.success() => {
-                let stderr = String::from_utf8_lossy(&o.stderr);
-                eprintln!("rustfmt did not exit properly: {:?}\n{}", o.status.code(), stderr);
-            }
-            _ => {}
-        };
+        // TODO:make this an opt in with a "feature"?
+        //
+        // let mut cmd = ::std::process::Command::new("rustfmt");
+        // cmd.arg(&path);
+        // let output = cmd.output();
+        // match output {
+        //     Err(_) => eprintln!("Could not execute rustfmt"),
+        //     Ok(o) if !o.status.success() => {
+        //         let stderr = String::from_utf8_lossy(&o.stderr);
+        //         eprintln!("rustfmt did not exit properly: {:?}\n{}", o.status.code(), stderr);
+        //     }
+        //     _ => {}
+        // };
     };
     tokens.into()
+}
+
+// Rust structs can use the winrt::implement macro to implement entire WinRT classes or
+// any combination of existing COM and WinRT interfaces. If the attribute TokenStream contains
+// the name of a WinRT class then all of its interfaces are implemented. Otherwise, whatever
+// interfaces are contained within the attribute TokenStream are implemented as a local
+// implementation.
+#[proc_macro_attribute]
+pub fn implements(attribute: TokenStream, input: TokenStream) -> TokenStream {
+    implements::gen(attribute, input)
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion

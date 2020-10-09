@@ -59,8 +59,9 @@ unsafe impl AbiTransferable for Object {
 
 #[repr(C)]
 pub struct abi_IInspectable {
-    iunknown: abi_IUnknown,
+    pub unknown: abi_IUnknown,
 
+    // TODO: remove inspectable_ preamble as it's not longer needed
     pub inspectable_iids:
         unsafe extern "system" fn(NonNullRawComPtr<Object>, *mut u32, *mut *mut Guid) -> ErrorCode,
     pub inspectable_type_name: unsafe extern "system" fn(

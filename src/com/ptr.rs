@@ -28,7 +28,7 @@ unsafe impl<T: ComInterface> AbiTransferable for ComPtr<T> {
     fn set_abi(&mut self) -> *mut RawComPtr<T> {
         if let Some(ptr) = self.ptr {
             let ptr = ptr.as_iunknown();
-            (ptr.vtable().unknown_release)(ptr);
+            (ptr.vtable().release)(ptr);
 
             self.ptr = None;
         }
@@ -45,7 +45,7 @@ unsafe impl<T: ComInterface> ComInterface for ComPtr<T> {
 impl<T: ComInterface> Clone for ComPtr<T> {
     fn clone(&self) -> Self {
         if let Some(ptr) = self.ptr.map(|p| p.as_iunknown()) {
-            (ptr.vtable().unknown_add_ref)(ptr);
+            (ptr.vtable().add_ref)(ptr);
         }
         Self { ptr: self.ptr }
     }
@@ -54,7 +54,7 @@ impl<T: ComInterface> Clone for ComPtr<T> {
 impl<T: ComInterface> Drop for ComPtr<T> {
     fn drop(&mut self) {
         if let Some(ptr) = self.ptr.map(|p| p.as_iunknown()) {
-            (ptr.vtable().unknown_release)(ptr);
+            (ptr.vtable().release)(ptr);
         }
     }
 }
