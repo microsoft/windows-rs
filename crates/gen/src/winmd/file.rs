@@ -100,6 +100,7 @@ impl File {
     }
 
     pub fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
+        println!("winmd::File::new(\"{:?}\")", filename.as_ref());
         let bytes = std::fs::read(filename.as_ref())
             .unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename.as_ref(), e));
         let mut file = Self {
