@@ -54,6 +54,10 @@ impl TypeReader {
         reader
     }
 
+    pub fn from_foundation() -> Self {
+        Self::new(winmd::File::from_dir("winmds"))
+    }
+
     pub fn from_build() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
@@ -73,7 +77,7 @@ impl TypeReader {
         unsafe { &*VALUE.as_ptr() }
     }
 
-    /// Create a new [`TypeReader`] from a [`File`]s
+    /// Create a new [`TypeReader`] from a [`winmd::File`]s
     pub fn new(files: Vec<winmd::File>) -> Self {
         let mut reader = Self {
             files: Vec::default(),
@@ -114,7 +118,7 @@ impl TypeReader {
         self.types.keys()
     }
 
-    /// Get all type definitions ([`TypeDef`]s) for a given namespace
+    /// Get all type definitions ([`winmd::TypeDef`]s) for a given namespace
     ///
     /// # Panics
     ///
@@ -141,7 +145,7 @@ impl TypeReader {
         panic!("Could not find type `{}.{}`", namespace, type_name);
     }
 
-    /// Read a [`u32`] value from a specific [`Row`] and column
+    /// Read a [`u32`] value from a specific [`winmd::Row`] and column
     pub fn u32(&self, row: winmd::Row, column: u32) -> u32 {
         let file = &self.files[row.file_index as usize];
         let table = &file.tables[row.table_index as usize];
@@ -154,7 +158,7 @@ impl TypeReader {
         }
     }
 
-    /// Read a [`&str`] value from a specific [`Row`] and column
+    /// Read a [`&str`] value from a specific [`winmd::Row`] and column
     pub fn str(&self, row: winmd::Row, column: u32) -> &str {
         let file = &self.files[row.file_index as usize];
         let offset = (file.strings + self.u32(row, column)) as usize;
@@ -165,7 +169,7 @@ impl TypeReader {
         std::str::from_utf8(&file.bytes[offset..offset + last]).unwrap()
     }
 
-    /// Read a `T: Decode` value from a specific [`Row`] and column
+    /// Read a `T: Decode` value from a specific [`winmd::Row`] and column
     pub fn decode<T: Decode>(&self, row: winmd::Row, column: u32) -> T {
         T::decode(self.u32(row, column), row.file_index)
     }

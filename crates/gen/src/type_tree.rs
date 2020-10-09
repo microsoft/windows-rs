@@ -51,7 +51,7 @@ impl TypeTree {
         }
     }
 
-    /// Insert a [`Type`] into [`TypeTree`]
+    /// Insert a [`gen::Type`] into [`TypeTree`]
     ///
     /// This recursively searchs the tree for an entry corresponding to the namespace
     pub fn insert(&mut self, namespace: String, t: gen::Type) {

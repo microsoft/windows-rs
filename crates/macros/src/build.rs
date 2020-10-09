@@ -26,7 +26,13 @@ impl BuildMacro {
     }
 
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
-        let reader = &TypeReader::from_iter(self.dependencies.0);
+        let reader = &if self.foundation {
+            TypeReader::from_foundation()
+        } else {
+            // TODO: should be TypeReader::from_build() shared by build/implements macro
+            TypeReader::from_iter(self.dependencies.0)
+        };
+
         let mut limits = TypeLimits::new(reader);
 
         let foundation_namespaces = &[
@@ -78,9 +84,15 @@ impl BuildMacro {
 
 impl Parse for BuildMacro {
     fn parse(input: ParseStream) -> parse::Result<Self> {
-        let dependencies = Dependencies::parse()
-            .map_err(|e| syn::Error::new(proc_macro2::Span::call_site(), format!("{}", e)))?;
         let foundation = input.parse::<keywords::foundation>().is_ok();
+
+        let dependencies = if foundation {
+            Dependencies::default()
+        } else {
+            Dependencies::parse()
+                .map_err(|e| syn::Error::new(proc_macro2::Span::call_site(), format!("{}", e)))?
+        };
+
         let _ = input.parse::<keywords::types>()?;
         let types: TypesDeclarations = input.parse()?;
 
@@ -101,7 +113,7 @@ mod keywords {
 }
 
 /// A parsed `dependencies` section of the `build!` macro
-#[derive(Debug)]
+#[derive(Debug, Default)]
 struct Dependencies(BTreeSet<PathBuf>);
 
 impl Dependencies {
