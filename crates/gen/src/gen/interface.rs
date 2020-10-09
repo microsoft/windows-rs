@@ -148,7 +148,7 @@ impl Interface {
 mod tests {
     use crate::*;
 
-    fn interface((namespace, type_name): (&str, &str)) ->gen:: Interface {
+    fn interface((namespace, type_name): (&str, &str)) -> gen::Interface {
         let reader = &TypeReader::from_os();
         let t = reader.resolve_type_def((namespace, type_name));
         let t = gen::Type::from_type_def(reader, t);

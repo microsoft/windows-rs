@@ -7,7 +7,7 @@ use crate::MethodKind;
 /// # Panics
 ///
 /// This panics in debug mode if called with an empty string
-pub(crate) fn to_snake(camel: &str, kind: MethodKind) -> String {
+pub fn to_snake(camel: &str, kind: MethodKind) -> String {
     debug_assert!(!camel.is_empty(), "Called `to_snake` with empty string");
 
     let preamble = match kind {

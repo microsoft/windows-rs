@@ -328,5 +328,3 @@ impl TypeReader {
         (first, last)
     }
 }
-
-

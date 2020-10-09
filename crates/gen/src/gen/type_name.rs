@@ -578,7 +578,8 @@ mod tests {
         let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
         let name = gen::Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen:: TypeKind::Interface(name).signature(reader) == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
+            gen::TypeKind::Interface(name).signature(reader)
+                == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
         );
 
         // Generic interface signature
@@ -595,7 +596,8 @@ mod tests {
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncStatus"));
         let name = gen::Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen:: TypeKind::Enum(name).signature(reader) == "enum(Windows.Foundation.AsyncStatus;i4)"
+            gen::TypeKind::Enum(name).signature(reader)
+                == "enum(Windows.Foundation.AsyncStatus;i4)"
         );
 
         // Unsigned enum signature
@@ -605,7 +607,7 @@ mod tests {
         ));
         let name = gen::Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen:: TypeKind::Enum(name).signature(reader)
+            gen::TypeKind::Enum(name).signature(reader)
                 == "enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)"
         );
 
@@ -613,7 +615,7 @@ mod tests {
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncActionCompletedHandler"));
         let name = gen::Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::    TypeKind::Delegate(name).signature(reader)
+            gen::TypeKind::Delegate(name).signature(reader)
                 == "delegate({a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7})"
         );
 
@@ -633,7 +635,7 @@ mod tests {
         let def = reader.resolve_type_def(("Windows.Foundation", "Uri"));
         let name = gen::Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::  TypeKind::Class(name).signature(reader)
+            gen::TypeKind::Class(name).signature(reader)
                 == "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
         );
 
@@ -649,7 +651,7 @@ mod tests {
         let def = reader.resolve_type_def(("Windows.Foundation", "Rect"));
         let name = gen::Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::   TypeKind::Struct(name).signature(reader)
+            gen::TypeKind::Struct(name).signature(reader)
                 == "struct(Windows.Foundation.Rect;f4;f4;f4;f4)"
         );
     }

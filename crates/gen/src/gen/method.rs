@@ -362,7 +362,7 @@ mod tests {
         assert!(handler.by_ref == false);
 
         let handler = match &handler.kind {
-            gen:: TypeKind::Delegate(delegate) => delegate,
+            gen::TypeKind::Delegate(delegate) => delegate,
             _ => panic!("Wrong type"),
         };
 
@@ -400,7 +400,7 @@ mod tests {
         assert!(token.by_ref == false);
 
         let token = match &token.kind {
-            gen:: TypeKind::Struct(token) => token,
+            gen::TypeKind::Struct(token) => token,
             _ => panic!("Wrong type"),
         };
 
