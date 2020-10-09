@@ -1,26 +1,22 @@
-use super::Attribute;
-use crate::Row;
-use crate::TableIndex;
-use crate::TypeReader;
-use crate::{HasAttribute, TypeDefOrRef};
+use crate::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct InterfaceImpl(pub Row);
+pub struct InterfaceImpl(pub winmd::Row);
 
 impl InterfaceImpl {
-    pub fn interface(self, reader: &TypeReader) -> TypeDefOrRef {
+    pub fn interface(self, reader: &TypeReader) -> winmd::TypeDefOrRef {
         reader.decode(self.0, 1)
     }
 
-    pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
+    pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = winmd::Attribute> {
         reader
             .equal_range(
                 self.0.file_index,
-                TableIndex::CustomAttribute,
+                winmd::TableIndex::CustomAttribute,
                 0,
-                HasAttribute::InterfaceImpl(self).encode(),
+                winmd::HasAttribute::InterfaceImpl(self).encode(),
             )
-            .map(Attribute)
+            .map(winmd::Attribute)
     }
 
     pub fn has_attribute(self, reader: &TypeReader, name: (&str, &str)) -> bool {

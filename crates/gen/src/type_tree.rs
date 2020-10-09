@@ -1,27 +1,28 @@
+use crate::*;
 use rayon::prelude::*;
 use squote::TokenStream;
 
 /// A namespaced tree of types
 #[derive(Default)]
 pub struct TypeTree {
-    pub types: Vec<crate::gen::Type>,
-    pub namespaces: crate::TypeNamespaces,
+    pub types: Vec<gen::Type>,
+    pub namespaces: TypeNamespaces,
     pub include_foundation: bool,
 }
 
 impl TypeTree {
-    pub fn from_limits(reader: &crate::TypeReader, limits: &crate::TypeLimits) -> Self {
+    pub fn from_limits(reader: &TypeReader, limits: &TypeLimits) -> Self {
         let mut tree = TypeTree::default();
         let mut set = std::collections::BTreeSet::new();
 
         for limit in limits.limits() {
             match &limit.limit {
-                crate::type_limits::TypeLimit::All => {
+                TypeLimit::All => {
                     for def in reader.types[&limit.namespace].values() {
                         tree.insert2(reader, &mut set, *def);
                     }
                 }
-                crate::type_limits::TypeLimit::Some(types) => {
+                TypeLimit::Some(types) => {
                     let namespace = &reader.types[&limit.namespace];
                     for name in types {
                         tree.insert2(reader, &mut set, namespace[name]);
@@ -35,12 +36,12 @@ impl TypeTree {
 
     fn insert2(
         &mut self,
-        reader: &crate::TypeReader,
-        set: &mut std::collections::BTreeSet<crate::TypeDef>,
-        def: crate::TypeDef,
+        reader: &TypeReader,
+        set: &mut std::collections::BTreeSet<winmd::TypeDef>,
+        def: winmd::TypeDef,
     ) {
         if set.insert(def) {
-            let t = crate::gen::Type::from_type_def(reader, def);
+            let t = gen::Type::from_type_def(reader, def);
 
             for def in t.dependencies() {
                 self.insert2(reader, set, def);
@@ -53,7 +54,7 @@ impl TypeTree {
     /// Insert a [`Type`] into [`TypeTree`]
     ///
     /// This recursively searchs the tree for an entry corresponding to the namespace
-    pub fn insert(&mut self, namespace: String, t: crate::gen::Type) {
+    pub fn insert(&mut self, namespace: String, t: gen::Type) {
         if let Some(pos) = namespace.find('.') {
             self.namespaces
                 .0

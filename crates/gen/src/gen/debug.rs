@@ -1,6 +1,7 @@
+use crate::*;
 use squote::{quote, TokenStream};
 
-pub fn gen_debug(type_name: &crate::TypeName, interfaces: &[crate::RequiredInterface]) -> TokenStream {
+pub fn gen_debug(type_name: &gen::TypeName, interfaces: &[gen::RequiredInterface]) -> TokenStream {
     let name = &type_name.name;
     let default_impl = quote! { ::std::format!("{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self)) };
 
@@ -36,7 +37,7 @@ pub fn gen_debug(type_name: &crate::TypeName, interfaces: &[crate::RequiredInter
     gen(type_name, &implementation)
 }
 
-pub fn default_gen_debug(type_name: &crate::TypeName) -> TokenStream {
+pub fn default_gen_debug(type_name: &gen::TypeName) -> TokenStream {
     let name = &type_name.name;
     let implementation =
         quote! { "{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self) };
@@ -44,7 +45,7 @@ pub fn default_gen_debug(type_name: &crate::TypeName) -> TokenStream {
     gen(type_name, &implementation)
 }
 
-fn gen(type_name: &crate::TypeName, implementation: &TokenStream) -> TokenStream {
+fn gen(type_name: &gen::TypeName, implementation: &TokenStream) -> TokenStream {
     let constraints = type_name.gen_constraint();
     let name = type_name.gen();
     quote! {

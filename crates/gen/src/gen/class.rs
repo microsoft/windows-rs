@@ -5,18 +5,18 @@ use std::iter::FromIterator;
 /// A WinRT Class
 #[derive(Debug)]
 pub struct Class {
-    pub name: TypeName,
-    pub bases: Vec<TypeName>,
-    pub interfaces: Vec<RequiredInterface>,
+    pub name: gen::TypeName,
+    pub bases: Vec<gen::TypeName>,
+    pub interfaces: Vec<gen::RequiredInterface>,
     pub default_constructor: bool,
     pub is_agile: bool,
     pub signature: String,
 }
 
 impl Class {
-    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
         let mut interfaces = Vec::new();
-        add_dependencies(&mut interfaces, reader, &name, &name.namespace, false);
+        gen::add_dependencies(&mut interfaces, reader, &name, &name.namespace, false);
         let mut bases = Vec::new();
         let mut base = name.def;
 
@@ -34,9 +34,9 @@ impl Class {
             }
 
             base = reader.resolve_type_def((base_namespace, base_name));
-            let base = TypeName::from_type_def(reader, base, &name.namespace);
+            let base = gen::TypeName::from_type_def(reader, base, &name.namespace);
 
-            add_dependencies(&mut interfaces, reader, &base, &name.namespace, true);
+            gen::add_dependencies(&mut interfaces, reader, &base, &name.namespace, true);
             bases.push(base);
         }
 
@@ -46,7 +46,7 @@ impl Class {
         for attribute in name.def.attributes(reader) {
             match attribute.name(reader) {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
-                    add_type(
+                    gen::add_type(
                         &mut interfaces,
                         reader,
                         attribute_factory(reader, attribute).unwrap(),
@@ -57,7 +57,7 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
                     match attribute_factory(reader, attribute) {
                         Some(def) => {
-                            add_type(
+                            gen::add_type(
                                 &mut interfaces,
                                 reader,
                                 def,
@@ -72,8 +72,8 @@ impl Class {
                     // One of the arguments is a CompositionType enum and the Public variant
                     // has a value of 2 as a signed 32-bit integer.
                     for (_name, arg) in attribute.args(reader) {
-                        if let AttributeArg::I32(2) = arg {
-                            add_type(
+                        if let winmd::AttributeArg::I32(2) = arg {
+                            gen::add_type(
                                 &mut interfaces,
                                 reader,
                                 attribute_factory(reader, attribute).unwrap(),
@@ -88,7 +88,7 @@ impl Class {
                     // has a value of 2 as a signed 32-bit integer.
                     let (_name, arg) = &attribute.args(reader)[0];
 
-                    if let AttributeArg::I32(2) = arg {
+                    if let winmd::AttributeArg::I32(2) = arg {
                         is_agile = true;
                     }
                 }
@@ -106,7 +106,7 @@ impl Class {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         self.interfaces
             .iter()
             .flat_map(|i| i.name.dependencies())
@@ -117,7 +117,7 @@ impl Class {
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
         let type_name = self.type_name(&name);
-        let methods = gen_method(&self.interfaces);
+        let methods = gen::gen_method(&self.interfaces);
         let call_factory = self.gen_call_factory();
 
         if let Some(default_interface) = self
@@ -142,13 +142,13 @@ impl Class {
             };
 
             let bases = self.gen_base_conversions(&name);
-            let iterator = gen_iterator(&self.name, &self.interfaces);
+            let iterator = gen::gen_iterator(&self.name, &self.interfaces);
             let signature = Literal::byte_string(&self.signature.as_bytes());
 
             let default_name = default_interface.name.gen();
             let abi_name = default_interface.name.gen_abi();
-            let (async_get, future) = gen_async(&self.name, &self.interfaces);
-            let debug = gen_debug(&self.name, &self.interfaces);
+            let (async_get, future) = gen::gen_async(&self.name, &self.interfaces);
+            let debug = gen::gen_debug(&self.name, &self.interfaces);
 
             let send_sync = if self.is_agile {
                 let constraints = self.name.gen_constraint();
@@ -271,7 +271,7 @@ impl Class {
             }
 
             let interface_namespace =
-                gen_namespace(&interface.name.namespace, &self.name.namespace);
+                gen::gen_namespace(&interface.name.namespace, &self.name.namespace);
 
             let interface_name = format_ident(&interface.name.name);
             let interface_tokens = quote! { #interface_namespace #interface_name };
@@ -308,9 +308,9 @@ impl Class {
     }
 }
 
-fn attribute_factory(reader: &TypeReader, attribute: Attribute) -> Option<TypeDef> {
+fn attribute_factory(reader: &TypeReader, attribute: winmd::Attribute) -> Option<winmd::TypeDef> {
     for (_, arg) in attribute.args(reader) {
-        if let AttributeArg::TypeDef(def) = arg {
+        if let winmd::AttributeArg::TypeDef(def) = arg {
             return Some(def);
         }
     }
@@ -332,7 +332,7 @@ mod tests {
         }
     }
 
-    fn interface<'a>(class: &'a Class, name: &str) -> &'a RequiredInterface {
+    fn interface<'a>(class: &'a Class, name: &str) -> &'a gen::RequiredInterface {
         class
             .interfaces
             .iter()

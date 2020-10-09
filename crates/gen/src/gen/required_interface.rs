@@ -5,26 +5,26 @@ use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct RequiredInterface {
-    pub name: TypeName,
-    pub guid: TypeGuid,
-    pub methods: Vec<Method>,
+    pub name: gen::TypeName,
+    pub guid: gen::TypeGuid,
+    pub methods: Vec<gen::Method>,
     pub kind: InterfaceKind,
 }
 
 impl RequiredInterface {
     fn from_type_def(
         reader: &TypeReader,
-        def: TypeDef,
+        def: winmd::TypeDef,
         calling_namespace: &str,
         kind: InterfaceKind,
     ) -> Self {
-        let name = TypeName::from_type_def(reader, def, calling_namespace);
-        let guid = TypeGuid::from_type_def(reader, def);
+        let name = gen::TypeName::from_type_def(reader, def, calling_namespace);
+        let guid = gen::TypeGuid::from_type_def(reader, def);
 
         let mut methods = def
             .methods(reader)
             .map(|method| {
-                Method::from_method_def(reader, method, &name.generics, calling_namespace)
+                gen::Method::from_method_def(reader, method, &name.generics, calling_namespace)
             })
             .collect();
 
@@ -40,7 +40,7 @@ impl RequiredInterface {
 
     fn from_type_name_and_kind(
         reader: &TypeReader,
-        name: TypeName,
+        name: gen::TypeName,
         kind: InterfaceKind,
         generics: bool,
         calling_namespace: &str,
@@ -51,7 +51,7 @@ impl RequiredInterface {
             .def
             .methods(reader)
             .map(|method| {
-                Method::from_method_def(reader, method, &name.generics, calling_namespace)
+                gen::Method::from_method_def(reader, method, &name.generics, calling_namespace)
             })
             .collect();
 
@@ -66,18 +66,10 @@ impl RequiredInterface {
     }
 
     pub fn gen_abi_method(&self) -> TokenStream {
-        TokenStream::from_iter(
-            self.methods
-                .iter()
-                .map(|method| method.gen_abi(&self.name)),
-        )
+        TokenStream::from_iter(self.methods.iter().map(|method| method.gen_abi(&self.name)))
     }
 
-    pub fn gen_conversions(
-        &self,
-        from: &TokenStream,
-        constraints: &TokenStream,
-    ) -> TokenStream {
+    pub fn gen_conversions(&self, from: &TokenStream, constraints: &TokenStream) -> TokenStream {
         match self.kind {
             InterfaceKind::Default => {
                 let into = self.name.gen();
@@ -135,9 +127,9 @@ impl RequiredInterface {
 }
 
 pub fn add_type(
-    vec: &mut Vec<RequiredInterface>,
+    vec: &mut Vec<gen::RequiredInterface>,
     reader: &TypeReader,
-    def: TypeDef,
+    def: winmd::TypeDef,
     calling_namespace: &str,
     kind: InterfaceKind,
 ) {
@@ -152,7 +144,7 @@ pub fn add_type(
 pub fn add_dependencies(
     vec: &mut Vec<RequiredInterface>,
     reader: &TypeReader,
-    name: &TypeName,
+    name: &gen::TypeName,
     calling_namespace: &str,
     strip_default: bool,
 ) {
@@ -162,8 +154,12 @@ pub fn add_dependencies(
         let is_default = required.is_default(reader);
         let required = required.interface(reader);
 
-        let required_name =
-            TypeName::from_type_def_or_ref(reader, required, &name.generics, calling_namespace);
+        let required_name = gen::TypeName::from_type_def_or_ref(
+            reader,
+            required,
+            &name.generics,
+            calling_namespace,
+        );
 
         if let Some(index) = vec.iter().position(|i| i.name == required_name) {
             if !strip_default && vec[index].kind == InterfaceKind::NonDefault && is_default {
@@ -222,7 +218,7 @@ pub fn gen_method(interfaces: &Vec<RequiredInterface>) -> TokenStream {
     TokenStream::from_iter(tokens)
 }
 
-fn rename_collisions(methods: &mut Vec<Method>) {
+fn rename_collisions(methods: &mut Vec<gen::Method>) {
     let mut names = BTreeSet::new();
 
     for method in methods {

@@ -1,3 +1,5 @@
+use crate::*;
+
 #[derive(Default)]
 pub struct TableData {
     pub data: u32,
@@ -7,7 +9,7 @@ pub struct TableData {
 }
 
 #[derive(Default)]
-pub struct WinmdFile {
+pub struct File {
     pub bytes: Vec<u8>,
     pub strings: u32,
     pub blobs: u32,
@@ -69,12 +71,12 @@ impl TableData {
     }
 }
 
-impl WinmdFile {
-    /// Get [`WinmdFile`]s from the operating system
+impl File {
+    /// Get [`File`]s from the operating system
     ///
     /// This searches well known paths for Windows metadata related to
     /// operating system APIs.
-    pub fn from_os() -> Vec<WinmdFile> {
+    pub fn from_os() -> Vec<File> {
         let windir = std::env::var("windir").expect("No `windir` environent variable set");
         let mut path = std::path::PathBuf::from(windir);
         path.push(SYSTEM32);
@@ -82,8 +84,8 @@ impl WinmdFile {
         Self::from_dir(path)
     }
 
-    /// Get [`WinmdFile`]s from a directory
-    pub fn from_dir<P: AsRef<std::path::Path>>(directory: P) -> Vec<WinmdFile> {
+    /// Get [`File`]s from a directory
+    pub fn from_dir<P: AsRef<std::path::Path>>(directory: P) -> Vec<File> {
         let files = std::fs::read_dir(directory)
             .unwrap()
             .filter_map(|value| value.ok())
@@ -92,9 +94,9 @@ impl WinmdFile {
         Self::from_files(files)
     }
 
-    /// Get [`WinmdFile`]s from an iterator of file paths
-    pub fn from_files<P: IntoIterator<Item = std::path::PathBuf>>(filenames: P) -> Vec<WinmdFile> {
-        filenames.into_iter().map(WinmdFile::new).collect()
+    /// Get [`File`]s from an iterator of file paths
+    pub fn from_files<P: IntoIterator<Item = std::path::PathBuf>>(filenames: P) -> Vec<File> {
+        filenames.into_iter().map(File::new).collect()
     }
 
     pub fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
@@ -649,13 +651,6 @@ fn composite_index_size(tables: &[&TableData]) -> u32 {
     }
 }
 
-pub(crate) trait View {
-    fn view_as<T: Pod>(&self, cli_offset: u32) -> &T;
-    fn view_as_slice_of<T: Pod>(&self, cli_offset: u32, len: u32) -> &[T];
-    fn copy_as<T: Copy + CopyPod>(&self, cli_offset: u32) -> T;
-    fn view_as_str(&self, cli_offset: u32) -> &[u8];
-}
-
 macro_rules! assert_proper_length {
     ($self:expr, $t:ty, $cli_offset:expr, $size:expr) => {
         let enough_room = $cli_offset + $size <= $self.len() as u32;
@@ -908,33 +903,6 @@ struct ImageCorHeader {
 // Safety: this is safe because the type is #[repr(C)]
 // and only contains data that is itself `Pod`
 unsafe impl Pod for ImageCorHeader {}
-
-/// A "Plain Ol' Data" structure that represents any type that
-/// can be viewed from any probably aligned and sized buffer of
-/// bytes in a well defined way. This means that the representation
-/// of the type in memory must be stable and it must not contain
-/// any invariant constraints.
-///
-/// ## Examples
-///
-/// A `u32` is a `Pod` because any [u8; 4] can be viewed as a `u32` safely.
-/// A `bool` is _not_ a `Pod` because it must either be a `0` or `1` in memory
-pub(crate) unsafe trait Pod {}
-
-/// A Pod type that is also safe to copy.
-///
-/// In addition to the same safety properties as Pod types, this type must be able to
-/// be zeroed, many that it is valid to represent this type in memory as all 0s.
-pub(crate) unsafe trait CopyPod: Copy {}
-
-unsafe impl CopyPod for u8 {}
-unsafe impl CopyPod for u16 {}
-unsafe impl CopyPod for u32 {}
-unsafe impl CopyPod for u64 {}
-unsafe impl CopyPod for i8 {}
-unsafe impl CopyPod for i16 {}
-unsafe impl CopyPod for i32 {}
-unsafe impl CopyPod for i64 {}
 
 #[cfg(test)]
 mod tests {

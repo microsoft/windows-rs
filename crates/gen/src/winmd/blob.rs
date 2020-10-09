@@ -1,6 +1,4 @@
-use crate::TypeReader;
-use crate::WinmdFile;
-
+use crate::*;
 use std::convert::TryInto;
 
 pub struct Blob<'a> {
@@ -124,7 +122,7 @@ impl<'a> Blob<'a> {
         value
     }
 
-    fn file(&self) -> &WinmdFile {
+    fn file(&self) -> &winmd::File {
         &self.reader.files[self.file_index as usize]
     }
 }

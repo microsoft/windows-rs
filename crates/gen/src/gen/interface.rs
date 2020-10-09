@@ -4,16 +4,16 @@ use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct Interface {
-    pub name: TypeName,
-    pub interfaces: Vec<RequiredInterface>,
+    pub name: gen::TypeName,
+    pub interfaces: Vec<gen::RequiredInterface>,
     pub signature: String,
 }
 
 impl Interface {
-    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
         let mut interfaces = Vec::new();
 
-        add_type(
+        gen::add_type(
             &mut interfaces,
             reader,
             name.def,
@@ -21,7 +21,7 @@ impl Interface {
             InterfaceKind::Default,
         );
 
-        add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
+        gen::add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
         let signature = name.base_interface_signature(reader);
 
         Self {
@@ -31,7 +31,7 @@ impl Interface {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         let mut dependencies = Vec::new();
 
         for interface in &self.interfaces {
@@ -47,7 +47,7 @@ impl Interface {
         dependencies
     }
 
-    pub fn default_interface(&self) -> &RequiredInterface {
+    pub fn default_interface(&self) -> &gen::RequiredInterface {
         self.interfaces
             .iter()
             .find(|i| i.kind == InterfaceKind::Default)
@@ -76,12 +76,12 @@ impl Interface {
                 .map(|interface| interface.gen_conversions(&name, &constraints)),
         );
 
-        let methods = gen_method(&self.interfaces);
+        let methods = gen::gen_method(&self.interfaces);
         let abi_methods = default_interface.gen_abi_method();
-        let iterator = gen_iterator(&self.name, &self.interfaces);
+        let iterator = gen::gen_iterator(&self.name, &self.interfaces);
         let signature = self.name.gen_signature(&self.signature);
-        let (async_get, future) = gen_async(&self.name, &self.interfaces);
-        let debug = gen_debug(&self.name, &self.interfaces);
+        let (async_get, future) = gen::gen_async(&self.name, &self.interfaces);
+        let debug = gen::gen_debug(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]

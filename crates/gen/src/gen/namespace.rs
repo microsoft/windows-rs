@@ -24,7 +24,8 @@ pub fn gen_namespace(destination: &str, source: &str) -> TokenStream {
     }
 
     tokens.extend(destination.map(|destination| {
-        let destination = crate::format_ident(&crate::to_snake(destination, crate::MethodKind::Normal));
+        let destination =
+            crate::format_ident(&crate::to_snake(destination, crate::MethodKind::Normal));
         quote! { #destination:: }
     }));
 
@@ -36,7 +37,8 @@ pub fn gen_binding_namespace(destination: &str) -> TokenStream {
     let destination = destination.split('.').peekable();
 
     tokens.extend(destination.map(|destination| {
-        let destination = crate::format_ident(&crate::to_snake(destination, crate::MethodKind::Normal));
+        let destination =
+            crate::format_ident(&crate::to_snake(destination, crate::MethodKind::Normal));
         quote! { #destination:: }
     }));
 

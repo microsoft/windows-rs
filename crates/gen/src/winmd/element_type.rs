@@ -1,5 +1,4 @@
-use crate::Blob;
-use crate::{Decode, TypeDefOrRef};
+use crate::*;
 
 #[derive(Debug)]
 pub enum ElementType {
@@ -17,12 +16,12 @@ pub enum ElementType {
     R4,
     R8,
     String,
-    ValueType(TypeDefOrRef),
-    Class(TypeDefOrRef),
+    ValueType(winmd::TypeDefOrRef),
+    Class(winmd::TypeDefOrRef),
 }
 
 impl ElementType {
-    pub fn from_blob(blob: &mut Blob) -> ElementType {
+    pub fn from_blob(blob: &mut winmd::Blob) -> ElementType {
         let code = blob.read_unsigned();
         match code {
             0x01 => ElementType::Void,
@@ -39,10 +38,14 @@ impl ElementType {
             0x0c => ElementType::R4,
             0x0d => ElementType::R8,
             0x0e => ElementType::String,
-            0x11 => {
-                ElementType::ValueType(TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index))
-            }
-            0x12 => ElementType::Class(TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index)),
+            0x11 => ElementType::ValueType(winmd::TypeDefOrRef::decode(
+                blob.read_unsigned(),
+                blob.file_index,
+            )),
+            0x12 => ElementType::Class(winmd::TypeDefOrRef::decode(
+                blob.read_unsigned(),
+                blob.file_index,
+            )),
 
             unknown_type => panic!(format!("Unexpected ElementType: {:x}", unknown_type)),
         }

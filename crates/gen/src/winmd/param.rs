@@ -1,13 +1,11 @@
-use crate::ParamFlags;
-use crate::Row;
-use crate::TypeReader;
+use crate::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct Param(pub Row);
+pub struct Param(pub winmd::Row);
 
 impl Param {
-    pub fn flags(self, reader: &TypeReader) -> ParamFlags {
-        ParamFlags(reader.u32(self.0, 0))
+    pub fn flags(self, reader: &TypeReader) -> winmd::ParamFlags {
+        winmd::ParamFlags(reader.u32(self.0, 0))
     }
 
     pub fn sequence(self, reader: &TypeReader) -> u32 {

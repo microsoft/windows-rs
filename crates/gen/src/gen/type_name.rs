@@ -16,9 +16,9 @@ pub struct TypeName {
     /// e.g. "MyType"
     pub name: String,
     /// A collection of the types generics
-    pub generics: Vec<TypeKind>,
+    pub generics: Vec<gen::TypeKind>,
     /// The type definition for this type
-    pub def: TypeDef,
+    pub def: winmd::TypeDef,
 
     // The namespace of the type being tokenized.
     calling_namespace: String,
@@ -28,8 +28,8 @@ impl TypeName {
     fn new(
         namespace: String,
         name: String,
-        generics: Vec<TypeKind>,
-        def: TypeDef,
+        generics: Vec<gen::TypeKind>,
+        def: winmd::TypeDef,
         calling_namespace: &str,
     ) -> Self {
         Self {
@@ -50,20 +50,28 @@ impl TypeName {
 
     pub fn from_type_def_or_ref(
         reader: &TypeReader,
-        code: TypeDefOrRef,
-        generics: &[TypeKind],
+        code: winmd::TypeDefOrRef,
+        generics: &[gen::TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
-            TypeDefOrRef::TypeRef(value) => Self::from_type_ref(reader, value, calling_namespace),
-            TypeDefOrRef::TypeDef(value) => Self::from_type_def(reader, value, calling_namespace),
-            TypeDefOrRef::TypeSpec(value) => {
+            winmd::TypeDefOrRef::TypeRef(value) => {
+                Self::from_type_ref(reader, value, calling_namespace)
+            }
+            winmd::TypeDefOrRef::TypeDef(value) => {
+                Self::from_type_def(reader, value, calling_namespace)
+            }
+            winmd::TypeDefOrRef::TypeSpec(value) => {
                 Self::from_type_spec(reader, value, generics, calling_namespace)
             }
         }
     }
 
-    fn from_type_ref(reader: &TypeReader, type_ref: TypeRef, calling_namespace: &str) -> Self {
+    fn from_type_ref(
+        reader: &TypeReader,
+        type_ref: winmd::TypeRef,
+        calling_namespace: &str,
+    ) -> Self {
         let (namespace, name) = type_ref.name(reader);
         Self::from_type_def(
             reader,
@@ -72,7 +80,11 @@ impl TypeName {
         )
     }
 
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef, calling_namespace: &str) -> Self {
+    pub fn from_type_def(
+        reader: &TypeReader,
+        def: winmd::TypeDef,
+        calling_namespace: &str,
+    ) -> Self {
         let (namespace, name) = def.name(reader);
         let owned_namespace = namespace.to_string();
         let owned_name = name.to_string();
@@ -80,7 +92,7 @@ impl TypeName {
 
         for generic in def.generics(reader) {
             let name = generic.name(reader).to_string();
-            generics.push(TypeKind::Generic(name));
+            generics.push(gen::TypeKind::Generic(name));
         }
 
         let calling_namespace = if calling_namespace.is_empty() {
@@ -99,16 +111,17 @@ impl TypeName {
     }
 
     pub fn from_type_spec_blob(
-        blob: &mut Blob,
-        generics: &[TypeKind],
+        blob: &mut winmd::Blob,
+        generics: &[gen::TypeKind],
         calling_namespace: &str,
     ) -> Self {
         blob.read_unsigned();
-        let def = TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
+        let def =
+            winmd::TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {
-            args.push(TypeKind::from_blob(blob, generics, calling_namespace));
+            args.push(gen::TypeKind::from_blob(blob, generics, calling_namespace));
         }
         let (namespace, name) = def.name(blob.reader);
         let namespace = namespace.to_string();
@@ -120,8 +133,8 @@ impl TypeName {
 
     pub fn from_type_spec(
         reader: &TypeReader,
-        spec: TypeSpec,
-        generics: &[TypeKind],
+        spec: winmd::TypeSpec,
+        generics: &[gen::TypeKind],
         calling_namespace: &str,
     ) -> Self {
         let mut blob = spec.sig(reader);
@@ -160,7 +173,7 @@ impl TypeName {
         }
     }
 
-    pub fn gen_guid(&self, guid: &TypeGuid) -> TokenStream {
+    pub fn gen_guid(&self, guid: &gen::TypeGuid) -> TokenStream {
         if self.generics.is_empty() {
             let guid = guid.gen();
 
@@ -177,9 +190,9 @@ impl TypeName {
     }
 
     // TODO: get rid of this and do all calculations at initialization time
-    pub fn guid(&self, reader: &TypeReader, generics: bool) -> TypeGuid {
+    pub fn guid(&self, reader: &TypeReader, generics: bool) -> gen::TypeGuid {
         if self.generics.is_empty() || generics {
-            return TypeGuid::from_type_def(reader, self.def);
+            return gen::TypeGuid::from_type_def(reader, self.def);
         }
 
         let mut data = vec![
@@ -199,28 +212,28 @@ impl TypeName {
         third = (third & 0x0fff) | (5 << 12);
         let fourth = (bytes[8] & 0x3f) | 0x80;
 
-        TypeGuid([
-            GuidConstant::U32(first),
-            GuidConstant::U16(second),
-            GuidConstant::U16(third),
-            GuidConstant::U8(fourth),
-            GuidConstant::U8(bytes[9]),
-            GuidConstant::U8(bytes[10]),
-            GuidConstant::U8(bytes[11]),
-            GuidConstant::U8(bytes[12]),
-            GuidConstant::U8(bytes[13]),
-            GuidConstant::U8(bytes[14]),
-            GuidConstant::U8(bytes[15]),
+        gen::TypeGuid([
+            gen::GuidConstant::U32(first),
+            gen::GuidConstant::U16(second),
+            gen::GuidConstant::U16(third),
+            gen::GuidConstant::U8(fourth),
+            gen::GuidConstant::U8(bytes[9]),
+            gen::GuidConstant::U8(bytes[10]),
+            gen::GuidConstant::U8(bytes[11]),
+            gen::GuidConstant::U8(bytes[12]),
+            gen::GuidConstant::U8(bytes[13]),
+            gen::GuidConstant::U8(bytes[14]),
+            gen::GuidConstant::U8(bytes[15]),
         ])
     }
 
     pub fn base_interface_signature(&self, reader: &TypeReader) -> String {
-        let guid = TypeGuid::from_type_def(reader, self.def);
+        let guid = gen::TypeGuid::from_type_def(reader, self.def);
         format!("{{{:#?}}}", guid)
     }
 
     pub fn interface_signature(&self, reader: &TypeReader) -> String {
-        let guid = TypeGuid::from_type_def(reader, self.def);
+        let guid = gen::TypeGuid::from_type_def(reader, self.def);
 
         if self.generics.is_empty() {
             format!("{{{:#?}}}", guid)
@@ -244,7 +257,7 @@ impl TypeName {
             .find(|i| i.is_default(reader))
             .unwrap();
 
-        let default = TypeName::from_type_def_or_ref(
+        let default = gen::TypeName::from_type_def_or_ref(
             reader,
             default.interface(reader),
             &self.generics,
@@ -288,7 +301,8 @@ impl TypeName {
         for field in self.def.fields(reader) {
             result.push(';');
             result.push_str(
-                &TypeKind::from_field(reader, field, &self.calling_namespace).signature(reader),
+                &gen::TypeKind::from_field(reader, field, &self.calling_namespace)
+                    .signature(reader),
             );
         }
 
@@ -334,7 +348,7 @@ impl TypeName {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         std::iter::once(self.def)
             .chain(self.generics.iter().flat_map(|i| i.dependencies()))
             .collect()
@@ -344,7 +358,7 @@ impl TypeName {
     ///
     /// For example: `Vector<OtherType>`
     pub fn gen(&self) -> TokenStream {
-        let namespace = gen_namespace(&self.namespace, &self.calling_namespace);
+        let namespace = gen::gen_namespace(&self.namespace, &self.calling_namespace);
         gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
     }
 
@@ -352,7 +366,7 @@ impl TypeName {
     ///
     /// For example: `abi_Vector<OtherType>`
     pub fn gen_abi(&self) -> TokenStream {
-        let namespace = gen_namespace(&self.namespace, &self.calling_namespace);
+        let namespace = gen::gen_namespace(&self.namespace, &self.calling_namespace);
         gen_format(
             &self.name,
             Some(&namespace),
@@ -362,7 +376,7 @@ impl TypeName {
     }
 
     pub fn gen_binding_abi(&self) -> TokenStream {
-        let namespace = gen_binding_namespace(&self.namespace);
+        let namespace = gen::gen_binding_namespace(&self.namespace);
         gen_format(
             &self.name,
             Some(&namespace),
@@ -372,7 +386,7 @@ impl TypeName {
     }
 
     pub fn gen_binding(&self) -> TokenStream {
-        let namespace = gen_binding_namespace(&self.namespace);
+        let namespace = gen::gen_binding_namespace(&self.namespace);
         gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
     }
 
@@ -444,7 +458,7 @@ fn format_abi_ident(name: &str) -> Ident {
 fn gen_format<F>(
     name: &str,
     namespace: Option<&TokenStream>,
-    generics: &[TypeKind],
+    generics: &[gen::TypeKind],
     format: F,
 ) -> TokenStream
 where

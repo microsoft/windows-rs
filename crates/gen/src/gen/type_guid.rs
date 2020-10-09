@@ -22,11 +22,11 @@ impl std::fmt::Debug for GuidConstant {
 }
 
 impl GuidConstant {
-    fn from_arg(arg: &AttributeArg) -> GuidConstant {
+    fn from_arg(arg: &winmd::AttributeArg) -> GuidConstant {
         match *arg {
-            AttributeArg::U32(value) => GuidConstant::U32(value),
-            AttributeArg::U16(value) => GuidConstant::U16(value),
-            AttributeArg::U8(value) => GuidConstant::U8(value),
+            winmd::AttributeArg::U32(value) => GuidConstant::U32(value),
+            winmd::AttributeArg::U16(value) => GuidConstant::U16(value),
+            winmd::AttributeArg::U8(value) => GuidConstant::U8(value),
             _ => panic!("Invalid Guid argument"),
         }
     }
@@ -63,7 +63,7 @@ impl TypeGuid {
         Self::default()
     }
 
-    pub fn from_type_def(reader: &TypeReader, def: TypeDef) -> Self {
+    pub fn from_type_def(reader: &TypeReader, def: winmd::TypeDef) -> Self {
         let args = def
             .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
             .args(reader);

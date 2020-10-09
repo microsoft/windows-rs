@@ -6,15 +6,15 @@ use std::iter::FromIterator;
 pub struct Method {
     pub name: String,
     pub kind: MethodKind,
-    pub params: Vec<Param>,
-    pub return_type: Option<Param>,
+    pub params: Vec<gen::Param>,
+    pub return_type: Option<gen::Param>,
 }
 
 impl Method {
     pub fn from_method_def(
         reader: &TypeReader,
-        method: MethodDef,
-        generics: &[TypeKind],
+        method: winmd::MethodDef,
+        generics: &[gen::TypeKind],
         calling_namespace: &str,
     ) -> Method {
         let (name, kind) = if method.flags(reader).special() {
@@ -51,10 +51,10 @@ impl Method {
         } else {
             let name = "result__".to_owned();
             let array = blob.peek_unsigned().0 == 0x1D;
-            let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
+            let kind = gen::TypeKind::from_blob(&mut blob, generics, calling_namespace);
             let input = false;
             let by_ref = true;
-            Some(Param {
+            Some(gen::Param {
                 name,
                 kind,
                 array,
@@ -73,9 +73,9 @@ impl Method {
                 blob.read_modifiers();
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
-                let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
+                let kind = gen::TypeKind::from_blob(&mut blob, generics, calling_namespace);
 
-                params.push(Param {
+                params.push(gen::Param {
                     name,
                     kind,
                     array,
@@ -93,7 +93,7 @@ impl Method {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         self.return_type
             .iter()
             .chain(self.params.iter())
@@ -101,12 +101,12 @@ impl Method {
             .collect()
     }
 
-    fn name(reader: &TypeReader, method: MethodDef) -> String {
+    fn name(reader: &TypeReader, method: winmd::MethodDef) -> String {
         if let Some(attribute) =
             method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
         {
             for (_, arg) in attribute.args(reader) {
-                if let AttributeArg::String(name) = arg {
+                if let winmd::AttributeArg::String(name) = arg {
                     return to_snake(&name, MethodKind::Normal);
                 }
             }
@@ -115,7 +115,7 @@ impl Method {
         to_snake(method.name(reader), MethodKind::Normal)
     }
 
-    pub fn gen_abi(&self, self_name: &TypeName) -> TokenStream {
+    pub fn gen_abi(&self, self_name: &gen::TypeName) -> TokenStream {
         let type_name = self_name.gen();
         let name = format_ident(&self.name);
         let params = TokenStream::from_iter(
@@ -130,7 +130,7 @@ impl Method {
         }
     }
 
-    pub fn gen_abi_impl(&self, self_name: &TypeName) -> TokenStream {
+    pub fn gen_abi_impl(&self, self_name: &gen::TypeName) -> TokenStream {
         let type_name = self_name.gen();
         let name = format_ident(&self.name);
         let params = self
@@ -147,7 +147,7 @@ impl Method {
         }
     }
 
-    pub fn gen_binding_abi_impl(&self, self_name: &TypeName) -> TokenStream {
+    pub fn gen_binding_abi_impl(&self, self_name: &gen::TypeName) -> TokenStream {
         let type_name = self_name.gen_binding();
         let name = format_ident(&self.name);
         let params = self
@@ -169,8 +169,7 @@ impl Method {
         let params = gen_param(&self.params);
         let constraints = gen_constraint(&self.params);
 
-        let args =
-            TokenStream::from_iter(self.params.iter().map(|param| param.gen_abi_arg()));
+        let args = TokenStream::from_iter(self.params.iter().map(|param| param.gen_abi_arg()));
 
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.gen_abi_return_arg();
@@ -198,7 +197,7 @@ impl Method {
         }
     }
 
-    pub fn gen_non_default(&self, interface: &RequiredInterface) -> TokenStream {
+    pub fn gen_non_default(&self, interface: &gen::RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
         let params = gen_param(&self.params);
         let constraints = gen_constraint(&self.params);
@@ -218,7 +217,7 @@ impl Method {
         }
     }
 
-    pub fn gen_static(&self, interface: &RequiredInterface) -> TokenStream {
+    pub fn gen_static(&self, interface: &gen::RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
         let params = gen_param(&self.params);
         let constraints = gen_constraint(&self.params);
@@ -238,7 +237,7 @@ impl Method {
         }
     }
 
-    pub fn gen_composable(&self, interface: &RequiredInterface) -> TokenStream {
+    pub fn gen_composable(&self, interface: &gen::RequiredInterface) -> TokenStream {
         let method_name = format_ident(&self.name);
         let interface = format_ident(&interface.name.name);
 
@@ -265,7 +264,7 @@ impl Method {
     }
 }
 
-fn gen_param(params: &[Param]) -> TokenStream {
+fn gen_param(params: &[gen::Param]) -> TokenStream {
     TokenStream::from_iter(
         params
             .iter()
@@ -274,14 +273,14 @@ fn gen_param(params: &[Param]) -> TokenStream {
     )
 }
 
-fn gen_arg(params: &[Param]) -> TokenStream {
+fn gen_arg(params: &[gen::Param]) -> TokenStream {
     TokenStream::from_iter(params.iter().map(|param| {
         let name = format_ident(&param.name);
         quote! { #name, }
     }))
 }
 
-fn gen_constraint(params: &[Param]) -> TokenStream {
+fn gen_constraint(params: &[gen::Param]) -> TokenStream {
     let mut tokens = Vec::new();
 
     for (position, param) in params.iter().enumerate() {
@@ -290,14 +289,14 @@ fn gen_constraint(params: &[Param]) -> TokenStream {
         }
 
         match param.kind {
-            TypeKind::String
-            | TypeKind::Object
-            | TypeKind::Guid
-            | TypeKind::Class(_)
-            | TypeKind::Interface(_)
-            | TypeKind::Struct(_)
-            | TypeKind::Delegate(_)
-            | TypeKind::Generic(_) => {
+            gen::TypeKind::String
+            | gen::TypeKind::Object
+            | gen::TypeKind::Guid
+            | gen::TypeKind::Class(_)
+            | gen::TypeKind::Interface(_)
+            | gen::TypeKind::Struct(_)
+            | gen::TypeKind::Delegate(_)
+            | gen::TypeKind::Generic(_) => {
                 let name = squote::format_ident!("T{}__", position);
                 let into = param.kind.gen();
                 tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });

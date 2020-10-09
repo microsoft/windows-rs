@@ -1,16 +1,16 @@
-use crate::TableIndex;
+use crate::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct Row {
     pub index: u32,
-    pub table_index: TableIndex,
+    pub table_index: winmd::TableIndex,
     pub file_index: u16,
 }
 
 // TODO: still need strongly-types Row/Table/File/Column to avoid errors
 
 impl Row {
-    pub fn new(row: u32, table_index: TableIndex, file: u16) -> Self {
+    pub fn new(row: u32, table_index: winmd::TableIndex, file: u16) -> Self {
         Self {
             index: row,
             table_index,

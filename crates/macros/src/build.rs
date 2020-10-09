@@ -9,7 +9,7 @@ use winrt_deps::cargo;
 use winrt_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
 
 use std::convert::{TryFrom, TryInto};
-use std::{collections::BTreeSet, path::PathBuf, path::Path};
+use std::{collections::BTreeSet, path::Path, path::PathBuf};
 
 use std::io;
 
@@ -67,12 +67,10 @@ impl BuildMacro {
             tree.reexport();
         }
 
-        let ts = tree
-            .gen()
-            .reduce(squote::TokenStream::new, |mut accum, n| {
-                accum.combine(&n);
-                accum
-            });
+        let ts = tree.gen().reduce(squote::TokenStream::new, |mut accum, n| {
+            accum.combine(&n);
+            accum
+        });
 
         Ok(ts.into_string())
     }

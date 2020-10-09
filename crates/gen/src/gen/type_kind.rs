@@ -18,11 +18,11 @@ pub enum TypeKind {
     String,
     Object,
     Guid,
-    Class(TypeName),
-    Interface(TypeName),
-    Enum(TypeName),
-    Struct(TypeName),
-    Delegate(TypeName),
+    Class(gen::TypeName),
+    Interface(gen::TypeName),
+    Enum(gen::TypeName),
+    Struct(gen::TypeName),
+    Delegate(gen::TypeName),
     Generic(String),
 }
 
@@ -79,31 +79,31 @@ impl TypeKind {
         }
     }
 
-    fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
+    fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
         match name.def.category(reader) {
-            TypeCategory::Interface => TypeKind::Interface(name),
-            TypeCategory::Class => TypeKind::Class(name),
-            TypeCategory::Enum => TypeKind::Enum(name),
-            TypeCategory::Struct => TypeKind::Struct(name),
-            TypeCategory::Delegate => TypeKind::Delegate(name),
+            winmd::TypeCategory::Interface => TypeKind::Interface(name),
+            winmd::TypeCategory::Class => TypeKind::Class(name),
+            winmd::TypeCategory::Enum => TypeKind::Enum(name),
+            winmd::TypeCategory::Struct => TypeKind::Struct(name),
+            winmd::TypeCategory::Delegate => TypeKind::Delegate(name),
         }
     }
 
     pub fn from_type_def(
         reader: &TypeReader,
-        def: TypeDef,
+        def: winmd::TypeDef,
         _generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         Self::from_type_name(
             reader,
-            TypeName::from_type_def(reader, def, calling_namespace),
+            gen::TypeName::from_type_def(reader, def, calling_namespace),
         )
     }
 
     pub fn from_type_ref(
         reader: &TypeReader,
-        type_ref: TypeRef,
+        type_ref: winmd::TypeRef,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
@@ -122,11 +122,11 @@ impl TypeKind {
 
     pub fn from_type_spec(
         reader: &TypeReader,
-        spec: TypeSpec,
+        spec: winmd::TypeSpec,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
-        TypeKind::Interface(TypeName::from_type_spec(
+        TypeKind::Interface(gen::TypeName::from_type_spec(
             reader,
             spec,
             generics,
@@ -136,24 +136,28 @@ impl TypeKind {
 
     fn from_type_def_or_ref(
         reader: &TypeReader,
-        code: TypeDefOrRef,
+        code: winmd::TypeDefOrRef,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
-            TypeDefOrRef::TypeRef(value) => {
+            winmd::TypeDefOrRef::TypeRef(value) => {
                 Self::from_type_ref(reader, value, generics, calling_namespace)
             }
-            TypeDefOrRef::TypeDef(value) => {
+            winmd::TypeDefOrRef::TypeDef(value) => {
                 Self::from_type_def(reader, value, generics, calling_namespace)
             }
-            TypeDefOrRef::TypeSpec(value) => {
+            winmd::TypeDefOrRef::TypeSpec(value) => {
                 Self::from_type_spec(reader, value, generics, calling_namespace)
             }
         }
     }
 
-    pub fn from_blob(blob: &mut Blob, generics: &[TypeKind], calling_namespace: &str) -> Self {
+    pub fn from_blob(
+        blob: &mut winmd::Blob,
+        generics: &[TypeKind],
+        calling_namespace: &str,
+    ) -> Self {
         blob.read_expected(0x1D);
         blob.read_modifiers();
 
@@ -174,27 +178,27 @@ impl TypeKind {
             0x1C => TypeKind::Object,
             0x11 | 0x12 => Self::from_type_def_or_ref(
                 blob.reader,
-                TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index),
+                winmd::TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index),
                 generics,
                 calling_namespace,
             ),
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x15 => Self::from_type_name(
                 blob.reader,
-                TypeName::from_type_spec_blob(blob, generics, calling_namespace),
+                gen::TypeName::from_type_spec_blob(blob, generics, calling_namespace),
             ),
             _ => panic!("TypeKind::from_blob"),
         }
     }
 
-    pub fn from_field(reader: &TypeReader, field: Field, calling_namespace: &str) -> Self {
+    pub fn from_field(reader: &TypeReader, field: winmd::Field, calling_namespace: &str) -> Self {
         let mut blob = field.sig(reader);
         blob.read_unsigned();
         blob.read_modifiers();
         Self::from_blob(&mut blob, &Vec::new(), calling_namespace)
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         match self {
             TypeKind::Class(name) => name.dependencies(),
             TypeKind::Interface(name) => name.dependencies(),

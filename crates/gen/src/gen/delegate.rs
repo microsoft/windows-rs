@@ -1,24 +1,23 @@
 use crate::*;
-
 use squote::{quote, TokenStream};
 
 #[derive(Debug)]
 pub struct Delegate {
-    pub name: TypeName,
-    pub method: Method,
-    pub guid: TypeGuid,
+    pub name: gen::TypeName,
+    pub method: gen::Method,
+    pub guid: gen::TypeGuid,
     pub signature: String,
 }
 
 impl Delegate {
-    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
         let method = name
             .def
             .methods(reader)
             .find(|method| method.name(reader) == "Invoke")
             .unwrap();
-        let method = Method::from_method_def(reader, method, &name.generics, &name.namespace);
-        let guid = TypeGuid::from_type_def(reader, name.def);
+        let method = gen::Method::from_method_def(reader, method, &name.generics, &name.namespace);
+        let guid = gen::TypeGuid::from_type_def(reader, name.def);
         let signature = name.base_delegate_signature(reader);
         Self {
             name,
@@ -28,7 +27,7 @@ impl Delegate {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         self.method.dependencies()
     }
 
@@ -52,7 +51,7 @@ impl Delegate {
             .params
             .iter()
             .map(|param| param.gen_invoke_arg());
-        let debug = default_gen_debug(&self.name);
+        let debug = gen::default_gen_debug(&self.name);
 
         let invoke_upcall = if let Some(return_type) = &self.method.return_type {
             if return_type.array {

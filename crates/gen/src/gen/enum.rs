@@ -3,10 +3,10 @@ use squote::{format_ident, quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct Enum {
-    pub name: TypeName,
+    pub name: gen::TypeName,
     pub fields: Vec<(String, EnumConstant)>,
     pub signature: String,
-    pub underlying_type: ElementType,
+    pub underlying_type: winmd::ElementType,
 }
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
@@ -16,7 +16,7 @@ pub enum EnumConstant {
 }
 
 impl Enum {
-    pub fn from_type_name(reader: &TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
         let signature = name.enum_signature(reader);
         let mut fields = Vec::new();
 
@@ -36,8 +36,8 @@ impl Enum {
         }
 
         let underlying_type = match fields[0].1 {
-            EnumConstant::U32(_) => ElementType::U4,
-            EnumConstant::I32(_) => ElementType::I4,
+            EnumConstant::U32(_) => winmd::ElementType::U4,
+            EnumConstant::I32(_) => winmd::ElementType::I4,
         };
 
         Self {

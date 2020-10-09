@@ -1,11 +1,5 @@
-use crate::winmd::*;
-use crate::TypeReader;
-
+use crate::*;
 use winrt_gen_macros::type_code;
-
-pub trait Decode {
-    fn decode(code: u32, file: u16) -> Self;
-}
 
 #[type_code(2)]
 pub enum TypeDefOrRef {
@@ -62,7 +56,7 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn resolve(&self, reader: &TypeReader) -> TypeDef {
+    pub fn resolve(&self, reader: &TypeReader) -> winmd::TypeDef {
         match self {
             Self::TypeDef(value) => *value,
             Self::TypeRef(value) => value.resolve(reader),

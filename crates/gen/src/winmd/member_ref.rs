@@ -1,12 +1,10 @@
-use crate::MemberRefParent;
-use crate::Row;
-use crate::TypeReader;
+use crate::*;
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct MemberRef(pub Row);
+pub struct MemberRef(pub winmd::Row);
 
 impl MemberRef {
-    pub fn parent(self, reader: &TypeReader) -> MemberRefParent {
+    pub fn parent(self, reader: &TypeReader) -> winmd::MemberRefParent {
         reader.decode(self.0, 0)
     }
 
