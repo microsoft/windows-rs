@@ -146,15 +146,15 @@ impl Interface {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::*;
 
-    fn interface((namespace, type_name): (&str, &str)) -> Interface {
+    fn interface((namespace, type_name): (&str, &str)) ->gen:: Interface {
         let reader = &TypeReader::from_os();
         let t = reader.resolve_type_def((namespace, type_name));
-        let t = Type::from_type_def(reader, t);
+        let t = gen::Type::from_type_def(reader, t);
 
         match t {
-            Type::Interface(t) => t,
+            gen::Type::Interface(t) => t,
             _ => panic!("Type not an interface"),
         }
     }
@@ -181,7 +181,7 @@ mod tests {
 
         assert!(method.params.is_empty());
         let param = method.return_type.as_ref().unwrap();
-        assert!(param.kind == TypeKind::String);
+        assert!(param.kind == gen::TypeKind::String);
 
         assert!(format!("{:#?}", &t.guid) == "96369f54-8eb6-48f0-abce-c1b211e627c3");
     }

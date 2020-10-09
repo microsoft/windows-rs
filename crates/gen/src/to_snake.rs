@@ -64,7 +64,7 @@ pub(crate) fn to_snake(camel: &str, kind: MethodKind) -> String {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::*;
 
     #[test]
     fn to_snake_works() {

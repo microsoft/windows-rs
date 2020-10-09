@@ -314,15 +314,14 @@ fn gen_constraint(params: &[gen::Param]) -> TokenStream {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use crate::*;
 
-    fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
+    fn method((namespace, type_name): (&str, &str), method_name: &str) -> gen::Method {
         let reader = &TypeReader::from_os();
         let def = reader.resolve_type_def((namespace, type_name));
 
-        let t = match def.into_type(reader) {
-            Type::Interface(t) => t,
+        let t = match gen::Type::from_type_def(reader, def) {
+            gen::Type::Interface(t) => t,
             _ => panic!("Type not an interface"),
         };
 
@@ -344,7 +343,7 @@ mod tests {
         assert!(method.params.is_empty());
 
         let param = method.return_type.as_ref().unwrap();
-        assert!(param.kind == TypeKind::String);
+        assert!(param.kind == gen::TypeKind::String);
     }
 
     #[test]
@@ -363,7 +362,7 @@ mod tests {
         assert!(handler.by_ref == false);
 
         let handler = match &handler.kind {
-            TypeKind::Delegate(delegate) => delegate,
+            gen:: TypeKind::Delegate(delegate) => delegate,
             _ => panic!("Wrong type"),
         };
 
@@ -378,7 +377,7 @@ mod tests {
         assert!(token.by_ref == true);
 
         let token = match &token.kind {
-            TypeKind::Struct(token) => token,
+            gen::TypeKind::Struct(token) => token,
             _ => panic!("Wrong type"),
         };
 
@@ -401,7 +400,7 @@ mod tests {
         assert!(token.by_ref == false);
 
         let token = match &token.kind {
-            TypeKind::Struct(token) => token,
+            gen:: TypeKind::Struct(token) => token,
             _ => panic!("Wrong type"),
         };
 

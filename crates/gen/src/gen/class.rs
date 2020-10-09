@@ -320,19 +320,19 @@ fn attribute_factory(reader: &TypeReader, attribute: winmd::Attribute) -> Option
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::*;
 
-    fn class((namespace, type_name): (&str, &str)) -> Class {
+    fn class((namespace, type_name): (&str, &str)) -> gen::Class {
         let reader = &TypeReader::from_os();
         let def = reader.resolve_type_def((namespace, type_name));
 
-        match def.into_type(reader) {
-            Type::Class(t) => t,
+        match gen::Type::from_type_def(reader, def) {
+            gen::Type::Class(t) => t,
             _ => panic!("Type not an interface"),
         }
     }
 
-    fn interface<'a>(class: &'a Class, name: &str) -> &'a gen::RequiredInterface {
+    fn interface<'a>(class: &'a gen::Class, name: &str) -> &'a gen::RequiredInterface {
         class
             .interfaces
             .iter()
@@ -340,7 +340,7 @@ mod tests {
             .unwrap()
     }
 
-    fn count_default(class: &Class) -> usize {
+    fn count_default(class: &gen::Class) -> usize {
         class
             .interfaces
             .iter()

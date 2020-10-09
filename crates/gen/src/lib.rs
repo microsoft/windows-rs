@@ -8,7 +8,7 @@ mod type_limits;
 mod type_namespaces;
 mod type_reader;
 mod type_tree;
-mod winmd;
+pub mod winmd;
 
 use format_ident::format_ident;
 use interface_kind::InterfaceKind;
