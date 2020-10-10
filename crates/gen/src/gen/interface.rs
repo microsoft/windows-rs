@@ -177,7 +177,6 @@ mod tests {
         assert!(t.methods.len() == 1);
         let method = &t.methods[0];
         assert!(method.name == "to_string");
-        assert!(method.kind == MethodKind::Normal);
 
         assert!(method.params.is_empty());
         let param = method.return_type.as_ref().unwrap();
