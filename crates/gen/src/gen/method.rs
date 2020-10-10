@@ -5,7 +5,6 @@ use std::iter::FromIterator;
 #[derive(Debug)]
 pub struct Method {
     pub name: String,
-    pub kind: MethodKind,
     pub params: Vec<gen::Param>,
     pub return_type: Option<gen::Param>,
 }
@@ -17,23 +16,23 @@ impl Method {
         generics: &[gen::TypeKind],
         calling_namespace: &str,
     ) -> Method {
-        let (name, kind) = if method.flags(reader).special() {
+        let name = if method.flags(reader).special() {
             let name = method.name(reader);
 
             if name.starts_with("get") {
-                (to_snake(&name[4..], MethodKind::Get), MethodKind::Get)
+                to_snake(&name[4..], MethodKind::Get)
             } else if name.starts_with("put") {
-                (to_snake(&name[4..], MethodKind::Set), MethodKind::Set)
+                to_snake(&name[4..], MethodKind::Set)
             } else if name.starts_with("add") {
-                (to_snake(&name[4..], MethodKind::Add), MethodKind::Add)
+                to_snake(&name[4..], MethodKind::Add)
             } else if name.starts_with("remove") {
-                (to_snake(&name[7..], MethodKind::Remove), MethodKind::Remove)
+                to_snake(&name[7..], MethodKind::Remove)
             } else {
                 // A delegate's 'Invoke' method is "special" but lacks a preamble.
-                ("invoke".to_owned(), MethodKind::Normal)
+                "invoke".to_owned()
             }
         } else {
-            (Method::name(reader, method), MethodKind::Normal)
+            Method::name(reader, method)
         };
 
         let mut blob = method.sig(reader);
@@ -87,7 +86,6 @@ impl Method {
 
         Method {
             name,
-            kind,
             params,
             return_type,
         }
@@ -339,7 +337,6 @@ mod tests {
     #[test]
     fn test_to_string() {
         let method = method(("Windows.Foundation", "IStringable"), "to_string");
-        assert!(method.kind == MethodKind::Normal);
         assert!(method.params.is_empty());
 
         let param = method.return_type.as_ref().unwrap();
@@ -353,7 +350,6 @@ mod tests {
             "map_changed",
         );
 
-        assert!(method.kind == MethodKind::Add);
         assert!(method.params.len() == 1);
 
         let handler = &method.params[0];
@@ -391,7 +387,6 @@ mod tests {
             "remove_map_changed",
         );
 
-        assert!(method.kind == MethodKind::Remove);
         assert!(method.params.len() == 1);
 
         let token = &method.params[0];
