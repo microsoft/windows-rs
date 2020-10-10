@@ -144,6 +144,7 @@ impl TypeName {
 
     pub fn gen_signature(&self, signature: &str) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
+
         if self.generics.is_empty() {
             return quote! { ::winrt::ConstBuffer::from_slice(#signature) };
         }
@@ -163,6 +164,7 @@ impl TypeName {
                 #semi
             }
         });
+
         quote! {
             let string = ::winrt::ConstBuffer::new();
             let string = string.push_slice(b"pinterface(");
@@ -187,49 +189,6 @@ impl TypeName {
         quote! {
             ::winrt::Guid::from_signature(<#typ as ::winrt::RuntimeType>::SIGNATURE)
         }
-    }
-
-    // TODO: get rid of this and do all calculations at initialization time
-    pub fn guid(&self, reader: &TypeReader, generics: bool) -> gen::TypeGuid {
-        if self.generics.is_empty() || generics {
-            return gen::TypeGuid::from_type_def(reader, self.def);
-        }
-
-        let mut data = vec![
-            0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
-            0xad, 0xee,
-        ];
-        data.extend_from_slice(self.interface_signature(reader).as_bytes());
-
-        let mut hash = sha1::Sha1::new();
-        hash.update(&data);
-        let bytes = hash.digest().bytes();
-
-        let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
-        let second = u16::from_be_bytes([bytes[4], bytes[5]]);
-        let mut third = u16::from_be_bytes([bytes[6], bytes[7]]);
-
-        third = (third & 0x0fff) | (5 << 12);
-        let fourth = (bytes[8] & 0x3f) | 0x80;
-
-        gen::TypeGuid([
-            gen::GuidConstant::U32(first),
-            gen::GuidConstant::U16(second),
-            gen::GuidConstant::U16(third),
-            gen::GuidConstant::U8(fourth),
-            gen::GuidConstant::U8(bytes[9]),
-            gen::GuidConstant::U8(bytes[10]),
-            gen::GuidConstant::U8(bytes[11]),
-            gen::GuidConstant::U8(bytes[12]),
-            gen::GuidConstant::U8(bytes[13]),
-            gen::GuidConstant::U8(bytes[14]),
-            gen::GuidConstant::U8(bytes[15]),
-        ])
-    }
-
-    pub fn base_interface_signature(&self, reader: &TypeReader) -> String {
-        let guid = gen::TypeGuid::from_type_def(reader, self.def);
-        format!("{{{:#?}}}", guid)
     }
 
     pub fn interface_signature(&self, reader: &TypeReader) -> String {
@@ -308,14 +267,6 @@ impl TypeName {
 
         result.push(')');
         result
-    }
-
-    pub fn base_delegate_signature(&self, reader: &TypeReader) -> String {
-        if self.generics.is_empty() {
-            format!("delegate({})", self.base_interface_signature(reader))
-        } else {
-            self.base_interface_signature(reader)
-        }
     }
 
     pub fn delegate_signature(&self, reader: &TypeReader) -> String {
@@ -507,49 +458,6 @@ mod tests {
         assert_eq!(
             type_name.runtime_name(),
             String::from("Outer.Inner.MyType<Boolean, UInt8>")
-        );
-    }
-
-    #[test]
-    fn guids() {
-        let reader = &TypeReader::from_os();
-
-        // Non-generic interface guid
-        let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
-        assert!(
-            format!("{{{:#?}}}", name.guid(reader, false))
-                == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
-        );
-
-        // Generic interface guid
-        let stringable = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
-        let stringable = gen::Type::from_type_def(reader, stringable).name().clone();
-        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
-        let mut name = gen::Type::from_type_def(reader, def).name().clone();
-        name.generics.clear();
-        name.generics.push(gen::TypeKind::Interface(stringable));
-        assert!(
-            format!("{{{:#?}}}", name.guid(reader, false))
-                == "{14b954c2-2914-530e-84a7-9473e2fb24e2}"
-        );
-
-        // Generic interface guid
-        let stringable = reader.resolve_type_def(("Windows.Foundation", "IWwwFormUrlDecoderEntry"));
-        let stringable = gen::Type::from_type_def(reader, stringable).name().clone();
-        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVectorView`1"));
-        let mut name = gen::Type::from_type_def(reader, def).name().clone();
-        name.generics.clear();
-        name.generics.push(gen::TypeKind::Interface(stringable));
-        let guid = name.guid(reader, false);
-        assert!(format!("{{{:#?}}}", guid) == "{b1f00d3b-1f06-5117-93ea-2a0d79116701}");
-
-        // Unspecialized generic guid
-        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
-        assert!(
-            format!("{{{:#?}}}", name.guid(reader, true))
-                == "{913337e9-11a1-4345-a3a2-4e7f956e222d}"
         );
     }
 

@@ -28,7 +28,7 @@ fn non_generic() -> winrt::Result<()> {
         Ok(())
     });
 
-    // TODO: delegates are function objects (logically) ans we should be able
+    // TODO: delegates are function objects (logically) and we should be able
     // to call them without an explicit `invoke` method e.g. `d(args);`
     d.invoke(IAsyncAction::default(), AsyncStatus::Completed)?;
 
@@ -41,7 +41,10 @@ fn non_generic() -> winrt::Result<()> {
 fn generic() -> winrt::Result<()> {
     type Handler = TypedEventHandler<Uri, i32>;
 
-    // TODO: Handler::IID is not correct for generic types
+    assert_eq!(
+        Handler::IID,
+        winrt::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
+    );
 
     let d = Handler::default();
     assert!(d.is_null());

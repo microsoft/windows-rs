@@ -5,12 +5,13 @@ use std::iter::FromIterator;
 #[derive(Debug)]
 pub struct Interface {
     pub name: gen::TypeName,
+    pub guid: gen::TypeGuid,
     pub interfaces: Vec<gen::RequiredInterface>,
-    pub signature: String,
 }
 
 impl Interface {
     pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
+        let guid = gen::TypeGuid::from_type_def(reader, name.def);
         let mut interfaces = Vec::new();
 
         gen::add_type(
@@ -22,12 +23,11 @@ impl Interface {
         );
 
         gen::add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
-        let signature = name.base_interface_signature(reader);
 
         Self {
             name,
+            guid,
             interfaces,
-            signature,
         }
     }
 
@@ -66,8 +66,8 @@ impl Interface {
         let constraints = self.name.gen_constraint();
 
         let default_interface = self.default_interface();
-
-        let guid = self.name.gen_guid(&default_interface.guid);
+        let guid = self.name.gen_guid(&self.guid);
+        let signature = self.name.gen_signature(&format!("{{{:#?}}}", &self.guid));
 
         let conversions = TokenStream::from_iter(
             self.interfaces
@@ -79,7 +79,6 @@ impl Interface {
         let methods = gen::gen_method(&self.interfaces);
         let abi_methods = default_interface.gen_abi_method();
         let iterator = gen::gen_iterator(&self.name, &self.interfaces);
-        let signature = self.name.gen_signature(&self.signature);
         let (async_get, future) = gen::gen_async(&self.name, &self.interfaces);
         let debug = gen::gen_debug(&self.name, &self.interfaces);
 
@@ -164,6 +163,7 @@ mod tests {
         let t = interface(("Windows.Foundation", "IStringable"));
         assert!(t.name.runtime_name() == "Windows.Foundation.IStringable");
         assert!(t.interfaces.len() == 1);
+        assert!(format!("{:#?}", &t.guid) == "96369f54-8eb6-48f0-abce-c1b211e627c3");
 
         let t = t
             .interfaces
@@ -182,8 +182,6 @@ mod tests {
         assert!(method.params.is_empty());
         let param = method.return_type.as_ref().unwrap();
         assert!(param.kind == gen::TypeKind::String);
-
-        assert!(format!("{:#?}", &t.guid) == "96369f54-8eb6-48f0-abce-c1b211e627c3");
     }
 
     #[test]

@@ -4,9 +4,8 @@ use squote::{quote, TokenStream};
 #[derive(Debug)]
 pub struct Delegate {
     pub name: gen::TypeName,
-    pub method: gen::Method,
     pub guid: gen::TypeGuid,
-    pub signature: String,
+    pub method: gen::Method,
 }
 
 impl Delegate {
@@ -18,13 +17,7 @@ impl Delegate {
             .unwrap();
         let method = gen::Method::from_method_def(reader, method, &name.generics, &name.namespace);
         let guid = gen::TypeGuid::from_type_def(reader, name.def);
-        let signature = name.base_delegate_signature(reader);
-        Self {
-            name,
-            method,
-            guid,
-            signature,
-        }
+        Self { name, method, guid }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
@@ -43,8 +36,16 @@ impl Delegate {
         let constraints = self.name.gen_constraint();
         let method = self.method.gen_default();
         let abi_method = self.method.gen_abi(&self.name);
+
         let guid = self.name.gen_guid(&self.guid);
-        let signature = self.name.gen_signature(&self.signature);
+
+        let signature = if self.name.generics.is_empty() {
+            self.name
+                .gen_signature(&format!("delegate({{{:#?}}})", &self.guid))
+        } else {
+            self.name.gen_signature(&format!("{{{:#?}}}", &self.guid))
+        };
+
         let invoke_sig = self.method.gen_abi_impl(&self.name);
         let invoke_args = self
             .method
