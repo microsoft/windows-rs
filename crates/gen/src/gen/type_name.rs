@@ -144,6 +144,7 @@ impl TypeName {
 
     pub fn gen_signature(&self, signature: &str) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
+
         if self.generics.is_empty() {
             return quote! { ::winrt::ConstBuffer::from_slice(#signature) };
         }
@@ -163,6 +164,7 @@ impl TypeName {
                 #semi
             }
         });
+
         quote! {
             let string = ::winrt::ConstBuffer::new();
             let string = string.push_slice(b"pinterface(");
@@ -187,11 +189,6 @@ impl TypeName {
         quote! {
             ::winrt::Guid::from_signature(<#typ as ::winrt::RuntimeType>::SIGNATURE)
         }
-    }
-
-    pub fn base_interface_signature(&self, reader: &TypeReader) -> String {
-        let guid = gen::TypeGuid::from_type_def(reader, self.def);
-        format!("{{{:#?}}}", guid)
     }
 
     pub fn interface_signature(&self, reader: &TypeReader) -> String {
@@ -270,14 +267,6 @@ impl TypeName {
 
         result.push(')');
         result
-    }
-
-    pub fn base_delegate_signature(&self, reader: &TypeReader) -> String {
-        if self.generics.is_empty() {
-            format!("delegate({})", self.base_interface_signature(reader))
-        } else {
-            self.base_interface_signature(reader)
-        }
     }
 
     pub fn delegate_signature(&self, reader: &TypeReader) -> String {

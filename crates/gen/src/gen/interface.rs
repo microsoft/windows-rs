@@ -7,7 +7,6 @@ pub struct Interface {
     pub name: gen::TypeName,
     pub guid: gen::TypeGuid,
     pub interfaces: Vec<gen::RequiredInterface>,
-    pub signature: String,
 }
 
 impl Interface {
@@ -24,13 +23,11 @@ impl Interface {
         );
 
         gen::add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
-        let signature = name.base_interface_signature(reader);
 
         Self {
             name,
             guid,
             interfaces,
-            signature,
         }
     }
 
@@ -69,8 +66,8 @@ impl Interface {
         let constraints = self.name.gen_constraint();
 
         let default_interface = self.default_interface();
-
         let guid = self.name.gen_guid(&self.guid);
+        let signature = self.name.gen_signature(&format!("{{{:#?}}}", &self.guid));
 
         let conversions = TokenStream::from_iter(
             self.interfaces
@@ -82,7 +79,6 @@ impl Interface {
         let methods = gen::gen_method(&self.interfaces);
         let abi_methods = default_interface.gen_abi_method();
         let iterator = gen::gen_iterator(&self.name, &self.interfaces);
-        let signature = self.name.gen_signature(&self.signature);
         let (async_get, future) = gen::gen_async(&self.name, &self.interfaces);
         let debug = gen::gen_debug(&self.name, &self.interfaces);
 
