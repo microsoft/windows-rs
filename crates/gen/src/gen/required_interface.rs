@@ -6,7 +6,6 @@ use std::iter::FromIterator;
 #[derive(Debug)]
 pub struct RequiredInterface {
     pub name: gen::TypeName,
-    pub guid: gen::TypeGuid,
     pub methods: Vec<gen::Method>,
     pub kind: InterfaceKind,
 }
@@ -19,7 +18,6 @@ impl RequiredInterface {
         kind: InterfaceKind,
     ) -> Self {
         let name = gen::TypeName::from_type_def(reader, def, calling_namespace);
-        let guid = gen::TypeGuid::from_type_def(reader, def);
 
         let mut methods = def
             .methods(reader)
@@ -32,7 +30,6 @@ impl RequiredInterface {
 
         Self {
             name,
-            guid,
             methods,
             kind,
         }
@@ -42,11 +39,8 @@ impl RequiredInterface {
         reader: &TypeReader,
         name: gen::TypeName,
         kind: InterfaceKind,
-        generics: bool,
         calling_namespace: &str,
     ) -> Self {
-        let guid = name.guid(reader, generics);
-
         let mut methods = name
             .def
             .methods(reader)
@@ -59,7 +53,6 @@ impl RequiredInterface {
 
         Self {
             name,
-            guid,
             methods,
             kind,
         }
@@ -148,8 +141,6 @@ pub fn add_dependencies(
     calling_namespace: &str,
     strip_default: bool,
 ) {
-    let generics = !name.generics.is_empty();
-
     for required in name.def.interfaces(reader) {
         let is_default = required.is_default(reader);
         let required = required.interface(reader);
@@ -184,7 +175,6 @@ pub fn add_dependencies(
                 reader,
                 required_name,
                 kind,
-                generics,
                 calling_namespace,
             ));
         }
