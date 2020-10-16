@@ -11,7 +11,7 @@ pub struct TypeTree {
 }
 
 impl TypeTree {
-    pub fn from_limits(reader: &TypeReader, limits: &TypeLimits) -> Self {
+    pub fn from_limits(reader: &winmd::TypeReader, limits: &TypeLimits) -> Self {
         let mut tree = TypeTree::default();
         let mut set = std::collections::BTreeSet::new();
 
@@ -36,7 +36,7 @@ impl TypeTree {
 
     fn insert2(
         &mut self,
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         set: &mut std::collections::BTreeSet<winmd::TypeDef>,
         def: winmd::TypeDef,
     ) {
@@ -100,12 +100,11 @@ impl TypeTree {
 
 #[cfg(test)]
 mod tests {
-    use crate::TypeReader;
     use crate::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 
     #[test]
     fn test_dependency_inclusion() {
-        let reader = &TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_os();
         let mut limits = TypeLimits::new(reader);
         limits
             .insert(NamespaceTypes {

@@ -1,8 +1,7 @@
 use crate::*;
-
 use squote::{format_ident, quote, Ident, Literal, TokenStream};
-
 use std::iter::FromIterator;
+use winmd::Decode;
 
 /// A type's name including module namespace and generics
 #[derive(Debug, Clone)]
@@ -49,7 +48,7 @@ impl TypeName {
     }
 
     pub fn from_type_def_or_ref(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         code: winmd::TypeDefOrRef,
         generics: &[gen::TypeKind],
         calling_namespace: &str,
@@ -68,7 +67,7 @@ impl TypeName {
     }
 
     fn from_type_ref(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         type_ref: winmd::TypeRef,
         calling_namespace: &str,
     ) -> Self {
@@ -81,7 +80,7 @@ impl TypeName {
     }
 
     pub fn from_type_def(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         def: winmd::TypeDef,
         calling_namespace: &str,
     ) -> Self {
@@ -132,7 +131,7 @@ impl TypeName {
     }
 
     pub fn from_type_spec(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         spec: winmd::TypeSpec,
         generics: &[gen::TypeKind],
         calling_namespace: &str,
@@ -191,7 +190,7 @@ impl TypeName {
         }
     }
 
-    pub fn interface_signature(&self, reader: &TypeReader) -> String {
+    pub fn interface_signature(&self, reader: &winmd::TypeReader) -> String {
         let guid = gen::TypeGuid::from_type_def(reader, self.def);
 
         if self.generics.is_empty() {
@@ -209,7 +208,7 @@ impl TypeName {
         }
     }
 
-    pub fn class_signature(&self, reader: &TypeReader) -> String {
+    pub fn class_signature(&self, reader: &winmd::TypeReader) -> String {
         let default = self
             .def
             .interfaces(reader)
@@ -231,7 +230,7 @@ impl TypeName {
         )
     }
 
-    pub fn enum_signature(&self, reader: &TypeReader) -> String {
+    pub fn enum_signature(&self, reader: &winmd::TypeReader) -> String {
         format!(
             "enum({}.{};{})",
             self.namespace,
@@ -240,7 +239,7 @@ impl TypeName {
         )
     }
 
-    fn enum_type(&self, reader: &TypeReader) -> &str {
+    fn enum_type(&self, reader: &winmd::TypeReader) -> &str {
         for field in self.def.fields(reader) {
             for constant in field.constants(reader) {
                 match constant.value_type(reader) {
@@ -254,7 +253,7 @@ impl TypeName {
         panic!("Invalid enum");
     }
 
-    pub fn struct_signature(&self, reader: &TypeReader) -> String {
+    pub fn struct_signature(&self, reader: &winmd::TypeReader) -> String {
         let mut result = format!("struct({}.{}", self.namespace, self.name);
 
         for field in self.def.fields(reader) {
@@ -269,7 +268,7 @@ impl TypeName {
         result
     }
 
-    pub fn delegate_signature(&self, reader: &TypeReader) -> String {
+    pub fn delegate_signature(&self, reader: &winmd::TypeReader) -> String {
         if self.generics.is_empty() {
             format!("delegate({})", self.interface_signature(reader))
         } else {
@@ -463,7 +462,7 @@ mod tests {
 
     #[test]
     fn signatures() {
-        let reader = &TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_os();
 
         // Primitive signatures
         assert!(gen::TypeKind::Bool.signature(reader) == "b1");

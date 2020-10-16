@@ -1,15 +1,13 @@
-use crate::TypeReader;
-
 use std::collections::BTreeSet;
 
 /// The set of relevant namespaces and types
 pub struct TypeLimits<'a> {
-    reader: &'a TypeReader,
+    reader: &'a winmd::TypeReader,
     pub inner: BTreeSet<NamespaceTypes>,
 }
 
 impl<'a> TypeLimits<'a> {
-    pub fn new(reader: &'a TypeReader) -> Self {
+    pub fn new(reader: &'a winmd::TypeReader) -> Self {
         Self {
             reader,
             inner: BTreeSet::new(),

@@ -10,7 +10,7 @@ pub struct Interface {
 }
 
 impl Interface {
-    pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
+    pub fn from_type_name(reader: &winmd::TypeReader, name: gen::TypeName) -> Self {
         let guid = gen::TypeGuid::from_type_def(reader, name.def);
         let mut interfaces = Vec::new();
 
@@ -148,7 +148,7 @@ mod tests {
     use crate::*;
 
     fn interface((namespace, type_name): (&str, &str)) -> gen::Interface {
-        let reader = &TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_os();
         let t = reader.resolve_type_def((namespace, type_name));
         let t = gen::Type::from_type_def(reader, t);
 

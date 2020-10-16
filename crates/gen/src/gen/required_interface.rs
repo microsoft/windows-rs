@@ -12,7 +12,7 @@ pub struct RequiredInterface {
 
 impl RequiredInterface {
     fn from_type_def(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         def: winmd::TypeDef,
         calling_namespace: &str,
         kind: InterfaceKind,
@@ -36,7 +36,7 @@ impl RequiredInterface {
     }
 
     fn from_type_name_and_kind(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         name: gen::TypeName,
         kind: InterfaceKind,
         calling_namespace: &str,
@@ -121,7 +121,7 @@ impl RequiredInterface {
 
 pub fn add_type(
     vec: &mut Vec<gen::RequiredInterface>,
-    reader: &TypeReader,
+    reader: &winmd::TypeReader,
     def: winmd::TypeDef,
     calling_namespace: &str,
     kind: InterfaceKind,
@@ -136,7 +136,7 @@ pub fn add_type(
 
 pub fn add_dependencies(
     vec: &mut Vec<RequiredInterface>,
-    reader: &TypeReader,
+    reader: &winmd::TypeReader,
     name: &gen::TypeName,
     calling_namespace: &str,
     strip_default: bool,

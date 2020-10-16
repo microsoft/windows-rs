@@ -14,7 +14,7 @@ pub struct Class {
 }
 
 impl Class {
-    pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
+    pub fn from_type_name(reader: &winmd::TypeReader, name: gen::TypeName) -> Self {
         let mut interfaces = Vec::new();
         gen::add_dependencies(&mut interfaces, reader, &name, &name.namespace, false);
         let mut bases = Vec::new();
@@ -308,7 +308,10 @@ impl Class {
     }
 }
 
-fn attribute_factory(reader: &TypeReader, attribute: winmd::Attribute) -> Option<winmd::TypeDef> {
+fn attribute_factory(
+    reader: &winmd::TypeReader,
+    attribute: winmd::Attribute,
+) -> Option<winmd::TypeDef> {
     for (_, arg) in attribute.args(reader) {
         if let winmd::AttributeArg::TypeDef(def) = arg {
             return Some(def);
@@ -323,7 +326,7 @@ mod tests {
     use crate::*;
 
     fn class((namespace, type_name): (&str, &str)) -> gen::Class {
-        let reader = &TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_os();
         let def = reader.resolve_type_def((namespace, type_name));
 
         match gen::Type::from_type_def(reader, def) {
