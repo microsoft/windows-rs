@@ -87,10 +87,10 @@ fn gen_async_kind(
                     if self.status()? == ::winrt::foundation::AsyncStatus::Started {
                         let waker = context.waker().clone();
 
-                        self.set_completed(::winrt::foundation:: #handler::new(move |_sender, _args| {
+                        let _ = self.set_completed(::winrt::foundation:: #handler::new(move |_sender, _args| {
                             waker.wake_by_ref();
                             Ok(())
-                        }))?;
+                        }));
 
                         ::std::task::Poll::Pending
                     } else {
