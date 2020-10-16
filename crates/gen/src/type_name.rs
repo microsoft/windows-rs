@@ -15,7 +15,7 @@ pub struct TypeName {
     /// e.g. "MyType"
     pub name: String,
     /// A collection of the types generics
-    pub generics: Vec<gen::TypeKind>,
+    pub generics: Vec<TypeKind>,
     /// The type definition for this type
     pub def: winmd::TypeDef,
 
@@ -27,7 +27,7 @@ impl TypeName {
     fn new(
         namespace: String,
         name: String,
-        generics: Vec<gen::TypeKind>,
+        generics: Vec<TypeKind>,
         def: winmd::TypeDef,
         calling_namespace: &str,
     ) -> Self {
@@ -50,7 +50,7 @@ impl TypeName {
     pub fn from_type_def_or_ref(
         reader: &winmd::TypeReader,
         code: winmd::TypeDefOrRef,
-        generics: &[gen::TypeKind],
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
@@ -91,7 +91,7 @@ impl TypeName {
 
         for generic in def.generics(reader) {
             let name = generic.name(reader).to_string();
-            generics.push(gen::TypeKind::Generic(name));
+            generics.push(TypeKind::Generic(name));
         }
 
         let calling_namespace = if calling_namespace.is_empty() {
@@ -111,7 +111,7 @@ impl TypeName {
 
     pub fn from_type_spec_blob(
         blob: &mut winmd::Blob,
-        generics: &[gen::TypeKind],
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         blob.read_unsigned();
@@ -120,7 +120,7 @@ impl TypeName {
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {
-            args.push(gen::TypeKind::from_blob(blob, generics, calling_namespace));
+            args.push(TypeKind::from_blob(blob, generics, calling_namespace));
         }
         let (namespace, name) = def.name(blob.reader);
         let namespace = namespace.to_string();
@@ -133,7 +133,7 @@ impl TypeName {
     pub fn from_type_spec(
         reader: &winmd::TypeReader,
         spec: winmd::TypeSpec,
-        generics: &[gen::TypeKind],
+        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         let mut blob = spec.sig(reader);
@@ -174,7 +174,7 @@ impl TypeName {
         }
     }
 
-    pub fn gen_guid(&self, guid: &gen::TypeGuid) -> TokenStream {
+    pub fn gen_guid(&self, guid: &TypeGuid) -> TokenStream {
         if self.generics.is_empty() {
             let guid = guid.gen();
 
@@ -191,7 +191,7 @@ impl TypeName {
     }
 
     pub fn interface_signature(&self, reader: &winmd::TypeReader) -> String {
-        let guid = gen::TypeGuid::from_type_def(reader, self.def);
+        let guid = TypeGuid::from_type_def(reader, self.def);
 
         if self.generics.is_empty() {
             format!("{{{:#?}}}", guid)
@@ -215,7 +215,7 @@ impl TypeName {
             .find(|i| i.is_default(reader))
             .unwrap();
 
-        let default = gen::TypeName::from_type_def_or_ref(
+        let default = TypeName::from_type_def_or_ref(
             reader,
             default.interface(reader),
             &self.generics,
@@ -259,8 +259,7 @@ impl TypeName {
         for field in self.def.fields(reader) {
             result.push(';');
             result.push_str(
-                &gen::TypeKind::from_field(reader, field, &self.calling_namespace)
-                    .signature(reader),
+                &TypeKind::from_field(reader, field, &self.calling_namespace).signature(reader),
             );
         }
 
@@ -308,7 +307,7 @@ impl TypeName {
     ///
     /// For example: `Vector<OtherType>`
     pub fn gen(&self) -> TokenStream {
-        let namespace = gen::gen_namespace(&self.namespace, &self.calling_namespace);
+        let namespace = gen_namespace(&self.namespace, &self.calling_namespace);
         gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
     }
 
@@ -316,7 +315,7 @@ impl TypeName {
     ///
     /// For example: `abi_Vector<OtherType>`
     pub fn gen_abi(&self) -> TokenStream {
-        let namespace = gen::gen_namespace(&self.namespace, &self.calling_namespace);
+        let namespace = gen_namespace(&self.namespace, &self.calling_namespace);
         gen_format(
             &self.name,
             Some(&namespace),
@@ -326,7 +325,7 @@ impl TypeName {
     }
 
     pub fn gen_binding_abi(&self) -> TokenStream {
-        let namespace = gen::gen_binding_namespace(&self.namespace);
+        let namespace = gen_binding_namespace(&self.namespace);
         gen_format(
             &self.name,
             Some(&namespace),
@@ -336,7 +335,7 @@ impl TypeName {
     }
 
     pub fn gen_binding(&self) -> TokenStream {
-        let namespace = gen::gen_binding_namespace(&self.namespace);
+        let namespace = gen_binding_namespace(&self.namespace);
         gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
     }
 
@@ -408,7 +407,7 @@ fn format_abi_ident(name: &str) -> Ident {
 fn gen_format<F>(
     name: &str,
     namespace: Option<&TokenStream>,
-    generics: &[gen::TypeKind],
+    generics: &[TypeKind],
     format: F,
 ) -> TokenStream
 where
@@ -431,7 +430,7 @@ mod tests {
 
     #[test]
     fn runtime_name() {
-        let mut type_name = gen::TypeName::new(
+        let mut type_name = TypeName::new(
             String::from("Outer.Inner"),
             String::from("MyType"),
             vec![],
@@ -445,14 +444,14 @@ mod tests {
 
         assert_eq!(type_name.runtime_name(), String::from("Outer.Inner.MyType"));
 
-        type_name.generics = vec![gen::TypeKind::Bool];
+        type_name.generics = vec![TypeKind::Bool];
 
         assert_eq!(
             type_name.runtime_name(),
             String::from("Outer.Inner.MyType<Boolean>")
         );
 
-        type_name.generics = vec![gen::TypeKind::Bool, gen::TypeKind::U8];
+        type_name.generics = vec![TypeKind::Bool, TypeKind::U8];
 
         assert_eq!(
             type_name.runtime_name(),
@@ -465,46 +464,44 @@ mod tests {
         let reader = &winmd::TypeReader::from_os();
 
         // Primitive signatures
-        assert!(gen::TypeKind::Bool.signature(reader) == "b1");
-        assert!(gen::TypeKind::Char.signature(reader) == "c2");
-        assert!(gen::TypeKind::I8.signature(reader) == "i1");
-        assert!(gen::TypeKind::U8.signature(reader) == "u1");
-        assert!(gen::TypeKind::I16.signature(reader) == "i2");
-        assert!(gen::TypeKind::U16.signature(reader) == "u2");
-        assert!(gen::TypeKind::I32.signature(reader) == "i4");
-        assert!(gen::TypeKind::U32.signature(reader) == "u4");
-        assert!(gen::TypeKind::I64.signature(reader) == "i8");
-        assert!(gen::TypeKind::U64.signature(reader) == "u8");
-        assert!(gen::TypeKind::F32.signature(reader) == "f4");
-        assert!(gen::TypeKind::F64.signature(reader) == "f8");
-        assert!(gen::TypeKind::String.signature(reader) == "string");
-        assert!(gen::TypeKind::Object.signature(reader) == "cinterface(IInspectable)");
-        assert!(gen::TypeKind::Guid.signature(reader) == "g16");
+        assert!(TypeKind::Bool.signature(reader) == "b1");
+        assert!(TypeKind::Char.signature(reader) == "c2");
+        assert!(TypeKind::I8.signature(reader) == "i1");
+        assert!(TypeKind::U8.signature(reader) == "u1");
+        assert!(TypeKind::I16.signature(reader) == "i2");
+        assert!(TypeKind::U16.signature(reader) == "u2");
+        assert!(TypeKind::I32.signature(reader) == "i4");
+        assert!(TypeKind::U32.signature(reader) == "u4");
+        assert!(TypeKind::I64.signature(reader) == "i8");
+        assert!(TypeKind::U64.signature(reader) == "u8");
+        assert!(TypeKind::F32.signature(reader) == "f4");
+        assert!(TypeKind::F64.signature(reader) == "f8");
+        assert!(TypeKind::String.signature(reader) == "string");
+        assert!(TypeKind::Object.signature(reader) == "cinterface(IInspectable)");
+        assert!(TypeKind::Guid.signature(reader) == "g16");
 
         // Non-generic interface signature
         let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
+        let name = Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::TypeKind::Interface(name).signature(reader)
-                == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
+            TypeKind::Interface(name).signature(reader) == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
         );
 
         // Generic interface signature
         let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
-        let mut name = gen::Type::from_type_def(reader, def).name().clone();
+        let mut name = Type::from_type_def(reader, def).name().clone();
         name.generics.clear();
-        name.generics.push(gen::TypeKind::I32);
+        name.generics.push(TypeKind::I32);
         assert!(
-            gen::TypeKind::Interface(name).signature(reader)
+            TypeKind::Interface(name).signature(reader)
                 == "pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};i4)"
         );
 
         // Signed enum signature
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncStatus"));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
+        let name = Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::TypeKind::Enum(name).signature(reader)
-                == "enum(Windows.Foundation.AsyncStatus;i4)"
+            TypeKind::Enum(name).signature(reader) == "enum(Windows.Foundation.AsyncStatus;i4)"
         );
 
         // Unsigned enum signature
@@ -512,53 +509,53 @@ mod tests {
             "Windows.ApplicationModel.Appointments",
             "AppointmentDaysOfWeek",
         ));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
+        let name = Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::TypeKind::Enum(name).signature(reader)
+            TypeKind::Enum(name).signature(reader)
                 == "enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)"
         );
 
         // Non-generic delegate signature
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncActionCompletedHandler"));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
+        let name = Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::TypeKind::Delegate(name).signature(reader)
+            TypeKind::Delegate(name).signature(reader)
                 == "delegate({a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7})"
         );
 
         // Generic delegate signature
         let stringable = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
-        let stringable = gen::Type::from_type_def(reader, stringable).name().clone();
+        let stringable = Type::from_type_def(reader, stringable).name().clone();
 
         let def = reader.resolve_type_def(("Windows.Foundation", "EventHandler`1"));
-        let mut name = gen::Type::from_type_def(reader, def).name().clone();
+        let mut name = Type::from_type_def(reader, def).name().clone();
         name.generics.clear();
-        name.generics.push(gen::TypeKind::Interface(stringable));
+        name.generics.push(TypeKind::Interface(stringable));
         assert!(
-            gen:: TypeKind::Delegate(name).signature(reader) == "pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f};{96369f54-8eb6-48f0-abce-c1b211e627c3})"
+             TypeKind::Delegate(name).signature(reader) == "pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f};{96369f54-8eb6-48f0-abce-c1b211e627c3})"
         );
 
         // Class signature
         let def = reader.resolve_type_def(("Windows.Foundation", "Uri"));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
+        let name = Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::TypeKind::Class(name).signature(reader)
+            TypeKind::Class(name).signature(reader)
                 == "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
         );
 
         // Class with generic default interface signature
         let def = reader.resolve_type_def(("Windows.Foundation", "WwwFormUrlDecoder"));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
+        let name = Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen:: TypeKind::Class(name).signature(reader)
+             TypeKind::Class(name).signature(reader)
                 == "rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})"
         );
 
         // Simple struct
         let def = reader.resolve_type_def(("Windows.Foundation", "Rect"));
-        let name = gen::Type::from_type_def(reader, def).name().clone();
+        let name = Type::from_type_def(reader, def).name().clone();
         assert!(
-            gen::TypeKind::Struct(name).signature(reader)
+            TypeKind::Struct(name).signature(reader)
                 == "struct(Windows.Foundation.Rect;f4;f4;f4;f4)"
         );
     }

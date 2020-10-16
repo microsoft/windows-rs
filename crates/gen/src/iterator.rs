@@ -6,7 +6,7 @@ use squote::{quote, TokenStream};
 // only falls back to IIterator<T> if nothing faster is available. VectorIterator and
 // VectorViewIterator are faster iterators than IIterator<T> because they only require a single
 // vcall per iteration wheras IIterator<T> requires two.
-pub fn gen_iterator(name: &gen::TypeName, interfaces: &[gen::RequiredInterface]) -> TokenStream {
+pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenStream {
     // If the type is IIterator<T> then simply implement the Iterator trait over top.
     if name.name == "IIterator`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
@@ -156,7 +156,7 @@ pub fn gen_iterator(name: &gen::TypeName, interfaces: &[gen::RequiredInterface])
             && interface.name.namespace == "Windows.Foundation.Collections"
         {
             let item = interface.name.generics[0].gen();
-            let wfc = gen::gen_namespace(&interface.name.namespace, &name.namespace);
+            let wfc = gen_namespace(&interface.name.namespace, &name.namespace);
             let name = name.gen();
 
             return quote! {
@@ -183,7 +183,7 @@ pub fn gen_iterator(name: &gen::TypeName, interfaces: &[gen::RequiredInterface])
             && interface.name.namespace == "Windows.Foundation.Collections"
         {
             let item = interface.name.generics[0].gen();
-            let wfc = gen::gen_namespace(&interface.name.namespace, &name.namespace);
+            let wfc = gen_namespace(&interface.name.namespace, &name.namespace);
             let name = name.gen();
 
             return quote! {
@@ -218,7 +218,7 @@ pub fn gen_iterator(name: &gen::TypeName, interfaces: &[gen::RequiredInterface])
         Some(interface) => {
             let constraints = name.gen_constraint();
             let item = interface.name.generics[0].gen();
-            let wfc = gen::gen_namespace(&interface.name.namespace, &name.namespace);
+            let wfc = gen_namespace(&interface.name.namespace, &name.namespace);
             let name = name.gen();
 
             quote! {

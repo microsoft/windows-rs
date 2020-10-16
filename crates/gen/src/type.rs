@@ -4,26 +4,24 @@ use squote::TokenStream;
 
 #[derive(Debug)]
 pub enum Type {
-    Class(gen::Class),
-    Interface(gen::Interface),
-    Enum(gen::Enum),
-    Struct(gen::Struct),
-    Delegate(gen::Delegate),
+    Class(Class),
+    Interface(Interface),
+    Enum(Enum),
+    Struct(Struct),
+    Delegate(Delegate),
 }
 
 impl Type {
     pub fn from_type_def(reader: &winmd::TypeReader, def: winmd::TypeDef) -> Self {
-        let name = gen::TypeName::from_type_def(reader, def, "");
+        let name = TypeName::from_type_def(reader, def, "");
         match def.category(reader) {
             winmd::TypeCategory::Interface => {
-                Self::Interface(gen::Interface::from_type_name(reader, name))
+                Self::Interface(Interface::from_type_name(reader, name))
             }
-            winmd::TypeCategory::Class => Self::Class(gen::Class::from_type_name(reader, name)),
-            winmd::TypeCategory::Enum => Self::Enum(gen::Enum::from_type_name(reader, name)),
-            winmd::TypeCategory::Struct => Self::Struct(gen::Struct::from_type_name(reader, name)),
-            winmd::TypeCategory::Delegate => {
-                Self::Delegate(gen::Delegate::from_type_name(reader, name))
-            }
+            winmd::TypeCategory::Class => Self::Class(Class::from_type_name(reader, name)),
+            winmd::TypeCategory::Enum => Self::Enum(Enum::from_type_name(reader, name)),
+            winmd::TypeCategory::Struct => Self::Struct(Struct::from_type_name(reader, name)),
+            winmd::TypeCategory::Delegate => Self::Delegate(Delegate::from_type_name(reader, name)),
         }
     }
 
@@ -37,7 +35,7 @@ impl Type {
         }
     }
 
-    pub fn name(&self) -> &gen::TypeName {
+    pub fn name(&self) -> &TypeName {
         match self {
             Type::Class(t) => &t.name,
             Type::Interface(t) => &t.name,

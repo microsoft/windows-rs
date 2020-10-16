@@ -4,17 +4,17 @@ use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct Interface {
-    pub name: gen::TypeName,
-    pub guid: gen::TypeGuid,
-    pub interfaces: Vec<gen::RequiredInterface>,
+    pub name: TypeName,
+    pub guid: TypeGuid,
+    pub interfaces: Vec<RequiredInterface>,
 }
 
 impl Interface {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: gen::TypeName) -> Self {
-        let guid = gen::TypeGuid::from_type_def(reader, name.def);
+    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
+        let guid = TypeGuid::from_type_def(reader, name.def);
         let mut interfaces = Vec::new();
 
-        gen::add_type(
+        add_type(
             &mut interfaces,
             reader,
             name.def,
@@ -22,7 +22,7 @@ impl Interface {
             InterfaceKind::Default,
         );
 
-        gen::add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
+        add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
 
         Self {
             name,
@@ -47,7 +47,7 @@ impl Interface {
         dependencies
     }
 
-    pub fn default_interface(&self) -> &gen::RequiredInterface {
+    pub fn default_interface(&self) -> &RequiredInterface {
         self.interfaces
             .iter()
             .find(|i| i.kind == InterfaceKind::Default)
@@ -76,11 +76,11 @@ impl Interface {
                 .map(|interface| interface.gen_conversions(&name, &constraints)),
         );
 
-        let methods = gen::gen_method(&self.interfaces);
+        let methods = gen_method(&self.interfaces);
         let abi_methods = default_interface.gen_abi_method();
-        let iterator = gen::gen_iterator(&self.name, &self.interfaces);
-        let (async_get, future) = gen::gen_async(&self.name, &self.interfaces);
-        let debug = gen::gen_debug(&self.name, &self.interfaces);
+        let iterator = gen_iterator(&self.name, &self.interfaces);
+        let (async_get, future) = gen_async(&self.name, &self.interfaces);
+        let debug = gen_debug(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]
@@ -147,13 +147,13 @@ impl Interface {
 mod tests {
     use crate::*;
 
-    fn interface((namespace, type_name): (&str, &str)) -> gen::Interface {
+    fn interface((namespace, type_name): (&str, &str)) -> Interface {
         let reader = &winmd::TypeReader::from_os();
         let t = reader.resolve_type_def((namespace, type_name));
-        let t = gen::Type::from_type_def(reader, t);
+        let t = Type::from_type_def(reader, t);
 
         match t {
-            gen::Type::Interface(t) => t,
+            Type::Interface(t) => t,
             _ => panic!("Type not an interface"),
         }
     }
@@ -180,7 +180,7 @@ mod tests {
 
         assert!(method.params.is_empty());
         let param = method.return_type.as_ref().unwrap();
-        assert!(param.kind == gen::TypeKind::String);
+        assert!(param.kind == TypeKind::String);
     }
 
     #[test]

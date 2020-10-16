@@ -4,7 +4,7 @@ use squote::{quote, TokenStream};
 #[derive(Debug)]
 pub struct Param {
     pub name: String,
-    pub kind: gen::TypeKind,
+    pub kind: TypeKind,
     pub array: bool,
     pub input: bool,
     pub by_ref: bool,
@@ -25,14 +25,14 @@ impl Param {
             }
         } else if self.input {
             match self.kind {
-                gen::TypeKind::String
-                | gen::TypeKind::Object
-                | gen::TypeKind::Guid
-                | gen::TypeKind::Class(_)
-                | gen::TypeKind::Interface(_)
-                | gen::TypeKind::Struct(_)
-                | gen::TypeKind::Delegate(_)
-                | gen::TypeKind::Generic(_) => {
+                TypeKind::String
+                | TypeKind::Object
+                | TypeKind::Guid
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Struct(_)
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => {
                     let tokens = squote::format_ident!("T{}__", position);
                     quote! { #name: #tokens, }
                 }
@@ -56,14 +56,14 @@ impl Param {
             }
         } else if self.input {
             match self.kind {
-                gen::TypeKind::String
-                | gen::TypeKind::Object
-                | gen::TypeKind::Guid
-                | gen::TypeKind::Class(_)
-                | gen::TypeKind::Interface(_)
-                | gen::TypeKind::Struct(_)
-                | gen::TypeKind::Delegate(_)
-                | gen::TypeKind::Generic(_) => {
+                TypeKind::String
+                | TypeKind::Object
+                | TypeKind::Guid
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Struct(_)
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => {
                     quote! { &#tokens, }
                 }
                 _ => quote! { #tokens, },
@@ -130,15 +130,15 @@ impl Param {
                 quote! { #name, }
             } else {
                 match self.kind {
-                    gen::TypeKind::String
-                    | gen::TypeKind::Object
-                    | gen::TypeKind::Guid
-                    | gen::TypeKind::Class(_)
-                    | gen::TypeKind::Interface(_)
-                    | gen::TypeKind::Struct(_)
-                    | gen::TypeKind::Delegate(_)
-                    | gen::TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
-                    gen::TypeKind::Enum(_) => quote! { ::winrt::AbiTransferable::get_abi(&#name), },
+                    TypeKind::String
+                    | TypeKind::Object
+                    | TypeKind::Guid
+                    | TypeKind::Class(_)
+                    | TypeKind::Interface(_)
+                    | TypeKind::Struct(_)
+                    | TypeKind::Delegate(_)
+                    | TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
+                    TypeKind::Enum(_) => quote! { ::winrt::AbiTransferable::get_abi(&#name), },
                     _ => quote! { ::winrt::AbiTransferable::get_abi(#name), },
                 }
             }
@@ -166,7 +166,7 @@ impl Param {
         } else if self.input {
             if self.kind.primitive() {
                 quote! { #name }
-            } else if let gen::TypeKind::Enum(_) = self.kind {
+            } else if let TypeKind::Enum(_) = self.kind {
                 quote! { *::winrt::AbiTransferable::from_abi(&#name) }
             } else {
                 quote! { ::winrt::AbiTransferable::from_abi(&#name) }

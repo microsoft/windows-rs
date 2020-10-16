@@ -3,19 +3,19 @@ use squote::{quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct Struct {
-    pub name: gen::TypeName,
-    pub fields: Vec<(String, gen::TypeKind)>, // TODO: might have to be a full Type to ensure we can write out nested structs for ABI layout
+    pub name: TypeName,
+    pub fields: Vec<(String, TypeKind)>, // TODO: might have to be a full Type to ensure we can write out nested structs for ABI layout
     pub signature: String,
 }
 
 impl Struct {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: gen::TypeName) -> Self {
+    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
         let signature = name.struct_signature(reader);
         let mut fields = Vec::new();
 
         for field in name.def.fields(reader) {
             let field_name = to_snake(field.name(reader), MethodKind::Normal);
-            let kind = gen::TypeKind::from_field(reader, field, &name.namespace);
+            let kind = TypeKind::from_field(reader, field, &name.namespace);
             fields.push((field_name, kind));
         }
 

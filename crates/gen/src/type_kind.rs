@@ -19,11 +19,11 @@ pub enum TypeKind {
     String,
     Object,
     Guid,
-    Class(gen::TypeName),
-    Interface(gen::TypeName),
-    Enum(gen::TypeName),
-    Struct(gen::TypeName),
-    Delegate(gen::TypeName),
+    Class(TypeName),
+    Interface(TypeName),
+    Enum(TypeName),
+    Struct(TypeName),
+    Delegate(TypeName),
     Generic(String),
 }
 
@@ -80,7 +80,7 @@ impl TypeKind {
         }
     }
 
-    fn from_type_name(reader: &winmd::TypeReader, name: gen::TypeName) -> Self {
+    fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
         match name.def.category(reader) {
             winmd::TypeCategory::Interface => TypeKind::Interface(name),
             winmd::TypeCategory::Class => TypeKind::Class(name),
@@ -98,7 +98,7 @@ impl TypeKind {
     ) -> Self {
         Self::from_type_name(
             reader,
-            gen::TypeName::from_type_def(reader, def, calling_namespace),
+            TypeName::from_type_def(reader, def, calling_namespace),
         )
     }
 
@@ -127,7 +127,7 @@ impl TypeKind {
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
-        TypeKind::Interface(gen::TypeName::from_type_spec(
+        TypeKind::Interface(TypeName::from_type_spec(
             reader,
             spec,
             generics,
@@ -186,7 +186,7 @@ impl TypeKind {
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x15 => Self::from_type_name(
                 blob.reader,
-                gen::TypeName::from_type_spec_blob(blob, generics, calling_namespace),
+                TypeName::from_type_spec_blob(blob, generics, calling_namespace),
             ),
             _ => panic!("TypeKind::from_blob"),
         }

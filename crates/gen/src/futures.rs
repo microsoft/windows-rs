@@ -1,10 +1,7 @@
 use crate::*;
 use squote::{quote, TokenStream};
 
-pub fn gen_async(
-    name: &gen::TypeName,
-    interfaces: &[gen::RequiredInterface],
-) -> (TokenStream, TokenStream) {
+pub fn gen_async(name: &TypeName, interfaces: &[RequiredInterface]) -> (TokenStream, TokenStream) {
     let kind = async_kind(name);
     if kind != AsyncKind::None {
         return gen_async_kind(kind, name, name);
@@ -30,7 +27,7 @@ enum AsyncKind {
     OperationWithProgress,
 }
 
-fn async_kind(name: &gen::TypeName) -> AsyncKind {
+fn async_kind(name: &TypeName) -> AsyncKind {
     if name.namespace != "Windows.Foundation" {
         return AsyncKind::None;
     }
@@ -46,8 +43,8 @@ fn async_kind(name: &gen::TypeName) -> AsyncKind {
 
 fn gen_async_kind(
     kind: AsyncKind,
-    name: &gen::TypeName,
-    self_name: &gen::TypeName,
+    name: &TypeName,
+    self_name: &TypeName,
 ) -> (TokenStream, TokenStream) {
     let return_type = match kind {
         AsyncKind::Operation | AsyncKind::OperationWithProgress => name.generics[0].gen(),
