@@ -1,6 +1,6 @@
 use syn::spanned::Spanned;
 
-struct Implements(Vec<winrt_gen::gen::Type>);
+struct Implements(Vec<winrt_gen::Type>);
 
 impl syn::parse::Parse for Implements {
     fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
@@ -22,12 +22,12 @@ impl syn::parse::Parse for Implements {
 fn use_tree_to_types(
     reader: &winmd::TypeReader,
     tree: &syn::UseTree,
-    types: &mut Vec<winrt_gen::gen::Type>,
+    types: &mut Vec<winrt_gen::Type>,
 ) -> syn::parse::Result<()> {
     fn recurse(
         reader: &winmd::TypeReader,
         tree: &syn::UseTree,
-        types: &mut Vec<winrt_gen::gen::Type>,
+        types: &mut Vec<winrt_gen::Type>,
         current: &mut String,
     ) -> syn::parse::Result<()> {
         match tree {
@@ -74,7 +74,7 @@ fn use_tree_to_types(
                     }
                 };
 
-                types.push(winrt_gen::gen::Type::from_type_def(reader, *def));
+                types.push(winrt_gen::Type::from_type_def(reader, *def));
 
                 // TODO
                 // If type is a class, add any required interfaces.
@@ -123,7 +123,7 @@ pub fn gen(
     let mut method_impls = vec![];
 
     for typ in implements.0 {
-        if let winrt_gen::gen::Type::Interface(typ) = typ {
+        if let winrt_gen::Type::Interface(typ) = typ {
             // TODO: maybe delay conversion to proc_macro2 until later in the pipeline.
             let name = typ
                 .name
