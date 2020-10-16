@@ -30,7 +30,7 @@ fn named_arguments() -> Result<()> {
         files
     };
 
-    let reader = winrt_gen::TypeReader::from_iter(files);
+    let reader = winmd::TypeReader::from_iter(files);
     let type_def = reader.resolve_type_def(("TestComponent", "TestRunner"));
 
     // TestRunner should have a custom attribute on it
@@ -42,15 +42,15 @@ fn named_arguments() -> Result<()> {
             ("TestComponent", "CustomTestAttribute") => {
                 for (name, arg) in attribute.args(&reader) {
                     match (&name as &str, &arg) {
-                        ("SomeString", winrt_gen::winmd::AttributeArg::String(value)) => {
+                        ("SomeString", winmd::AttributeArg::String(value)) => {
                             assert_eq!(value, "Hello, World!");
                             some_string += 1;
                         }
-                        ("SomeInt", winrt_gen::winmd::AttributeArg::I32(value)) => {
+                        ("SomeInt", winmd::AttributeArg::I32(value)) => {
                             assert_eq!(*value, 1975);
                             some_int += 1;
                         }
-                        ("SomeBool", winrt_gen::winmd::AttributeArg::Bool(value)) => {
+                        ("SomeBool", winmd::AttributeArg::Bool(value)) => {
                             assert_eq!(*value, true);
                             some_bool += 1;
                         }

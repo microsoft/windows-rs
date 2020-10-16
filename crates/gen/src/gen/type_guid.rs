@@ -1,4 +1,3 @@
-use crate::*;
 use squote::{quote, Literal, TokenStream};
 
 #[derive(Clone, Default, PartialEq)]
@@ -63,7 +62,7 @@ impl TypeGuid {
         Self::default()
     }
 
-    pub fn from_type_def(reader: &TypeReader, def: winmd::TypeDef) -> Self {
+    pub fn from_type_def(reader: &winmd::TypeReader, def: winmd::TypeDef) -> Self {
         let args = def
             .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
             .args(reader);

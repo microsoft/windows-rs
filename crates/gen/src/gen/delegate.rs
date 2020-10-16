@@ -9,7 +9,7 @@ pub struct Delegate {
 }
 
 impl Delegate {
-    pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
+    pub fn from_type_name(reader: &winmd::TypeReader, name: gen::TypeName) -> Self {
         let method = name
             .def
             .methods(reader)

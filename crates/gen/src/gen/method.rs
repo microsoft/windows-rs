@@ -11,7 +11,7 @@ pub struct Method {
 
 impl Method {
     pub fn from_method_def(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         method: winmd::MethodDef,
         generics: &[gen::TypeKind],
         calling_namespace: &str,
@@ -99,7 +99,7 @@ impl Method {
             .collect()
     }
 
-    fn name(reader: &TypeReader, method: winmd::MethodDef) -> String {
+    fn name(reader: &winmd::TypeReader, method: winmd::MethodDef) -> String {
         if let Some(attribute) =
             method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
         {
@@ -315,7 +315,7 @@ mod tests {
     use crate::*;
 
     fn method((namespace, type_name): (&str, &str), method_name: &str) -> gen::Method {
-        let reader = &TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_os();
         let def = reader.resolve_type_def((namespace, type_name));
 
         let t = match gen::Type::from_type_def(reader, def) {

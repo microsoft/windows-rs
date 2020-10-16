@@ -9,7 +9,7 @@ pub struct Struct {
 }
 
 impl Struct {
-    pub fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
+    pub fn from_type_name(reader: &winmd::TypeReader, name: gen::TypeName) -> Self {
         let signature = name.struct_signature(reader);
         let mut fields = Vec::new();
 

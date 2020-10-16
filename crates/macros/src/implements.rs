@@ -5,7 +5,7 @@ struct Implements(Vec<winrt_gen::gen::Type>);
 impl syn::parse::Parse for Implements {
     fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut types = Vec::new();
-        let reader = winrt_gen::TypeReader::from_build();
+        let reader = winmd::TypeReader::from_build();
 
         loop {
             use_tree_to_types(reader, &input.parse::<syn::UseTree>()?, &mut types)?;
@@ -20,12 +20,12 @@ impl syn::parse::Parse for Implements {
 }
 
 fn use_tree_to_types(
-    reader: &winrt_gen::TypeReader,
+    reader: &winmd::TypeReader,
     tree: &syn::UseTree,
     types: &mut Vec<winrt_gen::gen::Type>,
 ) -> syn::parse::Result<()> {
     fn recurse(
-        reader: &winrt_gen::TypeReader,
+        reader: &winmd::TypeReader,
         tree: &syn::UseTree,
         types: &mut Vec<winrt_gen::gen::Type>,
         current: &mut String,

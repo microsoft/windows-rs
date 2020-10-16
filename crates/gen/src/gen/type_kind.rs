@@ -1,5 +1,6 @@
 use crate::*;
 use squote::{quote, TokenStream};
+use winmd::Decode;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeKind {
@@ -27,7 +28,7 @@ pub enum TypeKind {
 }
 
 impl TypeKind {
-    pub fn signature(&self, reader: &TypeReader) -> String {
+    pub fn signature(&self, reader: &winmd::TypeReader) -> String {
         match self {
             Self::Bool => "b1".to_owned(),
             Self::Char => "c2".to_owned(),
@@ -79,7 +80,7 @@ impl TypeKind {
         }
     }
 
-    fn from_type_name(reader: &TypeReader, name: gen::TypeName) -> Self {
+    fn from_type_name(reader: &winmd::TypeReader, name: gen::TypeName) -> Self {
         match name.def.category(reader) {
             winmd::TypeCategory::Interface => TypeKind::Interface(name),
             winmd::TypeCategory::Class => TypeKind::Class(name),
@@ -90,7 +91,7 @@ impl TypeKind {
     }
 
     pub fn from_type_def(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         def: winmd::TypeDef,
         _generics: &[TypeKind],
         calling_namespace: &str,
@@ -102,7 +103,7 @@ impl TypeKind {
     }
 
     pub fn from_type_ref(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         type_ref: winmd::TypeRef,
         generics: &[TypeKind],
         calling_namespace: &str,
@@ -121,7 +122,7 @@ impl TypeKind {
     }
 
     pub fn from_type_spec(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         spec: winmd::TypeSpec,
         generics: &[TypeKind],
         calling_namespace: &str,
@@ -135,7 +136,7 @@ impl TypeKind {
     }
 
     fn from_type_def_or_ref(
-        reader: &TypeReader,
+        reader: &winmd::TypeReader,
         code: winmd::TypeDefOrRef,
         generics: &[TypeKind],
         calling_namespace: &str,
@@ -191,7 +192,11 @@ impl TypeKind {
         }
     }
 
-    pub fn from_field(reader: &TypeReader, field: winmd::Field, calling_namespace: &str) -> Self {
+    pub fn from_field(
+        reader: &winmd::TypeReader,
+        field: winmd::Field,
+        calling_namespace: &str,
+    ) -> Self {
         let mut blob = field.sig(reader);
         blob.read_unsigned();
         blob.read_modifiers();

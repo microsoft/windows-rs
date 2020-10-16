@@ -6,7 +6,7 @@ use syn::spanned::Spanned;
 use syn::{Error, UseTree};
 
 use winrt_deps::cargo;
-use winrt_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
+use winrt_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 
 use std::convert::{TryFrom, TryInto};
 use std::{collections::BTreeSet, path::Path, path::PathBuf};
@@ -27,10 +27,10 @@ impl BuildMacro {
 
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
         let reader = &if self.foundation {
-            TypeReader::from_foundation()
+            winmd::TypeReader::from_foundation()
         } else {
             // TODO: should be TypeReader::from_build() shared by build/implements macro
-            TypeReader::from_iter(self.dependencies.0)
+            winmd::TypeReader::from_iter(self.dependencies.0)
         };
 
         let mut limits = TypeLimits::new(reader);
