@@ -27,7 +27,12 @@ impl BuildMacro {
 
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
         let reader = &if self.foundation {
-            winmd::TypeReader::from_foundation()
+            let files = std::fs::read_dir("winmds")
+                .unwrap()
+                .filter_map(|value| value.ok())
+                .map(|value| value.path());
+
+            winmd::TypeReader::from_iter(files)
         } else {
             // TODO: should be TypeReader::from_build() shared by build/implements macro
             winmd::TypeReader::from_iter(self.dependencies.0)
