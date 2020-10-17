@@ -5,7 +5,7 @@ struct Implements(Vec<winrt_gen::Type>);
 impl syn::parse::Parse for Implements {
     fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut types = Vec::new();
-        let reader = winmd::TypeReader::from_build();
+        let reader = build_reader();
 
         loop {
             use_tree_to_types(reader, &input.parse::<syn::UseTree>()?, &mut types)?;
@@ -17,6 +17,25 @@ impl syn::parse::Parse for Implements {
 
         Ok(Self(types))
     }
+}
+
+fn build_reader() -> &'static winmd::TypeReader {
+    use std::{mem::MaybeUninit, sync::Once};
+    static ONCE: Once = Once::new();
+    static mut VALUE: MaybeUninit<winmd::TypeReader> = MaybeUninit::uninit();
+
+    ONCE.call_once(|| {
+        // This is safe because `Once` provides thread-safe one-time initialization
+        unsafe {
+            VALUE = MaybeUninit::new(
+                // TODO: load all the winmd files from the target/nuget folder
+                winmd::TypeReader::from_os(),
+            )
+        }
+    });
+
+    // This is safe because `call_once` has already been called.
+    unsafe { &*VALUE.as_ptr() }
 }
 
 fn use_tree_to_types(

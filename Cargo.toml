@@ -12,7 +12,7 @@ readme = "README.md"
 [dependencies]
 winrt-macros = { path = "crates/macros",  version = "0.7.2" }
 const-sha1 = "0.2"
-winmd = "0.2"
+winmd = "0.3"
 
 [build-dependencies]
 winrt-macros = { path = "crates/macros",  version = "0.7.2" }
