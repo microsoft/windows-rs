@@ -243,8 +243,8 @@ impl TypeName {
         for field in self.def.fields(reader) {
             for constant in field.constants(reader) {
                 match constant.value_type(reader) {
-                    0x08 => return "i4",
-                    0x09 => return "u4",
+                    winmd::ElementType::I4 => return "i4",
+                    winmd::ElementType::U4 => return "u4",
                     _ => panic!("Invalid enum type"),
                 };
             }
