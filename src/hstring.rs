@@ -1,4 +1,6 @@
 use crate::*;
+use std::convert::TryFrom;
+use std::result::Result as StdResult;
 
 /// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring).
 ///
@@ -189,15 +191,19 @@ impl PartialEq<HString> for &str {
     }
 }
 
-impl<'a> From<&'a HString> for String {
-    fn from(hstring: &HString) -> Self {
-        String::from_utf16(hstring.as_wide()).unwrap()
+impl<'a> TryFrom<&'a HString> for String {
+    type Error = std::string::FromUtf16Error;
+
+    fn try_from(hstring: &HString) -> StdResult<Self, Self::Error> {
+        String::from_utf16(hstring.as_wide())
     }
 }
 
-impl From<HString> for String {
-    fn from(hstring: HString) -> Self {
-        String::from(&hstring)
+impl TryFrom<HString> for String {
+    type Error = std::string::FromUtf16Error;
+
+    fn try_from(hstring: HString) -> StdResult<Self, Self::Error> {
+        String::try_from(&hstring)
     }
 }
 
@@ -332,7 +338,7 @@ mod tests {
     #[test]
     fn hstring_to_string() {
         let h = HString::from("test");
-        let s = String::from(h);
+        let s = String::try_from(h).unwrap();
         assert!(s == "test");
     }
 }
