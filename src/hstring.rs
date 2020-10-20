@@ -352,4 +352,13 @@ mod tests {
         let s = String::try_from(h).unwrap();
         assert!(s == "test");
     }
+
+    #[test]
+    fn hstring_to_string_err() {
+        // 𝄞mu<invalid>ic
+        let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
+        let h = HString::from_wide(wide_data);
+        let err = String::try_from(h);
+        assert!(err.is_err());
+    }
 }
