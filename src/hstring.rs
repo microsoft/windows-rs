@@ -52,6 +52,11 @@ impl HString {
         HString::from_wide_iter(value.iter().copied(), value.len() as u32)
     }
 
+    /// Get the contents of this HString as a String lossily.
+    pub fn to_string_lossy(&self) -> String {
+        String::from_utf16_lossy(self.as_wide())
+    }
+
     /// Clear the contents of the string and free the memory if `self` holds the
     /// last reference to the string data.
     pub fn clear(&mut self) {
@@ -360,5 +365,14 @@ mod tests {
         let h = HString::from_wide(wide_data);
         let err = String::try_from(h);
         assert!(err.is_err());
+    }
+
+    #[test]
+    fn hstring_to_string_lossy() {
+        // 𝄞mu<invalid>ic
+        let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
+        let h = HString::from_wide(wide_data);
+        let s = h.to_string_lossy();
+        assert_eq!(s, "𝄞mu�ic");
     }
 }
