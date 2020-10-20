@@ -47,6 +47,11 @@ impl HString {
         unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
+    /// Create a HString from a slice of 16 bit characters (wchars).
+    pub fn from_wide(value: &[u16]) -> HString {
+        HString::from_wide_iter(value.iter().copied(), value.len() as u32)
+    }
+
     /// Clear the contents of the string and free the memory if `self` holds the
     /// last reference to the string data.
     pub fn clear(&mut self) {
@@ -66,6 +71,29 @@ impl HString {
         }
 
         self.ptr = std::ptr::null_mut();
+    }
+}
+
+impl HString {
+    fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> HString {
+        if len == 0 {
+            return HString::new();
+        }
+
+        let mut ptr = Header::alloc(len);
+
+        // Place each utf-16 character into the buffer and
+        // increase len as we go along.
+        for (index, wide) in iter.enumerate() {
+            unsafe {
+                std::ptr::write((*ptr).data.add(index), wide);
+                (*ptr).len = index as u32 + 1;
+            }
+        }
+
+        // Write a 0 byte to the end of the buffer.
+        unsafe { std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0) };
+        Self { ptr }
     }
 }
 
@@ -128,24 +156,7 @@ impl std::fmt::Debug for HString {
 
 impl From<&str> for HString {
     fn from(value: &str) -> Self {
-        if value.is_empty() {
-            return HString::new();
-        }
-
-        let mut ptr = Header::alloc(value.len() as u32);
-
-        // Place each utf-16 character into the buffer and
-        // increase len as we go along.
-        for (index, wide) in value.encode_utf16().enumerate() {
-            unsafe {
-                std::ptr::write((*ptr).data.add(index), wide);
-                (*ptr).len = index as u32 + 1;
-            }
-        }
-
-        // Write a 0 byte to the end of the buffer.
-        unsafe { std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0) };
-        Self { ptr }
+        HString::from_wide_iter(value.encode_utf16(), value.len() as u32)
     }
 }
 
