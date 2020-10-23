@@ -49,7 +49,7 @@ impl HString {
 
     /// Create a HString from a slice of 16 bit characters (wchars).
     pub fn from_wide(value: &[u16]) -> HString {
-        HString::from_wide_iter(value.iter().copied(), value.len() as u32)
+        unsafe { HString::from_wide_iter(value.iter().copied(), value.len() as u32) }
     }
 
     /// Get the contents of this HString as a String lossily.
@@ -78,7 +78,9 @@ impl HString {
         self.ptr = std::ptr::null_mut();
     }
 
-    fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> HString {
+    /// # Safety
+    /// len must not be less than the number of items in the iterator.
+    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> HString {
         if len == 0 {
             return HString::new();
         }
@@ -90,16 +92,12 @@ impl HString {
         for (index, wide) in iter.enumerate() {
             debug_assert!((index as u32) < len);
 
-            unsafe {
-                std::ptr::write((*ptr).data.add(index), wide);
-                (*ptr).len = index as u32 + 1;
-            }
+            std::ptr::write((*ptr).data.add(index), wide);
+            (*ptr).len = index as u32 + 1;
         }
 
         // Write a 0 byte to the end of the buffer.
-        unsafe {
-            std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
-        }
+        std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
         Self { ptr }
     }
 }
@@ -163,7 +161,7 @@ impl std::fmt::Debug for HString {
 
 impl From<&str> for HString {
     fn from(value: &str) -> Self {
-        HString::from_wide_iter(value.encode_utf16(), value.len() as u32)
+        unsafe { HString::from_wide_iter(value.encode_utf16(), value.len() as u32) }
     }
 }
 
