@@ -26,8 +26,8 @@ impl Enum {
                 let mut value = constant.value(reader);
 
                 let value = match constant.value_type(reader) {
-                    winmd::ElementType::I4 => EnumConstant::I32(value.read_i32()),
-                    winmd::ElementType::U4 => EnumConstant::U32(value.read_u32()),
+                    winmd::ElementType::I32 => EnumConstant::I32(value.read_i32()),
+                    winmd::ElementType::U32 => EnumConstant::U32(value.read_u32()),
                     _ => panic!("Enum::from_type_def"),
                 };
 
@@ -36,8 +36,8 @@ impl Enum {
         }
 
         let underlying_type = match fields[0].1 {
-            EnumConstant::U32(_) => winmd::ElementType::U4,
-            EnumConstant::I32(_) => winmd::ElementType::I4,
+            EnumConstant::U32(_) => winmd::ElementType::U32,
+            EnumConstant::I32(_) => winmd::ElementType::I32,
         };
 
         Self {
