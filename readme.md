@@ -44,15 +44,12 @@ fn main() {
 }
 ```
 
-Then use those types inside your crate.
+Finally, make use of any WinRT APIs as needed. For example, here is an example of using the `XmlDocument` class to parse an XML document.
 
 ```rust
 use winrt::*;
-
 include_bindings!();
 
-// Finally, make use of any WinRT APIs as needed. For example, here is
-// an example of using the `XmlDocument` class to parse an XML document:
 fn main() -> Result<()> {
     use windows::data::xml::dom::*;
 
