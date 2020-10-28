@@ -58,10 +58,6 @@ impl RequiredInterface {
         }
     }
 
-    pub fn gen_abi_method(&self) -> TokenStream {
-        TokenStream::from_iter(self.methods.iter().map(|method| method.gen_abi(&self.name)))
-    }
-
     pub fn gen_conversions(&self, from: &TokenStream, constraints: &TokenStream) -> TokenStream {
         match self.kind {
             InterfaceKind::Default => {

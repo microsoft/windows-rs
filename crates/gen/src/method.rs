@@ -113,52 +113,17 @@ impl Method {
         to_snake(method.name(reader), MethodKind::Normal)
     }
 
-    pub fn gen_abi(&self, self_name: &TypeName) -> TokenStream {
+    pub fn gen_abi_signature(&self, self_name: &TypeName) -> TokenStream {
         let type_name = self_name.gen();
-        let name = format_ident(&self.name);
-        let params = TokenStream::from_iter(
-            self.params
-                .iter()
-                .chain(self.return_type.iter())
-                .map(|param| param.gen_abi()),
-        );
 
-        quote! {
-            pub #name: unsafe extern "system" fn(::winrt::NonNullRawComPtr<#type_name>, #params) -> ::winrt::ErrorCode,
-        }
-    }
-
-    pub fn gen_abi_impl(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = self_name.gen();
-        let name = format_ident(&self.name);
         let params = self
             .params
             .iter()
             .chain(self.return_type.iter())
-            .map(|param| {
-                let abi = param.gen_abi();
-                quote! { #abi }
-            });
+            .map(|param| param.gen_abi());
 
         quote! {
-            unsafe extern "system" fn #name(this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
-        }
-    }
-
-    pub fn gen_binding_abi_impl(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = self_name.gen_binding();
-        let name = format_ident(&self.name);
-        let params = self
-            .params
-            .iter()
-            .chain(self.return_type.iter())
-            .map(|param| {
-                let abi = param.gen_abi();
-                quote! { #abi }
-            });
-
-        quote! {
-            unsafe extern "system" fn #name(this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
+            (this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
         }
     }
 
