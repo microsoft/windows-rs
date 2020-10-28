@@ -1,4 +1,6 @@
 use crate::*;
+use std::convert::TryFrom;
+use std::result::Result as StdResult;
 
 /// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring).
 ///
@@ -45,6 +47,16 @@ impl HString {
         unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
+    /// Create a HString from a slice of 16 bit characters (wchars).
+    pub fn from_wide(value: &[u16]) -> HString {
+        unsafe { HString::from_wide_iter(value.iter().copied(), value.len() as u32) }
+    }
+
+    /// Get the contents of this HString as a String lossily.
+    pub fn to_string_lossy(&self) -> String {
+        String::from_utf16_lossy(self.as_wide())
+    }
+
     /// Clear the contents of the string and free the memory if `self` holds the
     /// last reference to the string data.
     pub fn clear(&mut self) {
@@ -64,6 +76,29 @@ impl HString {
         }
 
         self.ptr = std::ptr::null_mut();
+    }
+
+    /// # Safety
+    /// len must not be less than the number of items in the iterator.
+    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> HString {
+        if len == 0 {
+            return HString::new();
+        }
+
+        let mut ptr = Header::alloc(len);
+
+        // Place each utf-16 character into the buffer and
+        // increase len as we go along.
+        for (index, wide) in iter.enumerate() {
+            debug_assert!((index as u32) < len);
+
+            std::ptr::write((*ptr).data.add(index), wide);
+            (*ptr).len = index as u32 + 1;
+        }
+
+        // Write a 0 byte to the end of the buffer.
+        std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
+        Self { ptr }
     }
 }
 
@@ -126,24 +161,7 @@ impl std::fmt::Debug for HString {
 
 impl From<&str> for HString {
     fn from(value: &str) -> Self {
-        if value.is_empty() {
-            return HString::new();
-        }
-
-        let mut ptr = Header::alloc(value.len() as u32);
-
-        // Place each utf-16 character into the buffer and
-        // increase len as we go along.
-        for (index, wide) in value.encode_utf16().enumerate() {
-            unsafe {
-                std::ptr::write((*ptr).data.add(index), wide);
-                (*ptr).len = index as u32 + 1;
-            }
-        }
-
-        // Write a 0 byte to the end of the buffer.
-        unsafe { std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0) };
-        Self { ptr }
+        unsafe { HString::from_wide_iter(value.encode_utf16(), value.len() as u32) }
     }
 }
 
@@ -189,15 +207,19 @@ impl PartialEq<HString> for &str {
     }
 }
 
-impl<'a> From<&'a HString> for String {
-    fn from(hstring: &HString) -> Self {
-        String::from_utf16(hstring.as_wide()).unwrap()
+impl<'a> TryFrom<&'a HString> for String {
+    type Error = std::string::FromUtf16Error;
+
+    fn try_from(hstring: &HString) -> StdResult<Self, Self::Error> {
+        String::from_utf16(hstring.as_wide())
     }
 }
 
-impl From<HString> for String {
-    fn from(hstring: HString) -> Self {
-        String::from(&hstring)
+impl TryFrom<HString> for String {
+    type Error = std::string::FromUtf16Error;
+
+    fn try_from(hstring: HString) -> StdResult<Self, Self::Error> {
+        String::try_from(&hstring)
     }
 }
 
@@ -332,7 +354,25 @@ mod tests {
     #[test]
     fn hstring_to_string() {
         let h = HString::from("test");
-        let s = String::from(h);
+        let s = String::try_from(h).unwrap();
         assert!(s == "test");
+    }
+
+    #[test]
+    fn hstring_to_string_err() {
+        // 𝄞mu<invalid>ic
+        let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
+        let h = HString::from_wide(wide_data);
+        let err = String::try_from(h);
+        assert!(err.is_err());
+    }
+
+    #[test]
+    fn hstring_to_string_lossy() {
+        // 𝄞mu<invalid>ic
+        let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
+        let h = HString::from_wide(wide_data);
+        let s = h.to_string_lossy();
+        assert_eq!(s, "𝄞mu�ic");
     }
 }
