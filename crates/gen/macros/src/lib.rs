@@ -1,9 +1,7 @@
 extern crate proc_macro;
 
 use proc_macro::TokenStream;
-use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
-use std::iter::FromIterator;
 
 #[proc_macro_attribute]
 pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
@@ -46,20 +44,16 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         enumerator += 1;
     }
 
-    let variants = TokenStream2::from_iter(variants);
-    let decodes = TokenStream2::from_iter(decodes);
-    let encodes = TokenStream2::from_iter(encodes);
-
     let output = quote!(
         #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
         pub enum #name {
-            #variants
+            #(#variants)*
         }
         impl Decode for #name {
             fn decode(code: u32, file:u16) -> Self {
                 let code = (code & ((1 << #bits) - 1), (code >> #bits) - 1);
                 match code.0 {
-                    #decodes
+                    #(#decodes)*
                     _ => panic!("Failed to decode type code"),
                 }
             }
@@ -67,7 +61,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         impl #name {
             pub fn encode(&self) -> u32 {
                 match self {
-                    #encodes
+                    #(#encodes)*
                 }
             }
         }

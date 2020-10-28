@@ -113,7 +113,7 @@ impl Method {
         to_snake(method.name(reader), MethodKind::Normal)
     }
 
-    pub fn gen_abi_signature(&self, self_name: &TypeName) -> TokenStream {
+    pub fn gen_abi(&self, self_name: &TypeName) -> TokenStream {
         let type_name = self_name.gen();
 
         let params = self
@@ -132,7 +132,7 @@ impl Method {
         let params = gen_param(&self.params);
         let constraints = gen_constraint(&self.params);
 
-        let args = TokenStream::from_iter(self.params.iter().map(|param| param.gen_abi_arg()));
+        let args = self.params.iter().map(|param| param.gen_abi_arg());
 
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.gen_abi_return_arg();
@@ -143,7 +143,7 @@ impl Method {
                     let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
                     unsafe {
                         let mut result__: #return_type = ::std::mem::zeroed();
-                        (this.vtable().#method_name)(this, #args #return_arg)
+                        (this.vtable().#method_name)(this, #(#args)* #return_arg)
                             .and_then(|| result__ )
                     }
                 }
@@ -153,7 +153,7 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
                     let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
                     unsafe {
-                        (this.vtable().#method_name)(this, #args).ok()
+                        (this.vtable().#method_name)(this, #(#args)*).ok()
                     }
                 }
             }

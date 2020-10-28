@@ -35,7 +35,7 @@ impl Delegate {
         let phantoms = self.name.phantoms();
         let constraints = self.name.gen_constraint();
         let method = self.method.gen_default();
-        let abi_signature = self.method.gen_abi_signature(&self.name);
+        let abi_signature = self.method.gen_abi(&self.name);
 
         let guid = self.name.gen_guid(&self.guid);
 
