@@ -759,7 +759,7 @@ impl Dll {
         if !proper_arch {
             print_verbose_status!(
                 "",
-                "   not creating symlink for {:?} because of differing architecture to host architecture: {:?} not in {:?}",
+                "   not copying dll for {:?} because of differing architecture to host architecture: {:?} not in {:?}",
                 self.name,
                 self.arch,
                 ARCHES);
@@ -774,20 +774,20 @@ impl Dll {
             let profile_path = cargo::workspace_target_path()?.join(profile);
             std::fs::create_dir_all(&profile_path)?;
             let dll_path = profile_path.join(&self.name);
-            if std::fs::read_link(&dll_path).is_err() {
+            if !dll_path.exists() {
                 print_verbose_status!(
-                    "Creating",
-                    "symlink for {:?} in {}: '{}' <-> '{}'",
+                    "Copying",
+                    "dll for {:?} in {}: '{}' -> '{}'",
                     self.name,
                     profile,
                     path.display(),
                     dll_path.display()
                 );
-                std::os::windows::fs::symlink_file(&path, dll_path)?;
+                std::fs::copy(&path, dll_path)?;
             } else {
                 print_verbose_status!(
                     "",
-                    "   not creating symlink for {:?} in {} because it already exists",
+                    "   not copying dll for {:?} in {} because it already exists",
                     self.name,
                     profile
                 );
