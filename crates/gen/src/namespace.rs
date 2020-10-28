@@ -38,7 +38,7 @@ pub fn gen_binding_namespace(destination: &str) -> TokenStream {
     for destination in destination.split('.') {
         let destination =
             crate::format_ident(&crate::to_snake(destination, crate::MethodKind::Normal));
-            
+
         tokens.combine(&quote! { #destination:: });
     }
 
