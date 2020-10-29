@@ -1,6 +1,5 @@
 use crate::*;
 use squote::{quote, TokenStream};
-use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct Interface {
@@ -69,15 +68,23 @@ impl Interface {
         let guid = self.name.gen_guid(&self.guid);
         let signature = self.name.gen_signature(&format!("{{{:#?}}}", &self.guid));
 
-        let conversions = TokenStream::from_iter(
-            self.interfaces
-                .iter()
-                .filter(|interface| interface.kind != InterfaceKind::Default)
-                .map(|interface| interface.gen_conversions(&name, &constraints)),
-        );
+        let conversions = self
+            .interfaces
+            .iter()
+            .filter(|interface| interface.kind != InterfaceKind::Default)
+            .map(|interface| interface.gen_conversions(&name, &constraints));
 
         let methods = gen_method(&self.interfaces);
-        let abi_methods = default_interface.gen_abi_method();
+
+        let abi_methods = default_interface.methods.iter().map(|method| {
+            let name = format_ident(&method.name);
+            let signature = method.gen_abi(&default_interface.name);
+
+            quote! {
+                pub #name: unsafe extern "system" fn #signature
+            }
+        });
+
         let iterator = gen_iterator(&self.name, &self.interfaces);
         let (async_get, future) = gen_async(&self.name, &self.interfaces);
         let debug = gen_debug(&self.name, &self.interfaces);
@@ -100,7 +107,7 @@ impl Interface {
             #[repr(C)]
             pub struct #abi_definition where #constraints {
                 pub inspectable: ::winrt::abi_IInspectable,
-                #abi_methods
+                #(#abi_methods,)*
                 #phantoms
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
@@ -136,7 +143,7 @@ impl Interface {
                 }
             }
             #debug
-            #conversions
+            #(#conversions)*
             #iterator
             #future
         }

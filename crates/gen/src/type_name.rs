@@ -362,13 +362,11 @@ impl TypeName {
             return TokenStream::new();
         }
 
-        let phantoms = self.generics.iter().enumerate().map(|(count, generic)| {
+        TokenStream::from_iter(self.generics.iter().enumerate().map(|(count, generic)| {
             let name = format_ident!("t{}__", count);
             let generic = generic.gen();
             quote! { #name: ::std::marker::PhantomData::<#generic>, }
-        });
-
-        TokenStream::from_iter(phantoms)
+        }))
     }
 }
 

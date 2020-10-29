@@ -1,7 +1,6 @@
 use crate::*;
 use squote::{quote, TokenStream};
 use std::collections::*;
-use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct RequiredInterface {
@@ -56,10 +55,6 @@ impl RequiredInterface {
             methods,
             kind,
         }
-    }
-
-    pub fn gen_abi_method(&self) -> TokenStream {
-        TokenStream::from_iter(self.methods.iter().map(|method| method.gen_abi(&self.name)))
     }
 
     pub fn gen_conversions(&self, from: &TokenStream, constraints: &TokenStream) -> TokenStream {
@@ -178,7 +173,7 @@ pub fn add_dependencies(
 }
 
 pub fn gen_method(interfaces: &Vec<RequiredInterface>) -> TokenStream {
-    let mut tokens = Vec::new();
+    let mut tokens = TokenStream::new();
     let mut names = BTreeSet::new();
 
     for interface in interfaces {
@@ -190,7 +185,7 @@ pub fn gen_method(interfaces: &Vec<RequiredInterface>) -> TokenStream {
 
             names.insert(&method.name);
 
-            tokens.push(match interface.kind {
+            tokens.combine(&match interface.kind {
                 InterfaceKind::Default => method.gen_default(),
                 InterfaceKind::NonDefault | InterfaceKind::Overrides => {
                     method.gen_non_default(interface)
@@ -201,7 +196,7 @@ pub fn gen_method(interfaces: &Vec<RequiredInterface>) -> TokenStream {
         }
     }
 
-    TokenStream::from_iter(tokens)
+    tokens
 }
 
 fn rename_collisions(methods: &mut Vec<Method>) {

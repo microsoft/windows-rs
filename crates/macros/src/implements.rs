@@ -139,7 +139,6 @@ pub fn gen(
 
     let mut vtables = vec![];
     let mut vtable_ctors = vec![];
-    let mut method_impls = vec![];
 
     for typ in implements.0 {
         if let winrt_gen::Type::Interface(typ) = typ {
@@ -154,14 +153,6 @@ pub fn gen(
             for method in &typ.default_interface().methods {
                 let method_name = quote::format_ident!("{}", &method.name);
                 initializers.push(quote::quote! { #method_name: #box_name::#method_name });
-
-                let method = method
-                    .gen_binding_abi_impl(&typ.name)
-                    .parse::<proc_macro2::TokenStream>()
-                    .unwrap();
-                method_impls.push(quote::quote! {
-                    #method { panic!(); }
-                });
             }
 
             vtable_ctors.push(quote::quote! {
@@ -223,7 +214,6 @@ pub fn gen(
             extern "system" fn inspectable_trust_level(this: ::winrt::NonNullRawComPtr<::winrt::Object>, level: *mut i32) -> ::winrt::ErrorCode {
                 panic!();
             }
-            #(#method_impls)*
         }
 
         // Build the scaffolding for implementing the interfaces.

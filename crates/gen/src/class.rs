@@ -125,11 +125,10 @@ impl Class {
             .iter()
             .find(|i| i.kind == InterfaceKind::Default)
         {
-            let conversions = TokenStream::from_iter(
-                self.interfaces
-                    .iter()
-                    .map(|interface| interface.gen_conversions(&name, &TokenStream::new())),
-            );
+            let conversions = self
+                .interfaces
+                .iter()
+                .map(|interface| interface.gen_conversions(&name, &TokenStream::new()));
 
             let new = if self.default_constructor {
                 quote! {
@@ -208,7 +207,7 @@ impl Class {
                     }
                 }
                 #debug
-                #conversions
+                #(#conversions)*
                 #bases
                 #iterator
                 #send_sync
@@ -255,11 +254,11 @@ impl Class {
     }
 
     fn gen_call_factory(&self) -> TokenStream {
-        let mut tokens = Vec::new();
+        let mut tokens = TokenStream::new();
 
         if self.default_constructor {
             let interface_tokens = quote! { ::winrt::IActivationFactory };
-            tokens.push(self.to_named_call_factory("IActivationFactory", &interface_tokens));
+            tokens.combine(&self.to_named_call_factory("IActivationFactory", &interface_tokens));
         }
 
         for interface in &self.interfaces {
@@ -275,10 +274,10 @@ impl Class {
 
             let interface_name = format_ident(&interface.name.name);
             let interface_tokens = quote! { #interface_namespace #interface_name };
-            tokens.push(self.to_named_call_factory(&interface.name.name, &interface_tokens));
+            tokens.combine(&self.to_named_call_factory(&interface.name.name, &interface_tokens));
         }
 
-        TokenStream::from_iter(tokens)
+        tokens
     }
 
     fn to_named_call_factory(&self, method_name: &str, interface: &TokenStream) -> TokenStream {
