@@ -1,4 +1,4 @@
-use crate::{hstring, ErrorCode, Guid, RawPtr};
+use crate::{ErrorCode, Guid, RawPtr};
 
 pub const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 0x0000_0800;
 
@@ -99,7 +99,7 @@ demand_load! {
         pub fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
     }
     "combase.dll" {
-        pub fn RoGetActivationFactory(hstring: *mut hstring::Header, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
+        pub fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
         pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
         pub fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
     }

@@ -142,7 +142,7 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
 }
 
 type DllGetActivationFactory = extern "system" fn(
-    name: *mut hstring::Header,
+    name: RawPtr,
     factory: *mut RawComPtr<IActivationFactory>,
 ) -> ErrorCode;
 
