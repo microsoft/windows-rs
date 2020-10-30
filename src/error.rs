@@ -142,6 +142,7 @@ impl ErrorCode {
         Self(0x8007_0000 | error & 0xFFFF)
     }
 
+    pub const S_OK: ErrorCode = ErrorCode(0);
     pub const CO_E_NOTINITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
     pub const E_NOINTERFACE: ErrorCode = ErrorCode(0x8000_4002);
 }

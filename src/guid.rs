@@ -3,7 +3,7 @@ use super::{AbiTransferable, RuntimeType};
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/dotnet/api/system.guid?view=netcore-3.1)
 /// used to uniquely identify COM and WinRT interfaces.
 #[repr(C)]
-#[derive(Clone, Default, PartialEq)]
+#[derive(Clone, Default, PartialEq, Eq)]
 pub struct Guid {
     data1: u32,
     data2: u16,
