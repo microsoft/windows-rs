@@ -9,8 +9,8 @@
 pub unsafe trait AbiTransferable: Sized {
     type Abi;
 
-    fn get_abi(&self) -> Self::Abi;
-    fn set_abi(&mut self) -> *mut Self::Abi;
+    unsafe fn get_abi(&self) -> Self::Abi;
+    unsafe fn set_abi(&mut self) -> *mut Self::Abi;
 
     fn from_abi(abi: &Self::Abi) -> &Self {
         // This must be safe for the implementing type to
@@ -57,10 +57,10 @@ macro_rules! primitive_transferable_type {
     ($($t:ty),+) => {
         $(unsafe impl AbiTransferable for $t {
             type Abi = Self;
-            fn get_abi(&self) -> Self::Abi {
+            unsafe fn get_abi(&self) -> Self::Abi {
                 *self
             }
-            fn set_abi(&mut self) -> *mut Self::Abi {
+            unsafe fn set_abi(&mut self) -> *mut Self::Abi {
                 self as *mut Self::Abi
             }
         })*

@@ -1,4 +1,4 @@
-use crate::{AbiTransferable, HString};
+use crate::*;
 
 /// A WinRT method parameter used to accept either a reference or value.
 pub enum Param<'a, T: AbiTransferable> {
@@ -7,7 +7,7 @@ pub enum Param<'a, T: AbiTransferable> {
 }
 
 impl<'a, T: AbiTransferable> Param<'a, T> {
-    pub fn get_abi(&mut self) -> T::Abi {
+    pub unsafe fn get_abi(&mut self) -> T::Abi {
         match self {
             Param::Borrowed(value) => value.get_abi(),
             Param::Owned(value) => value.get_abi(),

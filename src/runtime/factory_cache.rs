@@ -2,6 +2,11 @@ use crate::*;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
+type DllGetActivationFactory = extern "system" fn(
+    name: RawPtr,
+    factory: *mut RawPtr,
+) -> ErrorCode;
+
 /// Attempts to load and cache the factory interface for the given WinRT class.
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<std::ffi::c_void>,
@@ -105,63 +110,50 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
 
             // Attempt to load the DLL.
             let library =
-                Library::from_handle(LoadLibraryExW(path.as_ptr(), std::ptr::null_mut(), 0));
+                Library(LoadLibraryExW(path.as_ptr(), std::ptr::null_mut(), 0));
 
-            if library.handle.is_null() {
+            if library.0.is_null() {
                 continue;
             }
 
             // If the DLL was found then get the export used to retrieve the factory.
             let library_call =
-                GetProcAddress(library.handle, b"DllGetActivationFactory\0".as_ptr());
+                GetProcAddress(library.0, b"DllGetActivationFactory\0".as_ptr());
 
             if library_call.is_null() {
                 continue;
             }
 
             let library_call: DllGetActivationFactory = std::mem::transmute(library_call);
-            let mut factory: IActivationFactory = std::mem::zeroed();
+            let mut abi = std::ptr::null_mut();
+            library_call(name.get_abi(), &mut abi);
 
-            // Now call DllGetActivationFactory to request the given class.
-            if library_call(name.get_abi(), factory.set_abi()).is_err() {
+            if abi.is_null(){ 
                 continue;
             }
 
-            debug_assert!(!factory.is_null());
+            let factory: IActivationFactory = std::mem::transmute(abi);
 
             // If we get this far it means the factory has been loaded and will be returned
             // to the caller. At this point we need to pin the library to avoid it unloading
             // while there are outstanding references. Unloading is only supported for
             // components loaded via RoGetActivationFactory.
             std::mem::forget(library);
-            return Ok(factory.query());
+            return factory.query();
         }
 
         Err(original)
     }
 }
 
-type DllGetActivationFactory = extern "system" fn(
-    name: RawPtr,
-    factory: *mut RawComPtr<IActivationFactory>,
-) -> ErrorCode;
-
-struct Library {
-    handle: RawPtr,
-}
+struct Library(RawPtr);
 
 impl Drop for Library {
     fn drop(&mut self) {
-        if !self.handle.is_null() {
+        if !self.0.is_null() {
             unsafe {
-                FreeLibrary(self.handle);
+                FreeLibrary(self.0);
             }
         }
-    }
-}
-
-impl Library {
-    unsafe fn from_handle(handle: RawPtr) -> Self {
-        Library { handle }
     }
 }

@@ -1,4 +1,6 @@
-use crate::{ErrorCode, Guid, RawPtr};
+use crate::*;
+
+// TODO: move to modules that actually use these functions and don't export
 
 pub const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 0x0000_0800;
 
@@ -24,13 +26,13 @@ extern "system" {
         source: RawPtr,
         code: ErrorCode,
         language: u32,
-        buffer: *mut *mut u16,
+        buffer: *mut RawPtr,
         size: u32,
         args: RawPtr,
     ) -> u32;
 }
 
-fn load_proc(library_name: &str, sym: &str) -> Result<RawPtr, ErrorCode> {
+fn load_proc(library_name: &str, sym: &str) -> std::result::Result<RawPtr, ErrorCode> {
     let library_name = library_name
         .encode_utf16()
         .chain(std::iter::once(0))
@@ -53,13 +55,6 @@ fn load_proc(library_name: &str, sym: &str) -> Result<RawPtr, ErrorCode> {
     Ok(addr)
 }
 
-#[link(name = "oleaut32")]
-extern "system" {
-    pub fn SysStringLen(bstr: *mut u16) -> u32;
-    pub fn SysFreeString(bstr: *mut u16);
-    pub fn GetErrorInfo(reserved: u32, info: *mut *mut u16) -> ErrorCode;
-}
-
 #[link(name = "ole32")]
 extern "system" {
     pub fn CoTaskMemAlloc(len: usize) -> RawPtr;
@@ -72,12 +67,12 @@ macro_rules! demand_load {
     } )* ) => {
         $($(
             #[allow(non_snake_case)]
-            pub unsafe fn $sym( $( $param: $pty ),* ) -> Result<$rt, ErrorCode> {
+            pub unsafe fn $sym( $( $param: $pty ),* ) -> std::result::Result<$rt, ErrorCode> {
                 // Thread-safe initialize VALUE to load_proc() result once, including any error.
                 // Could replace with static_init crate?
                 use std::{sync::Once, mem::MaybeUninit};
                 static ONCE: Once = Once::new();
-                static mut VALUE: MaybeUninit<Result<RawPtr, ErrorCode>> = MaybeUninit::uninit();
+                static mut VALUE: MaybeUninit<std::result::Result<RawPtr, ErrorCode>> = MaybeUninit::uninit();
                 ONCE.call_once(|| {
                     VALUE = MaybeUninit::new(
                         load_proc($library, concat!(stringify!($sym), "\0"))
