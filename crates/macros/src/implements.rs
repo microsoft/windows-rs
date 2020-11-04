@@ -208,7 +208,7 @@ pub fn gen(
             extern "system" fn inspectable_iids(this: ::winrt::NonNullRawComPtr<::winrt::Object>, count: *mut u32, values: *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode {
                 panic!();
             }
-            extern "system" fn inspectable_type_name(this: ::winrt::NonNullRawComPtr<::winrt::Object>, name: *mut <::winrt::HString as ::winrt::AbiTransferable>::Abi) -> ::winrt::ErrorCode {
+            extern "system" fn inspectable_type_name(this: ::winrt::NonNullRawComPtr<::winrt::Object>, name: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
                 panic!();
             }
             extern "system" fn inspectable_trust_level(this: ::winrt::NonNullRawComPtr<::winrt::Object>, level: *mut i32) -> ::winrt::ErrorCode {

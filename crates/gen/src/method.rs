@@ -1,5 +1,5 @@
 use crate::*;
-use squote::{quote, TokenStream};
+use squote::{quote, Literal, TokenStream};
 use std::iter::FromIterator;
 
 #[derive(Debug)]
@@ -7,12 +7,14 @@ pub struct Method {
     pub name: String,
     pub params: Vec<Param>,
     pub return_type: Option<Param>,
+    pub ordinal: u32,
 }
 
 impl Method {
     pub fn from_method_def(
         reader: &winmd::TypeReader,
         method: winmd::MethodDef,
+        ordinal: u32,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Method {
@@ -88,6 +90,7 @@ impl Method {
             name,
             params,
             return_type,
+            ordinal,
         }
     }
 
@@ -131,6 +134,7 @@ impl Method {
         let method_name = format_ident(&self.name);
         let params = gen_param(&self.params);
         let constraints = gen_constraint(&self.params);
+        let ordinal = Literal::u32_unsuffixed(self.ordinal);
 
         let args = self.params.iter().map(|param| param.gen_abi_arg());
 
@@ -140,10 +144,9 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
-                    let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
                     unsafe {
                         let mut result__: #return_type = ::std::mem::zeroed();
-                        (this.vtable().#method_name)(this, #(#args)* #return_arg)
+                        (<Self as ::winrt::ComInterface>::vtable(self).#ordinal)(this, #(#args)* #return_arg)
                             .and_then(|| result__ )
                     }
                 }
@@ -151,9 +154,8 @@ impl Method {
         } else {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
-                    let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
                     unsafe {
-                        (this.vtable().#method_name)(this, #(#args)*).ok()
+                        (<Self as ::winrt::ComInterface>::vtable(self).#ordinal)(this, #(#args)*).ok()
                     }
                 }
             }

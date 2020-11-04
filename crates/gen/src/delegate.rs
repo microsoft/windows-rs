@@ -15,7 +15,7 @@ impl Delegate {
             .methods(reader)
             .find(|method| method.name(reader) == "Invoke")
             .unwrap();
-        let method = Method::from_method_def(reader, method, &name.generics, &name.namespace);
+        let method = Method::from_method_def(reader, method, 3, &name.generics, &name.namespace);
         let guid = TypeGuid::from_type_def(reader, name.def);
         Self { name, method, guid }
     }
@@ -71,12 +71,12 @@ impl Delegate {
                 }
             } else {
                 let return_name = format_ident(&return_type.name);
-                let return_kind = return_type.kind.gen();
 
                 quote! {
                     match ((*this).invoke)(#(#invoke_args,)*) {
                         ::std::result::Result::Ok(ok__) => {
-                            *#return_name = <#return_kind as ::winrt::AbiTransferable>::into_abi(ok__);
+                            *#return_name = ::std::mem::transmute_copy(ok__);
+                            ::std::mem::forget(ok__);
                             ::winrt::ErrorCode(0)
                         }
                         ::std::result::Result::Err(err) => err.into()
@@ -91,11 +91,8 @@ impl Delegate {
 
         quote! {
             #[repr(transparent)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
-            pub struct #definition where #constraints {
-                ptr: ::winrt::ComPtr<#name>,
-                #phantoms
-            }
+            #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+            pub struct #definition(IUnknown, #phantoms) where #constraints;
             impl<#constraints> #name {
                 #method
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
@@ -103,7 +100,7 @@ impl Delegate {
                 }
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
-                type VTable = #abi_definition;
+                type Vtable = #abi_definition;
                 const IID: ::winrt::Guid = #guid;
             }
             #[repr(C)]
@@ -115,13 +112,10 @@ impl Delegate {
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
-            unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
-                type Abi = ::winrt::RawComPtr<Self>;
-                fn get_abi(&self) -> Self::Abi {
-                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
+            unsafe impl<#constraints> ::winrt::GetAbi for #name {
+                type Abi = ::winrt::RawComPtr;
+                unsafe fn get_abi(&self) -> Self::Abi {
+                    self.0.get_abi()
                 }
             }
             #debug

@@ -91,17 +91,14 @@ impl Interface {
 
         quote! {
             #[repr(transparent)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
-            pub struct #definition where #constraints {
-                ptr: ::winrt::ComPtr<#name>,
-                #phantoms
-            }
+            #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+            pub struct #definition(Object, #phantoms) where #constraints;
             impl<#constraints> #name {
                 #methods
                 #async_get
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
-                type VTable = #abi_definition;
+                type Vtable = #abi_definition;
                 const IID: ::winrt::Guid = #guid;
             }
             #[repr(C)]
@@ -113,14 +110,10 @@ impl Interface {
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
-            unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
-                // TODO: just use RawPtr?
-                type Abi = ::winrt::RawComPtr<Self>;
-                fn get_abi(&self) -> Self::Abi {
-                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
+            unsafe impl<#constraints> ::winrt::GetAbi for #name {
+                type Abi = ::winrt::RawComPtr;
+                unsafe fn get_abi(&self) -> Self::Abi {
+                    self.0.get_abi()
                 }
             }
             impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {

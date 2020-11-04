@@ -3,7 +3,7 @@ use squote::{quote, TokenStream};
 
 pub fn gen_debug(type_name: &TypeName, interfaces: &[RequiredInterface]) -> TokenStream {
     let name = &type_name.name;
-    let default_impl = quote! { ::std::format!("{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self)) };
+    let default_impl = quote! { ::std::format!("{}({:?})", #name, <Self as ::winrt::GetAbi>::get_abi(self)) };
 
     let implements_istringable = interfaces.iter().any(|interface| {
         interface.name.name == "IStringable" && interface.name.namespace == "Windows.Foundation"
@@ -40,7 +40,7 @@ pub fn gen_debug(type_name: &TypeName, interfaces: &[RequiredInterface]) -> Toke
 pub fn default_gen_debug(type_name: &TypeName) -> TokenStream {
     let name = &type_name.name;
     let implementation =
-        quote! { "{}({:?})", #name, <Self as ::winrt::AbiTransferable>::get_abi(self) };
+        quote! { "{}({:?})", #name, <Self as ::winrt::GetAbi>::get_abi(self) };
 
     gen(type_name, &implementation)
 }

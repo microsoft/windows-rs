@@ -1,5 +1,5 @@
 use crate::*;
-use squote::{format_ident, quote, Ident, Literal, TokenStream};
+use squote::{quote, Ident, Literal, TokenStream};
 use std::iter::FromIterator;
 use winmd::Decode;
 
@@ -358,15 +358,14 @@ impl TypeName {
     }
 
     pub fn phantoms(&self) -> TokenStream {
-        if self.generics.is_empty() {
-            return TokenStream::new();
+        let mut tokens = TokenStream::new();
+
+        for generic in &self.generics {
+            let generic = generic.gen();
+            tokens.combine(&quote!{ ::std::marker::PhantomData::<#generic>, });
         }
 
-        TokenStream::from_iter(self.generics.iter().enumerate().map(|(count, generic)| {
-            let name = format_ident!("t{}__", count);
-            let generic = generic.gen();
-            quote! { #name: ::std::marker::PhantomData::<#generic>, }
-        }))
+        tokens
     }
 }
 
@@ -399,7 +398,7 @@ impl Ord for TypeName {
 }
 
 fn format_abi_ident(name: &str) -> Ident {
-    squote::format_ident!("abi_{}", name)
+    squote::format_ident!("{}_vtable", name)
 }
 
 fn gen_format<F>(

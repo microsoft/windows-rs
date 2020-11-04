@@ -6,6 +6,8 @@ pub enum Param<'a, T: GetAbi> {
     Owned(T),
 }
 
+// TODO: provide a way to express None/Default as param argument.
+
 impl<'a, T: GetAbi> Param<'a, T> {
     pub unsafe fn get_abi(&mut self) -> T::Abi {
         match self {

@@ -110,7 +110,7 @@ impl Param {
         if self.array {
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
         } else {
-            quote! { <#return_type as ::winrt::AbiTransferable>::set_abi(&mut result__) }
+            quote! { <#return_type as ::winrt::SetAbi>::set_abi(&mut result__) }
         }
     }
 
@@ -138,14 +138,14 @@ impl Param {
                     | TypeKind::Struct(_)
                     | TypeKind::Delegate(_)
                     | TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
-                    TypeKind::Enum(_) => quote! { ::winrt::AbiTransferable::get_abi(&#name), },
-                    _ => quote! { ::winrt::AbiTransferable::get_abi(#name), },
+                    TypeKind::Enum(_) => quote! { ::winrt::GetAbi::get_abi(&#name), },
+                    _ => quote! { ::winrt::GetAbi::get_abi(#name), },
                 }
             }
         } else if self.kind.primitive() {
             quote! { #name, }
         } else {
-            quote! { ::winrt::AbiTransferable::set_abi(#name), }
+            quote! { ::winrt::SetAbi::set_abi(#name), }
         }
     }
 

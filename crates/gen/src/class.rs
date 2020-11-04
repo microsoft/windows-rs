@@ -161,8 +161,8 @@ impl Class {
 
             quote! {
                 #[repr(transparent)]
-                #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
-                pub struct #name { ptr: ::winrt::ComPtr<#default_name> }
+                #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+                pub struct #name(Object)
                 impl #name {
                     #new
                     #methods
@@ -171,19 +171,16 @@ impl Class {
                 }
                 #type_name
                 unsafe impl ::winrt::ComInterface for #name {
-                    type VTable = #abi_name;
+                    type Vtable = #abi_name;
                     const IID: ::winrt::Guid = <#default_name as ::winrt::ComInterface>::IID;
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
                     const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
                 }
-                unsafe impl ::winrt::AbiTransferable for #name {
-                    type Abi = ::winrt::RawComPtr<#default_name>;
-                    fn get_abi(&self) -> Self::Abi {
-                        <::winrt::ComPtr<#default_name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
-                    }
-                    fn set_abi(&mut self) -> *mut Self::Abi {
-                        <::winrt::ComPtr<#default_name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
+                unsafe impl ::winrt::GetAbi for #name {
+                    type Abi = ::winrt::RawComPtr;
+                    unsafe fn get_abi(&self) -> Self::Abi {
+                        self.0.get_abi()
                     }
                 }
                 impl ::std::convert::From<#name> for ::winrt::Object {

@@ -83,12 +83,15 @@ impl Enum {
             unsafe impl ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
-            unsafe impl ::winrt::AbiTransferable for #name {
+            unsafe impl ::winrt::GetAbi for #name {
                 type Abi = #repr;
                 fn get_abi(&self) -> Self::Abi {
                     self.value
                 }
-                fn set_abi(&mut self) -> *mut Self::Abi {
+            }
+            unsafe impl ::winrt::SetAbi for #name {
+                type Abi = *mut #repr;
+                fn set_abi(&mut self) -> Self::Abi {
                     &mut self.value
                 }
             }

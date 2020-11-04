@@ -56,13 +56,16 @@ impl Struct {
             unsafe impl ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
-            unsafe impl ::winrt::AbiTransferable for #name {
+            unsafe impl ::winrt::GetAbi for #name {
                 type Abi = Self;
                 fn get_abi(&self) -> Self::Abi {
                     self.clone()
                 }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    self as *mut Self::Abi
+            }
+            unsafe impl ::winrt::SetAbi for #name {
+                type Abi = *mut Self;
+                fn set_abi(&mut self) -> Self::Abi {
+                    self
                 }
             }
         }

@@ -258,15 +258,12 @@ impl TypeKind {
             Self::F32 => quote! { f32, },
             Self::F64 => quote! { f64, },
             Self::Guid => quote! { ::winrt::Guid, },
-            Self::String => {
-                quote! { <::winrt::HString as ::winrt::AbiTransferable>::Abi, }
-            }
-            Self::Object => {
-                quote! { <::winrt::Object as ::winrt::AbiTransferable>::Abi, }
+            Self::String | Self::Object => {
+                quote! { ::winrt::RawPtr, }
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
-                quote! { <#name as ::winrt::AbiTransferable>::Abi, }
+                quote! { <#name as ::winrt::GetAbi>::Abi, }
             }
             Self::Class(name)
             | Self::Interface(name)
@@ -274,7 +271,7 @@ impl TypeKind {
             | Self::Enum(name)
             | Self::Struct(name) => {
                 let name = name.gen();
-                quote! { <#name as ::winrt::AbiTransferable>::Abi, }
+                quote! { <#name as ::winrt::GetAbi>::Abi, }
             }
         }
     }
