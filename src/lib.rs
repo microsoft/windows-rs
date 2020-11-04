@@ -21,7 +21,7 @@ pub type RawComPtr = std::ptr::NonNull<std::ffi::c_void>;
 unsafe impl<T: ComInterface> AbiTransferable for Option<T> {
     type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) ->RawPtr {
+    unsafe fn get_abi(&self) -> RawPtr {
         if let Some(interface) = self {
             interface.as_raw()
         } else {

@@ -42,7 +42,7 @@ unsafe impl AbiTransferable for IUnknown {
 
     unsafe fn set_abi(&mut self) -> *mut RawComPtr {
         (self.vtable().2)(self.0); // Release
-        // self.0 = None; TODO: what now?
+                                   // self.0 = None; TODO: what now?
         &mut self.0
     }
 }

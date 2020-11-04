@@ -103,9 +103,9 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
 
 impl std::convert::From<Error> for ErrorCode {
     fn from(error: Error) -> Self {
-            unsafe {
-                let _ = SetRestrictedErrorInfo(error.info().get_abi());
-            }
+        unsafe {
+            let _ = SetRestrictedErrorInfo(error.info().get_abi());
+        }
 
         error.code()
     }

@@ -12,7 +12,7 @@ pub struct IErrorInfo_vtable(
     pub extern "system" fn(this: RawComPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
     pub extern "system" fn(this: RawComPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
     pub extern "system" fn(this: RawComPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
-    pub extern "system" fn(this: RawComPtr, help: *mut RawPtr) -> ErrorCode, // GetHelpFile
+    pub extern "system" fn(this: RawComPtr, help: *mut RawPtr) -> ErrorCode,        // GetHelpFile
     pub extern "system" fn(this: RawComPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
 );
 
