@@ -8,24 +8,20 @@ use std::result::Result as StdResult;
 /// changed by clearing its value and replacing with a new value. It should only
 /// be used for FFI purposes with WinRT APIs.
 #[repr(transparent)]
-pub struct HString {
-    ptr: *mut Header,
-}
+pub struct HString(*mut Header);
 
 impl HString {
     /// Create an empty HString.
     ///
     /// This function does no allocation.
     pub fn new() -> HString {
-        Self {
-            ptr: std::ptr::null_mut(),
-        }
+        Self(std::ptr::null_mut())
     }
 
     /// Returns `true` if the string is empty.
     pub fn is_empty(&self) -> bool {
         // An empty HSTRING is represented by a null pointer.
-        self.ptr.is_null()
+        self.0.is_null()
     }
 
     /// Returns the length of `self`.
@@ -34,7 +30,7 @@ impl HString {
             return 0;
         }
 
-        unsafe { (*self.ptr).len as usize }
+        unsafe { (*self.0).len as usize }
     }
 
     /// Get the string as 16-bit wide characters (wchars).
@@ -43,7 +39,7 @@ impl HString {
             return &[];
         }
 
-        let header = self.ptr;
+        let header = self.0;
         unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
@@ -67,15 +63,15 @@ impl HString {
         unsafe {
             // This flag indicates a "fast pass" string created by some languages where the
             // header is allocated on the stack. Such strings must never be freed.
-            let header = self.ptr;
+            let header = self.0;
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
             if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
-                HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
+                HeapFree(GetProcessHeap(), 0, self.0 as RawPtr);
             }
         }
 
-        self.ptr = std::ptr::null_mut();
+        self.0 = std::ptr::null_mut();
     }
 
     /// # Safety
@@ -98,7 +94,7 @@ impl HString {
 
         // Write a 0 byte to the end of the buffer.
         std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
-        Self { ptr }
+        Self(ptr)
     }
 }
 
@@ -106,7 +102,7 @@ unsafe impl GetAbi for HString {
     type Abi = RawPtr;
 
     unsafe fn get_abi(&self) -> RawPtr {
-        self.ptr as _
+        self.0 as _
     }
 }
 
@@ -115,7 +111,7 @@ unsafe impl SetAbi for HString {
 
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
         self.clear();
-        &mut self.ptr as *mut _ as _
+        &mut self.0 as *mut _ as _
     }
 }
 
@@ -135,8 +131,8 @@ impl Clone for HString {
             return Self::new();
         }
 
-        Self {
-            ptr: unsafe { (*self.ptr).duplicate() },
+        unsafe {
+        Self((*self.0).duplicate())
         }
     }
 }
