@@ -162,7 +162,7 @@ impl Class {
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-                pub struct #name(Object)
+                pub struct #name(::winrt::Object);
                 impl #name {
                     #new
                     #methods

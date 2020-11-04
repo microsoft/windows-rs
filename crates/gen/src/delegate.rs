@@ -92,11 +92,12 @@ impl Delegate {
         quote! {
             #[repr(transparent)]
             #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-            pub struct #definition(IUnknown, #phantoms) where #constraints;
+            pub struct #definition(::winrt::IUnknown, #phantoms) where #constraints;
             impl<#constraints> #name {
                 #method
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
-                    #impl_name::make(invoke)
+                    panic!();
+                    //#impl_name::make(invoke)
                 }
             }
             unsafe impl<#constraints> ::winrt::ComInterface for #name {
@@ -104,11 +105,13 @@ impl Delegate {
                 const IID: ::winrt::Guid = #guid;
             }
             #[repr(C)]
-            pub struct #abi_definition where #constraints {
-                pub unknown: ::winrt::abi_IUnknown,
-                pub invoke: unsafe extern "system" fn #abi_signature,
+            pub struct #abi_definition(
+                pub ::winrt::IUnknown_QueryInterface,
+                pub ::winrt::IUnknown_AddRef,
+                pub ::winrt::IUnknown_Release,
+                pub extern "system" fn #abi_signature,
                 #phantoms
-            }
+            ) where #constraints;
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
@@ -125,73 +128,73 @@ impl Delegate {
                 count: ::winrt::RefCount,
                 invoke: F,
             }
-            impl<#constraints #fn_constraint> #impl_name {
-                const VTABLE: #abi_definition = #abi_name {
-                    unknown: ::winrt::abi_IUnknown {
-                        query_interface: #impl_name::query_interface,
-                        add_ref: #impl_name::add_ref,
-                        release: #impl_name::release,
-                    },
-                    invoke: #impl_name::invoke,
-                    #phantoms
-                };
-                pub fn make(invoke: F) -> #name {
-                    let value = Self {
-                        vtable: &Self::VTABLE,
-                        count: ::winrt::RefCount::new(),
-                        invoke,
-                    };
-                    unsafe {
-                        let mut result: #name = std::mem::zeroed();
-                        let ptr: ::std::ptr::NonNull<Self> = ::std::ptr::NonNull::new_unchecked(::std::boxed::Box::into_raw(::std::boxed::Box::new(value)));
-                        *<#name as ::winrt::AbiTransferable>::set_abi(&mut result) = Some(::winrt::NonNullRawComPtr::new(ptr.cast()));
-                        result
-                    }
-                }
-                extern "system" fn query_interface(
-                    this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>,
-                    iid: &::winrt::Guid,
-                    interface: *mut ::winrt::RawPtr,
-                ) -> ::winrt::ErrorCode {
-                    unsafe {
-                        let this: *mut Self = this.as_raw() as _;
+            // impl<#constraints #fn_constraint> #impl_name {
+            //     const VTABLE: #abi_definition = #abi_name {
+            //         unknown: ::winrt::abi_IUnknown {
+            //             query_interface: #impl_name::query_interface,
+            //             add_ref: #impl_name::add_ref,
+            //             release: #impl_name::release,
+            //         },
+            //         invoke: #impl_name::invoke,
+            //         #phantoms
+            //     };
+            //     pub fn make(invoke: F) -> #name {
+            //         let value = Self {
+            //             vtable: &Self::VTABLE,
+            //             count: ::winrt::RefCount::new(),
+            //             invoke,
+            //         };
+            //         unsafe {
+            //             let mut result: #name = std::mem::zeroed();
+            //             let ptr: ::std::ptr::NonNull<Self> = ::std::ptr::NonNull::new_unchecked(::std::boxed::Box::into_raw(::std::boxed::Box::new(value)));
+            //             *<#name as ::winrt::AbiTransferable>::set_abi(&mut result) = Some(::winrt::NonNullRawComPtr::new(ptr.cast()));
+            //             result
+            //         }
+            //     }
+            //     extern "system" fn query_interface(
+            //         this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>,
+            //         iid: &::winrt::Guid,
+            //         interface: *mut ::winrt::RawPtr,
+            //     ) -> ::winrt::ErrorCode {
+            //         unsafe {
+            //             let this: *mut Self = this.as_raw() as _;
 
-                        if iid == &<#name as ::winrt::ComInterface>::IID
-                            || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::IID
-                            || iid == &<::winrt::IAgileObject as ::winrt::ComInterface>::IID
-                        {
-                            *interface = this as ::winrt::RawPtr;
-                            (*this).count.add_ref();
-                            return ::winrt::ErrorCode(0);
-                        }
+            //             if iid == &<#name as ::winrt::ComInterface>::IID
+            //                 || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::IID
+            //                 || iid == &<::winrt::IAgileObject as ::winrt::ComInterface>::IID
+            //             {
+            //                 *interface = this as ::winrt::RawPtr;
+            //                 (*this).count.add_ref();
+            //                 return ::winrt::ErrorCode(0);
+            //             }
 
-                        *interface = std::ptr::null_mut();
-                        ::winrt::ErrorCode::E_NOINTERFACE
-                    }
-                }
-                extern "system" fn add_ref(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
-                    unsafe {
-                        let this: *mut Self = this.as_raw() as _;
-                        (*this).count.add_ref()
-                    }
-                }
-                extern "system" fn release(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
-                    unsafe {
-                        let this: *mut Self = this.as_raw() as _;
-                        let remaining = (*this).count.release();
+            //             *interface = std::ptr::null_mut();
+            //             ::winrt::ErrorCode::E_NOINTERFACE
+            //         }
+            //     }
+            //     extern "system" fn add_ref(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
+            //         unsafe {
+            //             let this: *mut Self = this.as_raw() as _;
+            //             (*this).count.add_ref()
+            //         }
+            //     }
+            //     extern "system" fn release(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
+            //         unsafe {
+            //             let this: *mut Self = this.as_raw() as _;
+            //             let remaining = (*this).count.release();
 
-                        if remaining == 0 {
-                            Box::from_raw(this);
-                        }
+            //             if remaining == 0 {
+            //                 Box::from_raw(this);
+            //             }
 
-                        remaining
-                    }
-                }
-                unsafe extern "system" fn invoke #abi_signature {
-                    let this: *mut Self = this.as_raw() as _;
-                    #invoke_upcall
-                }
-            }
+            //             remaining
+            //         }
+            //     }
+            //     unsafe extern "system" fn invoke #abi_signature {
+            //         let this: *mut Self = this.as_raw() as _;
+            //         #invoke_upcall
+            //     }
+            // }
         }
     }
 

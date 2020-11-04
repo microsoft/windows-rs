@@ -85,13 +85,13 @@ impl Enum {
             }
             unsafe impl ::winrt::GetAbi for #name {
                 type Abi = #repr;
-                fn get_abi(&self) -> Self::Abi {
+                unsafe fn get_abi(&self) -> Self::Abi {
                     self.value
                 }
             }
             unsafe impl ::winrt::SetAbi for #name {
                 type Abi = *mut #repr;
-                fn set_abi(&mut self) -> Self::Abi {
+                unsafe fn set_abi(&mut self) -> Self::Abi {
                     &mut self.value
                 }
             }

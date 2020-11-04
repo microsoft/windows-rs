@@ -1,7 +1,7 @@
 use crate::*;
 
 #[repr(transparent)]
-#[derive(Clone)]
+#[derive(Clone, PartialEq)]
 pub struct IActivationFactory(Object);
 
 #[repr(C)]

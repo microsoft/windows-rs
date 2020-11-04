@@ -126,7 +126,7 @@ impl Method {
             .map(|param| param.gen_abi());
 
         quote! {
-            (this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
+            (this: ::winrt::RawComPtr, #(#params)*) -> ::winrt::ErrorCode
         }
     }
 
@@ -146,7 +146,7 @@ impl Method {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                     unsafe {
                         let mut result__: #return_type = ::std::mem::zeroed();
-                        (<Self as ::winrt::ComInterface>::vtable(self).#ordinal)(this, #(#args)* #return_arg)
+                        (::winrt::ComInterface::vtable(self).#ordinal)(::std::mem::transmute_copy(self), #(#args)* #return_arg)
                             .and_then(|| result__ )
                     }
                 }
@@ -155,7 +155,7 @@ impl Method {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
                     unsafe {
-                        (<Self as ::winrt::ComInterface>::vtable(self).#ordinal)(this, #(#args)*).ok()
+                        (::winrt::ComInterface::vtable(self).#ordinal)(::std::mem::transmute_copy(self), #(#args)*).ok()
                     }
                 }
             }

@@ -17,7 +17,7 @@ pub type Object_GetRuntimeClassName =
 pub type Object_GetTrustLevel = extern "system" fn(this: RawComPtr, value: *mut i32) -> ErrorCode;
 
 #[repr(transparent)]
-#[derive(Clone)]
+#[derive(Clone, PartialEq)]
 pub struct Object(IUnknown);
 
 #[repr(C)]

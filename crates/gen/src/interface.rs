@@ -77,11 +77,10 @@ impl Interface {
         let methods = gen_method(&self.interfaces);
 
         let abi_methods = default_interface.methods.iter().map(|method| {
-            let name = format_ident(&method.name);
             let signature = method.gen_abi(&default_interface.name);
 
             quote! {
-                pub #name: unsafe extern "system" fn #signature
+                pub extern "system" fn #signature
             }
         });
 
@@ -92,7 +91,7 @@ impl Interface {
         quote! {
             #[repr(transparent)]
             #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
-            pub struct #definition(Object, #phantoms) where #constraints;
+            pub struct #definition(::winrt::Object, #phantoms) where #constraints;
             impl<#constraints> #name {
                 #methods
                 #async_get
@@ -102,11 +101,16 @@ impl Interface {
                 const IID: ::winrt::Guid = #guid;
             }
             #[repr(C)]
-            pub struct #abi_definition where #constraints {
-                pub inspectable: ::winrt::abi_IInspectable,
+            pub struct #abi_definition(
+                pub ::winrt::IUnknown_QueryInterface,
+                pub ::winrt::IUnknown_AddRef,
+                pub ::winrt::IUnknown_Release,
+                pub ::winrt::Object_GetIids,
+                pub ::winrt::Object_GetRuntimeClassName,
+                pub ::winrt::Object_GetTrustLevel,
                 #(#abi_methods,)*
                 #phantoms
-            }
+            ) where #constraints;
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }

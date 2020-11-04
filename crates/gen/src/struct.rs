@@ -58,13 +58,13 @@ impl Struct {
             }
             unsafe impl ::winrt::GetAbi for #name {
                 type Abi = Self;
-                fn get_abi(&self) -> Self::Abi {
+                unsafe fn get_abi(&self) -> Self {
                     self.clone()
                 }
             }
             unsafe impl ::winrt::SetAbi for #name {
                 type Abi = *mut Self;
-                fn set_abi(&mut self) -> Self::Abi {
+                unsafe fn set_abi(&mut self) -> *mut Self {
                     self
                 }
             }

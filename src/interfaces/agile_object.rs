@@ -1,7 +1,7 @@
 use crate::*;
 
 #[repr(transparent)]
-#[derive(Clone)]
+#[derive(Clone, PartialEq)]
 pub struct IAgileObject(IUnknown);
 
 unsafe impl ComInterface for IAgileObject {
