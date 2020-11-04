@@ -1,6 +1,6 @@
 use crate::*;
 
-#[repr(C)]
+#[repr(transparent)]
 #[derive(Clone)]
 pub struct IActivationFactory(Object);
 
@@ -12,8 +12,7 @@ pub struct IActivationFactory_vtable(
     pub Object_GetIids,
     pub Object_GetRuntimeClassName,
     pub Object_GetTrustLevel,
-
-    pub extern "system" fn(this: RawPtr, object: *mut RawPtr) -> ErrorCode, // ActivateInstance
+    pub extern "system" fn(this: RawComPtr, object: &mut Option<Object>) -> ErrorCode, // ActivateInstance
 );
 
 unsafe impl ComInterface for IActivationFactory {
@@ -30,13 +29,13 @@ unsafe impl ComInterface for IActivationFactory {
 }
 
 unsafe impl AbiTransferable for IActivationFactory {
-    type Abi = RawPtr;
+    type Abi = RawComPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
+    unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
     }
 
-    unsafe fn set_abi(&mut self) -> *mut RawPtr {
+    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
         self.0.set_abi()
     }
 }
@@ -44,11 +43,10 @@ unsafe impl AbiTransferable for IActivationFactory {
 impl IActivationFactory {
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
         unsafe {
-            let mut abi = std::ptr::null_mut();
-            (self.vtable().6)(self.get_abi(), &mut abi).ok_ptr(abi)?;
-            let object: Object = std::mem::transmute(abi);
-            object.query()
+            let mut object = None;
+            (self.vtable().6)(self.get_abi(), &mut object)
+                .and_some(object)?
+                .query()
+        }
     }
 }
-}
-

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[repr(C)]
+#[repr(transparent)]
 #[derive(Clone)]
 pub struct IAgileObject(IUnknown);
 
@@ -18,13 +18,13 @@ unsafe impl ComInterface for IAgileObject {
 }
 
 unsafe impl AbiTransferable for IAgileObject {
-    type Abi = RawPtr;
+    type Abi = RawComPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
+    unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
     }
 
-    unsafe fn set_abi(&mut self) -> *mut RawPtr {
+    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
         self.0.set_abi()
     }
 }

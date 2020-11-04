@@ -6,7 +6,6 @@ pub struct Error {
     info: Option<IRestrictedErrorInfo>,
 }
 
-
 impl Error {
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.
@@ -22,7 +21,10 @@ impl Error {
 
         // The error information is then associated with the returning error object and no longer
         // associated with the thread.
-        Self { code, info: IRestrictedErrorInfo::from_thread() }
+        Self {
+            code,
+            info: IRestrictedErrorInfo::from_thread(),
+        }
     }
 
     /// The error code describing the error.
@@ -74,11 +76,9 @@ impl Error {
     }
 }
 
-
 impl std::convert::From<ErrorCode> for Error {
     fn from(code: ErrorCode) -> Self {
         if let Some(info) = IRestrictedErrorInfo::from_thread() {
-
             // If it does (and therefore running on a recent version of Windows)
             // then capture_propagation_context adds a breadcrumb to the error
             // info to make debugging easier.
@@ -120,7 +120,3 @@ impl Drop for HeapString {
         }
     }
 }
-
-
-
-

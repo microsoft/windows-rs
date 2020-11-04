@@ -49,6 +49,18 @@ impl ErrorCode {
         }
     }
 
+    pub fn and_some<T: ComInterface>(self, some: Option<T>) -> Result<T> {
+        if self.is_ok() {
+            if let Some(result) = some {
+                Ok(result)
+            } else {
+                Err(ErrorCode::E_POINTER.into())
+            }
+        } else {
+            Err(Error::from(self))
+        }
+    }
+
     /// Calls `op` if `self` is a success code, otherwise returns `ErrorCode`
     /// converted to `Result<T>`.
     #[inline]
@@ -79,7 +91,6 @@ impl ErrorCode {
     pub const E_POINTER: ErrorCode = ErrorCode(0x8000_4003);
 }
 
-
 impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
@@ -92,14 +103,16 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
 
 impl std::convert::From<Error> for ErrorCode {
     fn from(error: Error) -> Self {
-        if let Some(info) = error.info() {
-            // Set the error information on the thread if the result is `Err`
-            // so that the caller can pick it up.
             unsafe {
-                let _ = SetRestrictedErrorInfo(info.get_abi());
+                let _ = SetRestrictedErrorInfo(error.info().get_abi());
             }
-        }
 
         error.code()
+    }
+}
+
+demand_load! {
+    "combase.dll" {
+        pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
     }
 }

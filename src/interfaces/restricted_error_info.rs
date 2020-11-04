@@ -1,6 +1,6 @@
 use crate::*;
 
-#[repr(C)]
+#[repr(transparent)]
 #[derive(Clone)]
 pub struct IRestrictedErrorInfo(IUnknown);
 
@@ -9,9 +9,14 @@ pub struct IRestrictedErrorInfo_vtable(
     pub IUnknown_QueryInterface,
     pub IUnknown_AddRef,
     pub IUnknown_Release,
-    
-    pub extern "system" fn(this: RawPtr, description: *mut RawPtr, error: *mut ErrorCode, restricted: *mut RawPtr, sid: *mut RawPtr) -> ErrorCode, // GetErrorDetails
-    pub extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
+    pub  extern "system" fn(
+        this: RawComPtr,
+        description: *mut RawPtr,
+        error: *mut ErrorCode,
+        restricted: *mut RawPtr,
+        sid: *mut RawPtr,
+    ) -> ErrorCode, // GetErrorDetails
+    pub extern "system" fn(this: RawComPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
 );
 
 unsafe impl ComInterface for IRestrictedErrorInfo {
@@ -28,18 +33,18 @@ unsafe impl ComInterface for IRestrictedErrorInfo {
 }
 
 unsafe impl AbiTransferable for IRestrictedErrorInfo {
-    type Abi = RawPtr;
+    type Abi = RawComPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
+    unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
     }
 
-    unsafe fn set_abi(&mut self) -> *mut RawPtr {
+    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
         self.0.set_abi()
     }
 }
 
- impl IRestrictedErrorInfo {
+impl IRestrictedErrorInfo {
     pub fn from_thread() -> Option<Self> {
         if let Some(info) = IErrorInfo::from_thread() {
             info.try_query::<Self>()
@@ -55,7 +60,8 @@ unsafe impl AbiTransferable for IRestrictedErrorInfo {
         let mut code = ErrorCode(0);
 
         unsafe {
-            (self.vtable().3)(self.get_abi(), 
+            (self.vtable().3)(
+                self.get_abi(),
                 fallback.set_abi(),
                 &mut code,
                 message.set_abi(),

@@ -2,10 +2,7 @@ use crate::*;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-type DllGetActivationFactory = extern "system" fn(
-    name: RawPtr,
-    factory: *mut RawPtr,
-) -> ErrorCode;
+type DllGetActivationFactory = extern "system" fn(name: RawPtr, factory: *mut RawPtr) -> ErrorCode;
 
 /// Attempts to load and cache the factory interface for the given WinRT class.
 pub struct FactoryCache<C, I> {
@@ -109,16 +106,14 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
             let path: Vec<u16> = path.encode_utf16().chain(".dll\0".encode_utf16()).collect();
 
             // Attempt to load the DLL.
-            let library =
-                Library(LoadLibraryExW(path.as_ptr(), std::ptr::null_mut(), 0));
+            let library = Library(LoadLibraryExW(path.as_ptr(), std::ptr::null_mut(), 0));
 
             if library.0.is_null() {
                 continue;
             }
 
             // If the DLL was found then get the export used to retrieve the factory.
-            let library_call =
-                GetProcAddress(library.0, b"DllGetActivationFactory\0".as_ptr());
+            let library_call = GetProcAddress(library.0, b"DllGetActivationFactory\0".as_ptr());
 
             if library_call.is_null() {
                 continue;
@@ -128,7 +123,7 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
             let mut abi = std::ptr::null_mut();
             library_call(name.get_abi(), &mut abi);
 
-            if abi.is_null(){ 
+            if abi.is_null() {
                 continue;
             }
 

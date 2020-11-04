@@ -32,7 +32,7 @@ extern "system" {
     ) -> u32;
 }
 
-fn load_proc(library_name: &str, sym: &str) -> std::result::Result<RawPtr, ErrorCode> {
+pub fn load_proc(library_name: &str, sym: &str) -> std::result::Result<RawPtr, ErrorCode> {
     let library_name = library_name
         .encode_utf16()
         .chain(std::iter::once(0))
@@ -61,6 +61,7 @@ extern "system" {
     pub fn CoTaskMemFree(ptr: RawPtr);
 }
 
+#[macro_export]
 macro_rules! demand_load {
     ( $( $library:literal {
         $(pub fn $sym:ident ( $( $param: ident : $pty: ty ),* $(,)? ) -> $rt: ty;)*
@@ -95,7 +96,7 @@ demand_load! {
     }
     "combase.dll" {
         pub fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
-        pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
+        //pub fn SetRestrictedErrorInfo(info: RawPtr) -> ErrorCode;
         pub fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
     }
 }

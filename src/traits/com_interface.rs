@@ -21,22 +21,25 @@ pub unsafe trait ComInterface: Sized + AbiTransferable {
     }
 
     unsafe fn vtable_of<T: ComInterface>(&self) -> &T::Vtable {
-        let this: RawPtr = std::mem::transmute_copy(self);
+        let this = self.as_raw();
         &(*(*(this as *mut *mut <T as ComInterface>::Vtable) as *mut <T as ComInterface>::Vtable))
+    }
+
+    unsafe fn as_raw(&self) -> RawPtr {
+        std::mem::transmute_copy(self)
     }
 
     fn query<T: ComInterface>(&self) -> Result<T> {
         if let Some(result) = self.try_query::<T>() {
             Ok(result)
-            } else {
-                Err(ErrorCode::E_NOINTERFACE.into())
-            }
-
+        } else {
+            Err(ErrorCode::E_NOINTERFACE.into())
+        }
     }
 
     fn try_query<T: ComInterface>(&self) -> Option<T> {
         unsafe {
-            let this: RawPtr = std::mem::transmute_copy(self);
+            let this: RawComPtr = std::mem::transmute_copy(self);
             let mut result: Option<T> = None;
             (self.vtable_of::<IUnknown>().0)(this, &T::IID, &mut result as *mut _ as _);
             result
@@ -94,8 +97,6 @@ pub unsafe trait ComInterface: Sized + AbiTransferable {
     // fn is_null(&self) -> bool {
     //     self.as_iunknown().is_none()
     // }
-
-
 
     // /// Query for a particular interface by iid.
     // ///

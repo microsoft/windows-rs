@@ -7,16 +7,16 @@ use crate::*;
 
 #[allow(non_camel_case_types)]
 pub type Object_GetIids =
-    extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> ErrorCode;
+    extern "system" fn(this: RawComPtr, count: *mut u32, values: *mut *mut Guid) -> ErrorCode;
 
 #[allow(non_camel_case_types)]
 pub type Object_GetRuntimeClassName =
-    extern "system" fn(this: RawPtr, value: *mut RawPtr) -> ErrorCode;
+    extern "system" fn(this: RawComPtr, value: *mut RawPtr) -> ErrorCode;
 
 #[allow(non_camel_case_types)]
-pub type Object_GetTrustLevel = extern "system" fn(this: RawPtr, value: *mut i32) -> ErrorCode;
+pub type Object_GetTrustLevel = extern "system" fn(this: RawComPtr, value: *mut i32) -> ErrorCode;
 
-#[repr(C)]
+#[repr(transparent)]
 #[derive(Clone)]
 pub struct Object(IUnknown);
 
@@ -45,13 +45,13 @@ unsafe impl ComInterface for Object {
 
 // TODO: add a derive macro for this (e.g. anything that has AbiTransferable member can be auto derived)
 unsafe impl AbiTransferable for Object {
-    type Abi = RawPtr;
+    type Abi = RawComPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
+    unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
     }
 
-    unsafe fn set_abi(&mut self) -> *mut RawPtr {
+    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
         self.0.set_abi()
     }
 }

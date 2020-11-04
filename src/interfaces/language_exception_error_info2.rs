@@ -1,6 +1,6 @@
 use crate::*;
 
-#[repr(C)]
+#[repr(transparent)]
 #[derive(Clone)]
 pub struct ILanguageExceptionErrorInfo2(IUnknown);
 
@@ -9,11 +9,10 @@ pub struct ILanguageExceptionErrorInfo2_vtable(
     pub IUnknown_QueryInterface,
     pub IUnknown_AddRef,
     pub IUnknown_Release,
-    
-    pub extern "system" fn(this: RawPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
-    pub extern "system" fn(this: RawPtr, previous: *mut RawPtr) -> ErrorCode, // GetPreviousLanguageExceptionErrorInfo
-    pub extern "system" fn(this: RawPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
-    pub extern "system" fn(this: RawPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
+    pub extern "system" fn(this: RawComPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
+    pub extern "system" fn(this: RawComPtr, previous: *mut RawPtr) -> ErrorCode, // GetPreviousLanguageExceptionErrorInfo
+    pub extern "system" fn(this: RawComPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
+    pub extern "system" fn(this: RawComPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
 );
 
 unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
@@ -30,22 +29,21 @@ unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
 }
 
 unsafe impl AbiTransferable for ILanguageExceptionErrorInfo2 {
-    type Abi = RawPtr;
+    type Abi = RawComPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
+    unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
     }
 
-    unsafe fn set_abi(&mut self) -> *mut RawPtr {
+    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
         self.0.set_abi()
     }
 }
 
-
 impl ILanguageExceptionErrorInfo2 {
     pub fn capture_propagation_context(&self) {
-            unsafe {
-                (self.vtable().5)(self.get_abi(), std::ptr::null_mut());
-            }
+        unsafe {
+            (self.vtable().5)(self.get_abi(), std::ptr::null_mut());
+        }
     }
 }

@@ -2,16 +2,16 @@ use crate::*;
 
 #[allow(non_camel_case_types)]
 pub type IUnknown_QueryInterface =
-    extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode;
+    extern "system" fn(this: RawComPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode;
 
 #[allow(non_camel_case_types)]
-pub type IUnknown_AddRef = extern "system" fn(this: RawPtr) -> u32;
+pub type IUnknown_AddRef = extern "system" fn(this: RawComPtr) -> u32;
 
 #[allow(non_camel_case_types)]
-pub type IUnknown_Release = extern "system" fn(this: RawPtr) -> u32;
+pub type IUnknown_Release = extern "system" fn(this: RawComPtr) -> u32;
 
-#[repr(C)]
-pub struct IUnknown(RawPtr);
+#[repr(transparent)]
+pub struct IUnknown(RawComPtr);
 
 #[repr(C)]
 pub struct IUnknown_vtable(
@@ -34,15 +34,15 @@ unsafe impl ComInterface for IUnknown {
 }
 
 unsafe impl AbiTransferable for IUnknown {
-    type Abi = RawPtr;
+    type Abi = RawComPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
+    unsafe fn get_abi(&self) -> RawComPtr {
         self.0
     }
 
-    unsafe fn set_abi(&mut self) -> *mut RawPtr {
+    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
         (self.vtable().2)(self.0); // Release
-        self.0 = std::ptr::null_mut();
+        // self.0 = None; TODO: what now?
         &mut self.0
     }
 }
