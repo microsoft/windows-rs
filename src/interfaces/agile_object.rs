@@ -17,14 +17,10 @@ unsafe impl ComInterface for IAgileObject {
     };
 }
 
-unsafe impl AbiTransferable for IAgileObject {
+unsafe impl GetAbi for IAgileObject {
     type Abi = RawComPtr;
 
     unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
-    }
-
-    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
-        self.0.set_abi()
     }
 }

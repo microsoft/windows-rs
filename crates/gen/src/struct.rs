@@ -37,6 +37,8 @@ impl Struct {
         let name = self.name.gen();
         let signature = Literal::byte_string(&self.signature.as_bytes());
 
+        // TODO: any struct fields that have COM as underlying type must be wrapped in Option<T>
+
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
             let kind = field.1.gen();

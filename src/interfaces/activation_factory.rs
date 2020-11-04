@@ -28,15 +28,11 @@ unsafe impl ComInterface for IActivationFactory {
     };
 }
 
-unsafe impl AbiTransferable for IActivationFactory {
+unsafe impl GetAbi for IActivationFactory {
     type Abi = RawComPtr;
 
     unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
-    }
-
-    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
-        self.0.set_abi()
     }
 }
 

@@ -1,15 +1,11 @@
 use crate::*;
 
 #[repr(C)]
-pub struct BString {
-    ptr: RawPtr,
-}
+pub struct BString(RawPtr);
 
 impl BString {
     pub fn new() -> BString {
-        Self {
-            ptr: std::ptr::null_mut(),
-        }
+        Self(std::ptr::null_mut())
     }
 
     pub fn is_empty(&self) -> bool {
@@ -17,28 +13,31 @@ impl BString {
     }
 
     pub fn len(&self) -> usize {
-        unsafe { SysStringLen(self.ptr) as usize }
+        unsafe { SysStringLen(self.0) as usize }
     }
 
     pub fn clear(&mut self) {
         unsafe {
-            SysFreeString(self.ptr);
+            SysFreeString(self.0);
         }
 
-        self.ptr = std::ptr::null_mut();
+        self.0 = std::ptr::null_mut();
     }
 }
 
-unsafe impl AbiTransferable for BString {
+unsafe impl GetAbi for BString {
     type Abi = RawPtr;
 
     unsafe fn get_abi(&self) -> RawPtr {
-        self.ptr
+        self.0
     }
+}
+
+unsafe impl SetAbi for BString {
+    type Abi = *mut RawPtr;
 
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
-        self.clear();
-        &mut self.ptr
+        &mut self.0
     }
 }
 
@@ -55,10 +54,7 @@ impl From<BString> for String {
         }
 
         unsafe {
-            String::from_utf16_lossy(std::slice::from_raw_parts(
-                from.ptr as *const u16,
-                from.len(),
-            ))
+            String::from_utf16_lossy(std::slice::from_raw_parts(from.0 as *const u16, from.len()))
         }
     }
 }

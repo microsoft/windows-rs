@@ -32,15 +32,11 @@ unsafe impl ComInterface for IRestrictedErrorInfo {
     };
 }
 
-unsafe impl AbiTransferable for IRestrictedErrorInfo {
+unsafe impl GetAbi for IRestrictedErrorInfo {
     type Abi = RawComPtr;
 
     unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
-    }
-
-    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
-        self.0.set_abi()
     }
 }
 

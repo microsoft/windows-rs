@@ -28,15 +28,11 @@ unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
     };
 }
 
-unsafe impl AbiTransferable for ILanguageExceptionErrorInfo2 {
+unsafe impl GetAbi for ILanguageExceptionErrorInfo2 {
     type Abi = RawComPtr;
 
     unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
-    }
-
-    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
-        self.0.set_abi()
     }
 }
 

@@ -11,7 +11,7 @@ use crate::*;
 /// `VTable` must be a COM compliant vtable where the first three function
 /// pointers are the `IUnknown` methods. And because ComInterfaces are just
 /// pointers to vtables, it must be safe to zero-initialize the interface.
-pub unsafe trait ComInterface: Sized + AbiTransferable {
+pub unsafe trait ComInterface: Sized + GetAbi {
     type Vtable;
 
     const IID: Guid;
@@ -21,11 +21,15 @@ pub unsafe trait ComInterface: Sized + AbiTransferable {
     }
 
     unsafe fn vtable_of<T: ComInterface>(&self) -> &T::Vtable {
-        let this = self.as_raw();
+        let this = self.as_raw_ptr();
         &(*(*(this as *mut *mut <T as ComInterface>::Vtable) as *mut <T as ComInterface>::Vtable))
     }
 
-    unsafe fn as_raw(&self) -> RawPtr {
+    unsafe fn as_raw_com_ptr(&self) -> RawComPtr {
+        std::mem::transmute_copy(self)
+    }
+
+    unsafe fn as_raw_ptr(&self) -> RawPtr {
         std::mem::transmute_copy(self)
     }
 

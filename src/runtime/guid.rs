@@ -60,17 +60,22 @@ impl Guid {
     }
 }
 
-unsafe impl AbiTransferable for Guid {
+unsafe impl GetAbi for Guid {
     type Abi = Self;
 
-    unsafe fn get_abi(&self) -> Self::Abi {
+    unsafe fn get_abi(&self) -> Self {
         self.clone()
     }
+}
 
-    unsafe fn set_abi(&mut self) -> *mut Self::Abi {
-        self as *mut Self::Abi
+unsafe impl SetAbi for Guid {
+    type Abi = *mut Self;
+
+    unsafe fn set_abi(&mut self) -> *mut Self {
+        self
     }
 }
+
 unsafe impl RuntimeType for Guid {
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"g16");
 }

@@ -43,16 +43,11 @@ unsafe impl ComInterface for Object {
     };
 }
 
-// TODO: add a derive macro for this (e.g. anything that has AbiTransferable member can be auto derived)
-unsafe impl AbiTransferable for Object {
+unsafe impl GetAbi for Object {
     type Abi = RawComPtr;
 
     unsafe fn get_abi(&self) -> RawComPtr {
         self.0.get_abi()
-    }
-
-    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
-        self.0.set_abi()
     }
 }
 

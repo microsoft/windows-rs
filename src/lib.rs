@@ -18,23 +18,27 @@ macro_rules! include_bindings {
 pub type RawPtr = *mut std::ffi::c_void;
 pub type RawComPtr = std::ptr::NonNull<std::ffi::c_void>;
 
-unsafe impl<T: ComInterface> AbiTransferable for Option<T> {
+unsafe impl<T: ComInterface> GetAbi for Option<T> {
     type Abi = RawPtr;
 
     unsafe fn get_abi(&self) -> RawPtr {
         if let Some(interface) = self {
-            interface.as_raw()
+            interface.as_raw_ptr()
         } else {
             std::ptr::null_mut()
         }
     }
+}
+
+unsafe impl<T: ComInterface> SetAbi for Option<T> {
+    type Abi = *mut RawPtr;
 
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
-        panic!();
-        // if let Some(interface) = self {
-        // (interface.vtable().2)(interface.0); // Release
-        // self = None;
-        // &mut self.0
+        if let Some(this) = self {
+            (this.vtable_of::<IUnknown>().2)(this.as_raw_com_ptr());
+            *self = std::mem::zeroed();
+        }
+        self as *mut Self as *mut RawPtr
     }
 }
 

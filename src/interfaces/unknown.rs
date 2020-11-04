@@ -33,17 +33,25 @@ unsafe impl ComInterface for IUnknown {
     };
 }
 
-unsafe impl AbiTransferable for IUnknown {
+// unsafe impl AbiTransferable for IUnknown {
+//     type Abi = RawComPtr;
+
+//     unsafe fn get_abi(&self) -> RawComPtr {
+//         self.0
+//     }
+
+//     unsafe fn set_abi(&mut self) -> *mut RawComPtr {
+//         (self.vtable().2)(self.0); // Release
+//                                    // self.0 = None; TODO: what now?
+//         &mut self.0
+//     }
+// }
+
+unsafe impl GetAbi for IUnknown {
     type Abi = RawComPtr;
 
     unsafe fn get_abi(&self) -> RawComPtr {
         self.0
-    }
-
-    unsafe fn set_abi(&mut self) -> *mut RawComPtr {
-        (self.vtable().2)(self.0); // Release
-                                   // self.0 = None; TODO: what now?
-        &mut self.0
     }
 }
 

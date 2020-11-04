@@ -59,12 +59,12 @@ impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
 
 /// Attempts to load the factory interface for the given WinRT class.
 pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
-    let mut factory = I::default();
+    let mut factory: Option<I> = None;
     let name = HString::from(C::NAME);
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi() as _);
+        let code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi());
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -80,13 +80,13 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi() as _)
+            code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi())
                 .unwrap_or_else(|code| code);
         }
 
         // If this succeeded then return the resulting factory interface.
         if code.is_ok() {
-            return Ok(factory);
+            return code.and_some(factory);
         }
 
         // If not, first capture the error information from the failure above so that we

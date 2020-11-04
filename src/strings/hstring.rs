@@ -102,12 +102,16 @@ impl HString {
     }
 }
 
-unsafe impl AbiTransferable for HString {
+unsafe impl GetAbi for HString {
     type Abi = RawPtr;
 
     unsafe fn get_abi(&self) -> RawPtr {
         self.ptr as _
     }
+}
+
+unsafe impl SetAbi for HString {
+    type Abi = *mut RawPtr;
 
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
         self.clear();
