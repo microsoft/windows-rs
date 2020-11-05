@@ -115,7 +115,7 @@ impl Interface {
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
             unsafe impl<#constraints> ::winrt::GetAbi for #name {
-                type Abi = ::winrt::RawComPtr;
+                type Abi = ::winrt::RawPtr;
                 unsafe fn get_abi(&self) -> Self::Abi {
                     self.0.get_abi()
                 }

@@ -126,7 +126,7 @@ impl Method {
             .map(|param| param.gen_abi());
 
         quote! {
-            (this: ::winrt::RawComPtr, #(#params)*) -> ::winrt::ErrorCode
+            (this: ::winrt::RawPtr, #(#params)*) -> ::winrt::ErrorCode
         }
     }
 

@@ -178,7 +178,7 @@ impl Class {
                     const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
                 }
                 unsafe impl ::winrt::GetAbi for #name {
-                    type Abi = ::winrt::RawComPtr;
+                    type Abi = ::winrt::RawPtr;
                     unsafe fn get_abi(&self) -> Self::Abi {
                         self.0.get_abi()
                     }
