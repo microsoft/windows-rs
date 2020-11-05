@@ -110,7 +110,7 @@ impl Param {
             let return_type = self.kind.gen();
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
         } else {
-            quote! { ::winrt::Abi::set_abi(&mut result__) }
+            quote! { &mut result__ }
         }
     }
 

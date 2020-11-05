@@ -1,5 +1,7 @@
 use crate::*;
 
 pub unsafe trait IntoResult: Sized {
-    unsafe fn into_result(self) -> Result<Self>;
+    type Abi;
+
+    unsafe fn into_result(abi: Self::Abi) -> Result<Self>;
 }

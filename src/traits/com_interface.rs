@@ -152,11 +152,13 @@ unsafe impl<T: ComInterface> Abi for Option<T> {
 }
 
 unsafe impl<T: ComInterface> IntoResult for T {
-    unsafe fn into_result(self) -> Result<Self> {
-        if self.is_null() {
+    type Abi = RawPtr;
+
+    unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
+        if abi.is_null() {
             Err(ErrorCode::E_POINTER.into())
         } else {
-            Ok(self)
+            Ok(std::mem::transmute(abi))
         }
     }
 }

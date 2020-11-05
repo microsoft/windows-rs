@@ -94,8 +94,9 @@ impl Enum {
                 }
             }
             unsafe impl ::winrt::IntoResult for #name {
-                unsafe fn into_result(self) -> ::winrt::Result<Self> {
-                    Ok(self)
+                type Abi = #repr;
+                unsafe fn into_result(abi: Self::Abi) -> ::winrt::Result<Self> {
+                    Ok(abi)
                 }
             }
             #bitwise

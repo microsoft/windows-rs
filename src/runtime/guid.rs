@@ -73,8 +73,9 @@ unsafe impl Abi for Guid {
 }
 
 unsafe impl IntoResult for Guid {
-    unsafe fn into_result(self) -> Result<Self> {
-        Ok(self)
+    type Abi = Self;
+    unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
+        Ok(abi)
     }
 }
 

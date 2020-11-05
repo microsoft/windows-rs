@@ -72,6 +72,14 @@ impl ErrorCode {
         Ok(op())
     }
 
+    pub fn into_result<T: IntoResult>(self, abi: T::Abi) -> Result<T> {
+        if self.is_ok() {
+            T::into_result(abi)
+        } else {
+            Err(Error::from(self))
+        }
+    }
+
     /// Creates a failure code from GetLastError()
     #[inline]
     pub(crate) fn last_win32_error() -> Self {

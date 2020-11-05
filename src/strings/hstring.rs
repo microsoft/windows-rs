@@ -112,8 +112,9 @@ unsafe impl Abi for HString {
 }
 
 unsafe impl IntoResult for HString {
-    unsafe fn into_result(self) -> Result<Self> {
-        Ok(self)
+    type Abi = RawPtr;
+    unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
+        Ok(HString(abi as _))
     }
 }
 

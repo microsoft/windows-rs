@@ -30,8 +30,9 @@ macro_rules! primitive_runtime_types {
                 }
             }
             unsafe impl IntoResult for $t {
-                unsafe fn into_result(self) -> Result<Self> {
-                    Ok(self)
+                type Abi = Self;
+                unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
+                    Ok(abi)
                 }
             }
         )*
