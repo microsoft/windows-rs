@@ -36,7 +36,7 @@ unsafe impl Abi for BString {
         &mut self.0
     }
 
-    unsafe fn into_result(_: Self::Abi) -> Result<Self> {
+    unsafe fn from_abi(_: Self::Abi) -> Result<Self> {
         panic!();
     }
 }

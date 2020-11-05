@@ -90,7 +90,7 @@ impl Enum {
                 unsafe fn set_abi(&mut self) -> *mut Self::Abi {
                     &mut self.0
                 }
-                unsafe fn into_result(abi: Self::Abi) -> ::winrt::Result<Self> {
+                unsafe fn from_abi(abi: Self::Abi) -> ::winrt::Result<Self> {
                     Ok(Self(abi))
                 }
             }

@@ -110,7 +110,7 @@ unsafe impl Abi for HString {
         &mut self.0 as *mut _ as _
     }
 
-    unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(HString(abi as _))
     }
 }

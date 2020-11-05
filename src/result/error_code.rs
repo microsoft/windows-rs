@@ -72,9 +72,9 @@ impl ErrorCode {
         Ok(op())
     }
 
-    pub unsafe fn into_result<T: Abi>(self, abi: T::Abi) -> Result<T> {
+    pub unsafe fn from_abi<T: Abi>(self, abi: T::Abi) -> Result<T> {
         if self.is_ok() {
-            T::into_result(abi)
+            T::from_abi(abi)
         } else {
             Err(Error::from(self))
         }

@@ -133,7 +133,7 @@ unsafe impl<T: ComInterface> Abi for T {
         self as *mut _ as *mut _
     }
 
-    unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         let abi: RawPtr = std::mem::transmute_copy(&abi);
         
         if abi.is_null() {
@@ -160,7 +160,7 @@ unsafe impl<T: ComInterface> Abi for Option<T> {
         self as *mut _ as *mut _
     }
 
-    unsafe fn into_result(_: Self::Abi) -> Result<Self> {
+    unsafe fn from_abi(_: Self::Abi) -> Result<Self> {
         panic!();
     }
 }

@@ -159,7 +159,7 @@ impl Method {
                         unsafe {
                             let mut result__: <#return_type as ::winrt::Abi>::Abi = ::std::mem::zeroed();
                             (::winrt::ComInterface::vtable(self).#ordinal)(::std::mem::transmute_copy(self), #(#args)* #return_arg)
-                                .into_result::<#return_type>(result__ )
+                                .from_abi::<#return_type>(result__ )
                         }
                     }
                 }

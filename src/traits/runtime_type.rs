@@ -28,7 +28,7 @@ macro_rules! primitive_runtime_types {
                 unsafe fn set_abi(&mut self) -> *mut Self {
                     self
                 }
-                unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
+                unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
                     Ok(abi)
                 }
             }

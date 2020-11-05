@@ -64,7 +64,7 @@ impl Struct {
                 unsafe fn set_abi(&mut self) -> *mut Self {
                     self
                 }
-                unsafe fn into_result(abi: Self::Abi) -> ::winrt::Result<Self> {
+                unsafe fn from_abi(abi: Self::Abi) -> ::winrt::Result<Self> {
                     Ok(abi)
                 }
             }
