@@ -30,12 +30,12 @@ impl Delegate {
         let fn_constraint = self.gen_fn_constraint();
         let impl_definition = self.gen_impl_definition(&fn_constraint);
         let name = self.name.gen();
-        let abi_name = self.name.gen_abi();
-        let impl_name = self.gen_impl_name();
+        //let abi_name = self.name.gen_abi();
+        //let impl_name = self.gen_impl_name();
         let phantoms = self.name.phantoms();
         let constraints = self.name.gen_constraint();
         let method = self.method.gen_default();
-        let abi_signature = self.method.gen_abi(&self.name);
+        let abi_signature = self.method.gen_abi();
 
         let guid = self.name.gen_guid(&self.guid);
 
@@ -46,48 +46,48 @@ impl Delegate {
             self.name.gen_signature(&format!("{{{:#?}}}", &self.guid))
         };
 
-        let invoke_args = self
-            .method
-            .params
-            .iter()
-            .map(|param| param.gen_invoke_arg());
+        // let invoke_args = self
+        //     .method
+        //     .params
+        //     .iter()
+        //     .map(|param| param.gen_invoke_arg());
         let debug = default_gen_debug(&self.name);
 
-        let invoke_upcall = if let Some(return_type) = &self.method.return_type {
-            if return_type.array {
-                let result = format_ident(&return_type.name);
-                let result_size = squote::format_ident!("array_size_{}", &return_type.name);
+        // let invoke_upcall = if let Some(return_type) = &self.method.return_type {
+        //     if return_type.array {
+        //         let result = format_ident(&return_type.name);
+        //         let result_size = squote::format_ident!("array_size_{}", &return_type.name);
 
-                quote! {
-                    match ((*this).invoke)(#(#invoke_args,)*) {
-                        ::std::result::Result::Ok(ok__) => {
-                            let (ok_data__, ok_data_len__) = ok__.into_abi();
-                            *#result = ok_data__;
-                            *#result_size = ok_data_len__;
-                            ::winrt::ErrorCode(0)
-                        }
-                        ::std::result::Result::Err(err) => err.into()
-                    }
-                }
-            } else {
-                let return_name = format_ident(&return_type.name);
+        //         quote! {
+        //             match ((*this).invoke)(#(#invoke_args,)*) {
+        //                 ::std::result::Result::Ok(ok__) => {
+        //                     let (ok_data__, ok_data_len__) = ok__.into_abi();
+        //                     *#result = ok_data__;
+        //                     *#result_size = ok_data_len__;
+        //                     ::winrt::ErrorCode(0)
+        //                 }
+        //                 ::std::result::Result::Err(err) => err.into()
+        //             }
+        //         }
+        //     } else {
+        //         let return_name = format_ident(&return_type.name);
 
-                quote! {
-                    match ((*this).invoke)(#(#invoke_args,)*) {
-                        ::std::result::Result::Ok(ok__) => {
-                            *#return_name = ::std::mem::transmute_copy(ok__);
-                            ::std::mem::forget(ok__);
-                            ::winrt::ErrorCode(0)
-                        }
-                        ::std::result::Result::Err(err) => err.into()
-                    }
-                }
-            }
-        } else {
-            quote! {
-                ((*this).invoke)(#(#invoke_args,)*).into()
-            }
-        };
+        //         quote! {
+        //             match ((*this).invoke)(#(#invoke_args,)*) {
+        //                 ::std::result::Result::Ok(ok__) => {
+        //                     *#return_name = ::std::mem::transmute_copy(ok__);
+        //                     ::std::mem::forget(ok__);
+        //                     ::winrt::ErrorCode(0)
+        //                 }
+        //                 ::std::result::Result::Err(err) => err.into()
+        //             }
+        //         }
+        //     }
+        // } else {
+        //     quote! {
+        //         ((*this).invoke)(#(#invoke_args,)*).into()
+        //     }
+        // };
 
         quote! {
             #[repr(transparent)]
@@ -221,16 +221,16 @@ impl Delegate {
         }
     }
 
-    fn gen_impl_name(&self) -> TokenStream {
-        if self.name.generics.is_empty() {
-            let name = format_impl_ident(&self.name.name);
-            quote! { #name::<F> }
-        } else {
-            let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
-            let generics = self.name.generics.iter().map(|g| g.gen());
-            quote! { #name::<#(#generics,)* F> }
-        }
-    }
+    // fn gen_impl_name(&self) -> TokenStream {
+    //     if self.name.generics.is_empty() {
+    //         let name = format_impl_ident(&self.name.name);
+    //         quote! { #name::<F> }
+    //     } else {
+    //         let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
+    //         let generics = self.name.generics.iter().map(|g| g.gen());
+    //         quote! { #name::<#(#generics,)* F> }
+    //     }
+    // }
 }
 
 fn format_impl_ident(name: &str) -> squote::Ident {

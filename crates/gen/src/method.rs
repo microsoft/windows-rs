@@ -116,9 +116,7 @@ impl Method {
         to_snake(method.name(reader), MethodKind::Normal)
     }
 
-    pub fn gen_abi(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = self_name.gen();
-
+    pub fn gen_abi(&self) -> TokenStream {
         let params = self
             .params
             .iter()

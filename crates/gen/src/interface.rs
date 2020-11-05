@@ -77,7 +77,7 @@ impl Interface {
         let methods = gen_method(&self.interfaces);
 
         let abi_methods = default_interface.methods.iter().map(|method| {
-            let signature = method.gen_abi(&default_interface.name);
+            let signature = method.gen_abi();
 
             quote! {
                 pub extern "system" fn #signature
