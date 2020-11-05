@@ -132,6 +132,16 @@ unsafe impl<T: ComInterface> Abi for T {
         debug_assert!(self.is_null());
         self as *mut _ as *mut _
     }
+
+    unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
+        let abi: RawPtr = std::mem::transmute(abi);
+        
+        if abi.is_null() {
+            Err(ErrorCode::E_POINTER.into())
+        } else {
+            Ok(std::mem::transmute(abi))
+        }
+    }
 }
 
 unsafe impl<T: ComInterface> Abi for Option<T> {
@@ -149,16 +159,9 @@ unsafe impl<T: ComInterface> Abi for Option<T> {
         debug_assert!(self.is_none());
         self as *mut _ as *mut _
     }
-}
 
-unsafe impl<T: ComInterface> IntoResult for T {
-    type Abi = RawPtr;
-
-    unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
-        if abi.is_null() {
-            Err(ErrorCode::E_POINTER.into())
-        } else {
-            Ok(std::mem::transmute(abi))
-        }
+    unsafe fn into_result(_: Self::Abi) -> Result<Self> {
+        panic!();
     }
 }
+

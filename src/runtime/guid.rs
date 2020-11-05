@@ -70,14 +70,12 @@ unsafe impl Abi for Guid {
     unsafe fn set_abi(&mut self) -> *mut Self {
         self
     }
-}
 
-unsafe impl IntoResult for Guid {
-    type Abi = Self;
     unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
         Ok(abi)
     }
 }
+
 
 
 unsafe impl RuntimeType for Guid {

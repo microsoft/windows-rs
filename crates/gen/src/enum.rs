@@ -65,7 +65,7 @@ impl Enum {
             };
 
             quote! {
-                pub const #name: Self = Self { value: #value };
+                pub const #name: Self = Self(#value);
             }
         });
         let bitwise = bitwise_operators(&name, self.fields[0].1);
@@ -74,9 +74,7 @@ impl Enum {
             #[repr(transparent)]
             // TODO: unroll thes traits
             #[derive(::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::cmp::Eq, ::std::cmp::PartialEq)]
-            pub struct #name {
-                value: #repr
-            }
+            pub struct #name(#repr);
             impl #name {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*
@@ -87,16 +85,13 @@ impl Enum {
             unsafe impl ::winrt::Abi for #name {
                 type Abi = #repr;
                 unsafe fn get_abi(&self) -> Self::Abi {
-                    self.value
+                    self.0
                 }
                 unsafe fn set_abi(&mut self) -> *mut Self::Abi {
-                    &mut self.value
+                    &mut self.0
                 }
-            }
-            unsafe impl ::winrt::IntoResult for #name {
-                type Abi = #repr;
                 unsafe fn into_result(abi: Self::Abi) -> ::winrt::Result<Self> {
-                    Ok(abi)
+                    Ok(Self(abi))
                 }
             }
             #bitwise
@@ -114,14 +109,14 @@ fn bitwise_operators(name: &TokenStream, value_type: EnumConstant) -> TokenStrea
             type Output = Self;
 
             fn bitor(self, rhs: Self) -> Self {
-                Self { value: self.value | rhs.value }
+                Self(self.0 | rhs.0)
             }
         }
         impl ::std::ops::BitAnd for #name {
             type Output = Self;
 
             fn bitand(self, rhs: Self) -> Self {
-                Self { value: self.value & rhs.value }
+                Self(self.0 & rhs.0)
             }
         }
     }

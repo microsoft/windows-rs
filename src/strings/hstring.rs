@@ -109,10 +109,7 @@ unsafe impl Abi for HString {
         debug_assert!(self.is_empty());
         &mut self.0 as *mut _ as _
     }
-}
 
-unsafe impl IntoResult for HString {
-    type Abi = RawPtr;
     unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
         Ok(HString(abi as _))
     }

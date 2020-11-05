@@ -35,6 +35,10 @@ unsafe impl Abi for BString {
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
         &mut self.0
     }
+
+    unsafe fn into_result(_: Self::Abi) -> Result<Self> {
+        panic!();
+    }
 }
 
 impl Drop for BString {

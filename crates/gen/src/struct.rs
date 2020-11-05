@@ -64,10 +64,6 @@ impl Struct {
                 unsafe fn set_abi(&mut self) -> *mut Self {
                     self
                 }
-
-            }
-            unsafe impl ::winrt::IntoResult for #name {
-                type Abi = Self;
                 unsafe fn into_result(abi: Self::Abi) -> ::winrt::Result<Self> {
                     Ok(abi)
                 }

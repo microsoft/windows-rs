@@ -72,7 +72,7 @@ impl ErrorCode {
         Ok(op())
     }
 
-    pub fn into_result<T: IntoResult>(self, abi: T::Abi) -> Result<T> {
+    pub fn into_result<T: Abi>(self, abi: T::Abi) -> Result<T> {
         if self.is_ok() {
             T::into_result(abi)
         } else {
