@@ -134,12 +134,12 @@ unsafe impl<T: ComInterface> Abi for T {
     }
 
     unsafe fn into_result(abi: Self::Abi) -> Result<Self> {
-        let abi: RawPtr = std::mem::transmute(abi);
+        let abi: RawPtr = std::mem::transmute_copy(&abi);
         
         if abi.is_null() {
             Err(ErrorCode::E_POINTER.into())
         } else {
-            Ok(std::mem::transmute(abi))
+            Ok(std::mem::transmute_copy(&abi))
         }
     }
 }

@@ -137,16 +137,30 @@ impl Method {
         let args = self.params.iter().map(|param| param.gen_abi_arg());
 
         if let Some(return_type) = &self.return_type {
-            let return_arg = return_type.gen_abi_return_arg();
-            // TODO: gen_return should wrap in Option<T> if a COM underlying type and initialized with None.
-            let return_type = return_type.gen_return();
+            if return_type.array {
+                let return_arg = return_type.gen_abi_return_arg();
+                let return_type = return_type.gen_return();
 
-            quote! {
-                pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
-                    unsafe {
-                        let mut result__: <#return_type as ::winrt::Abi>::Abi = ::std::mem::zeroed();
-                        (::winrt::ComInterface::vtable(self).#ordinal)(::std::mem::transmute_copy(self), #(#args)* #return_arg)
-                            .into_result::<#return_type>(result__ )
+                quote! {
+                    pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
+                        unsafe {
+                            let mut result__: #return_type = ::std::mem::zeroed();
+                            (::winrt::ComInterface::vtable(self).#ordinal)(::std::mem::transmute_copy(self), #(#args)* #return_arg)
+                                .and_then(|| result__ )
+                        }
+                    }
+                }
+            } else {
+                let return_arg = return_type.gen_abi_return_arg();
+                let return_type = return_type.gen_return();
+
+                quote! {
+                    pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
+                        unsafe {
+                            let mut result__: <#return_type as ::winrt::Abi>::Abi = ::std::mem::zeroed();
+                            (::winrt::ComInterface::vtable(self).#ordinal)(::std::mem::transmute_copy(self), #(#args)* #return_arg)
+                                .into_result::<#return_type>(result__ )
+                        }
                     }
                 }
             }
