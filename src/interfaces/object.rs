@@ -7,14 +7,14 @@ use crate::*;
 
 #[allow(non_camel_case_types)]
 pub type Object_GetIids =
-    extern "system" fn(this: RawComPtr, count: *mut u32, values: *mut *mut Guid) -> ErrorCode;
+    extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> ErrorCode;
 
 #[allow(non_camel_case_types)]
 pub type Object_GetRuntimeClassName =
-    extern "system" fn(this: RawComPtr, value: *mut RawPtr) -> ErrorCode;
+    extern "system" fn(this: RawPtr, value: *mut RawPtr) -> ErrorCode;
 
 #[allow(non_camel_case_types)]
-pub type Object_GetTrustLevel = extern "system" fn(this: RawComPtr, value: *mut i32) -> ErrorCode;
+pub type Object_GetTrustLevel = extern "system" fn(this: RawPtr, value: *mut i32) -> ErrorCode;
 
 #[repr(transparent)]
 #[derive(Clone, PartialEq)]
@@ -44,9 +44,9 @@ unsafe impl ComInterface for Object {
 }
 
 unsafe impl GetAbi for Object {
-    type Abi = RawComPtr;
+    type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawComPtr {
+    unsafe fn get_abi(&self) -> RawPtr {
         self.0.get_abi()
     }
 }

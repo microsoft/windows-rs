@@ -25,10 +25,6 @@ pub unsafe trait ComInterface: Sized + GetAbi {
         &(*(*(this as *mut *mut <T as ComInterface>::Vtable) as *mut <T as ComInterface>::Vtable))
     }
 
-    unsafe fn as_raw_com_ptr(&self) -> RawComPtr {
-        std::mem::transmute_copy(self)
-    }
-
     unsafe fn as_raw_ptr(&self) -> RawPtr {
         std::mem::transmute_copy(self)
     }
@@ -43,7 +39,7 @@ pub unsafe trait ComInterface: Sized + GetAbi {
 
     fn try_query<T: ComInterface>(&self) -> Option<T> {
         unsafe {
-            let this: RawComPtr = std::mem::transmute_copy(self);
+            let this = std::mem::transmute_copy(self);
             let mut result: Option<T> = None;
             (self.vtable_of::<IUnknown>().0)(this, &T::IID, &mut result as *mut _ as _);
             result
@@ -133,7 +129,7 @@ unsafe impl<T: ComInterface> SetAbi for Option<T> {
 
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
         if let Some(this) = self {
-            (this.vtable_of::<IUnknown>().2)(this.as_raw_com_ptr());
+            (this.vtable_of::<IUnknown>().2)(this.as_raw_ptr());
             *self = std::mem::zeroed();
         }
         self as *mut Self as *mut RawPtr

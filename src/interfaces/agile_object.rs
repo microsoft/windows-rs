@@ -18,9 +18,9 @@ unsafe impl ComInterface for IAgileObject {
 }
 
 unsafe impl GetAbi for IAgileObject {
-    type Abi = RawComPtr;
+    type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawComPtr {
+    unsafe fn get_abi(&self) -> RawPtr {
         self.0.get_abi()
     }
 }

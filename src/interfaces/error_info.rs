@@ -9,11 +9,11 @@ pub struct IErrorInfo_vtable(
     pub IUnknown_QueryInterface,
     pub IUnknown_AddRef,
     pub IUnknown_Release,
-    pub extern "system" fn(this: RawComPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
-    pub extern "system" fn(this: RawComPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
-    pub extern "system" fn(this: RawComPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
-    pub extern "system" fn(this: RawComPtr, help: *mut RawPtr) -> ErrorCode,        // GetHelpFile
-    pub extern "system" fn(this: RawComPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
+    pub extern "system" fn(this: RawPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
+    pub extern "system" fn(this: RawPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
+    pub extern "system" fn(this: RawPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
+    pub extern "system" fn(this: RawPtr, help: *mut RawPtr) -> ErrorCode,        // GetHelpFile
+    pub extern "system" fn(this: RawPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
 );
 
 unsafe impl ComInterface for IErrorInfo {
@@ -30,9 +30,9 @@ unsafe impl ComInterface for IErrorInfo {
 }
 
 unsafe impl GetAbi for IErrorInfo {
-    type Abi = RawComPtr;
+    type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawComPtr {
+    unsafe fn get_abi(&self) -> RawPtr {
         self.0.get_abi()
     }
 }

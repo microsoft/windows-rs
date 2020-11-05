@@ -10,13 +10,13 @@ pub struct IRestrictedErrorInfo_vtable(
     pub IUnknown_AddRef,
     pub IUnknown_Release,
     pub  extern "system" fn(
-        this: RawComPtr,
+        this: RawPtr,
         description: *mut RawPtr,
         error: *mut ErrorCode,
         restricted: *mut RawPtr,
         sid: *mut RawPtr,
     ) -> ErrorCode, // GetErrorDetails
-    pub extern "system" fn(this: RawComPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
+    pub extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
 );
 
 unsafe impl ComInterface for IRestrictedErrorInfo {
@@ -33,9 +33,9 @@ unsafe impl ComInterface for IRestrictedErrorInfo {
 }
 
 unsafe impl GetAbi for IRestrictedErrorInfo {
-    type Abi = RawComPtr;
+    type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawComPtr {
+    unsafe fn get_abi(&self) -> RawPtr {
         self.0.get_abi()
     }
 }

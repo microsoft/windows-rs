@@ -105,12 +105,12 @@ impl Param {
     }
 
     pub fn gen_abi_return_arg(&self) -> TokenStream {
-        let return_type = self.kind.gen();
 
         if self.array {
+            let return_type = self.kind.gen();
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
         } else {
-            quote! { <#return_type as ::winrt::SetAbi>::set_abi(&mut result__) }
+            quote! { ::winrt::SetAbi::set_abi(&mut result__) }
         }
     }
 

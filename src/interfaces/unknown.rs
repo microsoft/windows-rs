@@ -2,13 +2,13 @@ use crate::*;
 
 #[allow(non_camel_case_types)]
 pub type IUnknown_QueryInterface =
-    extern "system" fn(this: RawComPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode;
+    extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode;
 
 #[allow(non_camel_case_types)]
-pub type IUnknown_AddRef = extern "system" fn(this: RawComPtr) -> u32;
+pub type IUnknown_AddRef = extern "system" fn(this: RawPtr) -> u32;
 
 #[allow(non_camel_case_types)]
-pub type IUnknown_Release = extern "system" fn(this: RawComPtr) -> u32;
+pub type IUnknown_Release = extern "system" fn(this: RawPtr) -> u32;
 
 #[repr(transparent)]
 pub struct IUnknown(RawComPtr);
@@ -34,17 +34,17 @@ unsafe impl ComInterface for IUnknown {
 }
 
 unsafe impl GetAbi for IUnknown {
-    type Abi = RawComPtr;
+    type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawComPtr {
-        self.0
+    unsafe fn get_abi(&self) -> RawPtr {
+        self.0.as_ptr()
     }
 }
 
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {
-            (self.vtable().1)(self.0); // AddRef
+            (self.vtable().1)(self.get_abi()); // AddRef
         }
 
         Self(self.0)
@@ -54,7 +54,7 @@ impl Clone for IUnknown {
 impl Drop for IUnknown {
     fn drop(&mut self) {
         unsafe {
-            (self.vtable().2)(self.0); // Release
+            (self.vtable().2)(self.get_abi()); // Release
         }
     }
 }

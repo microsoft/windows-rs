@@ -9,10 +9,10 @@ pub struct ILanguageExceptionErrorInfo2_vtable(
     pub IUnknown_QueryInterface,
     pub IUnknown_AddRef,
     pub IUnknown_Release,
-    pub extern "system" fn(this: RawComPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
-    pub extern "system" fn(this: RawComPtr, previous: *mut RawPtr) -> ErrorCode, // GetPreviousLanguageExceptionErrorInfo
-    pub extern "system" fn(this: RawComPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
-    pub extern "system" fn(this: RawComPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
+    pub extern "system" fn(this: RawPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
+    pub extern "system" fn(this: RawPtr, previous: *mut RawPtr) -> ErrorCode, // GetPreviousLanguageExceptionErrorInfo
+    pub extern "system" fn(this: RawPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
+    pub extern "system" fn(this: RawPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
 );
 
 unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
@@ -29,9 +29,9 @@ unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
 }
 
 unsafe impl GetAbi for ILanguageExceptionErrorInfo2 {
-    type Abi = RawComPtr;
+    type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawComPtr {
+    unsafe fn get_abi(&self) -> RawPtr {
         self.0.get_abi()
     }
 }

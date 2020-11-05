@@ -140,6 +140,7 @@ impl Method {
 
         if let Some(return_type) = &self.return_type {
             let return_arg = return_type.gen_abi_return_arg();
+            // TODO: gen_return should wrap in Option<T> if a COM underlying type and initialized with None.
             let return_type = return_type.gen_return();
 
             quote! {

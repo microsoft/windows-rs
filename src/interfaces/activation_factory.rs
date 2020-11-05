@@ -12,7 +12,7 @@ pub struct IActivationFactory_vtable(
     pub Object_GetIids,
     pub Object_GetRuntimeClassName,
     pub Object_GetTrustLevel,
-    pub extern "system" fn(this: RawComPtr, object: &mut Option<Object>) -> ErrorCode, // ActivateInstance
+    pub extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> ErrorCode, // ActivateInstance
 );
 
 unsafe impl ComInterface for IActivationFactory {
@@ -29,9 +29,9 @@ unsafe impl ComInterface for IActivationFactory {
 }
 
 unsafe impl GetAbi for IActivationFactory {
-    type Abi = RawComPtr;
+    type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawComPtr {
+    unsafe fn get_abi(&self) -> RawPtr {
         self.0.get_abi()
     }
 }
