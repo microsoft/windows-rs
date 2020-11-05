@@ -1,7 +1,7 @@
 use std::time::Duration;
 use tests::test_component::TestRunner;
 use winrt::foundation::{IPropertyValue, PropertyValue, TimeSpan};
-use winrt::ComInterface;
+use winrt::Interface;
 
 #[test]
 fn conversion() -> winrt::Result<()> {

@@ -1,5 +1,5 @@
 use winrt::foundation::{IStringable, IUriRuntimeClass, Uri};
-use winrt::ComInterface;
+use winrt::Interface;
 use winrt::RuntimeName;
 
 #[test]

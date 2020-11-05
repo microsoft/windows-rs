@@ -95,7 +95,7 @@ impl Interface {
                 #methods
                 #async_get
             }
-            unsafe impl<#constraints> ::winrt::ComInterface for #name {
+            unsafe impl<#constraints> ::winrt::Interface for #name {
                 type Vtable = #abi_definition;
                 const IID: ::winrt::Guid = #guid;
             }

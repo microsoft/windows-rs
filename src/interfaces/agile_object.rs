@@ -4,7 +4,7 @@ use crate::*;
 #[derive(Clone, PartialEq)]
 pub struct IAgileObject(IUnknown);
 
-unsafe impl ComInterface for IAgileObject {
+unsafe impl Interface for IAgileObject {
     type Vtable = IUnknown_vtable;
 
     const IID: Guid = {

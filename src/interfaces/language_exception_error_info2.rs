@@ -15,7 +15,7 @@ pub struct ILanguageExceptionErrorInfo2_vtable(
     pub extern "system" fn(this: RawPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
 );
 
-unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
+unsafe impl Interface for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2_vtable;
 
     const IID: Guid = {

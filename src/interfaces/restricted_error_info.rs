@@ -19,7 +19,7 @@ pub struct IRestrictedErrorInfo_vtable(
     pub extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
 );
 
-unsafe impl ComInterface for IRestrictedErrorInfo {
+unsafe impl Interface for IRestrictedErrorInfo {
     type Vtable = IRestrictedErrorInfo_vtable;
 
     const IID: Guid = {

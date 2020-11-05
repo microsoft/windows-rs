@@ -362,7 +362,7 @@ impl TypeName {
 
         for generic in &self.generics {
             let generic = generic.gen();
-            tokens.combine(&quote!{ ::std::marker::PhantomData::<#generic>, });
+            tokens.combine(&quote! { ::std::marker::PhantomData::<#generic>, });
         }
 
         tokens

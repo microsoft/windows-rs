@@ -1,6 +1,6 @@
 use tests::test_component::*;
 use tests::windows::foundation::{IReference, IStringable, PropertyValue, Uri};
-use winrt::ComInterface;
+use winrt::Interface;
 
 #[test]
 fn test_self() -> winrt::Result<()> {

@@ -15,7 +15,7 @@ pub struct IActivationFactory_vtable(
     pub extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> ErrorCode, // ActivateInstance
 );
 
-unsafe impl ComInterface for IActivationFactory {
+unsafe impl Interface for IActivationFactory {
     type Vtable = IActivationFactory_vtable;
 
     const IID: Guid = {
@@ -29,7 +29,7 @@ unsafe impl ComInterface for IActivationFactory {
 }
 
 impl IActivationFactory {
-    pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
+    pub fn activate_instance<I: Interface>(&self) -> Result<I> {
         unsafe {
             let mut object = None;
             (self.vtable().6)(self.get_abi(), &mut object)

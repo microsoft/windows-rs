@@ -99,7 +99,7 @@ impl Delegate {
                     //#impl_name::make(invoke)
                 }
             }
-            unsafe impl<#constraints> ::winrt::ComInterface for #name {
+            unsafe impl<#constraints> ::winrt::Interface for #name {
                 type Vtable = #abi_definition;
                 const IID: ::winrt::Guid = #guid;
             }
@@ -151,9 +151,9 @@ impl Delegate {
             //         unsafe {
             //             let this: *mut Self = this.as_raw() as _;
 
-            //             if iid == &<#name as ::winrt::ComInterface>::IID
-            //                 || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::IID
-            //                 || iid == &<::winrt::IAgileObject as ::winrt::ComInterface>::IID
+            //             if iid == &<#name as ::winrt::Interface>::IID
+            //                 || iid == &<::winrt::IUnknown as ::winrt::Interface>::IID
+            //                 || iid == &<::winrt::IAgileObject as ::winrt::Interface>::IID
             //             {
             //                 *interface = this as ::winrt::RawPtr;
             //                 (*this).count.add_ref();

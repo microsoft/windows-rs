@@ -115,7 +115,6 @@ unsafe impl Abi for HString {
     }
 }
 
-
 unsafe impl RuntimeType for HString {
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"string");
 }
@@ -132,9 +131,7 @@ impl Clone for HString {
             return Self::new();
         }
 
-        unsafe {
-        Self((*self.0).duplicate())
-        }
+        unsafe { Self((*self.0).duplicate()) }
     }
 }
 

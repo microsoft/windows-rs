@@ -258,20 +258,18 @@ impl TypeKind {
             Self::F32 => quote! { f32, },
             Self::F64 => quote! { f64, },
             Self::Guid => quote! { ::winrt::Guid, },
-            Self::String | Self::Object 
+            Self::String
+            | Self::Object
             | Self::Class(_)
             | Self::Interface(_)
-            | Self::Delegate(_)
-
-            => {
+            | Self::Delegate(_) => {
                 quote! { ::winrt::RawPtr, }
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
                 quote! { <#name as ::winrt::Abi>::Abi, }
             }
-         Self::Enum(name)
-            | Self::Struct(name) => {
+            Self::Enum(name) | Self::Struct(name) => {
                 let name = name.gen();
                 quote! { <#name as ::winrt::Abi>::Abi, }
             }

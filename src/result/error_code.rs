@@ -49,7 +49,7 @@ impl ErrorCode {
         }
     }
 
-    pub fn and_some<T: ComInterface>(self, some: Option<T>) -> Result<T> {
+    pub fn and_some<T: Interface>(self, some: Option<T>) -> Result<T> {
         if self.is_ok() {
             if let Some(result) = some {
                 Ok(result)

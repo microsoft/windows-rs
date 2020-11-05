@@ -1,5 +1,5 @@
 use winrt::foundation::{IClosable, IStringable, Uri};
-use winrt::ComInterface;
+use winrt::Interface;
 
 #[test]
 fn try_into() -> winrt::Result<()> {

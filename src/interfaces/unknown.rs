@@ -20,7 +20,7 @@ pub struct IUnknown_vtable(
     pub IUnknown_Release,
 );
 
-unsafe impl ComInterface for IUnknown {
+unsafe impl Interface for IUnknown {
     type Vtable = IUnknown_vtable;
 
     const IID: Guid = {

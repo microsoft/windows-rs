@@ -169,9 +169,9 @@ impl Class {
                     #call_factory
                 }
                 #type_name
-                unsafe impl ::winrt::ComInterface for #name {
+                unsafe impl ::winrt::Interface for #name {
                     type Vtable = #abi_name;
-                    const IID: ::winrt::Guid = <#default_name as ::winrt::ComInterface>::IID;
+                    const IID: ::winrt::Guid = <#default_name as ::winrt::Interface>::IID;
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
                     const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
@@ -226,7 +226,7 @@ impl Class {
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
                         unsafe {
-                            ::winrt::ComInterface::expected_query(value)
+                            ::winrt::Interface::expected_query(value)
                         }
                     }
                 }
