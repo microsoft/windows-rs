@@ -268,12 +268,12 @@ impl TypeKind {
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
-                quote! { <#name as ::winrt::GetAbi>::Abi, }
+                quote! { <#name as ::winrt::Abi>::Abi, }
             }
          Self::Enum(name)
             | Self::Struct(name) => {
                 let name = name.gen();
-                quote! { <#name as ::winrt::GetAbi>::Abi, }
+                quote! { <#name as ::winrt::Abi>::Abi, }
             }
         }
     }

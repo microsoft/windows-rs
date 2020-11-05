@@ -7,13 +7,13 @@ macro_rules! include_bindings {
     };
 }
 
-// mod bindings {
-//     #![allow(unused_variables)]
-//     include_bindings!();
-// }
+mod bindings {
+    #![allow(unused_variables)]
+    include_bindings!();
+}
 
-// #[doc(hidden)]
-// pub use bindings::windows::foundation;
+#[doc(hidden)]
+pub use bindings::windows::foundation;
 
 pub type RawPtr = *mut std::ffi::c_void;
 pub type RawComPtr = std::ptr::NonNull<std::ffi::c_void>;

@@ -86,7 +86,6 @@ impl Interface {
 
         let iterator = gen_iterator(&self.name, &self.interfaces);
         let (async_get, future) = gen_async(&self.name, &self.interfaces);
-        let debug = gen_debug(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]
@@ -114,12 +113,6 @@ impl Interface {
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
-            unsafe impl<#constraints> ::winrt::GetAbi for #name {
-                type Abi = ::winrt::RawPtr;
-                unsafe fn get_abi(&self) -> Self::Abi {
-                    self.0.get_abi()
-                }
-            }
             impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {
                 fn from(value: #name) -> Self {
                     unsafe { ::std::mem::transmute(value) }
@@ -140,7 +133,6 @@ impl Interface {
                     ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
                 }
             }
-            #debug
             #(#conversions)*
             #iterator
             #future

@@ -98,22 +98,25 @@ impl HString {
     }
 }
 
-unsafe impl GetAbi for HString {
+unsafe impl Abi for HString {
     type Abi = RawPtr;
 
     unsafe fn get_abi(&self) -> RawPtr {
         self.0 as _
     }
-}
-
-unsafe impl SetAbi for HString {
-    type Abi = *mut RawPtr;
 
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
-        self.clear();
+        debug_assert!(self.is_empty());
         &mut self.0 as *mut _ as _
     }
 }
+
+unsafe impl IntoResult for HString {
+    unsafe fn into_result(self) -> Result<Self> {
+        Ok(self)
+    }
+}
+
 
 unsafe impl RuntimeType for HString {
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"string");

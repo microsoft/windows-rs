@@ -32,14 +32,6 @@ unsafe impl ComInterface for IRestrictedErrorInfo {
     };
 }
 
-unsafe impl GetAbi for IRestrictedErrorInfo {
-    type Abi = RawPtr;
-
-    unsafe fn get_abi(&self) -> RawPtr {
-        self.0.get_abi()
-    }
-}
-
 impl IRestrictedErrorInfo {
     pub fn from_thread() -> Option<Self> {
         if let Some(info) = IErrorInfo::from_thread() {

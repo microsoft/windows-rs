@@ -110,7 +110,7 @@ impl Param {
             let return_type = self.kind.gen();
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
         } else {
-            quote! { ::winrt::SetAbi::set_abi(&mut result__) }
+            quote! { ::winrt::Abi::set_abi(&mut result__) }
         }
     }
 
@@ -138,14 +138,14 @@ impl Param {
                     | TypeKind::Struct(_)
                     | TypeKind::Delegate(_)
                     | TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
-                    TypeKind::Enum(_) => quote! { ::winrt::GetAbi::get_abi(&#name), },
-                    _ => quote! { ::winrt::GetAbi::get_abi(#name), },
+                    TypeKind::Enum(_) => quote! { ::winrt::Abi::get_abi(&#name), },
+                    _ => quote! { ::winrt::Abi::get_abi(#name), },
                 }
             }
         } else if self.kind.primitive() {
             quote! { #name, }
         } else {
-            quote! { ::winrt::SetAbi::set_abi(#name), }
+            quote! { ::winrt::Abi::set_abi(#name), }
         }
     }
 

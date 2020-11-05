@@ -25,16 +25,12 @@ impl BString {
     }
 }
 
-unsafe impl GetAbi for BString {
+unsafe impl Abi for BString {
     type Abi = RawPtr;
 
     unsafe fn get_abi(&self) -> RawPtr {
         self.0
     }
-}
-
-unsafe impl SetAbi for BString {
-    type Abi = *mut RawPtr;
 
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
         &mut self.0

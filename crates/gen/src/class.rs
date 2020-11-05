@@ -147,7 +147,6 @@ impl Class {
             let default_name = default_interface.name.gen();
             let abi_name = default_interface.name.gen_abi();
             let (async_get, future) = gen_async(&self.name, &self.interfaces);
-            let debug = gen_debug(&self.name, &self.interfaces);
 
             let send_sync = if self.is_agile {
                 let constraints = self.name.gen_constraint();
@@ -177,12 +176,6 @@ impl Class {
                 unsafe impl ::winrt::RuntimeType for #name {
                     const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
                 }
-                unsafe impl ::winrt::GetAbi for #name {
-                    type Abi = ::winrt::RawPtr;
-                    unsafe fn get_abi(&self) -> Self::Abi {
-                        self.0.get_abi()
-                    }
-                }
                 impl ::std::convert::From<#name> for ::winrt::Object {
                     fn from(value: #name) -> Self {
                         unsafe { ::std::mem::transmute(value) }
@@ -203,7 +196,6 @@ impl Class {
                         ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
                     }
                 }
-                #debug
                 #(#conversions)*
                 #bases
                 #iterator
@@ -233,7 +225,9 @@ impl Class {
                 }
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
-                        <#from as ::winrt::ComInterface>::query(value)
+                        unsafe {
+                            ::winrt::ComInterface::expected_query(value)
+                        }
                     }
                 }
                 impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {

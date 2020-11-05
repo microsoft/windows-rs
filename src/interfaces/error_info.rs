@@ -29,14 +29,6 @@ unsafe impl ComInterface for IErrorInfo {
     };
 }
 
-unsafe impl GetAbi for IErrorInfo {
-    type Abi = RawPtr;
-
-    unsafe fn get_abi(&self) -> RawPtr {
-        self.0.get_abi()
-    }
-}
-
 impl IErrorInfo {
     pub fn from_thread() -> Option<Self> {
         let mut result = None;

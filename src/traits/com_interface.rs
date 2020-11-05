@@ -11,7 +11,7 @@ use crate::*;
 /// `VTable` must be a COM compliant vtable where the first three function
 /// pointers are the `IUnknown` methods. And because ComInterfaces are just
 /// pointers to vtables, it must be safe to zero-initialize the interface.
-pub unsafe trait ComInterface: Sized + GetAbi {
+pub unsafe trait ComInterface: Sized + Abi {
     type Vtable;
 
     const IID: Guid;
@@ -29,6 +29,10 @@ pub unsafe trait ComInterface: Sized + GetAbi {
         std::mem::transmute_copy(self)
     }
 
+    unsafe fn is_null(&self) -> bool {
+        self.as_raw_ptr().is_null()
+    }
+
     fn query<T: ComInterface>(&self) -> Result<T> {
         if let Some(result) = self.try_query::<T>() {
             Ok(result)
@@ -39,13 +43,18 @@ pub unsafe trait ComInterface: Sized + GetAbi {
 
     fn try_query<T: ComInterface>(&self) -> Option<T> {
         unsafe {
-            let this = std::mem::transmute_copy(self);
             let mut result: Option<T> = None;
-            (self.vtable_of::<IUnknown>().0)(this, &T::IID, &mut result as *mut _ as _);
+            (self.vtable_of::<IUnknown>().0)(std::mem::transmute_copy(self), &T::IID, &mut result as *mut _ as _);
             result
         }
     }
 
+    unsafe fn expected_query<T: ComInterface>(&self) -> T {
+        let mut result = std::mem::zeroed();
+        (self.vtable_of::<IUnknown>().0)(std::mem::transmute_copy(self), &T::IID, &mut result as *mut _ as _);
+        result
+    }
+    
     fn is_agile(&self) -> bool {
         self.query::<IAgileObject>().is_ok()
     }
@@ -112,26 +121,42 @@ pub unsafe trait ComInterface: Sized + GetAbi {
     // }
 }
 
-unsafe impl<T: ComInterface> GetAbi for Option<T> {
+unsafe impl<T: ComInterface> Abi for T {
     type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
+    unsafe fn get_abi(&self) -> Self::Abi {
+        std::mem::transmute_copy(self)
+    }
+
+    unsafe fn set_abi(&mut self) -> *mut Self::Abi {
+        debug_assert!(self.is_null());
+        self as *mut _ as *mut _
+    }
+}
+
+unsafe impl<T: ComInterface> Abi for Option<T> {
+    type Abi = RawPtr;
+
+    unsafe fn get_abi(&self) -> Self::Abi {
         if let Some(interface) = self {
             interface.as_raw_ptr()
         } else {
             std::ptr::null_mut()
         }
     }
+
+    unsafe fn set_abi(&mut self) ->  *mut Self::Abi {
+        debug_assert!(self.is_none());
+        self as *mut _ as *mut _
+    }
 }
 
-unsafe impl<T: ComInterface> SetAbi for Option<T> {
-    type Abi = *mut RawPtr;
-
-    unsafe fn set_abi(&mut self) -> *mut RawPtr {
-        if let Some(this) = self {
-            (this.vtable_of::<IUnknown>().2)(this.as_raw_ptr());
-            *self = std::mem::zeroed();
+unsafe impl<T: ComInterface> IntoResult for T {
+    unsafe fn into_result(self) -> Result<Self> {
+        if self.is_null() {
+            Err(ErrorCode::E_POINTER.into())
+        } else {
+            Ok(self)
         }
-        self as *mut Self as *mut RawPtr
     }
 }

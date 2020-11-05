@@ -72,7 +72,8 @@ impl Enum {
 
         quote! {
             #[repr(transparent)]
-            #[derive(::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::Eq, ::std::cmp::PartialEq)]
+            // TODO: unroll thes traits
+            #[derive(::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::cmp::Eq, ::std::cmp::PartialEq)]
             pub struct #name {
                 value: #repr
             }
@@ -83,16 +84,18 @@ impl Enum {
             unsafe impl ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
-            unsafe impl ::winrt::GetAbi for #name {
+            unsafe impl ::winrt::Abi for #name {
                 type Abi = #repr;
                 unsafe fn get_abi(&self) -> Self::Abi {
                     self.value
                 }
-            }
-            unsafe impl ::winrt::SetAbi for #name {
-                type Abi = *mut #repr;
-                unsafe fn set_abi(&mut self) -> Self::Abi {
+                unsafe fn set_abi(&mut self) -> *mut Self::Abi {
                     &mut self.value
+                }
+            }
+            unsafe impl ::winrt::IntoResult for #name {
+                unsafe fn into_result(self) -> ::winrt::Result<Self> {
+                    Ok(self)
                 }
             }
             #bitwise

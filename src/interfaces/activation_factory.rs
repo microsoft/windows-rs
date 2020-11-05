@@ -28,14 +28,6 @@ unsafe impl ComInterface for IActivationFactory {
     };
 }
 
-unsafe impl GetAbi for IActivationFactory {
-    type Abi = RawPtr;
-
-    unsafe fn get_abi(&self) -> RawPtr {
-        self.0.get_abi()
-    }
-}
-
 impl IActivationFactory {
     pub fn activate_instance<I: ComInterface>(&self) -> Result<I> {
         unsafe {

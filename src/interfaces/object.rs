@@ -43,14 +43,6 @@ unsafe impl ComInterface for Object {
     };
 }
 
-unsafe impl GetAbi for Object {
-    type Abi = RawPtr;
-
-    unsafe fn get_abi(&self) -> RawPtr {
-        self.0.get_abi()
-    }
-}
-
 impl Object {
     pub fn type_name(&self) -> Result<HString> {
         unsafe {

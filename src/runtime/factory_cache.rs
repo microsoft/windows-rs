@@ -21,7 +21,7 @@ impl<C, I> FactoryCache<C, I> {
     }
 }
 
-impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
+impl<C: RuntimeName, I: ComInterface> FactoryCache<C, I> {
     pub fn call<R, F: FnOnce(&I) -> Result<R>>(&mut self, callback: F) -> Result<R> {
         loop {
             // Attempt to load a previously cached factory pointer.
@@ -58,7 +58,7 @@ impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
 }
 
 /// Attempts to load the factory interface for the given WinRT class.
-pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
+pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
     let mut factory: Option<I> = None;
     let name = HString::from(C::NAME);
 

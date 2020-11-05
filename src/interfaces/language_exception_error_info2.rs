@@ -28,14 +28,6 @@ unsafe impl ComInterface for ILanguageExceptionErrorInfo2 {
     };
 }
 
-unsafe impl GetAbi for ILanguageExceptionErrorInfo2 {
-    type Abi = RawPtr;
-
-    unsafe fn get_abi(&self) -> RawPtr {
-        self.0.get_abi()
-    }
-}
-
 impl ILanguageExceptionErrorInfo2 {
     pub fn capture_propagation_context(&self) {
         unsafe {

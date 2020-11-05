@@ -28,7 +28,7 @@ impl Delegate {
         let definition = self.name.gen_definition();
         let abi_definition = self.name.gen_abi_definition();
         let fn_constraint = self.gen_fn_constraint();
-        let impl_definition = self.gen_impl_definition(&fn_constraint);
+        //let impl_definition = self.gen_impl_definition(&fn_constraint);
         let name = self.name.gen();
         //let abi_name = self.name.gen_abi();
         //let impl_name = self.gen_impl_name();
@@ -51,7 +51,6 @@ impl Delegate {
         //     .params
         //     .iter()
         //     .map(|param| param.gen_invoke_arg());
-        let debug = default_gen_debug(&self.name);
 
         // let invoke_upcall = if let Some(return_type) = &self.method.return_type {
         //     if return_type.array {
@@ -115,19 +114,12 @@ impl Delegate {
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
-            unsafe impl<#constraints> ::winrt::GetAbi for #name {
-                type Abi = ::winrt::RawPtr;
-                unsafe fn get_abi(&self) -> Self::Abi {
-                    self.0.get_abi()
-                }
-            }
-            #debug
-            #[repr(C)]
-            struct #impl_definition where #constraints {
-                vtable: *const #abi_definition,
-                count: ::winrt::RefCount,
-                invoke: F,
-            }
+            // #[repr(C)]
+            // struct #impl_definition where #constraints {
+            //     vtable: *const #abi_definition,
+            //     count: ::winrt::RefCount,
+            //     invoke: F,
+            // }
             // impl<#constraints #fn_constraint> #impl_name {
             //     const VTABLE: #abi_definition = #abi_name {
             //         unknown: ::winrt::abi_IUnknown {
@@ -210,16 +202,16 @@ impl Delegate {
         quote! { F: FnMut(#(#params)*) -> ::winrt::Result<#return_type> + 'static }
     }
 
-    fn gen_impl_definition(&self, fn_constraint: &TokenStream) -> TokenStream {
-        if self.name.generics.is_empty() {
-            let name = format_impl_ident(&self.name.name);
-            quote! { #name<#fn_constraint> }
-        } else {
-            let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
-            let generics = self.name.generics.iter().map(|g| g.gen());
-            quote! { #name<#(#generics,)* #fn_constraint> }
-        }
-    }
+    // fn gen_impl_definition(&self, fn_constraint: &TokenStream) -> TokenStream {
+    //     if self.name.generics.is_empty() {
+    //         let name = format_impl_ident(&self.name.name);
+    //         quote! { #name<#fn_constraint> }
+    //     } else {
+    //         let name = format_impl_ident(&self.name.name[..self.name.name.len() - 2]);
+    //         let generics = self.name.generics.iter().map(|g| g.gen());
+    //         quote! { #name<#(#generics,)* #fn_constraint> }
+    //     }
+    // }
 
     // fn gen_impl_name(&self) -> TokenStream {
     //     if self.name.generics.is_empty() {
@@ -233,6 +225,6 @@ impl Delegate {
     // }
 }
 
-fn format_impl_ident(name: &str) -> squote::Ident {
-    squote::format_ident!("impl_{}", name)
-}
+// fn format_impl_ident(name: &str) -> squote::Ident {
+//     squote::format_ident!("impl_{}", name)
+// }

@@ -33,14 +33,6 @@ unsafe impl ComInterface for IUnknown {
     };
 }
 
-unsafe impl GetAbi for IUnknown {
-    type Abi = RawPtr;
-
-    unsafe fn get_abi(&self) -> RawPtr {
-        self.0.as_ptr()
-    }
-}
-
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {

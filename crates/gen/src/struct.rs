@@ -49,23 +49,25 @@ impl Struct {
 
         quote! {
             #[repr(C)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq)]
+            #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
             pub struct #name {
                 #(#fields),*
             }
             unsafe impl ::winrt::RuntimeType for #name {
                 const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
-            unsafe impl ::winrt::GetAbi for #name {
+            unsafe impl ::winrt::Abi for #name {
                 type Abi = Self;
                 unsafe fn get_abi(&self) -> Self {
                     self.clone()
                 }
-            }
-            unsafe impl ::winrt::SetAbi for #name {
-                type Abi = *mut Self;
                 unsafe fn set_abi(&mut self) -> *mut Self {
                     self
+                }
+            }
+            unsafe impl ::winrt::IntoResult for #name {
+                unsafe fn into_result(self) -> ::winrt::Result<Self> {
+                    Ok(self)
                 }
             }
         }

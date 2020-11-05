@@ -60,21 +60,24 @@ impl Guid {
     }
 }
 
-unsafe impl GetAbi for Guid {
+unsafe impl Abi for Guid {
     type Abi = Self;
 
     unsafe fn get_abi(&self) -> Self {
         self.clone()
     }
-}
-
-unsafe impl SetAbi for Guid {
-    type Abi = *mut Self;
 
     unsafe fn set_abi(&mut self) -> *mut Self {
         self
     }
 }
+
+unsafe impl IntoResult for Guid {
+    unsafe fn into_result(self) -> Result<Self> {
+        Ok(self)
+    }
+}
+
 
 unsafe impl RuntimeType for Guid {
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"g16");
