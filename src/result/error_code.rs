@@ -36,19 +36,6 @@ impl ErrorCode {
         }
     }
 
-    #[inline]
-    pub fn ok_ptr(self, ptr: RawPtr) -> Result<()> {
-        if self.is_ok() {
-            if ptr.is_null() {
-                Err(ErrorCode::E_POINTER.into())
-            } else {
-                Ok(())
-            }
-        } else {
-            Err(Error::from(self))
-        }
-    }
-
     pub fn and_some<T: Interface>(self, some: Option<T>) -> Result<T> {
         if self.is_ok() {
             if let Some(result) = some {

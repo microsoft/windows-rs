@@ -20,7 +20,7 @@ fn non_generic() -> winrt::Result<()> {
 
     let d = Handler::new(move |info, status| {
         tx.send(true).unwrap();
-        assert!(info.is_null());
+        assert!(info.is_none());
         assert!(status == AsyncStatus::Completed);
         Ok(())
     });
