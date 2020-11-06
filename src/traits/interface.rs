@@ -14,26 +14,24 @@ pub unsafe trait Interface: Sized + Abi {
     }
 
     fn query<T: Interface>(&self) -> Result<T> {
-        if let Some(result) = self.try_query::<T>() {
-            Ok(result)
-        } else {
-            Err(ErrorCode::E_NOINTERFACE.into())
-        }
-    }
-
-    fn try_query<T: Interface>(&self) -> Option<T> {
         unsafe {
             let mut result: Option<T> = None;
+
             (self.vtable_of::<IUnknown>().0)(
                 std::mem::transmute_copy(self),
                 &T::IID,
                 &mut result as *mut _ as _,
             );
-            result
+
+            match result {
+                Some(result) => Ok(result),
+                None => Err(Error::just_code(ErrorCode::E_NOINTERFACE)),
+            }
         }
     }
 
-    unsafe fn expected_query<T: Interface>(&self) -> T {
+    // TODO: Takes its name from assume_init and used internally (hide from docs)
+    unsafe fn assume_query<T: Interface>(&self) -> T {
         let mut result = std::mem::zeroed();
         (self.vtable_of::<IUnknown>().0)(
             std::mem::transmute_copy(self),

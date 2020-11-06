@@ -53,7 +53,7 @@ impl Drop for IUnknown {
 
 impl PartialEq for IUnknown {
     fn eq(&self, other: &Self) -> bool {
-        self.try_query::<IUnknown>() == other.try_query::<IUnknown>()
+        unsafe { self.assume_query::<IUnknown>() == other.assume_query::<IUnknown>() }
     }
 }
 

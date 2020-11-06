@@ -109,7 +109,7 @@ impl RequiredInterface {
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
                             unsafe {
-                                ::winrt::Interface::expected_query(value)
+                                ::winrt::Interface::assume_query(value)
                             }
                         }
                     }

@@ -39,11 +39,12 @@ impl std::fmt::Debug for IRestrictedErrorInfo {
 }
 
 impl IRestrictedErrorInfo {
-    pub fn from_thread() -> Option<Self> {
-        if let Some(info) = IErrorInfo::from_thread() {
-            info.try_query::<Self>()
-        } else {
-            None
+    pub fn from_thread() -> Result<Self> {
+        let result = IErrorInfo::from_thread();
+
+        match result {
+            Ok(result) => result.query::<Self>(),
+            Err(err) => Err(err),
         }
     }
 
