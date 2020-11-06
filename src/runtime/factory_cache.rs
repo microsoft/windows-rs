@@ -134,7 +134,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             // while there are outstanding references. Unloading is only supported for
             // components loaded via RoGetActivationFactory.
             std::mem::forget(library);
-            return factory.query();
+            return factory.cast_ok();
         }
 
         Err(original)

@@ -108,9 +108,7 @@ impl RequiredInterface {
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
-                            unsafe {
-                                ::winrt::Interface::assume_query(value)
-                            }
+                            ::winrt::Interface::cast(value).unwrap()
                         }
                     }
                     impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {

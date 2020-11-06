@@ -40,7 +40,7 @@ impl IActivationFactory {
             let mut object = None;
             (self.vtable().6)(self.get_abi(), &mut object)
                 .and_some(object)?
-                .query()
+                .cast_ok()
         }
     }
 }

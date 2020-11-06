@@ -36,12 +36,12 @@ impl std::fmt::Debug for IErrorInfo {
 }
 
 impl IErrorInfo {
-    pub fn from_thread() -> Result<Self> {
+    pub fn from_thread() -> Option<Self> {
         let mut result = None;
         unsafe {
             GetErrorInfo(0, &mut result);
         }
-        result.ok_or_else(|| Error::just_code(ErrorCode::E_POINTER))
+        result
     }
 
     pub fn description(&self) -> String {
