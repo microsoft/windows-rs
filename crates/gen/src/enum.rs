@@ -72,7 +72,6 @@ impl Enum {
 
         quote! {
             #[repr(transparent)]
-            // TODO: unroll thes traits
             pub struct #name(#repr);
             impl ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
