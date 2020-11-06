@@ -33,8 +33,4 @@ pub unsafe trait Interface: Sized + Abi {
         self.cast()
             .ok_or_else(|| Error::just_code(ErrorCode::E_NOINTERFACE))
     }
-
-    fn is_agile(&self) -> bool {
-        self.cast::<IAgileObject>().is_some()
-    }
 }

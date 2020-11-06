@@ -101,17 +101,9 @@ impl HString {
 unsafe impl Abi for HString {
     type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
-        self.0 as _
-    }
-
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
         debug_assert!(self.is_empty());
         &mut self.0 as *mut _ as _
-    }
-
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(HString(abi as _))
     }
 }
 

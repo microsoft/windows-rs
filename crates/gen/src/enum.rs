@@ -104,15 +104,6 @@ impl Enum {
             }
             unsafe impl ::winrt::Abi for #name {
                 type Abi = #repr;
-                unsafe fn get_abi(&self) -> Self::Abi {
-                    self.0
-                }
-                unsafe fn set_abi(&mut self) -> *mut Self::Abi {
-                    &mut self.0
-                }
-                unsafe fn from_abi(abi: Self::Abi) -> ::winrt::Result<Self> {
-                    Ok(Self(abi))
-                }
             }
             #bitwise
         }

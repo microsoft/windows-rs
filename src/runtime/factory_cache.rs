@@ -36,7 +36,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             let factory = factory::<C, I>()?;
 
             // If the factory is agile, we can safely cache it.
-            if factory.is_agile() {
+            if factory.cast::<IAgileObject>().is_some() {
                 if self
                     .shared
                     .compare_and_swap(

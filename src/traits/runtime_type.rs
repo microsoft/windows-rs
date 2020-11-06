@@ -22,15 +22,6 @@ macro_rules! primitive_runtime_types {
             }
             unsafe impl Abi for $t {
                 type Abi = Self;
-                unsafe fn get_abi(&self) -> Self {
-                    *self
-                }
-                unsafe fn set_abi(&mut self) -> *mut Self {
-                    self
-                }
-                unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-                    Ok(abi)
-                }
             }
         )*
     };

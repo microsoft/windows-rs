@@ -28,16 +28,9 @@ impl BString {
 unsafe impl Abi for BString {
     type Abi = RawPtr;
 
-    unsafe fn get_abi(&self) -> RawPtr {
-        self.0
-    }
-
     unsafe fn set_abi(&mut self) -> *mut RawPtr {
-        &mut self.0
-    }
-
-    unsafe fn from_abi(_: Self::Abi) -> Result<Self> {
-        panic!();
+        debug_assert!(self.is_empty());
+        &mut self.0 as *mut _ as _
     }
 }
 

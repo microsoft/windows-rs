@@ -62,18 +62,6 @@ impl Guid {
 
 unsafe impl Abi for Guid {
     type Abi = Self;
-
-    unsafe fn get_abi(&self) -> Self {
-        self.clone()
-    }
-
-    unsafe fn set_abi(&mut self) -> *mut Self {
-        self
-    }
-
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
-    }
 }
 
 unsafe impl RuntimeType for Guid {
