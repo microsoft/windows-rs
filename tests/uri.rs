@@ -11,9 +11,6 @@ fn uri() -> winrt::Result<()> {
         winrt::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 
-    let null_uri = Uri::default();
-    assert!(null_uri.is_null());
-
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
 
     assert!(uri.is_agile());

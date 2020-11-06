@@ -1,4 +1,4 @@
-use winrt::AbiTransferable;
+use winrt::Abi;
 
 #[test]
 fn signed_enum() {

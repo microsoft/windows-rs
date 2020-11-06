@@ -1,4 +1,4 @@
-use winrt::AbiTransferable;
+use winrt::Abi;
 
 #[link(name = "coremessaging")]
 extern "stdcall" {

@@ -1,6 +1,5 @@
 use winrt::foundation::{IStringable, IUriRuntimeClass, Uri};
-use winrt::AbiTransferable;
-use winrt::Interface;
+use winrt::Abi;
 
 #[test]
 fn com_interface() -> winrt::Result<()> {

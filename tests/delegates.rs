@@ -5,7 +5,7 @@ use winrt::foundation::collections::{
 use winrt::foundation::{
     AsyncActionCompletedHandler, AsyncStatus, IAsyncAction, TypedEventHandler, Uri,
 };
-use winrt::{AbiTransferable, Interface};
+use winrt::{Abi, Interface};
 
 #[test]
 fn non_generic() -> winrt::Result<()> {
