@@ -73,8 +73,13 @@ impl Enum {
         quote! {
             #[repr(transparent)]
             // TODO: unroll thes traits
-            #[derive(::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::cmp::Eq, ::std::cmp::PartialEq)]
+            #[derive(::std::marker::Copy, ::std::default::Default, ::std::cmp::Eq, ::std::cmp::PartialEq)]
             pub struct #name(#repr);
+            impl ::std::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self(self.0)
+                }
+            }
             impl #name {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*

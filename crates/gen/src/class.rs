@@ -160,13 +160,18 @@ impl Class {
 
             quote! {
                 #[repr(transparent)]
-                #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+                #[derive(::std::cmp::PartialEq)]
                 pub struct #name(::winrt::Object);
                 impl #name {
                     #new
                     #methods
                     #async_get
                     #call_factory
+                }
+                impl ::std::clone::Clone for #name {
+                    fn clone(&self) -> Self {
+                        Self(self.0.clone())
+                    }
                 }
                 #type_name
                 unsafe impl ::winrt::Interface for #name {
