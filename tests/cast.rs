@@ -6,19 +6,17 @@ fn try_into() -> Result<()> {
     let uri = Uri::create_uri("http://kennykerr.ca")?;
 
     // Uri implements IStringable so this cast should succeed.
-    let s: Result<IStringable> = uri.cast();
+    let s: Option<IStringable> = uri.cast();
     assert!(s.unwrap().to_string()? == "http://kennykerr.ca/");
 
-    let s: IStringable = unsafe { uri.assume_cast() };
-    assert!(s.to_string()? == "http://kennykerr.ca/");
-
     // Uri does not implement IClosable so this should fail.
-    let c: Result<IClosable> = uri.cast();
-    assert!(c.is_err());
+    let c: Option<IClosable> = uri.cast();
+    assert!(c.is_none());
 
     // And we should be able to cast an interface for a class and it should use
     // its default interface GUID to resolve the cast.
-    let uri: Uri = s.cast()?;
+    let s: IStringable = uri.cast_ok()?;
+    let uri: Uri = s.cast_ok()?;
     assert!(uri.domain()? == "kennykerr.ca");
 
     Ok(())
