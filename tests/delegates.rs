@@ -16,9 +16,6 @@ fn non_generic() -> winrt::Result<()> {
         winrt::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
     );
 
-    let d = Handler::default();
-    assert!(d.is_null());
-
     let (tx, rx) = std::sync::mpsc::channel();
 
     let d = Handler::new(move |info, status| {
@@ -45,9 +42,6 @@ fn generic() -> winrt::Result<()> {
         Handler::IID,
         winrt::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
     );
-
-    let d = Handler::default();
-    assert!(d.is_null());
 
     let uri = Uri::create_uri("http://kennykerr.ca")?;
     let (tx, rx) = std::sync::mpsc::channel();

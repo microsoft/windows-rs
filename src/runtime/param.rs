@@ -4,6 +4,7 @@ use crate::*;
 pub enum Param<'a, T: Abi> {
     Borrowed(&'a T),
     Owned(T),
+    None,
 }
 
 // TODO: provide a way to express None/Default as param argument.
@@ -13,6 +14,7 @@ impl<'a, T: Abi> Param<'a, T> {
         match self {
             Param::Borrowed(value) => value.get_abi(),
             Param::Owned(value) => value.get_abi(),
+            Param::None => std::mem::zeroed(),
         }
     }
 }
@@ -26,6 +28,24 @@ impl<'a, T: Abi> From<T> for Param<'a, T> {
 impl<'a, T: Abi> From<&'a T> for Param<'a, T> {
     fn from(value: &'a T) -> Self {
         Param::Borrowed(value)
+    }
+}
+
+impl<'a, T: Interface> From<Option<T>> for Param<'a, T> {
+    fn from(value: Option<T>) -> Self {
+        match value {
+            Some(value) => Param::Owned(value),
+            None => Param::None,
+        }
+    }
+}
+
+impl<'a, T: Interface> From<&'a Option<T>> for Param<'a, T> {
+    fn from(value: &'a Option<T>) -> Self {
+        match value {
+            Some(value) => Param::Borrowed(value),
+            None => Param::None,
+        }
     }
 }
 
