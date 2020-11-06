@@ -57,14 +57,16 @@ impl Param {
         } else if self.input {
             match self.kind {
                 TypeKind::String
-                | TypeKind::Object
                 | TypeKind::Guid
-                | TypeKind::Class(_)
-                | TypeKind::Interface(_)
                 | TypeKind::Struct(_)
-                | TypeKind::Delegate(_)
                 | TypeKind::Generic(_) => {
                     quote! { &#tokens, }
+                }
+                TypeKind::Object
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Delegate(_) => {
+                    quote! { &::std::option::Option<#tokens>, }
                 }
                 _ => quote! { #tokens, },
             }
