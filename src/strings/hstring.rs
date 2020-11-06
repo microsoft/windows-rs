@@ -331,9 +331,11 @@ mod tests {
     fn abi_transfer() {
         fn perform_transfer(from: HString, to: &mut HString) {
             let from = std::mem::ManuallyDrop::new(from);
-            let to = to.set_abi();
-            let from = from.get_abi();
-            unsafe { *to = from };
+            unsafe {
+                let to = to.set_abi();
+                let from = from.get_abi();
+                *to = from
+            };
         }
 
         let from = HString::from("Hello");
