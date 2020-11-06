@@ -56,3 +56,9 @@ impl PartialEq for IUnknown {
         self.try_query::<IUnknown>() == other.try_query::<IUnknown>()
     }
 }
+
+impl std::fmt::Debug for IUnknown {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
+}

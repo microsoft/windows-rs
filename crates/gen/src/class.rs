@@ -177,6 +177,11 @@ impl Class {
                         self.0 == other.0
                     }
                 }
+                impl ::std::fmt::Debug for #name {
+                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                        write!(f, "{:?}", self.0)
+                    }
+                }
                 #type_name
                 unsafe impl ::winrt::Interface for #name {
                     type Vtable = #abi_name;

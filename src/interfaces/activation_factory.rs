@@ -28,6 +28,12 @@ unsafe impl Interface for IActivationFactory {
     };
 }
 
+impl std::fmt::Debug for IActivationFactory {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
+}
+
 impl IActivationFactory {
     pub fn activate_instance<I: Interface>(&self) -> Result<I> {
         unsafe {

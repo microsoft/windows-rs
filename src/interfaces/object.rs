@@ -58,6 +58,12 @@ unsafe impl RuntimeType for Object {
         crate::ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }
 
+impl std::fmt::Debug for Object {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
+}
+
 // macro_rules! primitive_boxed_type {
 //     ($(($t:ty, $m:ident)),+) => {
 //         $(impl std::convert::TryFrom<$t> for Object {

@@ -29,6 +29,12 @@ unsafe impl Interface for IErrorInfo {
     };
 }
 
+impl std::fmt::Debug for IErrorInfo {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
+}
+
 impl IErrorInfo {
     pub fn from_thread() -> Option<Self> {
         let mut result = None;

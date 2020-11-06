@@ -4,6 +4,8 @@ use crate::*;
 #[derive(Clone, PartialEq)]
 pub struct ILanguageExceptionErrorInfo2(IUnknown);
 
+// TODO: add ILanguageExceptionErrorInfo
+
 #[repr(C)]
 pub struct ILanguageExceptionErrorInfo2_vtable(
     pub IUnknown_QueryInterface,
@@ -26,6 +28,12 @@ unsafe impl Interface for ILanguageExceptionErrorInfo2 {
             [0xB6, 0x20, 0x28, 0x22, 0x91, 0x57, 0x34, 0xDD],
         )
     };
+}
+
+impl std::fmt::Debug for ILanguageExceptionErrorInfo2 {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
 }
 
 impl ILanguageExceptionErrorInfo2 {

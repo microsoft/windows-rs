@@ -49,7 +49,8 @@ impl Struct {
 
         quote! {
             #[repr(C)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
+            // TODO: unroll these traits - too expensive to call derive macro
+            #[derive(::std::fmt::Debug, ::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
             pub struct #name {
                 #(#fields),*
             }

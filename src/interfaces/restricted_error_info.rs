@@ -32,6 +32,12 @@ unsafe impl Interface for IRestrictedErrorInfo {
     };
 }
 
+impl std::fmt::Debug for IRestrictedErrorInfo {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
+}
+
 impl IRestrictedErrorInfo {
     pub fn from_thread() -> Option<Self> {
         if let Some(info) = IErrorInfo::from_thread() {

@@ -16,3 +16,9 @@ unsafe impl Interface for IAgileObject {
         )
     };
 }
+
+impl std::fmt::Debug for IAgileObject {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self.0)
+    }
+}

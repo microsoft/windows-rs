@@ -83,6 +83,11 @@ impl Enum {
                     Self(0)
                 }
             }
+            impl ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(f, "{:?}", self.0)
+                }
+            }
             impl ::std::cmp::PartialEq for #name {
                 fn eq(&self, other: &Self) -> bool {
                     self.0 == other.0
