@@ -80,6 +80,11 @@ impl Enum {
                     Self(self.0)
                 }
             }
+            impl ::std::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
             impl #name {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*

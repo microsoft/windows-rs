@@ -90,11 +90,15 @@ impl Delegate {
 
         quote! {
             #[repr(transparent)]
-            #[derive(::std::cmp::PartialEq)]
             pub struct #definition(::winrt::IUnknown, #phantoms) where #constraints;
             impl<#constraints> ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self(self.0.clone(), #phantoms)
+                }
+            }
+            impl<#constraints> ::std::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
                 }
             }
             impl<#constraints> #name {

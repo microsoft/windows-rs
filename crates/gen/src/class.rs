@@ -160,7 +160,6 @@ impl Class {
 
             quote! {
                 #[repr(transparent)]
-                #[derive(::std::cmp::PartialEq)]
                 pub struct #name(::winrt::Object);
                 impl #name {
                     #new
@@ -171,6 +170,11 @@ impl Class {
                 impl ::std::clone::Clone for #name {
                     fn clone(&self) -> Self {
                         Self(self.0.clone())
+                    }
+                }
+                impl ::std::cmp::PartialEq for #name {
+                    fn eq(&self, other: &Self) -> bool {
+                        self.0 == other.0
                     }
                 }
                 #type_name
