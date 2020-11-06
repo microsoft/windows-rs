@@ -5,6 +5,9 @@ use winrt::{Interface, Result};
 fn try_into() -> Result<()> {
     let uri = Uri::create_uri("http://kennykerr.ca")?;
 
+    // Implicit cast to IStringable should work.
+    assert!(uri.to_string()? == "http://kennykerr.ca/");
+
     // Uri implements IStringable so this cast should succeed.
     let s: Option<IStringable> = uri.cast();
     assert!(s.unwrap().to_string()? == "http://kennykerr.ca/");

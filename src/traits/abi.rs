@@ -22,7 +22,7 @@ unsafe impl<T: Interface> Abi for T {
         let abi: RawPtr = std::mem::transmute_copy(&abi);
 
         if abi.is_null() {
-            Err(ErrorCode::E_POINTER.into())
+            Err(Error::just_code(ErrorCode::E_POINTER))
         } else {
             Ok(std::mem::transmute_copy(&abi))
         }

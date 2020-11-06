@@ -41,7 +41,7 @@ impl ErrorCode {
             if let Some(result) = some {
                 Ok(result)
             } else {
-                Err(ErrorCode::E_POINTER.into())
+                Err(Error::just_code(ErrorCode::E_POINTER))
             }
         } else {
             Err(Error::from(self))

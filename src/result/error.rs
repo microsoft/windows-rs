@@ -29,7 +29,8 @@ impl Error {
 
     // Use internally to create an Error object without error info. Typically used with QueryInterface
     // (E_NOINTERFACE) or the absense of an object to return (E_POINTER) to avoid the code gen overhead
-    // for casts that should be cheap (few instructions).
+    // for casts that should be cheap (few instructions). Think of it as a way to create recoverable errors
+    // that don't need th overhead of debugging origination info.
     pub(crate) fn just_code(code: ErrorCode) -> Self {
         Self { code, info: None }
     }
