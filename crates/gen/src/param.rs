@@ -56,10 +56,7 @@ impl Param {
             }
         } else if self.input {
             match self.kind {
-                TypeKind::String
-                | TypeKind::Guid
-                | TypeKind::Struct(_)
-                | TypeKind::Generic(_) => {
+                TypeKind::String | TypeKind::Guid | TypeKind::Struct(_) | TypeKind::Generic(_) => {
                     quote! { &#tokens, }
                 }
                 TypeKind::Object
@@ -150,30 +147,30 @@ impl Param {
         }
     }
 
-    // pub fn gen_invoke_arg(&self) -> TokenStream {
-    //     let name = format_ident(&self.name);
+    pub fn gen_invoke_arg(&self) -> TokenStream {
+        let name = format_ident(&self.name);
 
-    //     if self.array {
-    //         let kind = self.kind.gen();
-    //         let name_size = squote::format_ident!("array_size_{}", name);
-    //         if self.input {
-    //             quote! { <#kind as ::winrt::AbiTransferable>::slice_from_abi(#name, #name_size as usize) }
-    //         } else if self.by_ref {
-    //             // TODO: need to take resulting array and detach back onto the ABI
-    //             quote! { &mut ::winrt::Array::new() }
-    //         } else {
-    //             quote! { <#kind as ::winrt::AbiTransferable>::slice_from_mut_abi(#name, #name_size as usize) }
-    //         }
-    //     } else if self.input {
-    //         if self.kind.primitive() {
-    //             quote! { #name }
-    //         } else if let TypeKind::Enum(_) = self.kind {
-    //             quote! { *::winrt::AbiTransferable::from_abi(&#name) }
-    //         } else {
-    //             quote! { ::winrt::AbiTransferable::from_abi(&#name) }
-    //         }
-    //     } else {
-    //         quote! { ::winrt::AbiTransferable::from_mut_abi(&mut *#name) }
-    //     }
-    // }
+        if self.array {
+            let kind = self.kind.gen();
+            let name_size = squote::format_ident!("array_size_{}", name);
+            if self.input {
+                quote! { <#kind as ::winrt::AbiTransferable>::slice_from_abi(#name, #name_size as usize) }
+            } else if self.by_ref {
+                // TODO: need to take resulting array and detach back onto the ABI
+                quote! { &mut ::winrt::Array::new() }
+            } else {
+                quote! { <#kind as ::winrt::AbiTransferable>::slice_from_mut_abi(#name, #name_size as usize) }
+            }
+        } else if self.input {
+            if self.kind.primitive() {
+                quote! { #name }
+            } else if let TypeKind::Enum(_) = self.kind {
+                quote! { ::std::mem::transmute_copy(&#name) }
+            } else {
+                quote! { ::std::mem::transmute_copy(&#name) }
+            }
+        } else {
+            quote! { ::winrt::AbiTransferable::from_mut_abi(&mut *#name) }
+        }
+    }
 }
