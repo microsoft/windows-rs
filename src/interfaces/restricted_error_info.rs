@@ -40,7 +40,7 @@ impl std::fmt::Debug for IRestrictedErrorInfo {
 
 impl IRestrictedErrorInfo {
     pub fn from_thread() -> Option<Self> {
-        IErrorInfo::from_thread().and_then(|e|e.cast())
+        IErrorInfo::from_thread().and_then(|e| e.cast())
     }
 
     pub fn details(&self) -> (ErrorCode, String) {
