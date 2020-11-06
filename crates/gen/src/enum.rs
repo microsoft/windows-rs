@@ -73,11 +73,15 @@ impl Enum {
         quote! {
             #[repr(transparent)]
             // TODO: unroll thes traits
-            #[derive(::std::marker::Copy, ::std::default::Default, ::std::cmp::Eq, ::std::cmp::PartialEq)]
             pub struct #name(#repr);
             impl ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self(self.0)
+                }
+            }
+            impl ::std::default::Default for #name {
+                fn default() -> Self {
+                    Self(0)
                 }
             }
             impl ::std::cmp::PartialEq for #name {
@@ -85,6 +89,8 @@ impl Enum {
                     self.0 == other.0
                 }
             }
+            impl ::std::cmp::Eq for #name {}
+            impl ::std::marker::Copy for #name {}
             impl #name {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*
