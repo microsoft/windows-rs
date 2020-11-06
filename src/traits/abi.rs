@@ -15,8 +15,7 @@ unsafe impl<T: Interface> Abi for T {
     }
 
     unsafe fn set_abi(&mut self) -> *mut Self::Abi {
-        debug_assert!(self.is_null());
-        self as *mut _ as *mut _
+        panic!("set_abi should not be used with interfaces");
     }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
@@ -35,7 +34,7 @@ unsafe impl<T: Interface> Abi for Option<T> {
 
     unsafe fn get_abi(&self) -> Self::Abi {
         if let Some(interface) = self {
-            interface.as_raw_ptr()
+            std::mem::transmute_copy(interface)
         } else {
             std::ptr::null_mut()
         }

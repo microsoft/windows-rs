@@ -9,16 +9,8 @@ pub unsafe trait Interface: Sized + Abi {
     }
 
     unsafe fn vtable_of<T: Interface>(&self) -> &T::Vtable {
-        let this = self.as_raw_ptr();
+        let this: RawPtr = std::mem::transmute_copy(self);
         &(*(*(this as *mut *mut <T as Interface>::Vtable) as *mut <T as Interface>::Vtable))
-    }
-
-    unsafe fn as_raw_ptr(&self) -> RawPtr {
-        std::mem::transmute_copy(self)
-    }
-
-    unsafe fn is_null(&self) -> bool {
-        self.as_raw_ptr().is_null()
     }
 
     fn query<T: Interface>(&self) -> Result<T> {
