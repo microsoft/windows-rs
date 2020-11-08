@@ -101,6 +101,11 @@ impl Delegate {
                     self.0 == other.0
                 }
             }
+            impl<#constraints> ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(f, "{:?}", self.0)
+                }
+            }
             unsafe impl<#constraints> ::winrt::Interface for #name {
                 type Vtable = #vtable_definition;
                 const IID: ::winrt::Guid = #guid;
@@ -125,7 +130,9 @@ impl Delegate {
                         invoke,
                     };
                     unsafe {
-                        ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(::std::boxed::Box::into_raw(::std::boxed::Box::new(com))))
+                        std::mem::transmute(::std::ptr::NonNull::new_unchecked(
+                            ::std::boxed::Box::into_raw(::std::boxed::Box::new(com)),
+                        ))
                     }
                 }
             }
