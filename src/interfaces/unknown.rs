@@ -53,7 +53,7 @@ impl Drop for IUnknown {
 
 impl PartialEq for IUnknown {
     fn eq(&self, other: &Self) -> bool {
-        self.cast::<IUnknown>() == other.cast::<IUnknown>()
+        self.cast::<IUnknown>().unwrap() == other.cast::<IUnknown>().unwrap()
     }
 }
 

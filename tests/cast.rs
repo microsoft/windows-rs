@@ -18,8 +18,8 @@ fn try_into() -> Result<()> {
 
     // And we should be able to cast an interface for a class and it should use
     // its default interface GUID to resolve the cast.
-    let s: IStringable = uri.cast_ok()?;
-    let uri: Uri = s.cast_ok()?;
+    let s: IStringable = uri.cast()?;
+    let uri: Uri = s.cast()?;
     assert!(uri.domain()? == "kennykerr.ca");
 
     Ok(())

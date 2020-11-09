@@ -36,7 +36,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             let factory = factory::<C, I>()?;
 
             // If the factory is agile, we can safely cache it.
-            if factory.cast::<IAgileObject>().is_some() {
+            if factory.cast::<IAgileObject>().is_ok() {
                 if self
                     .shared
                     .compare_and_swap(
@@ -134,7 +134,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             // while there are outstanding references. Unloading is only supported for
             // components loaded via RoGetActivationFactory.
             std::mem::forget(library);
-            return factory.cast_ok();
+            return factory.cast();
         }
 
         Err(original)

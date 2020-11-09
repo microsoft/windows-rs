@@ -82,11 +82,11 @@ fn boxing_into() -> winrt::Result<()> {
 #[test]
 fn explicit_boxing() -> winrt::Result<()> {
     let object = PropertyValue::create_string("hello")?;
-    let pv: IPropertyValue = object.cast_ok()?;
+    let pv: IPropertyValue = object.cast()?;
     assert!(pv.get_string()? == "hello");
 
     let object = PropertyValue::create_uint32_array(&[1, 2, 3])?;
-    let pv: IPropertyValue = object.cast_ok()?;
+    let pv: IPropertyValue = object.cast()?;
     let mut array = winrt::Array::new();
     assert!(array.is_empty());
     assert!(array.len() == 0);
@@ -98,7 +98,7 @@ fn explicit_boxing() -> winrt::Result<()> {
 
     let object =
         PropertyValue::create_string_array(&["Hello".into(), "Rust".into(), "WinRT".into()])?;
-    let pv: IPropertyValue = object.cast_ok()?;
+    let pv: IPropertyValue = object.cast()?;
     let mut array = winrt::Array::new();
     assert!(array.is_empty());
     assert!(array.len() == 0);

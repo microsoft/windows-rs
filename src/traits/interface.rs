@@ -15,7 +15,7 @@ pub unsafe trait Interface: Sized + Abi {
     }
 
     // TODO: picked cast rather than query because there's a WinRT method named query but not one named cast
-    fn cast<T: Interface>(&self) -> Option<T> {
+    fn cast<T: Interface>(&self) -> Result<T> {
         unsafe {
             let mut result: Option<T> = None;
 
@@ -25,13 +25,7 @@ pub unsafe trait Interface: Sized + Abi {
                 &mut result as *mut _ as _,
             );
 
-            result
+            result.ok_or_else(|| Error::just_code(ErrorCode::E_NOINTERFACE))
         }
-    }
-
-    // TODO: just use Result<T> and drop the Option<T> variant
-    fn cast_ok<T: Interface>(&self) -> Result<T> {
-        self.cast()
-            .ok_or_else(|| Error::just_code(ErrorCode::E_NOINTERFACE))
     }
 }

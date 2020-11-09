@@ -75,13 +75,13 @@ macro_rules! primitive_boxed_type {
         impl std::convert::TryFrom<Object> for $t {
             type Error = Error;
             fn try_from(value: Object) -> Result<Self> {
-                <Object as Interface>::cast_ok::<IReference<$t>>(&value)?.value()
+                <Object as Interface>::cast::<IReference<$t>>(&value)?.value()
             }
         }
         impl std::convert::TryFrom<&Object> for $t {
             type Error = Error;
             fn try_from(value: &Object) -> Result<Self> {
-                <Object as Interface>::cast_ok::<IReference<$t>>(value)?.value()
+                <Object as Interface>::cast::<IReference<$t>>(value)?.value()
             }
         })*
     };
@@ -121,12 +121,12 @@ impl std::convert::TryFrom<&HString> for Object {
 impl std::convert::TryFrom<Object> for HString {
     type Error = Error;
     fn try_from(value: Object) -> Result<Self> {
-        <Object as Interface>::cast_ok::<IReference<HString>>(&value)?.value()
+        <Object as Interface>::cast::<IReference<HString>>(&value)?.value()
     }
 }
 impl std::convert::TryFrom<&Object> for HString {
     type Error = Error;
     fn try_from(value: &Object) -> Result<Self> {
-        <Object as Interface>::cast_ok::<IReference<HString>>(value)?.value()
+        <Object as Interface>::cast::<IReference<HString>>(value)?.value()
     }
 }

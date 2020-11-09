@@ -23,7 +23,7 @@ impl Error {
         // associated with the thread.
         Self {
             code,
-            info: IRestrictedErrorInfo::from_thread(),
+            info: IRestrictedErrorInfo::from_thread().ok(),
         }
     }
 
@@ -86,11 +86,11 @@ impl Error {
 
 impl std::convert::From<ErrorCode> for Error {
     fn from(code: ErrorCode) -> Self {
-        if let Some(info) = IRestrictedErrorInfo::from_thread() {
+        if let Ok(info) = IRestrictedErrorInfo::from_thread() {
             // If it does (and therefore running on a recent version of Windows)
             // then capture_propagation_context adds a breadcrumb to the error
             // info to make debugging easier.
-            if let Some(capture) = info.cast::<ILanguageExceptionErrorInfo2>() {
+            if let Ok(capture) = info.cast::<ILanguageExceptionErrorInfo2>() {
                 capture.capture_propagation_context();
             }
 
@@ -100,7 +100,7 @@ impl std::convert::From<ErrorCode> for Error {
             };
         }
 
-        if let Some(info) = IErrorInfo::from_thread() {
+        if let Ok(info) = IErrorInfo::from_thread() {
             Self::new(code, &info.description())
         } else {
             Self::new(code, "")
