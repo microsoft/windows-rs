@@ -167,7 +167,7 @@ impl Param {
             } else if let TypeKind::Enum(_) = self.kind {
                 quote! { ::std::mem::transmute_copy(&#name) }
             } else {
-                quote! { ::std::mem::transmute_copy(&#name) }
+                quote! { &::std::mem::transmute_copy(&#name) }
             }
         } else {
             quote! { ::winrt::AbiTransferable::from_mut_abi(&mut *#name) }
