@@ -17,15 +17,14 @@ pub unsafe trait Interface: Sized + Abi {
     // TODO: picked cast rather than query because there's a WinRT method named query but not one named cast
     fn cast<T: Interface>(&self) -> Result<T> {
         unsafe {
-            let mut result: Option<T> = None;
+            let mut result = None;
 
             (self.assume_vtable::<IUnknown>().0)(
                 std::mem::transmute_copy(self),
                 &T::IID,
                 &mut result as *mut _ as _,
-            );
-
-            result.ok_or_else(|| Error::just_code(ErrorCode::E_NOINTERFACE))
+            )
+            .and_some(result)
         }
     }
 }

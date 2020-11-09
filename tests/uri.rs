@@ -12,7 +12,7 @@ fn uri() -> winrt::Result<()> {
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
 
-    assert!(uri.cast::<IAgileObject>().is_some());
+    assert!(uri.cast::<IAgileObject>().is_ok());
     assert!(uri.domain()? == "kennykerr.ca");
     assert!(uri.port()? == 80);
 
