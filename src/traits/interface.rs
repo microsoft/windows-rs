@@ -29,6 +29,7 @@ pub unsafe trait Interface: Sized + Abi {
         }
     }
 
+    // TODO: just use Result<T> and drop the Option<T> variant
     fn cast_ok<T: Interface>(&self) -> Result<T> {
         self.cast()
             .ok_or_else(|| Error::just_code(ErrorCode::E_NOINTERFACE))

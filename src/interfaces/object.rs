@@ -1,4 +1,4 @@
-//use crate::foundation::{IReference, PropertyValue};
+use crate::foundation::{IReference, PropertyValue};
 use crate::*;
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
@@ -64,69 +64,69 @@ impl std::fmt::Debug for Object {
     }
 }
 
-// macro_rules! primitive_boxed_type {
-//     ($(($t:ty, $m:ident)),+) => {
-//         $(impl std::convert::TryFrom<$t> for Object {
-//             type Error = Error;
-//             fn try_from(value: $t) -> Result<Self> {
-//                 PropertyValue::$m(value)
-//             }
-//         }
-//         impl std::convert::TryFrom<Object> for $t {
-//             type Error = Error;
-//             fn try_from(value: Object) -> Result<Self> {
-//                 <Object as Interface>::try_query::<IReference<$t>>(&value)?.value()
-//             }
-//         }
-//         impl std::convert::TryFrom<&Object> for $t {
-//             type Error = Error;
-//             fn try_from(value: &Object) -> Result<Self> {
-//                 <Object as Interface>::try_query::<IReference<$t>>(value)?.value()
-//             }
-//         })*
-//     };
-// }
+macro_rules! primitive_boxed_type {
+    ($(($t:ty, $m:ident)),+) => {
+        $(impl std::convert::TryFrom<$t> for Object {
+            type Error = Error;
+            fn try_from(value: $t) -> Result<Self> {
+                PropertyValue::$m(value)
+            }
+        }
+        impl std::convert::TryFrom<Object> for $t {
+            type Error = Error;
+            fn try_from(value: Object) -> Result<Self> {
+                <Object as Interface>::cast_ok::<IReference<$t>>(&value)?.value()
+            }
+        }
+        impl std::convert::TryFrom<&Object> for $t {
+            type Error = Error;
+            fn try_from(value: &Object) -> Result<Self> {
+                <Object as Interface>::cast_ok::<IReference<$t>>(value)?.value()
+            }
+        })*
+    };
+}
 
-// primitive_boxed_type! {
-//     (bool, create_boolean),
-//     (u8, create_uint8),
-//     (i16, create_int16),
-//     (u16, create_uint16),
-//     (i32, create_int32),
-//     (u32, create_uint32),
-//     (i64, create_int64),
-//     (u64, create_uint64),
-//     (f32, create_single),
-//     (f64, create_double)
-// }
+primitive_boxed_type! {
+    (bool, create_boolean),
+    (u8, create_uint8),
+    (i16, create_int16),
+    (u16, create_uint16),
+    (i32, create_int32),
+    (u32, create_uint32),
+    (i64, create_int64),
+    (u64, create_uint64),
+    (f32, create_single),
+    (f64, create_double)
+}
 
-// impl std::convert::TryFrom<&str> for Object {
-//     type Error = Error;
-//     fn try_from(value: &str) -> Result<Self> {
-//         PropertyValue::create_string(value)
-//     }
-// }
-// impl std::convert::TryFrom<HString> for Object {
-//     type Error = Error;
-//     fn try_from(value: HString) -> Result<Self> {
-//         PropertyValue::create_string(value)
-//     }
-// }
-// impl std::convert::TryFrom<&HString> for Object {
-//     type Error = Error;
-//     fn try_from(value: &HString) -> Result<Self> {
-//         PropertyValue::create_string(value)
-//     }
-// }
-// impl std::convert::TryFrom<Object> for HString {
-//     type Error = Error;
-//     fn try_from(value: Object) -> Result<Self> {
-//         <Object as Interface>::try_query::<IReference<HString>>(&value)?.value()
-//     }
-// }
-// impl std::convert::TryFrom<&Object> for HString {
-//     type Error = Error;
-//     fn try_from(value: &Object) -> Result<Self> {
-//         <Object as Interface>::try_query::<IReference<HString>>(value)?.value()
-//     }
-// }
+impl std::convert::TryFrom<&str> for Object {
+    type Error = Error;
+    fn try_from(value: &str) -> Result<Self> {
+        PropertyValue::create_string(value)
+    }
+}
+impl std::convert::TryFrom<HString> for Object {
+    type Error = Error;
+    fn try_from(value: HString) -> Result<Self> {
+        PropertyValue::create_string(value)
+    }
+}
+impl std::convert::TryFrom<&HString> for Object {
+    type Error = Error;
+    fn try_from(value: &HString) -> Result<Self> {
+        PropertyValue::create_string(value)
+    }
+}
+impl std::convert::TryFrom<Object> for HString {
+    type Error = Error;
+    fn try_from(value: Object) -> Result<Self> {
+        <Object as Interface>::cast_ok::<IReference<HString>>(&value)?.value()
+    }
+}
+impl std::convert::TryFrom<&Object> for HString {
+    type Error = Error;
+    fn try_from(value: &Object) -> Result<Self> {
+        <Object as Interface>::cast_ok::<IReference<HString>>(value)?.value()
+    }
+}

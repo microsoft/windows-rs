@@ -1,6 +1,5 @@
 use winrt::foundation::{IStringable, IUriRuntimeClass, Uri};
-use winrt::Interface;
-use winrt::RuntimeName;
+use winrt::{IAgileObject, Interface, RuntimeName};
 
 #[test]
 fn uri() -> winrt::Result<()> {
@@ -13,7 +12,7 @@ fn uri() -> winrt::Result<()> {
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
 
-    assert!(uri.is_agile());
+    assert!(uri.cast::<IAgileObject>().is_some());
     assert!(uri.domain()? == "kennykerr.ca");
     assert!(uri.port()? == 80);
 
