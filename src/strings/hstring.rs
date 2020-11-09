@@ -108,6 +108,7 @@ unsafe impl Abi for HString {
 }
 
 unsafe impl RuntimeType for HString {
+    type ParamType = Self;
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"string");
 }
 

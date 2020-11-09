@@ -65,6 +65,7 @@ unsafe impl Abi for Guid {
 }
 
 unsafe impl RuntimeType for Guid {
+    type ParamType = Self;
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"g16");
 }
 

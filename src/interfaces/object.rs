@@ -54,6 +54,8 @@ impl Object {
 }
 
 unsafe impl RuntimeType for Object {
+    type ParamType = Option<Self>;
+
     const SIGNATURE: crate::ConstBuffer =
         crate::ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }

@@ -56,8 +56,11 @@ impl Param {
             }
         } else if self.input {
             match self.kind {
-                TypeKind::String | TypeKind::Guid | TypeKind::Struct(_) | TypeKind::Generic(_) => {
+                TypeKind::String | TypeKind::Guid | TypeKind::Struct(_) => {
                     quote! { &#tokens, }
+                }
+                TypeKind::Generic(_) => {
+                    quote! { &<#tokens as ::winrt::RuntimeType>::ParamType, }
                 }
                 TypeKind::Object
                 | TypeKind::Class(_)
