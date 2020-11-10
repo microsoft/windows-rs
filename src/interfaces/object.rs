@@ -1,4 +1,4 @@
-use crate::foundation::{IReference, PropertyValue};
+use crate::foundation::{IReference, IStringable, PropertyValue};
 use crate::*;
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
@@ -62,9 +62,13 @@ unsafe impl RuntimeType for Object {
 
 impl std::fmt::Debug for Object {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        // TODO: attempt cast to IStringable otherwise GetRuntimeClassName
-        // then format as "<string> (pointer)"
-        write!(f, "{:?}", self.0)
+        let name = self
+            .cast::<IStringable>()
+            .and_then(|s| s.to_string())
+            .or_else(|_| self.type_name())
+            .unwrap_or_default();
+
+        write!(f, "{:?} {}", self.0, name)
     }
 }
 
