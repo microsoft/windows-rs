@@ -32,3 +32,4 @@ pub use result::*;
 pub use runtime::*;
 pub use strings::*;
 pub use traits::*;
+pub use winrt_macros::build;

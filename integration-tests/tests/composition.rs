@@ -1,10 +1,8 @@
-use winrt::Abi;
-
 #[link(name = "coremessaging")]
 extern "stdcall" {
     fn CreateDispatcherQueueController(
         options: DispatcherQueueOptions,
-        dispatcherQueueController: *mut winrt::RawComPtr<winrt::IUnknown>,
+        dispatcherQueueController: &mut Option<winrt::IUnknown>,
     ) -> winrt::ErrorCode;
 }
 
@@ -25,13 +23,15 @@ fn create_dispatcher() -> winrt::IUnknown {
         apartment_type: 0, // DQTAT_COM_NONE
     };
 
-    let mut interop_ptr = winrt::IUnknown::default();
+    let mut interop = None;
+
     unsafe {
-        CreateDispatcherQueueController(options, interop_ptr.set_abi())
+        CreateDispatcherQueueController(options, &mut interop)
             .ok()
             .unwrap();
     }
-    interop_ptr
+
+    interop.unwrap()
 }
 
 #[test]
@@ -102,7 +102,7 @@ fn composition() -> winrt::Result<()> {
 
     // Visual.brush returns a CompositionBrush but we know that it's actually a CompositionColorBrush
     // and need to convert it excplicitly since Rust/WinRT doesn't know that.
-    let brush: CompositionColorBrush = visual.brush()?.query();
+    let brush: CompositionColorBrush = visual.brush()?.cast()?;
     assert!(brush.color()? == red);
 
     visual.set_offset(Vector3 {

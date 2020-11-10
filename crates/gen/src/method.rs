@@ -224,7 +224,7 @@ impl Method {
             // "new" method name in line with non-composable default constructors.
             quote! {
                 pub fn new() -> ::winrt::Result<Self> {
-                    Self::#interface(|f| f.#method_name(::winrt::Object::default(), &mut ::winrt::Object::default()))
+                    Self::#interface(|f| f.#method_name(::std::option::Option::None, &mut ::std::option::Option::None))
                 }
             }
         } else {
@@ -235,7 +235,7 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(#params) -> ::winrt::Result<Self> {
-                    Self::#interface(|f| f.#method_name(#args ::winrt::Object::default(), &mut ::winrt::Object::default()))
+                    Self::#interface(|f| f.#method_name(#args ::std::option::Option::None, &mut ::std::option::Option::None))
                 }
             }
         }

@@ -18,7 +18,7 @@ fn conversion() -> winrt::Result<()> {
 #[test]
 fn duration_param() -> winrt::Result<()> {
     let object = PropertyValue::create_time_span(Duration::from_millis(1234))?;
-    let pv: IPropertyValue = object.query();
+    let pv: IPropertyValue = object.cast()?;
     assert!(pv.get_time_span()? == Duration::from_millis(1234).into());
 
     Ok(())
@@ -27,7 +27,7 @@ fn duration_param() -> winrt::Result<()> {
 #[test]
 fn time_span_param() -> winrt::Result<()> {
     let object = PropertyValue::create_time_span(TestRunner::create_time_span(1234)?)?;
-    let pv: IPropertyValue = object.query();
+    let pv: IPropertyValue = object.cast()?;
     assert!(pv.get_time_span()? == Duration::from_millis(1234).into());
 
     Ok(())

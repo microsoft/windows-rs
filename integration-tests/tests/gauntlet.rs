@@ -118,7 +118,7 @@ fn params() -> winrt::Result<()> {
 
     {
         let object = PropertyValue::create_int64(1234)?;
-        let pv: IReference<i64> = object.query();
+        let pv: IReference<i64> = object.cast()?;
 
         let a = NonBlittable {
             a: false,
@@ -134,7 +134,7 @@ fn params() -> winrt::Result<()> {
 
     {
         let object = PropertyValue::create_int64(1234)?;
-        let pv: IReference<i64> = object.query();
+        let pv: IReference<i64> = object.cast()?;
 
         let a = Nested {
             blittable: Blittable {
@@ -348,13 +348,13 @@ fn arrays() -> winrt::Result<()> {
 
     {
         let object = PropertyValue::create_int64(123)?;
-        let first: IReference<i64> = object.query();
+        let first: IReference<i64> = object.cast()?;
 
         let object = PropertyValue::create_int64(456)?;
-        let second: IReference<i64> = object.query();
+        let second: IReference<i64> = object.cast()?;
 
         let object = PropertyValue::create_int64(789)?;
-        let third: IReference<i64> = object.query();
+        let third: IReference<i64> = object.cast()?;
 
         let a: [NonBlittable; 3] = [
             NonBlittable {
@@ -392,13 +392,13 @@ fn arrays() -> winrt::Result<()> {
 
     {
         let object = PropertyValue::create_int64(123)?;
-        let first: IReference<i64> = object.query();
+        let first: IReference<i64> = object.cast()?;
 
         let object = PropertyValue::create_int64(456)?;
-        let second: IReference<i64> = object.query();
+        let second: IReference<i64> = object.cast()?;
 
         let object = PropertyValue::create_int64(789)?;
-        let third: IReference<i64> = object.query();
+        let third: IReference<i64> = object.cast()?;
 
         let a: [Nested; 3] = [
             Nested {

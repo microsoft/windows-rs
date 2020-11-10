@@ -5,5 +5,5 @@ use tests::windows::foundation::diagnostics::*;
 
 #[test]
 fn diagnostics() {
-    let _ = ErrorDetails::default();
+    let _: Option<ErrorDetails> = None;
 }

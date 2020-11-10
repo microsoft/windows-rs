@@ -62,6 +62,8 @@ unsafe impl RuntimeType for Object {
 
 impl std::fmt::Debug for Object {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // TODO: attempt cast to IStringable otherwise GetRuntimeClassName
+        // then format as "<string> (pointer)"
         write!(f, "{:?}", self.0)
     }
 }

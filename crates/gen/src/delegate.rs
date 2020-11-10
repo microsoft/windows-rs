@@ -74,7 +74,7 @@ impl Delegate {
                 quote! {
                     match ((*this).invoke)(#(#invoke_args,)*) {
                         ::std::result::Result::Ok(ok__) => {
-                            *#return_name = ::std::mem::transmute_copy(ok__);
+                            *#return_name = ::std::mem::transmute_copy(&ok__);
                             ::std::mem::forget(ok__);
                             ::winrt::ErrorCode(0)
                         }

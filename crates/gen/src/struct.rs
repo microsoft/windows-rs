@@ -16,6 +16,15 @@ impl Struct {
         for field in name.def.fields(reader) {
             let field_name = to_snake(field.name(reader), MethodKind::Normal);
             let kind = TypeKind::from_field(reader, field, &name.namespace);
+
+            // TODO: skip optional fields for now. https://github.com/microsoft/winrt-rs/issues/292
+            if kind
+                .runtime_name()
+                .starts_with("Windows.Foundation.IReference")
+            {
+                continue;
+            }
+
             fields.push((field_name, kind));
         }
 
