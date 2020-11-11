@@ -197,6 +197,12 @@ pub fn gen(
 
                 let signature = method.gen_abi();
 
+                shims.combine(&quote! {
+                    extern "system" fn #method_ident #signature {
+                        panic!();
+                    }
+                });
+
                 quote! {
                     extern "system" fn #signature
                 }
