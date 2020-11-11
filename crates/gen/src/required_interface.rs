@@ -71,6 +71,10 @@ impl RequiredInterface {
         }
     }
 
+    // TODO: https://doc.rust-lang.org/std/convert/trait.From.html
+    // Only implement Into when targeting a version prior to Rust 1.41 and converting to a type outside the current crate.
+    // From was not able to do these types of conversions in earlier versions because of Rust's orphaning rules.
+    // See Into for more details.
     pub fn gen_conversions(&self, from: &TokenStream, constraints: &TokenStream) -> TokenStream {
         match self.kind {
             InterfaceKind::Default => {

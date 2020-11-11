@@ -15,6 +15,10 @@ impl std::convert::From<TimeSpan> for std::time::Duration {
     }
 }
 
+// https://doc.rust-lang.org/std/convert/trait.From.html
+// Only implement Into when targeting a version prior to Rust 1.41 and converting to a type outside the current crate.
+// From was not able to do these types of conversions in earlier versions because of Rust's orphaning rules.
+// See Into for more details.
 impl<'a> std::convert::Into<Param<'a, TimeSpan>> for std::time::Duration {
     fn into(self) -> Param<'a, TimeSpan> {
         Param::Owned(self.into())

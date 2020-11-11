@@ -1,5 +1,7 @@
 use syn::spanned::Spanned;
-use squote::{format_ident, quote, TokenStream};
+use squote::{format_ident, quote, TokenStream, Literal};
+
+// TODO: all the format_ident! macro calls should go through the version in winrt-gen.
 
 // TODO: distinguish between COM and WinRT interfaces
 struct Implements(Vec<winrt_gen::Type>);
@@ -147,12 +149,14 @@ pub fn gen(
 
     let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
+    let mut vtable_ordinals = vec![];
     let mut vtable_ctors = TokenStream::new();
     let mut shims = TokenStream::new();
 
     for (interface_count, implement) in implements.0.iter().enumerate() {
         if let winrt_gen::Type::Interface(t) = implement {
             let vtable_ident = format_ident!("{}_vtable{}", inner_name, interface_count);
+            vtable_ordinals.push(Literal::u32_unsuffixed(interface_count as u32));
 
             let query_interface = format_ident!("vtable{}_QueryInterface", interface_count);
             let add_ref = format_ident!("vtable{}_AddRef", interface_count);
@@ -176,30 +180,35 @@ pub fn gen(
                 }
                 extern "system" fn #add_ref(this: ::winrt::RawPtr) -> u32 {
                     unsafe {
-                        let this = (this as *mut RawPtr).sub(#interface_count) as *mut Self;
+                        let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
                         (*this).AddRef()
                     }
                 }
                 extern "system" fn #release(this: ::winrt::RawPtr) -> u32 {
                     unsafe {
-                        let this = (this as *mut RawPtr).sub(#interface_count) as *mut Self;
+                        let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
                         (*this).Release()
                     }
                 }
             });
 
             let externs = t.default_interface().methods.iter().map(|method| {
-                let method_ident = format_ident!("vtable{}_{}", interface_count, method.ordinal);
+                let method_ident = format_ident!("{}", method.name);
+                let vcall_ident = format_ident!("vtable{}_{}", interface_count, method.ordinal);
 
                 vtable_ptrs.combine(&quote!{ 
-                    Self::#method_ident,
+                    Self::#vcall_ident,
                 });
 
                 let signature = method.gen_abi();
+                let upcall = method.gen_upcall(quote! { (*this).inner.#method_ident });
 
                 shims.combine(&quote! {
-                    extern "system" fn #method_ident #signature {
-                        panic!();
+                    extern "system" fn #vcall_ident #signature {
+                        unsafe {
+                            let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
+                            #upcall
+                        }
                     }
                 });
 
@@ -232,10 +241,20 @@ pub fn gen(
 
     tokens.combine(&quote! {
         impl #inner_ident {
+            // TODO: implement From<T> instead or put into_box in a winrt::IntoBox trait? IntoCom?
             fn into_box<T: ::winrt::Interface>(self) -> T {
-                panic!();
-                // TODO: use the IID of the interface to assert that T is an implemented interface/class
-                // as a const expression?
+                let com = #box_ident {
+                    vtable: (#(&#box_ident::VTABLE.#vtable_ordinals,)*),
+                    inner: self,
+                    count: ::winrt::RefCount::new()
+                };
+
+                // TODO: this assume first vtable.
+                unsafe {
+                    ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(
+                        ::std::boxed::Box::into_raw(::std::boxed::Box::new(com)),
+                    ))
+                }
             }
         }
         #[repr(C)]

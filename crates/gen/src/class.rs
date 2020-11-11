@@ -201,6 +201,11 @@ impl Class {
                         ::std::convert::From::from(::std::clone::Clone::clone(value))
                     }
                 }
+    // TODO: https://doc.rust-lang.org/std/convert/trait.From.html
+    // Only implement Into when targeting a version prior to Rust 1.41 and converting to a type outside the current crate.
+    // From was not able to do these types of conversions in earlier versions because of Rust's orphaning rules.
+    // See Into for more details.
+
                 impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
                     fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
                         ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
@@ -228,6 +233,11 @@ impl Class {
             }
         }
     }
+
+    // TODO: https://doc.rust-lang.org/std/convert/trait.From.html
+    // Only implement Into when targeting a version prior to Rust 1.41 and converting to a type outside the current crate.
+    // From was not able to do these types of conversions in earlier versions because of Rust's orphaning rules.
+    // See Into for more details.
 
     pub fn gen_base_conversions(&self, from: &TokenStream) -> TokenStream {
         TokenStream::from_iter(self.bases.iter().map(|base| {

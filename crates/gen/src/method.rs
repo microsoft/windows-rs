@@ -240,6 +240,49 @@ impl Method {
             }
         }
     }
+
+    pub fn gen_upcall(&self, inner: TokenStream) -> TokenStream {
+        let invoke_args = self
+            .params
+            .iter()
+            .map(|param| param.gen_invoke_arg());
+
+        if let Some(return_type) = &self.return_type {
+            if return_type.array {
+                let result = format_ident(&return_type.name);
+                let result_size = squote::format_ident!("array_size_{}", &return_type.name);
+
+                quote! {
+                    match #inner(#(#invoke_args,)*) {
+                        ::std::result::Result::Ok(ok__) => {
+                            let (ok_data__, ok_data_len__) = ok__.into_abi();
+                            *#result = ok_data__;
+                            *#result_size = ok_data_len__;
+                            ::winrt::ErrorCode(0)
+                        }
+                        ::std::result::Result::Err(err) => err.into()
+                    }
+                }
+            } else {
+                let return_name = format_ident(&return_type.name);
+
+                quote! {
+                    match #inner(#(#invoke_args,)*) {
+                        ::std::result::Result::Ok(ok__) => {
+                            *#return_name = ::std::mem::transmute_copy(&ok__);
+                            ::std::mem::forget(ok__);
+                            ::winrt::ErrorCode(0)
+                        }
+                        ::std::result::Result::Err(err) => err.into()
+                    }
+                }
+            }
+        } else {
+            quote! {
+                #inner(#(#invoke_args,)*).into()
+            }
+        }
+    }
 }
 
 fn gen_param(params: &[Param]) -> TokenStream {
