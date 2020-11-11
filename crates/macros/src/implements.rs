@@ -1,16 +1,18 @@
 use syn::spanned::Spanned;
+use squote::{format_ident, quote, TokenStream};
 
+// TODO: distinguish between COM and WinRT interfaces
 struct Implements(Vec<winrt_gen::Type>);
 
 impl syn::parse::Parse for Implements {
-    fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
+    fn parse(inner_type: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut types = Vec::new();
         let reader = build_reader();
 
         loop {
-            use_tree_to_types(reader, &input.parse::<syn::UseTree>()?, &mut types)?;
+            use_tree_to_types(reader, &inner_type.parse::<syn::UseTree>()?, &mut types)?;
 
-            if input.parse::<syn::Token!(,)>().is_err() {
+            if inner_type.parse::<syn::Token!(,)>().is_err() {
                 break;
             }
         }
@@ -128,98 +130,211 @@ fn use_tree_to_types(
 
 pub fn gen(
     attribute: proc_macro::TokenStream,
-    input: proc_macro::TokenStream,
+    inner_type: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    let _input_stream = input.clone();
 
     let implements = syn::parse_macro_input!(attribute as Implements);
-    let input = syn::parse_macro_input!(input as syn::ItemStruct);
-    let impl_name = input.ident.clone();
-    let box_name = quote::format_ident!("impl_{}", impl_name.to_string());
+    let inner_type = syn::parse_macro_input!(inner_type as syn::ItemStruct);
+    let inner_name = inner_type.ident.to_string();
+    let inner_ident = format_ident!("{}", inner_name); // because squote doesn't know how to deal with syn::*
+    let box_ident = format_ident!("{}_box", inner_name);
 
-    let mut vtables = vec![];
-    let mut vtable_ctors = vec![];
+    // TODO:
+    // 1. get squote/TokenStream working here
+    // 2. gen the inner_type
+    // 3. gen the vtables
+    // 3. gen the boxed type
 
-    for typ in implements.0 {
-        if let winrt_gen::Type::Interface(typ) = typ {
-            // TODO: maybe delay conversion to proc_macro2 until later in the pipeline.
-            let name = typ
-                .name
-                .gen_abi()
-                .parse::<proc_macro2::TokenStream>()
-                .unwrap();
-            let mut initializers = vec![];
+    let mut tokens = TokenStream::new();
+    let mut vtable_idents = vec![];
+    let mut vtable_ctors = TokenStream::new();
+    let mut shims = TokenStream::new();
 
-            for method in &typ.default_interface().methods {
-                let method_name = quote::format_ident!("{}", &method.name);
-                initializers.push(quote::quote! { #method_name: #box_name::#method_name });
-            }
+    for (interface_count, implement) in implements.0.iter().enumerate() {
+        if let winrt_gen::Type::Interface(t) = implement {
+            let vtable_ident = format_ident!("{}_vtable{}", inner_name, interface_count);
 
-            vtable_ctors.push(quote::quote! {
-                #name {
-                    inspectable: ::winrt::abi_IInspectable {
-                        unknown: ::winrt::abi_IUnknown {
-                            query_interface: #box_name::unknown_query_interface,
-                            add_ref: #box_name::unknown_add_ref,
-                            release: #box_name::unknown_release,
-                        },
-                        inspectable_iids: #box_name::inspectable_iids,
-                        inspectable_type_name: #box_name::inspectable_type_name,
-                        inspectable_trust_level: #box_name::inspectable_trust_level,
-                    },
-                    #(#initializers)*,
+            let query_interface = format_ident!("vtable{}_QueryInterface", interface_count);
+            let add_ref = format_ident!("vtable{}_AddRef", interface_count);
+            let release = format_ident!("vtable{}_Release", interface_count);
+
+            let mut vtable_ptrs = quote! {
+                Self::#query_interface,
+                Self::#add_ref,
+                Self::#release,
+                Self::GetIids,
+                Self::GetRuntimeClassName,
+                Self::GetTrustLevel,
+            };
+
+            shims.combine(&quote! {
+                extern "system" fn #query_interface(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
+                    unsafe {
+                        let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
+                        (*this).QueryInterface(iid, interface)
+                    }
+                }
+                extern "system" fn #add_ref(this: ::winrt::RawPtr) -> u32 {
+                    unsafe {
+                        let this = (this as *mut RawPtr).sub(#interface_count) as *mut Self;
+                        (*this).AddRef()
+                    }
+                }
+                extern "system" fn #release(this: ::winrt::RawPtr) -> u32 {
+                    unsafe {
+                        let this = (this as *mut RawPtr).sub(#interface_count) as *mut Self;
+                        (*this).Release()
+                    }
                 }
             });
 
-            vtables.push(name);
+            let externs = t.default_interface().methods.iter().map(|method| {
+                let method_ident = format_ident!("vtable{}_{}", interface_count, method.ordinal);
+
+                vtable_ptrs.combine(&quote!{ 
+                    Self::#method_ident,
+                });
+
+                let signature = method.gen_abi();
+
+                quote! {
+                    extern "system" fn #signature
+                }
+            });
+
+            tokens.combine(&quote! {
+                struct #vtable_ident(
+                    extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                    extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                    extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                    extern "system" fn(this: ::winrt::RawPtr, count: *mut u32, values: *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode,
+                    extern "system" fn(this: ::winrt::RawPtr, value: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                    extern "system" fn(this: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode,
+                    #(#externs,)*
+                );
+            });
+
+            vtable_ctors.combine(&quote! {
+                #vtable_ident(
+                    #vtable_ptrs
+                ),
+            });
+
+            vtable_idents.push(vtable_ident);
         }
     }
 
-    let tokens = quote::quote! {
-        #input
-        // TODO: something like this takes the place of C++/WinRT's make/make_self functions.
-        // impl ::std::convert::Into<::winrt::foundation::IStringable> for #impl_name {
-        //     fn into(self) -> ::winrt::foundation::IStringable {
-        //         panic!();
-        //     }
-        // }
+    tokens.combine(&quote! {
+        impl #inner_ident {
+            fn into_box<T: ::winrt::Interface>(self) -> T {
+                panic!();
+                // TODO: use the IID of the interface to assert that T is an implemented interface/class
+                // as a const expression?
+            }
+        }
         #[repr(C)]
-        struct #box_name {
-            vtable: (#(*const #vtables),*),
-            references: ::winrt::RefCount,
-            implementation: #impl_name,
+        struct #box_ident {
+            vtable: (#(*const #vtable_idents,)*),
+            inner: #inner_ident,
+            count: ::winrt::RefCount,
         }
-        impl #box_name {
-            const VTABLE: (#(#vtables),*) = (#(#vtable_ctors),*);
+        impl #box_ident {
+            const VTABLE: (#(#vtable_idents,)*) = (
+                #vtable_ctors
+            );
 
-            extern "system" fn unknown_query_interface(
-                this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>,
-                iid: &::winrt::Guid,
-                interface: *mut ::winrt::RawPtr,
+            fn QueryInterface(&mut self, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
+                panic!();
+                // unsafe {
+                //     *interface = match iid {
+                //         &<foundation::IStringable as Interface>::IID
+                //         | &<::winrt::IUnknown as ::winrt::Interface>::IID
+                //         | &<::winrt::Object as ::winrt::Interface>::IID
+                //         | &<::winrt::IAgileObject as ::winrt::Interface>::IID => {
+                //             &mut self.vtable.0 as *mut _ as _
+                //         }
+                //         &<foundation::IClosable as Interface>::IID => {
+                //             &mut self.vtable.1 as *mut _ as _
+                //         }
+                //         _ => std::ptr::null_mut(),
+                //     };
+        
+                //     if (*interface).is_null() {
+                //         winrt::ErrorCode::E_NOINTERFACE
+                //     } else {
+                //         self.count.add_ref();
+                //         winrt::ErrorCode::S_OK
+                //     }
+                // }
+            }
+        
+            fn AddRef(&mut self) -> u32 {
+                self.count.add_ref()
+            }
+        
+            fn Release(&mut self) -> u32 {
+                let remaining = self.count.release();
+        
+                if remaining == 0 {
+                    unsafe {
+                        ::std::boxed::Box::from_raw(self);
+                    }
+                }
+        
+                remaining
+            }
+
+            extern "system" fn GetIids(
+                _: ::winrt::RawPtr,
+                count: *mut u32,
+                values: *mut *mut ::winrt::Guid,
             ) -> ::winrt::ErrorCode {
-                panic!();
+                // Note: even if we end up implementing this in future, it still doesn't need a this pointer
+                // since the data to be returned is type- not instance-specific so can be shared for all
+                // interfaces.
+                unsafe {
+                    *count = 0;
+                    *values = ::std::ptr::null_mut();
+                }
+                ::winrt::ErrorCode(0)
             }
-            extern "system" fn unknown_add_ref(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
-                panic!();
-            }
-            extern "system" fn unknown_release(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
-                panic!();
-            }
-            extern "system" fn inspectable_iids(this: ::winrt::NonNullRawComPtr<::winrt::Object>, count: *mut u32, values: *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode {
-                panic!();
-            }
-            extern "system" fn inspectable_type_name(this: ::winrt::NonNullRawComPtr<::winrt::Object>, name: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
-                panic!();
-            }
-            extern "system" fn inspectable_trust_level(this: ::winrt::NonNullRawComPtr<::winrt::Object>, level: *mut i32) -> ::winrt::ErrorCode {
-                panic!();
-            }
-        }
 
-        // Build the scaffolding for implementing the interfaces.
+            extern "system" fn GetRuntimeClassName(
+                _: ::winrt::RawPtr,
+                value: *mut ::winrt::RawPtr,
+            ) -> ::winrt::ErrorCode {
+                unsafe {
+                    let h: ::winrt::HString = "Thing".into(); // TODO: replace with class name or first interface
+                    *value = ::std::mem::transmute(h);
+                }
+                ErrorCode::S_OK
+            }
+
+            extern "system" fn GetTrustLevel(_: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode {
+                // Note: even if we end up implementing this in future, it still doesn't need a this pointer
+                // since the data to be returned is type- not instance-specific so can be shared for all
+                // interfaces.
+                unsafe {
+                    *value = 0;
+                }
+                ::winrt::ErrorCode(0)
+            }
+            #shims
+        }
+    });
+
+    // TODO: there's a lot of friction when using squote with quote and syn...
+    // Here I'm turning the results of squote (preferred) into proc_macro2 and
+    // then from there into proc_macro. This seems inefficient but I'm not
+    // sure yet. But it's certainly tedious.
+
+    let tokens = tokens.parse::<proc_macro2::TokenStream>().unwrap();
+
+    let tokens = quote::quote! {
+        #inner_type
+        #tokens
     };
 
     println!("{}", tokens.to_string());
-
     tokens.into()
 }

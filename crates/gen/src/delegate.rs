@@ -236,5 +236,5 @@ impl Delegate {
 }
 
 fn format_impl_ident(name: &str) -> squote::Ident {
-    squote::format_ident!("box_{}", name)
+    squote::format_ident!("{}_box", name)
 }
