@@ -11,7 +11,7 @@ pub unsafe trait Interface: Sized + Abi {
     // TODO: name from assume_init
     unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
         let this: RawPtr = std::mem::transmute_copy(self);
-        &(*(*(this as *mut *mut <T as Interface>::Vtable) as *mut <T as Interface>::Vtable))
+        &(*(*(this as *mut *mut _) as *mut _))
     }
 
     // TODO: picked cast rather than query because there's a WinRT method named query but not one named cast
