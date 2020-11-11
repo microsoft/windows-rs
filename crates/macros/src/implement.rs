@@ -269,28 +269,29 @@ pub fn gen(
             );
 
             fn QueryInterface(&mut self, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
-                panic!();
-                // unsafe {
-                //     *interface = match iid {
-                //         &<foundation::IStringable as Interface>::IID
-                //         | &<::winrt::IUnknown as ::winrt::Interface>::IID
-                //         | &<::winrt::Object as ::winrt::Interface>::IID
-                //         | &<::winrt::IAgileObject as ::winrt::Interface>::IID => {
-                //             &mut self.vtable.0 as *mut _ as _
-                //         }
-                //         &<foundation::IClosable as Interface>::IID => {
-                //             &mut self.vtable.1 as *mut _ as _
-                //         }
-                //         _ => std::ptr::null_mut(),
-                //     };
+                unsafe {
+                    *interface = match iid {
+                        | &<::winrt::IUnknown as ::winrt::Interface>::IID
+                        | &<::winrt::Object as ::winrt::Interface>::IID
+                        | &<::winrt::IAgileObject as ::winrt::Interface>::IID => {
+                            &mut self.vtable.0 as *mut _ as _
+                        }
+                        &<windows::foundation::IStringable as ::winrt::Interface>::IID => {
+                            &mut self.vtable.0 as *mut _ as _
+                        }
+                        &<windows::foundation::IClosable as ::winrt::Interface>::IID => {
+                            &mut self.vtable.1 as *mut _ as _
+                        }
+                        _ => ::std::ptr::null_mut(),
+                    };
         
-                //     if (*interface).is_null() {
-                //         winrt::ErrorCode::E_NOINTERFACE
-                //     } else {
-                //         self.count.add_ref();
-                //         winrt::ErrorCode::S_OK
-                //     }
-                // }
+                    if (*interface).is_null() {
+                        ::winrt::ErrorCode::E_NOINTERFACE
+                    } else {
+                        self.count.add_ref();
+                        ::winrt::ErrorCode::S_OK
+                    }
+                }
             }
         
             fn AddRef(&mut self) -> u32 {

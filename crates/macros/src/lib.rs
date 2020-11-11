@@ -1,5 +1,5 @@
 mod build;
-mod implements;
+mod implement;
 
 use build::BuildMacro;
 
@@ -89,8 +89,8 @@ pub fn build(stream: TokenStream) -> TokenStream {
 // interfaces are contained within the attribute TokenStream are implemented as a local
 // implementation.
 #[proc_macro_attribute]
-pub fn implements(attribute: TokenStream, input: TokenStream) -> TokenStream {
-    implements::gen(attribute, input)
+pub fn implement(attribute: TokenStream, input: TokenStream) -> TokenStream {
+    implement::gen(attribute, input)
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion
