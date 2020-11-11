@@ -115,12 +115,12 @@ impl Interface {
             }
             #[repr(C)]
             pub struct #abi_definition(
-                pub ::winrt::IUnknown_QueryInterface,
-                pub ::winrt::IUnknown_AddRef,
-                pub ::winrt::IUnknown_Release,
-                pub ::winrt::Object_GetIids,
-                pub ::winrt::Object_GetRuntimeClassName,
-                pub ::winrt::Object_GetTrustLevel,
+                usize,
+                usize,
+                usize,
+                usize,
+                usize,
+                usize,
                 #(#abi_methods,)*
                 #phantoms
             ) where #constraints;

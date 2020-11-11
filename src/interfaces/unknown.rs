@@ -1,23 +1,13 @@
 use crate::*;
 
-#[allow(non_camel_case_types)]
-pub type IUnknown_QueryInterface =
-    extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode;
-
-#[allow(non_camel_case_types)]
-pub type IUnknown_AddRef = extern "system" fn(this: RawPtr) -> u32;
-
-#[allow(non_camel_case_types)]
-pub type IUnknown_Release = extern "system" fn(this: RawPtr) -> u32;
-
 #[repr(transparent)]
 pub struct IUnknown(RawComPtr);
 
 #[repr(C)]
 pub struct IUnknown_vtable(
-    pub IUnknown_QueryInterface,
-    pub IUnknown_AddRef,
-    pub IUnknown_Release,
+    pub extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub extern "system" fn(this: RawPtr) -> u32,
+    pub extern "system" fn(this: RawPtr) -> u32,
 );
 
 unsafe impl Interface for IUnknown {

@@ -8,13 +8,13 @@ pub struct ILanguageExceptionErrorInfo2(IUnknown);
 
 #[repr(C)]
 pub struct ILanguageExceptionErrorInfo2_vtable(
-    pub IUnknown_QueryInterface,
-    pub IUnknown_AddRef,
-    pub IUnknown_Release,
-    pub extern "system" fn(this: RawPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
-    pub extern "system" fn(this: RawPtr, previous: *mut RawPtr) -> ErrorCode, // GetPreviousLanguageExceptionErrorInfo
-    pub extern "system" fn(this: RawPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
-    pub extern "system" fn(this: RawPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
+    usize,
+    usize,
+    usize,
+    extern "system" fn(this: RawPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
+    extern "system" fn(this: RawPtr, previous: *mut RawPtr) -> ErrorCode, // GetPreviousLanguageExceptionErrorInfo
+    extern "system" fn(this: RawPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
+    extern "system" fn(this: RawPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
 );
 
 unsafe impl Interface for ILanguageExceptionErrorInfo2 {

@@ -324,21 +324,6 @@ impl TypeName {
         )
     }
 
-    pub fn gen_binding_abi(&self) -> TokenStream {
-        let namespace = gen_binding_namespace(&self.namespace);
-        gen_format(
-            &self.name,
-            Some(&namespace),
-            &self.generics,
-            format_abi_ident,
-        )
-    }
-
-    pub fn gen_binding(&self) -> TokenStream {
-        let namespace = gen_binding_namespace(&self.namespace);
-        gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
-    }
-
     /// Create definition tokens
     ///
     /// For example: `Vector::<OtherType>`

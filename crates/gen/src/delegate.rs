@@ -116,9 +116,9 @@ impl Delegate {
             }
             #[repr(C)]
             pub struct #vtable_definition(
-                ::winrt::IUnknown_QueryInterface,
-                ::winrt::IUnknown_AddRef,
-                ::winrt::IUnknown_Release,
+                extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                extern "system" fn(this: ::winrt::RawPtr) -> u32,
                 extern "system" fn #abi_signature,
                 #phantoms
             ) where #constraints;

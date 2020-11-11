@@ -166,7 +166,7 @@ impl Param {
         let kind = self.kind.gen();
 
         if self.array {
-            let name_size = squote::format_ident!("array_size_{}", name);
+            //let name_size = squote::format_ident!("array_size_{}", name);
             if self.input {
                 quote! { ::std::mem::transmute_copy(&#name) } // <#kind as ::winrt::AbiTransferable>::slice_from_abi(#name, #name_size as usize) }
             } else if self.by_ref {

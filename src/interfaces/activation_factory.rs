@@ -6,13 +6,13 @@ pub struct IActivationFactory(Object);
 
 #[repr(C)]
 pub struct IActivationFactory_vtable(
-    pub IUnknown_QueryInterface,
-    pub IUnknown_AddRef,
-    pub IUnknown_Release,
-    pub Object_GetIids,
-    pub Object_GetRuntimeClassName,
-    pub Object_GetTrustLevel,
-    pub extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> ErrorCode, // ActivateInstance
+    usize,
+    usize,
+    usize,
+    usize,
+    usize,
+    usize,
+    extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> ErrorCode, // ActivateInstance
 );
 
 unsafe impl Interface for IActivationFactory {

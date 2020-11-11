@@ -6,17 +6,19 @@ pub struct IRestrictedErrorInfo(IUnknown);
 
 #[repr(C)]
 pub struct IRestrictedErrorInfo_vtable(
-    pub IUnknown_QueryInterface,
-    pub IUnknown_AddRef,
-    pub IUnknown_Release,
-    pub  extern "system" fn(
+    usize,
+    usize,
+    usize,
+
+    extern "system" fn(
         this: RawPtr,
         description: *mut RawPtr,
         error: *mut ErrorCode,
         restricted: *mut RawPtr,
         sid: *mut RawPtr,
     ) -> ErrorCode, // GetErrorDetails
-    pub extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
+
+    extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
 );
 
 unsafe impl Interface for IRestrictedErrorInfo {

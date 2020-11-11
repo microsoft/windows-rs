@@ -6,14 +6,14 @@ pub struct IErrorInfo(IUnknown);
 
 #[repr(C)]
 pub struct IErrorInfo_vtable(
-    pub IUnknown_QueryInterface,
-    pub IUnknown_AddRef,
-    pub IUnknown_Release,
-    pub extern "system" fn(this: RawPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
-    pub extern "system" fn(this: RawPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
-    pub extern "system" fn(this: RawPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
-    pub extern "system" fn(this: RawPtr, help: *mut RawPtr) -> ErrorCode, // GetHelpFile
-    pub extern "system" fn(this: RawPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
+    usize,
+    usize,
+    usize,
+    extern "system" fn(this: RawPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
+    extern "system" fn(this: RawPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
+    extern "system" fn(this: RawPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
+    extern "system" fn(this: RawPtr, help: *mut RawPtr) -> ErrorCode, // GetHelpFile
+    extern "system" fn(this: RawPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
 );
 
 unsafe impl Interface for IErrorInfo {

@@ -5,29 +5,18 @@ use crate::*;
 ///
 /// Objects implement the [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable) interface.
 
-#[allow(non_camel_case_types)]
-pub type Object_GetIids =
-    extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> ErrorCode;
-
-#[allow(non_camel_case_types)]
-pub type Object_GetRuntimeClassName =
-    extern "system" fn(this: RawPtr, value: *mut RawPtr) -> ErrorCode;
-
-#[allow(non_camel_case_types)]
-pub type Object_GetTrustLevel = extern "system" fn(this: RawPtr, value: *mut i32) -> ErrorCode;
-
 #[repr(transparent)]
 #[derive(Clone, PartialEq)]
 pub struct Object(IUnknown);
 
 #[repr(C)]
 pub struct Object_vtable(
-    pub IUnknown_QueryInterface,
-    pub IUnknown_AddRef,
-    pub IUnknown_Release,
-    pub Object_GetIids,
-    pub Object_GetRuntimeClassName,
-    pub Object_GetTrustLevel,
+    usize,
+    usize,
+    usize,
+    extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> ErrorCode,
+    extern "system" fn(this: RawPtr, value: *mut RawPtr) -> ErrorCode,
+    extern "system" fn(this: RawPtr, value: *mut i32) -> ErrorCode,
 );
 
 unsafe impl Interface for Object {
