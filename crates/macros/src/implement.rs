@@ -152,6 +152,7 @@ pub fn gen(
     let mut vtable_ordinals = vec![];
     let mut vtable_ctors = TokenStream::new();
     let mut shims = TokenStream::new();
+    let mut queries = TokenStream::new();
 
     for (interface_count, implement) in implements.0.iter().enumerate() {
         if let winrt_gen::Type::Interface(t) = implement {
@@ -209,6 +210,15 @@ pub fn gen(
                             let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
                             #upcall
                         }
+                    }
+                });
+
+                let interface_ident = t.name.gen_full();
+                let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
+
+                queries.combine(&quote! {
+                    &<#interface_ident as ::winrt::Interface>::IID => {
+                        &mut self.vtable.#interface_literal as *mut _ as _
                     }
                 });
 
@@ -271,16 +281,11 @@ pub fn gen(
             fn QueryInterface(&mut self, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
                 unsafe {
                     *interface = match iid {
-                        | &<::winrt::IUnknown as ::winrt::Interface>::IID
+                        #queries
+                        &<::winrt::IUnknown as ::winrt::Interface>::IID
                         | &<::winrt::Object as ::winrt::Interface>::IID
                         | &<::winrt::IAgileObject as ::winrt::Interface>::IID => {
                             &mut self.vtable.0 as *mut _ as _
-                        }
-                        &<windows::foundation::IStringable as ::winrt::Interface>::IID => {
-                            &mut self.vtable.0 as *mut _ as _
-                        }
-                        &<windows::foundation::IClosable as ::winrt::Interface>::IID => {
-                            &mut self.vtable.1 as *mut _ as _
                         }
                         _ => ::std::ptr::null_mut(),
                     };
