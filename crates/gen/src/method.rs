@@ -242,10 +242,7 @@ impl Method {
     }
 
     pub fn gen_upcall(&self, inner: TokenStream) -> TokenStream {
-        let invoke_args = self
-            .params
-            .iter()
-            .map(|param| param.gen_invoke_arg());
+        let invoke_args = self.params.iter().map(|param| param.gen_invoke_arg());
 
         if let Some(return_type) = &self.return_type {
             if return_type.array {

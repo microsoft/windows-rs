@@ -1,5 +1,5 @@
+use squote::{format_ident, quote, Literal, TokenStream};
 use syn::spanned::Spanned;
-use squote::{format_ident, quote, TokenStream, Literal};
 
 // TODO: all the format_ident! macro calls should go through the version in winrt-gen.
 
@@ -134,7 +134,6 @@ pub fn gen(
     attribute: proc_macro::TokenStream,
     inner_type: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-
     let implements = syn::parse_macro_input!(attribute as Implements);
     let inner_type = syn::parse_macro_input!(inner_type as syn::ItemStruct);
     let inner_name = inner_type.ident.to_string();
@@ -193,6 +192,9 @@ pub fn gen(
                 }
             });
 
+            let interface_ident = t.name.gen_full();
+            let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
+
             let externs = t.default_interface().methods.iter().map(|method| {
                 let method_ident = format_ident!("{}", method.name);
                 let vcall_ident = format_ident!("vtable{}_{}", interface_count, method.ordinal);
@@ -213,9 +215,6 @@ pub fn gen(
                     }
                 });
 
-                let interface_ident = t.name.gen_full();
-                let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
-
                 queries.combine(&quote! {
                     &<#interface_ident as ::winrt::Interface>::IID => {
                         &mut self.vtable.#interface_literal as *mut _ as _
@@ -228,6 +227,16 @@ pub fn gen(
             });
 
             tokens.combine(&quote! {
+                impl ::std::convert::From<#inner_ident> for #interface_ident {
+                    fn from(inner: #inner_ident) -> Self {
+                        let com = #box_ident::new(inner);
+
+                        unsafe {
+                            let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
+                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtable.#interface_literal as *mut _ as _))
+                        }
+                    }
+                }
                 struct #vtable_ident(
                     extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
                     extern "system" fn(this: ::winrt::RawPtr) -> u32,
@@ -250,23 +259,6 @@ pub fn gen(
     }
 
     tokens.combine(&quote! {
-        impl #inner_ident {
-            // TODO: implement From<T> instead or put into_box in a winrt::IntoBox trait? IntoCom?
-            fn into_box<T: ::winrt::Interface>(self) -> T {
-                let com = #box_ident {
-                    vtable: (#(&#box_ident::VTABLE.#vtable_ordinals,)*),
-                    inner: self,
-                    count: ::winrt::RefCount::new()
-                };
-
-                // TODO: this assume first vtable.
-                unsafe {
-                    ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(
-                        ::std::boxed::Box::into_raw(::std::boxed::Box::new(com)),
-                    ))
-                }
-            }
-        }
         #[repr(C)]
         struct #box_ident {
             vtable: (#(*const #vtable_idents,)*),
@@ -277,6 +269,14 @@ pub fn gen(
             const VTABLE: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
+
+            fn new(inner: #inner_ident) -> Self {
+                Self {
+                    vtable: (#(&Self::VTABLE.#vtable_ordinals,)*),
+                    inner,
+                    count: ::winrt::RefCount::new()
+                }
+            }
 
             fn QueryInterface(&mut self, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
                 unsafe {

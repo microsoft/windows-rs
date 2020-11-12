@@ -9,7 +9,6 @@ pub struct IRestrictedErrorInfo_vtable(
     usize,
     usize,
     usize,
-
     extern "system" fn(
         this: RawPtr,
         description: *mut RawPtr,
@@ -17,7 +16,6 @@ pub struct IRestrictedErrorInfo_vtable(
         restricted: *mut RawPtr,
         sid: *mut RawPtr,
     ) -> ErrorCode, // GetErrorDetails
-
     extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
 );
 
