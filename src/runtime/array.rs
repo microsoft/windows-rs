@@ -178,7 +178,8 @@ mod tests {
         a[0] = Uri::create_uri("http://kennykerr.ca").ok();
         a[1] = Uri::create_uri("http://microsoft.com").ok();
 
-        // TODO: this seems rather tedious...
+        // TODO: this seems rather tedious... may warrant a winrt::Option<T> that's more convenient
+        // that could handle both nullable and IReference<T> behaviors in a single abstraction.
         assert!(a[0].as_ref().unwrap().domain().unwrap() == "kennykerr.ca");
         assert!(a[1].as_ref().unwrap().domain().unwrap() == "microsoft.com");
     }

@@ -17,11 +17,11 @@ impl Param {
 
         if self.array {
             if self.input {
-                quote! { #name: &[#tokens], }
+                quote! { #name: &[<#tokens as ::winrt::RuntimeType>::DefaultType], }
             } else if self.by_ref {
                 quote! { #name: &mut ::winrt::Array<#tokens>, }
             } else {
-                quote! { #name: &mut [#tokens], }
+                quote! { #name: &mut [<#tokens as ::winrt::RuntimeType>::DefaultType], }
             }
         } else if self.input {
             match self.kind {

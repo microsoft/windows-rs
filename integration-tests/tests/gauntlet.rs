@@ -473,16 +473,16 @@ fn arrays() -> winrt::Result<()> {
     }
 
     {
-        let a: [IStringable; 3] = [
-            Uri::create_uri("http://kennykerr.ca/one")?.into(),
-            Uri::create_uri("http://kennykerr.ca/two")?.into(),
-            Uri::create_uri("http://kennykerr.ca/three")?.into(),
+        let a: [Option<IStringable>; 3] = [
+            Some(Uri::create_uri("http://kennykerr.ca/one")?.into()),
+            Some(Uri::create_uri("http://kennykerr.ca/two")?.into()),
+            Some(Uri::create_uri("http://kennykerr.ca/three")?.into()),
         ];
 
         let mut b = [
-            IStringable::default(),
-            IStringable::default(),
-            IStringable::default(),
+            None,
+            None,
+            None,
         ];
 
         let mut c = winrt::Array::new();
@@ -491,9 +491,9 @@ fn arrays() -> winrt::Result<()> {
         assert!(a == c[..]);
         assert!(a == d[..]);
 
-        assert_eq!(c[0].to_string()?, "http://kennykerr.ca/one");
-        assert_eq!(c[1].to_string()?, "http://kennykerr.ca/two");
-        assert_eq!(c[2].to_string()?, "http://kennykerr.ca/three");
+        assert_eq!(c[0].as_ref().unwrap().to_string()?, "http://kennykerr.ca/one");
+        assert_eq!(c[1].as_ref().unwrap().to_string()?, "http://kennykerr.ca/two");
+        assert_eq!(c[2].as_ref().unwrap().to_string()?, "http://kennykerr.ca/three");
     }
 
     Ok(())
@@ -610,7 +610,7 @@ fn collections() -> winrt::Result<()> {
         v.append(&one)?;
         assert_eq!(v.size()?, 1);
         assert_eq!(v.get_at(0)?.to_string()?, "http://kennykerr.ca/one");
-        v.replace_all(&[one, two, three])?;
+        v.replace_all(&[Some(one), Some(two), Some(three)])?;
         assert_eq!(v.size()?, 3);
         assert_eq!(v.get_at(0)?.to_string()?, "http://kennykerr.ca/one");
         assert_eq!(v.get_at(1)?.to_string()?, "http://kennykerr.ca/two");
