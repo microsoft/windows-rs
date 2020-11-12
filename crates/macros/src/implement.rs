@@ -199,7 +199,7 @@ pub fn gen(
                 let method_ident = format_ident!("{}", method.name);
                 let vcall_ident = format_ident!("vtable{}_{}", interface_count, method.ordinal);
 
-                vtable_ptrs.combine(&quote!{ 
+                vtable_ptrs.combine(&quote! {
                     Self::#vcall_ident,
                 });
 
@@ -338,7 +338,7 @@ pub fn gen(
                     let h: ::winrt::HString = "Thing".into(); // TODO: replace with class name or first interface
                     *value = ::std::mem::transmute(h);
                 }
-                ErrorCode::S_OK
+                ::winrt::ErrorCode::S_OK
             }
 
             extern "system" fn GetTrustLevel(_: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode {
@@ -366,6 +366,6 @@ pub fn gen(
         #tokens
     };
 
-    println!("{}", tokens.to_string());
+    //println!("{}", tokens.to_string());
     tokens.into()
 }
