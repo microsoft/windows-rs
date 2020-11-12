@@ -243,6 +243,21 @@ impl TypeKind {
         }
     }
 
+    pub fn gen_field(&self) -> TokenStream {
+        let mut tokens = self.gen();
+        
+        // TODO: consider providing a more convenient wrapper for Option<IReference<T>>
+        if let Self::Interface(name) = self {
+            if name.name == "IReference`1" && name.namespace == "Windows.Foundation" {
+                tokens = quote! {
+                    ::std::option::Option<#tokens>
+                }
+            }
+        }
+
+        tokens
+    }
+
     pub fn gen_abi(&self) -> TokenStream {
         match self {
             Self::Bool => quote! { bool, },

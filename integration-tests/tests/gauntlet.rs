@@ -124,7 +124,7 @@ fn params() -> winrt::Result<()> {
             a: false,
             b: 0x57, // WinRT char
             c: "WinRT".into(),
-            d: pv,
+            d: Some(pv),
         };
 
         let mut b = NonBlittable::default();
@@ -153,7 +153,7 @@ fn params() -> winrt::Result<()> {
                 a: false,
                 b: 0x57, // WinRT char
                 c: "WinRT".into(),
-                d: pv,
+                d: Some(pv),
             },
         };
 
@@ -361,19 +361,19 @@ fn arrays() -> winrt::Result<()> {
                 a: false,
                 b: 0x61, // WinRT char
                 c: "first".into(),
-                d: first,
+                d: Some(first),
             },
             NonBlittable {
                 a: true,
                 b: 0x62, // WinRT char
                 c: "second".into(),
-                d: second,
+                d: Some(second),
             },
             NonBlittable {
                 a: false,
                 b: 0x64, // WinRT char
                 c: "third".into(),
-                d: third,
+                d: Some(third),
             },
         ];
 
@@ -418,7 +418,7 @@ fn arrays() -> winrt::Result<()> {
                     a: false,
                     b: 0x61, // WinRT char
                     c: "first".into(),
-                    d: first,
+                    d: Some(first),
                 },
             },
             Nested {
@@ -438,7 +438,7 @@ fn arrays() -> winrt::Result<()> {
                     a: true,
                     b: 0x62, // WinRT char
                     c: "second".into(),
-                    d: second,
+                    d: Some(second),
                 },
             },
             Nested {
@@ -458,7 +458,7 @@ fn arrays() -> winrt::Result<()> {
                     a: false,
                     b: 0x63, // WinRT char
                     c: "third".into(),
-                    d: third,
+                    d: Some(third),
                 },
             },
         ];

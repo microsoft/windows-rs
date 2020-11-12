@@ -17,14 +17,6 @@ impl Struct {
             let field_name = to_snake(field.name(reader), MethodKind::Normal);
             let kind = TypeKind::from_field(reader, field, &name.namespace);
 
-            // TODO: skip optional fields for now. https://github.com/microsoft/winrt-rs/issues/292
-            if kind
-                .runtime_name()
-                .starts_with("Windows.Foundation.IReference")
-            {
-                continue;
-            }
-
             fields.push((field_name, kind));
         }
 
@@ -46,11 +38,9 @@ impl Struct {
         let name = self.name.gen();
         let signature = Literal::byte_string(&self.signature.as_bytes());
 
-        // TODO: any struct fields that have COM as underlying type must be wrapped in Option<T>
-
         let fields = self.fields.iter().map(|field| {
             let name = format_ident(&field.0);
-            let kind = field.1.gen();
+            let kind = field.1.gen_field();
             quote! {
                 pub #name: #kind
             }
