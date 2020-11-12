@@ -188,7 +188,7 @@ impl Class {
                             const IID: ::winrt::Guid = <#default_name as ::winrt::Interface>::IID;
                         }
                         unsafe impl ::winrt::RuntimeType for #name {
-                            type ParamType = Option<Self>;
+                            type DefaultType = Option<Self>;
                             const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
                         }
                         impl ::std::convert::From<#name> for ::winrt::Object {

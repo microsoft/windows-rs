@@ -47,7 +47,7 @@ impl Param {
                     quote! { #name: &mut ::std::option::Option<#tokens>, }
                 }
                 TypeKind::Generic(_) => {
-                    quote! { &mut <#tokens as ::winrt::RuntimeType>::ParamType, }
+                    quote! { &mut <#tokens as ::winrt::RuntimeType>::DefaultType, }
                 }
                 _ => quote! { #name: &mut #tokens, },
             }
@@ -71,7 +71,7 @@ impl Param {
                     quote! { &#tokens, }
                 }
                 TypeKind::Generic(_) => {
-                    quote! { &<#tokens as ::winrt::RuntimeType>::ParamType, }
+                    quote! { &<#tokens as ::winrt::RuntimeType>::DefaultType, }
                 }
                 TypeKind::Object
                 | TypeKind::Class(_)
@@ -180,7 +180,7 @@ impl Param {
             } else if let TypeKind::Enum(_) = self.kind {
                 quote! { ::std::mem::transmute_copy(&#name) }
             } else {
-                quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::ParamType) }
+                quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
             }
         } else {
             quote! { ::std::mem::transmute_copy(&#name) } // ::winrt::AbiTransferable::from_mut_abi(&mut *#name) }
