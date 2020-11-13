@@ -154,8 +154,7 @@ impl Param {
                     | TypeKind::Delegate(_)
                     | TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
                     TypeKind::Enum(_) => quote! { ::winrt::Abi::get_abi(&#name), },
-                    TypeKind::Guid
-                    | TypeKind::Struct(_) => {
+                    TypeKind::Guid | TypeKind::Struct(_) => {
                         if self.is_const {
                             quote! { &#name.into().get_abi(), }
                         } else {
@@ -196,7 +195,6 @@ impl Param {
                 } else {
                     quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
                 }
-                
             }
         } else {
             quote! { ::std::mem::transmute_copy(&#name) } // ::winrt::AbiTransferable::from_mut_abi(&mut *#name) }

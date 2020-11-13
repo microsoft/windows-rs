@@ -245,7 +245,7 @@ impl TypeKind {
 
     pub fn gen_field(&self) -> TokenStream {
         let mut tokens = self.gen();
-        
+
         // TODO: consider providing a more convenient wrapper for Option<IReference<T>>
         if let Self::Interface(name) = self {
             if name.name == "IReference`1" && name.namespace == "Windows.Foundation" {
@@ -260,33 +260,33 @@ impl TypeKind {
 
     pub fn gen_abi(&self) -> TokenStream {
         match self {
-            Self::Bool => quote! { bool, },
-            Self::Char => quote! { u16, },
-            Self::I8 => quote! { i8, },
-            Self::U8 => quote! { u8, },
-            Self::I16 => quote! { i16, },
-            Self::U16 => quote! { u16, },
-            Self::I32 => quote! { i32, },
-            Self::U32 => quote! { u32, },
-            Self::I64 => quote! { i64, },
-            Self::U64 => quote! { u64, },
-            Self::F32 => quote! { f32, },
-            Self::F64 => quote! { f64, },
-            Self::Guid => quote! { ::winrt::Guid, },
+            Self::Bool => quote! { bool },
+            Self::Char => quote! { u16 },
+            Self::I8 => quote! { i8 },
+            Self::U8 => quote! { u8 },
+            Self::I16 => quote! { i16 },
+            Self::U16 => quote! { u16 },
+            Self::I32 => quote! { i32 },
+            Self::U32 => quote! { u32 },
+            Self::I64 => quote! { i64 },
+            Self::U64 => quote! { u64 },
+            Self::F32 => quote! { f32 },
+            Self::F64 => quote! { f64 },
+            Self::Guid => quote! { ::winrt::Guid },
             Self::String
             | Self::Object
             | Self::Class(_)
             | Self::Interface(_)
             | Self::Delegate(_) => {
-                quote! { ::winrt::RawPtr, }
+                quote! { ::winrt::RawPtr }
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
-                quote! { <#name as ::winrt::Abi>::Abi, }
+                quote! { <#name as ::winrt::Abi>::Abi }
             }
             Self::Enum(name) | Self::Struct(name) => {
                 let name = name.gen();
-                quote! { <#name as ::winrt::Abi>::Abi, }
+                quote! { <#name as ::winrt::Abi>::Abi }
             }
         }
     }

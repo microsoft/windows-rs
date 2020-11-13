@@ -1,5 +1,5 @@
 use crate::*;
-use squote::{quote, Literal, TokenStream};
+use squote::{format_ident, quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct Struct {
@@ -36,6 +36,7 @@ impl Struct {
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
+        let abi_ident = format_ident!("{}_abi", self.name.name);
         let signature = Literal::byte_string(&self.signature.as_bytes());
 
         let fields = self.fields.iter().map(|field| {
@@ -46,6 +47,8 @@ impl Struct {
             }
         });
 
+        let abi = self.fields.iter().map(|field| field.1.gen_abi());
+
         quote! {
             #[repr(C)]
             // TODO: unroll these traits - too expensive to call derive macro
@@ -53,12 +56,14 @@ impl Struct {
             pub struct #name {
                 #(#fields),*
             }
+            #[repr(C)]
+            pub struct #abi_ident(#(#abi),*);
             unsafe impl ::winrt::RuntimeType for #name {
                 type DefaultType = Self;
                 const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
             unsafe impl ::winrt::Abi for #name {
-                type Abi = Self;
+                type Abi = #abi_ident;
             }
         }
     }

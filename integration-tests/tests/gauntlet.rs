@@ -479,11 +479,7 @@ fn arrays() -> winrt::Result<()> {
             Some(Uri::create_uri("http://kennykerr.ca/three")?.into()),
         ];
 
-        let mut b = [
-            None,
-            None,
-            None,
-        ];
+        let mut b = [None, None, None];
 
         let mut c = winrt::Array::new();
         let d = tests.array16(&a, &mut b, &mut c)?;
@@ -491,9 +487,18 @@ fn arrays() -> winrt::Result<()> {
         assert!(a == c[..]);
         assert!(a == d[..]);
 
-        assert_eq!(c[0].as_ref().unwrap().to_string()?, "http://kennykerr.ca/one");
-        assert_eq!(c[1].as_ref().unwrap().to_string()?, "http://kennykerr.ca/two");
-        assert_eq!(c[2].as_ref().unwrap().to_string()?, "http://kennykerr.ca/three");
+        assert_eq!(
+            c[0].as_ref().unwrap().to_string()?,
+            "http://kennykerr.ca/one"
+        );
+        assert_eq!(
+            c[1].as_ref().unwrap().to_string()?,
+            "http://kennykerr.ca/two"
+        );
+        assert_eq!(
+            c[2].as_ref().unwrap().to_string()?,
+            "http://kennykerr.ca/three"
+        );
     }
 
     Ok(())

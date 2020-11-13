@@ -77,7 +77,9 @@ impl Method {
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
                 let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
-                let is_const = mods.iter().any(|def|def.name(reader) == ("System.Runtime.CompilerServices", "IsConst"));
+                let is_const = mods
+                    .iter()
+                    .any(|def| def.name(reader) == ("System.Runtime.CompilerServices", "IsConst"));
 
                 params.push(Param {
                     name,
@@ -128,7 +130,7 @@ impl Method {
             .map(|param| param.gen_abi());
 
         quote! {
-            (this: ::winrt::RawPtr, #(#params)*) -> ::winrt::ErrorCode
+            (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
         }
     }
 
