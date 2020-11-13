@@ -139,11 +139,6 @@ impl Interface {
                     }
                 }
 
-        // TODO: https://doc.rust-lang.org/std/convert/trait.From.html
-        // Only implement Into when targeting a version prior to Rust 1.41 and converting to a type outside the current crate.
-        // From was not able to do these types of conversions in earlier versions because of Rust's orphaning rules.
-        // See Into for more details.
-
                 impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
                     fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
                         ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
