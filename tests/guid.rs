@@ -6,7 +6,6 @@ fn guid_helper() -> winrt::Result<()> {
     let a = GuidHelper::create_new_guid()?;
     let b = GuidHelper::create_new_guid()?;
 
-    // TODO: the ABI for these aren't projecting correctly - not sure why they don't AV
     assert!(!GuidHelper::equals(&a, &b)?);
     assert!(GuidHelper::equals(&a, &a)?);
 
