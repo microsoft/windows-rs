@@ -55,12 +55,14 @@ impl Method {
             let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
             let input = false;
             let by_ref = true;
+            let is_const = false;
             Some(Param {
                 name,
                 kind,
                 array,
                 input,
                 by_ref,
+                is_const,
             })
         };
 
@@ -71,10 +73,11 @@ impl Method {
                 let name = to_snake(param.name(reader), MethodKind::Normal);
                 let input = param.flags(reader).input();
 
-                blob.read_modifiers();
+                let mods = blob.read_modifiers();
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
                 let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
+                let is_const = mods.iter().any(|def|def.name(reader) == ("System.Runtime.CompilerServices", "IsConst"));
 
                 params.push(Param {
                     name,
@@ -82,6 +85,7 @@ impl Method {
                     array,
                     input,
                     by_ref,
+                    is_const,
                 });
             }
         }

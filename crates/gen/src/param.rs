@@ -8,6 +8,7 @@ pub struct Param {
     pub array: bool,
     pub input: bool,
     pub by_ref: bool,
+    pub is_const: bool,
 }
 
 impl Param {
@@ -111,7 +112,11 @@ impl Param {
                 quote! { #name_size: u32, #name: *mut #tokens }
             }
         } else if self.input {
-            quote! { #name: #tokens }
+            if self.is_const {
+                quote! { #name: &#tokens }
+            } else {
+                quote! { #name: #tokens }
+            }
         } else {
             quote! { #name: *mut #tokens }
         }
@@ -144,13 +149,19 @@ impl Param {
                 match self.kind {
                     TypeKind::String
                     | TypeKind::Object
-                    | TypeKind::Guid
                     | TypeKind::Class(_)
                     | TypeKind::Interface(_)
-                    | TypeKind::Struct(_)
                     | TypeKind::Delegate(_)
                     | TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
                     TypeKind::Enum(_) => quote! { ::winrt::Abi::get_abi(&#name), },
+                    TypeKind::Guid
+                    | TypeKind::Struct(_) => {
+                        if self.is_const {
+                            quote! { &#name.into().get_abi(), }
+                        } else {
+                            quote! { #name.into().get_abi(), }
+                        }
+                    }
                     _ => quote! { ::winrt::Abi::get_abi(#name), },
                 }
             }
@@ -180,7 +191,12 @@ impl Param {
             } else if let TypeKind::Enum(_) = self.kind {
                 quote! { ::std::mem::transmute_copy(&#name) }
             } else {
-                quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+                if self.is_const {
+                    quote! { &*(#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+                } else {
+                    quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+                }
+                
             }
         } else {
             quote! { ::std::mem::transmute_copy(&#name) } // ::winrt::AbiTransferable::from_mut_abi(&mut *#name) }
