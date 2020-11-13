@@ -159,64 +159,64 @@ impl Class {
             };
 
             quote! {
-                        #[repr(transparent)]
-                        pub struct #name(::winrt::Object);
-                        impl #name {
-                            #new
-                            #methods
-                            #async_get
-                            #call_factory
-                        }
-                        impl ::std::clone::Clone for #name {
-                            fn clone(&self) -> Self {
-                                Self(self.0.clone())
-                            }
-                        }
-                        impl ::std::cmp::PartialEq for #name {
-                            fn eq(&self, other: &Self) -> bool {
-                                self.0 == other.0
-                            }
-                        }
-                        impl ::std::fmt::Debug for #name {
-                            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                                write!(f, "{:?}", self.0)
-                            }
-                        }
-                        #type_name
-                        unsafe impl ::winrt::Interface for #name {
-                            type Vtable = #abi_name;
-                            const IID: ::winrt::Guid = <#default_name as ::winrt::Interface>::IID;
-                        }
-                        unsafe impl ::winrt::RuntimeType for #name {
-                            type DefaultType = Option<Self>;
-                            const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
-                        }
-                        impl ::std::convert::From<#name> for ::winrt::Object {
-                            fn from(value: #name) -> Self {
-                                unsafe { ::std::mem::transmute(value) }
-                            }
-                        }
-                        impl ::std::convert::From<&#name> for ::winrt::Object {
-                            fn from(value: &#name) -> Self {
-                                ::std::convert::From::from(::std::clone::Clone::clone(value))
-                            }
-                        }
-                        impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
-                            fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
-                                ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
-                            }
-                        }
-                        impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for &'a #name {
-                            fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
-                                ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
-                            }
-                        }
-                        #(#conversions)*
-                        #bases
-                        #iterator
-                        #send_sync
-                        #future
+                #[repr(transparent)]
+                pub struct #name(::winrt::Object);
+                impl #name {
+                    #new
+                    #methods
+                    #async_get
+                    #call_factory
+                }
+                impl ::std::clone::Clone for #name {
+                    fn clone(&self) -> Self {
+                        Self(self.0.clone())
                     }
+                }
+                impl ::std::cmp::PartialEq for #name {
+                    fn eq(&self, other: &Self) -> bool {
+                        self.0 == other.0
+                    }
+                }
+                impl ::std::fmt::Debug for #name {
+                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                        write!(f, "{:?}", self.0)
+                    }
+                }
+                #type_name
+                unsafe impl ::winrt::Interface for #name {
+                    type Vtable = #abi_name;
+                    const IID: ::winrt::Guid = <#default_name as ::winrt::Interface>::IID;
+                }
+                unsafe impl ::winrt::RuntimeType for #name {
+                    type DefaultType = Option<Self>;
+                    const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
+                }
+                impl ::std::convert::From<#name> for ::winrt::Object {
+                    fn from(value: #name) -> Self {
+                        unsafe { ::std::mem::transmute(value) }
+                    }
+                }
+                impl ::std::convert::From<&#name> for ::winrt::Object {
+                    fn from(value: &#name) -> Self {
+                        ::std::convert::From::from(::std::clone::Clone::clone(value))
+                    }
+                }
+                impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
+                    fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                        ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
+                    }
+                }
+                impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for &'a #name {
+                    fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                        ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
+                    }
+                }
+                #(#conversions)*
+                #bases
+                #iterator
+                #send_sync
+                #future
+            }
         } else {
             quote! {
                 pub struct #name {}

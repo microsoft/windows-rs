@@ -269,7 +269,6 @@ pub fn gen(
             const VTABLE: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
-
             fn new(inner: #inner_ident) -> Self {
                 Self {
                     vtable: (#(&Self::VTABLE.#vtable_ordinals,)*),
@@ -277,7 +276,6 @@ pub fn gen(
                     count: ::winrt::RefCount::new()
                 }
             }
-
             fn QueryInterface(&mut self, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
                 unsafe {
                     *interface = match iid {
@@ -289,7 +287,7 @@ pub fn gen(
                         }
                         _ => ::std::ptr::null_mut(),
                     };
-        
+
                     if (*interface).is_null() {
                         ::winrt::ErrorCode::E_NOINTERFACE
                     } else {
@@ -298,23 +296,18 @@ pub fn gen(
                     }
                 }
             }
-        
             fn AddRef(&mut self) -> u32 {
                 self.count.add_ref()
             }
-        
             fn Release(&mut self) -> u32 {
                 let remaining = self.count.release();
-        
                 if remaining == 0 {
                     unsafe {
                         ::std::boxed::Box::from_raw(self);
                     }
                 }
-        
                 remaining
             }
-
             extern "system" fn GetIids(
                 _: ::winrt::RawPtr,
                 count: *mut u32,
@@ -329,7 +322,6 @@ pub fn gen(
                 }
                 ::winrt::ErrorCode(0)
             }
-
             extern "system" fn GetRuntimeClassName(
                 _: ::winrt::RawPtr,
                 value: *mut ::winrt::RawPtr,
@@ -340,7 +332,6 @@ pub fn gen(
                 }
                 ::winrt::ErrorCode::S_OK
             }
-
             extern "system" fn GetTrustLevel(_: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all

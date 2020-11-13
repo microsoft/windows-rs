@@ -88,71 +88,71 @@ impl Interface {
         let (async_get, future) = gen_async(&self.name, &self.interfaces);
 
         quote! {
-                #[repr(transparent)]
-                pub struct #definition(::winrt::Object, #phantoms) where #constraints;
-                impl<#constraints> ::std::clone::Clone for #name {
-                    fn clone(&self) -> Self {
-                        Self(self.0.clone(), #phantoms)
-                    }
+            #[repr(transparent)]
+            pub struct #definition(::winrt::Object, #phantoms) where #constraints;
+            impl<#constraints> ::std::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self(self.0.clone(), #phantoms)
                 }
-                impl<#constraints> ::std::fmt::Debug for #name {
-                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                        write!(f, "{:?}", self.0)
-                    }
-                }
-                impl<#constraints> ::std::cmp::PartialEq for #name {
-                    fn eq(&self, other: &Self) -> bool {
-                        self.0 == other.0
-                    }
-                }
-                impl<#constraints> #name {
-                    #methods
-                    #async_get
-                }
-                unsafe impl<#constraints> ::winrt::Interface for #name {
-                    type Vtable = #abi_definition;
-                    const IID: ::winrt::Guid = #guid;
-                }
-                #[repr(C)]
-                pub struct #abi_definition(
-                    usize,
-                    usize,
-                    usize,
-                    usize,
-                    usize,
-                    usize,
-                    #(#abi_methods,)*
-                    #phantoms
-                ) where #constraints;
-                unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                    type DefaultType = Option<Self>;
-                    const SIGNATURE: ::winrt::ConstBuffer = { #signature };
-                }
-                impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {
-                    fn from(value: #name) -> Self {
-                        unsafe { ::std::mem::transmute(value) }
-                    }
-                }
-                impl<#constraints> ::std::convert::From<&#name> for ::winrt::Object {
-                    fn from(value: &#name) -> Self {
-                        ::std::convert::From::from(::std::clone::Clone::clone(value))
-                    }
-                }
-
-                impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
-                    fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
-                        ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
-                    }
-                }
-                impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for &'a #name {
-                    fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
-                        ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
-                    }
-                }
-                #(#conversions)*
-                #iterator
-                #future
             }
+            impl<#constraints> ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(f, "{:?}", self.0)
+                }
+            }
+            impl<#constraints> ::std::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            impl<#constraints> #name {
+                #methods
+                #async_get
+            }
+            unsafe impl<#constraints> ::winrt::Interface for #name {
+                type Vtable = #abi_definition;
+                const IID: ::winrt::Guid = #guid;
+            }
+            #[repr(C)]
+            pub struct #abi_definition(
+                usize,
+                usize,
+                usize,
+                usize,
+                usize,
+                usize,
+                #(#abi_methods,)*
+                #phantoms
+            ) where #constraints;
+            unsafe impl<#constraints> ::winrt::RuntimeType for #name {
+                type DefaultType = Option<Self>;
+                const SIGNATURE: ::winrt::ConstBuffer = { #signature };
+            }
+            impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {
+                fn from(value: #name) -> Self {
+                    unsafe { ::std::mem::transmute(value) }
+                }
+            }
+            impl<#constraints> ::std::convert::From<&#name> for ::winrt::Object {
+                fn from(value: &#name) -> Self {
+                    ::std::convert::From::from(::std::clone::Clone::clone(value))
+                }
+            }
+
+            impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
+                fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                    ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
+                }
+            }
+            impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for &'a #name {
+                fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
+                    ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
+                }
+            }
+            #(#conversions)*
+            #iterator
+            #future
+        }
     }
 }
 
