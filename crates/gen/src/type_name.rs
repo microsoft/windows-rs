@@ -388,7 +388,7 @@ impl Ord for TypeName {
 }
 
 fn format_abi_ident(name: &str) -> Ident {
-    squote::format_ident!("{}_vtable", name)
+    squote::format_ident!("{}_abi", name)
 }
 
 fn gen_format<F>(

@@ -155,12 +155,12 @@ pub fn gen(
 
     for (interface_count, implement) in implements.0.iter().enumerate() {
         if let winrt_gen::Type::Interface(t) = implement {
-            let vtable_ident = format_ident!("{}_vtable{}", inner_name, interface_count);
+            let vtable_ident = format_ident!("{}_abi{}", inner_name, interface_count);
             vtable_ordinals.push(Literal::u32_unsuffixed(interface_count as u32));
 
-            let query_interface = format_ident!("vtable{}_QueryInterface", interface_count);
-            let add_ref = format_ident!("vtable{}_AddRef", interface_count);
-            let release = format_ident!("vtable{}_Release", interface_count);
+            let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
+            let add_ref = format_ident!("AddRef_abi{}", interface_count);
+            let release = format_ident!("Release_abi{}", interface_count);
 
             let mut vtable_ptrs = quote! {
                 Self::#query_interface,
@@ -197,7 +197,7 @@ pub fn gen(
 
             let externs = t.default_interface().methods.iter().map(|method| {
                 let method_ident = format_ident!("{}", method.name);
-                let vcall_ident = format_ident!("vtable{}_{}", interface_count, method.ordinal);
+                let vcall_ident = format_ident!("abi{}_{}", interface_count, method.ordinal);
 
                 vtable_ptrs.combine(&quote! {
                     Self::#vcall_ident,
