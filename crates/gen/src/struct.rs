@@ -49,9 +49,11 @@ impl Struct {
 
         let abi = self.fields.iter().map(|field| field.1.gen_abi());
 
+        // TODO: unroll these traits - it's too expensive to call derive macro.
+        // https://github.com/microsoft/winrt-rs/issues/353
+
         quote! {
             #[repr(C)]
-            // TODO: unroll these traits - too expensive to call derive macro
             #[derive(::std::fmt::Debug, ::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
             pub struct #name {
                 #(#fields),*
