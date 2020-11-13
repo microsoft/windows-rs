@@ -73,13 +73,14 @@ impl Method {
                 let name = to_snake(param.name(reader), MethodKind::Normal);
                 let input = param.flags(reader).input();
 
-                let mods = blob.read_modifiers();
+                let is_const = blob
+                    .read_modifiers()
+                    .iter()
+                    .any(|def| def.name(reader) == ("System.Runtime.CompilerServices", "IsConst"));
+
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
                 let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
-                let is_const = mods
-                    .iter()
-                    .any(|def| def.name(reader) == ("System.Runtime.CompilerServices", "IsConst"));
 
                 params.push(Param {
                     name,
