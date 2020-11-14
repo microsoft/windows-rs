@@ -66,15 +66,11 @@ fn gen_async_kind(
         quote! {
             pub fn get(&self) -> ::winrt::Result<#return_type> {
                 if self.status()? == ::winrt::foundation::AsyncStatus::Started {
-                    unsafe {
-                        let event = ::winrt::CreateEventW(::std::ptr::null_mut(), 1, 0, ::std::ptr::null_mut());
-                        self.set_completed(::winrt::foundation:: #handler::new(move |_sender, _args| {
-                            ::winrt::SetEvent(event);
-                            Ok(())
-                        }))?;
-                        ::winrt::WaitForSingleObject(event, 0xFFFFFFFF);
-                        ::winrt::CloseHandle(event);
-                    }
+                    let waiter = ::winrt::Waiter::new();
+                    self.set_completed(::winrt::foundation:: #handler::new(move |_sender, _args| {
+                        waiter.signal();
+                        Ok(())
+                    }))?;
                 }
                 self.get_results()
             }

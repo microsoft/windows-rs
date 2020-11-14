@@ -27,9 +27,13 @@ mod runtime;
 mod strings;
 mod traits;
 
-pub use interfaces::*;
-pub use result::*;
-pub use runtime::*;
-pub use strings::*;
-pub use traits::*;
-pub use winrt_macros::*;
+use interfaces::*;
+use runtime::*;
+use strings::*;
+
+pub use interfaces::{IActivationFactory, IAgileObject, IUnknown, Object};
+pub use result::{Error, ErrorCode, Result};
+pub use runtime::{Array, FactoryCache, Guid, Param, RefCount, Waiter};
+pub use strings::HString;
+pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
+pub use winrt_macros::{build, implement};
