@@ -143,6 +143,12 @@ impl<T: RuntimeType> Drop for Array<T> {
     }
 }
 
+#[link(name = "ole32")]
+extern "system" {
+    fn CoTaskMemAlloc(len: usize) -> RawPtr;
+    fn CoTaskMemFree(ptr: RawPtr);
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

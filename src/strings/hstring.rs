@@ -67,7 +67,7 @@ impl HString {
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
             if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
-                HeapFree(GetProcessHeap(), 0, self.0 as RawPtr);
+                heap_free(self.0 as RawPtr);
             }
         }
 
@@ -238,7 +238,7 @@ impl Header {
         // Allocate enough space for header and two bytes per character.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
 
-        let header = unsafe { HeapAlloc(GetProcessHeap(), 0, alloc_size) as *mut Header };
+        let header = unsafe { heap_alloc(alloc_size) as *mut Header };
 
         if header.is_null() {
             panic!("Could not successfully allocate for HString");

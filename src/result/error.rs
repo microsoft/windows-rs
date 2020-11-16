@@ -123,8 +123,27 @@ impl Drop for HeapString {
     fn drop(&mut self) {
         if !self.0.is_null() {
             unsafe {
-                HeapFree(GetProcessHeap(), 0, self.0);
+                heap_free(self.0);
             }
         }
+    }
+}
+
+#[link(name = "kernel32")]
+extern "system" {
+    fn FormatMessageW(
+        flags: u32,
+        source: RawPtr,
+        code: ErrorCode,
+        language: u32,
+        buffer: *mut RawPtr,
+        size: u32,
+        args: RawPtr,
+    ) -> u32;
+}
+
+demand_load! {
+    "combase.dll" {
+        fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
     }
 }

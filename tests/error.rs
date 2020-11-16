@@ -12,6 +12,13 @@ fn originate() {
 
     assert_eq!(error.code(), winrt::ErrorCode(0x80004004));
     assert_eq!(error.message(), "test originate");
+
+    let code: winrt::ErrorCode = error.into(); // SetErrorInfo is called before dropping the Error object.
+
+    let error: winrt::Error = code.into(); // GetErrorInfo is called to retrieve the original error info.
+
+    assert_eq!(error.code(), winrt::ErrorCode(0x80004004));
+    assert_eq!(error.message(), "test originate");
 }
 
 #[test]

@@ -101,54 +101,33 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
         // fails it will attempt "A.dll" before giving up.
         while let Some(pos) = path.rfind('.') {
             path = &path[..pos];
+            let mut library = String::with_capacity(path.len() + 4);
+            library.push_str(path);
+            library.push_str(".dll");
 
-            // Turn the resulting namespace portion into a DLL name.
-            let path: Vec<u16> = path.encode_utf16().chain(".dll\0".encode_utf16()).collect();
-
-            // Attempt to load the DLL.
-            let library = Library(LoadLibraryExW(path.as_ptr(), std::ptr::null_mut(), 0));
-
-            if library.0.is_null() {
-                continue;
+            if let Ok(function) = delay_load(&library, "DllGetActivationFactory", 0) {
+                let function: DllGetActivationFactory = std::mem::transmute(function);
+                let mut abi = std::ptr::null_mut();
+                function(name.get_abi(), &mut abi);
+    
+                if abi.is_null() {
+                    continue;
+                }
+    
+                let factory: IActivationFactory = std::mem::transmute(abi);
+                return factory.cast();
             }
-
-            // If the DLL was found then get the export used to retrieve the factory.
-            let library_call = GetProcAddress(library.0, b"DllGetActivationFactory\0".as_ptr());
-
-            if library_call.is_null() {
-                continue;
-            }
-
-            let library_call: DllGetActivationFactory = std::mem::transmute(library_call);
-            let mut abi = std::ptr::null_mut();
-            library_call(name.get_abi(), &mut abi);
-
-            if abi.is_null() {
-                continue;
-            }
-
-            let factory: IActivationFactory = std::mem::transmute(abi);
-
-            // If we get this far it means the factory has been loaded and will be returned
-            // to the caller. At this point we need to pin the library to avoid it unloading
-            // while there are outstanding references. Unloading is only supported for
-            // components loaded via RoGetActivationFactory.
-            std::mem::forget(library);
-            return factory.cast();
         }
 
         Err(original)
     }
 }
 
-struct Library(RawPtr);
-
-impl Drop for Library {
-    fn drop(&mut self) {
-        if !self.0.is_null() {
-            unsafe {
-                FreeLibrary(self.0);
-            }
-        }
+demand_load! {
+    "ole32.dll" {
+        fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
+    }
+    "combase.dll" {
+        fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
     }
 }

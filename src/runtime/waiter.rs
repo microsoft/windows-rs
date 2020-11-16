@@ -29,3 +29,11 @@ impl Drop for Waiter {
         }
     }
 }
+
+#[link(name = "kernel32")]
+extern "system" {
+    fn CreateEventW(security: RawPtr, manual: i32, state: i32, name: RawPtr) -> RawPtr;
+    fn SetEvent(handle: RawPtr) -> i32;
+    fn WaitForSingleObject(handle: RawPtr, milliseconds: u32) -> u32;
+    fn CloseHandle(handle: RawPtr) -> i32;
+}

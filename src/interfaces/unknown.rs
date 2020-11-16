@@ -1,7 +1,7 @@
 use crate::*;
 
 #[repr(transparent)]
-pub struct IUnknown(RawComPtr);
+pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
 
 #[repr(C)]
 pub struct IUnknown_vtable(
