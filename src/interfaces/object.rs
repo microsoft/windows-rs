@@ -2,9 +2,9 @@ use crate::foundation::{IReference, IStringable, PropertyValue};
 use crate::*;
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
-///
-/// Objects implement the [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable) interface.
-
+/// `Object` implements the
+/// [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
+/// interface.
 #[repr(transparent)]
 #[derive(Clone, PartialEq)]
 pub struct Object(IUnknown);

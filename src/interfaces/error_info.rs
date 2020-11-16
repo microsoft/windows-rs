@@ -1,5 +1,8 @@
 use crate::*;
 
+/// Provides detailed error information. `IErrorInfo` implements the
+/// [IErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
+/// interface.
 #[repr(transparent)]
 #[derive(Clone, PartialEq)]
 pub struct IErrorInfo(IUnknown);

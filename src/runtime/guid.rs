@@ -1,7 +1,7 @@
 use crate::*;
 
-/// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/dotnet/api/system.guid?view=netcore-3.1)
-/// used to uniquely identify COM and WinRT interfaces.
+/// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
+/// used to identify COM and WinRT interfaces.
 #[repr(C)]
 #[derive(Clone, Default, PartialEq, Eq)]
 pub struct Guid {

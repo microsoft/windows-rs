@@ -4,8 +4,6 @@ use crate::*;
 #[derive(Clone, PartialEq)]
 pub struct ILanguageExceptionErrorInfo2(IUnknown);
 
-// TODO: add ILanguageExceptionErrorInfo
-
 #[repr(C)]
 pub struct ILanguageExceptionErrorInfo2_vtable(
     usize,

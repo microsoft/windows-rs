@@ -2,11 +2,8 @@ use crate::*;
 use std::convert::TryFrom;
 use std::result::Result as StdResult;
 
-/// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring).
-///
-/// A WinRT string is reference-counted and logically immutable. It can only be
-/// changed by clearing its value and replacing with a new value. It should only
-/// be used for FFI purposes with WinRT APIs.
+/// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring),
+/// is reference-counted and logically immutable. It should only be used for communicating with WinRT APIs.
 #[repr(transparent)]
 pub struct HString(*mut Header);
 

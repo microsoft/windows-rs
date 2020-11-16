@@ -1,6 +1,6 @@
 use crate::*;
 
-/// A WinRT error object consisting of both an error code as well as detailed error information for debugging.
+/// A WinRT error object consists of both an error code as well as detailed error information for debugging.
 pub struct Error {
     code: ErrorCode,
     info: Option<IRestrictedErrorInfo>,

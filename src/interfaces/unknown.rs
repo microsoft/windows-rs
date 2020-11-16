@@ -1,5 +1,9 @@
 use crate::*;
 
+/// All COM interfaces (and thus WinRT classes and interfaces) implement
+/// [IUnknown](https://docs.microsoft.com/en-us/windows/win32/api/unknwn/nn-unknwn-iunknown)
+/// under the hood to provide reference-counted lifetime management as well as the ability
+/// to query for additional interfaces that the object may implement.
 #[repr(transparent)]
 pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
 

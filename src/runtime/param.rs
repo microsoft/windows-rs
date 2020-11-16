@@ -1,6 +1,7 @@
 use crate::*;
 
-/// A WinRT method parameter used to accept either a reference or value.
+/// A WinRT method parameter used to accept either a reference or value. `Param` is used by the
+/// generated bindings and should not generally be used directly.
 pub enum Param<'a, T: Abi> {
     Borrowed(&'a T),
     Owned(T),

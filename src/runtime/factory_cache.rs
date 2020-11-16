@@ -4,7 +4,8 @@ use std::sync::atomic::{AtomicPtr, Ordering};
 
 type DllGetActivationFactory = extern "system" fn(name: RawPtr, factory: *mut RawPtr) -> ErrorCode;
 
-/// Attempts to load and cache the factory interface for the given WinRT class.
+/// Attempts to load and cache the factory interface for the given WinRT class. This is automatically
+// used by the generated bindings and should not generally be used directly.
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<std::ffi::c_void>,
     _c: PhantomData<C>,

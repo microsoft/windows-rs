@@ -1,5 +1,6 @@
 use crate::*;
 
+/// A primitive error code value returned by most COM functions. An `ErrorCode` is sometimes called an `HRESULT`.
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ErrorCode(pub u32);

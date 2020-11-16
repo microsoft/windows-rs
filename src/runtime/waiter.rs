@@ -1,5 +1,6 @@
 use crate::*;
 
+/// A simple blocking waiter used by the generated bindings and should not generally be used directly.
 pub struct Waiter(RawPtr);
 
 impl Waiter {

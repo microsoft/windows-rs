@@ -1,5 +1,10 @@
 use crate::*;
 
+/// Provides a generic way of referring to and converting between a Rust object
+/// and its WinRT ABI equivalent.
+///
+/// This trait is automatically used by the generated bindings and should not be
+/// used directly.
 pub unsafe trait Abi: Sized {
     type Abi;
 

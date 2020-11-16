@@ -1,5 +1,9 @@
 use crate::*;
 
+/// WinRT classes have a supporting factory object that implements `IActivationFactory` to create a new
+/// instance of the WinRT class with some default state. `IActivationFactory` implements the
+/// [IActivationFactory](https://docs.microsoft.com/en-us/windows/win32/api/activation/nn-activation-iactivationfactory)
+/// interface.
 #[repr(transparent)]
 #[derive(Clone, PartialEq)]
 pub struct IActivationFactory(Object);
