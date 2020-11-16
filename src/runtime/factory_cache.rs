@@ -109,11 +109,11 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
                 let function: DllGetActivationFactory = std::mem::transmute(function);
                 let mut abi = std::ptr::null_mut();
                 function(name.get_abi(), &mut abi);
-    
+
                 if abi.is_null() {
                     continue;
                 }
-    
+
                 let factory: IActivationFactory = std::mem::transmute(abi);
                 return factory.cast();
             }

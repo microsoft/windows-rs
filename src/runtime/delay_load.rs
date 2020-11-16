@@ -1,6 +1,10 @@
 use crate::*;
 
-pub fn delay_load(library: &str, function: &str, flags: u32) -> std::result::Result<RawPtr, ErrorCode> {
+pub fn delay_load(
+    library: &str,
+    function: &str,
+    flags: u32,
+) -> std::result::Result<RawPtr, ErrorCode> {
     let library = library
         .encode_utf16()
         .chain(std::iter::once(0))
@@ -19,7 +23,10 @@ pub fn delay_load(library: &str, function: &str, flags: u32) -> std::result::Res
     let address = unsafe { GetProcAddress(library, terminated_function.as_ptr()) };
 
     if address.is_null() {
-        unsafe { FreeLibrary(library); }
+        unsafe {
+            FreeLibrary(library);
+        }
+
         return Err(ErrorCode::last_win32_error());
     }
 
