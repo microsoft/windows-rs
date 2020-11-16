@@ -98,7 +98,6 @@ pub fn implement(attribute: TokenStream, input: TokenStream) -> TokenStream {
 pub(crate) fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     let mut result = String::with_capacity(namespace.len());
     for c in namespace.chars() {
-        // TODO: why '"'?
         if c != '"' && c != '_' {
             result.extend(c.to_lowercase());
         }

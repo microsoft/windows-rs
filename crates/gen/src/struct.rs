@@ -4,7 +4,7 @@ use squote::{format_ident, quote, Literal, TokenStream};
 #[derive(Debug)]
 pub struct Struct {
     pub name: TypeName,
-    pub fields: Vec<(String, TypeKind)>, // TODO: might have to be a full Type to ensure we can write out nested structs for ABI layout
+    pub fields: Vec<(String, TypeKind)>,
     pub signature: String,
 }
 

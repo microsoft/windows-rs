@@ -1,8 +1,6 @@
 use squote::{format_ident, quote, Literal, TokenStream};
 use syn::spanned::Spanned;
 
-// TODO: all the format_ident! macro calls should go through the version in winrt-gen.
-
 // TODO: distinguish between COM and WinRT interfaces
 struct Implements(Vec<winrt_gen::Type>);
 
@@ -107,8 +105,6 @@ fn use_tree_to_types(
                 // If dupe interface, produce warning but continue,
                 //   unless warning is unavoidable (same interface required by different mentioned interfaces)
                 // Finally, remove any dupes (TypeName can be used as key for set container)
-
-                //println!("implement: {}.{}", def.name(reader).0, def.name(reader).1);
             }
             syn::UseTree::Glob(glob) => {
                 return Err(syn::parse::Error::new(
@@ -139,12 +135,6 @@ pub fn gen(
     let inner_name = inner_type.ident.to_string();
     let inner_ident = format_ident!("{}", inner_name); // because squote doesn't know how to deal with syn::*
     let box_ident = format_ident!("{}_box", inner_name);
-
-    // TODO:
-    // 1. get squote/TokenStream working here
-    // 2. gen the inner_type
-    // 3. gen the vtables
-    // 3. gen the boxed type
 
     let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
