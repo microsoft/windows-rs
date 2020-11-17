@@ -1,6 +1,6 @@
 use crate::*;
 
-/// Provides detailed error information. `IErrorInfo` implements the
+/// Provides detailed error information. `IErrorInfo` represents the
 /// [IErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
 /// interface.
 #[repr(transparent)]
@@ -19,6 +19,31 @@ pub struct IErrorInfo_vtable(
     extern "system" fn(this: RawPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
 );
 
+impl IErrorInfo {
+    /// Retrieves any error information stored on the calling thread. An error code indicates the
+    /// absence of error information.
+    pub fn from_thread() -> Result<Self> {
+        let mut result = None;
+
+        unsafe {
+            GetErrorInfo(0, &mut result);
+        }
+
+        result.ok_or_else(|| Error::just_code(ErrorCode::E_POINTER))
+    }
+
+    /// Gets a description of the error.
+    pub fn description(&self) -> String {
+        let mut value = BString::new();
+
+        unsafe {
+            (self.vtable().5)(self.get_abi(), value.set_abi());
+        }
+
+        value.into()
+    }
+}
+
 unsafe impl Interface for IErrorInfo {
     type Vtable = IErrorInfo_vtable;
 
@@ -35,24 +60,6 @@ unsafe impl Interface for IErrorInfo {
 impl std::fmt::Debug for IErrorInfo {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:?}", self.0)
-    }
-}
-
-impl IErrorInfo {
-    pub fn from_thread() -> Result<Self> {
-        let mut result = None;
-        unsafe {
-            GetErrorInfo(0, &mut result);
-        }
-        result.ok_or_else(|| Error::just_code(ErrorCode::E_NOINTERFACE))
-    }
-
-    pub fn description(&self) -> String {
-        let mut value = BString::new();
-        unsafe {
-            (self.vtable().5)(self.get_abi(), value.set_abi());
-        }
-        value.into()
     }
 }
 

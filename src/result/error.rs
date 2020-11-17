@@ -40,6 +40,7 @@ impl Error {
         self.code
     }
 
+    /// The error information describing the error.
     pub fn info(&self) -> &Option<IRestrictedErrorInfo> {
         &self.info
     }

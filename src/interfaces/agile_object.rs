@@ -1,7 +1,7 @@
 use crate::*;
 
 /// A marker interface indicating that an object is free-threaded and may be called from any apartment.
-/// `IAgileObject` implements the
+/// `IAgileObject` represents the
 /// [IAgileObject](https://docs.microsoft.com/en-us/windows/win32/api/objidl/nn-objidl-iagileobject)
 /// interface.
 #[repr(transparent)]

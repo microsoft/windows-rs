@@ -17,7 +17,7 @@ pub fn delay_load(
     let library = unsafe { LoadLibraryExW(library.as_ptr(), std::ptr::null_mut(), flags) };
 
     if library.is_null() {
-        return Err(ErrorCode::last_win32_error());
+        return Err(ErrorCode::from_thread());
     }
 
     let address = unsafe { GetProcAddress(library, terminated_function.as_ptr()) };
@@ -27,7 +27,7 @@ pub fn delay_load(
             FreeLibrary(library);
         }
 
-        return Err(ErrorCode::last_win32_error());
+        return Err(ErrorCode::from_thread());
     }
 
     Ok(address)

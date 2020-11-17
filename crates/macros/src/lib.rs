@@ -83,11 +83,12 @@ pub fn build(stream: TokenStream) -> TokenStream {
     tokens.into()
 }
 
-// Rust structs can use the winrt::implement macro to implement entire WinRT classes or
-// any combination of existing COM and WinRT interfaces. If the attribute TokenStream contains
-// the name of a WinRT class then all of its interfaces are implemented. Otherwise, whatever
-// interfaces are contained within the attribute TokenStream are implemented as a local
-// implementation.
+/// Rust structs can use the `implement` macro to implement entire WinRT classes or
+/// any combination of existing COM and WinRT interfaces.
+///
+/// If the attribute `TokenStream` contains the name of a WinRT class then all of its
+/// interfaces are implemented. Otherwise, whatever interfaces are contained within
+/// the attribute TokenStream are implemented.
 #[proc_macro_attribute]
 pub fn implement(attribute: TokenStream, input: TokenStream) -> TokenStream {
     implement::gen(attribute, input)

@@ -1,5 +1,9 @@
 use crate::*;
 
+/// Provides low-level access to a WinRT error object for debugging purposes.
+/// `ILanguageExceptionErrorInfo2` represents the
+/// [ILanguageExceptionErrorInfo2](https://docs.microsoft.com/en-us/windows/win32/api/restrictederrorinfo/nn-restrictederrorinfo-ilanguageexceptionerrorinfo2)
+/// interface.
 #[repr(transparent)]
 #[derive(Clone, PartialEq)]
 pub struct ILanguageExceptionErrorInfo2(IUnknown);
@@ -14,6 +18,16 @@ pub struct ILanguageExceptionErrorInfo2_vtable(
     extern "system" fn(this: RawPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
     extern "system" fn(this: RawPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
 );
+
+impl ILanguageExceptionErrorInfo2 {
+    /// Called when an error is being propagated, ensuring context information is captured
+    /// to improve debugging.
+    pub fn capture_propagation_context(&self) {
+        unsafe {
+            (self.vtable().5)(self.get_abi(), std::ptr::null_mut());
+        }
+    }
+}
 
 unsafe impl Interface for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2_vtable;
@@ -31,13 +45,5 @@ unsafe impl Interface for ILanguageExceptionErrorInfo2 {
 impl std::fmt::Debug for ILanguageExceptionErrorInfo2 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:?}", self.0)
-    }
-}
-
-impl ILanguageExceptionErrorInfo2 {
-    pub fn capture_propagation_context(&self) {
-        unsafe {
-            (self.vtable().5)(self.get_abi(), std::ptr::null_mut());
-        }
     }
 }

@@ -9,6 +9,17 @@ use crate::*;
 #[derive(Clone, PartialEq)]
 pub struct Object(IUnknown);
 
+impl Object {
+    /// Returns the canonical type name for the underlying object.
+    pub fn type_name(&self) -> Result<HString> {
+        unsafe {
+            let mut abi = std::ptr::null_mut();
+            (self.vtable().4)(self.get_abi(), &mut abi).ok()?;
+            Ok(std::mem::transmute(abi))
+        }
+    }
+}
+
 #[repr(C)]
 pub struct Object_vtable(
     usize,
@@ -32,16 +43,6 @@ unsafe impl Interface for Object {
     };
 }
 
-impl Object {
-    pub fn type_name(&self) -> Result<HString> {
-        unsafe {
-            let mut abi = std::ptr::null_mut();
-            (self.vtable().4)(self.get_abi(), &mut abi).ok()?;
-            Ok(std::mem::transmute(abi))
-        }
-    }
-}
-
 unsafe impl RuntimeType for Object {
     type DefaultType = Option<Self>;
 
@@ -51,6 +52,11 @@ unsafe impl RuntimeType for Object {
 
 impl std::fmt::Debug for Object {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // Attempts to retrieve the string representation of the object via the
+        // IStringable interface. If that fails, it will use the canonical type
+        // name to give some idea of what the object represents. This implementation
+        // is used by all of the generated `Debug` implementations for WinRT
+        // classes and interfaces.
         let name = self
             .cast::<IStringable>()
             .and_then(|s| s.to_string())

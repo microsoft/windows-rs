@@ -37,6 +37,8 @@ impl ErrorCode {
         }
     }
 
+    /// Returns the `Option` as a `Result` if the option is a `Some` value, returning
+    /// a suitable error if not.
     pub fn and_some<T: Interface>(self, some: Option<T>) -> Result<T> {
         if self.is_ok() {
             if let Some(result) = some {
@@ -60,6 +62,7 @@ impl ErrorCode {
         Ok(op())
     }
 
+    /// If the `Result` is `Ok` converts the `T::Abi` into `T`.
     pub unsafe fn from_abi<T: Abi>(self, abi: T::Abi) -> Result<T> {
         if self.is_ok() {
             T::from_abi(abi)
@@ -68,22 +71,36 @@ impl ErrorCode {
         }
     }
 
-    /// Creates a failure code from GetLastError()
+    /// Retrieves the error code stored on the calling thread.
     #[inline]
-    pub(crate) fn last_win32_error() -> Self {
+    pub(crate) fn from_thread() -> Self {
         Self::from_win32(unsafe { GetLastError() })
     }
 
-    /// Creates a failure code with the provided win32 error code.
+    /// Creates a failure code with the provided win32 error code. This is equivalent to
+    // [HRESULT_FROM_WIN32](https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-hresult_from_win32).
     #[inline]
     pub(crate) fn from_win32(error: u32) -> Self {
-        // equivalent to MAKE_WIN32_HRESULT(error)
-        Self(0x8007_0000 | error & 0xFFFF)
+        Self(if error as i32 <= 0 {
+            error
+        } else {
+            (error & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
+        })
     }
 
+    // This is a limited and closed set of common values used for flow control. In general, error codes are not actionable
+    // beyond debugging and should be considered fatal. This list should therefore not be expanded. 
+
+    /// The operation succeeded.
     pub const S_OK: ErrorCode = ErrorCode(0);
+
+    /// The COM runtime has not been loaded.
     pub const CO_E_NOTINITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
+
+    /// The requested interface is not implemented.
     pub const E_NOINTERFACE: ErrorCode = ErrorCode(0x8000_4002);
+
+    /// A null pointer was sent or received.
     pub const E_POINTER: ErrorCode = ErrorCode(0x8000_4003);
 }
 
