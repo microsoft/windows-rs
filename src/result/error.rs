@@ -16,7 +16,7 @@ impl Error {
         // Need to ignore the result, as that is the delay-load error, which would mean
         // that there's no WinRT to tell about the error.
         unsafe {
-            let _ = RoOriginateError(code, message.get_abi() as _);
+            let _ = RoOriginateError(code, message.abi() as _);
         }
 
         // The error information is then associated with the returning error object and no longer

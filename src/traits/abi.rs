@@ -8,8 +8,8 @@ use crate::*;
 pub unsafe trait Abi: Sized {
     type Abi;
 
-    // get_abi must always transmute (blit) and never Copy.
-    unsafe fn get_abi(&self) -> Self::Abi {
+    // abi must always transmute (blit) and never Copy.
+    unsafe fn abi(&self) -> Self::Abi {
         std::mem::transmute_copy(self)
     }
 

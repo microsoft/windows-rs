@@ -323,7 +323,7 @@ mod tests {
             let from = std::mem::ManuallyDrop::new(from);
             unsafe {
                 let to = to.set_abi();
-                let from = from.get_abi();
+                let from = from.abi();
                 *to = from
             };
         }

@@ -24,7 +24,7 @@ impl ILanguageExceptionErrorInfo2 {
     /// to improve debugging.
     pub fn capture_propagation_context(&self) {
         unsafe {
-            (self.vtable().5)(self.get_abi(), std::ptr::null_mut());
+            (self.vtable().5)(self.abi(), std::ptr::null_mut());
         }
     }
 }
@@ -32,14 +32,12 @@ impl ILanguageExceptionErrorInfo2 {
 unsafe impl Interface for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2_vtable;
 
-    const IID: Guid = {
-        Guid::from_values(
-            0x5746_E5C4,
-            0x5B97,
-            0x424C,
-            [0xB6, 0x20, 0x28, 0x22, 0x91, 0x57, 0x34, 0xDD],
-        )
-    };
+    const IID: Guid = Guid::from_values(
+        0x5746_E5C4,
+        0x5B97,
+        0x424C,
+        [0xB6, 0x20, 0x28, 0x22, 0x91, 0x57, 0x34, 0xDD],
+    );
 }
 
 impl std::fmt::Debug for ILanguageExceptionErrorInfo2 {

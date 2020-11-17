@@ -89,7 +89,7 @@ impl ErrorCode {
     }
 
     // This is a limited and closed set of common values used for flow control. In general, error codes are not actionable
-    // beyond debugging and should be considered fatal. This list should therefore not be expanded. 
+    // beyond debugging and should be considered fatal. This list should therefore not be expanded.
 
     /// The operation succeeded.
     pub const S_OK: ErrorCode = ErrorCode(0);

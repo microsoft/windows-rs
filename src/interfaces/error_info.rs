@@ -37,7 +37,7 @@ impl IErrorInfo {
         let mut value = BString::new();
 
         unsafe {
-            (self.vtable().5)(self.get_abi(), value.set_abi());
+            (self.vtable().5)(self.abi(), value.set_abi());
         }
 
         value.into()
@@ -47,14 +47,12 @@ impl IErrorInfo {
 unsafe impl Interface for IErrorInfo {
     type Vtable = IErrorInfo_vtable;
 
-    const IID: Guid = {
-        Guid::from_values(
-            0x1CF2_B120,
-            0x547D,
-            0x101B,
-            [0x8E, 0x65, 0x08, 0x00, 0x2B, 0x2B, 0xD1, 0x19],
-        )
-    };
+    const IID: Guid = Guid::from_values(
+        0x1CF2_B120,
+        0x547D,
+        0x101B,
+        [0x8E, 0x65, 0x08, 0x00, 0x2B, 0x2B, 0xD1, 0x19],
+    );
 }
 
 impl std::fmt::Debug for IErrorInfo {

@@ -9,10 +9,10 @@ pub enum Param<'a, T: Abi> {
 }
 
 impl<'a, T: Abi> Param<'a, T> {
-    pub unsafe fn get_abi(&mut self) -> T::Abi {
+    pub unsafe fn abi(&mut self) -> T::Abi {
         match self {
-            Param::Borrowed(value) => value.get_abi(),
-            Param::Owned(value) => value.get_abi(),
+            Param::Borrowed(value) => value.abi(),
+            Param::Owned(value) => value.abi(),
             Param::None => std::mem::zeroed(),
         }
     }

@@ -14,7 +14,7 @@ impl Object {
     pub fn type_name(&self) -> Result<HString> {
         unsafe {
             let mut abi = std::ptr::null_mut();
-            (self.vtable().4)(self.get_abi(), &mut abi).ok()?;
+            (self.vtable().4)(self.abi(), &mut abi).ok()?;
             Ok(std::mem::transmute(abi))
         }
     }
@@ -33,14 +33,12 @@ pub struct Object_vtable(
 unsafe impl Interface for Object {
     type Vtable = Object_vtable;
 
-    const IID: Guid = {
-        Guid::from_values(
-            0xAF86_E2E0,
-            0xB12D,
-            0x4C6A,
-            [0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90],
-        )
-    };
+    const IID: Guid = Guid::from_values(
+        0xAF86_E2E0,
+        0xB12D,
+        0x4C6A,
+        [0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90],
+    );
 }
 
 unsafe impl RuntimeType for Object {

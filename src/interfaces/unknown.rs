@@ -17,20 +17,18 @@ pub struct IUnknown_vtable(
 unsafe impl Interface for IUnknown {
     type Vtable = IUnknown_vtable;
 
-    const IID: Guid = {
-        Guid::from_values(
-            0x0000_0000,
-            0x0000,
-            0x0000,
-            [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
-        )
-    };
+    const IID: Guid = Guid::from_values(
+        0x0000_0000,
+        0x0000,
+        0x0000,
+        [0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46],
+    );
 }
 
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {
-            (self.vtable().1)(self.get_abi()); // AddRef
+            (self.vtable().1)(self.abi()); // AddRef
         }
 
         Self(self.0)
@@ -40,7 +38,7 @@ impl Clone for IUnknown {
 impl Drop for IUnknown {
     fn drop(&mut self) {
         unsafe {
-            (self.vtable().2)(self.get_abi()); // Release
+            (self.vtable().2)(self.abi()); // Release
         }
     }
 }

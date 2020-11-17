@@ -65,7 +65,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi());
+        let code = RoGetActivationFactory(name.abi(), &I::IID, factory.set_abi());
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -81,7 +81,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi())
+            code = RoGetActivationFactory(name.abi(), &I::IID, factory.set_abi())
                 .unwrap_or_else(|code| code);
         }
 
@@ -109,7 +109,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             if let Ok(function) = delay_load(&library, "DllGetActivationFactory", 0) {
                 let function: DllGetActivationFactory = std::mem::transmute(function);
                 let mut abi = std::ptr::null_mut();
-                function(name.get_abi(), &mut abi);
+                function(name.abi(), &mut abi);
 
                 if abi.is_null() {
                     continue;

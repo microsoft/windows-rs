@@ -152,16 +152,16 @@ impl Param {
                     | TypeKind::Class(_)
                     | TypeKind::Interface(_)
                     | TypeKind::Delegate(_)
-                    | TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
-                    TypeKind::Enum(_) => quote! { ::winrt::Abi::get_abi(&#name), },
+                    | TypeKind::Generic(_) => quote! { #name.into().abi(), },
+                    TypeKind::Enum(_) => quote! { ::winrt::Abi::abi(&#name), },
                     TypeKind::Guid | TypeKind::Struct(_) => {
                         if self.is_const {
-                            quote! { &#name.into().get_abi(), }
+                            quote! { &#name.into().abi(), }
                         } else {
-                            quote! { #name.into().get_abi(), }
+                            quote! { #name.into().abi(), }
                         }
                     }
-                    _ => quote! { ::winrt::Abi::get_abi(#name), },
+                    _ => quote! { ::winrt::Abi::abi(#name), },
                 }
             }
         } else if self.kind.primitive() {

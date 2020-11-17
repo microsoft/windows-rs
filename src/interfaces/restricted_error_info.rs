@@ -38,7 +38,7 @@ impl IRestrictedErrorInfo {
 
         unsafe {
             (self.vtable().3)(
-                self.get_abi(),
+                self.abi(),
                 fallback.set_abi(),
                 &mut code,
                 message.set_abi(),
@@ -59,14 +59,12 @@ impl IRestrictedErrorInfo {
 unsafe impl Interface for IRestrictedErrorInfo {
     type Vtable = IRestrictedErrorInfo_vtable;
 
-    const IID: Guid = {
-        Guid::from_values(
-            0x82BA_7092,
-            0x4C88,
-            0x427D,
-            [0xA7, 0xBC, 0x16, 0xDD, 0x93, 0xFE, 0xB6, 0x7E],
-        )
-    };
+    const IID: Guid = Guid::from_values(
+        0x82BA_7092,
+        0x4C88,
+        0x427D,
+        [0xA7, 0xBC, 0x16, 0xDD, 0x93, 0xFE, 0xB6, 0x7E],
+    );
 }
 
 impl std::fmt::Debug for IRestrictedErrorInfo {

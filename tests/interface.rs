@@ -13,7 +13,7 @@ fn interface() -> winrt::Result<()> {
     // The class and the default interface have the same vtable types, which
     // means you can compare them directly.
     let u: IUriRuntimeClass = uri.into();
-    unsafe { assert!(u.get_abi() == uri.get_abi()) };
+    unsafe { assert!(u.abi() == uri.abi()) };
     assert!(u.domain()? == "kennykerr.ca");
 
     // The class and the non-default interface have different vtable types, which
@@ -21,12 +21,12 @@ fn interface() -> winrt::Result<()> {
     let s: IStringable = uri.into();
     assert!(s.to_string()? == "http://kennykerr.ca/");
 
-    unsafe { assert!(s.get_abi() != uri.get_abi()) };
+    unsafe { assert!(s.abi() != uri.abi()) };
 
     // Here two different values of the same class won't share the same value as
     // they are unique instances even though they have the same vtable layout.
     let other = &Uri::create_uri("http://microsoft.com")?;
-    unsafe { assert!(uri.get_abi() != other.get_abi()) };
+    unsafe { assert!(uri.abi() != other.abi()) };
 
     Ok(())
 }
