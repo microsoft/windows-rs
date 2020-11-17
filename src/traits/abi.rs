@@ -8,18 +8,20 @@ use crate::*;
 pub unsafe trait Abi: Sized {
     type Abi;
 
-    // abi must always transmute (blit) and never Copy.
+    /// Casts the Rust object to its ABI type without copying the object.
     unsafe fn abi(&self) -> Self::Abi {
         std::mem::transmute_copy(self)
     }
 
-    // This default implemnetation is always correct. Only override if you need to assert something
-    // for debugging purposes.
+    /// Returns a pointer for setting the object's value via an ABI call. This default implemnetation
+    /// is always correct. Only override if you need to assert something for debugging purposes.
     unsafe fn set_abi(&mut self) -> *mut Self::Abi {
+        // TODO: ideally we can debug_assert that the object has a zero memory layout.
         self as *mut _ as *mut _
     }
 
-    // This default implementation is correct for all but interfaces.
+    /// Casts the ABI representation to a Rust object by taking ownership of the bits.
+    /// This default implementation is correct for all but interfaces.
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(std::mem::transmute_copy(&abi))
     }
