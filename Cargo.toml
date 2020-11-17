@@ -1,6 +1,6 @@
 [package]
 name = "winrt"
-version = "0.7.2"
+version = "0.8.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
@@ -10,12 +10,12 @@ documentation = "https://docs.rs/winrt"
 readme = "README.md"
 
 [dependencies]
-winrt-macros = { path = "crates/macros",  version = "0.7.2" }
+winrt-macros = { path = "crates/macros",  version = "0.8.0" }
 const-sha1 = "0.2"
 winmd = "0.6.0"
 
 [build-dependencies]
-winrt-macros = { path = "crates/macros",  version = "0.7.2" }
+winrt-macros = { path = "crates/macros",  version = "0.8.0" }
 
 [dev-dependencies]
 doc-comment = "0.3"
