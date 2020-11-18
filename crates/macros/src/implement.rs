@@ -187,7 +187,7 @@ pub fn gen(
 
             let externs = t.default_interface().methods.iter().map(|method| {
                 let method_ident = format_ident!("{}", method.name);
-                let vcall_ident = format_ident!("abi{}_{}", interface_count, method.ordinal);
+                let vcall_ident = format_ident!("abi{}_{}", interface_count, method.vtable_offset);
 
                 vtable_ptrs.combine(&quote! {
                     Self::#vcall_ident,
