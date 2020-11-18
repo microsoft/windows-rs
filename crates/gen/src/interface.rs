@@ -130,7 +130,7 @@ impl Interface {
             }
             impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {
                 fn from(value: #name) -> Self {
-                    unsafe { ::std::mem::transmute(value) }
+                    value.0
                 }
             }
             impl<#constraints> ::std::convert::From<&#name> for ::winrt::Object {

@@ -193,7 +193,7 @@ impl Class {
                 }
                 impl ::std::convert::From<#name> for ::winrt::Object {
                     fn from(value: #name) -> Self {
-                        unsafe { ::std::mem::transmute(value) }
+                        value.0
                     }
                 }
                 impl ::std::convert::From<&#name> for ::winrt::Object {

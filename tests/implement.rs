@@ -38,6 +38,22 @@ fn implement() -> winrt::Result<()> {
     }
     assert!(receiver.recv().unwrap() == "drop: world");
 
+    let (sender, receiver) = std::sync::mpsc::channel();
+    {
+        let t = Thing {
+            value: "object".to_string(),
+            sender,
+        };
+
+        let s: windows::foundation::IStringable = t.into();
+        assert!(s.to_string()? == "object");
+
+        // Confirms that the conversion to `Object` properly handles
+        // reference counting.
+        let _: winrt::Object = s.into();
+    }
+    assert!(receiver.recv().unwrap() == "drop: object");
+
     Ok(())
 }
 
