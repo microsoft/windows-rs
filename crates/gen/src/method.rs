@@ -152,7 +152,7 @@ impl Method {
                     pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                         unsafe {
                             let mut result__: #return_type = ::std::mem::zeroed();
-                            (::winrt::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args)* #return_arg)
+                            (::winrt::Interface::vtable(self).#vtable_offset)(::winrt::Abi::abi(self), #(#args)* #return_arg)
                                 .and_then(|| result__ )
                         }
                     }
@@ -165,7 +165,7 @@ impl Method {
                     pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
                         unsafe {
                             let mut result__: <#return_type as ::winrt::Abi>::Abi = ::std::mem::zeroed();
-                            (::winrt::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args)* #return_arg)
+                            (::winrt::Interface::vtable(self).#vtable_offset)(::winrt::Abi::abi(self), #(#args)* #return_arg)
                                 .from_abi::<#return_type>(result__ )
                         }
                     }
@@ -175,7 +175,7 @@ impl Method {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
                     unsafe {
-                        (::winrt::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args)*).ok()
+                        (::winrt::Interface::vtable(self).#vtable_offset)(::winrt::Abi::abi(self), #(#args)*).ok()
                     }
                 }
             }
