@@ -1,7 +1,7 @@
 use crate::*;
 
-pub unsafe fn heap_alloc(bytes: usize) -> RawPtr {
-    HeapAlloc(GetProcessHeap(), 0, bytes)
+pub fn heap_alloc(bytes: usize) -> RawPtr {
+    unsafe { HeapAlloc(GetProcessHeap(), 0, bytes) }
 }
 
 pub unsafe fn heap_free(ptr: RawPtr) {

@@ -235,7 +235,7 @@ impl Header {
         // Allocate enough space for header and two bytes per character.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
 
-        let header = unsafe { heap_alloc(alloc_size) as *mut Header };
+        let header = heap_alloc(alloc_size) as *mut Header;
 
         if header.is_null() {
             panic!("Could not successfully allocate for HString");
