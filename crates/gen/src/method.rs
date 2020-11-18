@@ -251,8 +251,8 @@ impl Method {
     pub fn gen_upcall(&self, inner: TokenStream) -> TokenStream {
         let invoke_args = self.params.iter().map(|param| param.gen_invoke_arg());
 
-        if let Some(return_type) = &self.return_type {
-            if return_type.array {
+        match &self.return_type {
+            Some(return_type) if return_type.array => {
                 let result = format_ident(&return_type.name);
                 let result_size = squote::format_ident!("array_size_{}", &return_type.name);
 
@@ -267,7 +267,8 @@ impl Method {
                         ::std::result::Result::Err(err) => err.into()
                     }
                 }
-            } else {
+            }
+            Some(return_type) => {
                 let return_name = format_ident(&return_type.name);
 
                 quote! {
@@ -281,10 +282,9 @@ impl Method {
                     }
                 }
             }
-        } else {
-            quote! {
+            None => quote! {
                 #inner(#(#invoke_args,)*).into()
-            }
+            },
         }
     }
 }
