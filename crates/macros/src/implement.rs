@@ -335,11 +335,6 @@ pub fn gen(
         }
     });
 
-    // TODO: there's a lot of friction when using squote with quote and syn...
-    // Here I'm turning the results of squote (preferred) into proc_macro2 and
-    // then from there into proc_macro. This seems inefficient but I'm not
-    // sure yet. But it's certainly tedious.
-
     let tokens = tokens.parse::<proc_macro2::TokenStream>().unwrap();
 
     let tokens = quote::quote! {
