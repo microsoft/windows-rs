@@ -77,10 +77,10 @@ impl Delegate {
             }
             #[repr(C)]
             pub struct #vtable_definition(
-                extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                extern "system" fn #abi_signature,
+                unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                unsafe extern "system" fn #abi_signature,
                 #phantoms
             ) where #constraints;
             impl<#constraints> #name {
@@ -111,49 +111,41 @@ impl Delegate {
                     Self::Invoke,
                     #phantoms
                 );
-                extern "system" fn QueryInterface(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
-                    unsafe {
-                        let this = this as *mut ::winrt::RawPtr as *mut Self;
+                unsafe extern "system" fn QueryInterface(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
+                    let this = this as *mut ::winrt::RawPtr as *mut Self;
 
-                        *interface = if iid == &<#name as ::winrt::Interface>::IID ||
-                            iid == &<::winrt::IUnknown as ::winrt::Interface>::IID ||
-                            iid == &<::winrt::IAgileObject as ::winrt::Interface>::IID {
-                                &mut (*this).vtable as *mut _ as _
-                            } else {
-                                ::std::ptr::null_mut()
-                            };
-
-                        if (*interface).is_null() {
-                            ::winrt::ErrorCode::E_NOINTERFACE
+                    *interface = if iid == &<#name as ::winrt::Interface>::IID ||
+                        iid == &<::winrt::IUnknown as ::winrt::Interface>::IID ||
+                        iid == &<::winrt::IAgileObject as ::winrt::Interface>::IID {
+                            &mut (*this).vtable as *mut _ as _
                         } else {
-                            (*this).count.add_ref();
-                            ::winrt::ErrorCode::S_OK
-                        }
-                    }
-                }
-                extern "system" fn AddRef(this: ::winrt::RawPtr) -> u32 {
-                    unsafe {
-                        let this = this as *mut ::winrt::RawPtr as *mut Self;
-                        (*this).count.add_ref()
-                    }
-                }
-                extern "system" fn Release(this: ::winrt::RawPtr) -> u32 {
-                    unsafe {
-                        let this = this as *mut ::winrt::RawPtr as *mut Self;
-                        let remaining = (*this).count.release();
+                            ::std::ptr::null_mut()
+                        };
 
-                        if remaining == 0 {
-                            Box::from_raw(this);
-                        }
-
-                        remaining
+                    if (*interface).is_null() {
+                        ::winrt::ErrorCode::E_NOINTERFACE
+                    } else {
+                        (*this).count.add_ref();
+                        ::winrt::ErrorCode::S_OK
                     }
                 }
-                extern "system" fn Invoke #abi_signature {
-                    unsafe {
-                        let this = this as *mut ::winrt::RawPtr as *mut Self;
-                        #invoke_upcall
+                unsafe extern "system" fn AddRef(this: ::winrt::RawPtr) -> u32 {
+                    let this = this as *mut ::winrt::RawPtr as *mut Self;
+                    (*this).count.add_ref()
+                }
+                unsafe extern "system" fn Release(this: ::winrt::RawPtr) -> u32 {
+                    let this = this as *mut ::winrt::RawPtr as *mut Self;
+                    let remaining = (*this).count.release();
+
+                    if remaining == 0 {
+                        Box::from_raw(this);
                     }
+
+                    remaining
+                }
+                unsafe extern "system" fn Invoke #abi_signature {
+                    let this = this as *mut ::winrt::RawPtr as *mut Self;
+                    #invoke_upcall
                 }
             }
         }

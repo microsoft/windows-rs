@@ -162,23 +162,17 @@ pub fn gen(
             };
 
             shims.combine(&quote! {
-                extern "system" fn #query_interface(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
-                    unsafe {
-                        let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
-                        (*this).QueryInterface(iid, interface)
-                    }
+                unsafe extern "system" fn #query_interface(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
+                    let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
+                    (*this).QueryInterface(iid, interface)
                 }
-                extern "system" fn #add_ref(this: ::winrt::RawPtr) -> u32 {
-                    unsafe {
-                        let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
-                        (*this).AddRef()
-                    }
+                unsafe extern "system" fn #add_ref(this: ::winrt::RawPtr) -> u32 {
+                    let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
+                    (*this).AddRef()
                 }
-                extern "system" fn #release(this: ::winrt::RawPtr) -> u32 {
-                    unsafe {
-                        let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
-                        (*this).Release()
-                    }
+                unsafe extern "system" fn #release(this: ::winrt::RawPtr) -> u32 {
+                    let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
+                    (*this).Release()
                 }
             });
 
@@ -197,11 +191,9 @@ pub fn gen(
                 let upcall = method.gen_upcall(quote! { (*this).inner.#method_ident });
 
                 shims.combine(&quote! {
-                    extern "system" fn #vcall_ident #signature {
-                        unsafe {
-                            let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
-                            #upcall
-                        }
+                    unsafe extern "system" fn #vcall_ident #signature {
+                        let this = (this as *mut ::winrt::RawPtr).sub(#interface_count) as *mut Self;
+                        #upcall
                     }
                 });
 
@@ -212,7 +204,7 @@ pub fn gen(
                 });
 
                 quote! {
-                    extern "system" fn #signature
+                    unsafe extern "system" fn #signature
                 }
             });
 
@@ -228,12 +220,12 @@ pub fn gen(
                     }
                 }
                 struct #vtable_ident(
-                    extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                    extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                    extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                    extern "system" fn(this: ::winrt::RawPtr, count: *mut u32, values: *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode,
-                    extern "system" fn(this: ::winrt::RawPtr, value: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                    extern "system" fn(this: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode,
+                    unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                    unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                    unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                    unsafe extern "system" fn(this: ::winrt::RawPtr, count: *mut u32, values: *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode,
+                    unsafe extern "system" fn(this: ::winrt::RawPtr, value: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                    unsafe extern "system" fn(this: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode,
                     #(#externs,)*
                 );
             });
@@ -298,7 +290,7 @@ pub fn gen(
                 }
                 remaining
             }
-            extern "system" fn GetIids(
+            unsafe extern "system" fn GetIids(
                 _: ::winrt::RawPtr,
                 count: *mut u32,
                 values: *mut *mut ::winrt::Guid,
@@ -306,29 +298,23 @@ pub fn gen(
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all
                 // interfaces.
-                unsafe {
-                    *count = 0;
-                    *values = ::std::ptr::null_mut();
-                }
+                *count = 0;
+                *values = ::std::ptr::null_mut();
                 ::winrt::ErrorCode(0)
             }
-            extern "system" fn GetRuntimeClassName(
+            unsafe extern "system" fn GetRuntimeClassName(
                 _: ::winrt::RawPtr,
                 value: *mut ::winrt::RawPtr,
             ) -> ::winrt::ErrorCode {
-                unsafe {
-                    let h: ::winrt::HString = "Thing".into(); // TODO: replace with class name or first interface
-                    *value = ::std::mem::transmute(h);
-                }
+                let h: ::winrt::HString = "Thing".into(); // TODO: replace with class name or first interface
+                *value = ::std::mem::transmute(h);
                 ::winrt::ErrorCode::S_OK
             }
-            extern "system" fn GetTrustLevel(_: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode {
+            unsafe extern "system" fn GetTrustLevel(_: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all
                 // interfaces.
-                unsafe {
-                    *value = 0;
-                }
+                *value = 0;
                 ::winrt::ErrorCode(0)
             }
             #shims
