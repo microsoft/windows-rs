@@ -10,6 +10,7 @@ pub struct ILanguageExceptionErrorInfo2(IUnknown);
 
 #[repr(C)]
 pub struct ILanguageExceptionErrorInfo2_vtable(
+    // 3 slots are reserved for IUnknown's 3 members.
     usize,
     usize,
     usize,

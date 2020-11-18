@@ -22,6 +22,7 @@ impl Object {
 
 #[repr(C)]
 pub struct Object_vtable(
+    // 3 slots are reserved for IUnknown's 3 members.
     usize,
     usize,
     usize,

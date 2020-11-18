@@ -27,6 +27,7 @@ impl IActivationFactory {
 
 #[repr(C)]
 pub struct IActivationFactory_vtable(
+    // 6 slots are reserved for IUnknown's 3 members and IInspectable's 3 members.
     usize,
     usize,
     usize,

@@ -9,6 +9,7 @@ pub struct IRestrictedErrorInfo(IUnknown);
 
 #[repr(C)]
 pub struct IRestrictedErrorInfo_vtable(
+    // 3 slots are reserved for IUnknown's 3 members.
     usize,
     usize,
     usize,

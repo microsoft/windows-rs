@@ -9,6 +9,7 @@ pub struct IErrorInfo(IUnknown);
 
 #[repr(C)]
 pub struct IErrorInfo_vtable(
+    // 3 slots are reserved for IUnknown's 3.
     usize,
     usize,
     usize,
