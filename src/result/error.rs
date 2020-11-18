@@ -85,6 +85,19 @@ impl Error {
     }
 }
 
+impl std::convert::From<Error> for ErrorCode {
+    fn from(error: Error) -> Self {
+        let code = error.code;
+        let info = error.info.and_then(|info| info.cast().ok());
+
+        unsafe {
+            let _ = SetErrorInfo(0, info);
+        }
+
+        code
+    }
+}
+
 impl std::convert::From<ErrorCode> for Error {
     fn from(code: ErrorCode) -> Self {
         if let Ok(info) = IRestrictedErrorInfo::from_thread() {
@@ -141,6 +154,11 @@ extern "system" {
         size: u32,
         args: RawPtr,
     ) -> u32;
+}
+
+#[link(name = "oleaut32")]
+extern "system" {
+    fn SetErrorInfo(reserved: u32, info: Option<IErrorInfo>) -> ErrorCode;
 }
 
 demand_load! {

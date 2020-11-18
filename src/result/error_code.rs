@@ -114,27 +114,7 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
     }
 }
 
-impl std::convert::From<Error> for ErrorCode {
-    fn from(error: Error) -> Self {
-        let info = if let Some(info) = error.info() {
-            info.cast().ok()
-        } else {
-            None
-        };
-
-        unsafe {
-            let _ = SetErrorInfo(0, info);
-        }
-        error.code()
-    }
-}
-
 #[link(name = "kernel32")]
 extern "system" {
     fn GetLastError() -> u32;
-}
-
-#[link(name = "oleaut32")]
-extern "system" {
-    fn SetErrorInfo(reserved: u32, info: Option<IErrorInfo>) -> ErrorCode;
 }
