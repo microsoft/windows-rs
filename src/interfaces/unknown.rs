@@ -53,6 +53,8 @@ impl PartialEq for IUnknown {
     }
 }
 
+impl Eq for IUnknown {}
+
 impl std::fmt::Debug for IUnknown {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:?}", self.0)

@@ -4,7 +4,7 @@ use crate::*;
 /// [IRestrictedErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/restrictederrorinfo/nn-restrictederrorinfo-irestrictederrorinfo)
 /// interface.
 #[repr(transparent)]
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct IRestrictedErrorInfo(IUnknown);
 
 #[repr(C)]

@@ -5,7 +5,7 @@ use crate::*;
 /// [ILanguageExceptionErrorInfo2](https://docs.microsoft.com/en-us/windows/win32/api/restrictederrorinfo/nn-restrictederrorinfo-ilanguageexceptionerrorinfo2)
 /// interface.
 #[repr(transparent)]
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct ILanguageExceptionErrorInfo2(IUnknown);
 
 #[repr(C)]

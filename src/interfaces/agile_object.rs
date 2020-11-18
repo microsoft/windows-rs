@@ -5,7 +5,7 @@ use crate::*;
 /// [IAgileObject](https://docs.microsoft.com/en-us/windows/win32/api/objidl/nn-objidl-iagileobject)
 /// interface.
 #[repr(transparent)]
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct IAgileObject(IUnknown);
 
 unsafe impl Interface for IAgileObject {

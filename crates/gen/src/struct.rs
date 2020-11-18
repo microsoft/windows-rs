@@ -58,6 +58,7 @@ impl Struct {
             pub struct #name {
                 #(#fields),*
             }
+            impl ::std::cmp::Eq for #name {}
             #[repr(C)]
             pub struct #abi_ident(#(#abi),*);
             unsafe impl ::winrt::RuntimeType for #name {

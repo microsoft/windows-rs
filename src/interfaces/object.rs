@@ -6,7 +6,7 @@ use crate::*;
 /// [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
 /// interface.
 #[repr(transparent)]
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct Object(IUnknown);
 
 impl Object {

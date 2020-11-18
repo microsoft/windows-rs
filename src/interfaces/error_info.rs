@@ -4,7 +4,7 @@ use crate::*;
 /// [IErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
 /// interface.
 #[repr(transparent)]
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct IErrorInfo(IUnknown);
 
 #[repr(C)]

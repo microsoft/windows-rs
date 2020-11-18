@@ -105,6 +105,7 @@ impl Interface {
                     self.0 == other.0
                 }
             }
+            impl<#constraints> ::std::cmp::Eq for #name {}
             impl<#constraints> #name {
                 #methods
                 #async_get
