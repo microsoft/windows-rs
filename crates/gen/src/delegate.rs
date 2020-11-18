@@ -92,9 +92,7 @@ impl Delegate {
                         invoke,
                     };
                     unsafe {
-                        std::mem::transmute(::std::ptr::NonNull::new_unchecked(
-                            ::std::boxed::Box::into_raw(::std::boxed::Box::new(com)),
-                        ))
+                        std::mem::transmute(::std::boxed::Box::new(com))
                     }
                 }
             }
