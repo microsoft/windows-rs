@@ -9,8 +9,10 @@ pub unsafe trait Abi: Sized {
     type Abi;
 
     /// Casts the Rust object to its ABI type without copying the object.
-    unsafe fn abi(&self) -> Self::Abi {
-        std::mem::transmute_copy(self)
+    fn abi(&self) -> Self::Abi {
+        // It is always safe to interpret an `Abi` type's binary representation (without moving
+        // the value) as the memory layout must be identical.
+        unsafe { std::mem::transmute_copy(self) }
     }
 
     /// Returns a pointer for setting the object's value via an ABI call. This default implemnetation

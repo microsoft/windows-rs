@@ -47,7 +47,7 @@ fn generic() -> winrt::Result<()> {
     let uri_clone = uri.clone();
     let d = Handler::new(move |sender, port| {
         tx.send(true).unwrap();
-        unsafe { assert!(uri_clone.abi() == sender.abi()) };
+        assert!(uri_clone.abi() == sender.abi());
 
         // TODO: ideally primitives would be passed by value
         assert!(*port == 80);
@@ -76,7 +76,7 @@ fn event() -> winrt::Result<()> {
             tx.send(true).unwrap();
             let set = set_clone.clone();
             let map: IObservableMap<winrt::HString, winrt::Object> = set.into();
-            unsafe { assert!(map.abi() == sender.abi()) };
+            assert!(map.abi() == sender.abi());
             assert!(args.key()? == "A");
             assert!(args.collection_change()? == CollectionChange::ItemInserted);
             Ok(())
