@@ -8,6 +8,7 @@ pub struct Param {
     pub array: bool,
     pub input: bool,
     pub by_ref: bool,
+    pub is_const: bool,
 }
 
 impl Param {
@@ -17,11 +18,11 @@ impl Param {
 
         if self.array {
             if self.input {
-                quote! { #name: &[#tokens], }
+                quote! { #name: &[<#tokens as ::winrt::RuntimeType>::DefaultType], }
             } else if self.by_ref {
                 quote! { #name: &mut ::winrt::Array<#tokens>, }
             } else {
-                quote! { #name: &mut [#tokens], }
+                quote! { #name: &mut [<#tokens as ::winrt::RuntimeType>::DefaultType], }
             }
         } else if self.input {
             match self.kind {
@@ -39,7 +40,18 @@ impl Param {
                 _ => quote! { #name: #tokens, },
             }
         } else {
-            quote! { #name: &mut #tokens, }
+            match self.kind {
+                TypeKind::Object
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Delegate(_) => {
+                    quote! { #name: &mut ::std::option::Option<#tokens>, }
+                }
+                TypeKind::Generic(_) => {
+                    quote! { &mut <#tokens as ::winrt::RuntimeType>::DefaultType, }
+                }
+                _ => quote! { #name: &mut #tokens, },
+            }
         }
     }
 
@@ -56,15 +68,17 @@ impl Param {
             }
         } else if self.input {
             match self.kind {
-                TypeKind::String
-                | TypeKind::Object
-                | TypeKind::Guid
+                TypeKind::String | TypeKind::Guid | TypeKind::Struct(_) => {
+                    quote! { &#tokens, }
+                }
+                TypeKind::Generic(_) => {
+                    quote! { &<#tokens as ::winrt::RuntimeType>::DefaultType, }
+                }
+                TypeKind::Object
                 | TypeKind::Class(_)
                 | TypeKind::Interface(_)
-                | TypeKind::Struct(_)
-                | TypeKind::Delegate(_)
-                | TypeKind::Generic(_) => {
-                    quote! { &#tokens, }
+                | TypeKind::Delegate(_) => {
+                    quote! { &::std::option::Option<#tokens>, }
                 }
                 _ => quote! { #tokens, },
             }
@@ -98,19 +112,22 @@ impl Param {
                 quote! { #name_size: u32, #name: *mut #tokens }
             }
         } else if self.input {
-            quote! { #name: #tokens }
+            if self.is_const {
+                quote! { #name: &#tokens }
+            } else {
+                quote! { #name: #tokens }
+            }
         } else {
             quote! { #name: *mut #tokens }
         }
     }
 
     pub fn gen_abi_return_arg(&self) -> TokenStream {
-        let return_type = self.kind.gen();
-
         if self.array {
+            let return_type = self.kind.gen();
             quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
         } else {
-            quote! { <#return_type as ::winrt::AbiTransferable>::set_abi(&mut result__) }
+            quote! { &mut result__ }
         }
     }
 
@@ -132,47 +149,57 @@ impl Param {
                 match self.kind {
                     TypeKind::String
                     | TypeKind::Object
-                    | TypeKind::Guid
                     | TypeKind::Class(_)
                     | TypeKind::Interface(_)
-                    | TypeKind::Struct(_)
                     | TypeKind::Delegate(_)
-                    | TypeKind::Generic(_) => quote! { #name.into().get_abi(), },
-                    TypeKind::Enum(_) => quote! { ::winrt::AbiTransferable::get_abi(&#name), },
-                    _ => quote! { ::winrt::AbiTransferable::get_abi(#name), },
+                    | TypeKind::Generic(_) => quote! { #name.into().abi(), },
+                    TypeKind::Enum(_) => quote! { ::winrt::Abi::abi(&#name), },
+                    TypeKind::Guid | TypeKind::Struct(_) => {
+                        if self.is_const {
+                            quote! { &#name.into().abi(), }
+                        } else {
+                            quote! { #name.into().abi(), }
+                        }
+                    }
+                    _ => quote! { ::winrt::Abi::abi(#name), },
                 }
             }
         } else if self.kind.primitive() {
             quote! { #name, }
         } else {
-            quote! { ::winrt::AbiTransferable::set_abi(#name), }
+            quote! { ::winrt::Abi::set_abi(#name), }
         }
     }
 
     pub fn gen_invoke_arg(&self) -> TokenStream {
         let name = format_ident(&self.name);
+        let kind = self.kind.gen();
+
+        // TODO: This compiles but doesn't property handle delegates with array parameters.
+        // https://github.com/microsoft/winrt-rs/issues/212
 
         if self.array {
-            let kind = self.kind.gen();
-            let name_size = squote::format_ident!("array_size_{}", name);
             if self.input {
-                quote! { <#kind as ::winrt::AbiTransferable>::slice_from_abi(#name, #name_size as usize) }
+                quote! { ::std::mem::transmute_copy(&#name) }
             } else if self.by_ref {
-                // TODO: need to take resulting array and detach back onto the ABI
-                quote! { &mut ::winrt::Array::new() }
+                quote! { ::std::mem::transmute_copy(&#name) }
             } else {
-                quote! { <#kind as ::winrt::AbiTransferable>::slice_from_mut_abi(#name, #name_size as usize) }
+                quote! { ::std::mem::transmute_copy(&#name) }
             }
         } else if self.input {
             if self.kind.primitive() {
                 quote! { #name }
             } else if let TypeKind::Enum(_) = self.kind {
-                quote! { *::winrt::AbiTransferable::from_abi(&#name) }
+                quote! { ::std::mem::transmute_copy(&#name) }
             } else {
-                quote! { ::winrt::AbiTransferable::from_abi(&#name) }
+                if self.is_const {
+                    quote! { &*(#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+                } else {
+                    quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+                }
             }
         } else {
-            quote! { ::winrt::AbiTransferable::from_mut_abi(&mut *#name) }
+            quote! { ::std::mem::transmute_copy(&#name) }
         }
     }
 }

@@ -1,5 +1,5 @@
 use crate::*;
-use squote::{quote, TokenStream};
+use squote::{quote, Literal, TokenStream};
 use std::iter::FromIterator;
 
 #[derive(Debug)]
@@ -7,12 +7,14 @@ pub struct Method {
     pub name: String,
     pub params: Vec<Param>,
     pub return_type: Option<Param>,
+    pub vtable_offset: u32,
 }
 
 impl Method {
     pub fn from_method_def(
         reader: &winmd::TypeReader,
         method: winmd::MethodDef,
+        vtable_offset: u32,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Method {
@@ -53,12 +55,14 @@ impl Method {
             let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
             let input = false;
             let by_ref = true;
+            let is_const = false;
             Some(Param {
                 name,
                 kind,
                 array,
                 input,
                 by_ref,
+                is_const,
             })
         };
 
@@ -69,7 +73,11 @@ impl Method {
                 let name = to_snake(param.name(reader), MethodKind::Normal);
                 let input = param.flags(reader).input();
 
-                blob.read_modifiers();
+                let is_const = blob
+                    .read_modifiers()
+                    .iter()
+                    .any(|def| def.name(reader) == ("System.Runtime.CompilerServices", "IsConst"));
+
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
                 let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
@@ -80,6 +88,7 @@ impl Method {
                     array,
                     input,
                     by_ref,
+                    is_const,
                 });
             }
         }
@@ -88,6 +97,7 @@ impl Method {
             name,
             params,
             return_type,
+            vtable_offset,
         }
     }
 
@@ -113,9 +123,7 @@ impl Method {
         to_snake(method.name(reader), MethodKind::Normal)
     }
 
-    pub fn gen_abi(&self, self_name: &TypeName) -> TokenStream {
-        let type_name = self_name.gen();
-
+    pub fn gen_abi(&self) -> TokenStream {
         let params = self
             .params
             .iter()
@@ -123,7 +131,7 @@ impl Method {
             .map(|param| param.gen_abi());
 
         quote! {
-            (this: ::winrt::NonNullRawComPtr<#type_name>, #(#params)*) -> ::winrt::ErrorCode
+            (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
         }
     }
 
@@ -131,29 +139,43 @@ impl Method {
         let method_name = format_ident(&self.name);
         let params = gen_param(&self.params);
         let constraints = gen_constraint(&self.params);
+        let vtable_offset = Literal::u32_unsuffixed(self.vtable_offset);
 
         let args = self.params.iter().map(|param| param.gen_abi_arg());
 
         if let Some(return_type) = &self.return_type {
-            let return_arg = return_type.gen_abi_return_arg();
-            let return_type = return_type.gen_return();
+            if return_type.array {
+                let return_arg = return_type.gen_abi_return_arg();
+                let return_type = return_type.gen_return();
 
-            quote! {
-                pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
-                    let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
-                    unsafe {
-                        let mut result__: #return_type = ::std::mem::zeroed();
-                        (this.vtable().#method_name)(this, #(#args)* #return_arg)
-                            .and_then(|| result__ )
+                quote! {
+                    pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
+                        unsafe {
+                            let mut result__: #return_type = ::std::mem::zeroed();
+                            (::winrt::Interface::vtable(self).#vtable_offset)(::winrt::Abi::abi(self), #(#args)* #return_arg)
+                                .and_then(|| result__ )
+                        }
+                    }
+                }
+            } else {
+                let return_arg = return_type.gen_abi_return_arg();
+                let return_type = return_type.gen_return();
+
+                quote! {
+                    pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type> {
+                        unsafe {
+                            let mut result__: <#return_type as ::winrt::Abi>::Abi = ::std::mem::zeroed();
+                            (::winrt::Interface::vtable(self).#vtable_offset)(::winrt::Abi::abi(self), #(#args)* #return_arg)
+                                .from_abi::<#return_type>(result__ )
+                        }
                     }
                 }
             }
         } else {
             quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<()> {
-                    let this = <Self as ::winrt::AbiTransferable>::get_abi(self).expect("The `this` pointer was null when calling method");
                     unsafe {
-                        (this.vtable().#method_name)(this, #(#args)*).ok()
+                        (::winrt::Interface::vtable(self).#vtable_offset)(::winrt::Abi::abi(self), #(#args)*).ok()
                     }
                 }
             }
@@ -209,7 +231,7 @@ impl Method {
             // "new" method name in line with non-composable default constructors.
             quote! {
                 pub fn new() -> ::winrt::Result<Self> {
-                    Self::#interface(|f| f.#method_name(::winrt::Object::default(), &mut ::winrt::Object::default()))
+                    Self::#interface(|f| f.#method_name(::std::option::Option::None, &mut ::std::option::Option::None))
                 }
             }
         } else {
@@ -220,9 +242,49 @@ impl Method {
 
             quote! {
                 pub fn #method_name<#constraints>(#params) -> ::winrt::Result<Self> {
-                    Self::#interface(|f| f.#method_name(#args ::winrt::Object::default(), &mut ::winrt::Object::default()))
+                    Self::#interface(|f| f.#method_name(#args ::std::option::Option::None, &mut ::std::option::Option::None))
                 }
             }
+        }
+    }
+
+    pub fn gen_upcall(&self, inner: TokenStream) -> TokenStream {
+        let invoke_args = self.params.iter().map(|param| param.gen_invoke_arg());
+
+        match &self.return_type {
+            Some(return_type) if return_type.array => {
+                let result = format_ident(&return_type.name);
+                let result_size = squote::format_ident!("array_size_{}", &return_type.name);
+
+                quote! {
+                    match #inner(#(#invoke_args,)*) {
+                        ::std::result::Result::Ok(ok__) => {
+                            let (ok_data__, ok_data_len__) = ok__.into_abi();
+                            *#result = ok_data__;
+                            *#result_size = ok_data_len__;
+                            ::winrt::ErrorCode(0)
+                        }
+                        ::std::result::Result::Err(err) => err.into()
+                    }
+                }
+            }
+            Some(return_type) => {
+                let return_name = format_ident(&return_type.name);
+
+                quote! {
+                    match #inner(#(#invoke_args,)*) {
+                        ::std::result::Result::Ok(ok__) => {
+                            *#return_name = ::std::mem::transmute_copy(&ok__);
+                            ::std::mem::forget(ok__);
+                            ::winrt::ErrorCode(0)
+                        }
+                        ::std::result::Result::Err(err) => err.into()
+                    }
+                }
+            }
+            None => quote! {
+                #inner(#(#invoke_args,)*).into()
+            },
         }
     }
 }

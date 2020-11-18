@@ -15,7 +15,7 @@ impl Delegate {
             .methods(reader)
             .find(|method| method.name(reader) == "Invoke")
             .unwrap();
-        let method = Method::from_method_def(reader, method, &name.generics, &name.namespace);
+        let method = Method::from_method_def(reader, method, 3, &name.generics, &name.namespace);
         let guid = TypeGuid::from_type_def(reader, name.def);
         Self { name, method, guid }
     }
@@ -26,16 +26,16 @@ impl Delegate {
 
     pub fn gen(&self) -> TokenStream {
         let definition = self.name.gen_definition();
-        let abi_definition = self.name.gen_abi_definition();
+        let vtable_definition = self.name.gen_abi_definition();
         let fn_constraint = self.gen_fn_constraint();
-        let impl_definition = self.gen_impl_definition(&fn_constraint);
+        let box_definition = self.gen_box_definition(&fn_constraint);
         let name = self.name.gen();
-        let abi_name = self.name.gen_abi();
-        let impl_name = self.gen_impl_name();
+        let vtable_name = self.name.gen_abi();
+        let box_name = self.gen_box_name();
         let phantoms = self.name.phantoms();
         let constraints = self.name.gen_constraint();
         let method = self.method.gen_default();
-        let abi_signature = self.method.gen_abi(&self.name);
+        let abi_signature = self.method.gen_abi();
 
         let guid = self.name.gen_guid(&self.guid);
 
@@ -46,155 +46,105 @@ impl Delegate {
             self.name.gen_signature(&format!("{{{:#?}}}", &self.guid))
         };
 
-        let invoke_args = self
-            .method
-            .params
-            .iter()
-            .map(|param| param.gen_invoke_arg());
-        let debug = default_gen_debug(&self.name);
-
-        let invoke_upcall = if let Some(return_type) = &self.method.return_type {
-            if return_type.array {
-                let result = format_ident(&return_type.name);
-                let result_size = squote::format_ident!("array_size_{}", &return_type.name);
-
-                quote! {
-                    match ((*this).invoke)(#(#invoke_args,)*) {
-                        ::std::result::Result::Ok(ok__) => {
-                            let (ok_data__, ok_data_len__) = ok__.into_abi();
-                            *#result = ok_data__;
-                            *#result_size = ok_data_len__;
-                            ::winrt::ErrorCode(0)
-                        }
-                        ::std::result::Result::Err(err) => err.into()
-                    }
-                }
-            } else {
-                let return_name = format_ident(&return_type.name);
-                let return_kind = return_type.kind.gen();
-
-                quote! {
-                    match ((*this).invoke)(#(#invoke_args,)*) {
-                        ::std::result::Result::Ok(ok__) => {
-                            *#return_name = <#return_kind as ::winrt::AbiTransferable>::into_abi(ok__);
-                            ::winrt::ErrorCode(0)
-                        }
-                        ::std::result::Result::Err(err) => err.into()
-                    }
-                }
-            }
-        } else {
-            quote! {
-                ((*this).invoke)(#(#invoke_args,)*).into()
-            }
-        };
+        let invoke_upcall = self.method.gen_upcall(quote! { ((*this).invoke) });
 
         quote! {
             #[repr(transparent)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
-            pub struct #definition where #constraints {
-                ptr: ::winrt::ComPtr<#name>,
-                #phantoms
+            pub struct #definition(::winrt::IUnknown, #phantoms) where #constraints;
+            impl<#constraints> ::std::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self(self.0.clone(), #phantoms)
+                }
             }
+            impl<#constraints> ::std::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            impl<#constraints> ::std::cmp::Eq for #name {}
+            impl<#constraints> ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(f, "{:?}", self.0)
+                }
+            }
+            unsafe impl<#constraints> ::winrt::Interface for #name {
+                type Vtable = #vtable_definition;
+                const IID: ::winrt::Guid = #guid;
+            }
+            unsafe impl<#constraints> ::winrt::RuntimeType for #name {
+                type DefaultType = Option<Self>;
+                const SIGNATURE: ::winrt::ConstBuffer = { #signature };
+            }
+            #[repr(C)]
+            pub struct #vtable_definition(
+                unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                unsafe extern "system" fn #abi_signature,
+                #phantoms
+            ) where #constraints;
             impl<#constraints> #name {
                 #method
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
-                    #impl_name::make(invoke)
-                }
-            }
-            unsafe impl<#constraints> ::winrt::ComInterface for #name {
-                type VTable = #abi_definition;
-                const IID: ::winrt::Guid = #guid;
-            }
-            #[repr(C)]
-            pub struct #abi_definition where #constraints {
-                pub unknown: ::winrt::abi_IUnknown,
-                pub invoke: unsafe extern "system" fn #abi_signature,
-                #phantoms
-            }
-            unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                const SIGNATURE: ::winrt::ConstBuffer = { #signature };
-            }
-            unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
-                type Abi = ::winrt::RawComPtr<Self>;
-                fn get_abi(&self) -> Self::Abi {
-                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
-                }
-            }
-            #debug
-            #[repr(C)]
-            struct #impl_definition where #constraints {
-                vtable: *const #abi_definition,
-                count: ::winrt::RefCount,
-                invoke: F,
-            }
-            impl<#constraints #fn_constraint> #impl_name {
-                const VTABLE: #abi_definition = #abi_name {
-                    unknown: ::winrt::abi_IUnknown {
-                        query_interface: #impl_name::query_interface,
-                        add_ref: #impl_name::add_ref,
-                        release: #impl_name::release,
-                    },
-                    invoke: #impl_name::invoke,
-                    #phantoms
-                };
-                pub fn make(invoke: F) -> #name {
-                    let value = Self {
-                        vtable: &Self::VTABLE,
+                    let com = #box_name {
+                        vtable: &#box_name::VTABLE,
                         count: ::winrt::RefCount::new(),
                         invoke,
                     };
                     unsafe {
-                        let mut result: #name = std::mem::zeroed();
-                        let ptr: ::std::ptr::NonNull<Self> = ::std::ptr::NonNull::new_unchecked(::std::boxed::Box::into_raw(::std::boxed::Box::new(value)));
-                        *<#name as ::winrt::AbiTransferable>::set_abi(&mut result) = Some(::winrt::NonNullRawComPtr::new(ptr.cast()));
-                        result
+                        std::mem::transmute(::std::boxed::Box::new(com))
                     }
                 }
-                extern "system" fn query_interface(
-                    this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>,
-                    iid: &::winrt::Guid,
-                    interface: *mut ::winrt::RawPtr,
-                ) -> ::winrt::ErrorCode {
-                    unsafe {
-                        let this: *mut Self = this.as_raw() as _;
+            }
+            #[repr(C)]
+            struct #box_definition where #constraints {
+                vtable: *const #vtable_definition,
+                invoke: F,
+                count: ::winrt::RefCount,
+            }
+            #[allow(non_snake_case)]
+            impl<#constraints #fn_constraint> #box_name {
+                const VTABLE: #vtable_definition = #vtable_name(
+                    Self::QueryInterface,
+                    Self::AddRef,
+                    Self::Release,
+                    Self::Invoke,
+                    #phantoms
+                );
+                unsafe extern "system" fn QueryInterface(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode {
+                    let this = this as *mut ::winrt::RawPtr as *mut Self;
 
-                        if iid == &<#name as ::winrt::ComInterface>::IID
-                            || iid == &<::winrt::IUnknown as ::winrt::ComInterface>::IID
-                            || iid == &<::winrt::IAgileObject as ::winrt::ComInterface>::IID
-                        {
-                            *interface = this as ::winrt::RawPtr;
-                            (*this).count.add_ref();
-                            return ::winrt::ErrorCode(0);
-                        }
+                    *interface = if iid == &<#name as ::winrt::Interface>::IID ||
+                        iid == &<::winrt::IUnknown as ::winrt::Interface>::IID ||
+                        iid == &<::winrt::IAgileObject as ::winrt::Interface>::IID {
+                            &mut (*this).vtable as *mut _ as _
+                        } else {
+                            ::std::ptr::null_mut()
+                        };
 
-                        *interface = std::ptr::null_mut();
+                    if (*interface).is_null() {
                         ::winrt::ErrorCode::E_NOINTERFACE
+                    } else {
+                        (*this).count.add_ref();
+                        ::winrt::ErrorCode::S_OK
                     }
                 }
-                extern "system" fn add_ref(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
-                    unsafe {
-                        let this: *mut Self = this.as_raw() as _;
-                        (*this).count.add_ref()
-                    }
+                unsafe extern "system" fn AddRef(this: ::winrt::RawPtr) -> u32 {
+                    let this = this as *mut ::winrt::RawPtr as *mut Self;
+                    (*this).count.add_ref()
                 }
-                extern "system" fn release(this: ::winrt::NonNullRawComPtr<::winrt::IUnknown>) -> u32 {
-                    unsafe {
-                        let this: *mut Self = this.as_raw() as _;
-                        let remaining = (*this).count.release();
+                unsafe extern "system" fn Release(this: ::winrt::RawPtr) -> u32 {
+                    let this = this as *mut ::winrt::RawPtr as *mut Self;
+                    let remaining = (*this).count.release();
 
-                        if remaining == 0 {
-                            Box::from_raw(this);
-                        }
-
-                        remaining
+                    if remaining == 0 {
+                        Box::from_raw(this);
                     }
+
+                    remaining
                 }
-                unsafe extern "system" fn invoke #abi_signature {
-                    let this: *mut Self = this.as_raw() as _;
+                unsafe extern "system" fn Invoke #abi_signature {
+                    let this = this as *mut ::winrt::RawPtr as *mut Self;
                     #invoke_upcall
                 }
             }
@@ -213,7 +163,7 @@ impl Delegate {
         quote! { F: FnMut(#(#params)*) -> ::winrt::Result<#return_type> + 'static }
     }
 
-    fn gen_impl_definition(&self, fn_constraint: &TokenStream) -> TokenStream {
+    fn gen_box_definition(&self, fn_constraint: &TokenStream) -> TokenStream {
         if self.name.generics.is_empty() {
             let name = format_impl_ident(&self.name.name);
             quote! { #name<#fn_constraint> }
@@ -224,7 +174,7 @@ impl Delegate {
         }
     }
 
-    fn gen_impl_name(&self) -> TokenStream {
+    fn gen_box_name(&self) -> TokenStream {
         if self.name.generics.is_empty() {
             let name = format_impl_ident(&self.name.name);
             quote! { #name::<F> }
@@ -237,5 +187,5 @@ impl Delegate {
 }
 
 fn format_impl_ident(name: &str) -> squote::Ident {
-    squote::format_ident!("impl_{}", name)
+    squote::format_ident!("{}_box", name)
 }

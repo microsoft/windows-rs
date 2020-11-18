@@ -1,5 +1,4 @@
 mod class;
-mod debug;
 mod delegate;
 mod r#enum;
 mod format_ident;
@@ -24,7 +23,6 @@ mod type_namespaces;
 mod type_tree;
 
 pub use class::*;
-pub use debug::*;
 pub use delegate::*;
 pub use format_ident::*;
 pub use futures::*;

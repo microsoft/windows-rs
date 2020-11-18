@@ -1,6 +1,6 @@
 #[test]
 fn generic_guids() -> winrt::Result<()> {
-    use winrt::ComInterface;
+    use winrt::Interface;
 
     type A = winrt::foundation::collections::IIterable<winrt::foundation::IStringable>;
     type B = winrt::foundation::collections::IKeyValuePair<

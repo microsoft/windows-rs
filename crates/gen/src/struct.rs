@@ -1,10 +1,10 @@
 use crate::*;
-use squote::{quote, Literal, TokenStream};
+use squote::{format_ident, quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct Struct {
     pub name: TypeName,
-    pub fields: Vec<(String, TypeKind)>, // TODO: might have to be a full Type to ensure we can write out nested structs for ABI layout
+    pub fields: Vec<(String, TypeKind)>,
     pub signature: String,
 }
 
@@ -16,6 +16,7 @@ impl Struct {
         for field in name.def.fields(reader) {
             let field_name = to_snake(field.name(reader), MethodKind::Normal);
             let kind = TypeKind::from_field(reader, field, &name.namespace);
+
             fields.push((field_name, kind));
         }
 
@@ -35,33 +36,37 @@ impl Struct {
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
+        let abi_ident = format_ident!("{}_abi", self.name.name);
         let signature = Literal::byte_string(&self.signature.as_bytes());
 
-        let fields = self.fields.iter().map(|field| {
-            let name = format_ident(&field.0);
-            let kind = field.1.gen();
+        let fields = self.fields.iter().map(|(name, kind)| {
+            let name = format_ident(&name);
+            let kind = kind.gen_field();
             quote! {
                 pub #name: #kind
             }
         });
 
+        let abi = self.fields.iter().map(|field| field.1.gen_abi());
+
+        // TODO: unroll these traits - it's too expensive to call derive macro.
+        // https://github.com/microsoft/winrt-rs/issues/353
+
         quote! {
             #[repr(C)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq)]
+            #[derive(::std::fmt::Debug, ::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
             pub struct #name {
                 #(#fields),*
             }
+            impl ::std::cmp::Eq for #name {}
+            #[repr(C)]
+            pub struct #abi_ident(#(#abi),*);
             unsafe impl ::winrt::RuntimeType for #name {
+                type DefaultType = Self;
                 const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
-            unsafe impl ::winrt::AbiTransferable for #name {
-                type Abi = Self;
-                fn get_abi(&self) -> Self::Abi {
-                    self.clone()
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    self as *mut Self::Abi
-                }
+            unsafe impl ::winrt::Abi for #name {
+                type Abi = #abi_ident;
             }
         }
     }

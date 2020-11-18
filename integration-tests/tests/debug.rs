@@ -7,8 +7,8 @@ fn debugging() -> winrt::Result<()> {
     let doc = XmlDocument::new()?;
     let url = Uri::create_uri("http://kennykerr.ca")?;
 
-    assert!(format!("{:?}", doc).starts_with("XmlDocument("));
-    assert_eq!("http://kennykerr.ca/", &format!("{:?}", url));
+    assert!(format!("{:?}", doc).ends_with(" Windows.Data.Xml.Dom.XmlDocument"));
+    assert!(&format!("{:?}", url).ends_with(" http://kennykerr.ca/"));
 
     Ok(())
 }

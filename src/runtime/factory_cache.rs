@@ -2,7 +2,10 @@ use crate::*;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-/// Attempts to load and cache the factory interface for the given WinRT class.
+type DllGetActivationFactory = extern "system" fn(name: RawPtr, factory: *mut RawPtr) -> ErrorCode;
+
+/// Attempts to load and cache the factory interface for the given WinRT class. This is automatically
+// used by the generated bindings and should not generally be used directly.
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<std::ffi::c_void>,
     _c: PhantomData<C>,
@@ -19,7 +22,7 @@ impl<C, I> FactoryCache<C, I> {
     }
 }
 
-impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
+impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
     pub fn call<R, F: FnOnce(&I) -> Result<R>>(&mut self, callback: F) -> Result<R> {
         loop {
             // Attempt to load a previously cached factory pointer.
@@ -34,7 +37,7 @@ impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
             let factory = factory::<C, I>()?;
 
             // If the factory is agile, we can safely cache it.
-            if factory.is_agile() {
+            if factory.cast::<IAgileObject>().is_ok() {
                 if self
                     .shared
                     .compare_and_swap(
@@ -56,13 +59,13 @@ impl<C: RuntimeName, I: ComInterface + Default> FactoryCache<C, I> {
 }
 
 /// Attempts to load the factory interface for the given WinRT class.
-pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
-    let mut factory = I::default();
+pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
+    let mut factory: Option<I> = None;
     let name = HString::from(C::NAME);
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi() as _);
+        let code = RoGetActivationFactory(name.abi(), &I::IID, factory.set_abi());
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -78,13 +81,13 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi() as _)
+            code = RoGetActivationFactory(name.abi(), &I::IID, factory.set_abi())
                 .unwrap_or_else(|code| code);
         }
 
         // If this succeeded then return the resulting factory interface.
         if code.is_ok() {
-            return Ok(factory);
+            return code.and_some(factory);
         }
 
         // If not, first capture the error information from the failure above so that we
@@ -99,69 +102,33 @@ pub fn factory<C: RuntimeName, I: ComInterface + Default>() -> Result<I> {
         // fails it will attempt "A.dll" before giving up.
         while let Some(pos) = path.rfind('.') {
             path = &path[..pos];
+            let mut library = String::with_capacity(path.len() + 4);
+            library.push_str(path);
+            library.push_str(".dll");
 
-            // Turn the resulting namespace portion into a DLL name.
-            let path: Vec<u16> = path.encode_utf16().chain(".dll\0".encode_utf16()).collect();
+            if let Ok(function) = delay_load(&library, "DllGetActivationFactory", 0) {
+                let function: DllGetActivationFactory = std::mem::transmute(function);
+                let mut abi = std::ptr::null_mut();
+                function(name.abi(), &mut abi);
 
-            // Attempt to load the DLL.
-            let library =
-                Library::from_handle(LoadLibraryExW(path.as_ptr(), std::ptr::null_mut(), 0));
+                if abi.is_null() {
+                    continue;
+                }
 
-            if library.handle.is_null() {
-                continue;
+                let factory: IActivationFactory = std::mem::transmute(abi);
+                return factory.cast();
             }
-
-            // If the DLL was found then get the export used to retrieve the factory.
-            let library_call =
-                GetProcAddress(library.handle, b"DllGetActivationFactory\0".as_ptr());
-
-            if library_call.is_null() {
-                continue;
-            }
-
-            let library_call: DllGetActivationFactory = std::mem::transmute(library_call);
-            let mut factory: IActivationFactory = std::mem::zeroed();
-
-            // Now call DllGetActivationFactory to request the given class.
-            if library_call(name.get_abi(), factory.set_abi()).is_err() {
-                continue;
-            }
-
-            debug_assert!(!factory.is_null());
-
-            // If we get this far it means the factory has been loaded and will be returned
-            // to the caller. At this point we need to pin the library to avoid it unloading
-            // while there are outstanding references. Unloading is only supported for
-            // components loaded via RoGetActivationFactory.
-            std::mem::forget(library);
-            return Ok(factory.query());
         }
 
         Err(original)
     }
 }
 
-type DllGetActivationFactory = extern "system" fn(
-    name: *mut hstring::Header,
-    factory: *mut RawComPtr<IActivationFactory>,
-) -> ErrorCode;
-
-struct Library {
-    handle: RawPtr,
-}
-
-impl Drop for Library {
-    fn drop(&mut self) {
-        if !self.handle.is_null() {
-            unsafe {
-                FreeLibrary(self.handle);
-            }
-        }
+demand_load! {
+    "ole32.dll" {
+        fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
     }
-}
-
-impl Library {
-    unsafe fn from_handle(handle: RawPtr) -> Self {
-        Library { handle }
+    "combase.dll" {
+        fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
     }
 }

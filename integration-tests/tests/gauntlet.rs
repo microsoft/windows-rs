@@ -1,6 +1,6 @@
 use tests::test_component::*;
 use tests::windows::foundation::{IReference, IStringable, PropertyValue, Uri};
-use winrt::ComInterface;
+use winrt::Interface;
 
 #[test]
 fn test_self() -> winrt::Result<()> {
@@ -118,13 +118,13 @@ fn params() -> winrt::Result<()> {
 
     {
         let object = PropertyValue::create_int64(1234)?;
-        let pv: IReference<i64> = object.query();
+        let pv: IReference<i64> = object.cast()?;
 
         let a = NonBlittable {
             a: false,
             b: 0x57, // WinRT char
             c: "WinRT".into(),
-            d: pv,
+            d: Some(pv),
         };
 
         let mut b = NonBlittable::default();
@@ -134,7 +134,7 @@ fn params() -> winrt::Result<()> {
 
     {
         let object = PropertyValue::create_int64(1234)?;
-        let pv: IReference<i64> = object.query();
+        let pv: IReference<i64> = object.cast()?;
 
         let a = Nested {
             blittable: Blittable {
@@ -153,7 +153,7 @@ fn params() -> winrt::Result<()> {
                 a: false,
                 b: 0x57, // WinRT char
                 c: "WinRT".into(),
-                d: pv,
+                d: Some(pv),
             },
         };
 
@@ -348,32 +348,32 @@ fn arrays() -> winrt::Result<()> {
 
     {
         let object = PropertyValue::create_int64(123)?;
-        let first: IReference<i64> = object.query();
+        let first: IReference<i64> = object.cast()?;
 
         let object = PropertyValue::create_int64(456)?;
-        let second: IReference<i64> = object.query();
+        let second: IReference<i64> = object.cast()?;
 
         let object = PropertyValue::create_int64(789)?;
-        let third: IReference<i64> = object.query();
+        let third: IReference<i64> = object.cast()?;
 
         let a: [NonBlittable; 3] = [
             NonBlittable {
                 a: false,
                 b: 0x61, // WinRT char
                 c: "first".into(),
-                d: first,
+                d: Some(first),
             },
             NonBlittable {
                 a: true,
                 b: 0x62, // WinRT char
                 c: "second".into(),
-                d: second,
+                d: Some(second),
             },
             NonBlittable {
                 a: false,
                 b: 0x64, // WinRT char
                 c: "third".into(),
-                d: third,
+                d: Some(third),
             },
         ];
 
@@ -392,13 +392,13 @@ fn arrays() -> winrt::Result<()> {
 
     {
         let object = PropertyValue::create_int64(123)?;
-        let first: IReference<i64> = object.query();
+        let first: IReference<i64> = object.cast()?;
 
         let object = PropertyValue::create_int64(456)?;
-        let second: IReference<i64> = object.query();
+        let second: IReference<i64> = object.cast()?;
 
         let object = PropertyValue::create_int64(789)?;
-        let third: IReference<i64> = object.query();
+        let third: IReference<i64> = object.cast()?;
 
         let a: [Nested; 3] = [
             Nested {
@@ -418,7 +418,7 @@ fn arrays() -> winrt::Result<()> {
                     a: false,
                     b: 0x61, // WinRT char
                     c: "first".into(),
-                    d: first,
+                    d: Some(first),
                 },
             },
             Nested {
@@ -438,7 +438,7 @@ fn arrays() -> winrt::Result<()> {
                     a: true,
                     b: 0x62, // WinRT char
                     c: "second".into(),
-                    d: second,
+                    d: Some(second),
                 },
             },
             Nested {
@@ -458,7 +458,7 @@ fn arrays() -> winrt::Result<()> {
                     a: false,
                     b: 0x63, // WinRT char
                     c: "third".into(),
-                    d: third,
+                    d: Some(third),
                 },
             },
         ];
@@ -473,17 +473,13 @@ fn arrays() -> winrt::Result<()> {
     }
 
     {
-        let a: [IStringable; 3] = [
-            Uri::create_uri("http://kennykerr.ca/one")?.into(),
-            Uri::create_uri("http://kennykerr.ca/two")?.into(),
-            Uri::create_uri("http://kennykerr.ca/three")?.into(),
+        let a: [Option<IStringable>; 3] = [
+            Some(Uri::create_uri("http://kennykerr.ca/one")?.into()),
+            Some(Uri::create_uri("http://kennykerr.ca/two")?.into()),
+            Some(Uri::create_uri("http://kennykerr.ca/three")?.into()),
         ];
 
-        let mut b = [
-            IStringable::default(),
-            IStringable::default(),
-            IStringable::default(),
-        ];
+        let mut b = [None, None, None];
 
         let mut c = winrt::Array::new();
         let d = tests.array16(&a, &mut b, &mut c)?;
@@ -491,9 +487,18 @@ fn arrays() -> winrt::Result<()> {
         assert!(a == c[..]);
         assert!(a == d[..]);
 
-        assert_eq!(c[0].to_string()?, "http://kennykerr.ca/one");
-        assert_eq!(c[1].to_string()?, "http://kennykerr.ca/two");
-        assert_eq!(c[2].to_string()?, "http://kennykerr.ca/three");
+        assert_eq!(
+            c[0].as_ref().unwrap().to_string()?,
+            "http://kennykerr.ca/one"
+        );
+        assert_eq!(
+            c[1].as_ref().unwrap().to_string()?,
+            "http://kennykerr.ca/two"
+        );
+        assert_eq!(
+            c[2].as_ref().unwrap().to_string()?,
+            "http://kennykerr.ca/three"
+        );
     }
 
     Ok(())
@@ -610,7 +615,7 @@ fn collections() -> winrt::Result<()> {
         v.append(&one)?;
         assert_eq!(v.size()?, 1);
         assert_eq!(v.get_at(0)?.to_string()?, "http://kennykerr.ca/one");
-        v.replace_all(&[one, two, three])?;
+        v.replace_all(&[Some(one), Some(two), Some(three)])?;
         assert_eq!(v.size()?, 3);
         assert_eq!(v.get_at(0)?.to_string()?, "http://kennykerr.ca/one");
         assert_eq!(v.get_at(1)?.to_string()?, "http://kennykerr.ca/two");

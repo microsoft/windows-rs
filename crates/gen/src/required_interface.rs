@@ -20,8 +20,15 @@ impl RequiredInterface {
 
         let mut methods = def
             .methods(reader)
-            .map(|method| {
-                Method::from_method_def(reader, method, &name.generics, calling_namespace)
+            .enumerate()
+            .map(|(count, method)| {
+                Method::from_method_def(
+                    reader,
+                    method,
+                    (count + 6) as u32,
+                    &name.generics,
+                    calling_namespace,
+                )
             })
             .collect();
 
@@ -43,8 +50,15 @@ impl RequiredInterface {
         let mut methods = name
             .def
             .methods(reader)
-            .map(|method| {
-                Method::from_method_def(reader, method, &name.generics, calling_namespace)
+            .enumerate()
+            .map(|(count, method)| {
+                Method::from_method_def(
+                    reader,
+                    method,
+                    (count + 6) as u32,
+                    &name.generics,
+                    calling_namespace,
+                )
             })
             .collect();
 
@@ -94,7 +108,7 @@ impl RequiredInterface {
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
-                            <#from as ::winrt::ComInterface>::query(value)
+                            ::winrt::Interface::cast(value).unwrap()
                         }
                     }
                     impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {

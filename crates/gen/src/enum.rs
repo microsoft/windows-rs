@@ -65,32 +65,46 @@ impl Enum {
             };
 
             quote! {
-                pub const #name: Self = Self { value: #value };
+                pub const #name: Self = Self(#value);
             }
         });
         let bitwise = bitwise_operators(&name, self.fields[0].1);
 
         quote! {
             #[repr(transparent)]
-            #[derive(::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::Eq, ::std::cmp::PartialEq)]
-            pub struct #name {
-                value: #repr
+            pub struct #name(#repr);
+            impl ::std::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self(self.0)
+                }
             }
+            impl ::std::default::Default for #name {
+                fn default() -> Self {
+                    Self(0)
+                }
+            }
+            impl ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(f, "{:?}", self.0)
+                }
+            }
+            impl ::std::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            impl ::std::cmp::Eq for #name {}
+            impl ::std::marker::Copy for #name {}
             impl #name {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*
             }
             unsafe impl ::winrt::RuntimeType for #name {
+                type DefaultType = Self;
                 const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
             }
-            unsafe impl ::winrt::AbiTransferable for #name {
+            unsafe impl ::winrt::Abi for #name {
                 type Abi = #repr;
-                fn get_abi(&self) -> Self::Abi {
-                    self.value
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    &mut self.value
-                }
             }
             #bitwise
         }
@@ -107,14 +121,14 @@ fn bitwise_operators(name: &TokenStream, value_type: EnumConstant) -> TokenStrea
             type Output = Self;
 
             fn bitor(self, rhs: Self) -> Self {
-                Self { value: self.value | rhs.value }
+                Self(self.0 | rhs.0)
             }
         }
         impl ::std::ops::BitAnd for #name {
             type Output = Self;
 
             fn bitand(self, rhs: Self) -> Self {
-                Self { value: self.value & rhs.value }
+                Self(self.0 & rhs.0)
             }
         }
     }

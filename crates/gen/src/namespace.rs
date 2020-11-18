@@ -32,8 +32,8 @@ pub fn gen_namespace(destination: &str, source: &str) -> TokenStream {
     TokenStream::from_iter(tokens)
 }
 
-pub fn gen_binding_namespace(destination: &str) -> TokenStream {
-    let mut tokens = quote! { ::winrt_bindings:: };
+pub fn gen_full_namespace(destination: &str) -> TokenStream {
+    let mut tokens = TokenStream::new();
 
     for destination in destination.split('.') {
         let destination =

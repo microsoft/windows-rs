@@ -1,8 +1,8 @@
 use crate::*;
 
-/// A WinRT array
+/// A WinRT array stores elements contiguously in a heap-allocated buffer.
 pub struct Array<T: RuntimeType> {
-    data: *mut T,
+    data: *mut T::DefaultType,
     len: u32,
 }
 
@@ -32,7 +32,7 @@ impl<T: RuntimeType> Array<T> {
         // SAFETY: the call to CoTaskMemAlloc is safe to perform
         // if len is zero and overflow was checked above.
         // We ensured we alloc enough space by multiplying len * size_of::<T>
-        let data = unsafe { CoTaskMemAlloc(bytes_amount) as *mut T };
+        let data = unsafe { CoTaskMemAlloc(bytes_amount) as *mut T::DefaultType };
 
         if data.is_null() {
             panic!("Could not successfully allocate for Array");
@@ -114,9 +114,9 @@ impl<T: RuntimeType> Array<T> {
 }
 
 impl<T: RuntimeType> std::ops::Deref for Array<T> {
-    type Target = [T];
+    type Target = [T::DefaultType];
 
-    fn deref(&self) -> &[T] {
+    fn deref(&self) -> &[T::DefaultType] {
         if self.is_empty() {
             return &[];
         }
@@ -127,7 +127,7 @@ impl<T: RuntimeType> std::ops::Deref for Array<T> {
 }
 
 impl<T: RuntimeType> std::ops::DerefMut for Array<T> {
-    fn deref_mut(&mut self) -> &mut [T] {
+    fn deref_mut(&mut self) -> &mut [T::DefaultType] {
         if self.is_empty() {
             return &mut [];
         }
@@ -141,6 +141,12 @@ impl<T: RuntimeType> Drop for Array<T> {
     fn drop(&mut self) {
         self.clear();
     }
+}
+
+#[link(name = "ole32")]
+extern "system" {
+    fn CoTaskMemAlloc(len: usize) -> RawPtr;
+    fn CoTaskMemFree(ptr: RawPtr);
 }
 
 #[cfg(test)]
@@ -162,5 +168,25 @@ mod tests {
         assert!(empty[0] == 0);
         assert!(empty[1] == 0);
         assert!(empty[2] == 0);
+    }
+
+    #[test]
+    fn uri() {
+        use winrt::foundation::Uri;
+
+        let a = Array::<Uri>::new();
+        assert!(a.is_empty());
+
+        let mut a = Array::<Uri>::with_len(2);
+        assert!(a[0] == None);
+        assert!(a[1] == None);
+
+        a[0] = Uri::create_uri("http://kennykerr.ca").ok();
+        a[1] = Uri::create_uri("http://microsoft.com").ok();
+
+        // TODO: this seems rather tedious... may warrant a winrt::Option<T> that's more convenient
+        // that could handle both nullable and IReference<T> behaviors in a single abstraction.
+        assert!(a[0].as_ref().unwrap().domain().unwrap() == "kennykerr.ca");
+        assert!(a[1].as_ref().unwrap().domain().unwrap() == "microsoft.com");
     }
 }

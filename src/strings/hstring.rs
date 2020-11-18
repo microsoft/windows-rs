@@ -2,30 +2,23 @@ use crate::*;
 use std::convert::TryFrom;
 use std::result::Result as StdResult;
 
-/// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring).
-///
-/// A WinRT string is reference-counted and logically immutable. It can only be
-/// changed by clearing its value and replacing with a new value. It should only
-/// be used for FFI purposes with WinRT APIs.
+/// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring),
+/// is reference-counted and logically immutable. It should only be used for communicating with WinRT APIs.
 #[repr(transparent)]
-pub struct HString {
-    ptr: *mut Header,
-}
+pub struct HString(*mut Header);
 
 impl HString {
     /// Create an empty HString.
     ///
     /// This function does no allocation.
     pub fn new() -> HString {
-        Self {
-            ptr: std::ptr::null_mut(),
-        }
+        Self(std::ptr::null_mut())
     }
 
     /// Returns `true` if the string is empty.
     pub fn is_empty(&self) -> bool {
         // An empty HSTRING is represented by a null pointer.
-        self.ptr.is_null()
+        self.0.is_null()
     }
 
     /// Returns the length of `self`.
@@ -34,7 +27,7 @@ impl HString {
             return 0;
         }
 
-        unsafe { (*self.ptr).len as usize }
+        unsafe { (*self.0).len as usize }
     }
 
     /// Get the string as 16-bit wide characters (wchars).
@@ -43,7 +36,7 @@ impl HString {
             return &[];
         }
 
-        let header = self.ptr;
+        let header = self.0;
         unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
@@ -67,15 +60,15 @@ impl HString {
         unsafe {
             // This flag indicates a "fast pass" string created by some languages where the
             // header is allocated on the stack. Such strings must never be freed.
-            let header = self.ptr;
+            let header = self.0;
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
             if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
-                HeapFree(GetProcessHeap(), 0, self.ptr as RawPtr);
+                heap_free(self.0 as RawPtr);
             }
         }
 
-        self.ptr = std::ptr::null_mut();
+        self.0 = std::ptr::null_mut();
     }
 
     /// # Safety
@@ -98,24 +91,21 @@ impl HString {
 
         // Write a 0 byte to the end of the buffer.
         std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
-        Self { ptr }
+        Self(ptr)
     }
 }
 
-unsafe impl AbiTransferable for HString {
-    type Abi = *mut Header;
+unsafe impl Abi for HString {
+    type Abi = RawPtr;
 
-    fn get_abi(&self) -> Self::Abi {
-        self.ptr
-    }
-
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        self.clear();
-        &mut self.ptr
+    unsafe fn set_abi(&mut self) -> *mut RawPtr {
+        debug_assert!(self.is_empty());
+        &mut self.0 as *mut _ as _
     }
 }
 
 unsafe impl RuntimeType for HString {
+    type DefaultType = Self;
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"string");
 }
 
@@ -131,9 +121,7 @@ impl Clone for HString {
             return Self::new();
         }
 
-        Self {
-            ptr: unsafe { (*self.ptr).duplicate() },
-        }
+        unsafe { Self((*self.0).duplicate()) }
     }
 }
 
@@ -247,7 +235,7 @@ impl Header {
         // Allocate enough space for header and two bytes per character.
         let alloc_size = std::mem::size_of::<Header>() + 2 * len as usize;
 
-        let header = unsafe { HeapAlloc(GetProcessHeap(), 0, alloc_size) as *mut Header };
+        let header = heap_alloc(alloc_size) as *mut Header;
 
         if header.is_null() {
             panic!("Could not successfully allocate for HString");
@@ -333,9 +321,11 @@ mod tests {
     fn abi_transfer() {
         fn perform_transfer(from: HString, to: &mut HString) {
             let from = std::mem::ManuallyDrop::new(from);
-            let to = to.set_abi();
-            let from = from.get_abi();
-            unsafe { *to = from };
+            unsafe {
+                let to = to.set_abi();
+                let from = from.abi();
+                *to = from
+            };
         }
 
         let from = HString::from("Hello");

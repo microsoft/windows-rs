@@ -1,5 +1,5 @@
 mod build;
-mod implements;
+mod implement;
 
 use build::BuildMacro;
 
@@ -76,31 +76,22 @@ pub fn build(stream: TokenStream) -> TokenStream {
         let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
         file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
-        // TODO:make this an opt in with a "feature"?
-        //
-        // let mut cmd = ::std::process::Command::new("rustfmt");
-        // cmd.arg(&path);
-        // let output = cmd.output();
-        // match output {
-        //     Err(_) => eprintln!("Could not execute rustfmt"),
-        //     Ok(o) if !o.status.success() => {
-        //         let stderr = String::from_utf8_lossy(&o.stderr);
-        //         eprintln!("rustfmt did not exit properly: {:?}\n{}", o.status.code(), stderr);
-        //     }
-        //     _ => {}
-        // };
+        let mut cmd = ::std::process::Command::new("rustfmt");
+        cmd.arg(&path);
+        let _ = cmd.output();
     };
     tokens.into()
 }
 
-// Rust structs can use the winrt::implement macro to implement entire WinRT classes or
-// any combination of existing COM and WinRT interfaces. If the attribute TokenStream contains
-// the name of a WinRT class then all of its interfaces are implemented. Otherwise, whatever
-// interfaces are contained within the attribute TokenStream are implemented as a local
-// implementation.
+/// Rust structs can use the `implement` macro to implement entire WinRT classes or
+/// any combination of existing COM and WinRT interfaces.
+///
+/// If the attribute `TokenStream` contains the name of a WinRT class then all of its
+/// interfaces are implemented. Otherwise, whatever interfaces are contained within
+/// the attribute TokenStream are implemented.
 #[proc_macro_attribute]
-pub fn implements(attribute: TokenStream, input: TokenStream) -> TokenStream {
-    implements::gen(attribute, input)
+pub fn implement(attribute: TokenStream, input: TokenStream) -> TokenStream {
+    implement::gen(attribute, input)
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion
@@ -108,7 +99,6 @@ pub fn implements(attribute: TokenStream, input: TokenStream) -> TokenStream {
 pub(crate) fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     let mut result = String::with_capacity(namespace.len());
     for c in namespace.chars() {
-        // TODO: why '"'?
         if c != '"' && c != '_' {
             result.extend(c.to_lowercase());
         }

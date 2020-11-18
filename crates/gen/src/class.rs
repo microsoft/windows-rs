@@ -147,7 +147,6 @@ impl Class {
             let default_name = default_interface.name.gen();
             let abi_name = default_interface.name.gen_abi();
             let (async_get, future) = gen_async(&self.name, &self.interfaces);
-            let debug = gen_debug(&self.name, &self.interfaces);
 
             let send_sync = if self.is_agile {
                 let constraints = self.name.gen_constraint();
@@ -161,34 +160,41 @@ impl Class {
 
             quote! {
                 #[repr(transparent)]
-                #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
-                pub struct #name { ptr: ::winrt::ComPtr<#default_name> }
+                pub struct #name(::winrt::Object);
                 impl #name {
                     #new
                     #methods
                     #async_get
                     #call_factory
                 }
+                impl ::std::clone::Clone for #name {
+                    fn clone(&self) -> Self {
+                        Self(self.0.clone())
+                    }
+                }
+                impl ::std::cmp::PartialEq for #name {
+                    fn eq(&self, other: &Self) -> bool {
+                        self.0 == other.0
+                    }
+                }
+                impl ::std::cmp::Eq for #name {}
+                impl ::std::fmt::Debug for #name {
+                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                        write!(f, "{:?}", self.0)
+                    }
+                }
                 #type_name
-                unsafe impl ::winrt::ComInterface for #name {
-                    type VTable = #abi_name;
-                    const IID: ::winrt::Guid = <#default_name as ::winrt::ComInterface>::IID;
+                unsafe impl ::winrt::Interface for #name {
+                    type Vtable = #abi_name;
+                    const IID: ::winrt::Guid = <#default_name as ::winrt::Interface>::IID;
                 }
                 unsafe impl ::winrt::RuntimeType for #name {
+                    type DefaultType = Option<Self>;
                     const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
-                }
-                unsafe impl ::winrt::AbiTransferable for #name {
-                    type Abi = ::winrt::RawComPtr<#default_name>;
-                    fn get_abi(&self) -> Self::Abi {
-                        <::winrt::ComPtr<#default_name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
-                    }
-                    fn set_abi(&mut self) -> *mut Self::Abi {
-                        <::winrt::ComPtr<#default_name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
-                    }
                 }
                 impl ::std::convert::From<#name> for ::winrt::Object {
                     fn from(value: #name) -> Self {
-                        unsafe { ::std::mem::transmute(value) }
+                        value.0
                     }
                 }
                 impl ::std::convert::From<&#name> for ::winrt::Object {
@@ -206,7 +212,6 @@ impl Class {
                         ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
                     }
                 }
-                #debug
                 #(#conversions)*
                 #bases
                 #iterator
@@ -236,7 +241,7 @@ impl Class {
                 }
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
-                        <#from as ::winrt::ComInterface>::query(value)
+                        ::winrt::Interface::cast(value).unwrap()
                     }
                 }
                 impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {

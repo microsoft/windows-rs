@@ -2,10 +2,8 @@ use std::convert::*;
 use winrt::foundation::collections::{
     CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
 };
-use winrt::foundation::{
-    AsyncActionCompletedHandler, AsyncStatus, IAsyncAction, TypedEventHandler, Uri,
-};
-use winrt::{AbiTransferable, ComInterface};
+use winrt::foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri};
+use winrt::{Abi, Interface};
 
 #[test]
 fn non_generic() -> winrt::Result<()> {
@@ -16,21 +14,18 @@ fn non_generic() -> winrt::Result<()> {
         winrt::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
     );
 
-    let d = Handler::default();
-    assert!(d.is_null());
-
     let (tx, rx) = std::sync::mpsc::channel();
 
     let d = Handler::new(move |info, status| {
         tx.send(true).unwrap();
-        assert!(info.is_null());
+        assert!(info.is_none());
         assert!(status == AsyncStatus::Completed);
         Ok(())
     });
 
     // TODO: delegates are function objects (logically) and we should be able
     // to call them without an explicit `invoke` method e.g. `d(args);`
-    d.invoke(IAsyncAction::default(), AsyncStatus::Completed)?;
+    d.invoke(None, AsyncStatus::Completed)?;
 
     assert!(rx.recv().unwrap());
 
@@ -46,16 +41,13 @@ fn generic() -> winrt::Result<()> {
         winrt::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
     );
 
-    let d = Handler::default();
-    assert!(d.is_null());
-
     let uri = Uri::create_uri("http://kennykerr.ca")?;
     let (tx, rx) = std::sync::mpsc::channel();
 
     let uri_clone = uri.clone();
     let d = Handler::new(move |sender, port| {
         tx.send(true).unwrap();
-        assert!(uri_clone.get_abi() == sender.get_abi());
+        assert!(uri_clone.abi() == sender.abi());
 
         // TODO: ideally primitives would be passed by value
         assert!(*port == 80);
@@ -80,10 +72,11 @@ fn event() -> winrt::Result<()> {
     // set.map_changed(|sender, args| {...})?;
     set.map_changed(
         MapChangedEventHandler::<winrt::HString, winrt::Object>::new(move |sender, args| {
+            let args = args.as_ref().unwrap();
             tx.send(true).unwrap();
             let set = set_clone.clone();
             let map: IObservableMap<winrt::HString, winrt::Object> = set.into();
-            assert!(map.get_abi() == sender.get_abi());
+            assert!(map.abi() == sender.abi());
             assert!(args.key()? == "A");
             assert!(args.collection_change()? == CollectionChange::ItemInserted);
             Ok(())

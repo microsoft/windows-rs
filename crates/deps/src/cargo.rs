@@ -97,8 +97,6 @@ struct Cargo {
 
 impl Cargo {
     fn new() -> anyhow::Result<Self> {
-        // TODO: check that cargo is installed and display nice error to user when not
-
         Ok(Self {
             command: Command::new("cargo"),
         })

@@ -77,54 +77,62 @@ impl Interface {
         let methods = gen_method(&self.interfaces);
 
         let abi_methods = default_interface.methods.iter().map(|method| {
-            let name = format_ident(&method.name);
-            let signature = method.gen_abi(&default_interface.name);
+            let signature = method.gen_abi();
 
             quote! {
-                pub #name: unsafe extern "system" fn #signature
+                pub extern "system" fn #signature
             }
         });
 
         let iterator = gen_iterator(&self.name, &self.interfaces);
         let (async_get, future) = gen_async(&self.name, &self.interfaces);
-        let debug = gen_debug(&self.name, &self.interfaces);
 
         quote! {
             #[repr(transparent)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
-            pub struct #definition where #constraints {
-                ptr: ::winrt::ComPtr<#name>,
-                #phantoms
+            pub struct #definition(::winrt::Object, #phantoms) where #constraints;
+            impl<#constraints> ::std::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self(self.0.clone(), #phantoms)
+                }
             }
+            impl<#constraints> ::std::fmt::Debug for #name {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    write!(f, "{:?}", self.0)
+                }
+            }
+            impl<#constraints> ::std::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            impl<#constraints> ::std::cmp::Eq for #name {}
             impl<#constraints> #name {
                 #methods
                 #async_get
             }
-            unsafe impl<#constraints> ::winrt::ComInterface for #name {
-                type VTable = #abi_definition;
+            unsafe impl<#constraints> ::winrt::Interface for #name {
+                type Vtable = #abi_definition;
                 const IID: ::winrt::Guid = #guid;
             }
             #[repr(C)]
-            pub struct #abi_definition where #constraints {
-                pub inspectable: ::winrt::abi_IInspectable,
+            pub struct #abi_definition(
+                // 6 slots are reserved for IUnknown's 3 members and IInspectable's 3 members.
+                usize,
+                usize,
+                usize,
+                usize,
+                usize,
+                usize,
                 #(#abi_methods,)*
                 #phantoms
-            }
+            ) where #constraints;
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
+                type DefaultType = Option<Self>;
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
-            }
-            unsafe impl<#constraints> ::winrt::AbiTransferable for #name {
-                type Abi = ::winrt::RawComPtr<Self>;
-                fn get_abi(&self) -> Self::Abi {
-                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::get_abi(&self.ptr)
-                }
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    <::winrt::ComPtr<#name> as ::winrt::AbiTransferable>::set_abi(&mut self.ptr)
-                }
             }
             impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {
                 fn from(value: #name) -> Self {
-                    unsafe { ::std::mem::transmute(value) }
+                    value.0
                 }
             }
             impl<#constraints> ::std::convert::From<&#name> for ::winrt::Object {
@@ -132,6 +140,7 @@ impl Interface {
                     ::std::convert::From::from(::std::clone::Clone::clone(value))
                 }
             }
+
             impl<'a, #constraints> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
                 fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
                     ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
@@ -142,7 +151,6 @@ impl Interface {
                     ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
                 }
             }
-            #debug
             #(#conversions)*
             #iterator
             #future
