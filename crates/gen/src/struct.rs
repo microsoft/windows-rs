@@ -39,9 +39,9 @@ impl Struct {
         let abi_ident = format_ident!("{}_abi", self.name.name);
         let signature = Literal::byte_string(&self.signature.as_bytes());
 
-        let fields = self.fields.iter().map(|field| {
-            let name = format_ident(&field.0);
-            let kind = field.1.gen_field();
+        let fields = self.fields.iter().map(|(name, kind)| {
+            let name = format_ident(&name);
+            let kind = kind.gen_field();
             quote! {
                 pub #name: #kind
             }
