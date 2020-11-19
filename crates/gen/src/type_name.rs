@@ -95,12 +95,7 @@ impl TypeName {
             generics.push(TypeKind::Generic(name));
         }
 
-        Self::new(
-            reader,
-            def,
-            generics,
-            calling_namespace,
-        )
+        Self::new(reader, def, generics, calling_namespace)
     }
 
     pub fn from_type_spec_blob(
