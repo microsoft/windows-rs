@@ -17,28 +17,7 @@ impl RequiredInterface {
         kind: InterfaceKind,
     ) -> Self {
         let name = TypeName::from_type_def(reader, def, calling_namespace);
-
-        let mut methods = def
-            .methods(reader)
-            .enumerate()
-            .map(|(count, method)| {
-                Method::from_method_def(
-                    reader,
-                    method,
-                    (count + 6) as u32,
-                    &name.generics,
-                    calling_namespace,
-                )
-            })
-            .collect();
-
-        rename_collisions(&mut methods);
-
-        Self {
-            name,
-            methods,
-            kind,
-        }
+        Self::from_type_name_and_kind(reader, name, kind, calling_namespace)
     }
 
     fn from_type_name_and_kind(

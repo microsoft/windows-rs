@@ -24,19 +24,23 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    fn new(
-        namespace: String,
-        name: String,
-        generics: Vec<TypeKind>,
+    pub fn new(
+        reader: &winmd::TypeReader,
         def: winmd::TypeDef,
+        generics: Vec<TypeKind>,
         calling_namespace: &str,
     ) -> Self {
+        let (namespace, name) = def.name(reader);
+        let namespace = namespace.to_string();
+        let name = name.to_string();
+        let calling_namespace = calling_namespace.to_string();
+
         Self {
             namespace,
             name,
             generics,
             def,
-            calling_namespace: calling_namespace.to_owned(),
+            calling_namespace,
         }
     }
 
@@ -84,9 +88,6 @@ impl TypeName {
         def: winmd::TypeDef,
         calling_namespace: &str,
     ) -> Self {
-        let (namespace, name) = def.name(reader);
-        let owned_namespace = namespace.to_string();
-        let owned_name = name.to_string();
         let mut generics = Vec::new();
 
         for generic in def.generics(reader) {
@@ -94,17 +95,10 @@ impl TypeName {
             generics.push(TypeKind::Generic(name));
         }
 
-        let calling_namespace = if calling_namespace.is_empty() {
-            namespace
-        } else {
-            calling_namespace
-        };
-
         Self::new(
-            owned_namespace,
-            owned_name,
-            generics,
+            reader,
             def,
+            generics,
             calling_namespace,
         )
     }
@@ -115,19 +109,17 @@ impl TypeName {
         calling_namespace: &str,
     ) -> Self {
         blob.read_unsigned();
+
         let def =
             winmd::TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
+
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {
             args.push(TypeKind::from_blob(blob, generics, calling_namespace));
         }
-        let (namespace, name) = def.name(blob.reader);
-        let namespace = namespace.to_string();
-        let name = name.to_string();
-        let generics = args;
 
-        Self::new(namespace, name, generics, def, calling_namespace)
+        Self::new(blob.reader, def, args, calling_namespace)
     }
 
     pub fn from_type_spec(
@@ -215,7 +207,7 @@ impl TypeName {
             .find(|i| i.is_default(reader))
             .unwrap();
 
-        let default = TypeName::from_type_def_or_ref(
+        let default = Self::from_type_def_or_ref(
             reader,
             default.interface(reader),
             &self.generics,
@@ -424,37 +416,6 @@ where
 #[cfg(test)]
 mod tests {
     use crate::*;
-
-    #[test]
-    fn runtime_name() {
-        let mut type_name = TypeName::new(
-            String::from("Outer.Inner"),
-            String::from("MyType"),
-            vec![],
-            winmd::TypeDef(winmd::Row {
-                index: 0,
-                table_index: winmd::TableIndex::InterfaceImpl,
-                file_index: 0,
-            }),
-            "Outer.Inner",
-        );
-
-        assert_eq!(type_name.runtime_name(), String::from("Outer.Inner.MyType"));
-
-        type_name.generics = vec![TypeKind::Bool];
-
-        assert_eq!(
-            type_name.runtime_name(),
-            String::from("Outer.Inner.MyType<Boolean>")
-        );
-
-        type_name.generics = vec![TypeKind::Bool, TypeKind::U8];
-
-        assert_eq!(
-            type_name.runtime_name(),
-            String::from("Outer.Inner.MyType<Boolean, UInt8>")
-        );
-    }
 
     #[test]
     fn signatures() {
