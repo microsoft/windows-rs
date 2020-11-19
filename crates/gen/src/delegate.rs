@@ -77,10 +77,10 @@ impl Delegate {
             }
             #[repr(C)]
             pub struct #vtable_definition(
-                unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                unsafe extern "system" fn #abi_signature,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                pub unsafe extern "system" fn #abi_signature,
                 #phantoms
             ) where #constraints;
             impl<#constraints> #name {

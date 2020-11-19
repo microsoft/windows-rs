@@ -80,7 +80,7 @@ impl Interface {
             let signature = method.gen_abi();
 
             quote! {
-                pub extern "system" fn #signature
+                pub unsafe extern "system" fn #signature
             }
         });
 
@@ -116,13 +116,12 @@ impl Interface {
             }
             #[repr(C)]
             pub struct #abi_definition(
-                // 6 slots are reserved for IUnknown's 3 members and IInspectable's 3 members.
-                usize,
-                usize,
-                usize,
-                usize,
-                usize,
-                usize,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr, count: *mut u32, values: *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr, value: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode,
                 #(#abi_methods,)*
                 #phantoms
             ) where #constraints;

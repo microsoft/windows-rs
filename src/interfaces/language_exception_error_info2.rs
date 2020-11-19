@@ -10,14 +10,13 @@ pub struct ILanguageExceptionErrorInfo2(IUnknown);
 
 #[repr(C)]
 pub struct ILanguageExceptionErrorInfo2_vtable(
-    // 3 slots are reserved for IUnknown's 3 members.
-    usize,
-    usize,
-    usize,
-    extern "system" fn(this: RawPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
-    extern "system" fn(this: RawPtr, previous: *mut RawPtr) -> ErrorCode, // GetPreviousLanguageExceptionErrorInfo
-    extern "system" fn(this: RawPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
-    extern "system" fn(this: RawPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
+    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: RawPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
+    pub unsafe extern "system" fn(this: RawPtr, previous: *mut RawPtr) -> ErrorCode, // GetPreviousLanguageExceptionErrorInfo
+    pub unsafe extern "system" fn(this: RawPtr, exception: RawPtr) -> ErrorCode, // CapturePropagationContext
+    pub unsafe extern "system" fn(this: RawPtr, head: *mut RawPtr) -> ErrorCode, // GetPropagationContextHead
 );
 
 impl ILanguageExceptionErrorInfo2 {

@@ -9,15 +9,14 @@ pub struct IErrorInfo(IUnknown);
 
 #[repr(C)]
 pub struct IErrorInfo_vtable(
-    // 3 slots are reserved for IUnknown's 3.
-    usize,
-    usize,
-    usize,
-    extern "system" fn(this: RawPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
-    extern "system" fn(this: RawPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
-    extern "system" fn(this: RawPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
-    extern "system" fn(this: RawPtr, help: *mut RawPtr) -> ErrorCode, // GetHelpFile
-    extern "system" fn(this: RawPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
+    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: RawPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
+    pub unsafe extern "system" fn(this: RawPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
+    pub unsafe extern "system" fn(this: RawPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
+    pub unsafe extern "system" fn(this: RawPtr, help: *mut RawPtr) -> ErrorCode, // GetHelpFile
+    pub unsafe extern "system" fn(this: RawPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
 );
 
 impl IErrorInfo {

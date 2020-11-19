@@ -316,6 +316,16 @@ impl TypeName {
         gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
     }
 
+    pub fn gen_full_abi(&self) -> TokenStream {
+        let namespace = gen_full_namespace(&self.namespace);
+        gen_format(
+            &self.name,
+            Some(&namespace),
+            &self.generics,
+            format_abi_ident,
+        )
+    }
+
     /// Create abi tokens
     ///
     /// For example: `abi_Vector<OtherType>`

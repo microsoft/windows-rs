@@ -9,18 +9,17 @@ pub struct IRestrictedErrorInfo(IUnknown);
 
 #[repr(C)]
 pub struct IRestrictedErrorInfo_vtable(
-    // 3 slots are reserved for IUnknown's 3 members.
-    usize,
-    usize,
-    usize,
-    extern "system" fn(
+    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
         this: RawPtr,
         description: *mut RawPtr,
         error: *mut ErrorCode,
         restricted: *mut RawPtr,
         sid: *mut RawPtr,
     ) -> ErrorCode, // GetErrorDetails
-    extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
+    pub unsafe extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
 );
 
 impl IRestrictedErrorInfo {
