@@ -148,7 +148,24 @@ impl Method {
         };
 
         let vtable_offset = Literal::u32_unsuffixed(self.vtable_offset);
-        let args = self.params.iter().map(|param| param.gen_abi_arg());
+
+        let params = if kind == InterfaceKind::Composable {
+            &self.params[..self.params.len() - 2]
+        } else {
+            &self.params
+        };
+
+        let constraints = gen_constraint(params);
+        let args = params.iter().map(|param| param.gen_abi_arg());
+        let params = gen_param(params);
+
+        let composable_args = if kind == InterfaceKind::Composable {
+            quote! {
+                ::std::ptr::null_mut(), ::winrt::Abi::set_abi(&mut ::std::option::Option::<::winrt::Object>::None),
+            }
+        } else {
+            TokenStream::new()
+        };
 
         let return_type_tokens = if let Some(return_type) = &self.return_type {
             return_type.gen_return()
@@ -161,30 +178,22 @@ impl Method {
 
             if return_type.array {
                 quote! {
-                        let mut result__: #return_type_tokens = ::std::mem::zeroed();
-                        (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #return_arg)
-                            .and_then(|| result__ )
+                    let mut result__: #return_type_tokens = ::std::mem::zeroed();
+                    (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #composable_args #return_arg)
+                        .and_then(|| result__ )
                 }
             } else {
                 quote! {
-                        let mut result__: <#return_type_tokens as ::winrt::Abi>::Abi = ::std::mem::zeroed();
-                        (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #return_arg)
+                    let mut result__: <#return_type_tokens as ::winrt::Abi>::Abi = ::std::mem::zeroed();
+                        (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 }
             }
         } else {
             quote! {
-                (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)*).ok()
+                (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #composable_args).ok()
             }
         };
-
-        let constraints = gen_constraint(&self.params);
-
-        let params = gen_param(if kind == InterfaceKind::Composable {
-            &self.params[..self.params.len() - 2]
-        } else {
-            &self.params
-        });
 
         match kind {
             InterfaceKind::Default => quote! {
