@@ -96,6 +96,8 @@ impl Class {
             }
         }
 
+        rename_collisions(&mut interfaces);
+
         Self {
             name,
             interfaces,

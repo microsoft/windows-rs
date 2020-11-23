@@ -34,7 +34,7 @@ impl Delegate {
         let box_name = self.gen_box_name();
         let phantoms = self.name.phantoms();
         let constraints = self.name.gen_constraint();
-        let method = self.method.gen_default();
+        let method = self.method.gen_method(&self.name, InterfaceKind::Default);
         let abi_signature = self.method.gen_abi();
 
         let guid = self.name.gen_guid(&self.guid);

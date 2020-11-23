@@ -375,11 +375,10 @@ impl PartialOrd for TypeName {
 
 impl Ord for TypeName {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        (&self.namespace, &self.name, &self.generics, &self.def).cmp(&(
+        (&self.namespace, &self.name, &self.generics).cmp(&(
             &other.namespace,
             &other.name,
             &other.generics,
-            &other.def,
         ))
     }
 }

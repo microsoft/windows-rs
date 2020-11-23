@@ -23,6 +23,8 @@ impl Interface {
 
         add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
 
+        rename_collisions(&mut interfaces);
+
         Self {
             name,
             guid,
