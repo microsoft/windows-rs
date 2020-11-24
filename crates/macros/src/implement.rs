@@ -184,7 +184,7 @@ pub fn gen(
                 });
 
                 let signature = method.gen_abi();
-                let upcall = method.gen_upcall(quote! { (*this).inner.#method_ident });
+                let upcall = method.gen_upcall(quote! { (*this).inner.#method_ident }, false);
 
                 shims.combine(&quote! {
                     unsafe extern "system" fn #vcall_ident #signature {

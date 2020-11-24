@@ -23,5 +23,8 @@ fn main() {
             // Test for https://github.com/microsoft/winrt-rs/issues/280
             windows::application_model::email::EmailAttachment
             windows::storage::streams::{InMemoryRandomAccessStream, RandomAccessStreamReference}
+
+            // Test for https://github.com/microsoft/winrt-rs/issues/361
+            windows::ui::xaml::{IApplicationOverrides, IApplicationOverrides2}
     );
 }

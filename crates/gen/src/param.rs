@@ -171,9 +171,14 @@ impl Param {
         }
     }
 
-    pub fn gen_invoke_arg(&self) -> TokenStream {
+    pub fn gen_invoke_arg(&self, relative: bool) -> TokenStream {
         let name = format_ident(&self.name);
-        let kind = self.kind.gen();
+
+        let kind = if relative {
+            self.kind.gen()
+        } else {
+            self.kind.gen_full()
+        };
 
         // TODO: This compiles but doesn't property handle delegates with array parameters.
         // https://github.com/microsoft/winrt-rs/issues/212
