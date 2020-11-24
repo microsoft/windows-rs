@@ -54,22 +54,3 @@ impl Parse for ImplementTree {
         }
     }
 }
-
-// #[test]
-// fn NonGenericType() {
-//     let tree: ImplementTree = parse_quote! { Thing };
-
-//     match tree {
-//         ImplementTree::Name(name) => assert!(name.ident.to_string() == "Thing"),
-//         _ => panic!(),
-//     };
-
-//     let tree: ImplementTree = parse_quote! { windows::foundation::IStringable };
-
-//     match tree {
-//         ImplementTree::Path(path) => {
-//             assert!(path.ident.to_string() == "windows");
-//         }
-//         _ => panic!(),
-//     };
-// }
