@@ -19,5 +19,8 @@ fn main() {
 
             // Test for https://github.com/microsoft/winrt-rs/issues/300
             windows::devices::wifi_direct::WiFiDirectDevice
+
+            // Test for https://github.com/microsoft/winrt-rs/issues/280
+            windows::application_model::email::EmailAttachment
     );
 }

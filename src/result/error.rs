@@ -1,6 +1,7 @@
 use crate::*;
 
 /// A WinRT error object consists of both an error code as well as detailed error information for debugging.
+#[derive(Clone, PartialEq)]
 pub struct Error {
     code: ErrorCode,
     info: Option<IRestrictedErrorInfo>,
@@ -31,7 +32,7 @@ impl Error {
     // (E_NOINTERFACE) or the absense of an object to return (E_POINTER) to avoid the code gen overhead
     // for casts that should be cheap (few instructions). Think of it as a way to create recoverable errors
     // that don't need th overhead of debugging origination info.
-    pub(crate) fn just_code(code: ErrorCode) -> Self {
+    pub fn fast_error(code: ErrorCode) -> Self {
         Self { code, info: None }
     }
 

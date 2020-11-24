@@ -29,7 +29,7 @@ impl IErrorInfo {
             GetErrorInfo(0, &mut result);
         }
 
-        result.ok_or_else(|| Error::just_code(ErrorCode::E_POINTER))
+        result.ok_or_else(|| Error::fast_error(ErrorCode::E_POINTER))
     }
 
     /// Gets a description of the error.

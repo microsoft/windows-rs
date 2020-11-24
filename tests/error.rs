@@ -29,3 +29,5 @@ fn bad_uri() {
     assert_eq!(error.code(), winrt::ErrorCode(0x80070057));
     assert_eq!(error.message(), "INVALID is not a valid absolute URI.");
 }
+
+// TODO: add test for Debug trait for Error
