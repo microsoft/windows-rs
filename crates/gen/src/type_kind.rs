@@ -240,6 +240,35 @@ impl TypeKind {
         }
     }
 
+    pub fn gen_full(&self) -> TokenStream {
+        match self {
+            Self::Bool => quote! { bool },
+            Self::Char => quote! { u16 },
+            Self::I8 => quote! { i8 },
+            Self::U8 => quote! { u8 },
+            Self::I16 => quote! { i16 },
+            Self::U16 => quote! { u16 },
+            Self::I32 => quote! { i32 },
+            Self::U32 => quote! { u32 },
+            Self::I64 => quote! { i64 },
+            Self::U64 => quote! { u64 },
+            Self::F32 => quote! { f32 },
+            Self::F64 => quote! { f64 },
+            Self::String => quote! { ::winrt::HString },
+            Self::Object => quote! { ::winrt::Object },
+            Self::Guid => quote! { ::winrt::Guid },
+            Self::Class(name) => name.gen_full(),
+            Self::Interface(name) => name.gen_full(),
+            Self::Enum(name) => name.gen_full(),
+            Self::Struct(name) => name.gen_full(),
+            Self::Delegate(name) => name.gen_full(),
+            Self::Generic(name) => {
+                let name = format_ident(name);
+                quote! { #name }
+            }
+        }
+    }
+
     pub fn gen_field(&self) -> TokenStream {
         let mut tokens = self.gen();
 

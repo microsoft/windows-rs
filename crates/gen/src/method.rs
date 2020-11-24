@@ -235,8 +235,11 @@ impl Method {
         }
     }
 
-    pub fn gen_upcall(&self, inner: TokenStream) -> TokenStream {
-        let invoke_args = self.params.iter().map(|param| param.gen_invoke_arg());
+    pub fn gen_upcall(&self, inner: TokenStream, relative: bool) -> TokenStream {
+        let invoke_args = self
+            .params
+            .iter()
+            .map(|param| param.gen_invoke_arg(relative));
 
         match &self.return_type {
             Some(return_type) if return_type.array => {

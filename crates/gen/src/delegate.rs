@@ -46,7 +46,7 @@ impl Delegate {
             self.name.gen_signature(&format!("{{{:#?}}}", &self.guid))
         };
 
-        let invoke_upcall = self.method.gen_upcall(quote! { ((*this).invoke) });
+        let invoke_upcall = self.method.gen_upcall(quote! { ((*this).invoke) }, true);
 
         quote! {
             #[repr(transparent)]
