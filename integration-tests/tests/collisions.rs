@@ -2,6 +2,8 @@ use tests::windows::devices::wi_fi_direct::{
     WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
 };
 
+// WiFiDirectDevice has a pair of static factory interfaces with overloads. This test
+// ensures that both overloads are visible and callable.
 #[test]
 fn wifi() -> winrt::Result<()> {
     // get_device_selector from IWiFiDirectDeviceStatics
@@ -23,7 +25,22 @@ fn wifi() -> winrt::Result<()> {
     Ok(())
 }
 
+// EmailAttachment has a pair of activation (constructor) factory interfaces with overloads. This
+// test ensures that the overloads are visible and callable.
 #[test]
 fn email() -> winrt::Result<()> {
+    let stream = InMemoryRandomAccessStream::new()?;
+    let reference = RandomAccessStreamReference::create_from_stream(stream)?;
 
+    // Default constructor via IActivationFactory
+    let a = EmailAttachment::new()?;
+    assert!(a.file_name()? == "");
+
+    // create from IEmailAttachmentFactory
+    let b = EmailAttachment::create("create.txt", ref)?;
+    assert!(a.file_name()? == "create.txt");
+
+    // create from IEmailAttachmentFactory2 is renamed to create2
+    let b = EmailAttachment::create2("create2.txt", ref, "text")?;
+    assert!(a.file_name()? == "create2.txt");
 }
