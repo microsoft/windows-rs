@@ -137,17 +137,14 @@ impl Method {
         }
     }
 
-    // TODO: make the "this" portion (e.g. ::winrt::Interface::vtable(self) and &self param) a parameter so that non-default calls can be generated
-    // with this function as well - then all calls can be made directly with vtables and offsets and not rely on method names.
     pub fn gen_method(&self, interface: &TypeName, kind: InterfaceKind) -> TokenStream {
-        // TODO: fix this up (and remove trailing params) during construction above.
+        // Composable interface methods drop their two trailing parameters when not aggregating
+        // and forms the "default constructor" that projects as a "new" method in Rust.
         let method_name = if kind == InterfaceKind::Composable && self.params.len() == 2 {
             format_ident!("new")
         } else {
             self.gen_name()
         };
-
-        let vtable_offset = Literal::u32_unsuffixed(self.vtable_offset);
 
         let params = if kind == InterfaceKind::Composable {
             &self.params[..self.params.len() - 2]
@@ -159,6 +156,8 @@ impl Method {
         let args = params.iter().map(|param| param.gen_abi_arg());
         let params = gen_param(params);
 
+        // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
+        // arguments to ensure the call succeeds in the non-aggregating case.
         let composable_args = if kind == InterfaceKind::Composable {
             quote! {
                 ::std::ptr::null_mut(), ::winrt::Abi::set_abi(&mut ::std::option::Option::<::winrt::Object>::None),
@@ -172,6 +171,8 @@ impl Method {
         } else {
             quote! { () }
         };
+
+        let vtable_offset = Literal::u32_unsuffixed(self.vtable_offset);
 
         let vcall = if let Some(return_type) = &self.return_type {
             let return_arg = return_type.gen_abi_return_arg();
