@@ -8,12 +8,20 @@ fn main() {
             windows::ui::{Color, Colors}
             windows::ui::composition::{Compositor, SpriteVisual, Visual}
             windows::foundation::numerics::*
-            // Usage of method named `try` when `ICurrencyIdentifiersStatics` is generated
-            // This tests that it is escaped
-            windows::globalization::ICurrencyIdentifiersStatics
             test_component::*
             windows::ui::xaml::*
             windows::data::xml::dom::*
             windows::application_model::appointments::AppointmentDaysOfWeek
+
+            // Usage of method named `try` when `ICurrencyIdentifiersStatics` is generated
+            // This tests that it is escaped.
+            windows::globalization::ICurrencyIdentifiersStatics
+
+            // Test for https://github.com/microsoft/winrt-rs/issues/300
+            windows::devices::wifi_direct::WiFiDirectDevice
+
+            // Test for https://github.com/microsoft/winrt-rs/issues/280
+            windows::application_model::email::EmailAttachment
+            windows::storage::streams::{InMemoryRandomAccessStream, RandomAccessStreamReference}
     );
 }

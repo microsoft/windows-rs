@@ -27,14 +27,17 @@ impl IActivationFactory {
 
 #[repr(C)]
 pub struct IActivationFactory_vtable(
-    // 6 slots are reserved for IUnknown's 3 members and IInspectable's 3 members.
-    usize,
-    usize,
-    usize,
-    usize,
-    usize,
-    usize,
-    extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> ErrorCode, // ActivateInstance
+    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: RawPtr,
+        count: *mut u32,
+        values: *mut *mut Guid,
+    ) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> ErrorCode, // ActivateInstance
 );
 
 unsafe impl Interface for IActivationFactory {

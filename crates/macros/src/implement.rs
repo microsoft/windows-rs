@@ -1,5 +1,5 @@
+use crate::*;
 use squote::{format_ident, quote, Literal, TokenStream};
-use syn::spanned::Spanned;
 
 // TODO: distinguish between COM and WinRT interfaces
 struct Implements(Vec<winrt_gen::Type>);
@@ -10,7 +10,7 @@ impl syn::parse::Parse for Implements {
         let reader = build_reader();
 
         loop {
-            use_tree_to_types(reader, &inner_type.parse::<syn::UseTree>()?, &mut types)?;
+            use_tree_to_types(reader, &inner_type.parse::<ImplementTree>()?, &mut types)?;
 
             if inner_type.parse::<syn::Token!(,)>().is_err() {
                 break;
@@ -42,17 +42,17 @@ fn build_reader() -> &'static winmd::TypeReader {
 
 fn use_tree_to_types(
     reader: &winmd::TypeReader,
-    tree: &syn::UseTree,
+    tree: &ImplementTree,
     types: &mut Vec<winrt_gen::Type>,
 ) -> syn::parse::Result<()> {
     fn recurse(
         reader: &winmd::TypeReader,
-        tree: &syn::UseTree,
+        tree: &ImplementTree,
         types: &mut Vec<winrt_gen::Type>,
         current: &mut String,
     ) -> syn::parse::Result<()> {
         match tree {
-            syn::UseTree::Path(path) => {
+            ImplementTree::Path(path) => {
                 if !current.is_empty() {
                     current.push('.');
                 }
@@ -60,7 +60,7 @@ fn use_tree_to_types(
                 current.push_str(&path.ident.to_string());
                 recurse(reader, &*path.tree, types, current)?;
             }
-            syn::UseTree::Group(group) => {
+            ImplementTree::Group(group) => {
                 let prev = current.clone();
 
                 for tree in &group.items {
@@ -68,7 +68,7 @@ fn use_tree_to_types(
                     *current = prev.clone();
                 }
             }
-            syn::UseTree::Name(name) => {
+            ImplementTree::Name(name) => {
                 let namespace = crate::namespace_literal_to_rough_namespace(&current.clone());
 
                 let namespace_types = match reader
@@ -79,17 +79,25 @@ fn use_tree_to_types(
                     Some((_, types)) => types,
                     None => {
                         return Err(syn::parse::Error::new(
-                            name.span(),
+                            name.ident.span(),
                             "Metadata not found for type namespace",
                         ))
                     }
                 };
 
-                let def = match namespace_types.get(&name.ident.to_string()) {
+                let mut meta_name = name.ident.to_string();
+                let generic_count = name.generics.params.len();
+
+                if generic_count > 0 {
+                    meta_name.push('`');
+                    meta_name.push_str(&generic_count.to_string());
+                }
+
+                let def = match namespace_types.get(&meta_name) {
                     Some(def) => def,
                     None => {
                         return Err(syn::parse::Error::new(
-                            name.span(),
+                            name.ident.span(),
                             "Metadata not found for type name",
                         ))
                     }
@@ -105,18 +113,6 @@ fn use_tree_to_types(
                 // If dupe interface, produce warning but continue,
                 //   unless warning is unavoidable (same interface required by different mentioned interfaces)
                 // Finally, remove any dupes (TypeName can be used as key for set container)
-            }
-            syn::UseTree::Glob(glob) => {
-                return Err(syn::parse::Error::new(
-                    glob.span(),
-                    "Glob syntax is not supported",
-                ))
-            }
-            syn::UseTree::Rename(rename) => {
-                return Err(syn::parse::Error::new(
-                    rename.span(),
-                    "Rename syntax is not supported",
-                ))
             }
         }
 
@@ -145,7 +141,6 @@ pub fn gen(
 
     for (interface_count, implement) in implements.0.iter().enumerate() {
         if let winrt_gen::Type::Interface(t) = implement {
-            let vtable_ident = format_ident!("{}_abi{}", inner_name, interface_count);
             vtable_ordinals.push(Literal::u32_unsuffixed(interface_count as u32));
 
             let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
@@ -176,10 +171,11 @@ pub fn gen(
                 }
             });
 
+            let vtable_ident = t.name.gen_full_abi();
             let interface_ident = t.name.gen_full();
             let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
 
-            let externs = t.default_interface().methods.iter().map(|method| {
+            for method in &t.default_interface().methods {
                 let method_ident = format_ident!("{}", method.name);
                 let vcall_ident = format_ident!("abi{}_{}", interface_count, method.vtable_offset);
 
@@ -202,11 +198,7 @@ pub fn gen(
                         &mut self.vtable.#interface_literal as *mut _ as _
                     }
                 });
-
-                quote! {
-                    unsafe extern "system" fn #signature
-                }
-            });
+            }
 
             tokens.combine(&quote! {
                 impl ::std::convert::From<#inner_ident> for #interface_ident {
@@ -219,15 +211,6 @@ pub fn gen(
                         }
                     }
                 }
-                struct #vtable_ident(
-                    unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                    unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                    unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                    unsafe extern "system" fn(this: ::winrt::RawPtr, count: *mut u32, values: *mut *mut ::winrt::Guid) -> ::winrt::ErrorCode,
-                    unsafe extern "system" fn(this: ::winrt::RawPtr, value: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                    unsafe extern "system" fn(this: ::winrt::RawPtr, value: *mut i32) -> ::winrt::ErrorCode,
-                    #(#externs,)*
-                );
             });
 
             vtable_ctors.combine(&quote! {
@@ -328,6 +311,6 @@ pub fn gen(
         #tokens
     };
 
-    //println!("{}", tokens.to_string());
+    // println!("{}", tokens.to_string());
     tokens.into()
 }

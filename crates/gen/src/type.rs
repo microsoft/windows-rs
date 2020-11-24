@@ -13,7 +13,7 @@ pub enum Type {
 
 impl Type {
     pub fn from_type_def(reader: &winmd::TypeReader, def: winmd::TypeDef) -> Self {
-        let name = TypeName::from_type_def(reader, def, "");
+        let name = TypeName::from_type_def(reader, def, def.name(reader).0);
         match def.category(reader) {
             winmd::TypeCategory::Interface => {
                 Self::Interface(Interface::from_type_name(reader, name))

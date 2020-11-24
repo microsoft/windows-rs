@@ -9,6 +9,26 @@ pub struct RequiredInterface {
     pub kind: InterfaceKind,
 }
 
+impl PartialEq for RequiredInterface {
+    fn eq(&self, other: &Self) -> bool {
+        self.name == other.name
+    }
+}
+
+impl Eq for RequiredInterface {}
+
+impl PartialOrd for RequiredInterface {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for RequiredInterface {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.name.cmp(&other.name)
+    }
+}
+
 impl RequiredInterface {
     fn from_type_def(
         reader: &winmd::TypeReader,
@@ -17,28 +37,7 @@ impl RequiredInterface {
         kind: InterfaceKind,
     ) -> Self {
         let name = TypeName::from_type_def(reader, def, calling_namespace);
-
-        let mut methods = def
-            .methods(reader)
-            .enumerate()
-            .map(|(count, method)| {
-                Method::from_method_def(
-                    reader,
-                    method,
-                    (count + 6) as u32,
-                    &name.generics,
-                    calling_namespace,
-                )
-            })
-            .collect();
-
-        rename_collisions(&mut methods);
-
-        Self {
-            name,
-            methods,
-            kind,
-        }
+        Self::from_type_name_and_kind(reader, name, kind, calling_namespace)
     }
 
     fn from_type_name_and_kind(
@@ -47,7 +46,7 @@ impl RequiredInterface {
         kind: InterfaceKind,
         calling_namespace: &str,
     ) -> Self {
-        let mut methods = name
+        let methods = name
             .def
             .methods(reader)
             .enumerate()
@@ -61,8 +60,6 @@ impl RequiredInterface {
                 )
             })
             .collect();
-
-        rename_collisions(&mut methods);
 
         Self {
             name,
@@ -188,39 +185,29 @@ pub fn add_dependencies(
 
 pub fn gen_method(interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let mut tokens = TokenStream::new();
-    let mut names = BTreeSet::new();
 
     for interface in interfaces {
         for method in &interface.methods {
-            // If there are any collisions just drop and caller can QI for the actual interface.
-            if names.contains(&method.name) {
-                continue;
-            }
-
-            names.insert(&method.name);
-
-            tokens.combine(&match interface.kind {
-                InterfaceKind::Default => method.gen_default(),
-                InterfaceKind::NonDefault | InterfaceKind::Overrides => {
-                    method.gen_non_default(interface)
-                }
-                InterfaceKind::Statics => method.gen_static(interface),
-                InterfaceKind::Composable => method.gen_composable(interface),
-            });
+            tokens.combine(&method.gen_method(&interface.name, interface.kind));
         }
     }
 
     tokens
 }
 
-fn rename_collisions(methods: &mut Vec<Method>) {
-    let mut names = BTreeSet::new();
+pub fn rename_collisions(interfaces: &mut Vec<RequiredInterface>) {
+    // First sort interfaces to ensure a stable method renaming across versions.
+    // TODO: Once fast abi support is added, sorting here will be unnecessary.
+    // https://github.com/microsoft/winrt-rs/issues/235
+    interfaces.sort();
 
-    for method in methods {
-        if names.contains(&method.name) {
-            method.name = format!("{}2", method.name);
-        } else {
-            names.insert(&method.name);
+    let mut count = BTreeMap::new();
+
+    for interface in interfaces {
+        for method in &mut interface.methods {
+            let count = count.entry(&method.name).or_insert(0);
+            *count += 1;
+            method.overload = *count;
         }
     }
 }

@@ -93,7 +93,6 @@ impl TypeKind {
     pub fn from_type_def(
         reader: &winmd::TypeReader,
         def: winmd::TypeDef,
-        _generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         Self::from_type_name(
@@ -105,7 +104,6 @@ impl TypeKind {
     pub fn from_type_ref(
         reader: &winmd::TypeReader,
         type_ref: winmd::TypeRef,
-        generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         let (namespace, name) = type_ref.name(reader);
@@ -115,7 +113,6 @@ impl TypeKind {
             Self::from_type_def(
                 reader,
                 reader.resolve_type_def((namespace, name)),
-                generics,
                 calling_namespace,
             )
         }
@@ -143,10 +140,10 @@ impl TypeKind {
     ) -> Self {
         match code {
             winmd::TypeDefOrRef::TypeRef(value) => {
-                Self::from_type_ref(reader, value, generics, calling_namespace)
+                Self::from_type_ref(reader, value, calling_namespace)
             }
             winmd::TypeDefOrRef::TypeDef(value) => {
-                Self::from_type_def(reader, value, generics, calling_namespace)
+                Self::from_type_def(reader, value, calling_namespace)
             }
             winmd::TypeDefOrRef::TypeSpec(value) => {
                 Self::from_type_spec(reader, value, generics, calling_namespace)

@@ -9,9 +9,9 @@ pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
 
 #[repr(C)]
 pub struct IUnknown_vtable(
-    pub extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
-    pub extern "system" fn(this: RawPtr) -> u32,
-    pub extern "system" fn(this: RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: RawPtr) -> u32,
 );
 
 unsafe impl Interface for IUnknown {

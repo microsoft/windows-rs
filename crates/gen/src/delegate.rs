@@ -34,7 +34,7 @@ impl Delegate {
         let box_name = self.gen_box_name();
         let phantoms = self.name.phantoms();
         let constraints = self.name.gen_constraint();
-        let method = self.method.gen_default();
+        let method = self.method.gen_method(&self.name, InterfaceKind::Default);
         let abi_signature = self.method.gen_abi();
 
         let guid = self.name.gen_guid(&self.guid);
@@ -77,10 +77,10 @@ impl Delegate {
             }
             #[repr(C)]
             pub struct #vtable_definition(
-                unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                unsafe extern "system" fn #abi_signature,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                pub unsafe extern "system" fn #abi_signature,
                 #phantoms
             ) where #constraints;
             impl<#constraints> #name {
