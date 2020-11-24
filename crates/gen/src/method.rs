@@ -199,8 +199,8 @@ impl Method {
         match kind {
             InterfaceKind::Default => quote! {
                 pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type_tokens> {
+                    let this = self;
                     unsafe {
-                        let this = self;
                         #vcall
                     }
                 }
@@ -209,8 +209,8 @@ impl Method {
                 let interface = interface.gen();
                 quote! {
                     pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type_tokens> {
+                        let this = &::winrt::Interface::cast::<#interface>(self).unwrap();
                         unsafe {
-                            let this = &::winrt::Interface::cast::<#interface>(self).unwrap();
                             #vcall
                         }
                     }

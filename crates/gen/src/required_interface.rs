@@ -205,7 +205,7 @@ pub fn rename_collisions(interfaces: &mut Vec<RequiredInterface>) {
 
     for interface in interfaces {
         for method in &mut interface.methods {
-            let count = count.entry(method.name.clone()).or_insert(0);
+            let count = count.entry(&method.name).or_insert(0);
             *count += 1;
             method.overload = *count;
         }
