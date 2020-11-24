@@ -1,6 +1,8 @@
+use tests::windows::application_model::email::EmailAttachment;
 use tests::windows::devices::wi_fi_direct::{
     WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
 };
+use tests::windows::storage::streams::{InMemoryRandomAccessStream, RandomAccessStreamReference};
 
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test
 // ensures that both overloads are visible and callable.
@@ -37,10 +39,12 @@ fn email() -> winrt::Result<()> {
     assert!(a.file_name()? == "");
 
     // create from IEmailAttachmentFactory
-    let b = EmailAttachment::create("create.txt", ref)?;
-    assert!(a.file_name()? == "create.txt");
+    let b = EmailAttachment::create("create.txt", &reference)?;
+    assert!(b.file_name()? == "create.txt");
 
     // create from IEmailAttachmentFactory2 is renamed to create2
-    let b = EmailAttachment::create2("create2.txt", ref, "text")?;
-    assert!(a.file_name()? == "create2.txt");
+    let c = EmailAttachment::create2("create2.txt", &reference, "text")?;
+    assert!(c.file_name()? == "create2.txt");
+
+    Ok(())
 }
