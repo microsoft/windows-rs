@@ -45,6 +45,7 @@ pub fn package_manifest_path() -> anyhow::Result<PathBuf> {
     loop {
         let manifest = current.join("Cargo.toml");
         if manifest.exists() {
+            println!("package_manifest_path: {:?}", manifest);
             return Ok(manifest);
         }
         current = current

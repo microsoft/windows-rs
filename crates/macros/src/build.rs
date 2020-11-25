@@ -8,7 +8,6 @@ use std::io;
 
 /// A parsed `build!` macro
 pub struct BuildMacro {
-    foundation: bool,
     dependencies: Dependencies,
     types: BuildLimits,
 }
@@ -19,7 +18,10 @@ impl BuildMacro {
     }
 
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
-        let reader = &if self.foundation {
+        let foundation = cargo::package_manifest().unwrap().package_name() == "winrt";
+        println!("to_tokens_string: {}", cargo::package_manifest().unwrap().package_name());
+
+        let reader = &if foundation {
             let files = std::fs::read_dir("winmds")
                 .unwrap()
                 .filter_map(|value| value.ok())
@@ -40,7 +42,7 @@ impl BuildMacro {
             "Windows.Foundation.Numerics",
         ];
 
-        if self.foundation {
+        if foundation {
             for namespace in foundation_namespaces {
                 limits
                     .insert(NamespaceTypes {
@@ -63,7 +65,7 @@ impl BuildMacro {
 
         let mut tree = TypeTree::from_limits(reader, &limits);
 
-        if !self.foundation {
+        if !foundation {
             for namespace in foundation_namespaces {
                 tree.remove(namespace);
             }
@@ -82,7 +84,7 @@ impl BuildMacro {
 
 impl Parse for BuildMacro {
     fn parse(input: ParseStream) -> parse::Result<Self> {
-        let foundation = input.parse::<keywords::foundation>().is_ok();
+        let foundation = cargo::package_manifest().unwrap().package_name() == "winrt";
 
         let dependencies = if foundation {
             Dependencies::default()
@@ -94,17 +96,10 @@ impl Parse for BuildMacro {
         let types: BuildLimits = input.parse()?;
 
         Ok(BuildMacro {
-            foundation,
             dependencies,
             types,
         })
     }
-}
-
-/// keywords used in the `build!` macro
-mod keywords {
-    // TODO: get rid of this as well - the build macro can just figure it out.
-    syn::custom_keyword!(foundation);
 }
 
 /// A parsed `dependencies` section of the `build!` macro
