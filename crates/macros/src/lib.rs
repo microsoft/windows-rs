@@ -1,8 +1,10 @@
 mod build;
 mod implement;
 mod implement_tree;
+mod build_limits;
 use build::BuildMacro;
 use implement_tree::*;
+use build_limits::*;
 
 use proc_macro::TokenStream;
 use quote::quote;
@@ -45,11 +47,7 @@ use syn::parse_macro_input;
 ///
 /// ```rust,ignore
 /// build!(
-///     dependencies
-///         os
-///         nuget: Microsoft.AI.MachineLearning
-///     types
-///         microsoft::ai::machine_learning::*
+///     microsoft::ai::machine_learning::*
 /// );
 /// ```
 #[proc_macro]

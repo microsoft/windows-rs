@@ -1,23 +1,16 @@
-use crate::namespace_literal_to_rough_namespace;
-use proc_macro2::Span;
+use crate::*;
 use rayon::iter::ParallelIterator;
 use syn::parse::{self, Parse, ParseStream};
-use syn::spanned::Spanned;
-use syn::{Error, UseTree};
-
 use winrt_deps::cargo;
 use winrt_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
-
-use std::convert::{TryFrom, TryInto};
 use std::{collections::BTreeSet, path::Path, path::PathBuf};
-
 use std::io;
 
 /// A parsed `build!` macro
 pub struct BuildMacro {
     foundation: bool,
     dependencies: Dependencies,
-    types: TypesDeclarations,
+    types: BuildLimits,
 }
 
 impl BuildMacro {
@@ -98,8 +91,7 @@ impl Parse for BuildMacro {
                 .map_err(|e| syn::Error::new(proc_macro2::Span::call_site(), format!("{}", e)))?
         };
 
-        let _ = input.parse::<keywords::types>()?;
-        let types: TypesDeclarations = input.parse()?;
+        let types: BuildLimits = input.parse()?;
 
         Ok(BuildMacro {
             foundation,
@@ -111,9 +103,7 @@ impl Parse for BuildMacro {
 
 /// keywords used in the `build!` macro
 mod keywords {
-    syn::custom_keyword!(nuget);
-    syn::custom_keyword!(dependencies);
-    syn::custom_keyword!(types);
+    // TODO: get rid of this as well - the build macro can just figure it out.
     syn::custom_keyword!(foundation);
 }
 
@@ -153,125 +143,6 @@ impl Dependencies {
         }
         Ok(Dependencies(dependencies))
     }
-}
-
-/// A parsed `types` section of the `build!` macro
-struct TypesDeclarations(BTreeSet<TypesDeclaration>);
-
-struct TypesDeclaration {
-    types: NamespaceTypes,
-    syntax: syn::UseTree,
-}
-impl std::cmp::PartialOrd for TypesDeclaration {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        Some(self.cmp(other))
-    }
-}
-impl std::cmp::Ord for TypesDeclaration {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.types.cmp(&other.types)
-    }
-}
-impl PartialEq for TypesDeclaration {
-    fn eq(&self, other: &Self) -> bool {
-        self.types == other.types
-    }
-}
-impl Eq for TypesDeclaration {}
-
-impl TryFrom<syn::UseTree> for TypesDeclaration {
-    type Error = syn::Error;
-    fn try_from(tree: UseTree) -> Result<Self, Self::Error> {
-        Ok(Self {
-            types: use_tree_to_namespace_types(&tree)?,
-            syntax: tree,
-        })
-    }
-}
-
-impl Parse for TypesDeclarations {
-    fn parse(input: ParseStream) -> parse::Result<Self> {
-        let mut limits = BTreeSet::new();
-        loop {
-            if input.is_empty() {
-                break;
-            }
-
-            let use_tree: syn::UseTree = input.parse()?;
-            let limit: TypesDeclaration = use_tree.try_into()?;
-
-            limits.insert(limit);
-        }
-        Ok(Self(limits))
-    }
-}
-
-fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> parse::Result<NamespaceTypes> {
-    fn recurse(tree: &UseTree, current: &mut String) -> parse::Result<NamespaceTypes> {
-        fn check_for_module_instead_of_type(name: &str, span: Span) -> parse::Result<()> {
-            let error = Err(Error::new(
-                span,
-                "Expected `*` or type name, but found what appears to be a module",
-            ));
-            if name.to_lowercase() == name {
-                return error;
-            }
-            Ok(())
-        }
-
-        match tree {
-            UseTree::Path(p) => {
-                if !current.is_empty() {
-                    current.push('.');
-                }
-
-                current.push_str(&p.ident.to_string());
-
-                recurse(&*p.tree, current)
-            }
-            UseTree::Glob(_) => {
-                let namespace = namespace_literal_to_rough_namespace(&current.clone());
-                Ok(NamespaceTypes {
-                    namespace,
-                    limit: TypeLimit::All,
-                })
-            }
-            UseTree::Group(g) => {
-                let namespace = namespace_literal_to_rough_namespace(&current.clone());
-
-                let mut types = Vec::with_capacity(g.items.len());
-                for tree in &g.items {
-                    match tree {
-                        UseTree::Name(n) => {
-                            let name = n.ident.to_string();
-                            check_for_module_instead_of_type(&name, n.span())?;
-                            types.push(name);
-                        }
-                        UseTree::Rename(_) => {
-                            return Err(Error::new(tree.span(), "Renaming syntax is not supported"))
-                        }
-                        _ => return Err(Error::new(tree.span(), "Nested paths not allowed")),
-                    }
-                }
-                Ok(NamespaceTypes {
-                    namespace,
-                    limit: TypeLimit::Some(types),
-                })
-            }
-            UseTree::Name(n) => {
-                let namespace = namespace_literal_to_rough_namespace(&current.clone());
-                let name = n.ident.to_string();
-                check_for_module_instead_of_type(&name, n.span())?;
-                Ok(NamespaceTypes {
-                    namespace,
-                    limit: TypeLimit::Some(vec![name]),
-                })
-            }
-            UseTree::Rename(r) => Err(Error::new(r.span(), "Renaming syntax is not supported")),
-        }
-    }
-
-    recurse(use_tree, &mut String::new())
 }
 
 /// Returns the paths to resolved dependencies
