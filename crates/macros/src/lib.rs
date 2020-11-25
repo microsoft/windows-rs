@@ -2,6 +2,8 @@ mod build;
 mod implement;
 mod implement_tree;
 mod build_limits;
+mod windows;
+
 use build::BuildMacro;
 use implement_tree::*;
 use build_limits::*;
@@ -53,10 +55,9 @@ use syn::parse_macro_input;
 #[proc_macro]
 pub fn build(stream: TokenStream) -> TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
-    let winmd_paths = build.winmd_paths().iter().map(|p| p.display().to_string());
 
     let change_if = quote! {
-        #(println!("cargo:rerun-if-changed={}", #winmd_paths);)*
+        println!("cargo:rerun-if-changed=.windows");
     };
 
     let tokens = match build.to_tokens_string() {
