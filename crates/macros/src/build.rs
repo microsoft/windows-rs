@@ -19,7 +19,6 @@ impl BuildMacro {
 
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
         let foundation = cargo::package_manifest().unwrap().package_name() == "winrt";
-        println!("to_tokens_string: {}", cargo::package_manifest().unwrap().package_name());
 
         let reader = &if foundation {
             let files = std::fs::read_dir("winmds")
