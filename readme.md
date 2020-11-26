@@ -20,27 +20,13 @@ winrt = { git = "https://github.com/microsoft/winrt-rs" }
 winrt = { git = "https://github.com/microsoft/winrt-rs" }
 ```
 
-This will allow Cargo to download, build, and cache the Rust/WinRT support as a package.
-
-TODO: update this.
-
-Next, specify your WinRT dependencies in your Cargo.toml file:
-
-```toml
-[package.metadata.winrt.dependencies]
-"Microsoft.Windows.SDK.Contracts" = "10.0.19041.1"
-```
-
-This automatically downloads the dependency from NuGet and places the WinRT metadata files in a well-known spot. You will need to run `cargo winrt install` to download the dependencies. You can read about [cargo winrt here](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo).
-
-Then, generate the code by specifying which types you need inside of a build.rs build script.
+This will allow Cargo to download, build, and cache the Rust/WinRT support as a package. Next, specify which types you need inside of a build.rs build script and Rust/WinRT will generate the necessary bindings:
 
 ```rust
 fn main() {
     winrt::build!(
-        types
-            windows::data::xml::dom::*
-            windows::ui::*
+        windows::data::xml::dom::*
+        windows::ui::*
     );
 }
 ```
