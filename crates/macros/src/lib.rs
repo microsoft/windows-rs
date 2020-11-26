@@ -1,12 +1,10 @@
-mod build;
+mod build_limits;
 mod implement;
 mod implement_tree;
-mod build_limits;
 mod windows;
 
-use build::BuildMacro;
-use implement_tree::*;
 use build_limits::*;
+use implement_tree::*;
 
 use proc_macro::TokenStream;
 use quote::quote;
@@ -54,11 +52,7 @@ use syn::parse_macro_input;
 /// ```
 #[proc_macro]
 pub fn build(stream: TokenStream) -> TokenStream {
-    let build = parse_macro_input!(stream as BuildMacro);
-
-    let change_if = quote! {
-        println!("cargo:rerun-if-changed=.windows");
-    };
+    let build = parse_macro_input!(stream as BuildLimits);
 
     let tokens = match build.to_tokens_string() {
         Ok(t) => t,
@@ -66,22 +60,51 @@ pub fn build(stream: TokenStream) -> TokenStream {
     };
 
     let tokens = quote! {
-        #change_if
-        use ::std::io::Write;
-        let mut path = ::std::path::PathBuf::from(
-            ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
-        );
+        {
+            println!("cargo:rerun-if-changed=.windows");
+            use ::std::io::Write;
+            let mut path = ::std::path::PathBuf::from(
+                ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
+            );
 
-        path.push("winrt.rs");
-        let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
-        file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
+            path.push("winrt.rs");
+            let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
+            file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
-        let mut cmd = ::std::process::Command::new("rustfmt");
-        cmd.arg(&path);
-        let _ = cmd.output();
+            let mut cmd = ::std::process::Command::new("rustfmt");
+            cmd.arg(&path);
+            let _ = cmd.output();
+
+            for profile in &["debug", "release"] {
+                let mut source = ::std::path::PathBuf::from(".windows");
+                source.push(#ARCHITECTURE);
+
+                if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
+                    for file in files.filter_map(|file| file.ok())  {
+                        if let ::std::result::Result::Ok(file_type) = file.file_type() {
+                            if file_type.is_file() {
+                                let path = file.path();
+                                if let ::std::option::Option::Some(filename) = path.file_name() {
+                                    let mut destination = ::std::path::PathBuf::from("target");
+                                    destination.push(profile);
+                                    ::std::fs::create_dir_all(&destination).expect("Could not create target directory.");
+                                    destination.push(filename);
+                                    ::std::fs::copy(path, destination).expect("Could not copy file to target directory.");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     };
     tokens.into()
 }
+
+// #[proc_macro]
+// pub fn build_foundation() {
+
+// }
 
 /// Rust structs can use the `implement` macro to implement entire WinRT classes or
 /// any combination of existing COM and WinRT interfaces.
@@ -105,3 +128,12 @@ pub(crate) fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     }
     result
 }
+
+#[cfg(target_arch = "x86_64")]
+const ARCHITECTURE: &str = "x64";
+#[cfg(target_arch = "x86")]
+const ARCHITECTURE: &str = "x86";
+#[cfg(target_arch = "arm")]
+const ARCHITECTURE: &str = "arm";
+#[cfg(target_arch = "aarch64")]
+const ARCHITECTURE: &str = "arm64";

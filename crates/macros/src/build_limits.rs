@@ -1,9 +1,66 @@
 use crate::*;
-use winrt_gen::{NamespaceTypes, TypeLimit};
+use rayon::iter::ParallelIterator;
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
+use winrt_deps::cargo;
+use winrt_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 
 pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
+
+impl BuildLimits {
+    pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
+        let foundation = cargo::package_manifest().unwrap().package_name() == "winrt";
+
+        let reader = &windows::reader();
+
+        let mut limits = TypeLimits::new(reader);
+
+        let foundation_namespaces = &[
+            "Windows.Foundation",
+            "Windows.Foundation.Collections",
+            "Windows.Foundation.Diagnostics",
+            "Windows.Foundation.Numerics",
+        ];
+
+        if foundation {
+            for namespace in foundation_namespaces {
+                limits
+                    .insert(NamespaceTypes {
+                        namespace: namespace.to_string(),
+                        limit: TypeLimit::All,
+                    })
+                    .unwrap();
+            }
+        }
+
+        for limit in self.0 {
+            let types = limit.types;
+            let syntax = limit.syntax;
+            if let Err(e) = limits.insert(types).map_err(|ns| {
+                syn::Error::new_spanned(syntax, format!("'{}' is not a known namespace", ns))
+            }) {
+                return Err(e.to_compile_error());
+            };
+        }
+
+        let mut tree = TypeTree::from_limits(reader, &limits);
+
+        if !foundation {
+            for namespace in foundation_namespaces {
+                tree.remove(namespace);
+            }
+
+            tree.reexport();
+        }
+
+        let ts = tree.gen().reduce(squote::TokenStream::new, |mut accum, n| {
+            accum.combine(&n);
+            accum
+        });
+
+        Ok(ts.into_string())
+    }
+}
 
 pub struct TypesDeclaration {
     pub types: NamespaceTypes,
@@ -59,7 +116,10 @@ impl syn::parse::Parse for BuildLimits {
 
 fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<NamespaceTypes> {
     fn recurse(tree: &syn::UseTree, current: &mut String) -> syn::parse::Result<NamespaceTypes> {
-        fn check_for_module_instead_of_type(name: &str, span: proc_macro2::Span) -> syn::parse::Result<()> {
+        fn check_for_module_instead_of_type(
+            name: &str,
+            span: proc_macro2::Span,
+        ) -> syn::parse::Result<()> {
             let error = Err(syn::Error::new(
                 span,
                 "Expected `*` or type name, but found what appears to be a module",
@@ -99,7 +159,10 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                             types.push(name);
                         }
                         syn::UseTree::Rename(_) => {
-                            return Err(syn::Error::new(tree.span(), "Renaming syntax is not supported"))
+                            return Err(syn::Error::new(
+                                tree.span(),
+                                "Renaming syntax is not supported",
+                            ))
                         }
                         _ => return Err(syn::Error::new(tree.span(), "Nested paths not allowed")),
                     }
@@ -118,7 +181,10 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                     limit: TypeLimit::Some(vec![name]),
                 })
             }
-            syn::UseTree::Rename(r) => Err(syn::Error::new(r.span(), "Renaming syntax is not supported")),
+            syn::UseTree::Rename(r) => Err(syn::Error::new(
+                r.span(),
+                "Renaming syntax is not supported",
+            )),
         }
     }
 

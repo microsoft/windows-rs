@@ -1,25 +1,20 @@
-pub fn package_paths() -> Vec::<std::path::PathBuf> {
-    let mut paths = vec![];
+pub fn reader() -> &'static winmd::TypeReader {
+    use std::{mem::MaybeUninit, sync::Once};
+    static ONCE: Once = Once::new();
+    static mut VALUE: MaybeUninit<winmd::TypeReader> = MaybeUninit::uninit();
 
-    if let Ok(files) = std::fs::read_dir(".windows") {
-        for file in files.filter_map(|file| file.ok())  {
-            if let Ok(file_type) = file.file_type() {
-                if file_type.is_dir() {
-                    paths.push(file.path());
-                }
-            }
-        }
-    }
+    ONCE.call_once(|| {
+        // This is safe because `Once` provides thread-safe one-time initialization
+        unsafe { VALUE = MaybeUninit::new(winmd::TypeReader::from_iter(winmd_paths())) }
+    });
 
-    paths
+    // This is safe because `call_once` has already been called.
+    unsafe { &*VALUE.as_ptr() }
 }
 
-pub fn winmd_paths() -> Vec::<std::path::PathBuf> {
+fn winmd_paths() -> Vec<std::path::PathBuf> {
     let mut paths = vec![];
-
-    for dir in package_paths() {
-        push_winmd_paths(dir, &mut paths);
-    }
+    push_winmd_paths(std::path::PathBuf::from(".windows/winmd"), &mut paths);
 
     // If at this point the paths vector is still empty then go and grab the winmd files from WinMetadata
     // to make it easy for developers to get started without having to figure out where to get metadata.
@@ -37,31 +32,14 @@ pub fn winmd_paths() -> Vec::<std::path::PathBuf> {
     paths
 }
 
-pub fn reader() -> &'static winmd::TypeReader {
-    use std::{mem::MaybeUninit, sync::Once};
-    static ONCE: Once = Once::new();
-    static mut VALUE: MaybeUninit<winmd::TypeReader> = MaybeUninit::uninit();
-
-    ONCE.call_once(|| {
-        // This is safe because `Once` provides thread-safe one-time initialization
-        unsafe {
-            VALUE = MaybeUninit::new(
-                winmd::TypeReader::from_iter(winmd_paths()),
-            )
-        }
-    });
-
-    // This is safe because `call_once` has already been called.
-    unsafe { &*VALUE.as_ptr() }
-}
-
-fn push_winmd_paths(dir: std::path::PathBuf, paths: &mut Vec::<std::path::PathBuf>) {
+fn push_winmd_paths(dir: std::path::PathBuf, paths: &mut Vec<std::path::PathBuf>) {
     if let Ok(files) = std::fs::read_dir(dir) {
-        for file in files.filter_map(|file| file.ok())  {
+        for file in files.filter_map(|file| file.ok()) {
             if let Ok(file_type) = file.file_type() {
                 if file_type.is_file() {
                     let path = file.path();
-                    if let Some("winmd") = path.extension().and_then(|extension|extension.to_str()) {
+                    if let Some("winmd") = path.extension().and_then(|extension| extension.to_str())
+                    {
                         paths.push(file.path());
                     }
                 }

@@ -1,4 +1,3 @@
 fn main() {
-    winrt_macros::build!(
-    );
+    winrt_macros::build!();
 }
