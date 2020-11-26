@@ -22,6 +22,7 @@ winrt = { git = "https://github.com/microsoft/winrt-rs" }
 
 This will allow Cargo to download, build, and cache the Rust/WinRT support as a package.
 
+TODO: update this.
 
 Next, specify your WinRT dependencies in your Cargo.toml file:
 
