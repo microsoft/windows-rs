@@ -2,18 +2,10 @@ use anyhow::Context;
 use thiserror::Error;
 
 use std::path::PathBuf;
-use std::process::{Command, Output, Stdio};
+use std::process::{Command, Output};
 
 use crate::error::{self, Error};
 use crate::manifest::Manifest;
-
-pub fn run() -> anyhow::Result<()> {
-    Cargo::new()?.args(&["run"]).execute()
-}
-
-pub fn build() -> anyhow::Result<()> {
-    Cargo::new()?.args(&["build"]).execute()
-}
 
 pub fn package_manifest() -> anyhow::Result<Manifest> {
     let path = package_manifest_path()?;
@@ -109,31 +101,5 @@ impl Cargo {
 
     fn output(mut self) -> anyhow::Result<Output> {
         Ok(self.command.output()?)
-    }
-
-    fn execute(mut self) -> anyhow::Result<()> {
-        self.command.args(&["--color", "always"]);
-        let output = self
-            .command
-            .stdout(Stdio::piped())
-            .stderr(Stdio::piped())
-            .spawn()?;
-        let mut o = output
-            .stdout
-            .expect("Child process's stdout was not configured");
-        let t1: std::thread::JoinHandle<anyhow::Result<()>> = std::thread::spawn(move || {
-            let mut stdout = std::io::stdout();
-            std::io::copy(&mut o, &mut stdout)?;
-            Ok(())
-        });
-        let mut e = output
-            .stderr
-            .expect("Child process's stderr was not configured");
-
-        let mut stdout = std::io::stderr();
-        std::io::copy(&mut e, &mut stdout)?;
-
-        t1.join().unwrap()?;
-        Ok(())
     }
 }

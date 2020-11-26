@@ -9,6 +9,8 @@ pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 
 impl BuildLimits {
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
+        // TODO: the crate/deps thing can be removed if we can just split up the build macro
+        // to have an internal version.
         let foundation = cargo::package_manifest().unwrap().package_name() == "winrt";
 
         let reader = &windows::reader();

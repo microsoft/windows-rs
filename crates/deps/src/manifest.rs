@@ -1,4 +1,4 @@
-use cargo_toml::{Manifest as ManifestImpl};
+use cargo_toml::Manifest as ManifestImpl;
 
 use std::path::PathBuf;
 
