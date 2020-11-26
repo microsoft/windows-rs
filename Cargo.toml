@@ -21,12 +21,12 @@ winrt-macros = { path = "crates/macros",  version = "0.8.0" }
 doc-comment = "0.3"
 winrt-gen = { path = "crates/gen" }
 
-[package.metadata.docs.rs]
-default-target = "x86_64-pc-windows-msvc"
-targets = ["x86_64-pc-windows-msvc", "i686-pc-windows-msvc"]
-
 [workspace]
 members = [
     "crates/*",
     "examples/*",
 ]
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = ["x86_64-pc-windows-msvc", "i686-pc-windows-msvc"]
