@@ -101,11 +101,6 @@ pub fn build(stream: TokenStream) -> TokenStream {
     tokens.into()
 }
 
-// #[proc_macro]
-// pub fn build_foundation() {
-
-// }
-
 /// Rust structs can use the `implement` macro to implement entire WinRT classes or
 /// any combination of existing COM and WinRT interfaces.
 ///
