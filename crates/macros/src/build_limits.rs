@@ -2,16 +2,13 @@ use crate::*;
 use rayon::iter::ParallelIterator;
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
-use winrt_deps::cargo;
 use winrt_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 
 pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 
 impl BuildLimits {
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
-        // TODO: the crate/deps thing can be removed if we can just split up the build macro
-        // to have an internal version.
-        let foundation = cargo::package_manifest().unwrap().package_name() == "winrt";
+        let foundation = self.0.is_empty();
 
         let reader = &windows::reader();
 
