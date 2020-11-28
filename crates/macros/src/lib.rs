@@ -84,6 +84,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
                                 if let ::std::option::Option::Some(filename) = path.file_name() {
                                     destination.push(filename);
                                     let _ = ::std::fs::copy(path, &destination);
+                                    println!("destination: {:?}", destination);
                                     destination.pop();
                                 }
                             }

@@ -105,6 +105,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             let mut library = String::with_capacity(path.len() + 4);
             library.push_str(path);
             library.push_str(".dll");
+            println!("factory: {:?}", library);
 
             if let Ok(function) = delay_load(&library, "DllGetActivationFactory", 0) {
                 let function: DllGetActivationFactory = std::mem::transmute(function);
