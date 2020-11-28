@@ -13,8 +13,15 @@ pub fn reader() -> &'static winmd::TypeReader {
 }
 
 fn winmd_paths() -> Vec<std::path::PathBuf> {
+    let windows_path =
+        ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set");
+
+    let mut windows_path = ::std::path::PathBuf::from(&windows_path);
+    windows_path.push(".windows");
+    windows_path.push("winmd");
+
     let mut paths = vec![];
-    push_winmd_paths(std::path::PathBuf::from(".windows/winmd"), &mut paths);
+    push_winmd_paths(windows_path, &mut paths);
 
     // If at this point the paths vector is still empty then go and grab the winmd files from WinMetadata
     // to make it easy for developers to get started without having to figure out where to get metadata.
