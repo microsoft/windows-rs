@@ -1,4 +1,7 @@
 fn main() {
+    println!("build dir: {:?}",  std::env::current_dir());
+    panic!();
+
     winrt::build!(
         windows::foundation::diagnostics::*
         windows::foundation::*
