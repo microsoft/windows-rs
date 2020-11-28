@@ -75,27 +75,53 @@ pub fn build(stream: TokenStream) -> TokenStream {
             cmd.arg(&path);
             let _ = cmd.output();
 
-            for profile in &["debug", "release"] {
-                let mut source = ::std::path::PathBuf::from(".windows");
-                source.push(#ARCHITECTURE);
-
+            fn copy(source: &::std::path::PathBuf, destination: &mut ::std::path::PathBuf) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
                     for file in files.filter_map(|file| file.ok())  {
                         if let ::std::result::Result::Ok(file_type) = file.file_type() {
                             if file_type.is_file() {
                                 let path = file.path();
                                 if let ::std::option::Option::Some(filename) = path.file_name() {
-                                    let mut destination = ::std::path::PathBuf::from("target");
-                                    destination.push(profile);
-                                    ::std::fs::create_dir_all(&destination).expect("Could not create target directory.");
                                     destination.push(filename);
-                                    ::std::fs::copy(path, destination).expect("Could not copy file to target directory.");
+                                    let _ = ::std::fs::copy(path, &destination);
+                                    destination.pop();
                                 }
                             }
                         }
                     }
                 }
             }
+        
+            fn copy_to_profile(source: &::std::path::PathBuf, destination: &::std::path::PathBuf, profile: &str) {
+                if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(destination) {
+                    for file in files.filter_map(|file| file.ok())  {
+                        if let ::std::result::Result::Ok(file_type) = file.file_type() {
+                            if file_type.is_dir() {
+                                let mut path = file.path();
+                                if let ::std::option::Option::Some(filename) = path.file_name() {
+                                    if filename == profile {
+                                        copy(source, &mut path);
+                                    } else {
+                                        copy_to_profile(source, &path, profile);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        
+            let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
+            let manifest_dir = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set");
+        
+            let mut source = ::std::path::PathBuf::from(&manifest_dir);
+            source.push(".windows");
+            source.push(#ARCHITECTURE);
+        
+            let mut destination = ::std::path::PathBuf::from(&manifest_dir);
+            destination.push("target");
+        
+            copy_to_profile(&source, &destination, &profile);
         }
     };
     tokens.into()
