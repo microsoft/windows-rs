@@ -85,6 +85,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
                                     destination.push(filename);
                                     let _ = ::std::fs::copy(path, &destination);
                                     println!("destination: {:?}", destination);
+                                    panic!();
                                     destination.pop();
                                 }
                             }
