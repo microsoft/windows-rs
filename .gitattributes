@@ -2,3 +2,4 @@
 *       text eol=lf
 *.png   -text
 *.winmd -text
+*.dll   -text
