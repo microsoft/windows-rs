@@ -15,5 +15,5 @@ quote = "1.0"
 squote = "0.1.2"
 proc-macro2 = "1.0"
 winrt-gen = { path = "../gen", version = "0.8.0" }
-winmd = "0.6.0"
+winmd = { path = "../../../winmd-rs" }
 rayon = "1.3"

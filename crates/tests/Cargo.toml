@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 winrt = { path = "../.." }
-winmd = "0.6.0"
+winmd = { path = "../../../winmd-rs" }
 
 [dev-dependencies]
 futures = "0.3"
