@@ -17,7 +17,7 @@ fn workspace_dir() -> std::path::PathBuf {
     let manifest: Manifest =
         serde_json::from_slice(&output.stdout).expect("Failed to parse `cargo metadata`");
 
-        manifest.workspace_root.into()
+    manifest.workspace_root.into()
 }
 
 #[derive(serde::Deserialize)]
