@@ -12,37 +12,20 @@ use syn::parse_macro_input;
 
 /// A macro for generating WinRT modules to a .rs file at build time.
 ///
-/// This macro can be used to import WinRT APIs from OS dependencies as well
-/// as NuGet packages. It is only intended for use from a crate's build.rs script.
+/// This macro can be used to import WinRT APIs from any Windows metadata (winmd) file.
+/// It is only intended for use from a crate's build.rs script.
 ///
 /// The macro generates a single `build` function which can be used in build scripts
 /// to generate the WinRT bindings. After using the `build` macro, call the
 /// generated `build` function somewhere in the build.rs script's main function.
 ///
 /// # Usage
-/// To use, first specify which dependencies you are relying on. This can be both
-/// `os` for depending on WinRT metadata shipped with Windows or `nuget: My.Package`
-/// for NuGet packages.
-///
-/// ## NuGet
-/// NuGet dependencies are expected in a well defined place. The `winmd` metadata files
-/// should be in the cargo workspace's `target` directory in a subdirectory `nuget\My.Package`
-/// where `My.Package` is the name of the NuGet package.
-///
-/// Any DLLs needed for the NuGet package to work should be next to work must be next to the final
-/// executable.
-///
-/// Instead of handling this yourself, you can use the [`cargo winrt`](https://github.com/microsoft/winrt-rs/tree/master/crates/cargo)
-/// helper subcommand.
-///
-/// ## Types
-/// After specifying the dependencies, you must then specify which types you want to use. These
+/// To use, you must then specify which types you want to use. These
 /// follow the same convention as Rust `use` paths. Types know which other types they depend on so
 /// `build` will generate any other WinRT types needed for the specified type to work.
 ///
 /// # Example
-/// The following `build!` depends on both `os` metadata (i.e., metadata shipped on Windows 10), as well
-/// as a 3rd-party NuGet dependency. It then generates all types inside of the `microsoft::ai::machine_learning`
+/// The following `build!` generates all types inside of the `microsoft::ai::machine_learning`
 /// namespace.
 ///
 /// ```rust,ignore

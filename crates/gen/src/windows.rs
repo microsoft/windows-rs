@@ -1,3 +1,4 @@
+/// Returns the build's `.windows` directory in the root of the workspace as a `PathBuf`.
 pub fn build_windows_dir() -> std::path::PathBuf {
     let mut path = workspace_dir();
     path.push(".windows");
