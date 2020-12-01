@@ -5,11 +5,13 @@ use winrt::Interface;
 use winrt::Object;
 
 macro_rules! primitive_try_into_test {
-    ($($v:literal),+) => {
+    ($(($t:ty, $v:literal)),+) => {
         $(
             let o: Object = $v.try_into()?;
-            assert_eq!($v, (&o).try_into()?);
-            assert_eq!($v, o.try_into()?);
+            let t: $t = (&o).try_into()?;
+            assert_eq!($v, t);
+            let t: $t = o.try_into()?;
+            assert_eq!($v, t);
         )*
     };
 }
@@ -27,17 +29,17 @@ macro_rules! primitive_try_from_test {
 #[test]
 fn boxing_into() -> winrt::Result<()> {
     primitive_try_into_test! {
-        true,
-        false,
-        123_u8,
-        123_i16,
-        123_u16,
-        123_i32,
-        123_u32,
-        123_i64,
-        123_u64,
-        123_f32,
-        123_f64
+        (bool, true),
+        (bool, false),
+        (u8, 123_u8),
+        (i16, 123_i16),
+        (u16, 123_u16),
+        (i32, 123_i32),
+        (u32, 123_u32),
+        (i64, 123_i64),
+        (u64, 123_u64),
+        (f32, 123_f32),
+        (f64, 123_f64)
     }
 
     primitive_try_from_test! {
