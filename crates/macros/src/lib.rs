@@ -74,11 +74,11 @@ pub fn build(stream: TokenStream) -> TokenStream {
             let mut path = ::std::path::PathBuf::from(
                 ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
             );
-        
+
             path.push("winrt.rs");
             let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
             file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
-        
+
             let mut cmd = ::std::process::Command::new("rustfmt");
             cmd.arg(&path);
             let _ = cmd.output();
@@ -99,7 +99,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
                     }
                 }
             }
-        
+
             fn copy_to_profile(source: &::std::path::PathBuf, destination: &::std::path::PathBuf, profile: &str) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(destination) {
                     for file in files.filter_map(|file| file.ok())  {
@@ -121,12 +121,12 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
             let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
             let manifest_dir = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set");
-        
+
             let mut destination = ::std::path::PathBuf::from(&manifest_dir);
             destination.push("target");
-        
+
             copy_to_profile(&::std::path::PathBuf::from(#source), &destination, &profile);
-        
+
         }
     };
     tokens.into()

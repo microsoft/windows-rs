@@ -1,4 +1,3 @@
-
 pub fn build_windows_dir() -> std::path::PathBuf {
     let mut path = workspace_dir();
     path.push(".windows");
@@ -14,8 +13,10 @@ fn workspace_dir() -> std::path::PathBuf {
         .output()
         .expect("Failed to run `cargo metadata`");
 
-    let manifest: Manifest = serde_json::from_slice(&output.stdout).expect("Failed to parse `cargo metadata`");
-    manifest.workspace_root.into()
+    let manifest: Manifest =
+        serde_json::from_slice(&output.stdout).expect("Failed to parse `cargo metadata`");
+
+        manifest.workspace_root.into()
 }
 
 #[derive(serde::Deserialize)]
