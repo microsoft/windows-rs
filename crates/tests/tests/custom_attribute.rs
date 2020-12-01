@@ -17,7 +17,9 @@ fn find_winmds<P: AsRef<Path>>(directory: P) -> Vec<PathBuf> {
 
 #[test]
 fn named_arguments() -> Result<()> {
-    let files = find_winmds(".windows/winmd");
+    let mut winmd_dir = winrt::build_windows_dir();
+    winmd_dir.push("winmd");
+    let files = find_winmds(winmd_dir);
     let reader = winmd::TypeReader::from_iter(files);
     let type_def = reader.resolve_type_def(("TestComponent", "TestRunner"));
 

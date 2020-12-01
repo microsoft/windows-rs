@@ -33,6 +33,7 @@ pub use runtime::{Array, FactoryCache, Guid, Param, RefCount, Waiter};
 pub use strings::HString;
 pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
 pub use winrt_macros::{build, implement};
+pub use winrt_gen::build_windows_dir;
 
 extern crate self as winrt;
 

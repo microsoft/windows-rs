@@ -13,11 +13,7 @@ pub fn reader() -> &'static winmd::TypeReader {
 }
 
 fn winmd_paths() -> Vec<std::path::PathBuf> {
-    let windows_path =
-        ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set");
-
-    let mut windows_path = ::std::path::PathBuf::from(&windows_path);
-    windows_path.push(".windows");
+    let mut windows_path = winrt_gen::build_windows_dir();
     windows_path.push("winmd");
 
     let mut paths = vec![];

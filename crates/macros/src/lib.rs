@@ -59,18 +59,26 @@ pub fn build(stream: TokenStream) -> TokenStream {
         Err(t) => return t.into(),
     };
 
+    let mut source = ::winrt_gen::build_windows_dir();
+    source.push(ARCHITECTURE);
+    let source = source.to_str().expect("Invalid build windows dir");
+
     let tokens = quote! {
         {
             println!("cargo:rerun-if-changed=.windows");
+
+            // The following must be injected into the token stream because the `OUT_DIR` and `PROFILE`
+            // environment variables are only set when the build script run and not when it is being compiled.
+
             use ::std::io::Write;
             let mut path = ::std::path::PathBuf::from(
                 ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
             );
-
+        
             path.push("winrt.rs");
             let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
             file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
-
+        
             let mut cmd = ::std::process::Command::new("rustfmt");
             cmd.arg(&path);
             let _ = cmd.output();
@@ -91,7 +99,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
                     }
                 }
             }
-
+        
             fn copy_to_profile(source: &::std::path::PathBuf, destination: &::std::path::PathBuf, profile: &str) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(destination) {
                     for file in files.filter_map(|file| file.ok())  {
@@ -113,15 +121,12 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
             let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
             let manifest_dir = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set");
-
-            let mut source = ::std::path::PathBuf::from(&manifest_dir);
-            source.push(".windows");
-            source.push(#ARCHITECTURE);
-
+        
             let mut destination = ::std::path::PathBuf::from(&manifest_dir);
             destination.push("target");
-
-            copy_to_profile(&source, &destination, &profile);
+        
+            copy_to_profile(&::std::path::PathBuf::from(#source), &destination, &profile);
+        
         }
     };
     tokens.into()
