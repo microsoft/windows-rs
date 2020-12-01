@@ -1,0 +1,15 @@
+[package]
+name = "tests"
+version = "0.1.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+winrt = { path = "../.." }
+winmd = "0.6.0"
+
+[dev-dependencies]
+futures = "0.3"
+
+[build-dependencies]
+winrt = { path = "../.." }

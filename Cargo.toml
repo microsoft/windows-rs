@@ -11,6 +11,7 @@ readme = "README.md"
 
 [dependencies]
 winrt-macros = { path = "crates/macros",  version = "0.8.0" }
+winrt-gen = { path = "crates/gen",  version = "0.8.0" }
 const-sha1 = "0.2"
 winmd = "0.6.0"
 
@@ -25,13 +26,8 @@ winrt-gen = { path = "crates/gen" }
 members = [
     "crates/*",
     "examples/*",
-    "integration-tests"
 ]
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = ["x86_64-pc-windows-msvc", "i686-pc-windows-msvc"]
-
-[package.metadata.winrt.dependencies]
-"Microsoft.Windows.SDK.Contracts" = "10.0.19041.1"
-"KennyKerr.Windows.TestWinRT" = "1.0.21"

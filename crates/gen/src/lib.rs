@@ -21,6 +21,7 @@ mod type_limits;
 mod type_name;
 mod type_namespaces;
 mod type_tree;
+mod windows;
 
 pub use class::*;
 pub use delegate::*;
@@ -45,3 +46,4 @@ pub use type_limits::*;
 pub use type_name::*;
 pub use type_namespaces::*;
 pub use type_tree::*;
+pub use windows::*;

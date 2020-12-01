@@ -1,0 +1,11 @@
+[package]
+name = "simple"
+version = "0.7.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+winrt = { path = "../.." }
+
+[build-dependencies]
+winrt = { path = "../.." }
