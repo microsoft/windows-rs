@@ -413,7 +413,7 @@ mod tests {
 
     #[test]
     fn signatures() {
-        let reader = &winmd::TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_build();
 
         // Primitive signatures
         assert!(TypeKind::Bool.signature(reader) == "b1");

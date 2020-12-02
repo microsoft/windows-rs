@@ -332,7 +332,7 @@ mod tests {
     use crate::*;
 
     fn class((namespace, type_name): (&str, &str)) -> Class {
-        let reader = &winmd::TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_build();
         let def = reader.resolve_type_def((namespace, type_name));
 
         match Type::from_type_def(reader, def) {

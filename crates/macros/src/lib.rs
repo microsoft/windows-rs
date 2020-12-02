@@ -1,7 +1,6 @@
 mod build_limits;
 mod implement;
 mod implement_tree;
-mod windows;
 
 use build_limits::*;
 use implement_tree::*;
@@ -9,6 +8,8 @@ use implement_tree::*;
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::parse_macro_input;
+
+extern crate winrt_winmd as winmd;
 
 /// A macro for generating WinRT modules to a .rs file at build time.
 ///
@@ -42,7 +43,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
         Err(t) => return t.into(),
     };
 
-    let mut source = ::winrt_gen::build_windows_dir();
+    let mut source = winmd::build_windows_dir();
     source.push(ARCHITECTURE);
     let source = source.to_str().expect("Invalid build windows dir");
 
@@ -58,8 +59,8 @@ pub fn build(stream: TokenStream) -> TokenStream {
                 ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set"),
             );
 
-            path.push("winrt.rs");
-            let mut file = ::std::fs::File::create(&path).expect("Failed to create winrt.rs");
+            path.push("windows.rs");
+            let mut file = ::std::fs::File::create(&path).expect("Failed to create windows.rs");
             file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
             let mut cmd = ::std::process::Command::new("rustfmt");

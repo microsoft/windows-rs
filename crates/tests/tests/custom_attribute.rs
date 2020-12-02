@@ -1,5 +1,6 @@
 use std::path::{Path, PathBuf};
 use winrt::*;
+extern crate winrt_winmd as winmd;
 
 fn find_winmds<P: AsRef<Path>>(directory: P) -> Vec<PathBuf> {
     let mut result = Vec::new();
@@ -17,10 +18,7 @@ fn find_winmds<P: AsRef<Path>>(directory: P) -> Vec<PathBuf> {
 
 #[test]
 fn named_arguments() -> Result<()> {
-    let mut winmd_dir = winrt::build_windows_dir();
-    winmd_dir.push("winmd");
-    let files = find_winmds(winmd_dir);
-    let reader = winmd::TypeReader::from_iter(files);
+    let reader = winmd::TypeReader::from_build();
     let type_def = reader.resolve_type_def(("TestComponent", "TestRunner"));
 
     // TestRunner should have a custom attribute on it
