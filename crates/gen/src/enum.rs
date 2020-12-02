@@ -1,6 +1,7 @@
 use crate::*;
 use squote::{format_ident, quote, Literal, TokenStream};
 
+// TODO: have Enum handle both WinRT and Win32 enums - it's almost all the same code.
 #[derive(Debug)]
 pub struct Enum {
     pub name: TypeName,

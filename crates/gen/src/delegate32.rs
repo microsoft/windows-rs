@@ -1,6 +1,7 @@
 use crate::*;
 use squote::{quote, TokenStream};
 
+// Win32 and WinRT delegates are vastly different so perhaps leave these distinct
 #[derive(Debug)]
 pub struct Delegate32 {
     pub name: TypeName,

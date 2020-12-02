@@ -1,7 +1,7 @@
 use crate::*;
 use squote::{quote, TokenStream};
 
-// Win32 classes describe global constants and functions.
+// Win32 classes describe global constants and functions and is vastly different to WinRT classes.
 #[derive(Debug)]
 pub struct Class32 {
     pub name: TypeName,
