@@ -1,4 +1,5 @@
 mod class;
+mod class32;
 mod delegate;
 mod delegate32;
 mod r#enum;
@@ -25,10 +26,10 @@ mod type_limits;
 mod type_name;
 mod type_namespaces;
 mod type_tree;
-mod win32;
 mod windows;
 
 pub use class::*;
+pub use class32::*;
 pub use delegate::*;
 pub use delegate32::*;
 pub use enum32::*;
@@ -55,5 +56,4 @@ pub use type_limits::*;
 pub use type_name::*;
 pub use type_namespaces::*;
 pub use type_tree::*;
-pub use win32::*;
 pub use windows::*;

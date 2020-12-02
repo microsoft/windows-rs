@@ -6,7 +6,6 @@ pub struct Enum {
     pub name: TypeName,
     pub fields: Vec<(String, EnumConstant)>,
     pub signature: String,
-    pub underlying_type: winmd::ElementType,
 }
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
@@ -35,16 +34,10 @@ impl Enum {
             }
         }
 
-        let underlying_type = match fields[0].1 {
-            EnumConstant::U32(_) => winmd::ElementType::U32,
-            EnumConstant::I32(_) => winmd::ElementType::I32,
-        };
-
         Self {
             name,
             fields,
             signature,
-            underlying_type,
         }
     }
 
@@ -111,7 +104,7 @@ impl Enum {
     }
 }
 
-fn bitwise_operators(name: &TokenStream, value_type: EnumConstant) -> TokenStream {
+pub fn bitwise_operators(name: &TokenStream, value_type: EnumConstant) -> TokenStream {
     if let EnumConstant::I32(_) = value_type {
         return TokenStream::new();
     }

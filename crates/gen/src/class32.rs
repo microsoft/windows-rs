@@ -1,12 +1,13 @@
 use crate::*;
 use squote::{quote, TokenStream};
 
+// Win32 classes describe global constants and functions.
 #[derive(Debug)]
-pub struct Win32 {
+pub struct Class32 {
     pub name: TypeName,
 }
 
-impl Win32 {
+impl Class32 {
     pub fn from_type_name(_reader: &winmd::TypeReader, name: TypeName) -> Self {
         Self { name }
     }

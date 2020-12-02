@@ -9,7 +9,7 @@ pub enum Type {
     Enum(Enum),
     Struct(Struct),
     Delegate(Delegate),
-    Win32(Win32),
+    Class32(Class32),
     Interface32(Interface32),
     Enum32(Enum32),
     Struct32(Struct32),
@@ -37,7 +37,7 @@ impl Type {
                 winmd::TypeCategory::Interface => {
                     Self::Interface32(Interface32::from_type_name(reader, name))
                 }
-                winmd::TypeCategory::Class => Self::Win32(Win32::from_type_name(reader, name)),
+                winmd::TypeCategory::Class => Self::Class32(Class32::from_type_name(reader, name)),
                 winmd::TypeCategory::Enum => Self::Enum32(Enum32::from_type_name(reader, name)),
                 winmd::TypeCategory::Struct => {
                     Self::Struct32(Struct32::from_type_name(reader, name))
@@ -56,7 +56,7 @@ impl Type {
             Type::Enum(t) => t.gen(),
             Type::Struct(t) => t.gen(),
             Type::Delegate(t) => t.gen(),
-            Type::Win32(t) => t.gen(),
+            Type::Class32(t) => t.gen(),
             Type::Interface32(t) => t.gen(),
             Type::Enum32(t) => t.gen(),
             Type::Struct32(t) => t.gen(),
@@ -71,7 +71,7 @@ impl Type {
             Type::Enum(t) => &t.name,
             Type::Struct(t) => &t.name,
             Type::Delegate(t) => &t.name,
-            Type::Win32(t) => &t.name,
+            Type::Class32(t) => &t.name,
             Type::Interface32(t) => &t.name,
             Type::Enum32(t) => &t.name,
             Type::Struct32(t) => &t.name,
@@ -86,7 +86,7 @@ impl Type {
             Type::Enum(_) => Vec::new(),
             Type::Struct(t) => t.dependencies(),
             Type::Delegate(t) => t.dependencies(),
-            Type::Win32(t) => t.dependencies(),
+            Type::Class32(t) => t.dependencies(),
             Type::Interface32(t) => t.dependencies(),
             Type::Enum32(_) => Vec::new(),
             Type::Struct32(t) => t.dependencies(),
