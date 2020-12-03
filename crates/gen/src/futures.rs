@@ -66,9 +66,10 @@ fn gen_async_kind(
         quote! {
             pub fn get(&self) -> ::winrt::Result<#return_type> {
                 if self.status()? == ::winrt::foundation::AsyncStatus::Started {
-                    let waiter = ::winrt::Waiter::new();
+                    let (waiter, signaler) = ::winrt::Waiter::new();
                     self.set_completed(::winrt::foundation:: #handler::new(move |_sender, _args| {
-                        waiter.signal();
+                        // Safe because the waiter will only be dropped after being signaled.
+                        unsafe { signaler.signal(); }
                         Ok(())
                     }))?;
                 }
