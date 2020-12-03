@@ -1,8 +1,11 @@
 use super::*;
 use crate::TypeReader;
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct MemberRef{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct MemberRef {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl MemberRef {
     pub fn parent(&self) -> MemberRefParent {
@@ -13,7 +16,6 @@ impl MemberRef {
         self.reader.str(self.row, 1)
     }
 }
-
 
 impl std::fmt::Debug for MemberRef {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

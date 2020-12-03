@@ -19,13 +19,20 @@ impl TypeTree {
             match &limit.limit {
                 TypeLimit::All => {
                     for def in reader.types[&limit.namespace].values() {
-                        tree.insert2(reader, &mut set, winmd::TypeDef{reader, row:*def});
+                        tree.insert2(reader, &mut set, winmd::TypeDef { reader, row: *def });
                     }
                 }
                 TypeLimit::Some(types) => {
                     let namespace = &reader.types[&limit.namespace];
                     for name in types {
-                        tree.insert2(reader, &mut set, winmd::TypeDef{reader, row:namespace[name]});
+                        tree.insert2(
+                            reader,
+                            &mut set,
+                            winmd::TypeDef {
+                                reader,
+                                row: namespace[name],
+                            },
+                        );
                     }
                 }
             }
@@ -41,7 +48,7 @@ impl TypeTree {
         def: winmd::TypeDef,
     ) {
         if set.insert(def) {
-            let t = Type::from_type_def( def);
+            let t = Type::from_type_def(def);
 
             for def in t.dependencies() {
                 self.insert2(reader, set, def);

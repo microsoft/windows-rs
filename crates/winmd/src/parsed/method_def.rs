@@ -1,8 +1,11 @@
 use super::*;
 use crate::{TableIndex, TypeReader};
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct MethodDef{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct MethodDef {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl MethodDef {
     pub fn flags(&self) -> MethodFlags {
@@ -10,11 +13,24 @@ impl MethodDef {
     }
 
     pub fn parent(&self) -> TypeDef {
-        TypeDef{reader: self.reader, row: self.reader.upper_bound(self.row.file_index, TableIndex::TypeDef, 6, self.row.index)}
+        TypeDef {
+            reader: self.reader,
+            row: self.reader.upper_bound(
+                self.row.file_index,
+                TableIndex::TypeDef,
+                6,
+                self.row.index,
+            ),
+        }
     }
 
-    pub fn params(&self) -> impl Iterator<Item = Param>  + '_ {
-        self.reader.list(self.row, TableIndex::Param, 5).map(move |row|Param{reader: self.reader, row})
+    pub fn params(&self) -> impl Iterator<Item = Param> + '_ {
+        self.reader
+            .list(self.row, TableIndex::Param, 5)
+            .map(move |row| Param {
+                reader: self.reader,
+                row,
+            })
     }
 
     pub fn name(&self) -> &str {
@@ -46,7 +62,7 @@ impl MethodDef {
         }
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute>  + '_ {
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
         self.reader
             .equal_range(
                 self.row.file_index,
@@ -54,7 +70,10 @@ impl MethodDef {
                 0,
                 HasAttribute::MethodDef(*self).encode(),
             )
-            .map(move |row|Attribute{reader: self.reader, row})
+            .map(move |row| Attribute {
+                reader: self.reader,
+                row,
+            })
     }
 }
 

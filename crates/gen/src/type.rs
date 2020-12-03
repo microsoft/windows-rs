@@ -17,34 +17,26 @@ pub enum Type {
 }
 
 impl Type {
-    pub fn from_type_def( def: winmd::TypeDef) -> Self {
-        let name = TypeName::from_type_def( def, def.name().0);
+    pub fn from_type_def(def: winmd::TypeDef) -> Self {
+        let name = TypeName::from_type_def(def, def.name().0);
 
         if def.is_winrt() {
             match def.category() {
-                winmd::TypeCategory::Interface => {
-                    Self::Interface(Interface::from_type_name( name))
-                }
-                winmd::TypeCategory::Class => Self::Class(Class::from_type_name( name)),
-                winmd::TypeCategory::Enum => Self::Enum(Enum::from_type_name( name)),
-                winmd::TypeCategory::Struct => Self::Struct(Struct::from_type_name( name)),
-                winmd::TypeCategory::Delegate => {
-                    Self::Delegate(Delegate::from_type_name( name))
-                }
+                winmd::TypeCategory::Interface => Self::Interface(Interface::from_type_name(name)),
+                winmd::TypeCategory::Class => Self::Class(Class::from_type_name(name)),
+                winmd::TypeCategory::Enum => Self::Enum(Enum::from_type_name(name)),
+                winmd::TypeCategory::Struct => Self::Struct(Struct::from_type_name(name)),
+                winmd::TypeCategory::Delegate => Self::Delegate(Delegate::from_type_name(name)),
             }
         } else {
             match def.category() {
                 winmd::TypeCategory::Interface => {
-                    Self::Interface32(Interface32::from_type_name( name))
+                    Self::Interface32(Interface32::from_type_name(name))
                 }
-                winmd::TypeCategory::Class => Self::Class32(Class32::from_type_name( name)),
-                winmd::TypeCategory::Enum => Self::Enum32(Enum32::from_type_name( name)),
-                winmd::TypeCategory::Struct => {
-                    Self::Struct32(Struct32::from_type_name( name))
-                }
-                winmd::TypeCategory::Delegate => {
-                    Self::Delegate32(Delegate32::from_type_name( name))
-                }
+                winmd::TypeCategory::Class => Self::Class32(Class32::from_type_name(name)),
+                winmd::TypeCategory::Enum => Self::Enum32(Enum32::from_type_name(name)),
+                winmd::TypeCategory::Struct => Self::Struct32(Struct32::from_type_name(name)),
+                winmd::TypeCategory::Delegate => Self::Delegate32(Delegate32::from_type_name(name)),
             }
         }
     }

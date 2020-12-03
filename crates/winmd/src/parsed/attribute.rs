@@ -1,8 +1,11 @@
 use super::*;
 use crate::TypeReader;
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct Attribute{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct Attribute {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl Attribute {
     pub fn parent(&self) -> HasAttribute {
@@ -27,8 +30,14 @@ impl Attribute {
 
     pub fn args(&self) -> Vec<(String, AttributeArg)> {
         let (mut sig, mut values) = match self.constructor() {
-            AttributeType::MethodDef(method) => (self.reader.blob(method.row, 4), self.reader.blob(self.row, 2)),
-            AttributeType::MemberRef(method) => (self.reader.blob(method.row, 2), self.reader.blob(self.row, 2)),
+            AttributeType::MethodDef(method) => (
+                self.reader.blob(method.row, 4),
+                self.reader.blob(self.row, 2),
+            ),
+            AttributeType::MemberRef(method) => (
+                self.reader.blob(method.row, 2),
+                self.reader.blob(self.row, 2),
+            ),
         };
 
         let prolog = values.read_u16();
@@ -62,7 +71,8 @@ impl Attribute {
                         let name = values.read_str();
                         let index = name.rfind('.').unwrap();
                         AttributeArg::TypeDef(
-                            self.reader.resolve_type_def((&name[0..index], &name[index + 1..])),
+                            self.reader
+                                .resolve_type_def((&name[0..index], &name[index + 1..])),
                         )
                     } else {
                         let def = match type_def_or_ref {
@@ -102,7 +112,8 @@ impl Attribute {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
                     AttributeArg::TypeDef(
-                        self.reader.resolve_type_def((&name[0..index], &name[index + 1..])),
+                        self.reader
+                            .resolve_type_def((&name[0..index], &name[index + 1..])),
                     )
                 }
                 _ => panic!("Unexpected named attribute argument type"),
@@ -113,7 +124,6 @@ impl Attribute {
         args
     }
 }
-
 
 impl std::fmt::Debug for Attribute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

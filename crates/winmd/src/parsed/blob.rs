@@ -56,7 +56,11 @@ impl Blob {
                 break;
             } else {
                 self.offset += offset;
-                mods.push(TypeDefOrRef::decode(self.reader, self.read_unsigned(), self.file_index))
+                mods.push(TypeDefOrRef::decode(
+                    self.reader,
+                    self.read_unsigned(),
+                    self.file_index,
+                ))
             }
         }
 

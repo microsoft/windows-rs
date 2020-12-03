@@ -1,8 +1,11 @@
 use super::*;
 use crate::{TableIndex, TypeReader};
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct Field{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct Field {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl Field {
     pub fn name(&self) -> &str {
@@ -25,10 +28,12 @@ impl Field {
                 1,
                 HasConstant::Field(*self).encode(),
             )
-            .map(move |row|Constant{reader: self.reader, row})
+            .map(move |row| Constant {
+                reader: self.reader,
+                row,
+            })
     }
 }
-
 
 impl std::fmt::Debug for Field {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

@@ -1,8 +1,11 @@
 use super::*;
 use crate::TypeReader;
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct Param{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct Param {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl Param {
     pub fn flags(&self) -> ParamFlags {
@@ -17,7 +20,6 @@ impl Param {
         self.reader.str(self.row, 2)
     }
 }
-
 
 impl std::fmt::Debug for Param {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

@@ -34,7 +34,7 @@ impl Method {
                 "invoke".to_owned()
             }
         } else {
-            Method::name( method)
+            Method::name(method)
         };
 
         let mut blob = method.sig();
@@ -110,7 +110,7 @@ impl Method {
             .collect()
     }
 
-    fn name( method: &winmd::MethodDef) -> String {
+    fn name(method: &winmd::MethodDef) -> String {
         for attribute in method.attributes() {
             if attribute.name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
                 for (_, arg) in attribute.args() {
@@ -327,7 +327,7 @@ mod tests {
         let reader = &winmd::TypeReader::from_build();
         let def = reader.resolve_type_def((namespace, type_name));
 
-        let t = match Type::from_type_def( def) {
+        let t = match Type::from_type_def(def) {
             Type::Interface(t) => t,
             _ => panic!("Type not an interface"),
         };

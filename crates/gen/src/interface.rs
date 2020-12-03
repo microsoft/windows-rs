@@ -9,8 +9,8 @@ pub struct Interface {
 }
 
 impl Interface {
-    pub fn from_type_name( name: TypeName) -> Self {
-        let guid = TypeGuid::from_type_def( name.def);
+    pub fn from_type_name(name: TypeName) -> Self {
+        let guid = TypeGuid::from_type_def(name.def);
         let mut interfaces = Vec::new();
 
         add_type(
@@ -20,7 +20,7 @@ impl Interface {
             InterfaceKind::Default,
         );
 
-        add_dependencies(&mut interfaces,  &name, &name.namespace, true);
+        add_dependencies(&mut interfaces, &name, &name.namespace, true);
 
         rename_collisions(&mut interfaces);
 
@@ -165,7 +165,7 @@ mod tests {
     fn interface((namespace, type_name): (&str, &str)) -> Interface {
         let reader = &winmd::TypeReader::from_build();
         let t = reader.resolve_type_def((namespace, type_name));
-        let t = Type::from_type_def( t);
+        let t = Type::from_type_def(t);
 
         match t {
             Type::Interface(t) => t,

@@ -84,7 +84,10 @@ fn use_tree_to_types(
                     }
                 };
 
-                types.push(winrt_gen::Type::from_type_def( winmd::TypeDef{reader, row:*def}));
+                types.push(winrt_gen::Type::from_type_def(winmd::TypeDef {
+                    reader,
+                    row: *def,
+                }));
 
                 // TODO
                 // If type is a class, add any required interfaces.

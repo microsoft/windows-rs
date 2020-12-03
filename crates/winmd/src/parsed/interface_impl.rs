@@ -1,8 +1,11 @@
 use super::*;
 use crate::{TableIndex, TypeReader};
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct InterfaceImpl{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct InterfaceImpl {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl InterfaceImpl {
     pub fn interface(&self) -> TypeDefOrRef {
@@ -17,12 +20,14 @@ impl InterfaceImpl {
                 0,
                 HasAttribute::InterfaceImpl(*self).encode(),
             )
-            .map(move |row|Attribute{reader: self.reader, row})
+            .map(move |row| Attribute {
+                reader: self.reader,
+                row,
+            })
     }
 
     pub fn has_attribute(&self, name: (&str, &str)) -> bool {
-        self.attributes()
-            .any(|attribute| attribute.name() == name)
+        self.attributes().any(|attribute| attribute.name() == name)
     }
 
     pub fn is_default(&self) -> bool {
@@ -30,9 +35,10 @@ impl InterfaceImpl {
     }
 }
 
-
 impl std::fmt::Debug for InterfaceImpl {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("InterfaceImpl").field("row", &self.row).finish()
+        f.debug_struct("InterfaceImpl")
+            .field("row", &self.row)
+            .finish()
     }
 }

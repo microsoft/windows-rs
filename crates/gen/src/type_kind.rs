@@ -80,7 +80,7 @@ impl TypeKind {
         }
     }
 
-    fn from_type_name( name: TypeName) -> Self {
+    fn from_type_name(name: TypeName) -> Self {
         match name.def.category() {
             winmd::TypeCategory::Interface => TypeKind::Interface(name),
             winmd::TypeCategory::Class => TypeKind::Class(name),
@@ -90,19 +90,11 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_def(
-        def: winmd::TypeDef,
-        calling_namespace: &str,
-    ) -> Self {
-        Self::from_type_name(
-            TypeName::from_type_def( def, calling_namespace),
-        )
+    pub fn from_type_def(def: winmd::TypeDef, calling_namespace: &str) -> Self {
+        Self::from_type_name(TypeName::from_type_def(def, calling_namespace))
     }
 
-    pub fn from_type_ref(
-        type_ref: winmd::TypeRef,
-        calling_namespace: &str,
-    ) -> Self {
+    pub fn from_type_ref(type_ref: winmd::TypeRef, calling_namespace: &str) -> Self {
         let (namespace, name) = type_ref.name();
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
@@ -119,11 +111,7 @@ impl TypeKind {
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
-        TypeKind::Interface(TypeName::from_type_spec(
-            spec,
-            generics,
-            calling_namespace,
-        ))
+        TypeKind::Interface(TypeName::from_type_spec(spec, generics, calling_namespace))
     }
 
     fn from_type_def_or_ref(
@@ -132,14 +120,10 @@ impl TypeKind {
         calling_namespace: &str,
     ) -> Self {
         match code {
-            winmd::TypeDefOrRef::TypeRef(value) => {
-                Self::from_type_ref( value, calling_namespace)
-            }
-            winmd::TypeDefOrRef::TypeDef(value) => {
-                Self::from_type_def( value, calling_namespace)
-            }
+            winmd::TypeDefOrRef::TypeRef(value) => Self::from_type_ref(value, calling_namespace),
+            winmd::TypeDefOrRef::TypeDef(value) => Self::from_type_def(value, calling_namespace),
             winmd::TypeDefOrRef::TypeSpec(value) => {
-                Self::from_type_spec( value, generics, calling_namespace)
+                Self::from_type_spec(value, generics, calling_namespace)
             }
         }
     }
@@ -173,17 +157,16 @@ impl TypeKind {
                 calling_namespace,
             ),
             0x13 => generics[blob.read_unsigned() as usize].clone(),
-            0x15 => Self::from_type_name(
-                TypeName::from_type_spec_blob(blob, generics, calling_namespace),
-            ),
+            0x15 => Self::from_type_name(TypeName::from_type_spec_blob(
+                blob,
+                generics,
+                calling_namespace,
+            )),
             _ => panic!("TypeKind::from_blob"),
         }
     }
 
-    pub fn from_field(
-        field: winmd::Field,
-        calling_namespace: &str,
-    ) -> Self {
+    pub fn from_field(field: winmd::Field, calling_namespace: &str) -> Self {
         let mut blob = field.sig();
         blob.read_unsigned();
         blob.read_modifiers();

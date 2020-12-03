@@ -1,8 +1,11 @@
 use super::*;
 use crate::TypeReader;
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct Constant{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct Constant {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl Constant {
     pub fn value_type(&self) -> ElementType {

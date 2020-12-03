@@ -1,8 +1,11 @@
 use super::*;
 use crate::TypeReader;
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct TypeRef{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct TypeRef {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl TypeRef {
     pub fn name(&self) -> (&'static str, &'static str) {

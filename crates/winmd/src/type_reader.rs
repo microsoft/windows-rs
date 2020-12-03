@@ -13,7 +13,6 @@ pub struct TypeReader {
     /// that namespace. The keys are the namespace and the values is a mapping
     /// of type names to type definitions
     pub types: BTreeMap<String, BTreeMap<String, Row>>,
-
     // TODO: store Row objects and turn them into TypeDef on request.
     // When turning into TypeDef they add the &'static TypeReader
 }
@@ -23,12 +22,12 @@ impl TypeReader {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
         static mut VALUE: MaybeUninit<TypeReader> = MaybeUninit::uninit();
-    
+
         ONCE.call_once(|| {
             // This is safe because `Once` provides thread-safe one-time initialization
             unsafe { VALUE = MaybeUninit::new(Self::from_iter(winmd_paths())) }
         });
-    
+
         // This is safe because `call_once` has already been called.
         unsafe { &*VALUE.as_ptr() }
     }
@@ -78,8 +77,19 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if the namespace does not exist
-    pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = (&str, TypeDef)> {
-        self.types[namespace].iter().map(move |(n, row)| (n.as_str(), TypeDef{reader: self, row: *row }))
+    pub fn namespace_types(
+        &'static self,
+        namespace: &str,
+    ) -> impl Iterator<Item = (&str, TypeDef)> {
+        self.types[namespace].iter().map(move |(n, row)| {
+            (
+                n.as_str(),
+                TypeDef {
+                    reader: self,
+                    row: *row,
+                },
+            )
+        })
     }
 
     /// Resolve a type definition given its namespace and type name
@@ -90,7 +100,10 @@ impl TypeReader {
     pub fn resolve_type_def(&'static self, (namespace, type_name): (&str, &str)) -> TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(def) = types.get(type_name) {
-                return TypeDef{reader: self, row: *def };
+                return TypeDef {
+                    reader: self,
+                    row: *def,
+                };
             }
         }
 
@@ -158,7 +171,11 @@ impl TypeReader {
         for byte in &file.bytes[offset + 1..offset + blob_size_bytes] {
             blob_size = blob_size.checked_shl(8).unwrap_or(0) + byte;
         }
-        Blob{ reader: self, file_index: row.file_index, offset: offset + blob_size_bytes}
+        Blob {
+            reader: self,
+            file_index: row.file_index,
+            offset: offset + blob_size_bytes,
+        }
     }
 
     pub(crate) fn equal_range(

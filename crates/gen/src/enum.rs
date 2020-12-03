@@ -16,7 +16,7 @@ pub enum EnumConstant {
 }
 
 impl Enum {
-    pub fn from_type_name( name: TypeName) -> Self {
+    pub fn from_type_name(name: TypeName) -> Self {
         let signature = name.enum_signature();
         let mut fields = Vec::new();
 

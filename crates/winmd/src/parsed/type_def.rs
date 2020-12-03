@@ -1,8 +1,11 @@
 use super::*;
 use crate::{TableIndex, TypeReader};
 
-#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct TypeDef{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct TypeDef {
+    pub reader: &'static TypeReader,
+    pub row: Row,
+}
 
 impl TypeDef {
     pub fn flags(&self) -> TypeFlags {
@@ -17,15 +20,25 @@ impl TypeDef {
         self.reader.decode(self.row, 3)
     }
 
-    pub fn fields(&self) -> impl Iterator<Item = Field>  + '_ {
-        self.reader.list(self.row, TableIndex::Field, 4).map(move |row|Field{reader: self.reader, row})
+    pub fn fields(&self) -> impl Iterator<Item = Field> + '_ {
+        self.reader
+            .list(self.row, TableIndex::Field, 4)
+            .map(move |row| Field {
+                reader: self.reader,
+                row,
+            })
     }
 
-    pub fn methods(&self) -> impl Iterator<Item = MethodDef>  + '_ {
-        self.reader.list(self.row, TableIndex::MethodDef, 5).map(move |row|MethodDef{reader: self.reader, row})
+    pub fn methods(&self) -> impl Iterator<Item = MethodDef> + '_ {
+        self.reader
+            .list(self.row, TableIndex::MethodDef, 5)
+            .map(move |row| MethodDef {
+                reader: self.reader,
+                row,
+            })
     }
 
-    pub fn generics(&self) -> impl Iterator<Item = GenericParam>  + '_ {
+    pub fn generics(&self) -> impl Iterator<Item = GenericParam> + '_ {
         self.reader
             .equal_range(
                 self.row.file_index,
@@ -33,10 +46,13 @@ impl TypeDef {
                 2,
                 TypeOrMethodDef::TypeDef(*self).encode(),
             )
-            .map(move |row|GenericParam{reader: self.reader, row})
+            .map(move |row| GenericParam {
+                reader: self.reader,
+                row,
+            })
     }
 
-    pub fn interfaces(&self) -> impl Iterator<Item = InterfaceImpl>  + '_ {
+    pub fn interfaces(&self) -> impl Iterator<Item = InterfaceImpl> + '_ {
         self.reader
             .equal_range(
                 self.row.file_index,
@@ -44,7 +60,10 @@ impl TypeDef {
                 0,
                 self.row.index + 1,
             )
-            .map(move |row|InterfaceImpl{reader: self.reader, row})
+            .map(move |row| InterfaceImpl {
+                reader: self.reader,
+                row,
+            })
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
@@ -55,12 +74,14 @@ impl TypeDef {
                 0,
                 HasAttribute::TypeDef(*self).encode(),
             )
-            .map(move |row|Attribute{reader: self.reader, row})
+            .map(move |row| Attribute {
+                reader: self.reader,
+                row,
+            })
     }
 
     pub fn has_attribute(&self, name: (&str, &str)) -> bool {
-        self.attributes()
-            .any(|attribute| attribute.name() == name)
+        self.attributes().any(|attribute| attribute.name() == name)
     }
 
     pub fn is_winrt(&self) -> bool {
@@ -72,9 +93,9 @@ impl TypeDef {
             true
         } else {
             match self.extends().name() {
-                ("System", "ValueType") => !self.has_attribute(
-                    ("Windows.Foundation.Metadata", "ApiContractAttribute"),
-                ),
+                ("System", "ValueType") => {
+                    !self.has_attribute(("Windows.Foundation.Metadata", "ApiContractAttribute"))
+                }
                 ("System", "Attribute") => false,
                 _ => true,
             }
@@ -112,7 +133,7 @@ impl std::fmt::Debug for TypeDef {
 }
 
 impl PartialEq for TypeDef {
-    fn eq(&self, other: &Self)-> bool {
+    fn eq(&self, other: &Self) -> bool {
         self.row == other.row
     }
 }

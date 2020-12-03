@@ -33,10 +33,13 @@ impl Class {
                 break;
             }
 
-            base = name.def.reader.resolve_type_def((base_namespace, base_name));
+            base = name
+                .def
+                .reader
+                .resolve_type_def((base_namespace, base_name));
             let base = TypeName::from_type_def(base, &name.namespace);
 
-            add_dependencies(&mut interfaces,  &base, &name.namespace, true);
+            add_dependencies(&mut interfaces, &base, &name.namespace, true);
             bases.push(base);
         }
 
@@ -48,13 +51,13 @@ impl Class {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
                     add_type(
                         &mut interfaces,
-                        attribute_factory( attribute).unwrap(),
+                        attribute_factory(attribute).unwrap(),
                         &name.namespace,
                         InterfaceKind::Statics,
                     );
                 }
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
-                    match attribute_factory( attribute) {
+                    match attribute_factory(attribute) {
                         Some(def) => {
                             add_type(
                                 &mut interfaces,
@@ -73,7 +76,7 @@ impl Class {
                         if let winmd::AttributeArg::I32(2) = arg {
                             add_type(
                                 &mut interfaces,
-                                attribute_factory( attribute).unwrap(),
+                                attribute_factory(attribute).unwrap(),
                                 &name.namespace,
                                 InterfaceKind::Composable,
                             );
@@ -311,9 +314,7 @@ impl Class {
     }
 }
 
-fn attribute_factory(
-    attribute: winmd::Attribute,
-) -> Option<winmd::TypeDef> {
+fn attribute_factory(attribute: winmd::Attribute) -> Option<winmd::TypeDef> {
     for (_, arg) in attribute.args() {
         if let winmd::AttributeArg::TypeDef(def) = arg {
             return Some(def);
@@ -331,7 +332,7 @@ mod tests {
         let reader = &winmd::TypeReader::from_build();
         let def = reader.resolve_type_def((namespace, type_name));
 
-        match Type::from_type_def( def) {
+        match Type::from_type_def(def) {
             Type::Class(t) => t,
             _ => panic!("Type not an interface"),
         }

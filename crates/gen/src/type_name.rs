@@ -24,11 +24,7 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    pub fn new(
-        def: winmd::TypeDef,
-        generics: Vec<TypeKind>,
-        calling_namespace: &str,
-    ) -> Self {
+    pub fn new(def: winmd::TypeDef, generics: Vec<TypeKind>, calling_namespace: &str) -> Self {
         let (namespace, name) = def.name();
         let namespace = namespace.to_string();
         let name = name.to_string();
@@ -56,32 +52,19 @@ impl TypeName {
         calling_namespace: &str,
     ) -> Self {
         match code {
-            winmd::TypeDefOrRef::TypeRef(value) => {
-                Self::from_type_ref( value, calling_namespace)
-            }
-            winmd::TypeDefOrRef::TypeDef(value) => {
-                Self::from_type_def( value, calling_namespace)
-            }
+            winmd::TypeDefOrRef::TypeRef(value) => Self::from_type_ref(value, calling_namespace),
+            winmd::TypeDefOrRef::TypeDef(value) => Self::from_type_def(value, calling_namespace),
             winmd::TypeDefOrRef::TypeSpec(value) => {
-                Self::from_type_spec( value, generics, calling_namespace)
+                Self::from_type_spec(value, generics, calling_namespace)
             }
         }
     }
 
-    fn from_type_ref(
-        type_ref: winmd::TypeRef,
-        calling_namespace: &str,
-    ) -> Self {
-        Self::from_type_def(
-            type_ref.resolve(),
-            calling_namespace,
-        )
+    fn from_type_ref(type_ref: winmd::TypeRef, calling_namespace: &str) -> Self {
+        Self::from_type_def(type_ref.resolve(), calling_namespace)
     }
 
-    pub fn from_type_def(
-        def: winmd::TypeDef,
-        calling_namespace: &str,
-    ) -> Self {
+    pub fn from_type_def(def: winmd::TypeDef, calling_namespace: &str) -> Self {
         let mut generics = Vec::new();
 
         for generic in def.generics() {
@@ -89,7 +72,7 @@ impl TypeName {
             generics.push(TypeKind::Generic(name));
         }
 
-        Self::new( def, generics, calling_namespace)
+        Self::new(def, generics, calling_namespace)
     }
 
     pub fn from_type_spec_blob(
@@ -99,8 +82,8 @@ impl TypeName {
     ) -> Self {
         blob.read_unsigned();
 
-        let def =
-            winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index).resolve();
+        let def = winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index)
+            .resolve();
 
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
@@ -108,7 +91,7 @@ impl TypeName {
             args.push(TypeKind::from_blob(blob, generics, calling_namespace));
         }
 
-        Self::new( def, args, calling_namespace)
+        Self::new(def, args, calling_namespace)
     }
 
     pub fn from_type_spec(
@@ -189,11 +172,7 @@ impl TypeName {
     }
 
     pub fn class_signature(&self) -> String {
-        let default = self
-            .def
-            .interfaces()
-            .find(|i| i.is_default())
-            .unwrap();
+        let default = self.def.interfaces().find(|i| i.is_default()).unwrap();
 
         let default = Self::from_type_def_or_ref(
             default.interface(),
@@ -218,7 +197,7 @@ impl TypeName {
         )
     }
 
-    fn enum_type(&self, ) -> &str {
+    fn enum_type(&self) -> &str {
         for field in self.def.fields() {
             for constant in field.constants() {
                 match constant.value_type() {
@@ -232,21 +211,19 @@ impl TypeName {
         panic!("Invalid enum");
     }
 
-    pub fn struct_signature(&self, ) -> String {
+    pub fn struct_signature(&self) -> String {
         let mut result = format!("struct({}.{}", self.namespace, self.name);
 
         for field in self.def.fields() {
             result.push(';');
-            result.push_str(
-                &TypeKind::from_field(field, &self.calling_namespace).signature(),
-            );
+            result.push_str(&TypeKind::from_field(field, &self.calling_namespace).signature());
         }
 
         result.push(')');
         result
     }
 
-    pub fn delegate_signature(&self, ) -> String {
+    pub fn delegate_signature(&self) -> String {
         if self.generics.is_empty() {
             format!("delegate({})", self.interface_signature())
         } else {
@@ -426,14 +403,12 @@ mod tests {
 
         // Non-generic interface signature
         let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
-        let name = Type::from_type_def( def).name().clone();
-        assert!(
-            TypeKind::Interface(name).signature() == "{5a648006-843a-4da9-865b-9d26e5dfad7b}"
-        );
+        let name = Type::from_type_def(def).name().clone();
+        assert!(TypeKind::Interface(name).signature() == "{5a648006-843a-4da9-865b-9d26e5dfad7b}");
 
         // Generic interface signature
         let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
-        let mut name = Type::from_type_def( def).name().clone();
+        let mut name = Type::from_type_def(def).name().clone();
         name.generics.clear();
         name.generics.push(TypeKind::I32);
         assert!(
@@ -443,17 +418,15 @@ mod tests {
 
         // Signed enum signature
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncStatus"));
-        let name = Type::from_type_def( def).name().clone();
-        assert!(
-            TypeKind::Enum(name).signature() == "enum(Windows.Foundation.AsyncStatus;i4)"
-        );
+        let name = Type::from_type_def(def).name().clone();
+        assert!(TypeKind::Enum(name).signature() == "enum(Windows.Foundation.AsyncStatus;i4)");
 
         // Unsigned enum signature
         let def = reader.resolve_type_def((
             "Windows.ApplicationModel.Appointments",
             "AppointmentDaysOfWeek",
         ));
-        let name = Type::from_type_def( def).name().clone();
+        let name = Type::from_type_def(def).name().clone();
         assert!(
             TypeKind::Enum(name).signature()
                 == "enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)"
@@ -461,7 +434,7 @@ mod tests {
 
         // Non-generic delegate signature
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncActionCompletedHandler"));
-        let name = Type::from_type_def( def).name().clone();
+        let name = Type::from_type_def(def).name().clone();
         assert!(
             TypeKind::Delegate(name).signature()
                 == "delegate({a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7})"
@@ -469,10 +442,10 @@ mod tests {
 
         // Generic delegate signature
         let stringable = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
-        let stringable = Type::from_type_def( stringable).name().clone();
+        let stringable = Type::from_type_def(stringable).name().clone();
 
         let def = reader.resolve_type_def(("Windows.Foundation", "EventHandler`1"));
-        let mut name = Type::from_type_def( def).name().clone();
+        let mut name = Type::from_type_def(def).name().clone();
         name.generics.clear();
         name.generics.push(TypeKind::Interface(stringable));
         assert!(
@@ -481,7 +454,7 @@ mod tests {
 
         // Class signature
         let def = reader.resolve_type_def(("Windows.Foundation", "Uri"));
-        let name = Type::from_type_def( def).name().clone();
+        let name = Type::from_type_def(def).name().clone();
         assert!(
             TypeKind::Class(name).signature()
                 == "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
@@ -489,7 +462,7 @@ mod tests {
 
         // Class with generic default interface signature
         let def = reader.resolve_type_def(("Windows.Foundation", "WwwFormUrlDecoder"));
-        let name = Type::from_type_def( def).name().clone();
+        let name = Type::from_type_def(def).name().clone();
         assert!(
              TypeKind::Class(name).signature()
                 == "rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})"
@@ -497,10 +470,9 @@ mod tests {
 
         // Simple struct
         let def = reader.resolve_type_def(("Windows.Foundation", "Rect"));
-        let name = Type::from_type_def( def).name().clone();
+        let name = Type::from_type_def(def).name().clone();
         assert!(
-            TypeKind::Struct(name).signature()
-                == "struct(Windows.Foundation.Rect;f4;f4;f4;f4)"
+            TypeKind::Struct(name).signature() == "struct(Windows.Foundation.Rect;f4;f4;f4;f4)"
         );
     }
 }
