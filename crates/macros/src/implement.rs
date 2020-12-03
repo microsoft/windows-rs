@@ -22,12 +22,12 @@ impl syn::parse::Parse for Implements {
 }
 
 fn use_tree_to_types(
-    reader: &winmd::TypeReader,
+    reader: &'static winmd::TypeReader,
     tree: &ImplementTree,
     types: &mut Vec<winrt_gen::Type>,
 ) -> syn::parse::Result<()> {
     fn recurse(
-        reader: &winmd::TypeReader,
+        reader: &'static winmd::TypeReader,
         tree: &ImplementTree,
         types: &mut Vec<winrt_gen::Type>,
         current: &mut String,
@@ -84,7 +84,7 @@ fn use_tree_to_types(
                     }
                 };
 
-                types.push(winrt_gen::Type::from_type_def(reader, *def));
+                types.push(winrt_gen::Type::from_type_def( winmd::TypeDef{reader, row:*def}));
 
                 // TODO
                 // If type is a class, add any required interfaces.
