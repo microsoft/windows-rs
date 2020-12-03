@@ -4,6 +4,8 @@ use crate::{TableIndex, TypeReader};
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub struct TypeDef(pub Row);
 
+pub struct TypeDef2{pub reader: &'static TypeReader, pub row: Row}
+
 impl TypeDef {
     pub fn flags(self, reader: &TypeReader) -> TypeFlags {
         TypeFlags(reader.u32(self.0, 0))

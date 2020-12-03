@@ -13,6 +13,9 @@ pub struct TypeReader {
     /// that namespace. The keys are the namespace and the values is a mapping
     /// of type names to type definitions
     pub types: BTreeMap<String, BTreeMap<String, TypeDef>>,
+
+    // TODO: store Row objects and turn them into TypeDef on request.
+    // When turning into TypeDef they add the &'static TypeReader
 }
 
 impl TypeReader {
