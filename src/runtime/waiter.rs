@@ -1,24 +1,21 @@
 use crate::*;
 
-/// A simple blocking waiter used by the generated bindings and should not generally be used directly.
+/// A simple blocking waiter used by the generated bindings and should not be used directly.
 pub struct Waiter(RawPtr);
+pub struct WaiterSignaler(RawPtr);
 
 impl Waiter {
-    pub fn new() -> Self {
+    pub fn new() -> (Waiter, WaiterSignaler) {
         unsafe {
-            Self(CreateEventW(
-                std::ptr::null_mut(),
-                1,
-                0,
-                std::ptr::null_mut(),
-            ))
+            let handle = CreateEventW(std::ptr::null_mut(), 1, 0, std::ptr::null_mut());
+            (Waiter(handle), WaiterSignaler(handle))
         }
     }
+}
 
-    pub fn signal(&self) {
-        unsafe {
-            SetEvent(self.0);
-        }
+impl WaiterSignaler {
+    pub unsafe fn signal(&self) {
+        SetEvent(self.0);
     }
 }
 
