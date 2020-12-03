@@ -25,10 +25,10 @@ fn named_arguments() -> Result<()> {
     let mut some_string = 0;
     let mut some_int = 0;
     let mut some_bool = 0;
-    for attribute in type_def.attributes(&reader) {
-        match attribute.name(&reader) {
+    for attribute in type_def.attributes() {
+        match attribute.name() {
             ("TestComponent", "CustomTestAttribute") => {
-                for (name, arg) in attribute.args(&reader) {
+                for (name, arg) in attribute.args() {
                     match (&name as &str, &arg) {
                         ("SomeString", winmd::AttributeArg::String(value)) => {
                             assert_eq!(value, "Hello, World!");
