@@ -8,7 +8,7 @@ pub struct Delegate32 {
 }
 
 impl Delegate32 {
-    pub fn from_type_name(_reader: &winmd::TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name(name: TypeName) -> Self {
         Self { name }
     }
 

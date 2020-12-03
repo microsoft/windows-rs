@@ -28,7 +28,7 @@ pub enum TypeKind {
 }
 
 impl TypeKind {
-    pub fn signature(&self, reader: &winmd::TypeReader) -> String {
+    pub fn signature(&self) -> String {
         match self {
             Self::Bool => "b1".to_owned(),
             Self::Char => "c2".to_owned(),
@@ -45,11 +45,11 @@ impl TypeKind {
             Self::String => "string".to_owned(),
             Self::Object => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
-            Self::Class(name) => name.class_signature(reader),
-            Self::Interface(name) => name.interface_signature(reader),
-            Self::Enum(name) => name.enum_signature(reader),
-            Self::Struct(name) => name.struct_signature(reader),
-            Self::Delegate(name) => name.delegate_signature(reader),
+            Self::Class(name) => name.class_signature(),
+            Self::Interface(name) => name.interface_signature(),
+            Self::Enum(name) => name.enum_signature(),
+            Self::Struct(name) => name.struct_signature(),
+            Self::Delegate(name) => name.delegate_signature(),
             Self::Generic(_) => panic!("signature"),
         }
     }
@@ -80,8 +80,8 @@ impl TypeKind {
         }
     }
 
-    fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
-        match name.def.category(reader) {
+    fn from_type_name( name: TypeName) -> Self {
+        match name.def.category() {
             winmd::TypeCategory::Interface => TypeKind::Interface(name),
             winmd::TypeCategory::Class => TypeKind::Class(name),
             winmd::TypeCategory::Enum => TypeKind::Enum(name),
@@ -91,41 +91,35 @@ impl TypeKind {
     }
 
     pub fn from_type_def(
-        reader: &winmd::TypeReader,
         def: winmd::TypeDef,
         calling_namespace: &str,
     ) -> Self {
         Self::from_type_name(
-            reader,
-            TypeName::from_type_def(reader, def, calling_namespace),
+            TypeName::from_type_def( def, calling_namespace),
         )
     }
 
     pub fn from_type_ref(
-        reader: &winmd::TypeReader,
         type_ref: winmd::TypeRef,
         calling_namespace: &str,
     ) -> Self {
-        let (namespace, name) = type_ref.name(reader);
+        let (namespace, name) = type_ref.name();
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
         } else {
             Self::from_type_def(
-                reader,
-                reader.resolve_type_def((namespace, name)),
+                type_ref.reader.resolve_type_def((namespace, name)),
                 calling_namespace,
             )
         }
     }
 
     pub fn from_type_spec(
-        reader: &winmd::TypeReader,
         spec: winmd::TypeSpec,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         TypeKind::Interface(TypeName::from_type_spec(
-            reader,
             spec,
             generics,
             calling_namespace,
@@ -133,20 +127,19 @@ impl TypeKind {
     }
 
     fn from_type_def_or_ref(
-        reader: &winmd::TypeReader,
         code: winmd::TypeDefOrRef,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
             winmd::TypeDefOrRef::TypeRef(value) => {
-                Self::from_type_ref(reader, value, calling_namespace)
+                Self::from_type_ref( value, calling_namespace)
             }
             winmd::TypeDefOrRef::TypeDef(value) => {
-                Self::from_type_def(reader, value, calling_namespace)
+                Self::from_type_def( value, calling_namespace)
             }
             winmd::TypeDefOrRef::TypeSpec(value) => {
-                Self::from_type_spec(reader, value, generics, calling_namespace)
+                Self::from_type_spec( value, generics, calling_namespace)
             }
         }
     }
@@ -175,14 +168,12 @@ impl TypeKind {
             0x0E => TypeKind::String,
             0x1C => TypeKind::Object,
             0x11 | 0x12 => Self::from_type_def_or_ref(
-                blob.reader,
-                winmd::TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index),
+                winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index),
                 generics,
                 calling_namespace,
             ),
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x15 => Self::from_type_name(
-                blob.reader,
                 TypeName::from_type_spec_blob(blob, generics, calling_namespace),
             ),
             _ => panic!("TypeKind::from_blob"),
@@ -190,11 +181,10 @@ impl TypeKind {
     }
 
     pub fn from_field(
-        reader: &winmd::TypeReader,
         field: winmd::Field,
         calling_namespace: &str,
     ) -> Self {
-        let mut blob = field.sig(reader);
+        let mut blob = field.sig();
         blob.read_unsigned();
         blob.read_modifiers();
         Self::from_blob(&mut blob, &Vec::new(), calling_namespace)

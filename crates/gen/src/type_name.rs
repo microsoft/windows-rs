@@ -25,12 +25,11 @@ pub struct TypeName {
 
 impl TypeName {
     pub fn new(
-        reader: &winmd::TypeReader,
         def: winmd::TypeDef,
         generics: Vec<TypeKind>,
         calling_namespace: &str,
     ) -> Self {
-        let (namespace, name) = def.name(reader);
+        let (namespace, name) = def.name();
         let namespace = namespace.to_string();
         let name = name.to_string();
         let calling_namespace = calling_namespace.to_string();
@@ -52,50 +51,45 @@ impl TypeName {
     }
 
     pub fn from_type_def_or_ref(
-        reader: &winmd::TypeReader,
         code: winmd::TypeDefOrRef,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
         match code {
             winmd::TypeDefOrRef::TypeRef(value) => {
-                Self::from_type_ref(reader, value, calling_namespace)
+                Self::from_type_ref( value, calling_namespace)
             }
             winmd::TypeDefOrRef::TypeDef(value) => {
-                Self::from_type_def(reader, value, calling_namespace)
+                Self::from_type_def( value, calling_namespace)
             }
             winmd::TypeDefOrRef::TypeSpec(value) => {
-                Self::from_type_spec(reader, value, generics, calling_namespace)
+                Self::from_type_spec( value, generics, calling_namespace)
             }
         }
     }
 
     fn from_type_ref(
-        reader: &winmd::TypeReader,
         type_ref: winmd::TypeRef,
         calling_namespace: &str,
     ) -> Self {
-        let (namespace, name) = type_ref.name(reader);
         Self::from_type_def(
-            reader,
-            reader.resolve_type_def((namespace, name)),
+            type_ref.resolve(),
             calling_namespace,
         )
     }
 
     pub fn from_type_def(
-        reader: &winmd::TypeReader,
         def: winmd::TypeDef,
         calling_namespace: &str,
     ) -> Self {
         let mut generics = Vec::new();
 
-        for generic in def.generics(reader) {
-            let name = generic.name(reader).to_string();
+        for generic in def.generics() {
+            let name = generic.name().to_string();
             generics.push(TypeKind::Generic(name));
         }
 
-        Self::new(reader, def, generics, calling_namespace)
+        Self::new( def, generics, calling_namespace)
     }
 
     pub fn from_type_spec_blob(
@@ -106,7 +100,7 @@ impl TypeName {
         blob.read_unsigned();
 
         let def =
-            winmd::TypeDefOrRef::decode(blob.read_unsigned(), blob.file_index).resolve(blob.reader);
+            winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index).resolve();
 
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
@@ -114,16 +108,15 @@ impl TypeName {
             args.push(TypeKind::from_blob(blob, generics, calling_namespace));
         }
 
-        Self::new(blob.reader, def, args, calling_namespace)
+        Self::new( def, args, calling_namespace)
     }
 
     pub fn from_type_spec(
-        reader: &winmd::TypeReader,
         spec: winmd::TypeSpec,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
-        let mut blob = spec.sig(reader);
+        let mut blob = spec.sig();
         blob.read_unsigned();
         Self::from_type_spec_blob(&mut blob, generics, calling_namespace)
     }
@@ -177,8 +170,8 @@ impl TypeName {
         }
     }
 
-    pub fn interface_signature(&self, reader: &winmd::TypeReader) -> String {
-        let guid = TypeGuid::from_type_def(reader, self.def);
+    pub fn interface_signature(&self) -> String {
+        let guid = TypeGuid::from_type_def(self.def);
 
         if self.generics.is_empty() {
             format!("{{{:#?}}}", guid)
@@ -187,7 +180,7 @@ impl TypeName {
 
             for generic in &self.generics {
                 result.push(';');
-                result.push_str(&generic.signature(reader));
+                result.push_str(&generic.signature());
             }
 
             result.push(')');
@@ -195,16 +188,15 @@ impl TypeName {
         }
     }
 
-    pub fn class_signature(&self, reader: &winmd::TypeReader) -> String {
+    pub fn class_signature(&self) -> String {
         let default = self
             .def
-            .interfaces(reader)
-            .find(|i| i.is_default(reader))
+            .interfaces()
+            .find(|i| i.is_default())
             .unwrap();
 
         let default = Self::from_type_def_or_ref(
-            reader,
-            default.interface(reader),
+            default.interface(),
             &self.generics,
             &self.calling_namespace,
         );
@@ -213,23 +205,23 @@ impl TypeName {
             "rc({}.{};{})",
             self.namespace,
             self.name,
-            default.interface_signature(reader)
+            default.interface_signature()
         )
     }
 
-    pub fn enum_signature(&self, reader: &winmd::TypeReader) -> String {
+    pub fn enum_signature(&self) -> String {
         format!(
             "enum({}.{};{})",
             self.namespace,
             self.name,
-            self.enum_type(reader)
+            self.enum_type()
         )
     }
 
-    fn enum_type(&self, reader: &winmd::TypeReader) -> &str {
-        for field in self.def.fields(reader) {
-            for constant in field.constants(reader) {
-                match constant.value_type(reader) {
+    fn enum_type(&self, ) -> &str {
+        for field in self.def.fields() {
+            for constant in field.constants() {
+                match constant.value_type() {
                     winmd::ElementType::I32 => return "i4",
                     winmd::ElementType::U32 => return "u4",
                     _ => panic!("Invalid enum type"),
@@ -240,13 +232,13 @@ impl TypeName {
         panic!("Invalid enum");
     }
 
-    pub fn struct_signature(&self, reader: &winmd::TypeReader) -> String {
+    pub fn struct_signature(&self, ) -> String {
         let mut result = format!("struct({}.{}", self.namespace, self.name);
 
-        for field in self.def.fields(reader) {
+        for field in self.def.fields() {
             result.push(';');
             result.push_str(
-                &TypeKind::from_field(reader, field, &self.calling_namespace).signature(reader),
+                &TypeKind::from_field(field, &self.calling_namespace).signature(),
             );
         }
 
@@ -254,11 +246,11 @@ impl TypeName {
         result
     }
 
-    pub fn delegate_signature(&self, reader: &winmd::TypeReader) -> String {
+    pub fn delegate_signature(&self, ) -> String {
         if self.generics.is_empty() {
-            format!("delegate({})", self.interface_signature(reader))
+            format!("delegate({})", self.interface_signature())
         } else {
-            self.interface_signature(reader)
+            self.interface_signature()
         }
     }
 

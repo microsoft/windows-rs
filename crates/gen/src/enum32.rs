@@ -8,15 +8,15 @@ pub struct Enum32 {
 }
 
 impl Enum32 {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name(name: TypeName) -> Self {
         let mut fields = Vec::new();
 
-        for field in name.def.fields(reader) {
-            for constant in field.constants(reader) {
-                let name = field.name(reader).to_string();
-                let mut value = constant.value(reader);
+        for field in name.def.fields() {
+            for constant in field.constants() {
+                let name = field.name().to_string();
+                let mut value = constant.value();
 
-                let value = match constant.value_type(reader) {
+                let value = match constant.value_type() {
                     winmd::ElementType::I32 => EnumConstant::I32(value.read_i32()),
                     winmd::ElementType::U32 => EnumConstant::U32(value.read_u32()),
                     _ => panic!("Enum32::from_type_def"),

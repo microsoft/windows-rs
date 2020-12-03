@@ -5,18 +5,10 @@ use std::convert::TryInto;
 pub struct Blob {
     pub reader: &'static TypeReader,
     pub file_index: u16,
-    offset: usize,
+    pub offset: usize,
 }
 
 impl Blob {
-    pub fn new(reader: &'static TypeReader, file_index: u16, offset: usize) -> Self {
-        Blob {
-            reader,
-            file_index,
-            offset,
-        }
-    }
-
     fn bytes(&self) -> &[u8] {
         &self.file().bytes[self.offset..]
     }
@@ -55,7 +47,7 @@ impl Blob {
         }
     }
 
-    pub fn read_modifiers(&'static mut self) -> Vec<TypeDefOrRef> {
+    pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef> {
         let mut mods = vec![];
 
         loop {

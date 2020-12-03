@@ -9,14 +9,14 @@ pub struct Delegate {
 }
 
 impl Delegate {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name( name: TypeName) -> Self {
         let method = name
             .def
-            .methods(reader)
-            .find(|method| method.name(reader) == "Invoke")
+            .methods()
+            .find(|method| method.name() == "Invoke")
             .unwrap();
-        let method = Method::from_method_def(reader, method, 3, &name.generics, &name.namespace);
-        let guid = TypeGuid::from_type_def(reader, name.def);
+        let method = Method::from_method_def( &method, 3, &name.generics, &name.namespace);
+        let guid = TypeGuid::from_type_def( name.def);
         Self { name, method, guid }
     }
 

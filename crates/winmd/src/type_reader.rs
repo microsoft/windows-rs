@@ -158,7 +158,7 @@ impl TypeReader {
         for byte in &file.bytes[offset + 1..offset + blob_size_bytes] {
             blob_size = blob_size.checked_shl(8).unwrap_or(0) + byte;
         }
-        Blob::new(self, row.file_index, offset + blob_size_bytes)
+        Blob{ reader: self, file_index: row.file_index, offset: offset + blob_size_bytes}
     }
 
     pub(crate) fn equal_range(

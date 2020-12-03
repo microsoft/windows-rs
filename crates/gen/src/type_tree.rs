@@ -11,7 +11,7 @@ pub struct TypeTree {
 }
 
 impl TypeTree {
-    pub fn from_limits(reader: &winmd::TypeReader, limits: &TypeLimits) -> Self {
+    pub fn from_limits(reader: &'static winmd::TypeReader, limits: &TypeLimits) -> Self {
         let mut tree = TypeTree::default();
         let mut set = std::collections::BTreeSet::new();
 
@@ -19,13 +19,13 @@ impl TypeTree {
             match &limit.limit {
                 TypeLimit::All => {
                     for def in reader.types[&limit.namespace].values() {
-                        tree.insert2(reader, &mut set, *def);
+                        tree.insert2(reader, &mut set, winmd::TypeDef{reader, row:*def});
                     }
                 }
                 TypeLimit::Some(types) => {
                     let namespace = &reader.types[&limit.namespace];
                     for name in types {
-                        tree.insert2(reader, &mut set, namespace[name]);
+                        tree.insert2(reader, &mut set, winmd::TypeDef{reader, row:namespace[name]});
                     }
                 }
             }
@@ -41,7 +41,7 @@ impl TypeTree {
         def: winmd::TypeDef,
     ) {
         if set.insert(def) {
-            let t = Type::from_type_def(reader, def);
+            let t = Type::from_type_def( def);
 
             for def in t.dependencies() {
                 self.insert2(reader, set, def);

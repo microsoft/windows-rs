@@ -9,19 +9,18 @@ pub struct Interface {
 }
 
 impl Interface {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
-        let guid = TypeGuid::from_type_def(reader, name.def);
+    pub fn from_type_name( name: TypeName) -> Self {
+        let guid = TypeGuid::from_type_def( name.def);
         let mut interfaces = Vec::new();
 
         add_type(
             &mut interfaces,
-            reader,
             name.def,
             &name.namespace,
             InterfaceKind::Default,
         );
 
-        add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
+        add_dependencies(&mut interfaces,  &name, &name.namespace, true);
 
         rename_collisions(&mut interfaces);
 

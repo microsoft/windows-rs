@@ -13,14 +13,13 @@ pub struct Method {
 
 impl Method {
     pub fn from_method_def(
-        reader: &winmd::TypeReader,
-        method: winmd::MethodDef,
+        method: &winmd::MethodDef,
         vtable_offset: u32,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Method {
-        let name = if method.flags(reader).special() {
-            let name = method.name(reader);
+        let name = if method.flags().special() {
+            let name = method.name();
 
             if name.starts_with("get") {
                 to_snake(&name[4..], MethodKind::Get)
@@ -35,10 +34,10 @@ impl Method {
                 "invoke".to_owned()
             }
         } else {
-            Method::name(reader, method)
+            Method::name( method)
         };
 
-        let mut blob = method.sig(reader);
+        let mut blob = method.sig();
 
         if blob.read_unsigned() & 0x10 != 0 {
             blob.read_unsigned();
@@ -69,15 +68,15 @@ impl Method {
 
         let mut params = Vec::with_capacity(param_count as usize);
 
-        for param in method.params(reader) {
-            if return_type.is_none() || param.sequence(reader) != 0 {
-                let name = to_snake(param.name(reader), MethodKind::Normal);
-                let input = param.flags(reader).input();
+        for param in method.params() {
+            if return_type.is_none() || param.sequence() != 0 {
+                let name = to_snake(param.name(), MethodKind::Normal);
+                let input = param.flags().input();
 
                 let is_const = blob
                     .read_modifiers()
                     .iter()
-                    .any(|def| def.name(reader) == ("System.Runtime.CompilerServices", "IsConst"));
+                    .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
 
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
@@ -111,10 +110,10 @@ impl Method {
             .collect()
     }
 
-    fn name(reader: &winmd::TypeReader, method: winmd::MethodDef) -> String {
+    fn name( method: &winmd::MethodDef) -> String {
         for attribute in method.attributes() {
             if attribute.name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
-                for (_, arg) in attribute.args(reader) {
+                for (_, arg) in attribute.args() {
                     if let winmd::AttributeArg::String(name) = arg {
                         return to_snake(&name, MethodKind::Normal);
                     }
@@ -122,7 +121,7 @@ impl Method {
             }
         }
 
-        to_snake(method.name(reader), MethodKind::Normal)
+        to_snake(method.name(), MethodKind::Normal)
     }
 
     pub fn gen_abi(&self) -> TokenStream {

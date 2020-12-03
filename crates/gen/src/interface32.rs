@@ -9,7 +9,7 @@ pub struct Interface32 {
 }
 
 impl Interface32 {
-    pub fn from_type_name(_reader: &winmd::TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name(name: TypeName) -> Self {
         Self { name }
     }
 
