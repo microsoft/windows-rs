@@ -90,24 +90,24 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_def(def: winmd::TypeDef, calling_namespace: &str) -> Self {
+    pub fn from_type_def(def: &winmd::TypeDef, calling_namespace: &str) -> Self {
         Self::from_type_name(TypeName::from_type_def(def, calling_namespace))
     }
 
-    pub fn from_type_ref(type_ref: winmd::TypeRef, calling_namespace: &str) -> Self {
+    pub fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &str) -> Self {
         let (namespace, name) = type_ref.name();
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
         } else {
             Self::from_type_def(
-                type_ref.reader.resolve_type_def((namespace, name)),
+                &type_ref.reader.resolve_type_def((namespace, name)),
                 calling_namespace,
             )
         }
     }
 
     pub fn from_type_spec(
-        spec: winmd::TypeSpec,
+        spec: &winmd::TypeSpec,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
@@ -115,7 +115,7 @@ impl TypeKind {
     }
 
     fn from_type_def_or_ref(
-        code: winmd::TypeDefOrRef,
+        code: &winmd::TypeDefOrRef,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
@@ -152,7 +152,7 @@ impl TypeKind {
             0x0E => TypeKind::String,
             0x1C => TypeKind::Object,
             0x11 | 0x12 => Self::from_type_def_or_ref(
-                winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index),
+                &winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index),
                 generics,
                 calling_namespace,
             ),
@@ -166,7 +166,7 @@ impl TypeKind {
         }
     }
 
-    pub fn from_field(field: winmd::Field, calling_namespace: &str) -> Self {
+    pub fn from_field(field: &winmd::Field, calling_namespace: &str) -> Self {
         let mut blob = field.sig();
         blob.read_unsigned();
         blob.read_modifiers();

@@ -10,12 +10,12 @@ pub struct Interface {
 
 impl Interface {
     pub fn from_type_name(name: TypeName) -> Self {
-        let guid = TypeGuid::from_type_def(name.def);
+        let guid = TypeGuid::from_type_def(&name.def);
         let mut interfaces = Vec::new();
 
         add_type(
             &mut interfaces,
-            name.def,
+            &name.def,
             &name.namespace,
             InterfaceKind::Default,
         );

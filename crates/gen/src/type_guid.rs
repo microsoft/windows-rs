@@ -62,7 +62,7 @@ impl TypeGuid {
         Self::default()
     }
 
-    pub fn from_type_def(def: winmd::TypeDef) -> Self {
+    pub fn from_type_def(def: &winmd::TypeDef) -> Self {
         for attribute in def.attributes() {
             if attribute.name() == ("Windows.Foundation.Metadata", "GuidAttribute") {
                 let args = attribute.args();

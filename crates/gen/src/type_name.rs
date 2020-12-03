@@ -24,7 +24,7 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    pub fn new(def: winmd::TypeDef, generics: Vec<TypeKind>, calling_namespace: &str) -> Self {
+    pub fn new(def: &winmd::TypeDef, generics: Vec<TypeKind>, calling_namespace: &str) -> Self {
         let (namespace, name) = def.name();
         let namespace = namespace.to_string();
         let name = name.to_string();
@@ -34,7 +34,7 @@ impl TypeName {
             namespace,
             name,
             generics,
-            def,
+            def: *def,
             calling_namespace,
         }
     }
@@ -47,7 +47,7 @@ impl TypeName {
     }
 
     pub fn from_type_def_or_ref(
-        code: winmd::TypeDefOrRef,
+        code: &winmd::TypeDefOrRef,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
@@ -60,11 +60,11 @@ impl TypeName {
         }
     }
 
-    fn from_type_ref(type_ref: winmd::TypeRef, calling_namespace: &str) -> Self {
-        Self::from_type_def(type_ref.resolve(), calling_namespace)
+    fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &str) -> Self {
+        Self::from_type_def(&type_ref.resolve(), calling_namespace)
     }
 
-    pub fn from_type_def(def: winmd::TypeDef, calling_namespace: &str) -> Self {
+    pub fn from_type_def(def: &winmd::TypeDef, calling_namespace: &str) -> Self {
         let mut generics = Vec::new();
 
         for generic in def.generics() {
@@ -91,11 +91,11 @@ impl TypeName {
             args.push(TypeKind::from_blob(blob, generics, calling_namespace));
         }
 
-        Self::new(def, args, calling_namespace)
+        Self::new(&def, args, calling_namespace)
     }
 
     pub fn from_type_spec(
-        spec: winmd::TypeSpec,
+        spec: &winmd::TypeSpec,
         generics: &[TypeKind],
         calling_namespace: &str,
     ) -> Self {
@@ -154,7 +154,7 @@ impl TypeName {
     }
 
     pub fn interface_signature(&self) -> String {
-        let guid = TypeGuid::from_type_def(self.def);
+        let guid = TypeGuid::from_type_def(&self.def);
 
         if self.generics.is_empty() {
             format!("{{{:#?}}}", guid)
@@ -175,7 +175,7 @@ impl TypeName {
         let default = self.def.interfaces().find(|i| i.is_default()).unwrap();
 
         let default = Self::from_type_def_or_ref(
-            default.interface(),
+            &default.interface(),
             &self.generics,
             &self.calling_namespace,
         );
@@ -216,7 +216,7 @@ impl TypeName {
 
         for field in self.def.fields() {
             result.push(';');
-            result.push_str(&TypeKind::from_field(field, &self.calling_namespace).signature());
+            result.push_str(&TypeKind::from_field(&field, &self.calling_namespace).signature());
         }
 
         result.push(')');

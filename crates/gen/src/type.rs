@@ -17,7 +17,7 @@ pub enum Type {
 }
 
 impl Type {
-    pub fn from_type_def(def: winmd::TypeDef) -> Self {
+    pub fn from_type_def(def: &winmd::TypeDef) -> Self {
         let name = TypeName::from_type_def(def, def.name().0);
 
         if def.is_winrt() {

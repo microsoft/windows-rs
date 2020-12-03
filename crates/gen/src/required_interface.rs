@@ -30,7 +30,7 @@ impl Ord for RequiredInterface {
 }
 
 impl RequiredInterface {
-    fn from_type_def(def: winmd::TypeDef, calling_namespace: &str, kind: InterfaceKind) -> Self {
+    fn from_type_def(def: &winmd::TypeDef, calling_namespace: &str, kind: InterfaceKind) -> Self {
         let name = TypeName::from_type_def(def, calling_namespace);
         Self::from_type_name_and_kind(name, kind, calling_namespace)
     }
@@ -120,7 +120,7 @@ impl RequiredInterface {
 
 pub fn add_type(
     vec: &mut Vec<RequiredInterface>,
-    def: winmd::TypeDef,
+    def: &winmd::TypeDef,
     calling_namespace: &str,
     kind: InterfaceKind,
 ) {
@@ -142,7 +142,7 @@ pub fn add_dependencies(
         let required = required.interface();
 
         let required_name =
-            TypeName::from_type_def_or_ref(required, &name.generics, calling_namespace);
+            TypeName::from_type_def_or_ref(&required, &name.generics, calling_namespace);
 
         if let Some(index) = vec.iter().position(|i| i.name == required_name) {
             if !strip_default && vec[index].kind == InterfaceKind::NonDefault && is_default {

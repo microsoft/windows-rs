@@ -37,7 +37,7 @@ impl Class {
                 .def
                 .reader
                 .resolve_type_def((base_namespace, base_name));
-            let base = TypeName::from_type_def(base, &name.namespace);
+            let base = TypeName::from_type_def(&base, &name.namespace);
 
             add_dependencies(&mut interfaces, &base, &name.namespace, true);
             bases.push(base);
@@ -51,17 +51,17 @@ impl Class {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
                     add_type(
                         &mut interfaces,
-                        attribute_factory(attribute).unwrap(),
+                        &attribute_factory(&attribute).unwrap(),
                         &name.namespace,
                         InterfaceKind::Statics,
                     );
                 }
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
-                    match attribute_factory(attribute) {
+                    match attribute_factory(&attribute) {
                         Some(def) => {
                             add_type(
                                 &mut interfaces,
-                                def,
+                                &def,
                                 &name.namespace,
                                 InterfaceKind::Statics,
                             );
@@ -76,7 +76,7 @@ impl Class {
                         if let winmd::AttributeArg::I32(2) = arg {
                             add_type(
                                 &mut interfaces,
-                                attribute_factory(attribute).unwrap(),
+                                &attribute_factory(&attribute).unwrap(),
                                 &name.namespace,
                                 InterfaceKind::Composable,
                             );
@@ -314,7 +314,7 @@ impl Class {
     }
 }
 
-fn attribute_factory(attribute: winmd::Attribute) -> Option<winmd::TypeDef> {
+fn attribute_factory(attribute: &winmd::Attribute) -> Option<winmd::TypeDef> {
     for (_, arg) in attribute.args() {
         if let winmd::AttributeArg::TypeDef(def) = arg {
             return Some(def);

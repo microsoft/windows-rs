@@ -84,7 +84,7 @@ fn use_tree_to_types(
                     }
                 };
 
-                types.push(winrt_gen::Type::from_type_def(winmd::TypeDef {
+                types.push(winrt_gen::Type::from_type_def(&winmd::TypeDef {
                     reader,
                     row: *def,
                 }));
