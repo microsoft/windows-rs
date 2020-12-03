@@ -1,30 +1,37 @@
 use super::*;
 use crate::{TableIndex, TypeReader};
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct Field(pub Row);
+#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct Field{pub reader: &'static TypeReader, pub row: Row}
 
 impl Field {
-    pub fn name(self, reader: &TypeReader) -> &str {
-        reader.str(self.0, 1)
+    pub fn name(&self) -> &str {
+        self.reader.str(self.row, 1)
     }
 
-    pub fn sig(self, reader: &TypeReader) -> Blob {
-        reader.blob(self.0, 2)
+    pub fn sig(&self) -> Blob {
+        self.reader.blob(self.row, 2)
     }
 
-    pub fn flags(self, reader: &TypeReader) -> FieldFlags {
-        FieldFlags(reader.u32(self.0, 0))
+    pub fn flags(&self) -> FieldFlags {
+        FieldFlags(self.reader.u32(self.row, 0))
     }
 
-    pub fn constants(self, reader: &TypeReader) -> impl Iterator<Item = Constant> {
-        reader
+    pub fn constants(&self) -> impl Iterator<Item = Constant> + '_ {
+        self.reader
             .equal_range(
-                self.0.file_index,
+                self.row.file_index,
                 TableIndex::Constant,
                 1,
-                HasConstant::Field(self).encode(),
+                HasConstant::Field(*self).encode(),
             )
-            .map(Constant)
+            .map(move |row|Constant{reader: self.reader, row})
+    }
+}
+
+
+impl std::fmt::Debug for Field {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Field").field("row", &self.row).finish()
     }
 }

@@ -36,11 +36,11 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         ));
 
         decodes.push(quote!(
-            #enumerator => Self::#name( #name(Row::new(code.1, TableIndex::#table, file))),
+            #enumerator => Self::#name( #name{ reader, row:Row::new(code.1, TableIndex::#table, file) }),
         ));
 
         encodes.push(quote!(
-            Self::#name(value) => ((value.0.index + 1) << #bits) | #enumerator,
+            Self::#name(value) => ((value.row.index + 1) << #bits) | #enumerator,
         ));
 
         enumerator += 1;
@@ -51,12 +51,12 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
     let encodes = TokenStream2::from_iter(encodes);
 
     let output = quote!(
-        #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
+        #[derive(Copy, Clone, Debug)]// PartialEq, PartialOrd, Eq, Ord, Debug)]
         pub enum #name {
             #variants
         }
         impl Decode for #name {
-            fn decode(code: u32, file:u16) -> Self {
+            fn decode(reader: &'static TypeReader, code: u32, file:u16) -> Self {
                 let code = (code & ((1 << #bits) - 1), (code >> #bits) - 1);
                 match code.0 {
                     #decodes

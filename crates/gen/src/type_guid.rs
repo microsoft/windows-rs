@@ -63,23 +63,27 @@ impl TypeGuid {
     }
 
     pub fn from_type_def(reader: &winmd::TypeReader, def: winmd::TypeDef) -> Self {
-        let args = def
-            .attribute(reader, ("Windows.Foundation.Metadata", "GuidAttribute"))
-            .args(reader);
+            for attribute in def.attributes() {
+                if attribute.name() == ("Windows.Foundation.Metadata", "GuidAttribute") {
+                    let args = attribute.args();
 
-        Self([
-            GuidConstant::from_arg(&args[0].1),
-            GuidConstant::from_arg(&args[1].1),
-            GuidConstant::from_arg(&args[2].1),
-            GuidConstant::from_arg(&args[3].1),
-            GuidConstant::from_arg(&args[4].1),
-            GuidConstant::from_arg(&args[5].1),
-            GuidConstant::from_arg(&args[6].1),
-            GuidConstant::from_arg(&args[7].1),
-            GuidConstant::from_arg(&args[8].1),
-            GuidConstant::from_arg(&args[9].1),
-            GuidConstant::from_arg(&args[10].1),
-        ])
+                    return         Self([
+                        GuidConstant::from_arg(&args[0].1),
+                        GuidConstant::from_arg(&args[1].1),
+                        GuidConstant::from_arg(&args[2].1),
+                        GuidConstant::from_arg(&args[3].1),
+                        GuidConstant::from_arg(&args[4].1),
+                        GuidConstant::from_arg(&args[5].1),
+                        GuidConstant::from_arg(&args[6].1),
+                        GuidConstant::from_arg(&args[7].1),
+                        GuidConstant::from_arg(&args[8].1),
+                        GuidConstant::from_arg(&args[9].1),
+                        GuidConstant::from_arg(&args[10].1),
+                    ]);
+                }
+            }
+
+        panic!("GuidAttribute not found");
     }
 
     pub fn gen(&self) -> TokenStream {

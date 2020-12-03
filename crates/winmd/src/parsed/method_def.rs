@@ -1,33 +1,33 @@
 use super::*;
 use crate::{TableIndex, TypeReader};
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct MethodDef(pub Row);
+#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct MethodDef{pub reader: &'static TypeReader, pub row: Row}
 
 impl MethodDef {
-    pub fn flags(self, reader: &TypeReader) -> MethodFlags {
-        MethodFlags(reader.u32(self.0, 2))
+    pub fn flags(&self) -> MethodFlags {
+        MethodFlags(self.reader.u32(self.row, 2))
     }
 
-    pub fn parent(self, reader: &TypeReader) -> TypeDef {
-        TypeDef(reader.upper_bound(self.0.file_index, TableIndex::TypeDef, 6, self.0.index))
+    pub fn parent(&self) -> TypeDef {
+        TypeDef{reader: self.reader, row: self.reader.upper_bound(self.row.file_index, TableIndex::TypeDef, 6, self.row.index)}
     }
 
-    pub fn params(self, reader: &TypeReader) -> impl Iterator<Item = Param> {
-        reader.list(self.0, TableIndex::Param, 5).map(Param)
+    pub fn params(&self) -> impl Iterator<Item = Param>  + '_ {
+        self.reader.list(self.row, TableIndex::Param, 5).map(move |row|Param{reader: self.reader, row})
     }
 
-    pub fn name(self, reader: &TypeReader) -> &str {
-        reader.str(self.0, 3)
+    pub fn name(&self) -> &str {
+        self.reader.str(self.row, 3)
     }
 
-    pub fn sig(self, reader: &TypeReader) -> Blob {
-        reader.blob(self.0, 4)
+    pub fn sig(&self) -> Blob {
+        self.reader.blob(self.row, 4)
     }
 
-    pub fn category(self, reader: &TypeReader) -> MethodCategory {
-        if self.flags(reader).special() {
-            let name = self.name(reader);
+    pub fn category(&self) -> MethodCategory {
+        if self.flags().special() {
+            let name = self.name();
 
             if name.starts_with("get") {
                 MethodCategory::Get
@@ -46,19 +46,20 @@ impl MethodDef {
         }
     }
 
-    pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
-        reader
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute>  + '_ {
+        self.reader
             .equal_range(
-                self.0.file_index,
+                self.row.file_index,
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::MethodDef(self).encode(),
+                HasAttribute::MethodDef(*self).encode(),
             )
-            .map(Attribute)
+            .map(move |row|Attribute{reader: self.reader, row})
     }
+}
 
-    pub fn find_attribute(self, reader: &TypeReader, name: (&str, &str)) -> Option<Attribute> {
-        self.attributes(reader)
-            .find(|attribute| attribute.name(reader) == name)
+impl std::fmt::Debug for MethodDef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("MethodDef").field("row", &self.row).finish()
     }
 }

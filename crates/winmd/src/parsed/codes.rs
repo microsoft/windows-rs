@@ -50,18 +50,18 @@ pub enum AttributeType {
 }
 
 impl TypeDefOrRef {
-    pub fn name<'a>(&self, reader: &'a TypeReader) -> (&'a str, &'a str) {
+    pub fn name(&self) -> (&'static str, &'static str) {
         match self {
-            TypeDefOrRef::TypeDef(value) => value.name(reader),
-            TypeDefOrRef::TypeRef(value) => value.name(reader),
+            TypeDefOrRef::TypeDef(value) => value.name(),
+            TypeDefOrRef::TypeRef(value) => value.name(),
             TypeDefOrRef::TypeSpec(_) => panic!("Expected a TypeDef or TypeRef"),
         }
     }
 
-    pub fn resolve(&self, reader: &TypeReader) -> TypeDef {
+    pub fn resolve(&self) -> TypeDef {
         match self {
             Self::TypeDef(value) => *value,
-            Self::TypeRef(value) => value.resolve(reader),
+            Self::TypeRef(value) => value.resolve(),
             Self::TypeSpec(_) => panic!("Expected a TypeDef or TypeRef"),
         }
     }

@@ -2,14 +2,14 @@ use crate::*;
 
 use std::convert::TryInto;
 
-pub struct Blob<'a> {
-    pub reader: &'a TypeReader,
+pub struct Blob {
+    pub reader: &'static TypeReader,
     pub file_index: u16,
     offset: usize,
 }
 
-impl<'a> Blob<'a> {
-    pub fn new(reader: &'a TypeReader, file_index: u16, offset: usize) -> Self {
+impl Blob {
+    pub fn new(reader: &'static TypeReader, file_index: u16, offset: usize) -> Self {
         Blob {
             reader,
             file_index,
@@ -55,7 +55,7 @@ impl<'a> Blob<'a> {
         }
     }
 
-    pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef> {
+    pub fn read_modifiers(&'static mut self) -> Vec<TypeDefOrRef> {
         let mut mods = vec![];
 
         loop {
@@ -64,7 +64,7 @@ impl<'a> Blob<'a> {
                 break;
             } else {
                 self.offset += offset;
-                mods.push(TypeDefOrRef::decode(self.read_unsigned(), self.file_index))
+                mods.push(TypeDefOrRef::decode(self.reader, self.read_unsigned(), self.file_index))
             }
         }
 

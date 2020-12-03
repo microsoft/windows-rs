@@ -1,31 +1,38 @@
 use super::*;
 use crate::{TableIndex, TypeReader};
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct InterfaceImpl(pub Row);
+#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct InterfaceImpl{pub reader: &'static TypeReader, pub row: Row}
 
 impl InterfaceImpl {
-    pub fn interface(self, reader: &TypeReader) -> TypeDefOrRef {
-        reader.decode(self.0, 1)
+    pub fn interface(&self) -> TypeDefOrRef {
+        self.reader.decode(self.row, 1)
     }
 
-    pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
-        reader
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+        self.reader
             .equal_range(
-                self.0.file_index,
+                self.row.file_index,
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::InterfaceImpl(self).encode(),
+                HasAttribute::InterfaceImpl(*self).encode(),
             )
-            .map(Attribute)
+            .map(move |row|Attribute{reader: self.reader, row})
     }
 
-    pub fn has_attribute(self, reader: &TypeReader, name: (&str, &str)) -> bool {
-        self.attributes(reader)
-            .any(|attribute| attribute.name(reader) == name)
+    pub fn has_attribute(&self, name: (&str, &str)) -> bool {
+        self.attributes()
+            .any(|attribute| attribute.name() == name)
     }
 
-    pub fn is_default(self, reader: &TypeReader) -> bool {
-        self.has_attribute(reader, ("Windows.Foundation.Metadata", "DefaultAttribute"))
+    pub fn is_default(&self) -> bool {
+        self.has_attribute(("Windows.Foundation.Metadata", "DefaultAttribute"))
+    }
+}
+
+
+impl std::fmt::Debug for InterfaceImpl {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("InterfaceImpl").field("row", &self.row).finish()
     }
 }

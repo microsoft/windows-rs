@@ -12,7 +12,7 @@ pub struct TypeReader {
     /// This is a mapping between namespace names and the types inside
     /// that namespace. The keys are the namespace and the values is a mapping
     /// of type names to type definitions
-    pub types: BTreeMap<String, BTreeMap<String, TypeDef>>,
+    pub types: BTreeMap<String, BTreeMap<String, Row>>,
 
     // TODO: store Row objects and turn them into TypeDef on request.
     // When turning into TypeDef they add the &'static TypeReader
@@ -55,8 +55,8 @@ impl TypeReader {
         self.files.push(file);
 
         for row in 0..row_count {
-            let def = TypeDef(Row::new(row, TableIndex::TypeDef, file_index as u16));
-            let (namespace, name) = def.name(&self);
+            let row = Row::new(row, TableIndex::TypeDef, file_index as u16);
+            let (namespace, name) = (self.str(row, 2), self.str(row, 1));
             let namespace = namespace.to_string();
             let name = name.to_string();
 
@@ -64,7 +64,7 @@ impl TypeReader {
                 .entry(namespace)
                 .or_default()
                 .entry(name)
-                .or_insert(def);
+                .or_insert(row);
         }
     }
 
@@ -78,8 +78,8 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if the namespace does not exist
-    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = (&str, &TypeDef)> {
-        self.types[namespace].iter().map(|(n, t)| (n.as_str(), t))
+    pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = (&str, TypeDef)> {
+        self.types[namespace].iter().map(move |(n, row)| (n.as_str(), TypeDef{reader: self, row: *row }))
     }
 
     /// Resolve a type definition given its namespace and type name
@@ -87,10 +87,10 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if no type definition for the given namespace and type name can be found
-    pub fn resolve_type_def(&self, (namespace, type_name): (&str, &str)) -> TypeDef {
+    pub fn resolve_type_def(&'static self, (namespace, type_name): (&str, &str)) -> TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(def) = types.get(type_name) {
-                return *def;
+                return TypeDef{reader: self, row: *def };
             }
         }
 
@@ -122,8 +122,8 @@ impl TypeReader {
     }
 
     /// Read a `T: Decode` value from a specific [`Row`] and column
-    pub(crate) fn decode<T: Decode>(&self, row: Row, column: u32) -> T {
-        T::decode(self.u32(row, column), row.file_index)
+    pub(crate) fn decode<T: Decode>(&'static self, row: Row, column: u32) -> T {
+        T::decode(self, self.u32(row, column), row.file_index)
     }
 
     pub(crate) fn list(
@@ -145,7 +145,7 @@ impl TypeReader {
     }
 
     /// Read a blob for a given row and column
-    pub fn blob(&self, row: Row, column: u32) -> Blob {
+    pub fn blob(&'static self, row: Row, column: u32) -> Blob {
         let file = &self.files[row.file_index as usize];
         let offset = (file.blobs + self.u32(row, column)) as usize;
         let initial_byte = file.bytes[offset];

@@ -112,12 +112,12 @@ impl Method {
     }
 
     fn name(reader: &winmd::TypeReader, method: winmd::MethodDef) -> String {
-        if let Some(attribute) =
-            method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
-        {
-            for (_, arg) in attribute.args(reader) {
-                if let winmd::AttributeArg::String(name) = arg {
-                    return to_snake(&name, MethodKind::Normal);
+        for attribute in method.attributes() {
+            if attribute.name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
+                for (_, arg) in attribute.args(reader) {
+                    if let winmd::AttributeArg::String(name) = arg {
+                        return to_snake(&name, MethodKind::Normal);
+                    }
                 }
             }
         }

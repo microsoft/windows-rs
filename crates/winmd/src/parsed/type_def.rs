@@ -1,87 +1,78 @@
 use super::*;
 use crate::{TableIndex, TypeReader};
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
-pub struct TypeDef(pub Row);
-
-pub struct TypeDef2{pub reader: &'static TypeReader, pub row: Row}
+#[derive(Copy, Clone)]//, PartialEq, PartialOrd, Eq, Ord, Debug)]
+pub struct TypeDef{pub reader: &'static TypeReader, pub row: Row}
 
 impl TypeDef {
-    pub fn flags(self, reader: &TypeReader) -> TypeFlags {
-        TypeFlags(reader.u32(self.0, 0))
+    pub fn flags(&self) -> TypeFlags {
+        TypeFlags(self.reader.u32(self.row, 0))
     }
 
-    pub fn name(self, reader: &TypeReader) -> (&str, &str) {
-        (reader.str(self.0, 2), reader.str(self.0, 1))
+    pub fn name(&self) -> (&'static str, &'static str) {
+        (self.reader.str(self.row, 2), self.reader.str(self.row, 1))
     }
 
-    pub fn extends(self, reader: &TypeReader) -> TypeDefOrRef {
-        reader.decode(self.0, 3)
+    pub fn extends(&self) -> TypeDefOrRef {
+        self.reader.decode(self.row, 3)
     }
 
-    pub fn fields(self, reader: &TypeReader) -> impl Iterator<Item = Field> {
-        reader.list(self.0, TableIndex::Field, 4).map(Field)
+    pub fn fields(&self) -> impl Iterator<Item = Field>  + '_ {
+        self.reader.list(self.row, TableIndex::Field, 4).map(move |row|Field{reader: self.reader, row})
     }
 
-    pub fn methods(self, reader: &TypeReader) -> impl Iterator<Item = MethodDef> {
-        reader.list(self.0, TableIndex::MethodDef, 5).map(MethodDef)
+    pub fn methods(&self) -> impl Iterator<Item = MethodDef>  + '_ {
+        self.reader.list(self.row, TableIndex::MethodDef, 5).map(move |row|MethodDef{reader: self.reader, row})
     }
 
-    pub fn generics(self, reader: &TypeReader) -> impl Iterator<Item = GenericParam> {
-        reader
+    pub fn generics(&self) -> impl Iterator<Item = GenericParam>  + '_ {
+        self.reader
             .equal_range(
-                self.0.file_index,
+                self.row.file_index,
                 TableIndex::GenericParam,
                 2,
-                TypeOrMethodDef::TypeDef(self).encode(),
+                TypeOrMethodDef::TypeDef(*self).encode(),
             )
-            .map(GenericParam)
+            .map(move |row|GenericParam{reader: self.reader, row})
     }
 
-    pub fn interfaces(self, reader: &TypeReader) -> impl Iterator<Item = InterfaceImpl> {
-        reader
+    pub fn interfaces(&self) -> impl Iterator<Item = InterfaceImpl>  + '_ {
+        self.reader
             .equal_range(
-                self.0.file_index,
+                self.row.file_index,
                 TableIndex::InterfaceImpl,
                 0,
-                self.0.index + 1,
+                self.row.index + 1,
             )
-            .map(InterfaceImpl)
+            .map(move |row|InterfaceImpl{reader: self.reader, row})
     }
 
-    pub fn attributes(self, reader: &TypeReader) -> impl Iterator<Item = Attribute> {
-        reader
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+        self.reader
             .equal_range(
-                self.0.file_index,
+                self.row.file_index,
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::TypeDef(self).encode(),
+                HasAttribute::TypeDef(*self).encode(),
             )
-            .map(Attribute)
+            .map(move |row|Attribute{reader: self.reader, row})
     }
 
-    pub fn has_attribute(self, reader: &TypeReader, name: (&str, &str)) -> bool {
-        self.attributes(reader)
-            .any(|attribute| attribute.name(reader) == name)
+    pub fn has_attribute(&self, name: (&str, &str)) -> bool {
+        self.attributes()
+            .any(|attribute| attribute.name() == name)
     }
 
-    pub fn attribute(self, reader: &TypeReader, name: (&str, &str)) -> Attribute {
-        self.attributes(reader)
-            .find(|attribute| attribute.name(reader) == name)
-            .unwrap()
-    }
-
-    pub fn is_winrt(self, reader: &TypeReader) -> bool {
-        let flags = self.flags(reader);
+    pub fn is_winrt(&self) -> bool {
+        let flags = self.flags();
 
         if !flags.windows_runtime() {
             false
         } else if flags.interface() {
             true
         } else {
-            match self.extends(reader).name(reader) {
+            match self.extends().name() {
                 ("System", "ValueType") => !self.has_attribute(
-                    reader,
                     ("Windows.Foundation.Metadata", "ApiContractAttribute"),
                 ),
                 ("System", "Attribute") => false,
@@ -90,11 +81,11 @@ impl TypeDef {
         }
     }
 
-    pub fn category(self, reader: &TypeReader) -> TypeCategory {
-        if self.flags(reader).interface() {
+    pub fn category(&self) -> TypeCategory {
+        if self.flags().interface() {
             TypeCategory::Interface
         } else {
-            match self.extends(reader).name(reader) {
+            match self.extends().name() {
                 ("System", "Enum") => TypeCategory::Enum,
                 ("System", "MulticastDelegate") => TypeCategory::Delegate,
                 ("System", "ValueType") => TypeCategory::Struct,
@@ -103,13 +94,19 @@ impl TypeDef {
         }
     }
 
-    pub fn underlying_type(self, reader: &TypeReader) -> ElementType {
-        for field in self.fields(reader) {
-            for constant in field.constants(reader) {
-                return constant.value_type(reader);
+    pub fn underlying_type(&self) -> ElementType {
+        for field in self.fields() {
+            for constant in field.constants() {
+                return constant.value_type();
             }
         }
 
         panic!("TypeDef::underlying_type");
+    }
+}
+
+impl std::fmt::Debug for TypeDef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("TypeDef").field("row", &self.row).finish()
     }
 }
