@@ -1,7 +1,6 @@
 use crate::*;
 use squote::{format_ident, quote, Literal, TokenStream};
 
-// TODO: have Enum handle both WinRT and Win32 enums - it's almost all the same code.
 #[derive(Debug)]
 pub struct Enum {
     pub name: TypeName,
@@ -17,7 +16,12 @@ pub enum EnumConstant {
 
 impl Enum {
     pub fn from_type_name(name: TypeName) -> Self {
-        let signature = name.enum_signature();
+        let signature = if name.def.is_winrt() {
+            name.enum_signature()
+        } else {
+            String::new()
+        };
+
         let mut fields = Vec::new();
 
         for field in name.def.fields() {
@@ -43,8 +47,32 @@ impl Enum {
     }
 
     pub fn gen(&self) -> TokenStream {
+        if self.fields.is_empty() {
+            return TokenStream::new();
+        }
+
         let name = self.name.gen();
-        let signature = Literal::byte_string(&self.signature.as_bytes());
+
+        let bitwise = if let EnumConstant::I32(_) = self.fields[0].1 {
+            TokenStream::new()
+        } else {
+            quote! {
+                impl ::std::ops::BitOr for #name {
+                    type Output = Self;
+
+                    fn bitor(self, rhs: Self) -> Self {
+                        Self(self.0 | rhs.0)
+                    }
+                }
+                impl ::std::ops::BitAnd for #name {
+                    type Output = Self;
+
+                    fn bitand(self, rhs: Self) -> Self {
+                        Self(self.0 & rhs.0)
+                    }
+                }
+            }
+        };
 
         let repr = match self.fields[0].1 {
             EnumConstant::U32(_) => format_ident!("u32"),
@@ -62,9 +90,22 @@ impl Enum {
                 pub const #name: Self = Self(#value);
             }
         });
-        let bitwise = bitwise_operators(&name, self.fields[0].1);
+
+        let runtime_type = if self.signature.is_empty() {
+            TokenStream::new()
+        } else {
+            let signature = Literal::byte_string(&self.signature.as_bytes());
+
+            quote! {
+                unsafe impl ::winrt::RuntimeType for #name {
+                    type DefaultType = Self;
+                    const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
+                }
+            }
+        };
 
         quote! {
+            #[allow(non_camel_case_types)]
             #[repr(transparent)]
             pub struct #name(#repr);
             impl ::std::clone::Clone for #name {
@@ -93,37 +134,11 @@ impl Enum {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*
             }
-            unsafe impl ::winrt::RuntimeType for #name {
-                type DefaultType = Self;
-                const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
-            }
             unsafe impl ::winrt::Abi for #name {
                 type Abi = #repr;
             }
+            #runtime_type
             #bitwise
-        }
-    }
-}
-
-pub fn bitwise_operators(name: &TokenStream, value_type: EnumConstant) -> TokenStream {
-    if let EnumConstant::I32(_) = value_type {
-        return TokenStream::new();
-    }
-
-    quote! {
-        impl ::std::ops::BitOr for #name {
-            type Output = Self;
-
-            fn bitor(self, rhs: Self) -> Self {
-                Self(self.0 | rhs.0)
-            }
-        }
-        impl ::std::ops::BitAnd for #name {
-            type Output = Self;
-
-            fn bitand(self, rhs: Self) -> Self {
-                Self(self.0 & rhs.0)
-            }
         }
     }
 }

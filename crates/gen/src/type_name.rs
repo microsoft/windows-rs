@@ -403,12 +403,12 @@ mod tests {
 
         // Non-generic interface signature
         let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
-        let name = Type::from_type_def(def).name().clone();
+        let name = Type::from_type_def(&def).name().clone();
         assert!(TypeKind::Interface(name).signature() == "{5a648006-843a-4da9-865b-9d26e5dfad7b}");
 
         // Generic interface signature
         let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
-        let mut name = Type::from_type_def(def).name().clone();
+        let mut name = Type::from_type_def(&def).name().clone();
         name.generics.clear();
         name.generics.push(TypeKind::I32);
         assert!(
@@ -418,7 +418,7 @@ mod tests {
 
         // Signed enum signature
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncStatus"));
-        let name = Type::from_type_def(def).name().clone();
+        let name = Type::from_type_def(&def).name().clone();
         assert!(TypeKind::Enum(name).signature() == "enum(Windows.Foundation.AsyncStatus;i4)");
 
         // Unsigned enum signature
@@ -426,7 +426,7 @@ mod tests {
             "Windows.ApplicationModel.Appointments",
             "AppointmentDaysOfWeek",
         ));
-        let name = Type::from_type_def(def).name().clone();
+        let name = Type::from_type_def(&def).name().clone();
         assert!(
             TypeKind::Enum(name).signature()
                 == "enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)"
@@ -434,7 +434,7 @@ mod tests {
 
         // Non-generic delegate signature
         let def = reader.resolve_type_def(("Windows.Foundation", "AsyncActionCompletedHandler"));
-        let name = Type::from_type_def(def).name().clone();
+        let name = Type::from_type_def(&def).name().clone();
         assert!(
             TypeKind::Delegate(name).signature()
                 == "delegate({a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7})"
@@ -442,10 +442,10 @@ mod tests {
 
         // Generic delegate signature
         let stringable = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
-        let stringable = Type::from_type_def(stringable).name().clone();
+        let stringable = Type::from_type_def(&stringable).name().clone();
 
         let def = reader.resolve_type_def(("Windows.Foundation", "EventHandler`1"));
-        let mut name = Type::from_type_def(def).name().clone();
+        let mut name = Type::from_type_def(&def).name().clone();
         name.generics.clear();
         name.generics.push(TypeKind::Interface(stringable));
         assert!(
@@ -454,7 +454,7 @@ mod tests {
 
         // Class signature
         let def = reader.resolve_type_def(("Windows.Foundation", "Uri"));
-        let name = Type::from_type_def(def).name().clone();
+        let name = Type::from_type_def(&def).name().clone();
         assert!(
             TypeKind::Class(name).signature()
                 == "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
@@ -462,7 +462,7 @@ mod tests {
 
         // Class with generic default interface signature
         let def = reader.resolve_type_def(("Windows.Foundation", "WwwFormUrlDecoder"));
-        let name = Type::from_type_def(def).name().clone();
+        let name = Type::from_type_def(&def).name().clone();
         assert!(
              TypeKind::Class(name).signature()
                 == "rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})"
@@ -470,7 +470,7 @@ mod tests {
 
         // Simple struct
         let def = reader.resolve_type_def(("Windows.Foundation", "Rect"));
-        let name = Type::from_type_def(def).name().clone();
+        let name = Type::from_type_def(&def).name().clone();
         assert!(
             TypeKind::Struct(name).signature() == "struct(Windows.Foundation.Rect;f4;f4;f4;f4)"
         );
