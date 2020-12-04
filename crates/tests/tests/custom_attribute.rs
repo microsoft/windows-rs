@@ -2,20 +2,6 @@ use std::path::{Path, PathBuf};
 use winrt::*;
 extern crate winrt_winmd as winmd;
 
-fn find_winmds<P: AsRef<Path>>(directory: P) -> Vec<PathBuf> {
-    let mut result = Vec::new();
-    for entry in std::fs::read_dir(directory).unwrap() {
-        let entry = entry.unwrap();
-        let path = entry.path();
-        if path.is_file() {
-            if let Some("winmd") = path.extension().and_then(|s| s.to_str()) {
-                result.push(path);
-            }
-        }
-    }
-    result
-}
-
 #[test]
 fn named_arguments() -> Result<()> {
     let reader = winmd::TypeReader::from_build();
