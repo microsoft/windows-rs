@@ -20,13 +20,13 @@ pub struct TypeName {
     pub def: winmd::TypeDef,
 
     // The namespace of the type being tokenized.
-    calling_namespace: String,
+    calling_namespace: &'static str,
 }
 
 impl TypeName {
-    pub fn new(def: &winmd::TypeDef, generics: Vec<TypeKind>, calling_namespace: &str) -> Self {
+    pub fn new(def: &winmd::TypeDef, generics: Vec<TypeKind>, calling_namespace: &'static str) -> Self {
         let (namespace, name) = def.name();
-        let calling_namespace = calling_namespace.to_string();
+        //let calling_namespace = calling_namespace.to_string();
 
         Self {
             namespace,
@@ -47,7 +47,7 @@ impl TypeName {
     pub fn from_type_def_or_ref(
         code: &winmd::TypeDefOrRef,
         generics: &[TypeKind],
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Self {
         match code {
             winmd::TypeDefOrRef::TypeRef(value) => Self::from_type_ref(value, calling_namespace),
@@ -58,11 +58,11 @@ impl TypeName {
         }
     }
 
-    fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &str) -> Self {
+    fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &'static str) -> Self {
         Self::from_type_def(&type_ref.resolve(), calling_namespace)
     }
 
-    pub fn from_type_def(def: &winmd::TypeDef, calling_namespace: &str) -> Self {
+    pub fn from_type_def(def: &winmd::TypeDef, calling_namespace: &'static str) -> Self {
         let mut generics = Vec::new();
 
         for generic in def.generics() {
@@ -76,7 +76,7 @@ impl TypeName {
     pub fn from_type_spec_blob(
         blob: &mut winmd::Blob,
         generics: &[TypeKind],
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Self {
         blob.read_unsigned();
 
@@ -95,7 +95,7 @@ impl TypeName {
     pub fn from_type_spec(
         spec: &winmd::TypeSpec,
         generics: &[TypeKind],
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Self {
         let mut blob = spec.sig();
         blob.read_unsigned();

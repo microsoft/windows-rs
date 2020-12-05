@@ -16,7 +16,7 @@ impl Method {
         method: &winmd::MethodDef,
         vtable_offset: u32,
         generics: &[TypeKind],
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Method {
         let name = if method.flags().special() {
             let name = method.name();

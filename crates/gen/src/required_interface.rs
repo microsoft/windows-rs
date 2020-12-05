@@ -30,7 +30,7 @@ impl Ord for RequiredInterface {
 }
 
 impl RequiredInterface {
-    fn from_type_def(def: &winmd::TypeDef, calling_namespace: &str, kind: InterfaceKind) -> Self {
+    fn from_type_def(def: &winmd::TypeDef, calling_namespace: &'static str, kind: InterfaceKind) -> Self {
         let name = TypeName::from_type_def(def, calling_namespace);
         Self::from_type_name_and_kind(name, kind, calling_namespace)
     }
@@ -38,7 +38,7 @@ impl RequiredInterface {
     fn from_type_name_and_kind(
         name: TypeName,
         kind: InterfaceKind,
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Self {
         let methods = name
             .def
@@ -121,7 +121,7 @@ impl RequiredInterface {
 pub fn add_type(
     vec: &mut Vec<RequiredInterface>,
     def: &winmd::TypeDef,
-    calling_namespace: &str,
+    calling_namespace: &'static str,
     kind: InterfaceKind,
 ) {
     vec.push(RequiredInterface::from_type_def(
@@ -134,7 +134,7 @@ pub fn add_type(
 pub fn add_dependencies(
     vec: &mut Vec<RequiredInterface>,
     name: &TypeName,
-    calling_namespace: &str,
+    calling_namespace: &'static str,
     strip_default: bool,
 ) {
     for required in name.def.interfaces() {

@@ -90,11 +90,11 @@ impl TypeKind {
         }
     }
 
-    pub fn from_type_def(def: &winmd::TypeDef, calling_namespace: &str) -> Self {
+    pub fn from_type_def(def: &winmd::TypeDef, calling_namespace: &'static str) -> Self {
         Self::from_type_name(TypeName::from_type_def(def, calling_namespace))
     }
 
-    pub fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &str) -> Self {
+    pub fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &'static str) -> Self {
         let (namespace, name) = type_ref.name();
         if (namespace, name) == ("System", "Guid") {
             TypeKind::Guid
@@ -109,7 +109,7 @@ impl TypeKind {
     pub fn from_type_spec(
         spec: &winmd::TypeSpec,
         generics: &[TypeKind],
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Self {
         TypeKind::Interface(TypeName::from_type_spec(spec, generics, calling_namespace))
     }
@@ -117,7 +117,7 @@ impl TypeKind {
     fn from_type_def_or_ref(
         code: &winmd::TypeDefOrRef,
         generics: &[TypeKind],
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Self {
         match code {
             winmd::TypeDefOrRef::TypeRef(value) => Self::from_type_ref(value, calling_namespace),
@@ -131,7 +131,7 @@ impl TypeKind {
     pub fn from_blob(
         blob: &mut winmd::Blob,
         generics: &[TypeKind],
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Self {
         blob.read_expected(0x1D);
         blob.read_modifiers();
@@ -166,7 +166,7 @@ impl TypeKind {
         }
     }
 
-    pub fn from_field(field: &winmd::Field, calling_namespace: &str) -> Self {
+    pub fn from_field(field: &winmd::Field, calling_namespace: &'static str) -> Self {
         let mut blob = field.sig();
         blob.read_unsigned();
         blob.read_modifiers();
