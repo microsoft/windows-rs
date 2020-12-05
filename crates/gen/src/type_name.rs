@@ -9,11 +9,11 @@ pub struct TypeName {
     /// The type's module namespace as a period separated string
     ///
     /// e.g. "Outer.Inner"
-    pub namespace: String,
+    pub namespace: &'static str,
     /// The type's unqualified name without generics as a string
     ///
     /// e.g. "MyType"
-    pub name: String,
+    pub name: &'static str,
     /// A collection of the types generics
     pub generics: Vec<TypeKind>,
     /// The type definition for this type
@@ -26,8 +26,6 @@ pub struct TypeName {
 impl TypeName {
     pub fn new(def: &winmd::TypeDef, generics: Vec<TypeKind>, calling_namespace: &str) -> Self {
         let (namespace, name) = def.name();
-        let namespace = namespace.to_string();
-        let name = name.to_string();
         let calling_namespace = calling_namespace.to_string();
 
         Self {

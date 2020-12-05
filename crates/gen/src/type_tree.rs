@@ -54,7 +54,7 @@ impl TypeTree {
                 self.insert2(reader, set, &def);
             }
 
-            self.insert(t.name().namespace.clone(), t);
+            self.insert(t.name().namespace.to_string(), t);
         }
     }
 
