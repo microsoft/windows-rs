@@ -8,7 +8,7 @@ pub struct Field {
 }
 
 impl Field {
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'static str {
         self.reader.str(self.row, 1)
     }
 

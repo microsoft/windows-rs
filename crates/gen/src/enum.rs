@@ -4,7 +4,7 @@ use squote::{format_ident, quote, Literal, TokenStream};
 #[derive(Debug)]
 pub struct Enum {
     pub name: TypeName,
-    pub fields: Vec<(String, EnumConstant)>,
+    pub fields: Vec<(&'static str, EnumConstant)>,
     pub signature: String,
 }
 
@@ -26,7 +26,6 @@ impl Enum {
 
         for field in name.def.fields() {
             for constant in field.constants() {
-                let name = field.name().to_string();
                 let mut value = constant.value();
 
                 let value = match constant.value_type() {
@@ -35,7 +34,7 @@ impl Enum {
                     _ => panic!("Enum::from_type_def"),
                 };
 
-                fields.push((name, value));
+                fields.push((field.name(), value));
             }
         }
 
