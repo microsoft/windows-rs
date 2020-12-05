@@ -24,7 +24,7 @@ pub enum TypeKind {
     Enum(TypeName),
     Struct(TypeName),
     Delegate(TypeName),
-    Generic(String),
+    Generic(&'static str),
 }
 
 impl TypeKind {
@@ -76,7 +76,7 @@ impl TypeKind {
             Self::Enum(name) => name.runtime_name(),
             Self::Struct(name) => name.runtime_name(),
             Self::Delegate(name) => name.runtime_name(),
-            Self::Generic(name) => name.to_owned(),
+            Self::Generic(name) => name.to_string(),
         }
     }
 

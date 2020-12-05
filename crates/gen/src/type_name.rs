@@ -66,8 +66,7 @@ impl TypeName {
         let mut generics = Vec::new();
 
         for generic in def.generics() {
-            let name = generic.name().to_string();
-            generics.push(TypeKind::Generic(name));
+            generics.push(TypeKind::Generic(generic.name()));
         }
 
         Self::new(def, generics, calling_namespace)
