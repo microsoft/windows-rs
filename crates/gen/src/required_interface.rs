@@ -30,7 +30,11 @@ impl Ord for RequiredInterface {
 }
 
 impl RequiredInterface {
-    fn from_type_def(def: &winmd::TypeDef, calling_namespace: &'static str, kind: InterfaceKind) -> Self {
+    fn from_type_def(
+        def: &winmd::TypeDef,
+        calling_namespace: &'static str,
+        kind: InterfaceKind,
+    ) -> Self {
         let name = TypeName::from_type_def(def, calling_namespace);
         Self::from_type_name_and_kind(name, kind, calling_namespace)
     }

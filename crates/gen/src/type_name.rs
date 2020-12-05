@@ -24,7 +24,11 @@ pub struct TypeName {
 }
 
 impl TypeName {
-    pub fn new(def: &winmd::TypeDef, generics: Vec<TypeKind>, calling_namespace: &'static str) -> Self {
+    pub fn new(
+        def: &winmd::TypeDef,
+        generics: Vec<TypeKind>,
+        calling_namespace: &'static str,
+    ) -> Self {
         let (namespace, name) = def.name();
         //let calling_namespace = calling_namespace.to_string();
 
