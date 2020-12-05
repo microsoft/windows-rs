@@ -54,20 +54,20 @@ impl TypeTree {
                 self.insert2(reader, set, &def);
             }
 
-            self.insert(t.name().namespace.to_string(), t);
+            self.insert(t.name().namespace, t);
         }
     }
 
     /// Insert a [`Type`] into [`TypeTree`]
     ///
     /// This recursively searchs the tree for an entry corresponding to the namespace
-    pub fn insert(&mut self, namespace: String, t: Type) {
+    pub fn insert(&mut self, namespace: &'static str, t: Type) {
         if let Some(pos) = namespace.find('.') {
             self.namespaces
                 .0
-                .entry(namespace[..pos].to_string())
+                .entry(&namespace[..pos])
                 .or_default()
-                .insert(namespace[pos + 1..].to_string(), t);
+                .insert(&namespace[pos + 1..], t);
         } else {
             self.namespaces
                 .0
@@ -91,7 +91,7 @@ impl TypeTree {
     pub fn reexport(&mut self) {
         self.namespaces
             .0
-            .entry("Windows".to_string())
+            .entry("Windows")
             .or_default()
             .include_foundation = true;
     }
