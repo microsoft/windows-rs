@@ -42,9 +42,14 @@ pub fn build(stream: TokenStream) -> TokenStream {
         Err(t) => return t.into(),
     };
 
-    let mut source = ::winrt_gen::build_windows_dir();
+    let workspace_dir = ::winrt_gen::workspace_dir();
+
+    let mut source = ::winrt_gen::build_windows_dir_at_workspace(&workspace_dir);
     source.push(ARCHITECTURE);
     let source = source.to_str().expect("Invalid build windows dir");
+
+    let destination = ::winrt_gen::build_target_dir_at_at_workspace(&workspace_dir);
+    let destination = destination.to_str().expect("Invalid build target dir");
 
     let tokens = quote! {
         {
@@ -103,12 +108,11 @@ pub fn build(stream: TokenStream) -> TokenStream {
             }
 
             let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
-            let manifest_dir = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set");
 
-            let mut destination = ::std::path::PathBuf::from(&manifest_dir);
-            destination.push("target");
+            let source = ::std::path::PathBuf::from(#source);
+            let destination = ::std::path::PathBuf::from(#destination);
 
-            copy_to_profile(&::std::path::PathBuf::from(#source), &destination, &profile);
+            copy_to_profile(&source, &destination, &profile);
 
         }
     };
