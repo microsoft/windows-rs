@@ -11,7 +11,7 @@ pub fn build_windows_dir_at_workspace(workspace_dir: &std::path::PathBuf) -> std
 }
 
 /// Returns the build's target directory in the passed workspace directory as a `PathBuf`.
-pub fn build_target_dir_at_at_workspace(workspace_dir: &std::path::PathBuf) -> std::path::PathBuf {
+pub fn build_target_dir_at_workspace(workspace_dir: &std::path::PathBuf) -> std::path::PathBuf {
     let mut path = workspace_dir.clone();
     path.push("target");
     path
