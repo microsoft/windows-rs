@@ -46,7 +46,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
     source.push(ARCHITECTURE);
     let source = source.to_str().expect("Invalid build windows dir");
 
-    let destination = winrt_gen::build_target_dir();
+    let destination = winrt_gen::workspace_target_dir();
     let destination = destination.to_str().expect("Invalid build target dir");
 
     let tokens = quote! {
