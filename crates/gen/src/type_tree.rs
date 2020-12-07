@@ -5,7 +5,7 @@ use squote::TokenStream;
 /// A namespaced tree of types
 #[derive(Default)]
 pub struct TypeTree {
-    pub types: Vec<Type>,
+    pub types: Vec<TypeDefinition>,
     pub namespaces: TypeNamespaces,
     pub include_foundation: bool,
 }
@@ -48,7 +48,7 @@ impl TypeTree {
         def: &winmd::TypeDef,
     ) {
         if set.insert(*def) {
-            let t = Type::from_type_def(def);
+            let t = TypeDefinition::from_type_def(def);
 
             for def in t.dependencies() {
                 self.insert2(reader, set, &def);
@@ -58,10 +58,10 @@ impl TypeTree {
         }
     }
 
-    /// Insert a [`Type`] into [`TypeTree`]
+    /// Insert a [`TypeDefinition`] into [`TypeTree`]
     ///
     /// This recursively searchs the tree for an entry corresponding to the namespace
-    pub fn insert(&mut self, namespace: &'static str, t: Type) {
+    pub fn insert(&mut self, namespace: &'static str, t: TypeDefinition) {
         if let Some(pos) = namespace.find('.') {
             self.namespaces
                 .0

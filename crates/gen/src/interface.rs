@@ -165,11 +165,11 @@ mod tests {
     fn interface((namespace, type_name): (&str, &str)) -> Interface {
         let reader = &winmd::TypeReader::from_build();
         let t = reader.resolve_type_def((namespace, type_name));
-        let t = Type::from_type_def(&t);
+        let t = TypeDefinition::from_type_def(&t);
 
         match t {
-            Type::Interface(t) => t,
-            _ => panic!("Type not an interface"),
+            TypeDefinition::Interface(t) => t,
+            _ => panic!("TypeDefinition not an interface"),
         }
     }
 

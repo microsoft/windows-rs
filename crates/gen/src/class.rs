@@ -332,9 +332,9 @@ mod tests {
         let reader = &winmd::TypeReader::from_build();
         let def = reader.resolve_type_def((namespace, type_name));
 
-        match Type::from_type_def(&def) {
-            Type::Class(t) => t,
-            _ => panic!("Type not an interface"),
+        match TypeDefinition::from_type_def(&def) {
+            TypeDefinition::Class(t) => t,
+            _ => panic!("TypeDefinition not an interface"),
         }
     }
 

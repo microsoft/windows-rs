@@ -3,7 +3,7 @@ use crate::*;
 use squote::TokenStream;
 
 #[derive(Debug)]
-pub enum Type {
+pub enum TypeDefinition {
     Class(Class),
     Interface(Interface),
     Enum(Enum),
@@ -15,7 +15,7 @@ pub enum Type {
     Delegate32(Delegate32),
 }
 
-impl Type {
+impl TypeDefinition {
     pub fn from_type_def(def: &winmd::TypeDef) -> Self {
         let name = TypeName::from_type_def(def, def.name().0);
 
@@ -54,43 +54,43 @@ impl Type {
 
     pub fn gen(&self) -> TokenStream {
         match self {
-            Type::Class(t) => t.gen(),
-            Type::Interface(t) => t.gen(),
-            Type::Enum(t) => t.gen(),
-            Type::Struct(t) => t.gen(),
-            Type::Delegate(t) => t.gen(),
-            Type::Class32(t) => t.gen(),
-            Type::Interface32(t) => t.gen(),
-            Type::Struct32(t) => t.gen(),
-            Type::Delegate32(t) => t.gen(),
+            Self::Class(t) => t.gen(),
+            Self::Interface(t) => t.gen(),
+            Self::Enum(t) => t.gen(),
+            Self::Struct(t) => t.gen(),
+            Self::Delegate(t) => t.gen(),
+            Self::Class32(t) => t.gen(),
+            Self::Interface32(t) => t.gen(),
+            Self::Struct32(t) => t.gen(),
+            Self::Delegate32(t) => t.gen(),
         }
     }
 
     pub fn name(&self) -> &TypeName {
         match self {
-            Type::Class(t) => &t.name,
-            Type::Interface(t) => &t.name,
-            Type::Enum(t) => &t.name,
-            Type::Struct(t) => &t.name,
-            Type::Delegate(t) => &t.name,
-            Type::Class32(t) => &t.name,
-            Type::Interface32(t) => &t.name,
-            Type::Struct32(t) => &t.name,
-            Type::Delegate32(t) => &t.name,
+            Self::Class(t) => &t.name,
+            Self::Interface(t) => &t.name,
+            Self::Enum(t) => &t.name,
+            Self::Struct(t) => &t.name,
+            Self::Delegate(t) => &t.name,
+            Self::Class32(t) => &t.name,
+            Self::Interface32(t) => &t.name,
+            Self::Struct32(t) => &t.name,
+            Self::Delegate32(t) => &t.name,
         }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         match self {
-            Type::Class(t) => t.dependencies(),
-            Type::Interface(t) => t.dependencies(),
-            Type::Enum(_) => Vec::new(),
-            Type::Struct(t) => t.dependencies(),
-            Type::Delegate(t) => t.dependencies(),
-            Type::Class32(t) => t.dependencies(),
-            Type::Interface32(t) => t.dependencies(),
-            Type::Struct32(t) => t.dependencies(),
-            Type::Delegate32(t) => t.dependencies(),
+            Self::Class(t) => t.dependencies(),
+            Self::Interface(t) => t.dependencies(),
+            Self::Enum(_) => Vec::new(),
+            Self::Struct(t) => t.dependencies(),
+            Self::Delegate(t) => t.dependencies(),
+            Self::Class32(t) => t.dependencies(),
+            Self::Interface32(t) => t.dependencies(),
+            Self::Struct32(t) => t.dependencies(),
+            Self::Delegate32(t) => t.dependencies(),
         }
     }
 }
