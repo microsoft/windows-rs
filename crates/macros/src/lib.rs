@@ -42,7 +42,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
         Err(t) => return t.into(),
     };
 
-    let mut source = winrt_gen::build_windows_dir();
+    let mut source = winrt_gen::workspace_windows_dir();
     source.push(ARCHITECTURE);
     let source = source.to_str().expect("Invalid build windows dir");
 

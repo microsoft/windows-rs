@@ -13,7 +13,7 @@ pub fn reader() -> &'static winmd::TypeReader {
 }
 
 fn winmd_paths() -> Vec<std::path::PathBuf> {
-    let mut windows_path = winrt_gen::build_windows_dir();
+    let mut windows_path = winrt_gen::workspace_windows_dir();
     windows_path.push("winmd");
 
     let mut paths = vec![];

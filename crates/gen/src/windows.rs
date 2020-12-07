@@ -1,7 +1,7 @@
 use lazy_static::lazy_static;
 
 /// Returns the build's `.windows` directory in the root of the workspace as a `PathBuf`.
-pub fn build_windows_dir() -> std::path::PathBuf {
+pub fn workspace_windows_dir() -> std::path::PathBuf {
     let mut path = WORKSPACE_DIR.clone();
     path.push(".windows");
     path
