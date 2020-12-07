@@ -27,6 +27,6 @@ fn main() {
         windows::ui::xaml::{IApplicationOverrides, IApplicationOverrides2}
 
         // Used to test Win32 support
-        microsoft::Windows::sdk::win32::*
+        windows::win32::*
     );
 }

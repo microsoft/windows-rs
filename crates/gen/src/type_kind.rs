@@ -2,8 +2,11 @@ use crate::*;
 use squote::{quote, TokenStream};
 use winmd::Decode;
 
+// TODO: TypeKind should be a struct that also stores pointer count
+// and array rank.
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeKind {
+    Void,
     Bool,
     Char,
     I8,
@@ -16,6 +19,8 @@ pub enum TypeKind {
     U64,
     F32,
     F64,
+    ISize,
+    USize,
     String,
     Object,
     Guid,
@@ -50,7 +55,7 @@ impl TypeKind {
             Self::Enum(name) => name.enum_signature(),
             Self::Struct(name) => name.struct_signature(),
             Self::Delegate(name) => name.delegate_signature(),
-            Self::Generic(_) => panic!("signature"),
+            _ => panic!("TypeKind::signature"),
         }
     }
 
@@ -77,6 +82,7 @@ impl TypeKind {
             Self::Struct(name) => name.runtime_name(),
             Self::Delegate(name) => name.runtime_name(),
             Self::Generic(name) => name.to_string(),
+            _ => panic!("TypeKind::runtime_name"),
         }
     }
 
@@ -132,11 +138,19 @@ impl TypeKind {
         blob: &mut winmd::Blob,
         generics: &[TypeKind],
         calling_namespace: &'static str,
-    ) -> Self {
+    ) -> (Self, u32) {
         blob.read_expected(0x1D);
+
+        let mut pointers = 0;
+
+        while blob.read_expected(0x0f) {
+            pointers += 1;
+        }
+
         blob.read_modifiers();
 
-        match blob.read_unsigned() {
+        let kind = match blob.read_unsigned() {
+            0x01 => TypeKind::Void,
             0x02 => TypeKind::Bool,
             0x03 => TypeKind::Char,
             0x04 => TypeKind::I8,
@@ -149,24 +163,41 @@ impl TypeKind {
             0x0B => TypeKind::U64,
             0x0C => TypeKind::F32,
             0x0D => TypeKind::F64,
+            0x18 => TypeKind::ISize,
+            0x19 => TypeKind::USize,
             0x0E => TypeKind::String,
             0x1C => TypeKind::Object,
-            0x11 | 0x12 => Self::from_type_def_or_ref(
-                &winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index),
-                generics,
-                calling_namespace,
-            ),
+            0x11 | 0x12 => {
+                let def =
+                    winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index);
+
+                if def.name().0.is_empty() {
+                    // TODO: handle nested types
+                    TypeKind::Bool
+                } else {
+                    Self::from_type_def_or_ref(&def, generics, calling_namespace)
+                }
+            }
             0x13 => generics[blob.read_unsigned() as usize].clone(),
+            0x14 => {
+                // type
+                // rank (dimensions)
+                // bounds count
+                // bound
+                TypeKind::Bool
+            }
             0x15 => Self::from_type_name(TypeName::from_type_spec_blob(
                 blob,
                 generics,
                 calling_namespace,
             )),
-            _ => panic!("TypeKind::from_blob"),
-        }
+            unused => panic!("TypeKind::from_blob 0x{:X}", unused),
+        };
+
+        (kind, pointers)
     }
 
-    pub fn from_field(field: &winmd::Field, calling_namespace: &'static str) -> Self {
+    pub fn from_field(field: &winmd::Field, calling_namespace: &'static str) -> (Self, u32) {
         let mut blob = field.sig();
         blob.read_unsigned();
         blob.read_modifiers();
@@ -186,6 +217,7 @@ impl TypeKind {
 
     pub fn gen(&self) -> TokenStream {
         match self {
+            Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
             Self::Char => quote! { u16 },
             Self::I8 => quote! { i8 },
@@ -198,6 +230,8 @@ impl TypeKind {
             Self::U64 => quote! { u64 },
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
+            Self::ISize => quote! { isize },
+            Self::USize => quote! { usize },
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
@@ -215,6 +249,7 @@ impl TypeKind {
 
     pub fn gen_full(&self) -> TokenStream {
         match self {
+            Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
             Self::Char => quote! { u16 },
             Self::I8 => quote! { i8 },
@@ -227,6 +262,8 @@ impl TypeKind {
             Self::U64 => quote! { u64 },
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
+            Self::ISize => quote! { isize },
+            Self::USize => quote! { usize },
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
@@ -258,6 +295,7 @@ impl TypeKind {
 
     pub fn gen_abi(&self) -> TokenStream {
         match self {
+            Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
             Self::Char => quote! { u16 },
             Self::I8 => quote! { i8 },
@@ -270,6 +308,8 @@ impl TypeKind {
             Self::U64 => quote! { u64 },
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
+            Self::ISize => quote! { isize },
+            Self::USize => quote! { usize },
             Self::Guid => quote! { ::winrt::Guid },
             Self::String
             | Self::Object

@@ -89,7 +89,8 @@ impl TypeName {
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {
-            args.push(TypeKind::from_blob(blob, generics, calling_namespace));
+            let (kind, pointers) = TypeKind::from_blob(blob, generics, calling_namespace);
+            args.push(kind);
         }
 
         Self::new(&def, args, calling_namespace)
@@ -217,7 +218,8 @@ impl TypeName {
 
         for field in self.def.fields() {
             result.push(';');
-            result.push_str(&TypeKind::from_field(&field, &self.calling_namespace).signature());
+            let (kind, pointers) = TypeKind::from_field(&field, &self.calling_namespace);
+            result.push_str(&kind.signature());
         }
 
         result.push(')');

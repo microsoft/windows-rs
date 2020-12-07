@@ -1,15 +1,22 @@
 use crate::*;
 use squote::{quote, TokenStream};
 
-// TODO: have Struct handle both WinRT and Win32 structs - it's almost all the same code.
 #[derive(Debug)]
 pub struct Struct32 {
     pub name: TypeName,
+    pub fields: Vec<(&'static str, TypeKind, u32)>,
 }
 
 impl Struct32 {
     pub fn from_type_name(name: TypeName) -> Self {
-        Self { name }
+        let mut fields = Vec::new();
+
+        for field in name.def.fields() {
+            let (kind, pointers) = TypeKind::from_field(&field, &name.namespace);
+            fields.push((field.name(), kind, pointers));
+        }
+
+        Self { name, fields }
     }
 
     pub fn gen(&self) -> TokenStream {

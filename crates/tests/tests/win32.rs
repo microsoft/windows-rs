@@ -1,4 +1,4 @@
-use tests::microsoft::windows::sdk::win32::{ACCESS_MODE, DXGI_ADAPTER_FLAG};
+use tests::windows::win32::{ACCESS_MODE, DXGI_ADAPTER_FLAG};
 use winrt::Abi;
 
 #[test]
