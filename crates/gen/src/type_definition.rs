@@ -49,6 +49,7 @@ impl TypeDefinition {
                     Self::Delegate32(Delegate32::from_type_name(name))
                 }
             }
+            _ => panic!("TypeDefinition.from_type_def {:?}", def.name()),
         }
     }
 

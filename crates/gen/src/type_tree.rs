@@ -18,8 +18,11 @@ impl TypeTree {
         for limit in limits.limits() {
             match &limit.limit {
                 TypeLimit::All => {
-                    for def in reader.types[&limit.namespace].values() {
-                        tree.insert2(reader, &mut set, &winmd::TypeDef { reader, row: *def });
+                    for (_, def) in reader.namespace_types(&limit.namespace) {
+                        match def.category() {
+                            winmd::TypeCategory::Attribute | winmd::TypeCategory::Contract => {}
+                            _ => tree.insert2(reader, &mut set, &def),
+                        };
                     }
                 }
                 TypeLimit::Some(types) => {

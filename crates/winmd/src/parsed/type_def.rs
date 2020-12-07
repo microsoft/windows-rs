@@ -85,21 +85,7 @@ impl TypeDef {
     }
 
     pub fn is_winrt(&self) -> bool {
-        let flags = self.flags();
-
-        if !flags.windows_runtime() {
-            false
-        } else if flags.interface() {
-            true
-        } else {
-            match self.extends().name() {
-                ("System", "ValueType") => {
-                    !self.has_attribute(("Windows.Foundation.Metadata", "ApiContractAttribute"))
-                }
-                ("System", "Attribute") => false,
-                _ => true,
-            }
-        }
+        self.flags().windows_runtime()
     }
 
     pub fn category(&self) -> TypeCategory {
@@ -109,7 +95,14 @@ impl TypeDef {
             match self.extends().name() {
                 ("System", "Enum") => TypeCategory::Enum,
                 ("System", "MulticastDelegate") => TypeCategory::Delegate,
-                ("System", "ValueType") => TypeCategory::Struct,
+                ("System", "Attribute") => TypeCategory::Attribute,
+                ("System", "ValueType") => {
+                    if self.has_attribute(("Windows.Foundation.Metadata", "ApiContractAttribute")) {
+                        TypeCategory::Contract
+                    } else {
+                        TypeCategory::Struct
+                    }
+                }
                 _ => TypeCategory::Class,
             }
         }

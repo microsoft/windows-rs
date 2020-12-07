@@ -29,6 +29,7 @@ pub enum TypeKind {
     String,
     Object,
     Guid,
+    IUnknown,
     Class(TypeName),
     Interface(TypeName),
     Enum(TypeName),
@@ -170,6 +171,7 @@ impl TypeKind {
             winmd::TypeCategory::Enum => Self::Enum(name),
             winmd::TypeCategory::Struct => Self::Struct(name),
             winmd::TypeCategory::Delegate => Self::Delegate(name),
+            _ => panic!("TypeKind::from_type_name"),
         }
     }
 
@@ -178,14 +180,14 @@ impl TypeKind {
     }
 
     pub fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &'static str) -> Self {
-        let (namespace, name) = type_ref.name();
-        if (namespace, name) == ("System", "Guid") {
-            Self::Guid
-        } else {
+        match type_ref.name() {
+            ("System", "Guid") => Self::Guid,
+            ("Windows.Win32", "IUnknown") => Self::IUnknown,
+            (namespace, name) => 
             Self::from_type_def(
                 &type_ref.reader.resolve_type_def((namespace, name)),
                 calling_namespace,
-            )
+            ),
         }
     }
 
@@ -242,6 +244,7 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
+            Self::IUnknown => quote! { ::winrt::IUnknown },
             Self::Class(name) => name.gen(),
             Self::Interface(name) => name.gen(),
             Self::Enum(name) => name.gen(),
@@ -274,6 +277,7 @@ impl TypeKind {
             Self::String => quote! { ::winrt::HString },
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
+            Self::IUnknown => quote! { ::winrt::IUnknown },
             Self::Class(name) => name.gen_full(),
             Self::Interface(name) => name.gen_full(),
             Self::Enum(name) => name.gen_full(),
@@ -289,11 +293,9 @@ impl TypeKind {
     pub fn gen_field(&self) -> TokenStream {
         let mut tokens = self.gen();
 
-        if let Self::Interface(name) = self {
-            if name.name == "IReference`1" && name.namespace == "Windows.Foundation" {
-                tokens = quote! {
-                    ::std::option::Option<#tokens>
-                }
+        if let Self::Interface(_) = self {
+            tokens = quote! {
+                ::std::option::Option<#tokens>
             }
         }
 
@@ -320,6 +322,7 @@ impl TypeKind {
             Self::Guid => quote! { ::winrt::Guid },
             Self::String
             | Self::Object
+            | Self::IUnknown
             | Self::Class(_)
             | Self::Interface(_)
             | Self::Delegate(_) => {

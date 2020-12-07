@@ -19,11 +19,41 @@ impl Struct32 {
         Self { name, fields }
     }
 
-    pub fn gen(&self) -> TokenStream {
-        quote! {}
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
+        self.fields
+            .iter()
+            .flat_map(|i| i.1.kind.dependencies())
+            .collect()
     }
 
-    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        Vec::new()
+    pub fn gen(&self) -> TokenStream {
+        let name = self.name.gen();
+
+        let mut fields = TokenStream::new();
+
+        for (name, t) in &self.fields {
+            let name = format_ident(&name);
+            fields.combine(&quote! { pub #name: });
+
+            for _ in 0..t.pointers {
+                fields.combine(&quote! { *mut });
+            }
+
+            let kind = t.kind.gen_field();
+            fields.combine(&quote! { #kind, });
+        }
+
+        // TODO: unroll these traits - it's too expensive to call derive macro.
+        // https://github.com/microsoft/winrt-rs/issues/353
+
+        quote! {
+            #[repr(C)]
+            #[allow(non_snake_case)]
+            //#[derive(::std::fmt::Debug, ::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
+            pub struct #name {
+                #fields
+            }
+            //impl ::std::cmp::Eq for #name {}
+        }
     }
 }

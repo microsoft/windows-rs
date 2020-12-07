@@ -5,6 +5,7 @@ use squote::{format_ident, quote, Literal, TokenStream};
 pub struct Enum {
     pub name: TypeName,
     pub fields: Vec<(&'static str, EnumConstant)>,
+    pub underlying_type: winmd::ElementType,
     pub signature: String,
 }
 
@@ -23,9 +24,10 @@ impl Enum {
         };
 
         let mut fields = Vec::new();
+        let mut underlying_type = None;
 
         for field in name.def.fields() {
-            for constant in field.constants() {
+            if let Some(constant) = field.constants().next() {
                 let mut value = constant.value();
 
                 let value = match constant.value_type() {
@@ -35,47 +37,51 @@ impl Enum {
                 };
 
                 fields.push((field.name(), value));
+            } else {
+                let blob = &mut field.sig();
+                blob.read_unsigned();
+                blob.read_modifiers();
+    
+                blob.read_expected(0x1D);
+                blob.read_modifiers();
+
+                underlying_type = Some(winmd::ElementType::from_blob(blob));
             }
         }
 
         Self {
             name,
             fields,
+            underlying_type : underlying_type.expect("Enum.from_type_name"),
             signature,
         }
     }
 
     pub fn gen(&self) -> TokenStream {
-        if self.fields.is_empty() {
-            return TokenStream::new();
-        }
-
         let name = self.name.gen();
 
-        let bitwise = if let EnumConstant::I32(_) = self.fields[0].1 {
-            TokenStream::new()
-        } else {
-            quote! {
-                impl ::std::ops::BitOr for #name {
-                    type Output = Self;
-
-                    fn bitor(self, rhs: Self) -> Self {
-                        Self(self.0 | rhs.0)
+        let (underlying_type, bitwise) = match self.underlying_type {
+            winmd::ElementType::I32 => (format_ident!("i32"), TokenStream::new()),
+            winmd::ElementType::U32 => (
+                format_ident!("u32"),
+                quote! {
+                    impl ::std::ops::BitOr for #name {
+                        type Output = Self;
+    
+                        fn bitor(self, rhs: Self) -> Self {
+                            Self(self.0 | rhs.0)
+                        }
                     }
-                }
-                impl ::std::ops::BitAnd for #name {
-                    type Output = Self;
-
-                    fn bitand(self, rhs: Self) -> Self {
-                        Self(self.0 & rhs.0)
+                    impl ::std::ops::BitAnd for #name {
+                        type Output = Self;
+    
+                        fn bitand(self, rhs: Self) -> Self {
+                            Self(self.0 & rhs.0)
+                        }
                     }
-                }
-            }
-        };
-
-        let repr = match self.fields[0].1 {
-            EnumConstant::U32(_) => format_ident!("u32"),
-            EnumConstant::I32(_) => format_ident!("i32"),
+                },
+            ),
+            _ => panic!("Unexpected enum underlying type: {}", name),
         };
 
         let fields = self.fields.iter().map(|(name, value)| {
@@ -106,7 +112,7 @@ impl Enum {
         quote! {
             #[allow(non_camel_case_types)]
             #[repr(transparent)]
-            pub struct #name(#repr);
+            pub struct #name(#underlying_type);
             impl ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self(self.0)
@@ -134,7 +140,7 @@ impl Enum {
                 #(#fields)*
             }
             unsafe impl ::winrt::Abi for #name {
-                type Abi = #repr;
+                type Abi = #underlying_type;
             }
             #runtime_type
             #bitwise

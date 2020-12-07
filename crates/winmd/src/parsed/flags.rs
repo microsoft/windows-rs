@@ -47,6 +47,8 @@ pub enum TypeCategory {
     Enum,
     Struct,
     Delegate,
+    Attribute,
+    Contract,
 }
 
 #[allow(dead_code)]

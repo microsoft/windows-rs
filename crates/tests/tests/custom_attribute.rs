@@ -1,4 +1,3 @@
-use std::path::{Path, PathBuf};
 use winrt::*;
 extern crate winrt_winmd as winmd;
 

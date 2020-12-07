@@ -13,7 +13,12 @@ impl Delegate32 {
     }
 
     pub fn gen(&self) -> TokenStream {
-        quote! {}
+        let definition = self.name.gen_definition();
+
+        quote! {
+            #[allow(non_camel_case_types)]
+            pub type #definition = extern "system" fn();
+        }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {

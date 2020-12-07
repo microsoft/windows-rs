@@ -16,3 +16,8 @@ fn unsigned_enum32() {
         DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_REMOTE;
     assert!(both.abi() == 3);
 }
+
+#[test]
+fn rect() {
+    
+}
