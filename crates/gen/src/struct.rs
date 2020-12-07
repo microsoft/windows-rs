@@ -16,9 +16,9 @@ impl Struct {
 
         for field in name.def.fields() {
             let field_name = to_snake(field.name(), MethodKind::Normal);
-            let (kind, pointers) = TypeKind::from_field(&field, &name.namespace);
+            let t = Type::from_field(&field, &name.namespace);
 
-            fields.push((field_name, kind));
+            fields.push((field_name, t.kind));
         }
 
         Self {

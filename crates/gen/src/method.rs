@@ -52,13 +52,13 @@ impl Method {
         } else {
             let name = "result__".to_owned();
             let array = blob.peek_unsigned().0 == 0x1D;
-            let (kind, pointers) = TypeKind::from_blob(&mut blob, generics, calling_namespace);
+            let t = Type::from_blob(&mut blob, generics, calling_namespace);
             let input = false;
             let by_ref = true;
             let is_const = false;
             Some(Param {
                 name,
-                kind,
+                kind: t.kind,
                 array,
                 input,
                 by_ref,
@@ -80,11 +80,11 @@ impl Method {
 
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
-                let (kind, pointers) = TypeKind::from_blob(&mut blob, generics, calling_namespace);
+                let t = Type::from_blob(&mut blob, generics, calling_namespace);
 
                 params.push(Param {
                     name,
-                    kind,
+                    kind: t.kind,
                     array,
                     input,
                     by_ref,

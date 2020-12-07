@@ -76,6 +76,7 @@ impl TypeName {
         Self::new(def, generics, calling_namespace)
     }
 
+    // TODO: move to `Type`?
     pub fn from_type_spec_blob(
         blob: &mut winmd::Blob,
         generics: &[TypeKind],
@@ -89,8 +90,8 @@ impl TypeName {
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {
-            let (kind, pointers) = TypeKind::from_blob(blob, generics, calling_namespace);
-            args.push(kind);
+            let t = Type::from_blob(blob, generics, calling_namespace);
+            args.push(t.kind);
         }
 
         Self::new(&def, args, calling_namespace)
@@ -218,8 +219,8 @@ impl TypeName {
 
         for field in self.def.fields() {
             result.push(';');
-            let (kind, pointers) = TypeKind::from_field(&field, &self.calling_namespace);
-            result.push_str(&kind.signature());
+            let t = Type::from_field(&field, &self.calling_namespace);
+            result.push_str(&t.kind.signature());
         }
 
         result.push(')');
