@@ -2,8 +2,25 @@ use crate::*;
 use squote::{quote, TokenStream};
 use winmd::Decode;
 
-// TODO: TypeKind should be a struct that also stores pointer count
-// and array rank.
+#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub enum Type {
+    Kind(TypeKind),
+    Ptr(TypePtr),
+    Array(TypeArray),
+}
+
+#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct TypePtr {
+    pub kind: TypeKind,
+    pub stars: usize,
+}
+
+#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct TypeArray {
+    pub kind: TypeKind,
+    pub len: usize,
+}
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeKind {
     Void,
@@ -88,11 +105,11 @@ impl TypeKind {
 
     fn from_type_name(name: TypeName) -> Self {
         match name.def.category() {
-            winmd::TypeCategory::Interface => TypeKind::Interface(name),
-            winmd::TypeCategory::Class => TypeKind::Class(name),
-            winmd::TypeCategory::Enum => TypeKind::Enum(name),
-            winmd::TypeCategory::Struct => TypeKind::Struct(name),
-            winmd::TypeCategory::Delegate => TypeKind::Delegate(name),
+            winmd::TypeCategory::Interface => Self::Interface(name),
+            winmd::TypeCategory::Class => Self::Class(name),
+            winmd::TypeCategory::Enum => Self::Enum(name),
+            winmd::TypeCategory::Struct => Self::Struct(name),
+            winmd::TypeCategory::Delegate => Self::Delegate(name),
         }
     }
 
@@ -103,7 +120,7 @@ impl TypeKind {
     pub fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &'static str) -> Self {
         let (namespace, name) = type_ref.name();
         if (namespace, name) == ("System", "Guid") {
-            TypeKind::Guid
+            Self::Guid
         } else {
             Self::from_type_def(
                 &type_ref.reader.resolve_type_def((namespace, name)),
@@ -114,15 +131,15 @@ impl TypeKind {
 
     pub fn from_type_spec(
         spec: &winmd::TypeSpec,
-        generics: &[TypeKind],
+        generics: &[Self],
         calling_namespace: &'static str,
     ) -> Self {
-        TypeKind::Interface(TypeName::from_type_spec(spec, generics, calling_namespace))
+        Self::Interface(TypeName::from_type_spec(spec, generics, calling_namespace))
     }
 
     fn from_type_def_or_ref(
         code: &winmd::TypeDefOrRef,
-        generics: &[TypeKind],
+        generics: &[Self],
         calling_namespace: &'static str,
     ) -> Self {
         match code {
@@ -136,7 +153,7 @@ impl TypeKind {
 
     pub fn from_blob(
         blob: &mut winmd::Blob,
-        generics: &[TypeKind],
+        generics: &[Self],
         calling_namespace: &'static str,
     ) -> (Self, u32) {
         blob.read_expected(0x1D);
@@ -150,30 +167,30 @@ impl TypeKind {
         blob.read_modifiers();
 
         let kind = match blob.read_unsigned() {
-            0x01 => TypeKind::Void,
-            0x02 => TypeKind::Bool,
-            0x03 => TypeKind::Char,
-            0x04 => TypeKind::I8,
-            0x05 => TypeKind::U8,
-            0x06 => TypeKind::I16,
-            0x07 => TypeKind::U16,
-            0x08 => TypeKind::I32,
-            0x09 => TypeKind::U32,
-            0x0A => TypeKind::I64,
-            0x0B => TypeKind::U64,
-            0x0C => TypeKind::F32,
-            0x0D => TypeKind::F64,
-            0x18 => TypeKind::ISize,
-            0x19 => TypeKind::USize,
-            0x0E => TypeKind::String,
-            0x1C => TypeKind::Object,
+            0x01 => Self::Void,
+            0x02 => Self::Bool,
+            0x03 => Self::Char,
+            0x04 => Self::I8,
+            0x05 => Self::U8,
+            0x06 => Self::I16,
+            0x07 => Self::U16,
+            0x08 => Self::I32,
+            0x09 => Self::U32,
+            0x0A => Self::I64,
+            0x0B => Self::U64,
+            0x0C => Self::F32,
+            0x0D => Self::F64,
+            0x18 => Self::ISize,
+            0x19 => Self::USize,
+            0x0E => Self::String,
+            0x1C => Self::Object,
             0x11 | 0x12 => {
                 let def =
                     winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index);
 
                 if def.name().0.is_empty() {
                     // TODO: handle nested types
-                    TypeKind::Bool
+                    Self::Bool
                 } else {
                     Self::from_type_def_or_ref(&def, generics, calling_namespace)
                 }
@@ -184,7 +201,7 @@ impl TypeKind {
                 // rank (dimensions)
                 // bounds count
                 // bound
-                TypeKind::Bool
+                Self::Bool
             }
             0x15 => Self::from_type_name(TypeName::from_type_spec_blob(
                 blob,
@@ -206,11 +223,11 @@ impl TypeKind {
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         match self {
-            TypeKind::Class(name) => name.dependencies(),
-            TypeKind::Interface(name) => name.dependencies(),
-            TypeKind::Enum(name) => name.dependencies(),
-            TypeKind::Struct(name) => name.dependencies(),
-            TypeKind::Delegate(name) => name.dependencies(),
+            Self::Class(name) => name.dependencies(),
+            Self::Interface(name) => name.dependencies(),
+            Self::Enum(name) => name.dependencies(),
+            Self::Struct(name) => name.dependencies(),
+            Self::Delegate(name) => name.dependencies(),
             _ => Vec::new(),
         }
     }
