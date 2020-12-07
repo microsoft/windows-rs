@@ -41,7 +41,7 @@ impl Enum {
                 let blob = &mut field.sig();
                 blob.read_unsigned();
                 blob.read_modifiers();
-    
+
                 blob.read_expected(0x1D);
                 blob.read_modifiers();
 
@@ -52,7 +52,7 @@ impl Enum {
         Self {
             name,
             fields,
-            underlying_type : underlying_type.expect("Enum.from_type_name"),
+            underlying_type: underlying_type.expect("Enum.from_type_name"),
             signature,
         }
     }
@@ -67,14 +67,14 @@ impl Enum {
                 quote! {
                     impl ::std::ops::BitOr for #name {
                         type Output = Self;
-    
+
                         fn bitor(self, rhs: Self) -> Self {
                             Self(self.0 | rhs.0)
                         }
                     }
                     impl ::std::ops::BitAnd for #name {
                         type Output = Self;
-    
+
                         fn bitand(self, rhs: Self) -> Self {
                             Self(self.0 & rhs.0)
                         }

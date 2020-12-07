@@ -99,7 +99,11 @@ impl Type {
             unused => panic!("Type::from_blob 0x{:X}", unused),
         };
 
-        Self { kind, pointers, array: None }
+        Self {
+            kind,
+            pointers,
+            array: None,
+        }
     }
 
     pub fn from_field(field: &winmd::Field, calling_namespace: &'static str) -> Self {
@@ -183,8 +187,7 @@ impl TypeKind {
         match type_ref.name() {
             ("System", "Guid") => Self::Guid,
             ("Windows.Win32", "IUnknown") => Self::IUnknown,
-            (namespace, name) => 
-            Self::from_type_def(
+            (namespace, name) => Self::from_type_def(
                 &type_ref.reader.resolve_type_def((namespace, name)),
                 calling_namespace,
             ),

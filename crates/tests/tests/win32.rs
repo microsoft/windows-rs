@@ -18,6 +18,4 @@ fn unsigned_enum32() {
 }
 
 #[test]
-fn rect() {
-    
-}
+fn rect() {}
