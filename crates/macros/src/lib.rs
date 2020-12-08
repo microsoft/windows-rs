@@ -43,9 +43,14 @@ pub fn build(stream: TokenStream) -> TokenStream {
         Err(t) => return t.into(),
     };
 
-    let mut source = winmd::build_windows_dir();
+    let mut source = winmd::workspace_windows_dir();
     source.push(ARCHITECTURE);
-    let source = source.to_str().expect("Invalid build windows dir");
+    let source = source.to_str().expect("Invalid workspace architecture dir");
+
+    let mut destination = winmd::workspace_windows_dir();
+    destination.pop();
+    destination.push("target");
+    let destination = destination.to_str().expect("Invalid workspace target dir");
 
     let tokens = quote! {
         {
@@ -103,13 +108,10 @@ pub fn build(stream: TokenStream) -> TokenStream {
                 }
             }
 
+            let source = ::std::path::PathBuf::from(#source);
+            let destination = ::std::path::PathBuf::from(#destination);
             let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
-            let manifest_dir = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set");
-
-            let mut destination = ::std::path::PathBuf::from(&manifest_dir);
-            destination.push("target");
-
-            copy_to_profile(&::std::path::PathBuf::from(#source), &destination, &profile);
+            copy_to_profile(&source, &destination, &profile);
 
         }
     };

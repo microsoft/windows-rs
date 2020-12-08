@@ -298,7 +298,7 @@ impl TypeReader {
 }
 
 fn winmd_paths() -> Vec<std::path::PathBuf> {
-    let mut windows_path = build_windows_dir();
+    let mut windows_path = workspace_windows_dir();
     windows_path.push("winmd");
 
     let mut paths = vec![];
