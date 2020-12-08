@@ -53,5 +53,3 @@ pub use type_limits::*;
 pub use type_name::*;
 pub use type_namespaces::*;
 pub use type_tree::*;
-
-extern crate winrt_winmd as winmd;
