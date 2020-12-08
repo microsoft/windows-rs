@@ -7,8 +7,6 @@ pub struct Row {
     pub file_index: u16,
 }
 
-// TODO: still need strongly-types Row/Table/File/Column to avoid errors
-
 impl Row {
     pub fn new(row: u32, table_index: TableIndex, file: u16) -> Self {
         Self {

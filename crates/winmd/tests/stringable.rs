@@ -12,9 +12,4 @@ fn stringable() {
 
     let method = methods[0];
     assert!(method.name() == "ToString");
-
-    // let parent = method.parent();
-    // assert!(parent == def);
-
-    // let mut _blob = method.sig();
 }

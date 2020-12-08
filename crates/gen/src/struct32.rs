@@ -43,17 +43,12 @@ impl Struct32 {
             fields.combine(&quote! { #kind, });
         }
 
-        // TODO: unroll these traits - it's too expensive to call derive macro.
-        // https://github.com/microsoft/winrt-rs/issues/353
-
         quote! {
             #[repr(C)]
             #[allow(non_snake_case)]
-            //#[derive(::std::fmt::Debug, ::std::clone::Clone, ::std::default::Default, ::std::cmp::PartialEq)]
             pub struct #name {
                 #fields
             }
-            //impl ::std::cmp::Eq for #name {}
         }
     }
 }

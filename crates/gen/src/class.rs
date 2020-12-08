@@ -2,7 +2,6 @@ use crate::*;
 use squote::{quote, Literal, TokenStream};
 use std::iter::FromIterator;
 
-/// A WinRT Class
 #[derive(Debug)]
 pub struct Class {
     pub name: TypeName,

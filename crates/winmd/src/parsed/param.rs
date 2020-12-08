@@ -1,7 +1,7 @@
 use super::*;
 use crate::TypeReader;
 
-#[derive(Copy, Clone)] //, PartialEq, PartialOrd, Eq, Ord, Debug)]
+#[derive(Copy, Clone)]
 pub struct Param {
     pub reader: &'static TypeReader,
     pub row: Row,

@@ -76,7 +76,6 @@ impl TypeName {
         Self::new(def, generics, calling_namespace)
     }
 
-    // TODO: move to `Type`?
     pub fn from_type_spec_blob(
         blob: &mut winmd::Blob,
         generics: &[TypeKind],

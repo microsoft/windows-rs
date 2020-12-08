@@ -1,7 +1,6 @@
 use crate::*;
 use squote::{format_ident, quote, Literal, TokenStream};
 
-// TODO: have Struct handle both WinRT and Win32 structs - it's almost all the same code.
 #[derive(Debug)]
 pub struct Struct {
     pub name: TypeName,

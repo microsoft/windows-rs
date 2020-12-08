@@ -85,6 +85,7 @@ impl Type {
             }
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x14 => {
+                // TODO: handle win32 arrays
                 // type
                 // rank (dimensions)
                 // bounds count
