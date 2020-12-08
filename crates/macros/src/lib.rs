@@ -43,8 +43,12 @@ pub fn build(stream: TokenStream) -> TokenStream {
         Err(t) => return t.into(),
     };
 
-    let mut source = winmd::workspace_windows_dir();
+    let workspace_windows_dir = winmd::workspace_windows_dir();
+    let mut source = workspace_windows_dir.clone();
     source.push(ARCHITECTURE);
+    let workspace_windows_dir = workspace_windows_dir
+        .to_str()
+        .expect("Invalid workpace windows dir");
     let source = source.to_str().expect("Invalid workspace architecture dir");
 
     let mut destination = winmd::workspace_windows_dir();
@@ -54,7 +58,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
     let tokens = quote! {
         {
-            println!("cargo:rerun-if-changed=.windows");
+            println!("cargo:rerun-if-changed={}", #workspace_windows_dir);
 
             // The following must be injected into the token stream because the `OUT_DIR` and `PROFILE`
             // environment variables are only set when the build script run and not when it is being compiled.
