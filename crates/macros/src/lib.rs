@@ -9,8 +9,6 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::parse_macro_input;
 
-extern crate winrt_winmd as winmd;
-
 /// A macro for generating WinRT modules to a .rs file at build time.
 ///
 /// This macro can be used to import WinRT APIs from any Windows metadata (winmd) file.
