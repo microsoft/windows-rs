@@ -1,5 +1,4 @@
 use winrt::*;
-extern crate winrt_winmd as winmd;
 
 #[test]
 fn named_arguments() -> Result<()> {

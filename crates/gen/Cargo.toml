@@ -8,7 +8,7 @@ description = "Code generation for the winrt crate"
 
 [dependencies]
 winrt-gen-macros = { path = "macros",  version = "0.8.0" }
-winrt-winmd = { path = "../winmd",  version = "0.8.0" }
+winmd = { path = "../winmd",  version = "0.8.0" }
 quote = "1.0"
 syn = "1.0"
 proc-macro2 = "1.0"
