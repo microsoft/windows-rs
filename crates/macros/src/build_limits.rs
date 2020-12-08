@@ -8,7 +8,7 @@ pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 
 impl BuildLimits {
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
-        let foundation = self.0.is_empty();
+        let is_foundation = self.0.is_empty();
 
         let reader = winmd::TypeReader::from_build();
 
@@ -21,7 +21,7 @@ impl BuildLimits {
             "Windows.Foundation.Numerics",
         ];
 
-        if foundation {
+        if is_foundation {
             for namespace in foundation_namespaces {
                 limits
                     .insert(NamespaceTypes {
@@ -35,16 +35,15 @@ impl BuildLimits {
         for limit in self.0 {
             let types = limit.types;
             let syntax = limit.syntax;
-            if let Err(e) = limits.insert(types).map_err(|ns| {
+            limits.insert(types).map_err(|ns| {
                 syn::Error::new_spanned(syntax, format!("'{}' is not a known namespace", ns))
-            }) {
-                return Err(e.to_compile_error());
-            };
+                    .to_compile_error()
+            })?;
         }
 
         let mut tree = TypeTree::from_limits(reader, &limits);
 
-        if !foundation {
+        if !is_foundation {
             for namespace in foundation_namespaces {
                 tree.remove(namespace);
             }
