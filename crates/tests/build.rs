@@ -25,5 +25,8 @@ fn main() {
 
         // Test for https://github.com/microsoft/winrt-rs/issues/361
         windows::ui::xaml::{IApplicationOverrides, IApplicationOverrides2}
+
+        // Used to test Win32 support
+        windows::win32::*
     );
 }

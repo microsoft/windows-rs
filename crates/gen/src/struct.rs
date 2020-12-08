@@ -9,15 +9,15 @@ pub struct Struct {
 }
 
 impl Struct {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
-        let signature = name.struct_signature(reader);
+    pub fn from_type_name(name: TypeName) -> Self {
+        let signature = name.struct_signature();
         let mut fields = Vec::new();
 
-        for field in name.def.fields(reader) {
-            let field_name = to_snake(field.name(reader), MethodKind::Normal);
-            let kind = TypeKind::from_field(reader, field, &name.namespace);
+        for field in name.def.fields() {
+            let field_name = to_snake(field.name(), MethodKind::Normal);
+            let t = Type::from_field(&field, &name.namespace);
 
-            fields.push((field_name, kind));
+            fields.push((field_name, t.kind));
         }
 
         Self {

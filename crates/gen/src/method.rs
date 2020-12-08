@@ -13,14 +13,13 @@ pub struct Method {
 
 impl Method {
     pub fn from_method_def(
-        reader: &winmd::TypeReader,
-        method: winmd::MethodDef,
+        method: &winmd::MethodDef,
         vtable_offset: u32,
         generics: &[TypeKind],
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Method {
-        let name = if method.flags(reader).special() {
-            let name = method.name(reader);
+        let name = if method.flags().special() {
+            let name = method.name();
 
             if name.starts_with("get") {
                 to_snake(&name[4..], MethodKind::Get)
@@ -35,10 +34,10 @@ impl Method {
                 "invoke".to_owned()
             }
         } else {
-            Method::name(reader, method)
+            Method::name(method)
         };
 
-        let mut blob = method.sig(reader);
+        let mut blob = method.sig();
 
         if blob.read_unsigned() & 0x10 != 0 {
             blob.read_unsigned();
@@ -53,13 +52,13 @@ impl Method {
         } else {
             let name = "result__".to_owned();
             let array = blob.peek_unsigned().0 == 0x1D;
-            let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
+            let t = Type::from_blob(&mut blob, generics, calling_namespace);
             let input = false;
             let by_ref = true;
             let is_const = false;
             Some(Param {
                 name,
-                kind,
+                kind: t.kind,
                 array,
                 input,
                 by_ref,
@@ -69,23 +68,23 @@ impl Method {
 
         let mut params = Vec::with_capacity(param_count as usize);
 
-        for param in method.params(reader) {
-            if return_type.is_none() || param.sequence(reader) != 0 {
-                let name = to_snake(param.name(reader), MethodKind::Normal);
-                let input = param.flags(reader).input();
+        for param in method.params() {
+            if return_type.is_none() || param.sequence() != 0 {
+                let name = to_snake(param.name(), MethodKind::Normal);
+                let input = param.flags().input();
 
                 let is_const = blob
                     .read_modifiers()
                     .iter()
-                    .any(|def| def.name(reader) == ("System.Runtime.CompilerServices", "IsConst"));
+                    .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
 
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
-                let kind = TypeKind::from_blob(&mut blob, generics, calling_namespace);
+                let t = Type::from_blob(&mut blob, generics, calling_namespace);
 
                 params.push(Param {
                     name,
-                    kind,
+                    kind: t.kind,
                     array,
                     input,
                     by_ref,
@@ -111,18 +110,18 @@ impl Method {
             .collect()
     }
 
-    fn name(reader: &winmd::TypeReader, method: winmd::MethodDef) -> String {
-        if let Some(attribute) =
-            method.find_attribute(reader, ("Windows.Foundation.Metadata", "OverloadAttribute"))
-        {
-            for (_, arg) in attribute.args(reader) {
-                if let winmd::AttributeArg::String(name) = arg {
-                    return to_snake(&name, MethodKind::Normal);
+    fn name(method: &winmd::MethodDef) -> String {
+        for attribute in method.attributes() {
+            if attribute.name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
+                for (_, arg) in attribute.args() {
+                    if let winmd::AttributeArg::String(name) = arg {
+                        return to_snake(&name, MethodKind::Normal);
+                    }
                 }
             }
         }
 
-        to_snake(method.name(reader), MethodKind::Normal)
+        to_snake(method.name(), MethodKind::Normal)
     }
 
     pub fn gen_abi(&self) -> TokenStream {
@@ -325,12 +324,12 @@ mod tests {
     use crate::*;
 
     fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
-        let reader = &winmd::TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_build();
         let def = reader.resolve_type_def((namespace, type_name));
 
-        let t = match Type::from_type_def(reader, def) {
-            Type::Interface(t) => t,
-            _ => panic!("Type not an interface"),
+        let t = match TypeDefinition::from_type_def(&def) {
+            TypeDefinition::Interface(t) => t,
+            _ => panic!("TypeDefinition not an interface"),
         };
 
         for interface in t.interfaces {

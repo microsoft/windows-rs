@@ -5,27 +5,37 @@ use squote::TokenStream;
 /// A namespaced tree of types
 #[derive(Default)]
 pub struct TypeTree {
-    pub types: Vec<Type>,
+    pub types: Vec<TypeDefinition>,
     pub namespaces: TypeNamespaces,
     pub include_foundation: bool,
 }
 
 impl TypeTree {
-    pub fn from_limits(reader: &winmd::TypeReader, limits: &TypeLimits) -> Self {
+    pub fn from_limits(reader: &'static winmd::TypeReader, limits: &TypeLimits) -> Self {
         let mut tree = TypeTree::default();
         let mut set = std::collections::BTreeSet::new();
 
         for limit in limits.limits() {
             match &limit.limit {
                 TypeLimit::All => {
-                    for def in reader.types[&limit.namespace].values() {
-                        tree.insert2(reader, &mut set, *def);
+                    for (_, def) in reader.namespace_types(&limit.namespace) {
+                        match def.category() {
+                            winmd::TypeCategory::Attribute | winmd::TypeCategory::Contract => {}
+                            _ => tree.insert2(reader, &mut set, &def),
+                        };
                     }
                 }
                 TypeLimit::Some(types) => {
                     let namespace = &reader.types[&limit.namespace];
                     for name in types {
-                        tree.insert2(reader, &mut set, namespace[name]);
+                        tree.insert2(
+                            reader,
+                            &mut set,
+                            &winmd::TypeDef {
+                                reader,
+                                row: namespace[name],
+                            },
+                        );
                     }
                 }
             }
@@ -38,29 +48,29 @@ impl TypeTree {
         &mut self,
         reader: &winmd::TypeReader,
         set: &mut std::collections::BTreeSet<winmd::TypeDef>,
-        def: winmd::TypeDef,
+        def: &winmd::TypeDef,
     ) {
-        if set.insert(def) {
-            let t = Type::from_type_def(reader, def);
+        if set.insert(*def) {
+            let t = TypeDefinition::from_type_def(def);
 
             for def in t.dependencies() {
-                self.insert2(reader, set, def);
+                self.insert2(reader, set, &def);
             }
 
-            self.insert(t.name().namespace.clone(), t);
+            self.insert(t.name().namespace, t);
         }
     }
 
-    /// Insert a [`Type`] into [`TypeTree`]
+    /// Insert a [`TypeDefinition`] into [`TypeTree`]
     ///
     /// This recursively searchs the tree for an entry corresponding to the namespace
-    pub fn insert(&mut self, namespace: String, t: Type) {
+    pub fn insert(&mut self, namespace: &'static str, t: TypeDefinition) {
         if let Some(pos) = namespace.find('.') {
             self.namespaces
                 .0
-                .entry(namespace[..pos].to_string())
+                .entry(&namespace[..pos])
                 .or_default()
-                .insert(namespace[pos + 1..].to_string(), t);
+                .insert(&namespace[pos + 1..], t);
         } else {
             self.namespaces
                 .0
@@ -84,7 +94,7 @@ impl TypeTree {
     pub fn reexport(&mut self) {
         self.namespaces
             .0
-            .entry("Windows".to_string())
+            .entry("Windows")
             .or_default()
             .include_foundation = true;
     }
@@ -104,7 +114,7 @@ mod tests {
 
     #[test]
     fn test_dependency_inclusion() {
-        let reader = &winmd::TypeReader::from_os();
+        let reader = winmd::TypeReader::from_build();
         let mut limits = TypeLimits::new(reader);
         limits
             .insert(NamespaceTypes {

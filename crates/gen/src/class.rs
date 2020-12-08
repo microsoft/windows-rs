@@ -2,7 +2,6 @@ use crate::*;
 use squote::{quote, Literal, TokenStream};
 use std::iter::FromIterator;
 
-/// A WinRT Class
 #[derive(Debug)]
 pub struct Class {
     pub name: TypeName,
@@ -14,53 +13,54 @@ pub struct Class {
 }
 
 impl Class {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
+    pub fn from_type_name(name: TypeName) -> Self {
         let mut interfaces = Vec::new();
-        add_dependencies(&mut interfaces, reader, &name, &name.namespace, false);
+        add_dependencies(&mut interfaces, &name, &name.namespace, false);
         let mut bases = Vec::new();
         let mut base = name.def;
 
         let signature = if interfaces.iter().any(|i| i.kind == InterfaceKind::Default) {
-            name.class_signature(reader)
+            name.class_signature()
         } else {
             String::new()
         };
 
         loop {
-            let (base_namespace, base_name) = base.extends(reader).name(reader);
+            let (base_namespace, base_name) = base.extends().name();
 
             if (base_namespace, base_name) == ("System", "Object") {
                 break;
             }
 
-            base = reader.resolve_type_def((base_namespace, base_name));
-            let base = TypeName::from_type_def(reader, base, &name.namespace);
+            base = name
+                .def
+                .reader
+                .resolve_type_def((base_namespace, base_name));
+            let base = TypeName::from_type_def(&base, &name.namespace);
 
-            add_dependencies(&mut interfaces, reader, &base, &name.namespace, true);
+            add_dependencies(&mut interfaces, &base, &name.namespace, true);
             bases.push(base);
         }
 
         let mut default_constructor = false;
         let mut is_agile = false;
 
-        for attribute in name.def.attributes(reader) {
-            match attribute.name(reader) {
+        for attribute in name.def.attributes() {
+            match attribute.name() {
                 ("Windows.Foundation.Metadata", "StaticAttribute") => {
                     add_type(
                         &mut interfaces,
-                        reader,
-                        attribute_factory(reader, attribute).unwrap(),
+                        &attribute_factory(&attribute).unwrap(),
                         &name.namespace,
                         InterfaceKind::Statics,
                     );
                 }
                 ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
-                    match attribute_factory(reader, attribute) {
+                    match attribute_factory(&attribute) {
                         Some(def) => {
                             add_type(
                                 &mut interfaces,
-                                reader,
-                                def,
+                                &def,
                                 &name.namespace,
                                 InterfaceKind::Statics,
                             );
@@ -71,12 +71,11 @@ impl Class {
                 ("Windows.Foundation.Metadata", "ComposableAttribute") => {
                     // One of the arguments is a CompositionType enum and the Public variant
                     // has a value of 2 as a signed 32-bit integer.
-                    for (_name, arg) in attribute.args(reader) {
+                    for (_name, arg) in attribute.args() {
                         if let winmd::AttributeArg::I32(2) = arg {
                             add_type(
                                 &mut interfaces,
-                                reader,
-                                attribute_factory(reader, attribute).unwrap(),
+                                &attribute_factory(&attribute).unwrap(),
                                 &name.namespace,
                                 InterfaceKind::Composable,
                             );
@@ -86,7 +85,7 @@ impl Class {
                 ("Windows.Foundation.Metadata", "MarshalingBehaviorAttribute") => {
                     // The only argument is a MarshalingType enum and the Agile variant
                     // has a value of 2 as a signed 32-bit integer.
-                    let (_name, arg) = &attribute.args(reader)[0];
+                    let (_name, arg) = &attribute.args()[0];
 
                     if let winmd::AttributeArg::I32(2) = arg {
                         is_agile = true;
@@ -314,11 +313,8 @@ impl Class {
     }
 }
 
-fn attribute_factory(
-    reader: &winmd::TypeReader,
-    attribute: winmd::Attribute,
-) -> Option<winmd::TypeDef> {
-    for (_, arg) in attribute.args(reader) {
+fn attribute_factory(attribute: &winmd::Attribute) -> Option<winmd::TypeDef> {
+    for (_, arg) in attribute.args() {
         if let winmd::AttributeArg::TypeDef(def) = arg {
             return Some(def);
         }
@@ -332,12 +328,12 @@ mod tests {
     use crate::*;
 
     fn class((namespace, type_name): (&str, &str)) -> Class {
-        let reader = &winmd::TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_build();
         let def = reader.resolve_type_def((namespace, type_name));
 
-        match Type::from_type_def(reader, def) {
-            Type::Class(t) => t,
-            _ => panic!("Type not an interface"),
+        match TypeDefinition::from_type_def(&def) {
+            TypeDefinition::Class(t) => t,
+            _ => panic!("TypeDefinition not an interface"),
         }
     }
 

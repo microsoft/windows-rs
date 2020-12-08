@@ -2,12 +2,12 @@ use crate::*;
 use squote::{format_ident, quote, Literal, TokenStream};
 
 // TODO: distinguish between COM and WinRT interfaces
-struct Implements(Vec<winrt_gen::Type>);
+struct Implements(Vec<winrt_gen::TypeDefinition>);
 
 impl syn::parse::Parse for Implements {
     fn parse(inner_type: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut types = Vec::new();
-        let reader = windows::reader();
+        let reader = winmd::TypeReader::from_build();
 
         loop {
             use_tree_to_types(reader, &inner_type.parse::<ImplementTree>()?, &mut types)?;
@@ -22,14 +22,14 @@ impl syn::parse::Parse for Implements {
 }
 
 fn use_tree_to_types(
-    reader: &winmd::TypeReader,
+    reader: &'static winmd::TypeReader,
     tree: &ImplementTree,
-    types: &mut Vec<winrt_gen::Type>,
+    types: &mut Vec<winrt_gen::TypeDefinition>,
 ) -> syn::parse::Result<()> {
     fn recurse(
-        reader: &winmd::TypeReader,
+        reader: &'static winmd::TypeReader,
         tree: &ImplementTree,
-        types: &mut Vec<winrt_gen::Type>,
+        types: &mut Vec<winrt_gen::TypeDefinition>,
         current: &mut String,
     ) -> syn::parse::Result<()> {
         match tree {
@@ -84,7 +84,10 @@ fn use_tree_to_types(
                     }
                 };
 
-                types.push(winrt_gen::Type::from_type_def(reader, *def));
+                types.push(winrt_gen::TypeDefinition::from_type_def(&winmd::TypeDef {
+                    reader,
+                    row: *def,
+                }));
 
                 // TODO
                 // If type is a class, add any required interfaces.
@@ -121,7 +124,7 @@ pub fn gen(
     let mut queries = TokenStream::new();
 
     for (interface_count, implement) in implements.0.iter().enumerate() {
-        if let winrt_gen::Type::Interface(t) = implement {
+        if let winrt_gen::TypeDefinition::Interface(t) = implement {
             vtable_ordinals.push(Literal::u32_unsuffixed(interface_count as u32));
 
             let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
