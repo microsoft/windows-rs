@@ -9,19 +9,18 @@ pub struct Interface {
 }
 
 impl Interface {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
-        let guid = TypeGuid::from_type_def(reader, name.def);
+    pub fn from_type_name(name: TypeName) -> Self {
+        let guid = TypeGuid::from_type_def(&name.def);
         let mut interfaces = Vec::new();
 
         add_type(
             &mut interfaces,
-            reader,
-            name.def,
+            &name.def,
             &name.namespace,
             InterfaceKind::Default,
         );
 
-        add_dependencies(&mut interfaces, reader, &name, &name.namespace, true);
+        add_dependencies(&mut interfaces, &name, &name.namespace, true);
 
         rename_collisions(&mut interfaces);
 
@@ -164,13 +163,13 @@ mod tests {
     use crate::*;
 
     fn interface((namespace, type_name): (&str, &str)) -> Interface {
-        let reader = &winmd::TypeReader::from_os();
+        let reader = &winmd::TypeReader::from_build();
         let t = reader.resolve_type_def((namespace, type_name));
-        let t = Type::from_type_def(reader, t);
+        let t = TypeDefinition::from_type_def(&t);
 
         match t {
-            Type::Interface(t) => t,
-            _ => panic!("Type not an interface"),
+            TypeDefinition::Interface(t) => t,
+            _ => panic!("TypeDefinition not an interface"),
         }
     }
 

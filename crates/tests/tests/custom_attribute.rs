@@ -1,36 +1,19 @@
-use std::path::{Path, PathBuf};
 use winrt::*;
-
-fn find_winmds<P: AsRef<Path>>(directory: P) -> Vec<PathBuf> {
-    let mut result = Vec::new();
-    for entry in std::fs::read_dir(directory).unwrap() {
-        let entry = entry.unwrap();
-        let path = entry.path();
-        if path.is_file() {
-            if let Some("winmd") = path.extension().and_then(|s| s.to_str()) {
-                result.push(path);
-            }
-        }
-    }
-    result
-}
+extern crate winrt_winmd as winmd;
 
 #[test]
 fn named_arguments() -> Result<()> {
-    let mut winmd_dir = winrt::build_windows_dir();
-    winmd_dir.push("winmd");
-    let files = find_winmds(winmd_dir);
-    let reader = winmd::TypeReader::from_iter(files);
+    let reader = winmd::TypeReader::from_build();
     let type_def = reader.resolve_type_def(("TestComponent", "TestRunner"));
 
     // TestRunner should have a custom attribute on it
     let mut some_string = 0;
     let mut some_int = 0;
     let mut some_bool = 0;
-    for attribute in type_def.attributes(&reader) {
-        match attribute.name(&reader) {
+    for attribute in type_def.attributes() {
+        match attribute.name() {
             ("TestComponent", "CustomTestAttribute") => {
-                for (name, arg) in attribute.args(&reader) {
+                for (name, arg) in attribute.args() {
                     match (&name as &str, &arg) {
                         ("SomeString", winmd::AttributeArg::String(value)) => {
                             assert_eq!(value, "Hello, World!");

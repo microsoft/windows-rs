@@ -4,9 +4,9 @@ use squote::{format_ident, quote, Literal, TokenStream};
 #[derive(Debug)]
 pub struct Enum {
     pub name: TypeName,
-    pub fields: Vec<(String, EnumConstant)>,
-    pub signature: String,
+    pub fields: Vec<(&'static str, EnumConstant)>,
     pub underlying_type: winmd::ElementType,
+    pub signature: String,
 }
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
@@ -16,45 +16,72 @@ pub enum EnumConstant {
 }
 
 impl Enum {
-    pub fn from_type_name(reader: &winmd::TypeReader, name: TypeName) -> Self {
-        let signature = name.enum_signature(reader);
+    pub fn from_type_name(name: TypeName) -> Self {
+        let signature = if name.def.is_winrt() {
+            name.enum_signature()
+        } else {
+            String::new()
+        };
+
         let mut fields = Vec::new();
+        let mut underlying_type = None;
 
-        for field in name.def.fields(reader) {
-            for constant in field.constants(reader) {
-                let name = field.name(reader).to_string();
-                let mut value = constant.value(reader);
+        for field in name.def.fields() {
+            if let Some(constant) = field.constants().next() {
+                let mut value = constant.value();
 
-                let value = match constant.value_type(reader) {
+                let value = match constant.value_type() {
                     winmd::ElementType::I32 => EnumConstant::I32(value.read_i32()),
                     winmd::ElementType::U32 => EnumConstant::U32(value.read_u32()),
                     _ => panic!("Enum::from_type_def"),
                 };
 
-                fields.push((name, value));
+                fields.push((field.name(), value));
+            } else {
+                let blob = &mut field.sig();
+                blob.read_unsigned();
+                blob.read_modifiers();
+
+                blob.read_expected(0x1D);
+                blob.read_modifiers();
+
+                underlying_type = Some(winmd::ElementType::from_blob(blob));
             }
         }
-
-        let underlying_type = match fields[0].1 {
-            EnumConstant::U32(_) => winmd::ElementType::U32,
-            EnumConstant::I32(_) => winmd::ElementType::I32,
-        };
 
         Self {
             name,
             fields,
+            underlying_type: underlying_type.expect("Enum.from_type_name"),
             signature,
-            underlying_type,
         }
     }
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
-        let signature = Literal::byte_string(&self.signature.as_bytes());
 
-        let repr = match self.fields[0].1 {
-            EnumConstant::U32(_) => format_ident!("u32"),
-            EnumConstant::I32(_) => format_ident!("i32"),
+        let (underlying_type, bitwise) = match self.underlying_type {
+            winmd::ElementType::I32 => (format_ident!("i32"), TokenStream::new()),
+            winmd::ElementType::U32 => (
+                format_ident!("u32"),
+                quote! {
+                    impl ::std::ops::BitOr for #name {
+                        type Output = Self;
+
+                        fn bitor(self, rhs: Self) -> Self {
+                            Self(self.0 | rhs.0)
+                        }
+                    }
+                    impl ::std::ops::BitAnd for #name {
+                        type Output = Self;
+
+                        fn bitand(self, rhs: Self) -> Self {
+                            Self(self.0 & rhs.0)
+                        }
+                    }
+                },
+            ),
+            _ => panic!("Unexpected enum underlying type: {}", name),
         };
 
         let fields = self.fields.iter().map(|(name, value)| {
@@ -68,11 +95,24 @@ impl Enum {
                 pub const #name: Self = Self(#value);
             }
         });
-        let bitwise = bitwise_operators(&name, self.fields[0].1);
+
+        let runtime_type = if self.signature.is_empty() {
+            TokenStream::new()
+        } else {
+            let signature = Literal::byte_string(&self.signature.as_bytes());
+
+            quote! {
+                unsafe impl ::winrt::RuntimeType for #name {
+                    type DefaultType = Self;
+                    const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
+                }
+            }
+        };
 
         quote! {
+            #[allow(non_camel_case_types)]
             #[repr(transparent)]
-            pub struct #name(#repr);
+            pub struct #name(#underlying_type);
             impl ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self(self.0)
@@ -99,37 +139,11 @@ impl Enum {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*
             }
-            unsafe impl ::winrt::RuntimeType for #name {
-                type DefaultType = Self;
-                const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
-            }
             unsafe impl ::winrt::Abi for #name {
-                type Abi = #repr;
+                type Abi = #underlying_type;
             }
+            #runtime_type
             #bitwise
-        }
-    }
-}
-
-fn bitwise_operators(name: &TokenStream, value_type: EnumConstant) -> TokenStream {
-    if let EnumConstant::I32(_) = value_type {
-        return TokenStream::new();
-    }
-
-    quote! {
-        impl ::std::ops::BitOr for #name {
-            type Output = Self;
-
-            fn bitor(self, rhs: Self) -> Self {
-                Self(self.0 | rhs.0)
-            }
-        }
-        impl ::std::ops::BitAnd for #name {
-            type Output = Self;
-
-            fn bitand(self, rhs: Self) -> Self {
-                Self(self.0 & rhs.0)
-            }
         }
     }
 }

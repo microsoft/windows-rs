@@ -3,7 +3,7 @@ use squote::{quote, TokenStream};
 use std::collections::*;
 
 #[derive(Default)]
-pub struct TypeNamespaces(pub BTreeMap<String, crate::type_tree::TypeTree>);
+pub struct TypeNamespaces(pub BTreeMap<&'static str, crate::type_tree::TypeTree>);
 
 impl TypeNamespaces {
     pub fn gen<'a>(&'a self) -> impl ParallelIterator<Item = TokenStream> + 'a {

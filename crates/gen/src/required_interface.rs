@@ -31,29 +31,26 @@ impl Ord for RequiredInterface {
 
 impl RequiredInterface {
     fn from_type_def(
-        reader: &winmd::TypeReader,
-        def: winmd::TypeDef,
-        calling_namespace: &str,
+        def: &winmd::TypeDef,
+        calling_namespace: &'static str,
         kind: InterfaceKind,
     ) -> Self {
-        let name = TypeName::from_type_def(reader, def, calling_namespace);
-        Self::from_type_name_and_kind(reader, name, kind, calling_namespace)
+        let name = TypeName::from_type_def(def, calling_namespace);
+        Self::from_type_name_and_kind(name, kind, calling_namespace)
     }
 
     fn from_type_name_and_kind(
-        reader: &winmd::TypeReader,
         name: TypeName,
         kind: InterfaceKind,
-        calling_namespace: &str,
+        calling_namespace: &'static str,
     ) -> Self {
         let methods = name
             .def
-            .methods(reader)
+            .methods()
             .enumerate()
             .map(|(count, method)| {
                 Method::from_method_def(
-                    reader,
-                    method,
+                    &method,
                     (count + 6) as u32,
                     &name.generics,
                     calling_namespace,
@@ -127,13 +124,11 @@ impl RequiredInterface {
 
 pub fn add_type(
     vec: &mut Vec<RequiredInterface>,
-    reader: &winmd::TypeReader,
-    def: winmd::TypeDef,
-    calling_namespace: &str,
+    def: &winmd::TypeDef,
+    calling_namespace: &'static str,
     kind: InterfaceKind,
 ) {
     vec.push(RequiredInterface::from_type_def(
-        reader,
         def,
         calling_namespace,
         kind,
@@ -142,17 +137,16 @@ pub fn add_type(
 
 pub fn add_dependencies(
     vec: &mut Vec<RequiredInterface>,
-    reader: &winmd::TypeReader,
     name: &TypeName,
-    calling_namespace: &str,
+    calling_namespace: &'static str,
     strip_default: bool,
 ) {
-    for required in name.def.interfaces(reader) {
-        let is_default = required.is_default(reader);
-        let required = required.interface(reader);
+    for required in name.def.interfaces() {
+        let is_default = required.is_default();
+        let required = required.interface();
 
         let required_name =
-            TypeName::from_type_def_or_ref(reader, required, &name.generics, calling_namespace);
+            TypeName::from_type_def_or_ref(&required, &name.generics, calling_namespace);
 
         if let Some(index) = vec.iter().position(|i| i.name == required_name) {
             if !strip_default && vec[index].kind == InterfaceKind::NonDefault && is_default {
@@ -165,16 +159,9 @@ pub fn add_dependencies(
                 InterfaceKind::NonDefault
             };
 
-            add_dependencies(
-                vec,
-                reader,
-                &required_name,
-                calling_namespace,
-                strip_default,
-            );
+            add_dependencies(vec, &required_name, calling_namespace, strip_default);
 
             vec.push(RequiredInterface::from_type_name_and_kind(
-                reader,
                 required_name,
                 kind,
                 calling_namespace,

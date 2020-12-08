@@ -1,0 +1,15 @@
+[package]
+name = "winmd-macros"
+version = "0.8.0"
+authors = ["Microsoft"]
+edition = "2018"
+license = "MIT"
+description = "Macro helpers for the winrt-winmd crate"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "1.0", features = ["full"] }
+quote = "1.0"
+proc-macro2 = "1.0"
