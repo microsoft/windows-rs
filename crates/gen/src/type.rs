@@ -363,35 +363,30 @@ impl TypeKind {
                 let name = format_ident(name);
                 quote! { <#name as ::winrt::Abi>::Abi }
             }
-            Self::Enum(name) => {
-                match name.def.underlying_type() {
-                    winmd::ElementType::I32 => quote!{ i32 },
-                    winmd::ElementType::U32 => quote!{ u32 },
-                    _ => panic!("TypeKind::gen_abi"),
-                }
-            }
-            Self::Struct(name) => {
-                name.gen_abi()
-            }
+            Self::Enum(name) => match name.def.underlying_type() {
+                winmd::ElementType::I32 => quote! { i32 },
+                winmd::ElementType::U32 => quote! { u32 },
+                _ => panic!("TypeKind::gen_abi"),
+            },
+            Self::Struct(name) => name.gen_abi(),
         }
     }
 
     pub fn gen_default(&self) -> TokenStream {
         match self {
             Self::Bool => quote! { false },
-            Self::Char|
-            Self::I8  |
-            Self::U8  |
-            Self::I16 |
-            Self::U16 |
-            Self::I32 |
-            Self::U32 |
-            Self::I64 |
-            Self::U64 |
-            Self::ISize |
-            Self::USize  => quote! { 0 },
-            Self::F32 |
-            Self::F64   => quote! { 0.0 },
+            Self::Char
+            | Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::ISize
+            | Self::USize => quote! { 0 },
+            Self::F32 | Self::F64 => quote! { 0.0 },
             Self::String => quote! { ::winrt::HString::new() },
             Self::Guid => quote! { ::winrt::Guid::zeroed() },
             _ => quote! { ::std::default::Default::default() },

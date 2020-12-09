@@ -21,11 +21,11 @@ impl Struct {
         let mut fields = Vec::new();
 
         for field in name.def.fields() {
-            let field_name = if is_winrt { 
-                to_snake(field.name(), MethodKind::Normal) }
-                else {
-                    field.name().to_string()
-                };
+            let field_name = if is_winrt {
+                to_snake(field.name(), MethodKind::Normal)
+            } else {
+                field.name().to_string()
+            };
 
             let t = Type::from_field(&field, &name.namespace);
 
