@@ -17,6 +17,8 @@ pub struct TypeReader {
     // When turning into TypeDef they add the &'static TypeReader
 }
 
+// TODO: need to remove types that aren't projected like HResult...
+
 impl TypeReader {
     pub fn from_build() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
