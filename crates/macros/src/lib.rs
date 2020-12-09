@@ -41,8 +41,12 @@ pub fn build(stream: TokenStream) -> TokenStream {
         Err(t) => return t.into(),
     };
 
-    let mut source = winmd::workspace_windows_dir();
+    let workspace_windows_dir = winmd::workspace_windows_dir();
+    let mut source = workspace_windows_dir.clone();
     source.push(ARCHITECTURE);
+    let workspace_windows_dir = workspace_windows_dir
+        .to_str()
+        .expect("Invalid workspace windows dir");
     let source = source.to_str().expect("Invalid workspace architecture dir");
 
     let mut destination = winmd::workspace_windows_dir();
@@ -104,9 +108,9 @@ pub fn build(stream: TokenStream) -> TokenStream {
                 }
             }
 
-            let source = ::std::path::PathBuf::from(#source);
-            if source.exists() {
-                println!("cargo:rerun-if-changed={}", #source);
+            if ::std::path::PathBuf::from(#workspace_windows_dir).exists() {
+                println!("cargo:rerun-if-changed={}", #workspace_windows_dir);
+                let source = ::std::path::PathBuf::from(#source);
                 let destination = ::std::path::PathBuf::from(#destination);
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
