@@ -66,6 +66,20 @@ impl Struct {
             }
         });
 
+        let debug_fields = self.fields.iter().filter_map(|(name, t)| {
+            if let TypeKind::Delegate(name) = &t.kind {
+                if !name.def.is_winrt() {
+                    return None;
+                }
+            }
+
+            let name_ident = format_ident(&name);
+
+            Some(quote! {
+                .field(#name, &format_args!("{:?}", self.#name_ident))
+            })
+        });
+
         let abi = self.fields.iter().map(|field| field.1.gen_abi());
 
         let runtime_type = if self.signature.is_empty() {
@@ -81,12 +95,14 @@ impl Struct {
             }
         };
 
+        let debug_name = self.name.name;
+
         // TODO: unroll these traits - it's too expensive to call derive macro.
         // https://github.com/microsoft/winrt-rs/issues/353
 
         quote! {
             #[repr(C)]
-            #[derive(::std::fmt::Debug, ::std::clone::Clone, ::std::cmp::PartialEq)]
+            #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
             pub struct #name {
                 #(#fields),*
             }
@@ -101,6 +117,14 @@ impl Struct {
                     Self{ #(#defaults),* }
                 }
             }
+            impl ::std::fmt::Debug for #name {
+                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    fmt.debug_struct(#debug_name)
+                        #(#debug_fields)*
+                        .finish()
+                }
+            }
+            
             #runtime_type
         }
     }
