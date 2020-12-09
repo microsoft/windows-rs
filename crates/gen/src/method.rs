@@ -71,7 +71,7 @@ impl Method {
         for param in method.params() {
             if return_type.is_none() || param.sequence() != 0 {
                 let name = to_snake(param.name(), MethodKind::Normal);
-                let input = param.flags().input();
+                let input = !param.flags().output();
 
                 let is_const = blob
                     .read_modifiers()

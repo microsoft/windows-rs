@@ -27,6 +27,10 @@ impl Struct32 {
     }
 
     pub fn gen(&self) -> TokenStream {
+        // TODO: finish structs first
+        // Make sure there's an ABI reprsentation
+        // So that we can still have safe wrappers for things like structs of BSTRs
+
         let name = self.name.gen();
 
         let mut fields = TokenStream::new();
