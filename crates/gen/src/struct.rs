@@ -80,6 +80,22 @@ impl Struct {
             })
         });
 
+        let compare_fields = self.fields.iter().map(|(name, t)| {
+            let name_ident = format_ident(&name);
+
+            if let TypeKind::Delegate(name) = &t.kind {
+                if !name.def.is_winrt() {
+                    return quote! {
+                        self.#name_ident.map(|f| f as usize) == other.#name_ident.map(|f| f as usize)
+                    };
+                }
+            }
+
+            quote! {
+                self.#name_ident == other.#name_ident
+            }
+        });
+
         let abi = self.fields.iter().map(|field| field.1.gen_abi());
 
         let runtime_type = if self.signature.is_empty() {
@@ -102,11 +118,11 @@ impl Struct {
 
         quote! {
             #[repr(C)]
-            #[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
+            #[derive(::std::clone::Clone)]
+            #[allow(non_snake_case)]
             pub struct #name {
                 #(#fields),*
             }
-            impl ::std::cmp::Eq for #name {}
             #[repr(C)]
             pub struct #abi_ident(#(#abi),*);
             unsafe impl ::winrt::Abi for #name {
@@ -124,7 +140,12 @@ impl Struct {
                         .finish()
                 }
             }
-            
+            impl ::std::cmp::PartialEq for #name {
+                fn eq(&self, other: &Self) -> bool {
+                    #(#compare_fields)&&*
+                }
+            }
+            impl ::std::cmp::Eq for #name {}
             #runtime_type
         }
     }

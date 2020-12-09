@@ -127,7 +127,7 @@ impl Interface {
                 #phantoms
             ) where #constraints;
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type DefaultType = Option<Self>;
+                type DefaultType = ::std::option::Option<Self>;
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
             impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {

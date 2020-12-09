@@ -123,13 +123,12 @@ impl Type {
 
         let kind = self.kind.gen();
 
-        if let TypeKind::Interface(_) = self.kind {
-            tokens.combine(&quote! {
+        match &self.kind {
+            TypeKind::Interface(_) | TypeKind::Delegate(_) => tokens.combine(&quote! {
                 ::std::option::Option<#kind>
-            });
-        } else {
-            tokens.combine(&kind);
-        }
+            }),
+            _ => tokens.combine(&kind),
+        };
 
         tokens
     }
