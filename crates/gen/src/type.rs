@@ -113,6 +113,45 @@ impl Type {
         blob.read_modifiers();
         Self::from_blob(&mut blob, &Vec::new(), calling_namespace)
     }
+
+    pub fn gen_field(&self) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for _ in 0..self.pointers {
+            tokens.combine(&quote! { *mut });
+        }
+
+        let kind = self.kind.gen();
+
+        if let TypeKind::Interface(_) = self.kind {
+            tokens.combine(&quote! {
+                ::std::option::Option<#kind>
+            });
+        } else {
+            tokens.combine(&kind);
+        }
+
+        tokens
+    }
+
+    pub fn gen_abi(&self) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for _ in 0..self.pointers {
+            tokens.combine(&quote! { *mut });
+        }
+
+        tokens.combine(&self.kind.gen_abi());
+        tokens
+    }
+
+    pub fn gen_default(&self) -> TokenStream {
+        if self.pointers > 0 {
+            quote! { ::std::ptr::null_mut() }
+        } else {
+            self.kind.gen_default()
+        }
+    }
 }
 
 impl TypeKind {
@@ -294,18 +333,6 @@ impl TypeKind {
         }
     }
 
-    pub fn gen_field(&self) -> TokenStream {
-        let mut tokens = self.gen();
-
-        if let Self::Interface(_) = self {
-            tokens = quote! {
-                ::std::option::Option<#tokens>
-            }
-        }
-
-        tokens
-    }
-
     pub fn gen_abi(&self) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
@@ -336,10 +363,38 @@ impl TypeKind {
                 let name = format_ident(name);
                 quote! { <#name as ::winrt::Abi>::Abi }
             }
-            Self::Enum(name) | Self::Struct(name) => {
-                let name = name.gen();
-                quote! { <#name as ::winrt::Abi>::Abi }
+            Self::Enum(name) => {
+                match name.def.underlying_type() {
+                    winmd::ElementType::I32 => quote!{ i32 },
+                    winmd::ElementType::U32 => quote!{ u32 },
+                    _ => panic!("TypeKind::gen_abi"),
+                }
             }
+            Self::Struct(name) => {
+                name.gen_abi()
+            }
+        }
+    }
+
+    pub fn gen_default(&self) -> TokenStream {
+        match self {
+            Self::Bool => quote! { false },
+            Self::Char|
+            Self::I8  |
+            Self::U8  |
+            Self::I16 |
+            Self::U16 |
+            Self::I32 |
+            Self::U32 |
+            Self::I64 |
+            Self::U64 |
+            Self::ISize |
+            Self::USize  => quote! { 0 },
+            Self::F32 |
+            Self::F64   => quote! { 0.0 },
+            Self::String => quote! { ::winrt::HString::new() },
+            Self::Guid => quote! { ::winrt::Guid::zeroed() },
+            _ => quote! { ::std::default::Default::default() },
         }
     }
 

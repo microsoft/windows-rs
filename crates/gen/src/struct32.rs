@@ -39,11 +39,7 @@ impl Struct32 {
             let name = format_ident(&name);
             fields.combine(&quote! { pub #name: });
 
-            for _ in 0..t.pointers {
-                fields.combine(&quote! { *mut });
-            }
-
-            let kind = t.kind.gen_field();
+            let kind = t.gen_field();
             fields.combine(&quote! { #kind, });
         }
 

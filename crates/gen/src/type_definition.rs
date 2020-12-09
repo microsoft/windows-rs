@@ -36,11 +36,11 @@ impl TypeDefinition {
             }
             winmd::TypeCategory::Enum => Self::Enum(Enum::from_type_name(name)),
             winmd::TypeCategory::Struct => {
-                if def.is_winrt() {
-                    Self::Struct(Struct::from_type_name(name))
-                } else {
-                    Self::Struct32(Struct32::from_type_name(name))
-                }
+                //if def.is_winrt() {
+                Self::Struct(Struct::from_type_name(name))
+                //} else {
+                //Self::Struct32(Struct32::from_type_name(name))
+                //}
             }
             winmd::TypeCategory::Delegate => {
                 if def.is_winrt() {
