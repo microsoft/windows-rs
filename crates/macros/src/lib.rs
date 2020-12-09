@@ -42,9 +42,11 @@ pub fn build(stream: TokenStream) -> TokenStream {
     };
 
     let workspace_windows_dir = winmd::workspace_windows_dir();
-
     let mut source = workspace_windows_dir.clone();
     source.push(ARCHITECTURE);
+    let workspace_windows_dir = workspace_windows_dir
+        .to_str()
+        .expect("Invalid workspace windows dir");
     let source = source.to_str().expect("Invalid workspace architecture dir");
 
     let mut destination = workspace_windows_dir.clone();
@@ -58,8 +60,6 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
     let tokens = quote! {
         {
-            //println!("cargo:rerun-if-changed={}", #workspace_windows_dir);
-
             // The following must be injected into the token stream because the `OUT_DIR` and `PROFILE`
             // environment variables are only set when the build script run and not when it is being compiled.
 
@@ -112,10 +112,13 @@ pub fn build(stream: TokenStream) -> TokenStream {
                 }
             }
 
-            let source = ::std::path::PathBuf::from(#source);
-            let destination = ::std::path::PathBuf::from(#destination);
-            let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
-            copy_to_profile(&source, &destination, &profile);
+            if ::std::path::PathBuf::from(#workspace_windows_dir).exists() {
+                println!("cargo:rerun-if-changed={}", #workspace_windows_dir);
+                let source = ::std::path::PathBuf::from(#source);
+                let destination = ::std::path::PathBuf::from(#destination);
+                let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
+                copy_to_profile(&source, &destination, &profile);
+            }
 
         }
     };
