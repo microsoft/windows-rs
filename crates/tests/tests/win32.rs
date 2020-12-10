@@ -1,6 +1,6 @@
 use tests::windows::win32::{
-    ACCESS_MODE, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
-    DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT, CHOOSECOLORW
+    ACCESS_MODE, CHOOSECOLORW, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
+    DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT,
 };
 use winrt::Abi;
 
@@ -52,8 +52,7 @@ fn dxgi_mode_desc() {
 
 #[cfg(target_pointer_width = "64")]
 #[test]
-fn size64()
-{
+fn size64() {
     assert!(std::mem::size_of::<ACCESS_MODE>() == 4);
     assert!(std::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
     assert!(std::mem::size_of::<RECT>() == 16);
@@ -63,8 +62,7 @@ fn size64()
 
 #[cfg(target_pointer_width = "32")]
 #[test]
-fn size32()
-{
+fn size32() {
     assert!(std::mem::size_of::<ACCESS_MODE>() == 4);
     assert!(std::mem::size_of::<DXGI_ADAPTER_FLAG>() == 4);
     assert!(std::mem::size_of::<RECT>() == 16);
