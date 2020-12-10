@@ -1,29 +1,28 @@
 use tests::windows::application_model::appointments::AppointmentDaysOfWeek;
 use winrt::foundation::AsyncStatus;
-use winrt::Abi;
 
 #[test]
 fn signed_enum() {
-    assert!(AsyncStatus::default().abi() == 0);
-    assert!(AsyncStatus::Canceled.abi() == 2);
-    assert!(AsyncStatus::Completed.abi() == 1);
-    assert!(AsyncStatus::Error.abi() == 3);
-    assert!(AsyncStatus::Started.abi() == 0);
+    assert!(AsyncStatus::default() == 0.into());
+    assert!(AsyncStatus::Canceled == 2.into());
+    assert!(AsyncStatus::Completed == 1.into());
+    assert!(AsyncStatus::Error == 3.into());
+    assert!(AsyncStatus::Started == 0.into());
 }
 
 #[test]
 fn unsigned_enum() {
-    assert!(AppointmentDaysOfWeek::default().abi() == 0);
-    assert!(AppointmentDaysOfWeek::None.abi() == 0);
-    assert!(AppointmentDaysOfWeek::Sunday.abi() == 0x1);
-    assert!(AppointmentDaysOfWeek::Monday.abi() == 0x2);
-    assert!(AppointmentDaysOfWeek::Tuesday.abi() == 0x4);
-    assert!(AppointmentDaysOfWeek::Wednesday.abi() == 0x8);
-    assert!(AppointmentDaysOfWeek::Thursday.abi() == 0x10);
-    assert!(AppointmentDaysOfWeek::Friday.abi() == 0x20);
-    assert!(AppointmentDaysOfWeek::Saturday.abi() == 0x40);
+    assert!(AppointmentDaysOfWeek::default() == 0.into());
+    assert!(AppointmentDaysOfWeek::None == 0.into());
+    assert!(AppointmentDaysOfWeek::Sunday == 0x1.into());
+    assert!(AppointmentDaysOfWeek::Monday == 0x2.into());
+    assert!(AppointmentDaysOfWeek::Tuesday == 0x4.into());
+    assert!(AppointmentDaysOfWeek::Wednesday == 0x8.into());
+    assert!(AppointmentDaysOfWeek::Thursday == 0x10.into());
+    assert!(AppointmentDaysOfWeek::Friday == 0x20.into());
+    assert!(AppointmentDaysOfWeek::Saturday == 0x40.into());
 
     // Use as bitflags
     let weekend = AppointmentDaysOfWeek::Sunday | AppointmentDaysOfWeek::Saturday;
-    assert!(weekend.abi() == 0x41);
+    assert!(weekend == 0x41.into());
 }

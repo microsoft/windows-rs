@@ -48,6 +48,8 @@ impl Struct {
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
+
+        // TODO: if the struct is blittable then don't generate a separate abi type.
         let abi_ident = format_ident!("{}_abi", self.name.name);
 
         let fields = self.fields.iter().map(|(name, kind)| {

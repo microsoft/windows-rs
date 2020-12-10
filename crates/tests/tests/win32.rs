@@ -13,7 +13,10 @@ fn signed_enum32() {
 #[test]
 fn unsigned_enum32() {
     assert!(DXGI_ADAPTER_FLAG::default() == 0.into());
-    assert!(DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE.abi() == DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE);
+    assert!(
+        DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE.abi()
+            == DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE
+    );
 
     let both =
         DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_REMOTE;

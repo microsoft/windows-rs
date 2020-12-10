@@ -25,21 +25,24 @@ impl Delegate32 {
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
-        // let params = self.method.params.iter().map(|param| param.gen(0)); // TODO: use gen_abi()
 
-        // let return_type = if let Some(return_type) = &self.method.return_type {
-        //     let return_type = return_type.kind.gen();
+        // TODO: here we're using gen_abi() because as an ABI function pointer it can't use the owning
+        // types. Perhaps we should introduce a NonOwning<T> concept for this case.
+        let params = self.method.params.iter().map(|param| param.gen_abi());
 
-        //     quote! {
-        //         -> #return_type
-        //     }
-        // } else {
-        //     TokenStream::new()
-        // };
+        let return_type = if let Some(return_type) = &self.method.return_type {
+            let return_type = return_type.kind.gen_abi();
+
+            quote! {
+                -> #return_type
+            }
+        } else {
+            TokenStream::new()
+        };
 
         quote! {
             #[allow(non_camel_case_types)]
-            pub type #name = extern "system" fn();//#(#params)*) #return_type;
+            pub type #name = extern "system" fn(#(#params),*) #return_type;
         }
     }
 }

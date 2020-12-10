@@ -364,9 +364,7 @@ impl TypeKind {
                 let name = format_ident(name);
                 quote! { <#name as ::winrt::Abi>::Abi }
             }
-            Self::Enum(name) => {
-                name.gen()
-            }
+            Self::Enum(name) => name.gen(),
             Self::Struct(name) => name.gen_abi(),
         }
     }
