@@ -16,7 +16,6 @@ impl Delegate32 {
             .unwrap();
 
         let method = Method::from_method_def(&method, 0, &[], &name.namespace);
-
         Self { name, method }
     }
 
@@ -26,7 +25,7 @@ impl Delegate32 {
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
-        // let params = self.method.params.iter().map(|param| param.gen(0));
+        // let params = self.method.params.iter().map(|param| param.gen(0)); // TODO: use gen_abi()
 
         // let return_type = if let Some(return_type) = &self.method.return_type {
         //     let return_type = return_type.kind.gen();

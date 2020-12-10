@@ -364,11 +364,9 @@ impl TypeKind {
                 let name = format_ident(name);
                 quote! { <#name as ::winrt::Abi>::Abi }
             }
-            Self::Enum(name) => match name.def.underlying_type() {
-                winmd::ElementType::I32 => quote! { i32 },
-                winmd::ElementType::U32 => quote! { u32 },
-                _ => panic!("TypeKind::gen_abi"),
-            },
+            Self::Enum(name) => {
+                name.gen()
+            }
             Self::Struct(name) => name.gen_abi(),
         }
     }

@@ -6,18 +6,18 @@ use winrt::Abi;
 
 #[test]
 fn signed_enum32() {
-    assert!(ACCESS_MODE::default().abi() == 0);
-    assert!(ACCESS_MODE::REVOKE_ACCESS.abi() == 4);
+    assert!(ACCESS_MODE::default() == 0.into());
+    assert!(ACCESS_MODE::REVOKE_ACCESS.abi() == ACCESS_MODE::REVOKE_ACCESS);
 }
 
 #[test]
 fn unsigned_enum32() {
-    assert!(DXGI_ADAPTER_FLAG::default().abi() == 0);
-    assert!(DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE.abi() == 2);
+    assert!(DXGI_ADAPTER_FLAG::default() == 0.into());
+    assert!(DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE.abi() == DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE);
 
     let both =
         DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_REMOTE;
-    assert!(both.abi() == 3);
+    assert!(both == 3.into());
 }
 
 #[test]

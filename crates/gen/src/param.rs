@@ -153,7 +153,7 @@ impl Param {
                     | TypeKind::Interface(_)
                     | TypeKind::Delegate(_)
                     | TypeKind::Generic(_) => quote! { #name.into().abi(), },
-                    TypeKind::Enum(_) => quote! { ::winrt::Abi::abi(&#name), },
+                    TypeKind::Enum(_) => quote! { #name, },
                     TypeKind::Guid | TypeKind::Struct(_) => {
                         if self.is_const {
                             quote! { &#name.into().abi(), }
@@ -195,7 +195,7 @@ impl Param {
             if self.kind.primitive() {
                 quote! { #name }
             } else if let TypeKind::Enum(_) = self.kind {
-                quote! { ::std::mem::transmute_copy(&#name) }
+                quote! { #name }
             } else {
                 if self.is_const {
                     quote! { &*(#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
