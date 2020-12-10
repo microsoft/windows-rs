@@ -121,8 +121,8 @@ impl TypeGuid {
             GuidConstant::U8(0),
             GuidConstant::U8(0),
             GuidConstant::U8(0),
-        ])
-        }
+        ]);
+    }
 
     pub fn gen(&self) -> TokenStream {
         let mut iter = self.0.iter().map(|value| match value {

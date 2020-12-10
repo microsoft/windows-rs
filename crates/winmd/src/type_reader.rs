@@ -47,7 +47,8 @@ impl TypeReader {
             reader.insert_file_at_index(file, file_index);
         }
 
-        // TODO: need to remove types that aren't projected like HResult...
+        reader.remove_excluded_type(("Windows.Foundation", "HResult"));
+        reader.remove_excluded_type(("Windows.Win32", "IUnknown"));
 
         // TODO: remove once this is fixed: https://github.com/microsoft/win32metadata/issues/30
         reader.remove_excluded_type(("Windows.Win32", "CFunctionDiscoveryNotificationWrapper"));

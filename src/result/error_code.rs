@@ -104,6 +104,10 @@ impl ErrorCode {
     pub const E_POINTER: ErrorCode = ErrorCode(0x8000_4003);
 }
 
+unsafe impl Abi for ErrorCode {
+    type Abi = Self;
+}
+
 impl<T> std::convert::From<Result<T>> for ErrorCode {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {

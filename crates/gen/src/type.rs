@@ -30,6 +30,7 @@ pub enum TypeKind {
     Object,
     Guid,
     IUnknown,
+    ErrorCode,
     Class(TypeName),
     Interface(TypeName),
     Enum(TypeName),
@@ -254,6 +255,7 @@ impl TypeKind {
         match type_ref.name() {
             ("System", "Guid") => Self::Guid,
             ("Windows.Win32", "IUnknown") => Self::IUnknown,
+            ("Windows.Foundation", "HResult") => Self::ErrorCode,
             (namespace, name) => Self::from_type_def(
                 &type_ref.reader.resolve_type_def((namespace, name)),
                 calling_namespace,
@@ -315,6 +317,7 @@ impl TypeKind {
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
             Self::IUnknown => quote! { ::winrt::IUnknown },
+            Self::ErrorCode => quote! { ::winrt::ErrorCode },
             Self::Class(name) => name.gen(),
             Self::Interface(name) => name.gen(),
             Self::Enum(name) => name.gen(),
@@ -348,6 +351,7 @@ impl TypeKind {
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
             Self::IUnknown => quote! { ::winrt::IUnknown },
+            Self::ErrorCode => quote! { ::winrt::ErrorCode },
             Self::Class(name) => name.gen_full(),
             Self::Interface(name) => name.gen_full(),
             Self::Enum(name) => name.gen_full(),
@@ -378,6 +382,7 @@ impl TypeKind {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::Guid => quote! { ::winrt::Guid },
+            Self::ErrorCode => quote! { ::winrt::ErrorCode },
             Self::String
             | Self::Object
             | Self::IUnknown
