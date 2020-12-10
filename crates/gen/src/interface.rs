@@ -54,10 +54,6 @@ impl Interface {
             .unwrap()
     }
 
-    pub fn gen_vtable_initializer(&self) -> TokenStream {
-        panic!();
-    }
-
     pub fn gen(&self) -> TokenStream {
         let definition = self.name.gen_definition();
         let abi_definition = self.name.gen_abi_definition();

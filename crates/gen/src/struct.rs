@@ -68,6 +68,14 @@ impl Struct {
             }
         });
 
+        let clones = self.fields.iter().map(|(name, kind)| {
+            let name = format_ident(&name);
+            let clone = kind.gen_clone(&name);
+            quote! {
+                #name: #clone
+            }
+        });
+
         let debug_fields = self.fields.iter().filter_map(|(name, t)| {
             if let TypeKind::Delegate(name) = &t.kind {
                 if !name.def.is_winrt() {
@@ -123,12 +131,8 @@ impl Struct {
 
         let debug_name = self.name.name;
 
-        // TODO: unroll these traits - it's too expensive to call derive macro.
-        // https://github.com/microsoft/winrt-rs/issues/353
-
         quote! {
             #[repr(C)]
-            #[derive(::std::clone::Clone)]
             #[allow(non_snake_case)]
             pub struct #name {
                 #(#fields),*
@@ -148,6 +152,11 @@ impl Struct {
                     fmt.debug_struct(#debug_name)
                         #(#debug_fields)*
                         .finish()
+                }
+            }
+            impl ::std::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    Self{ #(#clones),* }
                 }
             }
             impl ::std::cmp::PartialEq for #name {

@@ -36,6 +36,18 @@ fn rect() {
     assert!(rect.top == 2);
     assert!(rect.right == 3);
     assert!(rect.bottom == 4);
+
+    let clone = rect.clone();
+
+    assert!(
+        clone
+            == RECT {
+                left: 1,
+                top: 2,
+                right: 3,
+                bottom: 4,
+            }
+    );
 }
 
 #[test]
