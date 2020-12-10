@@ -1,3 +1,4 @@
+use crate::*;
 use squote::{quote, Literal, TokenStream};
 
 #[derive(Clone, Default, PartialEq)]
@@ -26,7 +27,7 @@ impl GuidConstant {
             winmd::AttributeArg::U32(value) => GuidConstant::U32(value),
             winmd::AttributeArg::U16(value) => GuidConstant::U16(value),
             winmd::AttributeArg::U8(value) => GuidConstant::U8(value),
-            _ => panic!("Invalid Guid argument"),
+            _ => panic!("GuidConstant.from_arg"),
         }
     }
 }
@@ -64,22 +65,46 @@ impl TypeGuid {
 
     pub fn from_type_def(def: &winmd::TypeDef) -> Self {
         for attribute in def.attributes() {
-            if attribute.name() == ("Windows.Foundation.Metadata", "GuidAttribute") {
-                let args = attribute.args();
+            match attribute.name() {
+                ("Windows.Foundation.Metadata", "GuidAttribute") => {
+                    let args = attribute.args();
 
-                return Self([
-                    GuidConstant::from_arg(&args[0].1),
-                    GuidConstant::from_arg(&args[1].1),
-                    GuidConstant::from_arg(&args[2].1),
-                    GuidConstant::from_arg(&args[3].1),
-                    GuidConstant::from_arg(&args[4].1),
-                    GuidConstant::from_arg(&args[5].1),
-                    GuidConstant::from_arg(&args[6].1),
-                    GuidConstant::from_arg(&args[7].1),
-                    GuidConstant::from_arg(&args[8].1),
-                    GuidConstant::from_arg(&args[9].1),
-                    GuidConstant::from_arg(&args[10].1),
-                ]);
+                    return Self([
+                        GuidConstant::from_arg(&args[0].1),
+                        GuidConstant::from_arg(&args[1].1),
+                        GuidConstant::from_arg(&args[2].1),
+                        GuidConstant::from_arg(&args[3].1),
+                        GuidConstant::from_arg(&args[4].1),
+                        GuidConstant::from_arg(&args[5].1),
+                        GuidConstant::from_arg(&args[6].1),
+                        GuidConstant::from_arg(&args[7].1),
+                        GuidConstant::from_arg(&args[8].1),
+                        GuidConstant::from_arg(&args[9].1),
+                        GuidConstant::from_arg(&args[10].1),
+                    ]);
+                }
+                ("System.Runtime.InteropServices", "GuidAttribute") => {
+                    let args = attribute.args();
+
+                    if let winmd::AttributeArg::String(guid) = &args[0].1 {
+                        let guid = GuidAttribute::new(&guid);
+
+                        return Self([
+                            GuidConstant::U32(guid.a),
+                            GuidConstant::U16(guid.b),
+                            GuidConstant::U16(guid.c),
+                            GuidConstant::U8(guid.d),
+                            GuidConstant::U8(guid.e),
+                            GuidConstant::U8(guid.f),
+                            GuidConstant::U8(guid.g),
+                            GuidConstant::U8(guid.h),
+                            GuidConstant::U8(guid.i),
+                            GuidConstant::U8(guid.j),
+                            GuidConstant::U8(guid.k),
+                        ]);
+                    }
+                }
+                _ => {}
             }
         }
 
@@ -97,6 +122,66 @@ impl TypeGuid {
 
         quote! {
             #(#three,)* [#(#iter),*],
+        }
+    }
+}
+
+struct GuidAttribute {
+    a: u32,
+    b: u16,
+    c: u16,
+    d: u8,
+    e: u8,
+    f: u8,
+    g: u8,
+    h: u8,
+    i: u8,
+    j: u8,
+    k: u8,
+}
+
+impl GuidAttribute {
+    fn new(value: &str) -> Self {
+        assert!(value.len() == 36, "Invalid GUID string");
+        let mut bytes = value.bytes();
+
+        let a = ((bytes.next_u32() * 16 + bytes.next_u32()) << 24)
+            + ((bytes.next_u32() * 16 + bytes.next_u32()) << 16)
+            + ((bytes.next_u32() * 16 + bytes.next_u32()) << 8)
+            + bytes.next_u32() * 16
+            + bytes.next_u32();
+        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+        let b = ((bytes.next_u16() * 16 + (bytes.next_u16())) << 8)
+            + bytes.next_u16() * 16
+            + bytes.next_u16();
+        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+        let c = ((bytes.next_u16() * 16 + bytes.next_u16()) << 8)
+            + bytes.next_u16() * 16
+            + bytes.next_u16();
+        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+        let d = bytes.next_u8() * 16 + bytes.next_u8();
+        let e = bytes.next_u8() * 16 + bytes.next_u8();
+        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+
+        let f = bytes.next_u8() * 16 + bytes.next_u8();
+        let g = bytes.next_u8() * 16 + bytes.next_u8();
+        let h = bytes.next_u8() * 16 + bytes.next_u8();
+        let i = bytes.next_u8() * 16 + bytes.next_u8();
+        let j = bytes.next_u8() * 16 + bytes.next_u8();
+        let k = bytes.next_u8() * 16 + bytes.next_u8();
+
+        Self {
+            a,
+            b,
+            c,
+            d,
+            e,
+            f,
+            g,
+            h,
+            i,
+            j,
+            k,
         }
     }
 }
