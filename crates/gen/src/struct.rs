@@ -85,7 +85,7 @@ impl Struct {
         } else {
             let fields = self.fields.iter().map(|(name, t)| {
                 let name_ident = format_ident(&name);
-    
+
                 if let TypeKind::Delegate(name) = &t.kind {
                     if !name.def.is_winrt() {
                         return quote! {
@@ -93,7 +93,7 @@ impl Struct {
                         };
                     }
                 }
-    
+
                 quote! {
                     self.#name_ident == other.#name_ident
                 }
