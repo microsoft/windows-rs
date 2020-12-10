@@ -108,8 +108,21 @@ impl TypeGuid {
             }
         }
 
-        panic!("GuidAttribute not found");
-    }
+        // TODO: possibly remove when this is fixed: https://github.com/microsoft/win32metadata/issues/70
+        return Self([
+            GuidConstant::U32(0),
+            GuidConstant::U16(0),
+            GuidConstant::U16(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+        ])
+        }
 
     pub fn gen(&self) -> TokenStream {
         let mut iter = self.0.iter().map(|value| match value {
