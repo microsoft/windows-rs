@@ -80,21 +80,29 @@ impl Struct {
             })
         });
 
-        let compare_fields = self.fields.iter().map(|(name, t)| {
-            let name_ident = format_ident(&name);
-
-            if let TypeKind::Delegate(name) = &t.kind {
-                if !name.def.is_winrt() {
-                    return quote! {
-                        self.#name_ident.map(|f| f as usize) == other.#name_ident.map(|f| f as usize)
-                    };
+        let compare_fields = if self.fields.is_empty() {
+            quote! { true }
+        } else {
+            let fields = self.fields.iter().map(|(name, t)| {
+                let name_ident = format_ident(&name);
+    
+                if let TypeKind::Delegate(name) = &t.kind {
+                    if !name.def.is_winrt() {
+                        return quote! {
+                            self.#name_ident.map(|f| f as usize) == other.#name_ident.map(|f| f as usize)
+                        };
+                    }
                 }
-            }
+    
+                quote! {
+                    self.#name_ident == other.#name_ident
+                }
+            });
 
             quote! {
-                self.#name_ident == other.#name_ident
+                #(#fields)&&*
             }
-        });
+        };
 
         let abi = self.fields.iter().map(|field| field.1.gen_abi());
 
@@ -142,7 +150,7 @@ impl Struct {
             }
             impl ::std::cmp::PartialEq for #name {
                 fn eq(&self, other: &Self) -> bool {
-                    #(#compare_fields)&&*
+                    #compare_fields
                 }
             }
             impl ::std::cmp::Eq for #name {}
