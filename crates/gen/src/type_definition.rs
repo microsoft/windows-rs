@@ -11,7 +11,6 @@ pub enum TypeDefinition {
     Delegate(Delegate),
     Class32(Class32),
     Interface32(Interface32),
-    Struct32(Struct32),
     Delegate32(Delegate32),
 }
 
@@ -35,13 +34,7 @@ impl TypeDefinition {
                 }
             }
             winmd::TypeCategory::Enum => Self::Enum(Enum::from_type_name(name)),
-            winmd::TypeCategory::Struct => {
-                if def.is_winrt() {
-                    Self::Struct(Struct::from_type_name(name))
-                } else {
-                    Self::Struct32(Struct32::from_type_name(name))
-                }
-            }
+            winmd::TypeCategory::Struct => Self::Struct(Struct::from_type_name(name)),
             winmd::TypeCategory::Delegate => {
                 if def.is_winrt() {
                     Self::Delegate(Delegate::from_type_name(name))
@@ -62,7 +55,6 @@ impl TypeDefinition {
             Self::Delegate(t) => t.gen(),
             Self::Class32(t) => t.gen(),
             Self::Interface32(t) => t.gen(),
-            Self::Struct32(t) => t.gen(),
             Self::Delegate32(t) => t.gen(),
         }
     }
@@ -76,7 +68,6 @@ impl TypeDefinition {
             Self::Delegate(t) => &t.name,
             Self::Class32(t) => &t.name,
             Self::Interface32(t) => &t.name,
-            Self::Struct32(t) => &t.name,
             Self::Delegate32(t) => &t.name,
         }
     }
@@ -90,7 +81,6 @@ impl TypeDefinition {
             Self::Delegate(t) => t.dependencies(),
             Self::Class32(t) => t.dependencies(),
             Self::Interface32(t) => t.dependencies(),
-            Self::Struct32(t) => t.dependencies(),
             Self::Delegate32(t) => t.dependencies(),
         }
     }

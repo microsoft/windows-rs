@@ -113,6 +113,11 @@ impl Enum {
             #[allow(non_camel_case_types)]
             #[repr(transparent)]
             pub struct #name(#underlying_type);
+            impl ::std::convert::From<#underlying_type> for #name {
+                fn from(value: #underlying_type) -> Self {
+                    Self(value)
+                }
+            }
             impl ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self(self.0)
@@ -140,7 +145,7 @@ impl Enum {
                 #(#fields)*
             }
             unsafe impl ::winrt::Abi for #name {
-                type Abi = #underlying_type;
+                type Abi = Self;
             }
             #runtime_type
             #bitwise

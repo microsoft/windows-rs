@@ -1,5 +1,5 @@
 use crate::*;
-use squote::{quote, TokenStream};
+use squote::{quote, Ident, TokenStream};
 use winmd::Decode;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -30,6 +30,7 @@ pub enum TypeKind {
     Object,
     Guid,
     IUnknown,
+    ErrorCode,
     Class(TypeName),
     Interface(TypeName),
     Enum(TypeName),
@@ -113,6 +114,72 @@ impl Type {
         blob.read_modifiers();
         Self::from_blob(&mut blob, &Vec::new(), calling_namespace)
     }
+
+    pub fn gen_field(&self) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for _ in 0..self.pointers {
+            tokens.combine(&quote! { *mut });
+        }
+
+        let kind = self.kind.gen();
+
+        match &self.kind {
+            TypeKind::Interface(_) | TypeKind::Delegate(_) | TypeKind::IUnknown => {
+                tokens.combine(&quote! {
+                    ::std::option::Option<#kind>
+                })
+            }
+            _ => tokens.combine(&kind),
+        };
+
+        tokens
+    }
+
+    pub fn gen_clone(&self, name: &Ident) -> TokenStream {
+        match self.kind {
+            TypeKind::Bool
+            | TypeKind::Char
+            | TypeKind::I8
+            | TypeKind::U8
+            | TypeKind::I16
+            | TypeKind::U16
+            | TypeKind::I32
+            | TypeKind::U32
+            | TypeKind::I64
+            | TypeKind::U64
+            | TypeKind::F32
+            | TypeKind::F64
+            | TypeKind::ISize
+            | TypeKind::USize
+            | TypeKind::Enum(_) => quote! { self.#name },
+            _ => {
+                let kind = self.gen_field();
+                quote! {
+                    <#kind as std::clone::Clone>::clone(&self.#name)
+                }
+            }
+        }
+    }
+
+    pub fn gen_abi(&self) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for _ in 0..self.pointers {
+            tokens.combine(&quote! { *mut });
+        }
+
+        tokens.combine(&self.kind.gen_abi());
+        tokens
+    }
+
+    pub fn gen_default(&self) -> TokenStream {
+        if self.pointers > 0 {
+            quote! { ::std::ptr::null_mut() }
+        } else {
+            self.kind.gen_default()
+        }
+    }
 }
 
 impl TypeKind {
@@ -188,6 +255,7 @@ impl TypeKind {
         match type_ref.name() {
             ("System", "Guid") => Self::Guid,
             ("Windows.Win32", "IUnknown") => Self::IUnknown,
+            ("Windows.Foundation", "HResult") => Self::ErrorCode,
             (namespace, name) => Self::from_type_def(
                 &type_ref.reader.resolve_type_def((namespace, name)),
                 calling_namespace,
@@ -249,6 +317,7 @@ impl TypeKind {
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
             Self::IUnknown => quote! { ::winrt::IUnknown },
+            Self::ErrorCode => quote! { ::winrt::ErrorCode },
             Self::Class(name) => name.gen(),
             Self::Interface(name) => name.gen(),
             Self::Enum(name) => name.gen(),
@@ -282,6 +351,7 @@ impl TypeKind {
             Self::Object => quote! { ::winrt::Object },
             Self::Guid => quote! { ::winrt::Guid },
             Self::IUnknown => quote! { ::winrt::IUnknown },
+            Self::ErrorCode => quote! { ::winrt::ErrorCode },
             Self::Class(name) => name.gen_full(),
             Self::Interface(name) => name.gen_full(),
             Self::Enum(name) => name.gen_full(),
@@ -292,18 +362,6 @@ impl TypeKind {
                 quote! { #name }
             }
         }
-    }
-
-    pub fn gen_field(&self) -> TokenStream {
-        let mut tokens = self.gen();
-
-        if let Self::Interface(_) = self {
-            tokens = quote! {
-                ::std::option::Option<#tokens>
-            }
-        }
-
-        tokens
     }
 
     pub fn gen_abi(&self) -> TokenStream {
@@ -324,6 +382,7 @@ impl TypeKind {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::Guid => quote! { ::winrt::Guid },
+            Self::ErrorCode => quote! { ::winrt::ErrorCode },
             Self::String
             | Self::Object
             | Self::IUnknown
@@ -336,10 +395,29 @@ impl TypeKind {
                 let name = format_ident(name);
                 quote! { <#name as ::winrt::Abi>::Abi }
             }
-            Self::Enum(name) | Self::Struct(name) => {
-                let name = name.gen();
-                quote! { <#name as ::winrt::Abi>::Abi }
-            }
+            Self::Enum(name) => name.gen(),
+            Self::Struct(name) => name.gen_abi(),
+        }
+    }
+
+    pub fn gen_default(&self) -> TokenStream {
+        match self {
+            Self::Bool => quote! { false },
+            Self::Char
+            | Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::ISize
+            | Self::USize => quote! { 0 },
+            Self::F32 | Self::F64 => quote! { 0.0 },
+            Self::String => quote! { ::winrt::HString::new() },
+            Self::Guid => quote! { ::winrt::Guid::zeroed() },
+            _ => quote! { ::std::default::Default::default() },
         }
     }
 

@@ -46,7 +46,20 @@ impl TypeReader {
             let file = File::new(file);
             reader.insert_file_at_index(file, file_index);
         }
+
+        reader.remove_excluded_type(("Windows.Foundation", "HResult"));
+        reader.remove_excluded_type(("Windows.Win32", "IUnknown"));
+
+        // TODO: remove once this is fixed: https://github.com/microsoft/win32metadata/issues/30
+        reader.remove_excluded_type(("Windows.Win32", "CFunctionDiscoveryNotificationWrapper"));
+
         reader
+    }
+
+    fn remove_excluded_type(&mut self, (namespace, type_name): (&str, &str)) {
+        if let Some(value) = self.types.get_mut(namespace) {
+            value.remove(type_name);
+        }
     }
 
     fn insert_file_at_index(&mut self, file: File, file_index: usize) {

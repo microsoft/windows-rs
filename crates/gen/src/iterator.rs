@@ -68,7 +68,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
             impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for VectorViewIterator<T> {
                 type Item = T;
 
-                fn next(&mut self) -> Option<Self::Item> {
+                fn next(&mut self) -> ::std::option::Option<Self::Item> {
                     if self.current >= self.size {
                         return None;
                     }
@@ -117,7 +117,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
             impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for VectorIterator<T> {
                 type Item = T;
 
-                fn next(&mut self) -> Option<Self::Item> {
+                fn next(&mut self) -> ::std::option::Option<Self::Item> {
                     if self.current >= self.size {
                         return None;
                     }

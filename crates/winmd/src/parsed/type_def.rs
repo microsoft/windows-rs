@@ -110,12 +110,21 @@ impl TypeDef {
 
     pub fn underlying_type(&self) -> ElementType {
         for field in self.fields() {
-            for constant in field.constants() {
+            if let Some(constant) = field.constants().next() {
                 return constant.value_type();
+            } else {
+                let blob = &mut field.sig();
+                blob.read_unsigned();
+                blob.read_modifiers();
+
+                blob.read_expected(0x1D);
+                blob.read_modifiers();
+
+                return ElementType::from_blob(blob);
             }
         }
 
-        panic!("TypeDef::underlying_type");
+        panic!("TypeDef::underlying_type {:?}", self.name());
     }
 }
 

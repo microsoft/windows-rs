@@ -72,7 +72,7 @@ impl Delegate {
                 const IID: ::winrt::Guid = #guid;
             }
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type DefaultType = Option<Self>;
+                type DefaultType = ::std::option::Option<Self>;
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
             #[repr(C)]

@@ -54,10 +54,6 @@ impl Interface {
             .unwrap()
     }
 
-    pub fn gen_vtable_initializer(&self) -> TokenStream {
-        panic!();
-    }
-
     pub fn gen(&self) -> TokenStream {
         let definition = self.name.gen_definition();
         let abi_definition = self.name.gen_abi_definition();
@@ -127,7 +123,7 @@ impl Interface {
                 #phantoms
             ) where #constraints;
             unsafe impl<#constraints> ::winrt::RuntimeType for #name {
-                type DefaultType = Option<Self>;
+                type DefaultType = ::std::option::Option<Self>;
                 const SIGNATURE: ::winrt::ConstBuffer = { #signature };
             }
             impl<#constraints> ::std::convert::From<#name> for ::winrt::Object {

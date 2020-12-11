@@ -12,7 +12,14 @@ impl Class32 {
     }
 
     pub fn gen(&self) -> TokenStream {
-        quote! {}
+        let name = self.name.gen();
+
+        quote! {
+            #[link(name = "onecoreuap")]
+            extern "system" {
+                pub fn #name();
+            }
+        }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
