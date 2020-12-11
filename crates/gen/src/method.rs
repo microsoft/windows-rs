@@ -302,13 +302,8 @@ fn gen_constraint(params: &[Param]) -> TokenStream {
             | TypeKind::Class(_)
             | TypeKind::Interface(_)
             | TypeKind::Struct(_)
+            | TypeKind::Delegate32(_)
             | TypeKind::Generic(_) => {
-                let name = squote::format_ident!("T{}__", position);
-                let into = param.kind.gen();
-                tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
-            }
-            // TODO: Add Delegate32 enum to avoid this
-            TypeKind::Delegate(name) if name.def.is_winrt() => {
                 let name = squote::format_ident!("T{}__", position);
                 let into = param.kind.gen();
                 tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });

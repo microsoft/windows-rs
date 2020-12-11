@@ -108,7 +108,6 @@ impl TypeGuid {
             }
         }
 
-        // TODO: possibly remove when this is fixed: https://github.com/microsoft/win32metadata/issues/70
         return Self([
             GuidConstant::U32(0),
             GuidConstant::U16(0),

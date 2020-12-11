@@ -32,12 +32,8 @@ impl Param {
                 | TypeKind::Class(_)
                 | TypeKind::Interface(_)
                 | TypeKind::Struct(_)
+                | TypeKind::Delegate32(_)
                 | TypeKind::Generic(_) => {
-                    let tokens = squote::format_ident!("T{}__", position);
-                    quote! { #name: #tokens, }
-                }
-                // TODO: Add Delegate32 enum to avoid this
-                TypeKind::Delegate(t) if t.def.is_winrt() => {
                     let tokens = squote::format_ident!("T{}__", position);
                     quote! { #name: #tokens, }
                 }
