@@ -302,7 +302,7 @@ fn gen_constraint(params: &[Param]) -> TokenStream {
             | TypeKind::Class(_)
             | TypeKind::Interface(_)
             | TypeKind::Struct(_)
-            | TypeKind::Delegate32(_)
+            | TypeKind::Delegate(_)
             | TypeKind::Generic(_) => {
                 let name = squote::format_ident!("T{}__", position);
                 let into = param.kind.gen();

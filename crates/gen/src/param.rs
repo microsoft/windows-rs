@@ -32,7 +32,7 @@ impl Param {
                 | TypeKind::Class(_)
                 | TypeKind::Interface(_)
                 | TypeKind::Struct(_)
-                | TypeKind::Delegate32(_)
+                | TypeKind::Delegate(_)
                 | TypeKind::Generic(_) => {
                     let tokens = squote::format_ident!("T{}__", position);
                     quote! { #name: #tokens, }
