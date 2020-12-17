@@ -17,20 +17,14 @@ impl TypeLimits {
     /// Insert a namespace into the set of relevant namespaces
     ///
     /// expects the namespace in the form: `parent::namespace::*`s
-    pub fn insert(&mut self, mut limit: NamespaceTypes) -> Result<(), String> {
-        let namespace = match self
-            .reader
-            .types
-            .iter()
-            .find(|(name, _)| name.to_lowercase() == limit.namespace.to_lowercase())
-        {
-            Some((n, _)) => n,
-            None => return Err(limit.namespace),
-        };
-
-        limit.namespace = namespace.clone();
-        self.inner.insert(limit);
-        Ok(())
+    pub fn insert(&mut self, mut limit: NamespaceTypes) -> Result<(), &'static str> {
+        if let Some(namespace) = self.reader.find_lowercase_namespace(&limit.namespace.to_lowercase()) {
+            limit.namespace = namespace;
+            self.inner.insert(limit);
+            Ok(())
+        } else {
+            Err(limit.namespace)
+        }
     }
 
     pub fn limits(&self) -> impl Iterator<Item = &NamespaceTypes> {
@@ -41,7 +35,7 @@ impl TypeLimits {
 /// A namespace's relevant types
 #[derive(Debug, Ord, PartialOrd, Eq, PartialEq)]
 pub struct NamespaceTypes {
-    pub namespace: String,
+    pub namespace: &'static str,
     pub limit: TypeLimit,
 }
 

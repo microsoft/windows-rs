@@ -104,16 +104,8 @@ impl TypeReader {
     pub fn namespace_types(
         &'static self,
         namespace: &str,
-    ) -> impl Iterator<Item = (&str, TypeDef)> {
-        self.types[namespace].iter().map(move |(n, row)| {
-            (
-                n.as_str(),
-                TypeDef {
-                    reader: self,
-                    row: *row,
-                },
-            )
-        })
+    ) -> &BTreeMap<String, Row> {
+        &self.types[namespace]
     }
 
     /// Resolve a type definition given its namespace and type name

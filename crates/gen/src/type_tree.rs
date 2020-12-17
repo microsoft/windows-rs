@@ -18,7 +18,7 @@ impl TypeTree {
         for limit in limits.limits() {
             match &limit.limit {
                 TypeLimit::All => {
-                    for (_, def) in reader.namespace_types(&limit.namespace) {
+                    for def in reader.namespace_types(&limit.namespace).iter().map(|(_, row)|winmd::TypeDef{reader, row:*row}) {
                         match def.category() {
                             winmd::TypeCategory::Attribute | winmd::TypeCategory::Contract => {}
                             _ => tree.insert_if(reader, &mut set, &def),
@@ -26,7 +26,7 @@ impl TypeTree {
                     }
                 }
                 TypeLimit::Some(types) => {
-                    let namespace = &reader.types[&limit.namespace];
+                    let namespace = reader.namespace_types(&limit.namespace);
                     for name in types {
                         tree.insert_if(
                             reader,
@@ -118,13 +118,13 @@ mod tests {
         let mut limits = TypeLimits::new(reader);
         limits
             .insert(NamespaceTypes {
-                namespace: "windows.foundation".to_owned(),
+                namespace: "windows.foundation",
                 limit: TypeLimit::All,
             })
             .unwrap();
         limits
             .insert(NamespaceTypes {
-                namespace: "windows.ui".to_owned(),
+                namespace: "windows.ui",
                 limit: TypeLimit::All,
             })
             .unwrap();
