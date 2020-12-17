@@ -40,3 +40,23 @@ impl std::fmt::Debug for Field {
         f.debug_struct("Field").field("row", &self.row).finish()
     }
 }
+
+impl PartialEq for Field {
+    fn eq(&self, other: &Self) -> bool {
+        self.row == other.row
+    }
+}
+
+impl Eq for Field {}
+
+impl Ord for Field {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.row.cmp(&other.row)
+    }
+}
+
+impl PartialOrd for Field {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}

@@ -17,6 +17,13 @@ pub struct TypeReader {
     // When turning into TypeDef they add the &'static TypeReader
 }
 
+#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+pub enum Type {
+    TypeDef(TypeDef),
+    MethodDef((TypeDef, MethodDef)),
+    Field((TypeDef, Field)),
+}
+
 impl TypeReader {
     pub fn get() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
