@@ -18,7 +18,7 @@ impl TypeTree {
         for limit in limits.limits() {
             match &limit.limit {
                 TypeLimit::All => {
-                    for def in reader.namespace_types(&limit.namespace).iter().map(|(_, row)|winmd::TypeDef{reader, row:*row}) {
+                    for def in reader.namespace_types(&limit.namespace) {
                         match def.category() {
                             winmd::TypeCategory::Attribute | winmd::TypeCategory::Contract => {}
                             _ => tree.insert_if(reader, &mut set, &def),

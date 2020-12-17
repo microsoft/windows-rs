@@ -20,7 +20,7 @@ pub struct TypeReader {
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-pub enum TypeRow {
+enum TypeRow {
     TypeDef(Row),
     MethodDef((Row, Row)),
     Field((Row, Row)),
@@ -112,9 +112,9 @@ impl TypeReader {
     /// Panics if the namespace does not exist
     pub fn namespace_types(
         &'static self,
-        namespace: &str,
-    ) -> &BTreeMap<String, Row> {
-        &self.types[namespace]
+        namespace: & str,
+    ) -> impl Iterator<Item = TypeDef> + '_ {
+        self.types[namespace].values().map(move |row| TypeDef{reader:self, row:*row})
     }
 
     /// Resolve a type definition given its namespace and type name
