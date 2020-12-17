@@ -1,13 +1,13 @@
 use std::collections::BTreeSet;
 
 /// The set of relevant namespaces and types
-pub struct TypeLimits<'a> {
-    reader: &'a winmd::TypeReader,
+pub struct TypeLimits {
+    reader: &'static winmd::TypeReader,
     pub inner: BTreeSet<NamespaceTypes>,
 }
 
-impl<'a> TypeLimits<'a> {
-    pub fn new(reader: &'a winmd::TypeReader) -> Self {
+impl TypeLimits {
+    pub fn new(reader: &'static winmd::TypeReader) -> Self {
         Self {
             reader,
             inner: BTreeSet::new(),

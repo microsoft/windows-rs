@@ -87,6 +87,10 @@ impl TypeReader {
         }
     }
 
+    pub fn find_lowercase_namespace(&'static self, lowercase: &str) -> Option<&'static str> {
+        self.types.keys().find(|namespace|namespace.to_lowercase() == lowercase).map(|namespace| namespace.as_str())
+    }
+
     /// Get all the namespace names that the [`TypeReader`] knows about
     pub fn namespaces(&self) -> impl Iterator<Item = &String> {
         self.types.keys()
