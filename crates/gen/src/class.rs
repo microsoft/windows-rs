@@ -32,10 +32,7 @@ impl Class {
                 break;
             }
 
-            base = name
-                .def
-                .reader
-                .expect_type_def((base_namespace, base_name));
+            base = name.def.reader.expect_type_def((base_namespace, base_name));
             let base = TypeName::from_type_def(&base, &name.namespace);
 
             add_dependencies(&mut interfaces, &base, &name.namespace, true);

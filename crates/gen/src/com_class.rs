@@ -12,17 +12,8 @@ impl ComClass {
     }
 
     pub fn gen(&self) -> TokenStream {
-        let name = self.name.gen();
+        // TODO: generate constant for CLSID
 
-        quote! {
-            #[link(name = "onecoreuap")]
-            extern "system" {
-                pub fn #name();
-            }
-        }
-    }
-
-    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        Vec::new()
+        quote! {}
     }
 }

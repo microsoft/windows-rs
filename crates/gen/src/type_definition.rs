@@ -12,6 +12,8 @@ pub enum TypeDefinition {
     ComClass(ComClass),
     ComInterface(ComInterface),
     Callback(Callback),
+    Constant(Constant),
+    Function(Function),
 }
 
 impl TypeDefinition {
@@ -56,9 +58,12 @@ impl TypeDefinition {
             Self::ComClass(t) => t.gen(),
             Self::ComInterface(t) => t.gen(),
             Self::Callback(t) => t.gen(),
+            Self::Constant(t) => t.gen(),
+            Self::Function(t) => t.gen(),
         }
     }
 
+    // TODO: get rid of this 
     pub fn name(&self) -> &TypeName {
         match self {
             Self::Class(t) => &t.name,
@@ -69,6 +74,8 @@ impl TypeDefinition {
             Self::ComClass(t) => &t.name,
             Self::ComInterface(t) => &t.name,
             Self::Callback(t) => &t.name,
+            Self::Constant(t) => &t.name,
+            Self::Function(t) => &t.name,
         }
     }
 
@@ -76,12 +83,12 @@ impl TypeDefinition {
         match self {
             Self::Class(t) => t.dependencies(),
             Self::Interface(t) => t.dependencies(),
-            Self::Enum(_) => Vec::new(),
             Self::Struct(t) => t.dependencies(),
             Self::Delegate(t) => t.dependencies(),
-            Self::ComClass(t) => t.dependencies(),
             Self::ComInterface(t) => t.dependencies(),
             Self::Callback(t) => t.dependencies(),
+            Self::Function(t) => t.dependencies(),
+            _ => Vec::new(),
         }
     }
 }

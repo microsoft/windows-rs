@@ -21,14 +21,14 @@ impl TypeTree {
                     for (_, def) in reader.namespace_types(&limit.namespace) {
                         match def.category() {
                             winmd::TypeCategory::Attribute | winmd::TypeCategory::Contract => {}
-                            _ => tree.insert2(reader, &mut set, &def),
+                            _ => tree.insert_if(reader, &mut set, &def),
                         };
                     }
                 }
                 TypeLimit::Some(types) => {
                     let namespace = &reader.types[&limit.namespace];
                     for name in types {
-                        tree.insert2(
+                        tree.insert_if(
                             reader,
                             &mut set,
                             &winmd::TypeDef {
@@ -44,7 +44,7 @@ impl TypeTree {
         tree
     }
 
-    fn insert2(
+    fn insert_if(
         &mut self,
         reader: &winmd::TypeReader,
         set: &mut std::collections::BTreeSet<winmd::TypeDef>,
@@ -54,7 +54,7 @@ impl TypeTree {
             let t = TypeDefinition::from_type_def(def);
 
             for def in t.dependencies() {
-                self.insert2(reader, set, &def);
+                self.insert_if(reader, set, &def);
             }
 
             self.insert(t.name().namespace, t);
