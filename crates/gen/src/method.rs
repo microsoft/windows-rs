@@ -324,8 +324,8 @@ mod tests {
     use crate::*;
 
     fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
-        let reader = &winmd::TypeReader::from_build();
-        let def = reader.resolve_type_def((namespace, type_name));
+        let reader = &winmd::TypeReader::get();
+        let def = reader.expect_type_def((namespace, type_name));
 
         let t = match TypeDefinition::from_type_def(&def) {
             TypeDefinition::Interface(t) => t,

@@ -2,11 +2,11 @@ use crate::*;
 use squote::{quote, TokenStream};
 
 #[derive(Debug)]
-pub struct Interface32 {
+pub struct ComInterface {
     pub name: TypeName,
 }
 
-impl Interface32 {
+impl ComInterface {
     pub fn from_type_name(name: TypeName) -> Self {
         Self { name }
     }

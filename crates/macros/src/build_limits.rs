@@ -10,7 +10,7 @@ impl BuildLimits {
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
         let is_foundation = self.0.is_empty();
 
-        let reader = winmd::TypeReader::from_build();
+        let reader = winmd::TypeReader::get();
 
         let mut limits = TypeLimits::new(reader);
 

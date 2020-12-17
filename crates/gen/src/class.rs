@@ -35,7 +35,7 @@ impl Class {
             base = name
                 .def
                 .reader
-                .resolve_type_def((base_namespace, base_name));
+                .expect_type_def((base_namespace, base_name));
             let base = TypeName::from_type_def(&base, &name.namespace);
 
             add_dependencies(&mut interfaces, &base, &name.namespace, true);
@@ -328,8 +328,8 @@ mod tests {
     use crate::*;
 
     fn class((namespace, type_name): (&str, &str)) -> Class {
-        let reader = &winmd::TypeReader::from_build();
-        let def = reader.resolve_type_def((namespace, type_name));
+        let reader = &winmd::TypeReader::get();
+        let def = reader.expect_type_def((namespace, type_name));
 
         match TypeDefinition::from_type_def(&def) {
             TypeDefinition::Class(t) => t,

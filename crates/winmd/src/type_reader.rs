@@ -18,7 +18,7 @@ pub struct TypeReader {
 }
 
 impl TypeReader {
-    pub fn from_build() -> &'static Self {
+    pub fn get() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
         static mut VALUE: MaybeUninit<TypeReader> = MaybeUninit::uninit();
@@ -110,7 +110,7 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if no type definition for the given namespace and type name can be found
-    pub fn resolve_type_def(&'static self, (namespace, type_name): (&str, &str)) -> TypeDef {
+    pub fn expect_type_def(&'static self, (namespace, type_name): (&str, &str)) -> TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(def) = types.get(type_name) {
                 return TypeDef {

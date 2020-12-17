@@ -72,12 +72,12 @@ impl Attribute {
                         let index = name.rfind('.').unwrap();
                         AttributeArg::TypeDef(
                             self.reader
-                                .resolve_type_def((&name[0..index], &name[index + 1..])),
+                                .expect_type_def((&name[0..index], &name[index + 1..])),
                         )
                     } else {
                         let def = match type_def_or_ref {
                             TypeDefOrRef::TypeRef(value) => {
-                                self.reader.resolve_type_def(value.name())
+                                self.reader.expect_type_def(value.name())
                             }
                             TypeDefOrRef::TypeDef(value) => value,
                             TypeDefOrRef::TypeSpec(_) => panic!("Unsupported underlying type"),
@@ -113,7 +113,7 @@ impl Attribute {
                     let index = name.rfind('.').unwrap();
                     AttributeArg::TypeDef(
                         self.reader
-                            .resolve_type_def((&name[0..index], &name[index + 1..])),
+                            .expect_type_def((&name[0..index], &name[index + 1..])),
                     )
                 }
                 _ => panic!("Unexpected named attribute argument type"),

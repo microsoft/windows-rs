@@ -257,7 +257,7 @@ impl TypeKind {
             ("Windows.Win32", "IUnknown") => Self::IUnknown,
             ("Windows.Foundation", "HResult") => Self::ErrorCode,
             (namespace, name) => Self::from_type_def(
-                &type_ref.reader.resolve_type_def((namespace, name)),
+                &type_ref.reader.expect_type_def((namespace, name)),
                 calling_namespace,
             ),
         }

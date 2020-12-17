@@ -114,7 +114,7 @@ mod tests {
 
     #[test]
     fn test_dependency_inclusion() {
-        let reader = winmd::TypeReader::from_build();
+        let reader = winmd::TypeReader::get();
         let mut limits = TypeLimits::new(reader);
         limits
             .insert(NamespaceTypes {

@@ -7,7 +7,7 @@ struct Implements(Vec<winrt_gen::TypeDefinition>);
 impl syn::parse::Parse for Implements {
     fn parse(inner_type: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut types = Vec::new();
-        let reader = winmd::TypeReader::from_build();
+        let reader = winmd::TypeReader::get();
 
         loop {
             use_tree_to_types(reader, &inner_type.parse::<ImplementTree>()?, &mut types)?;

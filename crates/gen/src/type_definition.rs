@@ -9,9 +9,9 @@ pub enum TypeDefinition {
     Enum(Enum),
     Struct(Struct),
     Delegate(Delegate),
-    Class32(Class32),
-    Interface32(Interface32),
-    Delegate32(Delegate32),
+    ComClass(ComClass),
+    ComInterface(ComInterface),
+    Callback(Callback),
 }
 
 impl TypeDefinition {
@@ -23,14 +23,14 @@ impl TypeDefinition {
                 if def.is_winrt() {
                     Self::Interface(Interface::from_type_name(name))
                 } else {
-                    Self::Interface32(Interface32::from_type_name(name))
+                    Self::ComInterface(ComInterface::from_type_name(name))
                 }
             }
             winmd::TypeCategory::Class => {
                 if def.is_winrt() {
                     Self::Class(Class::from_type_name(name))
                 } else {
-                    Self::Class32(Class32::from_type_name(name))
+                    Self::ComClass(ComClass::from_type_name(name))
                 }
             }
             winmd::TypeCategory::Enum => Self::Enum(Enum::from_type_name(name)),
@@ -39,7 +39,7 @@ impl TypeDefinition {
                 if def.is_winrt() {
                     Self::Delegate(Delegate::from_type_name(name))
                 } else {
-                    Self::Delegate32(Delegate32::from_type_name(name))
+                    Self::Callback(Callback::from_type_name(name))
                 }
             }
             _ => panic!("TypeDefinition.from_type_def {:?}", def.name()),
@@ -53,9 +53,9 @@ impl TypeDefinition {
             Self::Enum(t) => t.gen(),
             Self::Struct(t) => t.gen(),
             Self::Delegate(t) => t.gen(),
-            Self::Class32(t) => t.gen(),
-            Self::Interface32(t) => t.gen(),
-            Self::Delegate32(t) => t.gen(),
+            Self::ComClass(t) => t.gen(),
+            Self::ComInterface(t) => t.gen(),
+            Self::Callback(t) => t.gen(),
         }
     }
 
@@ -66,9 +66,9 @@ impl TypeDefinition {
             Self::Enum(t) => &t.name,
             Self::Struct(t) => &t.name,
             Self::Delegate(t) => &t.name,
-            Self::Class32(t) => &t.name,
-            Self::Interface32(t) => &t.name,
-            Self::Delegate32(t) => &t.name,
+            Self::ComClass(t) => &t.name,
+            Self::ComInterface(t) => &t.name,
+            Self::Callback(t) => &t.name,
         }
     }
 
@@ -79,9 +79,9 @@ impl TypeDefinition {
             Self::Enum(_) => Vec::new(),
             Self::Struct(t) => t.dependencies(),
             Self::Delegate(t) => t.dependencies(),
-            Self::Class32(t) => t.dependencies(),
-            Self::Interface32(t) => t.dependencies(),
-            Self::Delegate32(t) => t.dependencies(),
+            Self::ComClass(t) => t.dependencies(),
+            Self::ComInterface(t) => t.dependencies(),
+            Self::Callback(t) => t.dependencies(),
         }
     }
 }
