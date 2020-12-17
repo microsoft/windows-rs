@@ -52,7 +52,6 @@ fn use_tree_to_types(
             ImplementTree::Name(name) => {
                 let namespace = crate::namespace_literal_to_rough_namespace(&current.clone());
                 let namespace = reader.find_lowercase_namespace(&namespace).unwrap(); // TODO: handle 
-                let namespace_types = reader.namespace_types(namespace);
 
                 let mut meta_name = name.ident.to_string();
                 let generic_count = name.generics.params.len();
@@ -62,20 +61,9 @@ fn use_tree_to_types(
                     meta_name.push_str(&generic_count.to_string());
                 }
 
-                let def = match namespace_types.get(&meta_name) {
-                    Some(def) => def,
-                    None => {
-                        return Err(syn::parse::Error::new(
-                            name.ident.span(),
-                            "Metadata not found for type name",
-                        ))
-                    }
-                };
+                let def = reader.expect_type_def((namespace, &meta_name));
 
-                types.push(winrt_gen::TypeDefinition::from_type_def(&winmd::TypeDef {
-                    reader,
-                    row: *def,
-                }));
+                types.push(winrt_gen::TypeDefinition::from_type_def(&def));
 
                 // TODO
                 // If type is a class, add any required interfaces.

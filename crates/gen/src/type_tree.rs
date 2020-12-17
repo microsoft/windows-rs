@@ -26,15 +26,11 @@ impl TypeTree {
                     }
                 }
                 TypeLimit::Some(types) => {
-                    let namespace = reader.namespace_types(&limit.namespace);
                     for name in types {
                         tree.insert_if(
                             reader,
                             &mut set,
-                            &winmd::TypeDef {
-                                reader,
-                                row: namespace[name],
-                            },
+                            &reader.expect_type_def((&limit.namespace, name))
                         );
                     }
                 }
