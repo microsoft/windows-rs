@@ -8,8 +8,11 @@ pub struct Constant {
 }
 
 impl Constant {
-    pub fn new(name:TypeName, field: &winmd::Field) -> Self {
-        Self { name, field: *field }
+    pub fn new(name: TypeName, field: &winmd::Field) -> Self {
+        Self {
+            name,
+            field: *field,
+        }
     }
 
     pub fn gen(&self) -> TokenStream {

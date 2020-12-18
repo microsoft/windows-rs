@@ -6,7 +6,6 @@ use std::path::PathBuf;
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
     // TODO: fields should be private
-
     /// The parsed Windows metadata files the [`TypeReader`] has access to
     pub files: Vec<File>,
     /// Types known to this [`TypeReader`]
@@ -14,7 +13,7 @@ pub struct TypeReader {
     /// This is a mapping between namespace names and the types inside
     /// that namespace. The keys are the namespace and the values is a mapping
     /// of type names to type definitions
-     types: BTreeMap<String, BTreeMap<String, TypeRow>>,
+    types: BTreeMap<String, BTreeMap<String, TypeRow>>,
     // TODO: store Row objects and turn them into TypeDef on request.
     // When turning into TypeDef they add the &'static TypeReader
 }
@@ -37,8 +36,16 @@ impl Type {
     fn new(reader: &'static TypeReader, row: TypeRow) -> Self {
         match row {
             TypeRow::TypeDef(def) => Type::TypeDef(TypeDef { reader, row: def }),
-            TypeRow::MethodDef((def, method)) => Type::MethodDef((TypeDef { reader, row:def }, MethodDef{ reader, row: method })),
-            TypeRow::Field((def, field)) => Type::Field((TypeDef { reader, row:def }, Field{ reader,row:field })),
+            TypeRow::MethodDef((def, method)) => Type::MethodDef((
+                TypeDef { reader, row: def },
+                MethodDef {
+                    reader,
+                    row: method,
+                },
+            )),
+            TypeRow::Field((def, field)) => {
+                Type::Field((TypeDef { reader, row: def }, Field { reader, row: field }))
+            }
         }
     }
 }
@@ -107,7 +114,10 @@ impl TypeReader {
     }
 
     pub fn find_lowercase_namespace(&'static self, lowercase: &str) -> Option<&'static str> {
-        self.types.keys().find(|namespace|namespace.to_lowercase() == lowercase).map(|namespace| namespace.as_str())
+        self.types
+            .keys()
+            .find(|namespace| namespace.to_lowercase() == lowercase)
+            .map(|namespace| namespace.as_str())
     }
 
     /// Get all the namespace names that the [`TypeReader`] knows about
@@ -120,11 +130,10 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if the namespace does not exist
-    pub fn namespace_types(
-        &'static self,
-        namespace: & str,
-    ) -> impl Iterator<Item = Type> + '_ {
-        self.types[namespace].values().map(move |row| Type::new(self, *row))
+    pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = Type> + '_ {
+        self.types[namespace]
+            .values()
+            .map(move |row| Type::new(self, *row))
     }
 
     pub fn expect_type(&'static self, (namespace, type_name): (&str, &str)) -> Type {
@@ -142,7 +151,7 @@ impl TypeReader {
             if let Some(TypeRow::TypeDef(row)) = types.get(type_name) {
                 return TypeDef {
                     reader: self,
-                    row:*row,
+                    row: *row,
                 };
             }
         }

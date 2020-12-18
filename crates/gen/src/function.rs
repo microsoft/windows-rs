@@ -8,8 +8,11 @@ pub struct Function {
 }
 
 impl Function {
-    pub fn new(name:TypeName, method: &winmd::MethodDef) -> Self {
-        Self { name, method: *method }
+    pub fn new(name: TypeName, method: &winmd::MethodDef) -> Self {
+        Self {
+            name,
+            method: *method,
+        }
     }
 
     pub fn gen(&self) -> TokenStream {

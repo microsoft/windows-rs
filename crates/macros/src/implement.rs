@@ -51,7 +51,7 @@ fn use_tree_to_types(
             }
             ImplementTree::Name(name) => {
                 let namespace = crate::namespace_literal_to_rough_namespace(&current.clone());
-                let namespace = reader.find_lowercase_namespace(&namespace).unwrap(); // TODO: handle 
+                let namespace = reader.find_lowercase_namespace(&namespace).unwrap(); // TODO: handle
 
                 let mut meta_name = name.ident.to_string();
                 let generic_count = name.generics.params.len();

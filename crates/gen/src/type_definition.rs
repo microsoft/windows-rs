@@ -20,8 +20,14 @@ impl TypeDefinition {
     pub fn from_type_row(row: &winmd::Type) -> Self {
         match row {
             winmd::Type::TypeDef(def) => Self::from_type_def(def),
-            winmd::Type::MethodDef((def, method)) => Self::Function(Function::new(TypeName::from_type_def(def, def.name().0), method)),
-            winmd::Type::Field((def, field)) => Self::Constant(Constant::new(TypeName::from_type_def(def, def.name().0), field)),
+            winmd::Type::MethodDef((def, method)) => Self::Function(Function::new(
+                TypeName::from_type_def(def, def.name().0),
+                method,
+            )),
+            winmd::Type::Field((def, field)) => Self::Constant(Constant::new(
+                TypeName::from_type_def(def, def.name().0),
+                field,
+            )),
         }
     }
 
@@ -30,10 +36,9 @@ impl TypeDefinition {
         TypeDefinition::Function(Function::new(name, method))
     }
 
-    pub fn from_field(def:&winmd::TypeDef, field:&winmd::Field) -> Self {
+    pub fn from_field(def: &winmd::TypeDef, field: &winmd::Field) -> Self {
         let name = TypeName::from_type_def(def, def.name().0);
         TypeDefinition::Constant(Constant::new(name, field))
-
     }
 
     pub fn from_type_def(def: &winmd::TypeDef) -> Self {
@@ -82,7 +87,7 @@ impl TypeDefinition {
         }
     }
 
-    // TODO: get rid of this 
+    // TODO: get rid of this
     pub fn name(&self) -> &TypeName {
         match self {
             Self::Class(t) => &t.name,
