@@ -14,7 +14,7 @@ pub struct TypeReader {
     /// This is a mapping between namespace names and the types inside
     /// that namespace. The keys are the namespace and the values is a mapping
     /// of type names to type definitions
-     types: BTreeMap<String, BTreeMap<String, Row>>,
+     types: BTreeMap<String, BTreeMap<String, TypeRow>>,
     // TODO: store Row objects and turn them into TypeDef on request.
     // When turning into TypeDef they add the &'static TypeReader
 }
@@ -31,6 +31,16 @@ pub enum Type {
     TypeDef(TypeDef),
     MethodDef((TypeDef, MethodDef)),
     Field((TypeDef, Field)),
+}
+
+impl Type {
+    fn new(reader: &'static TypeReader, row: TypeRow) -> Self {
+        match row {
+            TypeRow::TypeDef(def) => Type::TypeDef(TypeDef { reader, row: def }),
+            TypeRow::MethodDef((def, method)) => Type::MethodDef((TypeDef { reader, row:def }, MethodDef{ reader, row: method })),
+            TypeRow::Field((def, field)) => Type::Field((TypeDef { reader, row:def }, Field{ reader,row:field })),
+        }
+    }
 }
 
 impl TypeReader {
@@ -92,7 +102,7 @@ impl TypeReader {
                 .entry(namespace)
                 .or_default()
                 .entry(name)
-                .or_insert(row);
+                .or_insert(TypeRow::TypeDef(row));
         }
     }
 
@@ -113,26 +123,31 @@ impl TypeReader {
     pub fn namespace_types(
         &'static self,
         namespace: & str,
-    ) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types[namespace].values().map(move |row| TypeDef{reader:self, row:*row})
+    ) -> impl Iterator<Item = Type> + '_ {
+        self.types[namespace].values().map(move |row| Type::new(self, *row))
     }
 
-    /// Resolve a type definition given its namespace and type name
-    ///
-    /// # Panics
-    ///
-    /// Panics if no type definition for the given namespace and type name can be found
-    pub fn expect_type_def(&'static self, (namespace, type_name): (&str, &str)) -> TypeDef {
+    pub fn expect_type(&'static self, (namespace, type_name): (&str, &str)) -> Type {
         if let Some(types) = self.types.get(namespace) {
-            if let Some(def) = types.get(type_name) {
-                return TypeDef {
-                    reader: self,
-                    row: *def,
-                };
+            if let Some(row) = types.get(type_name) {
+                return Type::new(self, *row);
             }
         }
 
         panic!("Could not find type `{}.{}`", namespace, type_name);
+    }
+
+    pub fn expect_type_def(&'static self, (namespace, type_name): (&str, &str)) -> TypeDef {
+        if let Some(types) = self.types.get(namespace) {
+            if let Some(TypeRow::TypeDef(row)) = types.get(type_name) {
+                return TypeDef {
+                    reader: self,
+                    row:*row,
+                };
+            }
+        }
+
+        panic!("Could not find type def `{}.{}`", namespace, type_name);
     }
 
     /// Read a [`u32`] value from a specific [`Row`] and column

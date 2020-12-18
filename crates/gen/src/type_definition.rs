@@ -25,6 +25,17 @@ impl TypeDefinition {
         }
     }
 
+    pub fn from_method_def(def: &winmd::TypeDef, method: &winmd::MethodDef) -> Self {
+        let name = TypeName::from_type_def(def, def.name().0);
+        TypeDefinition::Function(Function::new(name, method))
+    }
+
+    pub fn from_field(def:&winmd::TypeDef, field:&winmd::Field) -> Self {
+        let name = TypeName::from_type_def(def, def.name().0);
+        TypeDefinition::Constant(Constant::new(name, field))
+
+    }
+
     pub fn from_type_def(def: &winmd::TypeDef) -> Self {
         let name = TypeName::from_type_def(def, def.name().0);
 
