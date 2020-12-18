@@ -16,6 +16,10 @@ impl Constant {
     }
 
     pub fn gen(&self) -> TokenStream {
-        quote! {}
+        let name = format_ident(self.field.name());
+
+        quote! {
+            pub const  #name: i32 = 0;
+        }    
     }
 }

@@ -16,7 +16,14 @@ impl Function {
     }
 
     pub fn gen(&self) -> TokenStream {
-        quote! {}
+        let name = format_ident(self.method.name());
+
+        quote! {
+            #[link(name = "onecoreuap")]
+            extern "system" {
+                pub fn #name();
+            }
+        }    
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
