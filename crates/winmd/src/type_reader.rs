@@ -75,9 +75,12 @@ impl TypeReader {
             files: Vec::default(),
             types: BTreeMap::default(),
         };
+
+        let mut types = BTreeMap::new();
+
         for (file_index, file) in files.into_iter().enumerate() {
             let file = File::new(file);
-            reader.insert_file_at_index(file, file_index);
+            reader.insert_file_at_index(&mut types, file, file_index);
         }
 
         reader.remove_excluded_type(("Windows.Foundation", "HResult"));
@@ -95,21 +98,50 @@ impl TypeReader {
         }
     }
 
-    fn insert_file_at_index(&mut self, file: File, file_index: usize) {
+    fn insert_file_at_index(&self, types: &mut BTreeMap<String, BTreeMap<String, TypeRow>>, file: File, file_index: usize) {
         let row_count = file.type_def_table().row_count;
         self.files.push(file);
 
         for row in 0..row_count {
-            let row = Row::new(row, TableIndex::TypeDef, file_index as u16);
-            let (namespace, name) = (self.str(row, 2), self.str(row, 1));
-            let namespace = namespace.to_string();
-            let name = name.to_string();
+            let def = Row::new(row, TableIndex::TypeDef, self.files.len() as u16);
+            let namespace = self.str(def, 2).to_string();
+            let name = self.str(def, 1).to_string();
 
-            self.types
+            types
                 .entry(namespace)
                 .or_default()
                 .entry(name)
-                .or_insert(TypeRow::TypeDef(row));
+                .or_insert(TypeRow::TypeDef(def));
+
+            let flags = TypeFlags(self.u32(def, 0));
+
+            if flags.interface() || flags.windows_runtime() {
+                continue;
+            }
+
+            // TODO: get extends and if System.Object then add fields and methods to cache
+
+            let extends = self.u32(def, 3);
+
+            if extends == 0 {
+                continue;
+            }
+
+            let extends = Row::new((extends >> 2) - 1, TableIndex::TypeRef, self.files.len() as u16);
+
+            if (self.str(extends, 2), self.str(extends, 1)) != ("System", "Object") {
+                continue;
+            }
+
+            // for field in self.list(def, TableIndex::Field, 4) {
+            //     let name = self.str(field, 1);
+
+            //     self.types
+            //     .entry(namespace.to_string())
+            //     .or_default()
+            //     .entry(name.to_string())
+            //     .or_insert(TypeRow::Field((def, field)));
+            // }
         }
     }
 
