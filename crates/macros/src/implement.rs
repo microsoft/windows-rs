@@ -168,7 +168,7 @@ pub fn gen(
                     Self::#vcall_ident,
                 });
 
-                let signature = method.gen_abi();
+                let signature = method.gen_full_abi();
                 let upcall = method.gen_upcall(quote! { (*this).inner.#method_ident }, false);
 
                 shims.combine(&quote! {
