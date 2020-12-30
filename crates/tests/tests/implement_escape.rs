@@ -18,7 +18,7 @@ impl BookShu {
 
     pub fn get_custom_property<'a, N: Into<winrt::Param<'a, winrt::HString>>>(
         &self,
-        name: N,
+        _name: N,
     ) -> winrt::Result<windows::ui::xaml::data::ICustomProperty> {
         Err(winrt::ErrorCode::E_NOINTERFACE.into())
     }
@@ -29,8 +29,8 @@ impl BookShu {
         T1__: Into<::winrt::Param<'a, windows::ui::xaml::interop::TypeName>>,
     >(
         &self,
-        name: T0__,
-        r#type: T1__,
+        _name: T0__,
+        _type: T1__,
     ) -> winrt::Result<windows::ui::xaml::data::ICustomProperty> {
         Err(winrt::ErrorCode::E_NOINTERFACE.into())
     }
