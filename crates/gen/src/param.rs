@@ -97,29 +97,40 @@ impl Param {
         }
     }
 
-    pub fn gen_abi(&self) -> TokenStream {
+    fn gen_abi_wrap(&self, kind_tokens: TokenStream) -> TokenStream {
         let name = format_ident(&self.name);
-        let tokens = self.kind.gen_abi();
 
         if self.array {
             let name_size = squote::format_ident!("array_size_{}", &self.name);
 
             if self.input {
-                quote! { #name_size: u32, #name: *const #tokens }
+                quote! { #name_size: u32, #name: *const #kind_tokens }
             } else if self.by_ref {
-                quote! { #name_size: *mut u32, #name: *mut *mut #tokens }
+                quote! { #name_size: *mut u32, #name: *mut *mut #kind_tokens }
             } else {
-                quote! { #name_size: u32, #name: *mut #tokens }
+                quote! { #name_size: u32, #name: *mut #kind_tokens }
             }
         } else if self.input {
             if self.is_const {
-                quote! { #name: &#tokens }
+                quote! { #name: &#kind_tokens }
             } else {
-                quote! { #name: #tokens }
+                quote! { #name: #kind_tokens }
             }
         } else {
-            quote! { #name: *mut #tokens }
+            quote! { #name: *mut #kind_tokens }
         }
+    }
+
+    pub fn gen_abi(&self) -> TokenStream {
+        let tokens = self.kind.gen_abi();
+
+        self.gen_abi_wrap(tokens)
+    }
+
+    pub fn gen_full_abi(&self) -> TokenStream {
+        let tokens = self.kind.gen_full_abi();
+
+        self.gen_abi_wrap(tokens)
     }
 
     pub fn gen_abi_return_arg(&self) -> TokenStream {

@@ -136,6 +136,18 @@ impl Method {
         }
     }
 
+    pub fn gen_full_abi(&self) -> TokenStream {
+        let params = self
+            .params
+            .iter()
+            .chain(self.return_type.iter())
+            .map(|param| param.gen_full_abi());
+
+        quote! {
+            (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
+        }
+    }
+
     pub fn gen_method(&self, interface: &TypeName, kind: InterfaceKind) -> TokenStream {
         // Composable interface methods drop their two trailing parameters when not aggregating
         // and forms the "default constructor" that projects as a "new" method in Rust.

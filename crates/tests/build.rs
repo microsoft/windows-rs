@@ -26,6 +26,8 @@ fn main() {
         // Test for https://github.com/microsoft/winrt-rs/issues/361
         windows::ui::xaml::{IApplicationOverrides, IApplicationOverrides2}
 
+        windows::ui::xaml::data::ICustomPropertyProvider
+
         // Used to test Win32 support
         windows::win32::{
             ACCESS_MODE, CHOOSECOLORW, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
