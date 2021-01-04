@@ -23,7 +23,7 @@ impl Function {
             extern "system" {
                 pub fn #name();
             }
-        }    
+        }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {

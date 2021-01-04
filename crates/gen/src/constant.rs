@@ -20,6 +20,6 @@ impl Constant {
 
         quote! {
             pub const  #name: i32 = 0;
-        }    
+        }
     }
 }

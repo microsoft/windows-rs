@@ -71,57 +71,71 @@ impl TypeReader {
     ///
     /// This function panics if the if the files where the windows metadata are stored cannot be read.
     fn from_iter<I: IntoIterator<Item = PathBuf>>(files: I) -> Self {
-        let reader = Self { files: files.into_iter().map(|file|File::new(file)).collect(), types: BTreeMap::default() };
-        let mut types = BTreeMap::<String, BTreeMap::<String, TypeRow>>::default();
+        let reader = Self {
+            files: files.into_iter().map(|file| File::new(file)).collect(),
+            types: BTreeMap::default(),
+        };
+
+        let mut types = BTreeMap::<String, BTreeMap<String, TypeRow>>::default();
 
         for (index, file) in reader.files.iter().enumerate() {
             let row_count = file.type_def_table().row_count;
-    
+
             for row in 0..row_count {
                 let def = Row::new(row, TableIndex::TypeDef, index as u16);
                 let namespace = reader.str(def, 2).to_string();
                 let name = reader.str(def, 1).to_string();
-    
+
                 types
                     .entry(namespace.to_string())
                     .or_default()
                     .entry(name.to_string())
                     .or_insert(TypeRow::TypeDef(def));
-    
+
                 let flags = TypeFlags(reader.u32(def, 0));
-    
+
                 if flags.interface() || flags.windows_runtime() {
                     continue;
                 }
-    
-                // TODO: get extends and if System.Object then add fields and methods to cache
-    
+
                 let extends = reader.u32(def, 3);
-    
+
                 if extends == 0 {
                     continue;
                 }
-    
+
                 let extends = Row::new((extends >> 2) - 1, TableIndex::TypeRef, index as u16);
-    
+
                 if (reader.str(extends, 2), reader.str(extends, 1)) != ("System", "Object") {
                     continue;
                 }
-    
+
                 for field in reader.list(def, TableIndex::Field, 4) {
                     let name = reader.str(field, 1);
-    
+
                     types
-                    .entry(namespace.to_string())
-                    .or_default()
-                    .entry(name.to_string())
-                    .or_insert(TypeRow::Field((def, field)));
-                }        
+                        .entry(namespace.to_string())
+                        .or_default()
+                        .entry(name.to_string())
+                        .or_insert(TypeRow::Field((def, field)));
+                }
+
+                for method in reader.list(def, TableIndex::MethodDef, 5) {
+                    let name = reader.str(method, 3);
+
+                    types
+                        .entry(namespace.to_string())
+                        .or_default()
+                        .entry(name.to_string())
+                        .or_insert(TypeRow::MethodDef((def, method)));
+                }
             }
         }
 
-            
-        fn remove_excluded_type(types: &mut BTreeMap<String, BTreeMap<String, TypeRow>>, (namespace, type_name): (&str, &str)) {
+        fn remove_excluded_type(
+            types: &mut BTreeMap<String, BTreeMap<String, TypeRow>>,
+            (namespace, type_name): (&str, &str),
+        ) {
             if let Some(value) = types.get_mut(namespace) {
                 value.remove(type_name);
             }
@@ -131,11 +145,14 @@ impl TypeReader {
         remove_excluded_type(&mut types, ("Windows.Win32", "IUnknown"));
 
         // TODO: remove once this is fixed: https://github.com/microsoft/win32metadata/issues/30
-        remove_excluded_type(&mut types, ("Windows.Win32", "CFunctionDiscoveryNotificationWrapper"));
+        remove_excluded_type(
+            &mut types,
+            ("Windows.Win32", "CFunctionDiscoveryNotificationWrapper"),
+        );
 
         Self {
             files: reader.files,
-            types
+            types,
         }
     }
 
