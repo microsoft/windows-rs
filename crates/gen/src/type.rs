@@ -162,14 +162,27 @@ impl Type {
         }
     }
 
-    pub fn gen_abi(&self) -> TokenStream {
+    fn gen_abi_pointer_part(&self) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         for _ in 0..self.pointers {
             tokens.combine(&quote! { *mut });
         }
 
+        tokens
+    }
+
+    pub fn gen_abi(&self) -> TokenStream {
+        let mut tokens = self.gen_abi_pointer_part();
+
         tokens.combine(&self.kind.gen_abi());
+        tokens
+    }
+
+    pub fn gen_full_abi(&self) -> TokenStream {
+        let mut tokens = self.gen_abi_pointer_part();
+
+        tokens.combine(&self.kind.gen_full_abi());
         tokens
     }
 
@@ -397,6 +410,42 @@ impl TypeKind {
             }
             Self::Enum(name) => name.gen(),
             Self::Struct(name) => name.gen_abi(),
+        }
+    }
+
+    pub fn gen_full_abi(&self) -> TokenStream {
+        match self {
+            Self::Void => quote! { ::std::ffi::c_void },
+            Self::Bool => quote! { bool },
+            Self::Char => quote! { u16 },
+            Self::I8 => quote! { i8 },
+            Self::U8 => quote! { u8 },
+            Self::I16 => quote! { i16 },
+            Self::U16 => quote! { u16 },
+            Self::I32 => quote! { i32 },
+            Self::U32 => quote! { u32 },
+            Self::I64 => quote! { i64 },
+            Self::U64 => quote! { u64 },
+            Self::F32 => quote! { f32 },
+            Self::F64 => quote! { f64 },
+            Self::ISize => quote! { isize },
+            Self::USize => quote! { usize },
+            Self::Guid => quote! { ::winrt::Guid },
+            Self::ErrorCode => quote! { ::winrt::ErrorCode },
+            Self::String
+            | Self::Object
+            | Self::IUnknown
+            | Self::Class(_)
+            | Self::Interface(_)
+            | Self::Delegate(_) => {
+                quote! { ::winrt::RawPtr }
+            }
+            Self::Generic(name) => {
+                let name = format_ident(name);
+                quote! { <#name as ::winrt::Abi>::Abi }
+            }
+            Self::Enum(name) => name.gen_full(),
+            Self::Struct(name) => name.gen_full_abi(),
         }
     }
 

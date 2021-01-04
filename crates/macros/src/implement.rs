@@ -1,5 +1,6 @@
 use crate::*;
 use squote::{format_ident, quote, Literal, TokenStream};
+use winrt_gen::format_ident;
 
 // TODO: distinguish between COM and WinRT interfaces
 struct Implements(Vec<winrt_gen::TypeDefinition>);
@@ -160,14 +161,14 @@ pub fn gen(
             let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
 
             for method in &t.default_interface().methods {
-                let method_ident = format_ident!("{}", method.name);
+                let method_ident = format_ident(&method.name);
                 let vcall_ident = format_ident!("abi{}_{}", interface_count, method.vtable_offset);
 
                 vtable_ptrs.combine(&quote! {
                     Self::#vcall_ident,
                 });
 
-                let signature = method.gen_abi();
+                let signature = method.gen_full_abi();
                 let upcall = method.gen_upcall(quote! { (*this).inner.#method_ident }, false);
 
                 shims.combine(&quote! {
