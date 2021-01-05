@@ -2,12 +2,12 @@ use crate::*;
 use squote::{quote, TokenStream};
 
 #[derive(Debug)]
-pub struct Delegate32 {
+pub struct Callback {
     pub name: TypeName,
     pub method: Method,
 }
 
-impl Delegate32 {
+impl Callback {
     pub fn from_type_name(name: TypeName) -> Self {
         let method = name
             .def

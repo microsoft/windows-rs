@@ -13,7 +13,7 @@ impl TypeRef {
     }
 
     pub fn resolve(&self) -> TypeDef {
-        self.reader.resolve_type_def(self.name())
+        self.reader.expect_type_def(self.name())
     }
 }
 

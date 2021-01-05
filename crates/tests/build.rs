@@ -31,7 +31,7 @@ fn main() {
         // Used to test Win32 support
         windows::win32::{
             ACCESS_MODE, CHOOSECOLORW, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
-            DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT,
+            DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT, WM_KEYUP,
         }
     );
 }

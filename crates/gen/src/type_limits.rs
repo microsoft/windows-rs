@@ -1,13 +1,13 @@
 use std::collections::BTreeSet;
 
 /// The set of relevant namespaces and types
-pub struct TypeLimits<'a> {
-    reader: &'a winmd::TypeReader,
+pub struct TypeLimits {
+    reader: &'static winmd::TypeReader,
     pub inner: BTreeSet<NamespaceTypes>,
 }
 
-impl<'a> TypeLimits<'a> {
-    pub fn new(reader: &'a winmd::TypeReader) -> Self {
+impl TypeLimits {
+    pub fn new(reader: &'static winmd::TypeReader) -> Self {
         Self {
             reader,
             inner: BTreeSet::new(),
@@ -17,20 +17,17 @@ impl<'a> TypeLimits<'a> {
     /// Insert a namespace into the set of relevant namespaces
     ///
     /// expects the namespace in the form: `parent::namespace::*`s
-    pub fn insert(&mut self, mut limit: NamespaceTypes) -> Result<(), String> {
-        let namespace = match self
+    pub fn insert(&mut self, mut limit: NamespaceTypes) -> Result<(), &'static str> {
+        if let Some(namespace) = self
             .reader
-            .types
-            .iter()
-            .find(|(name, _)| name.to_lowercase() == limit.namespace.to_lowercase())
+            .find_lowercase_namespace(&limit.namespace.to_lowercase())
         {
-            Some((n, _)) => n,
-            None => return Err(limit.namespace),
-        };
-
-        limit.namespace = namespace.clone();
-        self.inner.insert(limit);
-        Ok(())
+            limit.namespace = namespace;
+            self.inner.insert(limit);
+            Ok(())
+        } else {
+            Err(limit.namespace)
+        }
     }
 
     pub fn limits(&self) -> impl Iterator<Item = &NamespaceTypes> {
@@ -41,7 +38,7 @@ impl<'a> TypeLimits<'a> {
 /// A namespace's relevant types
 #[derive(Debug, Ord, PartialOrd, Eq, PartialEq)]
 pub struct NamespaceTypes {
-    pub namespace: String,
+    pub namespace: &'static str,
     pub limit: TypeLimit,
 }
 

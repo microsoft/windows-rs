@@ -1,8 +1,8 @@
 #[test]
 fn stringable() {
-    let reader = winmd::TypeReader::from_build();
+    let reader = winmd::TypeReader::get();
 
-    let def = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
+    let def = reader.expect_type_def(("Windows.Foundation", "IStringable"));
     assert!(def.name() == ("Windows.Foundation", "IStringable"));
 
     let methods: Vec<winmd::parsed::MethodDef> = def.methods().collect();

@@ -2,17 +2,21 @@ use crate::*;
 use squote::{quote, TokenStream};
 
 #[derive(Debug)]
-pub struct Class32 {
+pub struct Function {
     pub name: TypeName,
+    pub method: winmd::MethodDef,
 }
 
-impl Class32 {
-    pub fn from_type_name(name: TypeName) -> Self {
-        Self { name }
+impl Function {
+    pub fn new(name: TypeName, method: &winmd::MethodDef) -> Self {
+        Self {
+            name,
+            method: *method,
+        }
     }
 
     pub fn gen(&self) -> TokenStream {
-        let name = self.name.gen();
+        let name = format_ident(self.method.name());
 
         quote! {
             #[link(name = "onecoreuap")]

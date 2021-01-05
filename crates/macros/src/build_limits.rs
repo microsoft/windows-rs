@@ -10,7 +10,7 @@ impl BuildLimits {
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
         let is_foundation = self.0.is_empty();
 
-        let reader = winmd::TypeReader::from_build();
+        let reader = winmd::TypeReader::get();
 
         let mut limits = TypeLimits::new(reader);
 
@@ -25,7 +25,7 @@ impl BuildLimits {
             for namespace in foundation_namespaces {
                 limits
                     .insert(NamespaceTypes {
-                        namespace: namespace.to_string(),
+                        namespace: &namespace,
                         limit: TypeLimit::All,
                     })
                     .unwrap();
@@ -113,7 +113,12 @@ impl syn::parse::Parse for BuildLimits {
 }
 
 fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<NamespaceTypes> {
-    fn recurse(tree: &syn::UseTree, current: &mut String) -> syn::parse::Result<NamespaceTypes> {
+    let reader = winmd::TypeReader::get();
+    fn recurse(
+        reader: &'static winmd::TypeReader,
+        tree: &syn::UseTree,
+        current: &mut String,
+    ) -> syn::parse::Result<NamespaceTypes> {
         fn check_for_module_instead_of_type(
             name: &str,
             span: proc_macro2::Span,
@@ -136,12 +141,12 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
 
                 current.push_str(&p.ident.to_string());
 
-                recurse(&*p.tree, current)
+                recurse(reader, &*p.tree, current)
             }
             syn::UseTree::Glob(_) => {
                 let namespace = namespace_literal_to_rough_namespace(&current.clone());
                 Ok(NamespaceTypes {
-                    namespace,
+                    namespace: reader.find_lowercase_namespace(&namespace).unwrap(), // TODO: handle
                     limit: TypeLimit::All,
                 })
             }
@@ -166,7 +171,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                     }
                 }
                 Ok(NamespaceTypes {
-                    namespace,
+                    namespace: reader.find_lowercase_namespace(&namespace).unwrap(), // TODO: handle
                     limit: TypeLimit::Some(types),
                 })
             }
@@ -175,7 +180,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 let name = n.ident.to_string();
                 check_for_module_instead_of_type(&name, n.span())?;
                 Ok(NamespaceTypes {
-                    namespace,
+                    namespace: reader.find_lowercase_namespace(&namespace).unwrap(), // TODO: handle
                     limit: TypeLimit::Some(vec![name]),
                 })
             }
@@ -186,5 +191,5 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
         }
     }
 
-    recurse(use_tree, &mut String::new())
+    recurse(reader, use_tree, &mut String::new())
 }

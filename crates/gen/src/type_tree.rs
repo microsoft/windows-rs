@@ -18,23 +18,16 @@ impl TypeTree {
         for limit in limits.limits() {
             match &limit.limit {
                 TypeLimit::All => {
-                    for (_, def) in reader.namespace_types(&limit.namespace) {
-                        match def.category() {
-                            winmd::TypeCategory::Attribute | winmd::TypeCategory::Contract => {}
-                            _ => tree.insert2(reader, &mut set, &def),
-                        };
+                    for def in reader.namespace_types(&limit.namespace) {
+                        tree.insert_if(reader, &mut set, &def);
                     }
                 }
                 TypeLimit::Some(types) => {
-                    let namespace = &reader.types[&limit.namespace];
                     for name in types {
-                        tree.insert2(
+                        tree.insert_if(
                             reader,
                             &mut set,
-                            &winmd::TypeDef {
-                                reader,
-                                row: namespace[name],
-                            },
+                            &reader.expect_type((&limit.namespace, name)),
                         );
                     }
                 }
@@ -44,20 +37,40 @@ impl TypeTree {
         tree
     }
 
-    fn insert2(
+    fn insert_if(
         &mut self,
         reader: &winmd::TypeReader,
         set: &mut std::collections::BTreeSet<winmd::TypeDef>,
-        def: &winmd::TypeDef,
+        def: &winmd::Type,
     ) {
-        if set.insert(*def) {
-            let t = TypeDefinition::from_type_def(def);
+        match def {
+            winmd::Type::TypeDef(def) => match def.category() {
+                winmd::TypeCategory::Contract | winmd::TypeCategory::Attribute => {}
+                _ => {
+                    if set.insert(*def) {
+                        let t = TypeDefinition::from_type_def(def);
 
-            for def in t.dependencies() {
-                self.insert2(reader, set, &def);
+                        for def in t.dependencies() {
+                            self.insert_if(reader, set, &winmd::Type::TypeDef(def));
+                        }
+
+                        self.insert(t.name().namespace, t);
+                    }
+                }
+            },
+            winmd::Type::MethodDef((def, method)) => {
+                let t = TypeDefinition::from_method_def(def, method);
+
+                for def in t.dependencies() {
+                    self.insert_if(reader, set, &winmd::Type::TypeDef(def));
+                }
+
+                self.insert(t.name().namespace, t);
             }
-
-            self.insert(t.name().namespace, t);
+            winmd::Type::Field((def, field)) => {
+                let t = TypeDefinition::from_field(def, field);
+                self.insert(t.name().namespace, t);
+            }
         }
     }
 
@@ -114,17 +127,17 @@ mod tests {
 
     #[test]
     fn test_dependency_inclusion() {
-        let reader = winmd::TypeReader::from_build();
+        let reader = winmd::TypeReader::get();
         let mut limits = TypeLimits::new(reader);
         limits
             .insert(NamespaceTypes {
-                namespace: "windows.foundation".to_owned(),
+                namespace: "windows.foundation",
                 limit: TypeLimit::All,
             })
             .unwrap();
         limits
             .insert(NamespaceTypes {
-                namespace: "windows.ui".to_owned(),
+                namespace: "windows.ui",
                 limit: TypeLimit::All,
             })
             .unwrap();

@@ -8,5 +8,5 @@ mod workspace;
 pub use file::{File, TableIndex};
 pub use parsed::*;
 pub use traits::*;
-pub use type_reader::TypeReader;
+pub use type_reader::*;
 pub use workspace::*;

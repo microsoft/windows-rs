@@ -385,7 +385,7 @@ mod tests {
 
     #[test]
     fn signatures() {
-        let reader = &winmd::TypeReader::from_build();
+        let reader = &winmd::TypeReader::get();
 
         // Primitive signatures
         assert!(TypeKind::Bool.signature() == "b1");
@@ -405,12 +405,12 @@ mod tests {
         assert!(TypeKind::Guid.signature() == "g16");
 
         // Non-generic interface signature
-        let def = reader.resolve_type_def(("Windows.Foundation", "IAsyncAction"));
+        let def = reader.expect_type_def(("Windows.Foundation", "IAsyncAction"));
         let name = TypeDefinition::from_type_def(&def).name().clone();
         assert!(TypeKind::Interface(name).signature() == "{5a648006-843a-4da9-865b-9d26e5dfad7b}");
 
         // Generic interface signature
-        let def = reader.resolve_type_def(("Windows.Foundation.Collections", "IVector`1"));
+        let def = reader.expect_type_def(("Windows.Foundation.Collections", "IVector`1"));
         let mut name = TypeDefinition::from_type_def(&def).name().clone();
         name.generics.clear();
         name.generics.push(TypeKind::I32);
@@ -420,12 +420,12 @@ mod tests {
         );
 
         // Signed enum signature
-        let def = reader.resolve_type_def(("Windows.Foundation", "AsyncStatus"));
+        let def = reader.expect_type_def(("Windows.Foundation", "AsyncStatus"));
         let name = TypeDefinition::from_type_def(&def).name().clone();
         assert!(TypeKind::Enum(name).signature() == "enum(Windows.Foundation.AsyncStatus;i4)");
 
         // Unsigned enum signature
-        let def = reader.resolve_type_def((
+        let def = reader.expect_type_def((
             "Windows.ApplicationModel.Appointments",
             "AppointmentDaysOfWeek",
         ));
@@ -436,7 +436,7 @@ mod tests {
         );
 
         // Non-generic delegate signature
-        let def = reader.resolve_type_def(("Windows.Foundation", "AsyncActionCompletedHandler"));
+        let def = reader.expect_type_def(("Windows.Foundation", "AsyncActionCompletedHandler"));
         let name = TypeDefinition::from_type_def(&def).name().clone();
         assert!(
             TypeKind::Delegate(name).signature()
@@ -444,10 +444,10 @@ mod tests {
         );
 
         // Generic delegate signature
-        let stringable = reader.resolve_type_def(("Windows.Foundation", "IStringable"));
+        let stringable = reader.expect_type_def(("Windows.Foundation", "IStringable"));
         let stringable = TypeDefinition::from_type_def(&stringable).name().clone();
 
-        let def = reader.resolve_type_def(("Windows.Foundation", "EventHandler`1"));
+        let def = reader.expect_type_def(("Windows.Foundation", "EventHandler`1"));
         let mut name = TypeDefinition::from_type_def(&def).name().clone();
         name.generics.clear();
         name.generics.push(TypeKind::Interface(stringable));
@@ -456,7 +456,7 @@ mod tests {
         );
 
         // Class signature
-        let def = reader.resolve_type_def(("Windows.Foundation", "Uri"));
+        let def = reader.expect_type_def(("Windows.Foundation", "Uri"));
         let name = TypeDefinition::from_type_def(&def).name().clone();
         assert!(
             TypeKind::Class(name).signature()
@@ -464,7 +464,7 @@ mod tests {
         );
 
         // Class with generic default interface signature
-        let def = reader.resolve_type_def(("Windows.Foundation", "WwwFormUrlDecoder"));
+        let def = reader.expect_type_def(("Windows.Foundation", "WwwFormUrlDecoder"));
         let name = TypeDefinition::from_type_def(&def).name().clone();
         assert!(
              TypeKind::Class(name).signature()
@@ -472,7 +472,7 @@ mod tests {
         );
 
         // Simple struct
-        let def = reader.resolve_type_def(("Windows.Foundation", "Rect"));
+        let def = reader.expect_type_def(("Windows.Foundation", "Rect"));
         let name = TypeDefinition::from_type_def(&def).name().clone();
         assert!(
             TypeKind::Struct(name).signature() == "struct(Windows.Foundation.Rect;f4;f4;f4;f4)"
