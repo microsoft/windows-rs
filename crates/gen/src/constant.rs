@@ -17,7 +17,11 @@ impl Constant {
 
     pub fn gen(&self) -> TokenStream {
         let name = format_ident(self.field.name());
-        let constant = self.field.constants().next().expect("Missing constant value");
+        let constant = self
+            .field
+            .constants()
+            .next()
+            .expect("Missing constant value");
         let mut value = constant.value();
 
         let value = match constant.value_type() {
@@ -30,7 +34,11 @@ impl Constant {
             winmd::ElementType::F32 => ConstantValue::F32(value.read_f32()),
             winmd::ElementType::F64 => ConstantValue::F64(value.read_f64()),
             winmd::ElementType::String => ConstantValue::String(value.read_utf16()),
-            value_type => panic!("Unsupported constant: {} ({:?})", self.field.name(), value_type),
+            value_type => panic!(
+                "Unsupported constant: {} ({:?})",
+                self.field.name(),
+                value_type
+            ),
         };
 
         let value = value.gen();

@@ -71,13 +71,20 @@ impl Blob {
     pub fn read_str(&mut self) -> &'static str {
         let len = self.read_unsigned() as usize;
         self.offset += len;
-        std::str::from_utf8(&self.reader.files[self.file_index as usize].bytes[self.offset - len..self.offset]).unwrap()
+        std::str::from_utf8(
+            &self.reader.files[self.file_index as usize].bytes[self.offset - len..self.offset],
+        )
+        .unwrap()
     }
 
     pub fn read_utf16(&self) -> String {
         let bytes = self.reader.files[self.file_index as usize].bytes[self.offset..].as_ptr();
         unsafe {
-            String::from_utf16(std::slice::from_raw_parts(bytes as *const u16, self.size / 2)).unwrap()
+            String::from_utf16(std::slice::from_raw_parts(
+                bytes as *const u16,
+                self.size / 2,
+            ))
+            .unwrap()
         }
     }
 
