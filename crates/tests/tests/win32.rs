@@ -1,13 +1,6 @@
 use tests::windows::win32::{
-    ACCESS_MODE,
-    CHOOSECOLORW,
-    DXGI_ADAPTER_FLAG,
-    DXGI_FORMAT,
-    DXGI_MODE_DESC,
-    DXGI_MODE_SCALING,
-    DXGI_MODE_SCANLINE_ORDER,
-    DXGI_RATIONAL,
-    RECT, //, WM_KEYUP
+    ACCESS_MODE, CHOOSECOLORW, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
+    DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT, WM_KEYUP,
 };
 use winrt::Abi;
 
@@ -94,5 +87,5 @@ fn size32() {
 
 #[test]
 fn constant() {
-    // assert!(WM_KEYUP == 0);
+    assert!(WM_KEYUP == 0);
 }
