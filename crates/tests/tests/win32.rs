@@ -87,5 +87,6 @@ fn size32() {
 
 #[test]
 fn constant() {
-    assert!(WM_KEYUP == 0);
+    assert!(WM_KEYUP == 257i32);
+    assert!(D3DCOMPILER_DLL == "d3dcompiler_47.dll");
 }

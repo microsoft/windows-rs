@@ -254,19 +254,21 @@ impl TypeReader {
         let file = &self.files[row.file_index as usize];
         let offset = (file.blobs + self.u32(row, column)) as usize;
         let initial_byte = file.bytes[offset];
-        let (mut blob_size, blob_size_bytes) = match initial_byte >> 5 {
+        let (blob_size, blob_size_bytes) = match initial_byte >> 5 {
             0..=3 => (initial_byte & 0x7f, 1),
             4..=5 => (initial_byte & 0x3f, 2),
             6 => (initial_byte & 0x1f, 4),
             _ => panic!("Invalid blob size"),
         };
+        let mut blob_size = blob_size as usize;
         for byte in &file.bytes[offset + 1..offset + blob_size_bytes] {
-            blob_size = blob_size.checked_shl(8).unwrap_or(0) + byte;
+            blob_size = blob_size.checked_shl(8).unwrap_or(0) + (*byte as usize);
         }
         Blob {
             reader: self,
             file_index: row.file_index,
             offset: offset + blob_size_bytes,
+            size: blob_size,
         }
     }
 

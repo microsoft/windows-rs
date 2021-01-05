@@ -6,11 +6,12 @@ pub struct Blob {
     pub reader: &'static TypeReader,
     pub file_index: u16,
     pub offset: usize,
+    pub size: usize,
 }
 
 impl Blob {
-    fn bytes(&self) -> &[u8] {
-        &self.file().bytes[self.offset..]
+    fn bytes(&self) -> &'static [u8] {
+        &self.reader.files[self.file_index as usize].bytes[self.offset..]
     }
 
     pub fn peek_unsigned(&self) -> (u32, usize) {
@@ -67,10 +68,17 @@ impl Blob {
         mods
     }
 
-    pub fn read_str(&mut self) -> &str {
+    pub fn read_str(&mut self) -> &'static str {
         let len = self.read_unsigned() as usize;
         self.offset += len;
-        std::str::from_utf8(&self.file().bytes[self.offset - len..self.offset]).unwrap()
+        std::str::from_utf8(&self.reader.files[self.file_index as usize].bytes[self.offset - len..self.offset]).unwrap()
+    }
+
+    pub fn read_utf16(&self) -> String {
+        let bytes = self.reader.files[self.file_index as usize].bytes[self.offset..].as_ptr();
+        unsafe {
+            String::from_utf16(std::slice::from_raw_parts(bytes as *const u16, self.size / 2)).unwrap()
+        }
     }
 
     pub fn read_i8(&mut self) -> i8 {
@@ -121,7 +129,15 @@ impl Blob {
         value
     }
 
-    fn file(&self) -> &File {
-        &self.reader.files[self.file_index as usize]
+    pub fn read_f32(&mut self) -> f32 {
+        let value = f32::from_le_bytes(self.bytes()[..4].try_into().unwrap());
+        self.offset += 4;
+        value
+    }
+
+    pub fn read_f64(&mut self) -> f64 {
+        let value = f64::from_le_bytes(self.bytes()[..8].try_into().unwrap());
+        self.offset += 8;
+        value
     }
 }
