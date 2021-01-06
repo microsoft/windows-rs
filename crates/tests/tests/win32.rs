@@ -1,8 +1,8 @@
 use tests::windows::win32::{
-    UIA_ScrollPatternNoScroll, ACCESS_MODE, ALLJOYN_BIG_ENDIAN, ALLJOYN_CRED_CERT_CHAIN,
-    CHOOSECOLORW, D3D12_DEFAULT_BLEND_FACTOR_ALPHA, D3DCOMPILER_DLL, DXGI_ADAPTER_FLAG,
-    DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT,
-    WM_KEYUP,
+    CloseHandle, CreateEventW, SetEvent, UIA_ScrollPatternNoScroll, WaitForSingleObject,
+    ACCESS_MODE, ALLJOYN_BIG_ENDIAN, ALLJOYN_CRED_CERT_CHAIN, CHOOSECOLORW,
+    D3D12_DEFAULT_BLEND_FACTOR_ALPHA, D3DCOMPILER_DLL, DXGI_ADAPTER_FLAG, DXGI_FORMAT,
+    DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT, WM_KEYUP,
 };
 use winrt::Abi;
 
@@ -95,4 +95,21 @@ fn constant() {
     assert!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA == 1f32);
     assert!(UIA_ScrollPatternNoScroll == -1f64);
     assert!(D3DCOMPILER_DLL == "d3dcompiler_47.dll");
+}
+
+#[test]
+fn function() {
+    unsafe {
+        let event = CreateEventW(std::ptr::null_mut(), 1, 0, std::ptr::null_mut());
+        assert!(event != 0);
+
+        let result = SetEvent(event);
+        assert!(result != 0);
+
+        let result = WaitForSingleObject(event, 0);
+        assert!(result == 0); // https://github.com/microsoft/win32metadata/issues/77
+
+        let result = CloseHandle(event);
+        assert!(result != 0);
+    }
 }
