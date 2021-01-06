@@ -101,7 +101,7 @@ fn constant() {
 fn function() {
     unsafe {
         let event = CreateEventW(std::ptr::null_mut(), 1, 0, std::ptr::null_mut());
-        assert!(event != 1);
+        assert!(event != 0);
 
         let result = SetEvent(event);
         assert!(result != 0);
