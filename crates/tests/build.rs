@@ -33,7 +33,8 @@ fn main() {
         windows::win32::{
             ACCESS_MODE, CHOOSECOLORW, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
             DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT, WM_KEYUP, ALLJOYN_BIG_ENDIAN, ALLJOYN_CRED_CERT_CHAIN,
-            D3D12_DEFAULT_BLEND_FACTOR_ALPHA, UIA_ScrollPatternNoScroll, D3DCOMPILER_DLL
+            D3D12_DEFAULT_BLEND_FACTOR_ALPHA, UIA_ScrollPatternNoScroll, D3DCOMPILER_DLL,
+            CreateEventW, SetEvent, WaitForSingleObject, CloseHandle
         }
     );
 }
