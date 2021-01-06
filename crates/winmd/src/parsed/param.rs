@@ -16,7 +16,7 @@ impl Param {
         self.reader.u32(self.row, 1)
     }
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'static str {
         self.reader.str(self.row, 2)
     }
 }
