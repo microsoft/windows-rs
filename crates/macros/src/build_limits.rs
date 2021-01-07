@@ -119,20 +119,6 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
         tree: &syn::UseTree,
         current: &mut String,
     ) -> syn::parse::Result<NamespaceTypes> {
-        fn check_for_module_instead_of_type(
-            name: &str,
-            span: proc_macro2::Span,
-        ) -> syn::parse::Result<()> {
-            let error = Err(syn::Error::new(
-                span,
-                "Expected `*` or type name, but found what appears to be a module",
-            ));
-            if name.to_lowercase() == name {
-                return error;
-            }
-            Ok(())
-        }
-
         match tree {
             syn::UseTree::Path(p) => {
                 if !current.is_empty() {
@@ -157,9 +143,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 for tree in &g.items {
                     match tree {
                         syn::UseTree::Name(n) => {
-                            let name = n.ident.to_string();
-                            check_for_module_instead_of_type(&name, n.span())?;
-                            types.push(name);
+                            types.push(n.ident.to_string());
                         }
                         syn::UseTree::Rename(_) => {
                             return Err(syn::Error::new(
@@ -178,7 +162,6 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
             syn::UseTree::Name(n) => {
                 let namespace = namespace_literal_to_rough_namespace(&current.clone());
                 let name = n.ident.to_string();
-                check_for_module_instead_of_type(&name, n.span())?;
                 Ok(NamespaceTypes {
                     namespace: reader.find_lowercase_namespace(&namespace).unwrap(), // TODO: handle
                     limit: TypeLimit::Some(vec![name]),

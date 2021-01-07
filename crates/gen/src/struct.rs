@@ -32,6 +32,16 @@ impl Struct {
             fields.push((field_name, t));
         }
 
+        if fields.is_empty() {
+            let t = Type {
+                kind: TypeKind::U8,
+                pointers: 0,
+                array: None,
+            };
+
+            fields.push(("reserved".to_string(), t));
+        }
+
         Self {
             name,
             fields,
