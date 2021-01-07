@@ -9,16 +9,18 @@ fn win32() {
     }
 
     if let winmd::Type::MethodDef((def, method)) =
-        reader.expect_type(("Windows.Win32", "CreateEventW"))
+        reader.expect_type(("Windows.Win32.Backup", "CreateEventW"))
     {
-        assert!(def.name() == ("Windows.Win32", "Apis"));
+        assert!(def.name() == ("Windows.Win32.Backup", "Apis"));
         assert!(method.name() == "CreateEventW");
     } else {
         panic!();
     }
 
-    if let winmd::Type::Field((def, field)) = reader.expect_type(("Windows.Win32", "WM_KEYDOWN")) {
-        assert!(def.name() == ("Windows.Win32", "Apis"));
+    if let winmd::Type::Field((def, field)) =
+        reader.expect_type(("Windows.Win32.Base", "WM_KEYDOWN"))
+    {
+        assert!(def.name() == ("Windows.Win32.Base", "Apis"));
         assert!(field.name() == "WM_KEYDOWN");
     } else {
         panic!();
