@@ -64,8 +64,12 @@ impl Function {
             quote! { #name: #tokens }
         });
 
+        // TODO: need to generate libs until Rust supports dynamic linking against DLLs.
+        // This is actually the DLL name.
+        let link = self.method.impl_map().unwrap().scope();
+
         quote! {
-            #[link(name = "onecoreuap")]
+            #[link(name = #link)]
             extern "system" {
                 pub fn #name(#(#params),*) #return_type;
             }
