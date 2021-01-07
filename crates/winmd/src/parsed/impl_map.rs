@@ -1,5 +1,5 @@
 use super::*;
-use crate::TypeReader;
+use crate::{TableIndex, TypeReader};
 
 #[derive(Copy, Clone)]
 pub struct ImplMap {
@@ -17,7 +17,14 @@ impl ImplMap {
     }
 
     pub fn scope(&self) -> &'static str {
-        // scope(3) is index into ModuleRef table - return its name(0) - from string heap
-        panic!();
+        let index = self.reader.u32(self.row, 3) - 1;
+        let row = Row::new(index, TableIndex::ModuleRef, self.row.file_index);
+
+        let module = ModuleRef {
+            reader: self.reader,
+            row,
+        };
+
+        module.name()
     }
 }
