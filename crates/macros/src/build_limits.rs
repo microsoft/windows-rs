@@ -129,15 +129,15 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
 
                 recurse(reader, &*p.tree, current)
             }
-            syn::UseTree::Glob(_) => {
-                let namespace = namespace_literal_to_rough_namespace(&current.clone());
+            syn::UseTree::Glob(g) => {
+                let namespace = find_namespace(reader, &current.clone(), g.span())?;
                 Ok(NamespaceTypes {
-                    namespace: reader.find_lowercase_namespace(&namespace).unwrap(), // TODO: handle
+                    namespace,
                     limit: TypeLimit::All,
                 })
             }
             syn::UseTree::Group(g) => {
-                let namespace = namespace_literal_to_rough_namespace(&current.clone());
+                let namespace = find_namespace(reader, &current.clone(), g.span())?;
 
                 let mut types = Vec::with_capacity(g.items.len());
                 for tree in &g.items {
@@ -155,15 +155,15 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                     }
                 }
                 Ok(NamespaceTypes {
-                    namespace: reader.find_lowercase_namespace(&namespace).unwrap(), // TODO: handle
+                    namespace,
                     limit: TypeLimit::Some(types),
                 })
             }
             syn::UseTree::Name(n) => {
-                let namespace = namespace_literal_to_rough_namespace(&current.clone());
+                let namespace = find_namespace(reader, &current.clone(), n.span())?;
                 let name = n.ident.to_string();
                 Ok(NamespaceTypes {
-                    namespace: reader.find_lowercase_namespace(&namespace).unwrap(), // TODO: handle
+                    namespace,
                     limit: TypeLimit::Some(vec![name]),
                 })
             }
@@ -175,4 +175,17 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
     }
 
     recurse(reader, use_tree, &mut String::new())
+}
+
+fn find_namespace(
+    reader: &'static winmd::TypeReader,
+    namespace: &str,
+    span: proc_macro2::Span,
+) -> syn::parse::Result<&'static str> {
+    let namespace = namespace_literal_to_rough_namespace(namespace);
+    if let Some(namespace) = reader.find_lowercase_namespace(&namespace) {
+        Ok(namespace)
+    } else {
+        Err(syn::Error::new(span, "Module not found"))
+    }
 }
