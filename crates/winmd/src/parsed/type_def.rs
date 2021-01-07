@@ -110,7 +110,7 @@ impl TypeDef {
 
     pub fn underlying_type(&self) -> ElementType {
         for field in self.fields() {
-            if let Some(constant) = field.constants().next() {
+            if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
                 let blob = &mut field.sig();

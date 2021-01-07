@@ -18,11 +18,7 @@ impl Constant {
     pub fn gen(&self) -> TokenStream {
         let name = format_ident(self.field.name());
 
-        let constant = self
-            .field
-            .constants()
-            .next()
-            .expect("Missing constant value");
+        let constant = self.field.constant().expect("Missing constant value");
 
         let mut value = constant.value();
 

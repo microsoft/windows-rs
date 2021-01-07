@@ -18,7 +18,7 @@ impl MethodDef {
             row: self.reader.upper_bound(
                 self.row.file_index,
                 TableIndex::TypeDef,
-                6,
+                6, // TODO: is this right?
                 self.row.index,
             ),
         }
@@ -74,6 +74,21 @@ impl MethodDef {
                 reader: self.reader,
                 row,
             })
+    }
+
+    pub fn impl_map(&self) -> Option<ImplMap> {
+        self.reader
+            .equal_range(
+                self.row.file_index,
+                TableIndex::ImplMap,
+                1,
+                MemberForwarded::MethodDef(*self).encode(),
+            )
+            .map(move |row| ImplMap {
+                reader: self.reader,
+                row,
+            })
+            .next()
     }
 }
 

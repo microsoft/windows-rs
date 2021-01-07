@@ -20,7 +20,7 @@ pub struct File {
     /// The index of the guids data
     pub(crate) guids: u32,
     /// The table data
-    pub(crate) tables: [TableData; 11],
+    pub(crate) tables: [TableData; 12],
 }
 
 /// A well-known index of data into the winmd tables array
@@ -38,6 +38,7 @@ pub enum TableIndex {
     TypeDef,
     TypeRef,
     TypeSpec,
+    ImplMap,
 }
 
 impl TableData {
@@ -191,7 +192,6 @@ impl File {
         let mut unused_field_rva = TableData::default();
         let mut unused_file = TableData::default();
         let mut unused_generic_param_constraint = TableData::default();
-        let mut unused_impl_map = TableData::default();
         let mut unused_manifest_resource = TableData::default();
         let mut unused_method_impl = TableData::default();
         let mut unused_method_semantics = TableData::default();
@@ -235,7 +235,7 @@ impl File {
                 0x19 => unused_method_impl.row_count = row_count,
                 0x1a => unused_module_ref.row_count = row_count,
                 0x1b => file.tables[TableIndex::TypeSpec as usize].row_count = row_count,
-                0x1c => unused_impl_map.row_count = row_count,
+                0x1c => file.tables[TableIndex::ImplMap as usize].row_count = row_count,
                 0x1d => unused_field_rva.row_count = row_count,
                 0x20 => unused_assembly.row_count = row_count,
                 0x21 => unused_assembly_processor.row_count = row_count,
@@ -448,7 +448,7 @@ impl File {
             0,
             0,
         );
-        unused_impl_map.set_columns(
+        file.tables[TableIndex::ImplMap as usize].set_columns(
             2,
             member_forwarded,
             string_index_size,
@@ -567,7 +567,7 @@ impl File {
         unused_method_impl.set_data(&mut view);
         unused_module_ref.set_data(&mut view);
         file.tables[TableIndex::TypeSpec as usize].set_data(&mut view);
-        unused_impl_map.set_data(&mut view);
+        file.tables[TableIndex::ImplMap as usize].set_data(&mut view);
         unused_field_rva.set_data(&mut view);
         unused_assembly.set_data(&mut view);
         unused_assembly_processor.set_data(&mut view);

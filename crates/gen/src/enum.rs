@@ -27,7 +27,7 @@ impl Enum {
         let mut underlying_type = None;
 
         for field in name.def.fields() {
-            if let Some(constant) = field.constants().next() {
+            if let Some(constant) = field.constant() {
                 let mut value = constant.value();
 
                 let value = match constant.value_type() {
