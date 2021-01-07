@@ -32,6 +32,7 @@ impl Struct {
             fields.push((field_name, t));
         }
 
+        // The C/C++ ABI assumes an empty struct occupies a single byte in memory.
         if fields.is_empty() {
             let t = Type {
                 kind: TypeKind::U8,
