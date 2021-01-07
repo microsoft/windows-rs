@@ -49,6 +49,12 @@ pub enum AttributeType {
     MemberRef,
 }
 
+#[type_code(1)]
+pub enum MemberForwarded {
+    Field,
+    MethodDef,
+}
+
 impl TypeDefOrRef {
     pub fn name(&self) -> (&'static str, &'static str) {
         match self {

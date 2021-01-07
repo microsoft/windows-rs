@@ -20,7 +20,7 @@ pub struct File {
     /// The index of the guids data
     pub(crate) guids: u32,
     /// The table data
-    pub(crate) tables: [TableData; 11],
+    pub(crate) tables: [TableData; 13],
 }
 
 /// A well-known index of data into the winmd tables array
@@ -38,6 +38,8 @@ pub enum TableIndex {
     TypeDef,
     TypeRef,
     TypeSpec,
+    ImplMap,
+    ModuleRef,
 }
 
 impl TableData {
@@ -191,13 +193,11 @@ impl File {
         let mut unused_field_rva = TableData::default();
         let mut unused_file = TableData::default();
         let mut unused_generic_param_constraint = TableData::default();
-        let mut unused_impl_map = TableData::default();
         let mut unused_manifest_resource = TableData::default();
         let mut unused_method_impl = TableData::default();
         let mut unused_method_semantics = TableData::default();
         let mut unused_method_spec = TableData::default();
         let mut unused_module = TableData::default();
-        let mut unused_module_ref = TableData::default();
         let mut unused_nested_class = TableData::default();
         let mut unused_property = TableData::default();
         let mut unused_property_map = TableData::default();
@@ -233,9 +233,9 @@ impl File {
                 0x17 => unused_property.row_count = row_count,
                 0x18 => unused_method_semantics.row_count = row_count,
                 0x19 => unused_method_impl.row_count = row_count,
-                0x1a => unused_module_ref.row_count = row_count,
+                0x1a => file.tables[TableIndex::ModuleRef as usize].row_count = row_count,
                 0x1b => file.tables[TableIndex::TypeSpec as usize].row_count = row_count,
-                0x1c => unused_impl_map.row_count = row_count,
+                0x1c => file.tables[TableIndex::ImplMap as usize].row_count = row_count,
                 0x1d => unused_field_rva.row_count = row_count,
                 0x20 => unused_assembly.row_count = row_count,
                 0x21 => unused_assembly_processor.row_count = row_count,
@@ -278,7 +278,7 @@ impl File {
             &unused_property,
             &unused_event,
             &unused_standalone_sig,
-            &unused_module_ref,
+            &file.tables[TableIndex::ModuleRef as usize],
             &file.tables[TableIndex::TypeSpec as usize],
             &unused_assembly,
             &unused_assembly_ref,
@@ -304,7 +304,7 @@ impl File {
         let member_ref_parent = composite_index_size(&[
             &file.tables[TableIndex::TypeDef as usize],
             &file.tables[TableIndex::TypeRef as usize],
-            &unused_module_ref,
+            &file.tables[TableIndex::ModuleRef as usize],
             &file.tables[TableIndex::MethodDef as usize],
             &file.tables[TableIndex::TypeSpec as usize],
         ]);
@@ -334,7 +334,7 @@ impl File {
 
         let resolution_scope = composite_index_size(&[
             &unused_module,
-            &unused_module_ref,
+            &file.tables[TableIndex::ModuleRef as usize],
             &unused_assembly_ref,
             &file.tables[TableIndex::TypeRef as usize],
         ]);
@@ -448,11 +448,11 @@ impl File {
             0,
             0,
         );
-        unused_impl_map.set_columns(
+        file.tables[TableIndex::ImplMap as usize].set_columns(
             2,
             member_forwarded,
             string_index_size,
-            unused_module_ref.index_size(),
+            file.tables[TableIndex::ModuleRef as usize].index_size(),
             0,
             0,
         );
@@ -506,7 +506,7 @@ impl File {
             guid_index_size,
             0,
         );
-        unused_module_ref.set_columns(string_index_size, 0, 0, 0, 0, 0);
+        file.tables[TableIndex::ModuleRef as usize].set_columns(string_index_size, 0, 0, 0, 0, 0);
         unused_nested_class.set_columns(
             file.tables[TableIndex::TypeDef as usize].index_size(),
             file.tables[TableIndex::TypeDef as usize].index_size(),
@@ -565,9 +565,9 @@ impl File {
         unused_property.set_data(&mut view);
         unused_method_semantics.set_data(&mut view);
         unused_method_impl.set_data(&mut view);
-        unused_module_ref.set_data(&mut view);
+        file.tables[TableIndex::ModuleRef as usize].set_data(&mut view);
         file.tables[TableIndex::TypeSpec as usize].set_data(&mut view);
-        unused_impl_map.set_data(&mut view);
+        file.tables[TableIndex::ImplMap as usize].set_data(&mut view);
         unused_field_rva.set_data(&mut view);
         unused_assembly.set_data(&mut view);
         unused_assembly_processor.set_data(&mut view);

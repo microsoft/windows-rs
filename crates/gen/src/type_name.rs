@@ -201,7 +201,7 @@ impl TypeName {
 
     fn enum_type(&self) -> &str {
         for field in self.def.fields() {
-            for constant in field.constants() {
+            if let Some(constant) = field.constant() {
                 match constant.value_type() {
                     winmd::ElementType::I32 => return "i4",
                     winmd::ElementType::U32 => return "u4",

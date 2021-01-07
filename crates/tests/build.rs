@@ -29,12 +29,36 @@ fn main() {
         // Test for https://github.com/microsoft/winrt-rs/issues/386
         windows::ui::xaml::data::ICustomPropertyProvider
 
-        // Used to test Win32 support
-        windows::win32::{
-            ACCESS_MODE, CHOOSECOLORW, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
-            DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT, WM_KEYUP, ALLJOYN_BIG_ENDIAN, ALLJOYN_CRED_CERT_CHAIN,
-            D3D12_DEFAULT_BLEND_FACTOR_ALPHA, UIA_ScrollPatternNoScroll, D3DCOMPILER_DLL,
-            CreateEventW, SetEvent, WaitForSingleObject, CloseHandle, alljoyn_proxybusobject_parsexml
+        windows::win32::security::{
+            ACCESS_MODE,
+        }
+        windows::win32::dlg_box::{
+            CHOOSECOLORW,
+        }
+        windows::win32::direct3d_dxgi::{
+            DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
+            DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
+        }
+        windows::win32::backup::{
+            RECT,
+            CreateEventW,
+            SetEvent,
+            WaitForSingleObject,
+        }
+        windows::win32::base::{
+            WM_KEYUP
+        }
+        windows::win32::direct3d12::{
+            D3D12_DEFAULT_BLEND_FACTOR_ALPHA
+        }
+        windows::win32::win_auto::{
+            UIA_ScrollPatternNoScroll
+        }
+        windows::win32::direct3d_hlsl::{
+            D3DCOMPILER_DLL
+        }
+        windows::win32::win_prog::{
+            CloseHandle
         }
     );
 }

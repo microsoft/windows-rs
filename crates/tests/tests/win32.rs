@@ -1,10 +1,18 @@
-use tests::windows::win32::{
-    CloseHandle, CreateEventW, SetEvent, UIA_ScrollPatternNoScroll, WaitForSingleObject,
-    ACCESS_MODE, ALLJOYN_BIG_ENDIAN, ALLJOYN_CRED_CERT_CHAIN, CHOOSECOLORW,
-    D3D12_DEFAULT_BLEND_FACTOR_ALPHA, D3DCOMPILER_DLL, DXGI_ADAPTER_FLAG, DXGI_FORMAT,
-    DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL, RECT, WM_KEYUP,
-};
+use tests::windows;
 use winrt::Abi;
+
+use windows::win32::backup::{CreateEventW, SetEvent, WaitForSingleObject, RECT};
+use windows::win32::base::WM_KEYUP;
+use windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA;
+use windows::win32::direct3d_dxgi::{
+    DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER,
+    DXGI_RATIONAL,
+};
+use windows::win32::direct3d_hlsl::D3DCOMPILER_DLL;
+use windows::win32::dlg_box::CHOOSECOLORW;
+use windows::win32::security::ACCESS_MODE;
+use windows::win32::win_auto::UIA_ScrollPatternNoScroll;
+use windows::win32::win_prog::CloseHandle;
 
 #[test]
 fn signed_enum32() {
@@ -89,8 +97,6 @@ fn size32() {
 
 #[test]
 fn constant() {
-    assert!(ALLJOYN_BIG_ENDIAN == 66u8);
-    assert!(ALLJOYN_CRED_CERT_CHAIN == 4u16);
     assert!(WM_KEYUP == 257i32);
     assert!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA == 1f32);
     assert!(UIA_ScrollPatternNoScroll == -1f64);

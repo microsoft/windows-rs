@@ -20,7 +20,7 @@ impl Field {
         FieldFlags(self.reader.u32(self.row, 0))
     }
 
-    pub fn constants(&self) -> impl Iterator<Item = Constant> + '_ {
+    pub fn constant(&self) -> Option<Constant> {
         self.reader
             .equal_range(
                 self.row.file_index,
@@ -32,6 +32,7 @@ impl Field {
                 reader: self.reader,
                 row,
             })
+            .next()
     }
 }
 
