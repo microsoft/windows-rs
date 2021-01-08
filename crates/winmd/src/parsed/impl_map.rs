@@ -8,23 +8,13 @@ pub struct ImplMap {
 }
 
 impl ImplMap {
-    pub fn flags(&self) -> u32 {
-        self.reader.u32(self.row, 0)
-    }
-
-    pub fn name(&self) -> &'static str {
-        self.reader.str(self.row, 2)
-    }
-
-    pub fn scope(&self) -> &'static str {
+    pub fn scope(&self) -> ModuleRef {
         let index = self.reader.u32(self.row, 3) - 1;
         let row = Row::new(index, TableIndex::ModuleRef, self.row.file_index);
 
-        let module = ModuleRef {
+        ModuleRef {
             reader: self.reader,
             row,
-        };
-
-        module.name()
+        }
     }
 }

@@ -12,18 +12,6 @@ impl MethodDef {
         MethodFlags(self.reader.u32(self.row, 2))
     }
 
-    pub fn parent(&self) -> TypeDef {
-        TypeDef {
-            reader: self.reader,
-            row: self.reader.upper_bound(
-                self.row.file_index,
-                TableIndex::TypeDef,
-                6, // TODO: is this right?
-                self.row.index,
-            ),
-        }
-    }
-
     pub fn params(&self) -> impl Iterator<Item = Param> + '_ {
         self.reader
             .list(self.row, TableIndex::Param, 5)

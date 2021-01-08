@@ -314,21 +314,6 @@ impl TypeReader {
         first
     }
 
-    pub(crate) fn upper_bound(&self, file: u16, table: TableIndex, column: u32, value: u32) -> Row {
-        Row::new(
-            self.upper_bound_of(
-                table,
-                file,
-                0,
-                self.files[file as usize].tables[table as usize].row_count,
-                column,
-                value,
-            ),
-            table,
-            file,
-        )
-    }
-
     fn upper_bound_of(
         &self,
         table: TableIndex,

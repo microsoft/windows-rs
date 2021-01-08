@@ -66,7 +66,7 @@ impl Function {
 
         // TODO: need to generate libs until Rust supports dynamic linking against DLLs.
         // This is actually the DLL name.
-        let link = self.method.impl_map().unwrap().scope();
+        let link = self.method.impl_map().unwrap().scope().name();
 
         quote! {
             #[link(name = #link)]
