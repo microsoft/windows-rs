@@ -9,9 +9,11 @@ pub struct ComInterface {
 
 impl ComInterface {
     pub fn from_type_name(name: TypeName) -> Self {
-        let methods = name.def.methods().map(|method| {
-            NativeMethod::new(&method, &name.namespace)
-        }).collect();
+        let methods = name
+            .def
+            .methods()
+            .map(|method| NativeMethod::new(&method, &name.namespace))
+            .collect();
 
         Self { name, methods }
     }
@@ -22,20 +24,20 @@ impl ComInterface {
         let guid = TypeGuid::from_type_def(&self.name.def);
         let guid = self.name.gen_guid(&guid);
 
-        let abi_methods = self.methods.iter().map(|method|{
+        let abi_methods = self.methods.iter().map(|method| {
             let return_type = if let Some(t) = &method.return_type {
                 let tokens = t.gen_field();
                 quote! { -> #tokens }
             } else {
                 TokenStream::new()
             };
-    
+
             let params = method.params.iter().map(|(name, t)| {
                 let name = format_ident(name);
                 let tokens = t.gen_field();
                 quote! { #name: #tokens }
             });
-    
+
             quote! {
                 pub unsafe extern "system" fn (this: ::winrt::RawPtr, #(#params),*) #return_type
             }
@@ -76,6 +78,10 @@ impl ComInterface {
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        Vec::new()
+        self.methods
+            .iter()
+            .map(|method| method.dependencies())
+            .flatten()
+            .collect()
     }
 }

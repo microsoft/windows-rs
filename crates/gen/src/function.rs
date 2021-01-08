@@ -53,10 +53,6 @@ impl Function {
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        self.method.return_type
-            .iter()
-            .chain(self.method.params.iter().map(|(_, t)| t))
-            .flat_map(|t| t.kind.dependencies())
-            .collect()
+        self.method.dependencies()
     }
 }

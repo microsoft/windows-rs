@@ -8,7 +8,7 @@ pub struct NativeMethod {
 }
 
 impl NativeMethod {
-    pub fn new(method: &winmd::MethodDef, calling_namespace: &'static str,) -> Self {
+    pub fn new(method: &winmd::MethodDef, calling_namespace: &'static str) -> Self {
         let mut blob = method.sig();
 
         if blob.read_unsigned() & 0x10 != 0 {
@@ -43,5 +43,13 @@ impl NativeMethod {
             params,
             return_type,
         }
+    }
+
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
+        self.return_type
+            .iter()
+            .chain(self.params.iter().map(|(_, t)| t))
+            .flat_map(|t| t.kind.dependencies())
+            .collect()
     }
 }
