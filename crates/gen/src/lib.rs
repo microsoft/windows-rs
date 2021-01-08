@@ -27,6 +27,7 @@ mod type_limits;
 mod type_name;
 mod type_namespaces;
 mod type_tree;
+mod native_method;
 
 pub use callback::*;
 pub use class::*;
@@ -57,3 +58,4 @@ pub use type_limits::*;
 pub use type_name::*;
 pub use type_namespaces::*;
 pub use type_tree::*;
+pub use native_method::*;
