@@ -16,9 +16,22 @@ impl Constant {
     }
 
     pub fn gen(&self) -> TokenStream {
-        let name = format_ident(self.field.name());
+        let name = self.field.name();
 
-        let constant = self.field.constant().expect("Missing constant value");
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/90
+        if name == "NaN" || name == "POSITIVE_INFINITY" || name == "NEGATIVE_INFINITY" {
+            return quote! {};
+        }
+
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/88
+        if self.field.constant().is_none() {
+            return quote! {};
+        }
+
+        let constant = self
+            .field
+            .constant()
+            .expect(&format!("Missing constant value: {}", name));
 
         let mut value = constant.value();
 
@@ -32,13 +45,10 @@ impl Constant {
             winmd::ElementType::F32 => ConstantValue::F32(value.read_f32()),
             winmd::ElementType::F64 => ConstantValue::F64(value.read_f64()),
             winmd::ElementType::String => ConstantValue::String(value.read_utf16()),
-            value_type => panic!(
-                "Unsupported constant: {} ({:?})",
-                self.field.name(),
-                value_type
-            ),
+            value_type => panic!("Unsupported constant: {} ({:?})", name, value_type),
         };
 
+        let name = format_ident(name);
         let value = value.gen();
 
         quote! {

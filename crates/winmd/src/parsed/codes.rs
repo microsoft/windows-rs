@@ -58,9 +58,9 @@ pub enum MemberForwarded {
 impl TypeDefOrRef {
     pub fn name(&self) -> (&'static str, &'static str) {
         match self {
-            TypeDefOrRef::TypeDef(value) => value.name(),
-            TypeDefOrRef::TypeRef(value) => value.name(),
-            TypeDefOrRef::TypeSpec(_) => panic!("TypeDefOrRef.name"),
+            Self::TypeDef(value) => value.name(),
+            Self::TypeRef(value) => value.name(),
+            _ => panic!("TypeDefOrRef.name"),
         }
     }
 
@@ -68,7 +68,17 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(value) => *value,
             Self::TypeRef(value) => value.resolve(),
-            Self::TypeSpec(_) => panic!("TypeDefOrRef.resolve"),
+            _ => panic!("TypeDefOrRef.resolve"),
+        }
+    }
+}
+
+impl MemberRefParent {
+    pub fn name(&self) -> (&'static str, &'static str) {
+        match self {
+            Self::TypeDef(value) => value.name(),
+            Self::TypeRef(value) => value.name(),
+            _ => panic!("MemberRefParent.name"),
         }
     }
 }

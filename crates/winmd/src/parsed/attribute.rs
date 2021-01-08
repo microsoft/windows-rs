@@ -8,24 +8,16 @@ pub struct Attribute {
 }
 
 impl Attribute {
-    pub fn parent(&self) -> HasAttribute {
-        self.reader.decode(self.row, 0)
-    }
-
     pub fn constructor(&self) -> AttributeType {
         self.reader.decode(self.row, 1)
     }
 
     pub fn name(&self) -> (&'static str, &'static str) {
-        match self.constructor() {
-            AttributeType::MethodDef(method) => method.parent().name(),
-
-            AttributeType::MemberRef(method) => match method.parent() {
-                MemberRefParent::TypeDef(parent) => parent.name(),
-                MemberRefParent::TypeRef(parent) => parent.name(),
-                _ => panic!("Expected a TypeDef or TypeRef"),
-            },
+        if let AttributeType::MemberRef(method) = self.constructor() {
+            return method.parent().name();
         }
+
+        panic!("Attribute.name");
     }
 
     pub fn args(&self) -> Vec<(String, AttributeArg)> {
