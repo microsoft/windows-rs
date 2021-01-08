@@ -49,7 +49,16 @@ impl Function {
     }
 
     pub fn gen(&self) -> TokenStream {
-        let name = format_ident(self.method.name());
+        let name = self.method.name();
+
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/91
+        // Note that even with the fix, #[link] doesn't like this and warns about clashing
+        // extern declarations. So we really need support for DLL imports asap.
+        if name == "GetDeviceID" {
+            return quote! {};
+        }
+
+        let name = format_ident(name);
 
         let return_type = if let Some(t) = &self.return_type {
             let tokens = t.gen_field();

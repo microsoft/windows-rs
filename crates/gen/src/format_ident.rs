@@ -8,6 +8,7 @@ pub fn format_ident(name: &str) -> squote::Ident {
         | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
         | "try" | "async" | "await" | "dyn" => squote::format_ident!("r#{}", name),
         "Self" | "self" => squote::format_ident!("{}_", name),
+        "_" => squote::format_ident!("unused"), // TODO: workaround for https://github.com/microsoft/win32metadata/issues/89
         _ => squote::format_ident!("{}", name),
     }
 }
