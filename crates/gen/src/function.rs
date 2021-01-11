@@ -42,7 +42,10 @@ impl Function {
 
         // TODO: need to generate libs until Rust supports dynamic linking against DLLs.
         // This is actually the DLL name.
-        let link = self.method.def.impl_map().unwrap().scope().name();
+        let mut link = self.method.def.impl_map().unwrap().scope().name();
+        if link == "ext-ms-win-core-iuri-l1-1-0" {
+            link = "urlmon";
+        }
 
         quote! {
             #[link(name = #link)]
