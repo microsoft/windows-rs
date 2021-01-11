@@ -3,6 +3,7 @@ use winrt::Abi;
 
 use windows::win32::backup::{CreateEventW, SetEvent, WaitForSingleObject, RECT};
 use windows::win32::base::WM_KEYUP;
+use windows::win32::com::CreateUri;
 use windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA;
 use windows::win32::direct3d_dxgi::{
     DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER,
@@ -13,7 +14,6 @@ use windows::win32::dlg_box::CHOOSECOLORW;
 use windows::win32::security::ACCESS_MODE;
 use windows::win32::win_auto::UIA_ScrollPatternNoScroll;
 use windows::win32::win_prog::CloseHandle;
-use windows::win32::com::CreateUri;
 
 #[test]
 fn signed_enum32() {
