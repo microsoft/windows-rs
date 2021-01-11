@@ -13,6 +13,7 @@ use windows::win32::dlg_box::CHOOSECOLORW;
 use windows::win32::security::ACCESS_MODE;
 use windows::win32::win_auto::UIA_ScrollPatternNoScroll;
 use windows::win32::win_prog::CloseHandle;
+use windows::win32::com::CreateUri;
 
 #[test]
 fn signed_enum32() {
@@ -118,4 +119,25 @@ fn function() {
         let result = CloseHandle(event);
         assert!(result != 0);
     }
+}
+
+#[test]
+fn interface() -> winrt::Result<()> {
+    unsafe {
+        let s = winrt::HString::from("https://kennykerr.ca");
+        let mut uri = None;
+
+        let hr = CreateUri(s.as_wide().as_ptr() as *mut u16, 1, 0, &mut uri); // TODO: should unwrap with Result<Uri> like WinRT.
+        winrt::ErrorCode(hr as u32).ok()?;
+        assert!(uri.is_some());
+
+        if let Some(uri) = uri {
+            let mut domain = winrt::BString::new();
+            let hr = uri.GetDomain(domain.set_abi() as *mut *mut u16);
+            winrt::ErrorCode(hr as u32).ok()?;
+
+            assert!(String::from(domain) == "kennykerr.ca");
+        }
+    }
+    Ok(())
 }
