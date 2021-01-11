@@ -60,5 +60,6 @@ fn main() {
         windows::win32::win_prog::{
             CloseHandle
         }
+        windows::win32::com::{IUri, CreateUri}
     );
 }

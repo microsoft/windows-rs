@@ -3,6 +3,7 @@ use winrt::Abi;
 
 use windows::win32::backup::{CreateEventW, SetEvent, WaitForSingleObject, RECT};
 use windows::win32::base::WM_KEYUP;
+use windows::win32::com::CreateUri;
 use windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA;
 use windows::win32::direct3d_dxgi::{
     DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER,
@@ -118,4 +119,25 @@ fn function() {
         let result = CloseHandle(event);
         assert!(result != 0);
     }
+}
+
+#[test]
+fn interface() -> winrt::Result<()> {
+    unsafe {
+        let s = winrt::HString::from("https://kennykerr.ca");
+        let mut uri = None;
+
+        let hr = CreateUri(s.as_wide().as_ptr() as *mut u16, 1, 0, &mut uri); // TODO: should unwrap with Result<Uri> like WinRT.
+        winrt::ErrorCode(hr as u32).ok()?;
+        assert!(uri.is_some());
+
+        if let Some(uri) = uri {
+            let mut domain = winrt::BString::new();
+            let hr = uri.GetDomain(domain.set_abi() as *mut *mut u16);
+            winrt::ErrorCode(hr as u32).ok()?;
+
+            assert!(String::from(domain) == "kennykerr.ca");
+        }
+    }
+    Ok(())
 }

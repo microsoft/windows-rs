@@ -266,8 +266,8 @@ impl TypeKind {
 
     pub fn from_type_ref(type_ref: &winmd::TypeRef, calling_namespace: &'static str) -> Self {
         match type_ref.name() {
-            ("System", "Guid") => Self::Guid,
-            ("Windows.Win32", "IUnknown") => Self::IUnknown,
+            ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
+            ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
             ("Windows.Foundation", "HResult") => Self::ErrorCode,
             (namespace, name) => Self::from_type_def(
                 &type_ref.reader.expect_type_def((namespace, name)),

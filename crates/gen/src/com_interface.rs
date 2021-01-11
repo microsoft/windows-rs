@@ -1,18 +1,78 @@
 use crate::*;
-use squote::{quote, TokenStream};
+use squote::{quote, Literal, TokenStream};
 
 #[derive(Debug)]
 pub struct ComInterface {
     pub name: TypeName,
+    pub methods: Vec<NativeMethod>,
 }
 
 impl ComInterface {
     pub fn from_type_name(name: TypeName) -> Self {
-        Self { name }
+        let methods = name
+            .def
+            .methods()
+            .map(|method| NativeMethod::new(&method, &name.namespace))
+            .collect();
+
+        Self { name, methods }
     }
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
+        let abi_name = self.name.gen_abi_definition();
+        let guid = TypeGuid::from_type_def(&self.name.def);
+        let guid = self.name.gen_guid(&guid);
+
+        let methods = self.methods.iter().enumerate().map(|(vtable_offset, method)| {
+            let return_type = if let Some(t) = &method.return_type {
+                let tokens = t.gen_field();
+                quote! { -> #tokens }
+            } else {
+                TokenStream::new()
+            };
+
+            let params = method.params.iter().map(|(name, t)| {
+                let name = format_ident(name);
+                let tokens = t.gen_field();
+                quote! { #name: #tokens }
+            });
+
+            let args = method.params.iter().map(|(name, _)| {
+                let name = format_ident(name);
+                quote! { #name }
+            });
+
+            let name = format_ident(method.def.name());
+            let vtable_offset = Literal::u32_unsuffixed((vtable_offset + 3) as u32);
+
+            quote! {
+                pub fn #name(&self, #(#params),*) #return_type {
+                    unsafe {
+                        (::winrt::Interface::vtable(self).#vtable_offset)(::winrt::Abi::abi(self), #(#args),*)
+                    }
+                }
+            }
+        });
+
+        let abi_methods = self.methods.iter().map(|method| {
+            let return_type = if let Some(t) = &method.return_type {
+                let tokens = t.gen_field();
+                quote! { -> #tokens }
+            } else {
+                TokenStream::new()
+            };
+
+            let params = method.params.iter().map(|(name, t)| {
+                let name = format_ident(name);
+                let tokens = t.gen_field();
+                quote! { #name: #tokens }
+            });
+
+            quote! {
+                pub unsafe extern "system" fn (this: ::winrt::RawPtr, #(#params),*) #return_type
+            }
+        });
 
         quote! {
             #[repr(transparent)]
@@ -34,10 +94,29 @@ impl ComInterface {
                 }
             }
             impl ::std::cmp::Eq for #name {}
+            unsafe impl ::winrt::Interface for #name {
+                type Vtable = #abi_name;
+                const IID: ::winrt::Guid = #guid;
+            }
+            #[repr(C)]
+            pub struct #abi_name(
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                #(#abi_methods,)*
+            );
+            #[allow(non_snake_case)]
+            impl #name {
+                #(#methods)*
+            }
         }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        Vec::new()
+        self.methods
+            .iter()
+            .map(|method| method.dependencies())
+            .flatten()
+            .collect()
     }
 }

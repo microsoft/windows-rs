@@ -40,8 +40,8 @@ impl Drop for BString {
     }
 }
 
-impl From<BString> for String {
-    fn from(from: BString) -> Self {
+impl From<&BString> for String {
+    fn from(from: &BString) -> Self {
         if from.is_empty() {
             return String::new();
         }
@@ -49,6 +49,19 @@ impl From<BString> for String {
         unsafe {
             String::from_utf16_lossy(std::slice::from_raw_parts(from.0 as *const u16, from.len()))
         }
+    }
+}
+
+impl From<BString> for String {
+    fn from(from: BString) -> Self {
+        String::from(&from)
+    }
+}
+
+impl std::fmt::Display for BString {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // TODO: avoid copy
+        f.write_str(&String::from(self))
     }
 }
 
