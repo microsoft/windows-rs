@@ -127,8 +127,10 @@ fn interface() -> winrt::Result<()> {
         let s = winrt::HString::from("https://kennykerr.ca");
         let mut uri = None;
 
-        let hr = CreateUri(s.as_wide().as_ptr() as *mut u16, 1, 0, &mut uri); // TODO: should unwrap with Result<Uri> like WinRT.
+        // TODO: should unwrap with Result<Uri> like WinRT but need https://github.com/microsoft/win32metadata/issues/24
+        let hr = CreateUri(s.as_wide().as_ptr() as *mut u16, 1, 0, &mut uri);
         winrt::ErrorCode(hr as u32).ok()?;
+
         assert!(uri.is_some());
 
         if let Some(uri) = uri {
@@ -136,7 +138,7 @@ fn interface() -> winrt::Result<()> {
             let hr = uri.GetDomain(domain.set_abi() as *mut *mut u16);
             winrt::ErrorCode(hr as u32).ok()?;
 
-            assert!(String::from(domain) == "kennykerr.ca");
+            assert!(domain == "kennykerr.ca");
         }
     }
     Ok(())
