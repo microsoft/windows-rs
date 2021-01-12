@@ -1,4 +1,5 @@
 use crate::*;
+use std::convert::TryInto;
 
 /// Provides detailed error information. `IRestrictedErrorInfo` represents the
 /// [IRestrictedErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/restrictederrorinfo/nn-restrictederrorinfo-irestrictederrorinfo)
@@ -52,7 +53,7 @@ impl IRestrictedErrorInfo {
             fallback
         };
 
-        (code, message.into())
+        (code, message.try_into().unwrap_or_default())
     }
 }
 

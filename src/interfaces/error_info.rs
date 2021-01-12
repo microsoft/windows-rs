@@ -1,4 +1,5 @@
 use crate::*;
+use std::convert::TryInto;
 
 /// Provides detailed error information. `IErrorInfo` represents the
 /// [IErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
@@ -40,7 +41,7 @@ impl IErrorInfo {
             (self.vtable().5)(self.abi(), value.set_abi());
         }
 
-        value.into()
+        value.try_into().unwrap_or_default()
     }
 }
 

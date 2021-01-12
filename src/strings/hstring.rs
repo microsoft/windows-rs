@@ -8,10 +8,10 @@ use std::result::Result as StdResult;
 pub struct HString(*mut Header);
 
 impl HString {
-    /// Create an empty HString.
+    /// Create an empty `HString`.
     ///
     /// This function does no allocation.
-    pub fn new() -> HString {
+    pub fn new() -> Self {
         Self(std::ptr::null_mut())
     }
 
@@ -40,12 +40,12 @@ impl HString {
         unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
-    /// Create a HString from a slice of 16 bit characters (wchars).
-    pub fn from_wide(value: &[u16]) -> HString {
-        unsafe { HString::from_wide_iter(value.iter().copied(), value.len() as u32) }
+    /// Create a `HString` from a slice of 16 bit characters (wchars).
+    pub fn from_wide(value: &[u16]) -> Self {
+        unsafe { Self::from_wide_iter(value.iter().copied(), value.len() as u32) }
     }
 
-    /// Get the contents of this HString as a String lossily.
+    /// Get the contents of this `HString` as a String lossily.
     pub fn to_string_lossy(&self) -> String {
         String::from_utf16_lossy(self.as_wide())
     }
@@ -73,9 +73,9 @@ impl HString {
 
     /// # Safety
     /// len must not be less than the number of items in the iterator.
-    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> HString {
+    unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> Self {
         if len == 0 {
-            return HString::new();
+            return Self::new();
         }
 
         let mut ptr = Header::alloc(len);
@@ -116,7 +116,7 @@ impl Default for HString {
 }
 
 impl Clone for HString {
-    fn clone(&self) -> HString {
+    fn clone(&self) -> Self {
         if self.is_empty() {
             return Self::new();
         }
@@ -149,7 +149,7 @@ impl std::fmt::Debug for HString {
 
 impl From<&str> for HString {
     fn from(value: &str) -> Self {
-        unsafe { HString::from_wide_iter(value.encode_utf16(), value.len() as u32) }
+        unsafe { Self::from_wide_iter(value.encode_utf16(), value.len() as u32) }
     }
 }
 
@@ -271,14 +271,15 @@ impl Header {
 #[cfg(test)]
 mod tests {
     use super::*;
+    type StringType = HString;
 
     #[test]
     fn hstring_works() {
-        let empty = HString::new();
+        let empty = StringType::new();
         assert!(empty.is_empty());
         assert!(empty.len() == 0);
 
-        let mut hello = HString::from("Hello");
+        let mut hello = StringType::from("Hello");
         assert!(!hello.is_empty());
         assert!(hello.len() == 5);
 
@@ -294,32 +295,32 @@ mod tests {
         assert!(!hello2.is_empty());
         assert!(hello2.len() == 5);
 
-        assert!(HString::from("Hello") == HString::from("Hello"));
-        assert!(HString::from("Hello") != HString::from("World"));
+        assert!(StringType::from("Hello") == StringType::from("Hello"));
+        assert!(StringType::from("Hello") != StringType::from("World"));
 
-        assert!(HString::from("Hello") == "Hello");
-        assert!(HString::from("Hello") != "Hello ");
-        assert!(HString::from("Hello") != "Hell");
-        assert!(HString::from("Hello") != "World");
+        assert!(StringType::from("Hello") == "Hello");
+        assert!(StringType::from("Hello") != "Hello ");
+        assert!(StringType::from("Hello") != "Hell");
+        assert!(StringType::from("Hello") != "World");
 
-        assert!(HString::from("Hello").to_string() == String::from("Hello"));
+        assert!(StringType::from("Hello").to_string() == String::from("Hello"));
     }
 
     #[test]
     fn display_format() {
-        let value = HString::from("Hello world");
+        let value = StringType::from("Hello world");
         assert!(format!("{}", value) == "Hello world");
     }
 
     #[test]
     fn debug_format() {
-        let value = HString::from("Hello world");
+        let value = StringType::from("Hello world");
         assert!(format!("{:?}", value) == "Hello world");
     }
 
     #[test]
     fn abi_transfer() {
-        fn perform_transfer(from: HString, to: &mut HString) {
+        fn perform_transfer(from: StringType, to: &mut StringType) {
             let from = std::mem::ManuallyDrop::new(from);
             unsafe {
                 let to = to.set_abi();
@@ -328,8 +329,8 @@ mod tests {
             };
         }
 
-        let from = HString::from("Hello");
-        let mut to = HString::new();
+        let from = StringType::from("Hello");
+        let mut to = StringType::new();
         perform_transfer(from, &mut to);
 
         assert!(format!("{}", to) == "Hello");
@@ -337,13 +338,13 @@ mod tests {
 
     #[test]
     fn from_empty_string() {
-        let h = HString::from("");
+        let h = StringType::from("");
         assert!(format!("{}", h) == "");
     }
 
     #[test]
     fn hstring_to_string() {
-        let h = HString::from("test");
+        let h = StringType::from("test");
         let s = String::try_from(h).unwrap();
         assert!(s == "test");
     }
@@ -352,7 +353,7 @@ mod tests {
     fn hstring_to_string_err() {
         // 𝄞mu<invalid>ic
         let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
-        let h = HString::from_wide(wide_data);
+        let h = StringType::from_wide(wide_data);
         let err = String::try_from(h);
         assert!(err.is_err());
     }
@@ -361,7 +362,7 @@ mod tests {
     fn hstring_to_string_lossy() {
         // 𝄞mu<invalid>ic
         let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
-        let h = HString::from_wide(wide_data);
+        let h = StringType::from_wide(wide_data);
         let s = h.to_string_lossy();
         assert_eq!(s, "𝄞mu�ic");
     }
