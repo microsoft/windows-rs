@@ -34,9 +34,9 @@ impl Function {
             TokenStream::new()
         };
 
-        let params = self.method.params.iter().map(|(name, t)| {
-            let name = format_ident(name);
-            let tokens = t.gen_field();
+        let params = self.method.params.iter().map(|param| {
+            let name = format_ident(param.name);
+            let tokens = param.t.gen_field();
             quote! { #name: #tokens }
         });
 

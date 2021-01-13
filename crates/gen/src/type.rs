@@ -7,6 +7,7 @@ pub struct Type {
     pub kind: TypeKind,
     pub pointers: usize,
     pub array: Option<usize>,
+    pub is_const: bool,
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -40,6 +41,14 @@ pub enum TypeKind {
 }
 
 impl Type {
+    // pub fn from_blob2(
+    //     blob: &mut winmd::Blob,
+    //     generics: &[TypeKind],
+    //     calling_namespace: &'static str,
+    // ) -> Option<Self> {
+    // }
+
+    // TODO: from_blob should return Option<Self> where None indicates a return type of void.
     pub fn from_blob(
         blob: &mut winmd::Blob,
         generics: &[TypeKind],
@@ -53,7 +62,13 @@ impl Type {
             pointers += 1;
         }
 
-        blob.read_modifiers();
+        let mods = blob.read_modifiers();
+        assert!(mods.len() == 0);
+
+        let is_const = mods
+            .iter()
+            .any(|def| def.name() == ("Windows.Win32.Interop", "ConstAttribute"));
+        assert!(!is_const);
 
         let kind = match blob.read_unsigned() {
             0x01 => TypeKind::Void,
@@ -105,6 +120,7 @@ impl Type {
             kind,
             pointers,
             array: None,
+            is_const,
         }
     }
 
@@ -119,7 +135,11 @@ impl Type {
         let mut tokens = TokenStream::new();
 
         for _ in 0..self.pointers {
-            tokens.combine(&quote! { *mut });
+            if self.is_const {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
         }
 
         let kind = self.kind.gen();

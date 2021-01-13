@@ -22,7 +22,7 @@ impl Struct {
 
         for field in name.def.fields() {
             let field_name = if is_winrt {
-                to_snake(field.name(), MethodKind::Normal)
+                to_snake(field.name())
             } else {
                 field.name().to_string()
             };
@@ -38,6 +38,7 @@ impl Struct {
                 kind: TypeKind::U8,
                 pointers: 0,
                 array: None,
+                is_const: false,
             };
 
             fields.push(("reserved".to_string(), t));

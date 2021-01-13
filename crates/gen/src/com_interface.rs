@@ -32,14 +32,14 @@ impl ComInterface {
                 TokenStream::new()
             };
 
-            let params = method.params.iter().map(|(name, t)| {
-                let name = format_ident(name);
-                let tokens = t.gen_field();
+            let params = method.params.iter().map(|param| {
+                let name = format_ident(param.name);
+                let tokens = param.t.gen_field();
                 quote! { #name: #tokens }
             });
 
-            let args = method.params.iter().map(|(name, _)| {
-                let name = format_ident(name);
+            let args = method.params.iter().map(|param| {
+                let name = format_ident(param.name);
                 quote! { #name }
             });
 
@@ -63,9 +63,9 @@ impl ComInterface {
                 TokenStream::new()
             };
 
-            let params = method.params.iter().map(|(name, t)| {
-                let name = format_ident(name);
-                let tokens = t.gen_field();
+            let params = method.params.iter().map(|param| {
+                let name = format_ident(param.name);
+                let tokens = param.t.gen_field();
                 quote! { #name: #tokens }
             });
 

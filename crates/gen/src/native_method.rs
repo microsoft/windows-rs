@@ -3,8 +3,15 @@ use crate::*;
 #[derive(Debug)]
 pub struct NativeMethod {
     pub def: winmd::MethodDef,
-    pub params: Vec<(&'static str, Type)>,
+    pub params: Vec<NativeParam>,
     pub return_type: Option<Type>,
+}
+
+#[derive(Debug)]
+pub struct NativeParam {
+    pub name: &'static str,
+    pub t: Type,
+    pub is_const: bool,
 }
 
 impl NativeMethod {
@@ -12,12 +19,12 @@ impl NativeMethod {
         let mut blob = method.sig();
 
         if blob.read_unsigned() & 0x10 != 0 {
-            blob.read_unsigned();
+            blob.read_unsigned(); // generic param count
         }
 
         let param_count = blob.read_unsigned();
         blob.read_modifiers();
-        blob.read_expected(0x10);
+        blob.read_expected(0x10); // byref
 
         let mut params = Vec::with_capacity(param_count as usize);
 
@@ -29,12 +36,18 @@ impl NativeMethod {
 
         for param in method.params() {
             if return_type.is_none() || param.sequence() != 0 {
-                blob.read_modifiers(); // const
-                blob.read_expected(0x10); // ref
-                params.push((
-                    param.name(),
-                    Type::from_blob(&mut blob, &[], calling_namespace),
-                ));
+                let mods = blob.read_modifiers();
+                assert!(mods.len() == 0);
+                let is_const = mods
+                    .iter()
+                    .any(|def| def.name() == ("Windows.Win32.Interop", "ConstAttribute"));
+                assert!(!is_const);
+
+                blob.read_expected(0x10); // byref
+                let t = Type::from_blob(&mut blob, &[], calling_namespace);
+                let name = param.name();
+
+                params.push(NativeParam { name, t, is_const });
             }
         }
 
@@ -46,10 +59,16 @@ impl NativeMethod {
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        self.return_type
-            .iter()
-            .chain(self.params.iter().map(|(_, t)| t))
-            .flat_map(|t| t.kind.dependencies())
-            .collect()
+        let mut defs = Vec::new();
+
+        if let Some(t) = &self.return_type {
+            defs.append(&mut t.kind.dependencies());
+        }
+
+        for param in &self.params {
+            defs.append(&mut param.t.kind.dependencies());
+        }
+
+        defs
     }
 }

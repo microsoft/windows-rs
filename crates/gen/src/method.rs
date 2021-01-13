@@ -22,13 +22,13 @@ impl Method {
             let name = method.name();
 
             if name.starts_with("get") {
-                to_snake(&name[4..], MethodKind::Get)
+                method_to_snake(&name[4..], MethodKind::Get)
             } else if name.starts_with("put") {
-                to_snake(&name[4..], MethodKind::Set)
+                method_to_snake(&name[4..], MethodKind::Set)
             } else if name.starts_with("add") {
-                to_snake(&name[4..], MethodKind::Add)
+                method_to_snake(&name[4..], MethodKind::Add)
             } else if name.starts_with("remove") {
-                to_snake(&name[7..], MethodKind::Remove)
+                method_to_snake(&name[7..], MethodKind::Remove)
             } else {
                 // A delegate's 'Invoke' method is "special" but lacks a preamble.
                 "invoke".to_owned()
@@ -70,7 +70,7 @@ impl Method {
 
         for param in method.params() {
             if return_type.is_none() || param.sequence() != 0 {
-                let name = to_snake(param.name(), MethodKind::Normal);
+                let name = to_snake(param.name());
                 let input = !param.flags().output();
 
                 let is_const = blob
@@ -115,13 +115,13 @@ impl Method {
             if attribute.name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
                 for (_, arg) in attribute.args() {
                     if let winmd::AttributeArg::String(name) = arg {
-                        return to_snake(&name, MethodKind::Normal);
+                        return method_to_snake(&name, MethodKind::Normal);
                     }
                 }
             }
         }
 
-        to_snake(method.name(), MethodKind::Normal)
+        method_to_snake(method.name(), MethodKind::Normal)
     }
 
     pub fn gen_abi(&self) -> TokenStream {
