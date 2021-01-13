@@ -10,6 +10,7 @@ pub struct Type {
     pub by_ref: bool,
     pub modifiers: Vec<winmd::TypeDefOrRef>,
     pub param: Option<winmd::Param>,
+    pub name: &'static str,
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -110,6 +111,12 @@ impl Type {
             unused => panic!("Type::from_blob 0x{:X}", unused),
         };
 
+        let name = if let Some(param) = param {
+            param.name()
+        } else {
+            "result__"
+        };
+
         Some(Self {
             by_ref,
             kind,
@@ -117,6 +124,7 @@ impl Type {
             array: None,
             modifiers,
             param,
+            name,
         })
     }
 
@@ -190,6 +198,7 @@ impl Type {
             modifiers: Vec::new(),
             by_ref: false,
             param: None,
+            name: "",
         }
     }
 

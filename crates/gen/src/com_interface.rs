@@ -4,7 +4,7 @@ use squote::{quote, Literal, TokenStream};
 #[derive(Debug)]
 pub struct ComInterface {
     pub name: TypeName,
-    pub methods: Vec<NativeMethod>,
+    pub methods: Vec<Signature>,
 }
 
 impl ComInterface {
@@ -12,7 +12,7 @@ impl ComInterface {
         let methods = name
             .def
             .methods()
-            .map(|method| NativeMethod::new(&method, &name.namespace))
+            .map(|method| Signature::new(&method, &[], &name.namespace))
             .collect();
 
         Self { name, methods }
@@ -24,26 +24,28 @@ impl ComInterface {
         let guid = TypeGuid::from_type_def(&self.name.def);
         let guid = self.name.gen_guid(&guid);
 
-        let methods = self.methods.iter().enumerate().map(|(vtable_offset, method)| {
-            let return_type = if let Some(t) = &method.return_type {
+        // TODO: here we're looking up the param name (from the file) repeatedly - cache name in Type
+
+        let methods = self.methods.iter().enumerate().map(|(vtable_offset, signature)| {
+            let return_type = if let Some(t) = &signature.return_type {
                 let tokens = t.gen_field();
                 quote! { -> #tokens }
             } else {
                 TokenStream::new()
             };
 
-            let params = method.params.iter().map(|param| {
-                let name = format_ident(param.name);
-                let tokens = param.t.gen_field();
+            let params = signature.params.iter().map(|t| {
+                let name = format_ident(t.name);
+                let tokens = t.gen_field();
                 quote! { #name: #tokens }
             });
 
-            let args = method.params.iter().map(|param| {
-                let name = format_ident(param.name);
+            let args = signature.params.iter().map(|t| {
+                let name = format_ident(t.name);
                 quote! { #name }
             });
 
-            let name = format_ident(method.def.name());
+            let name = format_ident(signature.method.name());
             let vtable_offset = Literal::u32_unsuffixed((vtable_offset + 3) as u32);
 
             quote! {
@@ -55,17 +57,17 @@ impl ComInterface {
             }
         });
 
-        let abi_methods = self.methods.iter().map(|method| {
-            let return_type = if let Some(t) = &method.return_type {
+        let abi_methods = self.methods.iter().map(|signature| {
+            let return_type = if let Some(t) = &signature.return_type {
                 let tokens = t.gen_field();
                 quote! { -> #tokens }
             } else {
                 TokenStream::new()
             };
 
-            let params = method.params.iter().map(|param| {
-                let name = format_ident(param.name);
-                let tokens = param.t.gen_field();
+            let params = signature.params.iter().map(|t| {
+                let name = format_ident(t.name);
+                let tokens = t.gen_field();
                 quote! { #name: #tokens }
             });
 
@@ -115,7 +117,7 @@ impl ComInterface {
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         self.methods
             .iter()
-            .map(|method| method.dependencies())
+            .map(|signature| signature.dependencies())
             .flatten()
             .collect()
     }

@@ -2,6 +2,7 @@ use crate::*;
 
 #[derive(Debug)]
 pub struct Signature {
+    pub method: winmd::MethodDef,
     pub params: Vec<Type>,
     pub return_type: Option<Type>,
 }
@@ -36,6 +37,7 @@ impl Signature {
         }
 
         Self {
+            method: *method,
             params: param_types,
             return_type,
         }

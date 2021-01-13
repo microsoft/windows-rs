@@ -5,7 +5,6 @@ use squote::{quote, TokenStream};
 #[derive(Debug)]
 pub struct Function {
     pub name: TypeName,
-    pub method: winmd::MethodDef,
     pub signature: Signature,
 }
 
@@ -14,13 +13,12 @@ impl Function {
         let signature = Signature::new(method, &[], &name.namespace);
         Self {
             name,
-            method: *method,
-            signature,
+            signature
         }
     }
 
     pub fn gen(&self) -> TokenStream {
-        let name = self.method.name();
+        let name = self.signature.method.name();
 
         // TODO: workaround for https://github.com/microsoft/win32metadata/issues/91
         // Note that even with the fix, #[link] doesn't like this and warns about clashing
@@ -32,7 +30,7 @@ impl Function {
         let name = format_ident(name);
 
         let params = self.signature.params.iter().map(|t| {
-            let name = format_ident(t.param.unwrap().name());
+            let name = format_ident(t.name);
             let tokens = t.gen_field();
             quote! { #name: #tokens }
         });
@@ -46,7 +44,7 @@ impl Function {
 
         // TODO: need to generate libs until Rust supports dynamic linking against DLLs.
         // This is actually the DLL name.
-        let mut link = self.method.impl_map().unwrap().scope().name();
+        let mut link = self.signature.method.impl_map().unwrap().scope().name();
         if link == "ext-ms-win-core-iuri-l1-1-0" {
             link = "urlmon";
         }
