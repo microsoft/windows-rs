@@ -1,0 +1,43 @@
+use crate::*;
+
+#[derive(Debug)]
+pub struct Signature {
+    pub params: Vec<Type>,
+    pub return_type: Option<Type>,
+}
+
+impl Signature {
+    pub fn new(
+        method: &winmd::MethodDef,
+        generics: &[TypeKind],
+        calling_namespace: &'static str,
+    ) -> Self {
+        let mut params: Vec<winmd::Param> = method.params().collect();
+
+        let return_param = if !params.is_empty() && params[0].sequence() == 0 {
+            Some(params.remove(0))
+        } else {
+            None
+        };
+
+        let mut blob = method.sig();
+        blob.read_unsigned(); // calling convention
+        let param_count = blob.read_unsigned() as usize;
+
+        let return_type = Type::from_blob2(&mut blob, return_param, generics, calling_namespace);
+
+        debug_assert!(params.len() == param_count);
+        let mut param_types = Vec::with_capacity(param_count);
+
+        for param in params {
+            param_types.push(
+                Type::from_blob2(&mut blob, Some(param), generics, calling_namespace).unwrap(),
+            );
+        }
+
+        Self {
+            params: param_types,
+            return_type,
+        }
+    }
+}

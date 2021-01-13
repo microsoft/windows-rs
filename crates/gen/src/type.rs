@@ -7,7 +7,9 @@ pub struct Type {
     pub kind: TypeKind,
     pub pointers: usize,
     pub array: Option<usize>,
-    pub is_const: bool,
+    pub by_ref: bool,
+    pub modifiers: Vec<winmd::TypeDefOrRef>,
+    pub param: Option<winmd::Param>,
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -41,12 +43,82 @@ pub enum TypeKind {
 }
 
 impl Type {
-    // pub fn from_blob2(
-    //     blob: &mut winmd::Blob,
-    //     generics: &[TypeKind],
-    //     calling_namespace: &'static str,
-    // ) -> Option<Self> {
-    // }
+    pub fn from_blob2(
+        blob: &mut winmd::Blob,
+        param: Option<winmd::Param>,
+        generics: &[TypeKind],
+        calling_namespace: &'static str,
+    ) -> Option<Self> {
+        let modifiers = blob.read_modifiers();
+        let by_ref = blob.read_expected(0x10);
+
+        if blob.read_expected(0x01) {
+            return None;
+        }
+
+        let is_array = blob.peek_unsigned().0 == 0x1D;
+
+        let mut pointers = 0;
+
+        while blob.read_expected(0x0f) {
+            pointers += 1;
+        }
+
+        let kind = match blob.read_unsigned() {
+            0x01 => TypeKind::Void,
+            0x02 => TypeKind::Bool,
+            0x03 => TypeKind::Char,
+            0x04 => TypeKind::I8,
+            0x05 => TypeKind::U8,
+            0x06 => TypeKind::I16,
+            0x07 => TypeKind::U16,
+            0x08 => TypeKind::I32,
+            0x09 => TypeKind::U32,
+            0x0A => TypeKind::I64,
+            0x0B => TypeKind::U64,
+            0x0C => TypeKind::F32,
+            0x0D => TypeKind::F64,
+            0x18 => TypeKind::ISize,
+            0x19 => TypeKind::USize,
+            0x0E => TypeKind::String,
+            0x1C => TypeKind::Object,
+            0x11 | 0x12 => {
+                let def =
+                    winmd::TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index);
+
+                if def.name().0.is_empty() {
+                    // TODO: handle nested types
+                    TypeKind::Bool
+                } else {
+                    TypeKind::from_type_def_or_ref(&def, generics, calling_namespace)
+                }
+            }
+            0x13 => generics[blob.read_unsigned() as usize].clone(),
+            0x14 => {
+                // TODO: handle win32 arrays
+                // type
+                // rank (dimensions)
+                // bounds count
+                // bound
+                TypeKind::Bool
+            }
+            0x15 => TypeKind::from_type_name(TypeName::from_type_spec_blob(
+                blob,
+                generics,
+                calling_namespace,
+            )),
+            unused => panic!("Type::from_blob 0x{:X}", unused),
+        };
+
+        Some(Self {
+            by_ref,
+            kind,
+            pointers,
+            array: None,
+            modifiers,
+            param,
+        })
+    }
 
     // TODO: from_blob should return Option<Self> where None indicates a return type of void.
     pub fn from_blob(
@@ -64,11 +136,6 @@ impl Type {
 
         let mods = blob.read_modifiers();
         assert!(mods.len() == 0);
-
-        let is_const = mods
-            .iter()
-            .any(|def| def.name() == ("Windows.Win32.Interop", "ConstAttribute"));
-        assert!(!is_const);
 
         let kind = match blob.read_unsigned() {
             0x01 => TypeKind::Void,
@@ -120,7 +187,9 @@ impl Type {
             kind,
             pointers,
             array: None,
-            is_const,
+            modifiers: Vec::new(),
+            by_ref: false,
+            param: None,
         }
     }
 
@@ -135,11 +204,11 @@ impl Type {
         let mut tokens = TokenStream::new();
 
         for _ in 0..self.pointers {
-            if self.is_const {
-                tokens.combine(&quote! { *const });
-            } else {
-                tokens.combine(&quote! { *mut });
-            }
+            // if self.is_const {
+            //     tokens.combine(&quote! { *const });
+            // } else {
+            tokens.combine(&quote! { *mut });
+            //}
         }
 
         let kind = self.kind.gen();

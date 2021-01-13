@@ -38,7 +38,9 @@ impl Struct {
                 kind: TypeKind::U8,
                 pointers: 0,
                 array: None,
-                is_const: false,
+                by_ref: false,
+                modifiers: Vec::new(),
+                param: None,
             };
 
             fields.push(("reserved".to_string(), t));

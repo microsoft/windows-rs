@@ -19,6 +19,7 @@ impl NativeMethod {
         let mut blob = method.sig();
 
         if blob.read_unsigned() & 0x10 != 0 {
+            panic!();
             blob.read_unsigned(); // generic param count
         }
 

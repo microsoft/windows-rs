@@ -1,5 +1,5 @@
 use super::*;
-use crate::TypeReader;
+use crate::{TableIndex, TypeReader};
 
 #[derive(Copy, Clone)]
 pub struct Param {
@@ -19,10 +19,47 @@ impl Param {
     pub fn name(&self) -> &'static str {
         self.reader.str(self.row, 2)
     }
+
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+        self.reader
+            .equal_range(
+                self.row.file_index,
+                TableIndex::CustomAttribute,
+                0,
+                HasAttribute::Param(*self).encode(),
+            )
+            .map(move |row| Attribute {
+                reader: self.reader,
+                row,
+            })
+    }
 }
 
 impl std::fmt::Debug for Param {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("Param").field("row", &self.row).finish()
+        f.debug_struct("Param")
+            .field("name", &self.name().to_string())
+            .field("sequence", &self.sequence())
+            .finish()
+    }
+}
+
+impl PartialEq for Param {
+    fn eq(&self, other: &Self) -> bool {
+        self.row == other.row
+    }
+}
+
+impl Eq for Param {}
+
+impl Ord for Param {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.row.cmp(&other.row)
+    }
+}
+
+impl PartialOrd for Param {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
     }
 }

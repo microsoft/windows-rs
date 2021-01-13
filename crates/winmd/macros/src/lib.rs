@@ -51,7 +51,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
     let encodes = TokenStream2::from_iter(encodes);
 
     let output = quote!(
-        #[derive(Copy, Clone, Debug)] // TODO: PartialEq, PartialOrd, Eq, Ord, Debug)]
+        #[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
         pub enum #name {
             #variants
         }
