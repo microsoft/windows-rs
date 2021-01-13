@@ -4,7 +4,7 @@ use squote::{quote, TokenStream};
 #[derive(Debug)]
 pub struct Callback {
     pub name: TypeName,
-    pub method: NativeMethod,
+    pub signature: Signature,
 }
 
 impl Callback {
@@ -15,24 +15,24 @@ impl Callback {
             .find(|method| method.name() == "Invoke")
             .unwrap();
 
-        let method = NativeMethod::new(&method, &name.namespace);
-        Self { name, method }
+        let signature = Signature::new(&method, &[], &name.namespace);
+        Self { name, signature }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        self.method.dependencies()
+        self.signature.dependencies()
     }
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
 
-        let params = self.method.params.iter().map(|param| {
-            let name = format_ident(param.name);
-            let tokens = param.t.gen_field();
+        let params = self.signature.params.iter().map(|t| {
+            let name = format_ident(t.param.unwrap().name());
+            let tokens = t.gen_field();
             quote! { #name: #tokens }
         });
 
-        let return_type = if let Some(t) = &self.method.return_type {
+        let return_type = if let Some(t) = &self.signature.return_type {
             let tokens = t.gen_field();
             quote! { -> #tokens }
         } else {

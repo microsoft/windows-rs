@@ -21,7 +21,7 @@ impl Signature {
         };
 
         let mut blob = method.sig();
-        blob.read_unsigned(); // calling convention
+        blob.read_unsigned(); // First byte of MethodDefSig is not used.
         let param_count = blob.read_unsigned() as usize;
 
         let return_type = Type::from_blob2(&mut blob, return_param, generics, calling_namespace);
@@ -39,5 +39,19 @@ impl Signature {
             params: param_types,
             return_type,
         }
+    }
+
+    pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
+        let mut defs = Vec::new();
+
+        if let Some(t) = &self.return_type {
+            defs.append(&mut t.kind.dependencies());
+        }
+
+        for param in &self.params {
+            defs.append(&mut param.kind.dependencies());
+        }
+
+        defs
     }
 }

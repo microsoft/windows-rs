@@ -79,6 +79,10 @@ impl Method {
                     .iter()
                     .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
 
+                    // if is_const {
+                    //     panic!(format!("{}", method.name()));
+                    // }
+
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
                 let t = Type::from_blob(&mut blob, generics, calling_namespace);
