@@ -71,8 +71,19 @@ impl TypeReader {
     ///
     /// This function panics if the if the files where the windows metadata are stored cannot be read.
     fn from_iter<I: IntoIterator<Item = PathBuf>>(files: I) -> Self {
+        let mut files: Vec<File> = files.into_iter().map(|file| File::new(file)).collect();
+
+        if files.is_empty() {
+            files.push(File::from_bytes(
+                include_bytes!("../../../.windows/winmd/Windows.Win32.winmd").to_vec(),
+            ));
+            files.push(File::from_bytes(
+                include_bytes!("../../../.windows/winmd/Windows.WinRT.winmd").to_vec(),
+            ));
+        }
+
         let reader = Self {
-            files: files.into_iter().map(|file| File::new(file)).collect(),
+            files,
             types: BTreeMap::default(),
         };
 
@@ -382,20 +393,6 @@ fn winmd_paths() -> Vec<std::path::PathBuf> {
 
     let mut paths = vec![];
     push_winmd_paths(windows_path, &mut paths);
-
-    // If at this point the paths vector is still empty then go and grab the winmd files from WinMetadata
-    // to make it easy for developers to get started without having to figure out where to get metadata.
-
-    if paths.is_empty() {
-        if let Ok(dir) = std::env::var("windir") {
-            let mut dir = std::path::PathBuf::from(dir);
-            dir.push(SYSTEM32);
-            dir.push("winmetadata");
-
-            push_winmd_paths(dir, &mut paths);
-        }
-    }
-
     paths
 }
 
@@ -414,9 +411,3 @@ fn push_winmd_paths(dir: std::path::PathBuf, paths: &mut Vec<std::path::PathBuf>
         }
     }
 }
-
-#[cfg(target_pointer_width = "64")]
-const SYSTEM32: &str = "System32";
-
-#[cfg(target_pointer_width = "32")]
-const SYSTEM32: &str = "SysNative";
