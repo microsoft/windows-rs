@@ -152,11 +152,11 @@ impl Delegate {
     }
 
     fn gen_fn_constraint(&self) -> TokenStream {
-        let params = self.method.params.iter().map(|param| param_gen_fn(param));
+        let params = self.method.signature.params.iter().map(|param| param_gen_fn2(param));
 
         // TODO: move duplicate code to Type
-        let return_type = if let Some(return_type) = &self.method.return_type {
-            param_gen_return(return_type)
+        let return_type = if let Some(return_type) = &self.method.signature.return_type {
+            param_gen_return2(return_type)
         } else {
             quote! { () }
         };

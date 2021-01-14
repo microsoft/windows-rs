@@ -136,12 +136,6 @@ impl Method {
             .chain(self.signature.return_type.iter())
             .map(|param| param_gen_abi2(param));
 
-        // let params = self
-        //     .params
-        //     .iter()
-        //     .chain(self.return_type.iter())
-        //     .map(|param| param_gen_abi(param));
-
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
         }
@@ -149,10 +143,10 @@ impl Method {
 
     pub fn gen_full_abi(&self) -> TokenStream {
         let params = self
-            .params
+            .signature.params
             .iter()
-            .chain(self.return_type.iter())
-            .map(|param| param_gen_full_abi(param));
+            .chain(self.signature.return_type.iter())
+            .map(|param| param_gen_full_abi2(param));
 
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
@@ -162,21 +156,21 @@ impl Method {
     pub fn gen_method(&self, interface: &TypeName, kind: InterfaceKind) -> TokenStream {
         // Composable interface methods drop their two trailing parameters when not aggregating
         // and forms the "default constructor" that projects as a "new" method in Rust.
-        let method_name = if kind == InterfaceKind::Composable && self.params.len() == 2 {
+        let method_name = if kind == InterfaceKind::Composable && self.signature.params.len() == 2 {
             format_ident!("new")
         } else {
             self.gen_name()
         };
 
         let params = if kind == InterfaceKind::Composable {
-            &self.params[..self.params.len() - 2]
+            &self.signature.params[..self.params.len() - 2]
         } else {
-            &self.params
+            &self.signature.params
         };
 
         let constraints = gen_constraint(params);
-        let args = params.iter().map(|param| param_gen_abi_arg(param));
-        let params = gen_param(params);
+        let args = params.iter().map(|param| param_gen_abi_arg2(param));
+        let params = gen_param2(params);
 
         // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
         // arguments to ensure the call succeeds in the non-aggregating case.
@@ -189,18 +183,18 @@ impl Method {
         };
 
         // TODO: move duplicate code to Type
-        let return_type_tokens = if let Some(return_type) = &self.return_type {
-            param_gen_return(return_type)
+        let return_type_tokens = if let Some(return_type) = &self.signature.return_type {
+            param_gen_return2(return_type)
         } else {
             quote! { () }
         };
 
         let vtable_offset = Literal::u32_unsuffixed(self.vtable_offset);
 
-        let vcall = if let Some(return_type) = &self.return_type {
-            let return_arg = param_gen_abi_return_arg(return_type);
+        let vcall = if let Some(return_type) = &self.signature.return_type {
+            let return_arg = param_gen_abi_return_arg2(return_type);
 
-            if return_type.array {
+            if return_type.is_array {
                 quote! {
                     let mut result__: #return_type_tokens = ::std::mem::zeroed();
                     (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #composable_args #return_arg)
@@ -302,20 +296,20 @@ impl Method {
     }
 }
 
-fn gen_param(params: &[Param]) -> TokenStream {
+fn gen_param2(types: &[Type]) -> TokenStream {
     TokenStream::from_iter(
-        params
+        types
             .iter()
             .enumerate()
-            .map(|(position, param)| param_gen(param, position)),
+            .map(|(position, param)| param_gen2(param, position)),
     )
 }
 
-fn gen_constraint(params: &[Param]) -> TokenStream {
+fn gen_constraint(types: &[Type]) -> TokenStream {
     let mut tokens = Vec::new();
 
-    for (position, param) in params.iter().enumerate() {
-        if !param.input || param.array {
+    for (position, param) in types.iter().enumerate() {
+        if !param.is_input || param.is_array {
             continue;
         }
 
@@ -383,61 +377,6 @@ fn param_gen(param: &Param, position: usize) -> TokenStream {
             }
             _ => quote! { #name: &mut #tokens, },
         }
-    }
-}
-
-pub fn param_gen_return(param: &Param) -> TokenStream {
-    let tokens = param.kind.gen();
-
-    if param.array {
-        quote! { ::winrt::Array<#tokens> }
-    } else {
-        quote! { #tokens }
-    }
-}
-
-fn gen_abi_wrap(param: &Param, kind_tokens: TokenStream) -> TokenStream {
-    let name = format_ident(&param.name);
-
-    if param.array {
-        let name_size = squote::format_ident!("array_size_{}", &param.name);
-
-        if param.input {
-            quote! { #name_size: u32, #name: *const #kind_tokens }
-        } else if param.by_ref {
-            quote! { #name_size: *mut u32, #name: *mut *mut #kind_tokens }
-        } else {
-            quote! { #name_size: u32, #name: *mut #kind_tokens }
-        }
-    } else if param.input {
-        if param.is_const {
-            quote! { #name: &#kind_tokens }
-        } else {
-            quote! { #name: #kind_tokens }
-        }
-    } else {
-        quote! { #name: *mut #kind_tokens }
-    }
-}
-
-pub fn param_gen_abi(param: &Param) -> TokenStream {
-    let tokens = param.kind.gen_abi();
-
-    gen_abi_wrap(param, tokens)
-}
-
-pub fn param_gen_full_abi(param: &Param) -> TokenStream {
-    let tokens = param.kind.gen_full_abi();
-
-    gen_abi_wrap(param, tokens)
-}
-
-pub fn param_gen_abi_return_arg(param: &Param) -> TokenStream {
-    if param.array {
-        let return_type = param.kind.gen();
-        quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
-    } else {
-        quote! { &mut result__ }
     }
 }
 
