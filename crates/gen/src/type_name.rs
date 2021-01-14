@@ -89,7 +89,7 @@ impl TypeName {
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {
-            let t = Type::from_blob(blob, generics, calling_namespace);
+            let t = Type::from_blob(blob, None, generics, calling_namespace, false).unwrap();
             args.push(t.kind);
         }
 
