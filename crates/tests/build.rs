@@ -61,5 +61,6 @@ fn main() {
             CloseHandle
         }
         windows::win32::com::{IUri, CreateUri}
+        windows::win32::menu_rc::{PROPENUMPROCA, PROPENUMPROCW}
     );
 }

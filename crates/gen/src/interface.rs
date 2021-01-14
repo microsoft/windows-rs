@@ -189,8 +189,8 @@ mod tests {
         let method = &t.methods[0];
         assert!(method.name == "to_string");
 
-        assert!(method.params.is_empty());
-        let param = method.return_type.as_ref().unwrap();
+        assert!(method.signature.params.is_empty());
+        let param = method.signature.return_type.as_ref().unwrap();
         assert!(param.kind == TypeKind::String);
     }
 

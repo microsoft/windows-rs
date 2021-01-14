@@ -1,22 +1,21 @@
 use crate::*;
 use squote::{quote, TokenStream};
 
+// TODO: move winmd into gen crate to improve inlining and simplify
 #[derive(Debug)]
 pub struct Function {
     pub name: TypeName,
-    pub method: NativeMethod,
+    pub signature: Signature,
 }
 
 impl Function {
     pub fn new(name: TypeName, method: &winmd::MethodDef) -> Self {
-        Self {
-            method: NativeMethod::new(method, &name.namespace),
-            name,
-        }
+        let signature = Signature::new(method, &[], &name.namespace);
+        Self { name, signature }
     }
 
     pub fn gen(&self) -> TokenStream {
-        let name = self.method.def.name();
+        let name = self.signature.method.name();
 
         // TODO: workaround for https://github.com/microsoft/win32metadata/issues/91
         // Note that even with the fix, #[link] doesn't like this and warns about clashing
@@ -27,22 +26,22 @@ impl Function {
 
         let name = format_ident(name);
 
-        let return_type = if let Some(t) = &self.method.return_type {
+        let params = self.signature.params.iter().map(|t| {
+            let name = format_ident(&t.name);
+            let tokens = t.gen_field();
+            quote! { #name: #tokens }
+        });
+
+        let return_type = if let Some(t) = &self.signature.return_type {
             let tokens = t.gen_field();
             quote! { -> #tokens }
         } else {
             TokenStream::new()
         };
 
-        let params = self.method.params.iter().map(|(name, t)| {
-            let name = format_ident(name);
-            let tokens = t.gen_field();
-            quote! { #name: #tokens }
-        });
-
         // TODO: need to generate libs until Rust supports dynamic linking against DLLs.
         // This is actually the DLL name.
-        let mut link = self.method.def.impl_map().unwrap().scope().name();
+        let mut link = self.signature.method.impl_map().unwrap().scope().name();
         if link == "ext-ms-win-core-iuri-l1-1-0" {
             link = "urlmon";
         }
@@ -56,6 +55,6 @@ impl Function {
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        self.method.dependencies()
+        self.signature.dependencies()
     }
 }

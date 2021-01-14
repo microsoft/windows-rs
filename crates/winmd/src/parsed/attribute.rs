@@ -117,12 +117,6 @@ impl Attribute {
     }
 }
 
-impl std::fmt::Debug for Attribute {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("Attribute").field("row", &self.row).finish()
-    }
-}
-
 fn read_enum(element_type: &ElementType, blob: &mut Blob) -> AttributeArg {
     match element_type {
         ElementType::I8 => AttributeArg::I8(blob.read_i8()),
@@ -134,5 +128,31 @@ fn read_enum(element_type: &ElementType, blob: &mut Blob) -> AttributeArg {
         ElementType::I64 => AttributeArg::I64(blob.read_i64()),
         ElementType::U64 => AttributeArg::U64(blob.read_u64()),
         _ => panic!("Invalid underlying enum type encountered!"),
+    }
+}
+
+impl std::fmt::Debug for Attribute {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Attribute").field("row", &self.row).finish()
+    }
+}
+
+impl PartialEq for Attribute {
+    fn eq(&self, other: &Self) -> bool {
+        self.row == other.row
+    }
+}
+
+impl Eq for Attribute {}
+
+impl Ord for Attribute {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.row.cmp(&other.row)
+    }
+}
+
+impl PartialOrd for Attribute {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
     }
 }

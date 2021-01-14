@@ -7,6 +7,13 @@ pub struct Type {
     pub kind: TypeKind,
     pub pointers: usize,
     pub array: Option<usize>,
+    pub by_ref: bool,
+    pub modifiers: Vec<winmd::TypeDefOrRef>,
+    pub param: Option<winmd::Param>,
+    pub name: String,
+    pub is_const: bool,
+    pub is_array: bool,
+    pub is_input: bool,
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -42,18 +49,25 @@ pub enum TypeKind {
 impl Type {
     pub fn from_blob(
         blob: &mut winmd::Blob,
+        param: Option<winmd::Param>,
         generics: &[TypeKind],
         calling_namespace: &'static str,
-    ) -> Self {
-        blob.read_expected(0x1D);
+        is_return_type: bool,
+    ) -> Option<Self> {
+        let modifiers = blob.read_modifiers();
+        let mut by_ref = blob.read_expected(0x10);
+
+        if blob.read_expected(0x01) {
+            return None;
+        }
+
+        let is_array = blob.read_expected(0x1D);
 
         let mut pointers = 0;
 
         while blob.read_expected(0x0f) {
             pointers += 1;
         }
-
-        blob.read_modifiers();
 
         let kind = match blob.read_unsigned() {
             0x01 => TypeKind::Void,
@@ -101,25 +115,62 @@ impl Type {
             unused => panic!("Type::from_blob 0x{:X}", unused),
         };
 
-        Self {
+        let mut is_input = false;
+
+        let mut is_const = modifiers
+            .iter()
+            .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
+
+        let mut name = if let Some(param) = param {
+            is_input = !param.flags().output();
+
+            if !is_const {
+                is_const = param.has_attribute(("Windows.Win32.Interop", "ConstAttribute"));
+            }
+
+            param.name()
+        } else {
+            "result__"
+        };
+
+        if is_return_type {
+            by_ref = true;
+            is_input = false;
+            name = "result__";
+        }
+
+        let name = to_snake(name);
+
+        Some(Self {
+            by_ref,
             kind,
             pointers,
             array: None,
-        }
+            modifiers,
+            param,
+            name,
+            is_const,
+            is_array,
+            is_input,
+        })
     }
 
     pub fn from_field(field: &winmd::Field, calling_namespace: &'static str) -> Self {
         let mut blob = field.sig();
         blob.read_unsigned();
         blob.read_modifiers();
-        Self::from_blob(&mut blob, &Vec::new(), calling_namespace)
+        Self::from_blob(&mut blob, None, &Vec::new(), calling_namespace, false).unwrap()
     }
 
     pub fn gen_field(&self) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         for _ in 0..self.pointers {
-            tokens.combine(&quote! { *mut });
+            if self.is_const {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
         }
 
         let kind = self.kind.gen();

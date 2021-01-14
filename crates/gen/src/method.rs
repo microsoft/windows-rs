@@ -5,10 +5,9 @@ use std::iter::FromIterator;
 #[derive(Debug)]
 pub struct Method {
     pub name: String,
-    pub params: Vec<Param>,
-    pub return_type: Option<Param>,
     pub vtable_offset: u32,
     pub overload: u32,
+    pub signature: Signature,
 }
 
 impl Method {
@@ -22,13 +21,13 @@ impl Method {
             let name = method.name();
 
             if name.starts_with("get") {
-                to_snake(&name[4..], MethodKind::Get)
+                method_to_snake(&name[4..], MethodKind::Get)
             } else if name.starts_with("put") {
-                to_snake(&name[4..], MethodKind::Set)
+                method_to_snake(&name[4..], MethodKind::Set)
             } else if name.starts_with("add") {
-                to_snake(&name[4..], MethodKind::Add)
+                method_to_snake(&name[4..], MethodKind::Add)
             } else if name.starts_with("remove") {
-                to_snake(&name[7..], MethodKind::Remove)
+                method_to_snake(&name[7..], MethodKind::Remove)
             } else {
                 // A delegate's 'Invoke' method is "special" but lacks a preamble.
                 "invoke".to_owned()
@@ -37,77 +36,18 @@ impl Method {
             Method::name(method)
         };
 
-        let mut blob = method.sig();
-
-        if blob.read_unsigned() & 0x10 != 0 {
-            blob.read_unsigned();
-        }
-
-        let param_count = blob.read_unsigned();
-        blob.read_modifiers();
-        blob.read_expected(0x10);
-
-        let return_type = if blob.read_expected(0x01) {
-            None
-        } else {
-            let name = "result__".to_owned();
-            let array = blob.peek_unsigned().0 == 0x1D;
-            let t = Type::from_blob(&mut blob, generics, calling_namespace);
-            let input = false;
-            let by_ref = true;
-            let is_const = false;
-            Some(Param {
-                name,
-                kind: t.kind,
-                array,
-                input,
-                by_ref,
-                is_const,
-            })
-        };
-
-        let mut params = Vec::with_capacity(param_count as usize);
-
-        for param in method.params() {
-            if return_type.is_none() || param.sequence() != 0 {
-                let name = to_snake(param.name(), MethodKind::Normal);
-                let input = !param.flags().output();
-
-                let is_const = blob
-                    .read_modifiers()
-                    .iter()
-                    .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
-
-                let by_ref = blob.read_expected(0x10);
-                let array = blob.peek_unsigned().0 == 0x1D;
-                let t = Type::from_blob(&mut blob, generics, calling_namespace);
-
-                params.push(Param {
-                    name,
-                    kind: t.kind,
-                    array,
-                    input,
-                    by_ref,
-                    is_const,
-                });
-            }
-        }
+        let signature = Signature::new(method, generics, calling_namespace);
 
         Method {
             name,
-            params,
-            return_type,
+            signature,
             vtable_offset,
             overload: 1,
         }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        self.return_type
-            .iter()
-            .chain(self.params.iter())
-            .flat_map(|i| i.kind.dependencies())
-            .collect()
+        self.signature.dependencies()
     }
 
     fn name(method: &winmd::MethodDef) -> String {
@@ -115,21 +55,22 @@ impl Method {
             if attribute.name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
                 for (_, arg) in attribute.args() {
                     if let winmd::AttributeArg::String(name) = arg {
-                        return to_snake(&name, MethodKind::Normal);
+                        return method_to_snake(&name, MethodKind::Normal);
                     }
                 }
             }
         }
 
-        to_snake(method.name(), MethodKind::Normal)
+        method_to_snake(method.name(), MethodKind::Normal)
     }
 
     pub fn gen_abi(&self) -> TokenStream {
         let params = self
+            .signature
             .params
             .iter()
-            .chain(self.return_type.iter())
-            .map(|param| param.gen_abi());
+            .chain(self.signature.return_type.iter())
+            .map(|param| param_gen_abi(param));
 
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
@@ -138,10 +79,11 @@ impl Method {
 
     pub fn gen_full_abi(&self) -> TokenStream {
         let params = self
+            .signature
             .params
             .iter()
-            .chain(self.return_type.iter())
-            .map(|param| param.gen_full_abi());
+            .chain(self.signature.return_type.iter())
+            .map(|param| param_gen_full_abi(param));
 
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
@@ -151,21 +93,21 @@ impl Method {
     pub fn gen_method(&self, interface: &TypeName, kind: InterfaceKind) -> TokenStream {
         // Composable interface methods drop their two trailing parameters when not aggregating
         // and forms the "default constructor" that projects as a "new" method in Rust.
-        let method_name = if kind == InterfaceKind::Composable && self.params.len() == 2 {
+        let method_name = if kind == InterfaceKind::Composable && self.signature.params.len() == 2 {
             format_ident!("new")
         } else {
             self.gen_name()
         };
 
         let params = if kind == InterfaceKind::Composable {
-            &self.params[..self.params.len() - 2]
+            &self.signature.params[..self.signature.params.len() - 2]
         } else {
-            &self.params
+            &self.signature.params
         };
 
         let constraints = gen_constraint(params);
-        let args = params.iter().map(|param| param.gen_abi_arg());
-        let params = gen_param(params);
+        let args = params.iter().map(|param| param_gen_abi_arg(param));
+        let params = gen_param2(params);
 
         // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
         // arguments to ensure the call succeeds in the non-aggregating case.
@@ -177,18 +119,19 @@ impl Method {
             TokenStream::new()
         };
 
-        let return_type_tokens = if let Some(return_type) = &self.return_type {
-            return_type.gen_return()
+        // TODO: move duplicate code to Type
+        let return_type_tokens = if let Some(return_type) = &self.signature.return_type {
+            param_gen_return(return_type)
         } else {
             quote! { () }
         };
 
         let vtable_offset = Literal::u32_unsuffixed(self.vtable_offset);
 
-        let vcall = if let Some(return_type) = &self.return_type {
-            let return_arg = return_type.gen_abi_return_arg();
+        let vcall = if let Some(return_type) = &self.signature.return_type {
+            let return_arg = param_gen_abi_return_arg(return_type);
 
-            if return_type.array {
+            if return_type.is_array {
                 quote! {
                     let mut result__: #return_type_tokens = ::std::mem::zeroed();
                     (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #composable_args #return_arg)
@@ -248,12 +191,13 @@ impl Method {
 
     pub fn gen_upcall(&self, inner: TokenStream, relative: bool) -> TokenStream {
         let invoke_args = self
+            .signature
             .params
             .iter()
-            .map(|param| param.gen_invoke_arg(relative));
+            .map(|param| param_gen_invoke_arg(param, relative));
 
-        match &self.return_type {
-            Some(return_type) if return_type.array => {
+        match &self.signature.return_type {
+            Some(return_type) if return_type.is_array => {
                 let result = format_ident(&return_type.name);
                 let result_size = squote::format_ident!("array_size_{}", &return_type.name);
 
@@ -290,20 +234,20 @@ impl Method {
     }
 }
 
-fn gen_param(params: &[Param]) -> TokenStream {
+fn gen_param2(types: &[Type]) -> TokenStream {
     TokenStream::from_iter(
-        params
+        types
             .iter()
             .enumerate()
-            .map(|(position, param)| param.gen(position)),
+            .map(|(position, param)| param_gen(param, position)),
     )
 }
 
-fn gen_constraint(params: &[Param]) -> TokenStream {
+fn gen_constraint(types: &[Type]) -> TokenStream {
     let mut tokens = Vec::new();
 
-    for (position, param) in params.iter().enumerate() {
-        if !param.input || param.array {
+    for (position, param) in types.iter().enumerate() {
+        if !param.is_input || param.is_array {
             continue;
         }
 
@@ -329,6 +273,181 @@ fn gen_constraint(params: &[Param]) -> TokenStream {
     }
 
     TokenStream::from_iter(tokens)
+}
+
+fn param_gen(t: &Type, position: usize) -> TokenStream {
+    let name = format_ident(&t.name);
+    let tokens = t.kind.gen();
+
+    if t.is_array {
+        if t.is_input {
+            quote! { #name: &[<#tokens as ::winrt::RuntimeType>::DefaultType], }
+        } else if t.by_ref {
+            quote! { #name: &mut ::winrt::Array<#tokens>, }
+        } else {
+            quote! { #name: &mut [<#tokens as ::winrt::RuntimeType>::DefaultType], }
+        }
+    } else if t.is_input {
+        match &t.kind {
+            TypeKind::String
+            | TypeKind::Object
+            | TypeKind::Guid
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Struct(_)
+            | TypeKind::Delegate(_)
+            | TypeKind::Generic(_) => {
+                let tokens = squote::format_ident!("T{}__", position);
+                quote! { #name: #tokens, }
+            }
+            _ => quote! { #name: #tokens, },
+        }
+    } else {
+        match t.kind {
+            TypeKind::Object
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Delegate(_) => {
+                quote! { #name: &mut ::std::option::Option<#tokens>, }
+            }
+            TypeKind::Generic(_) => {
+                quote! { &mut <#tokens as ::winrt::RuntimeType>::DefaultType, }
+            }
+            _ => quote! { #name: &mut #tokens, },
+        }
+    }
+}
+
+pub fn param_gen_return(t: &Type) -> TokenStream {
+    let tokens = t.kind.gen();
+
+    if t.is_array {
+        quote! { ::winrt::Array<#tokens> }
+    } else {
+        quote! { #tokens }
+    }
+}
+
+fn gen_abi_wrap(t: &Type, kind_tokens: TokenStream) -> TokenStream {
+    let name = format_ident(&t.name);
+
+    if t.is_array {
+        let name_size = squote::format_ident!("array_size_{}", &t.name);
+
+        if t.is_input {
+            quote! { #name_size: u32, #name: *const #kind_tokens }
+        } else if t.by_ref {
+            quote! { #name_size: *mut u32, #name: *mut *mut #kind_tokens }
+        } else {
+            quote! { #name_size: u32, #name: *mut #kind_tokens }
+        }
+    } else if t.is_input {
+        if t.is_const {
+            quote! { #name: &#kind_tokens }
+        } else {
+            quote! { #name: #kind_tokens }
+        }
+    } else {
+        quote! { #name: *mut #kind_tokens }
+    }
+}
+
+fn param_gen_abi(t: &Type) -> TokenStream {
+    let tokens = t.kind.gen_abi();
+
+    gen_abi_wrap(t, tokens)
+}
+
+fn param_gen_full_abi(t: &Type) -> TokenStream {
+    let tokens = t.kind.gen_full_abi();
+
+    gen_abi_wrap(t, tokens)
+}
+
+fn param_gen_abi_return_arg(t: &Type) -> TokenStream {
+    if t.is_array {
+        let return_type = t.kind.gen();
+        quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
+    } else {
+        quote! { &mut result__ }
+    }
+}
+
+fn param_gen_abi_arg(t: &Type) -> TokenStream {
+    let name = format_ident(&t.name);
+
+    if t.is_array {
+        if t.is_input {
+            quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()), }
+        } else if t.by_ref {
+            quote! { #name.set_abi_len(), #name.set_abi(), }
+        } else {
+            quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name), }
+        }
+    } else if t.is_input {
+        if t.kind.primitive() {
+            quote! { #name, }
+        } else {
+            match t.kind {
+                TypeKind::String
+                | TypeKind::Object
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => quote! { #name.into().abi(), },
+                TypeKind::Enum(_) => quote! { #name, },
+                TypeKind::Guid | TypeKind::Struct(_) => {
+                    if t.is_const {
+                        quote! { &#name.into().abi(), }
+                    } else {
+                        quote! { #name.into().abi(), }
+                    }
+                }
+                _ => quote! { ::winrt::Abi::abi(#name), },
+            }
+        }
+    } else if t.kind.primitive() {
+        quote! { #name, }
+    } else {
+        quote! { ::winrt::Abi::set_abi(#name), }
+    }
+}
+
+fn param_gen_invoke_arg(t: &Type, relative: bool) -> TokenStream {
+    let name = format_ident(&t.name);
+
+    let kind = if relative {
+        t.kind.gen()
+    } else {
+        t.kind.gen_full()
+    };
+
+    // TODO: This compiles but doesn't property handle delegates with array parameters.
+    // https://github.com/microsoft/winrt-rs/issues/212
+
+    if t.is_array {
+        if t.is_input {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        } else if t.by_ref {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        } else {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        }
+    } else if t.is_input {
+        if t.kind.primitive() {
+            quote! { #name }
+        } else if let TypeKind::Enum(_) = t.kind {
+            quote! { #name }
+        } else {
+            if t.is_const {
+                quote! { &*(#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+            } else {
+                quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+            }
+        }
+    } else {
+        quote! { ::std::mem::transmute_copy(&#name) }
+    }
 }
 
 #[cfg(test)]
@@ -358,9 +477,9 @@ mod tests {
     #[test]
     fn test_to_string() {
         let method = method(("Windows.Foundation", "IStringable"), "to_string");
-        assert!(method.params.is_empty());
+        assert!(method.signature.params.is_empty());
 
-        let param = method.return_type.as_ref().unwrap();
+        let param = method.signature.return_type.as_ref().unwrap();
         assert!(param.kind == TypeKind::String);
     }
 
@@ -371,11 +490,11 @@ mod tests {
             "map_changed",
         );
 
-        assert!(method.params.len() == 1);
+        assert!(method.signature.params.len() == 1);
 
-        let handler = &method.params[0];
-        assert!(handler.array == false);
-        assert!(handler.input == true);
+        let handler = &method.signature.params[0];
+        assert!(handler.is_array == false);
+        assert!(handler.is_input == true);
         assert!(handler.by_ref == false);
 
         let handler = match &handler.kind {
@@ -388,9 +507,9 @@ mod tests {
                 == "Windows.Foundation.Collections.MapChangedEventHandler`2<K, V>"
         );
 
-        let token = method.return_type.as_ref().unwrap();
-        assert!(token.array == false);
-        assert!(token.input == false);
+        let token = method.signature.return_type.as_ref().unwrap();
+        assert!(token.is_array == false);
+        assert!(token.is_input == false);
         assert!(token.by_ref == true);
 
         let token = match &token.kind {
@@ -408,11 +527,11 @@ mod tests {
             "remove_map_changed",
         );
 
-        assert!(method.params.len() == 1);
+        assert!(method.signature.params.len() == 1);
 
-        let token = &method.params[0];
-        assert!(token.array == false);
-        assert!(token.input == true);
+        let token = &method.signature.params[0];
+        assert!(token.is_array == false);
+        assert!(token.is_input == true);
         assert!(token.by_ref == false);
 
         let token = match &token.kind {

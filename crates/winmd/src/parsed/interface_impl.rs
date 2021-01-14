@@ -42,3 +42,23 @@ impl std::fmt::Debug for InterfaceImpl {
             .finish()
     }
 }
+
+impl PartialEq for InterfaceImpl {
+    fn eq(&self, other: &Self) -> bool {
+        self.row == other.row
+    }
+}
+
+impl Eq for InterfaceImpl {}
+
+impl Ord for InterfaceImpl {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        self.row.cmp(&other.row)
+    }
+}
+
+impl PartialOrd for InterfaceImpl {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        Some(self.cmp(other))
+    }
+}

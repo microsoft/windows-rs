@@ -4,7 +4,7 @@ use squote::{quote, TokenStream};
 #[derive(Debug)]
 pub struct Callback {
     pub name: TypeName,
-    pub method: Method,
+    pub signature: Signature,
 }
 
 impl Callback {
@@ -15,27 +15,26 @@ impl Callback {
             .find(|method| method.name() == "Invoke")
             .unwrap();
 
-        let method = Method::from_method_def(&method, 0, &[], &name.namespace);
-        Self { name, method }
+        let signature = Signature::new(&method, &[], &name.namespace);
+        Self { name, signature }
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        self.method.dependencies()
+        self.signature.dependencies()
     }
 
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
 
-        // TODO: here we're using gen_abi() because as an ABI function pointer it can't use the owning
-        // types. Perhaps we should introduce a NonOwning<T> concept for this case.
-        let params = self.method.params.iter().map(|param| param.gen_abi());
+        let params = self.signature.params.iter().map(|t| {
+            let name = format_ident(&t.name);
+            let tokens = t.gen_field();
+            quote! { #name: #tokens }
+        });
 
-        let return_type = if let Some(return_type) = &self.method.return_type {
-            let return_type = return_type.kind.gen_abi();
-
-            quote! {
-                -> #return_type
-            }
+        let return_type = if let Some(t) = &self.signature.return_type {
+            let tokens = t.gen_field();
+            quote! { -> #tokens }
         } else {
             TokenStream::new()
         };
