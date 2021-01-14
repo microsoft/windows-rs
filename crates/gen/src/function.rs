@@ -16,14 +16,6 @@ impl Function {
 
     pub fn gen(&self) -> TokenStream {
         let name = self.signature.method.name();
-
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/91
-        // Note that even with the fix, #[link] doesn't like this and warns about clashing
-        // extern declarations. So we really need support for DLL imports asap.
-        if name == "GetDeviceID" {
-            return quote! {};
-        }
-
         let name = format_ident(name);
 
         let params = self.signature.params.iter().map(|t| {
