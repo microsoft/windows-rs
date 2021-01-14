@@ -60,7 +60,7 @@ impl Type {
             return None;
         }
 
-        let is_array = blob.peek_unsigned().0 == 0x1D;
+        let is_array = blob.read_expected(0x1D);
 
         let mut pointers = 0;
 
@@ -111,7 +111,7 @@ impl Type {
                 generics,
                 calling_namespace,
             )),
-            unused => panic!("Type::from_blob 0x{:X}", unused),
+            unused => panic!("Type::from_blob2 0x{:X}", unused),
         };
 
         let mut is_input = false;

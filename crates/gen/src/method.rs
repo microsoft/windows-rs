@@ -9,6 +9,7 @@ pub struct Method {
     pub return_type: Option<Param>,
     pub vtable_offset: u32,
     pub overload: u32,
+    pub signature: Signature,
 }
 
 impl Method {
@@ -98,8 +99,11 @@ impl Method {
             }
         }
 
+        let signature = Signature::new(method, generics, calling_namespace);
+
         Method {
             name,
+            signature,
             params,
             return_type,
             vtable_offset,
