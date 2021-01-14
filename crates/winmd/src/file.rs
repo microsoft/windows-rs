@@ -81,25 +81,16 @@ impl TableData {
 }
 
 impl File {
-    /// Parse a Windows metadata file at the given path
-    ///
-    /// # Panics
-    ///
-    /// Panics if the file at the path cannot be read or if there is a fatal error when parsing the file
-    pub(crate) fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
-        let bytes = std::fs::read(filename.as_ref())
-            .unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename.as_ref(), e));
+    pub(crate) fn from_bytes(bytes: Vec<u8>) -> Self {
         let mut file = Self {
             bytes,
             ..Default::default()
         };
+
         let dos = file.bytes.view_as::<ImageDosHeader>(0);
 
         if dos.signature != IMAGE_DOS_SIGNATURE {
-            panic!(
-                "Invalid file: file does not appear to be a winmd file - '{:?}'",
-                filename.as_ref()
-            );
+            panic!("Invalid file: file does not appear to be a winmd file");
         }
 
         let pe = file.bytes.view_as::<ImageNtHeader>(dos.lfanew as u32);
@@ -582,6 +573,13 @@ impl File {
         file.tables[TableIndex::GenericParam as usize].set_data(&mut view);
 
         file
+    }
+
+    pub(crate) fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
+        let bytes = std::fs::read(filename.as_ref())
+            .unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename.as_ref(), e));
+
+        Self::from_bytes(bytes)
     }
 
     pub(crate) fn type_def_table(&self) -> &TableData {
