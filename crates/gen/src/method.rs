@@ -163,7 +163,7 @@ impl Method {
         };
 
         let params = if kind == InterfaceKind::Composable {
-            &self.signature.params[..self.params.len() - 2]
+            &self.signature.params[..self.signature.params.len() - 2]
         } else {
             &self.signature.params
         };
@@ -254,12 +254,12 @@ impl Method {
 
     pub fn gen_upcall(&self, inner: TokenStream, relative: bool) -> TokenStream {
         let invoke_args = self
-            .params
+            .signature.params
             .iter()
-            .map(|param| param_gen_invoke_arg(param, relative));
+            .map(|param| param_gen_invoke_arg2(param, relative));
 
-        match &self.return_type {
-            Some(return_type) if return_type.array => {
+        match &self.signature.return_type {
+            Some(return_type) if return_type.is_array => {
                 let result = format_ident(&return_type.name);
                 let result_size = squote::format_ident!("array_size_{}", &return_type.name);
 
@@ -337,88 +337,6 @@ fn gen_constraint(types: &[Type]) -> TokenStream {
     TokenStream::from_iter(tokens)
 }
 
-fn param_gen(param: &Param, position: usize) -> TokenStream {
-    let name = format_ident(&param.name);
-    let tokens = param.kind.gen();
-
-    if param.array {
-        if param.input {
-            quote! { #name: &[<#tokens as ::winrt::RuntimeType>::DefaultType], }
-        } else if param.by_ref {
-            quote! { #name: &mut ::winrt::Array<#tokens>, }
-        } else {
-            quote! { #name: &mut [<#tokens as ::winrt::RuntimeType>::DefaultType], }
-        }
-    } else if param.input {
-        match &param.kind {
-            TypeKind::String
-            | TypeKind::Object
-            | TypeKind::Guid
-            | TypeKind::Class(_)
-            | TypeKind::Interface(_)
-            | TypeKind::Struct(_)
-            | TypeKind::Delegate(_)
-            | TypeKind::Generic(_) => {
-                let tokens = squote::format_ident!("T{}__", position);
-                quote! { #name: #tokens, }
-            }
-            _ => quote! { #name: #tokens, },
-        }
-    } else {
-        match param.kind {
-            TypeKind::Object
-            | TypeKind::Class(_)
-            | TypeKind::Interface(_)
-            | TypeKind::Delegate(_) => {
-                quote! { #name: &mut ::std::option::Option<#tokens>, }
-            }
-            TypeKind::Generic(_) => {
-                quote! { &mut <#tokens as ::winrt::RuntimeType>::DefaultType, }
-            }
-            _ => quote! { #name: &mut #tokens, },
-        }
-    }
-}
-
-pub fn param_gen_abi_arg(param: &Param) -> TokenStream {
-    let name = format_ident(&param.name);
-
-    if param.array {
-        if param.input {
-            quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()), }
-        } else if param.by_ref {
-            quote! { #name.set_abi_len(), #name.set_abi(), }
-        } else {
-            quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name), }
-        }
-    } else if param.input {
-        if param.kind.primitive() {
-            quote! { #name, }
-        } else {
-            match param.kind {
-                TypeKind::String
-                | TypeKind::Object
-                | TypeKind::Class(_)
-                | TypeKind::Interface(_)
-                | TypeKind::Delegate(_)
-                | TypeKind::Generic(_) => quote! { #name.into().abi(), },
-                TypeKind::Enum(_) => quote! { #name, },
-                TypeKind::Guid | TypeKind::Struct(_) => {
-                    if param.is_const {
-                        quote! { &#name.into().abi(), }
-                    } else {
-                        quote! { #name.into().abi(), }
-                    }
-                }
-                _ => quote! { ::winrt::Abi::abi(#name), },
-            }
-        }
-    } else if param.kind.primitive() {
-        quote! { #name, }
-    } else {
-        quote! { ::winrt::Abi::set_abi(#name), }
-    }
-}
 
 pub fn param_gen_invoke_arg(param: &Param, relative: bool) -> TokenStream {
     let name = format_ident(&param.name);
