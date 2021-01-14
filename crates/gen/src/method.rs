@@ -66,10 +66,11 @@ impl Method {
 
     pub fn gen_abi(&self) -> TokenStream {
         let params = self
-            .signature.params
+            .signature
+            .params
             .iter()
             .chain(self.signature.return_type.iter())
-            .map(|param| param_gen_abi2(param));
+            .map(|param| param_gen_abi(param));
 
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
@@ -78,10 +79,11 @@ impl Method {
 
     pub fn gen_full_abi(&self) -> TokenStream {
         let params = self
-            .signature.params
+            .signature
+            .params
             .iter()
             .chain(self.signature.return_type.iter())
-            .map(|param| param_gen_full_abi2(param));
+            .map(|param| param_gen_full_abi(param));
 
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
@@ -104,7 +106,7 @@ impl Method {
         };
 
         let constraints = gen_constraint(params);
-        let args = params.iter().map(|param| param_gen_abi_arg2(param));
+        let args = params.iter().map(|param| param_gen_abi_arg(param));
         let params = gen_param2(params);
 
         // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
@@ -119,7 +121,7 @@ impl Method {
 
         // TODO: move duplicate code to Type
         let return_type_tokens = if let Some(return_type) = &self.signature.return_type {
-            param_gen_return2(return_type)
+            param_gen_return(return_type)
         } else {
             quote! { () }
         };
@@ -127,7 +129,7 @@ impl Method {
         let vtable_offset = Literal::u32_unsuffixed(self.vtable_offset);
 
         let vcall = if let Some(return_type) = &self.signature.return_type {
-            let return_arg = param_gen_abi_return_arg2(return_type);
+            let return_arg = param_gen_abi_return_arg(return_type);
 
             if return_type.is_array {
                 quote! {
@@ -189,9 +191,10 @@ impl Method {
 
     pub fn gen_upcall(&self, inner: TokenStream, relative: bool) -> TokenStream {
         let invoke_args = self
-            .signature.params
+            .signature
+            .params
             .iter()
-            .map(|param| param_gen_invoke_arg2(param, relative));
+            .map(|param| param_gen_invoke_arg(param, relative));
 
         match &self.signature.return_type {
             Some(return_type) if return_type.is_array => {
@@ -236,7 +239,7 @@ fn gen_param2(types: &[Type]) -> TokenStream {
         types
             .iter()
             .enumerate()
-            .map(|(position, param)| param_gen2(param, position)),
+            .map(|(position, param)| param_gen(param, position)),
     )
 }
 
@@ -272,48 +275,7 @@ fn gen_constraint(types: &[Type]) -> TokenStream {
     TokenStream::from_iter(tokens)
 }
 
-
-pub fn param_gen_invoke_arg(param: &Param, relative: bool) -> TokenStream {
-    let name = format_ident(&param.name);
-
-    let kind = if relative {
-        param.kind.gen()
-    } else {
-        param.kind.gen_full()
-    };
-
-    // TODO: This compiles but doesn't property handle delegates with array parameters.
-    // https://github.com/microsoft/winrt-rs/issues/212
-
-    if param.array {
-        if param.input {
-            quote! { ::std::mem::transmute_copy(&#name) }
-        } else if param.by_ref {
-            quote! { ::std::mem::transmute_copy(&#name) }
-        } else {
-            quote! { ::std::mem::transmute_copy(&#name) }
-        }
-    } else if param.input {
-        if param.kind.primitive() {
-            quote! { #name }
-        } else if let TypeKind::Enum(_) = param.kind {
-            quote! { #name }
-        } else {
-            if param.is_const {
-                quote! { &*(#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
-            } else {
-                quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
-            }
-        }
-    } else {
-        quote! { ::std::mem::transmute_copy(&#name) }
-    }
-}
-
-//////////////////
-
-
-fn param_gen2(t:&Type, position: usize) -> TokenStream {
+fn param_gen(t: &Type, position: usize) -> TokenStream {
     let name = format_ident(&t.name);
     let tokens = t.kind.gen();
 
@@ -356,7 +318,7 @@ fn param_gen2(t:&Type, position: usize) -> TokenStream {
     }
 }
 
-pub fn param_gen_return2(t:&Type) -> TokenStream {
+pub fn param_gen_return(t: &Type) -> TokenStream {
     let tokens = t.kind.gen();
 
     if t.is_array {
@@ -366,7 +328,7 @@ pub fn param_gen_return2(t:&Type) -> TokenStream {
     }
 }
 
-fn gen_abi_wrap2(t:&Type, kind_tokens: TokenStream) -> TokenStream {
+fn gen_abi_wrap(t: &Type, kind_tokens: TokenStream) -> TokenStream {
     let name = format_ident(&t.name);
 
     if t.is_array {
@@ -390,19 +352,19 @@ fn gen_abi_wrap2(t:&Type, kind_tokens: TokenStream) -> TokenStream {
     }
 }
 
-pub fn param_gen_abi2(t:&Type) -> TokenStream {
+fn param_gen_abi(t: &Type) -> TokenStream {
     let tokens = t.kind.gen_abi();
 
-    gen_abi_wrap2(t, tokens)
+    gen_abi_wrap(t, tokens)
 }
 
-pub fn param_gen_full_abi2(t:&Type) -> TokenStream {
+fn param_gen_full_abi(t: &Type) -> TokenStream {
     let tokens = t.kind.gen_full_abi();
 
-    gen_abi_wrap2(t, tokens)
+    gen_abi_wrap(t, tokens)
 }
 
-pub fn param_gen_abi_return_arg2(t:&Type) -> TokenStream {
+fn param_gen_abi_return_arg(t: &Type) -> TokenStream {
     if t.is_array {
         let return_type = t.kind.gen();
         quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
@@ -411,7 +373,7 @@ pub fn param_gen_abi_return_arg2(t:&Type) -> TokenStream {
     }
 }
 
-pub fn param_gen_abi_arg2(t:&Type) -> TokenStream {
+fn param_gen_abi_arg(t: &Type) -> TokenStream {
     let name = format_ident(&t.name);
 
     if t.is_array {
@@ -451,7 +413,7 @@ pub fn param_gen_abi_arg2(t:&Type) -> TokenStream {
     }
 }
 
-pub fn param_gen_invoke_arg2(t:&Type, relative: bool) -> TokenStream {
+fn param_gen_invoke_arg(t: &Type, relative: bool) -> TokenStream {
     let name = format_ident(&t.name);
 
     let kind = if relative {

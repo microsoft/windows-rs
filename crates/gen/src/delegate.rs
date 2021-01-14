@@ -152,11 +152,16 @@ impl Delegate {
     }
 
     fn gen_fn_constraint(&self) -> TokenStream {
-        let params = self.method.signature.params.iter().map(|param| param_gen_fn2(param));
+        let params = self
+            .method
+            .signature
+            .params
+            .iter()
+            .map(|param| param_gen_fn(param));
 
         // TODO: move duplicate code to Type
         let return_type = if let Some(return_type) = &self.method.signature.return_type {
-            param_gen_return2(return_type)
+            param_gen_return(return_type)
         } else {
             quote! { () }
         };
@@ -191,7 +196,7 @@ fn format_impl_ident(name: &str) -> squote::Ident {
     squote::format_ident!("{}_box", name)
 }
 
-fn param_gen_fn2(t: &Type) -> TokenStream {
+fn param_gen_fn(t: &Type) -> TokenStream {
     let tokens = t.kind.gen();
 
     if t.is_array {
