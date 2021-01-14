@@ -42,6 +42,9 @@ impl Struct {
                 modifiers: Vec::new(),
                 param: None,
                 name: "",
+                is_const: false,
+                is_array:false,
+                is_input:false,
             };
 
             fields.push(("reserved".to_string(), t));

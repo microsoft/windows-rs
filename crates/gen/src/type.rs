@@ -11,6 +11,9 @@ pub struct Type {
     pub modifiers: Vec<winmd::TypeDefOrRef>,
     pub param: Option<winmd::Param>,
     pub name: &'static str,
+    pub is_const: bool,
+    pub is_array: bool,
+    pub is_input: bool,
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -111,7 +114,20 @@ impl Type {
             unused => panic!("Type::from_blob 0x{:X}", unused),
         };
 
+        let mut is_input = false;
+
+        let mut is_const = modifiers
+        .iter()
+        .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
+
         let name = if let Some(param) = param {
+
+            is_input = !param.flags().output();
+
+            if !is_const {
+                is_const = param.has_attribute(("Windows.Win32.Interop]Windows.Win32.Interop", "ConstAttribute"));
+            }
+
             param.name()
         } else {
             "result__"
@@ -125,6 +141,9 @@ impl Type {
             modifiers,
             param,
             name,
+            is_const,
+            is_array,
+            is_input,
         })
     }
 
@@ -199,6 +218,9 @@ impl Type {
             by_ref: false,
             param: None,
             name: "",
+            is_const: false,
+            is_array:false,
+            is_input:false,
         }
     }
 

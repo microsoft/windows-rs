@@ -134,7 +134,7 @@ impl Method {
             .params
             .iter()
             .chain(self.return_type.iter())
-            .map(|param| param.gen_abi());
+            .map(|param| param_gen_abi(param));
 
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
@@ -146,7 +146,7 @@ impl Method {
             .params
             .iter()
             .chain(self.return_type.iter())
-            .map(|param| param.gen_full_abi());
+            .map(|param| param_gen_full_abi(param));
 
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
@@ -169,7 +169,7 @@ impl Method {
         };
 
         let constraints = gen_constraint(params);
-        let args = params.iter().map(|param| param.gen_abi_arg());
+        let args = params.iter().map(|param| param_gen_abi_arg(param));
         let params = gen_param(params);
 
         // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
@@ -182,8 +182,9 @@ impl Method {
             TokenStream::new()
         };
 
+        // TODO: move duplicate code to Type
         let return_type_tokens = if let Some(return_type) = &self.return_type {
-            return_type.gen_return()
+            param_gen_return(return_type)
         } else {
             quote! { () }
         };
@@ -191,7 +192,7 @@ impl Method {
         let vtable_offset = Literal::u32_unsuffixed(self.vtable_offset);
 
         let vcall = if let Some(return_type) = &self.return_type {
-            let return_arg = return_type.gen_abi_return_arg();
+            let return_arg = param_gen_abi_return_arg(return_type);
 
             if return_type.array {
                 quote! {
@@ -255,7 +256,7 @@ impl Method {
         let invoke_args = self
             .params
             .iter()
-            .map(|param| param.gen_invoke_arg(relative));
+            .map(|param| param_gen_invoke_arg(param, relative));
 
         match &self.return_type {
             Some(return_type) if return_type.array => {
@@ -300,7 +301,7 @@ fn gen_param(params: &[Param]) -> TokenStream {
         params
             .iter()
             .enumerate()
-            .map(|(position, param)| param.gen(position)),
+            .map(|(position, param)| param_gen(param, position)),
     )
 }
 
@@ -335,6 +336,182 @@ fn gen_constraint(params: &[Param]) -> TokenStream {
 
     TokenStream::from_iter(tokens)
 }
+
+fn param_gen(param: &Param, position: usize) -> TokenStream {
+    let name = format_ident(&param.name);
+    let tokens = param.kind.gen();
+
+    if param.array {
+        if param.input {
+            quote! { #name: &[<#tokens as ::winrt::RuntimeType>::DefaultType], }
+        } else if param.by_ref {
+            quote! { #name: &mut ::winrt::Array<#tokens>, }
+        } else {
+            quote! { #name: &mut [<#tokens as ::winrt::RuntimeType>::DefaultType], }
+        }
+    } else if param.input {
+        match &param.kind {
+            TypeKind::String
+            | TypeKind::Object
+            | TypeKind::Guid
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Struct(_)
+            | TypeKind::Delegate(_)
+            | TypeKind::Generic(_) => {
+                let tokens = squote::format_ident!("T{}__", position);
+                quote! { #name: #tokens, }
+            }
+            _ => quote! { #name: #tokens, },
+        }
+    } else {
+        match param.kind {
+            TypeKind::Object
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Delegate(_) => {
+                quote! { #name: &mut ::std::option::Option<#tokens>, }
+            }
+            TypeKind::Generic(_) => {
+                quote! { &mut <#tokens as ::winrt::RuntimeType>::DefaultType, }
+            }
+            _ => quote! { #name: &mut #tokens, },
+        }
+    }
+}
+
+pub fn param_gen_return(param: &Param) -> TokenStream {
+    let tokens = param.kind.gen();
+
+    if param.array {
+        quote! { ::winrt::Array<#tokens> }
+    } else {
+        quote! { #tokens }
+    }
+}
+
+fn gen_abi_wrap(param:&Param, kind_tokens: TokenStream) -> TokenStream {
+    let name = format_ident(&param.name);
+
+    if param.array {
+        let name_size = squote::format_ident!("array_size_{}", &param.name);
+
+        if param.input {
+            quote! { #name_size: u32, #name: *const #kind_tokens }
+        } else if param.by_ref {
+            quote! { #name_size: *mut u32, #name: *mut *mut #kind_tokens }
+        } else {
+            quote! { #name_size: u32, #name: *mut #kind_tokens }
+        }
+    } else if param.input {
+        if param.is_const {
+            quote! { #name: &#kind_tokens }
+        } else {
+            quote! { #name: #kind_tokens }
+        }
+    } else {
+        quote! { #name: *mut #kind_tokens }
+    }
+}
+
+pub fn param_gen_abi(param:&Param) -> TokenStream {
+    let tokens = param.kind.gen_abi();
+
+    gen_abi_wrap(param, tokens)
+}
+
+pub fn param_gen_full_abi(param:&Param) -> TokenStream {
+    let tokens = param.kind.gen_full_abi();
+
+    gen_abi_wrap(param, tokens)
+}
+
+pub fn param_gen_abi_return_arg(param:&Param) -> TokenStream {
+    if param.array {
+        let return_type = param.kind.gen();
+        quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
+    } else {
+        quote! { &mut result__ }
+    }
+}
+
+pub fn param_gen_abi_arg(param:&Param) -> TokenStream {
+    let name = format_ident(&param.name);
+
+    if param.array {
+        if param.input {
+            quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()), }
+        } else if param.by_ref {
+            quote! { #name.set_abi_len(), #name.set_abi(), }
+        } else {
+            quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name), }
+        }
+    } else if param.input {
+        if param.kind.primitive() {
+            quote! { #name, }
+        } else {
+            match param.kind {
+                TypeKind::String
+                | TypeKind::Object
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => quote! { #name.into().abi(), },
+                TypeKind::Enum(_) => quote! { #name, },
+                TypeKind::Guid | TypeKind::Struct(_) => {
+                    if param.is_const {
+                        quote! { &#name.into().abi(), }
+                    } else {
+                        quote! { #name.into().abi(), }
+                    }
+                }
+                _ => quote! { ::winrt::Abi::abi(#name), },
+            }
+        }
+    } else if param.kind.primitive() {
+        quote! { #name, }
+    } else {
+        quote! { ::winrt::Abi::set_abi(#name), }
+    }
+}
+
+pub fn param_gen_invoke_arg(param:&Param, relative: bool) -> TokenStream {
+    let name = format_ident(&param.name);
+
+    let kind = if relative {
+        param.kind.gen()
+    } else {
+        param.kind.gen_full()
+    };
+
+    // TODO: This compiles but doesn't property handle delegates with array parameters.
+    // https://github.com/microsoft/winrt-rs/issues/212
+
+    if param.array {
+        if param.input {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        } else if param.by_ref {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        } else {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        }
+    } else if param.input {
+        if param.kind.primitive() {
+            quote! { #name }
+        } else if let TypeKind::Enum(_) = param.kind {
+            quote! { #name }
+        } else {
+            if param.is_const {
+                quote! { &*(#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+            } else {
+                quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+            }
+        }
+    } else {
+        quote! { ::std::mem::transmute_copy(&#name) }
+    }
+}
+
 
 #[cfg(test)]
 mod tests {

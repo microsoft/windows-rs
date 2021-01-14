@@ -33,6 +33,10 @@ impl Param {
                 row,
             })
     }
+
+    pub fn has_attribute(&self, name: (&str, &str)) -> bool {
+        self.attributes().any(|attribute| attribute.name() == name)
+    }
 }
 
 impl std::fmt::Debug for Param {

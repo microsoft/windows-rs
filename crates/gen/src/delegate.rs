@@ -152,10 +152,11 @@ impl Delegate {
     }
 
     fn gen_fn_constraint(&self) -> TokenStream {
-        let params = self.method.params.iter().map(|param| param.gen_fn());
+        let params = self.method.params.iter().map(|param| param_gen_fn(param));
 
+        // TODO: move duplicate code to Type
         let return_type = if let Some(return_type) = &self.method.return_type {
-            return_type.gen_return()
+            param_gen_return(return_type)
         } else {
             quote! { () }
         };
@@ -188,4 +189,36 @@ impl Delegate {
 
 fn format_impl_ident(name: &str) -> squote::Ident {
     squote::format_ident!("{}_box", name)
+}
+
+fn param_gen_fn(param: &Param) -> TokenStream {
+    let tokens = param.kind.gen();
+
+    if param.array {
+        if param.input {
+            quote! { &[#tokens], }
+        } else if param.by_ref {
+            quote! { &mut ::winrt::Array<#tokens>, }
+        } else {
+            quote! { &mut [#tokens], }
+        }
+    } else if param.input {
+        match param.kind {
+            TypeKind::String | TypeKind::Guid | TypeKind::Struct(_) => {
+                quote! { &#tokens, }
+            }
+            TypeKind::Generic(_) => {
+                quote! { &<#tokens as ::winrt::RuntimeType>::DefaultType, }
+            }
+            TypeKind::Object
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Delegate(_) => {
+                quote! { &::std::option::Option<#tokens>, }
+            }
+            _ => quote! { #tokens, },
+        }
+    } else {
+        quote! { &mut #tokens, }
+    }
 }
