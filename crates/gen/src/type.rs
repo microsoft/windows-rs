@@ -10,7 +10,7 @@ pub struct Type {
     pub by_ref: bool,
     pub modifiers: Vec<winmd::TypeDefOrRef>,
     pub param: Option<winmd::Param>,
-    pub name: &'static str,
+    pub name: String,
     pub is_const: bool,
     pub is_array: bool,
     pub is_input: bool,
@@ -52,9 +52,10 @@ impl Type {
         param: Option<winmd::Param>,
         generics: &[TypeKind],
         calling_namespace: &'static str,
+        is_return_type: bool,
     ) -> Option<Self> {
         let modifiers = blob.read_modifiers();
-        let by_ref = blob.read_expected(0x10);
+        let mut by_ref = blob.read_expected(0x10);
 
         if blob.read_expected(0x01) {
             return None;
@@ -117,21 +118,31 @@ impl Type {
         let mut is_input = false;
 
         let mut is_const = modifiers
-        .iter()
-        .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
+            .iter()
+            .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
 
-        let name = if let Some(param) = param {
-
+        let mut name = if let Some(param) = param {
             is_input = !param.flags().output();
 
             if !is_const {
-                is_const = param.has_attribute(("Windows.Win32.Interop]Windows.Win32.Interop", "ConstAttribute"));
+                is_const = param.has_attribute((
+                    "Windows.Win32.Interop]Windows.Win32.Interop",
+                    "ConstAttribute",
+                ));
             }
 
             param.name()
         } else {
             "result__"
         };
+
+        if is_return_type {
+            by_ref = true;
+            is_input = false;
+            name = "result__";
+        }
+
+        let name = to_snake(name);
 
         Some(Self {
             by_ref,
@@ -217,10 +228,10 @@ impl Type {
             modifiers: Vec::new(),
             by_ref: false,
             param: None,
-            name: "",
+            name: "".to_string(),
             is_const: false,
-            is_array:false,
-            is_input:false,
+            is_array: false,
+            is_input: false,
         }
     }
 

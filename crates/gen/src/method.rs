@@ -80,9 +80,9 @@ impl Method {
                     .iter()
                     .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
 
-                    // if is_const {
-                    //     panic!(format!("{}", method.name()));
-                    // }
+                // if is_const {
+                //     panic!(format!("{}", method.name()));
+                // }
 
                 let by_ref = blob.read_expected(0x10);
                 let array = blob.peek_unsigned().0 == 0x1D;
@@ -112,11 +112,7 @@ impl Method {
     }
 
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-        self.return_type
-            .iter()
-            .chain(self.params.iter())
-            .flat_map(|i| i.kind.dependencies())
-            .collect()
+        self.signature.dependencies()
     }
 
     fn name(method: &winmd::MethodDef) -> String {
@@ -135,10 +131,16 @@ impl Method {
 
     pub fn gen_abi(&self) -> TokenStream {
         let params = self
-            .params
+            .signature.params
             .iter()
-            .chain(self.return_type.iter())
-            .map(|param| param_gen_abi(param));
+            .chain(self.signature.return_type.iter())
+            .map(|param| param_gen_abi2(param));
+
+        // let params = self
+        //     .params
+        //     .iter()
+        //     .chain(self.return_type.iter())
+        //     .map(|param| param_gen_abi(param));
 
         quote! {
             (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
@@ -394,7 +396,7 @@ pub fn param_gen_return(param: &Param) -> TokenStream {
     }
 }
 
-fn gen_abi_wrap(param:&Param, kind_tokens: TokenStream) -> TokenStream {
+fn gen_abi_wrap(param: &Param, kind_tokens: TokenStream) -> TokenStream {
     let name = format_ident(&param.name);
 
     if param.array {
@@ -418,19 +420,19 @@ fn gen_abi_wrap(param:&Param, kind_tokens: TokenStream) -> TokenStream {
     }
 }
 
-pub fn param_gen_abi(param:&Param) -> TokenStream {
+pub fn param_gen_abi(param: &Param) -> TokenStream {
     let tokens = param.kind.gen_abi();
 
     gen_abi_wrap(param, tokens)
 }
 
-pub fn param_gen_full_abi(param:&Param) -> TokenStream {
+pub fn param_gen_full_abi(param: &Param) -> TokenStream {
     let tokens = param.kind.gen_full_abi();
 
     gen_abi_wrap(param, tokens)
 }
 
-pub fn param_gen_abi_return_arg(param:&Param) -> TokenStream {
+pub fn param_gen_abi_return_arg(param: &Param) -> TokenStream {
     if param.array {
         let return_type = param.kind.gen();
         quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
@@ -439,7 +441,7 @@ pub fn param_gen_abi_return_arg(param:&Param) -> TokenStream {
     }
 }
 
-pub fn param_gen_abi_arg(param:&Param) -> TokenStream {
+pub fn param_gen_abi_arg(param: &Param) -> TokenStream {
     let name = format_ident(&param.name);
 
     if param.array {
@@ -479,7 +481,7 @@ pub fn param_gen_abi_arg(param:&Param) -> TokenStream {
     }
 }
 
-pub fn param_gen_invoke_arg(param:&Param, relative: bool) -> TokenStream {
+pub fn param_gen_invoke_arg(param: &Param, relative: bool) -> TokenStream {
     let name = format_ident(&param.name);
 
     let kind = if relative {
@@ -516,6 +518,183 @@ pub fn param_gen_invoke_arg(param:&Param, relative: bool) -> TokenStream {
     }
 }
 
+//////////////////
+
+
+fn param_gen2(t:&Type, position: usize) -> TokenStream {
+    let name = format_ident(&t.name);
+    let tokens = t.kind.gen();
+
+    if t.is_array {
+        if t.is_input {
+            quote! { #name: &[<#tokens as ::winrt::RuntimeType>::DefaultType], }
+        } else if t.by_ref {
+            quote! { #name: &mut ::winrt::Array<#tokens>, }
+        } else {
+            quote! { #name: &mut [<#tokens as ::winrt::RuntimeType>::DefaultType], }
+        }
+    } else if t.is_input {
+        match &t.kind {
+            TypeKind::String
+            | TypeKind::Object
+            | TypeKind::Guid
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Struct(_)
+            | TypeKind::Delegate(_)
+            | TypeKind::Generic(_) => {
+                let tokens = squote::format_ident!("T{}__", position);
+                quote! { #name: #tokens, }
+            }
+            _ => quote! { #name: #tokens, },
+        }
+    } else {
+        match t.kind {
+            TypeKind::Object
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Delegate(_) => {
+                quote! { #name: &mut ::std::option::Option<#tokens>, }
+            }
+            TypeKind::Generic(_) => {
+                quote! { &mut <#tokens as ::winrt::RuntimeType>::DefaultType, }
+            }
+            _ => quote! { #name: &mut #tokens, },
+        }
+    }
+}
+
+pub fn param_gen_return2(t:&Type) -> TokenStream {
+    let tokens = t.kind.gen();
+
+    if t.is_array {
+        quote! { ::winrt::Array<#tokens> }
+    } else {
+        quote! { #tokens }
+    }
+}
+
+fn gen_abi_wrap2(t:&Type, kind_tokens: TokenStream) -> TokenStream {
+    let name = format_ident(&t.name);
+
+    if t.is_array {
+        let name_size = squote::format_ident!("array_size_{}", &t.name);
+
+        if t.is_input {
+            quote! { #name_size: u32, #name: *const #kind_tokens }
+        } else if t.by_ref {
+            quote! { #name_size: *mut u32, #name: *mut *mut #kind_tokens }
+        } else {
+            quote! { #name_size: u32, #name: *mut #kind_tokens }
+        }
+    } else if t.is_input {
+        if t.is_const {
+            quote! { #name: &#kind_tokens }
+        } else {
+            quote! { #name: #kind_tokens }
+        }
+    } else {
+        quote! { #name: *mut #kind_tokens }
+    }
+}
+
+pub fn param_gen_abi2(t:&Type) -> TokenStream {
+    let tokens = t.kind.gen_abi();
+
+    gen_abi_wrap2(t, tokens)
+}
+
+pub fn param_gen_full_abi2(t:&Type) -> TokenStream {
+    let tokens = t.kind.gen_full_abi();
+
+    gen_abi_wrap2(t, tokens)
+}
+
+pub fn param_gen_abi_return_arg2(t:&Type) -> TokenStream {
+    if t.is_array {
+        let return_type = t.kind.gen();
+        quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
+    } else {
+        quote! { &mut result__ }
+    }
+}
+
+pub fn param_gen_abi_arg2(t:&Type) -> TokenStream {
+    let name = format_ident(&t.name);
+
+    if t.is_array {
+        if t.is_input {
+            quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()), }
+        } else if t.by_ref {
+            quote! { #name.set_abi_len(), #name.set_abi(), }
+        } else {
+            quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name), }
+        }
+    } else if t.is_input {
+        if t.kind.primitive() {
+            quote! { #name, }
+        } else {
+            match t.kind {
+                TypeKind::String
+                | TypeKind::Object
+                | TypeKind::Class(_)
+                | TypeKind::Interface(_)
+                | TypeKind::Delegate(_)
+                | TypeKind::Generic(_) => quote! { #name.into().abi(), },
+                TypeKind::Enum(_) => quote! { #name, },
+                TypeKind::Guid | TypeKind::Struct(_) => {
+                    if t.is_const {
+                        quote! { &#name.into().abi(), }
+                    } else {
+                        quote! { #name.into().abi(), }
+                    }
+                }
+                _ => quote! { ::winrt::Abi::abi(#name), },
+            }
+        }
+    } else if t.kind.primitive() {
+        quote! { #name, }
+    } else {
+        quote! { ::winrt::Abi::set_abi(#name), }
+    }
+}
+
+pub fn param_gen_invoke_arg2(t:&Type, relative: bool) -> TokenStream {
+    let name = format_ident(&t.name);
+
+    let kind = if relative {
+        t.kind.gen()
+    } else {
+        t.kind.gen_full()
+    };
+
+    // TODO: This compiles but doesn't property handle delegates with array parameters.
+    // https://github.com/microsoft/winrt-rs/issues/212
+
+    if t.is_array {
+        if t.is_input {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        } else if t.by_ref {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        } else {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        }
+    } else if t.is_input {
+        if t.kind.primitive() {
+            quote! { #name }
+        } else if let TypeKind::Enum(_) = t.kind {
+            quote! { #name }
+        } else {
+            if t.is_const {
+                quote! { &*(#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+            } else {
+                quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+            }
+        }
+    } else {
+        quote! { ::std::mem::transmute_copy(&#name) }
+    }
+}
 
 #[cfg(test)]
 mod tests {

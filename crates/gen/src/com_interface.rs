@@ -35,13 +35,13 @@ impl ComInterface {
             };
 
             let params = signature.params.iter().map(|t| {
-                let name = format_ident(t.name);
+                let name = format_ident(&t.name);
                 let tokens = t.gen_field();
                 quote! { #name: #tokens }
             });
 
             let args = signature.params.iter().map(|t| {
-                let name = format_ident(t.name);
+                let name = format_ident(&t.name);
                 quote! { #name }
             });
 
@@ -66,7 +66,7 @@ impl ComInterface {
             };
 
             let params = signature.params.iter().map(|t| {
-                let name = format_ident(t.name);
+                let name = format_ident(&t.name);
                 let tokens = t.gen_field();
                 quote! { #name: #tokens }
             });

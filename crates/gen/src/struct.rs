@@ -41,10 +41,10 @@ impl Struct {
                 by_ref: false,
                 modifiers: Vec::new(),
                 param: None,
-                name: "",
+                name: "".to_string(),
                 is_const: false,
-                is_array:false,
-                is_input:false,
+                is_array: false,
+                is_input: false,
             };
 
             fields.push(("reserved".to_string(), t));

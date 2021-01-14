@@ -222,3 +222,35 @@ fn param_gen_fn(param: &Param) -> TokenStream {
         quote! { &mut #tokens, }
     }
 }
+
+fn param_gen_fn2(t: &Type) -> TokenStream {
+    let tokens = t.kind.gen();
+
+    if t.is_array {
+        if t.is_input {
+            quote! { &[#tokens], }
+        } else if t.by_ref {
+            quote! { &mut ::winrt::Array<#tokens>, }
+        } else {
+            quote! { &mut [#tokens], }
+        }
+    } else if t.is_input {
+        match t.kind {
+            TypeKind::String | TypeKind::Guid | TypeKind::Struct(_) => {
+                quote! { &#tokens, }
+            }
+            TypeKind::Generic(_) => {
+                quote! { &<#tokens as ::winrt::RuntimeType>::DefaultType, }
+            }
+            TypeKind::Object
+            | TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Delegate(_) => {
+                quote! { &::std::option::Option<#tokens>, }
+            }
+            _ => quote! { #tokens, },
+        }
+    } else {
+        quote! { &mut #tokens, }
+    }
+}

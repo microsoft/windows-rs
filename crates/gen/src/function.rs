@@ -11,10 +11,7 @@ pub struct Function {
 impl Function {
     pub fn new(name: TypeName, method: &winmd::MethodDef) -> Self {
         let signature = Signature::new(method, &[], &name.namespace);
-        Self {
-            name,
-            signature
-        }
+        Self { name, signature }
     }
 
     pub fn gen(&self) -> TokenStream {
@@ -30,7 +27,7 @@ impl Function {
         let name = format_ident(name);
 
         let params = self.signature.params.iter().map(|t| {
-            let name = format_ident(t.name);
+            let name = format_ident(&t.name);
             let tokens = t.gen_field();
             quote! { #name: #tokens }
         });

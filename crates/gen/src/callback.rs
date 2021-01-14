@@ -27,7 +27,7 @@ impl Callback {
         let name = self.name.gen();
 
         let params = self.signature.params.iter().map(|t| {
-            let name = format_ident(t.name);
+            let name = format_ident(&t.name);
             let tokens = t.gen_field();
             quote! { #name: #tokens }
         });
