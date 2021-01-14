@@ -126,7 +126,7 @@ impl Type {
 
             if !is_const {
                 is_const = param.has_attribute((
-                    "Windows.Win32.Interop]Windows.Win32.Interop",
+                    "Windows.Win32.Interop",
                     "ConstAttribute",
                 ));
             }

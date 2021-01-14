@@ -148,20 +148,20 @@ fn interface() -> winrt::Result<()> {
 #[test]
 fn callback() {
     let a: PROPENUMPROCA = callback_a;
-    assert!(789 == a(123, "hello a\0".as_ptr() as *mut i8, 456));
+    assert!(789 == a(123, "hello a\0".as_ptr() as *const i8, 456));
 
     let a: PROPENUMPROCW = callback_w;
     assert!(
         789 == a(
             123,
-            winrt::HString::from("hello w\0").as_wide().as_ptr() as *mut u16,
+            winrt::HString::from("hello w\0").as_wide().as_ptr(),
             456
         )
     );
 }
 
 // TODO: second parameter should be *const i8
-extern "system" fn callback_a(param0: isize, param1: *mut i8, param2: isize) -> i32 {
+extern "system" fn callback_a(param0: isize, param1: *const i8, param2: isize) -> i32 {
     unsafe {
         assert!(param0 == 123);
         assert!(param2 == 456);
@@ -185,7 +185,7 @@ extern "system" fn callback_a(param0: isize, param1: *mut i8, param2: isize) -> 
 }
 
 // TODO: second parameter should be *const u16
-extern "system" fn callback_w(param0: isize, param1: *mut u16, param2: isize) -> i32 {
+extern "system" fn callback_w(param0: isize, param1: *const u16, param2: isize) -> i32 {
     unsafe {
         assert!(param0 == 123);
         assert!(param2 == 456);
