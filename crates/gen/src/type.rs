@@ -125,10 +125,7 @@ impl Type {
             is_input = !param.flags().output();
 
             if !is_const {
-                is_const = param.has_attribute((
-                    "Windows.Win32.Interop",
-                    "ConstAttribute",
-                ));
+                is_const = param.has_attribute(("Windows.Win32.Interop", "ConstAttribute"));
             }
 
             param.name()
