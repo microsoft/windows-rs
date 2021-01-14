@@ -176,11 +176,12 @@ impl Type {
         let kind = self.kind.gen();
 
         match &self.kind {
-            TypeKind::Class(_) | TypeKind::Interface(_) | TypeKind::Delegate(_) | TypeKind::IUnknown => {
-                tokens.combine(&quote! {
-                    ::std::option::Option<#kind>
-                })
-            }
+            TypeKind::Class(_)
+            | TypeKind::Interface(_)
+            | TypeKind::Delegate(_)
+            | TypeKind::IUnknown => tokens.combine(&quote! {
+                ::std::option::Option<#kind>
+            }),
             _ => tokens.combine(&kind),
         };
 
