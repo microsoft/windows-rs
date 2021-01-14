@@ -1,0 +1,1 @@
+mdmerge -i . -o merged /n 1
