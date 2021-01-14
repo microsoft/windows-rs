@@ -5,8 +5,6 @@ use std::iter::FromIterator;
 #[derive(Debug)]
 pub struct Method {
     pub name: String,
-    pub params: Vec<Param>,
-    pub return_type: Option<Param>,
     pub vtable_offset: u32,
     pub overload: u32,
     pub signature: Signature,
@@ -38,74 +36,11 @@ impl Method {
             Method::name(method)
         };
 
-        let mut blob = method.sig();
-
-        if blob.read_unsigned() & 0x10 != 0 {
-            panic!();
-            blob.read_unsigned();
-        }
-
-        let param_count = blob.read_unsigned();
-        blob.read_modifiers();
-        blob.read_expected(0x10);
-
-        let return_type = if blob.read_expected(0x01) {
-            None
-        } else {
-            let name = "result__".to_owned();
-            let array = blob.peek_unsigned().0 == 0x1D;
-            let t = Type::from_blob(&mut blob, generics, calling_namespace);
-            let input = false;
-            let by_ref = true;
-            let is_const = false;
-            Some(Param {
-                name,
-                kind: t.kind,
-                array,
-                input,
-                by_ref,
-                is_const,
-            })
-        };
-
-        let mut params = Vec::with_capacity(param_count as usize);
-
-        for param in method.params() {
-            if return_type.is_none() || param.sequence() != 0 {
-                let name = to_snake(param.name());
-                let input = !param.flags().output();
-
-                let is_const = blob
-                    .read_modifiers()
-                    .iter()
-                    .any(|def| def.name() == ("System.Runtime.CompilerServices", "IsConst"));
-
-                // if is_const {
-                //     panic!(format!("{}", method.name()));
-                // }
-
-                let by_ref = blob.read_expected(0x10);
-                let array = blob.peek_unsigned().0 == 0x1D;
-                let t = Type::from_blob(&mut blob, generics, calling_namespace);
-
-                params.push(Param {
-                    name,
-                    kind: t.kind,
-                    array,
-                    input,
-                    by_ref,
-                    is_const,
-                });
-            }
-        }
-
         let signature = Signature::new(method, generics, calling_namespace);
 
         Method {
             name,
             signature,
-            params,
-            return_type,
             vtable_offset,
             overload: 1,
         }
@@ -580,9 +515,9 @@ mod tests {
     #[test]
     fn test_to_string() {
         let method = method(("Windows.Foundation", "IStringable"), "to_string");
-        assert!(method.params.is_empty());
+        assert!(method.signature.params.is_empty());
 
-        let param = method.return_type.as_ref().unwrap();
+        let param = method.signature.return_type.as_ref().unwrap();
         assert!(param.kind == TypeKind::String);
     }
 
@@ -593,11 +528,11 @@ mod tests {
             "map_changed",
         );
 
-        assert!(method.params.len() == 1);
+        assert!(method.signature.params.len() == 1);
 
-        let handler = &method.params[0];
-        assert!(handler.array == false);
-        assert!(handler.input == true);
+        let handler = &method.signature.params[0];
+        assert!(handler.is_array == false);
+        assert!(handler.is_input == true);
         assert!(handler.by_ref == false);
 
         let handler = match &handler.kind {
@@ -610,9 +545,9 @@ mod tests {
                 == "Windows.Foundation.Collections.MapChangedEventHandler`2<K, V>"
         );
 
-        let token = method.return_type.as_ref().unwrap();
-        assert!(token.array == false);
-        assert!(token.input == false);
+        let token = method.signature.return_type.as_ref().unwrap();
+        assert!(token.is_array == false);
+        assert!(token.is_input == false);
         assert!(token.by_ref == true);
 
         let token = match &token.kind {
@@ -630,11 +565,11 @@ mod tests {
             "remove_map_changed",
         );
 
-        assert!(method.params.len() == 1);
+        assert!(method.signature.params.len() == 1);
 
-        let token = &method.params[0];
-        assert!(token.array == false);
-        assert!(token.input == true);
+        let token = &method.signature.params[0];
+        assert!(token.is_array == false);
+        assert!(token.is_input == true);
         assert!(token.by_ref == false);
 
         let token = match &token.kind {
