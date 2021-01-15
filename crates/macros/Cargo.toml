@@ -1,10 +1,10 @@
 [package]
-name = "winrt-macros"
+name = "windows-macros"
 version = "0.8.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
-description = "Macros for the winrt crate"
+description = "Macros for the windows crate"
 
 [lib]
 proc-macro = true
@@ -14,6 +14,6 @@ syn = "1.0"
 quote = "1.0"
 squote = "0.1.2"
 proc-macro2 = "1.0"
-winrt-gen = { path = "../gen", version = "0.8.0" }
+windows-gen = { path = "../gen", version = "0.8.0" }
 winmd = { path = "../winmd",  version = "0.8.0" }
 rayon = "1.3"

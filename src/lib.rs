@@ -31,7 +31,7 @@ pub use result::{Error, ErrorCode, Result};
 pub use runtime::{Array, FactoryCache, Guid, Param, RefCount, Waiter};
 pub use strings::{BString, HString};
 pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
-pub use winrt_macros::{build, implement};
+pub use windows_macros::{build, implement};
 
 extern crate self as windows;
 
