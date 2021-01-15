@@ -1,5 +1,5 @@
-[![crates.io](https://img.shields.io/crates/v/winrt.svg)](https://crates.io/crates/winrt)
-[![docs.rs](https://docs.rs/winrt/badge.svg)](https://docs.rs/winrt)
+[![crates.io](https://img.shields.io/crates/v/windows.svg)](https://crates.io/crates/windows)
+[![docs.rs](https://docs.rs/windows/badge.svg)](https://docs.rs/windows)
 [![Build and Test](https://github.com/microsoft/windows-rs/workflows/Build%20and%20Test/badge.svg?event=push)](https://github.com/microsoft/windows-rs/actions)
 
 ## The Rust language projection for the Windows API
