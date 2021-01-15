@@ -19,7 +19,7 @@ impl TypeNamespaces {
             };
 
             quote! {
-                // TODO: remove this allowance when https://github.com/microsoft/winrt-rs/issues/212 is fixed
+                // TODO: remove this allowance when https://github.com/microsoft/windows-rs/issues/212 is fixed
                 #[allow(unused_variables)]
                 #[allow(non_upper_case_globals)]
                 pub mod #name {

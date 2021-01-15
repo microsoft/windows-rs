@@ -1,6 +1,6 @@
 [![crates.io](https://img.shields.io/crates/v/winrt.svg)](https://crates.io/crates/winrt)
 [![docs.rs](https://docs.rs/winrt/badge.svg)](https://docs.rs/winrt)
-[![Build and Test](https://github.com/microsoft/winrt-rs/workflows/Build%20and%20Test/badge.svg?event=push)](https://github.com/microsoft/winrt-rs/actions)
+[![Build and Test](https://github.com/microsoft/windows-rs/workflows/Build%20and%20Test/badge.svg?event=push)](https://github.com/microsoft/windows-rs/actions)
 
 ## The Rust language projection for the Windows API
 
@@ -14,10 +14,10 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies]
-windows = { git = "https://github.com/microsoft/winrt-rs" }
+windows = { git = "https://github.com/microsoft/windows-rs" }
 
 [build-dependencies]
-windows = { git = "https://github.com/microsoft/winrt-rs" }
+windows = { git = "https://github.com/microsoft/windows-rs" }
 ```
 
 This will allow Cargo to download, build, and cache the Rust/WinRT support as a package. Next, specify which types you need inside of a build.rs build script and Rust/WinRT will generate the necessary bindings:

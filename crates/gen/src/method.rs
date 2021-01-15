@@ -423,7 +423,7 @@ fn param_gen_invoke_arg(t: &Type, relative: bool) -> TokenStream {
     };
 
     // TODO: This compiles but doesn't property handle delegates with array parameters.
-    // https://github.com/microsoft/winrt-rs/issues/212
+    // https://github.com/microsoft/windows-rs/issues/212
 
     if t.is_array {
         if t.is_input {

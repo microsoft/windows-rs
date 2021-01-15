@@ -185,7 +185,7 @@ pub fn gen_method(interfaces: &Vec<RequiredInterface>) -> TokenStream {
 pub fn rename_collisions(interfaces: &mut Vec<RequiredInterface>) {
     // First sort interfaces to ensure a stable method renaming across versions.
     // TODO: Once fast abi support is added, sorting here will be unnecessary.
-    // https://github.com/microsoft/winrt-rs/issues/235
+    // https://github.com/microsoft/windows-rs/issues/235
     interfaces.sort();
 
     let mut count = BTreeMap::new();

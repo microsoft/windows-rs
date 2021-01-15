@@ -16,17 +16,17 @@ fn main() {
         // This tests that it is escaped.
         windows::globalization::ICurrencyIdentifiersStatics
 
-        // Test for https://github.com/microsoft/winrt-rs/issues/300
+        // Test for https://github.com/microsoft/windows-rs/issues/300
         windows::devices::wifi_direct::WiFiDirectDevice
 
-        // Test for https://github.com/microsoft/winrt-rs/issues/280
+        // Test for https://github.com/microsoft/windows-rs/issues/280
         windows::application_model::email::EmailAttachment
         windows::storage::streams::{InMemoryRandomAccessStream, RandomAccessStreamReference}
 
-        // Test for https://github.com/microsoft/winrt-rs/issues/361
+        // Test for https://github.com/microsoft/windows-rs/issues/361
         windows::ui::xaml::{IApplicationOverrides, IApplicationOverrides2}
 
-        // Test for https://github.com/microsoft/winrt-rs/issues/386
+        // Test for https://github.com/microsoft/windows-rs/issues/386
         windows::ui::xaml::data::ICustomPropertyProvider
 
         windows::win32::security::{
