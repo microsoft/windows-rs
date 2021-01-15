@@ -1,10 +1,10 @@
 use std::time::Duration;
 use tests::test_component::TestRunner;
-use winrt::foundation::{IPropertyValue, PropertyValue, TimeSpan};
-use winrt::Interface;
+use windows::foundation::{IPropertyValue, PropertyValue, TimeSpan};
+use windows::Interface;
 
 #[test]
-fn conversion() -> winrt::Result<()> {
+fn conversion() -> windows::Result<()> {
     let a: TimeSpan = Duration::from_millis(1234).into();
     let b = TestRunner::create_time_span(1234)?;
     assert_eq!(a, b);
@@ -16,7 +16,7 @@ fn conversion() -> winrt::Result<()> {
 }
 
 #[test]
-fn duration_param() -> winrt::Result<()> {
+fn duration_param() -> windows::Result<()> {
     let object = PropertyValue::create_time_span(Duration::from_millis(1234))?;
     let pv: IPropertyValue = object.cast()?;
     assert!(pv.get_time_span()? == Duration::from_millis(1234).into());
@@ -25,7 +25,7 @@ fn duration_param() -> winrt::Result<()> {
 }
 
 #[test]
-fn time_span_param() -> winrt::Result<()> {
+fn time_span_param() -> windows::Result<()> {
     let object = PropertyValue::create_time_span(TestRunner::create_time_span(1234)?)?;
     let pv: IPropertyValue = object.cast()?;
     assert!(pv.get_time_span()? == Duration::from_millis(1234).into());

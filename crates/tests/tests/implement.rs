@@ -1,11 +1,11 @@
-mod windows {
-    pub use winrt::foundation;
-}
+// mod windows {
+//     pub use windows::foundation;
+// }
 
-use winrt::Interface; // for .cast()
+use windows::Interface; // for .cast()
 
 #[test]
-fn implement() -> winrt::Result<()> {
+fn implement() -> windows::Result<()> {
     let (sender, receiver) = std::sync::mpsc::channel();
     {
         let t = Thing {
@@ -50,14 +50,14 @@ fn implement() -> winrt::Result<()> {
 
         // Confirms that the conversion to `Object` properly handles
         // reference counting.
-        let _: winrt::Object = s.into();
+        let _: windows::Object = s.into();
     }
     assert!(receiver.recv().unwrap() == "drop: object");
 
     Ok(())
 }
 
-#[winrt::implement(windows::foundation::{IStringable, IClosable})]
+#[::windows::implement(windows::foundation::{IStringable, IClosable})]
 struct Thing {
     value: String,
     sender: std::sync::mpsc::Sender<String>,
@@ -70,11 +70,11 @@ impl Drop for Thing {
 }
 
 impl Thing {
-    fn to_string(&self) -> winrt::Result<winrt::HString> {
-        Ok(winrt::HString::from(&self.value))
+    fn to_string(&self) -> windows::Result<windows::HString> {
+        Ok(windows::HString::from(&self.value))
     }
 
-    fn close(&self) -> winrt::Result<()> {
+    fn close(&self) -> windows::Result<()> {
         self.sender.send(format!("close: {}", self.value)).unwrap();
         Ok(())
     }

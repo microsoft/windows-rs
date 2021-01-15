@@ -27,10 +27,10 @@ Install the following prerequisites:
 Now clone the repo as follows:
 
 ```
-git clone https://github.com/microsoft/winrt-rs
+git clone https://github.com/microsoft/windows-rs
 ```
 
-Then change to the `winrt-rs` directory created by git and type `code .` to open Visual Studio Code.
+Then change to the `windows-rs` directory created by git and type `code .` to open Visual Studio Code.
 
 Type `Ctrl+Shift+X` to open the extensions panel and install the following extensions:
 

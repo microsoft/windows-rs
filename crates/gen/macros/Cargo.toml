@@ -1,10 +1,10 @@
 [package]
-name = "winrt-gen-macros"
-version = "0.8.0"
+name = "windows_gen_macros"
+version = "0.1.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
-description = "Macro helpers for the winrt-gen crate"
+description = "Macro helpers for the windows_gen crate"
 
 [lib]
 proc-macro = true

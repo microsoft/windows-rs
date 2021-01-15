@@ -13,13 +13,13 @@ impl TypeNamespaces {
             let tokens = tree.gen().collect::<Vec<_>>();
 
             let foundation = if tree.include_foundation {
-                quote! { pub use ::winrt::foundation; }
+                quote! { pub use ::windows::*; }
             } else {
                 TokenStream::new()
             };
 
             quote! {
-                // TODO: remove this allowance when https://github.com/microsoft/winrt-rs/issues/212 is fixed
+                // TODO: remove this allowance when https://github.com/microsoft/windows-rs/issues/212 is fixed
                 #[allow(unused_variables)]
                 #[allow(non_upper_case_globals)]
                 pub mod #name {

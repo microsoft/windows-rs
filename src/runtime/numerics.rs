@@ -1,4 +1,4 @@
-use winrt::foundation::numerics::{Matrix3x2, Matrix4x4, Vector2, Vector3, Vector4};
+use windows::foundation::numerics::{Matrix3x2, Matrix4x4, Vector2, Vector3, Vector4};
 
 // Vector2
 impl ::std::ops::Add<Vector2> for Vector2 {

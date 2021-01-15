@@ -1,17 +1,17 @@
 use std::convert::*;
-use winrt::foundation::collections::{
+use windows::foundation::collections::{
     CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
 };
-use winrt::foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri};
-use winrt::{Abi, Interface};
+use windows::foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri};
+use windows::{Abi, Interface};
 
 #[test]
-fn non_generic() -> winrt::Result<()> {
+fn non_generic() -> windows::Result<()> {
     type Handler = AsyncActionCompletedHandler;
 
     assert_eq!(
         Handler::IID,
-        winrt::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
+        windows::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
     );
 
     let (tx, rx) = std::sync::mpsc::channel();
@@ -33,12 +33,12 @@ fn non_generic() -> winrt::Result<()> {
 }
 
 #[test]
-fn generic() -> winrt::Result<()> {
+fn generic() -> windows::Result<()> {
     type Handler = TypedEventHandler<Uri, i32>;
 
     assert_eq!(
         Handler::IID,
-        winrt::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
+        windows::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
     );
 
     let uri = Uri::create_uri("http://kennykerr.ca")?;
@@ -63,7 +63,7 @@ fn generic() -> winrt::Result<()> {
 }
 
 #[test]
-fn event() -> winrt::Result<()> {
+fn event() -> windows::Result<()> {
     let set = PropertySet::new()?;
     let (tx, rx) = std::sync::mpsc::channel();
 
@@ -71,11 +71,11 @@ fn event() -> winrt::Result<()> {
     // TODO: Should be able to elide the delegate construction and simply say:
     // set.map_changed(|sender, args| {...})?;
     set.map_changed(
-        MapChangedEventHandler::<winrt::HString, winrt::Object>::new(move |sender, args| {
+        MapChangedEventHandler::<windows::HString, windows::Object>::new(move |sender, args| {
             let args = args.as_ref().unwrap();
             tx.send(true).unwrap();
             let set = set_clone.clone();
-            let map: IObservableMap<winrt::HString, winrt::Object> = set.into();
+            let map: IObservableMap<windows::HString, windows::Object> = set.into();
             assert!(map.abi() == sender.abi());
             assert!(args.key()? == "A");
             assert!(args.collection_change()? == CollectionChange::ItemInserted);
@@ -83,7 +83,7 @@ fn event() -> winrt::Result<()> {
         }),
     )?;
 
-    set.insert("A", winrt::Object::try_from(1_u32)?)?;
+    set.insert("A", windows::Object::try_from(1_u32)?)?;
 
     assert!(rx.recv().unwrap());
 

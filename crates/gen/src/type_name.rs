@@ -44,7 +44,7 @@ impl TypeName {
     pub fn gen_constraint(&self) -> TokenStream {
         TokenStream::from_iter(self.generics.iter().map(|generic| {
             let generic = generic.gen();
-            quote! { #generic: ::winrt::RuntimeType + 'static, }
+            quote! { #generic: ::windows::RuntimeType + 'static, }
         }))
     }
 
@@ -110,7 +110,7 @@ impl TypeName {
         let signature = Literal::byte_string(signature.as_bytes());
 
         if self.generics.is_empty() {
-            return quote! { ::winrt::ConstBuffer::from_slice(#signature) };
+            return quote! { ::windows::ConstBuffer::from_slice(#signature) };
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
@@ -124,13 +124,13 @@ impl TypeName {
             };
 
             quote! {
-                let string = string.push_other(<#g as ::winrt::RuntimeType>::SIGNATURE);
+                let string = string.push_other(<#g as ::windows::RuntimeType>::SIGNATURE);
                 #semi
             }
         });
 
         quote! {
-            let string = ::winrt::ConstBuffer::new();
+            let string = ::windows::ConstBuffer::new();
             let string = string.push_slice(b"pinterface(");
             let string = string.push_slice(#signature);
             let string = string.push_slice(b";");
@@ -144,14 +144,14 @@ impl TypeName {
             let guid = guid.gen();
 
             return quote! {
-                ::winrt::Guid::from_values(#guid)
+                ::windows::Guid::from_values(#guid)
             };
         }
 
         let typ = self.gen();
 
         quote! {
-            ::winrt::Guid::from_signature(<#typ as ::winrt::RuntimeType>::SIGNATURE)
+            ::windows::Guid::from_signature(<#typ as ::windows::RuntimeType>::SIGNATURE)
         }
     }
 

@@ -7,7 +7,7 @@ use tests::windows::storage::streams::{InMemoryRandomAccessStream, RandomAccessS
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test
 // ensures that both overloads are visible and callable.
 #[test]
-fn wifi() -> winrt::Result<()> {
+fn wifi() -> windows::Result<()> {
     // get_device_selector from IWiFiDirectDeviceStatics
     let a = WiFiDirectDevice::get_device_selector()?;
     assert!(!a.is_empty());
@@ -15,7 +15,7 @@ fn wifi() -> winrt::Result<()> {
     // from_id_async from IWiFiDirectDeviceStatics
     assert!(
         WiFiDirectDevice::from_id_async(a)?.get()
-            == Err(winrt::Error::fast_error(winrt::ErrorCode::E_POINTER))
+            == Err(windows::Error::fast_error(windows::ErrorCode::E_POINTER))
     );
 
     // get_device_selector overload from IWiFiDirectDeviceStatics2 is renamed to get_device_selector2
@@ -30,7 +30,7 @@ fn wifi() -> winrt::Result<()> {
 // EmailAttachment has a pair of activation (constructor) factory interfaces with overloads. This
 // test ensures that the overloads are visible and callable.
 #[test]
-fn email() -> winrt::Result<()> {
+fn email() -> windows::Result<()> {
     let stream = InMemoryRandomAccessStream::new()?;
     let reference = RandomAccessStreamReference::create_from_stream(stream)?;
 

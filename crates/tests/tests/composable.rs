@@ -1,5 +1,5 @@
 use tests::test_component::*;
-use winrt::*;
+use windows::*;
 
 #[test]
 fn composable() -> Result<()> {

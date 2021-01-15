@@ -1,7 +1,7 @@
 use super::*;
 use crate::{traits::Decode, TableIndex, TypeReader};
 
-use winmd_macros::type_code;
+use windows_winmd_macros::type_code;
 
 #[type_code(2)]
 pub enum TypeDefOrRef {

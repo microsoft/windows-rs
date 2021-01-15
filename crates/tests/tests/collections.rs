@@ -1,10 +1,10 @@
 use std::convert::*;
 use std::iter::FromIterator;
-use winrt::foundation::collections::{IIterable, IVectorView, PropertySet};
-use winrt::foundation::{IWwwFormUrlDecoderEntry, Uri};
+use windows::foundation::collections::{IIterable, IVectorView, PropertySet};
+use windows::foundation::{IWwwFormUrlDecoderEntry, Uri};
 
 #[test]
-fn uri() -> winrt::Result<()> {
+fn uri() -> windows::Result<()> {
     let uri = Uri::create_uri("http://kennykerr.ca?A=1&B=2&C=3")?;
     let query = uri.query_parsed()?;
 
@@ -60,15 +60,15 @@ fn uri() -> winrt::Result<()> {
 }
 
 #[test]
-fn property_set() -> winrt::Result<()> {
+fn property_set() -> windows::Result<()> {
     // The PropertySet class implements IIterable<IKeyValuePair<HString, Object>> so the following
     // for loop will excercise the IIterator<T> iterator implicitly.
 
     let set = PropertySet::new()?;
 
-    set.insert("A", winrt::Object::try_from(1)?)?;
-    set.insert("B", winrt::Object::try_from(2)?)?;
-    set.insert("C", winrt::Object::try_from(3)?)?;
+    set.insert("A", windows::Object::try_from(1)?)?;
+    set.insert("B", windows::Object::try_from(2)?)?;
+    set.insert("C", windows::Object::try_from(3)?)?;
 
     assert!(set.size()? == 3);
 

@@ -10,7 +10,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
     // If the type is IIterator<T> then simply implement the Iterator trait over top.
     if name.name == "IIterator`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
-            impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for IIterator<T> {
+            impl<T: ::windows::RuntimeType> ::std::iter::Iterator for IIterator<T> {
                 type Item = T;
 
                 fn next(&mut self) -> ::std::option::Option<Self::Item> {
@@ -30,7 +30,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
     // IIterator<T> returned by first() to implement the Iterator trait.
     if name.name == "IIterable`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
-            impl<T: ::winrt::RuntimeType> ::std::iter::IntoIterator for IIterable<T> {
+            impl<T: ::windows::RuntimeType> ::std::iter::IntoIterator for IIterable<T> {
                 type Item = T;
                 type IntoIter = IIterator<Self::Item>;
 
@@ -38,7 +38,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
                     self.first().unwrap()
                 }
             }
-            impl<'a, T: ::winrt::RuntimeType> ::std::iter::IntoIterator for &'a IIterable<T> {
+            impl<'a, T: ::windows::RuntimeType> ::std::iter::IntoIterator for &'a IIterable<T> {
                 type Item = T;
                 type IntoIter = IIterator<Self::Item>;
 
@@ -52,20 +52,20 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
     // If the type is IVectorView<T> then provide the VectorViewIterator fast iterator.
     if name.name == "IVectorView`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
-            pub struct VectorViewIterator<T: ::winrt::RuntimeType + 'static> {
+            pub struct VectorViewIterator<T: ::windows::RuntimeType + 'static> {
                 vector: IVectorView<T>,
                 current: u32,
                 size: u32,
             }
 
-            impl<T: ::winrt::RuntimeType> VectorViewIterator<T> {
+            impl<T: ::windows::RuntimeType> VectorViewIterator<T> {
                 pub fn new(vector: IVectorView<T>) -> Self {
                     let size = vector.size().unwrap();
                     Self { vector, current: 0, size }
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for VectorViewIterator<T> {
+            impl<T: ::windows::RuntimeType> ::std::iter::Iterator for VectorViewIterator<T> {
                 type Item = T;
 
                 fn next(&mut self) -> ::std::option::Option<Self::Item> {
@@ -79,7 +79,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> ::std::iter::IntoIterator for IVectorView<T> {
+            impl<T: ::windows::RuntimeType> ::std::iter::IntoIterator for IVectorView<T> {
                 type Item = T;
                 type IntoIter = VectorViewIterator<Self::Item>;
 
@@ -87,7 +87,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
                     VectorViewIterator::new(self)
                 }
             }
-            impl<'a, T: ::winrt::RuntimeType> ::std::iter::IntoIterator for &'a IVectorView<T> {
+            impl<'a, T: ::windows::RuntimeType> ::std::iter::IntoIterator for &'a IVectorView<T> {
                 type Item = T;
                 type IntoIter = VectorViewIterator<Self::Item>;
 
@@ -101,20 +101,20 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
     // If the type is IVector<T> then provide the VectorIterator fast iterator.
     if name.name == "IVector`1" && name.namespace == "Windows.Foundation.Collections" {
         return quote! {
-            pub struct VectorIterator<T: ::winrt::RuntimeType + 'static> {
+            pub struct VectorIterator<T: ::windows::RuntimeType + 'static> {
                 vector: IVector<T>,
                 current: u32,
                 size: u32,
             }
 
-            impl<T: ::winrt::RuntimeType> VectorIterator<T> {
+            impl<T: ::windows::RuntimeType> VectorIterator<T> {
                 pub fn new(vector: IVector<T>) -> Self {
                     let size = vector.size().unwrap();
                     Self { vector, current: 0, size }
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> ::std::iter::Iterator for VectorIterator<T> {
+            impl<T: ::windows::RuntimeType> ::std::iter::Iterator for VectorIterator<T> {
                 type Item = T;
 
                 fn next(&mut self) -> ::std::option::Option<Self::Item> {
@@ -128,7 +128,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
                 }
             }
 
-            impl<T: ::winrt::RuntimeType> ::std::iter::IntoIterator for IVector<T> {
+            impl<T: ::windows::RuntimeType> ::std::iter::IntoIterator for IVector<T> {
                 type Item = T;
                 type IntoIter = VectorIterator<Self::Item>;
 
@@ -136,7 +136,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
                     VectorIterator::new(self)
                 }
             }
-            impl<'a, T: ::winrt::RuntimeType> ::std::iter::IntoIterator for &'a IVector<T> {
+            impl<'a, T: ::windows::RuntimeType> ::std::iter::IntoIterator for &'a IVector<T> {
                 type Item = T;
                 type IntoIter = VectorIterator<Self::Item>;
 

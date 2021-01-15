@@ -2,7 +2,7 @@ use crate::*;
 use rayon::iter::ParallelIterator;
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
-use winrt_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
+use windows_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 
 pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 

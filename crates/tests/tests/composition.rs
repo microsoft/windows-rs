@@ -2,8 +2,8 @@
 extern "stdcall" {
     fn CreateDispatcherQueueController(
         options: DispatcherQueueOptions,
-        dispatcherQueueController: &mut Option<winrt::IUnknown>,
-    ) -> winrt::ErrorCode;
+        dispatcherQueueController: &mut Option<windows::IUnknown>,
+    ) -> windows::ErrorCode;
 }
 
 #[repr(C)]
@@ -13,7 +13,7 @@ struct DispatcherQueueOptions {
     apartment_type: i32,
 }
 
-fn create_dispatcher() -> winrt::IUnknown {
+fn create_dispatcher() -> windows::IUnknown {
     // We need a DispatcherQueue on our thread to properly create a Compositor. Note that since
     // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
 
@@ -35,7 +35,7 @@ fn create_dispatcher() -> winrt::IUnknown {
 }
 
 #[test]
-fn class_hierarchy_conversion() -> winrt::Result<()> {
+fn class_hierarchy_conversion() -> windows::Result<()> {
     use tests::windows::ui::composition::{Compositor, SpriteVisual, Visual};
 
     let _dispatcher = create_dispatcher();
@@ -75,11 +75,11 @@ fn class_hierarchy_conversion() -> winrt::Result<()> {
 }
 
 #[test]
-fn composition() -> winrt::Result<()> {
+fn composition() -> windows::Result<()> {
     use tests::windows::foundation::numerics::Vector3;
     use tests::windows::ui::composition::{CompositionColorBrush, Compositor};
     use tests::windows::ui::{Color, Colors};
-    use winrt::Interface;
+    use windows::Interface;
 
     let _dispatcher = create_dispatcher();
     let compositor = Compositor::new()?;

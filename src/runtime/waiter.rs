@@ -19,7 +19,7 @@ impl WaiterSignaler {
     /// is used to signal a WinRT async completion and the compiler doesn't know that the lifetime
     /// of the delegate is bounded by the calling function.
     pub unsafe fn signal(&self) {
-        // https://github.com/microsoft/winrt-rs/pull/374#discussion_r535313344
+        // https://github.com/microsoft/windows-rs/pull/374#discussion_r535313344
         SetEvent(self.0);
     }
 }

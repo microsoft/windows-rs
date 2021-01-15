@@ -1,5 +1,5 @@
 use tests::windows::application_model::appointments::AppointmentDaysOfWeek;
-use winrt::foundation::AsyncStatus;
+use windows::foundation::AsyncStatus;
 
 #[test]
 fn signed_enum() {

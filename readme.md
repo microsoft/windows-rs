@@ -1,6 +1,6 @@
 [![crates.io](https://img.shields.io/crates/v/winrt.svg)](https://crates.io/crates/winrt)
 [![docs.rs](https://docs.rs/winrt/badge.svg)](https://docs.rs/winrt)
-[![Build and Test](https://github.com/microsoft/winrt-rs/workflows/Build%20and%20Test/badge.svg?event=push)](https://github.com/microsoft/winrt-rs/actions)
+[![Build and Test](https://github.com/microsoft/windows-rs/workflows/Build%20and%20Test/badge.svg?event=push)](https://github.com/microsoft/windows-rs/actions)
 
 ## The Rust language projection for the Windows API
 
@@ -14,17 +14,17 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies]
-winrt = { git = "https://github.com/microsoft/winrt-rs" }
+windows = { git = "https://github.com/microsoft/windows-rs" }
 
 [build-dependencies]
-winrt = { git = "https://github.com/microsoft/winrt-rs" }
+windows = { git = "https://github.com/microsoft/windows-rs" }
 ```
 
 This will allow Cargo to download, build, and cache the Rust/WinRT support as a package. Next, specify which types you need inside of a build.rs build script and Rust/WinRT will generate the necessary bindings:
 
 ```rust
 fn main() {
-    winrt::build!(
+    windows::build!(
         windows::data::xml::dom::*
         windows::ui::*
     );
@@ -34,12 +34,13 @@ fn main() {
 Finally, make use of any Windows APIs as needed. For example, here is an example of using the `XmlDocument` class to parse an XML document.
 
 ```rust
-use winrt::*;
-include_bindings!();
+mod bindings {
+    ::windows::include_bindings!();
+}
 
-fn main() -> Result<()> {
-    use windows::data::xml::dom::*;
+use bindings::windows::data::xml::dom::XmlDocument;
 
+fn main() -> windows::Result<()> {
     let doc = XmlDocument::new()?;
     doc.load_xml("<html>hello world</html>")?;
 
@@ -50,5 +51,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+To reduce build time, use a `bindings` crate rather simply a module. This will allow Cargo to cache the results and build your project far more quickly.
 
 For a more complete example, take a look at Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs).

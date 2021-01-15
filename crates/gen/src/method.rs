@@ -73,7 +73,7 @@ impl Method {
             .map(|param| param_gen_abi(param));
 
         quote! {
-            (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
+            (this: ::windows::RawPtr, #(#params),*) -> ::windows::ErrorCode
         }
     }
 
@@ -86,7 +86,7 @@ impl Method {
             .map(|param| param_gen_full_abi(param));
 
         quote! {
-            (this: ::winrt::RawPtr, #(#params),*) -> ::winrt::ErrorCode
+            (this: ::windows::RawPtr, #(#params),*) -> ::windows::ErrorCode
         }
     }
 
@@ -113,7 +113,7 @@ impl Method {
         // arguments to ensure the call succeeds in the non-aggregating case.
         let composable_args = if kind == InterfaceKind::Composable {
             quote! {
-                ::std::ptr::null_mut(), ::winrt::Abi::set_abi(&mut ::std::option::Option::<::winrt::Object>::None),
+                ::std::ptr::null_mut(), ::windows::Abi::set_abi(&mut ::std::option::Option::<::windows::Object>::None),
             }
         } else {
             TokenStream::new()
@@ -134,25 +134,25 @@ impl Method {
             if return_type.is_array {
                 quote! {
                     let mut result__: #return_type_tokens = ::std::mem::zeroed();
-                    (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #composable_args #return_arg)
+                    (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args)* #composable_args #return_arg)
                         .and_then(|| result__ )
                 }
             } else {
                 quote! {
-                    let mut result__: <#return_type_tokens as ::winrt::Abi>::Abi = ::std::mem::zeroed();
-                        (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #composable_args #return_arg)
+                    let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                        (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args)* #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 }
             }
         } else {
             quote! {
-                (::winrt::Interface::vtable(this).#vtable_offset)(::winrt::Abi::abi(this), #(#args)* #composable_args).ok()
+                (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args)* #composable_args).ok()
             }
         };
 
         match kind {
             InterfaceKind::Default => quote! {
-                pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type_tokens> {
+                pub fn #method_name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                     let this = self;
                     unsafe {
                         #vcall
@@ -162,8 +162,8 @@ impl Method {
             InterfaceKind::NonDefault | InterfaceKind::Overrides => {
                 let interface = interface.gen();
                 quote! {
-                    pub fn #method_name<#constraints>(&self, #params) -> ::winrt::Result<#return_type_tokens> {
-                        let this = &::winrt::Interface::cast::<#interface>(self).unwrap();
+                    pub fn #method_name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
+                        let this = &::windows::Interface::cast::<#interface>(self).unwrap();
                         unsafe {
                             #vcall
                         }
@@ -173,7 +173,7 @@ impl Method {
             InterfaceKind::Statics | InterfaceKind::Composable => {
                 let interface = interface.gen();
                 quote! {
-                    pub fn #method_name<#constraints>(#params) -> ::winrt::Result<#return_type_tokens> {
+                    pub fn #method_name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
                         Self::#interface(|this| unsafe { #vcall })
                     }
                 }
@@ -207,7 +207,7 @@ impl Method {
                             let (ok_data__, ok_data_len__) = ok__.into_abi();
                             *#result = ok_data__;
                             *#result_size = ok_data_len__;
-                            ::winrt::ErrorCode(0)
+                            ::windows::ErrorCode(0)
                         }
                         ::std::result::Result::Err(err) => err.into()
                     }
@@ -221,7 +221,7 @@ impl Method {
                         ::std::result::Result::Ok(ok__) => {
                             *#return_name = ::std::mem::transmute_copy(&ok__);
                             ::std::mem::forget(ok__);
-                            ::winrt::ErrorCode(0)
+                            ::windows::ErrorCode(0)
                         }
                         ::std::result::Result::Err(err) => err.into()
                     }
@@ -262,7 +262,7 @@ fn gen_constraint(types: &[Type]) -> TokenStream {
             | TypeKind::Generic(_) => {
                 let name = squote::format_ident!("T{}__", position);
                 let into = param.kind.gen();
-                tokens.push(quote! { #name: ::std::convert::Into<::winrt::Param<'a, #into>>, });
+                tokens.push(quote! { #name: ::std::convert::Into<::windows::Param<'a, #into>>, });
             }
             _ => {}
         };
@@ -281,11 +281,11 @@ fn param_gen(t: &Type, position: usize) -> TokenStream {
 
     if t.is_array {
         if t.is_input {
-            quote! { #name: &[<#tokens as ::winrt::RuntimeType>::DefaultType], }
+            quote! { #name: &[<#tokens as ::windows::RuntimeType>::DefaultType], }
         } else if t.by_ref {
-            quote! { #name: &mut ::winrt::Array<#tokens>, }
+            quote! { #name: &mut ::windows::Array<#tokens>, }
         } else {
-            quote! { #name: &mut [<#tokens as ::winrt::RuntimeType>::DefaultType], }
+            quote! { #name: &mut [<#tokens as ::windows::RuntimeType>::DefaultType], }
         }
     } else if t.is_input {
         match &t.kind {
@@ -311,7 +311,7 @@ fn param_gen(t: &Type, position: usize) -> TokenStream {
                 quote! { #name: &mut ::std::option::Option<#tokens>, }
             }
             TypeKind::Generic(_) => {
-                quote! { &mut <#tokens as ::winrt::RuntimeType>::DefaultType, }
+                quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
             }
             _ => quote! { #name: &mut #tokens, },
         }
@@ -322,7 +322,7 @@ pub fn param_gen_return(t: &Type) -> TokenStream {
     let tokens = t.kind.gen();
 
     if t.is_array {
-        quote! { ::winrt::Array<#tokens> }
+        quote! { ::windows::Array<#tokens> }
     } else {
         quote! { #tokens }
     }
@@ -367,7 +367,7 @@ fn param_gen_full_abi(t: &Type) -> TokenStream {
 fn param_gen_abi_return_arg(t: &Type) -> TokenStream {
     if t.is_array {
         let return_type = t.kind.gen();
-        quote! { ::winrt::Array::<#return_type>::set_abi_len(&mut result__), winrt::Array::<#return_type>::set_abi(&mut result__), }
+        quote! { ::windows::Array::<#return_type>::set_abi_len(&mut result__), windows::Array::<#return_type>::set_abi(&mut result__), }
     } else {
         quote! { &mut result__ }
     }
@@ -403,13 +403,13 @@ fn param_gen_abi_arg(t: &Type) -> TokenStream {
                         quote! { #name.into().abi(), }
                     }
                 }
-                _ => quote! { ::winrt::Abi::abi(#name), },
+                _ => quote! { ::windows::Abi::abi(#name), },
             }
         }
     } else if t.kind.primitive() {
         quote! { #name, }
     } else {
-        quote! { ::winrt::Abi::set_abi(#name), }
+        quote! { ::windows::Abi::set_abi(#name), }
     }
 }
 
@@ -423,7 +423,7 @@ fn param_gen_invoke_arg(t: &Type, relative: bool) -> TokenStream {
     };
 
     // TODO: This compiles but doesn't property handle delegates with array parameters.
-    // https://github.com/microsoft/winrt-rs/issues/212
+    // https://github.com/microsoft/windows-rs/issues/212
 
     if t.is_array {
         if t.is_input {
@@ -440,9 +440,9 @@ fn param_gen_invoke_arg(t: &Type, relative: bool) -> TokenStream {
             quote! { #name }
         } else {
             if t.is_const {
-                quote! { &*(#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+                quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
             } else {
-                quote! { &*(&#name as *const <#kind as ::winrt::Abi>::Abi as *const <#kind as ::winrt::RuntimeType>::DefaultType) }
+                quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
             }
         }
     } else {

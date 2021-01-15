@@ -1,9 +1,9 @@
 use tests::windows::data::xml::dom::XmlDocument;
-use winrt::foundation::Uri;
+use windows::foundation::Uri;
 
 // Simple test to validate debugging works
 #[test]
-fn debugging() -> winrt::Result<()> {
+fn debugging() -> windows::Result<()> {
     let doc = XmlDocument::new()?;
     let url = Uri::create_uri("http://kennykerr.ca")?;
 
