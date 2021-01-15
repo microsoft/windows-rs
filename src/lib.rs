@@ -4,6 +4,8 @@ of building language projections for Windows using standard languages and compil
 way for Rust developers to call Windows APIs. The `windows` crate lets you call any Windows API past, present, and
 future using code generated on the fly directly from the metadata describing the API and right into your Rust package
 where you can call them as if they were just another Rust module.
+
+Learn more here: [https://github.com/microsoft/windows-rs](https://github.com/microsoft/windows-rs)
 */
 
 #[macro_use]
