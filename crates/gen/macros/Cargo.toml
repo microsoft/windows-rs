@@ -1,10 +1,10 @@
 [package]
-name = "windows-gen-macros"
+name = "windows_gen_macros"
 version = "0.8.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
-description = "Macro helpers for the windows-gen crate"
+description = "Macro helpers for the windows_gen crate"
 
 [lib]
 proc-macro = true

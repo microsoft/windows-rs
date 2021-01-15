@@ -1,3 +1,4 @@
+extern crate windows_winmd as winmd;
 mod build_limits;
 mod implement;
 mod implement_tree;

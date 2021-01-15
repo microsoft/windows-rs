@@ -10,17 +10,17 @@ documentation = "https://docs.rs/windows"
 readme = "README.md"
 
 [dependencies]
-windows-macros = { path = "crates/macros",  version = "0.8.0" }
-windows-gen = { path = "crates/gen",  version = "0.8.0" }
+windows_macros = { path = "crates/macros",  version = "0.8.0" }
+windows_gen = { path = "crates/gen",  version = "0.8.0" }
 const-sha1 = "0.2"
-winmd = { path = "crates/winmd",  version = "0.8.0" }
+windows_winmd = { path = "crates/winmd",  version = "0.8.0" }
 
 [build-dependencies]
-windows-macros = { path = "crates/macros",  version = "0.8.0" }
+windows_macros = { path = "crates/macros",  version = "0.8.0" }
 
 [dev-dependencies]
 doc-comment = "0.3"
-windows-gen = { path = "crates/gen" }
+windows_gen = { path = "crates/gen" }
 
 [workspace]
 members = [
