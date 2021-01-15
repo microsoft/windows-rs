@@ -116,9 +116,9 @@ impl Enum {
             let signature = Literal::byte_string(&self.signature.as_bytes());
 
             quote! {
-                unsafe impl ::winrt::RuntimeType for #name {
+                unsafe impl ::windows::RuntimeType for #name {
                     type DefaultType = Self;
-                    const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
+                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
                 }
             }
         };
@@ -158,7 +158,7 @@ impl Enum {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*
             }
-            unsafe impl ::winrt::Abi for #name {
+            unsafe impl ::windows::Abi for #name {
                 type Abi = Self;
             }
             #runtime_type

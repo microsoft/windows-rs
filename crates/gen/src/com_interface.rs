@@ -51,7 +51,7 @@ impl ComInterface {
             quote! {
                 pub fn #name(&self, #(#params),*) #return_type {
                     unsafe {
-                        (::winrt::Interface::vtable(self).#vtable_offset)(::winrt::Abi::abi(self), #(#args),*)
+                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args),*)
                     }
                 }
             }
@@ -72,14 +72,14 @@ impl ComInterface {
             });
 
             quote! {
-                pub unsafe extern "system" fn (this: ::winrt::RawPtr, #(#params),*) #return_type
+                pub unsafe extern "system" fn (this: ::windows::RawPtr, #(#params),*) #return_type
             }
         });
 
         quote! {
             #[repr(transparent)]
             #[allow(non_camel_case_types)]
-            pub struct #name(::winrt::IUnknown);
+            pub struct #name(::windows::IUnknown);
             impl ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self(self.0.clone())
@@ -96,15 +96,15 @@ impl ComInterface {
                 }
             }
             impl ::std::cmp::Eq for #name {}
-            unsafe impl ::winrt::Interface for #name {
+            unsafe impl ::windows::Interface for #name {
                 type Vtable = #abi_name;
-                const IID: ::winrt::Guid = #guid;
+                const IID: ::windows::Guid = #guid;
             }
             #[repr(C)]
             pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
-                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 #(#abi_methods,)*
             );
             #[allow(non_snake_case)]

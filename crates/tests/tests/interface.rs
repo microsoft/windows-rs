@@ -1,11 +1,11 @@
-use winrt::foundation::{IStringable, IUriRuntimeClass, Uri};
-use winrt::{Abi, Interface};
+use windows::foundation::{IStringable, IUriRuntimeClass, Uri};
+use windows::{Abi, Interface};
 
 #[test]
-fn interface() -> winrt::Result<()> {
+fn interface() -> windows::Result<()> {
     assert_eq!(
         IStringable::IID,
-        winrt::Guid::from("96369F54-8EB6-48F0-ABCE-C1B211E627C3")
+        windows::Guid::from("96369F54-8EB6-48F0-ABCE-C1B211E627C3")
     );
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;

@@ -1,8 +1,8 @@
-use winrt::foundation::GuidHelper;
-use winrt::Guid;
+use windows::foundation::GuidHelper;
+use windows::Guid;
 
 #[test]
-fn guid_helper() -> winrt::Result<()> {
+fn guid_helper() -> windows::Result<()> {
     let a = GuidHelper::create_new_guid()?;
     let b = GuidHelper::create_new_guid()?;
 

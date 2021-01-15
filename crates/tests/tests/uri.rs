@@ -1,13 +1,13 @@
-use winrt::foundation::{IStringable, IUriRuntimeClass, Uri};
-use winrt::{IAgileObject, Interface, RuntimeName};
+use windows::foundation::{IStringable, IUriRuntimeClass, Uri};
+use windows::{IAgileObject, Interface, RuntimeName};
 
 #[test]
-fn uri() -> winrt::Result<()> {
+fn uri() -> windows::Result<()> {
     assert_eq!(Uri::NAME, "Windows.Foundation.Uri");
 
     assert_eq!(
         Uri::IID,
-        winrt::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
+        windows::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
@@ -29,7 +29,7 @@ fn uri() -> winrt::Result<()> {
 }
 
 #[test]
-fn interface_conversion() -> winrt::Result<()> {
+fn interface_conversion() -> windows::Result<()> {
     // Convert from Uri class to default interface by value (dropping the uri).
     let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
     let default: IUriRuntimeClass = uri.into();

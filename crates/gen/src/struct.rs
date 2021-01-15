@@ -140,9 +140,9 @@ impl Struct {
             let signature = Literal::byte_string(&self.signature.as_bytes());
 
             quote! {
-                unsafe impl ::winrt::RuntimeType for #name {
+                unsafe impl ::windows::RuntimeType for #name {
                     type DefaultType = Self;
-                    const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
+                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
                 }
             }
         };
@@ -158,7 +158,7 @@ impl Struct {
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_ident(#(#abi),*);
-            unsafe impl ::winrt::Abi for #name {
+            unsafe impl ::windows::Abi for #name {
                 type Abi = #abi_ident;
             }
             impl ::std::default::Default for #name {

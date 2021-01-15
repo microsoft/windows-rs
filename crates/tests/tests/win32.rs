@@ -1,20 +1,19 @@
-use tests::windows;
-use winrt::Abi;
+use windows::Abi;
 
-use windows::win32::backup::{CreateEventW, SetEvent, WaitForSingleObject, RECT};
-use windows::win32::base::WM_KEYUP;
-use windows::win32::com::CreateUri;
-use windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA;
-use windows::win32::direct3d_dxgi::{
+use tests::windows::win32::backup::{CreateEventW, SetEvent, WaitForSingleObject, RECT};
+use tests::windows::win32::base::WM_KEYUP;
+use tests::windows::win32::com::CreateUri;
+use tests::windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA;
+use tests::windows::win32::direct3d_dxgi::{
     DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER,
     DXGI_RATIONAL,
 };
-use windows::win32::direct3d_hlsl::D3DCOMPILER_DLL;
-use windows::win32::dlg_box::CHOOSECOLORW;
-use windows::win32::menu_rc::{PROPENUMPROCA, PROPENUMPROCW};
-use windows::win32::security::ACCESS_MODE;
-use windows::win32::win_auto::UIA_ScrollPatternNoScroll;
-use windows::win32::win_prog::CloseHandle;
+use tests::windows::win32::direct3d_hlsl::D3DCOMPILER_DLL;
+use tests::windows::win32::dlg_box::CHOOSECOLORW;
+use tests::windows::win32::menu_rc::{PROPENUMPROCA, PROPENUMPROCW};
+use tests::windows::win32::security::ACCESS_MODE;
+use tests::windows::win32::win_auto::UIA_ScrollPatternNoScroll;
+use tests::windows::win32::win_prog::CloseHandle;
 
 #[test]
 fn signed_enum32() {
@@ -123,21 +122,21 @@ fn function() {
 }
 
 #[test]
-fn interface() -> winrt::Result<()> {
+fn interface() -> windows::Result<()> {
     unsafe {
-        let s = winrt::HString::from("https://kennykerr.ca");
+        let s = windows::HString::from("https://kennykerr.ca");
         let mut uri = None;
 
         // TODO: should unwrap with Result<Uri> like WinRT but need https://github.com/microsoft/win32metadata/issues/24
         let hr = CreateUri(s.as_wide().as_ptr() as *mut u16, 1, 0, &mut uri);
-        winrt::ErrorCode(hr as u32).ok()?;
+        windows::ErrorCode(hr as u32).ok()?;
 
         assert!(uri.is_some());
 
         if let Some(uri) = uri {
-            let mut domain = winrt::BString::new();
+            let mut domain = windows::BString::new();
             let hr = uri.GetDomain(domain.set_abi() as *mut *mut u16);
-            winrt::ErrorCode(hr as u32).ok()?;
+            windows::ErrorCode(hr as u32).ok()?;
 
             assert!(domain == "kennykerr.ca");
         }
@@ -154,7 +153,7 @@ fn callback() {
     assert!(
         789 == a(
             123,
-            winrt::HString::from("hello w\0").as_wide().as_ptr(),
+            windows::HString::from("hello w\0").as_wide().as_ptr(),
             456
         )
     );

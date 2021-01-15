@@ -1,3 +1,3 @@
 fn main() {
-    winrt::build!(windows::ui::Colors);
+    windows::build!(windows::ui::Colors);
 }

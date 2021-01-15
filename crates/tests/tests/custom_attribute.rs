@@ -1,4 +1,4 @@
-use winrt::*;
+use windows::*;
 
 #[test]
 fn named_arguments() -> Result<()> {

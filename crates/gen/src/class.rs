@@ -130,7 +130,7 @@ impl Class {
 
             let new = if self.default_constructor {
                 quote! {
-                    pub fn new() -> ::winrt::Result<Self> {
+                    pub fn new() -> ::windows::Result<Self> {
                         Self::IActivationFactory(|f| f.activate_instance::<Self>())
                     }
                 }
@@ -158,7 +158,7 @@ impl Class {
 
             quote! {
                 #[repr(transparent)]
-                pub struct #name(::winrt::Object);
+                pub struct #name(::windows::Object);
                 impl #name {
                     #new
                     #methods
@@ -182,32 +182,32 @@ impl Class {
                     }
                 }
                 #type_name
-                unsafe impl ::winrt::Interface for #name {
+                unsafe impl ::windows::Interface for #name {
                     type Vtable = #abi_name;
-                    const IID: ::winrt::Guid = <#default_name as ::winrt::Interface>::IID;
+                    const IID: ::windows::Guid = <#default_name as ::windows::Interface>::IID;
                 }
-                unsafe impl ::winrt::RuntimeType for #name {
+                unsafe impl ::windows::RuntimeType for #name {
                     type DefaultType = ::std::option::Option<Self>;
-                    const SIGNATURE: ::winrt::ConstBuffer = ::winrt::ConstBuffer::from_slice(#signature);
+                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
                 }
-                impl ::std::convert::From<#name> for ::winrt::Object {
+                impl ::std::convert::From<#name> for ::windows::Object {
                     fn from(value: #name) -> Self {
                         value.0
                     }
                 }
-                impl ::std::convert::From<&#name> for ::winrt::Object {
+                impl ::std::convert::From<&#name> for ::windows::Object {
                     fn from(value: &#name) -> Self {
                         ::std::convert::From::from(::std::clone::Clone::clone(value))
                     }
                 }
-                impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for #name {
-                    fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
-                        ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(self))
+                impl<'a> ::std::convert::Into<::windows::Param<'a, ::windows::Object>> for #name {
+                    fn into(self) -> ::windows::Param<'a, ::windows::Object> {
+                        ::windows::Param::Owned(::std::convert::Into::<::windows::Object>::into(self))
                     }
                 }
-                impl<'a> ::std::convert::Into<::winrt::Param<'a, ::winrt::Object>> for &'a #name {
-                    fn into(self) -> ::winrt::Param<'a, ::winrt::Object> {
-                        ::winrt::Param::Owned(::std::convert::Into::<::winrt::Object>::into(::std::clone::Clone::clone(self)))
+                impl<'a> ::std::convert::Into<::windows::Param<'a, ::windows::Object>> for &'a #name {
+                    fn into(self) -> ::windows::Param<'a, ::windows::Object> {
+                        ::windows::Param::Owned(::std::convert::Into::<::windows::Object>::into(::std::clone::Clone::clone(self)))
                     }
                 }
                 #(#conversions)*
@@ -239,17 +239,17 @@ impl Class {
                 }
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
-                        ::winrt::Interface::cast(value).unwrap()
+                        ::windows::Interface::cast(value).unwrap()
                     }
                 }
-                impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for #from {
-                    fn into(self) -> ::winrt::Param<'a, #into> {
-                        ::winrt::Param::Owned(::std::convert::Into::<#into>::into(self))
+                impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for #from {
+                    fn into(self) -> ::windows::Param<'a, #into> {
+                        ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                     }
                 }
-                impl<'a> ::std::convert::Into<::winrt::Param<'a, #into>> for &'a #from {
-                    fn into(self) -> ::winrt::Param<'a, #into> {
-                        ::winrt::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for &'a #from {
+                    fn into(self) -> ::windows::Param<'a, #into> {
+                        ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                     }
                 }
             }
@@ -260,7 +260,7 @@ impl Class {
         let mut tokens = TokenStream::new();
 
         if self.default_constructor {
-            let interface_tokens = quote! { ::winrt::IActivationFactory };
+            let interface_tokens = quote! { ::windows::IActivationFactory };
             tokens.combine(&self.to_named_call_factory("IActivationFactory", &interface_tokens));
         }
 
@@ -289,11 +289,11 @@ impl Class {
 
         quote! {
             #[allow(non_snake_case)]
-            fn #method_name<R, F: FnOnce(&#interface) -> ::winrt::Result<R>>(
+            fn #method_name<R, F: FnOnce(&#interface) -> ::windows::Result<R>>(
                 callback: F,
-            ) -> ::winrt::Result<R> {
-                static mut SHARED: ::winrt::FactoryCache<#self_name, #interface> =
-                    ::winrt::FactoryCache::new();
+            ) -> ::windows::Result<R> {
+                static mut SHARED: ::windows::FactoryCache<#self_name, #interface> =
+                    ::windows::FactoryCache::new();
                 unsafe { SHARED.call(callback) }
             }
         }
@@ -303,7 +303,7 @@ impl Class {
         let runtime_name = self.name.runtime_name();
 
         quote! {
-            impl ::winrt::RuntimeName for #class_name {
+            impl ::windows::RuntimeName for #class_name {
                 const NAME: &'static str = #runtime_name;
             }
         }

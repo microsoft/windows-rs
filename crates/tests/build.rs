@@ -1,5 +1,5 @@
 fn main() {
-    winrt::build!(
+    windows::build!(
         windows::foundation::diagnostics::*
         windows::foundation::*
         windows::ai::machine_learning::*

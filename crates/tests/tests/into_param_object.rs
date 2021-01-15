@@ -1,8 +1,8 @@
-use winrt::foundation::{PropertyValue, Uri};
-use winrt::Interface;
+use windows::foundation::{PropertyValue, Uri};
+use windows::Interface;
 
 #[test]
-fn into() -> winrt::Result<()> {
+fn into() -> windows::Result<()> {
     let uri = Uri::create_uri("http://kennykerr.ca")?;
 
     let object = PropertyValue::create_inspectable(&uri)?; // reference

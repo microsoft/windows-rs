@@ -14,17 +14,17 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies]
-winrt = { git = "https://github.com/microsoft/winrt-rs" }
+windows = { git = "https://github.com/microsoft/winrt-rs" }
 
 [build-dependencies]
-winrt = { git = "https://github.com/microsoft/winrt-rs" }
+windows = { git = "https://github.com/microsoft/winrt-rs" }
 ```
 
 This will allow Cargo to download, build, and cache the Rust/WinRT support as a package. Next, specify which types you need inside of a build.rs build script and Rust/WinRT will generate the necessary bindings:
 
 ```rust
 fn main() {
-    winrt::build!(
+    windows::build!(
         windows::data::xml::dom::*
         windows::ui::*
     );
@@ -34,7 +34,7 @@ fn main() {
 Finally, make use of any Windows APIs as needed. For example, here is an example of using the `XmlDocument` class to parse an XML document.
 
 ```rust
-use winrt::*;
+use windows::*;
 include_bindings!();
 
 fn main() -> Result<()> {

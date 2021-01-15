@@ -5,11 +5,11 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-winrt = { path = "../.." }
+windows = { path = "../.." }
 winmd = { path = "../winmd",  version = "0.8.0" }
 
 [dev-dependencies]
 futures = "0.3"
 
 [build-dependencies]
-winrt = { path = "../.." }
+windows = { path = "../.." }

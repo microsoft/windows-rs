@@ -33,7 +33,7 @@ pub use strings::{BString, HString};
 pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
 pub use winrt_macros::{build, implement};
 
-extern crate self as winrt;
+extern crate self as windows;
 
 mod bindings {
     include_bindings!();

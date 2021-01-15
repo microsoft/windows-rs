@@ -378,11 +378,11 @@ impl TypeKind {
             Self::F64 => quote! { f64 },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
-            Self::String => quote! { ::winrt::HString },
-            Self::Object => quote! { ::winrt::Object },
-            Self::Guid => quote! { ::winrt::Guid },
-            Self::IUnknown => quote! { ::winrt::IUnknown },
-            Self::ErrorCode => quote! { ::winrt::ErrorCode },
+            Self::String => quote! { ::windows::HString },
+            Self::Object => quote! { ::windows::Object },
+            Self::Guid => quote! { ::windows::Guid },
+            Self::IUnknown => quote! { ::windows::IUnknown },
+            Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Class(name) => name.gen(),
             Self::Interface(name) => name.gen(),
             Self::Enum(name) => name.gen(),
@@ -412,11 +412,11 @@ impl TypeKind {
             Self::F64 => quote! { f64 },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
-            Self::String => quote! { ::winrt::HString },
-            Self::Object => quote! { ::winrt::Object },
-            Self::Guid => quote! { ::winrt::Guid },
-            Self::IUnknown => quote! { ::winrt::IUnknown },
-            Self::ErrorCode => quote! { ::winrt::ErrorCode },
+            Self::String => quote! { ::windows::HString },
+            Self::Object => quote! { ::windows::Object },
+            Self::Guid => quote! { ::windows::Guid },
+            Self::IUnknown => quote! { ::windows::IUnknown },
+            Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Class(name) => name.gen_full(),
             Self::Interface(name) => name.gen_full(),
             Self::Enum(name) => name.gen_full(),
@@ -446,19 +446,19 @@ impl TypeKind {
             Self::F64 => quote! { f64 },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
-            Self::Guid => quote! { ::winrt::Guid },
-            Self::ErrorCode => quote! { ::winrt::ErrorCode },
+            Self::Guid => quote! { ::windows::Guid },
+            Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::String
             | Self::Object
             | Self::IUnknown
             | Self::Class(_)
             | Self::Interface(_)
             | Self::Delegate(_) => {
-                quote! { ::winrt::RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
-                quote! { <#name as ::winrt::Abi>::Abi }
+                quote! { <#name as ::windows::Abi>::Abi }
             }
             Self::Enum(name) => name.gen(),
             Self::Struct(name) => name.gen_abi(),
@@ -482,19 +482,19 @@ impl TypeKind {
             Self::F64 => quote! { f64 },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
-            Self::Guid => quote! { ::winrt::Guid },
-            Self::ErrorCode => quote! { ::winrt::ErrorCode },
+            Self::Guid => quote! { ::windows::Guid },
+            Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::String
             | Self::Object
             | Self::IUnknown
             | Self::Class(_)
             | Self::Interface(_)
             | Self::Delegate(_) => {
-                quote! { ::winrt::RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
-                quote! { <#name as ::winrt::Abi>::Abi }
+                quote! { <#name as ::windows::Abi>::Abi }
             }
             Self::Enum(name) => name.gen_full(),
             Self::Struct(name) => name.gen_full_abi(),
@@ -516,8 +516,8 @@ impl TypeKind {
             | Self::ISize
             | Self::USize => quote! { 0 },
             Self::F32 | Self::F64 => quote! { 0.0 },
-            Self::String => quote! { ::winrt::HString::new() },
-            Self::Guid => quote! { ::winrt::Guid::zeroed() },
+            Self::String => quote! { ::windows::HString::new() },
+            Self::Guid => quote! { ::windows::Guid::zeroed() },
             _ => quote! { ::std::default::Default::default() },
         }
     }

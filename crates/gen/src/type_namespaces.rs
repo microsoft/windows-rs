@@ -13,7 +13,7 @@ impl TypeNamespaces {
             let tokens = tree.gen().collect::<Vec<_>>();
 
             let foundation = if tree.include_foundation {
-                quote! { pub use ::winrt::foundation; }
+                quote! { pub use ::windows::*; }
             } else {
                 TokenStream::new()
             };
