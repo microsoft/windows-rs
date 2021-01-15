@@ -75,10 +75,10 @@ impl TypeReader {
 
         if files.is_empty() {
             files.push(File::from_bytes(
-                include_bytes!("../../../.windows/winmd/Windows.Win32.winmd").to_vec(),
+                include_bytes!("..\\..\\..\\.windows\\winmd\\Windows.Win32.winmd").to_vec(),
             ));
             files.push(File::from_bytes(
-                include_bytes!("../../../.windows/winmd/Windows.WinRT.winmd").to_vec(),
+                include_bytes!("..\\..\\..\\.windows\\winmd\\Windows.WinRT.winmd").to_vec(),
             ));
         }
 
