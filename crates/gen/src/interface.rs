@@ -112,6 +112,7 @@ impl Interface {
                 const IID: ::winrt::Guid = #guid;
             }
             #[repr(C)]
+            #[doc(hidden)]
             pub struct #abi_definition(
                 pub unsafe extern "system" fn(this: ::winrt::RawPtr, iid: &::winrt::Guid, interface: *mut ::winrt::RawPtr) -> ::winrt::ErrorCode,
                 pub unsafe extern "system" fn(this: ::winrt::RawPtr) -> u32,

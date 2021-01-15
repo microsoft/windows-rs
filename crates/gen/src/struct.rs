@@ -156,6 +156,7 @@ impl Struct {
                 #(#fields),*
             }
             #[repr(C)]
+            #[doc(hidden)]
             pub struct #abi_ident(#(#abi),*);
             unsafe impl ::winrt::Abi for #name {
                 type Abi = #abi_ident;
