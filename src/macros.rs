@@ -2,7 +2,7 @@
 #[macro_export]
 macro_rules! include_bindings {
     () => {
-        include!(concat!(env!("OUT_DIR"), "\\windows.rs"));
+        include!(concat!(env!("OUT_DIR"), "/windows.rs"));
     };
 }
 
