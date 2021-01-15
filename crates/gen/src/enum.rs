@@ -126,7 +126,7 @@ impl Enum {
         quote! {
             #[allow(non_camel_case_types)]
             #[repr(transparent)]
-            pub struct #name(#underlying_type);
+            pub struct #name(pub #underlying_type);
             impl ::std::convert::From<#underlying_type> for #name {
                 fn from(value: #underlying_type) -> Self {
                     Self(value)
