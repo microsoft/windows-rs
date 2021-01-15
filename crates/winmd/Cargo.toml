@@ -1,12 +1,12 @@
 [package]
 name = "windows_winmd"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
 description = "Winmd parser the windows crate"
 
 [dependencies]
-windows_winmd_macros = { path = "macros",  version = "0.1.1" }
+windows_winmd_macros = { path = "macros",  version = "0.1.2" }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
