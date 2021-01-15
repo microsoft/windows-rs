@@ -1,5 +1,5 @@
 use crate::*;
-use squote::{quote, Ident, TokenStream};
+use squote::{quote, TokenStream};
 use winmd::Decode;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -188,7 +188,7 @@ impl Type {
         tokens
     }
 
-    pub fn gen_clone(&self, name: &Ident) -> TokenStream {
+    pub fn gen_clone(&self, name: &TokenStream) -> TokenStream {
         match self.kind {
             TypeKind::Bool
             | TypeKind::Char
@@ -321,6 +321,7 @@ impl TypeKind {
             ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
             ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
             ("Windows.Foundation", "HResult") => Self::ErrorCode,
+            ("Windows.Win32.Com", "HRESULT") => Self::ErrorCode,
             (namespace, name) => Self::from_type_def(
                 &type_ref.reader.expect_type_def((namespace, name)),
                 calling_namespace,
