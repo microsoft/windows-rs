@@ -34,12 +34,13 @@ fn main() {
 Finally, make use of any Windows APIs as needed. For example, here is an example of using the `XmlDocument` class to parse an XML document.
 
 ```rust
-use windows::*;
-include_bindings!();
+mod bindings {
+    ::windows::include_bindings!();
+}
 
-fn main() -> Result<()> {
-    use windows::data::xml::dom::*;
+use bindings::windows::data::xml::dom::XmlDocument;
 
+fn main() -> windows::Result<()> {
     let doc = XmlDocument::new()?;
     doc.load_xml("<html>hello world</html>")?;
 
@@ -50,5 +51,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+To reduce build time, use a `bindings` crate rather simply a module. This will allow Cargo to cache the results and build your project far more quickly.
 
 For a more complete example, take a look at Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs).
