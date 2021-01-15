@@ -1,6 +1,6 @@
 [package]
 name = "windows_winmd_macros"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
