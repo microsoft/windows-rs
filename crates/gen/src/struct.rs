@@ -22,12 +22,7 @@ impl Struct {
         let mut fields = Vec::new();
 
         for field in name.def.fields() {
-            let field_name = if is_winrt {
-                to_snake(field.name())
-            } else {
-                field.name().to_string()
-            };
-
+            let field_name = to_snake(field.name());
             let t = Type::from_field(&field, &name.namespace);
 
             fields.push((field_name, t));

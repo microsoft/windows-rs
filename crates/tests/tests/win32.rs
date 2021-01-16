@@ -127,6 +127,7 @@ fn function() {
 }
 
 // TODO: light up BSTR as windows::BString
+
 // #[test]
 // fn interface() -> windows::Result<()> {
 //     unsafe {
