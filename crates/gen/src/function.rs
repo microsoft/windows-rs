@@ -36,6 +36,8 @@ impl Function {
         let mut link = self.signature.method.impl_map().unwrap().scope().name();
         if link == "ext-ms-win-core-iuri-l1-1-0" {
             link = "urlmon";
+        } else if link == "api-ms-win-core-winrt-l1-1-0" {
+            link = "onecoreuap";
         }
 
         quote! {
