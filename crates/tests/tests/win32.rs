@@ -2,7 +2,7 @@ use windows::Abi;
 
 use tests::windows::win32::backup::{CreateEventW, SetEvent, WaitForSingleObject, RECT};
 use tests::windows::win32::base::{BOOL, HANDLE, HWND, WM_KEYUP};
-use tests::windows::win32::com::CreateUri;
+// use tests::windows::win32::com::CreateUri;
 use tests::windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA;
 use tests::windows::win32::direct3d_dxgi::{
     DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER,
@@ -64,15 +64,15 @@ fn rect() {
 #[test]
 fn dxgi_mode_desc() {
     let _ = DXGI_MODE_DESC {
-        Width: 1,
-        Height: 2,
-        RefreshRate: DXGI_RATIONAL {
-            Numerator: 3,
-            Denominator: 5,
+        width: 1,
+        height: 2,
+        refresh_rate: DXGI_RATIONAL {
+            numerator: 3,
+            denominator: 5,
         },
-        Format: DXGI_FORMAT::DXGI_FORMAT_R32_TYPELESS,
-        ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER::DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
-        Scaling: DXGI_MODE_SCALING::DXGI_MODE_SCALING_CENTERED,
+        format: DXGI_FORMAT::DXGI_FORMAT_R32_TYPELESS,
+        scanline_ordering: DXGI_MODE_SCANLINE_ORDER::DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
+        scaling: DXGI_MODE_SCALING::DXGI_MODE_SCALING_CENTERED,
     };
 }
 
