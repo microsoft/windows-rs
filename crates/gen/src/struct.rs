@@ -6,6 +6,7 @@ pub struct Struct {
     pub name: TypeName,
     pub fields: Vec<(String, Type)>,
     pub signature: String,
+    pub is_typedef: bool,
 }
 
 impl Struct {
@@ -21,12 +22,7 @@ impl Struct {
         let mut fields = Vec::new();
 
         for field in name.def.fields() {
-            let field_name = if is_winrt {
-                to_snake(field.name())
-            } else {
-                field.name().to_string()
-            };
-
+            let field_name = to_snake(field.name());
             let t = Type::from_field(&field, &name.namespace);
 
             fields.push((field_name, t));
@@ -50,10 +46,15 @@ impl Struct {
             fields.push(("reserved".to_string(), t));
         }
 
+        let is_typedef = name
+            .def
+            .has_attribute(("Windows.Win32.Interop", "NativeTypedefAttribute"));
+
         Self {
             name,
             fields,
             signature,
+            is_typedef,
         }
     }
 
@@ -70,48 +71,112 @@ impl Struct {
         // TODO: if the struct is blittable then don't generate a separate abi type.
         let abi_ident = format_ident!("{}_abi", self.name.name);
 
-        let fields = self.fields.iter().map(|(name, kind)| {
-            let name = format_ident(&name);
-            let kind = kind.gen_field();
-            quote! {
-                pub #name: #kind
-            }
-        });
-
-        let defaults = self.fields.iter().map(|(name, kind)| {
-            let name = format_ident(&name);
-            let value = kind.gen_default();
-            quote! {
-                #name: #value
-            }
-        });
-
-        let clones = self.fields.iter().map(|(name, kind)| {
-            let name = format_ident(&name);
-            let clone = kind.gen_clone(&name);
-            quote! {
-                #name: #clone
-            }
-        });
-
-        let debug_fields = self.fields.iter().filter_map(|(name, t)| {
-            if let TypeKind::Delegate(name) = &t.kind {
-                if !name.def.is_winrt() {
-                    return None;
+        let body = if self.is_typedef {
+            let fields = self.fields.iter().map(|(_, kind)| {
+                let kind = kind.gen_field();
+                quote! {
+                    pub #kind
                 }
+            });
+
+            quote! {
+                ( #(#fields),* );
             }
+        } else {
+            let fields = self.fields.iter().map(|(name, kind)| {
+                let name = format_ident(&name);
+                let kind = kind.gen_field();
+                quote! {
+                    pub #name: #kind
+                }
+            });
 
-            let name_ident = format_ident(&name);
+            quote! {
+                { #(#fields),* }
+            }
+        };
 
-            Some(quote! {
-                .field(#name, &format_args!("{:?}", self.#name_ident))
-            })
-        });
+        let defaults = if self.is_typedef {
+            let defaults = self.fields.iter().map(|(_, kind)| {
+                let value = kind.gen_default();
+                quote! {
+                    #value
+                }
+            });
+
+            quote! {
+                Self( #(#defaults),* )
+            }
+        } else {
+            let defaults = self.fields.iter().map(|(name, kind)| {
+                let name = format_ident(&name);
+                let value = kind.gen_default();
+                quote! {
+                    #name: #value
+                }
+            });
+
+            quote! {
+                Self{ #(#defaults),* }
+            }
+        };
+
+        let clones = if self.is_typedef {
+            let clones = self.fields.iter().enumerate().map(|(index, (_, kind))| {
+                let index = Literal::u32_unsuffixed(index as u32);
+                let clone = kind.gen_clone(&quote! { #index });
+                quote! {
+                    #clone
+                }
+            });
+
+            quote! {
+                Self( #(#clones),* )
+            }
+        } else {
+            let clones = self.fields.iter().map(|(name, kind)| {
+                let name = format_ident(&name);
+                let clone = kind.gen_clone(&quote! { #name });
+                quote! {
+                    #name: #clone
+                }
+            });
+
+            quote! {
+                Self{ #(#clones),* }
+            }
+        };
+
+        let debug_fields = self
+            .fields
+            .iter()
+            .enumerate()
+            .filter_map(|(index, (name, t))| {
+                if let TypeKind::Delegate(name) = &t.kind {
+                    if !name.def.is_winrt() {
+                        return None;
+                    }
+                }
+
+                if self.is_typedef {
+                    let index = Literal::u32_unsuffixed(index as u32);
+
+                    Some(quote! {
+                        .field(#name, &format_args!("{:?}", self.#index))
+                    })
+                } else {
+                    let name_ident = format_ident(&name);
+
+                    Some(quote! {
+                        .field(#name, &format_args!("{:?}", self.#name_ident))
+                    })
+                }
+            });
 
         let compare_fields = if self.fields.is_empty() {
             quote! { true }
         } else {
-            let fields = self.fields.iter().map(|(name, t)| {
+            let fields = self.fields.iter().enumerate().map(|(index, (name, t))| {
                 let name_ident = format_ident(&name);
 
                 if let TypeKind::Delegate(name) = &t.kind {
@@ -122,8 +187,16 @@ impl Struct {
                     }
                 }
 
-                quote! {
-                    self.#name_ident == other.#name_ident
+                if self.is_typedef {
+                    let index = Literal::u32_unsuffixed(index as u32);
+
+                    quote! {
+                        self.#index == other.#index
+                    }
+                } else {
+                    quote! {
+                        self.#name_ident == other.#name_ident
+                    }
                 }
             });
 
@@ -147,14 +220,21 @@ impl Struct {
             }
         };
 
+        let copy = if self.is_typedef {
+            quote! {
+                impl ::std::marker::Copy for #name {}
+            }
+        } else {
+            quote! {}
+        };
+
         let debug_name = self.name.name;
+        let additions = self.gen_additions();
 
         quote! {
             #[repr(C)]
             #[allow(non_snake_case)]
-            pub struct #name {
-                #(#fields),*
-            }
+            pub struct #name #body
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_ident(#(#abi),*);
@@ -163,7 +243,7 @@ impl Struct {
             }
             impl ::std::default::Default for #name {
                 fn default() -> Self {
-                    Self{ #(#defaults),* }
+                    #defaults
                 }
             }
             impl ::std::fmt::Debug for #name {
@@ -175,7 +255,7 @@ impl Struct {
             }
             impl ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
-                    Self{ #(#clones),* }
+                    #clones
                 }
             }
             impl ::std::cmp::PartialEq for #name {
@@ -184,7 +264,32 @@ impl Struct {
                 }
             }
             impl ::std::cmp::Eq for #name {}
+            #copy
             #runtime_type
+            #additions
+        }
+    }
+
+    fn gen_additions(&self) -> TokenStream {
+        match (self.name.namespace, self.name.name) {
+            ("Windows.Win32.Base", "BOOL") => quote! {
+                impl From<bool> for BOOL {
+                    fn from(value: bool) -> Self {
+                        if value {
+                            Self(1)
+                        } else {
+                            Self(0)
+                        }
+                    }
+                }
+
+                impl From<BOOL> for bool {
+                    fn from(value: BOOL) -> Self {
+                        value.0 != 0
+                    }
+                }
+            },
+            _ => TokenStream::new(),
         }
     }
 }
