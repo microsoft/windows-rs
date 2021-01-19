@@ -1,5 +1,6 @@
 use crate::*;
 use squote::{format_ident, quote, Literal, TokenStream};
+use std::collections::BTreeSet;
 
 #[derive(Debug)]
 pub struct Struct {
@@ -20,10 +21,28 @@ impl Struct {
         };
 
         let mut fields = Vec::new();
+        let mut unique = BTreeSet::new();
 
         for field in name.def.fields() {
-            let field_name = to_snake(field.name());
             let t = Type::from_field(&field, &name.namespace);
+            let mut field_name = to_snake(field.name());
+
+            // A handful of Win32 structs, like `CIECHROMA` and `GenTspecParms`, have fields whose snake case
+            // names are identical, so we handle this edge case by ensuring they get unique names.
+            if !unique.insert(field_name.clone()) {
+                let mut unique_count = 1;
+
+                loop {
+                    unique_count += 1;
+
+                    let unique_field_name = format!("{}{}", field_name, unique_count);
+
+                    if unique.insert(unique_field_name.clone()) {
+                        field_name = unique_field_name;
+                        break;
+                    }
+                }
+            }
 
             fields.push((field_name, t));
         }
