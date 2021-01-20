@@ -1,14 +1,14 @@
 [package]
 name = "windows_gen"
-version = "0.1.4"
+version = "0.2.1"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT"
 description = "Code generation for the windows crate"
 
 [dependencies]
-windows_gen_macros = { path = "macros",  version = "0.1.4" }
-windows_winmd = { path = "../winmd",  version = "0.1.4" }
+windows_gen_macros = { path = "macros",  version = "0.2.1" }
+windows_winmd = { path = "../winmd",  version = "0.2.1" }
 quote = "1.0"
 syn = "1.0"
 proc-macro2 = "1.0"
