@@ -118,6 +118,12 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
     }
 }
 
+impl Default for ErrorCode {
+    fn default() -> Self {
+        Self::S_OK
+    }
+}
+
 #[link(name = "kernel32")]
 extern "system" {
     fn GetLastError() -> u32;
