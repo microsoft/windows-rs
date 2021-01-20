@@ -73,7 +73,7 @@ impl ErrorCode {
 
     /// Retrieves the error code stored on the calling thread.
     #[inline]
-    pub(crate) fn from_thread() -> Self {
+    pub fn from_thread() -> Self {
         Self::from_win32(unsafe { GetLastError() })
     }
 

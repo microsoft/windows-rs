@@ -105,7 +105,7 @@ fn constant() {
 }
 
 #[test]
-fn function() {
+fn function() -> windows::Result<()> {
     unsafe {
         let event = CreateEventW(
             std::ptr::null_mut(),
@@ -115,14 +115,28 @@ fn function() {
         );
         assert!(event.0 != 0);
 
-        let result = SetEvent(event);
-        assert!(result.0 != 0);
+        SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
         assert!(result == 0); // https://github.com/microsoft/win32metadata/issues/77
 
-        let result = CloseHandle(event);
-        assert!(result.0 != 0);
+        CloseHandle(event).ok()?;
+        Ok(())
+    }
+}
+
+#[test]
+fn bool_as_error() {
+    unsafe {
+        assert!(!SetEvent(HANDLE(0)).is_ok());
+        assert!(SetEvent(HANDLE(0)).is_err());
+
+        let result: windows::Result<()> = SetEvent(HANDLE(0)).ok();
+        assert!(result.is_err());
+
+        let error: windows::Error = result.unwrap_err();
+        assert_eq!(error.code(), windows::ErrorCode(0x8007_0006));
+        assert_eq!(error.message(), "The handle is invalid.");
     }
 }
 

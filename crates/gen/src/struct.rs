@@ -292,7 +292,7 @@ impl Struct {
     fn gen_additions(&self) -> TokenStream {
         match (self.name.namespace, self.name.name) {
             ("Windows.Win32.Base", "BOOL") => quote! {
-                impl From<bool> for BOOL {
+                impl ::std::convert::From<bool> for BOOL {
                     fn from(value: bool) -> Self {
                         if value {
                             Self(1)
@@ -301,10 +301,27 @@ impl Struct {
                         }
                     }
                 }
-
-                impl From<BOOL> for bool {
+                impl ::std::convert::From<BOOL> for bool {
                     fn from(value: BOOL) -> Self {
                         value.0 != 0
+                    }
+                }
+                impl BOOL {
+                    #[inline]
+                    pub fn is_ok(self) -> bool {
+                        self.into()
+                    }
+                    #[inline]
+                    pub fn is_err(self) -> bool {
+                        !self.is_ok()
+                    }
+                    #[inline]
+                    pub fn ok(self) -> ::windows::Result<()> {
+                        if self.is_ok() {
+                            Ok(())
+                        } else {
+                            Err(::windows::ErrorCode::from_thread().into())
+                        }
                     }
                 }
             },
