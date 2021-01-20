@@ -1,12 +1,12 @@
 [package]
 name = "tests"
-version = "0.1.4"
+version = "0.2.1"
 authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
 windows = { path = "../.." }
-windows_winmd = { path = "../winmd",  version = "0.1.4" }
+windows_winmd = { path = "../winmd",  version = "0.2.1" }
 
 [dev-dependencies]
 futures = "0.3"
