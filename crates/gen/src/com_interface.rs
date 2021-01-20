@@ -1,18 +1,45 @@
 use crate::*;
-use squote::{quote, Literal, TokenStream};
+use squote::{format_ident, quote, Ident, Literal, TokenStream};
+use std::collections::BTreeMap;
 
 #[derive(Debug)]
 pub struct ComInterface {
     pub name: TypeName,
-    pub methods: Vec<Signature>,
+    methods: Vec<Method>,
+}
+
+#[derive(Debug)]
+struct Method {
+    signature: Signature,
+    overload: u32,
+}
+
+impl Method {
+    fn gen_name(&self) -> Ident {
+        if self.overload > 1 {
+            format_ident!("{}{}", self.signature.method.name(), self.overload)
+        } else {
+            format_ident(self.signature.method.name())
+        }
+    }
 }
 
 impl ComInterface {
     pub fn from_type_name(name: TypeName) -> Self {
+        let mut count = BTreeMap::new();
+
         let methods = name
             .def
             .methods()
-            .map(|method| Signature::new(&method, &[], &name.namespace))
+            .map(|method| {
+                let count = count.entry(method.name()).or_insert(0);
+                *count += 1;
+
+                Method {
+                    signature: Signature::new(&method, &[], &name.namespace),
+                    overload: *count,
+                }
+            })
             .collect();
 
         Self { name, methods }
@@ -26,26 +53,26 @@ impl ComInterface {
 
         // TODO: here we're looking up the param name (from the file) repeatedly - cache name in Type
 
-        let methods = self.methods.iter().enumerate().map(|(vtable_offset, signature)| {
-            let return_type = if let Some(t) = &signature.return_type {
+        let methods = self.methods.iter().enumerate().map(|(vtable_offset, method)| {
+            let return_type = if let Some(t) = &method.signature.return_type {
                 let tokens = t.gen_field();
                 quote! { -> #tokens }
             } else {
                 TokenStream::new()
             };
 
-            let params = signature.params.iter().map(|t| {
+            let params = method.signature.params.iter().map(|t| {
                 let name = format_ident(&t.name);
                 let tokens = t.gen_field();
                 quote! { #name: #tokens }
             });
 
-            let args = signature.params.iter().map(|t| {
+            let args = method.signature.params.iter().map(|t| {
                 let name = format_ident(&t.name);
                 quote! { #name }
             });
 
-            let name = format_ident(signature.method.name());
+            let name = method.gen_name();
             let vtable_offset = Literal::u32_unsuffixed((vtable_offset + 3) as u32);
 
             quote! {
@@ -57,15 +84,15 @@ impl ComInterface {
             }
         });
 
-        let abi_methods = self.methods.iter().map(|signature| {
-            let return_type = if let Some(t) = &signature.return_type {
+        let abi_methods = self.methods.iter().map(|method| {
+            let return_type = if let Some(t) = &method.signature.return_type {
                 let tokens = t.gen_field();
                 quote! { -> #tokens }
             } else {
                 TokenStream::new()
             };
 
-            let params = signature.params.iter().map(|t| {
+            let params = method.signature.params.iter().map(|t| {
                 let name = format_ident(&t.name);
                 let tokens = t.gen_field();
                 quote! { #name: #tokens }
@@ -117,7 +144,7 @@ impl ComInterface {
     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
         self.methods
             .iter()
-            .map(|signature| signature.dependencies())
+            .map(|method| method.signature.dependencies())
             .flatten()
             .collect()
     }

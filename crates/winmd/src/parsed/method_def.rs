@@ -21,7 +21,7 @@ impl MethodDef {
             })
     }
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'static str {
         self.reader.str(self.row, 3)
     }
 
