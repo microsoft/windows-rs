@@ -1,19 +1,23 @@
 use windows::Abi;
 
-use tests::windows::win32::backup::{CreateEventW, SetEvent, WaitForSingleObject, RECT};
-use tests::windows::win32::base::{BOOL, HANDLE, HWND, WM_KEYUP};
-// use tests::windows::win32::com::CreateUri;
-use tests::windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA;
-use tests::windows::win32::direct3d_dxgi::{
-    DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER,
-    DXGI_RATIONAL,
+use tests::{
+    windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
+    windows::win32::direct3d_hlsl::D3DCOMPILER_DLL,
+    windows::win32::display_devices::RECT,
+    windows::win32::dxgi::{
+        DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
+        DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
+    },
+    windows::win32::security::ACCESS_MODE,
+    windows::win32::system_services::{
+        CreateEventW, SetEvent, WaitForSingleObject, HANDLE, WM_KEYUP,
+    },
+    windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
+    windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
+    windows::win32::windows_programming::CloseHandle,
+    //windows::win32::com::{IUri, CreateUri}
 };
-use tests::windows::win32::direct3d_hlsl::D3DCOMPILER_DLL;
-use tests::windows::win32::dlg_box::CHOOSECOLORW;
-use tests::windows::win32::menu_rc::{PROPENUMPROCA, PROPENUMPROCW};
-use tests::windows::win32::security::ACCESS_MODE;
-use tests::windows::win32::win_auto::UIA_ScrollPatternNoScroll;
-use tests::windows::win32::win_prog::CloseHandle;
+use windows::BOOL;
 
 #[test]
 fn signed_enum32() {

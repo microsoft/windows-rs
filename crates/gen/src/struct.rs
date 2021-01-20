@@ -85,6 +85,11 @@ impl Struct {
     }
 
     pub fn gen(&self) -> TokenStream {
+        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/132
+        if self.name.name == "VBS_BASIC_ENCLAVE_SYSCALL_PAGE" {
+            return TokenStream::new();
+        }
+
         let name = self.name.gen();
 
         // TODO: if the struct is blittable then don't generate a separate abi type.
@@ -248,7 +253,6 @@ impl Struct {
         };
 
         let debug_name = self.name.name;
-        let additions = self.gen_additions();
 
         quote! {
             #[repr(C)]
@@ -285,47 +289,6 @@ impl Struct {
             impl ::std::cmp::Eq for #name {}
             #copy
             #runtime_type
-            #additions
-        }
-    }
-
-    fn gen_additions(&self) -> TokenStream {
-        match (self.name.namespace, self.name.name) {
-            ("Windows.Win32.Base", "BOOL") => quote! {
-                impl ::std::convert::From<bool> for BOOL {
-                    fn from(value: bool) -> Self {
-                        if value {
-                            Self(1)
-                        } else {
-                            Self(0)
-                        }
-                    }
-                }
-                impl ::std::convert::From<BOOL> for bool {
-                    fn from(value: BOOL) -> Self {
-                        value.0 != 0
-                    }
-                }
-                impl BOOL {
-                    #[inline]
-                    pub fn is_ok(self) -> bool {
-                        self.into()
-                    }
-                    #[inline]
-                    pub fn is_err(self) -> bool {
-                        !self.is_ok()
-                    }
-                    #[inline]
-                    pub fn ok(self) -> ::windows::Result<()> {
-                        if self.is_ok() {
-                            Ok(())
-                        } else {
-                            Err(::windows::ErrorCode::from_thread().into())
-                        }
-                    }
-                }
-            },
-            _ => TokenStream::new(),
         }
     }
 }

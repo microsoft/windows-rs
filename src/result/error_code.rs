@@ -2,7 +2,7 @@ use crate::*;
 
 /// A primitive error code value returned by most COM functions. An `ErrorCode` is sometimes called an `HRESULT`.
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Default, Debug, PartialEq)]
 pub struct ErrorCode(pub u32);
 
 impl ErrorCode {
@@ -115,12 +115,6 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
         }
 
         ErrorCode(0)
-    }
-}
-
-impl Default for ErrorCode {
-    fn default() -> Self {
-        Self::S_OK
     }
 }
 
