@@ -38,6 +38,7 @@ pub enum TypeKind {
     Guid,
     IUnknown,
     ErrorCode,
+    Bool32,
     Class(TypeName),
     Interface(TypeName),
     Enum(TypeName),
@@ -322,6 +323,7 @@ impl TypeKind {
             ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
             ("Windows.Foundation", "HResult") => Self::ErrorCode,
             ("Windows.Win32.Com", "HRESULT") => Self::ErrorCode,
+            ("Windows.Win32.SystemServices", "BOOL") => Self::Bool32,
             (namespace, name) => Self::from_type_def(
                 &type_ref.reader.expect_type_def((namespace, name)),
                 calling_namespace,
@@ -384,6 +386,7 @@ impl TypeKind {
             Self::Guid => quote! { ::windows::Guid },
             Self::IUnknown => quote! { ::windows::IUnknown },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
+            Self::Bool32 => quote! { ::windows::BOOL },
             Self::Class(name) => name.gen(),
             Self::Interface(name) => name.gen(),
             Self::Enum(name) => name.gen(),
@@ -418,6 +421,7 @@ impl TypeKind {
             Self::Guid => quote! { ::windows::Guid },
             Self::IUnknown => quote! { ::windows::IUnknown },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
+            Self::Bool32 => quote! { ::windows::BOOL },
             Self::Class(name) => name.gen_full(),
             Self::Interface(name) => name.gen_full(),
             Self::Enum(name) => name.gen_full(),
@@ -449,6 +453,7 @@ impl TypeKind {
             Self::USize => quote! { usize },
             Self::Guid => quote! { ::windows::Guid },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
+            Self::Bool32 => quote! { ::windows::BOOL },
             Self::String
             | Self::Object
             | Self::IUnknown
@@ -485,6 +490,7 @@ impl TypeKind {
             Self::USize => quote! { usize },
             Self::Guid => quote! { ::windows::Guid },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
+            Self::Bool32 => quote! { ::windows::BOOL },
             Self::String
             | Self::Object
             | Self::IUnknown

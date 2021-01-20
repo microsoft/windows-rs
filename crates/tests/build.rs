@@ -32,35 +32,36 @@ fn main() {
         windows::win32::security::{
             ACCESS_MODE,
         }
-        windows::win32::dlg_box::{
+        windows::win32::windows_and_messaging::{
             CHOOSECOLORW,
+            PROPENUMPROCA,
+            PROPENUMPROCW,
         }
-        windows::win32::direct3d_dxgi::{
+        windows::win32::dxgi::{
             DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
             DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
         }
-        windows::win32::backup::{
+        windows::win32::display_devices::{
             RECT,
+        }
+        windows::win32::system_services::{
             CreateEventW,
             SetEvent,
             WaitForSingleObject,
-        }
-        windows::win32::base::{
-            WM_KEYUP
+            WM_KEYUP,
         }
         windows::win32::direct3d12::{
             D3D12_DEFAULT_BLEND_FACTOR_ALPHA
         }
-        windows::win32::win_auto::{
+        windows::win32::windows_accessibility::{
             UIA_ScrollPatternNoScroll
         }
         windows::win32::direct3d_hlsl::{
             D3DCOMPILER_DLL
         }
-        windows::win32::win_prog::{
+        windows::win32::windows_programming::{
             CloseHandle
         }
         windows::win32::com::{IUri, CreateUri}
-        windows::win32::menu_rc::{PROPENUMPROCA, PROPENUMPROCW}
     );
 }

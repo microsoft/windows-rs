@@ -154,6 +154,8 @@ impl TypeReader {
 
         remove_excluded_type(&mut types, ("Windows.Foundation", "HResult"));
         remove_excluded_type(&mut types, ("Windows.Win32", "IUnknown"));
+        remove_excluded_type(&mut types, ("Windows.Win32.SystemServices", "BOOL"));
+        // TODO: map BSTR
 
         // TODO: remove once this is fixed: https://github.com/microsoft/win32metadata/issues/30
         remove_excluded_type(
