@@ -26,19 +26,24 @@ This will allow Cargo to download, build, and cache Windows support as a package
 fn main() {
     windows::build!(
         windows::data::xml::dom::*
-        windows::ui::*
+        windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject}
+        windows::win32::windows_programming::CloseHandle
     );
 }
 ```
 
-Finally, make use of any Windows APIs as needed. For example, here is an example of using the `XmlDocument` class to parse an XML document.
+Finally, make use of any Windows APIs as needed.
 
 ```rust
 mod bindings {
     ::windows::include_bindings!();
 }
 
-use bindings::windows::data::xml::dom::XmlDocument;
+use bindings::{
+    windows::data::xml::dom::*,
+    windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject},
+    windows::win32::windows_programming::CloseHandle,
+};
 
 fn main() -> windows::Result<()> {
     let doc = XmlDocument::new()?;
@@ -47,6 +52,19 @@ fn main() -> windows::Result<()> {
     let root = doc.document_element()?;
     assert!(root.node_name()? == "html");
     assert!(root.inner_text()? == "hello world");
+
+    unsafe {
+        let event = CreateEventW(
+            std::ptr::null_mut(),
+            true.into(),
+            false.into(),
+            std::ptr::null(),
+        );
+
+        SetEvent(event).ok()?;
+        WaitForSingleObject(event, 0);
+        CloseHandle(event).ok()?;
+    }
 
     Ok(())
 }
