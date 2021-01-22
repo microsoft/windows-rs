@@ -6,6 +6,7 @@ use std::collections::BTreeMap;
 pub struct ComInterface {
     pub name: TypeName,
     methods: Vec<Method>,
+    bases: Vec<TypeName>,
 }
 
 #[derive(Debug)]
@@ -28,21 +29,43 @@ impl ComInterface {
     pub fn from_type_name(name: TypeName) -> Self {
         let mut count = BTreeMap::new();
 
-        let methods = name
-            .def
-            .methods()
-            .map(|method| {
+        let mut bases = Vec::new();
+        let mut next = name.def;
+
+        loop {
+            let base = next.interfaces().next().unwrap().interface().resolve();
+
+            if base.name() == ("Windows.Win32.Com", "IUnknown") {
+                break;
+            }
+
+            bases.insert(0, TypeName::new(&base, Vec::new(), name.namespace));
+            next = bases[0].def;
+        }
+
+        let mut methods = Vec::new();
+
+        for def in bases
+            .iter()
+            .map(|name| name.def)
+            .chain(std::iter::once(name.def))
+        {
+            for method in def.methods() {
                 let count = count.entry(method.name()).or_insert(0);
                 *count += 1;
 
-                Method {
+                methods.push(Method {
                     signature: Signature::new(&method, &[], &name.namespace),
                     overload: *count,
-                }
-            })
-            .collect();
+                });
+            }
+        }
 
-        Self { name, methods }
+        Self {
+            name,
+            methods,
+            bases,
+        }
     }
 
     pub fn gen(&self) -> TokenStream {
@@ -145,6 +168,7 @@ impl ComInterface {
         self.methods
             .iter()
             .map(|method| method.signature.dependencies())
+            .chain(self.bases.iter().map(|base|base.dependencies()))
             .flatten()
             .collect()
     }
