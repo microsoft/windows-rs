@@ -1,6 +1,7 @@
 use crate::*;
 use squote::{format_ident, quote, Ident, Literal, TokenStream};
 use std::collections::BTreeMap;
+use std::iter::FromIterator;
 
 #[derive(Debug)]
 pub struct ComInterface {
@@ -84,24 +85,16 @@ impl ComInterface {
                 TokenStream::new()
             };
 
-            let params = method.signature.params.iter().map(|t| {
-                let name = format_ident(&t.name);
-                let tokens = t.gen_field();
-                quote! { #name: #tokens }
-            });
-
-            let args = method.signature.params.iter().map(|t| {
-                let name = format_ident(&t.name);
-                quote! { #name }
-            });
-
+            let constraints = gen_constraint(method);
+            let params = gen_params(method);
+            let args = gen_abi_args(method);
             let name = method.gen_name();
             let vtable_offset = Literal::u32_unsuffixed((vtable_offset + 3) as u32);
 
             quote! {
-                pub fn #name(&self, #(#params),*) #return_type {
+                pub fn #name<#constraints>(&self, #params) #return_type {
                     unsafe {
-                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args),*)
+                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #args)
                     }
                 }
             }
@@ -115,16 +108,52 @@ impl ComInterface {
                 TokenStream::new()
             };
 
-            let params = method.signature.params.iter().map(|t| {
-                let name = format_ident(&t.name);
-                let tokens = t.gen_field();
-                quote! { #name: #tokens }
+            let params = method.signature.params.iter().map(|param| {
+                let name = format_ident(&param.name);
+                match &param.kind {
+                    TypeKind::Interface(_) if param.is_input && !param.is_array => {
+                        quote! { #name: ::windows::RawPtr }
+                    }
+                    _ => {
+                        let tokens = param.gen_field();
+                        quote! { #name: #tokens }
+                    }
+                }
             });
 
             quote! {
                 pub unsafe extern "system" fn (this: ::windows::RawPtr, #(#params),*) #return_type
             }
         });
+
+        let mut conversions = TokenStream::new();
+
+        for base in &self.bases {
+            let into = base.gen();
+
+            conversions.combine(&quote! {
+                impl ::std::convert::From<#name> for #into {
+                    fn from(value: #name) -> Self {
+                        unsafe { ::std::mem::transmute(value) }
+                    }
+                }
+                impl ::std::convert::From<&#name> for #into {
+                    fn from(value: &#name) -> Self {
+                        ::std::convert::From::from(::std::clone::Clone::clone(value))
+                    }
+                }
+                impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for #name {
+                    fn into(self) -> ::windows::Param<'a, #into> {
+                        ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                    }
+                }
+                impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for &'a #name {
+                    fn into(self) -> ::windows::Param<'a, #into> {
+                        ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                    }
+                }
+            });
+        }
 
         quote! {
             #[repr(transparent)]
@@ -161,6 +190,7 @@ impl ComInterface {
             impl #name {
                 #(#methods)*
             }
+            #conversions
         }
     }
 
@@ -172,4 +202,69 @@ impl ComInterface {
             .flatten()
             .collect()
     }
+}
+
+fn gen_constraint(method: &Method) -> TokenStream {
+    let mut tokens = Vec::new();
+
+    for (position, param) in method.signature.params.iter().enumerate() {
+        if !param.is_input || param.is_array {
+            continue;
+        }
+
+        match &param.kind {
+            TypeKind::Interface(_) => {
+                let name = squote::format_ident!("T{}__", position);
+                let into = param.kind.gen();
+                tokens.push(quote! { #name: ::std::convert::Into<::windows::Param<'a, #into>>, });
+            }
+            _ => {}
+        };
+    }
+
+    if !tokens.is_empty() {
+        tokens.insert(0, quote! { 'a, });
+    }
+
+    TokenStream::from_iter(tokens)
+}
+
+fn gen_params(method: &Method) -> TokenStream {
+    let mut tokens = Vec::new();
+
+    for (position, param) in method.signature.params.iter().enumerate() {
+        let name = format_ident(&param.name);
+
+        match &param.kind {
+            TypeKind::Interface(_) if param.is_input && !param.is_array => {
+                let type_tokens = squote::format_ident!("T{}__", position);
+                tokens.push(quote! { #name: #type_tokens, });
+            }
+            _ => {
+                let type_tokens = param.gen_field();
+                tokens.push(quote! { #name: #type_tokens, });
+            }
+        };
+    }
+
+    TokenStream::from_iter(tokens)
+}
+
+fn gen_abi_args(method: &Method) -> TokenStream {
+    let mut tokens = Vec::new();
+
+    for param in method.signature.params.iter() {
+        let name = format_ident(&param.name);
+
+        match &param.kind {
+            TypeKind::Interface(_) if param.is_input && !param.is_array => {
+                tokens.push(quote! { #name.into().abi(), });
+            }
+            _ => {
+                tokens.push(quote! { #name, });
+            }
+        };
+    }
+
+    TokenStream::from_iter(tokens)
 }

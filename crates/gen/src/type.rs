@@ -125,6 +125,11 @@ impl Type {
         let mut name = if let Some(param) = param {
             is_input = !param.flags().output();
 
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/63
+            if is_input  && param.has_attribute(("Windows.Win32.Interop", "ComOutPtrAttribute")) {
+                is_input = false;
+            }
+
             if !is_const {
                 is_const = param.has_attribute(("Windows.Win32.Interop", "ConstAttribute"));
             }
