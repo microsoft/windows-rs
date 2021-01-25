@@ -1,7 +1,7 @@
 use crate::*;
 use squote::{quote, Literal, TokenStream};
 
-#[derive(Clone, Default, PartialEq)]
+#[derive(Clone, PartialEq)]
 pub struct TypeGuid(pub [GuidConstant; 11]);
 
 #[derive(Clone, PartialEq)]
@@ -32,6 +32,24 @@ impl GuidConstant {
     }
 }
 
+impl Default for TypeGuid {
+    fn default() -> Self {
+        return Self([
+            GuidConstant::U32(0),
+            GuidConstant::U16(0),
+            GuidConstant::U16(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+            GuidConstant::U8(0),
+        ]);
+    }
+}
+
 impl std::fmt::Debug for TypeGuid {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
@@ -59,10 +77,6 @@ impl Default for GuidConstant {
 }
 
 impl TypeGuid {
-    pub fn new() -> Self {
-        Self::default()
-    }
-
     pub fn from_type_def(def: &winmd::TypeDef) -> Self {
         for attribute in def.attributes() {
             match attribute.name() {
@@ -108,19 +122,7 @@ impl TypeGuid {
             }
         }
 
-        return Self([
-            GuidConstant::U32(0),
-            GuidConstant::U16(0),
-            GuidConstant::U16(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-        ]);
+        Self::default()
     }
 
     pub fn gen(&self) -> TokenStream {

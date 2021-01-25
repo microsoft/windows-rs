@@ -107,6 +107,10 @@ impl syn::parse::Parse for BuildLimits {
             let limit: TypesDeclaration = use_tree.try_into()?;
 
             limits.insert(limit);
+
+            if !input.is_empty() {
+                input.parse::<syn::Token![,]>()?;
+            }
         }
         Ok(Self(limits))
     }

@@ -54,7 +54,7 @@ impl Constant {
         let value = value.gen();
 
         quote! {
-            pub const  #name: #value;
+            pub const #name: #value;
         }
     }
 }
