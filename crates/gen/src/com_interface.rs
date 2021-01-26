@@ -257,41 +257,42 @@ fn gen_constraint(method: &Method) -> TokenStream {
 }
 
 fn gen_params(method: &Method) -> TokenStream {
-    let mut tokens = Vec::new();
+    TokenStream::from_iter(
+        method
+            .signature
+            .params
+            .iter()
+            .enumerate()
+            .map(|(position, param)| {
+                let name = format_ident(&param.name);
 
-    for (position, param) in method.signature.params.iter().enumerate() {
-        let name = format_ident(&param.name);
-
-        match &param.kind {
-            TypeKind::IUnknown | TypeKind::Interface(_) if param.is_input && !param.is_array => {
-                let type_tokens = squote::format_ident!("T{}__", position);
-                tokens.push(quote! { #name: #type_tokens, });
-            }
-            _ => {
-                let type_tokens = param.gen_field();
-                tokens.push(quote! { #name: #type_tokens, });
-            }
-        };
-    }
-
-    TokenStream::from_iter(tokens)
+                match &param.kind {
+                    TypeKind::IUnknown | TypeKind::Interface(_)
+                        if param.is_input && !param.is_array =>
+                    {
+                        let type_tokens = squote::format_ident!("T{}__", position);
+                        quote! { #name: #type_tokens, }
+                    }
+                    _ => {
+                        let type_tokens = param.gen_field();
+                        quote! { #name: #type_tokens, }
+                    }
+                }
+            }),
+    )
 }
 
 fn gen_abi_args(method: &Method) -> TokenStream {
-    let mut tokens = Vec::new();
-
-    for param in method.signature.params.iter() {
+    TokenStream::from_iter(method.signature.params.iter().map(|param| {
         let name = format_ident(&param.name);
 
         match &param.kind {
             TypeKind::IUnknown | TypeKind::Interface(_) if param.is_input && !param.is_array => {
-                tokens.push(quote! { #name.into().abi(), });
+                quote! { #name.into().abi(), }
             }
             _ => {
-                tokens.push(quote! { #name, });
+                quote! { #name, }
             }
-        };
-    }
-
-    TokenStream::from_iter(tokens)
+        }
+    }))
 }
