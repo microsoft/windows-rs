@@ -8,6 +8,7 @@ pub struct Struct {
     pub fields: Vec<(String, Type)>,
     pub signature: String,
     pub is_typedef: bool,
+    pub guid: TypeGuid,
 }
 
 impl Struct {
@@ -47,8 +48,10 @@ impl Struct {
             fields.push((field_name, t));
         }
 
+        let guid = TypeGuid::from_type_def(&name.def);
+
         // The C/C++ ABI assumes an empty struct occupies a single byte in memory.
-        if fields.is_empty() {
+        if fields.is_empty() && guid != TypeGuid::default() {
             let t = Type {
                 kind: TypeKind::U8,
                 pointers: 0,
@@ -74,6 +77,7 @@ impl Struct {
             fields,
             signature,
             is_typedef,
+            guid,
         }
     }
 
@@ -91,6 +95,14 @@ impl Struct {
         }
 
         let name = self.name.gen();
+
+        if self.guid != TypeGuid::default() {
+            let guid = self.name.gen_guid(&self.guid);
+
+            return quote! {
+                pub const #name: ::windows::Guid = #guid;
+            };
+        }
 
         // TODO: if the struct is blittable then don't generate a separate abi type.
         let abi_ident = format_ident!("{}_abi", self.name.name);

@@ -9,7 +9,6 @@ pub enum TypeDefinition {
     Enum(Enum),
     Struct(Struct),
     Delegate(Delegate),
-    ComClass(ComClass),
     ComInterface(ComInterface),
     Callback(Callback),
     Constant(Constant),
@@ -52,13 +51,7 @@ impl TypeDefinition {
                     Self::ComInterface(ComInterface::from_type_name(name))
                 }
             }
-            winmd::TypeCategory::Class => {
-                if def.is_winrt() {
-                    Self::Class(Class::from_type_name(name))
-                } else {
-                    Self::ComClass(ComClass::from_type_name(name))
-                }
-            }
+            winmd::TypeCategory::Class => Self::Class(Class::from_type_name(name)),
             winmd::TypeCategory::Enum => Self::Enum(Enum::from_type_name(name)),
             winmd::TypeCategory::Struct => Self::Struct(Struct::from_type_name(name)),
             winmd::TypeCategory::Delegate => {
@@ -79,7 +72,6 @@ impl TypeDefinition {
             Self::Enum(t) => t.gen(),
             Self::Struct(t) => t.gen(),
             Self::Delegate(t) => t.gen(),
-            Self::ComClass(t) => t.gen(),
             Self::ComInterface(t) => t.gen(),
             Self::Callback(t) => t.gen(),
             Self::Constant(t) => t.gen(),
@@ -95,7 +87,6 @@ impl TypeDefinition {
             Self::Enum(t) => &t.name,
             Self::Struct(t) => &t.name,
             Self::Delegate(t) => &t.name,
-            Self::ComClass(t) => &t.name,
             Self::ComInterface(t) => &t.name,
             Self::Callback(t) => &t.name,
             Self::Constant(t) => &t.name,
