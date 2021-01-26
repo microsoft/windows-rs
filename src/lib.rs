@@ -22,7 +22,7 @@ use runtime::*;
 
 pub use interfaces::{IActivationFactory, IAgileObject, IUnknown, Object};
 pub use result::{Error, ErrorCode, Result, BOOL};
-pub use runtime::{Array, FactoryCache, Guid, Param, RefCount, Waiter};
+pub use runtime::{factory, Array, FactoryCache, Guid, Param, RefCount, Waiter};
 pub use strings::{BString, HString};
 pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
 pub use windows_macros::{build, implement};
