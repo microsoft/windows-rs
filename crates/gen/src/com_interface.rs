@@ -40,14 +40,16 @@ impl ComInterface {
                 break;
             }
 
-            bases.insert(0, TypeName::new(&base, Vec::new(), name.namespace));
-            next = bases[0].def;
+            let base = TypeName::new(&base, Vec::new(), name.namespace);
+            next = base.def;
+            bases.push(base);
         }
 
         let mut methods = Vec::new();
 
         for def in bases
             .iter()
+            .rev()
             .map(|name| name.def)
             .chain(std::iter::once(name.def))
         {

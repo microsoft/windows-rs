@@ -39,7 +39,7 @@ fn main() {
         },
         windows::win32::dxgi::{
             DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
-            DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
+            DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,IDXGIFactory7, CreateDXGIFactory1
         },
         windows::win32::display_devices::{
             RECT,
@@ -49,6 +49,7 @@ fn main() {
             SetEvent,
             WaitForSingleObject,
             WM_KEYUP,
+            DXGI_ERROR_INVALID_CALL,
         },
         windows::win32::direct3d12::{
             D3D12_DEFAULT_BLEND_FACTOR_ALPHA

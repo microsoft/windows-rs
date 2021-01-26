@@ -5,19 +5,20 @@ use tests::{
     windows::win32::direct3d_hlsl::D3DCOMPILER_DLL,
     windows::win32::display_devices::RECT,
     windows::win32::dxgi::{
-        DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
-        DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
+        CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC,
+        DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
     },
     windows::win32::security::ACCESS_MODE,
     windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
     windows::win32::system_services::{
-        CreateEventW, SetEvent, WaitForSingleObject, HANDLE, WM_KEYUP,
+        CreateEventW, SetEvent, WaitForSingleObject, DXGI_ERROR_INVALID_CALL, HANDLE, WM_KEYUP,
     },
     windows::win32::upnp::UIAnimationTransitionLibrary,
     windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
     windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
     windows::win32::windows_programming::CloseHandle,
 };
+use windows::Interface;
 use windows::BOOL;
 
 #[test]
@@ -208,6 +209,38 @@ fn com() -> windows::Result<()> {
     }
 
     Ok(())
+}
+
+#[test]
+fn com_inheritance() {
+    unsafe {
+        let mut factory: Option<IDXGIFactory7> = None;
+        let factory: IDXGIFactory7 = CreateDXGIFactory1(&IDXGIFactory7::IID, factory.set_abi())
+            .and_some(factory)
+            .unwrap();
+
+        // IDXGIFactory
+        assert!(
+            factory.GetWindowAssociation(std::ptr::null_mut()).0 == DXGI_ERROR_INVALID_CALL as u32
+        );
+
+        // IDXGIFactory1
+        assert!(factory.IsCurrent().is_ok());
+
+        // IDXGIFactory2
+        factory.IsWindowedStereoEnabled();
+
+        // IDXGIFactory3
+        assert!(factory.GetCreationFlags() == 0);
+
+        // IDXGIFactory7 (default)
+        assert!(
+            factory
+                .RegisterAdaptersChangedEvent(HANDLE(0), std::ptr::null_mut())
+                .0
+                == DXGI_ERROR_INVALID_CALL as u32
+        );
+    }
 }
 
 // TODO: light up BSTR as windows::BString
