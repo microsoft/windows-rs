@@ -30,7 +30,7 @@ macro_rules! demand_load {
                 // function pointer, so it must be done here outside load_proc().
                 type FnPtr = extern "system" fn ( $( $param: $pty ),* ) -> $rt;
                 let f = ::std::mem::transmute::<$crate::RawPtr, FnPtr>(VALUE.assume_init()?);
-                Ok( (f)( $( $param ),* ) )
+                ::std::result::Result::Ok( (f)( $( $param ),* ) )
             }
         )*)*
     };
