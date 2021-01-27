@@ -34,13 +34,17 @@ impl ComInterface {
         let mut next = name.def;
 
         loop {
-            let base = next.interfaces().next().unwrap().interface().resolve();
+            let base = if let Some(next) = next.interfaces().next() {
+                next.interface()
+            } else {
+                break;
+            };
 
             if base.name() == ("Windows.Win32.Com", "IUnknown") {
                 break;
             }
 
-            let base = TypeName::new(&base, Vec::new(), name.namespace);
+            let base = TypeName::new(&base.resolve(), Vec::new(), name.namespace);
             next = base.def;
             bases.push(base);
         }

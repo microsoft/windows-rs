@@ -955,6 +955,24 @@ impl Matrix3x2 {
             m32: 0.0,
         }
     }
+    pub fn translation(x: f32, y: f32) -> Self {
+        Self {
+            m11: 1.0,
+            m12: 0.0,
+            m21: 0.0,
+            m22: 1.0,
+            m31: x,
+            m32: y,
+        }
+    }
+
+    pub fn rotation(angle: f32, center: Vector2) -> Self {
+        let mut matrix = Self::default();
+        unsafe {
+            D2D1MakeRotateMatrix(angle, center, &mut matrix);
+        }
+        matrix
+    }
 }
 
 // Matrix4x4
@@ -1279,4 +1297,9 @@ impl ::std::ops::Mul<&Matrix4x4> for &Matrix4x4 {
             m44: self.m41 * rhs.m14 + self.m42 * rhs.m24 + self.m43 * rhs.m34 + self.m44 * rhs.m44,
         }
     }
+}
+
+#[link(name = "d2d1")]
+extern "system" {
+    fn D2D1MakeRotateMatrix(angle: f32, center: Vector2, matrix: &mut Matrix3x2);
 }
