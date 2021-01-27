@@ -95,11 +95,6 @@ impl Struct {
     }
 
     pub fn gen(&self) -> TokenStream {
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/132
-        if self.name.name == "VBS_BASIC_ENCLAVE_SYSCALL_PAGE" {
-            return TokenStream::new();
-        }
-
         let name = self.name.gen();
 
         if self.guid != TypeGuid::default() {
