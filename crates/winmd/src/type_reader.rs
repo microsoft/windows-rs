@@ -153,8 +153,9 @@ impl TypeReader {
         }
 
         remove_excluded_type(&mut types, ("Windows.Foundation", "HResult"));
-        remove_excluded_type(&mut types, ("Windows.Win32", "IUnknown"));
+        remove_excluded_type(&mut types, ("Windows.Win32.Com", "IUnknown"));
         remove_excluded_type(&mut types, ("Windows.Win32.SystemServices", "BOOL"));
+        remove_excluded_type(&mut types, ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F"));
 
         remove_excluded_type(
             &mut types,

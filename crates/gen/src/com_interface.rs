@@ -34,13 +34,17 @@ impl ComInterface {
         let mut next = name.def;
 
         loop {
-            let base = next.interfaces().next().unwrap().interface().resolve();
+            let base = if let Some(next) = next.interfaces().next() {
+                next.interface()
+            } else {
+                break;
+            };
 
             if base.name() == ("Windows.Win32.Com", "IUnknown") {
                 break;
             }
 
-            let base = TypeName::new(&base, Vec::new(), name.namespace);
+            let base = TypeName::new(&base.resolve(), Vec::new(), name.namespace);
             next = base.def;
             bases.push(base);
         }
@@ -57,8 +61,24 @@ impl ComInterface {
                 let count = count.entry(method.name()).or_insert(0);
                 *count += 1;
 
+                let mut signature = Signature::new(&method, &[], &name.namespace);
+
+                // Many years ago, the Visual C++ compiler engineers decided to diverge from the stdcall calling convention
+                // for virtual functions returning UDTs. These return values must actually be returned via a hidden output
+                // pointer. This is now part of the COM ABI and other compilers must follow along to ensure the ABI is
+                // correctly preserved.
+
+                if let Some(t) = &signature.return_type {
+                    if let TypeKind::Struct(_) = t.kind {
+                        let mut param = t.clone();
+                        param.pointers += 1;
+                        signature.params.insert(0, param);
+                        signature.return_type = None;
+                    }
+                }
+
                 methods.push(Method {
-                    signature: Signature::new(&method, &[], &name.namespace),
+                    signature,
                     overload: *count,
                 });
             }

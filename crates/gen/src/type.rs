@@ -39,6 +39,7 @@ pub enum TypeKind {
     IUnknown,
     ErrorCode,
     Bool32,
+    Matrix3x2,
     Class(TypeName),
     Interface(TypeName),
     Enum(TypeName),
@@ -332,6 +333,7 @@ impl TypeKind {
             // TODO: workaround for https://github.com/microsoft/win32metadata/issues/181
             ("Windows.Win32.SystemServices", "LARGE_INTEGER") => Self::I64,
             ("Windows.Win32.SystemServices", "ULARGE_INTEGER") => Self::U64,
+            ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
             (namespace, name) => Self::from_type_def(
                 &type_ref.reader.expect_type_def((namespace, name)),
                 calling_namespace,
@@ -395,6 +397,7 @@ impl TypeKind {
             Self::IUnknown => quote! { ::windows::IUnknown },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Bool32 => quote! { ::windows::BOOL },
+            Self::Matrix3x2 => quote! { ::windows::foundation::numerics::Matrix3x2 },
             Self::Class(name) => name.gen(),
             Self::Interface(name) => name.gen(),
             Self::Enum(name) => name.gen(),
@@ -430,6 +433,7 @@ impl TypeKind {
             Self::IUnknown => quote! { ::windows::IUnknown },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Bool32 => quote! { ::windows::BOOL },
+            Self::Matrix3x2 => quote! { ::windows::foundation::numerics::Matrix3x2 },
             Self::Class(name) => name.gen_full(),
             Self::Interface(name) => name.gen_full(),
             Self::Enum(name) => name.gen_full(),
@@ -462,6 +466,7 @@ impl TypeKind {
             Self::Guid => quote! { ::windows::Guid },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Bool32 => quote! { ::windows::BOOL },
+            Self::Matrix3x2 => quote! { ::windows::foundation::numerics::Matrix3x2 },
             Self::String
             | Self::Object
             | Self::IUnknown
@@ -499,6 +504,7 @@ impl TypeKind {
             Self::Guid => quote! { ::windows::Guid },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Bool32 => quote! { ::windows::BOOL },
+            Self::Matrix3x2 => quote! { ::windows::foundation::numerics::Matrix3x2 },
             Self::String
             | Self::Object
             | Self::IUnknown

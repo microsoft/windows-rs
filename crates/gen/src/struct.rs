@@ -25,7 +25,13 @@ impl Struct {
         let mut unique = BTreeSet::new();
 
         for field in name.def.fields() {
-            let t = Type::from_field(&field, &name.namespace);
+            let mut t = Type::from_field(&field, &name.namespace);
+
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/132
+            if let TypeKind::Delegate(_) = &t.kind {
+                t.pointers = 0;
+            }
+
             let mut field_name = to_snake(field.name());
 
             // A handful of Win32 structs, like `CIECHROMA` and `GenTspecParms`, have fields whose snake case
@@ -89,11 +95,6 @@ impl Struct {
     }
 
     pub fn gen(&self) -> TokenStream {
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/132
-        if self.name.name == "VBS_BASIC_ENCLAVE_SYSCALL_PAGE" {
-            return TokenStream::new();
-        }
-
         let name = self.name.gen();
 
         if self.guid != TypeGuid::default() {
