@@ -965,7 +965,6 @@ impl Matrix3x2 {
             m32: y,
         }
     }
-
     pub fn rotation(angle: f32, center: Vector2) -> Self {
         let mut matrix = Self::default();
         unsafe {
