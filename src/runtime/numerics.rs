@@ -944,6 +944,18 @@ impl ::std::ops::Mul<&Matrix3x2> for &Matrix3x2 {
         }
     }
 }
+impl Matrix3x2 {
+    pub fn identity() -> Self {
+        Self {
+            m11: 1.0,
+            m12: 0.0,
+            m21: 0.0,
+            m22: 1.0,
+            m31: 0.0,
+            m32: 0.0,
+        }
+    }
+}
 
 // Matrix4x4
 impl ::std::ops::Add<Matrix4x4> for Matrix4x4 {
