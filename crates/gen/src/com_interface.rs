@@ -72,7 +72,7 @@ impl ComInterface {
                     if let TypeKind::Struct(_) = t.kind {
                         let mut param = t.clone();
                         param.pointers += 1;
-                        signature.params.push(param);
+                        signature.params.insert(0, param);
                         signature.return_type = None;
                     }
                 }
