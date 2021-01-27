@@ -5,18 +5,20 @@ use tests::{
     windows::win32::direct3d_hlsl::D3DCOMPILER_DLL,
     windows::win32::display_devices::RECT,
     windows::win32::dxgi::{
-        DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC, DXGI_MODE_SCALING,
-        DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
+        CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC,
+        DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
     },
     windows::win32::security::ACCESS_MODE,
+    windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
     windows::win32::system_services::{
-        CreateEventW, SetEvent, WaitForSingleObject, HANDLE, WM_KEYUP,
+        CreateEventW, SetEvent, WaitForSingleObject, DXGI_ERROR_INVALID_CALL, HANDLE, WM_KEYUP,
     },
+    windows::win32::upnp::UIAnimationTransitionLibrary,
     windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
     windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
     windows::win32::windows_programming::CloseHandle,
-    //windows::win32::com::{IUri, CreateUri}
 };
+use windows::Interface;
 use windows::BOOL;
 
 #[test]
@@ -141,6 +143,103 @@ fn bool_as_error() {
         let error: windows::Error = result.unwrap_err();
         assert_eq!(error.code(), windows::ErrorCode(0x8007_0006));
         assert_eq!(error.message(), "The handle is invalid.");
+    }
+}
+
+#[test]
+fn com() -> windows::Result<()> {
+    unsafe {
+        let mut stream = None;
+        let stream = CreateStreamOnHGlobal(0, true.into(), &mut stream).and_some(stream)?;
+        let values = vec![1, 20, 300, 4000];
+        let mut copied = 0;
+
+        stream
+            .Write(
+                values.as_ptr() as _,
+                (values.len() * std::mem::size_of::<i32>()) as u32,
+                &mut copied,
+            )
+            .ok()?;
+
+        assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
+
+        stream
+            .Write(
+                &UIAnimationTransitionLibrary as *const _ as _,
+                std::mem::size_of::<windows::Guid>() as u32,
+                &mut copied,
+            )
+            .ok()?;
+
+        assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
+        let mut position = 123;
+
+        stream
+            .Seek(0, STREAM_SEEK::STREAM_SEEK_SET.0 as u32, &mut position)
+            .ok()?;
+
+        assert!(position == 0);
+        let mut values = vec![0, 0, 0, 0];
+        let mut copied = 0;
+
+        stream
+            .Read(
+                values.as_mut_ptr() as _,
+                (values.len() * std::mem::size_of::<i32>()) as u32,
+                &mut copied,
+            )
+            .ok()?;
+
+        assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
+        assert!(values == vec![1, 20, 300, 4000]);
+        let mut value: windows::Guid = windows::Guid::default();
+        let mut copied = 0;
+
+        stream
+            .Read(
+                &mut value as *mut _ as _,
+                std::mem::size_of::<windows::Guid>() as u32,
+                &mut copied,
+            )
+            .ok()?;
+
+        assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
+        assert!(value == UIAnimationTransitionLibrary);
+    }
+
+    Ok(())
+}
+
+#[test]
+fn com_inheritance() {
+    unsafe {
+        let mut factory: Option<IDXGIFactory7> = None;
+        let factory: IDXGIFactory7 = CreateDXGIFactory1(&IDXGIFactory7::IID, factory.set_abi())
+            .and_some(factory)
+            .unwrap();
+
+        // IDXGIFactory
+        assert!(
+            factory.GetWindowAssociation(std::ptr::null_mut()).0 == DXGI_ERROR_INVALID_CALL as u32
+        );
+
+        // IDXGIFactory1
+        assert!(factory.IsCurrent().is_ok());
+
+        // IDXGIFactory2
+        factory.IsWindowedStereoEnabled();
+
+        // IDXGIFactory3
+        assert!(factory.GetCreationFlags() == 0);
+
+        // IDXGIFactory7 (default)
+        assert!(
+            factory
+                .RegisterAdaptersChangedEvent(HANDLE(0), std::ptr::null_mut())
+                .0
+                == DXGI_ERROR_INVALID_CALL as u32
+        );
     }
 }
 

@@ -78,13 +78,22 @@ impl Blob {
     }
 
     pub fn read_utf16(&self) -> String {
-        let bytes = self.reader.files[self.file_index as usize].bytes[self.offset..].as_ptr();
-        unsafe {
-            String::from_utf16(std::slice::from_raw_parts(
-                bytes as *const u16,
-                self.size / 2,
-            ))
-            .unwrap()
+        let bytes = &self.reader.files[self.file_index as usize].bytes[self.offset..];
+        if bytes.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
+            let bytes = bytes
+                .chunks_exact(2)
+                .take(self.size / 2)
+                .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
+                .collect::<Vec<u16>>();
+            String::from_utf16(&bytes).unwrap()
+        } else {
+            assert!(
+                bytes.len() >= self.size,
+                "Attempt to read from end of memory"
+            );
+            let bytes =
+                unsafe { std::slice::from_raw_parts(bytes.as_ptr() as *const u16, self.size / 2) };
+            String::from_utf16(bytes).unwrap()
         }
     }
 

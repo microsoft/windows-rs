@@ -125,6 +125,11 @@ impl Type {
         let mut name = if let Some(param) = param {
             is_input = !param.flags().output();
 
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/63
+            if is_input && param.has_attribute(("Windows.Win32.Interop", "ComOutPtrAttribute")) {
+                is_input = false;
+            }
+
             if !is_const {
                 is_const = param.has_attribute(("Windows.Win32.Interop", "ConstAttribute"));
             }
@@ -324,6 +329,9 @@ impl TypeKind {
             ("Windows.Foundation", "HResult") => Self::ErrorCode,
             ("Windows.Win32.Com", "HRESULT") => Self::ErrorCode,
             ("Windows.Win32.SystemServices", "BOOL") => Self::Bool32,
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/181
+            ("Windows.Win32.SystemServices", "LARGE_INTEGER") => Self::I64,
+            ("Windows.Win32.SystemServices", "ULARGE_INTEGER") => Self::U64,
             (namespace, name) => Self::from_type_def(
                 &type_ref.reader.expect_type_def((namespace, name)),
                 calling_namespace,

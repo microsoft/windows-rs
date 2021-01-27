@@ -155,6 +155,17 @@ impl TypeReader {
         remove_excluded_type(&mut types, ("Windows.Foundation", "HResult"));
         remove_excluded_type(&mut types, ("Windows.Win32", "IUnknown"));
         remove_excluded_type(&mut types, ("Windows.Win32.SystemServices", "BOOL"));
+
+        remove_excluded_type(
+            &mut types,
+            ("Windows.Win32.SystemServices", "LARGE_INTEGER"),
+        );
+
+        remove_excluded_type(
+            &mut types,
+            ("Windows.Win32.SystemServices", "ULARGE_INTEGER"),
+        );
+
         // TODO: map BSTR
 
         // TODO: remove once this is fixed: https://github.com/microsoft/win32metadata/issues/30

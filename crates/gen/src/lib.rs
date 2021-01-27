@@ -2,7 +2,6 @@ extern crate windows_winmd as winmd;
 
 mod callback;
 mod class;
-mod com_class;
 mod com_interface;
 mod constant;
 mod delegate;
@@ -32,7 +31,6 @@ mod type_tree;
 
 pub use callback::*;
 pub use class::*;
-pub use com_class::*;
 pub use com_interface::*;
 pub use constant::*;
 pub use delegate::*;
