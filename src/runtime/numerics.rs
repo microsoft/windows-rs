@@ -1,186 +1,6 @@
 use windows::foundation::numerics::{Matrix3x2, Matrix4x4, Vector2, Vector3, Vector4};
 
 // Vector2
-impl ::std::ops::Add<Vector2> for Vector2 {
-    type Output = Vector2;
-    fn add(self, rhs: Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-        }
-    }
-}
-impl ::std::ops::Add<&Vector2> for Vector2 {
-    type Output = Vector2;
-    fn add(self, rhs: &Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-        }
-    }
-}
-impl ::std::ops::Add<Vector2> for &Vector2 {
-    type Output = Vector2;
-    fn add(self, rhs: Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-        }
-    }
-}
-impl ::std::ops::Add<&Vector2> for &Vector2 {
-    type Output = Vector2;
-    fn add(self, rhs: &Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-        }
-    }
-}
-impl ::std::ops::Sub<Vector2> for Vector2 {
-    type Output = Vector2;
-    fn sub(self, rhs: Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-        }
-    }
-}
-impl ::std::ops::Sub<&Vector2> for Vector2 {
-    type Output = Vector2;
-    fn sub(self, rhs: &Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-        }
-    }
-}
-impl ::std::ops::Sub<Vector2> for &Vector2 {
-    type Output = Vector2;
-    fn sub(self, rhs: Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-        }
-    }
-}
-impl ::std::ops::Sub<&Vector2> for &Vector2 {
-    type Output = Vector2;
-    fn sub(self, rhs: &Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-        }
-    }
-}
-impl ::std::ops::Div<Vector2> for Vector2 {
-    type Output = Vector2;
-    fn div(self, rhs: Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-        }
-    }
-}
-impl ::std::ops::Div<&Vector2> for Vector2 {
-    type Output = Vector2;
-    fn div(self, rhs: &Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-        }
-    }
-}
-impl ::std::ops::Div<Vector2> for &Vector2 {
-    type Output = Vector2;
-    fn div(self, rhs: Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-        }
-    }
-}
-impl ::std::ops::Div<&Vector2> for &Vector2 {
-    type Output = Vector2;
-    fn div(self, rhs: &Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-        }
-    }
-}
-impl ::std::ops::Div<f32> for Vector2 {
-    type Output = Vector2;
-    fn div(self, rhs: f32) -> Vector2 {
-        Vector2 {
-            x: self.x / rhs,
-            y: self.y / rhs,
-        }
-    }
-}
-impl ::std::ops::Div<f32> for &Vector2 {
-    type Output = Vector2;
-    fn div(self, rhs: f32) -> Vector2 {
-        Vector2 {
-            x: self.x / rhs,
-            y: self.y / rhs,
-        }
-    }
-}
-impl ::std::ops::Mul<Vector2> for Vector2 {
-    type Output = Vector2;
-    fn mul(self, rhs: Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-        }
-    }
-}
-impl ::std::ops::Mul<&Vector2> for Vector2 {
-    type Output = Vector2;
-    fn mul(self, rhs: &Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-        }
-    }
-}
-impl ::std::ops::Mul<Vector2> for &Vector2 {
-    type Output = Vector2;
-    fn mul(self, rhs: Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-        }
-    }
-}
-impl ::std::ops::Mul<&Vector2> for &Vector2 {
-    type Output = Vector2;
-    fn mul(self, rhs: &Vector2) -> Vector2 {
-        Vector2 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-        }
-    }
-}
-impl ::std::ops::Mul<f32> for Vector2 {
-    type Output = Vector2;
-    fn mul(self, rhs: f32) -> Vector2 {
-        Vector2 {
-            x: self.x * rhs,
-            y: self.y * rhs,
-        }
-    }
-}
-impl ::std::ops::Mul<f32> for &Vector2 {
-    type Output = Vector2;
-    fn mul(self, rhs: f32) -> Vector2 {
-        Vector2 {
-            x: self.x * rhs,
-            y: self.y * rhs,
-        }
-    }
-}
 impl Vector2 {
     pub fn zero() -> Self {
         Self { x: 0f32, y: 0f32 }
@@ -194,7 +14,7 @@ impl Vector2 {
     pub fn unit_y() -> Self {
         Self { x: 0.0, y: 1.0 }
     }
-    pub fn dot(&self, rhs: &Vector2) -> f32 {
+    pub fn dot(&self, rhs: &Self) -> f32 {
         self.x * rhs.x + self.y * rhs.y
     }
     pub fn length_squared(&self) -> f32 {
@@ -203,218 +23,177 @@ impl Vector2 {
     pub fn length(&self) -> f32 {
         self.length_squared().sqrt()
     }
-    pub fn distance(&self, value: &Vector2) -> f32 {
+    pub fn distance(&self, value: &Self) -> f32 {
         (self - value).length()
     }
-    pub fn distance_squared(&self, value: &Vector2) -> f32 {
+    pub fn distance_squared(&self, value: &Self) -> f32 {
         (self - value).length_squared()
     }
     pub fn normalize(&self) -> Self {
         self / self.length()
     }
+
+    fn impl_add(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+        }
+    }
+    fn impl_sub(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x - rhs.x,
+            y: self.y - rhs.y,
+        }
+    }
+    fn impl_div(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x / rhs.x,
+            y: self.y / rhs.y,
+        }
+    }
+    fn impl_div_f32(&self, rhs: f32) -> Self {
+        Self {
+            x: self.x / rhs,
+            y: self.y / rhs,
+        }
+    }
+    fn impl_mul(&self, rhs: &Vector2) -> Self {
+        Self {
+            x: self.x * rhs.x,
+            y: self.y * rhs.y,
+        }
+    }
+    fn impl_mul_f32(&self, rhs: f32) -> Self {
+        Self {
+            x: self.x * rhs,
+            y: self.y * rhs,
+        }
+    }
 }
 
+impl ::std::ops::Add<Vector2> for Vector2 {
+    type Output = Vector2;
+    fn add(self, rhs: Vector2) -> Vector2 {
+        self.impl_add(&rhs)
+    }
+}
+impl ::std::ops::Add<&Vector2> for Vector2 {
+    type Output = Vector2;
+    fn add(self, rhs: &Vector2) -> Vector2 {
+        self.impl_add(rhs)
+    }
+}
+impl ::std::ops::Add<Vector2> for &Vector2 {
+    type Output = Vector2;
+    fn add(self, rhs: Vector2) -> Vector2 {
+        self.impl_add(&rhs)
+    }
+}
+impl ::std::ops::Add<&Vector2> for &Vector2 {
+    type Output = Vector2;
+    fn add(self, rhs: &Vector2) -> Vector2 {
+        self.impl_add(rhs)
+    }
+}
+impl ::std::ops::Sub<Vector2> for Vector2 {
+    type Output = Vector2;
+    fn sub(self, rhs: Vector2) -> Vector2 {
+        self.impl_sub(&rhs)
+    }
+}
+impl ::std::ops::Sub<&Vector2> for Vector2 {
+    type Output = Vector2;
+    fn sub(self, rhs: &Vector2) -> Vector2 {
+        self.impl_sub(rhs)
+    }
+}
+impl ::std::ops::Sub<Vector2> for &Vector2 {
+    type Output = Vector2;
+    fn sub(self, rhs: Vector2) -> Vector2 {
+        self.impl_sub(&rhs)
+    }
+}
+impl ::std::ops::Sub<&Vector2> for &Vector2 {
+    type Output = Vector2;
+    fn sub(self, rhs: &Vector2) -> Vector2 {
+        self.impl_sub(rhs)
+    }
+}
+impl ::std::ops::Div<Vector2> for Vector2 {
+    type Output = Vector2;
+    fn div(self, rhs: Vector2) -> Vector2 {
+        self.impl_div(&rhs)
+    }
+}
+impl ::std::ops::Div<&Vector2> for Vector2 {
+    type Output = Vector2;
+    fn div(self, rhs: &Vector2) -> Vector2 {
+        self.impl_div(rhs)
+    }
+}
+impl ::std::ops::Div<Vector2> for &Vector2 {
+    type Output = Vector2;
+    fn div(self, rhs: Vector2) -> Vector2 {
+        self.impl_div(&rhs)
+    }
+}
+impl ::std::ops::Div<&Vector2> for &Vector2 {
+    type Output = Vector2;
+    fn div(self, rhs: &Vector2) -> Vector2 {
+        self.impl_div(rhs)
+    }
+}
+impl ::std::ops::Div<f32> for Vector2 {
+    type Output = Vector2;
+    fn div(self, rhs: f32) -> Vector2 {
+        self.impl_div_f32(rhs)
+    }
+}
+impl ::std::ops::Div<f32> for &Vector2 {
+    type Output = Vector2;
+    fn div(self, rhs: f32) -> Vector2 {
+        self.impl_div_f32(rhs)
+    }
+}
+impl ::std::ops::Mul<Vector2> for Vector2 {
+    type Output = Vector2;
+    fn mul(self, rhs: Vector2) -> Vector2 {
+        self.impl_mul(&rhs)
+    }
+}
+impl ::std::ops::Mul<&Vector2> for Vector2 {
+    type Output = Vector2;
+    fn mul(self, rhs: &Vector2) -> Vector2 {
+        self.impl_mul(rhs)
+    }
+}
+impl ::std::ops::Mul<Vector2> for &Vector2 {
+    type Output = Vector2;
+    fn mul(self, rhs: Vector2) -> Vector2 {
+        self.impl_mul(&rhs)
+    }
+}
+impl ::std::ops::Mul<&Vector2> for &Vector2 {
+    type Output = Vector2;
+    fn mul(self, rhs: &Vector2) -> Vector2 {
+        self.impl_mul(rhs)
+    }
+}
+impl ::std::ops::Mul<f32> for Vector2 {
+    type Output = Vector2;
+    fn mul(self, rhs: f32) -> Vector2 {
+        self.impl_mul_f32(rhs)
+    }
+}
+impl ::std::ops::Mul<f32> for &Vector2 {
+    type Output = Vector2;
+    fn mul(self, rhs: f32) -> Vector2 {
+        self.impl_mul_f32(rhs)
+    }
+}
+
+
 // Vector3
-impl ::std::ops::Add<Vector3> for Vector3 {
-    type Output = Vector3;
-    fn add(self, rhs: Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-            z: self.z + rhs.z,
-        }
-    }
-}
-impl ::std::ops::Add<&Vector3> for Vector3 {
-    type Output = Vector3;
-    fn add(self, rhs: &Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-            z: self.z + rhs.z,
-        }
-    }
-}
-impl ::std::ops::Add<Vector3> for &Vector3 {
-    type Output = Vector3;
-    fn add(self, rhs: Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-            z: self.z + rhs.z,
-        }
-    }
-}
-impl ::std::ops::Add<&Vector3> for &Vector3 {
-    type Output = Vector3;
-    fn add(self, rhs: &Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-            z: self.z + rhs.z,
-        }
-    }
-}
-impl ::std::ops::Sub<Vector3> for Vector3 {
-    type Output = Vector3;
-    fn sub(self, rhs: Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-            z: self.z - rhs.z,
-        }
-    }
-}
-impl ::std::ops::Sub<&Vector3> for Vector3 {
-    type Output = Vector3;
-    fn sub(self, rhs: &Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-            z: self.z - rhs.z,
-        }
-    }
-}
-impl ::std::ops::Sub<Vector3> for &Vector3 {
-    type Output = Vector3;
-    fn sub(self, rhs: Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-            z: self.z - rhs.z,
-        }
-    }
-}
-impl ::std::ops::Sub<&Vector3> for &Vector3 {
-    type Output = Vector3;
-    fn sub(self, rhs: &Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-            z: self.z - rhs.z,
-        }
-    }
-}
-impl ::std::ops::Div<Vector3> for Vector3 {
-    type Output = Vector3;
-    fn div(self, rhs: Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-            z: self.z / rhs.z,
-        }
-    }
-}
-impl ::std::ops::Div<&Vector3> for Vector3 {
-    type Output = Vector3;
-    fn div(self, rhs: &Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-            z: self.z / rhs.z,
-        }
-    }
-}
-impl ::std::ops::Div<Vector3> for &Vector3 {
-    type Output = Vector3;
-    fn div(self, rhs: Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-            z: self.z / rhs.z,
-        }
-    }
-}
-impl ::std::ops::Div<&Vector3> for &Vector3 {
-    type Output = Vector3;
-    fn div(self, rhs: &Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-            z: self.z / rhs.z,
-        }
-    }
-}
-impl ::std::ops::Div<f32> for Vector3 {
-    type Output = Vector3;
-    fn div(self, rhs: f32) -> Vector3 {
-        Vector3 {
-            x: self.x / rhs,
-            y: self.y / rhs,
-            z: self.z / rhs,
-        }
-    }
-}
-impl ::std::ops::Div<f32> for &Vector3 {
-    type Output = Vector3;
-    fn div(self, rhs: f32) -> Vector3 {
-        Vector3 {
-            x: self.x / rhs,
-            y: self.y / rhs,
-            z: self.z / rhs,
-        }
-    }
-}
-impl ::std::ops::Mul<Vector3> for Vector3 {
-    type Output = Vector3;
-    fn mul(self, rhs: Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-            z: self.z * rhs.z,
-        }
-    }
-}
-impl ::std::ops::Mul<&Vector3> for Vector3 {
-    type Output = Vector3;
-    fn mul(self, rhs: &Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-            z: self.z * rhs.z,
-        }
-    }
-}
-impl ::std::ops::Mul<Vector3> for &Vector3 {
-    type Output = Vector3;
-    fn mul(self, rhs: Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-            z: self.z * rhs.z,
-        }
-    }
-}
-impl ::std::ops::Mul<&Vector3> for &Vector3 {
-    type Output = Vector3;
-    fn mul(self, rhs: &Vector3) -> Vector3 {
-        Vector3 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-            z: self.z * rhs.z,
-        }
-    }
-}
-impl ::std::ops::Mul<f32> for Vector3 {
-    type Output = Vector3;
-    fn mul(self, rhs: f32) -> Vector3 {
-        Vector3 {
-            x: self.x * rhs,
-            y: self.y * rhs,
-            z: self.z * rhs,
-        }
-    }
-}
-impl ::std::ops::Mul<f32> for &Vector3 {
-    type Output = Vector3;
-    fn mul(self, rhs: f32) -> Vector3 {
-        Vector3 {
-            x: self.x * rhs,
-            y: self.y * rhs,
-            z: self.z * rhs,
-        }
-    }
-}
 impl Vector3 {
     pub fn zero() -> Self {
         Self {
@@ -451,7 +230,7 @@ impl Vector3 {
             z: 1.0,
         }
     }
-    pub fn dot(&self, rhs: &Vector3) -> f32 {
+    pub fn dot(&self, rhs: &Self) -> f32 {
         self.x * rhs.x + self.y * rhs.y + self.z * rhs.z
     }
     pub fn length_squared(&self) -> f32 {
@@ -460,238 +239,182 @@ impl Vector3 {
     pub fn length(&self) -> f32 {
         self.length_squared().sqrt()
     }
-    pub fn distance(&self, value: &Vector3) -> f32 {
+    pub fn distance(&self, value: &Self) -> f32 {
         (self - value).length()
     }
-    pub fn distance_squared(&self, value: &Vector3) -> f32 {
+    pub fn distance_squared(&self, value: &Self) -> f32 {
         (self - value).length_squared()
     }
     pub fn normalize(&self) -> Self {
         self / self.length()
     }
+
+    fn impl_add(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+            z: self.z + rhs.z,
+        }
+    }
+    fn impl_sub(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x - rhs.x,
+            y: self.y - rhs.y,
+            z: self.z - rhs.z,
+        }
+    }
+    fn impl_div(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x / rhs.x,
+            y: self.y / rhs.y,
+            z: self.z / rhs.z,
+        }
+    }
+    fn impl_div_f32(&self, rhs: f32) -> Self {
+        Self {
+            x: self.x / rhs,
+            y: self.y / rhs,
+            z: self.z / rhs,
+        }
+    }
+    fn impl_mul(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x * rhs.x,
+            y: self.y * rhs.y,
+            z: self.z * rhs.z,
+        }
+    }
+    fn impl_mul_f32(&self, rhs: f32) -> Self {
+        Self {
+            x: self.x * rhs,
+            y: self.y * rhs,
+            z: self.z * rhs,
+        }
+    }
+}
+
+impl ::std::ops::Add<Vector3> for Vector3 {
+    type Output = Vector3;
+    fn add(self, rhs: Vector3) -> Vector3 {
+        self.impl_add(&rhs)
+    }
+}
+impl ::std::ops::Add<&Vector3> for Vector3 {
+    type Output = Vector3;
+    fn add(self, rhs: &Vector3) -> Vector3 {
+        self.impl_add(rhs)
+    }
+}
+impl ::std::ops::Add<Vector3> for &Vector3 {
+    type Output = Vector3;
+    fn add(self, rhs: Vector3) -> Vector3 {
+        self.impl_add(&rhs)
+    }
+}
+impl ::std::ops::Add<&Vector3> for &Vector3 {
+    type Output = Vector3;
+    fn add(self, rhs: &Vector3) -> Vector3 {
+        self.impl_add(rhs)
+    }
+}
+impl ::std::ops::Sub<Vector3> for Vector3 {
+    type Output = Vector3;
+    fn sub(self, rhs: Vector3) -> Vector3 {
+        self.impl_sub(&rhs)
+    }
+}
+impl ::std::ops::Sub<&Vector3> for Vector3 {
+    type Output = Vector3;
+    fn sub(self, rhs: &Vector3) -> Vector3 {
+        self.impl_sub(rhs)
+    }
+}
+impl ::std::ops::Sub<Vector3> for &Vector3 {
+    type Output = Vector3;
+    fn sub(self, rhs: Vector3) -> Vector3 {
+        self.impl_sub(&rhs)
+    }
+}
+impl ::std::ops::Sub<&Vector3> for &Vector3 {
+    type Output = Vector3;
+    fn sub(self, rhs: &Vector3) -> Vector3 {
+        self.impl_sub(rhs)
+    }
+}
+impl ::std::ops::Div<Vector3> for Vector3 {
+    type Output = Vector3;
+    fn div(self, rhs: Vector3) -> Vector3 {
+        self.impl_div(&rhs)
+    }
+}
+impl ::std::ops::Div<&Vector3> for Vector3 {
+    type Output = Vector3;
+    fn div(self, rhs: &Vector3) -> Vector3 {
+        self.impl_div(rhs)
+    }
+}
+impl ::std::ops::Div<Vector3> for &Vector3 {
+    type Output = Vector3;
+    fn div(self, rhs: Vector3) -> Vector3 {
+        self.impl_div(&rhs)
+    }
+}
+impl ::std::ops::Div<&Vector3> for &Vector3 {
+    type Output = Vector3;
+    fn div(self, rhs: &Vector3) -> Vector3 {
+        self.impl_div(rhs)
+    }
+}
+impl ::std::ops::Div<f32> for Vector3 {
+    type Output = Vector3;
+    fn div(self, rhs: f32) -> Vector3 {
+        self.impl_div_f32(rhs)
+    }
+}
+impl ::std::ops::Div<f32> for &Vector3 {
+    type Output = Vector3;
+    fn div(self, rhs: f32) -> Vector3 {
+        self.impl_div_f32(rhs)
+    }
+}
+impl ::std::ops::Mul<Vector3> for Vector3 {
+    type Output = Vector3;
+    fn mul(self, rhs: Vector3) -> Vector3 {
+        self.impl_mul(&rhs)
+    }
+}
+impl ::std::ops::Mul<&Vector3> for Vector3 {
+    type Output = Vector3;
+    fn mul(self, rhs: &Vector3) -> Vector3 {
+        self.impl_mul(rhs)
+    }
+}
+impl ::std::ops::Mul<Vector3> for &Vector3 {
+    type Output = Vector3;
+    fn mul(self, rhs: Vector3) -> Vector3 {
+        self.impl_mul(&rhs)
+    }
+}
+impl ::std::ops::Mul<&Vector3> for &Vector3 {
+    type Output = Vector3;
+    fn mul(self, rhs: &Vector3) -> Vector3 {
+        self.impl_mul(rhs)
+    }
+}
+impl ::std::ops::Mul<f32> for Vector3 {
+    type Output = Vector3;
+    fn mul(self, rhs: f32) -> Vector3 {
+        self.impl_mul_f32(rhs)
+    }
+}
+impl ::std::ops::Mul<f32> for &Vector3 {
+    type Output = Vector3;
+    fn mul(self, rhs: f32) -> Vector3 {
+        self.impl_mul_f32(rhs)
+    }
 }
 
 // Vector4
-impl ::std::ops::Add<Vector4> for Vector4 {
-    type Output = Vector4;
-    fn add(self, rhs: Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-            z: self.z + rhs.z,
-            w: self.w + rhs.w,
-        }
-    }
-}
-impl ::std::ops::Add<&Vector4> for Vector4 {
-    type Output = Vector4;
-    fn add(self, rhs: &Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-            z: self.z + rhs.z,
-            w: self.w + rhs.w,
-        }
-    }
-}
-impl ::std::ops::Add<Vector4> for &Vector4 {
-    type Output = Vector4;
-    fn add(self, rhs: Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-            z: self.z + rhs.z,
-            w: self.w + rhs.w,
-        }
-    }
-}
-impl ::std::ops::Add<&Vector4> for &Vector4 {
-    type Output = Vector4;
-    fn add(self, rhs: &Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x + rhs.x,
-            y: self.y + rhs.y,
-            z: self.z + rhs.z,
-            w: self.w + rhs.w,
-        }
-    }
-}
-impl ::std::ops::Sub<Vector4> for Vector4 {
-    type Output = Vector4;
-    fn sub(self, rhs: Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-            z: self.z - rhs.z,
-            w: self.w - rhs.w,
-        }
-    }
-}
-impl ::std::ops::Sub<&Vector4> for Vector4 {
-    type Output = Vector4;
-    fn sub(self, rhs: &Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-            z: self.z - rhs.z,
-            w: self.w - rhs.w,
-        }
-    }
-}
-impl ::std::ops::Sub<Vector4> for &Vector4 {
-    type Output = Vector4;
-    fn sub(self, rhs: Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-            z: self.z - rhs.z,
-            w: self.w - rhs.w,
-        }
-    }
-}
-impl ::std::ops::Sub<&Vector4> for &Vector4 {
-    type Output = Vector4;
-    fn sub(self, rhs: &Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x - rhs.x,
-            y: self.y - rhs.y,
-            z: self.z - rhs.z,
-            w: self.w - rhs.w,
-        }
-    }
-}
-impl ::std::ops::Div<Vector4> for Vector4 {
-    type Output = Vector4;
-    fn div(self, rhs: Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-            z: self.z / rhs.z,
-            w: self.w / rhs.w,
-        }
-    }
-}
-impl ::std::ops::Div<&Vector4> for Vector4 {
-    type Output = Vector4;
-    fn div(self, rhs: &Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-            z: self.z / rhs.z,
-            w: self.w / rhs.w,
-        }
-    }
-}
-impl ::std::ops::Div<Vector4> for &Vector4 {
-    type Output = Vector4;
-    fn div(self, rhs: Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-            z: self.z / rhs.z,
-            w: self.w / rhs.w,
-        }
-    }
-}
-impl ::std::ops::Div<&Vector4> for &Vector4 {
-    type Output = Vector4;
-    fn div(self, rhs: &Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x / rhs.x,
-            y: self.y / rhs.y,
-            z: self.z / rhs.z,
-            w: self.w / rhs.w,
-        }
-    }
-}
-impl ::std::ops::Div<f32> for Vector4 {
-    type Output = Vector4;
-    fn div(self, rhs: f32) -> Vector4 {
-        Vector4 {
-            x: self.x / rhs,
-            y: self.y / rhs,
-            z: self.z / rhs,
-            w: self.w / rhs,
-        }
-    }
-}
-impl ::std::ops::Div<f32> for &Vector4 {
-    type Output = Vector4;
-    fn div(self, rhs: f32) -> Vector4 {
-        Vector4 {
-            x: self.x / rhs,
-            y: self.y / rhs,
-            z: self.z / rhs,
-            w: self.w / rhs,
-        }
-    }
-}
-impl ::std::ops::Mul<Vector4> for Vector4 {
-    type Output = Vector4;
-    fn mul(self, rhs: Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-            z: self.z * rhs.z,
-            w: self.w * rhs.w,
-        }
-    }
-}
-impl ::std::ops::Mul<&Vector4> for Vector4 {
-    type Output = Vector4;
-    fn mul(self, rhs: &Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-            z: self.z * rhs.z,
-            w: self.w * rhs.w,
-        }
-    }
-}
-impl ::std::ops::Mul<Vector4> for &Vector4 {
-    type Output = Vector4;
-    fn mul(self, rhs: Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-            z: self.z * rhs.z,
-            w: self.w * rhs.w,
-        }
-    }
-}
-impl ::std::ops::Mul<&Vector4> for &Vector4 {
-    type Output = Vector4;
-    fn mul(self, rhs: &Vector4) -> Vector4 {
-        Vector4 {
-            x: self.x * rhs.x,
-            y: self.y * rhs.y,
-            z: self.z * rhs.z,
-            w: self.w * rhs.w,
-        }
-    }
-}
-impl ::std::ops::Mul<f32> for Vector4 {
-    type Output = Vector4;
-    fn mul(self, rhs: f32) -> Vector4 {
-        Vector4 {
-            x: self.x * rhs,
-            y: self.y * rhs,
-            z: self.z * rhs,
-            w: self.w * rhs,
-        }
-    }
-}
-impl ::std::ops::Mul<f32> for &Vector4 {
-    type Output = Vector4;
-    fn mul(self, rhs: f32) -> Vector4 {
-        Vector4 {
-            x: self.x * rhs,
-            y: self.y * rhs,
-            z: self.z * rhs,
-            w: self.w * rhs,
-        }
-    }
-}
 impl Vector4 {
     pub fn zero() -> Self {
         Self {
@@ -741,7 +464,7 @@ impl Vector4 {
             w: 1.0,
         }
     }
-    pub fn dot(&self, rhs: &Vector4) -> f32 {
+    pub fn dot(&self, rhs: &Self) -> f32 {
         self.x * rhs.x + self.y * rhs.y + self.z * rhs.z + self.w * rhs.w
     }
     pub fn length_squared(&self) -> f32 {
@@ -750,14 +473,184 @@ impl Vector4 {
     pub fn length(&self) -> f32 {
         self.length_squared().sqrt()
     }
-    pub fn distance(&self, value: &Vector4) -> f32 {
+    pub fn distance(&self, value: &Self) -> f32 {
         (self - value).length()
     }
-    pub fn distance_squared(&self, value: &Vector4) -> f32 {
+    pub fn distance_squared(&self, value: &Self) -> f32 {
         (self - value).length_squared()
     }
     pub fn normalize(&self) -> Self {
         self / self.length()
+    }
+
+    fn impl_add(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+            z: self.z + rhs.z,
+            w: self.w + rhs.w,
+        }
+    }
+    fn impl_sub(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x - rhs.x,
+            y: self.y - rhs.y,
+            z: self.z - rhs.z,
+            w: self.w - rhs.w,
+        }
+    }
+    fn impl_div(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x / rhs.x,
+            y: self.y / rhs.y,
+            z: self.z / rhs.z,
+            w: self.w / rhs.w,
+        }
+    }
+    fn impl_div_f32(&self, rhs: f32) -> Self {
+        Self {
+            x: self.x / rhs,
+            y: self.y / rhs,
+            z: self.z / rhs,
+            w: self.w / rhs,
+        }
+    }
+    fn impl_mul(&self, rhs: &Self) -> Self {
+        Self {
+            x: self.x * rhs.x,
+            y: self.y * rhs.y,
+            z: self.z * rhs.z,
+            w: self.w * rhs.w,
+        }
+    }
+    fn impl_mul_f32(&self, rhs: f32) -> Self {
+        Self {
+            x: self.x * rhs,
+            y: self.y * rhs,
+            z: self.z * rhs,
+            w: self.w * rhs,
+        }
+    }
+}
+
+impl ::std::ops::Add<Vector4> for Vector4 {
+    type Output = Vector4;
+    fn add(self, rhs: Vector4) -> Vector4 {
+        self.impl_add(&rhs)
+    }
+}
+impl ::std::ops::Add<&Vector4> for Vector4 {
+    type Output = Vector4;
+    fn add(self, rhs: &Vector4) -> Vector4 {
+        self.impl_add(rhs)
+    }
+}
+impl ::std::ops::Add<Vector4> for &Vector4 {
+    type Output = Vector4;
+    fn add(self, rhs: Vector4) -> Vector4 {
+        self.impl_add(&rhs)
+    }
+}
+impl ::std::ops::Add<&Vector4> for &Vector4 {
+    type Output = Vector4;
+    fn add(self, rhs: &Vector4) -> Vector4 {
+        self.impl_add(rhs)
+    }
+}
+impl ::std::ops::Sub<Vector4> for Vector4 {
+    type Output = Vector4;
+    fn sub(self, rhs: Vector4) -> Vector4 {
+        self.impl_sub(&rhs)
+    }
+}
+impl ::std::ops::Sub<&Vector4> for Vector4 {
+    type Output = Vector4;
+    fn sub(self, rhs: &Vector4) -> Vector4 {
+        self.impl_sub(rhs)
+    }
+}
+impl ::std::ops::Sub<Vector4> for &Vector4 {
+    type Output = Vector4;
+    fn sub(self, rhs: Vector4) -> Vector4 {
+        self.impl_sub(&rhs)
+    }
+}
+impl ::std::ops::Sub<&Vector4> for &Vector4 {
+    type Output = Vector4;
+    fn sub(self, rhs: &Vector4) -> Vector4 {
+        self.impl_sub(rhs)
+    }
+}
+impl ::std::ops::Div<Vector4> for Vector4 {
+    type Output = Vector4;
+    fn div(self, rhs: Vector4) -> Vector4 {
+        self.impl_div(&rhs)
+    }
+}
+impl ::std::ops::Div<&Vector4> for Vector4 {
+    type Output = Vector4;
+    fn div(self, rhs: &Vector4) -> Vector4 {
+        self.impl_div(rhs)
+    }
+}
+impl ::std::ops::Div<Vector4> for &Vector4 {
+    type Output = Vector4;
+    fn div(self, rhs: Vector4) -> Vector4 {
+        self.impl_div(&rhs)
+    }
+}
+impl ::std::ops::Div<&Vector4> for &Vector4 {
+    type Output = Vector4;
+    fn div(self, rhs: &Vector4) -> Vector4 {
+        self.impl_div(rhs)
+    }
+}
+impl ::std::ops::Div<f32> for Vector4 {
+    type Output = Vector4;
+    fn div(self, rhs: f32) -> Vector4 {
+        self.impl_div_f32(rhs)
+    }
+}
+impl ::std::ops::Div<f32> for &Vector4 {
+    type Output = Vector4;
+    fn div(self, rhs: f32) -> Vector4 {
+        self.impl_div_f32(rhs)
+    }
+}
+impl ::std::ops::Mul<Vector4> for Vector4 {
+    type Output = Vector4;
+    fn mul(self, rhs: Vector4) -> Vector4 {
+        self.impl_mul(&rhs)
+    }
+}
+impl ::std::ops::Mul<&Vector4> for Vector4 {
+    type Output = Vector4;
+    fn mul(self, rhs: &Vector4) -> Vector4 {
+        self.impl_mul(rhs)
+    }
+}
+impl ::std::ops::Mul<Vector4> for &Vector4 {
+    type Output = Vector4;
+    fn mul(self, rhs: Vector4) -> Vector4 {
+        self.impl_mul(&rhs)
+    }
+}
+impl ::std::ops::Mul<&Vector4> for &Vector4 {
+    type Output = Vector4;
+    fn mul(self, rhs: &Vector4) -> Vector4 {
+        self.impl_mul(rhs)
+    }
+}
+impl ::std::ops::Mul<f32> for Vector4 {
+    type Output = Vector4;
+    fn mul(self, rhs: f32) -> Vector4 {
+        self.impl_mul_f32(rhs)
+    }
+}
+impl ::std::ops::Mul<f32> for &Vector4 {
+    type Output = Vector4;
+    fn mul(self, rhs: f32) -> Vector4 {
+        self.impl_mul_f32(rhs)
     }
 }
 
