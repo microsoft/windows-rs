@@ -17,18 +17,24 @@ fn workspace_dir() -> std::path::PathBuf {
             .output()
             .expect("Failed to run `cargo metadata`");
 
-        let manifest: Manifest =
-            serde_json::from_slice(&output.stdout).expect("Failed to parse `cargo metadata`");
+        const JSON_KEY: &str = r#""workspace_root":"#;
+        let json = String::from_utf8(output.stdout).expect("Cargo metadata is not utf-8");
+        let beginning_index = json
+            .find(JSON_KEY)
+            .expect("Cargo metadata did not contain `workspace_root` key.")
+            + JSON_KEY.len()
+            + 1;
+
+        let ending_index = json[beginning_index..]
+            .find("\"")
+            .expect("Cargo metadata ended before closing '\"' in `workspace_root` value");
+
+        let workspace_root = &json[beginning_index..beginning_index + ending_index];
 
         // This is safe because `Once` provides thread-safe one-time initialization
-        unsafe { VALUE = MaybeUninit::new(manifest.workspace_root.into()) }
+        unsafe { VALUE = MaybeUninit::new(workspace_root.into()) }
     });
 
     // This is safe because `call_once` has already been called.
     unsafe { (*VALUE.as_ptr()).clone() }
-}
-
-#[derive(serde::Deserialize)]
-struct Manifest {
-    workspace_root: String,
 }
