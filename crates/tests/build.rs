@@ -63,10 +63,13 @@ fn main() {
         windows::win32::windows_programming::{
             CloseHandle
         },
-        windows::win32::com::{IUri, CreateUri},
+        windows::win32::com::CreateUri,
         windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
         windows::win32::upnp::UIAnimationTransitionLibrary,
         windows::win32::ldap::ldapsearch,
         windows::win32::upnp::UIAnimationManager,
+        windows::win32::game_mode::HasExpandedResources,
+        windows::win32::debug::MiniDumpWriteDump,
+        windows::win32::direct3d11::D3DDisassemble11Trace,
     );
 }

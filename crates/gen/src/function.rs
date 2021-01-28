@@ -31,12 +31,10 @@ impl Function {
             TokenStream::new()
         };
 
-        // TODO: need to generate libs until Rust supports dynamic linking against DLLs.
-        // This is actually the DLL name.
         let mut link = self.signature.method.impl_map().unwrap().scope().name();
-        if link == "ext-ms-win-core-iuri-l1-1-0" {
-            link = "urlmon";
-        } else if link.starts_with("api-ms-win-core") {
+
+        // TODO: workaround for https://github.com/microsoft/windows-rs/issues/463
+        if link.contains("-ms-win-") || link == "D3DCOMPILER_47" {
             link = "onecoreuap";
         }
 
