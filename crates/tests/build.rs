@@ -66,5 +66,7 @@ fn main() {
         windows::win32::com::{IUri, CreateUri},
         windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
         windows::win32::upnp::UIAnimationTransitionLibrary,
+        windows::win32::ldap::ldapsearch,
+        windows::win32::upnp::UIAnimationManager,
     );
 }

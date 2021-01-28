@@ -8,16 +8,19 @@ use tests::{
         CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC,
         DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
     },
+    windows::win32::ldap::ldapsearch,
     windows::win32::security::ACCESS_MODE,
     windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
     windows::win32::system_services::{
         CreateEventW, SetEvent, WaitForSingleObject, DXGI_ERROR_INVALID_CALL, HANDLE, WM_KEYUP,
     },
+    windows::win32::upnp::UIAnimationManager,
     windows::win32::upnp::UIAnimationTransitionLibrary,
     windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
     windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
     windows::win32::windows_programming::CloseHandle,
 };
+use windows::Guid;
 use windows::Interface;
 use windows::BOOL;
 
@@ -329,4 +332,13 @@ extern "system" fn callback_w(param0: HWND, param1: *const u16, param2: HANDLE) 
         assert!(s == "hello w");
         BOOL(789)
     }
+}
+
+#[test]
+fn empty_struct() {
+    let ldap = ldapsearch { reserved: 123 };
+    assert!(ldap.reserved == 123);
+    assert!(std::mem::size_of::<ldapsearch>() == 1);
+
+    assert!(UIAnimationManager == Guid::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
 }

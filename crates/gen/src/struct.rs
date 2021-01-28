@@ -57,7 +57,7 @@ impl Struct {
         let guid = TypeGuid::from_type_def(&name.def);
 
         // The C/C++ ABI assumes an empty struct occupies a single byte in memory.
-        if fields.is_empty() && guid != TypeGuid::default() {
+        if fields.is_empty() && guid == TypeGuid::default() {
             let t = Type {
                 kind: TypeKind::U8,
                 pointers: 0,
