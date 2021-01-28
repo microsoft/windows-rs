@@ -1,5 +1,4 @@
 use crate::*;
-use rayon::iter::ParallelIterator;
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
 use windows_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
@@ -51,7 +50,7 @@ impl BuildLimits {
             tree.reexport();
         }
 
-        let ts = tree.gen().reduce(squote::TokenStream::new, |mut accum, n| {
+        let ts = tree.gen().fold(squote::TokenStream::new(), |mut accum, n| {
             accum.combine(&n);
             accum
         });
