@@ -1,6 +1,9 @@
 use windows::Abi;
 
 use tests::{
+    windows::win32::com::CreateUri,
+    windows::win32::debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
+    windows::win32::direct3d11::D3DDisassemble11Trace,
     windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
     windows::win32::direct3d_hlsl::D3DCOMPILER_DLL,
     windows::win32::display_devices::RECT,
@@ -8,6 +11,7 @@ use tests::{
         CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC,
         DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
     },
+    windows::win32::game_mode::HasExpandedResources,
     windows::win32::ldap::ldapsearch,
     windows::win32::security::ACCESS_MODE,
     windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
@@ -243,6 +247,45 @@ fn com_inheritance() {
                 .0
                 == DXGI_ERROR_INVALID_CALL as u32
         );
+    }
+}
+
+// Tests for https://github.com/microsoft/windows-rs/issues/463
+#[test]
+fn onecore_imports() -> windows::Result<()> {
+    unsafe {
+        let mut has_expanded_resources = 0;
+        HasExpandedResources(&mut has_expanded_resources).ok()?;
+
+        let mut uri = None;
+        let uri = CreateUri(
+            windows::HString::from("http://kennykerr.ca")
+                .as_wide()
+                .as_ptr(),
+            0,
+            0,
+            &mut uri,
+        )
+        .and_some(uri)?;
+
+        let mut port = 0;
+        uri.GetPort(&mut port).ok()?;
+        assert!(port == 80);
+
+        let result = MiniDumpWriteDump(
+            HANDLE(0),
+            0,
+            HANDLE(0),
+            MINIDUMP_TYPE::MiniDumpNormal,
+            std::ptr::null_mut(),
+            std::ptr::null_mut(),
+            std::ptr::null_mut(),
+        );
+        assert!(result.is_err());
+
+        assert!(D3DDisassemble11Trace(std::ptr::null_mut(), 0, None, 0, 0, 0, &mut None).is_err());
+
+        Ok(())
     }
 }
 
