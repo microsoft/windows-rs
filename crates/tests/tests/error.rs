@@ -29,3 +29,18 @@ fn bad_uri() {
     assert_eq!(error.code(), windows::ErrorCode(0x80070057));
     assert_eq!(error.message(), "INVALID is not a valid absolute URI.");
 }
+
+#[test]
+fn convertible() {
+    fn convertible_error() -> std::result::Result<(), Box<dyn std::error::Error>> {
+        let _uri = windows::foundation::Uri::create_uri("TEST")?;
+        Ok(())
+    }
+
+    let result = convertible_error();
+    let format = format!("{:?}", result);
+    assert_eq!(
+        format,
+        "Err(Error { code: 0x80070057, message: \"TEST is not a valid absolute URI.\" })"
+    );
+}
