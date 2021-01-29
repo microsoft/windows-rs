@@ -32,15 +32,23 @@ fn bad_uri() {
 
 #[test]
 fn convertible() {
+    fn windows_error() -> windows::Result<()> {
+        Err(windows::Error::new(
+            windows::ErrorCode::E_NOINTERFACE,
+            "test message",
+        ))
+    }
+
     fn convertible_error() -> std::result::Result<(), Box<dyn std::error::Error>> {
-        let _uri = windows::foundation::Uri::create_uri("TEST")?;
+        windows_error()?;
         Ok(())
     }
 
     let result = convertible_error();
     let format = format!("{:?}", result);
+
     assert_eq!(
         format,
-        "Err(Error { code: 0x80070057, message: \"TEST is not a valid absolute URI.\" })"
+        "Err(Error { code: 0x80004002, message: \"test message\" })"
     );
 }
