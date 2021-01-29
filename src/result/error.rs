@@ -132,6 +132,14 @@ impl std::fmt::Debug for Error {
     }
 }
 
+impl std::fmt::Display for Error {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        fmt.write_str(&self.message())
+    }
+}
+
+impl std::error::Error for Error {}
+
 pub struct HeapString(RawPtr);
 
 impl Drop for HeapString {
