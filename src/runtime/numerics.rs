@@ -682,6 +682,7 @@ impl Matrix3x2 {
         }
         matrix
     }
+
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
             m11: self.m11 + rhs.m11,
