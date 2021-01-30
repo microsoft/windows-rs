@@ -3,7 +3,7 @@ name = "windows_gen"
 version = "0.2.1"
 authors = ["Microsoft"]
 edition = "2018"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 description = "Code generation for the windows crate"
 
 [dependencies]
