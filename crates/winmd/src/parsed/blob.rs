@@ -1,7 +1,6 @@
 use crate::*;
 
 use std::convert::TryInto;
-use std::ops::Shl;
 
 pub struct Blob {
     pub reader: &'static TypeReader,
