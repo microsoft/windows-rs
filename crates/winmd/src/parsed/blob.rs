@@ -1,6 +1,7 @@
 use crate::*;
 
 use std::convert::TryInto;
+use std::ops::Shl;
 
 pub struct Blob {
     pub reader: &'static TypeReader,
@@ -32,8 +33,59 @@ impl Blob {
         }
     }
 
+    pub fn peek_signed(&self) -> (i32, usize) {
+        let bytes = self.bytes();
+
+        if bytes[0] & 0x80 == 0 {
+            // Extract the sign bit, expand to u32 and move the sign bit to highest order
+            let sign = ((bytes[0] & 0b1) as i32) << 31;
+
+            // Extract the value and shift the value portion up to the high order bits
+            let val = ((bytes[0] & 0b01111110) as i32) << 24;
+
+            // When combined should look like 0bSVVVVVV0000....
+
+            // Combine the two and shift back down, performing sign extension on the way
+            let combined = (sign | val) >> 25;
+
+            (combined, 1)
+        } else if bytes[0] & 0xC0 == 0x80 {
+            // Same process as above, extract sign and value, combine and sign extend
+            let sign = ((bytes[1] & 0b1) as i32) << 31;
+
+            let val_upper = (bytes[0] & 0b00111111) as i32;
+            let val_lower = (bytes[1] & 0b11111110) as i32;
+            let val = (val_upper << 8) | val_lower;
+            let val = val << 17;
+
+            let combined = (sign | val) >> 18;
+
+            (combined, 2)
+        } else {
+            // Same process as above, extract sign and value, combine and sign extend
+            let sign = ((bytes[3] & 0b1) as i32) << 31;
+
+            let val_0 = (bytes[0] & 0b00011111) as i32;
+            let val_1 = bytes[1] as i32;
+            let val_2 = bytes[2] as i32;
+            let val_3 = (bytes[3] & 0b11111110) as i32;
+            let val = (val_0 << 24) | (val_1 << 16) | (val_2 << 8) | val_3;
+            let val = val << 2;
+
+            let combined = (sign | val) >> 3;
+
+            (combined,4)
+        }
+    }
+
     pub fn read_unsigned(&mut self) -> u32 {
         let (value, offset) = self.peek_unsigned();
+        self.offset += offset;
+        value
+    }
+
+    pub fn read_signed(&mut self) -> i32 {
+        let (value, offset) = self.peek_signed();
         self.offset += offset;
         value
     }
