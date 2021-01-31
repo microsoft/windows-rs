@@ -73,7 +73,7 @@ impl Blob {
 
             let combined = (sign | val) >> 3;
 
-            (combined,4)
+            (combined, 4)
         }
     }
 
