@@ -38,7 +38,7 @@ impl IRestrictedErrorInfo {
         let mut code = ErrorCode(0);
 
         unsafe {
-            (self.vtable().3)(
+            let _ = (self.vtable().3)(
                 self.abi(),
                 fallback.set_abi(),
                 &mut code,
