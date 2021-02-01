@@ -48,30 +48,13 @@ pub enum TypeKind {
     Generic(&'static str),
 }
 
-impl Type {
-    pub fn from_blob(
+impl TypeKind {
+    fn read_from_blob(
         blob: &mut winmd::Blob,
-        param: Option<winmd::Param>,
         generics: &[TypeKind],
         calling_namespace: &'static str,
-        is_return_type: bool,
-    ) -> Option<Self> {
-        let modifiers = blob.read_modifiers();
-        let mut by_ref = blob.read_expected(0x10);
-
-        if blob.read_expected(0x01) {
-            return None;
-        }
-
-        let is_array = blob.read_expected(0x1D);
-
-        let mut pointers = 0;
-
-        while blob.read_expected(0x0f) {
-            pointers += 1;
-        }
-
-        let kind = match blob.read_unsigned() {
+    ) -> TypeKind {
+        match blob.read_unsigned() {
             0x01 => TypeKind::Void,
             0x02 => TypeKind::Bool,
             0x03 => TypeKind::Char,
@@ -115,7 +98,34 @@ impl Type {
                 calling_namespace,
             )),
             unused => panic!("Type::from_blob 0x{:X}", unused),
-        };
+        }
+    }
+}
+
+impl Type {
+    pub fn from_blob(
+        blob: &mut winmd::Blob,
+        param: Option<winmd::Param>,
+        generics: &[TypeKind],
+        calling_namespace: &'static str,
+        is_return_type: bool,
+    ) -> Option<Self> {
+        let modifiers = blob.read_modifiers();
+        let mut by_ref = blob.read_expected(0x10);
+
+        if blob.read_expected(0x01) {
+            return None;
+        }
+
+        let is_array = blob.read_expected(0x1D);
+
+        let mut pointers = 0;
+
+        while blob.read_expected(0x0f) {
+            pointers += 1;
+        }
+
+        let kind = TypeKind::read_from_blob(blob, generics, calling_namespace);
 
         let mut is_input = false;
 
