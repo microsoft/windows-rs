@@ -141,8 +141,7 @@ fn function() -> windows::Result<()> {
 #[test]
 fn bool_as_error() {
     unsafe {
-        assert!(!SetEvent(HANDLE(0)).is_ok());
-        assert!(SetEvent(HANDLE(0)).is_err());
+        assert!(!SetEvent(HANDLE(0)).as_bool());
 
         let result: windows::Result<()> = SetEvent(HANDLE(0)).ok();
         assert!(result.is_err());
@@ -232,7 +231,7 @@ fn com_inheritance() {
         );
 
         // IDXGIFactory1
-        assert!(factory.IsCurrent().is_ok());
+        assert!(factory.IsCurrent().as_bool());
 
         // IDXGIFactory2
         factory.IsWindowedStereoEnabled();
@@ -281,7 +280,7 @@ fn onecore_imports() -> windows::Result<()> {
             std::ptr::null_mut(),
             std::ptr::null_mut(),
         );
-        assert!(result.is_err());
+        assert!(!result.as_bool());
 
         assert!(D3DDisassemble11Trace(std::ptr::null_mut(), 0, None, 0, 0, 0, &mut None).is_err());
 
