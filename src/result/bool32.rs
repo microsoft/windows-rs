@@ -2,7 +2,7 @@ use crate::{Abi, ErrorCode};
 
 /// A 32-bit boolean error code value returned by some Win32 functions.
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, PartialEq)]
+#[derive(Copy, Clone, Default)]
 pub struct BOOL(pub i32);
 
 /// A BOOL representing true.
@@ -15,7 +15,11 @@ impl BOOL {
     /// Convert the `BOOL` into a `bool`.
     #[inline]
     pub fn as_bool(self) -> bool {
-        self.into()
+        if self.0 == 0 {
+            false
+        } else {
+            true
+        }
     }
 
     /// Asserts that `self` is a success code.
@@ -33,7 +37,7 @@ impl BOOL {
     /// Converts the `BOOL` to `Result<()>`.
     #[inline]
     pub fn ok(self) -> crate::Result<()> {
-        if self.into() {
+        if self.as_bool() {
             Ok(())
         } else {
             Err(ErrorCode::from_thread().into())
@@ -47,7 +51,13 @@ unsafe impl Abi for BOOL {
 
 impl From<BOOL> for bool {
     fn from(value: BOOL) -> Self {
-        value != FALSE
+        value.as_bool()
+    }
+}
+
+impl From<&BOOL> for bool {
+    fn from(value: &BOOL) -> Self {
+        value.as_bool()
     }
 }
 
@@ -61,12 +71,6 @@ impl From<bool> for BOOL {
     }
 }
 
-impl From<&BOOL> for bool {
-    fn from(value: &BOOL) -> Self {
-        (*value).into()
-    }
-}
-
 impl From<&bool> for BOOL {
     fn from(value: &bool) -> Self {
         (*value).into()
@@ -75,8 +79,14 @@ impl From<&bool> for BOOL {
 
 impl std::fmt::Debug for BOOL {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let msg = if self.into() { "TRUE" } else { "FALSE" };
+        let msg = if self.as_bool() { "TRUE" } else { "FALSE" };
         f.write_str(msg)
+    }
+}
+
+impl PartialEq<BOOL> for BOOL {
+    fn eq(&self, other: &BOOL) -> bool {
+        self.as_bool() == other.as_bool()
     }
 }
 
@@ -86,10 +96,16 @@ impl PartialEq<bool> for BOOL {
     }
 }
 
+impl PartialEq<BOOL> for bool {
+    fn eq(&self, other: &BOOL) -> bool {
+        *self == other.as_bool()
+    }
+}
+
 impl std::ops::Not for BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
-        if self.into() {
+        if self.as_bool() {
             FALSE
         } else {
             TRUE
@@ -105,7 +121,7 @@ mod tests {
     fn comparison() {
         let win_bool: BOOL = TRUE;
         let rust_bool: bool = true;
-        assert_eq!(win_bool, rust_bool);
+        assert_eq!(rust_bool, win_bool);
 
         let win_bool: BOOL = FALSE;
         let rust_bool: bool = false;
@@ -113,11 +129,15 @@ mod tests {
 
         let win_bool = BOOL(123);
         let rust_bool: bool = true;
-        assert_eq!(win_bool, rust_bool);
+        assert_eq!(rust_bool, win_bool);
 
         let win_bool = BOOL(-123);
         let rust_bool: bool = true;
         assert_eq!(win_bool, rust_bool);
+
+        let a: BOOL = TRUE;
+        let b: BOOL = BOOL(123);
+        assert_eq!(a, b);
     }
 
     #[test]
