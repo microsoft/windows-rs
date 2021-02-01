@@ -25,7 +25,7 @@ impl BOOL {
 
     /// Expects that `self` is a success code.
     #[inline]
-    pub fn expects(self, msg: &str) {
+    pub fn expect(self, msg: &str) {
         self.ok().expect(msg);
     }
 
