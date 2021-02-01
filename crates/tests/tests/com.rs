@@ -10,6 +10,7 @@ fn test_sta() -> Result<()> {
     Ok(())
 }
 
+#[test]
 fn test_mta() -> Result<()> {
     initialize_mta()?;
     let clsid = Guid::from_progid("Microsoft.Update.AutoUpdate")?;
