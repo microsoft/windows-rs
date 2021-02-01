@@ -46,6 +46,7 @@ pub enum TypeKind {
     Struct(TypeName),
     Delegate(TypeName),
     Generic(&'static str),
+    Array(usize, Box<TypeKind>),
 }
 
 impl TypeKind {
@@ -85,12 +86,37 @@ impl TypeKind {
             }
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x14 => {
-                // TODO: handle win32 arrays
-                // type
-                // rank (dimensions)
-                // bounds count
-                // bound
-                TypeKind::Bool
+                // Recursively parse the type
+                let kind = Self::read_from_blob(blob, generics, calling_namespace);
+
+                // TODO: Don't know how to handle multi dimensional arrays yet
+                let rank = blob.read_unsigned();
+                if rank != 1 {
+                    panic!("Unsupported array rank: {}", rank);
+                }
+
+                // TODO: Don't know how to handle unsized arrays yet
+                let num_upper_bounds = blob.read_unsigned();
+                if num_upper_bounds != 1 {
+                    panic!("Unsupported array upper bound count: {}", num_upper_bounds);
+                }
+
+                let upper_bound = blob.read_unsigned();
+
+                // TODO: Don't know how to handle unsized arrays yet
+                let num_lower_bounds = blob.read_unsigned();
+                if num_lower_bounds != 1 {
+                    panic!("Unsupported array lower bound count: {}", num_lower_bounds);
+                }
+
+                // It's not possible for rust to represent a non 0 lower bound in any sane ABI
+                // compatible manner without generating a boat load of support code
+                let low_bound = blob.read_signed();
+                if low_bound != 0 {
+                    panic!("Unsupported array lower bound: {}", low_bound);
+                }
+
+                TypeKind::Array(upper_bound as usize, Box::new(kind))
             }
             0x15 => TypeKind::from_type_name(TypeName::from_type_spec_blob(
                 blob,
@@ -380,6 +406,7 @@ impl TypeKind {
             Self::Enum(name) => name.dependencies(),
             Self::Struct(name) => name.dependencies(),
             Self::Delegate(name) => name.dependencies(),
+            Self::Array(_, kind) => kind.dependencies(),
             _ => Vec::new(),
         }
     }
@@ -417,6 +444,10 @@ impl TypeKind {
                 let name = format_ident(name);
                 quote! { #name }
             }
+            Self::Array(len, r#type) => {
+                let tokens = r#type.gen();
+                quote! { [#tokens ; #len]}
+            }
         }
     }
 
@@ -452,6 +483,10 @@ impl TypeKind {
             Self::Generic(name) => {
                 let name = format_ident(name);
                 quote! { #name }
+            }
+            Self::Array(len, r#type) => {
+                let tokens = r#type.gen_full();
+                quote! { [#tokens ; #len]}
             }
         }
     }
@@ -491,6 +526,10 @@ impl TypeKind {
             }
             Self::Enum(name) => name.gen(),
             Self::Struct(name) => name.gen_abi(),
+            Self::Array(len, r#type) => {
+                let tokens = r#type.gen_abi();
+                quote! { [#tokens ; #len]}
+            }
         }
     }
 
@@ -529,6 +568,10 @@ impl TypeKind {
             }
             Self::Enum(name) => name.gen_full(),
             Self::Struct(name) => name.gen_full_abi(),
+            Self::Array(len, r#type) => {
+                let tokens = r#type.gen_full_abi();
+                quote! { [#tokens ; #len]}
+            }
         }
     }
 
@@ -549,6 +592,34 @@ impl TypeKind {
             Self::F32 | Self::F64 => quote! { 0.0 },
             Self::String => quote! { ::windows::HString::new() },
             Self::Guid => quote! { ::windows::Guid::zeroed() },
+            Self::Array(size, kind) => {
+                // Need to generate an array initializer of the form `[0,0,0,0]` rather than of the
+                // form `[0;4]` because rust requires a Copy type for the short form.
+                //
+                // Can't use ::std::default::Default::default() either as we're still waiting on
+                // const-generics to have that implemented for [T: Default; N] rather than for only
+                // up to [T: Default; 32].
+                //
+                // It works, it's a bit icky :/
+                //
+                // TODO: When const-generics on stable this can be changed to be less stupid
+
+                // Make a token stream for the inner type's default
+                let inner_default = kind.gen_default();
+
+                // Token stream for a single comma. Only way I could find to implement this
+                let comma = quote! { , };
+
+                // Stamp out the inner part of the really verbose array token stream
+                let array_tokens = (0..*size).into_iter().fold(TokenStream::new(), |mut v, _| {
+                    v.combine(&inner_default);
+                    v.combine(&comma);
+                    v
+                });
+
+                // Finally, wrap the big pile of tokens in the array's braces
+                quote! { [#array_tokens] }
+            }
             _ => quote! { ::std::default::Default::default() },
         }
     }
