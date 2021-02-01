@@ -175,4 +175,17 @@ mod tests {
         assert_eq!(format!("{:?}", FALSE), "FALSE");
         assert_eq!(format!("{:?}", BOOL(123)), "TRUE");
     }
+
+    #[test]
+    fn not() {
+        let win_bool: BOOL = TRUE;
+        let not: BOOL = !win_bool;
+        assert!(not != win_bool);
+        assert!(not == FALSE);
+
+        let win_bool: BOOL = FALSE;
+        let not: BOOL = !win_bool;
+        assert!(not != win_bool);
+        assert!(not == TRUE);
+    }
 }
