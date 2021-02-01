@@ -21,7 +21,7 @@ use interfaces::*;
 use runtime::*;
 
 pub use interfaces::{IActivationFactory, IAgileObject, IUnknown, Object};
-pub use result::{Error, ErrorCode, Result, BOOL};
+pub use result::{Error, ErrorCode, Result, BOOL, FALSE, TRUE};
 pub use runtime::{factory, Array, FactoryCache, Guid, Param, RefCount, Waiter};
 pub use strings::{BString, HString};
 pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
