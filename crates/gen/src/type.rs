@@ -47,6 +47,7 @@ pub enum TypeKind {
     Delegate(TypeName),
     Generic(&'static str),
     Array(usize, Box<TypeKind>),
+    Pointer(Box<TypeKind>),
 }
 
 impl TypeKind {
@@ -69,6 +70,10 @@ impl TypeKind {
             0x0B => TypeKind::U64,
             0x0C => TypeKind::F32,
             0x0D => TypeKind::F64,
+            0x0F => {
+                let kind = TypeKind::read_from_blob(blob, generics, calling_namespace);
+                return TypeKind::Pointer(Box::new(kind));
+            }
             0x18 => TypeKind::ISize,
             0x19 => TypeKind::USize,
             0x0E => TypeKind::String,
@@ -407,6 +412,7 @@ impl TypeKind {
             Self::Struct(name) => name.dependencies(),
             Self::Delegate(name) => name.dependencies(),
             Self::Array(_, kind) => kind.dependencies(),
+            Self::Pointer(kind) => kind.dependencies(),
             _ => Vec::new(),
         }
     }
@@ -448,6 +454,10 @@ impl TypeKind {
                 let tokens = r#type.gen();
                 quote! { [#tokens ; #len]}
             }
+            Self::Pointer(r#type) => {
+                let tokens = r#type.gen();
+                quote! { *mut #tokens}
+            }
         }
     }
 
@@ -487,6 +497,10 @@ impl TypeKind {
             Self::Array(len, r#type) => {
                 let tokens = r#type.gen_full();
                 quote! { [#tokens ; #len]}
+            }
+            Self::Pointer(r#type) => {
+                let tokens = r#type.gen_full();
+                quote! { *mut #tokens}
             }
         }
     }
@@ -530,6 +544,10 @@ impl TypeKind {
                 let tokens = r#type.gen_abi();
                 quote! { [#tokens ; #len]}
             }
+            Self::Pointer(r#type) => {
+                let tokens = r#type.gen_abi();
+                quote! { *mut #tokens}
+            }
         }
     }
 
@@ -571,6 +589,10 @@ impl TypeKind {
             Self::Array(len, r#type) => {
                 let tokens = r#type.gen_full_abi();
                 quote! { [#tokens ; #len]}
+            }
+            Self::Pointer(r#type) => {
+                let tokens = r#type.gen_full_abi();
+                quote! { *mut #tokens}
             }
         }
     }
@@ -620,6 +642,7 @@ impl TypeKind {
                 // Finally, wrap the big pile of tokens in the array's braces
                 quote! { [#array_tokens] }
             }
+            Self::Pointer(_) => quote! { ::std::ptr::null_mut() },
             _ => quote! { ::std::default::Default::default() },
         }
     }
