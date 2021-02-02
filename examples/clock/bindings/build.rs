@@ -20,7 +20,6 @@ fn main() {
             IDXGIDevice, IDXGIFactory7, CreateDXGIFactory1, DXGI_USAGE_RENDER_TARGET_OUTPUT,
             DXGI_PRESENT_TEST, DXGI_FORMAT, DXGI_RGBA,
         },
-        windows::win32::com::{CoInitialize, CoCreateInstance,CLSCTX},
         windows::win32::ui_animation::{IUIAnimationManager, IUIAnimationTransitionLibrary},
         windows::win32::upnp::{UIAnimationManager,UIAnimationTransitionLibrary},
         windows::win32::windows_programming::{

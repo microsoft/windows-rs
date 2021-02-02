@@ -1,18 +1,14 @@
 use bindings::{
-    windows::foundation::numerics::*, windows::win32::com::*, windows::win32::direct2d::*,
-    windows::win32::direct3d11::*, windows::win32::dxgi::*, windows::win32::gdi::*,
-    windows::win32::menus_and_resources::*, windows::win32::system_services::*,
-    windows::win32::ui_animation::*, windows::win32::upnp::*,
+    windows::foundation::numerics::*, windows::win32::direct2d::*, windows::win32::direct3d11::*,
+    windows::win32::dxgi::*, windows::win32::gdi::*, windows::win32::menus_and_resources::*,
+    windows::win32::system_services::*, windows::win32::ui_animation::*, windows::win32::upnp::*,
     windows::win32::windows_and_messaging::*, windows::win32::windows_programming::*, windows::*,
 };
 
 fn main() -> Result<()> {
-    unsafe {
-        CoInitialize(std::ptr::null_mut()).ok()?;
-        let mut window = Window::new()?;
-        window.run()?;
-        Ok(())
-    }
+    initialize_sta()?;
+    let mut window = Window::new()?;
+    window.run()
 }
 
 struct Window {
@@ -64,7 +60,7 @@ impl Window {
         let factory = create_factory()?;
         let dxfactory = create_dxfactory()?;
         let style = create_style(&factory)?;
-        let manager = create_manager()?;
+        let manager: IUIAnimationManager = create_instance(&UIAnimationManager)?;
         let transition = create_transition()?;
 
         let mut dpi = 0.0;
@@ -120,12 +116,13 @@ impl Window {
         }
 
         let target = self.target.as_ref().unwrap();
-
         target.BeginDraw();
         self.draw(target)?;
+
         target
             .EndDraw(std::ptr::null_mut(), std::ptr::null_mut())
             .ok()?;
+
         let error = self.present(1, 0);
 
         if error.is_err() {
@@ -550,38 +547,8 @@ fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
         .and_some(style)
 }
 
-fn create_manager() -> Result<IUIAnimationManager> {
-    unsafe {
-        let mut manager: Option<IUIAnimationManager> = None;
-
-        CoCreateInstance(
-            &UIAnimationManager,
-            None,
-            CLSCTX::CLSCTX_INPROC_SERVER.0 as u32,
-            &IUIAnimationManager::IID,
-            manager.set_abi(),
-        )
-        .and_some(manager)
-    }
-}
-
-fn create_library() -> Result<IUIAnimationTransitionLibrary> {
-    unsafe {
-        let mut library: Option<IUIAnimationTransitionLibrary> = None;
-
-        CoCreateInstance(
-            &UIAnimationTransitionLibrary,
-            None,
-            CLSCTX::CLSCTX_INPROC_SERVER.0 as u32,
-            &IUIAnimationTransitionLibrary::IID,
-            library.set_abi(),
-        )
-        .and_some(library)
-    }
-}
-
 fn create_transition() -> Result<IUIAnimationTransition> {
-    let library = create_library()?;
+    let library: IUIAnimationTransitionLibrary = create_instance(&UIAnimationTransitionLibrary)?;
 
     let mut transition = None;
 
