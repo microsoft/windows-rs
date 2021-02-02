@@ -2,33 +2,24 @@ use crate::*;
 
 /// Initializes COM for use by the calling thread for the multi-threaded apartment (MTA).
 pub fn initialize_mta() -> Result<()> {
-    unsafe {
-        CoInitializeEx(0, 0).ok() // COINIT_APARTMENTTHREADED
-    }
+    unsafe { CoInitializeEx(0, COINIT_MULTITHREADED).ok() }
 }
 
 /// Initializes COM for use by the calling thread for a single-threaded apartment (STA).
 pub fn initialize_sta() -> Result<()> {
-    unsafe {
-        CoInitializeEx(0, 2).ok() // COINIT_MULTITHREADED
-    }
+    unsafe { CoInitializeEx(0, COINIT_APARTMENTTHREADED).ok() }
 }
 
 /// Creates a COM object with the given CLSID.
 pub fn create_instance<T: Interface>(clsid: &Guid) -> Result<T> {
     let mut object = None;
 
-    unsafe {
-        CoCreateInstance(
-            clsid,
-            None,
-            23, // CLSCTX_ALL
-            &T::IID,
-            object.set_abi(),
-        )
-        .and_some(object)
-    }
+    unsafe { CoCreateInstance(clsid, None, CLSCTX_ALL, &T::IID, object.set_abi()).and_some(object) }
 }
+
+const COINIT_MULTITHREADED: u32 = 0;
+const COINIT_APARTMENTTHREADED: u32 = 2;
+const CLSCTX_ALL: u32 = 23;
 
 #[link(name = "ole32")]
 extern "system" {
