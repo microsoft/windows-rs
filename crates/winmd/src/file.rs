@@ -17,8 +17,6 @@ pub struct File {
     pub(crate) strings: u32,
     /// The index of the blobs data
     pub(crate) blobs: u32,
-    /// The index of the guids data
-    pub(crate) guids: u32,
     /// The table data
     pub(crate) tables: [TableData; 13],
 }
@@ -147,8 +145,8 @@ impl File {
             match stream_name {
                 b"#Strings" => file.strings = cli_offset + stream_offset,
                 b"#Blob" => file.blobs = cli_offset + stream_offset,
-                b"#GUID" => file.guids = cli_offset + stream_offset,
                 b"#~" => tables_data = (cli_offset + stream_offset, stream_size),
+                b"#GUID" => {}
                 b"#US" => {}
                 _ => panic!("Invalid file: invalid stream name"),
             }
