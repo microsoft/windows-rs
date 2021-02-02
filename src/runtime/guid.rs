@@ -59,6 +59,18 @@ impl Guid {
             ],
         )
     }
+
+    /// Looks up a CLSID in the registry using the [CLSIDFromProgID](https://docs.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-clsidfromprogid) function.
+    pub fn from_progid(progid: &str) -> crate::Result<Guid> {
+        let progid = HString::from(progid);
+        let mut guid = Guid::zeroed();
+
+        unsafe {
+            CLSIDFromProgID(progid.as_wide().as_ptr() as *mut _, &mut guid).ok()?;
+        }
+
+        Ok(guid)
+    }
 }
 
 unsafe impl Abi for Guid {
@@ -122,4 +134,9 @@ impl From<&str> for Guid {
 
         Guid::from_values(a, b, c, [d, e, f, g, h, i, j, k])
     }
+}
+
+#[link(name = "ole32")]
+extern "system" {
+    fn CLSIDFromProgID(progid: *mut u16, clsid: &mut Guid) -> ErrorCode;
 }
