@@ -61,7 +61,7 @@ impl BString {
 unsafe impl Abi for BString {
     type Abi = RawPtr;
 
-    unsafe fn set_abi(&mut self) -> *mut RawPtr {
+    fn set_abi(&mut self) -> *mut RawPtr {
         debug_assert!(self.is_empty());
         &mut self.0 as *mut _ as _
     }
