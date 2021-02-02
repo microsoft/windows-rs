@@ -40,12 +40,13 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             if factory.cast::<IAgileObject>().is_ok() {
                 if self
                     .shared
-                    .compare_and_swap(
+                    .compare_exchange_weak(
                         std::ptr::null_mut(),
                         unsafe { std::mem::transmute_copy(&factory) },
                         Ordering::Relaxed,
+                        Ordering::Relaxed,
                     )
-                    .is_null()
+                    .is_ok()
                 {
                     std::mem::forget(factory);
                 }
@@ -109,7 +110,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             if let Ok(function) = delay_load(&library, "DllGetActivationFactory", 0) {
                 let function: DllGetActivationFactory = std::mem::transmute(function);
                 let mut abi = std::ptr::null_mut();
-                function(name.abi(), &mut abi);
+                let _ = function(name.abi(), &mut abi);
 
                 if abi.is_null() {
                     continue;
