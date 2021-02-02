@@ -24,7 +24,7 @@ impl ILanguageExceptionErrorInfo2 {
     /// to improve debugging.
     pub fn capture_propagation_context(&self) {
         unsafe {
-            (self.vtable().5)(self.abi(), std::ptr::null_mut());
+            let _ = (self.vtable().5)(self.abi(), std::ptr::null_mut());
         }
     }
 }
