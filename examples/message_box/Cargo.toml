@@ -1,0 +1,8 @@
+[package]
+name = "message_box"
+version = "0.1.0"
+authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
+edition = "2018"
+
+[dependencies]
+bindings = { package = "message_box_bindings", path = "bindings" }

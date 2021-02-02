@@ -1,0 +1,8 @@
+[package]
+name = "event"
+version = "0.1.0"
+authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
+edition = "2018"
+
+[dependencies]
+bindings = { package="event_bindings", path = "bindings" }
