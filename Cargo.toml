@@ -13,7 +13,7 @@ readme = "README.md"
 windows_macros = { path = "crates/macros",  version = "0.2.1" }
 windows_gen = { path = "crates/gen",  version = "0.2.1" }
 windows_winmd = { path = "crates/winmd",  version = "0.2.1" }
-com = { path = "../com-rs", version = "0.4.0" }
+com = { git = "https://github.com/hadeutscher/com-rs", branch = "feature/windows_interop2" }
 const-sha1 = "0.2"
 
 [build-dependencies]
