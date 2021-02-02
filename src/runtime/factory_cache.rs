@@ -40,12 +40,13 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             if factory.cast::<IAgileObject>().is_ok() {
                 if self
                     .shared
-                    .compare_and_swap(
+                    .compare_exchange_weak(
                         std::ptr::null_mut(),
                         unsafe { std::mem::transmute_copy(&factory) },
                         Ordering::Relaxed,
+                        Ordering::Relaxed,
                     )
-                    .is_null()
+                    .is_ok()
                 {
                     std::mem::forget(factory);
                 }
