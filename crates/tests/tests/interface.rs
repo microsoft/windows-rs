@@ -5,7 +5,7 @@ use windows::{Abi, Interface};
 fn interface() -> windows::Result<()> {
     assert_eq!(
         IStringable::IID,
-        windows::Guid::from("96369F54-8EB6-48F0-ABCE-C1B211E627C3")
+        com::sys::GUID::from("96369F54-8EB6-48F0-ABCE-C1B211E627C3")
     );
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
@@ -13,7 +13,7 @@ fn interface() -> windows::Result<()> {
     // The class and the default interface have the same vtable types, which
     // means you can compare them directly.
     let u: IUriRuntimeClass = uri.into();
-    assert!(u.abi() == uri.abi());
+    assert!(u.get_abi() == uri.get_abi());
     assert!(u.domain()? == "kennykerr.ca");
 
     // The class and the non-default interface have different vtable types, which
@@ -21,12 +21,12 @@ fn interface() -> windows::Result<()> {
     let s: IStringable = uri.into();
     assert!(s.to_string()? == "http://kennykerr.ca/");
 
-    assert!(s.abi() != uri.abi());
+    assert!(s.get_abi() != uri.get_abi());
 
     // Here two different values of the same class won't share the same value as
     // they are unique instances even though they have the same vtable layout.
     let other = &Uri::create_uri("http://microsoft.com")?;
-    assert!(uri.abi() != other.abi());
+    assert!(uri.get_abi() != other.get_abi());
 
     Ok(())
 }

@@ -50,7 +50,7 @@ impl Delegate {
 
         quote! {
             #[repr(transparent)]
-            pub struct #definition(::windows::IUnknown, #phantoms) where #constraints;
+            pub struct #definition(::com::interfaces::IUnknown, #phantoms) where #constraints;
             impl<#constraints> ::std::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self(self.0.clone(), #phantoms)
@@ -67,9 +67,10 @@ impl Delegate {
                     write!(f, "{:?}", self.0)
                 }
             }
-            unsafe impl<#constraints> ::windows::Interface for #name {
-                type Vtable = #vtable_definition;
-                const IID: ::windows::Guid = #guid;
+            unsafe impl<#constraints> ::com::Interface for #name {
+                type VTable = #vtable_definition;
+                type Super = ::com::interfaces::IUnknown;
+                const IID: ::com::sys::IID = #guid;
             }
             unsafe impl<#constraints> ::windows::RuntimeType for #name {
                 type DefaultType = ::std::option::Option<Self>;
@@ -78,7 +79,7 @@ impl Delegate {
             #[repr(C)]
             #[doc(hidden)]
             pub struct #vtable_definition(
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::com::sys::GUID, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn #abi_signature,
@@ -112,12 +113,12 @@ impl Delegate {
                     Self::Invoke,
                     #phantoms
                 );
-                unsafe extern "system" fn QueryInterface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode {
+                unsafe extern "system" fn QueryInterface(this: ::windows::RawPtr, iid: &::com::sys::GUID, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode {
                     let this = this as *mut ::windows::RawPtr as *mut Self;
 
-                    *interface = if iid == &<#name as ::windows::Interface>::IID ||
-                        iid == &<::windows::IUnknown as ::windows::Interface>::IID ||
-                        iid == &<::windows::IAgileObject as ::windows::Interface>::IID {
+                    *interface = if iid == &<#name as ::com::Interface>::IID ||
+                        iid == &<::com::interfaces::IUnknown as ::com::Interface>::IID ||
+                        iid == &<::windows::IAgileObject as ::com::Interface>::IID {
                             &mut (*this).vtable as *mut _ as _
                         } else {
                             ::std::ptr::null_mut()

@@ -393,7 +393,7 @@ impl TypeKind {
             Self::USize => quote! { usize },
             Self::String => quote! { ::windows::HString },
             Self::Object => quote! { ::windows::Object },
-            Self::Guid => quote! { ::windows::Guid },
+            Self::Guid => quote! { ::com::sys::GUID },
             Self::IUnknown => quote! { ::windows::IUnknown },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Bool32 => quote! { ::windows::BOOL },
@@ -429,7 +429,7 @@ impl TypeKind {
             Self::USize => quote! { usize },
             Self::String => quote! { ::windows::HString },
             Self::Object => quote! { ::windows::Object },
-            Self::Guid => quote! { ::windows::Guid },
+            Self::Guid => quote! { ::com::sys::GUID },
             Self::IUnknown => quote! { ::windows::IUnknown },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Bool32 => quote! { ::windows::BOOL },
@@ -463,7 +463,7 @@ impl TypeKind {
             Self::F64 => quote! { f64 },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
-            Self::Guid => quote! { ::windows::Guid },
+            Self::Guid => quote! { ::com::sys::GUID },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Bool32 => quote! { ::windows::BOOL },
             Self::Matrix3x2 => quote! { ::windows::foundation::numerics::Matrix3x2 },
@@ -477,7 +477,7 @@ impl TypeKind {
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
-                quote! { <#name as ::windows::Abi>::Abi }
+                quote! { <#name as ::com::AbiTransferable>::Abi }
             }
             Self::Enum(name) => name.gen(),
             Self::Struct(name) => name.gen_abi(),
@@ -501,7 +501,7 @@ impl TypeKind {
             Self::F64 => quote! { f64 },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
-            Self::Guid => quote! { ::windows::Guid },
+            Self::Guid => quote! { ::com::sys::GUID },
             Self::ErrorCode => quote! { ::windows::ErrorCode },
             Self::Bool32 => quote! { ::windows::BOOL },
             Self::Matrix3x2 => quote! { ::windows::foundation::numerics::Matrix3x2 },
@@ -515,7 +515,7 @@ impl TypeKind {
             }
             Self::Generic(name) => {
                 let name = format_ident(name);
-                quote! { <#name as ::windows::Abi>::Abi }
+                quote! { <#name as ::com::AbiTransferable>::Abi }
             }
             Self::Enum(name) => name.gen_full(),
             Self::Struct(name) => name.gen_full_abi(),
@@ -538,7 +538,7 @@ impl TypeKind {
             | Self::USize => quote! { 0 },
             Self::F32 | Self::F64 => quote! { 0.0 },
             Self::String => quote! { ::windows::HString::new() },
-            Self::Guid => quote! { ::windows::Guid::zeroed() },
+            Self::Guid => quote! { ::com::sys::GUID::zeroed() },
             _ => quote! { ::std::default::Default::default() },
         }
     }

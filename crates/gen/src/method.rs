@@ -113,7 +113,7 @@ impl Method {
         // arguments to ensure the call succeeds in the non-aggregating case.
         let composable_args = if kind == InterfaceKind::Composable {
             quote! {
-                ::std::ptr::null_mut(), ::windows::Abi::set_abi(&mut ::std::option::Option::<::windows::Object>::None),
+                ::std::ptr::null_mut(), ::com::AbiTransferable::set_abi(&mut ::std::option::Option::<::windows::Object>::None),
             }
         } else {
             TokenStream::new()
@@ -134,19 +134,19 @@ impl Method {
             if return_type.is_array {
                 quote! {
                     let mut result__: #return_type_tokens = ::std::mem::zeroed();
-                    (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args)* #composable_args #return_arg)
+                    (::com::Interface::vtable(this).#vtable_offset)(::com::AbiTransferable::get_abi(this), #(#args)* #composable_args #return_arg)
                         .and_then(|| result__ )
                 }
             } else {
                 quote! {
-                    let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
-                        (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args)* #composable_args #return_arg)
+                    let mut result__: <#return_type_tokens as ::com::AbiTransferable>::Abi = ::std::mem::zeroed();
+                        (::com::Interface::vtable(this).#vtable_offset)(::com::AbiTransferable::get_abi(this), #(#args)* #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 }
             }
         } else {
             quote! {
-                (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args)* #composable_args).ok()
+                (::com::Interface::vtable(this).#vtable_offset)(::com::AbiTransferable::get_abi(this), #(#args)* #composable_args).ok()
             }
         };
 
@@ -163,7 +163,7 @@ impl Method {
                 let interface = interface.gen();
                 quote! {
                     pub fn #method_name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
-                        let this = &::windows::Interface::cast::<#interface>(self).unwrap();
+                        let this = &::com::Interface::cast::<#interface>(self).unwrap();
                         unsafe {
                             #vcall
                         }
@@ -369,7 +369,7 @@ fn param_gen_abi_return_arg(t: &Type) -> TokenStream {
         let return_type = t.kind.gen();
         quote! { ::windows::Array::<#return_type>::set_abi_len(&mut result__), windows::Array::<#return_type>::set_abi(&mut result__), }
     } else {
-        quote! { &mut result__ }
+        quote! { (&mut result__) as *mut _ as *mut _ }
     }
 }
 
@@ -403,13 +403,13 @@ fn param_gen_abi_arg(t: &Type) -> TokenStream {
                         quote! { #name.into().abi(), }
                     }
                 }
-                _ => quote! { ::windows::Abi::abi(#name), },
+                _ => quote! { ::com::AbiTransferable::get_abi(#name), },
             }
         }
     } else if t.kind.primitive() {
         quote! { #name, }
     } else {
-        quote! { ::windows::Abi::set_abi(#name), }
+        quote! { ::com::AbiTransferable::set_abi(#name), }
     }
 }
 
@@ -440,9 +440,9 @@ fn param_gen_invoke_arg(t: &Type, relative: bool) -> TokenStream {
             quote! { #name }
         } else {
             if t.is_const {
-                quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
+                quote! { &*(#name as *const <#kind as ::com::AbiTransferable>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
             } else {
-                quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
+                quote! { &*(&#name as *const <#kind as ::com::AbiTransferable>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
             }
         }
     } else {

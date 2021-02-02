@@ -1,4 +1,6 @@
-use crate::*;
+use com::sys::GUID;
+use com::Interface;
+use com::interfaces::IUnknown;
 
 /// A marker interface indicating that an object is free-threaded and may be called from any apartment.
 /// `IAgileObject` represents the
@@ -9,9 +11,10 @@ use crate::*;
 pub struct IAgileObject(IUnknown);
 
 unsafe impl Interface for IAgileObject {
-    type Vtable = IUnknown_vtable;
+    type VTable = <IUnknown as Interface>::VTable;
+    type Super = IUnknown;
 
-    const IID: Guid = Guid::from_values(
+    const IID: GUID = GUID::from_values(
         0x94EA_2B94,
         0xE9CC,
         0x49E0,

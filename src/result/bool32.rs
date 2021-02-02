@@ -1,4 +1,5 @@
-use crate::{Abi, ErrorCode};
+use crate::ErrorCode;
+use com::AbiTransferable;
 
 /// A 32-bit boolean error code value returned by some Win32 functions.
 #[repr(transparent)]
@@ -45,7 +46,7 @@ impl BOOL {
     }
 }
 
-unsafe impl Abi for BOOL {
+unsafe impl AbiTransferable for BOOL {
     type Abi = Self;
 }
 

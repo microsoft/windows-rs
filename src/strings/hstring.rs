@@ -1,6 +1,7 @@
 use crate::*;
 use std::convert::TryFrom;
 use std::result::Result as StdResult;
+use com::AbiTransferable;
 
 /// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring),
 /// is reference-counted and logically immutable. It should only be used for communicating with WinRT APIs.
@@ -95,7 +96,7 @@ impl HString {
     }
 }
 
-unsafe impl Abi for HString {
+unsafe impl AbiTransferable for HString {
     type Abi = RawPtr;
 
     fn set_abi(&mut self) -> *mut RawPtr {

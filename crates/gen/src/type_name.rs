@@ -144,14 +144,14 @@ impl TypeName {
             let guid = guid.gen();
 
             return quote! {
-                ::windows::Guid::from_values(#guid)
+                ::com::sys::GUID::from_values(#guid)
             };
         }
 
         let typ = self.gen();
 
         quote! {
-            ::windows::Guid::from_signature(<#typ as ::windows::RuntimeType>::SIGNATURE)
+            ::com::sys::GUID::from_signature(<#typ as ::windows::RuntimeType>::SIGNATURE)
         }
     }
 

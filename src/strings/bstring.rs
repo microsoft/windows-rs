@@ -1,6 +1,7 @@
 use crate::*;
 use std::convert::TryFrom;
 use std::result::Result as StdResult;
+use com::AbiTransferable;
 
 /// A Basic string, sometimes called a [BSTR](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/automat/bstr),
 /// is a string data type used by certain COM interfaces and interop functions.
@@ -58,7 +59,7 @@ impl BString {
     }
 }
 
-unsafe impl Abi for BString {
+unsafe impl AbiTransferable for BString {
     type Abi = RawPtr;
 
     fn set_abi(&mut self) -> *mut RawPtr {

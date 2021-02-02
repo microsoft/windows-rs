@@ -102,7 +102,7 @@ impl RequiredInterface {
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
-                            ::windows::Interface::cast(value).unwrap()
+                            ::com::Interface::cast(value).unwrap()
                         }
                     }
                     impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for #from {

@@ -107,17 +107,18 @@ impl Interface {
                 #methods
                 #async_get
             }
-            unsafe impl<#constraints> ::windows::Interface for #name {
-                type Vtable = #abi_definition;
-                const IID: ::windows::Guid = #guid;
+            unsafe impl<#constraints> ::com::Interface for #name {
+                type VTable = #abi_definition;
+                type Super = ::com::interfaces::IUnknown;
+                const IID: ::com::sys::IID = #guid;
             }
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_definition(
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::com::sys::GUID, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::windows::Guid) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::com::sys::GUID) -> ::windows::ErrorCode,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut i32) -> ::windows::ErrorCode,
                 #(#abi_methods,)*

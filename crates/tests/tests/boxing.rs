@@ -1,7 +1,7 @@
 use std::convert::{TryFrom, TryInto};
 use windows::foundation::{IPropertyValue, PropertyValue};
 use windows::HString;
-use windows::Interface;
+use com::Interface;
 use windows::Object;
 
 macro_rules! primitive_try_into_test {

@@ -1,6 +1,6 @@
 use tests::test_component::*;
 use tests::windows::foundation::{IReference, IStringable, PropertyValue, Uri};
-use windows::Interface;
+use com::Interface;
 
 #[test]
 fn test_self() -> windows::Result<()> {
@@ -108,7 +108,7 @@ fn params() -> windows::Result<()> {
             g: -7,
             h: 8.0,
             i: 9.0,
-            j: windows::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+            j: com::sys::GUID::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
         };
 
         let mut b = Blittable::default();
@@ -147,7 +147,7 @@ fn params() -> windows::Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: windows::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: com::sys::GUID::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
             non_blittable: NonBlittable {
                 a: false,
@@ -305,7 +305,7 @@ fn arrays() -> windows::Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: windows::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: com::sys::GUID::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
             Blittable {
                 a: 10,
@@ -317,7 +317,7 @@ fn arrays() -> windows::Result<()> {
                 g: -70,
                 h: 80.0,
                 i: 90.0,
-                j: windows::Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
+                j: com::sys::GUID::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
             },
             Blittable {
                 a: 1,
@@ -329,7 +329,7 @@ fn arrays() -> windows::Result<()> {
                 g: -7,
                 h: 8.0,
                 i: 9.0,
-                j: windows::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                j: com::sys::GUID::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
             },
         ];
 
@@ -412,7 +412,7 @@ fn arrays() -> windows::Result<()> {
                     g: -7,
                     h: 8.0,
                     i: 9.0,
-                    j: windows::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                    j: com::sys::GUID::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
                 },
                 non_blittable: NonBlittable {
                     a: false,
@@ -432,7 +432,7 @@ fn arrays() -> windows::Result<()> {
                     g: -70,
                     h: 80.0,
                     i: 90.0,
-                    j: windows::Guid::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
+                    j: com::sys::GUID::from("914b6107-9a3a-4c0d-98df-aca11b016698"),
                 },
                 non_blittable: NonBlittable {
                     a: true,
@@ -452,7 +452,7 @@ fn arrays() -> windows::Result<()> {
                     g: -7,
                     h: 8.0,
                     i: 9.0,
-                    j: windows::Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
+                    j: com::sys::GUID::from("CFF52E04-CCA6-4614-A17E-754910C84A99"),
                 },
                 non_blittable: NonBlittable {
                     a: false,

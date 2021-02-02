@@ -20,14 +20,11 @@ mod traits;
 use interfaces::*;
 use runtime::*;
 
-pub use interfaces::{IActivationFactory, IAgileObject, IUnknown, Object};
+pub use interfaces::{IActivationFactory, IAgileObject, Object};
 pub use result::{Error, ErrorCode, Result, BOOL, FALSE, TRUE};
-pub use runtime::{
-    create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, Param,
-    RefCount, Waiter,
-};
+pub use runtime::{factory, Array, FactoryCache, Param, RefCount, Waiter};
 pub use strings::{BString, HString};
-pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
+pub use traits::{RuntimeName, RuntimeType};
 pub use windows_macros::{build, implement};
 
 extern crate self as windows;

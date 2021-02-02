@@ -2,7 +2,7 @@
 //     pub use windows::foundation;
 // }
 
-use windows::Interface; // for .cast()
+use com::Interface; // for .cast()
 
 #[test]
 fn implement() -> windows::Result<()> {

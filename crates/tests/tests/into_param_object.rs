@@ -1,5 +1,5 @@
 use windows::foundation::{PropertyValue, Uri};
-use windows::Interface;
+use com::Interface;
 
 #[test]
 fn into() -> windows::Result<()> {

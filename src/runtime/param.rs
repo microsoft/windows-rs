@@ -1,19 +1,20 @@
 use crate::*;
+use com::{AbiTransferable, Interface};
 
 // A WinRT method parameter used to accept either a reference or value. `Param` is used by the
 // generated bindings and should not generally be used directly.
 #[doc(hidden)]
-pub enum Param<'a, T: Abi> {
+pub enum Param<'a, T: AbiTransferable> {
     Borrowed(&'a T),
     Owned(T),
     None,
 }
 
-impl<'a, T: Abi> Param<'a, T> {
+impl<'a, T: AbiTransferable> Param<'a, T> {
     pub fn abi(&mut self) -> T::Abi {
         match self {
-            Param::Borrowed(value) => value.abi(),
-            Param::Owned(value) => value.abi(),
+            Param::Borrowed(value) => value.get_abi(),
+            Param::Owned(value) => value.get_abi(),
             // It is always safe to form an `Abi` type's binary representation from an all-zero
             // byte-pattern as this represents the null or default state for every type.
             Param::None => unsafe { std::mem::zeroed() },
@@ -21,13 +22,13 @@ impl<'a, T: Abi> Param<'a, T> {
     }
 }
 
-impl<'a, T: Abi> From<T> for Param<'a, T> {
+impl<'a, T: AbiTransferable> From<T> for Param<'a, T> {
     fn from(value: T) -> Self {
         Param::Owned(value)
     }
 }
 
-impl<'a, T: Abi> From<&'a T> for Param<'a, T> {
+impl<'a, T: AbiTransferable> From<&'a T> for Param<'a, T> {
     fn from(value: &'a T) -> Self {
         Param::Borrowed(value)
     }

@@ -1,4 +1,7 @@
 use crate::*;
+use com::sys::GUID;
+use com::{AbiTransferable, Interface};
+use com::interfaces::IUnknown;
 
 /// Provides low-level access to a WinRT error object for debugging purposes.
 /// `ILanguageExceptionErrorInfo2` represents the
@@ -10,7 +13,7 @@ pub struct ILanguageExceptionErrorInfo2(IUnknown);
 
 #[repr(C)]
 pub struct ILanguageExceptionErrorInfo2_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr, exception: *mut RawPtr) -> ErrorCode, // GetLanguageException
@@ -24,15 +27,16 @@ impl ILanguageExceptionErrorInfo2 {
     /// to improve debugging.
     pub fn capture_propagation_context(&self) {
         unsafe {
-            let _ = (self.vtable().5)(self.abi(), std::ptr::null_mut());
+            let _ = (self.vtable().5)(self.get_abi(), std::ptr::null_mut());
         }
     }
 }
 
 unsafe impl Interface for ILanguageExceptionErrorInfo2 {
-    type Vtable = ILanguageExceptionErrorInfo2_vtable;
+    type VTable = ILanguageExceptionErrorInfo2_vtable;
+    type Super = IUnknown;
 
-    const IID: Guid = Guid::from_values(
+    const IID: GUID = GUID::from_values(
         0x5746_E5C4,
         0x5B97,
         0x424C,

@@ -118,7 +118,7 @@ pub fn gen(
             };
 
             shims.combine(&quote! {
-                unsafe extern "system" fn #query_interface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode {
+                unsafe extern "system" fn #query_interface(this: ::windows::RawPtr, iid: &::com::sys::GUID, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode {
                     let this = (this as *mut ::windows::RawPtr).sub(#interface_count) as *mut Self;
                     (*this).QueryInterface(iid, interface)
                 }
@@ -155,7 +155,7 @@ pub fn gen(
                 });
 
                 queries.combine(&quote! {
-                    &<#interface_ident as ::windows::Interface>::IID => {
+                    &<#interface_ident as ::com::Interface>::IID => {
                         &mut self.vtable.#interface_literal as *mut _ as _
                     }
                 });
@@ -202,13 +202,13 @@ pub fn gen(
                     count: ::windows::RefCount::new()
                 }
             }
-            fn QueryInterface(&mut self, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode {
+            fn QueryInterface(&mut self, iid: &::com::sys::GUID, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode {
                 unsafe {
                     *interface = match iid {
                         #queries
-                        &<::windows::IUnknown as ::windows::Interface>::IID
-                        | &<::windows::Object as ::windows::Interface>::IID
-                        | &<::windows::IAgileObject as ::windows::Interface>::IID => {
+                        &<::com::interfaces::IUnknown as ::com::Interface>::IID
+                        | &<::windows::Object as ::com::Interface>::IID
+                        | &<::windows::IAgileObject as ::com::Interface>::IID => {
                             &mut self.vtable.0 as *mut _ as _
                         }
                         _ => ::std::ptr::null_mut(),
@@ -237,7 +237,7 @@ pub fn gen(
             unsafe extern "system" fn GetIids(
                 _: ::windows::RawPtr,
                 count: *mut u32,
-                values: *mut *mut ::windows::Guid,
+                values: *mut *mut ::com::sys::GUID,
             ) -> ::windows::ErrorCode {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all

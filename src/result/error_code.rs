@@ -1,3 +1,5 @@
+use com::{AbiTransferable, Interface};
+
 use crate::*;
 
 /// A primitive error code value returned by most COM functions. An `ErrorCode` is sometimes called an `HRESULT`.
@@ -64,9 +66,9 @@ impl ErrorCode {
     }
 
     /// If the `Result` is `Ok` converts the `T::Abi` into `T`.
-    pub unsafe fn from_abi<T: Abi>(self, abi: T::Abi) -> Result<T> {
+    pub unsafe fn from_abi<T: AbiTransferable>(self, abi: T::Abi) -> Result<T> {
         if self.is_ok() {
-            T::from_abi(abi)
+            Ok(T::from_abi(abi))
         } else {
             Err(Error::from(self))
         }
@@ -105,7 +107,7 @@ impl ErrorCode {
     pub const E_POINTER: ErrorCode = ErrorCode(0x8000_4003);
 }
 
-unsafe impl Abi for ErrorCode {
+unsafe impl AbiTransferable for ErrorCode {
     type Abi = Self;
 }
 

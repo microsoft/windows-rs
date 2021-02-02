@@ -182,9 +182,10 @@ impl Class {
                     }
                 }
                 #type_name
-                unsafe impl ::windows::Interface for #name {
-                    type Vtable = #abi_name;
-                    const IID: ::windows::Guid = <#default_name as ::windows::Interface>::IID;
+                unsafe impl ::com::Interface for #name {
+                    type VTable = #abi_name;
+                    type Super = ::com::interfaces::IUnknown;
+                    const IID: ::com::sys::IID = <#default_name as ::com::Interface>::IID;
                 }
                 unsafe impl ::windows::RuntimeType for #name {
                     type DefaultType = ::std::option::Option<Self>;
@@ -239,7 +240,7 @@ impl Class {
                 }
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
-                        ::windows::Interface::cast(value).unwrap()
+                        ::com::Interface::cast(value).unwrap()
                     }
                 }
                 impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for #from {

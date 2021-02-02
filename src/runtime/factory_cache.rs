@@ -1,6 +1,8 @@
 use crate::*;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
+use com::{AbiTransferable, Interface};
+use com::sys::GUID;
 
 type DllGetActivationFactory = extern "system" fn(name: RawPtr, factory: *mut RawPtr) -> ErrorCode;
 
@@ -37,7 +39,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             let factory = factory::<C, I>()?;
 
             // If the factory is agile, we can safely cache it.
-            if factory.cast::<IAgileObject>().is_ok() {
+            if factory.cast::<IAgileObject>().is_some() {
                 if self
                     .shared
                     .compare_exchange_weak(
@@ -66,7 +68,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(name.abi(), &I::IID, factory.set_abi());
+        let code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi());
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -82,7 +84,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.abi(), &I::IID, factory.set_abi())
+            code = RoGetActivationFactory(name.get_abi(), &I::IID, factory.set_abi())
                 .unwrap_or_else(|code| code);
         }
 
@@ -110,14 +112,14 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             if let Ok(function) = delay_load(&library, "DllGetActivationFactory", 0) {
                 let function: DllGetActivationFactory = std::mem::transmute(function);
                 let mut abi = std::ptr::null_mut();
-                let _ = function(name.abi(), &mut abi);
+                let _ = function(name.get_abi(), &mut abi);
 
                 if abi.is_null() {
                     continue;
                 }
 
                 let factory: IActivationFactory = std::mem::transmute(abi);
-                return factory.cast();
+                return factory.cast().ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE));
             }
         }
 
@@ -130,6 +132,6 @@ demand_load! {
         fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
     }
     "combase.dll" {
-        fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
+        fn RoGetActivationFactory(hstring: RawPtr, interface: &GUID, result: *mut RawPtr) -> ErrorCode;
     }
 }

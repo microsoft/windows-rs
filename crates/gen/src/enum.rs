@@ -158,7 +158,7 @@ impl Enum {
                 #![allow(non_upper_case_globals)]
                 #(#fields)*
             }
-            unsafe impl ::windows::Abi for #name {
+            unsafe impl ::com::AbiTransferable for #name {
                 type Abi = Self;
             }
             #runtime_type

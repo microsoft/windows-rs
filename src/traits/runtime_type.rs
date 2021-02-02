@@ -1,10 +1,10 @@
-use crate::*;
+use com::AbiTransferable;
 
 /// RuntimeType is used to constrain WinRT generic types to WinRT types.
 ///
 /// This trait is automatically used by the generated bindings and should not be
 /// used directly.
-pub unsafe trait RuntimeType: Abi + Clone {
+pub unsafe trait RuntimeType: AbiTransferable + Clone {
     type DefaultType;
     const SIGNATURE: crate::ConstBuffer;
 }
@@ -15,9 +15,6 @@ macro_rules! primitive_runtime_types {
             unsafe impl RuntimeType for $t {
                 type DefaultType = Self;
                 const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice($s);
-            }
-            unsafe impl Abi for $t {
-                type Abi = Self;
             }
         )*
     };
@@ -34,5 +31,6 @@ primitive_runtime_types! {
     (i64, b"i8"),
     (u64, b"u8"),
     (f32, b"f4"),
-    (f64, b"f8")
+    (f64, b"f8"),
+    (com::sys::GUID, b"g16")
 }

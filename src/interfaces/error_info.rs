@@ -1,5 +1,8 @@
 use crate::*;
 use std::convert::TryInto;
+use com::sys::GUID;
+use com::{AbiTransferable, Interface};
+use com::interfaces::IUnknown;
 
 /// Provides detailed error information. `IErrorInfo` represents the
 /// [IErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
@@ -10,10 +13,10 @@ pub struct IErrorInfo(IUnknown);
 
 #[repr(C)]
 pub struct IErrorInfo_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
+    pub unsafe extern "system" fn(this: RawPtr, guid: *mut GUID) -> ErrorCode, // GetGUID
     pub unsafe extern "system" fn(this: RawPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
     pub unsafe extern "system" fn(this: RawPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
     pub unsafe extern "system" fn(this: RawPtr, help: *mut RawPtr) -> ErrorCode, // GetHelpFile
@@ -34,7 +37,7 @@ impl IErrorInfo {
         let mut value = BString::new();
 
         unsafe {
-            let _ = (self.vtable().5)(self.abi(), value.set_abi());
+            let _ = (self.vtable().5)(self.get_abi(), value.set_abi());
         }
 
         value.try_into().unwrap_or_default()
@@ -42,9 +45,10 @@ impl IErrorInfo {
 }
 
 unsafe impl Interface for IErrorInfo {
-    type Vtable = IErrorInfo_vtable;
+    type VTable = IErrorInfo_vtable;
+    type Super = IUnknown;
 
-    const IID: Guid = Guid::from_values(
+    const IID: GUID = GUID::from_values(
         0x1CF2_B120,
         0x547D,
         0x101B,

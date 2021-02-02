@@ -116,7 +116,7 @@ impl ComInterface {
             quote! {
                 pub fn #name<#constraints>(&self, #params) #return_type {
                     unsafe {
-                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #args)
+                        (::com::Interface::vtable(self).#vtable_offset)(::com::AbiTransferable::get_abi(self), #args)
                     }
                 }
             }
@@ -222,13 +222,14 @@ impl ComInterface {
                 }
             }
             impl ::std::cmp::Eq for #name {}
-            unsafe impl ::windows::Interface for #name {
-                type Vtable = #abi_name;
-                const IID: ::windows::Guid = #guid;
+            unsafe impl ::com::Interface for #name {
+                type VTable = #abi_name;
+                type Super = ::com::interfaces::IUnknown;
+                const IID: ::com::sys::IID = #guid;
             }
             #[repr(C)]
             pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::com::sys::GUID, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 #(#abi_methods,)*
@@ -308,7 +309,7 @@ fn gen_abi_args(method: &Method) -> TokenStream {
 
         match &param.kind {
             TypeKind::IUnknown | TypeKind::Interface(_) if param.is_input && !param.is_array => {
-                quote! { #name.into().abi(), }
+                quote! { #name.into().get_abi(), }
             }
             _ => {
                 quote! { #name, }

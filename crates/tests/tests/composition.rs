@@ -79,7 +79,7 @@ fn composition() -> windows::Result<()> {
     use tests::windows::foundation::numerics::Vector3;
     use tests::windows::ui::composition::{CompositionColorBrush, Compositor};
     use tests::windows::ui::{Color, Colors};
-    use windows::Interface;
+    use com::Interface;
 
     let _dispatcher = create_dispatcher();
     let compositor = Compositor::new()?;

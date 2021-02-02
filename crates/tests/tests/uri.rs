@@ -7,7 +7,7 @@ fn uri() -> windows::Result<()> {
 
     assert_eq!(
         Uri::IID,
-        windows::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
+        com::sys::GUID::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;

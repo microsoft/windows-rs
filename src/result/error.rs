@@ -1,4 +1,5 @@
 use crate::*;
+use com::{AbiTransferable, Interface};
 
 /// A WinRT error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq)]
@@ -17,7 +18,7 @@ impl Error {
         // Need to ignore the result, as that is the delay-load error, which would mean
         // that there's no WinRT to tell about the error.
         unsafe {
-            let _ = RoOriginateError(code, message.abi() as _);
+            let _ = RoOriginateError(code, message.get_abi() as _);
         }
 
         // The error information is then associated with the returning error object and no longer
@@ -89,7 +90,7 @@ impl Error {
 impl std::convert::From<Error> for ErrorCode {
     fn from(error: Error) -> Self {
         let code = error.code;
-        let info = error.info.and_then(|info| info.cast().ok());
+        let info = error.info.and_then(|info| info.cast().ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE)).ok());
 
         unsafe {
             let _ = SetErrorInfo(0, info);
@@ -105,7 +106,7 @@ impl std::convert::From<ErrorCode> for Error {
             // If it does (and therefore running on a recent version of Windows)
             // then capture_propagation_context adds a breadcrumb to the error
             // info to make debugging easier.
-            if let Ok(capture) = info.cast::<ILanguageExceptionErrorInfo2>() {
+            if let Some(capture) = info.cast::<ILanguageExceptionErrorInfo2>() {
                 capture.capture_propagation_context();
             }
 

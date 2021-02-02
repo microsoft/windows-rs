@@ -1,5 +1,8 @@
 use crate::*;
 use std::convert::TryInto;
+use com::sys::GUID;
+use com::{AbiTransferable, Interface};
+use com::interfaces::IUnknown;
 
 /// Provides detailed error information. `IRestrictedErrorInfo` represents the
 /// [IRestrictedErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/restrictederrorinfo/nn-restrictederrorinfo-irestrictederrorinfo)
@@ -10,7 +13,7 @@ pub struct IRestrictedErrorInfo(IUnknown);
 
 #[repr(C)]
 pub struct IRestrictedErrorInfo_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub  unsafe extern "system" fn(
@@ -27,7 +30,7 @@ impl IRestrictedErrorInfo {
     /// Retrieves any error information stored on the calling thread. An error code indicates the
     /// absence of error information.
     pub fn from_thread() -> Result<Self> {
-        IErrorInfo::from_thread().and_then(|e| e.cast())
+        IErrorInfo::from_thread().and_then(|e| e.cast().ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE)))
     }
 
     /// Gets the error code and description of the error.
@@ -39,7 +42,7 @@ impl IRestrictedErrorInfo {
 
         unsafe {
             let _ = (self.vtable().3)(
-                self.abi(),
+                self.get_abi(),
                 fallback.set_abi(),
                 &mut code,
                 message.set_abi(),
@@ -58,9 +61,10 @@ impl IRestrictedErrorInfo {
 }
 
 unsafe impl Interface for IRestrictedErrorInfo {
-    type Vtable = IRestrictedErrorInfo_vtable;
+    type VTable = IRestrictedErrorInfo_vtable;
+    type Super = IUnknown;
 
-    const IID: Guid = Guid::from_values(
+    const IID: GUID = GUID::from_values(
         0x82BA_7092,
         0x4C88,
         0x427D,

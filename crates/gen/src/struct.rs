@@ -101,7 +101,7 @@ impl Struct {
             let guid = self.name.gen_guid(&self.guid);
 
             return quote! {
-                pub const #name: ::windows::Guid = #guid;
+                pub const #name: ::com::sys::GUID = #guid;
             };
         }
 
@@ -274,7 +274,7 @@ impl Struct {
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_ident(#(#abi),*);
-            unsafe impl ::windows::Abi for #name {
+            unsafe impl ::com::AbiTransferable for #name {
                 type Abi = #abi_ident;
             }
             impl ::std::default::Default for #name {

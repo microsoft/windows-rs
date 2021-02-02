@@ -1,4 +1,7 @@
 use crate::*;
+use com::sys::GUID;
+use com::{AbiTransferable, Interface};
+use com::interfaces::IUnknown;
 
 /// WinRT classes have a supporting factory object that implements `IActivationFactory` to create a new
 /// instance of the WinRT class with some default state. `IActivationFactory` represents the
@@ -18,22 +21,22 @@ impl IActivationFactory {
 
             // Even though the factory will generally return the WinRT default interface, this isn't guaranteed
             // so a cast is required to convert the `Object` into `I`, or the class type.
-            (self.vtable().6)(self.abi(), &mut object)
+            (self.vtable().6)(self.get_abi(), &mut object)
                 .and_some(object)?
-                .cast()
+                .cast().ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE))
         }
     }
 }
 
 #[repr(C)]
 pub struct IActivationFactory_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub  unsafe extern "system" fn(
         this: RawPtr,
         count: *mut u32,
-        values: *mut *mut Guid,
+        values: *mut *mut GUID,
     ) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> ErrorCode,
@@ -41,9 +44,10 @@ pub struct IActivationFactory_vtable(
 );
 
 unsafe impl Interface for IActivationFactory {
-    type Vtable = IActivationFactory_vtable;
+    type VTable = IActivationFactory_vtable;
+    type Super = IUnknown;
 
-    const IID: Guid = Guid::from_values(
+    const IID: GUID = GUID::from_values(
         0x0000_0035,
         0x0000,
         0x0000,

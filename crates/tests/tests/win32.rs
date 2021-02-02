@@ -1,4 +1,4 @@
-use windows::Abi;
+use com::AbiTransferable;
 
 use tests::{
     windows::win32::com::CreateUri,
@@ -24,8 +24,8 @@ use tests::{
     windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
     windows::win32::windows_programming::CloseHandle,
 };
-use windows::Guid;
-use windows::Interface;
+use com::sys::GUID;
+use com::Interface;
 use windows::BOOL;
 
 #[test]
@@ -173,12 +173,12 @@ fn com() -> windows::Result<()> {
         stream
             .Write(
                 &UIAnimationTransitionLibrary as *const _ as _,
-                std::mem::size_of::<windows::Guid>() as u32,
+                std::mem::size_of::<com::sys::GUID>() as u32,
                 &mut copied,
             )
             .ok()?;
 
-        assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
+        assert!(copied == std::mem::size_of::<com::sys::GUID>() as u32);
         let mut position = 123;
 
         stream
@@ -199,18 +199,18 @@ fn com() -> windows::Result<()> {
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
-        let mut value: windows::Guid = windows::Guid::default();
+        let mut value: com::sys::GUID = com::sys::GUID::default();
         let mut copied = 0;
 
         stream
             .Read(
                 &mut value as *mut _ as _,
-                std::mem::size_of::<windows::Guid>() as u32,
+                std::mem::size_of::<com::sys::GUID>() as u32,
                 &mut copied,
             )
             .ok()?;
 
-        assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
+        assert!(copied == std::mem::size_of::<com::sys::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
 

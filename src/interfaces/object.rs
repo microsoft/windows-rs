@@ -1,5 +1,8 @@
 use crate::foundation::{IReference, IStringable, PropertyValue};
 use crate::*;
+use com::interfaces::IUnknown;
+use com::sys::GUID;
+use com::{AbiTransferable, Interface};
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 /// `Object` implements the
@@ -14,7 +17,7 @@ impl Object {
     pub fn type_name(&self) -> Result<HString> {
         unsafe {
             let mut abi = std::ptr::null_mut();
-            (self.vtable().4)(self.abi(), &mut abi).ok()?;
+            (self.vtable().4)(self.get_abi(), &mut abi).ok()?;
             Ok(std::mem::transmute(abi))
         }
     }
@@ -22,22 +25,23 @@ impl Object {
 
 #[repr(C)]
 pub struct Object_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub  unsafe extern "system" fn(
         this: RawPtr,
         count: *mut u32,
-        values: *mut *mut Guid,
+        values: *mut *mut GUID,
     ) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> ErrorCode,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> ErrorCode,
 );
 
 unsafe impl Interface for Object {
-    type Vtable = Object_vtable;
+    type VTable = Object_vtable;
+    type Super = IUnknown;
 
-    const IID: Guid = Guid::from_values(
+    const IID: GUID = GUID::from_values(
         0xAF86_E2E0,
         0xB12D,
         0x4C6A,
@@ -61,6 +65,7 @@ impl std::fmt::Debug for Object {
         // classes and interfaces.
         let name = self
             .cast::<IStringable>()
+            .ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE))
             .and_then(|s| s.to_string())
             .or_else(|_| self.type_name())
             .unwrap_or_default();
@@ -80,13 +85,13 @@ macro_rules! primitive_boxed_type {
         impl std::convert::TryFrom<Object> for $t {
             type Error = Error;
             fn try_from(value: Object) -> Result<Self> {
-                <Object as Interface>::cast::<IReference<$t>>(&value)?.value()
+                <Object as Interface>::cast::<IReference<$t>>(&value).ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE))?.value()
             }
         }
         impl std::convert::TryFrom<&Object> for $t {
             type Error = Error;
             fn try_from(value: &Object) -> Result<Self> {
-                <Object as Interface>::cast::<IReference<$t>>(value)?.value()
+                <Object as Interface>::cast::<IReference<$t>>(value).ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE))?.value()
             }
         })*
     };
@@ -126,12 +131,16 @@ impl std::convert::TryFrom<&HString> for Object {
 impl std::convert::TryFrom<Object> for HString {
     type Error = Error;
     fn try_from(value: Object) -> Result<Self> {
-        <Object as Interface>::cast::<IReference<HString>>(&value)?.value()
+        <Object as Interface>::cast::<IReference<HString>>(&value)
+            .ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE))?
+            .value()
     }
 }
 impl std::convert::TryFrom<&Object> for HString {
     type Error = Error;
     fn try_from(value: &Object) -> Result<Self> {
-        <Object as Interface>::cast::<IReference<HString>>(value)?.value()
+        <Object as Interface>::cast::<IReference<HString>>(value)
+            .ok_or(Error::fast_error(ErrorCode::E_NOINTERFACE))?
+            .value()
     }
 }
