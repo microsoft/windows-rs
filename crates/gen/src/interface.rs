@@ -71,7 +71,7 @@ impl Interface {
             .filter(|interface| interface.kind != InterfaceKind::Default)
             .map(|interface| interface.gen_conversions(&name, &constraints));
 
-        let methods = gen_method(&self.interfaces);
+        let methods = gen_methods(&self.interfaces);
 
         let abi_methods = default_interface.methods.iter().map(|method| {
             let signature = method.gen_abi();

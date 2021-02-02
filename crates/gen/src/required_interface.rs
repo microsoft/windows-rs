@@ -170,7 +170,7 @@ pub fn add_dependencies(
     }
 }
 
-pub fn gen_method(interfaces: &Vec<RequiredInterface>) -> TokenStream {
+pub fn gen_methods(interfaces: &Vec<RequiredInterface>) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for interface in interfaces {

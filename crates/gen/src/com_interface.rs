@@ -24,6 +24,10 @@ impl Method {
             format_ident(self.signature.method.name())
         }
     }
+
+    fn is_unsafe(&self) -> bool {
+        self.signature.params.iter().any(|p| p.pointers > 0)
+    }
 }
 
 impl ComInterface {
@@ -112,9 +116,11 @@ impl ComInterface {
             let args = gen_abi_args(method);
             let name = method.gen_name();
             let vtable_offset = Literal::u32_unsuffixed((vtable_offset + 3) as u32);
+            let unsafe_token = if method.is_unsafe() { quote!(unsafe) } else { TokenStream::new() };
 
             quote! {
-                pub fn #name<#constraints>(&self, #params) #return_type {
+                pub #unsafe_token fn #name<#constraints>(&self, #params) #return_type {
+                    #![allow(unused_unsafe)]
                     unsafe {
                         (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #args)
                     }

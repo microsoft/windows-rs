@@ -115,7 +115,7 @@ impl Class {
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
         let type_name = self.type_name(&name);
-        let methods = gen_method(&self.interfaces);
+        let methods = gen_methods(&self.interfaces);
         let call_factory = self.gen_call_factory();
 
         if let Some(default_interface) = self

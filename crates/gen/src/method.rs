@@ -99,10 +99,12 @@ impl Method {
             self.gen_name()
         };
 
-        let params = if kind == InterfaceKind::Composable {
-            &self.signature.params[..self.signature.params.len() - 2]
+        let params = self.params(kind);
+
+        let unsafe_token = if self.is_unsafe(kind) {
+            quote!(unsafe)
         } else {
-            &self.signature.params
+            TokenStream::new()
         };
 
         let constraints = gen_constraint(params);
@@ -152,7 +154,8 @@ impl Method {
 
         match kind {
             InterfaceKind::Default => quote! {
-                pub fn #method_name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
+                pub #unsafe_token fn #method_name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
+                    #![allow(unused_unsafe)]
                     let this = self;
                     unsafe {
                         #vcall
@@ -162,7 +165,8 @@ impl Method {
             InterfaceKind::NonDefault | InterfaceKind::Overrides => {
                 let interface = interface.gen();
                 quote! {
-                    pub fn #method_name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
+                    pub #unsafe_token fn #method_name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
+                        #![allow(unused_unsafe)]
                         let this = &::windows::Interface::cast::<#interface>(self).unwrap();
                         unsafe {
                             #vcall
@@ -173,12 +177,25 @@ impl Method {
             InterfaceKind::Statics | InterfaceKind::Composable => {
                 let interface = interface.gen();
                 quote! {
-                    pub fn #method_name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
+                    pub #unsafe_token fn #method_name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
+                        #![allow(unused_unsafe)]
                         Self::#interface(|this| unsafe { #vcall })
                     }
                 }
             }
         }
+    }
+
+    fn params(&self, kind: InterfaceKind) -> &[Type] {
+        if kind == InterfaceKind::Composable {
+            &self.signature.params[..self.signature.params.len() - 2]
+        } else {
+            &self.signature.params
+        }
+    }
+
+    fn is_unsafe(&self, kind: InterfaceKind) -> bool {
+        self.params(kind).iter().any(|p| p.pointers > 0)
     }
 
     fn gen_name(&self) -> Ident {
