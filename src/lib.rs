@@ -44,3 +44,16 @@ pub use bindings::windows::foundation;
 
 #[doc(hidden)]
 pub use const_sha1::ConstBuffer;
+
+/// A stand-in for a type which is not yet fully supported by the `windows` crate.
+///
+/// There should be tracking issues for each one of these types as they will eventually be supported.
+/// This type is not constructible as it should never be used. It is merely marking that support
+/// needs to be added to the `windows` crate before this functionality becomes available.
+#[allow(non_camel_case_types)]
+#[derive(Clone, Copy, PartialEq, Debug, Default)]
+#[repr(transparent)]
+pub struct NOT_YET_SUPPORTED_TYPE {
+    /// ensures the type cannot be constructed
+    _priv: u8,
+}
