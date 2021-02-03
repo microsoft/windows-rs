@@ -46,6 +46,9 @@ pub enum TypeKind {
     Struct(TypeName),
     Delegate(TypeName),
     Generic(&'static str),
+    /// A type that hasn't been supported yet.
+    /// For example, multidimensional arrays are not yet supported
+    NotYetSupported,
 }
 
 impl Type {
@@ -95,7 +98,7 @@ impl Type {
 
                 if def.name().0.is_empty() {
                     // TODO: handle nested types
-                    TypeKind::Bool
+                    TypeKind::NotYetSupported
                 } else {
                     TypeKind::from_type_def_or_ref(&def, generics, calling_namespace)
                 }
@@ -107,7 +110,7 @@ impl Type {
                 // rank (dimensions)
                 // bounds count
                 // bound
-                TypeKind::Bool
+                TypeKind::NotYetSupported
             }
             0x15 => TypeKind::from_type_name(TypeName::from_type_spec_blob(
                 blob,
@@ -407,6 +410,7 @@ impl TypeKind {
                 let name = format_ident(name);
                 quote! { #name }
             }
+            Self::NotYetSupported => quote! { ::windows::NOT_YET_SUPPORTED_TYPE },
         }
     }
 
@@ -443,6 +447,7 @@ impl TypeKind {
                 let name = format_ident(name);
                 quote! { #name }
             }
+            Self::NotYetSupported => quote!(::windows::NOT_YET_SUPPORTED_TYPE),
         }
     }
 
@@ -481,6 +486,7 @@ impl TypeKind {
             }
             Self::Enum(name) => name.gen(),
             Self::Struct(name) => name.gen_abi(),
+            Self::NotYetSupported => quote!(::windows::NOT_YET_SUPPORTED_TYPE),
         }
     }
 
@@ -519,6 +525,7 @@ impl TypeKind {
             }
             Self::Enum(name) => name.gen_full(),
             Self::Struct(name) => name.gen_full_abi(),
+            Self::NotYetSupported => quote!(::windows::NOT_YET_SUPPORTED_TYPE),
         }
     }
 
