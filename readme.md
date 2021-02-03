@@ -78,7 +78,7 @@ More examples [can be found here](examples). Robert Mikhayelyan's [Minesweeper](
 
 ## Safety
 
-We aim to be fully compliant with Rust's safety guarantees. Unfortunately, a large swath of the Windows API surface is not fully compatible with Rust's safety semantics and thus need to be marked with `unsafe`. This does not mean these APIs are necessarily unsafe to use. It is possible that some APIs that are safe are still marked with `unsafe` due to a lack of a mechanism in Windows metadata for marking APIs as being compatible with Rust's safety semantics. A best attempt is made to map common idioms to fully safe Rust, but that's not always possible especially in older, pointer based APIs. 
+We aim to be fully compliant with Rust's safety guarantees. Unfortunately, some Windows APIs are not entirely compatible with Rust's safety semantics and thus need to be marked with `unsafe`. This does not mean these APIs are necessarily unsafe to use. It is possible that some APIs that are safe are still marked with `unsafe` due to the absence of a mechanism in Windows metadata for marking APIs as being compatible with Rust's safety semantics. A best attempt is made to map common idioms to safe Rust, but that is not always possible with older pointer-based APIs.
 
 The windows crates makes two blanket policies around the safety of bindings:
 * Win32 and COM bindings are marked with `unsafe`. It is up to the developer to follow the documentation on how to call these APIs in a safe way.
