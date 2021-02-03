@@ -6,7 +6,7 @@ fn test_sta() -> Result<()> {
     initialize_sta()?;
     let clsid = Guid::from_progid("Microsoft.Update.AutoUpdate")?;
     let updates: IAutomaticUpdates = create_instance(&clsid)?;
-    let _ = updates.Pause();
+    let _ = unsafe { updates.Pause() };
     Ok(())
 }
 
@@ -15,6 +15,6 @@ fn test_mta() -> Result<()> {
     initialize_mta()?;
     let clsid = Guid::from_progid("Microsoft.Update.AutoUpdate")?;
     let updates: IAutomaticUpdates = create_instance(&clsid)?;
-    let _ = updates.Pause();
+    let _ = unsafe { updates.Pause() };
     Ok(())
 }
