@@ -47,7 +47,7 @@ pub enum TypeKind {
     Delegate(TypeName),
     Generic(&'static str),
     /// A type that hasn't been supported yet.
-    /// For example, mutlidimensional arrays are not yet supported
+    /// For example, multidimensional arrays are not yet supported
     NotYetSupported,
 }
 
