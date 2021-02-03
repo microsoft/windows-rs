@@ -114,10 +114,8 @@ impl ComInterface {
             let vtable_offset = Literal::u32_unsuffixed((vtable_offset + 3) as u32);
 
             quote! {
-                pub fn #name<#constraints>(&self, #params) #return_type {
-                    unsafe {
-                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #args)
-                    }
+                pub unsafe fn #name<#constraints>(&self, #params) #return_type {
+                    (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #args)
                 }
             }
         });

@@ -65,20 +65,22 @@ impl Window {
 
         let mut dpi = 0.0;
         let mut dpiy = 0.0;
-        factory.GetDesktopDpi(&mut dpi, &mut dpiy);
+        unsafe { factory.GetDesktopDpi(&mut dpi, &mut dpiy) };
 
         let mut frequency = 0;
         unsafe { QueryPerformanceFrequency(&mut frequency).ok()? };
 
-        let mut variable = None;
+        let variable = unsafe {
+            let mut variable = None;
+            let variable = manager
+                .CreateAnimationVariable(0.0, &mut variable)
+                .and_some(variable)?;
 
-        let variable = manager
-            .CreateAnimationVariable(0.0, &mut variable)
-            .and_some(variable)?;
-
-        manager
-            .ScheduleTransition(&variable, transition, get_time(frequency)?)
-            .ok()?;
+            manager
+                .ScheduleTransition(&variable, transition, get_time(frequency)?)
+                .ok()?;
+            variable
+        };
 
         Ok(Window {
             handle: HWND(0),
@@ -104,7 +106,7 @@ impl Window {
         if self.target.is_none() {
             let device = create_device()?;
             let target = create_render_target(&self.factory, &device)?;
-            target.SetDpi(self.dpi, self.dpi);
+            unsafe { target.SetDpi(self.dpi, self.dpi) };
 
             let swapchain = create_swapchain(&device, self.handle)?;
             create_swapchain_bitmap(&swapchain, &target)?;
@@ -116,20 +118,24 @@ impl Window {
         }
 
         let target = self.target.as_ref().unwrap();
-        target.BeginDraw();
+        unsafe { target.BeginDraw() };
         self.draw(target)?;
 
-        target
-            .EndDraw(std::ptr::null_mut(), std::ptr::null_mut())
-            .ok()?;
+        unsafe { target.EndDraw(std::ptr::null_mut(), std::ptr::null_mut()) }.ok()?;
 
         let error = self.present(1, 0);
 
         if error.is_err() {
             if error.0 == DXGI_STATUS_OCCLUDED as u32 {
-                self.dxfactory
-                    .RegisterOcclusionStatusWindow(self.handle, WM_USER as u32, &mut self.occlusion)
-                    .ok()?;
+                unsafe {
+                    self.dxfactory
+                        .RegisterOcclusionStatusWindow(
+                            self.handle,
+                            WM_USER as u32,
+                            &mut self.occlusion,
+                        )
+                        .ok()?;
+                }
                 self.visible = false;
             } else {
                 self.release_device();
@@ -152,52 +158,54 @@ impl Window {
     }
 
     fn present(&self, sync: u32, flags: u32) -> ErrorCode {
-        self.swapchain.as_ref().unwrap().Present(sync, flags)
+        unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags) }
     }
 
     fn draw(&self, target: &ID2D1DeviceContext) -> Result<()> {
         let clock = self.clock.as_ref().unwrap();
         let shadow = self.shadow.as_ref().unwrap();
 
-        self.manager
-            .Update(get_time(self.frequency)?, std::ptr::null_mut())
-            .ok()?;
+        unsafe {
+            self.manager
+                .Update(get_time(self.frequency)?, std::ptr::null_mut())
+                .ok()?;
 
-        target.Clear(&DXGI_RGBA {
-            r: 1.0,
-            g: 1.0,
-            b: 1.0,
-            a: 1.0,
-        });
+            target.Clear(&DXGI_RGBA {
+                r: 1.0,
+                g: 1.0,
+                b: 1.0,
+                a: 1.0,
+            });
 
-        let mut previous = None;
-        target.GetTarget(&mut previous);
-        target.SetTarget(clock);
-        target.Clear(std::ptr::null());
-        self.draw_clock()?;
-        target.SetTarget(previous);
-        target.SetTransform(&Matrix3x2::translation(5.0, 5.0));
+            let mut previous = None;
+            target.GetTarget(&mut previous);
+            target.SetTarget(clock);
+            target.Clear(std::ptr::null());
+            self.draw_clock()?;
+            target.SetTarget(previous);
+            target.SetTransform(&Matrix3x2::translation(5.0, 5.0));
 
-        let mut output = None;
-        shadow.GetOutput(&mut output);
+            let mut output = None;
+            shadow.GetOutput(&mut output);
 
-        target.DrawImage(
-            output,
-            std::ptr::null(),
-            std::ptr::null(),
-            D2D1_INTERPOLATION_MODE::D2D1_INTERPOLATION_MODE_LINEAR,
-            D2D1_COMPOSITE_MODE::D2D1_COMPOSITE_MODE_SOURCE_OVER,
-        );
+            target.DrawImage(
+                output,
+                std::ptr::null(),
+                std::ptr::null(),
+                D2D1_INTERPOLATION_MODE::D2D1_INTERPOLATION_MODE_LINEAR,
+                D2D1_COMPOSITE_MODE::D2D1_COMPOSITE_MODE_SOURCE_OVER,
+            );
 
-        target.SetTransform(&Matrix3x2::identity());
+            target.SetTransform(&Matrix3x2::identity());
 
-        target.DrawImage(
-            clock,
-            std::ptr::null(),
-            std::ptr::null(),
-            D2D1_INTERPOLATION_MODE::D2D1_INTERPOLATION_MODE_LINEAR,
-            D2D1_COMPOSITE_MODE::D2D1_COMPOSITE_MODE_SOURCE_OVER,
-        );
+            target.DrawImage(
+                clock,
+                std::ptr::null(),
+                std::ptr::null(),
+                D2D1_INTERPOLATION_MODE::D2D1_INTERPOLATION_MODE_LINEAR,
+                D2D1_COMPOSITE_MODE::D2D1_COMPOSITE_MODE_SOURCE_OVER,
+            );
+        }
 
         Ok(())
     }
@@ -207,11 +215,11 @@ impl Window {
         let brush = self.brush.as_ref().unwrap();
 
         let mut size = D2D_SIZE_F::default();
-        target.GetSize(&mut size);
+        unsafe { target.GetSize(&mut size) };
 
         let radius = size.width.min(size.height).max(200.0) / 2.0 - 50.0;
         let translation = Matrix3x2::translation(size.width / 2.0, size.height / 2.0);
-        target.SetTransform(&translation);
+        unsafe { target.SetTransform(&translation) };
 
         let ellipse = D2D1_ELLIPSE {
             point: D2D_POINT_2F::default(),
@@ -219,10 +227,12 @@ impl Window {
             radiusy: radius,
         };
 
-        target.DrawEllipse(&ellipse, brush, radius / 20.0, None);
-        let mut angles = Angles::now();
         let mut swing = 0.0;
-        self.variable.GetValue(&mut swing).ok()?;
+        unsafe {
+            target.DrawEllipse(&ellipse, brush, radius / 20.0, None);
+            self.variable.GetValue(&mut swing).ok()?;
+        }
+        let mut angles = Angles::now();
 
         if swing < 1.0 {
             if self.angles.second > angles.second {
@@ -240,46 +250,52 @@ impl Window {
             angles.hour *= swing as f32;
         }
 
-        target
-            .SetTransform(&(Matrix3x2::rotation(angles.second, Vector2::default()) * &translation));
+        unsafe {
+            target.SetTransform(
+                &(Matrix3x2::rotation(angles.second, Vector2::default()) * &translation),
+            );
 
-        target.DrawLine(
-            D2D_POINT_2F::default(),
-            D2D_POINT_2F {
-                x: 0.0,
-                y: -(radius * 0.75),
-            },
-            brush,
-            radius / 25.0,
-            &self.style,
-        );
+            target.DrawLine(
+                D2D_POINT_2F::default(),
+                D2D_POINT_2F {
+                    x: 0.0,
+                    y: -(radius * 0.75),
+                },
+                brush,
+                radius / 25.0,
+                &self.style,
+            );
 
-        target
-            .SetTransform(&(Matrix3x2::rotation(angles.minute, Vector2::default()) * &translation));
+            target.SetTransform(
+                &(Matrix3x2::rotation(angles.minute, Vector2::default()) * &translation),
+            );
 
-        target.DrawLine(
-            D2D_POINT_2F::default(),
-            D2D_POINT_2F {
-                x: 0.0,
-                y: -(radius * 0.75),
-            },
-            brush,
-            radius / 15.0,
-            &self.style,
-        );
+            target.DrawLine(
+                D2D_POINT_2F::default(),
+                D2D_POINT_2F {
+                    x: 0.0,
+                    y: -(radius * 0.75),
+                },
+                brush,
+                radius / 15.0,
+                &self.style,
+            );
 
-        target.SetTransform(&(Matrix3x2::rotation(angles.hour, Vector2::default()) * &translation));
+            target.SetTransform(
+                &(Matrix3x2::rotation(angles.hour, Vector2::default()) * &translation),
+            );
 
-        target.DrawLine(
-            D2D_POINT_2F::default(),
-            D2D_POINT_2F {
-                x: 0.0,
-                y: -(radius * 0.5),
-            },
-            brush,
-            radius / 10.0,
-            &self.style,
-        );
+            target.DrawLine(
+                D2D_POINT_2F::default(),
+                D2D_POINT_2F {
+                    x: 0.0,
+                    y: -(radius * 0.5),
+                },
+                brush,
+                radius / 10.0,
+                &self.style,
+            );
+        }
 
         Ok(())
     }
@@ -295,7 +311,7 @@ impl Window {
 
     fn create_clock(&self, target: &ID2D1DeviceContext) -> Result<ID2D1Bitmap1> {
         let mut size_f = D2D_SIZE_F::default();
-        target.GetSize(&mut size_f);
+        unsafe { target.GetSize(&mut size_f) };
 
         let size_u = D2D_SIZE_U {
             width: (size_f.width * self.dpi / 96.0) as u32,
@@ -315,20 +331,23 @@ impl Window {
 
         let mut bitmap = None;
 
-        target
-            .CreateBitmap2(size_u, std::ptr::null(), 0, &properties, &mut bitmap)
-            .and_some(bitmap)
+        unsafe {
+            target
+                .CreateBitmap2(size_u, std::ptr::null(), 0, &properties, &mut bitmap)
+                .and_some(bitmap)
+        }
     }
 
     fn resize_swapchain_bitmap(&mut self) -> Result<()> {
         if let Some(target) = &self.target {
             let swapchain = self.swapchain.as_ref().unwrap();
-            target.SetTarget(None);
+            unsafe { target.SetTarget(None) };
 
-            if swapchain
-                .ResizeBuffers(0, 0, 0, DXGI_FORMAT::DXGI_FORMAT_UNKNOWN, 0)
-                .is_ok()
-            {
+            if unsafe {
+                swapchain
+                    .ResizeBuffers(0, 0, 0, DXGI_FORMAT::DXGI_FORMAT_UNKNOWN, 0)
+                    .is_ok()
+            } {
                 create_swapchain_bitmap(swapchain, &target)?;
                 self.create_device_size_resources()?;
             } else {
@@ -489,21 +508,23 @@ fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
 
     let mut brush = None;
 
-    target
-        .CreateSolidColorBrush(&color, &properties, &mut brush)
-        .and_some(brush)
+    unsafe {
+        target
+            .CreateSolidColorBrush(&color, &properties, &mut brush)
+            .and_some(brush)
+    }
 }
 
 fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID2D1Effect> {
     let mut shadow = None;
-    let shadow = target
-        .CreateEffect(&"C67EA361-1863-4e69-89DB-695D3E9A5B6B".into(), &mut shadow)
-        .and_some(shadow)?;
+    unsafe {
+        let shadow = target
+            .CreateEffect(&"C67EA361-1863-4e69-89DB-695D3E9A5B6B".into(), &mut shadow)
+            .and_some(shadow)?;
 
-    // TODO: update BOOL to use Param<BOOL> and convert from true automatically?
-    shadow.SetInput(0, clock, true.into());
-
-    Ok(shadow)
+        shadow.SetInput(0, clock, TRUE);
+        Ok(shadow)
+    }
 }
 
 fn create_factory() -> Result<ID2D1Factory1> {
@@ -542,9 +563,11 @@ fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
 
     let mut style = None;
 
-    factory
-        .CreateStrokeStyle(&props, std::ptr::null(), 0, &mut style)
-        .and_some(style)
+    unsafe {
+        factory
+            .CreateStrokeStyle(&props, std::ptr::null(), 0, &mut style)
+            .and_some(style)
+    }
 }
 
 fn create_transition() -> Result<IUIAnimationTransition> {
@@ -552,9 +575,11 @@ fn create_transition() -> Result<IUIAnimationTransition> {
 
     let mut transition = None;
 
-    library
-        .CreateAccelerateDecelerateTransition(5.0, 1.0, 0.2, 0.8, &mut transition)
-        .and_some(transition)
+    unsafe {
+        library
+            .CreateAccelerateDecelerateTransition(5.0, 1.0, 0.2, 0.8, &mut transition)
+            .and_some(transition)
+    }
 }
 
 fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
@@ -601,39 +626,45 @@ fn create_render_target(
     device: &ID3D11Device,
 ) -> Result<ID2D1DeviceContext> {
     let mut d2device = None;
-    let d2device = factory
-        .CreateDevice(device.cast::<IDXGIDevice>()?, &mut d2device)
-        .and_some(d2device)?;
-
     let mut target = None;
-    let target = d2device
-        .CreateDeviceContext(
-            D2D1_DEVICE_CONTEXT_OPTIONS::D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
-            &mut target,
-        )
-        .and_some(target)?;
+    unsafe {
+        let d2device = factory
+            .CreateDevice(device.cast::<IDXGIDevice>()?, &mut d2device)
+            .and_some(d2device)?;
 
-    target.SetUnitMode(D2D1_UNIT_MODE::D2D1_UNIT_MODE_DIPS);
-    Ok(target)
+        let target = d2device
+            .CreateDeviceContext(
+                D2D1_DEVICE_CONTEXT_OPTIONS::D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
+                &mut target,
+            )
+            .and_some(target)?;
+        target.SetUnitMode(D2D1_UNIT_MODE::D2D1_UNIT_MODE_DIPS);
+
+        Ok(target)
+    }
 }
 
 fn get_dxgi_factory(device: &ID3D11Device) -> Result<IDXGIFactory2> {
     let dxdevice = device.cast::<IDXGIDevice>()?;
     let mut adapter = None;
-    let adapter = dxdevice.GetAdapter(&mut adapter).and_some(adapter)?;
-    let mut parent = None;
+    unsafe {
+        let adapter = dxdevice.GetAdapter(&mut adapter).and_some(adapter)?;
+        let mut parent = None;
 
-    adapter
-        .GetParent(&IDXGIFactory2::IID, parent.set_abi())
-        .and_some(parent)
+        adapter
+            .GetParent(&IDXGIFactory2::IID, parent.set_abi())
+            .and_some(parent)
+    }
 }
 
 fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceContext) -> Result<()> {
     let mut surface = None;
 
-    let surface: IDXGISurface = swapchain
-        .GetBuffer(0, &IDXGISurface::IID, surface.set_abi())
-        .and_some(surface)?;
+    let surface: IDXGISurface = unsafe {
+        swapchain
+            .GetBuffer(0, &IDXGISurface::IID, surface.set_abi())
+            .and_some(surface)?
+    };
 
     let props = D2D1_BITMAP_PROPERTIES1 {
         pixel_format: D2D1_PIXEL_FORMAT {
@@ -649,11 +680,13 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
 
     let mut bitmap = None;
 
-    let bitmap = target
-        .CreateBitmapFromDxgiSurface(&surface, &props, &mut bitmap)
-        .and_some(bitmap)?;
+    unsafe {
+        let bitmap = target
+            .CreateBitmapFromDxgiSurface(&surface, &props, &mut bitmap)
+            .and_some(bitmap)?;
+        target.SetTarget(bitmap);
+    };
 
-    target.SetTarget(bitmap);
     Ok(())
 }
 
@@ -674,8 +707,8 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
 
     let mut swapchain = None;
 
-    factory
-        .CreateSwapChainForHwnd(
+    unsafe {
+        factory.CreateSwapChainForHwnd(
             device,
             window,
             &props,
@@ -683,7 +716,8 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
             None,
             &mut swapchain,
         )
-        .and_some(swapchain)
+    }
+    .and_some(swapchain)
 }
 
 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/142
