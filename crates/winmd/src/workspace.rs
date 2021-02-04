@@ -14,6 +14,7 @@ fn workspace_dir() -> std::path::PathBuf {
         let output = std::process::Command::new(env!("CARGO"))
             .arg("metadata")
             .arg("--format-version=1")
+            .arg("--no-deps")
             .output()
             .expect("Failed to run `cargo metadata`");
 
