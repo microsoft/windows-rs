@@ -9,12 +9,15 @@ impl CoString {
         Self(std::ptr::null_mut())
     }
 
-    // Create a CoString from an iterator of u16s and a length.
-    // The iterator must have as less than or equal number of elements as `len`
+    /// Create a CoString from an iterator of u16s and a length.
+    ///
+    /// SAFETY: The number of elements in the iterator must be less than or equal to `len`,
+    /// `iter` must have at least one element, and `len` must be non-zero.
     unsafe fn from_wide_iter<I>(iter: I, len: usize) -> Self
     where
         I: IntoIterator<Item = u16>,
     {
+        debug_assert!(len > 0, "Trying to allocate an CoString with len 0");
         let start = CoTaskMemAlloc(len * 2 + 2) as *mut u16;
         assert!(!start.is_null(), "Could not allocate memory for CoString");
         let mut cursor = start;
@@ -23,15 +26,23 @@ impl CoString {
             cursor.write(c);
             cursor = cursor.add(1);
         }
+        debug_assert!(
+            cursor != start,
+            "Trying to allocate a CoString with zero elements"
+        );
         cursor.write(0);
         Self(start)
     }
 
     /// Get the string as 16-bit wide characters (wchars).
+    ///
+    /// This returns an iterator instead of slice, because the
+    /// string does not keep track of its length.
     pub fn as_wide(&self) -> impl Iterator<Item = u16> {
         unsafe { WideStringIter::new(self.0) }
     }
 
+    /// Returns whether the string is empty or not
     pub fn is_empty(&self) -> bool {
         self.0.is_null()
     }
@@ -60,6 +71,12 @@ impl From<CoString> for String {
 
 impl From<&str> for CoString {
     fn from(s: &str) -> Self {
+        if s.is_empty() {
+            return Self::new();
+        }
+
+        // `len` is guaranteed to be == to the number of elements
+        // and we've already checked for empty strings
         unsafe { Self::from_wide_iter(s.encode_utf16(), s.len()) }
     }
 }
@@ -132,5 +149,9 @@ mod tests {
         assert!(!co_string.is_empty());
         let string: String = co_string.into();
         assert_eq!(string, original_string);
+
+        let empty: CoString = "".into();
+        assert!(empty.is_empty());
+        assert_eq!(&String::from(empty), "");
     }
 }
