@@ -16,6 +16,7 @@ impl CoString {
         I: IntoIterator<Item = u16>,
     {
         let start = CoTaskMemAlloc(len * 2 + 2) as *mut u16;
+        assert!(!start.is_null(), "Could not allocate memory for CoString");
         let mut cursor = start;
         for (index, c) in iter.into_iter().enumerate() {
             debug_assert!(index < len);
