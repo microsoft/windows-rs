@@ -125,6 +125,7 @@ impl Enum {
 
         quote! {
             #[allow(non_camel_case_types)]
+            #[derive(PartialEq, Eq)]
             #[repr(transparent)]
             pub struct #name(pub #underlying_type);
             impl ::std::convert::From<#underlying_type> for #name {
@@ -147,12 +148,6 @@ impl Enum {
                     write!(f, "{:?}", self.0)
                 }
             }
-            impl ::std::cmp::PartialEq for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-                }
-            }
-            impl ::std::cmp::Eq for #name {}
             impl ::std::marker::Copy for #name {}
             impl #name {
                 #![allow(non_upper_case_globals)]
