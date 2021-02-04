@@ -26,7 +26,7 @@ pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, Param,
     RefCount, Waiter,
 };
-pub use strings::{BString, HString};
+pub use strings::{BString, CoString, HString};
 pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
 pub use windows_macros::{build, implement};
 
