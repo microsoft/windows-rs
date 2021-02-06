@@ -38,11 +38,9 @@ impl Enum {
         for field in name.def.fields() {
             if field.flags().literal() {
                 if let Some(constant) = field.constant() {
-                    let mut value = constant.value();
-
-                    let value = match constant.value_type() {
-                        winmd::ElementType::I32 => EnumConstant::I32(value.read_i32()),
-                        winmd::ElementType::U32 => EnumConstant::U32(value.read_u32()),
+                    let value = match constant.value() {
+                        winmd::ConstantValue::I32(value) => EnumConstant::I32(value),
+                        winmd::ConstantValue::U32(value) => EnumConstant::U32(value),
                         _ => panic!("Enum::from_type_def"),
                     };
 
