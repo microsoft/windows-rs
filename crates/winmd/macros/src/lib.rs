@@ -5,6 +5,48 @@ use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
 use std::iter::FromIterator;
 
+#[proc_macro]
+pub fn table(name: TokenStream) -> TokenStream {
+    let ident = syn::parse_macro_input!(name as syn::Ident);
+    let name = ident.to_string();
+
+    quote!(
+        #[derive(Copy, Clone)]
+        pub struct #ident {
+            pub reader: &'static crate::TypeReader,
+            pub row: crate::Row,
+        }
+
+        impl std::fmt::Debug for #ident {
+            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+                f.debug_struct(#name)
+                    .field("row", &self.row)
+                    .finish()
+            }
+        }
+        
+        impl PartialEq for #ident {
+            fn eq(&self, other: &Self) -> bool {
+                self.row == other.row
+            }
+        }
+        
+        impl Eq for #ident {}
+        
+        impl Ord for #ident {
+            fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+                self.row.cmp(&other.row)
+            }
+        }
+        
+        impl PartialOrd for #ident {
+            fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+                Some(self.cmp(other))
+            }
+        }
+    ).into()
+}
+
 #[proc_macro_attribute]
 pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
     let args = syn::parse_macro_input!(args as syn::AttributeArgs);

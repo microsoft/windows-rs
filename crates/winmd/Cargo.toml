@@ -7,4 +7,4 @@ license = "MIT OR Apache-2.0"
 description = "Winmd parser the windows crate"
 
 [dependencies]
-windows_winmd_macros = { path = "macros",  version = "0.3.1" }
+macros = { package = "windows_winmd_macros", path = "macros",  version = "0.3.1" }
