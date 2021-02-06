@@ -1,4 +1,5 @@
 //! Parsed elements of a winmd file
+mod assembly_ref;
 mod attribute;
 mod blob;
 mod codes;
@@ -12,13 +13,16 @@ mod impl_map;
 mod interface_impl;
 mod member_ref;
 mod method_def;
+mod module;
 mod module_ref;
+mod nested_class;
 mod param;
 mod row;
 mod type_def;
 mod type_ref;
 mod type_spec;
 
+pub use assembly_ref::*;
 pub use attribute::*;
 pub use blob::*;
 pub use codes::*;
@@ -32,7 +36,9 @@ pub use impl_map::*;
 pub use interface_impl::*;
 pub use member_ref::*;
 pub use method_def::*;
+pub use module::*;
 pub use module_ref::*;
+pub use nested_class::*;
 pub use param::*;
 pub use row::*;
 pub use type_def::*;

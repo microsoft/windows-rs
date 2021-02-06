@@ -55,6 +55,14 @@ pub enum MemberForwarded {
     MethodDef,
 }
 
+#[type_code(2)]
+pub enum ResolutionScope {
+    Module,
+    ModuleRef,
+    AssemblyRef,
+    TypeRef,
+}
+
 impl TypeDefOrRef {
     pub fn name(&self) -> (&'static str, &'static str) {
         match self {
