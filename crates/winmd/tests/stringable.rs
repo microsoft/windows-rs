@@ -1,5 +1,3 @@
-extern crate windows_winmd as winmd;
-
 #[test]
 fn stringable() {
     let reader = winmd::TypeReader::get();

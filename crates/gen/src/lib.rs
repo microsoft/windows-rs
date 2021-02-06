@@ -1,5 +1,3 @@
-extern crate windows_winmd as winmd;
-
 mod callback;
 mod class;
 mod com_interface;

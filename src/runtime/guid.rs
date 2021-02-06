@@ -1,5 +1,5 @@
 use crate::*;
-use windows_gen::HexReader;
+use gen::HexReader;
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
 /// used to identify COM and WinRT interfaces.
