@@ -1,4 +1,4 @@
-use crate::traits::*;
+use super::*;
 
 #[derive(Default)]
 pub struct TableData {

@@ -4,7 +4,7 @@ mod implement_tree;
 
 use build_limits::*;
 use implement_tree::*;
-
+use gen::winmd;
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::parse_macro_input;

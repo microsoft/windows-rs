@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use squote::{format_ident, quote, Literal, TokenStream};
 use gen::format_ident;
 

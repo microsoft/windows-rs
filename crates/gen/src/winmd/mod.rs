@@ -1,4 +1,3 @@
-//! A Windows Metadata (winmd) parser
 mod file;
 mod traits;
 mod type_reader;

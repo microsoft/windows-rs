@@ -1,6 +1,4 @@
 use super::*;
-use crate::{traits::Decode, TableIndex, TypeReader};
-
 use macros::type_code;
 
 #[type_code(2)]

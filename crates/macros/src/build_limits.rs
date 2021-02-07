@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
 use gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};

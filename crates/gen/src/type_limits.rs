@@ -1,3 +1,4 @@
+use super::*;
 use std::collections::BTreeSet;
 
 /// The set of relevant namespaces and types
