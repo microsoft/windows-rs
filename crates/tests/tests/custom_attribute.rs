@@ -1,5 +1,5 @@
-use windows::*;
 use gen::winmd;
+use windows::*;
 
 #[test]
 fn named_arguments() -> Result<()> {
