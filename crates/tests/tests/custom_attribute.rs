@@ -1,5 +1,5 @@
+use gen::winmd;
 use windows::*;
-extern crate windows_winmd as winmd;
 
 #[test]
 fn named_arguments() -> Result<()> {

@@ -1,11 +1,5 @@
 use super::*;
-use crate::{TableIndex, TypeReader};
-
-#[derive(Copy, Clone)]
-pub struct InterfaceImpl {
-    pub reader: &'static TypeReader,
-    pub row: Row,
-}
+macros::table!(InterfaceImpl);
 
 impl InterfaceImpl {
     pub fn interface(&self) -> TypeDefOrRef {
@@ -32,33 +26,5 @@ impl InterfaceImpl {
 
     pub fn is_default(&self) -> bool {
         self.has_attribute(("Windows.Foundation.Metadata", "DefaultAttribute"))
-    }
-}
-
-impl std::fmt::Debug for InterfaceImpl {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("InterfaceImpl")
-            .field("row", &self.row)
-            .finish()
-    }
-}
-
-impl PartialEq for InterfaceImpl {
-    fn eq(&self, other: &Self) -> bool {
-        self.row == other.row
-    }
-}
-
-impl Eq for InterfaceImpl {}
-
-impl Ord for InterfaceImpl {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.row.cmp(&other.row)
-    }
-}
-
-impl PartialOrd for InterfaceImpl {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        Some(self.cmp(other))
     }
 }

@@ -1,7 +1,52 @@
 extern crate proc_macro;
 
 use proc_macro::TokenStream;
+use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
+use std::iter::FromIterator;
+
+#[proc_macro]
+pub fn table(name: TokenStream) -> TokenStream {
+    let ident = syn::parse_macro_input!(name as syn::Ident);
+    let name = ident.to_string();
+
+    quote!(
+        #[derive(Copy, Clone)]
+        pub struct #ident {
+            pub reader: &'static super::TypeReader,
+            pub row: super::Row,
+        }
+
+        impl std::fmt::Debug for #ident {
+            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+                f.debug_struct(#name)
+                    .field("row", &self.row)
+                    .finish()
+            }
+        }
+
+        impl PartialEq for #ident {
+            fn eq(&self, other: &Self) -> bool {
+                self.row == other.row
+            }
+        }
+
+        impl Eq for #ident {}
+
+        impl Ord for #ident {
+            fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+                self.row.cmp(&other.row)
+            }
+        }
+
+        impl PartialOrd for #ident {
+            fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+                Some(self.cmp(other))
+            }
+        }
+    )
+    .into()
+}
 
 #[proc_macro_attribute]
 pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
@@ -30,30 +75,34 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         }
 
         variants.push(quote!(
-            #name(winmd::#name),
+            #name(#name),
         ));
 
         decodes.push(quote!(
-            #enumerator => Self::#name(winmd:: #name(winmd::Row::new(code.1, winmd::TableIndex::#table, file))),
+            #enumerator => Self::#name( #name{ reader, row:Row::new(code.1, TableIndex::#table, file) }),
         ));
 
         encodes.push(quote!(
-            Self::#name(value) => ((value.0.index + 1) << #bits) | #enumerator,
+            Self::#name(value) => ((value.row.index + 1) << #bits) | #enumerator,
         ));
 
         enumerator += 1;
     }
 
+    let variants = TokenStream2::from_iter(variants);
+    let decodes = TokenStream2::from_iter(decodes);
+    let encodes = TokenStream2::from_iter(encodes);
+
     let output = quote!(
-        #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
+        #[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
         pub enum #name {
-            #(#variants)*
+            #variants
         }
         impl Decode for #name {
-            fn decode(code: u32, file:u16) -> Self {
+            fn decode(reader: &'static TypeReader, code: u32, file:u16) -> Self {
                 let code = (code & ((1 << #bits) - 1), (code >> #bits) - 1);
                 match code.0 {
-                    #(#decodes)*
+                    #decodes
                     _ => panic!("Failed to decode type code"),
                 }
             }
@@ -61,7 +110,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         impl #name {
             pub fn encode(&self) -> u32 {
                 match self {
-                    #(#encodes)*
+                    #encodes
                 }
             }
         }

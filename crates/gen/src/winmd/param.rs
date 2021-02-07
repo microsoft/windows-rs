@@ -1,11 +1,5 @@
 use super::*;
-use crate::{TableIndex, TypeReader};
-
-#[derive(Copy, Clone)]
-pub struct Param {
-    pub reader: &'static TypeReader,
-    pub row: Row,
-}
+macros::table!(Param);
 
 impl Param {
     pub fn flags(&self) -> ParamFlags {
@@ -36,34 +30,5 @@ impl Param {
 
     pub fn has_attribute(&self, name: (&str, &str)) -> bool {
         self.attributes().any(|attribute| attribute.name() == name)
-    }
-}
-
-impl std::fmt::Debug for Param {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("Param")
-            .field("name", &self.name().to_string())
-            .field("sequence", &self.sequence())
-            .finish()
-    }
-}
-
-impl PartialEq for Param {
-    fn eq(&self, other: &Self) -> bool {
-        self.row == other.row
-    }
-}
-
-impl Eq for Param {}
-
-impl Ord for Param {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.row.cmp(&other.row)
-    }
-}
-
-impl PartialOrd for Param {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        Some(self.cmp(other))
     }
 }

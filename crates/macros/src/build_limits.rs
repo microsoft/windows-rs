@@ -1,7 +1,7 @@
-use crate::*;
+use super::*;
+use gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
-use windows_gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 
 pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 

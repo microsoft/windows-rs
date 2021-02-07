@@ -1,9 +1,9 @@
-use crate::*;
+use super::*;
+use gen::format_ident;
 use squote::{format_ident, quote, Literal, TokenStream};
-use windows_gen::format_ident;
 
 // TODO: distinguish between COM and WinRT interfaces
-struct Implements(Vec<windows_gen::TypeDefinition>);
+struct Implements(Vec<gen::TypeDefinition>);
 
 impl syn::parse::Parse for Implements {
     fn parse(inner_type: syn::parse::ParseStream) -> syn::parse::Result<Self> {
@@ -25,12 +25,12 @@ impl syn::parse::Parse for Implements {
 fn use_tree_to_types(
     reader: &'static winmd::TypeReader,
     tree: &ImplementTree,
-    types: &mut Vec<windows_gen::TypeDefinition>,
+    types: &mut Vec<gen::TypeDefinition>,
 ) -> syn::parse::Result<()> {
     fn recurse(
         reader: &'static winmd::TypeReader,
         tree: &ImplementTree,
-        types: &mut Vec<windows_gen::TypeDefinition>,
+        types: &mut Vec<gen::TypeDefinition>,
         current: &mut String,
     ) -> syn::parse::Result<()> {
         match tree {
@@ -64,7 +64,7 @@ fn use_tree_to_types(
 
                 let def = reader.expect_type_def((namespace, &meta_name));
 
-                types.push(windows_gen::TypeDefinition::from_type_def(&def));
+                types.push(gen::TypeDefinition::from_type_def(&def));
 
                 // TODO
                 // If type is a class, add any required interfaces.
@@ -101,7 +101,7 @@ pub fn gen(
     let mut queries = TokenStream::new();
 
     for (interface_count, implement) in implements.0.iter().enumerate() {
-        if let windows_gen::TypeDefinition::Interface(t) = implement {
+        if let gen::TypeDefinition::Interface(t) = implement {
             vtable_ordinals.push(Literal::u32_unsuffixed(interface_count as u32));
 
             let query_interface = format_ident!("QueryInterface_abi{}", interface_count);

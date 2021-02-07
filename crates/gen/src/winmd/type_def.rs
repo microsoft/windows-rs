@@ -1,11 +1,5 @@
 use super::*;
-use crate::{TableIndex, TypeReader};
-
-#[derive(Copy, Clone)]
-pub struct TypeDef {
-    pub reader: &'static TypeReader,
-    pub row: Row,
-}
+macros::table!(TypeDef);
 
 impl TypeDef {
     pub fn flags(&self) -> TypeFlags {
@@ -125,31 +119,5 @@ impl TypeDef {
         }
 
         panic!("TypeDef::underlying_type {:?}", self.name());
-    }
-}
-
-impl std::fmt::Debug for TypeDef {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("TypeDef").field("row", &self.row).finish()
-    }
-}
-
-impl PartialEq for TypeDef {
-    fn eq(&self, other: &Self) -> bool {
-        self.row == other.row
-    }
-}
-
-impl Eq for TypeDef {}
-
-impl Ord for TypeDef {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.row.cmp(&other.row)
-    }
-}
-
-impl PartialOrd for TypeDef {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        Some(self.cmp(other))
     }
 }

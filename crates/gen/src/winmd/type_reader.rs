@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use std::cmp::Ordering;
 use std::collections::BTreeMap;
 use std::path::PathBuf;
@@ -75,10 +75,10 @@ impl TypeReader {
 
         if files.is_empty() {
             files.push(File::from_bytes(
-                include_bytes!("../default/Windows.Win32.winmd").to_vec(),
+                include_bytes!("../../default/Windows.Win32.winmd").to_vec(),
             ));
             files.push(File::from_bytes(
-                include_bytes!("../default/Windows.WinRT.winmd").to_vec(),
+                include_bytes!("../../default/Windows.WinRT.winmd").to_vec(),
             ));
         }
 

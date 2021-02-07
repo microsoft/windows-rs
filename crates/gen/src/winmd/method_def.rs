@@ -1,11 +1,5 @@
 use super::*;
-use crate::{TableIndex, TypeReader};
-
-#[derive(Copy, Clone)]
-pub struct MethodDef {
-    pub reader: &'static TypeReader,
-    pub row: Row,
-}
+macros::table!(MethodDef);
 
 impl MethodDef {
     pub fn flags(&self) -> MethodFlags {
@@ -77,31 +71,5 @@ impl MethodDef {
                 row,
             })
             .next()
-    }
-}
-
-impl std::fmt::Debug for MethodDef {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("MethodDef").field("row", &self.row).finish()
-    }
-}
-
-impl PartialEq for MethodDef {
-    fn eq(&self, other: &Self) -> bool {
-        self.row == other.row
-    }
-}
-
-impl Eq for MethodDef {}
-
-impl Ord for MethodDef {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.row.cmp(&other.row)
-    }
-}
-
-impl PartialOrd for MethodDef {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        Some(self.cmp(other))
     }
 }

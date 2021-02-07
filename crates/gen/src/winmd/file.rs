@@ -1,4 +1,4 @@
-use crate::traits::*;
+use super::*;
 
 #[derive(Default)]
 pub struct TableData {
@@ -18,7 +18,7 @@ pub struct File {
     /// The index of the blobs data
     pub(crate) blobs: u32,
     /// The table data
-    pub(crate) tables: [TableData; 13],
+    pub(crate) tables: [TableData; 16],
 }
 
 /// A well-known index of data into the winmd tables array
@@ -38,6 +38,9 @@ pub enum TableIndex {
     TypeSpec,
     ImplMap,
     ModuleRef,
+    NestedClass,
+    Module,
+    AssemblyRef,
 }
 
 impl TableData {
@@ -169,7 +172,6 @@ impl File {
         let mut unused_assembly = TableData::default();
         let mut unused_assembly_os = TableData::default();
         let mut unused_assembly_processor = TableData::default();
-        let mut unused_assembly_ref = TableData::default();
         let mut unused_assembly_ref_os = TableData::default();
         let mut unused_assembly_ref_processor = TableData::default();
         let mut unused_class_layout = TableData::default();
@@ -186,8 +188,6 @@ impl File {
         let mut unused_method_impl = TableData::default();
         let mut unused_method_semantics = TableData::default();
         let mut unused_method_spec = TableData::default();
-        let mut unused_module = TableData::default();
-        let mut unused_nested_class = TableData::default();
         let mut unused_property = TableData::default();
         let mut unused_property_map = TableData::default();
         let mut unused_standalone_sig = TableData::default();
@@ -201,7 +201,7 @@ impl File {
             view += 4;
 
             match i {
-                0x00 => unused_module.row_count = row_count,
+                0x00 => file.tables[TableIndex::Module as usize].row_count = row_count,
                 0x01 => file.tables[TableIndex::TypeRef as usize].row_count = row_count,
                 0x02 => file.tables[TableIndex::TypeDef as usize].row_count = row_count,
                 0x04 => file.tables[TableIndex::Field as usize].row_count = row_count,
@@ -229,13 +229,13 @@ impl File {
                 0x20 => unused_assembly.row_count = row_count,
                 0x21 => unused_assembly_processor.row_count = row_count,
                 0x22 => unused_assembly_os.row_count = row_count,
-                0x23 => unused_assembly_ref.row_count = row_count,
+                0x23 => file.tables[TableIndex::AssemblyRef as usize].row_count = row_count,
                 0x24 => unused_assembly_ref_processor.row_count = row_count,
                 0x25 => unused_assembly_ref_os.row_count = row_count,
                 0x26 => unused_file.row_count = row_count,
                 0x27 => unused_exported_type.row_count = row_count,
                 0x28 => unused_manifest_resource.row_count = row_count,
-                0x29 => unused_nested_class.row_count = row_count,
+                0x29 => file.tables[TableIndex::NestedClass as usize].row_count = row_count,
                 0x2a => file.tables[TableIndex::GenericParam as usize].row_count = row_count,
                 0x2b => unused_method_spec.row_count = row_count,
                 0x2c => unused_generic_param_constraint.row_count = row_count,
@@ -263,14 +263,14 @@ impl File {
             &file.tables[TableIndex::Param as usize],
             &file.tables[TableIndex::InterfaceImpl as usize],
             &file.tables[TableIndex::MemberRef as usize],
-            &unused_module,
+            &file.tables[TableIndex::Module as usize],
             &unused_property,
             &unused_event,
             &unused_standalone_sig,
             &file.tables[TableIndex::ModuleRef as usize],
             &file.tables[TableIndex::TypeSpec as usize],
             &unused_assembly,
-            &unused_assembly_ref,
+            &file.tables[TableIndex::AssemblyRef as usize],
             &unused_file,
             &unused_exported_type,
             &unused_manifest_resource,
@@ -310,8 +310,11 @@ impl File {
             &file.tables[TableIndex::MethodDef as usize],
         ]);
 
-        let implementation =
-            composite_index_size(&[&unused_file, &unused_assembly_ref, &unused_exported_type]);
+        let implementation = composite_index_size(&[
+            &unused_file,
+            &file.tables[TableIndex::AssemblyRef as usize],
+            &unused_exported_type,
+        ]);
 
         let custom_attribute_type = composite_index_size(&[
             &file.tables[TableIndex::MethodDef as usize],
@@ -322,9 +325,9 @@ impl File {
         ]);
 
         let resolution_scope = composite_index_size(&[
-            &unused_module,
+            &file.tables[TableIndex::Module as usize],
             &file.tables[TableIndex::ModuleRef as usize],
-            &unused_assembly_ref,
+            &file.tables[TableIndex::AssemblyRef as usize],
             &file.tables[TableIndex::TypeRef as usize],
         ]);
 
@@ -343,7 +346,7 @@ impl File {
         );
         unused_assembly_os.set_columns(4, 4, 4, 0, 0, 0);
         unused_assembly_processor.set_columns(4, 0, 0, 0, 0, 0);
-        unused_assembly_ref.set_columns(
+        file.tables[TableIndex::AssemblyRef as usize].set_columns(
             8,
             4,
             blob_index_size,
@@ -351,8 +354,22 @@ impl File {
             string_index_size,
             blob_index_size,
         );
-        unused_assembly_ref_os.set_columns(4, 4, 4, unused_assembly_ref.index_size(), 0, 0);
-        unused_assembly_ref_processor.set_columns(4, unused_assembly_ref.index_size(), 0, 0, 0, 0);
+        unused_assembly_ref_os.set_columns(
+            4,
+            4,
+            4,
+            file.tables[TableIndex::AssemblyRef as usize].index_size(),
+            0,
+            0,
+        );
+        unused_assembly_ref_processor.set_columns(
+            4,
+            file.tables[TableIndex::AssemblyRef as usize].index_size(),
+            0,
+            0,
+            0,
+            0,
+        );
         unused_class_layout.set_columns(
             2,
             4,
@@ -487,7 +504,7 @@ impl File {
             0,
         );
         unused_method_spec.set_columns(method_def_or_ref, blob_index_size, 0, 0, 0, 0);
-        unused_module.set_columns(
+        file.tables[TableIndex::Module as usize].set_columns(
             2,
             string_index_size,
             guid_index_size,
@@ -496,7 +513,7 @@ impl File {
             0,
         );
         file.tables[TableIndex::ModuleRef as usize].set_columns(string_index_size, 0, 0, 0, 0, 0);
-        unused_nested_class.set_columns(
+        file.tables[TableIndex::NestedClass as usize].set_columns(
             file.tables[TableIndex::TypeDef as usize].index_size(),
             file.tables[TableIndex::TypeDef as usize].index_size(),
             0,
@@ -533,7 +550,7 @@ impl File {
         );
         file.tables[TableIndex::TypeSpec as usize].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
-        unused_module.set_data(&mut view);
+        file.tables[TableIndex::Module as usize].set_data(&mut view);
         file.tables[TableIndex::TypeRef as usize].set_data(&mut view);
         file.tables[TableIndex::TypeDef as usize].set_data(&mut view);
         file.tables[TableIndex::Field as usize].set_data(&mut view);
@@ -561,13 +578,13 @@ impl File {
         unused_assembly.set_data(&mut view);
         unused_assembly_processor.set_data(&mut view);
         unused_assembly_os.set_data(&mut view);
-        unused_assembly_ref.set_data(&mut view);
+        file.tables[TableIndex::AssemblyRef as usize].set_data(&mut view);
         unused_assembly_ref_processor.set_data(&mut view);
         unused_assembly_ref_os.set_data(&mut view);
         unused_file.set_data(&mut view);
         unused_exported_type.set_data(&mut view);
         unused_manifest_resource.set_data(&mut view);
-        unused_nested_class.set_data(&mut view);
+        file.tables[TableIndex::NestedClass as usize].set_data(&mut view);
         file.tables[TableIndex::GenericParam as usize].set_data(&mut view);
 
         file
@@ -583,6 +600,10 @@ impl File {
     pub(crate) fn type_def_table(&self) -> &TableData {
         &self.tables[TableIndex::TypeDef as usize]
     }
+
+    // pub(crate) fn nested_class_table(&self) -> &TableData {
+    //     &self.tables[TableIndex::NestedClass as usize]
+    // }
 }
 
 fn section_from_rva(sections: &[ImageSectionHeader], rva: u32) -> &ImageSectionHeader {

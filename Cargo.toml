@@ -11,8 +11,7 @@ readme = "README.md"
 
 [dependencies]
 windows_macros = { path = "crates/macros",  version = "0.3.1" }
-windows_gen = { path = "crates/gen",  version = "0.3.1" }
-windows_winmd = { path = "crates/winmd",  version = "0.3.1" }
+gen = { package = "windows_gen", path = "crates/gen",  version = "0.3.1" }
 const-sha1 = "0.2"
 
 [build-dependencies]
@@ -20,7 +19,7 @@ windows_macros = { path = "crates/macros",  version = "0.3.1" }
 
 [dev-dependencies]
 doc-comment = "0.3"
-windows_gen = { path = "crates/gen" }
+gen = { package = "windows_gen", path = "crates/gen" }
 
 [workspace]
 members = [

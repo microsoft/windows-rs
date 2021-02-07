@@ -1,7 +1,5 @@
 use super::*;
-use crate::{traits::Decode, TableIndex, TypeReader};
-
-use windows_winmd_macros::type_code;
+use macros::type_code;
 
 #[type_code(2)]
 pub enum TypeDefOrRef {
@@ -53,6 +51,14 @@ pub enum AttributeType {
 pub enum MemberForwarded {
     Field,
     MethodDef,
+}
+
+#[type_code(2)]
+pub enum ResolutionScope {
+    Module,
+    ModuleRef,
+    AssemblyRef,
+    TypeRef,
 }
 
 impl TypeDefOrRef {

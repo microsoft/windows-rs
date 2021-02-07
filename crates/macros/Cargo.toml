@@ -10,8 +10,7 @@ description = "Macros for the windows crate"
 proc-macro = true
 
 [dependencies]
-windows_gen = { path = "../gen", version = "0.3.1" }
-windows_winmd = { path = "../winmd",  version = "0.3.1" }
+gen = { package = "windows_gen", path = "../gen", version = "0.3.1" }
 syn = "1.0"
 quote = "1.0"
 squote = "0.1.2"

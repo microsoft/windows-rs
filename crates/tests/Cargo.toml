@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 windows = { path = "../.." }
-windows_winmd = { path = "../winmd",  version = "0.3.1" }
+gen = { package = "windows_gen", path = "../gen",  version = "0.3.1" }
 
 [dev-dependencies]
 futures = "0.3"

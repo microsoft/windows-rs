@@ -122,7 +122,7 @@ impl TypeTree {
 
 #[cfg(test)]
 mod tests {
-    use crate::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
+    use crate::*;
 
     #[test]
     fn test_dependency_inclusion() {

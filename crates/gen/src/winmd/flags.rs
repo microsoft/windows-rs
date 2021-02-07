@@ -22,6 +22,9 @@ impl TypeFlags {
     pub fn interface(&self) -> bool {
         self.0 & 0b10_0000 != 0
     }
+    pub fn explicit(&self) -> bool {
+        self.0 & 0b1_0000 != 0
+    }
 }
 
 impl ParamFlags {

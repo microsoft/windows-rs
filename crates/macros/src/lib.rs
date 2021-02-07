@@ -1,11 +1,10 @@
-extern crate windows_winmd as winmd;
 mod build_limits;
 mod implement;
 mod implement_tree;
 
 use build_limits::*;
+use gen::winmd;
 use implement_tree::*;
-
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::parse_macro_input;

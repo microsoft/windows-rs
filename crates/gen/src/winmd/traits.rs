@@ -1,3 +1,5 @@
+use super::*;
+
 /// A "Plain Ol' Data" structure that represents any type that
 /// can be viewed from any probably aligned and sized buffer of
 /// bytes in a well defined way. This means that the representation
@@ -33,5 +35,5 @@ pub(crate) trait View {
 }
 
 pub trait Decode {
-    fn decode(code: u32, file: u16) -> Self;
+    fn decode(reader: &'static TypeReader, code: u32, file: u16) -> Self;
 }
