@@ -36,26 +36,10 @@ impl Constant {
         let value = constant.value();
 
         let name = format_ident(name);
-        let value = gen(&value);
+        let value = value.gen();
 
         quote! {
             pub const #name: #value;
         }
-    }
-}
-
-fn gen(value: &winmd::ConstantValue) -> TokenStream {
-    match value {
-        winmd::ConstantValue::U8(value) => quote! { u8 = #value },
-        winmd::ConstantValue::I8(value) => quote! { i8 = #value },
-        winmd::ConstantValue::U16(value) => quote! { u16 = #value },
-        winmd::ConstantValue::I16(value) => quote! { i16 = #value },
-        winmd::ConstantValue::U32(value) => quote! { u32 = #value },
-        winmd::ConstantValue::I32(value) => quote! { i32 = #value },
-        winmd::ConstantValue::U64(value) => quote! { u64 = #value },
-        winmd::ConstantValue::I64(value) => quote! { i64 = #value },
-        winmd::ConstantValue::F32(value) => quote! { f32 = #value },
-        winmd::ConstantValue::F64(value) => quote! { f64 = #value },
-        winmd::ConstantValue::String(value) => quote! { &'static str = #value },
     }
 }

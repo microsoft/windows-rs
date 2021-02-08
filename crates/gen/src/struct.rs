@@ -25,6 +25,10 @@ impl Struct {
         let mut unique = BTreeSet::new();
 
         for field in name.def.fields() {
+            if field.flags().literal() {
+                continue;
+            }
+
             let mut t = Type::from_field(&field, &name.namespace);
 
             // TODO: workaround for https://github.com/microsoft/win32metadata/issues/132
@@ -184,6 +188,21 @@ impl Struct {
             }
         };
 
+        let constants = self.name.def.fields().filter_map(|field| {
+            if field.flags().literal() {
+                if let Some(constant) = field.constant() {
+                    let name = format_ident(field.name());
+                    let value = constant.value().gen();
+
+                    return Some(quote! {
+                        pub const #name: #value;
+                    });
+                }
+            }
+
+            None
+        });
+
         let debug_fields = self
             .fields
             .iter()
@@ -271,6 +290,9 @@ impl Struct {
             #[repr(C)]
             #[allow(non_snake_case)]
             pub struct #name #body
+            impl #name {
+                #(#constants)*
+            }
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_ident(#(#abi),*);

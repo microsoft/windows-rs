@@ -22,6 +22,7 @@ use tests::{
     windows::win32::upnp::UIAnimationTransitionLibrary,
     windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
     windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
+    windows::win32::windows_color_system::WhitePoint,
     windows::win32::windows_programming::CloseHandle,
 };
 use windows::Guid;
@@ -383,4 +384,11 @@ fn empty_struct() {
     assert!(std::mem::size_of::<ldapsearch>() == 1);
 
     assert!(UIAnimationManager == Guid::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
+}
+
+#[test]
+fn struct_constants() {
+    assert_eq!(WhitePoint::CHROMATICITY, 0);
+    assert_eq!(WhitePoint::TEMPERATURE, 1);
+    assert_eq!(WhitePoint::D65, 2);
 }
