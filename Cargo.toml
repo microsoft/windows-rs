@@ -13,7 +13,7 @@ readme = "README.md"
 windows_macros = { path = "crates/macros",  version = "0.3.1" }
 gen = { package = "windows_gen", path = "crates/gen",  version = "0.3.1" }
 const-sha1 = "0.2"
-const-utf16 = { git = "https://github.com/rylev/const-utf16", branch = "main" }
+const-utf16 = "0.2"
 
 [build-dependencies]
 windows_macros = { path = "crates/macros",  version = "0.3.1" }
