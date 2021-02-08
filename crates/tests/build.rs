@@ -72,5 +72,6 @@ fn main() {
         windows::win32::debug::MiniDumpWriteDump,
         windows::win32::direct3d11::D3DDisassemble11Trace,
         windows::win32::windows_update_agent::IAutomaticUpdates,
+        windows::win32::windows_color_system::WhitePoint,
     );
 }
