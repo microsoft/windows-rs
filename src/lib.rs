@@ -26,7 +26,7 @@ pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, Param,
     RefCount, Waiter,
 };
-pub use strings::{BString, CoString, HString};
+pub use strings::{BString, CoString, HString, WString};
 pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
 pub use windows_macros::{build, implement};
 
@@ -44,6 +44,17 @@ pub use bindings::windows::foundation;
 
 #[doc(hidden)]
 pub use const_sha1::ConstBuffer;
+
+#[doc(hidden)]
+pub use const_utf16::encode_null_terminated;
+
+#[macro_export]
+macro_rules! L {
+    ($s:literal) => {
+        // This is always since since `encode_null_terminated!` ensures only a single \0 comes at the end
+        unsafe { $crate::WString::from_static_slice_unchecked($crate::encode_null_terminated!($s)) }
+    };
+}
 
 /// A stand-in for a type which is not yet fully supported by the `windows` crate.
 ///
