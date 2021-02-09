@@ -1,5 +1,3 @@
-use windows::Abi;
-
 use tests::{
     windows::win32::com::CreateUri,
     windows::win32::debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
@@ -24,10 +22,8 @@ use tests::{
     windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
     windows::win32::windows_color_system::WhitePoint,
     windows::win32::windows_programming::CloseHandle,
+    windows::{Abi, Guid, Interface, BOOL, FALSE},
 };
-use windows::Guid;
-use windows::Interface;
-use windows::BOOL;
 
 #[test]
 fn signed_enum32() {
@@ -254,7 +250,7 @@ fn com_inheritance() {
 #[test]
 fn onecore_imports() -> windows::Result<()> {
     unsafe {
-        let mut has_expanded_resources = 0;
+        let mut has_expanded_resources = FALSE;
         HasExpandedResources(&mut has_expanded_resources).ok()?;
 
         let mut uri = None;
