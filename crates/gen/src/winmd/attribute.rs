@@ -55,7 +55,7 @@ impl Attribute {
                     )
                 }
                 ElementType::TypeDef(type_def) => {
-                    let underlying_type = type_def.underlying_type();
+                    let underlying_type = type_def.def.underlying_type();
                     read_enum(&underlying_type, &mut values)
                 }
                 _ => panic!("Unexpected fixed attribute argument type"),
