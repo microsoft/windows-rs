@@ -28,15 +28,8 @@ pub enum ElementType {
     Matrix3x2,
     TypeName,
     TypeDef(GenericTypeDef),
-    // Class(GenericTypeDef),
-    // Interface(GenericTypeDef),
-    // Delegate(GenericTypeDef),
-    // Struct(TypeDef),
-    // Enum(TypeDef),
-    // ComInterface(TypeDef),
-    // Callback(TypeDef),
-    // Constant(Field),
-    // Function(MethodDef),
+    MethodDef(MethodDef),
+    Field(Field),
     GenericParam(&'static str),
 }
 
