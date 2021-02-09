@@ -79,7 +79,7 @@ impl Default for GuidConstant {
 impl TypeGuid {
     pub fn from_type_def(def: &winmd::TypeDef) -> Self {
         for attribute in def.attributes() {
-            match attribute.name() {
+            match attribute.full_name() {
                 ("Windows.Foundation.Metadata", "GuidAttribute") => {
                     let args = attribute.args();
 

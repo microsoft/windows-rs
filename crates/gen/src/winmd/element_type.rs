@@ -1,6 +1,6 @@
 use super::*;
 
-// TODO: this needs to replace gen::TypeKind and gen::TypeName
+// TODO: this replaces TypeKind, TypeName, and TypeDefinition
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum ElementType {
     NotYetSupported,
@@ -89,7 +89,7 @@ impl ElementType {
                         def: type_def,
                         args: Vec::new(),
                     }),
-                    TypeDefOrRef::TypeRef(type_ref) => match type_ref.name() {
+                    TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
                         ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
                         ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
                         ("Windows.Foundation", "HResult") => Self::ErrorCode,

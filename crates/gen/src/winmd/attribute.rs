@@ -6,9 +6,9 @@ impl Attribute {
         self.reader.decode(self.row, 1)
     }
 
-    pub fn name(&self) -> (&'static str, &'static str) {
+    pub fn full_name(&self) -> (&'static str, &'static str) {
         if let AttributeType::MemberRef(method) = self.constructor() {
-            return method.parent().name();
+            return method.parent().full_name();
         }
 
         panic!("Attribute.name");
@@ -51,7 +51,7 @@ impl Attribute {
                     let index = name.rfind('.').unwrap();
                     AttributeArg::TypeDef(
                         self.reader
-                            .expect_type_def((&name[0..index], &name[index + 1..])),
+                            .resolve_type_def(&name[0..index], &name[index + 1..]),
                     )
                 }
                 ElementType::TypeDef(type_def) => {
@@ -84,7 +84,7 @@ impl Attribute {
                     let index = name.rfind('.').unwrap();
                     AttributeArg::TypeDef(
                         self.reader
-                            .expect_type_def((&name[0..index], &name[index + 1..])),
+                            .resolve_type_def(&name[0..index], &name[index + 1..]),
                     )
                 }
                 _ => panic!("Unexpected named attribute argument type"),

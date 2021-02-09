@@ -40,7 +40,7 @@ impl ComInterface {
                 break;
             };
 
-            if base.name() == ("Windows.Win32.Com", "IUnknown") {
+            if base.full_name() == ("Windows.Win32.Com", "IUnknown") {
                 break;
             }
 

@@ -20,7 +20,7 @@ impl TypeDefinition {
         match row {
             winmd::Type::TypeDef(def) => Self::from_type_def(def),
             winmd::Type::MethodDef((def, method)) => Self::Function(Function::new(
-                TypeName::from_type_def(def, def.name().0),
+                TypeName::from_type_def(def, def.namespace()),
                 method,
             )),
             winmd::Type::Field(field) => Self::Constant(Constant::new(
@@ -30,7 +30,7 @@ impl TypeDefinition {
     }
 
     pub fn from_method_def(def: &winmd::TypeDef, method: &winmd::MethodDef) -> Self {
-        let name = TypeName::from_type_def(def, def.name().0);
+        let name = TypeName::from_type_def(def, def.namespace());
         TypeDefinition::Function(Function::new(name, method))
     }
 
@@ -39,7 +39,7 @@ impl TypeDefinition {
     }
 
     pub fn from_type_def(def: &winmd::TypeDef) -> Self {
-        let name = TypeName::from_type_def(def, def.name().0);
+        let name = TypeName::from_type_def(def, def.namespace());
 
         match def.category() {
             winmd::TypeCategory::Interface => {

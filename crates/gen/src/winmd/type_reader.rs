@@ -204,19 +204,19 @@ impl TypeReader {
             .map(move |row| Type::new(self, *row))
     }
 
-    pub fn expect_type(&'static self, (namespace, type_name): (&str, &str)) -> Type {
+    pub fn resolve_type(&'static self, namespace: &str, name: &str) -> Type {
         if let Some(types) = self.types.get(namespace) {
-            if let Some(row) = types.get(type_name) {
+            if let Some(row) = types.get(name) {
                 return Type::new(self, *row);
             }
         }
 
-        panic!("Could not find type `{}.{}`", namespace, type_name);
+        panic!("Could not find type `{}.{}`", namespace, name);
     }
 
-    pub fn expect_type_def(&'static self, (namespace, type_name): (&str, &str)) -> TypeDef {
+    pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> TypeDef {
         if let Some(types) = self.types.get(namespace) {
-            if let Some(TypeRow::TypeDef(row)) = types.get(type_name) {
+            if let Some(TypeRow::TypeDef(row)) = types.get(name) {
                 return TypeDef {
                     reader: self,
                     row: *row,
@@ -224,7 +224,7 @@ impl TypeReader {
             }
         }
 
-        panic!("Could not find type def `{}.{}`", namespace, type_name);
+        panic!("Could not find type def `{}.{}`", namespace, name);
     }
 
     /// Read a [`u32`] value from a specific [`Row`] and column

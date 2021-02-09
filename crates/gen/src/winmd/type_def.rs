@@ -6,8 +6,16 @@ impl TypeDef {
         TypeFlags(self.reader.u32(self.row, 0))
     }
 
-    pub fn name(&self) -> (&'static str, &'static str) {
-        (self.reader.str(self.row, 2), self.reader.str(self.row, 1))
+    pub fn name(&self) -> &'static str {
+        self.reader.str(self.row, 1)
+    }
+
+    pub fn namespace(&self) -> &'static str {
+        self.reader.str(self.row, 2)
+    }
+
+    pub fn full_name(&self) -> (&'static str, &'static str) {
+        (self.namespace(), self.name())
     }
 
     pub fn extends(&self) -> TypeDefOrRef {
@@ -74,8 +82,8 @@ impl TypeDef {
             })
     }
 
-    pub fn has_attribute(&self, name: (&str, &str)) -> bool {
-        self.attributes().any(|attribute| attribute.name() == name)
+    pub fn has_attribute(&self, namespace: &str, name: &str) -> bool {
+        self.attributes().any(|attribute| attribute.full_name() == (namespace, name))
     }
 
     pub fn is_winrt(&self) -> bool {
@@ -86,12 +94,12 @@ impl TypeDef {
         if self.flags().interface() {
             TypeCategory::Interface
         } else {
-            match self.extends().name() {
+            match self.extends().full_name() {
                 ("System", "Enum") => TypeCategory::Enum,
                 ("System", "MulticastDelegate") => TypeCategory::Delegate,
                 ("System", "Attribute") => TypeCategory::Attribute,
                 ("System", "ValueType") => {
-                    if self.has_attribute(("Windows.Foundation.Metadata", "ApiContractAttribute")) {
+                    if self.has_attribute("Windows.Foundation.Metadata", "ApiContractAttribute") {
                         TypeCategory::Contract
                     } else {
                         TypeCategory::Struct

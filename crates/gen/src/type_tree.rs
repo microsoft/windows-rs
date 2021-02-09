@@ -27,7 +27,7 @@ impl TypeTree {
                             reader,
                             &limit.namespace,
                             &mut set,
-                            &reader.expect_type((&limit.namespace, name)),
+                            &reader.resolve_type(&limit.namespace, name),
                         );
                     }
                 }
@@ -52,7 +52,7 @@ impl TypeTree {
                         let t = TypeDefinition::from_type_def(def);
 
                         for def in t.dependencies() {
-                            self.insert_if(reader, def.name().0, set, &winmd::Type::TypeDef(def));
+                            self.insert_if(reader, def.namespace(), set, &winmd::Type::TypeDef(def));
                         }
 
                         self.insert(namespace, t);
@@ -63,7 +63,7 @@ impl TypeTree {
                 let t = TypeDefinition::from_method_def(def, method);
 
                 for def in t.dependencies() {
-                    self.insert_if(reader, def.name().0, set, &winmd::Type::TypeDef(def));
+                    self.insert_if(reader, def.namespace(), set, &winmd::Type::TypeDef(def));
                 }
 
                 self.insert(namespace, t);
@@ -119,81 +119,5 @@ impl TypeTree {
             .iter()
             .map(|t| t.gen())
             .chain(self.namespaces.gen())
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use crate::*;
-
-    #[test]
-    fn test_dependency_inclusion() {
-        let reader = winmd::TypeReader::get();
-        let mut limits = TypeLimits::new(reader);
-        limits
-            .insert(NamespaceTypes {
-                namespace: "windows.foundation",
-                limit: TypeLimit::All,
-            })
-            .unwrap();
-        limits
-            .insert(NamespaceTypes {
-                namespace: "windows.ui",
-                limit: TypeLimit::All,
-            })
-            .unwrap();
-
-        // Since Windows.Foundation depends on Windows.Foundation.Collections and
-        // Windows.UI doesn't have dependencies, we should only see those namespaces.
-        let root = TypeTree::from_limits(reader, &limits);
-
-        // There is one root namespace.
-        assert!(root.namespaces.0.len() == 1);
-        let windows = &root.namespaces.0["Windows"];
-
-        // The Windows namespace will only contain Foundation and UI.
-        assert!(windows.namespaces.0.len() == 2);
-        let foundation = &windows.namespaces.0["Foundation"];
-        let ui = &windows.namespaces.0["UI"];
-
-        // The UI namespace will not contain any further namespaces.
-        assert!(ui.namespaces.0.is_empty());
-
-        // The Foundation namespace will contain the Collections namespace.
-        assert!(foundation.namespaces.0.len() == 1);
-        let collections = &foundation.namespaces.0["Collections"];
-
-        // The Collections namespace will not contain any further namespaces.
-        assert!(collections.namespaces.0.is_empty());
-
-        // The root never has any types.
-        assert!(root.types.is_empty());
-
-        // The Windows namespace has no types.
-        assert!(windows.types.is_empty());
-
-        // The UI namespace has all of its types.
-        assert!(ui.types.iter().any(|t| t.name().name == "Colors"));
-        assert!(ui.types.iter().any(|t| t.name().name == "IColorsStatics"));
-
-        // The Foundation namespace has all of its types.
-        assert!(foundation.types.iter().any(|t| t.name().name == "Uri"));
-        assert!(foundation
-            .types
-            .iter()
-            .any(|t| t.name().name == "IStringable"));
-
-        // The Collections namespace only has the needed types.
-        assert!(collections
-            .types
-            .iter()
-            .any(|t| t.name().name == "IVectorView`1"));
-        assert!(
-            collections
-                .types
-                .iter()
-                .any(|t| t.name().name == "PropertySet")
-                == false
-        );
     }
 }

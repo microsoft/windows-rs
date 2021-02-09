@@ -62,7 +62,7 @@ fn use_tree_to_types(
                     meta_name.push_str(&generic_count.to_string());
                 }
 
-                let def = reader.expect_type_def((namespace, &meta_name));
+                let def = reader.resolve_type_def(namespace, &meta_name);
 
                 types.push(gen::TypeDefinition::from_type_def(&def));
 

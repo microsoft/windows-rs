@@ -62,29 +62,44 @@ pub enum ResolutionScope {
 }
 
 impl TypeDefOrRef {
-    pub fn name(&self) -> (&'static str, &'static str) {
+    pub fn namespace(&self) -> &'static str {
+        match self {
+            Self::TypeDef(value) => value.namespace(),
+            Self::TypeRef(value) => value.namespace(),
+            _ => panic!("TypeDefOrRef"),
+        }
+    }
+
+    pub fn name(&self) -> &'static str {
         match self {
             Self::TypeDef(value) => value.name(),
             Self::TypeRef(value) => value.name(),
-            _ => panic!("TypeDefOrRef.name"),
+            _ => panic!("TypeDefOrRef"),
         }
     }
+
+    pub fn full_name(&self) -> (&'static str, &'static str) {
+        match self {
+            Self::TypeDef(value) => value.full_name(),
+            Self::TypeRef(value) => value.full_name(),
+            _ => panic!("TypeDefOrRef"),
+        }    }
 
     pub fn resolve(&self) -> TypeDef {
         match self {
             Self::TypeDef(value) => *value,
             Self::TypeRef(value) => value.resolve(),
-            _ => panic!("TypeDefOrRef.resolve"),
+            _ => panic!("TypeDefOrRef"),
         }
     }
 }
 
 impl MemberRefParent {
-    pub fn name(&self) -> (&'static str, &'static str) {
+    pub fn full_name(&self) -> (&'static str, &'static str) {
         match self {
-            Self::TypeDef(value) => value.name(),
-            Self::TypeRef(value) => value.name(),
-            _ => panic!("MemberRefParent.name"),
+            Self::TypeDef(value) => value.full_name(),
+            Self::TypeRef(value) => value.full_name(),
+            _ => panic!("MemberRefParent"),
         }
     }
 }

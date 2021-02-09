@@ -52,7 +52,7 @@ impl Method {
 
     fn name(method: &winmd::MethodDef) -> String {
         for attribute in method.attributes() {
-            if attribute.name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
+            if attribute.full_name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
                 for (_, arg) in attribute.args() {
                     if let winmd::AttributeArg::String(name) = arg {
                         return method_to_snake(&name, MethodKind::Normal);
@@ -447,98 +447,5 @@ fn param_gen_invoke_arg(t: &Type, relative: bool) -> TokenStream {
         }
     } else {
         quote! { ::std::mem::transmute_copy(&#name) }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use crate::*;
-
-    fn method((namespace, type_name): (&str, &str), method_name: &str) -> Method {
-        let reader = &winmd::TypeReader::get();
-        let def = reader.expect_type_def((namespace, type_name));
-
-        let t = match TypeDefinition::from_type_def(&def) {
-            TypeDefinition::Interface(t) => t,
-            _ => panic!("TypeDefinition not an interface"),
-        };
-
-        for interface in t.interfaces {
-            for method in interface.methods {
-                if method.name == method_name {
-                    return method;
-                }
-            }
-        }
-
-        panic!("Method not found");
-    }
-
-    #[test]
-    fn test_to_string() {
-        let method = method(("Windows.Foundation", "IStringable"), "to_string");
-        assert!(method.signature.params.is_empty());
-
-        let param = method.signature.return_type.as_ref().unwrap();
-        assert!(param.kind == TypeKind::String);
-    }
-
-    #[test]
-    fn test_map_changed() {
-        let method = method(
-            ("Windows.Foundation.Collections", "IObservableMap`2"),
-            "map_changed",
-        );
-
-        assert!(method.signature.params.len() == 1);
-
-        let handler = &method.signature.params[0];
-        assert!(handler.is_array == false);
-        assert!(handler.is_input == true);
-        assert!(handler.by_ref == false);
-
-        let handler = match &handler.kind {
-            TypeKind::Delegate(delegate) => delegate,
-            _ => panic!("Wrong type"),
-        };
-
-        assert!(
-            handler.runtime_name()
-                == "Windows.Foundation.Collections.MapChangedEventHandler`2<K, V>"
-        );
-
-        let token = method.signature.return_type.as_ref().unwrap();
-        assert!(token.is_array == false);
-        assert!(token.is_input == false);
-        assert!(token.by_ref == true);
-
-        let token = match &token.kind {
-            TypeKind::Struct(token) => token,
-            _ => panic!("Wrong type"),
-        };
-
-        assert!(token.runtime_name() == "Windows.Foundation.EventRegistrationToken");
-    }
-
-    #[test]
-    fn test_remove_map_changed() {
-        let method = method(
-            ("Windows.Foundation.Collections", "IObservableMap`2"),
-            "remove_map_changed",
-        );
-
-        assert!(method.signature.params.len() == 1);
-
-        let token = &method.signature.params[0];
-        assert!(token.is_array == false);
-        assert!(token.is_input == true);
-        assert!(token.by_ref == false);
-
-        let token = match &token.kind {
-            TypeKind::Struct(token) => token,
-            _ => panic!("Wrong type"),
-        };
-
-        assert!(token.runtime_name() == "Windows.Foundation.EventRegistrationToken");
     }
 }

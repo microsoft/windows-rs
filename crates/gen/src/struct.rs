@@ -80,7 +80,7 @@ impl Struct {
 
         let is_typedef = name
             .def
-            .has_attribute(("Windows.Win32.Interop", "NativeTypedefAttribute"));
+            .has_attribute("Windows.Win32.Interop", "NativeTypedefAttribute");
 
         Self {
             name,

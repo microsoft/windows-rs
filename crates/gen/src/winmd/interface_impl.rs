@@ -20,11 +20,11 @@ impl InterfaceImpl {
             })
     }
 
-    pub fn has_attribute(&self, name: (&str, &str)) -> bool {
-        self.attributes().any(|attribute| attribute.name() == name)
+    pub fn has_attribute(&self, namespace: &str, name: &str) -> bool {
+        self.attributes().any(|attribute| attribute.full_name() == (namespace, name))
     }
 
     pub fn is_default(&self) -> bool {
-        self.has_attribute(("Windows.Foundation.Metadata", "DefaultAttribute"))
+        self.has_attribute("Windows.Foundation.Metadata", "DefaultAttribute")
     }
 }

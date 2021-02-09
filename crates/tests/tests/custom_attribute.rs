@@ -4,14 +4,14 @@ use windows::*;
 #[test]
 fn named_arguments() -> Result<()> {
     let reader = winmd::TypeReader::get();
-    let type_def = reader.expect_type_def(("TestComponent", "TestRunner"));
+    let type_def = reader.resolve_type_def("TestComponent", "TestRunner");
 
     // TestRunner should have a custom attribute on it
     let mut some_string = 0;
     let mut some_int = 0;
     let mut some_bool = 0;
     for attribute in type_def.attributes() {
-        match attribute.name() {
+        match attribute.full_name() {
             ("TestComponent", "CustomTestAttribute") => {
                 for (name, arg) in attribute.args() {
                     match (&name as &str, &arg) {
