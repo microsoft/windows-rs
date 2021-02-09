@@ -16,22 +16,8 @@ pub enum TypeDefinition {
 }
 
 impl TypeDefinition {
-    pub fn from_type_row(row: &winmd::Type) -> Self {
-        match row {
-            winmd::Type::TypeDef(def) => Self::from_type_def(def),
-            winmd::Type::MethodDef((def, method)) => Self::Function(Function::new(
-                TypeName::from_type_def(def, def.namespace()),
-                method,
-            )),
-            winmd::Type::Field(field) => Self::Constant(Constant::new(
-                field,
-            )),
-        }
-    }
-
-    pub fn from_method_def(def: &winmd::TypeDef, method: &winmd::MethodDef) -> Self {
-        let name = TypeName::from_type_def(def, def.namespace());
-        TypeDefinition::Function(Function::new(name, method))
+    pub fn from_method_def(method: &winmd::MethodDef, calling_namespace: &'static str) -> Self {
+        TypeDefinition::Function(Function::new(method, calling_namespace))
     }
 
     pub fn from_field(field: &winmd::Field) -> Self {

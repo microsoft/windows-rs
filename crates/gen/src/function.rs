@@ -4,14 +4,13 @@ use squote::{quote, TokenStream};
 // TODO: move winmd into gen crate to improve inlining and simplify
 #[derive(Debug)]
 pub struct Function {
-    pub name: TypeName,
     pub signature: Signature,
 }
 
 impl Function {
-    pub fn new(name: TypeName, method: &winmd::MethodDef) -> Self {
-        let signature = Signature::new(method, &[], &name.namespace);
-        Self { name, signature }
+    pub fn new(method: &winmd::MethodDef, calling_namespace: &'static str) -> Self {
+        let signature = Signature::new(method, &[], calling_namespace);
+        Self { signature }
     }
 
     pub fn gen(&self) -> TokenStream {

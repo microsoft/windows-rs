@@ -27,7 +27,7 @@ pub enum ElementType {
     Bool32,
     Matrix3x2,
     TypeName,
-    TypeDef(ElementTypeDef),
+    TypeDef(GenericTypeDef),
     // Class(GenericTypeDef),
     // Interface(GenericTypeDef),
     // Delegate(GenericTypeDef),
@@ -41,9 +41,9 @@ pub enum ElementType {
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct ElementTypeDef {
+pub struct GenericTypeDef {
     pub def: TypeDef,
-    pub args: Vec<ElementType>,
+    pub generics: Vec<ElementType>,
 }
 
 impl ElementType {
@@ -85,9 +85,9 @@ impl ElementType {
                 let code = TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index);
 
                 match code {
-                    TypeDefOrRef::TypeDef(type_def) => Self::TypeDef(ElementTypeDef {
+                    TypeDefOrRef::TypeDef(type_def) => Self::TypeDef(GenericTypeDef {
                         def: type_def,
-                        args: Vec::new(),
+                        generics: Vec::new(),
                     }),
                     TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
                         ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
@@ -100,9 +100,9 @@ impl ElementType {
                         ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
                         ("System", "Type") => Self::TypeName,
                         ("", _) => Self::NotYetSupported,
-                        _ => Self::TypeDef(ElementTypeDef {
+                        _ => Self::TypeDef(GenericTypeDef {
                             def: type_ref.resolve(),
-                            args: Vec::new(),
+                            generics: Vec::new(),
                         }),
                     },
                     _ => panic!("Expected a TypeDef or TypeRef"),
@@ -120,8 +120,11 @@ impl ElementType {
                 for _ in 0..args.capacity() {
                     args.push(Self::from_blob_with_generics(blob, generics));
                 }
-                
-                Self::TypeDef(ElementTypeDef { def, args })
+
+                Self::TypeDef(GenericTypeDef {
+                    def,
+                    generics: args,
+                })
             }
             _ => panic!(format!("Unexpected ElementType: {:x}", code)),
         }

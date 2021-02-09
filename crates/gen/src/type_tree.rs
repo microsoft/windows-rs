@@ -52,16 +52,22 @@ impl TypeTree {
                         let t = TypeDefinition::from_type_def(def);
 
                         for def in t.dependencies() {
-                            self.insert_if(reader, def.namespace(), set, &winmd::Type::TypeDef(def));
+                            self.insert_if(
+                                reader,
+                                def.namespace(),
+                                set,
+                                &winmd::Type::TypeDef(def),
+                            );
                         }
 
                         self.insert(namespace, t);
                     }
                 }
             },
-            winmd::Type::MethodDef((def, method)) => {
-                let t = TypeDefinition::from_method_def(def, method);
+            winmd::Type::MethodDef(method) => {
+                let t = TypeDefinition::from_method_def(method, namespace);
 
+                // TODO: need universal dependencies (this is duplicated here and there)
                 for def in t.dependencies() {
                     self.insert_if(reader, def.namespace(), set, &winmd::Type::TypeDef(def));
                 }

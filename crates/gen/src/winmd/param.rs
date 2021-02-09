@@ -29,6 +29,7 @@ impl Param {
     }
 
     pub fn has_attribute(&self, namespace: &str, name: &str) -> bool {
-        self.attributes().any(|attribute| attribute.full_name() == (namespace, name))
+        self.attributes()
+            .any(|attribute| attribute.full_name() == (namespace, name))
     }
 }

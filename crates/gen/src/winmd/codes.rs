@@ -83,7 +83,8 @@ impl TypeDefOrRef {
             Self::TypeDef(value) => value.full_name(),
             Self::TypeRef(value) => value.full_name(),
             _ => panic!("TypeDefOrRef"),
-        }    }
+        }
+    }
 
     pub fn resolve(&self) -> TypeDef {
         match self {
