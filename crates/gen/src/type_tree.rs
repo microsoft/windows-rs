@@ -42,21 +42,24 @@ impl TypeTree {
         reader: &winmd::TypeReader,
         namespace: &'static str,
         set: &mut std::collections::BTreeSet<winmd::TypeDef>,
-        def: &winmd::Type,
+        def: &winmd::ElementType,
     ) {
         match def {
-            winmd::Type::TypeDef(def) => match def.category() {
+            winmd::ElementType::TypeDef(def) => match def.def.category() {
                 winmd::TypeCategory::Contract | winmd::TypeCategory::Attribute => {}
                 _ => {
-                    if set.insert(*def) {
-                        let t = TypeDefinition::from_type_def(def);
+                    if set.insert(def.def) {
+                        let t = TypeDefinition::from_type_def(&def.def);
 
                         for def in t.dependencies() {
                             self.insert_if(
                                 reader,
                                 def.namespace(),
                                 set,
-                                &winmd::Type::TypeDef(def),
+                                &winmd::ElementType::TypeDef(winmd::GenericTypeDef {
+                                    def,
+                                    generics: Vec::new(),
+                                }),
                             );
                         }
 
@@ -64,20 +67,29 @@ impl TypeTree {
                     }
                 }
             },
-            winmd::Type::MethodDef(method) => {
+            winmd::ElementType::MethodDef(method) => {
                 let t = TypeDefinition::from_method_def(method, namespace);
 
                 // TODO: need universal dependencies (this is duplicated here and there)
                 for def in t.dependencies() {
-                    self.insert_if(reader, def.namespace(), set, &winmd::Type::TypeDef(def));
+                    self.insert_if(
+                        reader,
+                        def.namespace(),
+                        set,
+                        &winmd::ElementType::TypeDef(winmd::GenericTypeDef {
+                            def,
+                            generics: Vec::new(),
+                        }),
+                    );
                 }
 
                 self.insert(namespace, t);
             }
-            winmd::Type::Field(field) => {
+            winmd::ElementType::Field(field) => {
                 let t = TypeDefinition::from_field(field);
                 self.insert(namespace, t);
             }
+            _ => {}
         }
     }
 

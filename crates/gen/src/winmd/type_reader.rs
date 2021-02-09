@@ -19,30 +19,10 @@ pub struct TypeReader {
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-enum TypeRow {
+pub(crate) enum TypeRow {
     TypeDef(Row),
     MethodDef(Row),
     Field(Row),
-}
-
-#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-pub enum Type {
-    TypeDef(TypeDef),
-    MethodDef(MethodDef),
-    Field(Field),
-}
-
-impl Type {
-    fn new(reader: &'static TypeReader, row: TypeRow) -> Self {
-        match row {
-            TypeRow::TypeDef(def) => Type::TypeDef(TypeDef { reader, row: def }),
-            TypeRow::MethodDef(method) => Type::MethodDef(MethodDef {
-                reader,
-                row: method,
-            }),
-            TypeRow::Field(field) => Type::Field(Field { reader, row: field }),
-        }
-    }
 }
 
 impl TypeReader {
@@ -193,20 +173,49 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if the namespace does not exist
-    pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = Type> + '_ {
+    pub fn namespace_types(
+        &'static self,
+        namespace: &str,
+    ) -> impl Iterator<Item = ElementType> + '_ {
         self.types[namespace]
             .values()
-            .map(move |row| Type::new(self, *row))
+            .map(move |row| self.to_element_type(row))
     }
 
-    pub fn resolve_type(&'static self, namespace: &str, name: &str) -> Type {
+    pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
         if let Some(types) = self.types.get(namespace) {
             if let Some(row) = types.get(name) {
-                return Type::new(self, *row);
+                return self.to_element_type(row);
             }
         }
 
         panic!("Could not find type `{}.{}`", namespace, name);
+    }
+
+    fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
+        match row {
+            TypeRow::TypeDef(row) => {
+                let def = TypeDef {
+                    reader: self,
+                    row: *row,
+                };
+                let mut generics = Vec::new();
+
+                for generic in def.generics() {
+                    generics.push(ElementType::GenericParam(generic.name()));
+                }
+
+                ElementType::TypeDef(GenericTypeDef { def, generics })
+            }
+            TypeRow::MethodDef(row) => ElementType::MethodDef(MethodDef {
+                reader: self,
+                row: *row,
+            }),
+            TypeRow::Field(row) => ElementType::Field(Field {
+                reader: self,
+                row: *row,
+            }),
+        }
     }
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> TypeDef {

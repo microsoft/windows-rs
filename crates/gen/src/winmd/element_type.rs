@@ -1,6 +1,6 @@
 use super::*;
 
-// TODO: this replaces TypeKind, TypeName, and TypeDefinition
+// TODO: this replaces Type, TypeKind, TypeName, and TypeDefinition
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum ElementType {
     NotYetSupported,
