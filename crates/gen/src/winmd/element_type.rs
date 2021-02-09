@@ -117,4 +117,10 @@ impl ElementType {
             _ => panic!(format!("Unexpected ElementType: {:x}", code)),
         }
     }
+
+    // pub fn gen_name(&self, gen: &Gen) -> TokenStream {
+    //     match self {
+
+    //     }
+    // }
 }

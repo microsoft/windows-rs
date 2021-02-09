@@ -1,4 +1,4 @@
-use squote::{quote, TokenStream};
+use super::*;
 
 #[derive(Debug)]
 pub enum ConstantValue {
