@@ -46,32 +46,17 @@ impl Attribute {
                 ElementType::I64 => AttributeArg::I64(values.read_i64()),
                 ElementType::U64 => AttributeArg::U64(values.read_u64()),
                 ElementType::String => AttributeArg::String(values.read_str().to_string()),
-                ElementType::Struct(type_def_or_ref) | ElementType::Class(type_def_or_ref) => {
-                    let (namespace, type_name) = match type_def_or_ref {
-                        TypeDefOrRef::TypeDef(type_def) => type_def.name(),
-                        TypeDefOrRef::TypeRef(type_ref) => type_ref.name(),
-                        _ => panic!("Expected a TypeDef or TypeRef"),
-                    };
-
-                    if namespace == "System" && type_name == "Type" {
-                        let name = values.read_str();
-                        let index = name.rfind('.').unwrap();
-                        AttributeArg::TypeDef(
-                            self.reader
-                                .expect_type_def((&name[0..index], &name[index + 1..])),
-                        )
-                    } else {
-                        let def = match type_def_or_ref {
-                            TypeDefOrRef::TypeRef(value) => {
-                                self.reader.expect_type_def(value.name())
-                            }
-                            TypeDefOrRef::TypeDef(value) => value,
-                            TypeDefOrRef::TypeSpec(_) => panic!("Unsupported underlying type"),
-                        };
-
-                        let underlying_type = def.underlying_type();
-                        read_enum(&underlying_type, &mut values)
-                    }
+                ElementType::TypeName => {
+                    let name = values.read_str();
+                    let index = name.rfind('.').unwrap();
+                    AttributeArg::TypeDef(
+                        self.reader
+                            .expect_type_def((&name[0..index], &name[index + 1..])),
+                    )
+                }
+                ElementType::TypeDef(type_def) => {
+                    let underlying_type = type_def.underlying_type();
+                    read_enum(&underlying_type, &mut values)
                 }
                 _ => panic!("Unexpected fixed attribute argument type"),
             };
