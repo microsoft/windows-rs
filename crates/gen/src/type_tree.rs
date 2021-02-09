@@ -18,13 +18,14 @@ impl TypeTree {
             match &limit.limit {
                 TypeLimit::All => {
                     for def in reader.namespace_types(&limit.namespace) {
-                        tree.insert_if(reader, &mut set, &def);
+                        tree.insert_if(reader, &limit.namespace, &mut set, &def);
                     }
                 }
                 TypeLimit::Some(types) => {
                     for name in types {
                         tree.insert_if(
                             reader,
+                            &limit.namespace,
                             &mut set,
                             &reader.expect_type((&limit.namespace, name)),
                         );
@@ -39,6 +40,7 @@ impl TypeTree {
     fn insert_if(
         &mut self,
         reader: &winmd::TypeReader,
+        namespace: &'static str,
         set: &mut std::collections::BTreeSet<winmd::TypeDef>,
         def: &winmd::Type,
     ) {
@@ -50,10 +52,10 @@ impl TypeTree {
                         let t = TypeDefinition::from_type_def(def);
 
                         for def in t.dependencies() {
-                            self.insert_if(reader, set, &winmd::Type::TypeDef(def));
+                            self.insert_if(reader, def.name().0, set, &winmd::Type::TypeDef(def));
                         }
 
-                        self.insert(t.name().namespace, t);
+                        self.insert(namespace, t);
                     }
                 }
             },
@@ -61,14 +63,14 @@ impl TypeTree {
                 let t = TypeDefinition::from_method_def(def, method);
 
                 for def in t.dependencies() {
-                    self.insert_if(reader, set, &winmd::Type::TypeDef(def));
+                    self.insert_if(reader, def.name().0, set, &winmd::Type::TypeDef(def));
                 }
 
-                self.insert(t.name().namespace, t);
+                self.insert(namespace, t);
             }
-            winmd::Type::Field((def, field)) => {
-                let t = TypeDefinition::from_field(def, field);
-                self.insert(t.name().namespace, t);
+            winmd::Type::Field(field) => {
+                let t = TypeDefinition::from_field(field);
+                self.insert(namespace, t);
             }
         }
     }

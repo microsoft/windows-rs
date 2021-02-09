@@ -22,14 +22,14 @@ pub struct TypeReader {
 enum TypeRow {
     TypeDef(Row),
     MethodDef((Row, Row)),
-    Field((Row, Row)),
+    Field(Row),
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub enum Type {
     TypeDef(TypeDef),
     MethodDef((TypeDef, MethodDef)),
-    Field((TypeDef, Field)),
+    Field(Field),
 }
 
 impl Type {
@@ -43,8 +43,8 @@ impl Type {
                     row: method,
                 },
             )),
-            TypeRow::Field((def, field)) => {
-                Type::Field((TypeDef { reader, row: def }, Field { reader, row: field }))
+            TypeRow::Field(field) => {
+                Type::Field(Field { reader, row: field })
             }
         }
     }
@@ -128,7 +128,7 @@ impl TypeReader {
                         .entry(namespace.to_string())
                         .or_default()
                         .entry(name.to_string())
-                        .or_insert(TypeRow::Field((def, field)));
+                        .or_insert(TypeRow::Field(field));
                 }
 
                 for method in reader.list(def, TableIndex::MethodDef, 5) {

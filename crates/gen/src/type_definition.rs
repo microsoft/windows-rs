@@ -23,8 +23,7 @@ impl TypeDefinition {
                 TypeName::from_type_def(def, def.name().0),
                 method,
             )),
-            winmd::Type::Field((def, field)) => Self::Constant(Constant::new(
-                TypeName::from_type_def(def, def.name().0),
+            winmd::Type::Field(field) => Self::Constant(Constant::new(
                 field,
             )),
         }
@@ -35,9 +34,8 @@ impl TypeDefinition {
         TypeDefinition::Function(Function::new(name, method))
     }
 
-    pub fn from_field(def: &winmd::TypeDef, field: &winmd::Field) -> Self {
-        let name = TypeName::from_type_def(def, def.name().0);
-        TypeDefinition::Constant(Constant::new(name, field))
+    pub fn from_field(field: &winmd::Field) -> Self {
+        TypeDefinition::Constant(Constant::new(field))
     }
 
     pub fn from_type_def(def: &winmd::TypeDef) -> Self {
@@ -76,21 +74,6 @@ impl TypeDefinition {
             Self::Callback(t) => t.gen(),
             Self::Constant(t) => t.gen(),
             Self::Function(t) => t.gen(),
-        }
-    }
-
-    // TODO: get rid of this
-    pub fn name(&self) -> &TypeName {
-        match self {
-            Self::Class(t) => &t.name,
-            Self::Interface(t) => &t.name,
-            Self::Enum(t) => &t.name,
-            Self::Struct(t) => &t.name,
-            Self::Delegate(t) => &t.name,
-            Self::ComInterface(t) => &t.name,
-            Self::Callback(t) => &t.name,
-            Self::Constant(t) => &t.name,
-            Self::Function(t) => &t.name,
         }
     }
 
