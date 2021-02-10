@@ -97,22 +97,7 @@ impl ElementType {
             }
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x14 => Self::NotYetSupported, // arrays
-            0x15 => {
-                blob.read_unsigned();
-                // TODO: add "read_type_def_or_ref" method to Blob reader.
-                let def = TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index)
-                    .resolve();
-                let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
-
-                for _ in 0..args.capacity() {
-                    args.push(Self::from_blob_with_generics(blob, generics));
-                }
-
-                Self::TypeDef(GenericTypeDef {
-                    def,
-                    generics: args,
-                })
-            }
+            0x15 => Self::TypeDef(GenericTypeDef::from_blob_with_generics(blob, generics)),
             _ => panic!(format!("Unexpected ElementType: {:x}", code)),
         }
     }
@@ -168,6 +153,28 @@ impl ElementType {
             }
             Self::TypeDef(def) => def.gen_name(gen),
             Self::GenericParam(generic) => generic.gen_name(),
+            _ => panic!("ElementType"),
+        }
+    }
+
+    pub fn signature(&self) -> String {
+        match self {
+            Self::Bool => "b1".to_owned(),
+            Self::Char => "c2".to_owned(),
+            Self::I8 => "i1".to_owned(),
+            Self::U8 => "u1".to_owned(),
+            Self::I16 => "i2".to_owned(),
+            Self::U16 => "u2".to_owned(),
+            Self::I32 => "i4".to_owned(),
+            Self::U32 => "u4".to_owned(),
+            Self::I64 => "i8".to_owned(),
+            Self::U64 => "u8".to_owned(),
+            Self::F32 => "f4".to_owned(),
+            Self::F64 => "f8".to_owned(),
+            Self::String => "string".to_owned(),
+            Self::Object => "cinterface(IInspectable)".to_owned(),
+            Self::Guid => "g16".to_owned(),
+            Self::TypeDef(def) => def.signature(),
             _ => panic!("ElementType"),
         }
     }
