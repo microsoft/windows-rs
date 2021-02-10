@@ -136,7 +136,7 @@ impl TypeName {
         }
     }
 
-    pub fn gen_guid(&self, guid: &TypeGuid) -> TokenStream {
+    pub fn gen_guid(&self, guid: &Guid) -> TokenStream {
         if self.generics.is_empty() {
             let guid = guid.gen();
 
@@ -153,7 +153,7 @@ impl TypeName {
     }
 
     pub fn interface_signature(&self) -> String {
-        let guid = TypeGuid::from_type_def(&self.def);
+        let guid = self.def.guid();
 
         if self.generics.is_empty() {
             format!("{{{:#?}}}", guid)

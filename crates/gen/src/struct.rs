@@ -8,7 +8,7 @@ pub struct Struct {
     pub fields: Vec<(String, Type)>,
     pub signature: String,
     pub is_typedef: bool,
-    pub guid: TypeGuid,
+    pub guid: Guid,
 }
 
 impl Struct {
@@ -58,10 +58,10 @@ impl Struct {
             fields.push((field_name, t));
         }
 
-        let guid = TypeGuid::from_type_def(&name.def);
+        let guid = name.def.guid();
 
         // The C/C++ ABI assumes an empty struct occupies a single byte in memory.
-        if fields.is_empty() && guid == TypeGuid::default() {
+        if fields.is_empty() && guid == Guid::default() {
             let t = Type {
                 kind: TypeKind::U8,
                 pointers: 0,
@@ -101,7 +101,7 @@ impl Struct {
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
 
-        if self.guid != TypeGuid::default() {
+        if self.guid != Guid::default() {
             let guid = self.name.gen_guid(&self.guid);
 
             return quote! {

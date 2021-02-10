@@ -27,7 +27,8 @@ mod type_reader;
 mod type_ref;
 mod type_spec;
 mod workspace;
-mod type_guid;
+mod guid;
+mod signature;
 
 pub use assembly_ref::*;
 pub use attribute::*;
@@ -59,5 +60,6 @@ pub use type_reader::*;
 pub use type_ref::*;
 pub use type_spec::*;
 pub use workspace::*;
-pub use type_guid::*;
+pub use guid::*;
 pub use super::HexReader;
+pub use signature::*;

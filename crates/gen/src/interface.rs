@@ -4,13 +4,13 @@ use squote::{quote, TokenStream};
 #[derive(Debug)]
 pub struct Interface {
     pub name: TypeName,
-    pub guid: TypeGuid,
+    pub guid: Guid,
     pub interfaces: Vec<RequiredInterface>,
 }
 
 impl Interface {
     pub fn from_type_name(name: TypeName) -> Self {
-        let guid = TypeGuid::from_type_def(&name.def);
+        let guid = name.def.guid();
         let mut interfaces = Vec::new();
 
         add_type(

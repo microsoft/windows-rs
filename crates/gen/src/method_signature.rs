@@ -1,13 +1,13 @@
 use crate::*;
 
 #[derive(Debug)]
-pub struct Signature {
+pub struct MethodSignature {
     pub method: winmd::MethodDef,
     pub params: Vec<Type>,
     pub return_type: Option<Type>,
 }
 
-impl Signature {
+impl MethodSignature {
     pub fn new(
         method: &winmd::MethodDef,
         generics: &[TypeKind],

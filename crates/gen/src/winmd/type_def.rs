@@ -129,4 +129,8 @@ impl TypeDef {
 
         panic!("TypeDef::underlying_type {:?}", self.name());
     }
+
+    pub fn guid(&self) -> Guid {
+        Guid::from_type_def(self)
+    }
 }

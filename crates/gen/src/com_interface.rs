@@ -12,7 +12,7 @@ pub struct ComInterface {
 
 #[derive(Debug)]
 struct Method {
-    signature: Signature,
+    signature: MethodSignature,
     overload: u32,
 }
 
@@ -61,7 +61,7 @@ impl ComInterface {
                 let count = count.entry(method.name()).or_insert(0);
                 *count += 1;
 
-                let mut signature = Signature::new(&method, &[], &name.namespace);
+                let mut signature = MethodSignature::new(&method, &[], &name.namespace);
 
                 // Many years ago, the Visual C++ compiler engineers decided to diverge from the stdcall calling convention
                 // for virtual functions returning UDTs. These return values must actually be returned via a hidden output
@@ -94,7 +94,7 @@ impl ComInterface {
     pub fn gen(&self) -> TokenStream {
         let name = self.name.gen();
         let abi_name = self.name.gen_abi_definition();
-        let guid = TypeGuid::from_type_def(&self.name.def);
+        let guid = self.name.def.guid();
         let guid = self.name.gen_guid(&guid);
 
         // TODO: here we're looking up the param name (from the file) repeatedly - cache name in Type

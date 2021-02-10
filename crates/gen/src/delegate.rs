@@ -4,7 +4,7 @@ use squote::{quote, TokenStream};
 #[derive(Debug)]
 pub struct Delegate {
     pub name: TypeName,
-    pub guid: TypeGuid,
+    pub guid: Guid,
     pub method: Method,
 }
 
@@ -16,7 +16,7 @@ impl Delegate {
             .find(|method| method.name() == "Invoke")
             .unwrap();
         let method = Method::from_method_def(&method, 3, &name.generics, &name.namespace);
-        let guid = TypeGuid::from_type_def(&name.def);
+        let guid = name.def.guid();
         Self { name, method, guid }
     }
 

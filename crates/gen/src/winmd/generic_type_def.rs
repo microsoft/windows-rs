@@ -61,7 +61,21 @@ impl GenericTypeDef {
     }
     //     match self.def.category() {
     //         TypeCategory::Interface => {
+    //             let guid = self.def.guid();
 
+    //             if self.generics.is_empty() {
+    //                 format!("{{{:#?}}}", guid)
+    //             } else {
+    //                 let mut result = format!("pinterface({{{:#?}}}", guid);
+        
+    //                 for generic in &self.generics {
+    //                     result.push(';');
+    //                     result.push_str(&generic.signature());
+    //                 }
+        
+    //                 result.push(')');
+    //                 result
+    //             }
     //         }
     //         TypeCategory::Class => {
     //             let default = self.interfaces().find(|i| i.is_default).expect("GenericTypeDef");
@@ -73,7 +87,12 @@ impl GenericTypeDef {
     //                 default.interface_signature()
     //         }
     //         TypeCategory::Enum => {
-
+    //             format!(
+    //                 "enum({}.{};{})",
+    //                 self.namespace,
+    //                 self.name,
+    //                 self.enum_type()
+    //             )
     //         }
     //         TypeCategory::Struct => {
 
@@ -81,14 +100,23 @@ impl GenericTypeDef {
     //         TypeCategory::Delegate => {
 
     //         }
-    //         TypeCategory::Attribute => {
-
-    //         }
-    //         TypeCategory::Contract => {
-
-    //         }
+    //         _ => panic!("GenericTypeDef"),
     //     }
     // }
+
+    fn enum_type(&self) -> &str {
+        for field in self.def.fields() {
+            if let Some(constant) = field.constant() {
+                match constant.value_type() {
+                    ElementType::I32 => return "i4",
+                    ElementType::U32 => return "u4",
+                    _ => panic!("GenericTypeDef"),
+                };
+            }
+        }
+
+        panic!("GenericTypeDef");
+    }
 
     fn format_name<F>(&self, gen: Gen, format_name: F) -> TokenStream
     where

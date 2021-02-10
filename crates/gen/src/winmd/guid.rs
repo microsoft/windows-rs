@@ -2,7 +2,7 @@ use super::*;
 
 // TODO: rename to just Guid
 #[derive(Clone, PartialEq)]
-pub struct TypeGuid(pub [GuidConstant; 11]);
+pub struct Guid(pub [GuidConstant; 11]);
 
 #[derive(Clone, PartialEq)]
 pub enum GuidConstant {
@@ -32,7 +32,7 @@ impl GuidConstant {
     }
 }
 
-impl Default for TypeGuid {
+impl Default for Guid {
     fn default() -> Self {
         return Self([
             GuidConstant::U32(0),
@@ -50,7 +50,7 @@ impl Default for TypeGuid {
     }
 }
 
-impl std::fmt::Debug for TypeGuid {
+impl std::fmt::Debug for Guid {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
@@ -76,7 +76,7 @@ impl Default for GuidConstant {
     }
 }
 
-impl TypeGuid {
+impl Guid {
     pub fn from_type_def(def: &TypeDef) -> Self {
         for attribute in def.attributes() {
             match attribute.full_name() {

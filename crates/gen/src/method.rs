@@ -7,7 +7,7 @@ pub struct Method {
     pub name: String,
     pub vtable_offset: u32,
     pub overload: u32,
-    pub signature: Signature,
+    pub signature: MethodSignature,
 }
 
 impl Method {
@@ -36,7 +36,7 @@ impl Method {
             Method::name(method)
         };
 
-        let signature = Signature::new(method, generics, calling_namespace);
+        let signature = MethodSignature::new(method, generics, calling_namespace);
 
         Method {
             name,

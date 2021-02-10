@@ -4,7 +4,7 @@ use squote::{quote, TokenStream};
 #[derive(Debug)]
 pub struct Callback {
     pub name: TypeName,
-    pub signature: Signature,
+    pub signature: MethodSignature,
 }
 
 impl Callback {
@@ -15,7 +15,7 @@ impl Callback {
             .find(|method| method.name() == "Invoke")
             .unwrap();
 
-        let signature = Signature::new(&method, &[], &name.namespace);
+        let signature = MethodSignature::new(&method, &[], &name.namespace);
         Self { name, signature }
     }
 
