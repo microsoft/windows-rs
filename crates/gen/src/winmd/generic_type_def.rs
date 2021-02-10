@@ -57,52 +57,68 @@ impl GenericTypeDef {
     }
 
     pub fn signature(&self) -> String {
-        String::new()
+        match self.def.category() {
+            TypeCategory::Interface => 
+                self.interface_signature(),
+            
+            TypeCategory::Class => {
+                let default = self.interfaces().find(|i| i.is_default).expect("GenericTypeDef");
+
+                format!(
+                    "rc({}.{};{})",
+                    self.def.namespace(),
+                    self.def.name(),
+                    default.interface_signature()
+                )
+            }
+            TypeCategory::Enum => {
+                format!(
+                    "enum({}.{};{})",
+                    self.def.namespace(),
+                    self.def.name(),
+                    self.enum_type()
+                )
+            }
+            TypeCategory::Struct => {
+                let mut result = format!("struct({}.{}", self.def.namespace(),
+                self.def.name());
+
+                for field in self.def.fields() {
+                    result.push(';');
+                    result.push_str(&field.signature().kind.signature());
+                }
+        
+                result.push(')');
+                result
+            }
+            TypeCategory::Delegate => {
+                if self.generics.is_empty() {
+                    format!("delegate({})", self.interface_signature())
+                } else {
+                    self.interface_signature()
+                }
+            }
+            _ => panic!("GenericTypeDef"),
+        }
     }
-    //     match self.def.category() {
-    //         TypeCategory::Interface => {
-    //             let guid = self.def.guid();
 
-    //             if self.generics.is_empty() {
-    //                 format!("{{{:#?}}}", guid)
-    //             } else {
-    //                 let mut result = format!("pinterface({{{:#?}}}", guid);
-        
-    //                 for generic in &self.generics {
-    //                     result.push(';');
-    //                     result.push_str(&generic.signature());
-    //                 }
-        
-    //                 result.push(')');
-    //                 result
-    //             }
-    //         }
-    //         TypeCategory::Class => {
-    //             let default = self.interfaces().find(|i| i.is_default).expect("GenericTypeDef");
+    fn interface_signature(&self) -> String {
+        let guid = self.def.guid();
 
-    //             format!(
-    //                 "rc({}.{};{})",
-    //                 self.def.namespace(),
-    //                 self.def.name(),
-    //                 default.interface_signature()
-    //         }
-    //         TypeCategory::Enum => {
-    //             format!(
-    //                 "enum({}.{};{})",
-    //                 self.namespace,
-    //                 self.name,
-    //                 self.enum_type()
-    //             )
-    //         }
-    //         TypeCategory::Struct => {
+        if self.generics.is_empty() {
+            format!("{{{:#?}}}", guid)
+        } else {
+            let mut result = format!("pinterface({{{:#?}}}", guid);
 
-    //         }
-    //         TypeCategory::Delegate => {
+            for generic in &self.generics {
+                result.push(';');
+                result.push_str(&generic.signature());
+            }
 
-    //         }
-    //         _ => panic!("GenericTypeDef"),
-    //     }
-    // }
+            result.push(')');
+            result
+        }
+    }
 
     fn enum_type(&self) -> &str {
         for field in self.def.fields() {
