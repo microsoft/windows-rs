@@ -4,6 +4,7 @@ use super::*;
 pub struct GenericTypeDef {
     pub def: TypeDef,
     pub generics: Vec<ElementType>,
+    pub is_default: bool,
 }
 
 impl GenericTypeDef {
@@ -21,23 +22,32 @@ impl GenericTypeDef {
         GenericTypeDef {
             def,
             generics: args,
+            is_default: false,
         }
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
-        self.def.interfaces().map(move |i| match i.interface() {
-            TypeDefOrRef::TypeDef(def) => Self {
-                def,
-                generics: Vec::new(),
-            },
-            TypeDefOrRef::TypeRef(def) => Self {
-                def: def.resolve(),
-                generics: Vec::new(),
-            },
-            TypeDefOrRef::TypeSpec(def) => {
-                let mut blob = def.sig();
-                blob.read_unsigned();
-                Self::from_blob_with_generics(&mut blob, &self.generics)
+        self.def.interfaces().map(move |i| {
+            let is_default = i.is_default();
+
+            match i.interface() {
+                TypeDefOrRef::TypeDef(def) => Self {
+                    def,
+                    generics: Vec::new(),
+                    is_default,
+                },
+                TypeDefOrRef::TypeRef(def) => Self {
+                    def: def.resolve(),
+                    generics: Vec::new(),
+                    is_default,
+                },
+                TypeDefOrRef::TypeSpec(def) => {
+                    let mut blob = def.sig();
+                    blob.read_unsigned();
+                    let mut interface = Self::from_blob_with_generics(&mut blob, &self.generics);
+                    interface.is_default = i.is_default();
+                    interface
+                }
             }
         })
     }
@@ -54,7 +64,7 @@ impl GenericTypeDef {
 
     //         }
     //         TypeCategory::Class => {
-    //             let default = self.def.interfaces().find(|i| i.is_default()).expect("GenericTypeDef");
+    //             let default = self.interfaces().find(|i| i.is_default).expect("GenericTypeDef");
 
     //             format!(
     //                 "rc({}.{};{})",
@@ -160,5 +170,38 @@ mod tests {
             i[0].gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
         );
+    }
+
+    #[test]
+    fn test_class() {
+        let reader = TypeReader::get();
+        let t: GenericTypeDef = reader
+            .resolve_type("Windows.Foundation.Collections", "StringMap")
+            .into();
+        let mut i: Vec<GenericTypeDef> = t.interfaces().collect();
+        assert_eq!(i.len(), 3);
+        
+        i.sort_by(|a, b| a.gen_name(Gen::Absolute).as_str().cmp(b.gen_name(Gen::Absolute).as_str()));
+
+        assert_eq!(
+            i[0].gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < windows :: HString , windows :: HString > >"
+        );
+
+        assert_eq!(i[0].is_default, false);
+
+        assert_eq!(
+            i[1].gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: collections :: IMap :: < windows :: HString , windows :: HString >"
+        );
+
+        assert_eq!(i[1].is_default, true);
+
+        assert_eq!(
+            i[2].gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: collections :: IObservableMap :: < windows :: HString , windows :: HString >"
+        );
+
+        assert_eq!(i[2].is_default, false);
     }
 }

@@ -75,6 +75,7 @@ impl ElementType {
                     TypeDefOrRef::TypeDef(type_def) => Self::TypeDef(GenericTypeDef {
                         def: type_def,
                         generics: Vec::new(),
+                        is_default: false,
                     }),
                     TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
                         ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
@@ -90,6 +91,7 @@ impl ElementType {
                         _ => Self::TypeDef(GenericTypeDef {
                             def: type_ref.resolve(),
                             generics: Vec::new(),
+                            is_default: false,
                         }),
                     },
                     _ => panic!("Expected a TypeDef or TypeRef"),

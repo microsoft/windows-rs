@@ -1,6 +1,6 @@
-use crate::*;
-use squote::{quote, Literal, TokenStream};
+use super::*;
 
+// TODO: rename to just Guid
 #[derive(Clone, PartialEq)]
 pub struct TypeGuid(pub [GuidConstant; 11]);
 
@@ -22,11 +22,11 @@ impl std::fmt::Debug for GuidConstant {
 }
 
 impl GuidConstant {
-    fn from_arg(arg: &winmd::AttributeArg) -> GuidConstant {
+    fn from_arg(arg: &AttributeArg) -> GuidConstant {
         match *arg {
-            winmd::AttributeArg::U32(value) => GuidConstant::U32(value),
-            winmd::AttributeArg::U16(value) => GuidConstant::U16(value),
-            winmd::AttributeArg::U8(value) => GuidConstant::U8(value),
+            AttributeArg::U32(value) => GuidConstant::U32(value),
+            AttributeArg::U16(value) => GuidConstant::U16(value),
+            AttributeArg::U8(value) => GuidConstant::U8(value),
             _ => panic!("GuidConstant.from_arg"),
         }
     }
@@ -77,7 +77,7 @@ impl Default for GuidConstant {
 }
 
 impl TypeGuid {
-    pub fn from_type_def(def: &winmd::TypeDef) -> Self {
+    pub fn from_type_def(def: &TypeDef) -> Self {
         for attribute in def.attributes() {
             match attribute.full_name() {
                 ("Windows.Foundation.Metadata", "GuidAttribute") => {
@@ -100,7 +100,7 @@ impl TypeGuid {
                 ("System.Runtime.InteropServices", "GuidAttribute") => {
                     let args = attribute.args();
 
-                    if let winmd::AttributeArg::String(guid) = &args[0].1 {
+                    if let AttributeArg::String(guid) = &args[0].1 {
                         let guid = GuidAttribute::new(&guid);
 
                         return Self([

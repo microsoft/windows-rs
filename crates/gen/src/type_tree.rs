@@ -59,6 +59,7 @@ impl TypeTree {
                                 &winmd::ElementType::TypeDef(winmd::GenericTypeDef {
                                     def,
                                     generics: Vec::new(),
+                                    is_default: false,
                                 }),
                             );
                         }
@@ -79,6 +80,7 @@ impl TypeTree {
                         &winmd::ElementType::TypeDef(winmd::GenericTypeDef {
                             def,
                             generics: Vec::new(),
+                            is_default: false,
                         }),
                     );
                 }

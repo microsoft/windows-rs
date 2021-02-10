@@ -205,7 +205,7 @@ impl TypeReader {
                     .map(|generic| ElementType::GenericParam(generic))
                     .collect();
 
-                ElementType::TypeDef(GenericTypeDef { def, generics })
+                ElementType::TypeDef(GenericTypeDef { def, generics, is_default: false })
             }
             TypeRow::MethodDef(row) => ElementType::MethodDef(MethodDef {
                 reader: self,
