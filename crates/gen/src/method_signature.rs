@@ -21,7 +21,7 @@ impl MethodSignature {
             None
         };
 
-        let mut blob = method.sig();
+        let mut blob = method.blob();
         blob.read_unsigned(); // First byte of MethodDefSig is not used.
         let param_count = blob.read_unsigned() as usize;
 

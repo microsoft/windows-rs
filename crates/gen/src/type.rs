@@ -2,13 +2,14 @@ use crate::*;
 use squote::{quote, TokenStream};
 use winmd::Decode;
 
+// TODO: winmd::Signature replaces this type
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Type {
     pub kind: TypeKind,
     pub pointers: usize,
     pub array: Option<usize>,
     pub by_ref: bool,
-    pub modifiers: Vec<winmd::TypeDefOrRef>,
+    //pub modifiers: Vec<winmd::TypeDefOrRef>,
     pub param: Option<winmd::Param>,
     pub name: String,
     pub is_const: bool,
@@ -16,6 +17,7 @@ pub struct Type {
     pub is_input: bool,
 }
 
+// TODO: winmd::ElementType replaces this type
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeKind {
     Void,
@@ -156,7 +158,7 @@ impl Type {
             kind,
             pointers,
             array: None,
-            modifiers,
+            //modifiers,
             param,
             name,
             is_const,
@@ -166,7 +168,7 @@ impl Type {
     }
 
     pub fn from_field(field: &winmd::Field, calling_namespace: &'static str) -> Self {
-        let mut blob = field.sig();
+        let mut blob = field.blob();
         blob.read_unsigned();
         blob.read_modifiers();
         Self::from_blob(&mut blob, None, &Vec::new(), calling_namespace, false).unwrap()

@@ -19,7 +19,8 @@ impl MethodDef {
         self.reader.str(self.row, 3)
     }
 
-    pub fn sig(&self) -> Blob {
+    // TODO: find uses of MethodDef::blob and replace with MethodDef::signature?
+    pub fn blob(&self) -> Blob {
         self.reader.blob(self.row, 4)
     }
 

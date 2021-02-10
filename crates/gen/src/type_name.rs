@@ -98,7 +98,7 @@ impl TypeName {
         generics: &[TypeKind],
         calling_namespace: &'static str,
     ) -> Self {
-        let mut blob = spec.sig();
+        let mut blob = spec.blob();
         blob.read_unsigned();
         Self::from_type_spec_blob(&mut blob, generics, calling_namespace)
     }

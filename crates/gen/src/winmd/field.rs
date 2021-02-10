@@ -6,7 +6,8 @@ impl Field {
         self.reader.str(self.row, 1)
     }
 
-    pub fn sig(&self) -> Blob {
+    // TODO: find uses of Field::blob and replace with Field::signature?
+    pub fn blob(&self) -> Blob {
         self.reader.blob(self.row, 2)
     }
 
@@ -29,8 +30,35 @@ impl Field {
             .next()
     }
 
+    pub fn signature(&self) -> Signature {
+        let mut blob = self.blob();
+        blob.read_unsigned();
+        blob.read_modifiers();
+        Signature::from_blob(&mut blob).expect("Field")
+    }
+
     pub fn gen_name(&self) -> TokenStream {
         let name = format_ident!("{}", self.name());
         quote! { #name }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_generic() {
+        let reader = TypeReader::get();
+
+        let t: GenericTypeDef = reader
+            .resolve_type("Windows.Foundation", "Rect")
+            .into();
+
+        let f: Vec<Field> = t.def.fields().collect();
+        assert_eq!(f.len(), 4);
+
+        let s = f[0].signature();
+        assert_eq!(s.kind, ElementType::F32);
     }
 }

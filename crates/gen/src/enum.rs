@@ -51,7 +51,7 @@ impl Enum {
                     fields.push((field.name(), fields.last().unwrap().1.next()));
                 }
             } else {
-                let blob = &mut field.sig();
+                let blob = &mut field.blob();
                 blob.read_unsigned();
                 blob.read_modifiers();
 

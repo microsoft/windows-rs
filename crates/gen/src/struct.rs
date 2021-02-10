@@ -67,7 +67,7 @@ impl Struct {
                 pointers: 0,
                 array: None,
                 by_ref: false,
-                modifiers: Vec::new(),
+                //modifiers: Vec::new(),
                 param: None,
                 name: "".to_string(),
                 is_const: false,

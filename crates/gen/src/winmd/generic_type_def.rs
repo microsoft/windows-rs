@@ -42,7 +42,7 @@ impl GenericTypeDef {
                     is_default,
                 },
                 TypeDefOrRef::TypeSpec(def) => {
-                    let mut blob = def.sig();
+                    let mut blob = def.blob();
                     blob.read_unsigned();
                     let mut interface = Self::from_blob_with_generics(&mut blob, &self.generics);
                     interface.is_default = i.is_default();

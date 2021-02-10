@@ -116,7 +116,7 @@ impl TypeDef {
             if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
-                let blob = &mut field.sig();
+                let blob = &mut field.blob();
                 blob.read_unsigned();
                 blob.read_modifiers();
 
