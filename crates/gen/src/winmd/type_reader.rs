@@ -7,7 +7,7 @@ use std::path::PathBuf;
 pub struct TypeReader {
     // TODO: fields should be private
     /// The parsed Windows metadata files the [`TypeReader`] has access to
-    pub files: Vec<File>,
+    pub(crate) files: Vec<File>,
     /// Types known to this [`TypeReader`]
     ///
     /// This is a mapping between namespace names and the types inside
@@ -19,7 +19,7 @@ pub struct TypeReader {
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
-pub(crate) enum TypeRow {
+enum TypeRow {
     TypeDef(Row),
     MethodDef(Row),
     Field(Row),
@@ -199,11 +199,11 @@ impl TypeReader {
                     reader: self,
                     row: *row,
                 };
-                let mut generics = Vec::new();
 
-                for generic in def.generics() {
-                    generics.push(ElementType::GenericParam(generic.name()));
-                }
+                let generics = def
+                    .generics()
+                    .map(|generic| ElementType::GenericParam(generic))
+                    .collect();
 
                 ElementType::TypeDef(GenericTypeDef { def, generics })
             }

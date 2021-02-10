@@ -30,7 +30,7 @@ pub enum ElementType {
     TypeDef(GenericTypeDef),
     MethodDef(MethodDef),
     Field(Field),
-    GenericParam(&'static str),
+    GenericParam(GenericParam),
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
