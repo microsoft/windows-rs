@@ -31,7 +31,7 @@ impl Constant {
 
         let value = constant.value();
 
-        let name = format_ident(name);
+        let name = to_ident(name);
         let value = value.gen();
 
         quote! {

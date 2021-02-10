@@ -1,6 +1,6 @@
 use super::*;
 
-// TODO: this replaces Type, TypeKind, TypeName, and TypeDefinition
+// TODO: this replaces TypeKind, TypeName, and TypeDefinition
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum ElementType {
     NotYetSupported,
@@ -31,12 +31,6 @@ pub enum ElementType {
     MethodDef(MethodDef),
     Field(Field),
     GenericParam(GenericParam),
-}
-
-#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct GenericTypeDef {
-    pub def: TypeDef,
-    pub generics: Vec<ElementType>,
 }
 
 impl ElementType {
@@ -123,9 +117,60 @@ impl ElementType {
         }
     }
 
-    // pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-    //     match self {
-
-    //     }
-    // }
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
+        match self {
+            Self::Void => quote! { ::std::ffi::c_void },
+            Self::Bool => quote! { bool },
+            Self::Char => quote! { u16 },
+            Self::I8 => quote! { i8 },
+            Self::U8 => quote! { u8 },
+            Self::I16 => quote! { i16 },
+            Self::U16 => quote! { u16 },
+            Self::I32 => quote! { i32 },
+            Self::U32 => quote! { u32 },
+            Self::I64 => quote! { i64 },
+            Self::U64 => quote! { u64 },
+            Self::F32 => quote! { f32 },
+            Self::F64 => quote! { f64 },
+            Self::ISize => quote! { isize },
+            Self::USize => quote! { usize },
+            Self::String => {
+                let windows = gen.windows();
+                quote! { #windows HString }
+            }
+            Self::Object => {
+                let windows = gen.windows();
+                quote! { #windows Object }
+            }
+            Self::Guid => {
+                let windows = gen.windows();
+                quote! { #windows Guid }
+            }
+            Self::IUnknown => {
+                let windows = gen.windows();
+                quote! { #windows IUnknown }
+            }
+            Self::ErrorCode => {
+                let windows = gen.windows();
+                quote! { #windows ErrorCode }
+            }
+            Self::Bool32 => {
+                let windows = gen.windows();
+                quote! { #windows BOOL }
+            }
+            Self::Matrix3x2 => {
+                let windows = gen.windows();
+                quote! { #windows Matrix3x2 }
+            }
+            Self::NotYetSupported => {
+                let windows = gen.windows();
+                quote! { #windows NOT_YET_SUPPORTED_TYPE }
+            }
+            Self::TypeDef(def) => def.gen_name(gen),
+            Self::MethodDef(def) => def.gen_name(),
+            Self::Field(field) => field.gen_name(),
+            Self::GenericParam(generic) => generic.gen_name(),
+            Self::TypeName => panic!("ElementType"),
+        }
+    }
 }

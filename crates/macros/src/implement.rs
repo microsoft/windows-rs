@@ -1,5 +1,5 @@
 use super::*;
-use gen::format_ident;
+use gen::to_ident;
 use squote::{format_ident, quote, Literal, TokenStream};
 
 // TODO: distinguish between COM and WinRT interfaces
@@ -137,7 +137,7 @@ pub fn gen(
             let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
 
             for method in &t.default_interface().methods {
-                let method_ident = format_ident(&method.name);
+                let method_ident = to_ident(&method.name);
                 let vcall_ident = format_ident!("abi{}_{}", interface_count, method.vtable_offset);
 
                 vtable_ptrs.combine(&quote! {

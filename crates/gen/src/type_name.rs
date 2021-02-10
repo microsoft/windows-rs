@@ -264,12 +264,12 @@ impl TypeName {
     /// For example: `Vector<OtherType>`
     pub fn gen(&self) -> TokenStream {
         let namespace = gen_namespace(&self.namespace, &self.calling_namespace);
-        gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
+        gen_format(&self.name, Some(&namespace), &self.generics, to_ident)
     }
 
     pub fn gen_full(&self) -> TokenStream {
         let namespace = gen_full_namespace(&self.namespace);
-        gen_format(&self.name, Some(&namespace), &self.generics, format_ident)
+        gen_format(&self.name, Some(&namespace), &self.generics, to_ident)
     }
 
     pub fn gen_full_abi(&self) -> TokenStream {
@@ -303,7 +303,7 @@ impl TypeName {
     /// and we would simply use gen and gen_abi everywhere but Rust is really
     /// weird in requiring `IVector<T>` in some places and `IVector::<T>` in others.
     pub fn gen_definition(&self) -> TokenStream {
-        gen_format(&self.name, None, &self.generics, format_ident)
+        gen_format(&self.name, None, &self.generics, to_ident)
     }
 
     /// Create abi definition tokens

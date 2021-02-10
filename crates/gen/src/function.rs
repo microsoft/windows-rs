@@ -15,10 +15,10 @@ impl Function {
 
     pub fn gen(&self) -> TokenStream {
         let name = self.signature.method.name();
-        let name = format_ident(name);
+        let name = to_ident(name);
 
         let params = self.signature.params.iter().map(|t| {
-            let name = format_ident(&t.name);
+            let name = to_ident(&t.name);
             let tokens = t.gen_field();
             quote! { #name: #tokens }
         });

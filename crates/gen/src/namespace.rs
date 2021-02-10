@@ -24,7 +24,7 @@ pub fn gen_namespace(destination: &str, source: &str) -> TokenStream {
     }
 
     tokens.extend(destination.map(|destination| {
-        let destination = crate::format_ident(&crate::to_snake(destination));
+        let destination = crate::to_ident(&crate::to_snake(destination));
         quote! { #destination:: }
     }));
 
@@ -35,7 +35,7 @@ pub fn gen_full_namespace(destination: &str) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for destination in destination.split('.') {
-        let destination = crate::format_ident(&crate::to_snake(destination));
+        let destination = crate::to_ident(&crate::to_snake(destination));
 
         tokens.combine(&quote! { #destination:: });
     }

@@ -21,7 +21,7 @@ impl Method {
         if self.overload > 1 {
             format_ident!("{}{}", self.signature.method.name(), self.overload)
         } else {
-            format_ident(self.signature.method.name())
+            to_ident(self.signature.method.name())
         }
     }
 }
@@ -129,7 +129,7 @@ impl ComInterface {
             };
 
             let params = method.signature.params.iter().map(|param| {
-                let name = format_ident(&param.name);
+                let name = to_ident(&param.name);
                 match &param.kind {
                     TypeKind::IUnknown | TypeKind::Interface(_)
                         if param.is_input && !param.is_array =>
@@ -282,7 +282,7 @@ fn gen_params(method: &Method) -> TokenStream {
             .iter()
             .enumerate()
             .map(|(position, param)| {
-                let name = format_ident(&param.name);
+                let name = to_ident(&param.name);
 
                 match &param.kind {
                     TypeKind::IUnknown | TypeKind::Interface(_)
@@ -302,7 +302,7 @@ fn gen_params(method: &Method) -> TokenStream {
 
 fn gen_abi_args(method: &Method) -> TokenStream {
     TokenStream::from_iter(method.signature.params.iter().map(|param| {
-        let name = format_ident(&param.name);
+        let name = to_ident(&param.name);
 
         match &param.kind {
             TypeKind::IUnknown | TypeKind::Interface(_) if param.is_input && !param.is_array => {

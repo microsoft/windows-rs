@@ -97,7 +97,7 @@ impl Enum {
         };
 
         let fields = self.fields.iter().map(|(name, value)| {
-            let name = format_ident(&name);
+            let name = to_ident(&name);
             let value = match value {
                 EnumConstant::U32(value) => quote! { #value },
                 EnumConstant::I32(value) => quote! { #value },

@@ -8,7 +8,7 @@ impl TypeNamespaces {
     pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         self.0.iter().map(|(name, tree)| {
             let name = crate::to_snake(name);
-            let name = crate::format_ident(&name);
+            let name = crate::to_ident(&name);
             let tokens = tree.gen().collect::<Vec<_>>();
 
             let foundation = if tree.include_foundation {

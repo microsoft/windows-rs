@@ -28,4 +28,9 @@ impl Field {
             })
             .next()
     }
+
+    pub fn gen_name(&self) -> TokenStream {
+        let name = format_ident!("{}", self.name());
+        quote! { #name }
+    }
 }

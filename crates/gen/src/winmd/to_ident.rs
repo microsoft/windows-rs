@@ -1,4 +1,6 @@
-pub fn format_ident(name: &str) -> squote::Ident {
+use super::*;
+
+pub fn to_ident(name: &str) -> Ident {
     // keywords list based on https://doc.rust-lang.org/reference/keywords.html
     match name {
         "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do"
@@ -6,9 +8,9 @@ pub fn format_ident(name: &str) -> squote::Ident {
         | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv"
         | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type"
         | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
-        | "try" | "async" | "await" | "dyn" => squote::format_ident!("r#{}", name),
-        "Self" | "self" => squote::format_ident!("{}_", name),
-        "_" => squote::format_ident!("unused"), // TODO: workaround for https://github.com/microsoft/win32metadata/issues/89
-        _ => squote::format_ident!("{}", name),
+        | "try" | "async" | "await" | "dyn" => format_ident!("r#{}", name),
+        "Self" | "self" => format_ident!("{}_", name),
+        "_" => format_ident!("unused"),
+        _ => format_ident!("{}", name),
     }
 }

@@ -407,7 +407,7 @@ impl TypeKind {
             Self::Struct(name) => name.gen(),
             Self::Delegate(name) => name.gen(),
             Self::Generic(name) => {
-                let name = format_ident(name);
+                let name = to_ident(name);
                 quote! { #name }
             }
             Self::NotYetSupported => quote! { ::windows::NOT_YET_SUPPORTED_TYPE },
@@ -444,7 +444,7 @@ impl TypeKind {
             Self::Struct(name) => name.gen_full(),
             Self::Delegate(name) => name.gen_full(),
             Self::Generic(name) => {
-                let name = format_ident(name);
+                let name = to_ident(name);
                 quote! { #name }
             }
             Self::NotYetSupported => quote!(::windows::NOT_YET_SUPPORTED_TYPE),
@@ -481,7 +481,7 @@ impl TypeKind {
                 quote! { ::windows::RawPtr }
             }
             Self::Generic(name) => {
-                let name = format_ident(name);
+                let name = to_ident(name);
                 quote! { <#name as ::windows::Abi>::Abi }
             }
             Self::Enum(name) => name.gen(),
@@ -520,7 +520,7 @@ impl TypeKind {
                 quote! { ::windows::RawPtr }
             }
             Self::Generic(name) => {
-                let name = format_ident(name);
+                let name = to_ident(name);
                 quote! { <#name as ::windows::Abi>::Abi }
             }
             Self::Enum(name) => name.gen_full(),

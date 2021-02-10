@@ -185,7 +185,7 @@ impl Method {
         if self.overload > 1 {
             format_ident!("{}{}", &self.name, self.overload)
         } else {
-            format_ident(&self.name)
+            to_ident(&self.name)
         }
     }
 
@@ -198,7 +198,7 @@ impl Method {
 
         match &self.signature.return_type {
             Some(return_type) if return_type.is_array => {
-                let result = format_ident(&return_type.name);
+                let result = to_ident(&return_type.name);
                 let result_size = squote::format_ident!("array_size_{}", &return_type.name);
 
                 quote! {
@@ -214,7 +214,7 @@ impl Method {
                 }
             }
             Some(return_type) => {
-                let return_name = format_ident(&return_type.name);
+                let return_name = to_ident(&return_type.name);
 
                 quote! {
                     match #inner(#(#invoke_args,)*) {
@@ -276,7 +276,7 @@ fn gen_constraint(types: &[Type]) -> TokenStream {
 }
 
 fn param_gen(t: &Type, position: usize) -> TokenStream {
-    let name = format_ident(&t.name);
+    let name = to_ident(&t.name);
     let tokens = t.kind.gen();
 
     if t.is_array {
@@ -329,7 +329,7 @@ pub fn param_gen_return(t: &Type) -> TokenStream {
 }
 
 fn gen_abi_wrap(t: &Type, kind_tokens: TokenStream) -> TokenStream {
-    let name = format_ident(&t.name);
+    let name = to_ident(&t.name);
 
     if t.is_array {
         let name_size = squote::format_ident!("array_size_{}", &t.name);
@@ -374,7 +374,7 @@ fn param_gen_abi_return_arg(t: &Type) -> TokenStream {
 }
 
 fn param_gen_abi_arg(t: &Type) -> TokenStream {
-    let name = format_ident(&t.name);
+    let name = to_ident(&t.name);
 
     if t.is_array {
         if t.is_input {
@@ -414,7 +414,7 @@ fn param_gen_abi_arg(t: &Type) -> TokenStream {
 }
 
 fn param_gen_invoke_arg(t: &Type, relative: bool) -> TokenStream {
-    let name = format_ident(&t.name);
+    let name = to_ident(&t.name);
 
     let kind = if relative {
         t.kind.gen()

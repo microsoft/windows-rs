@@ -125,7 +125,7 @@ impl Struct {
             }
         } else {
             let fields = self.fields.iter().map(|(name, kind)| {
-                let name = format_ident(&name);
+                let name = to_ident(&name);
                 let kind = kind.gen_field();
                 quote! {
                     pub #name: #kind
@@ -150,7 +150,7 @@ impl Struct {
             }
         } else {
             let defaults = self.fields.iter().map(|(name, kind)| {
-                let name = format_ident(&name);
+                let name = to_ident(&name);
                 let value = kind.gen_default();
                 quote! {
                     #name: #value
@@ -176,7 +176,7 @@ impl Struct {
             }
         } else {
             let clones = self.fields.iter().map(|(name, kind)| {
-                let name = format_ident(&name);
+                let name = to_ident(&name);
                 let clone = kind.gen_clone(&quote! { #name });
                 quote! {
                     #name: #clone
@@ -191,7 +191,7 @@ impl Struct {
         let constants = self.name.def.fields().filter_map(|field| {
             if field.flags().literal() {
                 if let Some(constant) = field.constant() {
-                    let name = format_ident(field.name());
+                    let name = to_ident(field.name());
                     let value = constant.value().gen();
 
                     return Some(quote! {
@@ -221,7 +221,7 @@ impl Struct {
                         .field(#name, &format_args!("{:?}", self.#index))
                     })
                 } else {
-                    let name_ident = format_ident(&name);
+                    let name_ident = to_ident(&name);
 
                     Some(quote! {
                         .field(#name, &format_args!("{:?}", self.#name_ident))
@@ -233,7 +233,7 @@ impl Struct {
             quote! { true }
         } else {
             let fields = self.fields.iter().enumerate().map(|(index, (name, t))| {
-                let name_ident = format_ident(&name);
+                let name_ident = to_ident(&name);
 
                 if let TypeKind::Delegate(name) = &t.kind {
                     if !name.def.is_winrt() {
