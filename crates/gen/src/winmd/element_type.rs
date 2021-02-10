@@ -117,7 +117,7 @@ impl ElementType {
         }
     }
 
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
+    pub fn gen_name(&self, gen: Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -160,17 +160,25 @@ impl ElementType {
             }
             Self::Matrix3x2 => {
                 let windows = gen.windows();
-                quote! { #windows Matrix3x2 }
+                quote! { #windows foundation::numerics::Matrix3x2 }
             }
             Self::NotYetSupported => {
                 let windows = gen.windows();
                 quote! { #windows NOT_YET_SUPPORTED_TYPE }
             }
             Self::TypeDef(def) => def.gen_name(gen),
-            Self::MethodDef(def) => def.gen_name(),
-            Self::Field(field) => field.gen_name(),
             Self::GenericParam(generic) => generic.gen_name(),
-            Self::TypeName => panic!("ElementType"),
+            _ => panic!("ElementType"),
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_bool() {
+        assert_eq!(ElementType::Bool.gen_name(Gen::Absolute).as_str(), "bool");
     }
 }

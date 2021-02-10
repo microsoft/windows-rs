@@ -14,3 +14,7 @@ pub fn to_ident(name: &str) -> Ident {
         _ => format_ident!("{}", name),
     }
 }
+
+pub fn to_abi_ident(name: &str) -> Ident {
+    format_ident!("{}_abi", name)
+}

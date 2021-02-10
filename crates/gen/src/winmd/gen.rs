@@ -1,6 +1,7 @@
 use super::*;
 use std::iter::FromIterator;
 
+#[derive(Copy, Clone)]
 pub enum Gen {
     Absolute,
     Relative(&'static str),
@@ -57,5 +58,50 @@ impl Gen {
                 TokenStream::from_iter(tokens)
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_windows() {
+        assert_eq!(
+            ElementType::String.gen_name(Gen::Absolute).as_str(),
+            "windows :: HString"
+        );
+
+        assert_eq!(
+            ElementType::String.gen_name(Gen::Relative("test")).as_str(),
+            ":: windows :: HString"
+        );
+    }
+
+    #[test]
+    fn test_namespace() {
+        let reader = TypeReader::get();
+        let t = reader.resolve_type("Windows.Foundation", "IStringable");
+
+        assert_eq!(
+            t.gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: IStringable"
+        );
+
+        assert_eq!(
+            t.gen_name(Gen::Relative("Windows")).as_str(),
+            "foundation :: IStringable"
+        );
+
+        assert_eq!(
+            t.gen_name(Gen::Relative("Windows.Foundation")).as_str(),
+            "IStringable"
+        );
+
+        assert_eq!(
+            t.gen_name(Gen::Relative("Windows.Foundation.Collections"))
+                .as_str(),
+            "super :: IStringable"
+        );
     }
 }
