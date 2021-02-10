@@ -15,10 +15,7 @@ impl Signature {
         Self::from_blob_with_generics(blob, &[])
     }
 
-    pub fn from_blob_with_generics(
-        blob: &mut Blob,
-        generics: &[ElementType]
-    ) -> Option<Self> {
+    pub fn from_blob_with_generics(blob: &mut Blob, generics: &[ElementType]) -> Option<Self> {
         let modifiers = blob.read_modifiers();
         let mut by_ref = blob.read_expected(0x10);
 

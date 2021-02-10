@@ -51,9 +51,7 @@ mod tests {
     fn test_generic() {
         let reader = TypeReader::get();
 
-        let t: GenericTypeDef = reader
-            .resolve_type("Windows.Foundation", "Rect")
-            .into();
+        let t: GenericTypeDef = reader.resolve_type("Windows.Foundation", "Rect").into();
 
         let f: Vec<Field> = t.def.fields().collect();
         assert_eq!(f.len(), 4);

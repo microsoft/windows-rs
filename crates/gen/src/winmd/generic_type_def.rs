@@ -58,11 +58,13 @@ impl GenericTypeDef {
 
     pub fn signature(&self) -> String {
         match self.def.category() {
-            TypeCategory::Interface => 
-                self.interface_signature(),
-            
+            TypeCategory::Interface => self.interface_signature(),
+
             TypeCategory::Class => {
-                let default = self.interfaces().find(|i| i.is_default).expect("GenericTypeDef");
+                let default = self
+                    .interfaces()
+                    .find(|i| i.is_default)
+                    .expect("GenericTypeDef");
 
                 format!(
                     "rc({}.{};{})",
@@ -80,14 +82,13 @@ impl GenericTypeDef {
                 )
             }
             TypeCategory::Struct => {
-                let mut result = format!("struct({}.{}", self.def.namespace(),
-                self.def.name());
+                let mut result = format!("struct({}.{}", self.def.namespace(), self.def.name());
 
                 for field in self.def.fields() {
                     result.push(';');
                     result.push_str(&field.signature().kind.signature());
                 }
-        
+
                 result.push(')');
                 result
             }
@@ -224,8 +225,12 @@ mod tests {
             .into();
         let mut i: Vec<GenericTypeDef> = t.interfaces().collect();
         assert_eq!(i.len(), 3);
-        
-        i.sort_by(|a, b| a.gen_name(Gen::Absolute).as_str().cmp(b.gen_name(Gen::Absolute).as_str()));
+
+        i.sort_by(|a, b| {
+            a.gen_name(Gen::Absolute)
+                .as_str()
+                .cmp(b.gen_name(Gen::Absolute).as_str())
+        });
 
         assert_eq!(
             i[0].gen_name(Gen::Absolute).as_str(),
