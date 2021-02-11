@@ -29,11 +29,8 @@ pub enum ElementType {
     TypeName,
     GenericParam(GenericParam),
     TypeDef(GenericTypeDef), // TODO: consider breaking up into categories
-    Function(MethodDef), // TODO: remove
+    Function(Function),
     Constant(Field),
-
-    //Function(Function), // TODO: replaces MethodDef
-
 }
 
 impl ElementType {
@@ -191,7 +188,7 @@ impl ElementType {
     pub fn dependencies(&self) -> Vec<TypeDef> {
         match self {
             Self::TypeDef(value) => value.dependencies(),
-            Self::Function(value) => value.dependencies(&[]),
+            Self::Function(value) => value.0.dependencies(&[]),
             Self::Constant(value) => value.dependencies(),
             _ => Vec::new(),
         }

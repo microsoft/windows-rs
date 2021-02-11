@@ -105,15 +105,6 @@ impl MethodDef {
     pub fn dependencies(&self, generics: &[ElementType]) -> Vec<TypeDef> {
         self.signature(generics).dependencies()
     }
-
-    pub fn gen_name(&self) -> TokenStream {
-        let name = format_ident!("{}", self.name());
-        quote! { #name }
-    }
-
-    pub fn gen(&self, _: Gen) -> TokenStream {
-        quote! {}
-    }
 }
 
 #[cfg(test)]

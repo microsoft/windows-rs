@@ -202,10 +202,10 @@ impl TypeReader {
 
                 ElementType::TypeDef(GenericTypeDef::from_type_def(def, Vec::new()))
             }
-            TypeRow::Function(row) => ElementType::Function(MethodDef {
+            TypeRow::Function(row) => ElementType::Function(Function(MethodDef {
                 reader: self,
                 row: *row,
-            }),
+            })),
             TypeRow::Constant(row) => ElementType::Constant(Field {
                 reader: self,
                 row: *row,
