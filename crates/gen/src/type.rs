@@ -200,32 +200,6 @@ impl Type {
         tokens
     }
 
-    pub fn gen_clone(&self, name: &TokenStream) -> TokenStream {
-        match self.kind {
-            TypeKind::Bool
-            | TypeKind::Char
-            | TypeKind::I8
-            | TypeKind::U8
-            | TypeKind::I16
-            | TypeKind::U16
-            | TypeKind::I32
-            | TypeKind::U32
-            | TypeKind::I64
-            | TypeKind::U64
-            | TypeKind::F32
-            | TypeKind::F64
-            | TypeKind::ISize
-            | TypeKind::USize
-            | TypeKind::Enum(_) => quote! { self.#name },
-            _ => {
-                let kind = self.gen_field();
-                quote! {
-                    <#kind as std::clone::Clone>::clone(&self.#name)
-                }
-            }
-        }
-    }
-
     fn gen_abi_pointer_part(&self) -> TokenStream {
         let mut tokens = TokenStream::new();
 

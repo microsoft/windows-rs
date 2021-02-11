@@ -87,13 +87,13 @@ impl ElementType {
                             Vec::new(),
                         )),
                     },
-                    _ => panic!("Expected a TypeDef or TypeRef"),
+                    _ => panic!("ElementType"),
                 }
             }
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x14 => Self::NotYetSupported, // arrays
             0x15 => Self::TypeDef(GenericTypeDef::from_blob(blob, generics)),
-            _ => panic!(format!("Unexpected ElementType: {:x}", code)),
+            _ => panic!("ElementType"),
         }
     }
 

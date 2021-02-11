@@ -162,32 +162,6 @@ impl Struct {
             }
         };
 
-        let clones = if self.is_typedef {
-            let clones = self.fields.iter().enumerate().map(|(index, (_, kind))| {
-                let index = Literal::u32_unsuffixed(index as u32);
-                let clone = kind.gen_clone(&quote! { #index });
-                quote! {
-                    #clone
-                }
-            });
-
-            quote! {
-                Self( #(#clones),* )
-            }
-        } else {
-            let clones = self.fields.iter().map(|(name, kind)| {
-                let name = to_ident(&name);
-                let clone = kind.gen_clone(&quote! { #name });
-                quote! {
-                    #name: #clone
-                }
-            });
-
-            quote! {
-                Self{ #(#clones),* }
-            }
-        };
-
         let constants = self.name.def.fields().filter_map(|field| {
             if field.flags().literal() {
                 if let Some(constant) = field.constant() {
@@ -289,6 +263,7 @@ impl Struct {
         quote! {
             #[repr(C)]
             #[allow(non_snake_case)]
+            #[derive(::std::clone::Clone)]
             pub struct #name #body
             impl #name {
                 #(#constants)*
@@ -309,11 +284,6 @@ impl Struct {
                     fmt.debug_struct(#debug_name)
                         #(#debug_fields)*
                         .finish()
-                }
-            }
-            impl ::std::clone::Clone for #name {
-                fn clone(&self) -> Self {
-                    #clones
                 }
             }
             impl ::std::cmp::PartialEq for #name {
