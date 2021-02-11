@@ -31,6 +31,14 @@ pub enum ElementType {
     TypeDef(GenericTypeDef), // TODO: consider breaking up into categories
     Function(Function),
     Constant(Field),
+
+    Class(Class),
+    Interface(Interface),
+    ComInterface(ComInterface),
+    Enum(Enum),
+    Struct(Struct),
+    Delegate(Delegate),
+    Callback(Callback),
 }
 
 impl ElementType {
