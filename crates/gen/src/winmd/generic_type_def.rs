@@ -79,10 +79,6 @@ impl GenericTypeDef {
             .map(|def| Self::from_type_def(def, Vec::new()))
     }
 
-    pub fn gen_name(&self, gen: Gen) -> TokenStream {
-        self.format_name(gen, to_ident)
-    }
-
     pub fn signature(&self) -> String {
         match self.def.category() {
             TypeCategory::Interface => self.interface_signature(),
@@ -160,6 +156,41 @@ impl GenericTypeDef {
             TypeCategory::Struct => self.def.fields().flat_map(|f| f.dependencies()).collect(),
             _ => Vec::new(),
         }
+    }
+
+    pub fn gen_name(&self, gen: Gen) -> TokenStream {
+        self.format_name(gen, to_ident)
+    }
+
+    pub fn gen(&self, gen: Gen) -> TokenStream {
+        match self.def.category() {
+            TypeCategory::Interface => self.gen_interface(gen),
+            TypeCategory::Class => self.gen_class(gen),
+            TypeCategory::Delegate => self.gen_delegate(gen),
+            TypeCategory::Struct => self.gen_struct(gen),
+            TypeCategory::Enum => self.gen_enum(gen),
+            _ => panic!("GenericTypeDef")
+        }
+    }
+
+    fn gen_interface(&self, gen: Gen) -> TokenStream {
+        quote! {}
+    }
+
+    fn gen_class(&self, gen: Gen) -> TokenStream {
+        quote! {}
+    }
+
+    fn gen_delegate(&self, gen: Gen) -> TokenStream {
+        quote! {}
+    }
+
+    fn gen_struct(&self, gen: Gen) -> TokenStream {
+        quote! {}
+    }
+
+    fn gen_enum(&self, gen: Gen) -> TokenStream {
+        quote! {}
     }
 
     fn interface_signature(&self) -> String {

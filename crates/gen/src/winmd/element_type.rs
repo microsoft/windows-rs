@@ -182,6 +182,15 @@ impl ElementType {
             _ => Vec::new(),
         }
     }
+
+    pub fn gen(&self, gen: Gen) -> TokenStream {
+        match self {
+            Self::TypeDef(value) => value.gen(gen),
+            Self::MethodDef(value) => value.gen(gen),
+            Self::Field(value) => value.gen(gen),
+            _ => panic!("ElementType"),
+        }
+    }
 }
 
 #[cfg(test)]
