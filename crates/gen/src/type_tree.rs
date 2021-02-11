@@ -85,7 +85,7 @@ impl TypeTree {
 
                 self.insert(namespace, t);
             }
-            winmd::ElementType::Field(field) => {
+            winmd::ElementType::Constant(field) => {
                 let t = TypeDefinition::from_field(field);
                 self.insert(namespace, t);
             }

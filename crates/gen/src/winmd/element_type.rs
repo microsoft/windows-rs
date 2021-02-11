@@ -27,10 +27,13 @@ pub enum ElementType {
     Bool32,
     Matrix3x2,
     TypeName,
-    TypeDef(GenericTypeDef), // TODO: consider breaking up into categories
-    MethodDef(MethodDef),
-    Field(Field),
     GenericParam(GenericParam),
+    TypeDef(GenericTypeDef), // TODO: consider breaking up into categories
+    MethodDef(MethodDef), // TODO: remove
+    Constant(Field),
+
+    //Function(Function), // TODO: replaces MethodDef
+
 }
 
 impl ElementType {
@@ -189,7 +192,7 @@ impl ElementType {
         match self {
             Self::TypeDef(value) => value.dependencies(),
             Self::MethodDef(value) => value.dependencies(&[]),
-            Self::Field(value) => value.dependencies(),
+            Self::Constant(value) => value.dependencies(),
             _ => Vec::new(),
         }
     }
@@ -198,7 +201,7 @@ impl ElementType {
         match self {
             Self::TypeDef(value) => value.gen(gen),
             Self::MethodDef(value) => value.gen(gen),
-            Self::Field(value) => value.gen(gen),
+            Self::Constant(value) => value.gen(gen),
             _ => panic!("ElementType"),
         }
     }

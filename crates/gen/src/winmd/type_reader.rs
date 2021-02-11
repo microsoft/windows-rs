@@ -206,7 +206,7 @@ impl TypeReader {
                 reader: self,
                 row: *row,
             }),
-            TypeRow::Field(row) => ElementType::Field(Field {
+            TypeRow::Field(row) => ElementType::Constant(Field {
                 reader: self,
                 row: *row,
             }),
