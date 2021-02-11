@@ -88,10 +88,13 @@ impl MethodDef {
                 if param.sequence() == 0 {
                     None
                 } else {
-                    Some((
+                    let is_input = param.is_input();
+
+                    Some(MethodParam {
                         param,
-                        Signature::from_blob(&mut blob, generics).expect("MethodDef"),
-                    ))
+                        signature: Signature::from_blob(&mut blob, generics).expect("MethodDef"),
+                        is_input,
+                    })
                 }
             })
             .collect();
@@ -151,12 +154,13 @@ mod tests {
         assert_eq!(r.is_const, false);
         assert_eq!(r.is_array, false);
 
-        let (p, s) = &s.params[0];
-        assert_eq!(p.name(), "key");
-        assert_eq!(s.kind.gen_name(Gen::Absolute).as_str(), "K");
-        assert_eq!(s.pointers, 0);
-        assert_eq!(s.by_ref, false);
-        assert_eq!(s.is_const, false);
-        assert_eq!(s.is_array, false);
+        let p = &s.params[0];
+        assert_eq!(p.param.name(), "key");
+        assert_eq!(p.is_input, true);
+        assert_eq!(p.signature.kind.gen_name(Gen::Absolute).as_str(), "K");
+        assert_eq!(p.signature.pointers, 0);
+        assert_eq!(p.signature.by_ref, false);
+        assert_eq!(p.signature.is_const, false);
+        assert_eq!(p.signature.is_array, false);
     }
 }
