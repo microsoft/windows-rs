@@ -169,27 +169,27 @@ impl GenericTypeDef {
             TypeCategory::Delegate => self.gen_delegate(gen),
             TypeCategory::Struct => self.gen_struct(gen),
             TypeCategory::Enum => self.gen_enum(gen),
-            _ => panic!("GenericTypeDef")
+            _ => panic!("GenericTypeDef"),
         }
     }
 
-    fn gen_interface(&self, gen: Gen) -> TokenStream {
+    fn gen_interface(&self, _: Gen) -> TokenStream {
         quote! {}
     }
 
-    fn gen_class(&self, gen: Gen) -> TokenStream {
+    fn gen_class(&self, _: Gen) -> TokenStream {
         quote! {}
     }
 
-    fn gen_delegate(&self, gen: Gen) -> TokenStream {
+    fn gen_delegate(&self, _: Gen) -> TokenStream {
         quote! {}
     }
 
-    fn gen_struct(&self, gen: Gen) -> TokenStream {
+    fn gen_struct(&self, _: Gen) -> TokenStream {
         quote! {}
     }
 
-    fn gen_enum(&self, gen: Gen) -> TokenStream {
+    fn gen_enum(&self, _: Gen) -> TokenStream {
         quote! {}
     }
 

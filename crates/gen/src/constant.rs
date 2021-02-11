@@ -1,5 +1,5 @@
 use crate::*;
-use squote::{quote, TokenStream};
+use squote::TokenStream;
 
 #[derive(Debug)]
 pub struct Constant {

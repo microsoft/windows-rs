@@ -46,7 +46,7 @@ impl Field {
         quote! { #name }
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, _: Gen) -> TokenStream {
         let name = self.name();
 
         // TODO: workaround for https://github.com/microsoft/win32metadata/issues/90
@@ -60,10 +60,7 @@ impl Field {
         }
 
         let name = to_ident(name);
-
-        let value = self
-            .constant()
-            .expect("Field").value().gen();
+        let value = self.constant().expect("Field").value().gen();
 
         quote! {
             pub const #name: #value;

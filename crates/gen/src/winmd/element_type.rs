@@ -27,7 +27,7 @@ pub enum ElementType {
     Bool32,
     Matrix3x2,
     TypeName,
-    TypeDef(GenericTypeDef),
+    TypeDef(GenericTypeDef), // TODO: consider breaking up into categories
     MethodDef(MethodDef),
     Field(Field),
     GenericParam(GenericParam),
@@ -149,6 +149,17 @@ impl ElementType {
             Self::TypeDef(def) => def.gen_name(gen),
             Self::GenericParam(generic) => generic.gen_name(),
             _ => panic!("ElementType"),
+        }
+    }
+
+    pub fn is_nullable(&self) -> bool {
+        match self {
+            Self::Object | Self::IUnknown | Self::MethodDef(_) => true,
+            Self::TypeDef(def) => match def.def.category() {
+                TypeCategory::Interface | TypeCategory::Class | TypeCategory::Delegate => true,
+                _ => false,
+            },
+            _ => false,
         }
     }
 

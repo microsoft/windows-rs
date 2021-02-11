@@ -45,4 +45,28 @@ impl Signature {
     pub fn dependencies(&self) -> Vec<TypeDef> {
         self.kind.dependencies()
     }
+
+    pub fn gen_field(&self, gen: Gen) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for _ in 0..self.pointers {
+            if self.is_const {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
+        }
+
+        let kind = self.kind.gen_name(gen);
+
+        if self.kind.is_nullable() {
+            tokens.combine(&quote! {
+                ::std::option::Option<#kind>
+            });
+        } else {
+            tokens.combine(&kind)
+        }
+
+        tokens
+    }
 }

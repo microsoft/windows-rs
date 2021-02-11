@@ -111,7 +111,7 @@ impl MethodDef {
         quote! { #name }
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, _: Gen) -> TokenStream {
         quote! {}
     }
 }
