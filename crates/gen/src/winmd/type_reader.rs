@@ -21,8 +21,8 @@ pub struct TypeReader {
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
 enum TypeRow {
     TypeDef(Row),
-    MethodDef(Row),
-    Field(Row),
+    Function(Row),
+    Constant(Row),
 }
 
 impl TypeReader {
@@ -103,7 +103,7 @@ impl TypeReader {
                         .entry(namespace.to_string())
                         .or_default()
                         .entry(name.to_string())
-                        .or_insert(TypeRow::Field(field));
+                        .or_insert(TypeRow::Constant(field));
                 }
 
                 for method in reader.list(def, TableIndex::MethodDef, 5) {
@@ -113,7 +113,7 @@ impl TypeReader {
                         .entry(namespace.to_string())
                         .or_default()
                         .entry(name.to_string())
-                        .or_insert(TypeRow::MethodDef(method));
+                        .or_insert(TypeRow::Function(method));
                 }
             }
         }
@@ -202,11 +202,11 @@ impl TypeReader {
 
                 ElementType::TypeDef(GenericTypeDef::from_type_def(def, Vec::new()))
             }
-            TypeRow::MethodDef(row) => ElementType::MethodDef(MethodDef {
+            TypeRow::Function(row) => ElementType::Function(MethodDef {
                 reader: self,
                 row: *row,
             }),
-            TypeRow::Field(row) => ElementType::Constant(Field {
+            TypeRow::Constant(row) => ElementType::Constant(Field {
                 reader: self,
                 row: *row,
             }),

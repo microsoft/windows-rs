@@ -67,7 +67,7 @@ impl TypeTree {
                     }
                 }
             },
-            winmd::ElementType::MethodDef(method) => {
+            winmd::ElementType::Function(method) => {
                 let t = TypeDefinition::from_method_def(method, namespace);
 
                 // TODO: need universal dependencies (this is duplicated here and there)

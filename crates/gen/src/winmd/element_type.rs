@@ -29,7 +29,7 @@ pub enum ElementType {
     TypeName,
     GenericParam(GenericParam),
     TypeDef(GenericTypeDef), // TODO: consider breaking up into categories
-    MethodDef(MethodDef), // TODO: remove
+    Function(MethodDef), // TODO: remove
     Constant(Field),
 
     //Function(Function), // TODO: replaces MethodDef
@@ -157,7 +157,7 @@ impl ElementType {
 
     pub fn is_nullable(&self) -> bool {
         match self {
-            Self::Object | Self::IUnknown | Self::MethodDef(_) => true,
+            Self::Object | Self::IUnknown | Self::Function(_) => true,
             Self::TypeDef(def) => match def.def.category() {
                 TypeCategory::Interface | TypeCategory::Class | TypeCategory::Delegate => true,
                 _ => false,
@@ -191,7 +191,7 @@ impl ElementType {
     pub fn dependencies(&self) -> Vec<TypeDef> {
         match self {
             Self::TypeDef(value) => value.dependencies(),
-            Self::MethodDef(value) => value.dependencies(&[]),
+            Self::Function(value) => value.dependencies(&[]),
             Self::Constant(value) => value.dependencies(),
             _ => Vec::new(),
         }
@@ -200,7 +200,7 @@ impl ElementType {
     pub fn gen(&self, gen: Gen) -> TokenStream {
         match self {
             Self::TypeDef(value) => value.gen(gen),
-            Self::MethodDef(value) => value.gen(gen),
+            Self::Function(value) => value.gen(gen),
             Self::Constant(value) => value.gen(gen),
             _ => panic!("ElementType"),
         }
