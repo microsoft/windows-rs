@@ -17,7 +17,7 @@ impl Signature {
 
     pub fn from_blob_with_generics(blob: &mut Blob, generics: &[ElementType]) -> Option<Self> {
         let modifiers = blob.read_modifiers();
-        let mut by_ref = blob.read_expected(0x10);
+        let by_ref = blob.read_expected(0x10);
 
         if blob.read_expected(0x01) {
             return None;
@@ -33,7 +33,7 @@ impl Signature {
 
         let kind = ElementType::from_blob_with_generics(blob, generics);
 
-        let mut is_const = modifiers
+        let is_const = modifiers
             .iter()
             .any(|def| def.full_name() == ("System.Runtime.CompilerServices", "IsConst"));
 
