@@ -106,6 +106,10 @@ impl MethodDef {
         let name = format_ident!("{}", self.name());
         quote! { #name }
     }
+
+    pub fn dependencies(&self, generics: &[ElementType]) -> Vec<TypeDef> {
+        self.signature(generics).dependencies()
+    }
 }
 
 #[cfg(test)]

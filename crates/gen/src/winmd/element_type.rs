@@ -176,6 +176,15 @@ impl ElementType {
             _ => panic!("ElementType"),
         }
     }
+
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        match self {
+            Self::TypeDef(value) => value.dependencies(),
+            Self::MethodDef(value) => value.dependencies(&[]),
+            Self::Field(value) => value.dependencies(),
+            _ => Vec::new(),
+        }
+    }
 }
 
 #[cfg(test)]

@@ -11,3 +11,9 @@ pub struct MethodParam {
     pub param: Param,
     pub signature: Signature,
 }
+
+impl MethodSignature {
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.return_type.iter().flat_map(|s|s.dependencies()).chain(self.params.iter().flat_map(|p|p.signature.dependencies())).collect()
+    }
+}

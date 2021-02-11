@@ -41,6 +41,10 @@ impl Field {
         let name = format_ident!("{}", self.name());
         quote! { #name }
     }
+
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.signature().dependencies()
+    }
 }
 
 #[cfg(test)]

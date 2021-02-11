@@ -103,6 +103,28 @@ impl GenericTypeDef {
         }
     }
 
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        match self.def.category() {
+            TypeCategory::Interface => {
+                panic!();
+            }
+            TypeCategory::Class => {
+                panic!();
+            }
+            TypeCategory::Delegate => {
+                self.def.methods().filter_map(|m|{
+                    if m.name() == "Invoke" {
+                        Some(m.dependencies(&self.generics))
+                    } else {
+                        None
+                    }
+                }).flatten().collect()
+            }
+            TypeCategory::Struct => self.def.fields().flat_map(|f|f.dependencies()).collect(),
+            _ => Vec::new(),
+        }
+    }
+
     fn interface_signature(&self) -> String {
         let guid = self.def.guid();
 
@@ -253,4 +275,15 @@ mod tests {
 
         assert_eq!(i[2].is_default, false);
     }
+
+    // #[test]
+    // fn test_class_methods() {
+    //     let reader = TypeReader::get();
+    //     let t: GenericTypeDef = reader
+    //         .resolve_type("Windows.Foundation", "Uri")
+    //         .into();
+
+    //     assert_eq!(t.def.fields().count(), 0);
+    //     assert_eq!(t.def.methods().count(), 0);
+    // }
 }

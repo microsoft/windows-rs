@@ -12,7 +12,9 @@ pub struct Signature {
 
 impl Signature {
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Option<Self> {
-        let modifiers = blob.read_modifiers();
+        let is_const = blob.read_modifiers().iter()
+        .any(|def| def.full_name() == ("System.Runtime.CompilerServices", "IsConst"));
+
         let by_ref = blob.read_expected(0x10);
 
         if blob.read_expected(0x01) {
@@ -29,10 +31,6 @@ impl Signature {
 
         let kind = ElementType::from_blob(blob, generics);
 
-        let is_const = modifiers
-            .iter()
-            .any(|def| def.full_name() == ("System.Runtime.CompilerServices", "IsConst"));
-
         Some(Self {
             kind,
             pointers,
@@ -40,5 +38,9 @@ impl Signature {
             is_const,
             is_array,
         })
+    }
+
+    pub fn dependencies(&self) -> Vec<TypeDef> {
+        self.kind.dependencies()
     }
 }
