@@ -10,5 +10,4 @@ pub struct MethodSignature {
 pub struct MethodParam {
     pub param: Param,
     pub signature: Signature,
-    pub is_input: bool,
 }
