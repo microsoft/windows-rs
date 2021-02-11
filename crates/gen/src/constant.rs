@@ -1,6 +1,7 @@
 use crate::*;
 use squote::TokenStream;
 
+// TODO: replaced by Field
 #[derive(Debug)]
 pub struct Constant {
     pub field: winmd::Field,

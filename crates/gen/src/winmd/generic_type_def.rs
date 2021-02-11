@@ -182,7 +182,11 @@ impl GenericTypeDef {
     }
 
     fn gen_delegate(&self, _: Gen) -> TokenStream {
-        quote! {}
+        if self.def.is_winrt() {
+            quote! {}
+        } else {
+            quote! {}
+        }
     }
 
     fn gen_struct(&self, _: Gen) -> TokenStream {
