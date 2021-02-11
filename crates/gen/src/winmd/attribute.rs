@@ -36,7 +36,7 @@ impl Attribute {
         let mut args: Vec<(String, AttributeArg)> = Vec::with_capacity(fixed_arg_count as usize);
 
         for _ in 0..fixed_arg_count {
-            let arg = match ElementType::from_blob(&mut sig) {
+            let arg = match ElementType::from_blob(&mut sig, &[]) {
                 ElementType::I8 => AttributeArg::I8(values.read_i8()),
                 ElementType::U8 => AttributeArg::U8(values.read_u8()),
                 ElementType::I16 => AttributeArg::I16(values.read_i16()),

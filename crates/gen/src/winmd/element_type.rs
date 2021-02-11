@@ -56,11 +56,7 @@ impl ElementType {
         }
     }
 
-    pub fn from_blob(blob: &mut Blob) -> Self {
-        Self::from_blob_with_generics(blob, &[])
-    }
-
-    pub fn from_blob_with_generics(blob: &mut Blob, generics: &[ElementType]) -> Self {
+    pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
         let code = blob.read_unsigned();
 
         if let Some(code) = Self::from_code(code) {
@@ -99,7 +95,7 @@ impl ElementType {
             }
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x14 => Self::NotYetSupported, // arrays
-            0x15 => Self::TypeDef(GenericTypeDef::from_blob_with_generics(blob, generics)),
+            0x15 => Self::TypeDef(GenericTypeDef::from_blob(blob, generics)),
             _ => panic!(format!("Unexpected ElementType: {:x}", code)),
         }
     }

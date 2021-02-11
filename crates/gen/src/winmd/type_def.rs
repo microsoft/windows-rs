@@ -123,7 +123,7 @@ impl TypeDef {
                 blob.read_expected(0x1D);
                 blob.read_modifiers();
 
-                return ElementType::from_blob(blob);
+                return ElementType::from_blob(blob, &[]);
             }
         }
 

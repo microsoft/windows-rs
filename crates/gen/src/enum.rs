@@ -58,7 +58,7 @@ impl Enum {
                 blob.read_expected(0x1D);
                 blob.read_modifiers();
 
-                underlying_type = Some(winmd::ElementType::from_blob(blob));
+                underlying_type = Some(winmd::ElementType::from_blob(blob, &[]));
             }
         }
         Self {

@@ -8,7 +8,7 @@ pub struct GenericTypeDef {
 }
 
 impl GenericTypeDef {
-    pub fn from_blob_with_generics(blob: &mut Blob, generics: &[ElementType]) -> Self {
+    pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
         blob.read_unsigned();
         // TODO: add "read_type_def_or_ref" method to Blob reader.
         let def =
@@ -16,7 +16,7 @@ impl GenericTypeDef {
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {
-            args.push(ElementType::from_blob_with_generics(blob, generics));
+            args.push(ElementType::from_blob(blob, generics));
         }
 
         GenericTypeDef {
@@ -44,7 +44,7 @@ impl GenericTypeDef {
                 TypeDefOrRef::TypeSpec(def) => {
                     let mut blob = def.blob();
                     blob.read_unsigned();
-                    let mut interface = Self::from_blob_with_generics(&mut blob, &self.generics);
+                    let mut interface = Self::from_blob(&mut blob, &self.generics);
                     interface.is_default = i.is_default();
                     interface
                 }

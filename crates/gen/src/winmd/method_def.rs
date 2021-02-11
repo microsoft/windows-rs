@@ -81,16 +81,20 @@ impl MethodDef {
         blob.read_unsigned();
         blob.read_unsigned(); // parameter count
 
-        let return_type =
-            Signature::from_blob_with_generics(&mut blob, generics);
+        let return_type = Signature::from_blob(&mut blob, generics);
 
-        let params = params.filter_map(|param| {
-            if param.sequence() == 0 {
-                None
-            } else {
-                Some((param, Signature::from_blob_with_generics(&mut blob, generics).expect("MethodDef")))
-            }
-        }).collect();
+        let params = params
+            .filter_map(|param| {
+                if param.sequence() == 0 {
+                    None
+                } else {
+                    Some((
+                        param,
+                        Signature::from_blob(&mut blob, generics).expect("MethodDef"),
+                    ))
+                }
+            })
+            .collect();
 
         MethodSignature {
             params,
@@ -111,7 +115,9 @@ mod tests {
     #[test]
     fn test_method() {
         let reader = TypeReader::get();
-        let t: GenericTypeDef = reader.resolve_type("Windows.Foundation", "IStringable").into();
+        let t: GenericTypeDef = reader
+            .resolve_type("Windows.Foundation", "IStringable")
+            .into();
         let m = t.def.methods().next().unwrap();
         assert_eq!(m.name(), "ToString");
 
@@ -129,8 +135,10 @@ mod tests {
     #[test]
     fn test_generic() {
         let reader = TypeReader::get();
-        let t: GenericTypeDef = reader.resolve_type("Windows.Foundation.Collections", "IMap`2").into();
-        let m = t.def.methods().find(|m|m.name() == "Lookup").unwrap();
+        let t: GenericTypeDef = reader
+            .resolve_type("Windows.Foundation.Collections", "IMap`2")
+            .into();
+        let m = t.def.methods().find(|m| m.name() == "Lookup").unwrap();
         assert_eq!(m.name(), "Lookup");
 
         let s = m.signature(&t.generics);
@@ -143,7 +151,7 @@ mod tests {
         assert_eq!(r.is_const, false);
         assert_eq!(r.is_array, false);
 
-        let (p,s) = &s.params[0];
+        let (p, s) = &s.params[0];
         assert_eq!(p.name(), "key");
         assert_eq!(s.kind.gen_name(Gen::Absolute).as_str(), "K");
         assert_eq!(s.pointers, 0);

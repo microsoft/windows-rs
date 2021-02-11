@@ -11,11 +11,7 @@ pub struct Signature {
 }
 
 impl Signature {
-    pub fn from_blob(blob: &mut Blob) -> Option<Self> {
-        Self::from_blob_with_generics(blob, &[])
-    }
-
-    pub fn from_blob_with_generics(blob: &mut Blob, generics: &[ElementType]) -> Option<Self> {
+    pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Option<Self> {
         let modifiers = blob.read_modifiers();
         let by_ref = blob.read_expected(0x10);
 
@@ -31,7 +27,7 @@ impl Signature {
             pointers += 1;
         }
 
-        let kind = ElementType::from_blob_with_generics(blob, generics);
+        let kind = ElementType::from_blob(blob, generics);
 
         let is_const = modifiers
             .iter()
