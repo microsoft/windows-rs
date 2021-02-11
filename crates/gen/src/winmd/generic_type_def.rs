@@ -19,10 +19,31 @@ impl GenericTypeDef {
             args.push(ElementType::from_blob(blob, generics));
         }
 
-        GenericTypeDef {
+        Self {
             def,
             generics: args,
             is_default: false,
+        }
+    }
+
+    pub fn from_type_def(def: TypeDef, generics: Vec<ElementType>) -> Self {
+        if generics.is_empty() {
+            let generics = def
+                .generics()
+                .map(|generic| ElementType::GenericParam(generic))
+                .collect();
+
+            Self {
+                def,
+                generics,
+                is_default: false,
+            }
+        } else {
+            Self {
+                def,
+                generics,
+                is_default: false,
+            }
         }
     }
 
@@ -50,6 +71,12 @@ impl GenericTypeDef {
                 }
             }
         })
+    }
+
+    pub fn bases(&self) -> impl Iterator<Item = Self> + '_ {
+        self.def
+            .bases()
+            .map(|def| Self::from_type_def(def, Vec::new()))
     }
 
     pub fn gen_name(&self, gen: Gen) -> TokenStream {
@@ -105,22 +132,32 @@ impl GenericTypeDef {
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
         match self.def.category() {
-            TypeCategory::Interface => {
-                panic!();
-            }
-            TypeCategory::Class => {
-                panic!();
-            }
-            TypeCategory::Delegate => {
-                self.def.methods().filter_map(|m|{
+            TypeCategory::Interface => self
+                .def
+                .methods()
+                .map(|m| m.dependencies(&self.generics))
+                .chain(self.interfaces().map(|i| i.dependencies()))
+                .flatten()
+                .collect(),
+            TypeCategory::Class => self
+                .interfaces()
+                .map(|i| i.dependencies())
+                .chain(self.bases().map(|b| b.dependencies()))
+                .flatten()
+                .collect(),
+            TypeCategory::Delegate => self
+                .def
+                .methods()
+                .filter_map(|m| {
                     if m.name() == "Invoke" {
                         Some(m.dependencies(&self.generics))
                     } else {
                         None
                     }
-                }).flatten().collect()
-            }
-            TypeCategory::Struct => self.def.fields().flat_map(|f|f.dependencies()).collect(),
+                })
+                .flatten()
+                .collect(),
+            TypeCategory::Struct => self.def.fields().flat_map(|f| f.dependencies()).collect(),
             _ => Vec::new(),
         }
     }
@@ -276,14 +313,32 @@ mod tests {
         assert_eq!(i[2].is_default, false);
     }
 
-    // #[test]
-    // fn test_class_methods() {
-    //     let reader = TypeReader::get();
-    //     let t: GenericTypeDef = reader
-    //         .resolve_type("Windows.Foundation", "Uri")
-    //         .into();
+    #[test]
+    fn test_bases() {
+        let reader = TypeReader::get();
 
-    //     assert_eq!(t.def.fields().count(), 0);
-    //     assert_eq!(t.def.methods().count(), 0);
-    // }
+        let t: GenericTypeDef = reader.resolve_type("Windows.Foundation", "Uri").into();
+        assert_eq!(t.bases().count(), 0);
+
+        let t: GenericTypeDef = reader
+            .resolve_type("Windows.UI.Composition", "CompositionObject")
+            .into();
+        assert_eq!(t.bases().count(), 0);
+
+        let t: GenericTypeDef = reader
+            .resolve_type("Windows.UI.Composition", "Visual")
+            .into();
+        let bases: Vec<GenericTypeDef> = t.bases().collect();
+        assert_eq!(bases.len(), 1);
+        assert_eq!(bases[0].def.name(), "CompositionObject");
+
+        let t: GenericTypeDef = reader
+            .resolve_type("Windows.UI.Composition", "SpriteVisual")
+            .into();
+        let bases: Vec<GenericTypeDef> = t.bases().collect();
+        assert_eq!(bases.len(), 3);
+        assert_eq!(bases[0].def.name(), "ContainerVisual");
+        assert_eq!(bases[1].def.name(), "Visual");
+        assert_eq!(bases[2].def.name(), "CompositionObject");
+    }
 }

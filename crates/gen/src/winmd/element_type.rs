@@ -68,11 +68,9 @@ impl ElementType {
                 let code = TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index);
 
                 match code {
-                    TypeDefOrRef::TypeDef(type_def) => Self::TypeDef(GenericTypeDef {
-                        def: type_def,
-                        generics: Vec::new(),
-                        is_default: false,
-                    }),
+                    TypeDefOrRef::TypeDef(type_def) => {
+                        Self::TypeDef(GenericTypeDef::from_type_def(type_def, Vec::new()))
+                    }
                     TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
                         ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
                         ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
@@ -84,11 +82,10 @@ impl ElementType {
                         ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
                         ("System", "Type") => Self::TypeName,
                         ("", _) => Self::NotYetSupported,
-                        _ => Self::TypeDef(GenericTypeDef {
-                            def: type_ref.resolve(),
-                            generics: Vec::new(),
-                            is_default: false,
-                        }),
+                        _ => Self::TypeDef(GenericTypeDef::from_type_def(
+                            type_ref.resolve(),
+                            Vec::new(),
+                        )),
                     },
                     _ => panic!("Expected a TypeDef or TypeRef"),
                 }

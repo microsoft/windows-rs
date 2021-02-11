@@ -12,8 +12,10 @@ pub struct Signature {
 
 impl Signature {
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Option<Self> {
-        let is_const = blob.read_modifiers().iter()
-        .any(|def| def.full_name() == ("System.Runtime.CompilerServices", "IsConst"));
+        let is_const = blob
+            .read_modifiers()
+            .iter()
+            .any(|def| def.full_name() == ("System.Runtime.CompilerServices", "IsConst"));
 
         let by_ref = blob.read_expected(0x10);
 

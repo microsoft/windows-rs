@@ -17,6 +17,7 @@ pub fn table(name: TokenStream) -> TokenStream {
             pub row: super::Row,
         }
 
+        // TODO: don't implement Debug here so individual tabls can implement it directly with more useful info
         impl std::fmt::Debug for #ident {
             fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
                 f.debug_struct(#name)

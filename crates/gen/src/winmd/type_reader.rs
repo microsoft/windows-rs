@@ -200,16 +200,7 @@ impl TypeReader {
                     row: *row,
                 };
 
-                let generics = def
-                    .generics()
-                    .map(|generic| ElementType::GenericParam(generic))
-                    .collect();
-
-                ElementType::TypeDef(GenericTypeDef {
-                    def,
-                    generics,
-                    is_default: false,
-                })
+                ElementType::TypeDef(GenericTypeDef::from_type_def(def, Vec::new()))
             }
             TypeRow::MethodDef(row) => ElementType::MethodDef(MethodDef {
                 reader: self,

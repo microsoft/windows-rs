@@ -56,11 +56,10 @@ impl TypeTree {
                                 reader,
                                 def.namespace(),
                                 set,
-                                &winmd::ElementType::TypeDef(winmd::GenericTypeDef {
+                                &winmd::ElementType::TypeDef(winmd::GenericTypeDef::from_type_def(
                                     def,
-                                    generics: Vec::new(),
-                                    is_default: false,
-                                }),
+                                    Vec::new(),
+                                )),
                             );
                         }
 
@@ -77,11 +76,10 @@ impl TypeTree {
                         reader,
                         def.namespace(),
                         set,
-                        &winmd::ElementType::TypeDef(winmd::GenericTypeDef {
+                        &winmd::ElementType::TypeDef(winmd::GenericTypeDef::from_type_def(
                             def,
-                            generics: Vec::new(),
-                            is_default: false,
-                        }),
+                            Vec::new(),
+                        )),
                     );
                 }
 

@@ -18,8 +18,13 @@ impl TypeDef {
         (self.namespace(), self.name())
     }
 
+    // TODO: switch uses of this to TypeDef::bases
     pub fn extends(&self) -> TypeDefOrRef {
         self.reader.decode(self.row, 3)
+    }
+
+    pub fn bases(&self) -> impl Iterator<Item = TypeDef> + '_ {
+        Bases(*self)
     }
 
     pub fn fields(&self) -> impl Iterator<Item = Field> + '_ {
@@ -132,5 +137,22 @@ impl TypeDef {
 
     pub fn guid(&self) -> Guid {
         Guid::from_type_def(self)
+    }
+}
+
+struct Bases(TypeDef);
+
+impl Iterator for Bases {
+    type Item = TypeDef;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let extends = self.0.extends();
+
+        if extends.full_name() == ("System", "Object") {
+            None
+        } else {
+            self.0 = extends.resolve();
+            Some(self.0)
+        }
     }
 }
