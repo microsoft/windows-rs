@@ -105,6 +105,29 @@ impl ElementType {
         }
     }
 
+    pub fn from_type_def(def: TypeDef, generics: Vec<ElementType>) -> Self {
+        match def.category() {
+            TypeCategory::Interface => {
+                if def.is_winrt() {
+                    Self::Interface(Interface(GenericTypeDef::from_type_def(def, generics)))
+                } else {
+                    Self::ComInterface(ComInterface(def))
+                }
+            }
+            TypeCategory::Class => Self::Class(Class(GenericTypeDef::from_type_def(def, generics))),
+            TypeCategory::Enum => Self::Enum(Enum(def)),
+            TypeCategory::Struct => Self::Struct(Struct(def)),
+            TypeCategory::Delegate => {
+                if def.is_winrt() {
+                    Self::Delegate(Delegate(GenericTypeDef::from_type_def(def, generics)))
+                } else {
+                    Self::Callback(Callback(def))
+                }
+            }
+            _ => panic!("TypeDefinition.from_type_def {:?}", def.name()),
+        }
+    }
+
     pub fn gen_name(&self, gen: Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },

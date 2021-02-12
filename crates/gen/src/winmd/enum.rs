@@ -1,4 +1,4 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Enum(TypeDef);
+pub struct Enum(pub TypeDef);
