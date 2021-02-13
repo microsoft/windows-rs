@@ -202,12 +202,12 @@ impl TypeName {
                 match constant.value_type() {
                     winmd::ElementType::I32 => return "i4",
                     winmd::ElementType::U32 => return "u4",
-                    _ => panic!("Invalid enum type"),
+                    _ => unexpected!(),
                 };
             }
         }
 
-        panic!("Invalid enum");
+        unexpected!();
     }
 
     pub fn struct_signature(&self) -> String {

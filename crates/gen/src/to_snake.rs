@@ -1,14 +1,14 @@
-use crate::MethodKind;
+use super::*;
 
 /// Change a CamelCase method name to snake case and prepends an optional
 /// preamble depending on the kind of method.
-pub fn method_to_snake(camel: &str, kind: MethodKind) -> String {
+pub fn method_to_snake(camel: &str, kind: MethodCategory) -> String {
     debug_assert!(!camel.is_empty());
     let mut snake = String::with_capacity(camel.len());
 
     match kind {
-        MethodKind::Set => snake.push_str("set_"),
-        MethodKind::Remove => snake.push_str("remove_"),
+        MethodCategory::Set => snake.push_str("set_"),
+        MethodCategory::Remove => snake.push_str("remove_"),
         _ => {}
     };
 
@@ -72,7 +72,7 @@ fn append_to_snake(mut snake: String, camel: &str) -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::*;
+    use super::*;
 
     #[test]
     fn to_snake_works() {
@@ -80,34 +80,34 @@ mod tests {
 
         assert_eq!(to_snake("ApplicationModel"), "application_model".to_owned());
 
-        assert_eq!(method_to_snake("foo", MethodKind::Normal), "foo".to_owned());
+        assert_eq!(method_to_snake("foo", MethodCategory::Normal), "foo".to_owned());
 
         assert_eq!(
-            method_to_snake("UIProgramming", MethodKind::Normal),
+            method_to_snake("UIProgramming", MethodCategory::Normal),
             "ui_programming".to_owned()
         );
 
         assert_eq!(
-            method_to_snake("UIProgramming", MethodKind::Set),
+            method_to_snake("UIProgramming", MethodCategory::Set),
             "set_ui_programming".to_owned()
         );
 
         assert_eq!(
-            method_to_snake("CreateUInt8Array", MethodKind::Normal),
+            method_to_snake("CreateUInt8Array", MethodCategory::Normal),
             "create_uint8_array".to_owned()
         );
 
         assert_eq!(
-            method_to_snake("Socks", MethodKind::Remove),
+            method_to_snake("Socks", MethodCategory::Remove),
             "remove_socks".to_owned()
         );
 
         assert_eq!(to_snake("appointmentId"), "appointment_id".to_owned());
 
-        assert_eq!(method_to_snake("a", MethodKind::Normal), "a".to_owned());
+        assert_eq!(method_to_snake("a", MethodCategory::Normal), "a".to_owned());
 
         assert_eq!(
-            method_to_snake("CreateField_Default", MethodKind::Normal),
+            method_to_snake("CreateField_Default", MethodCategory::Normal),
             "create_field_default".to_owned()
         );
 

@@ -55,7 +55,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
     let input = syn::parse_macro_input!(input as syn::ItemEnum);
 
     if args.len() != 1 {
-        panic!("The `type_code` attribute expects a single integer literal argument");
+        panic!("type_code");
     }
 
     let bits = &args[0];
@@ -104,7 +104,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
                 let code = (code & ((1 << #bits) - 1), (code >> #bits) - 1);
                 match code.0 {
                     #decodes
-                    _ => panic!("Failed to decode type code"),
+                    _ => panic!("type_code"),
                 }
             }
         }

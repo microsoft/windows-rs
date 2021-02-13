@@ -119,7 +119,7 @@ impl Type {
                 generics,
                 calling_namespace,
             )),
-            unused => panic!("Type::from_blob 0x{:X}", unused),
+            _ => unexpected!(),
         };
 
         let mut is_input = false;
@@ -256,7 +256,7 @@ impl TypeKind {
             Self::Enum(name) => name.enum_signature(),
             Self::Struct(name) => name.struct_signature(),
             Self::Delegate(name) => name.delegate_signature(),
-            _ => panic!("TypeKind::signature"),
+            _ => unexpected!(),
         }
     }
 
@@ -283,7 +283,7 @@ impl TypeKind {
             Self::Struct(name) => name.runtime_name(),
             Self::Delegate(name) => name.runtime_name(),
             Self::Generic(name) => name.to_string(),
-            _ => panic!("TypeKind::runtime_name"),
+            _ => unexpected!()
         }
     }
 
@@ -294,7 +294,7 @@ impl TypeKind {
             winmd::TypeCategory::Enum => Self::Enum(name),
             winmd::TypeCategory::Struct => Self::Struct(name),
             winmd::TypeCategory::Delegate => Self::Delegate(name),
-            _ => panic!("TypeKind::from_type_name"),
+            _ => unexpected!(),
         }
     }
 
