@@ -1,5 +1,5 @@
 use super::*;
-use gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
+use gen::{TypeReader, NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
 
@@ -9,7 +9,7 @@ impl BuildLimits {
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
         let is_foundation = self.0.is_empty();
 
-        let reader = winmd::TypeReader::get();
+        let reader = TypeReader::get();
 
         let mut limits = TypeLimits::new(reader);
 
@@ -116,9 +116,9 @@ impl syn::parse::Parse for BuildLimits {
 }
 
 fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<NamespaceTypes> {
-    let reader = winmd::TypeReader::get();
+    let reader = TypeReader::get();
     fn recurse(
-        reader: &'static winmd::TypeReader,
+        reader: &'static TypeReader,
         tree: &syn::UseTree,
         current: &mut String,
     ) -> syn::parse::Result<NamespaceTypes> {
@@ -181,7 +181,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
 }
 
 fn find_namespace(
-    reader: &'static winmd::TypeReader,
+    reader: &'static TypeReader,
     namespace: &str,
     span: proc_macro2::Span,
 ) -> syn::parse::Result<&'static str> {

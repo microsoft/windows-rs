@@ -93,7 +93,8 @@ impl TypeTree {
     }
 
     /// Turn the tree into a token stream for code generation
-    pub fn gen<'a>(&'a self, gen: Gen) -> impl Iterator<Item = TokenStream> + 'a {
+    pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+        let gen = Gen::Relative(self.namespace);
         self.types
             .iter()
             .map(move |t| t.gen(gen))
@@ -107,7 +108,7 @@ fn gen_namespaces<'a>(namespaces: &'a BTreeMap<&'static str, TypeTree>) -> impl 
         let name = to_ident(&name);
 
         // TODO: why doesn't gen just retun a TokenStream?
-        let mut tokens = tree.gen(Gen::Relative(tree.namespace)).collect::<Vec<_>>();
+        let mut tokens = tree.gen().collect::<Vec<_>>();
 
         if tree.include_foundation {
             tokens.push(quote! { pub use ::windows::*; });

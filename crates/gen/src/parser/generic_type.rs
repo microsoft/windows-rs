@@ -78,6 +78,10 @@ impl GenericType {
         self.format_name(gen, to_ident)
     }
 
+    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+        self.format_name(gen, to_abi_ident)
+    }
+
     pub fn interface_signature(&self) -> String {
         let guid = self.def.guid();
 
