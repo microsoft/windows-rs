@@ -255,21 +255,6 @@ impl ElementType {
             _ => unexpected!(),
         }
     }
-
-    #[cfg(test)]
-    pub fn as_struct(&self) -> Struct {
-        if let Self::Struct(value) = self { value.clone() } else { unexpected!(); }
-    }
-
-    #[cfg(test)]
-    pub fn as_interface(&self) -> Interface {
-        if let Self::Interface(value) = self { value.clone() } else { unexpected!(); }
-    }
-
-    #[cfg(test)]
-    pub fn as_class(&self) -> Class {
-        if let Self::Class(value) = self { value.clone() } else { unexpected!(); }
-    }
 }
 
 #[cfg(test)]

@@ -128,13 +128,19 @@ impl MethodDef {
 mod tests {
     use super::*;
 
+    fn get_interface(namespace: &str, interface_name:&str) -> Interface {
+        if let ElementType::Interface(value) = TypeReader::get()
+            .resolve_type(namespace, interface_name) { value.clone() } else { unexpected!(); }
+    }
+
+    fn get_method(interface: &Interface, method: &str) -> MethodDef {
+        interface.0.def.methods().find(|m|m.name() == method).unwrap()
+    }
+
     #[test]
     fn test_method() {
-        let reader = TypeReader::get();
-        let t = reader
-            .resolve_type("Windows.Foundation", "IStringable")
-            .as_interface();
-        let m = t.0.def.methods().next().unwrap();
+        let i = get_interface("Windows.Foundation", "IStringable");
+        let m = get_method(&i, "ToString");
         assert_eq!(m.name(), "ToString");
 
         let s = m.signature(&[]);
@@ -150,14 +156,10 @@ mod tests {
 
     #[test]
     fn test_generic() {
-        let reader = TypeReader::get();
-        let t = reader
-            .resolve_type("Windows.Foundation.Collections", "IMap`2")
-            .as_interface();
-        let m = t.0.def.methods().find(|m| m.name() == "Lookup").unwrap();
-        assert_eq!(m.name(), "Lookup");
+        let i = get_interface("Windows.Foundation.Collections", "IMap`2");
+        let m = get_method(&i, "Lookup");
 
-        let s = m.signature(&t.0.generics);
+        let s = m.signature(&i.0.generics);
         assert_eq!(s.params.len(), 1);
 
         let r = s.return_type.unwrap();

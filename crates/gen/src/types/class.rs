@@ -34,6 +34,78 @@ impl Class {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn get(namespace: &str, name:&str) -> Class {
+        if let ElementType::Class(value) = TypeReader::get()
+            .resolve_type(namespace, name) { value.clone() } else { unexpected!(); }
+    }
+
+    #[test]
+    fn test_signature() {
+        let c = get("Windows.Foundation", "Uri");
+        assert_eq!(c.signature(), "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})")
+    }
+
+    #[test]
+    fn test_class() {
+        let c = get("Windows.Foundation.Collections", "StringMap");
+        let mut i: Vec<Interface> = c.0.interfaces().collect();
+        assert_eq!(i.len(), 3);
+
+        i.sort_by(|a, b| {
+            a.0.gen_name(Gen::Absolute)
+                .as_str()
+                .cmp(b.0.gen_name(Gen::Absolute).as_str())
+        });
+
+        assert_eq!(
+            i[0].0.gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < windows :: HString , windows :: HString > >"
+        );
+
+        assert_eq!(i[0].0.is_default, false);
+
+        assert_eq!(
+            i[1].0.gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: collections :: IMap :: < windows :: HString , windows :: HString >"
+        );
+
+        assert_eq!(i[1].0.is_default, true);
+
+        assert_eq!(
+            i[2].0.gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: collections :: IObservableMap :: < windows :: HString , windows :: HString >"
+        );
+
+        assert_eq!(i[2].0.is_default, false);
+    }
+
+    #[test]
+    fn test_bases() {
+        let c = get("Windows.Foundation", "Uri");
+        assert_eq!(c.bases().count(), 0);
+
+        let c = get("Windows.UI.Composition", "CompositionObject");
+        assert_eq!(c.bases().count(), 0);
+
+        let c = get("Windows.UI.Composition", "Visual");
+        let bases: Vec<Class> = c.bases().collect();
+        assert_eq!(bases.len(), 1);
+        assert_eq!(bases[0].0.def.name(), "CompositionObject");
+
+        let c = get("Windows.UI.Composition", "SpriteVisual");
+        let bases: Vec<Class> = c.bases().collect();
+        assert_eq!(bases.len(), 3);
+        assert_eq!(bases[0].0.def.name(), "ContainerVisual");
+        assert_eq!(bases[1].0.def.name(), "Visual");
+        assert_eq!(bases[2].0.def.name(), "CompositionObject");
+    }
+}
+
+
 
 
 // #[derive(Debug)]

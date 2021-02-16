@@ -5,22 +5,24 @@ pub struct Enum(pub TypeDef);
 
 impl Enum {
     pub fn signature(&self) -> String {
+        let underlying_type = match self.underlying_type() {
+            ElementType::I32 => "i4",
+            ElementType::U32 => "u4",
+            _ => unexpected!(),
+        };
+
         format!(
             "enum({}.{};{})",
             self.0.namespace(),
             self.0.name(),
-            self.enum_type()
+            underlying_type
         )
     }
 
-    fn enum_type(&self) -> &str {
+    fn underlying_type(&self) -> ElementType {
         for field in self.0.fields() {
             if let Some(constant) = field.constant() {
-                match constant.value_type() {
-                    ElementType::I32 => return "i4",
-                    ElementType::U32 => return "u4",
-                    _ => unexpected!(),
-                };
+                return constant.value_type();
             }
         }
 
@@ -31,6 +33,17 @@ impl Enum {
         quote! {}
     }
 }
+
+// #[cfg(test)]
+// mod tests {
+//     use super::*;
+
+//     #[test]
+//     fn test_bool() {
+//         assert_eq!(ElementType::Bool.gen_name(Gen::Absolute).as_str(), "bool");
+//     }
+// }
+
 
 
 // #[derive(Debug)]

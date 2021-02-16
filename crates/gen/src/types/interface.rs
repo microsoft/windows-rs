@@ -38,6 +38,46 @@ impl Interface {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn get(namespace: &str, name:&str) -> Interface {
+        if let ElementType::Interface(value) = TypeReader::get()
+            .resolve_type(namespace, name) { value.clone() } else { unexpected!(); }
+    }
+
+    #[test]
+    fn test_bool() {
+        let i = get("Windows.Foundation", "IStringable");
+        assert_eq!(i.signature(), "{96369f54-8eb6-48f0-abce-c1b211e627c3}")
+    }
+
+    #[test]
+    fn test_interfaces() {
+        let i = get("Windows.Foundation", "IAsyncOperation`1");
+        let i: Vec<Interface> = i.0.interfaces().collect();
+        assert_eq!(i.len(), 1);
+
+        assert_eq!(
+            i[0].0.gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: IAsyncInfo"
+        );
+    }
+
+    #[test]
+    fn test_generic_interfaces() {
+        let i = get("Windows.Foundation.Collections", "IMap`2");
+        let i: Vec<Interface> = i.0.interfaces().collect();
+        assert_eq!(i.len(), 1);
+
+        assert_eq!(
+            i[0].0.gen_name(Gen::Absolute).as_str(),
+            "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
+        );
+    }
+
+}
 
 
 // #[derive(Debug)]
