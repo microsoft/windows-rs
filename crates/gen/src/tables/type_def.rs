@@ -141,25 +141,6 @@ impl TypeDef {
         }
     }
 
-    pub fn underlying_type(&self) -> ElementType {
-        for field in self.fields() {
-            if let Some(constant) = field.constant() {
-                return constant.value_type();
-            } else {
-                let blob = &mut field.blob();
-                blob.read_unsigned();
-                blob.read_modifiers();
-
-                blob.read_expected(0x1D);
-                blob.read_modifiers();
-
-                return ElementType::from_blob(blob, &[]);
-            }
-        }
-
-        unexpected!();
-    }
-
     pub fn guid(&self) -> Guid {
         Guid::from_type_def(self)
     }

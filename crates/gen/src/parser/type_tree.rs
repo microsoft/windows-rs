@@ -54,22 +54,28 @@ impl TypeTree {
     ) {
         if set.insert(t.clone()) {
             for def in t.dependencies() {
-                self.insert_if(reader, def.namespace(), set, &ElementType::from_type_def(def, Vec::new()));
+                self.insert_if(
+                    reader,
+                    def.namespace(),
+                    set,
+                    &ElementType::from_type_def(def, Vec::new()),
+                );
             }
-            self.insert(namespace, t);
+            self.insert(namespace, 0, t);
         }
     }
 
-    fn insert(&mut self, namespace: &'static str, t: &ElementType) {
-        if let Some(pos) = namespace.find('.') {
+    fn insert(&mut self, namespace: &'static str, pos: usize, t: &ElementType) {
+        if let Some(next) = namespace[pos..].find('.') {
+            let next = pos + next;
             self.namespaces
-                .entry(&namespace[..pos])
-                .or_insert_with(||Self::from_namespace(namespace))
-                .insert(&namespace[pos + 1..], t);
+                .entry(&namespace[pos..next])
+                .or_insert_with(|| Self::from_namespace(&namespace[..next]))
+                .insert(namespace, next + 1, t);
         } else {
             self.namespaces
-                .entry(namespace)
-                .or_insert_with(||Self::from_namespace(namespace))
+                .entry(&namespace[pos..])
+                .or_insert_with(|| Self::from_namespace(namespace))
                 .types
                 .push(t.clone());
         }
@@ -88,12 +94,12 @@ impl TypeTree {
     pub fn reexport(&mut self) {
         self.namespaces
             .entry("Windows")
-            .or_insert_with(||Self::from_namespace("Windows"))
+            .or_insert_with(|| Self::from_namespace("Windows"))
             .include_foundation = true;
     }
 
-    /// Turn the tree into a token stream for code generation
     pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+        // TODO: can we do this to avoid creating dependencies vectors?
         let gen = Gen::Relative(self.namespace);
         self.types
             .iter()
@@ -102,7 +108,9 @@ impl TypeTree {
     }
 }
 
-fn gen_namespaces<'a>(namespaces: &'a BTreeMap<&'static str, TypeTree>) -> impl Iterator<Item = TokenStream> + 'a {
+fn gen_namespaces<'a>(
+    namespaces: &'a BTreeMap<&'static str, TypeTree>,
+) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(|(name, tree)| {
         let name = to_snake(name);
         let name = to_ident(&name);
@@ -123,4 +131,52 @@ fn gen_namespaces<'a>(namespaces: &'a BTreeMap<&'static str, TypeTree>) -> impl 
             }
         }
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_tree() {
+        let reader = TypeReader::get();
+        let mut limits = TypeLimits::new(reader);
+
+        limits
+            .insert(NamespaceTypes {
+                namespace: "Windows.Win32.FileSystem",
+                limit: TypeLimit::Some(vec!["FILE_ACCESS_FLAGS".to_string()]),
+            })
+            .unwrap();
+
+        let tree = TypeTree::from_limits(reader, &limits);
+
+        assert_eq!(tree.namespace, "");
+        assert_eq!(tree.types.len(), 0);
+        assert_eq!(tree.namespaces.len(), 1);
+
+        let tree = &tree.namespaces["Windows"];
+
+        assert_eq!(tree.namespace, "Windows");
+        assert_eq!(tree.types.len(), 0);
+        assert_eq!(tree.namespaces.len(), 1);
+
+        let tree = &tree.namespaces["Win32"];
+
+        assert_eq!(tree.namespace, "Windows.Win32");
+        assert_eq!(tree.types.len(), 0);
+        assert_eq!(tree.namespaces.len(), 1);
+
+        let tree = &tree.namespaces["FileSystem"];
+
+        assert_eq!(tree.namespace, "Windows.Win32.FileSystem");
+        assert_eq!(tree.types.len(), 1);
+        assert_eq!(tree.namespaces.len(), 0);
+
+        let t = &tree.types[0];
+        assert_eq!(
+            t.gen_name(Gen::Absolute).as_str(),
+            "windows :: win32 :: file_system :: FILE_ACCESS_FLAGS"
+        );
+    }
 }

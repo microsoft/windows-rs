@@ -681,7 +681,6 @@ macro_rules! assert_proper_length_and_alignment {
     }};
 }
 
-
 impl View for [u8] {
     fn view_as<T: Pod>(&self, cli_offset: u32) -> &T {
         let ptr = assert_proper_length_and_alignment!(self, T, cli_offset, sizeof::<T>());
@@ -900,9 +899,6 @@ struct ImageCorHeader {
 // Safety: this is safe because the type is #[repr(C)]
 // and only contains data that is itself `Pod`
 unsafe impl Pod for ImageCorHeader {}
-
-
-
 
 #[cfg(test)]
 mod tests {

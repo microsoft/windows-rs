@@ -25,9 +25,6 @@ impl Struct {
     }
 }
 
-
-
-
 // #[derive(Debug)]
 // pub struct Struct {
 //     pub name: TypeName,

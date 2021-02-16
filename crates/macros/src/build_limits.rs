@@ -1,5 +1,5 @@
 use super::*;
-use gen::{TypeReader, NamespaceTypes, TypeLimit, TypeLimits, TypeTree};
+use gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
 
@@ -7,7 +7,7 @@ pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 
 impl BuildLimits {
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
-        let is_foundation = self.0.is_empty();
+        let is_foundation = false; //self.0.is_empty();
 
         let reader = TypeReader::get();
 

@@ -5,14 +5,13 @@ pub struct ComInterface(pub GenericType);
 
 impl ComInterface {
     pub fn dependencies(&self) -> Vec<TypeDef> {
-        self
-                .0
-                .def
-                .methods()
-                .map(|m| m.dependencies(&[]))
-                .chain(self.0.interfaces().map(|i| i.dependencies()))
-                .flatten()
-                .collect()
+        self.0
+            .def
+            .methods()
+            .map(|m| m.dependencies(&[]))
+            .chain(self.0.interfaces().map(|i| i.dependencies()))
+            .flatten()
+            .collect()
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {

@@ -1,7 +1,7 @@
 use super::*;
 use std::iter::FromIterator;
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Gen {
     Absolute,
     Relative(&'static str),

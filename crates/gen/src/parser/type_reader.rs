@@ -76,7 +76,7 @@ impl TypeReader {
                     .entry(namespace.to_string())
                     .or_default()
                     .entry(name.to_string())
-                    .or_insert_with(||TypeRow::TypeDef(def));
+                    .or_insert_with(|| TypeRow::TypeDef(def));
 
                 let flags = TypeFlags(reader.u32(def, 0));
 
@@ -103,7 +103,7 @@ impl TypeReader {
                         .entry(namespace.to_string())
                         .or_default()
                         .entry(name.to_string())
-                        .or_insert_with(||TypeRow::Constant(field));
+                        .or_insert_with(|| TypeRow::Constant(field));
                 }
 
                 for method in reader.list(def, TableIndex::MethodDef, 5) {
@@ -113,7 +113,7 @@ impl TypeReader {
                         .entry(namespace.to_string())
                         .or_default()
                         .entry(name.to_string())
-                        .or_insert_with(||TypeRow::Function(method));
+                        .or_insert_with(|| TypeRow::Function(method));
                 }
             }
         }

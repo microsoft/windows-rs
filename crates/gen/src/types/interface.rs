@@ -23,14 +23,13 @@ impl Interface {
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
-        self
-                .0
-                .def
-                .methods()
-                .map(|m| m.dependencies(&self.0.generics))
-                .chain(self.0.interfaces().map(|i| i.dependencies()))
-                .flatten()
-                .collect()
+        self.0
+            .def
+            .methods()
+            .map(|m| m.dependencies(&self.0.generics))
+            .chain(self.0.interfaces().map(|i| i.dependencies()))
+            .flatten()
+            .collect()
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {
@@ -42,9 +41,12 @@ impl Interface {
 mod tests {
     use super::*;
 
-    fn get(namespace: &str, name:&str) -> Interface {
-        if let ElementType::Interface(value) = TypeReader::get()
-            .resolve_type(namespace, name) { value.clone() } else { unexpected!(); }
+    fn get(namespace: &str, name: &str) -> Interface {
+        if let ElementType::Interface(value) = TypeReader::get().resolve_type(namespace, name) {
+            value.clone()
+        } else {
+            unexpected!();
+        }
     }
 
     #[test]
@@ -76,9 +78,7 @@ mod tests {
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
         );
     }
-
 }
-
 
 // #[derive(Debug)]
 // pub struct Interface {

@@ -15,7 +15,7 @@ pub use class::*;
 pub use com_interface::*;
 pub use delegate::*;
 pub use element_type::*;
-pub use r#enum::*;
 pub use function::*;
 pub use interface::*;
+pub use r#enum::*;
 pub use r#struct::*;

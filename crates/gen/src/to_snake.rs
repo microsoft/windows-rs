@@ -80,7 +80,10 @@ mod tests {
 
         assert_eq!(to_snake("ApplicationModel"), "application_model".to_owned());
 
-        assert_eq!(method_to_snake("foo", MethodCategory::Normal), "foo".to_owned());
+        assert_eq!(
+            method_to_snake("foo", MethodCategory::Normal),
+            "foo".to_owned()
+        );
 
         assert_eq!(
             method_to_snake("UIProgramming", MethodCategory::Normal),

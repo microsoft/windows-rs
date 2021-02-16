@@ -128,13 +128,23 @@ impl MethodDef {
 mod tests {
     use super::*;
 
-    fn get_interface(namespace: &str, interface_name:&str) -> Interface {
-        if let ElementType::Interface(value) = TypeReader::get()
-            .resolve_type(namespace, interface_name) { value.clone() } else { unexpected!(); }
+    fn get_interface(namespace: &str, interface_name: &str) -> Interface {
+        if let ElementType::Interface(value) =
+            TypeReader::get().resolve_type(namespace, interface_name)
+        {
+            value.clone()
+        } else {
+            unexpected!();
+        }
     }
 
     fn get_method(interface: &Interface, method: &str) -> MethodDef {
-        interface.0.def.methods().find(|m|m.name() == method).unwrap()
+        interface
+            .0
+            .def
+            .methods()
+            .find(|m| m.name() == method)
+            .unwrap()
     }
 
     #[test]

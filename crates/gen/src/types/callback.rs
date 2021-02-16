@@ -5,17 +5,17 @@ pub struct Callback(pub TypeDef);
 
 impl Callback {
     pub fn dependencies(&self) -> Vec<TypeDef> {
-                self.0
-                .methods()
-                .filter_map(|m| {
-                    if m.name() == "Invoke" {
-                        Some(m.dependencies(&[]))
-                    } else {
-                        None
-                    }
-                })
-                .flatten()
-                .collect()
+        self.0
+            .methods()
+            .filter_map(|m| {
+                if m.name() == "Invoke" {
+                    Some(m.dependencies(&[]))
+                } else {
+                    None
+                }
+            })
+            .flatten()
+            .collect()
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {

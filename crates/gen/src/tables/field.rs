@@ -85,9 +85,12 @@ impl Field {
 mod tests {
     use super::*;
 
-    fn get(namespace: &str, name:&str) -> Struct {
-        if let ElementType::Struct(value) = TypeReader::get()
-            .resolve_type(namespace, name) { value.clone() } else { unexpected!(); }
+    fn get(namespace: &str, name: &str) -> Struct {
+        if let ElementType::Struct(value) = TypeReader::get().resolve_type(namespace, name) {
+            value.clone()
+        } else {
+            unexpected!();
+        }
     }
 
     #[test]

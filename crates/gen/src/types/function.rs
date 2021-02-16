@@ -18,11 +18,6 @@ impl Function {
     }
 }
 
-
-
-
-
-
 // // TODO: move winmd into gen crate to improve inlining and simplify
 // #[derive(Debug)]
 // pub struct Function {

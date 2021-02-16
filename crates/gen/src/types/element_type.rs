@@ -88,7 +88,8 @@ impl ElementType {
                         ("", _) => Self::NotYetSupported,
                         _ => Self::from_type_def(type_ref.resolve(), Vec::new()),
                     },
-                    TypeDefOrRef::TypeDef(type_def) => { // TODO: does this ever happen?
+                    TypeDefOrRef::TypeDef(type_def) => {
+                        // TODO: does this ever happen?
                         Self::from_type_def(type_def, Vec::new())
                     }
                     _ => unexpected!(),
@@ -196,7 +197,14 @@ impl ElementType {
 
     pub fn is_nullable(&self) -> bool {
         match self {
-            Self::Object | Self::IUnknown | Self::Function(_) | Self::Interface(_) | Self::Class(_) | Self::ComInterface(_) | Self::Delegate(_) | Self::Callback(_) => true,
+            Self::Object
+            | Self::IUnknown
+            | Self::Function(_)
+            | Self::Interface(_)
+            | Self::Class(_)
+            | Self::ComInterface(_)
+            | Self::Delegate(_)
+            | Self::Callback(_) => true,
             _ => false,
         }
     }

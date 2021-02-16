@@ -14,27 +14,24 @@ impl Delegate {
 
     // TODO: lots of redundant code across all the types that have methods
     pub fn dependencies(&self) -> Vec<TypeDef> {
-        self
-                .0
-                .def
-                .methods()
-                .filter_map(|m| {
-                    if m.name() == "Invoke" {
-                        Some(m.dependencies(&[]))
-                    } else {
-                        None
-                    }
-                })
-                .flatten()
-                .collect()
+        self.0
+            .def
+            .methods()
+            .filter_map(|m| {
+                if m.name() == "Invoke" {
+                    Some(m.dependencies(&[]))
+                } else {
+                    None
+                }
+            })
+            .flatten()
+            .collect()
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {
         quote! {}
     }
 }
-
-
 
 // #[derive(Debug)]
 // pub struct Delegate {

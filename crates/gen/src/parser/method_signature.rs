@@ -22,12 +22,6 @@ impl MethodSignature {
     }
 }
 
-
-
-
-
-
-
 // #[derive(Debug)]
 // pub struct MethodSignature {
 //     pub method: winmd::MethodDef,

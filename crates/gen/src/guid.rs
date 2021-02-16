@@ -133,8 +133,6 @@ impl GuidConstant {
     }
 }
 
-
-
 impl Default for GuidConstant {
     fn default() -> Self {
         Self::U8(0)

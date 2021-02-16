@@ -5,28 +5,43 @@ pub struct Class(pub GenericType);
 
 impl Class {
     pub fn signature(&self) -> String {
-        let default = self.0.interfaces().find(|i| i.0.is_default).unwrap_or_else(||panic!("{}", format!("Class {}.{} does not have a default interface.", self.0.def.namespace(), self.0.def.name())));
+        let default = self
+            .0
+            .interfaces()
+            .find(|i| i.0.is_default)
+            .unwrap_or_else(|| {
+                panic!(
+                    "{}",
+                    format!(
+                        "Class {}.{} does not have a default interface.",
+                        self.0.def.namespace(),
+                        self.0.def.name()
+                    )
+                )
+            });
 
         format!(
             "rc({}.{};{})",
-            self.0.def.namespace(), self.0.def.name(),
+            self.0.def.namespace(),
+            self.0.def.name(),
             default.0.interface_signature()
         )
     }
 
     pub fn bases(&self) -> impl Iterator<Item = Self> + '_ {
-        self.0.def
+        self.0
+            .def
             .bases()
             .map(|def| Self(GenericType::from_type_def(def, Vec::new())))
     }
 
     pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.
-                0.interfaces()
-                .map(|i| i.dependencies())
-                .chain(self.bases().map(|b| b.dependencies()))
-                .flatten()
-                .collect()
+        self.0
+            .interfaces()
+            .map(|i| i.dependencies())
+            .chain(self.bases().map(|b| b.dependencies()))
+            .flatten()
+            .collect()
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {
@@ -38,15 +53,21 @@ impl Class {
 mod tests {
     use super::*;
 
-    fn get(namespace: &str, name:&str) -> Class {
-        if let ElementType::Class(value) = TypeReader::get()
-            .resolve_type(namespace, name) { value.clone() } else { unexpected!(); }
+    fn get(namespace: &str, name: &str) -> Class {
+        if let ElementType::Class(value) = TypeReader::get().resolve_type(namespace, name) {
+            value.clone()
+        } else {
+            unexpected!();
+        }
     }
 
     #[test]
     fn test_signature() {
         let c = get("Windows.Foundation", "Uri");
-        assert_eq!(c.signature(), "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})")
+        assert_eq!(
+            c.signature(),
+            "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
+        )
     }
 
     #[test]
@@ -104,9 +125,6 @@ mod tests {
         assert_eq!(bases[2].0.def.name(), "CompositionObject");
     }
 }
-
-
-
 
 // #[derive(Debug)]
 // pub struct Class {

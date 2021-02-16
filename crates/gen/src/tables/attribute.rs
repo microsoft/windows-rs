@@ -74,7 +74,7 @@ impl Attribute {
                     )
                 }
                 ElementType::Enum(def) => {
-                    let underlying_type = def.0.underlying_type();
+                    let underlying_type = def.underlying_type();
                     read_enum(&underlying_type, &mut values)
                 }
                 _ => unexpected!(),

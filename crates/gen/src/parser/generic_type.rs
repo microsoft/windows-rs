@@ -100,8 +100,6 @@ impl GenericType {
         }
     }
 
-
-
     fn format_name<F>(&self, gen: Gen, format_name: F) -> TokenStream
     where
         F: FnOnce(&str) -> Ident,
