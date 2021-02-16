@@ -147,14 +147,14 @@ mod tests {
     #[test]
     fn test_interfaces() {
         let reader = TypeReader::get();
-        let t: GenericType = reader
+        let t = reader
             .resolve_type("Windows.Foundation", "IAsyncOperation`1")
-            .into();
-        let i: Vec<GenericType> = t.interfaces().collect();
+            .as_interface();
+        let i: Vec<Interface> = t.0.interfaces().collect();
         assert_eq!(i.len(), 1);
 
         assert_eq!(
-            i[0].gen_name(Gen::Absolute).as_str(),
+            i[0].0.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: IAsyncInfo"
         );
     }
@@ -162,14 +162,14 @@ mod tests {
     #[test]
     fn test_generic_interfaces() {
         let reader = TypeReader::get();
-        let t: GenericType = reader
+        let t = reader
             .resolve_type("Windows.Foundation.Collections", "IMap`2")
-            .into();
-        let i: Vec<GenericType> = t.interfaces().collect();
+            .as_interface();
+        let i: Vec<Interface> = t.0.interfaces().collect();
         assert_eq!(i.len(), 1);
 
         assert_eq!(
-            i[0].gen_name(Gen::Absolute).as_str(),
+            i[0].0.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
         );
     }
@@ -177,66 +177,66 @@ mod tests {
     #[test]
     fn test_class() {
         let reader = TypeReader::get();
-        let t: GenericType = reader
+        let t = reader
             .resolve_type("Windows.Foundation.Collections", "StringMap")
-            .into();
-        let mut i: Vec<GenericType> = t.interfaces().collect();
+            .as_class();
+        let mut i: Vec<Interface> = t.0.interfaces().collect();
         assert_eq!(i.len(), 3);
 
         i.sort_by(|a, b| {
-            a.gen_name(Gen::Absolute)
+            a.0.gen_name(Gen::Absolute)
                 .as_str()
-                .cmp(b.gen_name(Gen::Absolute).as_str())
+                .cmp(b.0.gen_name(Gen::Absolute).as_str())
         });
 
         assert_eq!(
-            i[0].gen_name(Gen::Absolute).as_str(),
+            i[0].0.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < windows :: HString , windows :: HString > >"
         );
 
-        assert_eq!(i[0].is_default, false);
+        assert_eq!(i[0].0.is_default, false);
 
         assert_eq!(
-            i[1].gen_name(Gen::Absolute).as_str(),
+            i[1].0.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IMap :: < windows :: HString , windows :: HString >"
         );
 
-        assert_eq!(i[1].is_default, true);
+        assert_eq!(i[1].0.is_default, true);
 
         assert_eq!(
-            i[2].gen_name(Gen::Absolute).as_str(),
+            i[2].0.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IObservableMap :: < windows :: HString , windows :: HString >"
         );
 
-        assert_eq!(i[2].is_default, false);
+        assert_eq!(i[2].0.is_default, false);
     }
 
     #[test]
     fn test_bases() {
         let reader = TypeReader::get();
 
-        let t: GenericType = reader.resolve_type("Windows.Foundation", "Uri").into();
+        let t = reader.resolve_type("Windows.Foundation", "Uri").as_class();
         assert_eq!(t.bases().count(), 0);
 
-        let t: GenericType = reader
+        let t = reader
             .resolve_type("Windows.UI.Composition", "CompositionObject")
-            .into();
+            .as_class();
         assert_eq!(t.bases().count(), 0);
 
-        let t: GenericType = reader
+        let t = reader
             .resolve_type("Windows.UI.Composition", "Visual")
-            .into();
-        let bases: Vec<GenericType> = t.bases().collect();
+            .as_class();
+        let bases: Vec<Class> = t.bases().collect();
         assert_eq!(bases.len(), 1);
-        assert_eq!(bases[0].def.name(), "CompositionObject");
+        assert_eq!(bases[0].0.def.name(), "CompositionObject");
 
-        let t: GenericType = reader
+        let t = reader
             .resolve_type("Windows.UI.Composition", "SpriteVisual")
-            .into();
-        let bases: Vec<GenericType> = t.bases().collect();
+            .as_class();
+        let bases: Vec<Class> = t.bases().collect();
         assert_eq!(bases.len(), 3);
-        assert_eq!(bases[0].def.name(), "ContainerVisual");
-        assert_eq!(bases[1].def.name(), "Visual");
-        assert_eq!(bases[2].def.name(), "CompositionObject");
+        assert_eq!(bases[0].0.def.name(), "ContainerVisual");
+        assert_eq!(bases[1].0.def.name(), "Visual");
+        assert_eq!(bases[2].0.def.name(), "CompositionObject");
     }
 }

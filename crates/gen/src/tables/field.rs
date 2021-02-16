@@ -89,9 +89,9 @@ mod tests {
     fn test_generic() {
         let reader = TypeReader::get();
 
-        let t: GenericType = reader.resolve_type("Windows.Foundation", "Rect").into();
+        let t = reader.resolve_type("Windows.Foundation", "Rect").as_struct();
 
-        let f: Vec<Field> = t.def.fields().collect();
+        let f: Vec<Field> = t.0.fields().collect();
         assert_eq!(f.len(), 4);
 
         let s = f[0].signature();

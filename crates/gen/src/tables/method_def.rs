@@ -131,10 +131,10 @@ mod tests {
     #[test]
     fn test_method() {
         let reader = TypeReader::get();
-        let t: GenericType = reader
+        let t = reader
             .resolve_type("Windows.Foundation", "IStringable")
-            .into();
-        let m = t.def.methods().next().unwrap();
+            .as_interface();
+        let m = t.0.def.methods().next().unwrap();
         assert_eq!(m.name(), "ToString");
 
         let s = m.signature(&[]);
@@ -151,13 +151,13 @@ mod tests {
     #[test]
     fn test_generic() {
         let reader = TypeReader::get();
-        let t: GenericType = reader
+        let t = reader
             .resolve_type("Windows.Foundation.Collections", "IMap`2")
-            .into();
-        let m = t.def.methods().find(|m| m.name() == "Lookup").unwrap();
+            .as_interface();
+        let m = t.0.def.methods().find(|m| m.name() == "Lookup").unwrap();
         assert_eq!(m.name(), "Lookup");
 
-        let s = m.signature(&t.generics);
+        let s = m.signature(&t.0.generics);
         assert_eq!(s.params.len(), 1);
 
         let r = s.return_type.unwrap();

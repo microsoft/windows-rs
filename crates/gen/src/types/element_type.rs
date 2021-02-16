@@ -227,21 +227,6 @@ impl ElementType {
         }
     }
 
-    // pub fn namespace(&self) -> &'static str {
-    //     match self {
-    //         Self::Function(t) => t.namespace(),
-    //         Self::Constant(t) => t.namespace(),
-    //         Self::Class(t) => t.0.def.namespace(),
-    //         Self::Interface(t) => t.0.def.namespace(),
-    //         Self::ComInterface(t) => t.0.namespace(),
-    //         Self::Enum(t) => t.0.namespace(),
-    //         Self::Struct(t) => t.0.namespace(),
-    //         Self::Delegate(t) => t.0.def.namespace(),
-    //         Self::Callback(t) => t.0.namespace(),
-    //         _ => unexpected!(),
-    //     }    
-    // }
-
     pub fn dependencies(&self) -> Vec<TypeDef> {
         match self {
             Self::Function(t) => t.dependencies(),
@@ -269,6 +254,21 @@ impl ElementType {
             Self::Callback(t) => t.gen(gen),
             _ => unexpected!(),
         }
+    }
+
+    #[cfg(test)]
+    pub fn as_struct(&self) -> Struct {
+        if let Self::Struct(value) = self { value.clone() } else { unexpected!(); }
+    }
+
+    #[cfg(test)]
+    pub fn as_interface(&self) -> Interface {
+        if let Self::Interface(value) = self { value.clone() } else { unexpected!(); }
+    }
+
+    #[cfg(test)]
+    pub fn as_class(&self) -> Class {
+        if let Self::Class(value) = self { value.clone() } else { unexpected!(); }
     }
 }
 
