@@ -1,9 +1,19 @@
 use super::*;
 
-// TODO: replace GuidConstant with ConstantValue
-
-#[derive(Clone, PartialEq)]
-pub struct Guid(pub [GuidConstant; 11]);
+#[derive(Clone, PartialEq, Default)]
+pub struct Guid (
+     u32,
+     u16,
+     u16,
+     u8,
+     u8,
+     u8,
+     u8,
+     u8,
+     u8,
+     u8,
+     u8,
+);
 
 impl Guid {
     pub fn from_type_def(def: &TypeDef) -> Self {
@@ -12,78 +22,77 @@ impl Guid {
                 ("Windows.Foundation.Metadata", "GuidAttribute") => {
                     let args = attribute.args();
 
-                    return Self([
-                        GuidConstant::from_arg(&args[0].1),
-                        GuidConstant::from_arg(&args[1].1),
-                        GuidConstant::from_arg(&args[2].1),
-                        GuidConstant::from_arg(&args[3].1),
-                        GuidConstant::from_arg(&args[4].1),
-                        GuidConstant::from_arg(&args[5].1),
-                        GuidConstant::from_arg(&args[6].1),
-                        GuidConstant::from_arg(&args[7].1),
-                        GuidConstant::from_arg(&args[8].1),
-                        GuidConstant::from_arg(&args[9].1),
-                        GuidConstant::from_arg(&args[10].1),
-                    ]);
+                    return Self(
+                        args[0].1.unwrap_u32(),
+                        args[1].1.unwrap_u16(),
+                        args[2].1.unwrap_u16(),
+                        args[3].1.unwrap_u8(),
+                        args[4].1.unwrap_u8(),
+                        args[5].1.unwrap_u8(),
+                        args[6].1.unwrap_u8(),
+                        args[7].1.unwrap_u8(),
+                        args[8].1.unwrap_u8(),
+                        args[9].1.unwrap_u8(),
+                        args[10].1.unwrap_u8(),
+                    );
                 }
                 ("System.Runtime.InteropServices", "GuidAttribute") => {
                     let args = attribute.args();
+                    let value = args[0].1.unwrap_string();
 
-                    if let ConstantValue::String(guid) = &args[0].1 {
-                        let guid = GuidAttribute::new(&guid);
+                    assert!(value.len() == 36, "Invalid GUID string");
+                    let mut bytes = value.bytes();
+            
+                    let a = ((bytes.next_u32() * 16 + bytes.next_u32()) << 24)
+                        + ((bytes.next_u32() * 16 + bytes.next_u32()) << 16)
+                        + ((bytes.next_u32() * 16 + bytes.next_u32()) << 8)
+                        + bytes.next_u32() * 16
+                        + bytes.next_u32();
+                    assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+                    let b = ((bytes.next_u16() * 16 + (bytes.next_u16())) << 8)
+                        + bytes.next_u16() * 16
+                        + bytes.next_u16();
+                    assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+                    let c = ((bytes.next_u16() * 16 + bytes.next_u16()) << 8)
+                        + bytes.next_u16() * 16
+                        + bytes.next_u16();
+                    assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+                    let d = bytes.next_u8() * 16 + bytes.next_u8();
+                    let e = bytes.next_u8() * 16 + bytes.next_u8();
+                    assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+            
+                    let f = bytes.next_u8() * 16 + bytes.next_u8();
+                    let g = bytes.next_u8() * 16 + bytes.next_u8();
+                    let h = bytes.next_u8() * 16 + bytes.next_u8();
+                    let i = bytes.next_u8() * 16 + bytes.next_u8();
+                    let j = bytes.next_u8() * 16 + bytes.next_u8();
+                    let k = bytes.next_u8() * 16 + bytes.next_u8();
 
-                        return Self([
-                            GuidConstant::U32(guid.a),
-                            GuidConstant::U16(guid.b),
-                            GuidConstant::U16(guid.c),
-                            GuidConstant::U8(guid.d),
-                            GuidConstant::U8(guid.e),
-                            GuidConstant::U8(guid.f),
-                            GuidConstant::U8(guid.g),
-                            GuidConstant::U8(guid.h),
-                            GuidConstant::U8(guid.i),
-                            GuidConstant::U8(guid.j),
-                            GuidConstant::U8(guid.k),
-                        ]);
-                    }
+                    return Self(a,b,c,d,e,f,g,h,i,j,k);
                 }
                 _ => {}
             }
         }
 
-        Self::default()
+        unexpected!();
     }
 
     pub fn gen(&self) -> TokenStream {
-        let mut iter = self.0.iter().map(|value| match value {
-            GuidConstant::U32(value) => Literal::u32_unsuffixed(*value),
-            GuidConstant::U16(value) => Literal::u16_unsuffixed(*value),
-            GuidConstant::U8(value) => Literal::u8_unsuffixed(*value),
-        });
-
-        let three = iter.by_ref().take(3);
+        let a = Literal::u32_unsuffixed(self.0);
+        let b = Literal::u16_unsuffixed(self.1);
+        let c = Literal::u16_unsuffixed(self.2);
+        let d = Literal::u8_unsuffixed(self.3);
+        let e = Literal::u8_unsuffixed(self.4);
+        let f = Literal::u8_unsuffixed(self.5);
+        let g = Literal::u8_unsuffixed(self.6);
+        let h = Literal::u8_unsuffixed(self.7);
+        let i = Literal::u8_unsuffixed(self.8);
+        let j = Literal::u8_unsuffixed(self.9);
+        let k = Literal::u8_unsuffixed(self.10);
 
         quote! {
-            #(#three,)* [#(#iter),*],
+            #a, #b, #c, [#d, #e, #f, #g, #h, #i, #j, #k],
         }
-    }
-}
-
-impl Default for Guid {
-    fn default() -> Self {
-        return Self([
-            GuidConstant::U32(0),
-            GuidConstant::U16(0),
-            GuidConstant::U16(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-            GuidConstant::U8(0),
-        ]);
     }
 }
 
@@ -91,112 +100,18 @@ impl std::fmt::Debug for Guid {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
-            "{:?}-{:?}-{:?}-{:?}{:?}-{:?}{:?}{:?}{:?}{:?}{:?}",
-            self.0[0],
-            self.0[1],
-            self.0[2],
-            self.0[3],
-            self.0[4],
-            self.0[5],
-            self.0[6],
-            self.0[7],
-            self.0[8],
-            self.0[9],
-            self.0[10]
+            "{:08x?}-{:04x?}-{:04x?}-{:02x?}{:02x?}-{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}",
+            self.0,
+            self.1,
+            self.2,
+            self.3,
+            self.4,
+            self.5,
+            self.6,
+            self.7,
+            self.8,
+            self.9,
+            self.10,
         )
-    }
-}
-
-#[derive(Clone, PartialEq)]
-pub enum GuidConstant {
-    U32(u32),
-    U16(u16),
-    U8(u8),
-}
-
-impl std::fmt::Debug for GuidConstant {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            Self::U32(value) => write!(f, "{:08x?}", value),
-            Self::U16(value) => write!(f, "{:04x?}", value),
-            Self::U8(value) => write!(f, "{:02x?}", value),
-        }
-    }
-}
-
-impl GuidConstant {
-    fn from_arg(arg: &ConstantValue) -> GuidConstant {
-        match *arg {
-            ConstantValue::U32(value) => GuidConstant::U32(value),
-            ConstantValue::U16(value) => GuidConstant::U16(value),
-            ConstantValue::U8(value) => GuidConstant::U8(value),
-            _ => unexpected!(),
-        }
-    }
-}
-
-impl Default for GuidConstant {
-    fn default() -> Self {
-        Self::U8(0)
-    }
-}
-
-struct GuidAttribute {
-    a: u32,
-    b: u16,
-    c: u16,
-    d: u8,
-    e: u8,
-    f: u8,
-    g: u8,
-    h: u8,
-    i: u8,
-    j: u8,
-    k: u8,
-}
-
-impl GuidAttribute {
-    fn new(value: &str) -> Self {
-        assert!(value.len() == 36, "Invalid GUID string");
-        let mut bytes = value.bytes();
-
-        let a = ((bytes.next_u32() * 16 + bytes.next_u32()) << 24)
-            + ((bytes.next_u32() * 16 + bytes.next_u32()) << 16)
-            + ((bytes.next_u32() * 16 + bytes.next_u32()) << 8)
-            + bytes.next_u32() * 16
-            + bytes.next_u32();
-        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-        let b = ((bytes.next_u16() * 16 + (bytes.next_u16())) << 8)
-            + bytes.next_u16() * 16
-            + bytes.next_u16();
-        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-        let c = ((bytes.next_u16() * 16 + bytes.next_u16()) << 8)
-            + bytes.next_u16() * 16
-            + bytes.next_u16();
-        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-        let d = bytes.next_u8() * 16 + bytes.next_u8();
-        let e = bytes.next_u8() * 16 + bytes.next_u8();
-        assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-
-        let f = bytes.next_u8() * 16 + bytes.next_u8();
-        let g = bytes.next_u8() * 16 + bytes.next_u8();
-        let h = bytes.next_u8() * 16 + bytes.next_u8();
-        let i = bytes.next_u8() * 16 + bytes.next_u8();
-        let j = bytes.next_u8() * 16 + bytes.next_u8();
-        let k = bytes.next_u8() * 16 + bytes.next_u8();
-
-        Self {
-            a,
-            b,
-            c,
-            d,
-            e,
-            f,
-            g,
-            h,
-            i,
-            j,
-            k,
-        }
     }
 }
