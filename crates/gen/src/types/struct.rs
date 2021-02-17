@@ -54,7 +54,13 @@ mod tests {
         assert_eq!(f[2].signature().kind, ElementType::U32);
         assert_eq!(f[3].signature().kind, ElementType::I64);
         assert_eq!(f[4].signature().kind, ElementType::I64);
-        assert_eq!(f[5].signature().kind, ElementType::Enum(TypeReader::get_enum("Windows.Win32.Dxgi", "DXGI_FRAME_PRESENTATION_MODE")));
+        assert_eq!(
+            f[5].signature().kind,
+            ElementType::Enum(TypeReader::get_enum(
+                "Windows.Win32.Dxgi",
+                "DXGI_FRAME_PRESENTATION_MODE"
+            ))
+        );
         assert_eq!(f[6].signature().kind, ElementType::U32);
     }
 
@@ -72,7 +78,6 @@ mod tests {
         assert_eq!(deps[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
     }
 }
-
 
 // #[derive(Debug)]
 // pub struct Struct {

@@ -64,10 +64,11 @@ impl GenericType {
                     }
 
                     Self {
-                    def: def.resolve(),
-                    generics: Vec::new(),
-                    is_default,
-                }}
+                        def: def.resolve(),
+                        generics: Vec::new(),
+                        is_default,
+                    }
+                }
                 TypeDefOrRef::TypeSpec(def) => {
                     let mut blob = def.blob();
                     blob.read_unsigned();

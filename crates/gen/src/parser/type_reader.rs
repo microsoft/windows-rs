@@ -419,8 +419,7 @@ impl TypeReader {
 
     #[cfg(test)]
     pub fn get_interface(namespace: &str, name: &str) -> types::Interface {
-        if let ElementType::Interface(value) = Self::get().resolve_type(namespace, name)
-        {
+        if let ElementType::Interface(value) = Self::get().resolve_type(namespace, name) {
             value.clone()
         } else {
             unexpected!();

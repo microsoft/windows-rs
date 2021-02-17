@@ -10,4 +10,3 @@ impl FieldFlags {
         self.0 & 0b1_0000 != 0
     }
 }
-

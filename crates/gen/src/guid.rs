@@ -1,19 +1,7 @@
 use super::*;
 
 #[derive(Clone, PartialEq, Default)]
-pub struct Guid (
-     u32,
-     u16,
-     u16,
-     u8,
-     u8,
-     u8,
-     u8,
-     u8,
-     u8,
-     u8,
-     u8,
-);
+pub struct Guid(u32, u16, u16, u8, u8, u8, u8, u8, u8, u8, u8);
 
 impl Guid {
     pub fn from_type_def(def: &tables::TypeDef) -> Self {
@@ -42,7 +30,7 @@ impl Guid {
 
                     assert!(value.len() == 36, "Invalid GUID string");
                     let mut bytes = value.bytes();
-            
+
                     let a = ((bytes.next_u32() * 16 + bytes.next_u32()) << 24)
                         + ((bytes.next_u32() * 16 + bytes.next_u32()) << 16)
                         + ((bytes.next_u32() * 16 + bytes.next_u32()) << 8)
@@ -60,7 +48,7 @@ impl Guid {
                     let d = bytes.next_u8() * 16 + bytes.next_u8();
                     let e = bytes.next_u8() * 16 + bytes.next_u8();
                     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-            
+
                     let f = bytes.next_u8() * 16 + bytes.next_u8();
                     let g = bytes.next_u8() * 16 + bytes.next_u8();
                     let h = bytes.next_u8() * 16 + bytes.next_u8();
@@ -68,7 +56,7 @@ impl Guid {
                     let j = bytes.next_u8() * 16 + bytes.next_u8();
                     let k = bytes.next_u8() * 16 + bytes.next_u8();
 
-                    return Self(a,b,c,d,e,f,g,h,i,j,k);
+                    return Self(a, b, c, d, e, f, g, h, i, j, k);
                 }
                 _ => {}
             }
@@ -101,17 +89,7 @@ impl std::fmt::Debug for Guid {
         write!(
             f,
             "{:08x?}-{:04x?}-{:04x?}-{:02x?}{:02x?}-{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}",
-            self.0,
-            self.1,
-            self.2,
-            self.3,
-            self.4,
-            self.5,
-            self.6,
-            self.7,
-            self.8,
-            self.9,
-            self.10,
+            self.0, self.1, self.2, self.3, self.4, self.5, self.6, self.7, self.8, self.9, self.10,
         )
     }
 }

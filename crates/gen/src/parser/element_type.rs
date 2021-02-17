@@ -115,10 +115,14 @@ impl ElementType {
                 if def.is_winrt() {
                     Self::Interface(types::Interface(GenericType::from_type_def(def, generics)))
                 } else {
-                    Self::ComInterface(types::ComInterface(GenericType::from_type_def(def, generics)))
+                    Self::ComInterface(types::ComInterface(GenericType::from_type_def(
+                        def, generics,
+                    )))
                 }
             }
-            TypeCategory::Class => Self::Class(types::Class(GenericType::from_type_def(def, generics))),
+            TypeCategory::Class => {
+                Self::Class(types::Class(GenericType::from_type_def(def, generics)))
+            }
             TypeCategory::Enum => Self::Enum(types::Enum(def)),
             TypeCategory::Struct => Self::Struct(types::Struct(def)),
             TypeCategory::Delegate => {
