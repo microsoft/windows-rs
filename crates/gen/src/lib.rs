@@ -11,6 +11,8 @@ mod to_ident;
 mod to_snake;
 mod types;
 mod workspace;
+mod type_tree;
+mod type_limits;
 
 pub use gen::*;
 pub use guid::*;
@@ -20,6 +22,8 @@ pub use to_ident::*;
 pub use to_snake::*;
 pub use types::*;
 pub use workspace::*;
+pub use type_tree::*;
+pub use type_limits::*;
 
 // Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
 #[macro_export]
