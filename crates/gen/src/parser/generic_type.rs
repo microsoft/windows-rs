@@ -48,11 +48,11 @@ impl GenericType {
     }
 
     // TODO: return a pair of (GenericType, bool) to carry the "is_default" outside of GenericType
-    pub fn interfaces(&self) -> impl Iterator<Item = Interface> + '_ {
+    pub fn interfaces(&self) -> impl Iterator<Item = types::Interface> + '_ {
         self.def.interfaces().filter_map(move |i| {
             let is_default = i.is_default();
 
-            Some(Interface(match i.interface() {
+            Some(types::Interface(match i.interface() {
                 TypeDefOrRef::TypeDef(def) => Self {
                     def,
                     generics: Vec::new(),

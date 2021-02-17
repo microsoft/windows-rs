@@ -111,17 +111,7 @@ impl MethodDef {
 mod tests {
     use super::*;
 
-    fn get_interface(namespace: &str, interface_name: &str) -> Interface {
-        if let ElementType::Interface(value) =
-            TypeReader::get().resolve_type(namespace, interface_name)
-        {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
-    fn get_method(interface: &Interface, method: &str) -> MethodDef {
+    fn get_method(interface: &types::Interface, method: &str) -> MethodDef {
         interface
             .0
             .def
@@ -132,7 +122,7 @@ mod tests {
 
     #[test]
     fn test_method() {
-        let i = get_interface("Windows.Foundation", "IStringable");
+        let i = TypeReader::get_interface("Windows.Foundation", "IStringable");
         let m = get_method(&i, "ToString");
         assert_eq!(m.name(), "ToString");
 
@@ -149,7 +139,7 @@ mod tests {
 
     #[test]
     fn test_generic() {
-        let i = get_interface("Windows.Foundation.Collections", "IMap`2");
+        let i = TypeReader::get_interface("Windows.Foundation.Collections", "IMap`2");
         let m = get_method(&i, "Lookup");
 
         let s = m.signature(&i.0.generics);

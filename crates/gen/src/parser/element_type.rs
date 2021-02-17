@@ -29,15 +29,15 @@ pub enum ElementType {
     TypeName,
     GenericParam(tables::GenericParam),
 
-    Function(Function),
-    Constant(tables::Field), // TODO: add Constant type
-    Class(Class),
-    Interface(Interface),
-    ComInterface(ComInterface),
-    Enum(Enum),
-    Struct(Struct),
-    Delegate(Delegate),
-    Callback(Callback),
+    Function(types::Function),
+    Constant(tables::Field), // TODO: should be types::Constant
+    Class(types::Class),
+    Interface(types::Interface),
+    ComInterface(types::ComInterface),
+    Enum(types::Enum),
+    Struct(types::Struct),
+    Delegate(types::Delegate),
+    Callback(types::Callback),
 }
 
 impl ElementType {
@@ -100,8 +100,8 @@ impl ElementType {
             0x15 => {
                 let def = GenericType::from_blob(blob, generics);
                 match def.def.category() {
-                    TypeCategory::Interface => Self::Interface(Interface(def)),
-                    TypeCategory::Delegate => Self::Delegate(Delegate(def)),
+                    TypeCategory::Interface => Self::Interface(types::Interface(def)),
+                    TypeCategory::Delegate => Self::Delegate(types::Delegate(def)),
                     _ => unexpected!(),
                 }
             }
@@ -113,19 +113,19 @@ impl ElementType {
         match def.category() {
             TypeCategory::Interface => {
                 if def.is_winrt() {
-                    Self::Interface(Interface(GenericType::from_type_def(def, generics)))
+                    Self::Interface(types::Interface(GenericType::from_type_def(def, generics)))
                 } else {
-                    Self::ComInterface(ComInterface(GenericType::from_type_def(def, generics)))
+                    Self::ComInterface(types::ComInterface(GenericType::from_type_def(def, generics)))
                 }
             }
-            TypeCategory::Class => Self::Class(Class(GenericType::from_type_def(def, generics))),
-            TypeCategory::Enum => Self::Enum(Enum(def)),
-            TypeCategory::Struct => Self::Struct(Struct(def)),
+            TypeCategory::Class => Self::Class(types::Class(GenericType::from_type_def(def, generics))),
+            TypeCategory::Enum => Self::Enum(types::Enum(def)),
+            TypeCategory::Struct => Self::Struct(types::Struct(def)),
             TypeCategory::Delegate => {
                 if def.is_winrt() {
-                    Self::Delegate(Delegate(GenericType::from_type_def(def, generics)))
+                    Self::Delegate(types::Delegate(GenericType::from_type_def(def, generics)))
                 } else {
-                    Self::Callback(Callback(def))
+                    Self::Callback(types::Callback(def))
                 }
             }
             _ => unexpected!(),

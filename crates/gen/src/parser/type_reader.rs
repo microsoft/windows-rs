@@ -202,7 +202,7 @@ impl TypeReader {
 
                 ElementType::from_type_def(def, Vec::new())
             }
-            TypeRow::Function(row) => ElementType::Function(Function(tables::MethodDef {
+            TypeRow::Function(row) => ElementType::Function(types::Function(tables::MethodDef {
                 reader: self,
                 row: *row,
             })),
@@ -400,8 +400,8 @@ impl TypeReader {
     }
 
     #[cfg(test)]
-    pub fn get_struct(namespace: &str, name: &str) -> Struct {
-        if let ElementType::Struct(value) = TypeReader::get().resolve_type(namespace, name) {
+    pub fn get_struct(namespace: &str, name: &str) -> types::Struct {
+        if let ElementType::Struct(value) = Self::get().resolve_type(namespace, name) {
             value.clone()
         } else {
             unexpected!();
@@ -409,8 +409,18 @@ impl TypeReader {
     }
 
     #[cfg(test)]
-    pub fn get_enum(namespace: &str, name: &str) -> Enum {
-        if let ElementType::Enum(value) = TypeReader::get().resolve_type(namespace, name) {
+    pub fn get_enum(namespace: &str, name: &str) -> types::Enum {
+        if let ElementType::Enum(value) = Self::get().resolve_type(namespace, name) {
+            value.clone()
+        } else {
+            unexpected!();
+        }
+    }
+
+    #[cfg(test)]
+    pub fn get_interface(namespace: &str, name: &str) -> types::Interface {
+        if let ElementType::Interface(value) = Self::get().resolve_type(namespace, name)
+        {
             value.clone()
         } else {
             unexpected!();

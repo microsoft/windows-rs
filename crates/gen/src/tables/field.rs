@@ -72,17 +72,9 @@ impl Field {
 mod tests {
     use super::*;
 
-    fn get(namespace: &str, name: &str) -> Struct {
-        if let ElementType::Struct(value) = TypeReader::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
     #[test]
     fn test_generic() {
-        let r = get("Windows.Foundation", "Rect");
+        let r = TypeReader::get_struct("Windows.Foundation", "Rect");
 
         let f: Vec<Field> = r.0.fields().collect();
         assert_eq!(f.len(), 4);
