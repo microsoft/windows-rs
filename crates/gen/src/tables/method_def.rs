@@ -1,26 +1,9 @@
 use super::*;
 macros::table!(MethodDef);
 
-pub struct MethodDefFlags(pub u32);
-
-impl MethodDefFlags {
-    pub fn special(&self) -> bool {
-        self.0 & 0b1000_0000_0000 != 0
-    }
-}
-
-#[derive(Copy, Clone, PartialEq)]
-pub enum MethodCategory {
-    Normal,
-    Get,
-    Set,
-    Add,
-    Remove,
-}
-
 impl MethodDef {
-    pub fn flags(&self) -> MethodDefFlags {
-        MethodDefFlags(self.reader.u32(self.row, 2))
+    pub fn flags(&self) -> MethodFlags {
+        MethodFlags(self.reader.u32(self.row, 2))
     }
 
     pub fn params(&self) -> impl Iterator<Item = Param> + '_ {

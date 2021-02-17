@@ -1,31 +1,6 @@
 use super::*;
 macros::table!(TypeDef);
 
-pub struct TypeFlags(pub u32);
-
-impl TypeFlags {
-    pub fn windows_runtime(&self) -> bool {
-        self.0 & 0b100_0000_0000_0000 != 0
-    }
-    pub fn interface(&self) -> bool {
-        self.0 & 0b10_0000 != 0
-    }
-    pub fn explicit(&self) -> bool {
-        self.0 & 0b1_0000 != 0
-    }
-}
-
-#[derive(PartialEq)]
-pub enum TypeCategory {
-    Interface,
-    Class,
-    Enum,
-    Struct,
-    Delegate,
-    Attribute,
-    Contract,
-}
-
 impl TypeDef {
     pub fn flags(&self) -> TypeFlags {
         TypeFlags(self.reader.u32(self.row, 0))
