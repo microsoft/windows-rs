@@ -8,6 +8,7 @@ mod r#enum;
 mod function;
 mod interface;
 mod r#struct;
+mod constant;
 
 pub use callback::*;
 pub use class::*;
@@ -17,3 +18,4 @@ pub use function::*;
 pub use interface::*;
 pub use r#enum::*;
 pub use r#struct::*;
+pub use constant::*;

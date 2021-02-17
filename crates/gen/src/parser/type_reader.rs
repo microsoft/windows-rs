@@ -206,10 +206,10 @@ impl TypeReader {
                 reader: self,
                 row: *row,
             })),
-            TypeRow::Constant(row) => ElementType::Constant(tables::Field {
+            TypeRow::Constant(row) => ElementType::Constant(types::Constant(tables::Field {
                 reader: self,
                 row: *row,
-            }),
+            })),
         }
     }
 

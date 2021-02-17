@@ -30,7 +30,7 @@ pub enum ElementType {
     GenericParam(tables::GenericParam),
 
     Function(types::Function),
-    Constant(tables::Field), // TODO: should be types::Constant
+    Constant(types::Constant),
     Class(types::Class),
     Interface(types::Interface),
     ComInterface(types::ComInterface),

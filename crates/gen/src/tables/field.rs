@@ -40,32 +40,6 @@ impl Field {
     pub fn dependencies(&self) -> Vec<TypeDef> {
         self.signature().dependencies()
     }
-
-    pub fn gen_name(&self) -> TokenStream {
-        let name = format_ident!("{}", self.name());
-        quote! { #name }
-    }
-
-    pub fn gen(&self, _: Gen) -> TokenStream {
-        let name = self.name();
-
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/90
-        if name == "NaN" || name == "POSITIVE_INFINITY" || name == "NEGATIVE_INFINITY" {
-            return quote! {};
-        }
-
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/88
-        if self.constant().is_none() {
-            return quote! {};
-        }
-
-        let name = to_ident(name);
-        let value = self.constant().expect("Field").value().gen();
-
-        quote! {
-            pub const #name: #value;
-        }
-    }
 }
 
 #[cfg(test)]
