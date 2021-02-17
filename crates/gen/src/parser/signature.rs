@@ -42,7 +42,7 @@ impl Signature {
         })
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.kind.dependencies()
     }
 

@@ -76,11 +76,11 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         }
 
         variants.push(quote!(
-            #name(#name),
+            #name(tables::#name),
         ));
 
         decodes.push(quote!(
-            #enumerator => Self::#name( #name{ reader, row:Row::new(code.1, TableIndex::#table, file) }),
+            #enumerator => Self::#name( tables::#name{ reader, row:Row::new(code.1, TableIndex::#table, file) }),
         ));
 
         encodes.push(quote!(

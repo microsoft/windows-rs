@@ -90,7 +90,7 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn resolve(&self) -> TypeDef {
+    pub fn resolve(&self) -> tables::TypeDef {
         match self {
             Self::TypeDef(value) => *value,
             Self::TypeRef(value) => value.resolve(),

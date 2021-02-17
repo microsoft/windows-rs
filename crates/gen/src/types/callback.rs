@@ -1,10 +1,10 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Callback(pub TypeDef);
+pub struct Callback(pub tables::TypeDef);
 
 impl Callback {
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0
             .methods()
             .filter_map(|m| {

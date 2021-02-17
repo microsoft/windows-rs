@@ -22,7 +22,7 @@ impl Interface {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0
             .def
             .methods()

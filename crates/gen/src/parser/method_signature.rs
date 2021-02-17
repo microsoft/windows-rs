@@ -8,12 +8,12 @@ pub struct MethodSignature {
 
 #[derive(Debug)]
 pub struct MethodParam {
-    pub param: Param,
+    pub param: tables::Param,
     pub signature: Signature,
 }
 
 impl MethodSignature {
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.return_type
             .iter()
             .flat_map(|s| s.dependencies())

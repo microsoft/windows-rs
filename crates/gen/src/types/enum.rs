@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Enum(pub TypeDef);
+pub struct Enum(pub tables::TypeDef);
 
 impl Enum {
     pub fn signature(&self) -> String {

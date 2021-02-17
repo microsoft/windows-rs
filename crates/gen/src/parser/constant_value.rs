@@ -14,7 +14,7 @@ pub enum ConstantValue {
     F32(f32),
     F64(f64),
     String(String),
-    TypeDef(TypeDef),
+    TypeDef(tables::TypeDef),
 }
 
 impl ConstantValue {

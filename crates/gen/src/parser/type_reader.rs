@@ -195,28 +195,28 @@ impl TypeReader {
     fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
         match row {
             TypeRow::TypeDef(row) => {
-                let def = TypeDef {
+                let def = tables::TypeDef {
                     reader: self,
                     row: *row,
                 };
 
                 ElementType::from_type_def(def, Vec::new())
             }
-            TypeRow::Function(row) => ElementType::Function(Function(MethodDef {
+            TypeRow::Function(row) => ElementType::Function(Function(tables::MethodDef {
                 reader: self,
                 row: *row,
             })),
-            TypeRow::Constant(row) => ElementType::Constant(Field {
+            TypeRow::Constant(row) => ElementType::Constant(tables::Field {
                 reader: self,
                 row: *row,
             }),
         }
     }
 
-    pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> TypeDef {
+    pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(TypeRow::TypeDef(row)) = types.get(name) {
-                return TypeDef {
+                return tables::TypeDef {
                     reader: self,
                     row: *row,
                 };

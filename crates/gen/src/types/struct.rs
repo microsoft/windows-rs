@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Struct(pub TypeDef);
+pub struct Struct(pub tables::TypeDef);
 
 impl Struct {
     pub fn signature(&self) -> String {
@@ -16,7 +16,7 @@ impl Struct {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0.fields().flat_map(|f| f.dependencies()).collect()
     }
 
@@ -38,7 +38,7 @@ mod tests {
     #[test]
     fn test_fields() {
         let t = TypeReader::get_struct("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
-        let f: Vec<Field> = t.0.fields().collect();
+        let f: Vec<tables::Field> = t.0.fields().collect();
         assert_eq!(f.len(), 7);
 
         assert_eq!(f[0].name(), "PresentCount");

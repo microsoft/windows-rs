@@ -4,7 +4,7 @@ use super::*;
 pub struct ComInterface(pub GenericType);
 
 impl ComInterface {
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0
             .def
             .methods()

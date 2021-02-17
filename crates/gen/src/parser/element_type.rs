@@ -27,10 +27,10 @@ pub enum ElementType {
     Bool32,
     Matrix3x2,
     TypeName,
-    GenericParam(GenericParam),
+    GenericParam(tables::GenericParam),
 
     Function(Function),
-    Constant(Field), // TODO: add Constant type
+    Constant(tables::Field), // TODO: add Constant type
     Class(Class),
     Interface(Interface),
     ComInterface(ComInterface),
@@ -109,7 +109,7 @@ impl ElementType {
         }
     }
 
-    pub fn from_type_def(def: TypeDef, generics: Vec<Self>) -> Self {
+    pub fn from_type_def(def: tables::TypeDef, generics: Vec<Self>) -> Self {
         match def.category() {
             TypeCategory::Interface => {
                 if def.is_winrt() {
@@ -235,7 +235,7 @@ impl ElementType {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         match self {
             Self::Function(t) => t.dependencies(),
             Self::Constant(t) => t.dependencies(),

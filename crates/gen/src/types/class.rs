@@ -35,7 +35,7 @@ impl Class {
             .map(|def| Self(GenericType::from_type_def(def, Vec::new())))
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0
             .interfaces()
             .map(|i| i.dependencies())

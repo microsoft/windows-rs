@@ -16,7 +16,7 @@ pub struct Guid (
 );
 
 impl Guid {
-    pub fn from_type_def(def: &TypeDef) -> Self {
+    pub fn from_type_def(def: &tables::TypeDef) -> Self {
         for attribute in def.attributes() {
             match attribute.full_name() {
                 ("Windows.Foundation.Metadata", "GuidAttribute") => {

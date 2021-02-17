@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct GenericType {
-    pub def: TypeDef,
+    pub def: tables::TypeDef,
     pub generics: Vec<ElementType>,
     pub is_default: bool, // TODO: this should not be stored here (since it doesn't apply to all uses of GenericType)
 }
@@ -26,7 +26,7 @@ impl GenericType {
         }
     }
 
-    pub fn from_type_def(def: TypeDef, generics: Vec<ElementType>) -> Self {
+    pub fn from_type_def(def: tables::TypeDef, generics: Vec<ElementType>) -> Self {
         if generics.is_empty() {
             let generics = def
                 .generics()

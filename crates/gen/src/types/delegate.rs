@@ -13,7 +13,7 @@ impl Delegate {
     }
 
     // TODO: lots of redundant code across all the types that have methods
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0
             .def
             .methods()

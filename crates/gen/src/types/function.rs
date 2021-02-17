@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Function(pub MethodDef);
+pub struct Function(pub tables::MethodDef);
 
 impl Function {
     pub fn gen_name(&self) -> TokenStream {
@@ -13,7 +13,7 @@ impl Function {
         quote! {}
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0.dependencies(&[])
     }
 }
