@@ -1,25 +1,6 @@
 use super::*;
 macros::table!(Attribute);
 
-// TODO: replace with ElementType
-#[derive(Debug)]
-pub enum AttributeArg {
-    Bool(bool),
-    Char(char),
-    I8(i8),
-    U8(u8),
-    I16(i16),
-    U16(u16),
-    I32(i32),
-    U32(u32),
-    I64(i64),
-    U64(u64),
-    F32(f32),
-    F64(f64),
-    String(String),
-    TypeDef(TypeDef),
-}
-
 impl Attribute {
     pub fn constructor(&self) -> AttributeType {
         self.reader.decode(self.row, 1)
@@ -33,7 +14,7 @@ impl Attribute {
         unexpected!();
     }
 
-    pub fn args(&self) -> Vec<(String, AttributeArg)> {
+    pub fn args(&self) -> Vec<(String, ConstantValue)> {
         let (mut sig, mut values) = match self.constructor() {
             AttributeType::MethodDef(method) => (
                 self.reader.blob(method.row, 4),
@@ -52,23 +33,23 @@ impl Attribute {
         let fixed_arg_count = sig.read_unsigned();
         let _ret_type = sig.read_unsigned();
 
-        let mut args: Vec<(String, AttributeArg)> = Vec::with_capacity(fixed_arg_count as usize);
+        let mut args: Vec<(String, ConstantValue)> = Vec::with_capacity(fixed_arg_count as usize);
 
         for _ in 0..fixed_arg_count {
             let arg = match ElementType::from_blob(&mut sig, &[]) {
-                ElementType::I8 => AttributeArg::I8(values.read_i8()),
-                ElementType::U8 => AttributeArg::U8(values.read_u8()),
-                ElementType::I16 => AttributeArg::I16(values.read_i16()),
-                ElementType::U16 => AttributeArg::U16(values.read_u16()),
-                ElementType::I32 => AttributeArg::I32(values.read_i32()),
-                ElementType::U32 => AttributeArg::U32(values.read_u32()),
-                ElementType::I64 => AttributeArg::I64(values.read_i64()),
-                ElementType::U64 => AttributeArg::U64(values.read_u64()),
-                ElementType::String => AttributeArg::String(values.read_str().to_string()),
+                ElementType::I8 => ConstantValue::I8(values.read_i8()),
+                ElementType::U8 => ConstantValue::U8(values.read_u8()),
+                ElementType::I16 => ConstantValue::I16(values.read_i16()),
+                ElementType::U16 => ConstantValue::U16(values.read_u16()),
+                ElementType::I32 => ConstantValue::I32(values.read_i32()),
+                ElementType::U32 => ConstantValue::U32(values.read_u32()),
+                ElementType::I64 => ConstantValue::I64(values.read_i64()),
+                ElementType::U64 => ConstantValue::U64(values.read_u64()),
+                ElementType::String => ConstantValue::String(values.read_str().to_string()),
                 ElementType::TypeName => {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
-                    AttributeArg::TypeDef(
+                    ConstantValue::TypeDef(
                         self.reader
                             .resolve_type_def(&name[0..index], &name[index + 1..]),
                     )
@@ -95,13 +76,13 @@ impl Attribute {
             let arg_type = values.read_u8();
             let name = values.read_str().to_string();
             let arg = match arg_type {
-                0x02 => AttributeArg::Bool(values.read_u8() != 0),
-                0x08 => AttributeArg::I32(values.read_i32()),
-                0x0E => AttributeArg::String(values.read_str().to_string()),
+                0x02 => ConstantValue::Bool(values.read_u8() != 0),
+                0x08 => ConstantValue::I32(values.read_i32()),
+                0x0E => ConstantValue::String(values.read_str().to_string()),
                 0x50 => {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
-                    AttributeArg::TypeDef(
+                    ConstantValue::TypeDef(
                         self.reader
                             .resolve_type_def(&name[0..index], &name[index + 1..]),
                     )
@@ -115,16 +96,16 @@ impl Attribute {
     }
 }
 
-fn read_enum(element_type: &ElementType, blob: &mut Blob) -> AttributeArg {
+fn read_enum(element_type: &ElementType, blob: &mut Blob) -> ConstantValue {
     match element_type {
-        ElementType::I8 => AttributeArg::I8(blob.read_i8()),
-        ElementType::U8 => AttributeArg::U8(blob.read_u8()),
-        ElementType::I16 => AttributeArg::I16(blob.read_i16()),
-        ElementType::U16 => AttributeArg::U16(blob.read_u16()),
-        ElementType::I32 => AttributeArg::I32(blob.read_i32()),
-        ElementType::U32 => AttributeArg::U32(blob.read_u32()),
-        ElementType::I64 => AttributeArg::I64(blob.read_i64()),
-        ElementType::U64 => AttributeArg::U64(blob.read_u64()),
+        ElementType::I8 => ConstantValue::I8(blob.read_i8()),
+        ElementType::U8 => ConstantValue::U8(blob.read_u8()),
+        ElementType::I16 => ConstantValue::I16(blob.read_i16()),
+        ElementType::U16 => ConstantValue::U16(blob.read_u16()),
+        ElementType::I32 => ConstantValue::I32(blob.read_i32()),
+        ElementType::U32 => ConstantValue::U32(blob.read_u32()),
+        ElementType::I64 => ConstantValue::I64(blob.read_i64()),
+        ElementType::U64 => ConstantValue::U64(blob.read_u64()),
         _ => unexpected!(),
     }
 }

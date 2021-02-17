@@ -398,6 +398,24 @@ impl TypeReader {
         }
         (first, last)
     }
+
+    #[cfg(test)]
+    pub fn get_struct(namespace: &str, name: &str) -> Struct {
+        if let ElementType::Struct(value) = TypeReader::get().resolve_type(namespace, name) {
+            value.clone()
+        } else {
+            unexpected!();
+        }
+    }
+
+    #[cfg(test)]
+    pub fn get_enum(namespace: &str, name: &str) -> Enum {
+        if let ElementType::Enum(value) = TypeReader::get().resolve_type(namespace, name) {
+            value.clone()
+        } else {
+            unexpected!();
+        }
+    }
 }
 
 fn winmd_paths() -> Vec<std::path::PathBuf> {

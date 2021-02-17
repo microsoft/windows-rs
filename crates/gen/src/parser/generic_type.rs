@@ -49,20 +49,25 @@ impl GenericType {
 
     // TODO: return a pair of (GenericType, bool) to carry the "is_default" outside of GenericType
     pub fn interfaces(&self) -> impl Iterator<Item = Interface> + '_ {
-        self.def.interfaces().map(move |i| {
+        self.def.interfaces().filter_map(move |i| {
             let is_default = i.is_default();
 
-            Interface(match i.interface() {
+            Some(Interface(match i.interface() {
                 TypeDefOrRef::TypeDef(def) => Self {
                     def,
                     generics: Vec::new(),
                     is_default,
                 },
-                TypeDefOrRef::TypeRef(def) => Self {
+                TypeDefOrRef::TypeRef(def) => {
+                    if def.full_name() == ("Windows.Win32.Com", "IUnknown") {
+                        return None;
+                    }
+
+                    Self {
                     def: def.resolve(),
                     generics: Vec::new(),
                     is_default,
-                },
+                }}
                 TypeDefOrRef::TypeSpec(def) => {
                     let mut blob = def.blob();
                     blob.read_unsigned();
@@ -70,7 +75,7 @@ impl GenericType {
                     interface.is_default = i.is_default();
                     interface
                 }
-            })
+            }))
         })
     }
 

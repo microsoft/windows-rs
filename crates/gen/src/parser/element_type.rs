@@ -30,7 +30,7 @@ pub enum ElementType {
     GenericParam(GenericParam),
 
     Function(Function),
-    Constant(Field),
+    Constant(Field), // TODO: add Constant type
     Class(Class),
     Interface(Interface),
     ComInterface(ComInterface),

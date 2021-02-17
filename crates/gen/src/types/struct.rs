@@ -25,6 +25,55 @@ impl Struct {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_signature() {
+        let t = TypeReader::get_struct("Windows.Foundation", "Point");
+        assert_eq!(t.signature(), "struct(Windows.Foundation.Point;f4;f4)");
+    }
+
+    #[test]
+    fn test_fields() {
+        let t = TypeReader::get_struct("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let f: Vec<Field> = t.0.fields().collect();
+        assert_eq!(f.len(), 7);
+
+        assert_eq!(f[0].name(), "PresentCount");
+        assert_eq!(f[1].name(), "PresentRefreshCount");
+        assert_eq!(f[2].name(), "SyncRefreshCount");
+        assert_eq!(f[3].name(), "SyncQPCTime");
+        assert_eq!(f[4].name(), "SyncGPUTime");
+        assert_eq!(f[5].name(), "CompositionMode");
+        assert_eq!(f[6].name(), "ApprovedPresentDuration");
+
+        assert_eq!(f[0].signature().kind, ElementType::U32);
+        assert_eq!(f[1].signature().kind, ElementType::U32);
+        assert_eq!(f[2].signature().kind, ElementType::U32);
+        assert_eq!(f[3].signature().kind, ElementType::I64);
+        assert_eq!(f[4].signature().kind, ElementType::I64);
+        assert_eq!(f[5].signature().kind, ElementType::Enum(TypeReader::get_enum("Windows.Win32.Dxgi", "DXGI_FRAME_PRESENTATION_MODE")));
+        assert_eq!(f[6].signature().kind, ElementType::U32);
+    }
+
+    #[test]
+    fn test_dependencies() {
+        let t = TypeReader::get_struct("Windows.Foundation", "Point");
+        assert_eq!(t.dependencies().len(), 0);
+
+        let t = TypeReader::get_struct("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS");
+        assert_eq!(t.dependencies().len(), 0);
+
+        let t = TypeReader::get_struct("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let deps = t.dependencies();
+        assert_eq!(deps.len(), 1);
+        assert_eq!(deps[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
+    }
+}
+
+
 // #[derive(Debug)]
 // pub struct Struct {
 //     pub name: TypeName,

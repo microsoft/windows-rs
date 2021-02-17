@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: replace GuidConstant with ConstantValue
+
 #[derive(Clone, PartialEq)]
 pub struct Guid(pub [GuidConstant; 11]);
 
@@ -27,7 +29,7 @@ impl Guid {
                 ("System.Runtime.InteropServices", "GuidAttribute") => {
                     let args = attribute.args();
 
-                    if let AttributeArg::String(guid) = &args[0].1 {
+                    if let ConstantValue::String(guid) = &args[0].1 {
                         let guid = GuidAttribute::new(&guid);
 
                         return Self([
@@ -123,11 +125,11 @@ impl std::fmt::Debug for GuidConstant {
 }
 
 impl GuidConstant {
-    fn from_arg(arg: &AttributeArg) -> GuidConstant {
+    fn from_arg(arg: &ConstantValue) -> GuidConstant {
         match *arg {
-            AttributeArg::U32(value) => GuidConstant::U32(value),
-            AttributeArg::U16(value) => GuidConstant::U16(value),
-            AttributeArg::U8(value) => GuidConstant::U8(value),
+            ConstantValue::U32(value) => GuidConstant::U32(value),
+            ConstantValue::U16(value) => GuidConstant::U16(value),
+            ConstantValue::U8(value) => GuidConstant::U8(value),
             _ => unexpected!(),
         }
     }

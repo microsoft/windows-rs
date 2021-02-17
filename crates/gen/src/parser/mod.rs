@@ -11,6 +11,7 @@ mod traits;
 mod type_limits;
 mod type_reader;
 mod type_tree;
+mod element_type;
 
 pub use blob::*;
 pub use codes::*;
@@ -23,3 +24,4 @@ pub use traits::*;
 pub use type_limits::*;
 pub use type_reader::*;
 pub use type_tree::*;
+pub use element_type::*;

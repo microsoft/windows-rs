@@ -40,8 +40,6 @@ impl Enum {
 
     pub fn gen(&self, gen: Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
-        // debug_assert_eq!(gen, Gen::Relative("Windows.Win32.FileSystem"));
-
         let underlying_type = self.underlying_type();
 
         let bitwise = match underlying_type {

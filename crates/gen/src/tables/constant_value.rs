@@ -2,6 +2,7 @@ use super::*;
 
 #[derive(Debug)]
 pub enum ConstantValue {
+    Bool(bool),
     U8(u8),
     I8(i8),
     U16(u16),
@@ -13,11 +14,13 @@ pub enum ConstantValue {
     F32(f32),
     F64(f64),
     String(String),
+    TypeDef(TypeDef),
 }
 
 impl ConstantValue {
     pub fn gen(&self) -> TokenStream {
         match self {
+            ConstantValue::Bool(value) => quote! { bool = #value },
             ConstantValue::U8(value) => quote! { u8 = #value },
             ConstantValue::I8(value) => quote! { i8 = #value },
             ConstantValue::U16(value) => quote! { u16 = #value },
@@ -29,11 +32,13 @@ impl ConstantValue {
             ConstantValue::F32(value) => quote! { f32 = #value },
             ConstantValue::F64(value) => quote! { f64 = #value },
             ConstantValue::String(value) => quote! { &'static str = #value },
+            _ => unexpected!(),
         }
     }
 
     pub fn gen_value(&self) -> TokenStream {
         match self {
+            ConstantValue::Bool(value) => quote! { #value },
             ConstantValue::U8(value) => quote! { #value },
             ConstantValue::I8(value) => quote! { #value },
             ConstantValue::U16(value) => quote! { #value },
@@ -45,6 +50,7 @@ impl ConstantValue {
             ConstantValue::F32(value) => quote! { #value },
             ConstantValue::F64(value) => quote! { #value },
             ConstantValue::String(value) => quote! { #value },
+            _ => unexpected!(),
         }
     }
 
