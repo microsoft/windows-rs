@@ -4,6 +4,10 @@ use super::*;
 pub struct Enum(pub tables::TypeDef);
 
 impl Enum {
+    pub fn definition(&self) -> Option<tables::TypeDef> {
+        Some(self.0)
+    }
+
     pub fn signature(&self) -> String {
         let underlying_type = match self.underlying_type() {
             ElementType::I32 => "i4",

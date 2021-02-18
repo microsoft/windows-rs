@@ -260,6 +260,7 @@ impl ElementType {
             Self::Struct(t) => t.definition(),
             Self::Delegate(t) => t.definition(),
             Self::Callback(t) => t.definition(),
+            Self::Enum(t) => t.definition(),
             _ => None,
         }
     }
@@ -287,5 +288,20 @@ mod tests {
     #[test]
     fn test_bool() {
         assert_eq!(ElementType::Bool.gen_name(Gen::Absolute).as_str(), "bool");
+    }
+
+    #[test]
+    fn test_definition() {
+        let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "DXGI_FRAME_STATISTICS_MEDIA");
+    }
+
+    #[test]
+    fn test_dependencies() {
+        let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let d = t.dependencies();
+        assert_eq!(d.len(), 1);
+        assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
     }
 }
