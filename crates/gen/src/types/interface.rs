@@ -33,7 +33,11 @@ impl Interface {
     }
 
     pub fn definition(&self) -> Option<tables::TypeDef> {
-        Some(self.0.def)
+        if self.0.generics.is_empty() {
+            Some(self.0.def)
+        } else {
+            None
+        }
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {

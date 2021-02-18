@@ -47,7 +47,7 @@ impl GenericType {
         }
     }
 
-    // TODO: return a pair of (GenericType, bool) to carry the "is_default" outside of GenericType
+    // TODO: return a pair of (GenericType, InterfaceKind) to carry the "is_default" outside of GenericType
     pub fn interfaces(&self) -> impl Iterator<Item = types::Interface> + '_ {
         self.def.interfaces().filter_map(move |i| {
             let is_default = i.is_default();

@@ -298,12 +298,13 @@ mod tests {
 
         let d = t.dependencies();
         assert_eq!(d.len(), 1);
-        assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");    
+        assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
     }
 
     #[test]
     fn test_enum() {
-        let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
+        let t =
+            TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
         let d = t.definition().unwrap();
         assert_eq!(d.name(), "DXGI_FRAME_PRESENTATION_MODE");
 
@@ -399,5 +400,28 @@ mod tests {
 
         assert_eq!(d[0].name(), "HWND");
         assert_eq!(d[1].name(), "LPARAM");
+    }
+
+    #[test]
+    fn test_winrt_class() {
+        let t = TypeReader::get().resolve_type("Windows.Foundation.Collections", "StringMap");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "StringMap");
+
+        let d = t.dependencies();
+        assert_eq!(d.len(), 0);
+    }
+
+    #[test]
+    fn test_winrt_class2() {
+        let t = TypeReader::get().resolve_type("Windows.Foundation", "WwwFormUrlDecoder");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "WwwFormUrlDecoder");
+
+        let d = t.dependencies();
+        assert_eq!(d.len(), 2);
+
+        assert_eq!(d[0].name(), "IWwwFormUrlDecoderRuntimeClass");
+        assert_eq!(d[1].name(), "IWwwFormUrlDecoderRuntimeClassFactory");
     }
 }
