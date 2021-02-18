@@ -10,6 +10,8 @@ The Rust language projection follows in the tradition established by [C++/WinRT]
 
 ## Getting started
 
+Watch the [getting started video](https://youtu.be/LajquCjHXK4)!
+
 Start by adding the following to your Cargo.toml file:
 
 ```toml
