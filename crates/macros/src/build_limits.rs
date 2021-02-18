@@ -17,7 +17,6 @@ impl BuildLimits {
         let foundation_namespaces = &[
             "Windows.Foundation",
             "Windows.Foundation.Collections",
-            "Windows.Foundation.Diagnostics",
             "Windows.Foundation.Numerics",
         ];
 
