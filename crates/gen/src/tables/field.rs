@@ -37,8 +37,8 @@ impl Field {
         Signature::from_blob(&mut blob, &[]).expect("Field")
     }
 
-    pub fn dependencies(&self) -> Vec<TypeDef> {
-        self.signature().dependencies()
+    pub fn definition(&self) -> Option<TypeDef> {
+        self.signature().definition()
     }
 }
 

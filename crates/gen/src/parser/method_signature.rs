@@ -16,8 +16,8 @@ impl MethodSignature {
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.return_type
             .iter()
-            .flat_map(|s| s.dependencies())
-            .chain(self.params.iter().flat_map(|p| p.signature.dependencies()))
+            .filter_map(|s| s.definition())
+            .chain(self.params.iter().filter_map(|p| p.signature.definition()))
             .collect()
     }
 }

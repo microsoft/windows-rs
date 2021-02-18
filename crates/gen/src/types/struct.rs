@@ -17,7 +17,11 @@ impl Struct {
     }
 
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        self.0.fields().flat_map(|f| f.dependencies()).collect()
+        self.0.fields().filter_map(|f| f.definition()).collect()
+    }
+
+    pub fn definition(&self) -> Option<tables::TypeDef> {
+        Some(self.0)
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {

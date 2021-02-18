@@ -242,7 +242,6 @@ impl ElementType {
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         match self {
             Self::Function(t) => t.dependencies(),
-            Self::Constant(t) => t.dependencies(),
             Self::Class(t) => t.dependencies(),
             Self::Interface(t) => t.dependencies(),
             Self::ComInterface(t) => t.dependencies(),
@@ -250,6 +249,18 @@ impl ElementType {
             Self::Delegate(t) => t.dependencies(),
             Self::Callback(t) => t.dependencies(),
             _ => Vec::new(),
+        }
+    }
+
+    pub fn definition(&self) -> Option<tables::TypeDef> {
+        match self {
+            Self::Class(t) => t.definition(),
+            Self::Interface(t) => t.definition(),
+            Self::ComInterface(t) => t.definition(),
+            Self::Struct(t) => t.definition(),
+            Self::Delegate(t) => t.definition(),
+            Self::Callback(t) => t.definition(),
+            _ => None,
         }
     }
 

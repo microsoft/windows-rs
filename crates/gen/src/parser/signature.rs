@@ -42,8 +42,8 @@ impl Signature {
         })
     }
 
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        self.kind.dependencies()
+    pub fn definition(&self) -> Option<tables::TypeDef> {
+        self.kind.definition()
     }
 
     pub fn gen_field(&self, gen: Gen) -> TokenStream {

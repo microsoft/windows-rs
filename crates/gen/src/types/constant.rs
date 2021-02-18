@@ -4,10 +4,6 @@ use super::*;
 pub struct Constant(pub tables::Field);
 
 impl Constant {
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        Vec::new()
-    }
-
     pub fn gen_name(&self) -> TokenStream {
         let name = format_ident!("{}", self.0.name());
         quote! { #name }

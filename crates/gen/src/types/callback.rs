@@ -18,6 +18,10 @@ impl Callback {
             .collect()
     }
 
+    pub fn definition(&self) -> Option<tables::TypeDef> {
+        Some(self.0)
+    }
+
     pub fn gen(&self, _: Gen) -> TokenStream {
         quote! {}
     }

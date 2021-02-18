@@ -44,6 +44,10 @@ impl Class {
             .collect()
     }
 
+    pub fn definition(&self) -> Option<tables::TypeDef> {
+        Some(self.0.def)
+    }
+
     pub fn gen(&self, _: Gen) -> TokenStream {
         quote! {}
     }
