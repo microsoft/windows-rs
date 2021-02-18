@@ -349,4 +349,55 @@ mod tests {
         assert_eq!(d[1].name(), "AsyncActionCompletedHandler");
         assert_eq!(d[2].name(), "IAsyncInfo");
     }
+
+    #[test]
+    fn test_winrt_delegate() {
+        let t = TypeReader::get().resolve_type("Windows.Foundation", "AsyncActionCompletedHandler");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "AsyncActionCompletedHandler");
+
+        let mut d = t.dependencies();
+        assert_eq!(d.len(), 2);
+
+        d.sort_by(|a, b| a.name().cmp(b.name()));
+
+        assert_eq!(d[0].name(), "AsyncStatus");
+        assert_eq!(d[1].name(), "IAsyncAction");
+    }
+
+    #[test]
+    fn test_win32_function() {
+        let t = TypeReader::get().resolve_type("Windows.Win32.WindowsAndMessaging", "EnumWindows");
+        assert_eq!(t.definition(), None);
+
+        let mut d = t.dependencies();
+        assert_eq!(d.len(), 2);
+
+        d.sort_by(|a, b| a.name().cmp(b.name()));
+
+        assert_eq!(d[0].name(), "LPARAM");
+        assert_eq!(d[1].name(), "WNDENUMPROC");
+    }
+
+    #[test]
+    fn test_win32_constant() {
+        let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_USAGE_SHADER_INPUT");
+        assert_eq!(t.definition(), None);
+        assert_eq!(t.dependencies().len(), 0);
+    }
+
+    #[test]
+    fn test_win32_callback() {
+        let t = TypeReader::get().resolve_type("Windows.Win32.MenusAndResources", "WNDENUMPROC");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "WNDENUMPROC");
+
+        let mut d = t.dependencies();
+        assert_eq!(d.len(), 2);
+
+        d.sort_by(|a, b| a.name().cmp(b.name()));
+
+        assert_eq!(d[0].name(), "HWND");
+        assert_eq!(d[1].name(), "LPARAM");
+    }
 }
