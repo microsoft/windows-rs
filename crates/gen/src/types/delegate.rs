@@ -14,6 +14,10 @@ impl Delegate {
 
     // TODO: lots of redundant code across all the types that have methods
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+        if !self.0.generics.is_empty() {
+            return Vec::new();
+        }
+
         self.0
             .def
             .methods()
@@ -29,7 +33,11 @@ impl Delegate {
     }
 
     pub fn definition(&self) -> Option<tables::TypeDef> {
-        Some(self.0.def)
+        if self.0.generics.is_empty() {
+            Some(self.0.def)
+        } else {
+            None
+        }
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {

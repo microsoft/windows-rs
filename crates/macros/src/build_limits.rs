@@ -7,7 +7,8 @@ pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 
 impl BuildLimits {
     pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
-        let is_foundation = false; //self.0.is_empty();
+        // TODO: need a more durable way ot detecting windows crate
+        let is_foundation = self.0.is_empty();
 
         let reader = TypeReader::get();
 

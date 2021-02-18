@@ -46,6 +46,7 @@ impl Enum {
         let name = self.0.gen_name(gen);
         let underlying_type = self.underlying_type();
 
+        // TODO: add bitwise operators if its u32 *or* if its got the Win32 flags attribute
         let bitwise = match underlying_type {
             ElementType::I32 => TokenStream::new(),
             ElementType::U32 => quote! {

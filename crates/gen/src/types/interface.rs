@@ -23,6 +23,10 @@ impl Interface {
     }
 
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+        if !self.0.generics.is_empty() {
+            return Vec::new();
+        }
+
         self.0
             .def
             .methods()

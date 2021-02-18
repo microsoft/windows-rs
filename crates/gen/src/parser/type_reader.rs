@@ -179,20 +179,22 @@ impl TypeReader {
     ) -> impl Iterator<Item = ElementType> + '_ {
         self.types[namespace]
             .values()
-            .map(move |row| self.to_element_type(row))
+            .filter_map(move |row| self.to_element_type(row))
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
         if let Some(types) = self.types.get(namespace) {
             if let Some(row) = types.get(name) {
-                return self.to_element_type(row);
+                return self.to_element_type(row).unwrap();
             }
         }
 
         panic!("Could not find type `{}.{}`", namespace, name);
     }
 
-    fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
+    // TODO: this only returns Option<T> instead of just T because the TypeReader's cache still has constracts and attributes
+    // that need to be excluded but are hard to do at that layer.
+    fn to_element_type(&'static self, row: &TypeRow) -> Option<ElementType> {
         match row {
             TypeRow::TypeDef(row) => {
                 let def = tables::TypeDef {
@@ -202,14 +204,14 @@ impl TypeReader {
 
                 ElementType::from_type_def(def, Vec::new())
             }
-            TypeRow::Function(row) => ElementType::Function(types::Function(tables::MethodDef {
+            TypeRow::Function(row) => Some(ElementType::Function(types::Function(tables::MethodDef {
                 reader: self,
                 row: *row,
-            })),
-            TypeRow::Constant(row) => ElementType::Constant(types::Constant(tables::Field {
+            }))),
+            TypeRow::Constant(row) => Some(ElementType::Constant(types::Constant(tables::Field {
                 reader: self,
                 row: *row,
-            })),
+            }))),
         }
     }
 

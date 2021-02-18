@@ -58,7 +58,7 @@ impl TypeTree {
                     reader,
                     def.namespace(),
                     set,
-                    &ElementType::from_type_def(def, Vec::new()),
+                    &ElementType::from_type_def(def, Vec::new()).unwrap(),
                 );
             }
             self.insert(namespace, 0, t);
