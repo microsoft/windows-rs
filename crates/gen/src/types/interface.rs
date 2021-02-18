@@ -27,8 +27,8 @@ impl Interface {
             .def
             .methods()
             .map(|m| m.dependencies(&self.0.generics))
-            .chain(self.0.interfaces().map(|i| i.dependencies()))
             .flatten()
+            .chain(self.0.interfaces().filter_map(|i| i.definition()))
             .collect()
     }
 

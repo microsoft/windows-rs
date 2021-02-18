@@ -291,17 +291,62 @@ mod tests {
     }
 
     #[test]
-    fn test_definition() {
+    fn test_struct() {
         let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
         let d = t.definition().unwrap();
         assert_eq!(d.name(), "DXGI_FRAME_STATISTICS_MEDIA");
+
+        let d = t.dependencies();
+        assert_eq!(d.len(), 1);
+        assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");    
     }
 
     #[test]
-    fn test_dependencies() {
-        let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+    fn test_enum() {
+        let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "DXGI_FRAME_PRESENTATION_MODE");
+
+        let d = t.dependencies();
+        assert_eq!(d.len(), 0);
+    }
+
+    #[test]
+    fn test_com_interface() {
+        let t = TypeReader::get().resolve_type("Windows.Win32.Direct2D", "ID2D1Resource");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "ID2D1Resource");
+
         let d = t.dependencies();
         assert_eq!(d.len(), 1);
-        assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
+        assert_eq!(d[0].name(), "ID2D1Factory");
+    }
+
+    #[test]
+    fn test_winrt_interface() {
+        let t = TypeReader::get().resolve_type("Windows.Foundation", "IUriRuntimeClassFactory");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "IUriRuntimeClassFactory");
+
+        let d = t.dependencies();
+        assert_eq!(d.len(), 2);
+        assert_eq!(d[0].name(), "Uri");
+        assert_eq!(d[1].name(), "Uri");
+    }
+
+    #[test]
+    fn test_winrt_interface2() {
+        let t = TypeReader::get().resolve_type("Windows.Foundation", "IAsyncAction");
+        let d = t.definition().unwrap();
+        assert_eq!(d.name(), "IAsyncAction");
+
+        let mut d = t.dependencies();
+        assert_eq!(d.len(), 3);
+
+        d.sort_by(|a, b| a.name().cmp(b.name()));
+
+        assert_eq!(d[0].name(), "AsyncActionCompletedHandler");
+        assert_eq!(d[1].name(), "AsyncActionCompletedHandler");
+        assert_eq!(d[2].name(), "IAsyncInfo");
     }
 }

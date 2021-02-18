@@ -42,6 +42,7 @@ impl Class {
             .chain(self.bases().map(|b| b.dependencies()))
             .flatten()
             .collect()
+            // TODO: must include factory interfaces
     }
 
     pub fn definition(&self) -> Option<tables::TypeDef> {
