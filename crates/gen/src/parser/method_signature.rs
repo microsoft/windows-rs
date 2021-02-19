@@ -32,6 +32,33 @@ impl MethodSignature {
 
         quote! { FnMut(#(#params),*) -> ::windows::Result<#return_type> + 'static }
     }
+
+    // All WinRT ABI methods return an HRESULT while any return type is transformed into a trailing
+    // out parameter. This is unlike Win32 methods that don't require this transformation.
+    pub fn gen_winrt_abi(&self, gen: Gen) -> TokenStream {
+        let params = self.params.iter().map(|p| {
+            let name = p.param.gen_name();
+            let abi = p.signature.gen_abi(gen);
+            
+            if p.param.is_input() {
+                // WinRT only uses const to mean that structs are passed by reference.
+                if p.signature.is_const {
+                    quote! { #name: &#abi }
+                } else {
+                    quote! { #name: #abi }
+                }
+            } else {
+                quote! { #name: *mut #abi }
+            }
+        }).chain(self.return_type.iter().map(|p| {
+            let abi = p.gen_abi(gen);
+            quote! { result__: *mut #abi }
+        }));
+
+        quote! {
+            (this: ::windows::RawPtr, #(#params),*) -> ::windows::ErrorCode
+        }
+    }
 }
 
 impl MethodParam {
