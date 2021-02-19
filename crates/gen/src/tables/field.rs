@@ -40,6 +40,10 @@ impl Field {
     pub fn definition(&self) -> Option<TypeDef> {
         self.signature().definition()
     }
+
+    pub fn is_blittable(&self) -> bool {
+        self.signature().is_blittable()
+    }
 }
 
 #[cfg(test)]

@@ -202,6 +202,58 @@ impl ElementType {
         }
     }
 
+    pub fn gen_abi(&self, gen: Gen) -> TokenStream {
+        match self {
+            Self::Void => quote! { ::std::ffi::c_void },
+            Self::Bool => quote! { bool },
+            Self::Char => quote! { u16 },
+            Self::I8 => quote! { i8 },
+            Self::U8 => quote! { u8 },
+            Self::I16 => quote! { i16 },
+            Self::U16 => quote! { u16 },
+            Self::I32 => quote! { i32 },
+            Self::U32 => quote! { u32 },
+            Self::I64 => quote! { i64 },
+            Self::U64 => quote! { u64 },
+            Self::F32 => quote! { f32 },
+            Self::F64 => quote! { f64 },
+            Self::ISize => quote! { isize },
+            Self::USize => quote! { usize },
+            Self::String => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::Object => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::Guid => {
+                let windows = gen.windows();
+                quote! { #windows Guid }
+            }
+            Self::IUnknown => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::ErrorCode => {
+                let windows = gen.windows();
+                quote! { #windows ErrorCode }
+            }
+            Self::Bool32 => {
+                let windows = gen.windows();
+                quote! { #windows BOOL }
+            }
+            Self::Matrix3x2 => {
+                let windows = gen.windows();
+                quote! { #windows foundation::numerics::Matrix3x2 }
+            }
+            Self::NotYetSupported => {
+                let windows = gen.windows();
+                quote! { #windows NOT_YET_SUPPORTED_TYPE }
+            }
+            Self::GenericParam(generic) => generic.gen_name(),
+            Self::Class(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::Interface(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::ComInterface(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::Enum(t) => t.0.gen_name(gen),
+            Self::Struct(t) => t.gen_abi_name(gen),
+            Self::Delegate(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::Callback(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            _ => unexpected!(),
+        }
+    }
+
     pub fn is_nullable(&self) -> bool {
         match self {
             Self::Object
@@ -265,6 +317,20 @@ impl ElementType {
             Self::Callback(t) => t.definition(),
             Self::Enum(t) => t.definition(),
             _ => None,
+        }
+    }
+
+    pub fn is_blittable(&self) -> bool {
+        match self {
+            Self::String |
+            Self::Object |
+            Self::IUnknown |
+            Self::Class(_) |
+            Self::Interface(_) |
+            Self::ComInterface(_) |
+            Self::Delegate(_) => false,
+            Self::Struct(def) => def.is_blittable(),
+            _ => true,
         }
     }
 

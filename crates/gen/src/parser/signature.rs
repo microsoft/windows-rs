@@ -46,7 +46,12 @@ impl Signature {
         self.kind.definition()
     }
 
-    pub fn gen_field(&self, gen: Gen) -> TokenStream {
+    pub fn is_blittable(&self) -> bool {
+        // TODO: This should deal with "tree" structs that point to themselves - need a test for this.
+        self.pointers > 0 || self.kind.is_blittable()
+    }
+
+    pub fn gen(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         for _ in 0..self.pointers {
@@ -67,6 +72,21 @@ impl Signature {
             tokens.combine(&kind)
         }
 
+        tokens
+    }
+
+    pub fn gen_abi(&self, gen: Gen) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for _ in 0..self.pointers {
+            if self.is_const {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
+        }
+
+        tokens.combine(&self.kind.gen_abi(gen));
         tokens
     }
 }

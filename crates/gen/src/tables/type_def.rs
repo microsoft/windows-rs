@@ -125,6 +125,12 @@ impl TypeDef {
         let namespace = gen.namespace(self.namespace());
         quote! { #namespace#name }
     }
+
+    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+        let name = to_abi_ident(self.name());
+        let namespace = gen.namespace(self.namespace());
+        quote! { #namespace#name }
+    }
 }
 
 struct Bases(TypeDef);

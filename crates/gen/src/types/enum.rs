@@ -50,6 +50,7 @@ impl Enum {
         let bitwise = match underlying_type {
             ElementType::I32 => TokenStream::new(),
             ElementType::U32 => quote! {
+                // TODO: add BitOrAssign and BitAndAssign
                 impl ::std::ops::BitOr for #name {
                     type Output = Self;
 
@@ -95,6 +96,7 @@ impl Enum {
                         pub const #name: Self = Self(#value);
                     })
                 } else {
+                    // TODO: need test for implicit value enums (and create win32metadata bug)
                     last = Some(ConstantValue::I32(0));
 
                     Some(quote! {
@@ -146,17 +148,9 @@ impl Enum {
 mod tests {
     use super::*;
 
-    fn get(namespace: &str, name: &str) -> Enum {
-        if let ElementType::Enum(value) = TypeReader::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
     #[test]
     fn test_signature() {
-        let t = get("Windows.Foundation", "AsyncStatus");
+        let t = TypeReader::get_enum("Windows.Foundation", "AsyncStatus");
         assert_eq!(t.signature(), "enum(Windows.Foundation.AsyncStatus;i4)");
     }
 }

@@ -24,7 +24,39 @@ impl Struct {
         Some(self.0)
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
+    pub fn is_blittable(&self) -> bool {
+        self.0.fields().all(|f|f.is_blittable())
+    }
+
+    fn is_native_type_def(&self) ->bool {
+        self.0
+            .has_attribute("Windows.Win32.Interop", "NativeTypedefAttribute")
+    }
+
+    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+        if self.is_blittable() {
+            self.0.gen_name(gen)
+        } else {
+            self.0.gen_abi_name(gen)
+        }
+    }
+
+    pub fn gen(&self, gen: Gen) -> TokenStream {
+        let name = self.0.gen_name(gen);
+
+        let runtime_type = if self.0.is_winrt() {
+            let signature = Literal::byte_string(&self.signature().as_bytes());
+
+            quote! {
+                unsafe impl ::windows::RuntimeType for #name {
+                    type DefaultType = Self;
+                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
+                }
+            }
+        } else {
+            quote! {}
+        };
+
         quote! {}
     }
 }
@@ -80,6 +112,12 @@ mod tests {
         let deps = t.dependencies();
         assert_eq!(deps.len(), 1);
         assert_eq!(deps[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
+    }
+
+    #[test]
+    fn test_blittable() {
+        assert_eq!(TypeReader::get_struct("Windows.Foundation", "Point").is_blittable(), true);
+        assert_eq!(TypeReader::get_struct("Windows.UI.Xaml.Interop", "TypeName").is_blittable(), false);
     }
 }
 
