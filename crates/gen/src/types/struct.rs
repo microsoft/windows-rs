@@ -80,7 +80,7 @@ impl Struct {
             }
         } else {
             let fields = self.0.fields().map(|f| {
-                let name = to_ident(f.name());
+                let name = to_ident(&to_snake(f.name()));
                 let kind = f.signature().gen(gen);
                 quote! {
                     pub #name: #kind
@@ -135,7 +135,7 @@ impl Struct {
                     self.#index == other.#index
                 }
             } else {
-                let name = to_ident(f.name());
+                let name = to_ident(&to_snake(f.name()));
 
                 quote! {
                     self.#name == other.#name
