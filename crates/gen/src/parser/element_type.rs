@@ -301,20 +301,6 @@ impl ElementType {
         }
     }
 
-    pub fn is_nullable(&self) -> bool {
-        match self {
-            Self::Object
-            | Self::IUnknown
-            | Self::Function(_)
-            | Self::Interface(_)
-            | Self::Class(_)
-            | Self::ComInterface(_)
-            | Self::Delegate(_)
-            | Self::Callback(_) => true,
-            _ => false,
-        }
-    }
-
     pub fn type_signature(&self) -> String {
         match self {
             Self::Bool => "b1".to_owned(),
@@ -367,6 +353,20 @@ impl ElementType {
         }
     }
 
+    pub fn is_nullable(&self) -> bool {
+        match self {
+            Self::Object
+            | Self::IUnknown
+            | Self::Function(_)
+            | Self::Interface(_)
+            | Self::Class(_)
+            | Self::ComInterface(_)
+            | Self::Delegate(_)
+            | Self::Callback(_) => true,
+            _ => false,
+        }
+    }
+
     pub fn is_blittable(&self) -> bool {
         match self {
             Self::String
@@ -381,6 +381,29 @@ impl ElementType {
         }
     }
 
+    pub fn is_primitive(&self) -> bool {
+        match self {
+            Self::Bool
+            | Self::Char
+            | Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::F32
+            | Self::F64
+            | Self::ISize
+            | Self::USize
+            | Self::ErrorCode
+            | Self::Bool32
+            | Self::Enum(_) => true,
+            _ => false,
+        }
+    }
+
     pub fn gen(&self, gen: Gen) -> TokenStream {
         match self {
             Self::Function(t) => t.gen(gen),
@@ -392,6 +415,7 @@ impl ElementType {
             Self::Struct(t) => t.gen(gen),
             Self::Delegate(t) => t.gen(gen),
             Self::Callback(t) => t.gen(gen),
+            Self::GenericParam(p) => p.gen_name(),
             _ => unexpected!(),
         }
     }

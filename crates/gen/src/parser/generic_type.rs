@@ -88,6 +88,71 @@ impl GenericType {
         self.format_name(gen, to_abi_ident)
     }
 
+    pub fn gen_guid(&self) -> TokenStream {
+        if self.generics.is_empty() {
+            let guid = self.def.guid().gen();
+
+            quote! {
+                ::windows::Guid::from_values(#guid)
+            }
+        } else {
+            let tokens = self.gen_name(Gen::Absolute);
+
+            quote! {
+                ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
+            }
+        }
+    }
+
+    pub fn gen_signature(&self, signature: &str) -> TokenStream {
+        let signature = Literal::byte_string(signature.as_bytes());
+
+        if self.generics.is_empty() {
+            return quote! { ::windows::ConstBuffer::from_slice(#signature) };
+        }
+
+        let generics = self.generics.iter().enumerate().map(|(index, g)| {
+            let g = g.gen(Gen::Absolute);
+            let semi = if index != self.generics.len() - 1 {
+                Some(quote! {
+                    .push_slice(b";")
+                })
+            } else {
+                None
+            };
+
+            quote! {
+                .push_other(<#g as ::windows::RuntimeType>::SIGNATURE)
+                #semi
+            }
+        });
+
+        quote! {
+            {
+                ::windows::ConstBuffer::new()
+                .push_slice(b"pinterface(")
+                .push_slice(#signature)
+                .push_slice(b";")
+                #(#generics)*
+                .push_slice(b")")
+            }
+        }
+    }
+
+    pub fn gen_phantoms(&self) -> TokenStream {
+        TokenStream::from_iter(self.generics.iter().map(|g| {
+            let g = g.gen(Gen::Absolute);
+            quote! { ::std::marker::PhantomData::<#g>, }
+        }))
+    }
+
+    pub fn gen_constraints(&self) -> TokenStream {
+        TokenStream::from_iter(self.generics.iter().map(|g| {
+            let g = g.gen(Gen::Absolute);
+            quote! { #g: ::windows::RuntimeType + 'static, }
+        }))
+    }
+
     pub fn interface_signature(&self) -> String {
         let guid = self.def.guid();
 

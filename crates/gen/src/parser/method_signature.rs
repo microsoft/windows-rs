@@ -20,6 +20,18 @@ impl MethodSignature {
             .chain(self.params.iter().filter_map(|p| p.signature.definition()))
             .collect()
     }
+
+    pub fn gen_constraint(&self, gen: Gen) -> TokenStream {
+        let params = self.params.iter().map(|p| p.gen_produce_type(gen));
+
+        let return_type = if let Some(return_type) = &self.return_type {
+            return_type.gen(gen)
+        } else {
+            quote! { () }
+        };
+
+        quote! { FnMut(#(#params),*) -> ::windows::Result<#return_type> + 'static }
+    }
 }
 
 impl MethodParam {
@@ -34,6 +46,20 @@ impl MethodParam {
             } else {
                 quote! { ::windows::Abi::set_abi(#name) }
             }
+        }
+    }
+
+    pub fn gen_produce_type(&self, gen: Gen) -> TokenStream {
+        let tokens = self.signature.gen(gen);
+
+        if self.param.is_input() {
+            if self.signature.kind.is_primitive() {
+                quote! { #tokens }
+            } else {
+                quote! { &#tokens }
+            }
+        } else {
+            quote! { &mut #tokens }
         }
     }
 }
