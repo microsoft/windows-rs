@@ -204,10 +204,12 @@ impl TypeReader {
 
                 ElementType::from_type_def(def, Vec::new())
             }
-            TypeRow::Function(row) => Some(ElementType::Function(types::Function(tables::MethodDef {
-                reader: self,
-                row: *row,
-            }))),
+            TypeRow::Function(row) => {
+                Some(ElementType::Function(types::Function(tables::MethodDef {
+                    reader: self,
+                    row: *row,
+                })))
+            }
             TypeRow::Constant(row) => Some(ElementType::Constant(types::Constant(tables::Field {
                 reader: self,
                 row: *row,

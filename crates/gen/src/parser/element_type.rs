@@ -116,21 +116,25 @@ impl ElementType {
         match def.category() {
             TypeCategory::Interface => {
                 if def.is_winrt() {
-                    Some(Self::Interface(types::Interface(GenericType::from_type_def(def, generics))))
+                    Some(Self::Interface(types::Interface(
+                        GenericType::from_type_def(def, generics),
+                    )))
                 } else {
-                    Some(Self::ComInterface(types::ComInterface(GenericType::from_type_def(
-                        def, generics,
-                    ))))
+                    Some(Self::ComInterface(types::ComInterface(
+                        GenericType::from_type_def(def, generics),
+                    )))
                 }
             }
-            TypeCategory::Class => {
-                Some(Self::Class(types::Class(GenericType::from_type_def(def, generics))))
-            }
+            TypeCategory::Class => Some(Self::Class(types::Class(GenericType::from_type_def(
+                def, generics,
+            )))),
             TypeCategory::Enum => Some(Self::Enum(types::Enum(def))),
             TypeCategory::Struct => Some(Self::Struct(types::Struct(def))),
             TypeCategory::Delegate => {
                 if def.is_winrt() {
-                    Some(Self::Delegate(types::Delegate(GenericType::from_type_def(def, generics))))
+                    Some(Self::Delegate(types::Delegate(GenericType::from_type_def(
+                        def, generics,
+                    ))))
                 } else {
                     Some(Self::Callback(types::Callback(def)))
                 }
@@ -219,13 +223,22 @@ impl ElementType {
             Self::F64 => quote! { f64 },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
-            Self::String => { let windows = gen.windows(); quote! { #windows RawPtr } }
-            Self::Object => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::String => {
+                let windows = gen.windows();
+                quote! { #windows RawPtr }
+            }
+            Self::Object => {
+                let windows = gen.windows();
+                quote! { #windows RawPtr }
+            }
             Self::Guid => {
                 let windows = gen.windows();
                 quote! { #windows Guid }
             }
-            Self::IUnknown => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::IUnknown => {
+                let windows = gen.windows();
+                quote! { #windows RawPtr }
+            }
             Self::ErrorCode => {
                 let windows = gen.windows();
                 quote! { #windows ErrorCode }
@@ -243,13 +256,28 @@ impl ElementType {
                 quote! { #windows NOT_YET_SUPPORTED_TYPE }
             }
             Self::GenericParam(generic) => generic.gen_name(),
-            Self::Class(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
-            Self::Interface(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
-            Self::ComInterface(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::Class(_) => {
+                let windows = gen.windows();
+                quote! { #windows RawPtr }
+            }
+            Self::Interface(_) => {
+                let windows = gen.windows();
+                quote! { #windows RawPtr }
+            }
+            Self::ComInterface(_) => {
+                let windows = gen.windows();
+                quote! { #windows RawPtr }
+            }
             Self::Enum(t) => t.0.gen_name(gen),
             Self::Struct(t) => t.gen_abi_name(gen),
-            Self::Delegate(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
-            Self::Callback(_) => { let windows = gen.windows(); quote! { #windows RawPtr } }
+            Self::Delegate(_) => {
+                let windows = gen.windows();
+                quote! { #windows RawPtr }
+            }
+            Self::Callback(_) => {
+                let windows = gen.windows();
+                quote! { #windows RawPtr }
+            }
             _ => unexpected!(),
         }
     }
@@ -322,13 +350,13 @@ impl ElementType {
 
     pub fn is_blittable(&self) -> bool {
         match self {
-            Self::String |
-            Self::Object |
-            Self::IUnknown |
-            Self::Class(_) |
-            Self::Interface(_) |
-            Self::ComInterface(_) |
-            Self::Delegate(_) => false,
+            Self::String
+            | Self::Object
+            | Self::IUnknown
+            | Self::Class(_)
+            | Self::Interface(_)
+            | Self::ComInterface(_)
+            | Self::Delegate(_) => false,
             Self::Struct(def) => def.is_blittable(),
             _ => true,
         }
