@@ -4,12 +4,12 @@ use super::*;
 pub struct Struct(pub tables::TypeDef);
 
 impl Struct {
-    pub fn signature(&self) -> String {
+    pub fn type_signature(&self) -> String {
         let mut result = format!("struct({}.{}", self.0.namespace(), self.0.name());
 
         for field in self.0.fields() {
             result.push(';');
-            result.push_str(&field.signature().kind.signature());
+            result.push_str(&field.signature().kind.type_signature());
         }
 
         result.push(')');
@@ -45,7 +45,7 @@ impl Struct {
         let name = self.0.gen_name(gen);
 
         let runtime_type = if self.0.is_winrt() {
-            let signature = Literal::byte_string(&self.signature().as_bytes());
+            let signature = Literal::byte_string(&self.type_signature().as_bytes());
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
@@ -68,7 +68,7 @@ mod tests {
     #[test]
     fn test_signature() {
         let t = TypeReader::get_struct("Windows.Foundation", "Point");
-        assert_eq!(t.signature(), "struct(Windows.Foundation.Point;f4;f4)");
+        assert_eq!(t.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
     }
 
     #[test]

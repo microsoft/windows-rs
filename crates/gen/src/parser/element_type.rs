@@ -268,7 +268,7 @@ impl ElementType {
         }
     }
 
-    pub fn signature(&self) -> String {
+    pub fn type_signature(&self) -> String {
         match self {
             Self::Bool => "b1".to_owned(),
             Self::Char => "c2".to_owned(),
@@ -285,11 +285,11 @@ impl ElementType {
             Self::String => "string".to_owned(),
             Self::Object => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
-            Self::Class(t) => t.signature(),
-            Self::Interface(t) => t.signature(),
-            Self::Enum(t) => t.signature(),
-            Self::Struct(t) => t.signature(),
-            Self::Delegate(t) => t.signature(),
+            Self::Class(t) => t.type_signature(),
+            Self::Interface(t) => t.type_signature(),
+            Self::Enum(t) => t.type_signature(),
+            Self::Struct(t) => t.type_signature(),
+            Self::Delegate(t) => t.type_signature(),
             _ => unexpected!(),
         }
     }

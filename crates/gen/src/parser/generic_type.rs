@@ -98,7 +98,7 @@ impl GenericType {
 
             for generic in &self.generics {
                 result.push(';');
-                result.push_str(&generic.signature());
+                result.push_str(&generic.type_signature());
             }
 
             result.push(')');

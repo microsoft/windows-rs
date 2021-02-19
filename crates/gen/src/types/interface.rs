@@ -4,7 +4,7 @@ use super::*;
 pub struct Interface(pub GenericType);
 
 impl Interface {
-    pub fn signature(&self) -> String {
+    pub fn type_signature(&self) -> String {
         let guid = Guid::from_type_def(&self.0.def);
 
         if self.0.generics.is_empty() {
@@ -14,7 +14,7 @@ impl Interface {
 
             for generic in &self.0.generics {
                 result.push(';');
-                result.push_str(&generic.signature());
+                result.push_str(&generic.type_signature());
             }
 
             result.push(')');
@@ -64,7 +64,7 @@ mod tests {
     #[test]
     fn test_bool() {
         let i = get("Windows.Foundation", "IStringable");
-        assert_eq!(i.signature(), "{96369f54-8eb6-48f0-abce-c1b211e627c3}")
+        assert_eq!(i.type_signature(), "{96369f54-8eb6-48f0-abce-c1b211e627c3}")
     }
 
     #[test]

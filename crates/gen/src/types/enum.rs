@@ -8,7 +8,7 @@ impl Enum {
         Some(self.0)
     }
 
-    pub fn signature(&self) -> String {
+    pub fn type_signature(&self) -> String {
         let underlying_type = match self.underlying_type() {
             ElementType::I32 => "i4",
             ElementType::U32 => "u4",
@@ -109,7 +109,7 @@ impl Enum {
         });
 
         let runtime_type = if self.0.is_winrt() {
-            let signature = Literal::byte_string(&self.signature().as_bytes());
+            let signature = Literal::byte_string(&self.type_signature().as_bytes());
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
@@ -151,6 +151,6 @@ mod tests {
     #[test]
     fn test_signature() {
         let t = TypeReader::get_enum("Windows.Foundation", "AsyncStatus");
-        assert_eq!(t.signature(), "enum(Windows.Foundation.AsyncStatus;i4)");
+        assert_eq!(t.type_signature(), "enum(Windows.Foundation.AsyncStatus;i4)");
     }
 }

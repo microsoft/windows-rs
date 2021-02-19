@@ -4,7 +4,7 @@ use super::*;
 pub struct Delegate(pub GenericType);
 
 impl Delegate {
-    pub fn signature(&self) -> String {
+    pub fn type_signature(&self) -> String {
         if self.0.generics.is_empty() {
             format!("delegate({})", self.0.interface_signature())
         } else {

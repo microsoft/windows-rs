@@ -4,7 +4,7 @@ use super::*;
 pub struct Class(pub GenericType);
 
 impl Class {
-    pub fn signature(&self) -> String {
+    pub fn type_signature(&self) -> String {
         let default = self
             .0
             .interfaces()
@@ -122,7 +122,7 @@ mod tests {
     fn test_signature() {
         let c = get("Windows.Foundation", "Uri");
         assert_eq!(
-            c.signature(),
+            c.type_signature(),
             "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
         )
     }
