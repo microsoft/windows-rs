@@ -123,9 +123,8 @@ fn gen_namespaces<'a>(
         }
 
         quote! {
-            // TODO: remove this allowance when https://github.com/microsoft/windows-rs/issues/212 is fixed
-            #[allow(unused_variables)]
-            #[allow(non_upper_case_globals)]
+            // TODO: remove `unused_variables` when https://github.com/microsoft/windows-rs/issues/212 is fixed
+            #[allow(unused_variables, non_upper_case_globals, non_snake_case)]
             pub mod #name {
                 #(#tokens)*
             }

@@ -13,7 +13,10 @@ impl Callback {
     }
 
     fn method(&self) -> tables::MethodDef {
-        self.0.methods().find(|m|m.name() == "Invoke").expect("Callback")
+        self.0
+            .methods()
+            .find(|m| m.name() == "Invoke")
+            .expect("Callback")
     }
 
     pub fn gen(&self, gen: Gen) -> TokenStream {
@@ -25,7 +28,7 @@ impl Callback {
         // over the ABI but in this case that is not practical.
 
         let params = signature.params.iter().map(|p| {
-            let name = to_ident(p.param.name());
+            let name = p.param.gen_name();
             let tokens = p.signature.gen_abi(gen);
             quote! { #name: #tokens }
         });
@@ -34,7 +37,7 @@ impl Callback {
             let tokens = t.gen_abi(gen);
             quote! { -> #tokens }
         } else {
-            TokenStream::new()
+            quote! {}
         };
 
         quote! {

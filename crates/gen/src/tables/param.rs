@@ -43,4 +43,8 @@ impl Param {
 
         is_input
     }
+
+    pub fn gen_name(&self) -> Ident {
+        to_ident(&to_snake(self.name()))
+    }
 }

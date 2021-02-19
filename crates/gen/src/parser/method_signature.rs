@@ -21,3 +21,19 @@ impl MethodSignature {
             .collect()
     }
 }
+
+impl MethodParam {
+    pub fn gen_abi_arg(&self) -> TokenStream {
+        let name = self.param.gen_name();
+
+        if self.signature.kind.is_blittable() {
+            quote! { #name }
+        } else {
+            if self.param.is_input() {
+                quote! { ::windows::Abi::abi(#name) }
+            } else {
+                quote! { ::windows::Abi::set_abi(#name) }
+            }
+        }
+    }
+}

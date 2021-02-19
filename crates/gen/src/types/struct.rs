@@ -80,7 +80,7 @@ impl Struct {
             }
         } else {
             let fields = self.0.fields().map(|f| {
-                let name = to_ident(&to_snake(f.name()));
+                let name = f.gen_name();
                 let kind = f.signature().gen(gen);
                 quote! {
                     pub #name: #kind
@@ -135,7 +135,7 @@ impl Struct {
                     self.#index == other.#index
                 }
             } else {
-                let name = to_ident(&to_snake(f.name()));
+                let name = f.gen_name();
 
                 quote! {
                     self.#name == other.#name
@@ -144,16 +144,14 @@ impl Struct {
         });
 
         let defaults = if is_handle {
-            let defaults = self.0.fields().map(|f| {
-                f.signature().gen_default()
-            });
+            let defaults = self.0.fields().map(|f| f.signature().gen_default());
 
             quote! {
                 Self( #(#defaults),* )
             }
         } else {
             let defaults = self.0.fields().map(|f| {
-                let name = to_ident(&to_snake(f.name()));
+                let name = f.gen_name();
                 let value = f.signature().gen_default();
                 quote! {
                     #name: #value

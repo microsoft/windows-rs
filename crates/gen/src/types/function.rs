@@ -9,60 +9,59 @@ impl Function {
         quote! { #name }
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
-        quote! {}
-    }
-
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0.dependencies(&[])
     }
+
+    pub fn gen(&self, gen: Gen) -> TokenStream {
+        let name = self.gen_name();
+        let signature = self.0.signature(&[]);
+
+        // TODO: gen constraints for generic params
+
+        let params = signature.params.iter().map(|p| {
+            let name = p.param.gen_name();
+            let tokens = p.signature.gen(gen);
+            quote! { #name: #tokens }
+        });
+
+        let return_type = if let Some(t) = &signature.return_type {
+            let tokens = t.gen(gen);
+            quote! { -> #tokens }
+        } else {
+            quote! {}
+        };
+
+        let abi_params = signature.params.iter().map(|p| {
+            let name = p.param.gen_name();
+            let tokens = p.signature.gen_abi(gen);
+            quote! { #name: #tokens }
+        });
+
+        let abi_return_type = if let Some(t) = &signature.return_type {
+            let tokens = t.gen_abi(gen);
+            quote! { -> #tokens }
+        } else {
+            TokenStream::new()
+        };
+
+        let args = signature.params.iter().map(|p| p.gen_abi_arg());
+
+        let mut link = self.0.impl_map().expect("Function").scope().name();
+
+        // TODO: workaround for https://github.com/microsoft/windows-rs/issues/463
+        if link.contains("-ms-win-") || link == "D3DCOMPILER_47" {
+            link = "onecoreuap";
+        }
+
+        quote! {
+            pub unsafe fn #name(#(#params),*) #return_type {
+                #[link(name = #link)]
+                extern "system" {
+                    pub fn #name(#(#abi_params),*) #abi_return_type;
+                }
+                #name(#(#args),*)
+            }
+        }
+    }
 }
-
-// // TODO: move winmd into gen crate to improve inlining and simplify
-// #[derive(Debug)]
-// pub struct Function {
-//     pub signature: MethodSignature,
-// }
-
-// impl Function {
-//     pub fn new(method: &winmd::MethodDef, calling_namespace: &'static str) -> Self {
-//         let signature = MethodSignature::new(method, &[], calling_namespace);
-//         Self { signature }
-//     }
-
-//     pub fn gen(&self) -> TokenStream {
-//         let name = self.signature.method.name();
-//         let name = to_ident(name);
-
-//         let params = self.signature.params.iter().map(|t| {
-//             let name = to_ident(&t.name);
-//             let tokens = t.gen_field();
-//             quote! { #name: #tokens }
-//         });
-
-//         let return_type = if let Some(t) = &self.signature.return_type {
-//             let tokens = t.gen_field();
-//             quote! { -> #tokens }
-//         } else {
-//             TokenStream::new()
-//         };
-
-//         let mut link = self.signature.method.impl_map().unwrap().scope().name();
-
-//         // TODO: workaround for https://github.com/microsoft/windows-rs/issues/463
-//         if link.contains("-ms-win-") || link == "D3DCOMPILER_47" {
-//             link = "onecoreuap";
-//         }
-
-//         quote! {
-//             #[link(name = #link)]
-//             extern "system" {
-//                 pub fn #name(#(#params),*) #return_type;
-//             }
-//         }
-//     }
-
-//     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-//         self.signature.dependencies()
-//     }
-// }
