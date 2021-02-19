@@ -8,6 +8,8 @@ The `windows` crate lets you call any Windows API past, present, and future usin
 
 The Rust language projection follows in the tradition established by [C++/WinRT](https://github.com/microsoft/cppwinrt) of building language projections for Windows using standard languages and compilers, providing a natural and idiomatic way for Rust developers to call Windows APIs. 
 
+Watch the [getting started video](https://youtu.be/LajquCjHXK4)!
+
 ## Getting started
 
 Start by adding the following to your Cargo.toml file:
