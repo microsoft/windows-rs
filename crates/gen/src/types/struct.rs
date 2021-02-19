@@ -143,13 +143,40 @@ impl Struct {
             }
         });
 
+        let defaults = if is_handle {
+            let defaults = self.0.fields().map(|f| {
+                f.signature().gen_default()
+            });
+
+            quote! {
+                Self( #(#defaults),* )
+            }
+        } else {
+            let defaults = self.0.fields().map(|f| {
+                let name = to_ident(&to_snake(f.name()));
+                let value = f.signature().gen_default();
+                quote! {
+                    #name: #value
+                }
+            });
+
+            quote! {
+                Self{ #(#defaults),* }
+            }
+        };
+
         quote! {
             #[repr(C)]
             #[allow(non_snake_case)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]
+            #[derive(::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name #body
             impl #name {
                 #(#constants)*
+            }
+            impl ::std::default::Default for #name {
+                fn default() -> Self {
+                    #defaults
+                }
             }
             impl ::std::cmp::PartialEq for #name {
                 fn eq(&self, other: &Self) -> bool {

@@ -89,4 +89,12 @@ impl Signature {
         tokens.combine(&self.kind.gen_abi(gen));
         tokens
     }
+
+    pub fn gen_default(&self) -> TokenStream {
+        if self.pointers > 0 {
+            quote! { ::std::ptr::null_mut() }
+        } else {
+            self.kind.gen_default()
+        }
+    }
 }

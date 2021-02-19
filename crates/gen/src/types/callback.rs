@@ -5,69 +5,41 @@ pub struct Callback(pub tables::TypeDef);
 
 impl Callback {
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        self.0
-            .methods()
-            .filter_map(|m| {
-                if m.name() == "Invoke" {
-                    Some(m.dependencies(&[]))
-                } else {
-                    None
-                }
-            })
-            .flatten()
-            .collect()
+        self.method().dependencies(&[])
     }
 
     pub fn definition(&self) -> Option<tables::TypeDef> {
         Some(self.0)
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
-        quote! {}
+    fn method(&self) -> tables::MethodDef {
+        self.0.methods().find(|m|m.name() == "Invoke").expect("Callback")
+    }
+
+    pub fn gen(&self, gen: Gen) -> TokenStream {
+        let name = self.0.gen_name(gen);
+        let signature = self.method().signature(&[]);
+
+        // Note that callbacks are C-style function pointers so the code gen will only use ABI types
+        // to ensure the the ABI is faithfully preserved. Other types generally provide an abstraction
+        // over the ABI but in this case that is not practical.
+
+        let params = signature.params.iter().map(|p| {
+            let name = to_ident(p.param.name());
+            let tokens = p.signature.gen_abi(gen);
+            quote! { #name: #tokens }
+        });
+
+        let return_type = if let Some(t) = &signature.return_type {
+            let tokens = t.gen_abi(gen);
+            quote! { -> #tokens }
+        } else {
+            TokenStream::new()
+        };
+
+        quote! {
+            #[allow(non_camel_case_types)]
+            pub type #name = extern "system" fn(#(#params),*) #return_type;
+        }
     }
 }
-
-// #[derive(Debug)]
-// pub struct Callback {
-//     pub name: TypeName,
-//     pub signature: MethodSignature,
-// }
-
-// impl Callback {
-//     pub fn from_type_name(name: TypeName) -> Self {
-//         let method = name
-//             .def
-//             .methods()
-//             .find(|method| method.name() == "Invoke")
-//             .unwrap();
-
-//         let signature = MethodSignature::new(&method, &[], &name.namespace);
-//         Self { name, signature }
-//     }
-
-//     pub fn dependencies(&self) -> Vec<winmd::TypeDef> {
-//         self.signature.dependencies()
-//     }
-
-//     pub fn gen(&self) -> TokenStream {
-//         let name = self.name.gen();
-
-//         let params = self.signature.params.iter().map(|t| {
-//             let name = to_ident(&t.name);
-//             let tokens = t.gen_field();
-//             quote! { #name: #tokens }
-//         });
-
-//         let return_type = if let Some(t) = &self.signature.return_type {
-//             let tokens = t.gen_field();
-//             quote! { -> #tokens }
-//         } else {
-//             TokenStream::new()
-//         };
-
-//         quote! {
-//             #[allow(non_camel_case_types)]
-//             pub type #name = extern "system" fn(#(#params),*) #return_type;
-//         }
-//     }
-// }

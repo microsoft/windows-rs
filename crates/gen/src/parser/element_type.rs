@@ -282,6 +282,25 @@ impl ElementType {
         }
     }
 
+    pub fn gen_default(&self) -> TokenStream {
+        match self {
+            Self::Bool => quote! { false },
+            Self::Char
+            | Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::ISize
+            | Self::USize => quote! { 0 },
+            Self::F32 | Self::F64 => quote! { 0.0 },
+            _ => quote! { ::std::default::Default::default() },
+        }
+    }
+
     pub fn is_nullable(&self) -> bool {
         match self {
             Self::Object
