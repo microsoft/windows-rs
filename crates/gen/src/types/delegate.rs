@@ -12,24 +12,8 @@ impl Delegate {
         }
     }
 
-    // TODO: lots of redundant code across all the types that have methods
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        if !self.0.generics.is_empty() {
-            return Vec::new();
-        }
-
-        self.0
-            .def
-            .methods()
-            .filter_map(|m| {
-                if m.name() == "Invoke" {
-                    Some(m.dependencies(&[]))
-                } else {
-                    None
-                }
-            })
-            .flatten()
-            .collect()
+        self.method().dependencies(&[])
     }
 
     pub fn definition(&self) -> Option<tables::TypeDef> {
@@ -38,6 +22,14 @@ impl Delegate {
         } else {
             None
         }
+    }
+
+    fn method(&self) -> tables::MethodDef {
+        self.0
+            .def
+            .methods()
+            .find(|m| m.name() == "Invoke")
+            .expect("Callback")
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {
