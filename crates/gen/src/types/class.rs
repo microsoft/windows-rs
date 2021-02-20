@@ -101,7 +101,7 @@ impl Class {
         Some(self.0.def)
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
+    pub fn gen(&self, _: &Gen) -> TokenStream {
         quote! {}
     }
 }
@@ -134,27 +134,27 @@ mod tests {
         assert_eq!(i.len(), 3);
 
         i.sort_by(|a, b| {
-            a.0.gen_name(Gen::Absolute)
+            a.0.gen_name(&Gen::Absolute)
                 .as_str()
-                .cmp(b.0.gen_name(Gen::Absolute).as_str())
+                .cmp(b.0.gen_name(&Gen::Absolute).as_str())
         });
 
         assert_eq!(
-            i[0].0.gen_name(Gen::Absolute).as_str(),
+            i[0].0.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < windows :: HString , windows :: HString > >"
         );
 
         assert_eq!(i[0].0.is_default, false);
 
         assert_eq!(
-            i[1].0.gen_name(Gen::Absolute).as_str(),
+            i[1].0.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IMap :: < windows :: HString , windows :: HString >"
         );
 
         assert_eq!(i[1].0.is_default, true);
 
         assert_eq!(
-            i[2].0.gen_name(Gen::Absolute).as_str(),
+            i[2].0.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IObservableMap :: < windows :: HString , windows :: HString >"
         );
 

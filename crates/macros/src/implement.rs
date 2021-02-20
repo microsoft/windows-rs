@@ -129,8 +129,8 @@ pub fn gen(
                 }
             });
 
-            let vtable_ident = t.0.gen_abi_name(gen::Gen::Absolute);
-            let interface_ident = t.0.gen_name(gen::Gen::Absolute);
+            let vtable_ident = t.0.gen_abi_name(gen::&Gen::Absolute);
+            let interface_ident = t.0.gen_name(gen::&Gen::Absolute);
             let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
 
             for method in &t.default_interface().methods {

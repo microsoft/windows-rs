@@ -9,7 +9,7 @@ impl Constant {
         quote! { #name }
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
+    pub fn gen(&self) -> TokenStream {
         let name = self.0.name();
 
         // TODO: workaround for https://github.com/microsoft/win32metadata/issues/90

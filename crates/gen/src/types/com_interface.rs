@@ -18,7 +18,7 @@ impl ComInterface {
         Some(self.0.def)
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
+    pub fn gen(&self, _: &Gen) -> TokenStream {
         quote! {}
     }
 }

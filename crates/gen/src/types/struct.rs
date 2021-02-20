@@ -33,7 +33,7 @@ impl Struct {
             .has_attribute("Windows.Win32.Interop", "NativeTypedefAttribute")
     }
 
-    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         if self.is_blittable() {
             self.0.gen_name(gen)
         } else {
@@ -41,7 +41,7 @@ impl Struct {
         }
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
 
         let runtime_type = if self.0.is_winrt() {

@@ -21,7 +21,7 @@ impl MethodSignature {
             .collect()
     }
 
-    pub fn gen_constraint(&self, gen: Gen) -> TokenStream {
+    pub fn gen_constraint(&self, gen: &Gen) -> TokenStream {
         let params = self.params.iter().map(|p| p.gen_produce_type(gen));
 
         let return_type = if let Some(return_type) = &self.return_type {
@@ -35,7 +35,7 @@ impl MethodSignature {
 
     // All WinRT ABI methods return an HRESULT while any return type is transformed into a trailing
     // out parameter. This is unlike Win32 methods that don't require this transformation.
-    pub fn gen_winrt_abi(&self, gen: Gen) -> TokenStream {
+    pub fn gen_winrt_abi(&self, gen: &Gen) -> TokenStream {
         let params = self.params.iter().map(|p| {
             let name = p.param.gen_name();
             let abi = p.signature.gen_abi(gen);
@@ -59,6 +59,10 @@ impl MethodSignature {
             (this: ::windows::RawPtr, #(#params),*) -> ::windows::ErrorCode
         }
     }
+
+    pub fn gen_winrt_method(&self, gen: &MethodGen) -> TokenStream {
+        quote!{}
+    }
 }
 
 impl MethodParam {
@@ -76,7 +80,7 @@ impl MethodParam {
         }
     }
 
-    pub fn gen_produce_type(&self, gen: Gen) -> TokenStream {
+    pub fn gen_produce_type(&self, gen: &Gen) -> TokenStream {
         let tokens = self.signature.gen(gen);
 
         if self.param.is_input() {

@@ -44,7 +44,7 @@ impl Interface {
         }
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
+    pub fn gen(&self, _: &Gen) -> TokenStream {
         quote! {}
     }
 }
@@ -74,7 +74,7 @@ mod tests {
         assert_eq!(i.len(), 1);
 
         assert_eq!(
-            i[0].0.gen_name(Gen::Absolute).as_str(),
+            i[0].0.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: IAsyncInfo"
         );
     }
@@ -86,7 +86,7 @@ mod tests {
         assert_eq!(i.len(), 1);
 
         assert_eq!(
-            i[0].0.gen_name(Gen::Absolute).as_str(),
+            i[0].0.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
         );
     }

@@ -36,7 +36,7 @@ impl Delegate {
             .expect("Callback")
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let signature = self.method().signature(&self.0.generics);
@@ -45,6 +45,7 @@ impl Delegate {
         let guid = self.0.gen_guid();
         let phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
+        //let method = signature.gen_method(gen);
 
         let type_signature = if self.0.generics.is_empty() {
             self.0
@@ -58,6 +59,9 @@ impl Delegate {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name(::windows::IUnknown, #phantoms) where #constraints;
+            impl<#constraints> #name {
+                //#method
+            }
             unsafe impl<#constraints> ::windows::RuntimeType for #name {
                 type DefaultType = ::std::option::Option<Self>;
                 const SIGNATURE: ::windows::ConstBuffer = #type_signature;

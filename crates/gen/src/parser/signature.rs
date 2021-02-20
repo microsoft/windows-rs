@@ -51,7 +51,7 @@ impl Signature {
         self.pointers > 0 || self.kind.is_blittable()
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         for _ in 0..self.pointers {
@@ -75,7 +75,7 @@ impl Signature {
         tokens
     }
 
-    pub fn gen_abi(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         for _ in 0..self.pointers {

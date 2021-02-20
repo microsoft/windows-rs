@@ -68,7 +68,7 @@ mod tests {
     #[test]
     fn test_windows() {
         assert_eq!(
-            ElementType::String.gen_name(Gen::Absolute).as_str(),
+            ElementType::String.gen_name(&Gen::Absolute).as_str(),
             "windows :: HString"
         );
 
@@ -84,7 +84,7 @@ mod tests {
         let t = reader.resolve_type("Windows.Foundation", "IStringable");
 
         assert_eq!(
-            t.gen_name(Gen::Absolute).as_str(),
+            t.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: IStringable"
         );
 

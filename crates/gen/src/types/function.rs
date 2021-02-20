@@ -13,7 +13,7 @@ impl Function {
         self.0.dependencies(&[])
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.gen_name();
         let signature = self.0.signature(&[]);
 

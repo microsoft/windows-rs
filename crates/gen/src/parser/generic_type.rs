@@ -80,11 +80,11 @@ impl GenericType {
         })
     }
 
-    pub fn gen_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         self.format_name(gen, to_ident)
     }
 
-    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         self.format_name(gen, to_abi_ident)
     }
 
@@ -96,7 +96,7 @@ impl GenericType {
                 ::windows::Guid::from_values(#guid)
             }
         } else {
-            let tokens = self.gen_name(Gen::Absolute);
+            let tokens = self.gen_name(&Gen::Absolute);
 
             quote! {
                 ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
@@ -112,7 +112,7 @@ impl GenericType {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen(Gen::Absolute);
+            let g = g.gen(&Gen::Absolute);
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
@@ -141,14 +141,14 @@ impl GenericType {
 
     pub fn gen_phantoms(&self) -> TokenStream {
         TokenStream::from_iter(self.generics.iter().map(|g| {
-            let g = g.gen(Gen::Absolute);
+            let g = g.gen(&Gen::Absolute);
             quote! { ::std::marker::PhantomData::<#g>, }
         }))
     }
 
     pub fn gen_constraints(&self) -> TokenStream {
         TokenStream::from_iter(self.generics.iter().map(|g| {
-            let g = g.gen(Gen::Absolute);
+            let g = g.gen(&Gen::Absolute);
             quote! { #g: ::windows::RuntimeType + 'static, }
         }))
     }
@@ -171,7 +171,7 @@ impl GenericType {
         }
     }
 
-    fn format_name<F>(&self, gen: Gen, format_name: F) -> TokenStream
+    fn format_name<F>(&self, gen: &Gen, format_name: F) -> TokenStream
     where
         F: FnOnce(&str) -> Ident,
     {
@@ -204,7 +204,7 @@ mod tests {
         let reader = TypeReader::get();
         let t = reader.resolve_type("Windows.Foundation", "IAsyncOperation`1");
         assert_eq!(
-            t.gen_name(Gen::Absolute).as_str(),
+            t.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: IAsyncOperation :: < TResult >"
         );
         assert_eq!(

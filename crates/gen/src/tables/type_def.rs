@@ -120,13 +120,13 @@ impl TypeDef {
         Guid::from_type_def(self)
     }
 
-    pub fn gen_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         let name = to_ident(self.name());
         let namespace = gen.namespace(self.namespace());
         quote! { #namespace#name }
     }
 
-    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         let name = to_abi_ident(self.name());
         let namespace = gen.namespace(self.namespace());
         quote! { #namespace#name }
