@@ -96,22 +96,22 @@ impl TypeDef {
         self.flags().windows_runtime()
     }
 
-    pub fn category(&self) -> TypeCategory {
+    pub fn category(&self) -> TypeKind {
         if self.flags().interface() {
-            TypeCategory::Interface
+            TypeKind::Interface
         } else {
             match self.extends().full_name() {
-                ("System", "Enum") => TypeCategory::Enum,
-                ("System", "MulticastDelegate") => TypeCategory::Delegate,
-                ("System", "Attribute") => TypeCategory::Attribute,
+                ("System", "Enum") => TypeKind::Enum,
+                ("System", "MulticastDelegate") => TypeKind::Delegate,
+                ("System", "Attribute") => TypeKind::Attribute,
                 ("System", "ValueType") => {
                     if self.has_attribute("Windows.Foundation.Metadata", "ApiContractAttribute") {
-                        TypeCategory::Contract
+                        TypeKind::Contract
                     } else {
-                        TypeCategory::Struct
+                        TypeKind::Struct
                     }
                 }
-                _ => TypeCategory::Class,
+                _ => TypeKind::Class,
             }
         }
     }

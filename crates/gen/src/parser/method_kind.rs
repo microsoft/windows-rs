@@ -1,6 +1,5 @@
-// TODO: call MethodKind
 #[derive(Copy, Clone, PartialEq, Debug)]
-pub enum MethodCategory {
+pub enum MethodKind {
     Normal,
     Get,
     Set,

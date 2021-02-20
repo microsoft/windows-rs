@@ -24,24 +24,24 @@ impl MethodDef {
         self.reader.blob(self.row, 4)
     }
 
-    pub fn category(&self) -> MethodCategory {
+    pub fn category(&self) -> MethodKind {
         if self.flags().special() {
             let name = self.name();
 
             if name.starts_with("get") {
-                MethodCategory::Get
+                MethodKind::Get
             } else if name.starts_with("put") {
-                MethodCategory::Set
+                MethodKind::Set
             } else if name.starts_with("add") {
-                MethodCategory::Add
+                MethodKind::Add
             } else if name.starts_with("remove") {
-                MethodCategory::Remove
+                MethodKind::Remove
             } else {
                 // A delegate's 'Invoke' method is "special" but lacks a preamble.
-                MethodCategory::Normal
+                MethodKind::Normal
             }
         } else {
-            MethodCategory::Normal
+            MethodKind::Normal
         }
     }
 

@@ -101,8 +101,8 @@ impl ElementType {
             0x15 => {
                 let def = GenericType::from_blob(blob, generics);
                 match def.def.category() {
-                    TypeCategory::Interface => Self::Interface(types::Interface(def)),
-                    TypeCategory::Delegate => Self::Delegate(types::Delegate(def)),
+                    TypeKind::Interface => Self::Interface(types::Interface(def)),
+                    TypeKind::Delegate => Self::Delegate(types::Delegate(def)),
                     _ => unexpected!(),
                 }
             }
@@ -114,7 +114,7 @@ impl ElementType {
     // that need to be excluded but are hard to do at that layer.
     pub fn from_type_def(def: tables::TypeDef, generics: Vec<Self>) -> Option<Self> {
         match def.category() {
-            TypeCategory::Interface => {
+            TypeKind::Interface => {
                 if def.is_winrt() {
                     Some(Self::Interface(types::Interface(
                         GenericType::from_type_def(def, generics),
@@ -125,12 +125,12 @@ impl ElementType {
                     )))
                 }
             }
-            TypeCategory::Class => Some(Self::Class(types::Class(GenericType::from_type_def(
+            TypeKind::Class => Some(Self::Class(types::Class(GenericType::from_type_def(
                 def, generics,
             )))),
-            TypeCategory::Enum => Some(Self::Enum(types::Enum(def))),
-            TypeCategory::Struct => Some(Self::Struct(types::Struct(def))),
-            TypeCategory::Delegate => {
+            TypeKind::Enum => Some(Self::Enum(types::Enum(def))),
+            TypeKind::Struct => Some(Self::Struct(types::Struct(def))),
+            TypeKind::Delegate => {
                 if def.is_winrt() {
                     Some(Self::Delegate(types::Delegate(GenericType::from_type_def(
                         def, generics,

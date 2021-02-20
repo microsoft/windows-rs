@@ -1,5 +1,5 @@
 #[derive(PartialEq)]
-pub enum TypeCategory {
+pub enum TypeKind {
     Interface,
     Class,
     Enum,
