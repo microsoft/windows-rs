@@ -19,12 +19,45 @@ impl MethodDef {
         self.reader.str(self.row, 3)
     }
 
+    pub fn rust_name(&self) -> String {
+        if self.flags().special() {
+            let name = self.name();
+
+            if name.starts_with("get") {
+                to_snake(&name[4..])
+            } else if name.starts_with("put") {
+                let mut name = to_snake(name);
+                name.replace_range(..3, "set");
+                name
+            } else if name.starts_with("add") {
+                to_snake(&name[4..])
+            } else if name.starts_with("remove") {
+                to_snake(name)
+            } else {
+                // A delegate's 'Invoke' method is "special" but lacks a preamble.
+                "invoke".to_owned()
+            }
+        } else {
+            for attribute in self.attributes() {
+                if attribute.full_name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
+                    for (_, arg) in attribute.args() {
+                        if let ConstantValue::String(name) = arg {
+                            return to_snake(&name);
+                        }
+                    }
+                }
+            }
+    
+            to_snake(self.name())
+        }
+    }
+
     // TODO: find uses of MethodDef::blob and replace with MethodDef::signature?
     pub fn blob(&self) -> Blob {
         self.reader.blob(self.row, 4)
     }
 
-    pub fn category(&self) -> MethodKind {
+    pub fn kind(&self) -> MethodKind {
         if self.flags().special() {
             let name = self.name();
 

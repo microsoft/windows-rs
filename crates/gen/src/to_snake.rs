@@ -1,35 +1,14 @@
-use super::*;
-
-/// Change a CamelCase method name to snake case and prepends an optional
-/// preamble depending on the kind of method.
-pub fn method_to_snake(camel: &str, kind: MethodKind) -> String {
-    debug_assert!(!camel.is_empty());
-    let mut snake = String::with_capacity(camel.len());
-
-    match kind {
-        MethodKind::Set => snake.push_str("set_"),
-        MethodKind::Remove => snake.push_str("remove_"),
-        _ => {}
-    };
-
-    append_to_snake(snake, camel)
-}
-
-/// Change a CamelCase name to snake case.
 pub fn to_snake(camel: &str) -> String {
     debug_assert!(!camel.is_empty());
-    let snake = String::with_capacity(camel.len());
-    append_to_snake(snake, camel)
-}
-
-fn append_to_snake(mut snake: String, camel: &str) -> String {
-    // Add any manual fixups here, anything that isn't handle automatically by the algorithm below.
+    let mut snake = String::with_capacity(camel.len());
+    
     if camel == "WinRT" {
         return "winrt".to_string();
     }
 
     let mut since_last_underscore = 0;
     let mut chars = camel.chars();
+
     // first character as lowercased
     for c in chars.next().unwrap().to_lowercase() {
         since_last_underscore += 1;

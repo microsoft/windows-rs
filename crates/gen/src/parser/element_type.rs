@@ -100,7 +100,7 @@ impl ElementType {
             0x14 => Self::NotYetSupported, // arrays
             0x15 => {
                 let def = GenericType::from_blob(blob, generics);
-                match def.def.category() {
+                match def.def.kind() {
                     TypeKind::Interface => Self::Interface(types::Interface(def)),
                     TypeKind::Delegate => Self::Delegate(types::Delegate(def)),
                     _ => unexpected!(),
@@ -113,7 +113,7 @@ impl ElementType {
     // TODO: this only returns Option<T> instead of just T because the TypeReader's cache still has constracts and attributes
     // that need to be excluded but are hard to do at that layer.
     pub fn from_type_def(def: tables::TypeDef, generics: Vec<Self>) -> Option<Self> {
-        match def.category() {
+        match def.kind() {
             TypeKind::Interface => {
                 if def.is_winrt() {
                     Some(Self::Interface(types::Interface(

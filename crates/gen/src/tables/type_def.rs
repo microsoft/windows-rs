@@ -96,7 +96,7 @@ impl TypeDef {
         self.flags().windows_runtime()
     }
 
-    pub fn category(&self) -> TypeKind {
+    pub fn kind(&self) -> TypeKind {
         if self.flags().interface() {
             TypeKind::Interface
         } else {

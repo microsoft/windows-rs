@@ -61,7 +61,13 @@ impl MethodSignature {
     }
 
     pub fn gen_winrt_method(&self, gen: &MethodGen) -> TokenStream {
-        quote!{}
+        let name = if gen.kind == InterfaceKind::Composable && self.params.len() == 2 {
+            format_ident!("new")
+        } else {
+            to_ident(&gen.name)
+        };
+
+        quote! {}
     }
 }
 
