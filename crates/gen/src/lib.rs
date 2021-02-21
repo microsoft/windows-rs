@@ -3,9 +3,9 @@ pub use std::collections::{BTreeMap, BTreeSet};
 pub use std::iter::FromIterator;
 
 mod gen;
-mod method_gen;
 mod guid;
 mod hex_reader;
+mod method_gen;
 mod parser;
 pub mod tables;
 mod to_ident;
@@ -18,13 +18,13 @@ mod workspace;
 pub use gen::*;
 pub use guid::*;
 pub use hex_reader::*;
+pub use method_gen::*;
 pub use parser::*;
 pub use to_ident::*;
 pub use to_snake::*;
 pub use type_limits::*;
 pub use type_tree::*;
 pub use workspace::*;
-pub use method_gen::*;
 
 // Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
 #[macro_export]

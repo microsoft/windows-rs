@@ -47,7 +47,7 @@ impl MethodDef {
                     }
                 }
             }
-    
+
             to_snake(self.name())
         }
     }

@@ -1,7 +1,7 @@
 pub fn to_snake(camel: &str) -> String {
     debug_assert!(!camel.is_empty());
     let mut snake = String::with_capacity(camel.len());
-    
+
     if camel == "WinRT" {
         return "winrt".to_string();
     }
@@ -59,10 +59,7 @@ mod tests {
 
         assert_eq!(to_snake("ApplicationModel"), "application_model".to_owned());
 
-        assert_eq!(
-            method_to_snake("foo", MethodKind::Normal),
-            "foo".to_owned()
-        );
+        assert_eq!(method_to_snake("foo", MethodKind::Normal), "foo".to_owned());
 
         assert_eq!(
             method_to_snake("UIProgramming", MethodKind::Normal),

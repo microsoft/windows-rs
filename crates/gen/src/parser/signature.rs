@@ -47,7 +47,7 @@ impl Signature {
     }
 
     pub fn is_blittable(&self) -> bool {
-        // TODO: This should deal with "tree" structs that point to themselves - need a test for this.
+        // TODO: In theory, this should deal with "tree" structs that point to themselves - need a test for this.
         self.pointers > 0 || self.kind.is_blittable()
     }
 

@@ -381,6 +381,23 @@ impl ElementType {
         }
     }
 
+    pub fn is_convertible(&self) -> bool {
+        match self {
+            Self::String
+            | Self::Object
+            | Self::Guid
+            | Self::IUnknown
+            | Self::Matrix3x2
+            | Self::GenericParam(_)
+            | Self::Class(_)
+            | Self::Interface(_)
+            | Self::ComInterface(_)
+            | Self::Struct(_)
+            | Self::Delegate(_) => true,
+            _ => false,
+        }
+    }
+
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::Bool
