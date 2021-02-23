@@ -122,6 +122,8 @@ impl Class {
     pub fn gen(&self, _: &Gen) -> TokenStream {
         quote! {}
     }
+
+    // TODO: don't generate conversions for exclusive interfaces
 }
 
 #[cfg(test)]

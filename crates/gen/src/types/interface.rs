@@ -124,6 +124,8 @@ impl Interface {
                 #phantoms
             ) where #constraints;
         }
+
+        // TODO: don't generate conversions for exclusive interfaces
     }
 }
 
