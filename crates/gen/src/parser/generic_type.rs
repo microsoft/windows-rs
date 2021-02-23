@@ -43,75 +43,25 @@ impl GenericType {
             .map(|def| GenericType::from_type_def(def, Vec::new()))
     }
 
-    pub fn interfaces2(&self) -> Vec<InterfaceInfo> {
-        let mut result = Vec::new();
-
-        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
-            for child in parent.def.interfaces() {
-                if let Some(def) = child.generic_interface(&parent.generics) {
-                    if !result.iter().any(|info| info.def == def) {
-                        add_interfaces(result, &def, is_base);
-
-                        let kind = if child.is_default() {
-                            InterfaceKind::Default
-                        } else {
-                            InterfaceKind::NonDefault
-                        };
-
-                        let version = def.def.version();
-
-                        result.push(InterfaceInfo {
-                            def,
-                            kind,
-                            is_base,
-                            version,
-                        });
-                    }
+    pub fn default_interface(&self) -> Self {
+        for interface in self.def.interfaces() {
+            if interface.is_default() {
+                if let Some(result) = interface.generic_interface(&self.generics) {
+                    return result;
                 }
             }
         }
 
-        add_interfaces(&mut result, self, false);
-
-        for base in self.bases() {
-            add_interfaces(&mut result, &base, true);
-        }
-
-        result
+        panic!(
+                "Class {}.{} does not have a default interface.",
+                self.def.namespace(),
+                self.def.name()
+        );
     }
 
-    // TODO: remove and use interfaces2 in its place.
-    pub fn interfaces(&self) -> impl Iterator<Item = (types::Interface, InterfaceKind)> + '_ {
+    pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
         self.def.interfaces().filter_map(move |i| {
-            let kind = if i.is_default() {
-                InterfaceKind::Default
-            } else {
-                InterfaceKind::NonDefault
-            };
-
-            let interface = types::Interface(match i.interface() {
-                TypeDefOrRef::TypeDef(def) => Self {
-                    def,
-                    generics: Vec::new(),
-                },
-                TypeDefOrRef::TypeRef(def) => {
-                    if def.full_name() == ("Windows.Win32.Com", "IUnknown") {
-                        return None;
-                    }
-
-                    Self {
-                        def: def.resolve(),
-                        generics: Vec::new(),
-                    }
-                }
-                TypeDefOrRef::TypeSpec(def) => {
-                    let mut blob = def.blob();
-                    blob.read_unsigned();
-                    Self::from_blob(&mut blob, &self.generics)
-                }
-            });
-
-            Some((interface, kind))
+            i.generic_interface(&self.generics)
         })
     }
 

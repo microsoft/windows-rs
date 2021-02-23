@@ -5,26 +5,13 @@ pub struct Class(pub GenericType);
 
 impl Class {
     pub fn type_signature(&self) -> String {
-        let default = self
-            .0
-            .interfaces()
-            .find(|(_, kind)| *kind == parser::InterfaceKind::Default)
-            .unwrap_or_else(|| {
-                panic!(
-                    "{}",
-                    format!(
-                        "Class {}.{} does not have a default interface.",
-                        self.0.def.namespace(),
-                        self.0.def.name()
-                    )
-                )
-            });
+        let default = self.0.default_interface();
 
         format!(
             "rc({}.{};{})",
             self.0.def.namespace(),
             self.0.def.name(),
-            default.0 .0.interface_signature()
+            default.interface_signature()
         )
     }
 
@@ -80,7 +67,7 @@ impl Class {
 
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         let generics = self.0.generics.iter().filter_map(|g| g.definition());
-        let interfaces = self.0.interfaces().filter_map(|i| i.0.definition());
+        let interfaces = self.0.interfaces().map(|i| i.def);
         let bases = self.0.bases().map(|b| b.def);
         let factories = self.factories().filter_map(|(i, _)| i.definition());
 

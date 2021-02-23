@@ -9,8 +9,8 @@ impl ComInterface {
             .def
             .methods()
             .map(|m| m.dependencies(&[]))
-            .chain(self.0.interfaces().map(|i| i.0.dependencies()))
             .flatten()
+            .chain(self.0.interfaces().map(|i| i.def))
             .collect()
     }
 

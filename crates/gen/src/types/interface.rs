@@ -32,7 +32,7 @@ impl Interface {
             .methods()
             .map(|m| m.dependencies(&self.0.generics))
             .flatten()
-            .chain(self.0.interfaces().filter_map(|i| i.0.definition()))
+            .chain(self.0.interfaces().map(|i| i.def))
             .collect()
     }
 
@@ -43,6 +43,43 @@ impl Interface {
             None
         }
     }
+
+    // pub fn interfaces_info(&self) -> Vec<InterfaceInfo> {
+    //     let mut result = Vec::new();
+
+    //     fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
+    //         for child in parent.def.interfaces() {
+    //             if let Some(def) = child.generic_interface(&parent.generics) {
+    //                 if !result.iter().any(|info| info.def == def) {
+    //                     add_interfaces(result, &def, is_base);
+
+    //                     let kind = if child.is_default() {
+    //                         InterfaceKind::Default
+    //                     } else {
+    //                         InterfaceKind::NonDefault
+    //                     };
+
+    //                     let version = def.def.version();
+
+    //                     result.push(InterfaceInfo {
+    //                         def,
+    //                         kind,
+    //                         is_base,
+    //                         version,
+    //                     });
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     add_interfaces(&mut result, self, false);
+
+    //     for base in self.bases() {
+    //         add_interfaces(&mut result, &base, true);
+    //     }
+
+    //     result
+    // }
 
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         // TODO: if interface is exclusive then only include enough to support the ABI vtable.
