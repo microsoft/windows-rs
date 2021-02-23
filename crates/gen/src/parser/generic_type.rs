@@ -4,7 +4,6 @@ use super::*;
 pub struct GenericType {
     pub def: tables::TypeDef,
     pub generics: Vec<ElementType>,
-    pub is_default: bool, // TODO: this should not be stored here (since it doesn't apply to all uses of GenericType)
 }
 
 impl GenericType {
@@ -22,7 +21,6 @@ impl GenericType {
         Self {
             def,
             generics: args,
-            is_default: false,
         }
     }
 
@@ -33,30 +31,24 @@ impl GenericType {
                 .map(|generic| ElementType::GenericParam(generic))
                 .collect();
 
-            Self {
-                def,
-                generics,
-                is_default: false,
-            }
+            Self { def, generics }
         } else {
-            Self {
-                def,
-                generics,
-                is_default: false,
-            }
+            Self { def, generics }
         }
     }
 
-    // TODO: return a pair of (GenericType, InterfaceKind) to carry the "is_default" outside of GenericType
-    pub fn interfaces(&self) -> impl Iterator<Item = types::Interface> + '_ {
+    pub fn interfaces(&self) -> impl Iterator<Item = (types::Interface, InterfaceKind)> + '_ {
         self.def.interfaces().filter_map(move |i| {
-            let is_default = i.is_default();
+            let kind = if i.is_default() {
+                InterfaceKind::Default
+            } else {
+                InterfaceKind::NonDefault
+            };
 
-            Some(types::Interface(match i.interface() {
+            let interface = types::Interface(match i.interface() {
                 TypeDefOrRef::TypeDef(def) => Self {
                     def,
                     generics: Vec::new(),
-                    is_default,
                 },
                 TypeDefOrRef::TypeRef(def) => {
                     if def.full_name() == ("Windows.Win32.Com", "IUnknown") {
@@ -66,17 +58,16 @@ impl GenericType {
                     Self {
                         def: def.resolve(),
                         generics: Vec::new(),
-                        is_default,
                     }
                 }
                 TypeDefOrRef::TypeSpec(def) => {
                     let mut blob = def.blob();
                     blob.read_unsigned();
-                    let mut interface = Self::from_blob(&mut blob, &self.generics);
-                    interface.is_default = i.is_default();
-                    interface
+                    Self::from_blob(&mut blob, &self.generics)
                 }
-            }))
+            });
+
+            Some((interface, kind))
         })
     }
 
@@ -208,7 +199,7 @@ mod tests {
             "windows :: foundation :: IAsyncOperation :: < TResult >"
         );
         assert_eq!(
-            t.gen_name(Gen::Relative("Windows.Foundation")).as_str(),
+            t.gen_name(&Gen::Relative("Windows.Foundation")).as_str(),
             "IAsyncOperation < TResult >"
         );
     }

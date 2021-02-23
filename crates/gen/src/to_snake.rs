@@ -59,34 +59,21 @@ mod tests {
 
         assert_eq!(to_snake("ApplicationModel"), "application_model".to_owned());
 
-        assert_eq!(method_to_snake("foo", MethodKind::Normal), "foo".to_owned());
+        assert_eq!(to_snake("foo"), "foo".to_owned());
+
+        assert_eq!(to_snake("UIProgramming"), "ui_programming".to_owned());
 
         assert_eq!(
-            method_to_snake("UIProgramming", MethodKind::Normal),
-            "ui_programming".to_owned()
-        );
-
-        assert_eq!(
-            method_to_snake("UIProgramming", MethodKind::Set),
-            "set_ui_programming".to_owned()
-        );
-
-        assert_eq!(
-            method_to_snake("CreateUInt8Array", MethodKind::Normal),
+            to_snake("CreateUInt8Array"),
             "create_uint8_array".to_owned()
-        );
-
-        assert_eq!(
-            method_to_snake("Socks", MethodKind::Remove),
-            "remove_socks".to_owned()
         );
 
         assert_eq!(to_snake("appointmentId"), "appointment_id".to_owned());
 
-        assert_eq!(method_to_snake("a", MethodKind::Normal), "a".to_owned());
+        assert_eq!(to_snake("a"), "a".to_owned());
 
         assert_eq!(
-            method_to_snake("CreateField_Default", MethodKind::Normal),
+            to_snake("CreateField_Default"),
             "create_field_default".to_owned()
         );
 

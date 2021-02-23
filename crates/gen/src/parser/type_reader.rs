@@ -404,6 +404,15 @@ impl TypeReader {
     }
 
     #[cfg(test)]
+    pub fn get_class(namespace: &str, name: &str) -> types::Class {
+        if let ElementType::Class(value) = Self::get().resolve_type(namespace, name) {
+            value.clone()
+        } else {
+            unexpected!();
+        }
+    }
+
+    #[cfg(test)]
     pub fn get_struct(namespace: &str, name: &str) -> types::Struct {
         if let ElementType::Struct(value) = Self::get().resolve_type(namespace, name) {
             value.clone()
