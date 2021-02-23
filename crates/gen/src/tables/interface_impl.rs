@@ -28,4 +28,32 @@ impl InterfaceImpl {
     pub fn is_default(&self) -> bool {
         self.has_attribute("Windows.Foundation.Metadata", "DefaultAttribute")
     }
+
+    pub fn is_overridable(&self) -> bool {
+        self.has_attribute("Windows.Foundation.Metadata", "OverridableAttribute")
+    }
+
+    pub fn generic_interface(&self, generics: &[ElementType]) -> Option<types::Interface> {
+        Some(types::Interface(match self.interface() {
+            TypeDefOrRef::TypeDef(def) => GenericType {
+                def,
+                generics: Vec::new(),
+            },
+            TypeDefOrRef::TypeRef(def) => {
+                if def.full_name() == ("Windows.Win32.Com", "IUnknown") {
+                    return None;
+                }
+
+                GenericType {
+                    def: def.resolve(),
+                    generics: Vec::new(),
+                }
+            }
+            TypeDefOrRef::TypeSpec(def) => {
+                let mut blob = def.blob();
+                blob.read_unsigned();
+                GenericType::from_blob(&mut blob, &generics)
+            }
+        }))
+    }
 }

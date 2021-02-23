@@ -141,7 +141,7 @@ impl MethodSignature {
                     }
                 }
             },
-            InterfaceKind::NonDefault | InterfaceKind::Overrides => {
+            InterfaceKind::NonDefault | InterfaceKind::Overridable => {
                 quote! {
                     pub fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                         let this = &::windows::Interface::cast::<#interface>(self).unwrap();
@@ -151,7 +151,7 @@ impl MethodSignature {
                     }
                 }
             }
-            InterfaceKind::Statics | InterfaceKind::Composable => {
+            InterfaceKind::Static | InterfaceKind::Composable => {
                 quote! {
                     pub fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
                         Self::#interface(|this| unsafe { #vcall })

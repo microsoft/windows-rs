@@ -18,6 +18,7 @@ mod traits;
 mod type_flags;
 mod type_kind;
 mod type_reader;
+mod interface_info;
 
 pub use blob::*;
 pub use codes::*;
@@ -37,3 +38,4 @@ pub use traits::*;
 pub use type_flags::*;
 pub use type_kind::*;
 pub use type_reader::*;
+pub use interface_info::*;

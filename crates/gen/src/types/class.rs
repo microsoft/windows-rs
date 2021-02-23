@@ -35,6 +35,7 @@ impl Class {
             .map(|def| Self(GenericType::from_type_def(def, Vec::new())))
     }
 
+    // TODO: fold into GenericType::interfaces
     pub fn factories(&self) -> impl Iterator<Item = (Interface, parser::InterfaceKind)> + '_ {
         self.0.def.attributes().filter_map(|attribute| {
             match attribute.full_name() {
@@ -44,7 +45,7 @@ impl Class {
                         if let parser::ConstantValue::TypeDef(def) = arg {
                             return Some((
                                 Interface(GenericType::from_type_def(def, Vec::new())),
-                                parser::InterfaceKind::Statics,
+                                parser::InterfaceKind::Static,
                             ));
                         }
                     }

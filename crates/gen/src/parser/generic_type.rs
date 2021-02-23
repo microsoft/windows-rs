@@ -37,6 +37,21 @@ impl GenericType {
         }
     }
 
+    // pub fn interfaces2(&self) -> Vec<InterfaceInfo> {
+    //     let mut result = Vec::new();
+
+    //     fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
+    //         for child in parent.def.interfaces() {
+
+    //         }
+    //     }
+
+    //     add_interfaces(&mut result, self, false);
+
+    //     result
+    // }
+
+    // TODO: remove and use interfaces2 in its place.
     pub fn interfaces(&self) -> impl Iterator<Item = (types::Interface, InterfaceKind)> + '_ {
         self.def.interfaces().filter_map(move |i| {
             let kind = if i.is_default() {

@@ -45,6 +45,9 @@ impl Interface {
     }
 
     pub fn gen(&self, gen: &Gen) -> TokenStream {
+        // TODO: if interface is exclusive then only include enough to support the ABI vtable.
+        // Ideally the type itself is missing and only the Xxx_abi type is present if needed.
+
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let phantoms = self.0.gen_phantoms();
