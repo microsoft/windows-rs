@@ -255,10 +255,11 @@ impl ElementType {
                 let windows = gen.windows();
                 quote! { #windows NOT_YET_SUPPORTED_TYPE }
             }
-            Self::GenericParam(generic) => { 
+            Self::GenericParam(generic) => {
+                let windows = gen.windows();
                 let name = generic.gen_name();
-                quote! { <#name as ::windows::Abi>::Abi }
-             }
+                quote! { <#name as #windows Abi>::Abi }
+            }
             Self::Class(_) => {
                 let windows = gen.windows();
                 quote! { #windows RawPtr }
@@ -439,7 +440,7 @@ impl ElementType {
             Self::GenericParam(p) => p.gen_name(),
             Self::Object => {
                 let windows = gen.windows();
-                 quote! { #windows Object }
+                quote! { #windows Object }
             }
             _ => unexpected!(),
         }

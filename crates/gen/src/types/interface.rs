@@ -51,8 +51,9 @@ impl Interface {
         let constraints = self.0.gen_constraints();
         let guid = self.0.gen_guid();
 
-        let type_signature = self.0
-        .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()));
+        let type_signature = self
+            .0
+            .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()));
 
         quote! {
             #[repr(transparent)]

@@ -111,7 +111,7 @@ impl MethodSignature {
         } else {
             quote! {}
         };
-        
+
         let vcall = if let Some(return_type) = &self.return_type {
             if return_type.is_array {
                 quote! {
@@ -239,7 +239,6 @@ impl MethodParam {
                 } else {
                     quote! { ::windows::Abi::abi(#name) }
                 }
-                
             } else {
                 quote! { ::windows::Abi::set_abi(#name) }
             }
