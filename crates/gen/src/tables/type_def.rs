@@ -116,6 +116,24 @@ impl TypeDef {
         }
     }
 
+    pub fn version(&self) -> (u16, u16) {
+        for attribute in self.attributes() {
+            match attribute.full_name() {
+                ("Windows.Foundation.Metadata", "ContractVersionAttribute")
+                | ("Windows.Foundation.Metadata", "VersionAttribute") => {
+                    for (_, value) in attribute.args() {
+                        if let ConstantValue::U32(value) = value {
+                            return ((value >> 16) as u16, (value & 0xFFFF) as u16);
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
+
+        (0, 0)
+    }
+
     pub fn guid(&self) -> Guid {
         Guid::from_type_def(self)
     }

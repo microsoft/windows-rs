@@ -33,8 +33,8 @@ impl InterfaceImpl {
         self.has_attribute("Windows.Foundation.Metadata", "OverridableAttribute")
     }
 
-    pub fn generic_interface(&self, generics: &[ElementType]) -> Option<types::Interface> {
-        Some(types::Interface(match self.interface() {
+    pub fn generic_interface(&self, generics: &[ElementType]) -> Option<parser::GenericType> {
+        Some(match self.interface() {
             TypeDefOrRef::TypeDef(def) => GenericType {
                 def,
                 generics: Vec::new(),
@@ -54,6 +54,6 @@ impl InterfaceImpl {
                 blob.read_unsigned();
                 GenericType::from_blob(&mut blob, &generics)
             }
-        }))
+        })
     }
 }

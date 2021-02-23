@@ -37,19 +37,48 @@ impl GenericType {
         }
     }
 
-    // pub fn interfaces2(&self) -> Vec<InterfaceInfo> {
-    //     let mut result = Vec::new();
+    pub fn bases(&self) -> impl Iterator<Item = Self> + '_ {
+        self.def
+            .bases()
+            .map(|def| GenericType::from_type_def(def, Vec::new()))
+    }
 
-    //     fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
-    //         for child in parent.def.interfaces() {
+    pub fn interfaces2(&self) -> Vec<InterfaceInfo> {
+        let mut result = Vec::new();
 
-    //         }
-    //     }
+        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
+            for child in parent.def.interfaces() {
+                if let Some(def) = child.generic_interface(&parent.generics) {
+                    if !result.iter().any(|info| info.def == def) {
+                        add_interfaces(result, &def, is_base);
 
-    //     add_interfaces(&mut result, self, false);
+                        let kind = if child.is_default() {
+                            InterfaceKind::Default
+                        } else {
+                            InterfaceKind::NonDefault
+                        };
 
-    //     result
-    // }
+                        let version = def.def.version();
+
+                        result.push(InterfaceInfo {
+                            def,
+                            kind,
+                            is_base,
+                            version,
+                        });
+                    }
+                }
+            }
+        }
+
+        add_interfaces(&mut result, self, false);
+
+        for base in self.bases() {
+            add_interfaces(&mut result, &base, true);
+        }
+
+        result
+    }
 
     // TODO: remove and use interfaces2 in its place.
     pub fn interfaces(&self) -> impl Iterator<Item = (types::Interface, InterfaceKind)> + '_ {
