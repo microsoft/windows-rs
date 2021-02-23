@@ -58,7 +58,7 @@ impl TypeDef {
             })
     }
 
-    pub fn interfaces(&self) -> impl Iterator<Item = InterfaceImpl> + '_ {
+    pub fn interfaces_impls(&self) -> impl Iterator<Item = InterfaceImpl> + '_ {
         self.reader
             .equal_range(
                 self.row.file_index,

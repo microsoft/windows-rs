@@ -44,7 +44,7 @@ impl GenericType {
     }
 
     pub fn default_interface(&self) -> Self {
-        for interface in self.def.interfaces() {
+        for interface in self.def.interfaces_impls() {
             if interface.is_default() {
                 if let Some(result) = interface.generic_interface(&self.generics) {
                     return result;
@@ -60,7 +60,7 @@ impl GenericType {
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
-        self.def.interfaces().filter_map(move |i| {
+        self.def.interfaces_impls().filter_map(move |i| {
             i.generic_interface(&self.generics)
         })
     }
