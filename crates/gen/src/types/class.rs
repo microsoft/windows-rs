@@ -65,6 +65,42 @@ impl Class {
         })
     }
 
+    pub fn interfaces(&self) -> Vec<InterfaceInfo> {
+        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
+            for child in parent.def.interface_impls() {
+                if let Some(def) = child.generic_interface(&parent.generics) {
+                    if !result.iter().any(|info| info.def == def) {
+                        add_interfaces(result, &def, is_base);
+
+                        let kind = if child.is_default() {
+                            InterfaceKind::Default
+                        } else {
+                            InterfaceKind::NonDefault
+                        };
+
+                        let version = def.def.version();
+
+                        result.push(InterfaceInfo {
+                            def,
+                            kind,
+                            is_base,
+                            version,
+                        });
+                    }
+                }
+            }
+        }
+
+        let mut result = Vec::new();
+        add_interfaces(&mut result, &self.0, false);
+
+        for base in self.0.bases() {
+            add_interfaces(&mut result, &base, true);
+        }
+
+        result
+    }
+
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         let generics = self.0.generics.iter().filter_map(|g| g.definition());
         let interfaces = self.0.interfaces().map(|i| i.def);
