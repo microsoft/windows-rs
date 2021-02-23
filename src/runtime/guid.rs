@@ -4,7 +4,7 @@ use gen::HexReader;
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
 /// used to identify COM and WinRT interfaces.
 #[repr(C)]
-#[derive(Clone, Default, PartialEq, Eq)]
+#[derive(Copy, Clone, Default, PartialEq, Eq)]
 pub struct Guid {
     data1: u32,
     data2: u16,
