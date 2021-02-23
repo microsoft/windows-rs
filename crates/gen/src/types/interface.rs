@@ -51,6 +51,7 @@ impl Interface {
         });
 
         add_interfaces(&mut result, &self.0, false);
+        InterfaceInfo::sort(&mut result);
         result
     }
 
@@ -139,11 +140,16 @@ mod tests {
     #[test]
     fn test_interfaces() {
         let i = TypeReader::get_interface("Windows.Foundation", "IAsyncOperation`1");
-        let i: Vec<(Interface, parser::InterfaceKind)> = i.0.interfaces().collect();
-        assert_eq!(i.len(), 1);
+        let i = i.interfaces();
+        assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].0 .0.gen_name(&Gen::Absolute).as_str(),
+            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            "windows :: foundation :: IAsyncOperation :: < TResult >"
+        );
+
+        assert_eq!(
+            i[1].def.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: IAsyncInfo"
         );
     }
@@ -151,11 +157,16 @@ mod tests {
     #[test]
     fn test_generic_interfaces() {
         let i = TypeReader::get_interface("Windows.Foundation.Collections", "IMap`2");
-        let i: Vec<(Interface, parser::InterfaceKind)> = i.0.interfaces().collect();
-        assert_eq!(i.len(), 1);
+        let i = i.interfaces();
+        assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].0.0.gen_name(&Gen::Absolute).as_str(),
+            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            "windows :: foundation :: collections :: IMap :: < K , V >"
+        );
+
+        assert_eq!(
+            i[1].def.gen_name(&Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
         );
     }

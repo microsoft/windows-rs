@@ -1,7 +1,7 @@
-#[derive(Copy, Clone, Eq, PartialEq, Debug)]
+#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum InterfaceKind {
-    NonDefault,
     Default,
+    NonDefault,
     Overridable,
     Static,
     Composable,
