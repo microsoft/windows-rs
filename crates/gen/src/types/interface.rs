@@ -50,6 +50,7 @@ impl Interface {
         let phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
         let guid = self.0.gen_guid();
+        let abi_signatures = self.0.def.methods().map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
 
         let type_signature = self
             .0
@@ -76,6 +77,10 @@ impl Interface {
                 pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::windows::Guid) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut i32) -> ::windows::ErrorCode,
+                #(pub unsafe extern "system" fn #abi_signatures,)*
                 #phantoms
             ) where #constraints;
         }
