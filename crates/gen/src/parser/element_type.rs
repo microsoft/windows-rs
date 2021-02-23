@@ -255,7 +255,10 @@ impl ElementType {
                 let windows = gen.windows();
                 quote! { #windows NOT_YET_SUPPORTED_TYPE }
             }
-            Self::GenericParam(generic) => generic.gen_name(),
+            Self::GenericParam(generic) => { 
+                let name = generic.gen_name();
+                quote! { <#name as ::windows::Abi>::Abi }
+             }
             Self::Class(_) => {
                 let windows = gen.windows();
                 quote! { #windows RawPtr }
@@ -372,6 +375,7 @@ impl ElementType {
             Self::String
             | Self::Object
             | Self::IUnknown
+            | Self::GenericParam(_)
             | Self::Class(_)
             | Self::Interface(_)
             | Self::ComInterface(_)
@@ -433,6 +437,10 @@ impl ElementType {
             Self::Delegate(t) => t.gen(gen),
             Self::Callback(t) => t.gen(gen),
             Self::GenericParam(p) => p.gen_name(),
+            Self::Object => {
+                let windows = gen.windows();
+                 quote! { #windows Object }
+            }
             _ => unexpected!(),
         }
     }

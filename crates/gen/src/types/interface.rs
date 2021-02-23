@@ -44,8 +44,40 @@ impl Interface {
         }
     }
 
-    pub fn gen(&self, _: &Gen) -> TokenStream {
-        quote! {}
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
+        let name = self.0.gen_name(gen);
+        let abi_name = self.0.gen_abi_name(gen);
+        let phantoms = self.0.gen_phantoms();
+        let constraints = self.0.gen_constraints();
+        let guid = self.0.gen_guid();
+
+        let type_signature = self.0
+        .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()));
+
+        quote! {
+            #[repr(transparent)]
+            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+            pub struct #name(::windows::IUnknown, #phantoms) where #constraints;
+            impl<#constraints> #name {
+
+            }
+            unsafe impl<#constraints> ::windows::RuntimeType for #name {
+                type DefaultType = ::std::option::Option<Self>;
+                const SIGNATURE: ::windows::ConstBuffer = #type_signature;
+            }
+            unsafe impl<#constraints> ::windows::Interface for #name {
+                type Vtable = #abi_name;
+                const IID: ::windows::Guid = #guid;
+            }
+            #[repr(C)]
+            #[doc(hidden)]
+            pub struct #abi_name(
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                #phantoms
+            ) where #constraints;
+        }
     }
 }
 
