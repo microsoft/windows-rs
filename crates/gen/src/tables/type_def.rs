@@ -18,8 +18,7 @@ impl TypeDef {
         (self.namespace(), self.name())
     }
 
-    // TODO: switch uses of this to TypeDef::bases
-    pub fn extends(&self) -> TypeDefOrRef {
+    fn extends(&self) -> TypeDefOrRef {
         self.reader.decode(self.row, 3)
     }
 
