@@ -46,16 +46,20 @@ impl Delegate {
         let phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
 
-        let gen = MethodGen {
-            gen: *gen,
+        let method = MethodInfo {
             name: "invoke",
             vtable_offset: 3,
             overload: 0,
-            interface: self.0.clone(),
-            kind: InterfaceKind::Default,
         };
 
-        let method = signature.gen_winrt_method(&gen);
+        let interface = InterfaceInfo {
+            def: self.0.clone(),
+            kind: InterfaceKind::Default,
+            is_base: false,
+            version: (0,0)
+        };
+
+        let method = signature.gen_winrt_method(&method, &interface, gen);
 
         let type_signature = if self.0.generics.is_empty() {
             self.0

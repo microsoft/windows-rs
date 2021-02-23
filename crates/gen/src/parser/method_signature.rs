@@ -64,23 +64,23 @@ impl MethodSignature {
         }
     }
 
-    pub fn gen_winrt_method(&self, gen: &MethodGen) -> TokenStream {
-        let params = if gen.kind == InterfaceKind::Composable {
+    pub fn gen_winrt_method(&self, method: &MethodInfo, interface: &InterfaceInfo, gen: &Gen) -> TokenStream {
+        let params = if interface.kind == InterfaceKind::Composable {
             &self.params[..self.params.len() - 2]
         } else {
             &self.params
         };
 
-        let name = self.gen_name(gen);
-        let windows = gen.gen.windows();
-        let vtable_offset = Literal::u32_unsuffixed(gen.vtable_offset);
+        let name = self.gen_name(method, interface, gen);
+        let windows = gen.windows();
+        let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
         let constraints = self.gen_constraints(params, gen);
         let args = params.iter().map(|p| p.gen_abi_arg());
         let params = self.gen_params(params, gen);
-        let interface = gen.interface.gen_name(&gen.gen);
+        let interface_name = interface.def.gen_name(gen);
 
         let return_type_tokens = if let Some(return_type) = &self.return_type {
-            let tokens = return_type.gen(&gen.gen);
+            let tokens = return_type.gen(gen);
 
             if return_type.is_array {
                 quote! { #windows Array<#tokens> }
@@ -93,7 +93,7 @@ impl MethodSignature {
 
         let return_arg = if let Some(return_type) = &self.return_type {
             if return_type.is_array {
-                let return_type = return_type.gen(&gen.gen);
+                let return_type = return_type.gen(gen);
                 quote! { #windows Array::<#return_type>::set_abi_len(&mut result__), #windows Array::<#return_type>::set_abi(&mut result__), }
             } else {
                 quote! { &mut result__ }
@@ -104,7 +104,7 @@ impl MethodSignature {
 
         // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
         // arguments to ensure the call succeeds in the non-aggregating case.
-        let composable_args = if gen.kind == InterfaceKind::Composable {
+        let composable_args = if interface.kind == InterfaceKind::Composable {
             quote! {
                 ::std::ptr::null_mut(), #windows Abi::set_abi(&mut ::std::option::Option::<#windows Object>::None),
             }
@@ -132,7 +132,7 @@ impl MethodSignature {
             }
         };
 
-        match gen.kind {
+        match interface.kind {
             InterfaceKind::Default => quote! {
                 pub fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                     let this = self;
@@ -144,7 +144,7 @@ impl MethodSignature {
             InterfaceKind::NonDefault | InterfaceKind::Overridable => {
                 quote! {
                     pub fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
-                        let this = &::windows::Interface::cast::<#interface>(self).unwrap();
+                        let this = &::windows::Interface::cast::<#interface_name>(self).unwrap();
                         unsafe {
                             #vcall
                         }
@@ -154,24 +154,24 @@ impl MethodSignature {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 quote! {
                     pub fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
-                        Self::#interface(|this| unsafe { #vcall })
+                        Self::#interface_name(|this| unsafe { #vcall })
                     }
                 }
             }
         }
     }
 
-    fn gen_name(&self, gen: &MethodGen) -> Ident {
-        if gen.kind == InterfaceKind::Composable && self.params.len() == 2 {
+    fn gen_name(&self, method: &MethodInfo, interface: &InterfaceInfo, gen: &Gen) -> Ident {
+        if interface.kind == InterfaceKind::Composable && self.params.len() == 2 {
             format_ident!("new")
-        } else if gen.overload > 1 {
-            format_ident!("{}{}", &gen.name, gen.overload)
+        } else if method.overload > 1 {
+            format_ident!("{}{}", &method.name, method.overload)
         } else {
-            to_ident(&gen.name)
+            to_ident(&method.name)
         }
     }
 
-    fn gen_constraints(&self, params: &[MethodParam], gen: &MethodGen) -> TokenStream {
+    fn gen_constraints(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
         let mut tokens = Vec::new();
 
         for (index, param) in params.iter().enumerate() {
@@ -180,7 +180,7 @@ impl MethodSignature {
                 && param.signature.kind.is_convertible()
             {
                 let name = squote::format_ident!("T{}__", index);
-                let into = param.signature.kind.gen_name(&gen.gen);
+                let into = param.signature.kind.gen_name(gen);
                 tokens.push(quote! { #name: ::std::convert::Into<::windows::Param<'a, #into>>, });
             }
         }
@@ -192,12 +192,12 @@ impl MethodSignature {
         TokenStream::from_iter(tokens)
     }
 
-    fn gen_params(&self, params: &[MethodParam], gen: &MethodGen) -> TokenStream {
-        let windows = gen.gen.windows();
+    fn gen_params(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
+        let windows = gen.windows();
 
         TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
             let name = param.param.gen_name();
-            let tokens = param.signature.gen(&gen.gen);
+            let tokens = param.signature.gen(gen);
 
             if param.signature.is_array {
                 if param.param.is_input() {
