@@ -99,7 +99,7 @@ impl MethodSignature {
         let interface_name = interface.def.gen_name(gen);
 
         let return_type_tokens = if let Some(return_type) = &self.return_type {
-            let tokens = return_type.gen(gen);
+            let tokens = return_type.kind.gen_name(gen);
 
             if return_type.is_array {
                 quote! { #windows Array<#tokens> }
