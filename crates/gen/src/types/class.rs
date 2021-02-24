@@ -119,7 +119,7 @@ impl Class {
         Some(self.0.def)
     }
 
-    pub fn gen(&self, _: &Gen) -> TokenStream {
+    pub fn gen(&self, _: Gen) -> TokenStream {
         quote! {}
     }
 
@@ -146,19 +146,19 @@ mod tests {
         assert_eq!(i.len(), 3);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            i[0].def.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IMap :: < windows :: HString , windows :: HString >"
         );
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
+            i[1].def.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < windows :: HString , windows :: HString > >"
         );
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
         assert_eq!(
-            i[2].def.gen_name(&Gen::Absolute).as_str(),
+            i[2].def.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IObservableMap :: < windows :: HString , windows :: HString >"
         );
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);

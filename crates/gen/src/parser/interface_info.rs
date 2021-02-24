@@ -26,7 +26,7 @@ impl InterfaceInfo {
         });
     }
 
-    pub fn gen_methods(interfaces: &Vec<Self>, gen: &Gen) -> TokenStream {
+    pub fn gen_methods(interfaces: &Vec<Self>, gen: Gen) -> TokenStream {
         let mut methods = TokenStream::new();
         let mut method_names = BTreeMap::<String, u32>::new();
         // TODO: get rid of all these temporary streams and use iterators. This just 

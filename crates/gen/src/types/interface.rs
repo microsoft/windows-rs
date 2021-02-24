@@ -77,7 +77,7 @@ impl Interface {
         }
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    pub fn gen(&self, gen: Gen) -> TokenStream {
         // TODO: if interface is exclusive then only include enough to support the ABI vtable.
         // Ideally the type itself is missing and only the Xxx_abi type is present if needed.
 
@@ -149,12 +149,12 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            i[0].def.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: IAsyncOperation :: < TResult >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
+            i[1].def.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: IAsyncInfo"
         );
     }
@@ -166,12 +166,12 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            i[0].def.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IMap :: < K , V >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
+            i[1].def.gen_name(Gen::Absolute).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
         );
     }
