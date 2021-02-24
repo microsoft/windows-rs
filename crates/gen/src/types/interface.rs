@@ -96,12 +96,23 @@ impl Interface {
             .0
             .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()));
 
+        let interfaces = self.interfaces();
+
+        let mut methods = TokenStream::new();
+        //let mut method_names = BTreeMap::new();
+
+        // for interface in interfaces {
+        //     for method in interface.def.methods() {
+        //         let 
+        //     }
+        // }
+
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name(::windows::IUnknown, #phantoms) where #constraints;
             impl<#constraints> #name {
-
+                #methods
             }
             unsafe impl<#constraints> ::windows::RuntimeType for #name {
                 type DefaultType = ::std::option::Option<Self>;
