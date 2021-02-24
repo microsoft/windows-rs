@@ -29,7 +29,7 @@ impl InterfaceInfo {
     pub fn gen_methods(interfaces: &Vec<Self>, gen: Gen) -> TokenStream {
         let mut methods = TokenStream::new();
         let mut method_names = BTreeMap::<String, u32>::new();
-        // TODO: get rid of all these temporary streams and use iterators. This just 
+        // TODO: get rid of all these temporary streams and use iterators. This just
         // ends up creating a bunch of temporary strings under the hood.
         let mut tokens = TokenStream::new();
 
@@ -47,7 +47,7 @@ impl InterfaceInfo {
 
                 let signature = method.signature(&interface.def.generics);
 
-               // tokens.combine(&signature.gen_winrt_method(&info, interface, gen));
+                // tokens.combine(&signature.gen_winrt_method(&info, interface, gen));
             }
         }
 

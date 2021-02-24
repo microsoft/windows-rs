@@ -73,9 +73,7 @@ mod tests {
         );
 
         assert_eq!(
-            ElementType::String
-                .gen_name(Gen::Relative("test"))
-                .as_str(),
+            ElementType::String.gen_name(Gen::Relative("test")).as_str(),
             ":: windows :: HString"
         );
     }
