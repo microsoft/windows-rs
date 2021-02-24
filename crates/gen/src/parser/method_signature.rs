@@ -95,7 +95,7 @@ impl MethodSignature {
         let windows = gen.windows();
         let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
         let constraints = self.gen_constraints(params, gen);
-        let args = params.iter().map(|p| p.gen_abi_arg());
+        let args = params.iter().map(|p| p.gen_abi_arg(gen));
         let params = self.gen_params(params, gen);
         let interface_name = interface.def.gen_name(gen);
 
@@ -113,7 +113,7 @@ impl MethodSignature {
 
         let return_arg = if let Some(return_type) = &self.return_type {
             if return_type.is_array {
-                let return_type = return_type.gen(gen);
+                let return_type = return_type.kind.gen_name(gen);
                 quote! { #windows Array::<#return_type>::set_abi_len(&mut result__), #windows Array::<#return_type>::set_abi(&mut result__) }
             } else {
                 quote! { &mut result__ }
@@ -246,7 +246,7 @@ impl MethodSignature {
 }
 
 impl MethodParam {
-    pub fn gen_abi_arg(&self) -> TokenStream {
+    pub fn gen_abi_arg(&self, gen: Gen) -> TokenStream {
         let name = self.param.gen_name();
 
         if self.signature.is_array {

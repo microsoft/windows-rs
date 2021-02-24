@@ -18,7 +18,13 @@ impl ComInterface {
         vec![self.0.def]
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
-        quote! {}
+    pub fn gen(&self, gen: Gen) -> TokenStream {
+        let name = self.0.gen_name(gen);
+
+        quote! {
+            #[repr(transparent)]
+            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+            pub struct #name(::windows::IUnknown);
+        }
     }
 }

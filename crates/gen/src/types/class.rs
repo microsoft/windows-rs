@@ -39,7 +39,7 @@ impl Class {
                     if !result.iter().any(|info| info.def == def) {
                         add_interfaces(result, &def, is_base);
 
-                        let kind = if child.is_default() {
+                        let kind = if !is_base && child.is_default() {
                             InterfaceKind::Default
                         } else if child.is_overridable() {
                             InterfaceKind::Overridable
