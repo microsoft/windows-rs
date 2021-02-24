@@ -16,6 +16,22 @@ impl Class {
         )
     }
 
+    fn has_default_constructor(&self) -> bool {
+        for attribute in self.0.def.attributes() {
+            if attribute.full_name() == ("Windows.Foundation.Metadata", "ActivatableAttribute") {
+                for (_, arg) in attribute.args() {
+                    if let parser::ConstantValue::TypeDef(_) = arg {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        }
+
+        false
+    }
+
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
             for child in parent.def.interface_impls() {
@@ -147,6 +163,51 @@ impl Class {
     pub fn gen(&self, gen: Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let interfaces = self.interfaces();
+        let methods = InterfaceInfo::gen_methods(&interfaces, gen);
+        let runtime_name = format!("{}.{}", self.0.def.namespace(), self.0.def.name());
+
+        let new = if self.has_default_constructor() {
+            quote! {
+                pub fn new() -> ::windows::Result<Self> {
+                    Self::IActivationFactory(|f| f.activate_instance::<Self>())
+                }
+                #[allow(non_snake_case)]
+                fn IActivationFactory<R, F: FnOnce(&::windows::IActivationFactory) -> ::windows::Result<R>>(
+                    callback: F,
+                ) -> ::windows::Result<R> {
+                    static mut SHARED: ::windows::FactoryCache<#name, ::windows::IActivationFactory> =
+                        ::windows::FactoryCache::new();
+                    unsafe { SHARED.call(callback) }
+                }
+            }
+        } else {
+            quote! {}
+        };
+
+        let factories = interfaces.iter().filter_map(|interface| {
+            match interface.kind {
+                InterfaceKind::Static | InterfaceKind::Composable => {
+                    if interface.def.def.methods().next().is_some() {
+                        let interface_name = format_ident!("{}", interface.def.def.name());
+                        let interface_type = interface.def.gen_name(gen);
+
+                        Some(quote! {
+                            #[allow(non_snake_case)]
+                            fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
+                                callback: F,
+                            ) -> ::windows::Result<R> {
+                                static mut SHARED: ::windows::FactoryCache<#name, #interface_type> =
+                                    ::windows::FactoryCache::new();
+                                unsafe { SHARED.call(callback) }
+                            }
+                        })
+                    } else {
+                        None
+                    }
+                }
+                _ => None
+            }
+        });
 
         if let Some(default_interface) =
             interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
@@ -160,7 +221,9 @@ impl Class {
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                 pub struct #name(::windows::IUnknown);
                 impl #name {
-                    // #methods
+                    #methods
+                    #new
+                    #(#factories)*
                 }
                 unsafe impl ::windows::RuntimeType for #name {
                     type DefaultType = ::std::option::Option<Self>;
@@ -170,10 +233,20 @@ impl Class {
                     type Vtable = #default_abi_name;
                     const IID: ::windows::Guid = <#default_name as ::windows::Interface>::IID;
                 }
+                impl ::windows::RuntimeName for #name {
+                    const NAME: &'static str = #runtime_name;
+                }
             }
         } else {
             quote! {
                 pub struct #name {}
+                impl #name {
+                    #methods
+                    #(#factories)*
+                }
+                impl ::windows::RuntimeName for #name {
+                    const NAME: &'static str = #runtime_name;
+                }
             }
         }
     }
