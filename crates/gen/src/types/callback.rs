@@ -8,8 +8,8 @@ impl Callback {
         self.method().dependencies(&[])
     }
 
-    pub fn definition(&self) -> Option<tables::TypeDef> {
-        Some(self.0)
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
+        vec![self.0]
     }
 
     fn method(&self) -> tables::MethodDef {

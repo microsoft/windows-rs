@@ -37,6 +37,17 @@ impl GenericType {
         }
     }
 
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
+        let mut definition = Vec::new();
+        definition.push(self.def);
+
+        for generic in &self.generics {
+            definition.append(&mut generic.definition());
+        }
+
+        definition
+    }
+
     pub fn bases(&self) -> impl Iterator<Item = Self> + '_ {
         self.def
             .bases()

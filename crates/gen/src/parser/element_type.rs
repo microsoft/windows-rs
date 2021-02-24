@@ -344,7 +344,7 @@ impl ElementType {
         }
     }
 
-    pub fn definition(&self) -> Option<tables::TypeDef> {
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
         match self {
             Self::Class(t) => t.definition(),
             Self::Interface(t) => t.definition(),
@@ -353,7 +353,7 @@ impl ElementType {
             Self::Delegate(t) => t.definition(),
             Self::Callback(t) => t.definition(),
             Self::Enum(t) => t.definition(),
-            _ => None,
+            _ => Vec::new(),
         }
     }
 

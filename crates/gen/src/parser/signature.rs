@@ -42,7 +42,7 @@ impl Signature {
         })
     }
 
-    pub fn definition(&self) -> Option<tables::TypeDef> {
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
         self.kind.definition()
     }
 

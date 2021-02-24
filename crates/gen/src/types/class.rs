@@ -128,9 +128,9 @@ impl Class {
     }
 
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        let generics = self.0.generics.iter().filter_map(|g| g.definition());
-        let interfaces = self.0.interfaces().map(|i| i.def);
-        let bases = self.0.bases().map(|b| b.def);
+        let generics = self.0.generics.iter().map(|g| g.definition());
+        let interfaces = self.0.interfaces().map(|i| i.definition());
+        let bases = self.0.bases().map(|b| b.definition());
 
         let factories = self.0.def.attributes().filter_map(|attribute| {
             match attribute.full_name() {
@@ -152,12 +152,13 @@ impl Class {
         generics
             .chain(interfaces)
             .chain(bases)
+            .flatten()
             .chain(factories)
             .collect()
     }
 
-    pub fn definition(&self) -> Option<tables::TypeDef> {
-        Some(self.0.def)
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
+        vec![self.0.def]
     }
 
     pub fn gen(&self, gen: Gen) -> TokenStream {

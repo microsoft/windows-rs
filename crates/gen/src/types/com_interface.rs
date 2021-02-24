@@ -14,8 +14,8 @@ impl ComInterface {
             .collect()
     }
 
-    pub fn definition(&self) -> Option<tables::TypeDef> {
-        Some(self.0.def)
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
+        vec![self.0.def]
     }
 
     pub fn gen(&self, _: Gen) -> TokenStream {

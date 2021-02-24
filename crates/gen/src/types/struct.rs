@@ -17,11 +17,11 @@ impl Struct {
     }
 
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        self.0.fields().filter_map(|f| f.definition()).collect()
+        self.0.fields().map(|f| f.definition()).flatten().collect()
     }
 
-    pub fn definition(&self) -> Option<tables::TypeDef> {
-        Some(self.0)
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
+        vec![self.0]
     }
 
     pub fn is_blittable(&self) -> bool {

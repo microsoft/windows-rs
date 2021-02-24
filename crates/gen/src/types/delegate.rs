@@ -20,12 +20,8 @@ impl Delegate {
         self.method().dependencies(&[])
     }
 
-    pub fn definition(&self) -> Option<tables::TypeDef> {
-        if self.0.generics.is_empty() {
-            Some(self.0.def)
-        } else {
-            None
-        }
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
+        self.0.definition()
     }
 
     fn method(&self) -> tables::MethodDef {
