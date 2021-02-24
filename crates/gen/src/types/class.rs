@@ -126,7 +126,9 @@ impl Class {
         let name = self.0.gen_name(gen);
         let interfaces = self.interfaces();
 
-        if let Some(default_interface) = interfaces.iter().find(|i|i.kind == InterfaceKind::Default) {
+        if let Some(default_interface) =
+            interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
+        {
             let default_name = default_interface.def.gen_name(gen);
             let default_abi_name = default_interface.def.gen_abi_name(gen);
             let type_signature = Literal::byte_string(self.type_signature().as_bytes());
@@ -152,7 +154,6 @@ impl Class {
                 pub struct #name {}
             }
         }
-
     }
 
     // TODO: don't generate conversions for exclusive interfaces

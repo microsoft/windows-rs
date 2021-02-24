@@ -52,8 +52,7 @@ impl MethodSignature {
                     } else {
                         quote! { #abi_size_name: u32, #name: *mut #abi }
                     }
-                }
-                else if p.param.is_input() {
+                } else if p.param.is_input() {
                     // WinRT only uses const to mean that structs are passed by reference.
                     if p.signature.is_const {
                         quote! { #name: &#abi }
@@ -69,8 +68,7 @@ impl MethodSignature {
 
                 if signature.is_array {
                     quote! { result_size__: *mut u32, result__: *mut *mut #abi }
-                }
-                else {
+                } else {
                     quote! { result__: *mut #abi }
                 }
             }));
@@ -259,22 +257,22 @@ impl MethodParam {
                 quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name) }
             }
         } else if self.param.is_input() {
-                if self.signature.kind.is_convertible() {
-                    if self.signature.is_const {
-                        quote! { &#name.into().abi() }
-                    } else {
-                        quote! { #name.into().abi() }
-                    }
-                } else if self.signature.kind.is_blittable() {
-                    quote! { #name }
+            if self.signature.kind.is_convertible() {
+                if self.signature.is_const {
+                    quote! { &#name.into().abi() }
                 } else {
-                    quote! { ::windows::Abi::abi(#name) }
+                    quote! { #name.into().abi() }
                 }
             } else if self.signature.kind.is_blittable() {
                 quote! { #name }
             } else {
-                quote! { ::windows::Abi::set_abi(#name) }
+                quote! { ::windows::Abi::abi(#name) }
             }
+        } else if self.signature.kind.is_blittable() {
+            quote! { #name }
+        } else {
+            quote! { ::windows::Abi::set_abi(#name) }
+        }
     }
 
     pub fn gen_produce_type(&self, gen: Gen) -> TokenStream {
