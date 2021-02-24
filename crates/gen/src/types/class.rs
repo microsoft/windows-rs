@@ -16,56 +16,6 @@ impl Class {
         )
     }
 
-    // TODO: fold into GenericType::interfaces
-    pub fn factories(&self) -> impl Iterator<Item = (Interface, parser::InterfaceKind)> + '_ {
-        self.0.def.attributes().filter_map(|attribute| {
-            match attribute.full_name() {
-                ("Windows.Foundation.Metadata", "StaticAttribute")
-                | ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
-                    for (_, arg) in attribute.args() {
-                        if let parser::ConstantValue::TypeDef(def) = arg {
-                            return Some((
-                                Interface(GenericType::from_type_def(def, Vec::new())),
-                                parser::InterfaceKind::Static,
-                            ));
-                        }
-                    }
-
-                    None
-                }
-                ("Windows.Foundation.Metadata", "ComposableAttribute") => {
-                    // One of the arguments is a CompositionType enum and the Public variant
-                    // has a value of 2 as a signed 32-bit integer.
-
-                    let mut public = false;
-                    let mut interface = None;
-
-                    for (_, arg) in attribute.args() {
-                        match arg {
-                            parser::ConstantValue::I32(2) => {
-                                public = true;
-                            }
-                            parser::ConstantValue::TypeDef(def) => {
-                                interface = Some((
-                                    Interface(GenericType::from_type_def(def, Vec::new())),
-                                    parser::InterfaceKind::Composable,
-                                ));
-                            }
-                            _ => {}
-                        }
-                    }
-
-                    if public {
-                        interface
-                    } else {
-                        None
-                    }
-                }
-                _ => None,
-            }
-        })
-    }
-
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
             for child in parent.def.interface_impls() {
@@ -75,6 +25,8 @@ impl Class {
 
                         let kind = if child.is_default() {
                             InterfaceKind::Default
+                        } else if child.is_overridable() {
+                            InterfaceKind::Overridable
                         } else {
                             InterfaceKind::NonDefault
                         };
@@ -99,7 +51,61 @@ impl Class {
             add_interfaces(&mut result, &base, true);
         }
 
-        // TODO: add factories
+        for attribute in self.0.def.attributes() {
+            match attribute.full_name() {
+                ("Windows.Foundation.Metadata", "StaticAttribute")
+                | ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
+                    for (_, arg) in attribute.args() {
+                        if let parser::ConstantValue::TypeDef(def) = arg {
+                            let def = GenericType::from_type_def(def, Vec::new());
+                            let version = def.def.version();
+
+                            result.push(InterfaceInfo {
+                                def,
+                                kind: InterfaceKind::Static,
+                                is_base: false,
+                                version,
+                            });
+
+                            break;
+                        }
+                    }
+                }
+                ("Windows.Foundation.Metadata", "ComposableAttribute") => {
+                    // One of the arguments is a CompositionType enum and the Public variant
+                    // has a value of 2 as a signed 32-bit integer.
+
+                    let mut public = false;
+                    let mut def = None;
+
+                    for (_, arg) in attribute.args() {
+                        match arg {
+                            parser::ConstantValue::I32(2) => public = true,
+
+                            parser::ConstantValue::TypeDef(value) => {
+                                def = Some(GenericType::from_type_def(value, Vec::new()))
+                            }
+
+                            _ => {}
+                        }
+                    }
+
+                    if let Some(def) = def {
+                        if public {
+                            let version = def.def.version();
+
+                            result.push(InterfaceInfo {
+                                def,
+                                kind: InterfaceKind::Composable,
+                                is_base: false,
+                                version,
+                            });
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
 
         InterfaceInfo::sort(&mut result);
         result
@@ -109,7 +115,23 @@ impl Class {
         let generics = self.0.generics.iter().filter_map(|g| g.definition());
         let interfaces = self.0.interfaces().map(|i| i.def);
         let bases = self.0.bases().map(|b| b.def);
-        let factories = self.factories().filter_map(|(i, _)| i.definition());
+
+        let factories = self.0.def.attributes().filter_map(|attribute| {
+            match attribute.full_name() {
+                ("Windows.Foundation.Metadata", "StaticAttribute")
+                | ("Windows.Foundation.Metadata", "ActivatableAttribute")
+                | ("Windows.Foundation.Metadata", "ComposableAttribute") => {
+                    for (_, arg) in attribute.args() {
+                        if let parser::ConstantValue::TypeDef(def) = arg {
+                            return Some(def);
+                        }
+                    }
+                }
+                _ => {}
+            }
+
+            None
+        });
 
         generics
             .chain(interfaces)
