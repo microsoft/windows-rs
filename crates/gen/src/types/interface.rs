@@ -98,14 +98,26 @@ impl Interface {
 
         let interfaces = self.interfaces();
 
-        let mut methods = TokenStream::new();
-        //let mut method_names = BTreeMap::new();
 
-        // for interface in interfaces {
-        //     for method in interface.def.methods() {
-        //         let 
-        //     }
-        // }
+        // TODO: this method generation should be shared with classes.
+        let mut methods = TokenStream::new();
+        let mut method_names = BTreeMap::<String, u32>::new();
+
+        for interface in interfaces {
+            let mut vtable_offset = 5;
+
+            for (vtable_offset, method) in interface.def.def.methods().enumerate() {
+                let name = method.rust_name();
+                let overload = method_names.entry(name.clone()).or_insert(0);
+                *overload += 1;
+
+                let info = MethodInfo {
+                    name,
+                    vtable_offset: vtable_offset as u32 + 6,
+                    overload: *overload,
+                };
+            }
+        }
 
         quote! {
             #[repr(transparent)]
