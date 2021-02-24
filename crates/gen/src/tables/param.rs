@@ -47,4 +47,10 @@ impl Param {
     pub fn gen_name(&self) -> Ident {
         to_ident(&to_snake(self.name()))
     }
+
+    pub fn gen_abi_size_name(&self) -> Ident {
+        let mut name = to_snake(self.name());
+        name.push_str("_array_size");
+        to_ident(&name)
+    }
 }

@@ -4,6 +4,7 @@ use super::*;
 pub struct Class(pub GenericType);
 
 impl Class {
+    // TODO: can't this be private and use the interfaces collection?
     pub fn type_signature(&self) -> String {
         let default = self.0.default_interface();
 
@@ -98,6 +99,8 @@ impl Class {
             add_interfaces(&mut result, &base, true);
         }
 
+        // TODO: add factories
+
         InterfaceInfo::sort(&mut result);
         result
     }
@@ -119,8 +122,37 @@ impl Class {
         Some(self.0.def)
     }
 
-    pub fn gen(&self, _: Gen) -> TokenStream {
-        quote! {}
+    pub fn gen(&self, gen: Gen) -> TokenStream {
+        let name = self.0.gen_name(gen);
+        let interfaces = self.interfaces();
+
+        if let Some(default_interface) = interfaces.iter().find(|i|i.kind == InterfaceKind::Default) {
+            let default_name = default_interface.def.gen_name(gen);
+            let default_abi_name = default_interface.def.gen_abi_name(gen);
+            let type_signature = Literal::byte_string(self.type_signature().as_bytes());
+
+            quote! {
+                #[repr(transparent)]
+                #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                pub struct #name(::windows::IUnknown);
+                impl #name {
+                    // #methods
+                }
+                unsafe impl ::windows::RuntimeType for #name {
+                    type DefaultType = ::std::option::Option<Self>;
+                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
+                }
+                unsafe impl ::windows::Interface for #name {
+                    type Vtable = #default_abi_name;
+                    const IID: ::windows::Guid = <#default_name as ::windows::Interface>::IID;
+                }
+            }
+        } else {
+            quote! {
+                pub struct #name {}
+            }
+        }
+
     }
 
     // TODO: don't generate conversions for exclusive interfaces

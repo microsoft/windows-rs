@@ -43,7 +43,17 @@ impl MethodSignature {
                 let name = p.param.gen_name();
                 let abi = p.signature.gen_abi(gen);
 
-                if p.param.is_input() {
+                if p.signature.is_array {
+                    let abi_size_name = p.param.gen_abi_size_name();
+                    if p.param.is_input() {
+                        quote! { #abi_size_name: u32, #name: *const #abi }
+                    } else if p.signature.by_ref {
+                        quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi }
+                    } else {
+                        quote! { #abi_size_name: u32, #name: *mut #abi }
+                    }
+                }
+                else if p.param.is_input() {
                     // WinRT only uses const to mean that structs are passed by reference.
                     if p.signature.is_const {
                         quote! { #name: &#abi }
@@ -54,9 +64,15 @@ impl MethodSignature {
                     quote! { #name: *mut #abi }
                 }
             })
-            .chain(self.return_type.iter().map(|p| {
-                let abi = p.gen_abi(gen);
-                quote! { result__: *mut #abi }
+            .chain(self.return_type.iter().map(|signature| {
+                let abi = signature.gen_abi(gen);
+
+                if signature.is_array {
+                    quote! { result_size__: *mut u32, result__: *mut *mut #abi }
+                }
+                else {
+                    quote! { result__: *mut #abi }
+                }
             }));
 
         quote! {
@@ -99,7 +115,7 @@ impl MethodSignature {
         let return_arg = if let Some(return_type) = &self.return_type {
             if return_type.is_array {
                 let return_type = return_type.gen(gen);
-                quote! { #windows Array::<#return_type>::set_abi_len(&mut result__), #windows Array::<#return_type>::set_abi(&mut result__), }
+                quote! { #windows Array::<#return_type>::set_abi_len(&mut result__), #windows Array::<#return_type>::set_abi(&mut result__) }
             } else {
                 quote! { &mut result__ }
             }
@@ -121,19 +137,19 @@ impl MethodSignature {
             if return_type.is_array {
                 quote! {
                     let mut result__: #return_type_tokens = ::std::mem::zeroed();
-                    (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args),* #composable_args #return_arg)
+                    (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args,)* #composable_args #return_arg)
                         .and_then(|| result__ )
                 }
             } else {
                 quote! {
                     let mut result__: <#return_type_tokens as #windows Abi>::Abi = ::std::mem::zeroed();
-                        (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args),* #composable_args #return_arg)
+                        (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args,)* #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 }
             }
         } else {
             quote! {
-                (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args),* #composable_args).ok()
+                (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args,)* #composable_args).ok()
             }
         };
 
@@ -202,7 +218,7 @@ impl MethodSignature {
 
         TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
             let name = param.param.gen_name();
-            let tokens = param.signature.gen(gen);
+            let tokens = param.signature.kind.gen_name(gen);
 
             if param.signature.is_array {
                 if param.param.is_input() {
@@ -234,20 +250,31 @@ impl MethodParam {
     pub fn gen_abi_arg(&self) -> TokenStream {
         let name = self.param.gen_name();
 
-        if self.signature.kind.is_blittable() {
-            quote! { #name }
-        } else {
+        if self.signature.is_array {
             if self.param.is_input() {
+                quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()) }
+            } else if self.signature.by_ref {
+                quote! { #name.set_abi_len(), #name.set_abi() }
+            } else {
+                quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name) }
+            }
+        } else if self.param.is_input() {
                 if self.signature.kind.is_convertible() {
-                    // TODO: deal with const structs
-                    quote! { #name.into().abi() }
+                    if self.signature.is_const {
+                        quote! { &#name.into().abi() }
+                    } else {
+                        quote! { #name.into().abi() }
+                    }
+                } else if self.signature.kind.is_blittable() {
+                    quote! { #name }
                 } else {
                     quote! { ::windows::Abi::abi(#name) }
                 }
+            } else if self.signature.kind.is_blittable() {
+                quote! { #name }
             } else {
                 quote! { ::windows::Abi::set_abi(#name) }
             }
-        }
     }
 
     pub fn gen_produce_type(&self, gen: Gen) -> TokenStream {

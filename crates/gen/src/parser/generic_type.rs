@@ -53,7 +53,7 @@ impl GenericType {
         }
 
         panic!(
-            "Class {}.{} does not have a default interface.",
+            "`{}.{}` does not have a default interface.",
             self.def.namespace(),
             self.def.name()
         );

@@ -46,8 +46,7 @@ impl InterfaceInfo {
                 };
 
                 let signature = method.signature(&interface.def.generics);
-
-                // tokens.combine(&signature.gen_winrt_method(&info, interface, gen));
+                tokens.combine(&signature.gen_winrt_method(&info, interface, gen));
             }
         }
 
