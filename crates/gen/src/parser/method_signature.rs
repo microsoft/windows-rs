@@ -90,7 +90,7 @@ impl MethodSignature {
             &self.params
         };
 
-        let name = self.gen_name(method, interface, gen);
+        let name = self.gen_name(method, interface);
         let windows = gen.windows();
         let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
         let constraints = self.gen_constraints(params, gen);
@@ -180,7 +180,7 @@ impl MethodSignature {
         }
     }
 
-    fn gen_name(&self, method: &MethodInfo, interface: &InterfaceInfo, gen: Gen) -> Ident {
+    fn gen_name(&self, method: &MethodInfo, interface: &InterfaceInfo) -> Ident {
         if interface.kind == InterfaceKind::Composable && self.params.len() == 2 {
             format_ident!("new")
         } else if method.overload > 1 {
