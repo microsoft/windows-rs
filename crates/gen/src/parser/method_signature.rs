@@ -64,7 +64,12 @@ impl MethodSignature {
         }
     }
 
-    pub fn gen_winrt_method(&self, method: &MethodInfo, interface: &InterfaceInfo, gen: &Gen) -> TokenStream {
+    pub fn gen_winrt_method(
+        &self,
+        method: &MethodInfo,
+        interface: &InterfaceInfo,
+        gen: &Gen,
+    ) -> TokenStream {
         let params = if interface.kind == InterfaceKind::Composable {
             &self.params[..self.params.len() - 2]
         } else {

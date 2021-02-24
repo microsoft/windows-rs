@@ -53,16 +53,16 @@ impl GenericType {
         }
 
         panic!(
-                "Class {}.{} does not have a default interface.",
-                self.def.namespace(),
-                self.def.name()
+            "Class {}.{} does not have a default interface.",
+            self.def.namespace(),
+            self.def.name()
         );
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
-        self.def.interface_impls().filter_map(move |i| {
-            i.generic_interface(&self.generics)
-        })
+        self.def
+            .interface_impls()
+            .filter_map(move |i| i.generic_interface(&self.generics))
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {

@@ -162,7 +162,6 @@ mod tests {
             "windows :: foundation :: collections :: IObservableMap :: < windows :: HString , windows :: HString >"
         );
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);
-
     }
 
     #[test]

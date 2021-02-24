@@ -56,7 +56,7 @@ impl Delegate {
             def: self.0.clone(),
             kind: InterfaceKind::Default,
             is_base: false,
-            version: (0,0)
+            version: (0, 0),
         };
 
         let method = signature.gen_winrt_method(&method, &interface, gen);
