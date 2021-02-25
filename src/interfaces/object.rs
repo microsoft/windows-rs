@@ -59,15 +59,14 @@ impl std::fmt::Debug for Object {
         // name to give some idea of what the object represents. This implementation
         // is used by all of the generated `Debug` implementations for WinRT
         // classes and interfaces.
-        // let name = self
-        //     .cast::<IStringable>()
-        //     .and_then(|s| s.to_string())
-        //     .or_else(|_| self.type_name())
-        //     .unwrap_or_default();
 
-        // write!(f, "{:?} {}", self.0, name)
+        let name = self
+            .cast::<bindings::windows::foundation::IStringable>()
+            .and_then(|s| s.to_string())
+            .or_else(|_| self.type_name())
+            .unwrap_or_default();
 
-        write!(f, "")
+        write!(f, "{:?} {}", self.0, name)
     }
 }
 

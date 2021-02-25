@@ -13,11 +13,7 @@ impl Delegate {
     }
 
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        if !self.0.generics.is_empty() {
-            return Vec::new();
-        }
-
-        self.method().dependencies(&[])
+        self.method().dependencies(&self.0.generics)
     }
 
     pub fn definition(&self) -> Vec<tables::TypeDef> {
@@ -38,7 +34,7 @@ impl Delegate {
         let signature = self.method().signature(&self.0.generics);
         let abi_signature = signature.gen_winrt_abi(gen);
         // let fn_constraint = signature.gen_constraint(gen);
-        let guid = self.0.gen_guid();
+        let guid = self.0.gen_guid(gen);
         let phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
 

@@ -33,14 +33,13 @@ pub use windows_macros::{build, implement};
 extern crate self as windows;
 
 mod bindings {
+    #![allow(dead_code)]
     include_bindings!();
 }
 
+// TODO: rather than hiding, consider just removing
 #[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;
-
-#[doc(hidden)]
-pub use bindings::windows::foundation;
 
 #[doc(hidden)]
 pub use const_sha1::ConstBuffer;

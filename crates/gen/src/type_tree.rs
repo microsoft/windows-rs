@@ -91,13 +91,6 @@ impl TypeTree {
         }
     }
 
-    pub fn reexport(&mut self) {
-        self.namespaces
-            .entry("Windows")
-            .or_insert_with(|| Self::from_namespace("Windows"))
-            .include_foundation = true;
-    }
-
     pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         // TODO: can we do this to avoid creating dependencies vectors?
         let gen = Gen::Relative(self.namespace);

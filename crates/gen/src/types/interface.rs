@@ -56,10 +56,6 @@ impl Interface {
     }
 
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        if !self.0.generics.is_empty() {
-            return Vec::new();
-        }
-
         self.0
             .def
             .methods()
@@ -81,7 +77,7 @@ impl Interface {
         let abi_name = self.0.gen_abi_name(gen);
         let phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
-        let guid = self.0.gen_guid();
+        let guid = self.0.gen_guid(gen);
         let abi_signatures = self
             .0
             .def

@@ -21,7 +21,7 @@ impl ComInterface {
     pub fn gen(&self, gen: Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
-        let guid = self.0.gen_guid();
+        let guid = self.0.gen_guid(gen);
 
         // let abi_signatures = 
 

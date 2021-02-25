@@ -84,7 +84,7 @@ impl GenericType {
         self.format_name(gen, to_abi_ident)
     }
 
-    pub fn gen_guid(&self) -> TokenStream {
+    pub fn gen_guid(&self, gen: Gen) -> TokenStream {
         if self.generics.is_empty() {
             let guid = self.def.guid().gen();
 
@@ -92,7 +92,7 @@ impl GenericType {
                 ::windows::Guid::from_values(#guid)
             }
         } else {
-            let tokens = self.gen_name(Gen::Absolute);
+            let tokens = self.gen_name(gen);
 
             quote! {
                 ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)

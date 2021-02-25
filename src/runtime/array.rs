@@ -170,6 +170,7 @@ mod tests {
         assert!(empty[2] == 0);
     }
 
+    // TODO: move test ouf of windows crate into tests crate
     #[test]
     fn uri() {
         use windows::foundation::Uri;

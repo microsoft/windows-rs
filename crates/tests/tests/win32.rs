@@ -16,8 +16,7 @@ use tests::{
     windows::win32::system_services::{
         CreateEventW, SetEvent, WaitForSingleObject, DXGI_ERROR_INVALID_CALL, HANDLE, WM_KEYUP,
     },
-    windows::win32::upnp::UIAnimationManager,
-    windows::win32::upnp::UIAnimationTransitionLibrary,
+    windows::win32::ui_animation::{UIAnimationManager, UIAnimationTransitionLibrary},
     windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
     windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
     windows::win32::windows_color_system::WhitePoint,

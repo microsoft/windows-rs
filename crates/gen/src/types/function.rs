@@ -40,7 +40,7 @@ impl Function {
             TokenStream::new()
         };
 
-        let args = signature.params.iter().map(|p| p.gen_abi_arg(gen));
+        let args = signature.params.iter().map(|p| p.gen_abi_arg());
 
         let mut link = self.0.impl_map().expect("Function").scope().name();
 

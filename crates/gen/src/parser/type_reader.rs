@@ -69,8 +69,8 @@ impl TypeReader {
 
             for row in 0..row_count {
                 let def = Row::new(row, TableIndex::TypeDef, index as u16);
-                let namespace = reader.str(def, 2).to_string();
-                let name = reader.str(def, 1).to_string();
+                let namespace = reader.str(def, 2);
+                let name = trim_tick(reader.str(def, 1));
 
                 types
                     .entry(namespace.to_string())
@@ -184,7 +184,7 @@ impl TypeReader {
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
         if let Some(types) = self.types.get(namespace) {
-            if let Some(row) = types.get(name) {
+            if let Some(row) = types.get(trim_tick(name)) {
                 return self.to_element_type(row).unwrap();
             }
         }
@@ -219,7 +219,7 @@ impl TypeReader {
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         if let Some(types) = self.types.get(namespace) {
-            if let Some(TypeRow::TypeDef(row)) = types.get(name) {
+            if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
                 return tables::TypeDef {
                     reader: self,
                     row: *row,
@@ -462,5 +462,14 @@ fn push_winmd_paths(dir: std::path::PathBuf, paths: &mut Vec<std::path::PathBuf>
                 }
             }
         }
+    }
+}
+
+fn trim_tick(name: &str) -> &str {
+    match name.as_bytes().get(name.len() - 2) {
+        Some(c) if *c == b'`' => {
+            &name[..name.len() - 2]
+        }
+        _ => name
     }
 }
