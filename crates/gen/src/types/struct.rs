@@ -128,7 +128,7 @@ impl Struct {
             None
         });
 
-        let mut compare = if is_empty {
+        let compare = if is_empty {
             quote! { true }
         } else {
             let fields = self.0.fields().enumerate().map(|(index, f)| {

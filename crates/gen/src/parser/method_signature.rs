@@ -197,6 +197,7 @@ impl MethodSignature {
         for (index, param) in params.iter().enumerate() {
             if param.param.is_input()
                 && !param.signature.is_array
+                && param.signature.pointers == 0
                 && param.signature.kind.is_convertible()
             {
                 let name = squote::format_ident!("T{}__", index);
@@ -228,11 +229,22 @@ impl MethodSignature {
                     quote! { #name: &mut [<#tokens as #windows RuntimeType>::DefaultType], }
                 }
             } else if param.param.is_input() {
-                if param.signature.kind.is_convertible() {
+                if param.signature.pointers == 0 && param.signature.kind.is_convertible() {
                     let tokens = squote::format_ident!("T{}__", index);
                     quote! { #name: #tokens, }
                 } else {
-                    quote! { #name: #tokens, }
+                    let mut signature = quote! {};
+
+                    for _ in 0..param.signature.pointers {
+                        if param.signature.is_const {
+                            signature.combine(&quote! { *const });
+                        } else {
+                            signature.combine(&quote! { *mut });
+                        }
+                    }
+
+                    signature.combine(&tokens);
+                    quote! { #name: #signature, }
                 }
             } else if param.signature.kind.is_nullable() {
                 quote! { #name: &mut ::std::option::Option<#tokens>, }
@@ -258,7 +270,7 @@ impl MethodParam {
                 quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name) }
             }
         } else if self.param.is_input() {
-            if self.signature.kind.is_convertible() {
+            if self.signature.pointers == 0 && self.signature.kind.is_convertible() {
                 if self.signature.is_const {
                     quote! { &#name.into().abi() }
                 } else {

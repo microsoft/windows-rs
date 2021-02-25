@@ -1,6 +1,5 @@
 use super::*;
 
-// TODO: this replaces gen::Type
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Signature {
     pub kind: ElementType,
@@ -8,6 +7,7 @@ pub struct Signature {
     pub by_ref: bool,
     pub is_const: bool,
     pub is_array: bool,
+    // TODO: add is_input here
 }
 
 impl Signature {
