@@ -58,6 +58,7 @@ impl Struct {
         };
 
         let is_handle = self.is_handle();
+        let is_empty = self.0.fields().next().is_none();
 
         let copy = if is_handle {
             quote! {
@@ -127,21 +128,31 @@ impl Struct {
             None
         });
 
-        let compare = self.0.fields().enumerate().map(|(index, f)| {
-            if is_handle {
-                let index = Literal::u32_unsuffixed(index as u32);
-
-                quote! {
-                    self.#index == other.#index
-                }
-            } else {
+        let mut compare = if is_empty {
+            quote! { true }
+        } else {
+            let fields = self.0.fields().enumerate().map(|(index, f)| {
                 let name = f.gen_name();
 
-                quote! {
-                    self.#name == other.#name
+                if let ElementType::Callback(_) = f.signature().kind {
+                    quote! {
+                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
+                    }
+                } else if is_handle {
+                    let index = Literal::u32_unsuffixed(index as u32);
+    
+                    quote! {
+                        self.#index == other.#index
+                    }
+                } else {
+                    quote! {
+                        self.#name == other.#name
+                    }
                 }
-            }
-        });
+            });
+
+            quote! { #(#fields)&&* }
+        };
 
         let defaults = if is_handle {
             let defaults = self.0.fields().map(|f| f.signature().gen_default());
@@ -163,10 +174,35 @@ impl Struct {
             }
         };
 
+        let debug_name = self.0.name();
+
+        let debug_fields = self.0.fields().enumerate().filter_map(|(index, field)|{
+            // TODO: there must be a simpler way to implement Debug just to exclude this type.
+            if let ElementType::Callback(_) = field.signature().kind {
+                return None;
+            }
+
+            let name = to_snake(field.name());
+
+            if is_handle {
+                let index = Literal::u32_unsuffixed(index as u32);
+
+                Some(quote! {
+                    .field(#name, &format_args!("{:?}", self.#index))
+                })
+            } else {
+                let field = to_ident(&name);
+
+                Some(quote! {
+                    .field(#name, &format_args!("{:?}", self.#field))
+                })
+            }
+        });
+
         quote! {
             #[repr(C)]
             #[allow(non_snake_case)]
-            #[derive(::std::clone::Clone, ::std::fmt::Debug)]
+            #[derive(::std::clone::Clone)]
             pub struct #name #body
             impl #name {
                 #(#constants)*
@@ -176,9 +212,16 @@ impl Struct {
                     #defaults
                 }
             }
+            impl ::std::fmt::Debug for #name {
+                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    fmt.debug_struct(#debug_name)
+                        #(#debug_fields)*
+                        .finish()
+                }
+            }
             impl ::std::cmp::PartialEq for #name {
                 fn eq(&self, other: &Self) -> bool {
-                    #(#compare)&&*
+                    #compare
                 }
             }
             impl ::std::cmp::Eq for #name {}
