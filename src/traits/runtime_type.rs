@@ -5,7 +5,7 @@ use crate::*;
 /// This trait is automatically used by the generated bindings and should not be
 /// used directly.
 pub unsafe trait RuntimeType: Abi + Clone {
-    type DefaultType;
+    type DefaultType;// TODO: move to Abi trait unless its only used for WinRT generics.
     const SIGNATURE: crate::ConstBuffer;
 }
 
