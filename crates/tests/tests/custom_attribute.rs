@@ -1,9 +1,6 @@
-use gen::winmd;
-use windows::*;
-
 #[test]
-fn named_arguments() -> Result<()> {
-    let reader = winmd::TypeReader::get();
+fn named_arguments() {
+    let reader = gen::TypeReader::get();
     let type_def = reader.resolve_type_def("TestComponent", "TestRunner");
 
     // TestRunner should have a custom attribute on it
@@ -15,15 +12,15 @@ fn named_arguments() -> Result<()> {
             ("TestComponent", "CustomTestAttribute") => {
                 for (name, arg) in attribute.args() {
                     match (&name as &str, &arg) {
-                        ("SomeString", winmd::AttributeArg::String(value)) => {
+                        ("SomeString", gen::ConstantValue::String(value)) => {
                             assert_eq!(value, "Hello, World!");
                             some_string += 1;
                         }
-                        ("SomeInt", winmd::AttributeArg::I32(value)) => {
+                        ("SomeInt", gen::ConstantValue::I32(value)) => {
                             assert_eq!(*value, 1975);
                             some_int += 1;
                         }
-                        ("SomeBool", winmd::AttributeArg::Bool(value)) => {
+                        ("SomeBool", gen::ConstantValue::Bool(value)) => {
                             assert_eq!(*value, true);
                             some_bool += 1;
                         }
@@ -40,6 +37,4 @@ fn named_arguments() -> Result<()> {
     assert_eq!(some_string, 1);
     assert_eq!(some_int, 1);
     assert_eq!(some_bool, 1);
-
-    Ok(())
 }
