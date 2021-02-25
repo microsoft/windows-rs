@@ -217,11 +217,12 @@ impl Class {
             let default_name = default_interface.def.gen_name(gen);
             let default_abi_name = default_interface.def.gen_abi_name(gen);
             let type_signature = Literal::byte_string(self.type_signature().as_bytes());
+            let object = gen_object(&name, &TokenStream::new());
 
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-                pub struct #name(::windows::IUnknown);
+                pub struct #name(::windows::Object);
                 impl #name {
                     #new
                     #methods
@@ -240,6 +241,7 @@ impl Class {
                     const NAME: &'static str = #runtime_name;
                 }
                 #future
+                #object
             }
         } else {
             quote! {

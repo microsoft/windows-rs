@@ -91,11 +91,12 @@ impl Interface {
         let interfaces = self.interfaces();
         let methods = InterfaceInfo::gen_methods(&interfaces, gen);
         let (async_get, future) = gen_async(&self.0, &interfaces, gen);
+        let object = gen_object(&name, &constraints);
 
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-            pub struct #name(::windows::IUnknown, #phantoms) where #constraints;
+            pub struct #name(::windows::Object, #phantoms) where #constraints;
             impl<#constraints> #name {
                 #methods
                 #async_get
@@ -109,6 +110,7 @@ impl Interface {
                 const IID: ::windows::Guid = #guid;
             }
             #future
+            #object
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(

@@ -14,6 +14,7 @@ mod type_tree;
 pub mod types;
 mod workspace;
 mod r#async;
+mod object;
 
 pub use gen::*;
 pub use guid::*;
@@ -25,6 +26,7 @@ pub use type_limits::*;
 pub use type_tree::*;
 pub use workspace::*;
 pub use r#async::*;
+pub use object::*;
 
 // Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
 #[macro_export]
