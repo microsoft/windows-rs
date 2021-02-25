@@ -17,13 +17,8 @@ impl Function {
         let name = self.gen_name();
         let signature = self.0.signature(&[]);
 
-        // TODO: gen constraints for generic params
-
-        let params = signature.params.iter().map(|p| {
-            let name = p.param.gen_name();
-            let tokens = p.signature.gen(gen);
-            quote! { #name: #tokens }
-        });
+        let constraints = signature.gen_constraints(&signature.params, gen);
+        let params = signature.gen_params(&signature.params, gen);
 
         let return_type = if let Some(t) = &signature.return_type {
             let tokens = t.gen(gen);
@@ -55,7 +50,7 @@ impl Function {
         }
 
         quote! {
-            pub unsafe fn #name(#(#params),*) #return_type {
+            pub unsafe fn #name<#constraints>(#params) #return_type {
                 #[link(name = #link)]
                 extern "system" {
                     pub fn #name(#(#abi_params),*) #abi_return_type;

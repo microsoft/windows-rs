@@ -191,7 +191,7 @@ impl MethodSignature {
         }
     }
 
-    fn gen_constraints(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
+    pub fn gen_constraints(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
         let mut tokens = Vec::new();
 
         for (index, param) in params.iter().enumerate() {
@@ -212,7 +212,7 @@ impl MethodSignature {
         TokenStream::from_iter(tokens)
     }
 
-    fn gen_params(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
+    pub fn gen_params(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
         let windows = gen.windows();
 
         TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
