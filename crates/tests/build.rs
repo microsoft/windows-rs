@@ -1,6 +1,7 @@
 fn main() {
     windows::build!(
         windows::foundation::diagnostics::*,
+        windows::foundation::collections::*,
         windows::foundation::*,
         windows::ai::machine_learning::*,
         windows::storage::streams::{DataReader, DataWriter, InMemoryRandomAccessStream},

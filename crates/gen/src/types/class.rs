@@ -166,6 +166,7 @@ impl Class {
         let interfaces = self.interfaces();
         let methods = InterfaceInfo::gen_methods(&interfaces, gen);
         let runtime_name = format!("{}.{}", self.0.def.namespace(), self.0.def.name());
+        let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
         let new = if self.has_default_constructor() {
             quote! {
@@ -222,8 +223,9 @@ impl Class {
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                 pub struct #name(::windows::IUnknown);
                 impl #name {
-                    #methods
                     #new
+                    #methods
+                    #async_get
                     #(#factories)*
                 }
                 unsafe impl ::windows::RuntimeType for #name {
@@ -237,6 +239,7 @@ impl Class {
                 impl ::windows::RuntimeName for #name {
                     const NAME: &'static str = #runtime_name;
                 }
+                #future
             }
         } else {
             quote! {

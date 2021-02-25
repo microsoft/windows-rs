@@ -1,8 +1,10 @@
-use tests::windows::application_model::email::EmailAttachment;
-use tests::windows::devices::wi_fi_direct::{
-    WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
+use tests::{
+    windows::application_model::email::EmailAttachment,
+    windows::devices::wi_fi_direct::{
+        WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
+    },
+    windows::storage::streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 };
-use tests::windows::storage::streams::{InMemoryRandomAccessStream, RandomAccessStreamReference};
 
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test
 // ensures that both overloads are visible and callable.

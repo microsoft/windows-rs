@@ -1,7 +1,10 @@
 use std::convert::*;
 use std::iter::FromIterator;
-use windows::foundation::collections::{IIterable, IVectorView, PropertySet};
-use windows::foundation::{IWwwFormUrlDecoderEntry, Uri};
+
+use tests::{
+    windows::foundation::collections::{IIterable, IVectorView, PropertySet},
+    windows::foundation::{IWwwFormUrlDecoderEntry, Uri},
+};
 
 #[test]
 fn uri() -> windows::Result<()> {

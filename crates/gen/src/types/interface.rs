@@ -90,6 +90,7 @@ impl Interface {
 
         let interfaces = self.interfaces();
         let methods = InterfaceInfo::gen_methods(&interfaces, gen);
+        let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
         quote! {
             #[repr(transparent)]
@@ -97,6 +98,7 @@ impl Interface {
             pub struct #name(::windows::IUnknown, #phantoms) where #constraints;
             impl<#constraints> #name {
                 #methods
+                #async_get
             }
             unsafe impl<#constraints> ::windows::RuntimeType for #name {
                 type DefaultType = ::std::option::Option<Self>;
@@ -106,6 +108,7 @@ impl Interface {
                 type Vtable = #abi_name;
                 const IID: ::windows::Guid = #guid;
             }
+            #future
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(

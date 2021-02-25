@@ -1,4 +1,4 @@
-use windows::foundation::{IClosable, IStringable, Uri};
+use tests::windows::foundation::{IClosable, IStringable, Uri};
 use windows::{Interface, Result};
 
 #[test]

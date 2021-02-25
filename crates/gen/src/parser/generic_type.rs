@@ -77,11 +77,15 @@ impl GenericType {
     }
 
     pub fn gen_name(&self, gen: Gen) -> TokenStream {
-        self.format_name(gen, to_ident)
+        self.format_name(gen, to_ident, false)
     }
 
     pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
-        self.format_name(gen, to_abi_ident)
+        self.format_name(gen, to_abi_ident, false)
+    }
+
+    pub fn gen_turbo_abi_name(&self, gen: Gen) -> TokenStream {
+        self.format_name(gen, to_abi_ident, true)
     }
 
     pub fn gen_guid(&self, gen: Gen) -> TokenStream {
@@ -167,7 +171,7 @@ impl GenericType {
         }
     }
 
-    fn format_name<F>(&self, gen: Gen, format_name: F) -> TokenStream
+    fn format_name<F>(&self, gen: Gen, format_name: F, turbo: bool) -> TokenStream
     where
         F: FnOnce(&str) -> Ident,
     {
@@ -178,10 +182,10 @@ impl GenericType {
             let name = format_name(name);
             quote! { #namespace#name }
         } else {
-            let colon_separated = if namespace.as_str().is_empty() {
-                quote! {}
-            } else {
+            let colon_separated = if turbo || !namespace.as_str().is_empty() {
                 quote! { :: }
+            } else {
+                quote! {}
             };
 
             let name = format_name(&name[..name.len() - 2]);

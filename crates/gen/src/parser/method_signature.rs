@@ -12,6 +12,40 @@ pub struct MethodParam {
     pub signature: Signature,
 }
 
+impl MethodParam {
+    fn param_gen_invoke_arg(&self, gen: Gen) -> TokenStream {
+        let name = self.param.gen_name();
+        let kind = self.signature.kind.gen_name(gen);
+    
+        // TODO: This compiles but doesn't property handle delegates with array parameters.
+        // https://github.com/microsoft/windows-rs/issues/212
+    
+        if self.signature.is_array {
+            if self.param.is_input() {
+                quote! { ::std::mem::transmute_copy(&#name) }
+            } else if self.signature.by_ref {
+                quote! { ::std::mem::transmute_copy(&#name) }
+            } else {
+                quote! { ::std::mem::transmute_copy(&#name) }
+            }
+        } else if self.param.is_input() {
+            if self.signature.kind.is_primitive() {
+                quote! { #name }
+            } else if let ElementType::Enum(_) = self.signature.kind {
+                quote! { #name }
+            } else {
+                if self.signature.is_const {
+                    quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
+                } else {
+                    quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
+                }
+            }
+        } else {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        }
+    }
+}
+
 impl MethodSignature {
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.return_type
@@ -26,12 +60,20 @@ impl MethodSignature {
         let params = self.params.iter().map(|p| p.gen_produce_type(gen));
 
         let return_type = if let Some(return_type) = &self.return_type {
-            return_type.gen(gen)
+            let tokens = return_type.kind.gen_name(gen);
+
+            if return_type.is_array {
+                quote! { ::windows::Array<#tokens> }
+            } else 
+            {
+                tokens
+            }
+            
         } else {
             quote! { () }
         };
 
-        quote! { FnMut(#(#params),*) -> ::windows::Result<#return_type> + 'static }
+        quote! { F: FnMut(#(#params),*) -> ::windows::Result<#return_type> + 'static }
     }
 
     // All WinRT ABI methods return an HRESULT while any return type is transformed into a trailing
@@ -260,6 +302,45 @@ impl MethodSignature {
             }
         }))
     }
+
+    pub fn gen_upcall(&self, inner: TokenStream, gen: Gen) -> TokenStream {
+        let invoke_args = self
+            .params
+            .iter()
+            .map(|param| param.param_gen_invoke_arg(gen));
+
+        match &self.return_type {
+            Some(return_type) if return_type.is_array => {
+                quote! {
+                    match #inner(#(#invoke_args,)*) {
+                        ::std::result::Result::Ok(ok__) => {
+                            let (ok_data__, ok_data_len__) = ok__.into_abi();
+                            *result__ = ok_data__;
+                            *result_size__ = ok_data_len__;
+                            ::windows::ErrorCode(0)
+                        }
+                        ::std::result::Result::Err(err) => err.into()
+                    }
+                }
+            }
+            Some(_) => {
+                quote! {
+                    match #inner(#(#invoke_args,)*) {
+                        ::std::result::Result::Ok(ok__) => {
+                            *result__ = ::std::mem::transmute_copy(&ok__);
+                            ::std::mem::forget(ok__);
+                            ::windows::ErrorCode(0)
+                        }
+                        ::std::result::Result::Err(err) => err.into()
+                    }
+                }
+            }
+            None => quote! {
+                #inner(#(#invoke_args,)*).into()
+            },
+        }
+    }
+
 }
 
 impl MethodParam {
@@ -294,11 +375,25 @@ impl MethodParam {
     }
 
     pub fn gen_produce_type(&self, gen: Gen) -> TokenStream {
-        let tokens = self.signature.gen(gen);
+        let tokens = self.signature.kind.gen_name(gen);
 
-        if self.param.is_input() {
-            if self.signature.kind.is_primitive() {
+        if self.signature.is_array {
+            if self.param.is_input() {
+                quote! { &[#tokens] }
+            } else if self.signature.by_ref {
+                quote! { &mut ::windows::Array<#tokens> }
+            } else {
+                quote! { &mut [#tokens] }
+            }
+        }
+        else if self.param.is_input() {
+            if let ElementType::GenericParam(_) = self.signature.kind {
+                quote! { &<#tokens as ::windows::RuntimeType>::DefaultType }
+            }
+            else if self.signature.kind.is_primitive() {
                 quote! { #tokens }
+            } else if self.signature.kind.is_nullable() {
+                quote! { &::std::option::Option<#tokens> }
             } else {
                 quote! { &#tokens }
             }
