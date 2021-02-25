@@ -251,7 +251,12 @@ impl MethodSignature {
             } else if let ElementType::GenericParam(_) = param.signature.kind {
                 quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
             } else {
-                quote! { #name: &mut #tokens, }
+                if param.signature.pointers > 0 {
+                    let tokens = param.signature.gen_abi(gen);
+                    quote! { #name: #tokens, }
+                } else {
+                    quote! { #name: &mut #tokens, }
+                }
             }
         }))
     }
