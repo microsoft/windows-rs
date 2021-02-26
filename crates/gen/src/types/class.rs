@@ -19,13 +19,17 @@ impl Class {
     fn has_default_constructor(&self) -> bool {
         for attribute in self.0.def.attributes() {
             if attribute.full_name() == ("Windows.Foundation.Metadata", "ActivatableAttribute") {
-                for (_, arg) in attribute.args() {
-                    if let parser::ConstantValue::TypeDef(_) = arg {
-                        return false;
+                if attribute.args().iter().any(|arg| {
+                    if let parser::ConstantValue::TypeDef(_) = arg.1 {
+                        true
+                    } else {
+                        false
                     }
+                }) {
+                    continue;
+                } else {
+                    return true;
                 }
-
-                return true;
             }
         }
 
