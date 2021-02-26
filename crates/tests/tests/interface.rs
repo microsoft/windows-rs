@@ -10,11 +10,7 @@ fn interface() -> windows::Result<()> {
 
     let uri = &Uri::create_uri("http://kennykerr.ca")?;
 
-    // The class and the default interface have the same vtable types, which
-    // means you can compare them directly.
-    let u: IUriRuntimeClass = uri.cast()?;
-    assert!(u.abi() == uri.abi());
-    assert!(u.domain()? == "kennykerr.ca");
+    // TODO: Find an example where the default constructor is not exclusive.
 
     // The class and the non-default interface have different vtable types, which
     // means we need to cast in order to compare their pointers (which won't match).

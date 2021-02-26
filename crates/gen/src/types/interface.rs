@@ -70,53 +70,72 @@ impl Interface {
     }
 
     pub fn gen(&self, gen: Gen) -> TokenStream {
-        // TODO: if interface is exclusive then only include enough to support the ABI vtable.
-        // Ideally the type itself is missing and only the Xxx_abi type is present if needed.
-
         let name = self.0.gen_name(gen);
+        let guid = self.0.gen_guid(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
-        let guid = self.0.gen_guid(gen);
+
         let abi_signatures = self
             .0
             .def
             .methods()
             .map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
 
-        let type_signature = self
-            .0
-            .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()));
+        // The exclusive interface may be a factory interface and then we still need a type to use
+        // with the factory cache. And we don't know at this stage whether the interface is for
+        // the class or its factory.
+        let public_type = if self.0.def.is_exclusive() {
+            TokenStream::new()
+        } else {
+            let type_signature = self
+                .0
+                .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()));
 
-        let interfaces = self.interfaces();
-        let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-        let (async_get, future) = gen_async(&self.0, &interfaces, gen);
-        let object = gen_object(&name, &constraints);
+            let interfaces = self.interfaces();
+            let methods = InterfaceInfo::gen_methods(&interfaces, gen);
+            let (async_get, future) = gen_async(&self.0, &interfaces, gen);
+            let object = gen_object(&name, &constraints);
 
-        let conversions = interfaces
-            .iter()
-            .filter(|interface| interface.kind != InterfaceKind::Default)
-            .map(|interface| interface.gen_conversion(&name, &constraints, gen));
+            let send_sync = if async_kind(&self.0) == AsyncKind::None {
+                quote! {}
+            } else {
+                quote! {
+                    unsafe impl<#constraints> ::std::marker::Send for #name {}
+                    unsafe impl<#constraints> ::std::marker::Sync for #name {}
+                }
+            };
+
+            let conversions = interfaces
+                .iter()
+                .filter(|interface| interface.kind != InterfaceKind::Default)
+                .map(|interface| interface.gen_conversion(&name, &constraints, gen));
+
+            quote! {
+                impl<#constraints> #name {
+                    #methods
+                    #async_get
+                }
+                unsafe impl<#constraints> ::windows::RuntimeType for #name {
+                    type DefaultType = ::std::option::Option<Self>;
+                    const SIGNATURE: ::windows::ConstBuffer = #type_signature;
+                }
+                #future
+                #object
+                #(#conversions)*
+                #send_sync
+            }
+        };
 
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name(::windows::Object, #phantoms) where #constraints;
-            impl<#constraints> #name {
-                #methods
-                #async_get
-            }
-            unsafe impl<#constraints> ::windows::RuntimeType for #name {
-                type DefaultType = ::std::option::Option<Self>;
-                const SIGNATURE: ::windows::ConstBuffer = #type_signature;
-            }
             unsafe impl<#constraints> ::windows::Interface for #name {
                 type Vtable = #abi_name;
                 const IID: ::windows::Guid = #guid;
             }
-            #future
-            #object
-            #(#conversions)*
+            #public_type
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(
@@ -130,8 +149,6 @@ impl Interface {
                 #phantoms
             ) where #constraints;
         }
-
-        // TODO: don't generate conversions for exclusive interfaces
     }
 }
 

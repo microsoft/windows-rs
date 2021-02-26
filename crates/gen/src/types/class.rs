@@ -200,7 +200,7 @@ impl Class {
         if let Some(default_interface) =
             interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
         {
-            let default_name = default_interface.def.gen_name(gen);
+            let guid = default_interface.def.gen_guid(gen);
             let default_abi_name = default_interface.def.gen_abi_name(gen);
             let type_signature = Literal::byte_string(self.type_signature().as_bytes());
             let object = gen_object(&name, &TokenStream::new());
@@ -227,6 +227,15 @@ impl Class {
                 .iter()
                 .map(|interface| interface.gen_conversion(&name, &TokenStream::new(), gen));
 
+            let send_sync = if self.0.def.is_agile() {
+                quote! {
+                    unsafe impl ::std::marker::Send for #name {}
+                    unsafe impl ::std::marker::Sync for #name {}
+                }
+            } else {
+                TokenStream::new()
+            };
+
             let bases = self.gen_base_conversions(&name, gen);
 
             quote! {
@@ -245,7 +254,7 @@ impl Class {
                 }
                 unsafe impl ::windows::Interface for #name {
                     type Vtable = #default_abi_name;
-                    const IID: ::windows::Guid = <#default_name as ::windows::Interface>::IID;
+                    const IID: ::windows::Guid = #guid;
                 }
                 impl ::windows::RuntimeName for #name {
                     const NAME: &'static str = #runtime_name;
@@ -254,6 +263,7 @@ impl Class {
                 #object
                 #(#conversions)*
                 #(#bases)*
+                #send_sync
             }
         } else {
             quote! {

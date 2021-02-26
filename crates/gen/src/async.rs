@@ -23,7 +23,7 @@ pub fn gen_async(
 }
 
 #[derive(PartialEq)]
-enum AsyncKind {
+pub enum AsyncKind {
     None,
     Action,
     ActionWithProgress,
@@ -31,7 +31,7 @@ enum AsyncKind {
     OperationWithProgress,
 }
 
-fn async_kind(def: &GenericType) -> AsyncKind {
+pub fn async_kind(def: &GenericType) -> AsyncKind {
     if def.def.namespace() != "Windows.Foundation" {
         return AsyncKind::None;
     }

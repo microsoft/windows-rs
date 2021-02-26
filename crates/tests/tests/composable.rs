@@ -37,8 +37,7 @@ fn composable() -> Result<()> {
     assert_eq!(4, Composable::expect_required_four(&t)?);
 
     // Default interface of Composable class
-    let t: IComposable = d.cast()?;
-    assert_eq!(t.value()?, 456);
+    let _t: IComposable = d.cast()?;
 
     let t: IRequiredFour = d.into();
     assert_eq!(t.one()?, 1);

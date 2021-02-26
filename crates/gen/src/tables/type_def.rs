@@ -99,6 +99,22 @@ impl TypeDef {
         self.has_attribute("Windows.Foundation.Metadata", "ExclusiveToAttribute")
     }
 
+    pub fn is_agile(&self) -> bool {
+        self.attributes().any(|attribute| {
+            if attribute.full_name()
+                == ("Windows.Foundation.Metadata", "MarshalingBehaviorAttribute")
+            {
+                if let Some((_, value)) = attribute.args().get(0) {
+                    if let ConstantValue::I32(2) = value {
+                        return true;
+                    }
+                }
+            }
+
+            false
+        })
+    }
+
     pub fn kind(&self) -> TypeKind {
         if self.flags().interface() {
             TypeKind::Interface

@@ -1,4 +1,4 @@
-use windows::foundation::{IStringable, IUriRuntimeClass, Uri};
+use tests::windows::foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::{IAgileObject, Interface, RuntimeName};
 
 #[test]
@@ -19,9 +19,6 @@ fn uri() -> windows::Result<()> {
     // Calls QueryInterface followed by IStringable::ToString under the hood
     assert!(uri.to_string()? == "http://kennykerr.ca/");
 
-    let default: IUriRuntimeClass = uri.into();
-    assert!(default.domain()? == uri.domain()?);
-
     let stringable: IStringable = uri.into();
     assert!(stringable.to_string()? == uri.to_string()?);
 
@@ -30,15 +27,15 @@ fn uri() -> windows::Result<()> {
 
 #[test]
 fn interface_conversion() -> windows::Result<()> {
-    // Convert from Uri class to default interface by value (dropping the uri).
-    let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
-    let default: IUriRuntimeClass = uri.into();
-    assert!(default.domain()? == "kennykerr.ca");
+    // TODO: Find an example where the default constructor is not exclusive.
 
-    // Convert from Uri class to default interface by reference (retaining the uri).
+    // TODO: Convert from ??? class to (non-exclusive) default interface by value (dropping the class).
+    let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
+    let _default: IUriRuntimeClass = uri.cast()?;
+
+    // TODO: Convert from ??? class to (non-exclusive) default interface by reference (retaining the class).
     let uri: &Uri = &Uri::create_uri("http://kennykerr.ca")?;
-    let default: IUriRuntimeClass = uri.into();
-    assert!(default.domain()? == uri.domain()?);
+    let _default: IUriRuntimeClass = uri.cast()?;
 
     // Convert from Uri class to non-default non-generic interface by value.
     let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
