@@ -1,4 +1,4 @@
-use windows::foundation::{IStringable, IUriRuntimeClass, Uri};
+use tests::windows::foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::{Abi, Interface};
 
 #[test]
