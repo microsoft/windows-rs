@@ -12,7 +12,7 @@ fn interface() -> windows::Result<()> {
 
     // The class and the default interface have the same vtable types, which
     // means you can compare them directly.
-    let u: IUriRuntimeClass = uri.into();
+    let u: IUriRuntimeClass = uri.cast()?;
     assert!(u.abi() == uri.abi());
     assert!(u.domain()? == "kennykerr.ca");
 

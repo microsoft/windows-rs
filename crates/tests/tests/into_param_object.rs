@@ -1,4 +1,4 @@
-use windows::foundation::{PropertyValue, Uri};
+use tests::windows::foundation::{PropertyValue, Uri};
 use windows::Interface;
 
 #[test]
