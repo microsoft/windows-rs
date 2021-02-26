@@ -4,7 +4,6 @@ pub struct TypeTree {
     pub namespace: &'static str,
     pub types: Vec<ElementType>,
     pub namespaces: BTreeMap<&'static str, TypeTree>,
-    pub include_foundation: bool,
 }
 
 impl TypeTree {
@@ -13,7 +12,6 @@ impl TypeTree {
             namespace,
             types: Vec::new(),
             namespaces: BTreeMap::new(),
-            include_foundation: false,
         }
     }
 
@@ -109,18 +107,15 @@ fn gen_namespaces<'a>(
         let name = to_snake(name);
         let name = to_ident(&name);
 
-        // TODO: why doesn't gen just retun a TokenStream?
-        let mut tokens = tree.gen().collect::<Vec<_>>();
-
-        if tree.include_foundation {
-            tokens.push(quote! { pub use ::windows::*; });
-        }
+        let tokens = tree.gen();
+        let numerics = gen_numerics(tree.namespace);
 
         quote! {
             // TODO: remove `unused_variables` when https://github.com/microsoft/windows-rs/issues/212 is fixed
             #[allow(unused_variables, non_upper_case_globals, non_snake_case)]
             pub mod #name {
                 #(#tokens)*
+                #numerics
             }
         }
     })
