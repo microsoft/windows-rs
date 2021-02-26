@@ -118,37 +118,24 @@ impl TypeReader {
             }
         }
 
-        fn remove_excluded_type(
-            types: &mut BTreeMap<String, BTreeMap<String, TypeRow>>,
-            (namespace, type_name): (&str, &str),
-        ) {
-            if let Some(value) = types.get_mut(namespace) {
-                value.remove(type_name);
+        let exclude = &[
+            ("Windows.Foundation", "HResult"),
+            ("Windows.Foundation", "TimeSpan"),
+            ("Windows.Win32.Com", "IUnknown"),
+            ("Windows.Win32.SystemServices", "BOOL"),
+            ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F"),
+            ("Windows.Win32.SystemServices", "LARGE_INTEGER"),
+            ("Windows.Win32.SystemServices", "ULARGE_INTEGER"),
+
+            // TODO: remove once this is fixed: https://github.com/microsoft/win32metadata/issues/30
+            ("Windows.Win32", "CFunctionDiscoveryNotificationWrapper"),
+        ];
+
+        for (namespace, name) in exclude {
+            if let Some(value) = types.get_mut(*namespace) {
+                value.remove(*name);
             }
         }
-
-        remove_excluded_type(&mut types, ("Windows.Foundation", "HResult"));
-        remove_excluded_type(&mut types, ("Windows.Win32.Com", "IUnknown"));
-        remove_excluded_type(&mut types, ("Windows.Win32.SystemServices", "BOOL"));
-        remove_excluded_type(&mut types, ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F"));
-
-        remove_excluded_type(
-            &mut types,
-            ("Windows.Win32.SystemServices", "LARGE_INTEGER"),
-        );
-
-        remove_excluded_type(
-            &mut types,
-            ("Windows.Win32.SystemServices", "ULARGE_INTEGER"),
-        );
-
-        // TODO: map BSTR
-
-        // TODO: remove once this is fixed: https://github.com/microsoft/win32metadata/issues/30
-        remove_excluded_type(
-            &mut types,
-            ("Windows.Win32", "CFunctionDiscoveryNotificationWrapper"),
-        );
 
         Self {
             files: reader.files,

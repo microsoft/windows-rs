@@ -1,7 +1,7 @@
 use std::time::Duration;
 use tests::test_component::TestRunner;
-use windows::foundation::{IPropertyValue, PropertyValue, TimeSpan};
-use windows::Interface;
+use tests::windows::foundation::{IPropertyValue, PropertyValue};
+use windows::{Interface, TimeSpan};
 
 #[test]
 fn conversion() -> windows::Result<()> {

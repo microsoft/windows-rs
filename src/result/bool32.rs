@@ -5,6 +5,8 @@ use crate::{Abi, ErrorCode};
 #[derive(Copy, Clone, Default)]
 pub struct BOOL(pub i32);
 
+// TODO: remove these once Param<BOOL> is working?
+
 /// A BOOL representing true.
 pub const TRUE: BOOL = BOOL(1);
 
