@@ -7,7 +7,8 @@ impl Guid {
     pub fn from_type_def(def: &tables::TypeDef) -> Self {
         for attribute in def.attributes() {
             match attribute.full_name() {
-                ("Windows.Foundation.Metadata", "GuidAttribute") => {
+                ("Windows.Foundation.Metadata", "GuidAttribute") |
+                ("Windows.Win32.Interop", "GuidAttribute") => {
                     let args = attribute.args();
 
                     return Self(
@@ -24,40 +25,40 @@ impl Guid {
                         args[10].1.unwrap_u8(),
                     );
                 }
-                ("System.Runtime.InteropServices", "GuidAttribute") => {
-                    let args = attribute.args();
-                    let value = args[0].1.unwrap_string();
+                // ("System.Runtime.InteropServices", "GuidAttribute") => {
+                //     let args = attribute.args();
+                //     let value = args[0].1.unwrap_string();
 
-                    assert!(value.len() == 36, "Invalid GUID string");
-                    let mut bytes = value.bytes();
+                //     assert!(value.len() == 36, "Invalid GUID string");
+                //     let mut bytes = value.bytes();
 
-                    let a = ((bytes.next_u32() * 16 + bytes.next_u32()) << 24)
-                        + ((bytes.next_u32() * 16 + bytes.next_u32()) << 16)
-                        + ((bytes.next_u32() * 16 + bytes.next_u32()) << 8)
-                        + bytes.next_u32() * 16
-                        + bytes.next_u32();
-                    assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-                    let b = ((bytes.next_u16() * 16 + (bytes.next_u16())) << 8)
-                        + bytes.next_u16() * 16
-                        + bytes.next_u16();
-                    assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-                    let c = ((bytes.next_u16() * 16 + bytes.next_u16()) << 8)
-                        + bytes.next_u16() * 16
-                        + bytes.next_u16();
-                    assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-                    let d = bytes.next_u8() * 16 + bytes.next_u8();
-                    let e = bytes.next_u8() * 16 + bytes.next_u8();
-                    assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+                //     let a = ((bytes.next_u32() * 16 + bytes.next_u32()) << 24)
+                //         + ((bytes.next_u32() * 16 + bytes.next_u32()) << 16)
+                //         + ((bytes.next_u32() * 16 + bytes.next_u32()) << 8)
+                //         + bytes.next_u32() * 16
+                //         + bytes.next_u32();
+                //     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+                //     let b = ((bytes.next_u16() * 16 + (bytes.next_u16())) << 8)
+                //         + bytes.next_u16() * 16
+                //         + bytes.next_u16();
+                //     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+                //     let c = ((bytes.next_u16() * 16 + bytes.next_u16()) << 8)
+                //         + bytes.next_u16() * 16
+                //         + bytes.next_u16();
+                //     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
+                //     let d = bytes.next_u8() * 16 + bytes.next_u8();
+                //     let e = bytes.next_u8() * 16 + bytes.next_u8();
+                //     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
 
-                    let f = bytes.next_u8() * 16 + bytes.next_u8();
-                    let g = bytes.next_u8() * 16 + bytes.next_u8();
-                    let h = bytes.next_u8() * 16 + bytes.next_u8();
-                    let i = bytes.next_u8() * 16 + bytes.next_u8();
-                    let j = bytes.next_u8() * 16 + bytes.next_u8();
-                    let k = bytes.next_u8() * 16 + bytes.next_u8();
+                //     let f = bytes.next_u8() * 16 + bytes.next_u8();
+                //     let g = bytes.next_u8() * 16 + bytes.next_u8();
+                //     let h = bytes.next_u8() * 16 + bytes.next_u8();
+                //     let i = bytes.next_u8() * 16 + bytes.next_u8();
+                //     let j = bytes.next_u8() * 16 + bytes.next_u8();
+                //     let k = bytes.next_u8() * 16 + bytes.next_u8();
 
-                    return Self(a, b, c, d, e, f, g, h, i, j, k);
-                }
+                //     return Self(a, b, c, d, e, f, g, h, i, j, k);
+                // }
                 _ => {}
             }
         }

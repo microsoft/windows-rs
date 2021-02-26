@@ -21,8 +21,9 @@ use tests::{
     windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
     windows::win32::windows_color_system::WhitePoint,
     windows::win32::windows_programming::CloseHandle,
-    windows::{Abi, Guid, Interface, BOOL, FALSE},
 };
+
+use windows::{Abi, Guid, Interface, BOOL, FALSE};
 
 #[test]
 fn signed_enum32() {
