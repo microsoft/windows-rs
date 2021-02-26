@@ -70,7 +70,10 @@ impl Delegate {
             let name = format_ident!("{}_box", &name[..name.len() - 2]);
             let generics = self.0.generics.iter().map(|g| g.gen_name(gen));
             let generics = quote! { #(#generics,)* };
-            (quote! { #name::<#generics F> }, quote! { #name<#generics #fn_constraint> })
+            (
+                quote! { #name::<#generics F> },
+                quote! { #name<#generics #fn_constraint> },
+            )
         };
 
         let invoke_upcall = signature.gen_upcall(quote! { ((*this).invoke) }, gen);

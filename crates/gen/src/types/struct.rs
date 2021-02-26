@@ -140,7 +140,7 @@ impl Struct {
                     }
                 } else if is_handle {
                     let index = Literal::u32_unsuffixed(index as u32);
-    
+
                     quote! {
                         self.#index == other.#index
                     }
@@ -176,7 +176,7 @@ impl Struct {
 
         let debug_name = self.0.name();
 
-        let debug_fields = self.0.fields().enumerate().filter_map(|(index, field)|{
+        let debug_fields = self.0.fields().enumerate().filter_map(|(index, field)| {
             // TODO: there must be a simpler way to implement Debug just to exclude this type.
             if let ElementType::Callback(_) = field.signature().kind {
                 return None;

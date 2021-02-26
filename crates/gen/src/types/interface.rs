@@ -93,6 +93,11 @@ impl Interface {
         let (async_get, future) = gen_async(&self.0, &interfaces, gen);
         let object = gen_object(&name, &constraints);
 
+        let conversions = interfaces
+            .iter()
+            .filter(|interface| interface.kind != InterfaceKind::Default)
+            .map(|interface| interface.gen_conversion(&name, &constraints, gen));
+
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
@@ -111,6 +116,7 @@ impl Interface {
             }
             #future
             #object
+            #(#conversions)*
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(

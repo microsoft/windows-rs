@@ -467,9 +467,7 @@ fn push_winmd_paths(dir: std::path::PathBuf, paths: &mut Vec<std::path::PathBuf>
 
 fn trim_tick(name: &str) -> &str {
     match name.as_bytes().get(name.len() - 2) {
-        Some(c) if *c == b'`' => {
-            &name[..name.len() - 2]
-        }
-        _ => name
+        Some(c) if *c == b'`' => &name[..name.len() - 2],
+        _ => name,
     }
 }

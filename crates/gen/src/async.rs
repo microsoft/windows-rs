@@ -1,6 +1,10 @@
 use super::*;
 
-pub fn gen_async(def: &GenericType, interfaces: &[InterfaceInfo], gen: Gen) -> (TokenStream, TokenStream) {
+pub fn gen_async(
+    def: &GenericType,
+    interfaces: &[InterfaceInfo],
+    gen: Gen,
+) -> (TokenStream, TokenStream) {
     let kind = async_kind(def);
 
     if kind != AsyncKind::None {

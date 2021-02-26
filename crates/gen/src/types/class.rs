@@ -219,6 +219,10 @@ impl Class {
             let type_signature = Literal::byte_string(self.type_signature().as_bytes());
             let object = gen_object(&name, &TokenStream::new());
 
+            let conversions = interfaces
+                .iter()
+                .map(|interface| interface.gen_conversion(&name, &TokenStream::new(), gen));
+
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
@@ -242,6 +246,7 @@ impl Class {
                 }
                 #future
                 #object
+                #(#conversions)*
             }
         } else {
             quote! {

@@ -16,10 +16,10 @@ impl MethodParam {
     fn param_gen_invoke_arg(&self, gen: Gen) -> TokenStream {
         let name = self.param.gen_name();
         let kind = self.signature.kind.gen_name(gen);
-    
+
         // TODO: This compiles but doesn't property handle delegates with array parameters.
         // https://github.com/microsoft/windows-rs/issues/212
-    
+
         if self.signature.is_array {
             if self.param.is_input() {
                 quote! { ::std::mem::transmute_copy(&#name) }
@@ -64,11 +64,9 @@ impl MethodSignature {
 
             if return_type.is_array {
                 quote! { ::windows::Array<#tokens> }
-            } else 
-            {
+            } else {
                 tokens
             }
-            
         } else {
             quote! { () }
         };
@@ -340,7 +338,6 @@ impl MethodSignature {
             },
         }
     }
-
 }
 
 impl MethodParam {
@@ -385,12 +382,10 @@ impl MethodParam {
             } else {
                 quote! { &mut [#tokens] }
             }
-        }
-        else if self.param.is_input() {
+        } else if self.param.is_input() {
             if let ElementType::GenericParam(_) = self.signature.kind {
                 quote! { &<#tokens as ::windows::RuntimeType>::DefaultType }
-            }
-            else if self.signature.kind.is_primitive() {
+            } else if self.signature.kind.is_primitive() {
                 quote! { #tokens }
             } else if self.signature.kind.is_nullable() {
                 quote! { &::std::option::Option<#tokens> }

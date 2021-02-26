@@ -2,9 +2,11 @@ pub use squote::{format_ident, quote, Ident, Literal, TokenStream};
 pub use std::collections::{BTreeMap, BTreeSet};
 pub use std::iter::FromIterator;
 
+mod r#async;
 mod gen;
 mod guid;
 mod hex_reader;
+mod object;
 mod parser;
 pub mod tables;
 mod to_ident;
@@ -13,20 +15,18 @@ mod type_limits;
 mod type_tree;
 pub mod types;
 mod workspace;
-mod r#async;
-mod object;
 
 pub use gen::*;
 pub use guid::*;
 pub use hex_reader::*;
+pub use object::*;
 pub use parser::*;
+pub use r#async::*;
 pub use to_ident::*;
 pub use to_snake::*;
 pub use type_limits::*;
 pub use type_tree::*;
 pub use workspace::*;
-pub use r#async::*;
-pub use object::*;
 
 // Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
 #[macro_export]

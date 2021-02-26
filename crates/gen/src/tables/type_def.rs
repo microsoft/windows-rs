@@ -95,6 +95,10 @@ impl TypeDef {
         self.flags().windows_runtime()
     }
 
+    pub fn is_exclusive(&self) -> bool {
+        self.has_attribute("Windows.Foundation.Metadata", "ExclusiveToAttribute")
+    }
+
     pub fn kind(&self) -> TypeKind {
         if self.flags().interface() {
             TypeKind::Interface

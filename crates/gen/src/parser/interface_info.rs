@@ -51,4 +51,69 @@ impl InterfaceInfo {
 
         tokens
     }
+
+    pub fn gen_conversion(
+        &self,
+        from: &TokenStream,
+        constraints: &TokenStream,
+        gen: Gen,
+    ) -> TokenStream {
+        if self.def.def.is_exclusive() {
+            return TokenStream::new();
+        }
+
+        match self.kind {
+            InterfaceKind::Default => {
+                let into = self.def.gen_name(gen);
+                quote! {
+                    impl<#constraints> ::std::convert::From<#from> for #into {
+                        fn from(value: #from) -> Self {
+                            unsafe { ::std::mem::transmute(value) }
+                        }
+                    }
+                    impl<#constraints> ::std::convert::From<&#from> for #into {
+                        fn from(value: &#from) -> Self {
+                            ::std::convert::From::from(::std::clone::Clone::clone(value))
+                        }
+                    }
+                    impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for #from {
+                        fn into(self) -> ::windows::Param<'a, #into> {
+                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        }
+                    }
+                    impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for &'a #from {
+                        fn into(self) -> ::windows::Param<'a, #into> {
+                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                        }
+                    }
+                }
+            }
+            InterfaceKind::NonDefault => {
+                let into = self.def.gen_name(gen);
+                quote! {
+                    impl<#constraints> ::std::convert::From<#from> for #into {
+                        fn from(value: #from) -> Self {
+                            ::std::convert::From::from(&value)
+                        }
+                    }
+                    impl<#constraints> ::std::convert::From<&#from> for #into {
+                        fn from(value: &#from) -> Self {
+                            ::windows::Interface::cast(value).unwrap()
+                        }
+                    }
+                    impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for #from {
+                        fn into(self) -> ::windows::Param<'a, #into> {
+                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        }
+                    }
+                    impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for &'a #from {
+                        fn into(self) -> ::windows::Param<'a, #into> {
+                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                        }
+                    }
+                }
+            }
+            _ => TokenStream::new(),
+        }
+    }
 }

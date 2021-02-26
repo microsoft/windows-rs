@@ -23,7 +23,7 @@ impl ComInterface {
         let abi_name = self.0.gen_abi_name(gen);
         let guid = self.0.gen_guid(gen);
 
-        // let abi_signatures = 
+        // let abi_signatures =
 
         quote! {
             #[repr(transparent)]
