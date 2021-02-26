@@ -1,8 +1,12 @@
 use std::convert::*;
-use windows::foundation::collections::{
-    CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
+
+use tests::{
+    windows::foundation::collections::{
+        CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
+    },
+    windows::foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
 };
-use windows::foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri};
+
 use windows::{Abi, Interface};
 
 #[test]

@@ -172,24 +172,6 @@ impl Class {
         let runtime_name = format!("{}.{}", self.0.def.namespace(), self.0.def.name());
         let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
-        let new = if self.has_default_constructor() {
-            quote! {
-                pub fn new() -> ::windows::Result<Self> {
-                    Self::IActivationFactory(|f| f.activate_instance::<Self>())
-                }
-                #[allow(non_snake_case)]
-                fn IActivationFactory<R, F: FnOnce(&::windows::IActivationFactory) -> ::windows::Result<R>>(
-                    callback: F,
-                ) -> ::windows::Result<R> {
-                    static mut SHARED: ::windows::FactoryCache<#name, ::windows::IActivationFactory> =
-                        ::windows::FactoryCache::new();
-                    unsafe { SHARED.call(callback) }
-                }
-            }
-        } else {
-            quote! {}
-        };
-
         let factories = interfaces.iter().filter_map(|interface| {
             match interface.kind {
                 InterfaceKind::Static | InterfaceKind::Composable => {
@@ -223,9 +205,29 @@ impl Class {
             let type_signature = Literal::byte_string(self.type_signature().as_bytes());
             let object = gen_object(&name, &TokenStream::new());
 
+            let new = if self.has_default_constructor() {
+                quote! {
+                    pub fn new() -> ::windows::Result<Self> {
+                        Self::IActivationFactory(|f| f.activate_instance::<Self>())
+                    }
+                    #[allow(non_snake_case)]
+                    fn IActivationFactory<R, F: FnOnce(&::windows::IActivationFactory) -> ::windows::Result<R>>(
+                        callback: F,
+                    ) -> ::windows::Result<R> {
+                        static mut SHARED: ::windows::FactoryCache<#name, ::windows::IActivationFactory> =
+                            ::windows::FactoryCache::new();
+                        unsafe { SHARED.call(callback) }
+                    }
+                }
+            } else {
+                quote! {}
+            };
+
             let conversions = interfaces
                 .iter()
                 .map(|interface| interface.gen_conversion(&name, &TokenStream::new(), gen));
+
+            let bases = self.gen_base_conversions(&name, gen);
 
             quote! {
                 #[repr(transparent)]
@@ -251,6 +253,7 @@ impl Class {
                 #future
                 #object
                 #(#conversions)*
+                #(#bases)*
             }
         } else {
             quote! {
@@ -264,6 +267,39 @@ impl Class {
                 }
             }
         }
+    }
+
+    fn gen_base_conversions<'a>(
+        &'a self,
+        from: &'a TokenStream,
+        gen: Gen,
+    ) -> impl Iterator<Item = TokenStream> + 'a {
+        self.0.bases().map(move |base| {
+            let into = base.gen_name(gen);
+
+            quote! {
+                impl ::std::convert::From<#from> for #into {
+                    fn from(value: #from) -> Self {
+                        ::std::convert::Into::<#into>::into(&value)
+                    }
+                }
+                impl ::std::convert::From<&#from> for #into {
+                    fn from(value: &#from) -> Self {
+                        ::windows::Interface::cast(value).unwrap()
+                    }
+                }
+                impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for #from {
+                    fn into(self) -> ::windows::Param<'a, #into> {
+                        ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                    }
+                }
+                impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for &'a #from {
+                    fn into(self) -> ::windows::Param<'a, #into> {
+                        ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                    }
+                }
+            }
+        })
     }
 
     // TODO: don't generate conversions for exclusive interfaces
