@@ -96,6 +96,7 @@ impl Interface {
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
             let (async_get, future) = gen_async(&self.0, &interfaces, gen);
             let object = gen_object(&name, &constraints);
+            let iterator = gen_iterator(&self.0, &interfaces, gen);
 
             let send_sync = if async_kind(&self.0) == AsyncKind::None {
                 quote! {}
@@ -124,6 +125,7 @@ impl Interface {
                 #object
                 #(#conversions)*
                 #send_sync
+                #iterator
             }
         };
 

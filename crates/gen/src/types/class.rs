@@ -170,7 +170,6 @@ impl Class {
         let interfaces = self.interfaces();
         let methods = InterfaceInfo::gen_methods(&interfaces, gen);
         let runtime_name = format!("{}.{}", self.0.def.namespace(), self.0.def.name());
-        let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
         let factories = interfaces.iter().filter_map(|interface| {
             match interface.kind {
@@ -204,6 +203,7 @@ impl Class {
             let default_abi_name = default_interface.def.gen_abi_name(gen);
             let type_signature = Literal::byte_string(self.type_signature().as_bytes());
             let object = gen_object(&name, &TokenStream::new());
+            let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
             let new = if self.has_default_constructor() {
                 quote! {
@@ -237,6 +237,7 @@ impl Class {
             };
 
             let bases = self.gen_base_conversions(&name, gen);
+            let iterator = gen_iterator(&self.0, &interfaces, gen);
 
             quote! {
                 #[repr(transparent)]
@@ -264,6 +265,7 @@ impl Class {
                 #(#conversions)*
                 #(#bases)*
                 #send_sync
+                #iterator
             }
         } else {
             quote! {
