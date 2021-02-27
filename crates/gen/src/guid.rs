@@ -7,8 +7,8 @@ impl Guid {
     pub fn from_type_def(def: &tables::TypeDef) -> Self {
         for attribute in def.attributes() {
             match attribute.full_name() {
-                ("Windows.Foundation.Metadata", "GuidAttribute") |
-                ("Windows.Win32.Interop", "GuidAttribute") => {
+                ("Windows.Foundation.Metadata", "GuidAttribute")
+                | ("Windows.Win32.Interop", "GuidAttribute") => {
                     let args = attribute.args();
 
                     return Self(

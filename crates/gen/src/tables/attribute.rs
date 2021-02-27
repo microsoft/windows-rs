@@ -6,6 +6,8 @@ impl Attribute {
         self.reader.decode(self.row, 1)
     }
 
+    // TODO: add method to just get name
+    
     pub fn full_name(&self) -> (&'static str, &'static str) {
         if let AttributeType::MemberRef(method) = self.constructor() {
             return method.parent().full_name();
