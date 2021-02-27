@@ -436,6 +436,13 @@ impl ElementType {
         }
     }
 
+    pub fn is_struct(&self) -> bool {
+        match self {
+            Self::Guid | Self::Matrix3x2 | Self::TimeSpan | Self::Struct(_) => true,
+            _ => false,
+        }
+    }
+
     pub fn gen(&self, gen: Gen) -> TokenStream {
         match self {
             Self::Function(t) => t.gen(gen),

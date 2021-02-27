@@ -51,6 +51,10 @@ impl Signature {
         self.pointers > 0 || self.kind.is_blittable()
     }
 
+    pub fn is_struct(&self) -> bool {
+        self.pointers == 0 && self.kind.is_struct()
+    }
+
     pub fn gen(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 

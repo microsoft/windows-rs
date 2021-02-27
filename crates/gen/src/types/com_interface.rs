@@ -47,28 +47,39 @@ impl ComInterface {
 
         let bases = self.interfaces();
 
-        let abi_signatures = bases.iter().rev().chain(std::iter::once(&self.0.def)).map(|def|def.methods()).flatten().map(|method| {
-            // TODO: must remap UDT return types as out params.
+        let abi_signatures = bases
+            .iter()
+            .rev()
+            .chain(std::iter::once(&self.0.def))
+            .map(|def| def.methods())
+            .flatten()
+            .map(|method| {
+                let signature = method.signature(&[]);
 
-            let signature = method.signature(&[]);
+                let params = signature.params.iter().map(|p| {
+                    let name = p.param.gen_name();
+                    let tokens = p.signature.gen_abi(gen);
+                    quote! { #name: #tokens }
+                });
 
-            let abi_params = signature.params.iter().map(|p| {
-                let name = p.param.gen_name();
-                let tokens = p.signature.gen_abi(gen);
-                quote! { #name: #tokens }
+                let (udt_return_type, return_type) = if let Some(t) = &signature.return_type {
+                    if t.is_struct() {
+                        let mut t = t.clone();
+                        t.pointers += 1;
+                        let tokens = t.gen_abi(gen);
+                        (quote! { result__: #tokens }, quote! {})
+                    } else {
+                        let tokens = t.gen_abi(gen);
+                        (quote! {}, quote! { -> #tokens })
+                    }
+                } else {
+                    (TokenStream::new(), TokenStream::new())
+                };
+
+                quote! {
+                    (#(#params),*, #udt_return_type) #return_type
+                }
             });
-    
-            let abi_return_type = if let Some(t) = &signature.return_type {
-                let tokens = t.gen_abi(gen);
-                quote! { -> #tokens }
-            } else {
-                TokenStream::new()
-            };
-
-            quote! {
-                (#(#abi_params),*) #abi_return_type
-            }
-        });
 
         quote! {
             #[repr(transparent)]
