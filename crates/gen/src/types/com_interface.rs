@@ -77,7 +77,40 @@ impl ComInterface {
                 };
 
                 quote! {
-                    (#(#params),*, #udt_return_type) #return_type
+                    (this: ::windows::RawPtr, #(#params),*, #udt_return_type) #return_type
+                }
+            });
+
+        let methods = bases
+            .iter()
+            .rev()
+            .chain(std::iter::once(&self.0.def))
+            .map(|def| def.methods())
+            .flatten()
+            .enumerate()
+            .map(|(vtable_offset, method)| {
+                let signature = method.signature(&[]);
+
+                let constraints = signature.gen_constraints(&signature.params, gen);
+                let params = signature.gen_params(&signature.params, gen);
+        
+                let return_type = if let Some(t) = &signature.return_type {
+                    let tokens = t.gen(gen);
+                    quote! { -> #tokens }
+                } else {
+                    quote! {}
+                };
+
+                let args = signature.params.iter().map(|p| p.gen_abi_arg());
+
+                // TODO: handle collisions
+                let name = to_ident(&method.name());
+                let vtable_offset = Literal::u32_unsuffixed(vtable_offset as u32 + 3);
+
+                quote! {
+                    pub unsafe fn #name<#constraints>(&self, #params) #return_type {
+                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*)
+                    }
                 }
             });
 
@@ -94,7 +127,7 @@ impl ComInterface {
             }
             #[allow(non_snake_case)]
             impl #name {
-                // #(#methods)*
+                #(#methods)*
             }
             // #conversions
             #[repr(C)]
