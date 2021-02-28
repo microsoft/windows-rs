@@ -93,7 +93,7 @@ impl ComInterface {
 
                 let constraints = signature.gen_constraints(&signature.params, gen);
                 let params = signature.gen_params(&signature.params, gen);
-        
+
                 let return_type = if let Some(t) = &signature.return_type {
                     let tokens = t.gen(gen);
                     quote! { -> #tokens }
