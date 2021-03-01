@@ -1,5 +1,5 @@
-use tests::windows;
 use ::windows::Interface;
+use tests::windows;
 
 #[test]
 fn implement() -> ::windows::Result<()> {

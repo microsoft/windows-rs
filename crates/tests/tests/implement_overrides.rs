@@ -1,5 +1,5 @@
+use ::windows::Result;
 use tests::*;
-use ::windows::{Result};
 
 #[::windows::implement(windows::ui::xaml::{IApplicationOverrides, IApplicationOverrides2})]
 struct App {}
