@@ -1,5 +1,6 @@
 use super::*;
 
+// Injects code into the Windows.Foundation.Numerics namespace.
 pub fn gen_numerics(namespace: &str) -> TokenStream {
     if namespace != "Windows.Foundation.Numerics" {
         return TokenStream::new();

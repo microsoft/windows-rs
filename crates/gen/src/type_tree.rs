@@ -108,6 +108,7 @@ fn gen_namespaces<'a>(
         let name = to_ident(&name);
 
         let tokens = tree.gen();
+        let foundation = gen_foundation(tree.namespace);
         let numerics = gen_numerics(tree.namespace);
 
         quote! {
@@ -115,6 +116,7 @@ fn gen_namespaces<'a>(
             #[allow(unused_variables, non_upper_case_globals, non_snake_case)]
             pub mod #name {
                 #(#tokens)*
+                #foundation
                 #numerics
             }
         }

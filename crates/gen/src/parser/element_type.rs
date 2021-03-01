@@ -27,7 +27,6 @@ pub enum ElementType {
     Bool32,
     Matrix3x2,
     TypeName,
-    TimeSpan,
     GenericParam(tables::GenericParam),
 
     Function(types::Function),
@@ -81,7 +80,6 @@ impl ElementType {
                         ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
                         ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
                         ("Windows.Foundation", "HResult") => Self::ErrorCode,
-                        ("Windows.Foundation", "TimeSpan") => Self::TimeSpan,
                         ("Windows.Win32.Com", "HRESULT") => Self::ErrorCode,
                         ("Windows.Win32.SystemServices", "BOOL") => Self::Bool32,
                         ("Windows.Win32.SystemServices", "LARGE_INTEGER") => Self::I64,
@@ -174,9 +172,6 @@ impl ElementType {
                 let windows = gen.windows();
                 quote! { #windows Guid }
             }
-            Self::TimeSpan => {
-                quote! { ::windows::TimeSpan }
-            }
             Self::IUnknown => {
                 let windows = gen.windows();
                 quote! { #windows IUnknown }
@@ -239,9 +234,6 @@ impl ElementType {
             Self::Guid => {
                 let windows = gen.windows();
                 quote! { #windows Guid }
-            }
-            Self::TimeSpan => {
-                quote! { ::windows::TimeSpan }
             }
             Self::IUnknown => {
                 let windows = gen.windows();
@@ -330,7 +322,6 @@ impl ElementType {
             Self::String => "string".to_owned(),
             Self::Object => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
-            Self::TimeSpan => "struct(Windows.Foundation.TimeSpan;i8)".to_owned(),
             Self::Class(t) => t.type_signature(),
             Self::Interface(t) => t.type_signature(),
             Self::Enum(t) => t.type_signature(),
@@ -400,7 +391,6 @@ impl ElementType {
             Self::String
             | Self::Object
             | Self::Guid
-            | Self::TimeSpan
             | Self::IUnknown
             | Self::Matrix3x2
             | Self::GenericParam(_)
@@ -438,7 +428,7 @@ impl ElementType {
 
     pub fn is_struct(&self) -> bool {
         match self {
-            Self::Guid | Self::Matrix3x2 | Self::TimeSpan | Self::Struct(_) => true,
+            Self::Guid | Self::Matrix3x2 | Self::Struct(_) => true,
             _ => false,
         }
     }
