@@ -185,8 +185,8 @@ impl ElementType {
                 quote! { #windows BOOL }
             }
             Self::Matrix3x2 => {
-                let windows = gen.windows();
-                quote! { #windows foundation::numerics::Matrix3x2 }
+                let numerics = gen.namespace("Windows.Foundation.Numerics");
+                quote! { #numerics Matrix3x2 }
             }
             Self::NotYetSupported => {
                 let windows = gen.windows();
@@ -248,8 +248,8 @@ impl ElementType {
                 quote! { #windows BOOL }
             }
             Self::Matrix3x2 => {
-                let windows = gen.windows();
-                quote! { #windows foundation::numerics::Matrix3x2 }
+                let numerics = gen.namespace("Windows.Foundation.Numerics");
+                quote! { #numerics Matrix3x2 }
             }
             Self::NotYetSupported => {
                 let windows = gen.windows();
@@ -353,6 +353,8 @@ impl ElementType {
             Self::Delegate(t) => t.definition(),
             Self::Callback(t) => t.definition(),
             Self::Enum(t) => t.definition(),
+            // TODO: find a cleaner way to map this dependency
+            Self::Matrix3x2 => vec![TypeReader::get().resolve_type_def("Windows.Foundation.Numerics", "Matrix3x2")],
             _ => Vec::new(),
         }
     }
