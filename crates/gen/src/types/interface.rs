@@ -5,7 +5,7 @@ pub struct Interface(pub GenericType);
 
 impl Interface {
     pub fn type_signature(&self) -> String {
-        let guid = Guid::from_type_def(&self.0.def);
+        let guid = Guid::from_type_def(&self.0.def).expect("Interface::type_signature");
 
         if self.0.generics.is_empty() {
             format!("{{{:#?}}}", guid)

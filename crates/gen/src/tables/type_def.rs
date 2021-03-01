@@ -155,7 +155,7 @@ impl TypeDef {
     }
 
     pub fn guid(&self) -> Guid {
-        Guid::from_type_def(self)
+        Guid::from_type_def(self).expect("TypeDef::guid")
     }
 
     pub fn gen_name(&self, gen: Gen) -> TokenStream {

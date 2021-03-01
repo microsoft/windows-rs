@@ -4,14 +4,14 @@ use super::*;
 pub struct Guid(u32, u16, u16, u8, u8, u8, u8, u8, u8, u8, u8);
 
 impl Guid {
-    pub fn from_type_def(def: &tables::TypeDef) -> Self {
+    pub fn from_type_def(def: &tables::TypeDef) -> Option<Self> {
         for attribute in def.attributes() {
             match attribute.full_name() {
                 ("Windows.Foundation.Metadata", "GuidAttribute")
                 | ("Windows.Win32.Interop", "GuidAttribute") => {
                     let args = attribute.args();
 
-                    return Self(
+                    return Some(Self(
                         args[0].1.unwrap_u32(),
                         args[1].1.unwrap_u16(),
                         args[2].1.unwrap_u16(),
@@ -23,47 +23,13 @@ impl Guid {
                         args[8].1.unwrap_u8(),
                         args[9].1.unwrap_u8(),
                         args[10].1.unwrap_u8(),
-                    );
+                    ));
                 }
-                // ("System.Runtime.InteropServices", "GuidAttribute") => {
-                //     let args = attribute.args();
-                //     let value = args[0].1.unwrap_string();
-
-                //     assert!(value.len() == 36, "Invalid GUID string");
-                //     let mut bytes = value.bytes();
-
-                //     let a = ((bytes.next_u32() * 16 + bytes.next_u32()) << 24)
-                //         + ((bytes.next_u32() * 16 + bytes.next_u32()) << 16)
-                //         + ((bytes.next_u32() * 16 + bytes.next_u32()) << 8)
-                //         + bytes.next_u32() * 16
-                //         + bytes.next_u32();
-                //     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-                //     let b = ((bytes.next_u16() * 16 + (bytes.next_u16())) << 8)
-                //         + bytes.next_u16() * 16
-                //         + bytes.next_u16();
-                //     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-                //     let c = ((bytes.next_u16() * 16 + bytes.next_u16()) << 8)
-                //         + bytes.next_u16() * 16
-                //         + bytes.next_u16();
-                //     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-                //     let d = bytes.next_u8() * 16 + bytes.next_u8();
-                //     let e = bytes.next_u8() * 16 + bytes.next_u8();
-                //     assert!(bytes.next().unwrap() == b'-', "Invalid GUID string");
-
-                //     let f = bytes.next_u8() * 16 + bytes.next_u8();
-                //     let g = bytes.next_u8() * 16 + bytes.next_u8();
-                //     let h = bytes.next_u8() * 16 + bytes.next_u8();
-                //     let i = bytes.next_u8() * 16 + bytes.next_u8();
-                //     let j = bytes.next_u8() * 16 + bytes.next_u8();
-                //     let k = bytes.next_u8() * 16 + bytes.next_u8();
-
-                //     return Self(a, b, c, d, e, f, g, h, i, j, k);
-                // }
                 _ => {}
             }
         }
 
-        unexpected!();
+        None
     }
 
     pub fn gen(&self) -> TokenStream {

@@ -44,6 +44,14 @@ impl Struct {
     pub fn gen(&self, gen: Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
 
+        if let Some(guid) = Guid::from_type_def(&self.0) {
+            let guid = guid.gen();
+
+            return quote! {
+                pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid);
+            };
+        }
+
         let runtime_type = if self.0.is_winrt() {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
 
