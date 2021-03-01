@@ -370,7 +370,7 @@ impl MethodParam {
             if self.signature.pointers > 0 && !self.signature.kind.is_nullable() {
                 quote! { #name }
             } else {
-            quote! { ::windows::Abi::set_abi(#name) }
+                quote! { ::windows::Abi::set_abi(#name) }
             }
         }
     }

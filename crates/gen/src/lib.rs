@@ -7,7 +7,6 @@ mod gen;
 mod guid;
 mod hex_reader;
 mod iterator;
-mod numerics;
 mod object;
 mod parser;
 pub mod tables;
@@ -17,13 +16,11 @@ mod type_limits;
 mod type_tree;
 pub mod types;
 mod workspace;
-mod foundation;
 
 pub use gen::*;
 pub use guid::*;
 pub use hex_reader::*;
 pub use iterator::*;
-pub use numerics::*;
 pub use object::*;
 pub use parser::*;
 pub use r#async::*;
@@ -32,7 +29,6 @@ pub use to_snake::*;
 pub use type_limits::*;
 pub use type_tree::*;
 pub use workspace::*;
-pub use foundation::*;
 
 // Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
 #[macro_export]
