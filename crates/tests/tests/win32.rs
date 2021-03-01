@@ -375,8 +375,8 @@ extern "system" fn callback_w(param0: HWND, param1: PWSTR, param2: HANDLE) -> BO
 
 #[test]
 fn empty_struct() {
-    let ldap = ldapsearch { reserved: 123 };
-    assert!(ldap.reserved == 123);
+    let ldap = ldapsearch(123);
+    assert!(ldap.0 == 123);
     assert!(std::mem::size_of::<ldapsearch>() == 1);
 
     assert!(UIAnimationManager == Guid::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));

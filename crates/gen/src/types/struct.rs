@@ -52,6 +52,15 @@ impl Struct {
             };
         }
 
+        if self.0.fields().next().is_none() {
+            return quote! {
+                #[repr(C)]
+                #[allow(non_snake_case)]
+                #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy)]
+                pub struct #name(pub u8);
+            };
+        }
+
         let runtime_type = if self.0.is_winrt() {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
 
