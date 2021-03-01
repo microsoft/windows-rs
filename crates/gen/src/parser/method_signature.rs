@@ -276,7 +276,8 @@ impl MethodSignature {
                     let mut signature = quote! {};
 
                     for _ in 0..param.signature.pointers {
-                        if param.signature.is_const {
+                        // TODO: combine as an is_const method on MethodParam
+                        if param.signature.is_const || param.param.is_const() {
                             signature.combine(&quote! { *const });
                         } else {
                             signature.combine(&quote! { *mut });
@@ -341,6 +342,21 @@ impl MethodSignature {
 }
 
 impl MethodParam {
+    pub fn gen_abi_param(&self, gen: Gen) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for _ in 0..self.signature.pointers {
+            if self.signature.is_const || self.param.is_const() {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
+        }
+
+        tokens.combine(&self.signature.kind.gen_abi(gen));
+        tokens
+    }
+
     pub fn gen_abi_arg(&self) -> TokenStream {
         let name = self.param.gen_name();
 

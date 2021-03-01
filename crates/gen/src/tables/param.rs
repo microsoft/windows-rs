@@ -37,6 +37,10 @@ impl Param {
         self.flags().input()
     }
 
+    pub fn is_const(&self) -> bool {
+        self.has_attribute("Windows.Win32.Interop", "ConstAttribute")
+    }
+
     pub fn gen_name(&self) -> Ident {
         to_ident(&to_snake(self.name()))
     }

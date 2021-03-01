@@ -14,7 +14,7 @@ use tests::{
     windows::win32::security::ACCESS_MODE,
     windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
     windows::win32::system_services::{
-        CreateEventW, SetEvent, WaitForSingleObject, DXGI_ERROR_INVALID_CALL, HANDLE, WM_KEYUP,
+        CreateEventW, SetEvent, WaitForSingleObject, DXGI_ERROR_INVALID_CALL, HANDLE, WM_KEYUP, PWSTR, PSTR
     },
     windows::win32::ui_animation::{UIAnimationManager, UIAnimationTransitionLibrary},
     windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
@@ -121,7 +121,7 @@ fn function() -> windows::Result<()> {
             std::ptr::null_mut(),
             true.into(),
             false.into(),
-            std::ptr::null_mut(),
+            PWSTR(std::ptr::null_mut()),
         );
         assert!(event.0 != 0);
 
@@ -179,7 +179,7 @@ fn com() -> windows::Result<()> {
         let mut position = 123;
 
         stream
-            .Seek(0, STREAM_SEEK::STREAM_SEEK_SET.0 as u32, &mut position)
+            .Seek(0, STREAM_SEEK::STREAM_SEEK_SET, &mut position)
             .ok()?;
 
         assert!(position == 0);
@@ -255,9 +255,9 @@ fn onecore_imports() -> windows::Result<()> {
 
         let mut uri = None;
         let uri = CreateUri(
-            windows::HString::from("http://kennykerr.ca")
+            PWSTR(windows::HString::from("http://kennykerr.ca")
                 .as_wide()
-                .as_ptr(),
+                .as_ptr() as _),
             0,
             0,
             &mut uri,
@@ -313,26 +313,26 @@ fn onecore_imports() -> windows::Result<()> {
 #[test]
 fn callback() {
     let a: PROPENUMPROCA = callback_a;
-    assert!(BOOL(789) == a(HWND(123), "hello a\0".as_ptr() as *const i8, HANDLE(456)));
+    assert!(BOOL(789) == a(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
 
     let a: PROPENUMPROCW = callback_w;
     assert!(
         BOOL(789)
             == a(
                 HWND(123),
-                windows::HString::from("hello w\0").as_wide().as_ptr(),
+                PWSTR(windows::HString::from("hello w\0").as_wide().as_ptr() as _),
                 HANDLE(456)
             )
     );
 }
 
 // TODO: second parameter should be *const i8
-extern "system" fn callback_a(param0: HWND, param1: *const i8, param2: HANDLE) -> BOOL {
+extern "system" fn callback_a(param0: HWND, param1: PSTR, param2: HANDLE) -> BOOL {
     unsafe {
         assert!(param0.0 == 123);
         assert!(param2.0 == 456);
         let mut len = 0;
-        let mut end = param1;
+        let mut end = param1.0;
 
         loop {
             if *end == 0 {
@@ -343,7 +343,7 @@ extern "system" fn callback_a(param0: HWND, param1: *const i8, param2: HANDLE) -
             end = end.add(1);
         }
 
-        let s = String::from_utf8_lossy(std::slice::from_raw_parts(param1 as *const u8, len))
+        let s = String::from_utf8_lossy(std::slice::from_raw_parts(param1.0 as *const u8, len))
             .into_owned();
         assert!(s == "hello a");
         BOOL(789)
@@ -351,12 +351,12 @@ extern "system" fn callback_a(param0: HWND, param1: *const i8, param2: HANDLE) -
 }
 
 // TODO: second parameter should be *const u16
-extern "system" fn callback_w(param0: HWND, param1: *const u16, param2: HANDLE) -> BOOL {
+extern "system" fn callback_w(param0: HWND, param1: PWSTR, param2: HANDLE) -> BOOL {
     unsafe {
         assert!(param0.0 == 123);
         assert!(param2.0 == 456);
         let mut len = 0;
-        let mut end = param1;
+        let mut end = param1.0;
 
         loop {
             if *end == 0 {
@@ -367,7 +367,7 @@ extern "system" fn callback_w(param0: HWND, param1: *const u16, param2: HANDLE) 
             end = end.add(1);
         }
 
-        let s = String::from_utf16_lossy(std::slice::from_raw_parts(param1, len));
+        let s = String::from_utf16_lossy(std::slice::from_raw_parts(param1.0, len));
         assert!(s == "hello w");
         BOOL(789)
     }
