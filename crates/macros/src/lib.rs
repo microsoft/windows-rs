@@ -1,9 +1,9 @@
 mod build_limits;
-//mod implement;
-//mod implement_tree;
+mod implement;
+mod implement_tree;
 
 use build_limits::*;
-//use implement_tree::*;
+use implement_tree::*;
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::parse_macro_input;
@@ -129,10 +129,8 @@ pub fn build(stream: TokenStream) -> TokenStream {
 /// interfaces are implemented. Otherwise, whatever interfaces are contained within
 /// the attribute TokenStream are implemented.
 #[proc_macro_attribute]
-pub fn implement(_attribute: TokenStream, input: TokenStream) -> TokenStream {
-    // implement::gen(attribute, input)
-
-    input
+pub fn implement(attribute: TokenStream, input: TokenStream) -> TokenStream {
+    implement::gen(attribute, input)
 }
 
 // Snake <-> camel casing is lossy so we go for character but not case conversion

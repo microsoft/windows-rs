@@ -129,23 +129,24 @@ pub fn gen(
                 }
             });
 
-            let vtable_ident = t.0.gen_abi_name(gen::&Gen::Absolute);
-            let interface_ident = t.0.gen_name(gen::&Gen::Absolute);
+            let vtable_ident = t.0.gen_abi_name(gen::Gen::Absolute);
+            let interface_ident = t.0.gen_name(gen::Gen::Absolute);
             let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
 
-            for method in &t.default_interface().methods {
-                let method_ident = gen::to_ident(&method.name);
-                let vcall_ident = format_ident!("abi{}_{}", interface_count, method.vtable_offset);
+            for (vtable_offset, method) in t.0.def.methods().enumerate() {
+                let method_ident = gen::to_ident(&method.rust_name());
+                let vcall_ident = format_ident!("abi{}_{}", interface_count, vtable_offset + 6);
 
                 vtable_ptrs.combine(&quote! {
                     Self::#vcall_ident,
                 });
 
-                let signature = method.gen_full_abi();
-                let upcall = method.gen_upcall(quote! { (*this).inner.#method_ident }, false);
+                let signature = method.signature(&[]);
+                let abi_signature = signature.gen_winrt_abi(gen::Gen::Absolute);
+                let upcall = signature.gen_upcall(quote! { (*this).inner.#method_ident }, gen::Gen::Absolute);
 
                 shims.combine(&quote! {
-                    unsafe extern "system" fn #vcall_ident #signature {
+                    unsafe extern "system" fn #vcall_ident #abi_signature {
                         let this = (this as *mut ::windows::RawPtr).sub(#interface_count) as *mut Self;
                         #upcall
                     }
