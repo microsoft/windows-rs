@@ -242,7 +242,7 @@ impl MethodSignature {
             {
                 let name = squote::format_ident!("T{}__", index);
                 let into = param.signature.kind.gen_name(gen);
-                tokens.push(quote! { #name: ::std::convert::Into<::windows::Param<'a, #into>>, });
+                tokens.push(quote! { #name: ::windows::IntoParam<'a, #into>, });
             }
         }
 
@@ -355,9 +355,9 @@ impl MethodParam {
         } else if self.param.is_input() {
             if self.signature.pointers == 0 && self.signature.kind.is_convertible() {
                 if self.signature.is_const {
-                    quote! { &#name.into().abi() }
+                    quote! { &#name.into_param().abi() }
                 } else {
-                    quote! { #name.into().abi() }
+                    quote! { #name.into_param().abi() }
                 }
             } else if self.signature.kind.is_blittable() {
                 quote! { #name }
@@ -367,7 +367,11 @@ impl MethodParam {
         } else if self.signature.kind.is_blittable() {
             quote! { #name }
         } else {
+            if self.signature.pointers > 0 && !self.signature.kind.is_nullable() {
+                quote! { #name }
+            } else {
             quote! { ::windows::Abi::set_abi(#name) }
+            }
         }
     }
 

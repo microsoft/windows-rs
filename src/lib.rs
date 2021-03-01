@@ -27,7 +27,7 @@ pub use runtime::{
     RefCount, TimeSpan, Waiter,
 };
 pub use strings::{BString, CoString, HString};
-pub use traits::{Abi, Interface, RuntimeName, RuntimeType};
+pub use traits::{Abi, Interface, RuntimeName, RuntimeType, IntoParam};
 pub use windows_macros::{build, implement};
 
 extern crate self as windows;

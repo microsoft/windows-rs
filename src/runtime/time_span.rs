@@ -31,8 +31,8 @@ impl std::convert::From<TimeSpan> for std::time::Duration {
     }
 }
 
-impl<'a> std::convert::Into<Param<'a, TimeSpan>> for std::time::Duration {
-    fn into(self) -> Param<'a, TimeSpan> {
+impl<'a> IntoParam<'a, TimeSpan> for std::time::Duration {
+    fn into_param(self) -> Param<'a, TimeSpan> {
         Param::Owned(self.into())
     }
 }

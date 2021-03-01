@@ -1,5 +1,8 @@
 use crate::*;
 
+// TODO: define IntoParam<T> trait rather than Into<Param<T>> so that other modules can define specializations
+// TODO: that way, types that must be specialized don't have to live in the Windows crate and have their own ElementType
+
 // A WinRT method parameter used to accept either a reference or value. `Param` is used by the
 // generated bindings and should not generally be used directly.
 #[doc(hidden)]
@@ -21,44 +24,44 @@ impl<'a, T: Abi> Param<'a, T> {
     }
 }
 
-impl<'a, T: Abi> From<T> for Param<'a, T> {
-    fn from(value: T) -> Self {
-        Param::Owned(value)
-    }
-}
+// impl<'a, T: Abi> From<T> for Param<'a, T> {
+//     fn from(value: T) -> Self {
+//         Param::Owned(value)
+//     }
+// }
 
-impl<'a, T: Abi> From<&'a T> for Param<'a, T> {
-    fn from(value: &'a T) -> Self {
-        Param::Borrowed(value)
-    }
-}
+// impl<'a, T: Abi> From<&'a T> for Param<'a, T> {
+//     fn from(value: &'a T) -> Self {
+//         Param::Borrowed(value)
+//     }
+// }
 
-impl<'a, T: Interface> From<Option<T>> for Param<'a, T> {
-    fn from(value: Option<T>) -> Self {
-        match value {
-            Some(value) => Param::Owned(value),
-            None => Param::None,
-        }
-    }
-}
+// impl<'a, T: Interface> From<Option<T>> for Param<'a, T> {
+//     fn from(value: Option<T>) -> Self {
+//         match value {
+//             Some(value) => Param::Owned(value),
+//             None => Param::None,
+//         }
+//     }
+// }
 
-impl<'a, T: Interface> From<&'a Option<T>> for Param<'a, T> {
-    fn from(value: &'a Option<T>) -> Self {
-        match value {
-            Some(value) => Param::Borrowed(value),
-            None => Param::None,
-        }
-    }
-}
+// impl<'a, T: Interface> From<&'a Option<T>> for Param<'a, T> {
+//     fn from(value: &'a Option<T>) -> Self {
+//         match value {
+//             Some(value) => Param::Borrowed(value),
+//             None => Param::None,
+//         }
+//     }
+// }
 
-impl<'a> From<&'a str> for Param<'a, HString> {
-    fn from(value: &'a str) -> Self {
-        Param::Owned(value.into())
-    }
-}
+// impl<'a> From<&'a str> for Param<'a, HString> {
+//     fn from(value: &'a str) -> Self {
+//         Param::Owned(value.into())
+//     }
+// }
 
-impl<'a> From<String> for Param<'a, HString> {
-    fn from(value: String) -> Self {
-        Param::Owned(value.into())
-    }
-}
+// impl<'a> From<String> for Param<'a, HString> {
+//     fn from(value: String) -> Self {
+//         Param::Owned(value.into())
+//     }
+// }

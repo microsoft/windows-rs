@@ -300,13 +300,13 @@ impl Class {
                         ::windows::Interface::cast(value).unwrap()
                     }
                 }
-                impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for #from {
-                    fn into(self) -> ::windows::Param<'a, #into> {
+                impl<'a> ::windows::IntoParam<'a, #into> for #from {
+                    fn into_param(self) -> ::windows::Param<'a, #into> {
                         ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                     }
                 }
-                impl<'a> ::std::convert::Into<::windows::Param<'a, #into>> for &'a #from {
-                    fn into(self) -> ::windows::Param<'a, #into> {
+                impl<'a> ::windows::IntoParam<'a, #into> for &'a #from {
+                    fn into_param(self) -> ::windows::Param<'a, #into> {
                         ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                     }
                 }

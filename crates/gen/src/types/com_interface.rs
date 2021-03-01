@@ -77,7 +77,7 @@ impl ComInterface {
                 };
 
                 quote! {
-                    (this: ::windows::RawPtr, #(#params),*, #udt_return_type) #return_type
+                    (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_type
                 }
             });
 

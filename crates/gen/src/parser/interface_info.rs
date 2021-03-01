@@ -68,6 +68,7 @@ impl InterfaceInfo {
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
+                            // TODO: if classes are defined as Class(DefaultInterface) then this can become `#into(value)`
                             unsafe { ::std::mem::transmute(value) }
                         }
                     }
@@ -76,13 +77,13 @@ impl InterfaceInfo {
                             ::std::convert::From::from(::std::clone::Clone::clone(value))
                         }
                     }
-                    impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for #from {
-                        fn into(self) -> ::windows::Param<'a, #into> {
+                    impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
+                        fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                         }
                     }
-                    impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for &'a #from {
-                        fn into(self) -> ::windows::Param<'a, #into> {
+                    impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &'a #from {
+                        fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                         }
                     }
@@ -98,16 +99,17 @@ impl InterfaceInfo {
                     }
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
+                            // TODO: why is this different to `Default` case?
                             ::windows::Interface::cast(value).unwrap()
                         }
                     }
-                    impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for #from {
-                        fn into(self) -> ::windows::Param<'a, #into> {
+                    impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
+                        fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                         }
                     }
-                    impl<'a, #constraints> ::std::convert::Into<::windows::Param<'a, #into>> for &'a #from {
-                        fn into(self) -> ::windows::Param<'a, #into> {
+                    impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &'a #from {
+                        fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                         }
                     }
