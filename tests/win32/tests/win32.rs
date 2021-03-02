@@ -1,4 +1,4 @@
-use tests::{
+use test_win32::{
     windows::win32::com::CreateUri,
     windows::win32::debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
     windows::win32::direct3d11::D3DDisassemble11Trace,

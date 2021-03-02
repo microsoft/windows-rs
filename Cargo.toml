@@ -25,6 +25,7 @@ gen = { package = "windows_gen", path = "crates/gen" }
 members = [
     "crates/*",
     "examples/*",
+    "tests/*",
 ]
 
 [package.metadata.docs.rs]

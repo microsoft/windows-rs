@@ -1,4 +1,4 @@
-use tests::windows::win32::windows_update_agent::IAutomaticUpdates;
+use test_win32::windows::win32::windows_update_agent::IAutomaticUpdates;
 use windows::{create_instance, initialize_mta, initialize_sta, Guid, Result};
 
 #[test]
