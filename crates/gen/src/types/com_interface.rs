@@ -81,6 +81,9 @@ impl ComInterface {
                 }
             });
 
+            // TODO: dedupe this...
+            let mut method_names = BTreeMap::<String, u32>::new();
+
         let methods = bases
             .iter()
             .rev()
@@ -94,22 +97,36 @@ impl ComInterface {
                 let constraints = signature.gen_constraints(&signature.params, gen);
                 let params = signature.gen_params(&signature.params, gen);
 
-                let return_type = if let Some(t) = &signature.return_type {
-                    let tokens = t.gen(gen);
-                    quote! { -> #tokens }
+                let (udt_return_type, udt_return_local, return_type) = if let Some(t) = &signature.return_type {
+                    if t.is_struct() {
+                        let tokens = t.kind.gen_abi(gen);
+                        (quote! { &mut result__ }, quote! { let mut result__: #tokens = ::std::default::Default::default(); }, quote! {})
+                    } else {
+                        let tokens = t.gen_abi(gen);
+                        (quote! {}, quote!{}, quote! { -> #tokens })
+                    }
                 } else {
-                    quote! {}
+                    (TokenStream::new(), TokenStream::new(), TokenStream::new())
                 };
 
                 let args = signature.params.iter().map(|p| p.gen_abi_arg());
 
-                // TODO: handle collisions
-                let name = to_ident(&method.name());
+                let name = method.name();
+                let overload = method_names.entry(name.to_string()).or_insert(0);
+                *overload += 1;
+
+                let name = if *overload > 1 {
+                    format_ident!("{}{}", name, overload)
+                } else {
+                    to_ident(name)
+                };
+
                 let vtable_offset = Literal::u32_unsuffixed(vtable_offset as u32 + 3);
 
                 quote! {
                     pub unsafe fn #name<#constraints>(&self, #params) #return_type {
-                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*)
+                        #udt_return_local
+                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* #udt_return_type)
                     }
                 }
             });
