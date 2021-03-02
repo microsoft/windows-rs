@@ -1,6 +1,6 @@
 use crate::*;
 use std::convert::TryInto;
-use bindings::windows::win32::automation::BSTR;
+use bindings::windows::win32::automation::{IErrorInfo, BSTR, GetErrorInfo};
 
 /// Provides detailed error information. `IRestrictedErrorInfo` represents the
 /// [IRestrictedErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/restrictederrorinfo/nn-restrictederrorinfo-irestrictederrorinfo)
@@ -28,7 +28,8 @@ impl IRestrictedErrorInfo {
     /// Retrieves any error information stored on the calling thread. An error code indicates the
     /// absence of error information.
     pub fn from_thread() -> Result<Self> {
-        IErrorInfo::from_thread().and_then(|e| e.cast())
+        let mut result = None;
+        unsafe { GetErrorInfo(0, &mut result).and_some(result).and_then(|e| e.cast()) }
     }
 
     /// Gets the error code and description of the error.

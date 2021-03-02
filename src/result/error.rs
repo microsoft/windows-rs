@@ -1,4 +1,6 @@
 use crate::*;
+use std::convert::TryInto;
+use bindings::windows::win32::automation::{BSTR, IErrorInfo, GetErrorInfo, SetErrorInfo};
 
 /// A WinRT error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq)]
@@ -115,8 +117,14 @@ impl std::convert::From<ErrorCode> for Error {
             };
         }
 
-        if let Ok(info) = IErrorInfo::from_thread() {
-            Self::new(code, &info.description())
+        let mut result = None;
+        unsafe { GetErrorInfo(0, &mut result); }
+
+        if let Some(info) = result {
+            let mut message = BSTR::default();
+            unsafe { info.GetDescription(&mut message); }
+            let message: String = message.try_into().unwrap_or_default();
+            Self::new(code, &message)
         } else {
             Self::new(code, "")
         }
@@ -163,11 +171,6 @@ extern "system" {
         size: u32,
         args: RawPtr,
     ) -> u32;
-}
-
-#[link(name = "oleaut32")]
-extern "system" {
-    fn SetErrorInfo(reserved: u32, info: Option<IErrorInfo>) -> ErrorCode;
 }
 
 demand_load! {
