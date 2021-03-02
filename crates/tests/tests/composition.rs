@@ -1,3 +1,4 @@
+// TODO: Replace with bindings
 #[link(name = "coremessaging")]
 extern "stdcall" {
     fn CreateDispatcherQueueController(
