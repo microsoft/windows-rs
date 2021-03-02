@@ -24,6 +24,12 @@ impl<'a, T: Abi> Param<'a, T> {
     }
 }
 
+impl<'a, T: Abi> Drop for Param<'a, T> {
+    fn drop(&mut self) {
+        T::drop_param(self);
+    }
+}
+
 // impl<'a, T: Abi> From<T> for Param<'a, T> {
 //     fn from(value: T) -> Self {
 //         Param::Owned(value)

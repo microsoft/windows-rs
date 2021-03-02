@@ -42,6 +42,10 @@ impl Struct {
     }
 
     pub fn gen(&self, gen: Gen) -> TokenStream {
+        if let Some(replacement) = self.gen_replacement() {
+            return replacement;
+        }
+
         let name = self.0.gen_name(gen);
 
         if let Some(guid) = Guid::from_type_def(&self.0) {
@@ -248,6 +252,166 @@ impl Struct {
             #copy
             #runtime_type
             #extensions
+        }
+    }
+
+    fn gen_replacement(&self) -> Option<TokenStream> {
+        match self.0.full_name() {
+            ("Windows.Win32.SystemServices", "PWSTR") => Some(quote! {
+                #[repr(C)]
+                #[allow(non_snake_case)]
+                #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::cmp::Eq, ::std::fmt::Debug)]
+                pub struct PWSTR(pub *mut u16);
+                impl ::std::default::Default for PWSTR {
+                    fn default() -> Self {
+                        Self(::std::ptr::null_mut())
+                    }
+                }
+                // TODO: impl Debug and Display to display value
+                impl ::std::cmp::PartialEq for PWSTR {
+                    fn eq(&self, other: &Self) -> bool {
+                        // TODO: do value compare
+                        self.0 == other.0
+                    }
+                }
+                unsafe impl ::windows::Abi for PWSTR {
+                    type Abi = Self;
+    
+                    fn drop_param<'a>(param: &mut ::windows::Param<'a, Self>) {
+                        if let ::windows::Param::Owned(value) = param {
+                            if !value.0.is_null() {
+                                unsafe { ::std::boxed::Box::from_raw(value.0); }
+                            }
+                        }
+                    }
+                }
+                impl<'a> ::windows::IntoParam<'a, PWSTR> for &'a str {
+                    fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                        ::windows::Param::Owned(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                    }
+                }
+                impl<'a> ::windows::IntoParam<'a, PWSTR> for String {
+                    fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                        ::windows::Param::Owned(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
+                    }
+                }
+            }),
+            ("Windows.Win32.Automation", "BSTR") => Some(quote! {
+                #[repr(C)]
+                #[allow(non_snake_case)]
+                #[derive(:: std :: clone :: Clone, ::std::cmp::Eq)]
+                pub struct BSTR(*mut u16);
+                impl BSTR {
+                    fn from_wide(value: &[u16]) -> Self {
+                        #[link(name = "oleaut32")]
+                        extern "system" {
+                            fn SysAllocStringLen(value: *const u16, len: u32) -> *mut u16;
+                        }
+
+                        if value.len() == 0 {
+                            return Self(::std::ptr::null_mut());
+                        }
+                
+                        unsafe { Self(SysAllocStringLen(value.as_ptr(), value.len() as u32)) }
+                    }
+                    fn as_wide(&self) -> &[u16] {
+                        #[link(name = "oleaut32")]
+                        extern "system" {
+                            fn SysStringLen(bstr: *mut u16) -> u32;
+                        }
+
+                        if self.0.is_null() {
+                            return &[];
+                        }
+                
+                        unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, SysStringLen(self.0) as usize) }
+                    }
+                }
+                impl  std::convert::From<&str> for BSTR {
+                    fn from(value: &str) -> Self {
+                        let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
+                        Self::from_wide(&value)
+                    }
+                }
+                
+                impl  std::convert::From<::std::string::String> for BSTR {
+                    fn from(value: ::std::string::String) -> Self {
+                        value.as_str().into()
+                    }
+                }
+                
+                impl  std::convert::From<&::std::string::String> for BSTR {
+                    fn from(value: &::std::string::String) -> Self {
+                        value.as_str().into()
+                    }
+                }
+                impl ::std::default::Default for BSTR {
+                    fn default() -> Self {
+                        Self(::std::ptr::null_mut())
+                    }
+                }
+                impl ::std::fmt::Display for BSTR {
+                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                        use ::std::fmt::Write;
+                        for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
+                            f.write_char(c.map_err(|_| ::std::fmt::Error)?)?
+                        }
+                        Ok(())
+                    }
+                }
+                impl ::std::fmt::Debug for BSTR {
+                    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                        ::std::write!(f, "{}", self)
+                    }
+                }
+                impl ::std::cmp::PartialEq for BSTR {
+                    fn eq(&self, other: &Self) -> bool {
+                        self.as_wide() == other.as_wide()
+                    }
+                }
+                impl ::std::cmp::PartialEq<::std::string::String> for BSTR {
+                    fn eq(&self, other: &::std::string::String) -> bool {
+                        self == other.as_str()
+                    }
+                }
+                impl ::std::cmp::PartialEq<str> for BSTR {
+                    fn eq(&self, other: &str) -> bool {
+                        self == other
+                    }
+                }
+                impl ::std::cmp::PartialEq<&str> for BSTR {
+                    fn eq(&self, other: &&str) -> bool {
+                        self.as_wide().iter().copied().eq(other.encode_utf16())
+                    }
+                }
+                
+                impl ::std::cmp::PartialEq<BSTR> for &str {
+                    fn eq(&self, other: &BSTR) -> bool {
+                        other == self
+                    }
+                }
+                impl ::std::ops::Drop for BSTR {
+                    fn drop(&mut self) {
+                        #[link(name = "oleaut32")]
+                        extern "system" {
+                            fn SysFreeString(bstr: *mut u16);
+                        }
+
+                        if !self.0.is_null() {
+                            unsafe { SysFreeString(self.0); }
+                        }
+                    }
+                }
+                unsafe impl ::windows::Abi for BSTR {
+                    type Abi = *mut u16;
+
+                    fn set_abi(&mut self) -> *mut *mut u16 {
+                        debug_assert!(self.0.is_null());
+                        &mut self.0 as *mut _ as _
+                    }
+                }
+            }),
+            _ => None,
         }
     }
 

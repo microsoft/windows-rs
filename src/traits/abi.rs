@@ -30,6 +30,8 @@ pub unsafe trait Abi: Sized {
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(std::mem::transmute_copy(&abi))
     }
+
+    fn drop_param<'a>(_: &mut Param<'a, Self>) {}
 }
 
 unsafe impl<T: Interface> Abi for T {
