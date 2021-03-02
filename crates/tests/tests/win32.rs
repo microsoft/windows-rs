@@ -15,7 +15,7 @@ use tests::{
     windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
     windows::win32::system_services::{
         CreateEventW, SetEvent, WaitForSingleObject, DXGI_ERROR_INVALID_CALL, HANDLE, PSTR, PWSTR,
-        WM_KEYUP,
+        WM_KEYUP, BOOL,
     },
     windows::win32::ui_animation::{UIAnimationManager, UIAnimationTransitionLibrary},
     windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
@@ -24,7 +24,7 @@ use tests::{
     windows::win32::windows_programming::CloseHandle,
 };
 
-use windows::{Abi, Guid, Interface, BOOL, FALSE};
+use windows::{Abi, Guid, Interface};
 
 #[test]
 fn signed_enum32() {
@@ -120,8 +120,8 @@ fn function() -> windows::Result<()> {
     unsafe {
         let event = CreateEventW(
             std::ptr::null_mut(),
-            true.into(),
-            false.into(),
+            true,
+            false,
             PWSTR(std::ptr::null_mut()),
         );
         assert!(event.0 != 0);
@@ -154,7 +154,7 @@ fn bool_as_error() {
 fn com() -> windows::Result<()> {
     unsafe {
         let mut stream = None;
-        let stream = CreateStreamOnHGlobal(0, true.into(), &mut stream).and_some(stream)?;
+        let stream = CreateStreamOnHGlobal(0, true, &mut stream).and_some(stream)?;
         let values = vec![1, 20, 300, 4000];
         let mut copied = 0;
 
@@ -251,7 +251,7 @@ fn com_inheritance() {
 #[test]
 fn onecore_imports() -> windows::Result<()> {
     unsafe {
-        let mut has_expanded_resources = FALSE;
+        let mut has_expanded_resources = BOOL(0);
         HasExpandedResources(&mut has_expanded_resources).ok()?;
 
         let mut uri = None;

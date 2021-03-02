@@ -8,14 +8,6 @@ pub enum Gen {
 }
 
 impl Gen {
-    // TODO: remove this now that we have fixed the build macro - this isn't needed anymore
-    pub(crate) fn windows(&self) -> TokenStream {
-        match self {
-            Self::Absolute => quote! { ::windows:: },
-            Self::Relative(_) => quote! { ::windows:: },
-        }
-    }
-
     pub fn namespace(&self, namespace: &str) -> TokenStream {
         match self {
             Self::Absolute => {

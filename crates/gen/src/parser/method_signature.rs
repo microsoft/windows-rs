@@ -132,7 +132,7 @@ impl MethodSignature {
         };
 
         let name = self.gen_name(method, interface);
-        let windows = gen.windows();
+
         let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
         let constraints = self.gen_constraints(params, gen);
         let args = params.iter().map(|p| p.gen_abi_arg());
@@ -143,7 +143,7 @@ impl MethodSignature {
             let tokens = return_type.kind.gen_name(gen);
 
             if return_type.is_array {
-                quote! { #windows Array<#tokens> }
+                quote! { ::windows::Array<#tokens> }
             } else {
                 tokens
             }
@@ -154,7 +154,7 @@ impl MethodSignature {
         let return_arg = if let Some(return_type) = &self.return_type {
             if return_type.is_array {
                 let return_type = return_type.kind.gen_name(gen);
-                quote! { #windows Array::<#return_type>::set_abi_len(&mut result__), #windows Array::<#return_type>::set_abi(&mut result__) }
+                quote! { ::windows::Array::<#return_type>::set_abi_len(&mut result__), ::windows::Array::<#return_type>::set_abi(&mut result__) }
             } else {
                 quote! { &mut result__ }
             }
@@ -166,7 +166,7 @@ impl MethodSignature {
         // arguments to ensure the call succeeds in the non-aggregating case.
         let composable_args = if interface.kind == InterfaceKind::Composable {
             quote! {
-                ::std::ptr::null_mut(), #windows Abi::set_abi(&mut ::std::option::Option::<#windows Object>::None),
+                ::std::ptr::null_mut(), ::windows::Abi::set_abi(&mut ::std::option::Option::<::windows::Object>::None),
             }
         } else {
             quote! {}
@@ -176,19 +176,19 @@ impl MethodSignature {
             if return_type.is_array {
                 quote! {
                     let mut result__: #return_type_tokens = ::std::mem::zeroed();
-                    (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args,)* #composable_args #return_arg)
+                    (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args,)* #composable_args #return_arg)
                         .and_then(|| result__ )
                 }
             } else {
                 quote! {
-                    let mut result__: <#return_type_tokens as #windows Abi>::Abi = ::std::mem::zeroed();
-                        (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args,)* #composable_args #return_arg)
+                    let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                        (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args,)* #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 }
             }
         } else {
             quote! {
-                (#windows Interface::vtable(this).#vtable_offset)(#windows Abi::abi(this), #(#args,)* #composable_args).ok()
+                (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args,)* #composable_args).ok()
             }
         };
 
@@ -254,19 +254,17 @@ impl MethodSignature {
     }
 
     pub fn gen_params(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
-        let windows = gen.windows();
-
         TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
             let name = param.param.gen_name();
             let tokens = param.signature.kind.gen_name(gen);
 
             if param.signature.is_array {
                 if param.param.is_input() {
-                    quote! { #name: &[<#tokens as #windows RuntimeType>::DefaultType], }
+                    quote! { #name: &[<#tokens as ::windows::RuntimeType>::DefaultType], }
                 } else if param.signature.by_ref {
-                    quote! { #name: &mut #windows Array<#tokens>, }
+                    quote! { #name: &mut ::windows::Array<#tokens>, }
                 } else {
-                    quote! { #name: &mut [<#tokens as #windows RuntimeType>::DefaultType], }
+                    quote! { #name: &mut [<#tokens as ::windows::RuntimeType>::DefaultType], }
                 }
             } else if param.param.is_input() {
                 if param.signature.pointers == 0 && param.signature.kind.is_convertible() {

@@ -159,32 +159,26 @@ impl ElementType {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::String => {
-                let windows = gen.windows();
-                quote! { #windows HString }
+                quote! { ::windows::HString }
             }
             Self::Object => {
-                let windows = gen.windows();
-                quote! { #windows Object }
+                quote! { ::windows::Object }
             }
             Self::Guid => {
-                let windows = gen.windows();
-                quote! { #windows Guid }
+                quote! { ::windows::Guid }
             }
             Self::IUnknown => {
-                let windows = gen.windows();
-                quote! { #windows IUnknown }
+                quote! { ::windows::IUnknown }
             }
             Self::ErrorCode => {
-                let windows = gen.windows();
-                quote! { #windows ErrorCode }
+                quote! { ::windows::ErrorCode }
             }
             Self::Matrix3x2 => {
                 let numerics = gen.namespace("Windows.Foundation.Numerics");
                 quote! { #numerics Matrix3x2 }
             }
             Self::NotYetSupported => {
-                let windows = gen.windows();
-                quote! { #windows NOT_YET_SUPPORTED_TYPE }
+                quote! { ::windows::NOT_YET_SUPPORTED_TYPE }
             }
             Self::GenericParam(generic) => generic.gen_name(),
             Self::Function(t) => t.gen_name(),
@@ -218,59 +212,47 @@ impl ElementType {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::String => {
-                let windows = gen.windows();
-                quote! { #windows RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::Object => {
-                let windows = gen.windows();
-                quote! { #windows RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::Guid => {
-                let windows = gen.windows();
-                quote! { #windows Guid }
+                quote! { ::windows::Guid }
             }
             Self::IUnknown => {
-                let windows = gen.windows();
-                quote! { #windows RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::ErrorCode => {
-                let windows = gen.windows();
-                quote! { #windows ErrorCode }
+                quote! { ::windows::ErrorCode }
             }
             Self::Matrix3x2 => {
                 let numerics = gen.namespace("Windows.Foundation.Numerics");
                 quote! { #numerics Matrix3x2 }
             }
             Self::NotYetSupported => {
-                let windows = gen.windows();
-                quote! { #windows NOT_YET_SUPPORTED_TYPE }
+                quote! { ::windows::NOT_YET_SUPPORTED_TYPE }
             }
             Self::GenericParam(generic) => {
-                let windows = gen.windows();
                 let name = generic.gen_name();
-                quote! { <#name as #windows Abi>::Abi }
+                quote! { <#name as ::windows::Abi>::Abi }
             }
             Self::Class(_) => {
-                let windows = gen.windows();
-                quote! { #windows RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::Interface(_) => {
-                let windows = gen.windows();
-                quote! { #windows RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::ComInterface(_) => {
-                let windows = gen.windows();
-                quote! { #windows RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::Enum(t) => t.0.gen_name(gen),
             Self::Struct(t) => t.gen_abi_name(gen),
             Self::Delegate(_) => {
-                let windows = gen.windows();
-                quote! { #windows RawPtr }
+                quote! { ::windows::RawPtr }
             }
             Self::Callback(_) => {
-                let windows = gen.windows();
-                quote! { #windows RawPtr }
+                quote! { ::windows::RawPtr }
             }
             _ => unexpected!(),
         }
@@ -344,7 +326,9 @@ impl ElementType {
             Self::Callback(t) => t.definition(),
             Self::Enum(t) => t.definition(),
             // TODO: find a cleaner way to map this dependency
-            Self::Matrix3x2 => vec![TypeReader::get().resolve_type_def("Windows.Foundation.Numerics", "Matrix3x2")],
+            Self::Matrix3x2 => {
+                vec![TypeReader::get().resolve_type_def("Windows.Foundation.Numerics", "Matrix3x2")]
+            }
             _ => Vec::new(),
         }
     }
@@ -419,7 +403,8 @@ impl ElementType {
 
     pub fn is_struct(&self) -> bool {
         match self {
-            Self::Guid | Self::Matrix3x2 | Self::Struct(_) => true,
+            Self::Guid | Self::Matrix3x2 => true,
+            Self::Struct(t) => !t.is_handle(),
             _ => false,
         }
     }
@@ -437,8 +422,7 @@ impl ElementType {
             Self::Callback(t) => t.gen(gen),
             Self::GenericParam(p) => p.gen_name(),
             Self::Object => {
-                let windows = gen.windows();
-                quote! { #windows Object }
+                quote! { ::windows::Object }
             }
             _ => unexpected!(),
         }
@@ -457,8 +441,9 @@ mod tests {
     #[test]
     fn test_struct() {
         let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
-        let d = t.definition().unwrap();
-        assert_eq!(d.name(), "DXGI_FRAME_STATISTICS_MEDIA");
+        let d = t.definition();
+        assert_eq!(d.len(), 1);
+        assert_eq!(d[0].name(), "DXGI_FRAME_STATISTICS_MEDIA");
 
         let d = t.dependencies();
         assert_eq!(d.len(), 1);
@@ -469,8 +454,9 @@ mod tests {
     fn test_enum() {
         let t =
             TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
-        let d = t.definition().unwrap();
-        assert_eq!(d.name(), "DXGI_FRAME_PRESENTATION_MODE");
+            let d = t.definition();
+            assert_eq!(d.len(), 1);
+                    assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
 
         let d = t.dependencies();
         assert_eq!(d.len(), 0);
@@ -479,8 +465,8 @@ mod tests {
     #[test]
     fn test_com_interface() {
         let t = TypeReader::get().resolve_type("Windows.Win32.Direct2D", "ID2D1Resource");
-        let d = t.definition().unwrap();
-        assert_eq!(d.name(), "ID2D1Resource");
+        let d = t.definition();
+        assert_eq!(d.len(), 1);        assert_eq!(d[0].name(), "ID2D1Resource");
 
         let d = t.dependencies();
         assert_eq!(d.len(), 1);
@@ -490,8 +476,9 @@ mod tests {
     #[test]
     fn test_winrt_interface() {
         let t = TypeReader::get().resolve_type("Windows.Foundation", "IUriRuntimeClassFactory");
-        let d = t.definition().unwrap();
-        assert_eq!(d.name(), "IUriRuntimeClassFactory");
+        let d = t.definition();
+        assert_eq!(d.len(), 1);
+                assert_eq!(d[0].name(), "IUriRuntimeClassFactory");
 
         let d = t.dependencies();
         assert_eq!(d.len(), 2);
@@ -502,8 +489,9 @@ mod tests {
     #[test]
     fn test_winrt_interface2() {
         let t = TypeReader::get().resolve_type("Windows.Foundation", "IAsyncAction");
-        let d = t.definition().unwrap();
-        assert_eq!(d.name(), "IAsyncAction");
+        let d = t.definition();
+        assert_eq!(d.len(), 1);
+                assert_eq!(d[0].name(), "IAsyncAction");
 
         let mut d = t.dependencies();
         assert_eq!(d.len(), 3);
@@ -518,8 +506,9 @@ mod tests {
     #[test]
     fn test_winrt_delegate() {
         let t = TypeReader::get().resolve_type("Windows.Foundation", "AsyncActionCompletedHandler");
-        let d = t.definition().unwrap();
-        assert_eq!(d.name(), "AsyncActionCompletedHandler");
+        let d = t.definition();
+        assert_eq!(d.len(), 1);
+                assert_eq!(d[0].name(), "AsyncActionCompletedHandler");
 
         let mut d = t.dependencies();
         assert_eq!(d.len(), 2);
@@ -533,7 +522,7 @@ mod tests {
     #[test]
     fn test_win32_function() {
         let t = TypeReader::get().resolve_type("Windows.Win32.WindowsAndMessaging", "EnumWindows");
-        assert_eq!(t.definition(), None);
+        assert_eq!(t.definition().len(), 0);
 
         let mut d = t.dependencies();
         assert_eq!(d.len(), 2);
@@ -547,15 +536,16 @@ mod tests {
     #[test]
     fn test_win32_constant() {
         let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_USAGE_SHADER_INPUT");
-        assert_eq!(t.definition(), None);
+        assert_eq!(t.definition().len(), 0);
         assert_eq!(t.dependencies().len(), 0);
     }
 
     #[test]
     fn test_win32_callback() {
         let t = TypeReader::get().resolve_type("Windows.Win32.MenusAndResources", "WNDENUMPROC");
-        let d = t.definition().unwrap();
-        assert_eq!(d.name(), "WNDENUMPROC");
+        let d = t.definition();
+        assert_eq!(d.len(), 1);
+                assert_eq!(d[0].name(), "WNDENUMPROC");
 
         let mut d = t.dependencies();
         assert_eq!(d.len(), 2);

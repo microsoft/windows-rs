@@ -81,8 +81,8 @@ impl ComInterface {
                 }
             });
 
-            // TODO: dedupe this...
-            let mut method_names = BTreeMap::<String, u32>::new();
+        // TODO: dedupe this...
+        let mut method_names = BTreeMap::<String, u32>::new();
 
         let methods = bases
             .iter()

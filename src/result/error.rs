@@ -2,8 +2,8 @@ use crate::*;
 use std::convert::TryInto;
 
 use bindings::{
-    windows::win32::automation::{BSTR,  GetErrorInfo, SetErrorInfo},
-    windows::win32::winrt::{IRestrictedErrorInfo, ILanguageExceptionErrorInfo2},
+    windows::win32::automation::{GetErrorInfo, SetErrorInfo, BSTR},
+    windows::win32::winrt::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
 
 /// A WinRT error object consists of both an error code as well as detailed error information for debugging.
@@ -27,14 +27,16 @@ impl Error {
         }
 
         let mut info = None;
-        let info = unsafe { GetErrorInfo(0, &mut info).and_some(info).and_then(|e| e.cast()).ok() };
+        let info = unsafe {
+            GetErrorInfo(0, &mut info)
+                .and_some(info)
+                .and_then(|e| e.cast())
+                .ok()
+        };
 
         // The error information is then associated with the returning error object and no longer
         // associated with the thread.
-        Self {
-            code,
-            info,
-        }
+        Self { code, info }
     }
 
     // Use internally to create an Error object without error info. Typically used with QueryInterface
@@ -75,7 +77,7 @@ impl Error {
             };
 
             let message: String = message.try_into().unwrap_or_default();
-    
+
             if self.code == code {
                 return message.trim_end().to_owned();
             }
@@ -126,14 +128,21 @@ impl std::convert::From<Error> for ErrorCode {
 impl std::convert::From<ErrorCode> for Error {
     fn from(code: ErrorCode) -> Self {
         let mut info = None;
-        let info: Option<IRestrictedErrorInfo> = unsafe { GetErrorInfo(0, &mut info).and_some(info).and_then(|e| e.cast()).ok() };
+        let info: Option<IRestrictedErrorInfo> = unsafe {
+            GetErrorInfo(0, &mut info)
+                .and_some(info)
+                .and_then(|e| e.cast())
+                .ok()
+        };
 
         if let Some(info) = info {
             // If it does (and therefore running on a recent version of Windows)
             // then capture_propagation_context adds a breadcrumb to the error
             // info to make debugging easier.
             if let Ok(capture) = info.cast::<ILanguageExceptionErrorInfo2>() {
-                unsafe { let _ = capture.CapturePropagationContext(None); }
+                unsafe {
+                    let _ = capture.CapturePropagationContext(None);
+                }
             }
 
             return Self {
@@ -143,11 +152,15 @@ impl std::convert::From<ErrorCode> for Error {
         }
 
         let mut result = None;
-        unsafe { let _ = GetErrorInfo(0, &mut result); }
+        unsafe {
+            let _ = GetErrorInfo(0, &mut result);
+        }
 
         if let Some(info) = result {
             let mut message = BSTR::default();
-            unsafe { let _ = info.GetDescription(&mut message); }
+            unsafe {
+                let _ = info.GetDescription(&mut message);
+            }
             let message: String = message.try_into().unwrap_or_default();
             Self::new(code, &message)
         } else {

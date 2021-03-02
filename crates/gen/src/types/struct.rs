@@ -28,7 +28,7 @@ impl Struct {
         self.0.fields().all(|f| f.is_blittable())
     }
 
-    fn is_handle(&self) -> bool {
+    pub fn is_handle(&self) -> bool {
         self.0
             .has_attribute("Windows.Win32.Interop", "NativeTypedefAttribute")
     }
@@ -302,13 +302,13 @@ impl Struct {
                         value.as_bool()
                     }
                 }
-                
+
                 impl ::std::convert::From<&BOOL> for bool {
                     fn from(value: &BOOL) -> Self {
                         value.as_bool()
                     }
                 }
-                
+
                 impl ::std::convert::From<bool> for BOOL {
                     fn from(value: bool) -> Self {
                         if value {
@@ -318,7 +318,7 @@ impl Struct {
                         }
                     }
                 }
-                
+
                 impl ::std::convert::From<&bool> for BOOL {
                     fn from(value: &bool) -> Self {
                         (*value).into()
@@ -326,19 +326,19 @@ impl Struct {
                 }
 
 
-                
+
                 impl ::std::cmp::PartialEq<bool> for BOOL {
                     fn eq(&self, other: &bool) -> bool {
                         self.as_bool() == *other
                     }
                 }
-                
+
                 impl ::std::cmp::PartialEq<BOOL> for bool {
                     fn eq(&self, other: &BOOL) -> bool {
                         *self == other.as_bool()
                     }
                 }
-                
+
                 impl std::ops::Not for BOOL {
                     type Output = Self;
                     fn not(self) -> Self::Output {
@@ -375,7 +375,7 @@ impl Struct {
                 }
                 unsafe impl ::windows::Abi for PWSTR {
                     type Abi = Self;
-    
+
                     fn drop_param<'a>(param: &mut ::windows::Param<'a, Self>) {
                         if let ::windows::Param::Owned(value) = param {
                             if !value.0.is_null() {
@@ -414,7 +414,7 @@ impl Struct {
                         if value.len() == 0 {
                             return Self(::std::ptr::null_mut());
                         }
-                
+
                         unsafe { Self(SysAllocStringLen(value.as_ptr(), value.len() as u32)) }
                     }
                     fn as_wide(&self) -> &[u16] {
@@ -426,7 +426,7 @@ impl Struct {
                         if self.0.is_null() {
                             return &[];
                         }
-                
+
                         unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, SysStringLen(self.0) as usize) }
                     }
                 }
@@ -436,13 +436,13 @@ impl Struct {
                         Self::from_wide(&value)
                     }
                 }
-                
+
                 impl  std::convert::From<::std::string::String> for BSTR {
                     fn from(value: ::std::string::String) -> Self {
                         value.as_str().into()
                     }
                 }
-                
+
                 impl  ::std::convert::From<&::std::string::String> for BSTR {
                     fn from(value: &::std::string::String) -> Self {
                         value.as_str().into()
@@ -450,15 +450,15 @@ impl Struct {
                 }
                 impl<'a> ::std::convert::TryFrom<&'a BSTR> for ::std::string::String {
                     type Error = ::std::string::FromUtf16Error;
-                
+
                     fn try_from(value: &BSTR) -> ::std::result::Result<Self, Self::Error> {
                         ::std::string::String::from_utf16(value.as_wide())
                     }
                 }
-                
+
                 impl ::std::convert::TryFrom<BSTR> for ::std::string::String {
                     type Error = ::std::string::FromUtf16Error;
-                
+
                     fn try_from(value: BSTR) -> ::std::result::Result<Self, Self::Error> {
                         ::std::string::String::try_from(&value)
                     }
@@ -502,7 +502,7 @@ impl Struct {
                         self.as_wide().iter().copied().eq(other.encode_utf16())
                     }
                 }
-                
+
                 impl ::std::cmp::PartialEq<BSTR> for &str {
                     fn eq(&self, other: &BSTR) -> bool {
                         other == self
