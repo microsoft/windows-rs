@@ -24,7 +24,6 @@ pub enum ElementType {
     Guid,
     IUnknown,
     ErrorCode,
-    Bool32,
     Matrix3x2,
     TypeName,
     GenericParam(tables::GenericParam),
@@ -81,7 +80,6 @@ impl ElementType {
                         ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
                         ("Windows.Foundation", "HResult") => Self::ErrorCode,
                         ("Windows.Win32.Com", "HRESULT") => Self::ErrorCode,
-                        ("Windows.Win32.SystemServices", "BOOL") => Self::Bool32,
                         ("Windows.Win32.SystemServices", "LARGE_INTEGER") => Self::I64,
                         ("Windows.Win32.SystemServices", "ULARGE_INTEGER") => Self::U64,
                         ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
@@ -180,10 +178,6 @@ impl ElementType {
                 let windows = gen.windows();
                 quote! { #windows ErrorCode }
             }
-            Self::Bool32 => {
-                let windows = gen.windows();
-                quote! { #windows BOOL }
-            }
             Self::Matrix3x2 => {
                 let numerics = gen.namespace("Windows.Foundation.Numerics");
                 quote! { #numerics Matrix3x2 }
@@ -242,10 +236,6 @@ impl ElementType {
             Self::ErrorCode => {
                 let windows = gen.windows();
                 quote! { #windows ErrorCode }
-            }
-            Self::Bool32 => {
-                let windows = gen.windows();
-                quote! { #windows BOOL }
             }
             Self::Matrix3x2 => {
                 let numerics = gen.namespace("Windows.Foundation.Numerics");
@@ -422,7 +412,6 @@ impl ElementType {
             | Self::ISize
             | Self::USize
             | Self::ErrorCode
-            | Self::Bool32
             | Self::Enum(_) => true,
             _ => false,
         }
