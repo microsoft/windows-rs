@@ -1,5 +1,6 @@
 use crate::*;
 use std::convert::TryInto;
+use bindings::windows::win32::automation::BSTR;
 
 /// Provides detailed error information. `IRestrictedErrorInfo` represents the
 /// [IRestrictedErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/restrictederrorinfo/nn-restrictederrorinfo-irestrictederrorinfo)
@@ -15,10 +16,10 @@ pub struct IRestrictedErrorInfo_vtable(
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub  unsafe extern "system" fn(
         this: RawPtr,
-        description: *mut RawPtr,
+        description: *mut *mut u16,
         error: *mut ErrorCode,
-        restricted: *mut RawPtr,
-        sid: *mut RawPtr,
+        restricted: *mut *mut u16,
+        sid: *mut *mut u16,
     ) -> ErrorCode, // GetErrorDetails
     pub unsafe extern "system" fn(this: RawPtr, reference: *mut RawPtr) -> ErrorCode, // GetReference
 );
@@ -32,9 +33,9 @@ impl IRestrictedErrorInfo {
 
     /// Gets the error code and description of the error.
     pub fn details(&self) -> (ErrorCode, String) {
-        let mut fallback = BString::new();
-        let mut message = BString::new();
-        let mut unused = BString::new();
+        let mut fallback = BSTR::default();
+        let mut message = BSTR::default();
+        let mut unused = BSTR::default();
         let mut code = ErrorCode(0);
 
         unsafe {

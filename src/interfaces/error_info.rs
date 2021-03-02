@@ -1,5 +1,6 @@
 use crate::*;
 use std::convert::TryInto;
+use bindings::windows::win32::automation::BSTR;
 
 /// Provides detailed error information. `IErrorInfo` represents the
 /// [IErrorInfo](https://docs.microsoft.com/en-us/windows/win32/api/oaidl/nn-oaidl-ierrorinfo)
@@ -15,7 +16,7 @@ pub struct IErrorInfo_vtable(
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr, guid: *mut Guid) -> ErrorCode, // GetGUID
     pub unsafe extern "system" fn(this: RawPtr, source: *mut RawPtr) -> ErrorCode, // GetSource
-    pub unsafe extern "system" fn(this: RawPtr, description: *mut RawPtr) -> ErrorCode, // GetDescription
+    pub unsafe extern "system" fn(this: RawPtr, description: *mut *mut u16) -> ErrorCode, // GetDescription
     pub unsafe extern "system" fn(this: RawPtr, help: *mut RawPtr) -> ErrorCode, // GetHelpFile
     pub unsafe extern "system" fn(this: RawPtr, context: *mut u32) -> ErrorCode, // GetHelpContext
 );
@@ -31,7 +32,7 @@ impl IErrorInfo {
 
     /// Gets a description of the error.
     pub fn description(&self) -> String {
-        let mut value = BString::new();
+        let mut value = BSTR::default();
 
         unsafe {
             let _ = (self.vtable().5)(self.abi(), value.set_abi());

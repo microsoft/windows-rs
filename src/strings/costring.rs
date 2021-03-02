@@ -3,6 +3,8 @@
 #[repr(transparent)]
 pub struct CoString(*mut u16);
 
+// TODO: get rid of this - embed in marshaling layer?
+
 impl CoString {
     /// Create a new `CoString`
     pub fn new() -> Self {

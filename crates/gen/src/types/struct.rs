@@ -302,6 +302,9 @@ impl Struct {
                 #[derive(:: std :: clone :: Clone, ::std::cmp::Eq)]
                 pub struct BSTR(*mut u16);
                 impl BSTR {
+                    pub fn is_empty(&self) -> bool {
+                        self.0.is_null()
+                    }
                     fn from_wide(value: &[u16]) -> Self {
                         #[link(name = "oleaut32")]
                         extern "system" {
@@ -340,9 +343,24 @@ impl Struct {
                     }
                 }
                 
-                impl  std::convert::From<&::std::string::String> for BSTR {
+                impl  ::std::convert::From<&::std::string::String> for BSTR {
                     fn from(value: &::std::string::String) -> Self {
                         value.as_str().into()
+                    }
+                }
+                impl<'a> ::std::convert::TryFrom<&'a BSTR> for ::std::string::String {
+                    type Error = ::std::string::FromUtf16Error;
+                
+                    fn try_from(value: &BSTR) -> ::std::result::Result<Self, Self::Error> {
+                        ::std::string::String::from_utf16(value.as_wide())
+                    }
+                }
+                
+                impl ::std::convert::TryFrom<BSTR> for ::std::string::String {
+                    type Error = ::std::string::FromUtf16Error;
+                
+                    fn try_from(value: BSTR) -> ::std::result::Result<Self, Self::Error> {
+                        ::std::string::String::try_from(&value)
                     }
                 }
                 impl ::std::default::Default for BSTR {
