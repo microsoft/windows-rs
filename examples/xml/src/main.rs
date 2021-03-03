@@ -1,4 +1,4 @@
-use bindings::{windows::data::xml::dom::XmlDocument};
+use bindings::windows::data::xml::dom::XmlDocument;
 
 fn main() -> windows::Result<()> {
     let doc = XmlDocument::new()?;

@@ -454,9 +454,9 @@ mod tests {
     fn test_enum() {
         let t =
             TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
-            let d = t.definition();
-            assert_eq!(d.len(), 1);
-                    assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
+        let d = t.definition();
+        assert_eq!(d.len(), 1);
+        assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
 
         let d = t.dependencies();
         assert_eq!(d.len(), 0);
@@ -466,7 +466,8 @@ mod tests {
     fn test_com_interface() {
         let t = TypeReader::get().resolve_type("Windows.Win32.Direct2D", "ID2D1Resource");
         let d = t.definition();
-        assert_eq!(d.len(), 1);        assert_eq!(d[0].name(), "ID2D1Resource");
+        assert_eq!(d.len(), 1);
+        assert_eq!(d[0].name(), "ID2D1Resource");
 
         let d = t.dependencies();
         assert_eq!(d.len(), 1);
@@ -478,7 +479,7 @@ mod tests {
         let t = TypeReader::get().resolve_type("Windows.Foundation", "IUriRuntimeClassFactory");
         let d = t.definition();
         assert_eq!(d.len(), 1);
-                assert_eq!(d[0].name(), "IUriRuntimeClassFactory");
+        assert_eq!(d[0].name(), "IUriRuntimeClassFactory");
 
         let d = t.dependencies();
         assert_eq!(d.len(), 2);
@@ -491,7 +492,7 @@ mod tests {
         let t = TypeReader::get().resolve_type("Windows.Foundation", "IAsyncAction");
         let d = t.definition();
         assert_eq!(d.len(), 1);
-                assert_eq!(d[0].name(), "IAsyncAction");
+        assert_eq!(d[0].name(), "IAsyncAction");
 
         let mut d = t.dependencies();
         assert_eq!(d.len(), 3);
@@ -508,7 +509,7 @@ mod tests {
         let t = TypeReader::get().resolve_type("Windows.Foundation", "AsyncActionCompletedHandler");
         let d = t.definition();
         assert_eq!(d.len(), 1);
-                assert_eq!(d[0].name(), "AsyncActionCompletedHandler");
+        assert_eq!(d[0].name(), "AsyncActionCompletedHandler");
 
         let mut d = t.dependencies();
         assert_eq!(d.len(), 2);
@@ -545,7 +546,7 @@ mod tests {
         let t = TypeReader::get().resolve_type("Windows.Win32.MenusAndResources", "WNDENUMPROC");
         let d = t.definition();
         assert_eq!(d.len(), 1);
-                assert_eq!(d[0].name(), "WNDENUMPROC");
+        assert_eq!(d[0].name(), "WNDENUMPROC");
 
         let mut d = t.dependencies();
         assert_eq!(d.len(), 2);
