@@ -48,11 +48,13 @@ impl TypeReader {
     fn from_iter<I: IntoIterator<Item = PathBuf>>(files: I) -> Self {
         let mut files: Vec<File> = files.into_iter().map(|file| File::new(file)).collect();
 
-        if files.is_empty() {
+        if !files.iter().any(|file| file.name.starts_with("Windows.")) {
             files.push(File::from_bytes(
+                "Windows.Win32.winmd".to_string(),
                 include_bytes!("../../default/Windows.Win32.winmd").to_vec(),
             ));
             files.push(File::from_bytes(
+                "Windows.WinRT.winmd".to_string(),
                 include_bytes!("../../default/Windows.WinRT.winmd").to_vec(),
             ));
         }

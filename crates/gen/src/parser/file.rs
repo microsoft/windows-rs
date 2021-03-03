@@ -11,6 +11,7 @@ pub struct TableData {
 /// A Windows Metadata File
 #[derive(Default)]
 pub struct File {
+    pub name: String,
     /// The files raw bytes
     pub(crate) bytes: Vec<u8>,
     /// The index of the strings data
@@ -82,8 +83,9 @@ impl TableData {
 }
 
 impl File {
-    pub(crate) fn from_bytes(bytes: Vec<u8>) -> Self {
+    pub(crate) fn from_bytes(name: String, bytes: Vec<u8>) -> Self {
         let mut file = Self {
+            name,
             bytes,
             ..Default::default()
         };
@@ -591,10 +593,18 @@ impl File {
     }
 
     pub(crate) fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
-        let bytes = std::fs::read(filename.as_ref())
-            .unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename.as_ref(), e));
+        let filename = filename.as_ref();
+        let bytes = std::fs::read(filename)
+            .unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename, e));
 
-        Self::from_bytes(bytes)
+        Self::from_bytes(
+            filename
+                .file_name()
+                .expect("Invalid .winmd path")
+                .to_string_lossy()
+                .to_string(),
+            bytes,
+        )
     }
 
     pub(crate) fn type_def_table(&self) -> &TableData {
