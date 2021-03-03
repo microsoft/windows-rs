@@ -29,7 +29,7 @@ impl Callback {
 
         let params = signature.params.iter().map(|p| {
             let name = p.param.gen_name();
-            let tokens = p.gen_abi_param(gen);
+            let tokens = p.gen_win32_abi_param(gen);
             quote! { #name: #tokens }
         });
 

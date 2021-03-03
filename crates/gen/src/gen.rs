@@ -1,6 +1,9 @@
 use super::*;
 use std::iter::FromIterator;
 
+// TODO: Gen should store TypeTree somehow so code gen can quickly check whether a given interface method
+// should be included depending on whether its definition is included in the tree.
+
 #[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum Gen {
     Absolute,

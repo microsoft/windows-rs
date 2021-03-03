@@ -58,7 +58,7 @@ impl ComInterface {
 
                 let params = signature.params.iter().map(|p| {
                     let name = p.param.gen_name();
-                    let tokens = p.gen_abi_param(gen);
+                    let tokens = p.gen_win32_abi_param(gen);
                     quote! { #name: #tokens }
                 });
 
@@ -94,8 +94,8 @@ impl ComInterface {
             .map(|(vtable_offset, method)| {
                 let signature = method.signature(&[]);
 
-                let constraints = signature.gen_constraints(&signature.params, gen);
-                let params = signature.gen_params(&signature.params, gen);
+                let constraints = signature.gen_win32_constraints(&signature.params, gen);
+                let params = signature.gen_win32_params(&signature.params, gen);
 
                 let (udt_return_type, udt_return_local, return_type) = if let Some(t) = &signature.return_type {
                     if t.is_struct() {
@@ -109,7 +109,7 @@ impl ComInterface {
                     (TokenStream::new(), TokenStream::new(), TokenStream::new())
                 };
 
-                let args = signature.params.iter().map(|p| p.gen_abi_arg());
+                let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
 
                 let name = method.name();
                 let overload = method_names.entry(name.to_string()).or_insert(0);

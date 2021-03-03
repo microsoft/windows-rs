@@ -17,8 +17,8 @@ impl Function {
         let name = self.gen_name();
         let signature = self.0.signature(&[]);
 
-        let constraints = signature.gen_constraints(&signature.params, gen);
-        let params = signature.gen_params(&signature.params, gen);
+        let constraints = signature.gen_win32_constraints(&signature.params, gen);
+        let params = signature.gen_win32_params(&signature.params, gen);
 
         let return_type = if let Some(t) = &signature.return_type {
             let tokens = t.gen(gen);
@@ -29,7 +29,7 @@ impl Function {
 
         let abi_params = signature.params.iter().map(|p| {
             let name = p.param.gen_name();
-            let tokens = p.gen_abi_param(gen);
+            let tokens = p.gen_win32_abi_param(gen);
             quote! { #name: #tokens }
         });
 
@@ -40,7 +40,7 @@ impl Function {
             TokenStream::new()
         };
 
-        let args = signature.params.iter().map(|p| p.gen_abi_arg());
+        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
 
         let mut link = self.0.impl_map().expect("Function").scope().name();
 

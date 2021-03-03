@@ -34,7 +34,7 @@ impl Delegate {
         let turbo_abi_name = self.0.gen_turbo_abi_name(gen);
         let signature = self.method().signature(&self.0.generics);
         let abi_signature = signature.gen_winrt_abi(gen);
-        let fn_constraint = signature.gen_constraint(gen);
+        let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
         let phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
@@ -76,7 +76,7 @@ impl Delegate {
             )
         };
 
-        let invoke_upcall = signature.gen_upcall(quote! { ((*this).invoke) }, gen);
+        let invoke_upcall = signature.gen_winrt_upcall(quote! { ((*this).invoke) }, gen);
 
         quote! {
             #[repr(transparent)]

@@ -302,6 +302,8 @@ impl ElementType {
         }
     }
 
+    // TODO: this should exclude dependencies interface method parameters so that those methods are only
+    // generated if the types they refer to are actually included.
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         match self {
             Self::Function(t) => t.dependencies(),
