@@ -1,6 +1,6 @@
 use std::convert::*;
 
-use tests::{
+use test_winrt::{
     windows::foundation::collections::{
         CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
     },

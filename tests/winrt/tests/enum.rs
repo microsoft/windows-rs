@@ -1,4 +1,4 @@
-use tests::{
+use test_winrt::{
     windows::application_model::appointments::AppointmentDaysOfWeek,
     windows::foundation::AsyncStatus,
 };

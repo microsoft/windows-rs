@@ -1,5 +1,5 @@
-use tests::test_component::*;
-use tests::windows::foundation::{IReference, IStringable, PropertyValue, Uri};
+use test_winrt::test_component::*;
+use test_winrt::windows::foundation::{IReference, IStringable, PropertyValue, Uri};
 use windows::Interface;
 
 #[test]

@@ -1,7 +1,7 @@
 use std::convert::*;
 use std::iter::FromIterator;
 
-use tests::{
+use test_winrt::{
     windows::foundation::collections::{IIterable, IVectorView, PropertySet},
     windows::foundation::{IWwwFormUrlDecoderEntry, Uri},
 };

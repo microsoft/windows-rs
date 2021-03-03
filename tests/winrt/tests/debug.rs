@@ -1,4 +1,4 @@
-use tests::{windows::data::xml::dom::XmlDocument, windows::foundation::Uri};
+use test_winrt::{windows::data::xml::dom::XmlDocument, windows::foundation::Uri};
 
 // Simple test to validate debugging works
 #[test]

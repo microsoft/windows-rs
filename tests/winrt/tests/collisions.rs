@@ -1,4 +1,4 @@
-use tests::{
+use test_winrt::{
     windows::application_model::email::EmailAttachment,
     windows::devices::wi_fi_direct::{
         WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,

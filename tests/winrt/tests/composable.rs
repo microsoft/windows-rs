@@ -1,4 +1,4 @@
-use tests::test_component::*;
+use test_winrt::test_component::*;
 use windows::*;
 
 #[test]

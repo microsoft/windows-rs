@@ -1,4 +1,4 @@
-use tests::windows::foundation::GuidHelper;
+use test_winrt::windows::foundation::GuidHelper;
 use windows::Guid;
 
 #[test]

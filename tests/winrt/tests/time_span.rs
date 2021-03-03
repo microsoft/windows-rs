@@ -1,6 +1,6 @@
 use std::time::Duration;
-use tests::test_component::TestRunner;
-use tests::windows::foundation::{IPropertyValue, PropertyValue, TimeSpan};
+use test_winrt::test_component::TestRunner;
+use test_winrt::windows::foundation::{IPropertyValue, PropertyValue, TimeSpan};
 use windows::Interface;
 
 #[test]

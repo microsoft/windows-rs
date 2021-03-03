@@ -1,5 +1,5 @@
 use std::convert::{TryFrom, TryInto};
-use tests::windows::foundation::{IPropertyValue, PropertyValue};
+use test_winrt::windows::foundation::{IPropertyValue, PropertyValue};
 use windows::{HString, Interface, Object};
 
 macro_rules! primitive_try_into_test {

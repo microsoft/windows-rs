@@ -1,4 +1,4 @@
-use tests::windows::foundation::{IStringable, IUriRuntimeClass, Uri};
+use test_winrt::windows::foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::{IAgileObject, Interface, RuntimeName};
 
 #[test]

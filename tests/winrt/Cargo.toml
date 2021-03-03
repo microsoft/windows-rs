@@ -1,5 +1,5 @@
 [package]
-name = "tests"
+name = "test_winrt"
 version = "0.3.1"
 authors = ["Microsoft"]
 edition = "2018"

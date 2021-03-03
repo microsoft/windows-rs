@@ -1,4 +1,4 @@
-// use tests::*;
+// use test_winrt::*;
 
 // #[test]
 // fn implement_escape() {}

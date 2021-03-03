@@ -1,4 +1,4 @@
-use tests::{windows::foundation::collections::*, windows::foundation::*};
+use test_winrt::{windows::foundation::collections::*, windows::foundation::*};
 
 #[test]
 fn generic_guids() -> windows::Result<()> {
