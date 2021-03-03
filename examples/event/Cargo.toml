@@ -6,3 +6,4 @@ edition = "2018"
 
 [dependencies]
 bindings = { package="event_bindings", path = "bindings" }
+windows = { path = "../.." }

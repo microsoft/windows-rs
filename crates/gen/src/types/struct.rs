@@ -391,6 +391,7 @@ impl Struct {
                 }
                 impl<'a> ::windows::IntoParam<'a, PWSTR> for String {
                     fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                        // TODO: call variant above
                         ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
                     }
                 }
@@ -430,6 +431,7 @@ impl Struct {
                 }
                 impl<'a> ::windows::IntoParam<'a, PSTR> for String {
                     fn into_param(self) -> ::windows::Param<'a, PSTR> {
+                        // TODO: call variant above
                         ::windows::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
                     }
                 }

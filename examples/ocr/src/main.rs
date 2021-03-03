@@ -2,14 +2,13 @@ use bindings::{
     windows::graphics::imaging::BitmapDecoder,
     windows::media::ocr::OcrEngine,
     windows::storage::{FileAccessMode, StorageFile},
-    windows::Result,
 };
 
-fn main() -> Result<()> {
+fn main() -> windows::Result<()> {
     futures::executor::block_on(main_async())
 }
 
-async fn main_async() -> Result<()> {
+async fn main_async() -> windows::Result<()> {
     let mut message = std::env::current_dir().unwrap();
     message.push("message.png");
 
