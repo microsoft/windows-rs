@@ -66,6 +66,8 @@ fn main() -> windows::Result<()> {
         SetEvent(event).ok()?;
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
+
+        // TODO: add MessageBoxA example
     }
 
     Ok(())
