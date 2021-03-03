@@ -3,26 +3,25 @@ use bindings::{
     windows::win32::menus_and_resources::{LoadCursorA, HMENU},
     windows::win32::system_services::{
         GetModuleHandleA, CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, HINSTANCE, IDC_ARROW, LRESULT,
-        WM_DESTROY, WM_PAINT, WS_OVERLAPPEDWINDOW, WS_VISIBLE,
+        WM_DESTROY, WM_PAINT, WS_OVERLAPPEDWINDOW, WS_VISIBLE,PSTR,
     },
     windows::win32::windows_and_messaging::{
         CreateWindowExA, DefWindowProcA, DispatchMessageA, GetMessageA, PostQuitMessage,
         RegisterClassA, HWND, LPARAM, MSG, WNDCLASSA, WPARAM,
     },
-    windows::Result,
 };
+
+use     windows::Result;
 
 fn main() -> Result<()> {
     unsafe {
-        let instance = HINSTANCE(GetModuleHandleA(std::ptr::null()));
+        let instance = HINSTANCE(GetModuleHandleA(PSTR::default()));
         debug_assert!(instance.0 != 0);
-        let class_name = b"window\0";
-        let window_title = b"Hello world\0";
 
         let mut wc = WNDCLASSA::default();
-        wc.h_cursor = LoadCursorA(HINSTANCE(0), IDC_ARROW as *const i8);
+        wc.h_cursor = LoadCursorA(HINSTANCE(0), PSTR(IDC_ARROW as *mut u8));
         wc.h_instance = instance;
-        wc.lpsz_class_name = class_name.as_ptr() as *mut u8 as *mut i8;
+        wc.lpsz_class_name = PSTR(b"window\0".as_ptr() as _);
         wc.style = (CS_HREDRAW | CS_VREDRAW) as u32;
         wc.lpfn_wnd_proc = Some(wndproc);
         let atom = RegisterClassA(&wc);
@@ -30,8 +29,8 @@ fn main() -> Result<()> {
 
         CreateWindowExA(
             0,
-            class_name.as_ptr() as *const i8,
-            window_title.as_ptr() as *const i8,
+            "window",
+            "Sample Window",
             WS_OVERLAPPEDWINDOW | WS_VISIBLE,
             CW_USEDEFAULT,
             CW_USEDEFAULT,

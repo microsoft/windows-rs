@@ -9,6 +9,7 @@ use crate::*;
 pub enum Param<'a, T: Abi> {
     Borrowed(&'a T),
     Owned(T),
+    Boxed(T),
     None,
 }
 
@@ -17,6 +18,7 @@ impl<'a, T: Abi> Param<'a, T> {
         match self {
             Param::Borrowed(value) => value.abi(),
             Param::Owned(value) => value.abi(),
+            Param::Boxed(value) => value.abi(),
             // It is always safe to form an `Abi` type's binary representation from an all-zero
             // byte-pattern as this represents the null or default state for every type.
             Param::None => unsafe { std::mem::zeroed() },

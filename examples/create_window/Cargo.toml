@@ -6,3 +6,4 @@ edition = "2018"
 
 [dependencies]
 bindings = { package = "create_window_bindings", path = "bindings" }
+windows = { path = "../.." }
