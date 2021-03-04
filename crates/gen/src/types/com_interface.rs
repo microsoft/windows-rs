@@ -96,16 +96,16 @@ impl ComInterface {
                 let constraints = signature.gen_win32_constraints(&signature.params, gen);
                 let params = signature.gen_win32_params(&signature.params, gen);
 
-                let (udt_return_type, udt_return_local, return_type) = if let Some(t) = &signature.return_type {
+                let (udt_return_type, udt_return_local, return_type, udt_return_expression) = if let Some(t) = &signature.return_type {
                     if t.is_struct() {
                         let tokens = t.kind.gen_abi_name(gen);
-                        (quote! { &mut result__ }, quote! { let mut result__: #tokens = ::std::default::Default::default(); }, quote! {})
+                        (quote! { &mut result__ }, quote! { let mut result__: #tokens = ::std::default::Default::default(); }, quote! { -> #tokens }, quote! { ;result__ })
                     } else {
                         let tokens = t.gen_win32_abi(gen);
-                        (quote! {}, quote!{}, quote! { -> #tokens })
+                        (quote! {}, quote!{}, quote! { -> #tokens }, quote!{})
                     }
                 } else {
-                    (TokenStream::new(), TokenStream::new(), TokenStream::new())
+                    (TokenStream::new(), TokenStream::new(), TokenStream::new(), quote!{})
                 };
 
                 let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
@@ -126,9 +126,62 @@ impl ComInterface {
                     pub unsafe fn #name<#constraints>(&self, #params) #return_type {
                         #udt_return_local
                         (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* #udt_return_type)
+                        #udt_return_expression
                     }
                 }
             });
+
+            let mut conversions = TokenStream::new();
+
+            conversions.combine(&quote! {
+                impl ::std::convert::From<#name> for ::windows::IUnknown {
+                    fn from(value: #name) -> Self {
+                        unsafe { ::std::mem::transmute(value) }
+                    }
+                }
+                impl ::std::convert::From<&#name> for ::windows::IUnknown {
+                    fn from(value: &#name) -> Self {
+                        ::std::convert::From::from(::std::clone::Clone::clone(value))
+                    }
+                }
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for #name {
+                    fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                        ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+                    }
+                }
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a #name {
+                    fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                        ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(::std::clone::Clone::clone(self)))
+                    }
+                }
+            });
+    
+            for base in &bases {
+                let into = base.gen_name(gen);
+    
+                conversions.combine(&quote! {
+                    impl ::std::convert::From<#name> for #into {
+                        fn from(value: #name) -> Self {
+                            unsafe { ::std::mem::transmute(value) }
+                        }
+                    }
+                    impl ::std::convert::From<&#name> for #into {
+                        fn from(value: &#name) -> Self {
+                            ::std::convert::From::from(::std::clone::Clone::clone(value))
+                        }
+                    }
+                    impl<'a> ::windows::IntoParam<'a, #into> for #name {
+                        fn into_param(self) -> ::windows::Param<'a, #into> {
+                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        }
+                    }
+                    impl<'a> ::windows::IntoParam<'a, #into> for &'a #name {
+                        fn into_param(self) -> ::windows::Param<'a, #into> {
+                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                        }
+                    }
+                });
+            }
 
         quote! {
             #[repr(transparent)]
@@ -145,7 +198,7 @@ impl ComInterface {
             impl #name {
                 #(#methods)*
             }
-            // #conversions
+            #conversions
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(

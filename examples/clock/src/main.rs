@@ -1,7 +1,7 @@
 use bindings::{
     windows::foundation::numerics::*, windows::win32::direct2d::*, windows::win32::direct3d11::*,
     windows::win32::dxgi::*, windows::win32::gdi::*, windows::win32::menus_and_resources::*,
-    windows::win32::system_services::*, windows::win32::ui_animation::*, windows::win32::ui_animation::*,
+    windows::win32::system_services::*, windows::win32::ui_animation::*,
     windows::win32::windows_and_messaging::*, windows::win32::windows_programming::*,
 };
 
@@ -216,8 +216,7 @@ impl Window {
         let target = self.target.as_ref().unwrap();
         let brush = self.brush.as_ref().unwrap();
 
-        let mut size = D2D_SIZE_F::default();
-        unsafe { target.GetSize(&mut size) };
+        let size = unsafe { target.GetSize() };
 
         let radius = size.width.min(size.height).max(200.0) / 2.0 - 50.0;
         let translation = Matrix3x2::translation(size.width / 2.0, size.height / 2.0);
@@ -253,9 +252,7 @@ impl Window {
         }
 
         unsafe {
-            target.SetTransform(
-                &(Matrix3x2::rotation(angles.second, 0.0, 0.0) * &translation),
-            );
+            target.SetTransform(&(Matrix3x2::rotation(angles.second, 0.0, 0.0) * &translation));
 
             target.DrawLine(
                 D2D_POINT_2F::default(),
@@ -268,9 +265,7 @@ impl Window {
                 &self.style,
             );
 
-            target.SetTransform(
-                &(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * &translation),
-            );
+            target.SetTransform(&(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * &translation));
 
             target.DrawLine(
                 D2D_POINT_2F::default(),
@@ -283,9 +278,7 @@ impl Window {
                 &self.style,
             );
 
-            target.SetTransform(
-                &(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * &translation),
-            );
+            target.SetTransform(&(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * &translation));
 
             target.DrawLine(
                 D2D_POINT_2F::default(),
@@ -312,8 +305,7 @@ impl Window {
     }
 
     fn create_clock(&self, target: &ID2D1DeviceContext) -> Result<ID2D1Bitmap1> {
-        let mut size_f = D2D_SIZE_F::default();
-        unsafe { target.GetSize(&mut size_f) };
+        let size_f = unsafe { target.GetSize() };
 
         let size_u = D2D_SIZE_U {
             width: (size_f.width * self.dpi / 96.0) as u32,
@@ -405,15 +397,13 @@ impl Window {
 
     fn run(&mut self) -> Result<()> {
         unsafe {
-            let instance = HINSTANCE(GetModuleHandleA(std::ptr::null()));
+            let instance = HINSTANCE(GetModuleHandleA(PSTR::default()));
             debug_assert!(instance.0 != 0);
-            let class_name = b"Sample\0";
-            let window_title = b"Clock\0";
 
             let wc = WNDCLASSA {
-                h_cursor: LoadCursorA(HINSTANCE(0), IDC_ARROW as *const i8),
+                h_cursor: LoadCursorA(HINSTANCE(0), PSTR(IDC_ARROW as *mut u8)),
                 h_instance: instance,
-                lpsz_class_name: class_name.as_ptr() as *mut u8 as *mut i8,
+                lpsz_class_name: PSTR(b"window\0".as_ptr() as _),
                 style: (CS_HREDRAW | CS_VREDRAW) as u32,
                 lpfn_wnd_proc: Some(Self::wndproc),
                 ..Default::default()
@@ -424,8 +414,8 @@ impl Window {
 
             let handle = CreateWindowExA(
                 0,
-                class_name.as_ptr() as *const i8,
-                window_title.as_ptr() as *const i8,
+                "window",
+                "Sample Window",
                 WS_OVERLAPPEDWINDOW | WS_VISIBLE,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
@@ -585,11 +575,10 @@ fn create_transition() -> Result<IUIAnimationTransition> {
 }
 
 fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
-    // TODO: need fix for https://github.com/microsoft/win32metadata/issues/165
-    let mut flags = D3D11_CREATE_DEVICE_FLAG::D3D11_CREATE_DEVICE_BGRA_SUPPORT.0 as u32;
+    let mut flags = D3D11_CREATE_DEVICE_FLAG::D3D11_CREATE_DEVICE_BGRA_SUPPORT;
 
     if cfg!(debug_assertions) {
-        flags |= D3D11_CREATE_DEVICE_FLAG::D3D11_CREATE_DEVICE_DEBUG.0 as u32;
+        flags = flags | D3D11_CREATE_DEVICE_FLAG::D3D11_CREATE_DEVICE_DEBUG;
     }
 
     let mut device = None;
