@@ -55,7 +55,7 @@ impl Signature {
         self.pointers == 0 && self.kind.is_struct()
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen_win32(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
@@ -80,7 +80,32 @@ impl Signature {
         tokens
     }
 
-    pub fn gen_abi(&self, gen: Gen) -> TokenStream {
+    pub fn gen_winrt(&self, gen: Gen) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
+        for _ in 0..self.pointers {
+            if self.is_const {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
+        }
+
+        let kind = self.kind.gen_name(gen);
+
+        if self.kind.is_nullable() {
+            tokens.combine(&quote! {
+                ::std::option::Option<#kind>
+            });
+        } else {
+            tokens.combine(&kind)
+        }
+
+        tokens
+    }
+
+    pub fn gen_win32_abi(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
@@ -96,7 +121,31 @@ impl Signature {
         tokens
     }
 
-    pub fn gen_default(&self) -> TokenStream {
+    pub fn gen_winrt_abi(&self, gen: Gen) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
+        for _ in 0..self.pointers {
+            if self.is_const {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
+        }
+
+        tokens.combine(&self.kind.gen_abi(gen));
+        tokens
+    }
+
+    pub fn gen_win32_default(&self) -> TokenStream {
+        if self.pointers > 0 {
+            quote! { ::std::ptr::null_mut() }
+        } else {
+            self.kind.gen_default()
+        }
+    }
+
+    pub fn gen_winrt_default(&self) -> TokenStream {
         if self.pointers > 0 {
             quote! { ::std::ptr::null_mut() }
         } else {

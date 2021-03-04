@@ -86,7 +86,7 @@ impl MethodSignature {
             .iter()
             .map(|p| {
                 let name = p.param.gen_name();
-                let abi = p.signature.gen_abi(gen);
+                let abi = p.signature.gen_winrt_abi(gen);
 
                 if p.signature.is_array {
                     let abi_size_name = p.param.gen_abi_size_name();
@@ -109,7 +109,7 @@ impl MethodSignature {
                 }
             })
             .chain(self.return_type.iter().map(|signature| {
-                let abi = signature.gen_abi(gen);
+                let abi = signature.gen_winrt_abi(gen);
 
                 if signature.is_array {
                     quote! { result_size__: *mut u32, result__: *mut *mut #abi }
@@ -317,7 +317,7 @@ impl MethodSignature {
                 quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
             } else {
                 if param.signature.pointers > 0 {
-                    let tokens = param.signature.gen_abi(gen);
+                    let tokens = param.signature.gen_winrt_abi(gen);
                     quote! { #name: #tokens, }
                 } else {
                     quote! { #name: &mut #tokens, }
@@ -364,7 +364,7 @@ impl MethodSignature {
                 quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
             } else {
                 if param.signature.pointers > 0 {
-                    let tokens = param.signature.gen_abi(gen);
+                    let tokens = param.signature.gen_win32_abi(gen);
                     quote! { #name: #tokens, }
                 } else {
                     quote! { #name: &mut #tokens, }

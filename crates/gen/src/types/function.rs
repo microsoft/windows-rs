@@ -21,7 +21,7 @@ impl Function {
         let params = signature.gen_win32_params(&signature.params, gen);
 
         let return_type = if let Some(t) = &signature.return_type {
-            let tokens = t.gen(gen);
+            let tokens = t.gen_win32(gen);
             quote! { -> #tokens }
         } else {
             quote! {}
@@ -34,7 +34,7 @@ impl Function {
         });
 
         let abi_return_type = if let Some(t) = &signature.return_type {
-            let tokens = t.gen_abi(gen);
+            let tokens = t.gen_win32_abi(gen);
             quote! { -> #tokens }
         } else {
             TokenStream::new()

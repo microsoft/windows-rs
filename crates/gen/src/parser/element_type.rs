@@ -380,6 +380,14 @@ impl ElementType {
         }
     }
 
+    pub fn is_callback(&self) -> bool {
+        if let Self::Callback(_) = self {
+            true
+        } else {
+            false
+        }
+    }
+
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::Bool

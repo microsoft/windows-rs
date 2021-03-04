@@ -66,10 +66,10 @@ impl ComInterface {
                     if t.is_struct() {
                         let mut t = t.clone();
                         t.pointers += 1;
-                        let tokens = t.gen_abi(gen);
+                        let tokens = t.gen_win32_abi(gen);
                         (quote! { result__: #tokens }, quote! {})
                     } else {
-                        let tokens = t.gen_abi(gen);
+                        let tokens = t.gen_win32_abi(gen);
                         (quote! {}, quote! { -> #tokens })
                     }
                 } else {
@@ -102,7 +102,7 @@ impl ComInterface {
                         let tokens = t.kind.gen_abi(gen);
                         (quote! { &mut result__ }, quote! { let mut result__: #tokens = ::std::default::Default::default(); }, quote! {})
                     } else {
-                        let tokens = t.gen_abi(gen);
+                        let tokens = t.gen_win32_abi(gen);
                         (quote! {}, quote!{}, quote! { -> #tokens })
                     }
                 } else {

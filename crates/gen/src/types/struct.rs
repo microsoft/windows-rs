@@ -67,7 +67,11 @@ impl Struct {
             };
         }
 
-        let runtime_type = if self.0.is_winrt() {
+        let is_winrt = self.0.is_winrt();
+        let is_handle = self.is_handle();
+        let is_empty = self.0.fields().next().is_none();
+
+        let runtime_type = if is_winrt {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
 
             quote! {
@@ -80,9 +84,6 @@ impl Struct {
             quote! {}
         };
 
-        let is_handle = self.is_handle();
-        let is_empty = self.0.fields().next().is_none();
-
         let copy = if is_handle {
             quote! {
                 impl ::std::marker::Copy for #name {}
@@ -93,7 +94,12 @@ impl Struct {
 
         let body = if is_handle {
             let fields = self.0.fields().map(|f| {
-                let kind = f.signature().gen(gen);
+                let kind = if is_winrt {
+                    f.signature().gen_winrt(gen)
+                } else {
+                    f.signature().gen_win32(gen)
+                };
+
                 quote! {
                     pub #kind
                 }
@@ -105,7 +111,13 @@ impl Struct {
         } else {
             let fields = self.0.fields().map(|f| {
                 let name = f.gen_name();
-                let kind = f.signature().gen(gen);
+
+                let kind = if is_winrt {
+                    f.signature().gen_winrt(gen)
+                } else {
+                    f.signature().gen_win32(gen)
+                };
+
                 quote! {
                     pub #name: #kind
                 }
@@ -124,12 +136,19 @@ impl Struct {
             }
         } else {
             let abi_name = self.0.gen_abi_name(gen);
-            let fields = self.0.fields().map(|f| f.signature().gen_abi(gen));
+
+            let fields = if is_winrt {
+                let fields = self.0.fields().map(|f| f.signature().gen_winrt_abi(gen));
+                quote! { #(#fields),* }
+            } else {
+                let fields = self.0.fields().map(|f| f.signature().gen_win32_abi(gen));
+                quote! { #(#fields),* }
+            };
 
             quote! {
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct #abi_name(#(#fields),*);
+                pub struct #abi_name(#fields);
                 unsafe impl ::windows::Abi for #name {
                     type Abi = #abi_name;
                 }
@@ -178,15 +197,21 @@ impl Struct {
         };
 
         let defaults = if is_handle {
-            let defaults = self.0.fields().map(|f| f.signature().gen_default());
-
-            quote! {
-                Self( #(#defaults),* )
+            if is_winrt {
+                let defaults = self.0.fields().map(|f| f.signature().gen_winrt_default());
+                quote! {
+                    Self( #(#defaults),* )
+                }
+            } else {
+                let defaults = self.0.fields().map(|f| f.signature().gen_win32_default());
+                quote! {
+                    Self( #(#defaults),* )
+                }
             }
         } else {
             let defaults = self.0.fields().map(|f| {
                 let name = f.gen_name();
-                let value = f.signature().gen_default();
+                let value = if is_winrt { f.signature().gen_winrt_default() } else { f.signature().gen_win32_default() };
                 quote! {
                     #name: #value
                 }

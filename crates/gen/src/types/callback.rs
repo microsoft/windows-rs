@@ -34,7 +34,7 @@ impl Callback {
         });
 
         let return_type = if let Some(t) = &signature.return_type {
-            let tokens = t.gen_abi(gen);
+            let tokens = t.gen_win32_abi(gen);
             quote! { -> #tokens }
         } else {
             quote! {}
