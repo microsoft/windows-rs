@@ -58,7 +58,7 @@ impl Struct {
             };
         }
 
-        let mut fields: Vec<(tables::Field, Signature)> = self.0.fields().map(|f|(f, f.signature())).collect();
+        let fields: Vec<(tables::Field, Signature)> = self.0.fields().map(|f|(f, f.signature())).collect();
 
         if fields.is_empty() {
             return quote! {

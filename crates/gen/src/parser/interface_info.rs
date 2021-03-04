@@ -84,6 +84,7 @@ impl InterfaceInfo {
                     }
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &'a #from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
+                            // tODO: The various conversions are adding ref counting bugs unecessarily
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                         }
                     }

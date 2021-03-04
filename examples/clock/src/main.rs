@@ -1,9 +1,11 @@
 use bindings::{
     windows::foundation::numerics::*, windows::win32::direct2d::*, windows::win32::direct3d11::*,
     windows::win32::dxgi::*, windows::win32::gdi::*, windows::win32::menus_and_resources::*,
-    windows::win32::system_services::*, windows::win32::ui_animation::*, windows::win32::upnp::*,
-    windows::win32::windows_and_messaging::*, windows::win32::windows_programming::*, windows::*,
+    windows::win32::system_services::*, windows::win32::ui_animation::*, windows::win32::ui_animation::*,
+    windows::win32::windows_and_messaging::*, windows::win32::windows_programming::*,
 };
+
+use windows::*;
 
 fn main() -> Result<()> {
     initialize_sta()?;
@@ -252,7 +254,7 @@ impl Window {
 
         unsafe {
             target.SetTransform(
-                &(Matrix3x2::rotation(angles.second, Vector2::default()) * &translation),
+                &(Matrix3x2::rotation(angles.second, 0.0, 0.0) * &translation),
             );
 
             target.DrawLine(
@@ -267,7 +269,7 @@ impl Window {
             );
 
             target.SetTransform(
-                &(Matrix3x2::rotation(angles.minute, Vector2::default()) * &translation),
+                &(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * &translation),
             );
 
             target.DrawLine(
@@ -282,7 +284,7 @@ impl Window {
             );
 
             target.SetTransform(
-                &(Matrix3x2::rotation(angles.hour, Vector2::default()) * &translation),
+                &(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * &translation),
             );
 
             target.DrawLine(
@@ -522,7 +524,7 @@ fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID
             .CreateEffect(&"C67EA361-1863-4e69-89DB-695D3E9A5B6B".into(), &mut shadow)
             .and_some(shadow)?;
 
-        shadow.SetInput(0, clock, TRUE);
+        shadow.SetInput(0, clock, true);
         Ok(shadow)
     }
 }
