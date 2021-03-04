@@ -63,19 +63,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_windows() {
-        assert_eq!(
-            ElementType::String.gen_name(Gen::Absolute).as_str(),
-            "windows :: HString"
-        );
-
-        assert_eq!(
-            ElementType::String.gen_name(Gen::Relative("test")).as_str(),
-            ":: windows :: HString"
-        );
-    }
-
-    #[test]
     fn test_namespace() {
         let reader = TypeReader::get();
         let t = reader.resolve_type("Windows.Foundation", "IStringable");

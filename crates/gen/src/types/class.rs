@@ -333,24 +333,24 @@ mod tests {
     #[test]
     fn test_class() {
         let c = TypeReader::get_class("Windows.Foundation.Collections", "StringMap");
-        let mut i = c.interfaces();
+        let i = c.interfaces();
         assert_eq!(i.len(), 3);
 
         assert_eq!(
             i[0].def.gen_name(Gen::Absolute).as_str(),
-            "windows :: foundation :: collections :: IMap :: < windows :: HString , windows :: HString >"
+            "windows :: foundation :: collections :: IMap :: < :: windows :: HString , :: windows :: HString >"
         );
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
         assert_eq!(
             i[1].def.gen_name(Gen::Absolute).as_str(),
-            "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < windows :: HString , windows :: HString > >"
+            "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < :: windows :: HString , :: windows :: HString > >"
         );
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
         assert_eq!(
             i[2].def.gen_name(Gen::Absolute).as_str(),
-            "windows :: foundation :: collections :: IObservableMap :: < windows :: HString , windows :: HString >"
+            "windows :: foundation :: collections :: IObservableMap :: < :: windows :: HString , :: windows :: HString >"
         );
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);
     }

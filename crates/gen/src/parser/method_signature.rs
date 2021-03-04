@@ -330,7 +330,6 @@ impl MethodSignature {
             }
         }))
     }
-
 }
 
 impl MethodParam {
@@ -413,7 +412,6 @@ impl MethodParam {
         }
     }
 
-    
     pub fn gen_win32(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
         let is_const = self.is_const();
@@ -451,11 +449,10 @@ impl MethodParam {
             }
         }
 
-
         tokens.combine(&self.signature.kind.gen_abi_name(gen));
         tokens
     }
-    
+
     pub fn gen_win32_abi_param(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
@@ -477,7 +474,6 @@ impl MethodParam {
         if self.is_convertible() {
             quote! { #name.into_param().abi() }
         //} else if self.signature.pointers == 1 && self.signature.kind.is_nullable() {
-            
         } else {
             //quote! { #name }
             quote! { ::std::mem::transmute(#name) }

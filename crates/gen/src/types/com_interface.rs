@@ -131,9 +131,9 @@ impl ComInterface {
                 }
             });
 
-            let mut conversions = TokenStream::new();
+        let mut conversions = TokenStream::new();
 
-            conversions.combine(&quote! {
+        conversions.combine(&quote! {
                 impl ::std::convert::From<#name> for ::windows::IUnknown {
                     fn from(value: #name) -> Self {
                         unsafe { ::std::mem::transmute(value) }
@@ -155,11 +155,11 @@ impl ComInterface {
                     }
                 }
             });
-    
-            for base in &bases {
-                let into = base.gen_name(gen);
-    
-                conversions.combine(&quote! {
+
+        for base in &bases {
+            let into = base.gen_name(gen);
+
+            conversions.combine(&quote! {
                     impl ::std::convert::From<#name> for #into {
                         fn from(value: #name) -> Self {
                             unsafe { ::std::mem::transmute(value) }
@@ -181,7 +181,7 @@ impl ComInterface {
                         }
                     }
                 });
-            }
+        }
 
         quote! {
             #[repr(transparent)]

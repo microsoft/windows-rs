@@ -535,12 +535,13 @@ mod tests {
         assert_eq!(t.definition().len(), 0);
 
         let mut d = t.dependencies();
-        assert_eq!(d.len(), 2);
+        assert_eq!(d.len(), 3);
 
         d.sort_by(|a, b| a.name().cmp(b.name()));
 
-        assert_eq!(d[0].name(), "LPARAM");
-        assert_eq!(d[1].name(), "WNDENUMPROC");
+        assert_eq!(d[0].name(), "BOOL");
+        assert_eq!(d[1].name(), "LPARAM");
+        assert_eq!(d[2].name(), "WNDENUMPROC");
     }
 
     #[test]
@@ -558,12 +559,13 @@ mod tests {
         assert_eq!(d[0].name(), "WNDENUMPROC");
 
         let mut d = t.dependencies();
-        assert_eq!(d.len(), 2);
+        assert_eq!(d.len(), 3);
 
         d.sort_by(|a, b| a.name().cmp(b.name()));
 
-        assert_eq!(d[0].name(), "HWND");
-        assert_eq!(d[1].name(), "LPARAM");
+        assert_eq!(d[0].name(), "BOOL");
+        assert_eq!(d[1].name(), "HWND");
+        assert_eq!(d[2].name(), "LPARAM");
     }
 
     // #[test]

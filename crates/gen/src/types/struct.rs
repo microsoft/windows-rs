@@ -58,7 +58,8 @@ impl Struct {
             };
         }
 
-        let fields: Vec<(tables::Field, Signature)> = self.0.fields().map(|f|(f, f.signature())).collect();
+        let fields: Vec<(tables::Field, Signature)> =
+            self.0.fields().map(|f| (f, f.signature())).collect();
 
         if fields.is_empty() {
             return quote! {
@@ -139,10 +140,14 @@ impl Struct {
             let abi_name = self.0.gen_abi_name(gen);
 
             let fields = if is_winrt {
-                let fields = fields.iter().map(|(_, signature)| signature.gen_winrt_abi(gen));
+                let fields = fields
+                    .iter()
+                    .map(|(_, signature)| signature.gen_winrt_abi(gen));
                 quote! { #(#fields),* }
             } else {
-                let fields = fields.iter().map(|(_, signature)| signature.gen_win32_abi(gen));
+                let fields = fields
+                    .iter()
+                    .map(|(_, signature)| signature.gen_win32_abi(gen));
                 quote! { #(#fields),* }
             };
 
@@ -191,17 +196,20 @@ impl Struct {
             }
         });
 
-
         let compare = quote! { #(#compare)&&* };
 
         let defaults = if is_handle {
             if is_winrt {
-                let defaults = fields.iter().map(|(_, signature)| signature.gen_winrt_default());
+                let defaults = fields
+                    .iter()
+                    .map(|(_, signature)| signature.gen_winrt_default());
                 quote! {
                     Self( #(#defaults),* )
                 }
             } else {
-                let defaults = fields.iter().map(|(_, signature)| signature.gen_win32_default());
+                let defaults = fields
+                    .iter()
+                    .map(|(_, signature)| signature.gen_win32_default());
                 quote! {
                     Self( #(#defaults),* )
                 }
@@ -226,28 +234,31 @@ impl Struct {
 
         let debug_name = self.0.name();
 
-        let debug_fields = fields.iter().enumerate().filter_map(|(index, (field, signature))| {
-            // TODO: there must be a simpler way to implement Debug just to exclude this type.
-            if let ElementType::Callback(_) = signature.kind {
-                return None;
-            }
+        let debug_fields = fields
+            .iter()
+            .enumerate()
+            .filter_map(|(index, (field, signature))| {
+                // TODO: there must be a simpler way to implement Debug just to exclude this type.
+                if let ElementType::Callback(_) = signature.kind {
+                    return None;
+                }
 
-            let name = to_snake(field.name());
+                let name = to_snake(field.name());
 
-            if is_handle {
-                let index = Literal::u32_unsuffixed(index as u32);
+                if is_handle {
+                    let index = Literal::u32_unsuffixed(index as u32);
 
-                Some(quote! {
-                    .field(#name, &format_args!("{:?}", self.#index))
-                })
-            } else {
-                let field = to_ident(&name);
+                    Some(quote! {
+                        .field(#name, &format_args!("{:?}", self.#index))
+                    })
+                } else {
+                    let field = to_ident(&name);
 
-                Some(quote! {
-                    .field(#name, &format_args!("{:?}", self.#field))
-                })
-            }
-        });
+                    Some(quote! {
+                        .field(#name, &format_args!("{:?}", self.#field))
+                    })
+                }
+            });
 
         let extensions = self.gen_extensions();
 
