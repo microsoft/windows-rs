@@ -6,7 +6,7 @@
 
 The `windows` crate lets you call any Windows API past, present, and future using code generated on the fly directly from the metadata describing the API and right into your Rust package where you can call them as if they were just another Rust module.
 
-The Rust language projection follows in the tradition established by [C++/WinRT](https://github.com/microsoft/cppwinrt) of building language projections for Windows using standard languages and compilers, providing a natural and idiomatic way for Rust developers to call Windows APIs. 
+The Rust language projection follows in the tradition established by [C++/WinRT](https://github.com/microsoft/cppwinrt) of building language projections for Windows using standard languages and compilers, providing a natural and idiomatic way for Rust developers to call Windows APIs.
 
 Watch the [getting started video](https://youtu.be/LajquCjHXK4)!
 
@@ -27,9 +27,9 @@ This will allow Cargo to download, build, and cache Windows support as a package
 ```rust
 fn main() {
     windows::build!(
-        windows::data::xml::dom::*
-        windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject}
-        windows::win32::windows_programming::CloseHandle
+        windows::data::xml::dom::*,
+        windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject},
+        windows::win32::windows_programming::CloseHandle,
     );
 }
 ```
