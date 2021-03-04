@@ -58,7 +58,9 @@ impl Struct {
             };
         }
 
-        if self.0.fields().next().is_none() {
+        let mut fields: Vec<(tables::Field, Signature)> = self.0.fields().map(|f|(f, f.signature())).collect();
+
+        if fields.is_empty() {
             return quote! {
                 #[repr(C)]
                 #[allow(non_snake_case)]
@@ -69,7 +71,6 @@ impl Struct {
 
         let is_winrt = self.0.is_winrt();
         let is_handle = self.is_handle();
-        let is_empty = self.0.fields().next().is_none();
 
         let runtime_type = if is_winrt {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
@@ -93,11 +94,11 @@ impl Struct {
         };
 
         let body = if is_handle {
-            let fields = self.0.fields().map(|f| {
+            let fields = fields.iter().map(|(_, signature)| {
                 let kind = if is_winrt {
-                    f.signature().gen_winrt(gen)
+                    signature.gen_winrt(gen)
                 } else {
-                    f.signature().gen_win32(gen)
+                    signature.gen_win32(gen)
                 };
 
                 quote! {
@@ -109,13 +110,13 @@ impl Struct {
                 ( #(#fields),* );
             }
         } else {
-            let fields = self.0.fields().map(|f| {
+            let fields = fields.iter().map(|(f, signature)| {
                 let name = f.gen_name();
 
                 let kind = if is_winrt {
-                    f.signature().gen_winrt(gen)
+                    signature.gen_winrt(gen)
                 } else {
-                    f.signature().gen_win32(gen)
+                    signature.gen_win32(gen)
                 };
 
                 quote! {
@@ -138,10 +139,10 @@ impl Struct {
             let abi_name = self.0.gen_abi_name(gen);
 
             let fields = if is_winrt {
-                let fields = self.0.fields().map(|f| f.signature().gen_winrt_abi(gen));
+                let fields = fields.iter().map(|(_, signature)| signature.gen_winrt_abi(gen));
                 quote! { #(#fields),* }
             } else {
-                let fields = self.0.fields().map(|f| f.signature().gen_win32_abi(gen));
+                let fields = fields.iter().map(|(_, signature)| signature.gen_win32_abi(gen));
                 quote! { #(#fields),* }
             };
 
@@ -155,7 +156,7 @@ impl Struct {
             }
         };
 
-        let constants = self.0.fields().filter_map(|f| {
+        let constants = fields.iter().filter_map(|(f, _)| {
             if f.flags().literal() {
                 if let Some(constant) = f.constant() {
                     let name = to_ident(f.name());
@@ -170,48 +171,49 @@ impl Struct {
             None
         });
 
-        let compare = if is_empty {
-            quote! { true }
-        } else {
-            let fields = self.0.fields().enumerate().map(|(index, f)| {
-                let name = f.gen_name();
+        let compare = fields.iter().enumerate().map(|(index, (f, signature))| {
+            let name = f.gen_name();
 
-                if let ElementType::Callback(_) = f.signature().kind {
-                    quote! {
-                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
-                    }
-                } else if is_handle {
-                    let index = Literal::u32_unsuffixed(index as u32);
-
-                    quote! {
-                        self.#index == other.#index
-                    }
-                } else {
-                    quote! {
-                        self.#name == other.#name
-                    }
+            if let ElementType::Callback(_) = signature.kind {
+                quote! {
+                    self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                 }
-            });
+            } else if is_handle {
+                let index = Literal::u32_unsuffixed(index as u32);
 
-            quote! { #(#fields)&&* }
-        };
+                quote! {
+                    self.#index == other.#index
+                }
+            } else {
+                quote! {
+                    self.#name == other.#name
+                }
+            }
+        });
+
+
+        let compare = quote! { #(#compare)&&* };
 
         let defaults = if is_handle {
             if is_winrt {
-                let defaults = self.0.fields().map(|f| f.signature().gen_winrt_default());
+                let defaults = fields.iter().map(|(_, signature)| signature.gen_winrt_default());
                 quote! {
                     Self( #(#defaults),* )
                 }
             } else {
-                let defaults = self.0.fields().map(|f| f.signature().gen_win32_default());
+                let defaults = fields.iter().map(|(_, signature)| signature.gen_win32_default());
                 quote! {
                     Self( #(#defaults),* )
                 }
             }
         } else {
-            let defaults = self.0.fields().map(|f| {
+            let defaults = fields.iter().map(|(f, signature)| {
                 let name = f.gen_name();
-                let value = if is_winrt { f.signature().gen_winrt_default() } else { f.signature().gen_win32_default() };
+                let value = if is_winrt {
+                    signature.gen_winrt_default()
+                } else {
+                    signature.gen_win32_default()
+                };
                 quote! {
                     #name: #value
                 }
@@ -224,9 +226,9 @@ impl Struct {
 
         let debug_name = self.0.name();
 
-        let debug_fields = self.0.fields().enumerate().filter_map(|(index, field)| {
+        let debug_fields = fields.iter().enumerate().filter_map(|(index, (field, signature))| {
             // TODO: there must be a simpler way to implement Debug just to exclude this type.
-            if let ElementType::Callback(_) = field.signature().kind {
+            if let ElementType::Callback(_) = signature.kind {
                 return None;
             }
 

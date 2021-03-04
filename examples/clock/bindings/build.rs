@@ -6,7 +6,7 @@ fn main() {
             GetModuleHandleA, CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, HINSTANCE, IDC_ARROW, LRESULT,
             WM_PAINT, WS_OVERLAPPEDWINDOW, WS_VISIBLE, WM_NCCREATE,GWLP_USERDATA, SIZE_MINIMIZED,
             DXGI_STATUS_OCCLUDED, WM_USER,PM_REMOVE, WM_QUIT, WM_SIZE, WM_DISPLAYCHANGE,WM_ACTIVATE,
-            WM_DESTROY,VBS_BASIC_ENCLAVE_SYSCALL_PAGE
+            WM_DESTROY
         },
         windows::win32::windows_and_messaging::{
             CreateWindowExA, DefWindowProcA, DispatchMessageA, GetMessageA, PostQuitMessage,

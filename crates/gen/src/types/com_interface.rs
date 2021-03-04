@@ -99,7 +99,7 @@ impl ComInterface {
 
                 let (udt_return_type, udt_return_local, return_type) = if let Some(t) = &signature.return_type {
                     if t.is_struct() {
-                        let tokens = t.kind.gen_abi(gen);
+                        let tokens = t.kind.gen_abi_name(gen);
                         (quote! { &mut result__ }, quote! { let mut result__: #tokens = ::std::default::Default::default(); }, quote! {})
                     } else {
                         let tokens = t.gen_win32_abi(gen);

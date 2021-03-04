@@ -12,44 +12,6 @@ pub struct MethodParam {
     pub signature: Signature,
 }
 
-// TODO: all gen methods should be split between Win32 and WinRT as their signature formats are too different
-// since Win32 relies heavily on pointers and WinRT has none but they can represent the same things (in some
-// cases) in different ways.
-
-impl MethodParam {
-    fn gen_winrt_invoke_arg(&self, gen: Gen) -> TokenStream {
-        let name = self.param.gen_name();
-        let kind = self.signature.kind.gen_name(gen);
-
-        // TODO: This compiles but doesn't property handle delegates with array parameters.
-        // https://github.com/microsoft/windows-rs/issues/212
-
-        if self.signature.is_array {
-            if self.param.is_input() {
-                quote! { ::std::mem::transmute_copy(&#name) }
-            } else if self.signature.by_ref {
-                quote! { ::std::mem::transmute_copy(&#name) }
-            } else {
-                quote! { ::std::mem::transmute_copy(&#name) }
-            }
-        } else if self.param.is_input() {
-            if self.signature.kind.is_primitive() {
-                quote! { #name }
-            } else if let ElementType::Enum(_) = self.signature.kind {
-                quote! { #name }
-            } else {
-                if self.signature.is_const {
-                    quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
-                } else {
-                    quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
-                }
-            }
-        } else {
-            quote! { ::std::mem::transmute_copy(&#name) }
-        }
-    }
-}
-
 impl MethodSignature {
     pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.return_type
@@ -99,7 +61,7 @@ impl MethodSignature {
                     }
                 } else if p.param.is_input() {
                     // WinRT only uses const to mean that structs are passed by reference.
-                    if p.signature.is_const {
+                    if p.is_const() {
                         quote! { #name: &#abi }
                     } else {
                         quote! { #name: #abi }
@@ -239,33 +201,7 @@ impl MethodSignature {
         let mut tokens = Vec::new();
 
         for (index, param) in params.iter().enumerate() {
-            if param.param.is_input()
-                && !param.signature.is_array
-                && param.signature.pointers == 0
-                && param.signature.kind.is_convertible()
-            {
-                let name = squote::format_ident!("T{}__", index);
-                let into = param.signature.kind.gen_name(gen);
-                tokens.push(quote! { #name: ::windows::IntoParam<'a, #into>, });
-            }
-        }
-
-        if !tokens.is_empty() {
-            tokens.insert(0, quote! { 'a, });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
-    pub fn gen_win32_constraints(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for (index, param) in params.iter().enumerate() {
-            if param.param.is_input()
-                && !param.signature.is_array
-                && param.signature.pointers == 0
-                && param.signature.kind.is_convertible()
-            {
+            if param.is_convertible() {
                 let name = squote::format_ident!("T{}__", index);
                 let into = param.signature.kind.gen_name(gen);
                 tokens.push(quote! { #name: ::windows::IntoParam<'a, #into>, });
@@ -293,15 +229,14 @@ impl MethodSignature {
                     quote! { #name: &mut [<#tokens as ::windows::RuntimeType>::DefaultType], }
                 }
             } else if param.param.is_input() {
-                if param.signature.pointers == 0 && param.signature.kind.is_convertible() {
+                if param.is_convertible() {
                     let tokens = squote::format_ident!("T{}__", index);
                     quote! { #name: #tokens, }
                 } else {
                     let mut signature = quote! {};
 
                     for _ in 0..param.signature.pointers {
-                        // TODO: combine as an is_const method on MethodParam
-                        if param.signature.is_const || param.param.is_const() {
+                        if param.is_const() {
                             signature.combine(&quote! { *const });
                         } else {
                             signature.combine(&quote! { *mut });
@@ -318,53 +253,6 @@ impl MethodSignature {
             } else {
                 if param.signature.pointers > 0 {
                     let tokens = param.signature.gen_winrt_abi(gen);
-                    quote! { #name: #tokens, }
-                } else {
-                    quote! { #name: &mut #tokens, }
-                }
-            }
-        }))
-    }
-
-    pub fn gen_win32_params(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
-        TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
-            let name = param.param.gen_name();
-            let tokens = param.signature.kind.gen_name(gen);
-
-            if param.signature.is_array {
-                if param.param.is_input() {
-                    quote! { #name: &[<#tokens as ::windows::RuntimeType>::DefaultType], }
-                } else if param.signature.by_ref {
-                    quote! { #name: &mut ::windows::Array<#tokens>, }
-                } else {
-                    quote! { #name: &mut [<#tokens as ::windows::RuntimeType>::DefaultType], }
-                }
-            } else if param.param.is_input() {
-                if param.signature.pointers == 0 && param.signature.kind.is_convertible() {
-                    let tokens = squote::format_ident!("T{}__", index);
-                    quote! { #name: #tokens, }
-                } else {
-                    let mut signature = quote! {};
-
-                    for _ in 0..param.signature.pointers {
-                        // TODO: combine as an is_const method on MethodParam
-                        if param.signature.is_const || param.param.is_const() {
-                            signature.combine(&quote! { *const });
-                        } else {
-                            signature.combine(&quote! { *mut });
-                        }
-                    }
-
-                    signature.combine(&tokens);
-                    quote! { #name: #signature, }
-                }
-            } else if param.signature.kind.is_nullable() {
-                quote! { #name: &mut ::std::option::Option<#tokens>, }
-            } else if let ElementType::GenericParam(_) = param.signature.kind {
-                quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
-            } else {
-                if param.signature.pointers > 0 {
-                    let tokens = param.signature.gen_win32_abi(gen);
                     quote! { #name: #tokens, }
                 } else {
                     quote! { #name: &mut #tokens, }
@@ -410,22 +298,83 @@ impl MethodSignature {
             },
         }
     }
-}
 
-impl MethodParam {
-    pub fn gen_win32_abi_param(&self, gen: Gen) -> TokenStream {
-        let mut tokens = TokenStream::new();
+    pub fn gen_win32_constraints(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
+        let mut tokens = Vec::new();
 
-        for _ in 0..self.signature.pointers {
-            if self.signature.is_const || self.param.is_const() {
-                tokens.combine(&quote! { *const });
-            } else {
-                tokens.combine(&quote! { *mut });
+        for (index, param) in params.iter().enumerate() {
+            if param.is_convertible() {
+                let name = squote::format_ident!("T{}__", index);
+                let into = param.signature.kind.gen_name(gen);
+                tokens.push(quote! { #name: ::windows::IntoParam<'a, #into>, });
             }
         }
 
-        tokens.combine(&self.signature.kind.gen_abi(gen));
-        tokens
+        if !tokens.is_empty() {
+            tokens.insert(0, quote! { 'a, });
+        }
+
+        TokenStream::from_iter(tokens)
+    }
+
+    pub fn gen_win32_params(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
+        TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
+            let name = param.param.gen_name();
+
+            if param.is_convertible() {
+                let tokens = squote::format_ident!("T{}__", index);
+                quote! { #name: #tokens, }
+            } else {
+                let tokens = param.gen_win32(gen);
+                quote! { #name: #tokens, }
+            }
+        }))
+    }
+
+}
+
+impl MethodParam {
+    fn is_convertible(&self) -> bool {
+        self.param.is_input()
+            && !self.signature.is_array
+            && self.signature.pointers == 0
+            && self.signature.kind.is_convertible()
+    }
+
+    fn is_const(&self) -> bool {
+        self.signature.is_const || self.param.is_const()
+    }
+
+    fn gen_winrt_invoke_arg(&self, gen: Gen) -> TokenStream {
+        let name = self.param.gen_name();
+        let kind = self.signature.kind.gen_name(gen);
+
+        // TODO: This compiles but doesn't property handle delegates with array parameters.
+        // https://github.com/microsoft/windows-rs/issues/212
+
+        if self.signature.is_array {
+            if self.param.is_input() {
+                quote! { ::std::mem::transmute_copy(&#name) }
+            } else if self.signature.by_ref {
+                quote! { ::std::mem::transmute_copy(&#name) }
+            } else {
+                quote! { ::std::mem::transmute_copy(&#name) }
+            }
+        } else if self.param.is_input() {
+            if self.signature.kind.is_primitive() {
+                quote! { #name }
+            } else if let ElementType::Enum(_) = self.signature.kind {
+                quote! { #name }
+            } else {
+                if self.is_const() {
+                    quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
+                } else {
+                    quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
+                }
+            }
+        } else {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        }
     }
 
     pub fn gen_winrt_abi_arg(&self) -> TokenStream {
@@ -440,8 +389,8 @@ impl MethodParam {
                 quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name) }
             }
         } else if self.param.is_input() {
-            if self.signature.pointers == 0 && self.signature.kind.is_convertible() {
-                if self.signature.is_const {
+            if self.is_convertible() {
+                if self.is_const() {
                     quote! { &#name.into_param().abi() }
                 } else {
                     quote! { #name.into_param().abi() }
@@ -464,40 +413,101 @@ impl MethodParam {
         }
     }
 
+    
+    pub fn gen_win32(&self, gen: Gen) -> TokenStream {
+        let mut tokens = TokenStream::new();
+        let is_const = self.is_const();
+
+        for _ in 0..self.signature.pointers {
+            if is_const {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
+        }
+
+        let kind = self.signature.kind.gen_name(gen);
+
+        if self.signature.kind.is_nullable() {
+            tokens.combine(&quote! {
+                ::std::option::Option<#kind>
+            });
+        } else {
+            tokens.combine(&kind)
+        }
+
+        tokens
+    }
+
+    pub fn gen_win32_abi(&self, gen: Gen) -> TokenStream {
+        let mut tokens = TokenStream::new();
+        let is_const = self.is_const();
+
+        for _ in 0..self.signature.pointers {
+            if is_const {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
+        }
+
+
+        tokens.combine(&self.signature.kind.gen_abi_name(gen));
+        tokens
+    }
+    
+    pub fn gen_win32_abi_param(&self, gen: Gen) -> TokenStream {
+        let mut tokens = TokenStream::new();
+
+        for _ in 0..self.signature.pointers {
+            if self.is_const() {
+                tokens.combine(&quote! { *const });
+            } else {
+                tokens.combine(&quote! { *mut });
+            }
+        }
+
+        tokens.combine(&self.signature.kind.gen_abi_name(gen));
+        tokens
+    }
+
     pub fn gen_win32_abi_arg(&self) -> TokenStream {
         let name = self.param.gen_name();
 
-        if self.signature.is_array {
-            if self.param.is_input() {
-                quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()) }
-            } else if self.signature.by_ref {
-                quote! { #name.set_abi_len(), #name.set_abi() }
-            } else {
-                quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name) }
-            }
-        } else if self.param.is_input() {
-            if self.signature.pointers == 0 && self.signature.kind.is_convertible() {
-                if self.signature.is_const {
-                    quote! { &#name.into_param().abi() }
-                } else {
-                    quote! { #name.into_param().abi() }
-                }
-            } else if self.signature.kind.is_blittable() {
-                quote! { #name }
-            } else if self.signature.pointers == 0 {
-                quote! { ::windows::Abi::abi(#name) }
-            } else {
-                quote! { ::std::mem::transmute(#name) }
-            }
-        } else if self.signature.kind.is_blittable() {
-            quote! { #name }
+        if self.is_convertible() {
+            quote! { #name.into_param().abi() }
+        //} else if self.signature.pointers == 1 && self.signature.kind.is_nullable() {
+            
         } else {
-            if self.signature.pointers > 0 && !self.signature.kind.is_nullable() {
-                quote! { #name }
-            } else {
-                quote! { ::windows::Abi::set_abi(#name) }
-            }
+            //quote! { #name }
+            quote! { ::std::mem::transmute(#name) }
         }
+
+        // if self.param.is_input() {
+        //     if self.is_convertible() {
+        //         if self.is_const() {
+        //             quote! { &#name.into_param().abi() }
+        //         } else {
+        //             quote! { #name.into_param().abi() }
+        //         }
+        //     } else if self.signature.pointers == 0 && self.signature.kind.is_nullable() {
+        //         quote! { #name }
+        //     } else if self.signature.kind.is_blittable() {
+        //         quote! { #name }
+        //     } else if self.signature.pointers == 0 {
+        //         quote! { ::windows::Abi::abi(#name) }
+        //     } else {
+        //         quote! { ::std::mem::transmute(#name) }
+        //     }
+        // } else if self.signature.kind.is_blittable() {
+        //     quote! { #name }
+        // } else {
+        //     if self.signature.pointers > 0 && !self.signature.kind.is_nullable() {
+        //         quote! { #name }
+        //     } else {
+        //         quote! { ::windows::Abi::set_abi(#name) }
+        //     }
+        // }
     }
 
     pub fn gen_winrt_produce_type(&self, gen: Gen) -> TokenStream {
