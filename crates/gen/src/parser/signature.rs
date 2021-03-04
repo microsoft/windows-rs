@@ -58,6 +58,7 @@ impl Signature {
     pub fn gen(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
+        // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
         for _ in 0..self.pointers {
             if self.is_const {
                 tokens.combine(&quote! { *const });
@@ -82,6 +83,7 @@ impl Signature {
     pub fn gen_abi(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
+        // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
         for _ in 0..self.pointers {
             if self.is_const {
                 tokens.combine(&quote! { *const });

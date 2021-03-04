@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: need to split win32 and winrt structs as their signatures are interpreted differently
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Struct(pub tables::TypeDef);
 
