@@ -262,6 +262,10 @@ impl Struct {
 
         let extensions = self.gen_extensions();
 
+        let nested_types = self.0.nested_types().map(|nested| {
+            quote! {}
+        });
+
         quote! {
             #[repr(C)]
             #[allow(non_snake_case)]

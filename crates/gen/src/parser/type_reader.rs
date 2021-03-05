@@ -133,7 +133,7 @@ impl TypeReader {
                 let enclosed = Row::new(reader.u32(row, 0) - 1, TableIndex::TypeDef, index);
                 let enclosing = Row::new(reader.u32(row, 1) - 1, TableIndex::TypeDef, index);
 
-                nested.entry(enclosing).or_default().push(enclosed);
+                let mut nested = nested.entry(enclosing).or_default().push(enclosed);
             }
         }
 
@@ -187,7 +187,9 @@ impl TypeReader {
     }
 
     pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> impl Iterator<Item = tables::TypeDef> {
-        self.nested[&enclosing.row].iter().map(move |row| {
+        // TODO: surely there's a simpler way to do this...
+        static EMPTY: Vec<Row> = Vec::new();
+        self.nested.get(&enclosing.row).unwrap_or(&EMPTY).iter().map(move |row| {
             tables::TypeDef {
                 reader: self,
                 row: *row,

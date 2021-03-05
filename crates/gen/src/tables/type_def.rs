@@ -73,6 +73,10 @@ impl TypeDef {
             })
     }
 
+    pub fn nested_types(&self) -> impl Iterator<Item = tables::TypeDef> {
+        self.reader.nested_types(self)
+    }
+
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
         self.reader
             .equal_range(
