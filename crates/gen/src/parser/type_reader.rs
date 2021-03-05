@@ -14,8 +14,8 @@ pub struct TypeReader {
     /// that namespace. The keys are the namespace and the values is a mapping
     /// of type names to type definitions
     types: BTreeMap<String, BTreeMap<String, TypeRow>>,
-    // TODO: store Row objects and turn them into TypeDef on request.
-    // When turning into TypeDef they add the &'static TypeReader
+
+    nested: BTreeMap<Row, Vec<Row>>,
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
@@ -62,15 +62,18 @@ impl TypeReader {
         let reader = Self {
             files,
             types: BTreeMap::default(),
+            nested: BTreeMap::default(),
         };
 
         let mut types = BTreeMap::<String, BTreeMap<String, TypeRow>>::default();
+        let mut nested = BTreeMap::<Row, Vec<Row>>::default();
 
         for (index, file) in reader.files.iter().enumerate() {
+            let index = index as u16;
             let row_count = file.type_def_table().row_count;
 
             for row in 0..row_count {
-                let def = Row::new(row, TableIndex::TypeDef, index as u16);
+                let def = Row::new(row, TableIndex::TypeDef, index);
                 let namespace = reader.str(def, 2);
                 let name = trim_tick(reader.str(def, 1));
 
@@ -92,7 +95,7 @@ impl TypeReader {
                     continue;
                 }
 
-                let extends = Row::new((extends >> 2) - 1, TableIndex::TypeRef, index as u16);
+                let extends = Row::new((extends >> 2) - 1, TableIndex::TypeRef, index);
 
                 if (reader.str(extends, 2), reader.str(extends, 1)) != ("System", "Object") {
                     continue;
@@ -118,6 +121,20 @@ impl TypeReader {
                         .or_insert_with(|| TypeRow::Function(method));
                 }
             }
+
+            let row_count = file.nested_class_table().row_count;
+
+            for row in 0..row_count {
+                let row = Row::new(row, TableIndex::NestedClass, index);
+                let enclosed = Row::new(reader.u32(row, 0) - 1, TableIndex::TypeDef, index);
+                let enclosing = Row::new(reader.u32(row, 1) - 1, TableIndex::TypeDef, index);
+
+                nested.entry(enclosing).or_default().push(enclosed);
+
+                // let enclosed = reader.str(enclosed, 1);
+                // let enclosing = reader.str(enclosing, 1);
+                // println!("{} -> {}", enclosing, enclosed);
+            }
         }
 
         let exclude = &[
@@ -139,6 +156,7 @@ impl TypeReader {
         Self {
             files: reader.files,
             types,
+            nested,
         }
     }
 

@@ -1,1 +1,1 @@
-macros::table!(NestedClass);
+//macros::table!(NestedClass);
