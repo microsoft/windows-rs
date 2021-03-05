@@ -163,7 +163,7 @@ impl TypeDef {
         Guid::from_type_def(self).expect("TypeDef::guid")
     }
 
-    fn enclosing_type(&self) -> Option<Self> {
+    pub fn enclosing_type(&self) -> Option<Self> {
 
          self.reader
                 .equal_range(

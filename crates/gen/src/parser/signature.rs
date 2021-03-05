@@ -55,6 +55,10 @@ impl Signature {
         self.pointers == 0 && self.kind.is_struct()
     }
 
+    pub fn is_explicit(&self) -> bool {
+        self.pointers == 0 && self.kind.is_explicit()
+    }
+
     pub fn gen_win32(&self, gen: Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 

@@ -417,6 +417,13 @@ impl ElementType {
         }
     }
 
+    pub fn is_explicit(&self) -> bool {
+        match self {
+            Self::Struct(t) => t.0.flags().explicit(),
+            _ => false,
+        }
+    }
+
     pub fn gen(&self, gen: Gen) -> TokenStream {
         match self {
             Self::Function(t) => t.gen(gen),

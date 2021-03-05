@@ -94,7 +94,7 @@ impl Struct {
             quote! {}
         };
 
-        let copy = if is_handle {
+        let copy = if is_handle || self.0.enclosing_type().is_some() {
             quote! {
                 impl ::std::marker::Copy for #name {}
             }
@@ -138,6 +138,14 @@ impl Struct {
             }
         };
 
+        let is_union = self.0.flags().explicit();
+
+        let struct_or_union = if is_union {
+            quote! { union }
+        } else {
+            quote! { struct }
+        };
+
         let abi = if self.is_blittable() {
             quote! {
                 unsafe impl ::windows::Abi for #name {
@@ -162,7 +170,7 @@ impl Struct {
             quote! {
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct #abi_name(#fields);
+                pub #struct_or_union #abi_name(#fields);
                 unsafe impl ::windows::Abi for #name {
                     type Abi = #abi_name;
                 }
@@ -184,89 +192,128 @@ impl Struct {
             None
         });
 
-        let compare = fields.iter().enumerate().map(|(index, (f, signature))| {
-            let name = f.gen_name();
+        let has_union = fields.iter().any(|(_, signature)| signature.is_explicit());
 
-            if let ElementType::Callback(_) = signature.kind {
-                quote! {
-                    self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
-                }
-            } else if is_handle {
-                let index = Literal::u32_unsuffixed(index as u32);
-
-                quote! {
-                    self.#index == other.#index
-                }
-            } else {
-                quote! {
-                    self.#name == other.#name
-                }
-            }
-        });
-
-        let compare = quote! { #(#compare)&&* };
-
-        let defaults = if is_handle {
-            if is_winrt {
-                let defaults = fields
-                    .iter()
-                    .map(|(_, signature)| signature.gen_winrt_default());
-                quote! {
-                    Self( #(#defaults),* )
-                }
-            } else {
-                let defaults = fields
-                    .iter()
-                    .map(|(_, signature)| signature.gen_win32_default());
-                quote! {
-                    Self( #(#defaults),* )
-                }
-            }
+        let compare = if is_union | has_union {
+            quote! {}
         } else {
-            let defaults = fields.iter().map(|(f, signature)| {
+            let compare = fields.iter().enumerate().map(|(index, (f, signature))| {
                 let name = f.gen_name();
-                let value = if is_winrt {
-                    signature.gen_winrt_default()
+    
+                if let ElementType::Callback(_) = signature.kind {
+                    quote! {
+                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
+                    }
+                } else if is_handle {
+                    let index = Literal::u32_unsuffixed(index as u32);
+    
+                    quote! {
+                        self.#index == other.#index
+                    }
                 } else {
-                    signature.gen_win32_default()
-                };
-                quote! {
-                    #name: #value
+                    quote! {
+                        self.#name == other.#name
+                    }
                 }
             });
-
+    
             quote! {
-                Self{ #(#defaults),* }
+                impl ::std::cmp::PartialEq for #name {
+                    fn eq(&self, other: &Self) -> bool {
+                        #(#compare)&&*
+                    }
+                }
+                impl ::std::cmp::Eq for #name {}
             }
         };
 
-        let debug_name = self.0.name();
-
-        let debug_fields = fields
-            .iter()
-            .enumerate()
-            .filter_map(|(index, (field, signature))| {
-                // TODO: there must be a simpler way to implement Debug just to exclude this type.
-                if let ElementType::Callback(_) = signature.kind {
-                    return None;
-                }
-
-                let name = to_snake(field.name());
-
-                if is_handle {
-                    let index = Literal::u32_unsuffixed(index as u32);
-
-                    Some(quote! {
-                        .field(#name, &format_args!("{:?}", self.#index))
-                    })
+        let default = if is_union || has_union {
+            quote! {}
+        } else {
+            let defaults = if is_handle {
+                if is_winrt {
+                    let defaults = fields
+                        .iter()
+                        .map(|(_, signature)| signature.gen_winrt_default());
+                    quote! {
+                        Self( #(#defaults),* )
+                    }
                 } else {
-                    let field = to_ident(&name);
-
-                    Some(quote! {
-                        .field(#name, &format_args!("{:?}", self.#field))
-                    })
+                    let defaults = fields
+                        .iter()
+                        .map(|(_, signature)| signature.gen_win32_default());
+                    quote! {
+                        Self( #(#defaults),* )
+                    }
                 }
-            });
+            } else {
+                let defaults = fields.iter().map(|(f, signature)| {
+                    let name = f.gen_name();
+                    let value = if is_winrt {
+                        signature.gen_winrt_default()
+                    } else {
+                        signature.gen_win32_default()
+                    };
+                    quote! {
+                        #name: #value
+                    }
+                });
+
+                quote! {
+                    Self{ #(#defaults),* }
+                }
+            };
+
+            quote! {
+                impl ::std::default::Default for #name {
+                    fn default() -> Self {
+                        #defaults
+                    }
+                }
+            }
+        };
+
+        let debug = if is_union || has_union {
+            quote! {}
+        } else {
+            let debug_name = self.0.name();
+
+            let debug_fields = fields
+                .iter()
+                .enumerate()
+                .filter_map(|(index, (field, signature))| {
+                    // TODO: there must be a simpler way to implement Debug just to exclude this type.
+                    if let ElementType::Callback(_) = signature.kind {
+                        return None;
+                    }
+    
+                    let name = to_snake(field.name());
+    
+                    if is_handle {
+                        let index = Literal::u32_unsuffixed(index as u32);
+    
+                        Some(quote! {
+                            .field(#name, &format_args!("{:?}", self.#index))
+                        })
+                    } else {
+                        let field = to_ident(&name);
+    
+                        Some(quote! {
+                            .field(#name, &format_args!("{:?}", self.#field))
+                        })
+                    }
+                });
+
+            quote! {
+                impl ::std::fmt::Debug for #name {
+                    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                        fmt.debug_struct(#debug_name)
+                            #(#debug_fields)*
+                            .finish()
+                    }
+                }
+            }
+        };
 
         let extensions = self.gen_extensions();
 
@@ -276,28 +323,13 @@ impl Struct {
             #[repr(C)]
             #[allow(non_snake_case)]
             #[derive(::std::clone::Clone)]
-            pub struct #name #body
+            pub #struct_or_union #name #body
             impl #name {
                 #(#constants)*
             }
-            impl ::std::default::Default for #name {
-                fn default() -> Self {
-                    #defaults
-                }
-            }
-            impl ::std::fmt::Debug for #name {
-                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    fmt.debug_struct(#debug_name)
-                        #(#debug_fields)*
-                        .finish()
-                }
-            }
-            impl ::std::cmp::PartialEq for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    #compare
-                }
-            }
-            impl ::std::cmp::Eq for #name {}
+            #default
+            #debug
+            #compare
             #abi
             #copy
             #runtime_type
