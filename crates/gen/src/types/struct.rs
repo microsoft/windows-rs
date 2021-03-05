@@ -1,6 +1,6 @@
 use super::*;
 
-// TODO: need to split win32 and winrt structs as their signatures are different and win32 structs also include unions and they are 
+// TODO: need to split win32 and winrt structs as their signatures are different and win32 structs also include unions and they are
 // radically different.
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -70,8 +70,10 @@ impl Struct {
 
         let mut field_names = BTreeMap::<String, u32>::new();
 
-        let fields: Vec<(tables::Field, Signature, Ident)> =
-            self.0.fields().map(|f| { 
+        let fields: Vec<(tables::Field, Signature, Ident)> = self
+            .0
+            .fields()
+            .map(|f| {
                 let name = to_snake(f.name());
                 let overload = field_names.entry(name.clone()).or_insert(0);
                 *overload += 1;
@@ -82,8 +84,9 @@ impl Struct {
                     to_ident(&name)
                 };
 
-                (f, f.signature(), name) 
-            }).collect();
+                (f, f.signature(), name)
+            })
+            .collect();
 
         if fields.is_empty() {
             return quote! {
@@ -97,7 +100,9 @@ impl Struct {
         let is_winrt = self.0.is_winrt();
         let is_handle = self.is_handle();
         let is_union = self.0.flags().explicit();
-        let has_union = fields.iter().any(|(_, signature, _)| signature.is_explicit());
+        let has_union = fields
+            .iter()
+            .any(|(_, signature, _)| signature.is_explicit());
 
         let runtime_type = if is_winrt {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
@@ -150,7 +155,7 @@ impl Struct {
                     if is_union {
                         signature.gen_win32_abi(gen)
                     } else {
-                    signature.gen_win32(gen)
+                        signature.gen_win32(gen)
                     }
                 };
 
@@ -180,20 +185,16 @@ impl Struct {
             let abi_name = self.0.gen_abi_name(gen);
 
             let fields = if is_winrt {
-                let fields = fields
-                    .iter()
-                    .map(|(_, signature, name)| {
-                        let kind = signature.gen_winrt_abi(gen);
-                        quote! { pub #name: #kind }
-                    });
+                let fields = fields.iter().map(|(_, signature, name)| {
+                    let kind = signature.gen_winrt_abi(gen);
+                    quote! { pub #name: #kind }
+                });
                 quote! { #(#fields),* }
             } else {
-                let fields = fields
-                    .iter()
-                    .map(|(_, signature, name)| {
-                        let kind = signature.gen_win32_abi(gen);
-                        quote! { pub #name: #kind }
-                    });
+                let fields = fields.iter().map(|(_, signature, name)| {
+                    let kind = signature.gen_win32_abi(gen);
+                    quote! { pub #name: #kind }
+                });
                 quote! { #(#fields),* }
             };
 
@@ -223,28 +224,30 @@ impl Struct {
             None
         });
 
-
         let compare = if is_union | has_union {
             quote! {}
         } else {
-            let compare = fields.iter().enumerate().map(|(index, (_, signature, name))| {
-                if let ElementType::Callback(_) = signature.kind {
-                    quote! {
-                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
+            let compare = fields
+                .iter()
+                .enumerate()
+                .map(|(index, (_, signature, name))| {
+                    if let ElementType::Callback(_) = signature.kind {
+                        quote! {
+                            self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
+                        }
+                    } else if is_handle {
+                        let index = Literal::u32_unsuffixed(index as u32);
+
+                        quote! {
+                            self.#index == other.#index
+                        }
+                    } else {
+                        quote! {
+                            self.#name == other.#name
+                        }
                     }
-                } else if is_handle {
-                    let index = Literal::u32_unsuffixed(index as u32);
-    
-                    quote! {
-                        self.#index == other.#index
-                    }
-                } else {
-                    quote! {
-                        self.#name == other.#name
-                    }
-                }
-            });
-    
+                });
+
             quote! {
                 impl ::std::cmp::PartialEq for #name {
                     fn eq(&self, other: &Self) -> bool {
@@ -305,29 +308,30 @@ impl Struct {
         } else {
             let debug_name = self.0.name();
 
-            let debug_fields = fields
-                .iter()
-                .enumerate()
-                .filter_map(|(index, (_, signature, name))| {
-                    // TODO: there must be a simpler way to implement Debug just to exclude this type.
-                    if let ElementType::Callback(_) = signature.kind {
-                        return None;
-                    }
+            let debug_fields =
+                fields
+                    .iter()
+                    .enumerate()
+                    .filter_map(|(index, (_, signature, name))| {
+                        // TODO: there must be a simpler way to implement Debug just to exclude this type.
+                        if let ElementType::Callback(_) = signature.kind {
+                            return None;
+                        }
 
-                    let field = name.as_str();
-    
-                    if is_handle {
-                        let index = Literal::u32_unsuffixed(index as u32);
-    
-                        Some(quote! {
-                            .field(#field, &format_args!("{:?}", self.#index))
-                        })
-                    } else {
-                        Some(quote! {
-                            .field(#field, &format_args!("{:?}", self.#name))
-                        })
-                    }
-                });
+                        let field = name.as_str();
+
+                        if is_handle {
+                            let index = Literal::u32_unsuffixed(index as u32);
+
+                            Some(quote! {
+                                .field(#field, &format_args!("{:?}", self.#index))
+                            })
+                        } else {
+                            Some(quote! {
+                                .field(#field, &format_args!("{:?}", self.#name))
+                            })
+                        }
+                    });
 
             quote! {
                 impl ::std::fmt::Debug for #name {
@@ -1695,11 +1699,17 @@ impl Struct {
     }
 }
 
-fn gen_nested_types<'a>(enclosing_name: &'a str, enclosing_type: &'a tables::TypeDef, gen: Gen) -> TokenStream {
-    TokenStream::from_iter(enclosing_type.nested_types().iter().enumerate().map(|(index, nested_type)| {
-        let nested_name = format!("{}_{}", enclosing_name, index);
-        Struct(*nested_type).gen_struct(&nested_name, gen)
-    }))
+fn gen_nested_types<'a>(
+    enclosing_name: &'a str,
+    enclosing_type: &'a tables::TypeDef,
+    gen: Gen,
+) -> TokenStream {
+    TokenStream::from_iter(enclosing_type.nested_types().iter().enumerate().map(
+        |(index, nested_type)| {
+            let nested_name = format!("{}_{}", enclosing_name, index);
+            Struct(*nested_type).gen_struct(&nested_name, gen)
+        },
+    ))
 }
 
 #[cfg(test)]

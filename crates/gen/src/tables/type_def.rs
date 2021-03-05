@@ -164,19 +164,19 @@ impl TypeDef {
     }
 
     pub fn enclosing_type(&self) -> Option<Self> {
-
-         self.reader
-                .equal_range(
-                    self.row.file_index,
-                    TableIndex::NestedClass,
-                    0,
-                    self.row.index + 1,
-                )
-                .map(move |row| NestedClass {
-                    reader: self.reader,
-                    row,
-                })
-                .next().map(|nested| nested.enclosing_type())
+        self.reader
+            .equal_range(
+                self.row.file_index,
+                TableIndex::NestedClass,
+                0,
+                self.row.index + 1,
+            )
+            .map(move |row| NestedClass {
+                reader: self.reader,
+                row,
+            })
+            .next()
+            .map(|nested| nested.enclosing_type())
     }
 
     fn scoped_name(&self) -> String {

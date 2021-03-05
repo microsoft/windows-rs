@@ -61,7 +61,7 @@ impl TypeTree {
             }
 
             if !namespace.is_empty() {
-            self.insert(namespace, 0, t);
+                self.insert(namespace, 0, t);
             }
         }
     }

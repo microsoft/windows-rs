@@ -423,9 +423,7 @@ impl ElementType {
                 if s.0.flags().explicit() {
                     true
                 } else {
-                    s.0.fields().any(|f| {
-                        f.signature().kind.is_explicit()
-                    })
+                    s.0.fields().any(|f| f.signature().kind.is_explicit())
                 }
             }
             _ => false,

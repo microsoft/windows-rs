@@ -134,7 +134,10 @@ impl TypeReader {
                 let enclosing = Row::new(reader.u32(row, 1) - 1, TableIndex::TypeDef, index);
                 let name = reader.str(enclosed, 1);
 
-                nested.entry(enclosing).or_default().insert(name.to_string(), enclosed);
+                nested
+                    .entry(enclosing)
+                    .or_default()
+                    .insert(name.to_string(), enclosed);
             }
         }
 
@@ -189,12 +192,15 @@ impl TypeReader {
 
     // TODO: how to make this return an iterator?
     pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> Vec<tables::TypeDef> {
-        self.nested.get(&enclosing.row).iter().flat_map(|t|t.values()).map(move |row| {
-            tables::TypeDef {
+        self.nested
+            .get(&enclosing.row)
+            .iter()
+            .flat_map(|t| t.values())
+            .map(move |row| tables::TypeDef {
                 reader: self,
                 row: *row,
-            }
-        }).collect()
+            })
+            .collect()
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
@@ -249,10 +255,7 @@ impl TypeReader {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
             let row = self.nested[&scope.resolve().row][type_ref.name()];
 
-            tables::TypeDef {
-                reader: self,
-                row,
-            }
+            tables::TypeDef { reader: self, row }
         } else {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
         }
