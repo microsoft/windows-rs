@@ -1,6 +1,6 @@
 [package]
 name = "ocr_bindings"
-version = "0.3.1"
+version = "0.4.0"
 authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
 edition = "2018"
 

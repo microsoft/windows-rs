@@ -1,4 +1,4 @@
-# 0.3.1
+# 0.4.0
 
 - Many improvements to COM support including interface hierarchies. ([#448](https://github.com/microsoft/windows-rs/pull/448))
 - New COM helpers simplify common operations. ([#496](https://github.com/microsoft/windows-rs/pull/496))

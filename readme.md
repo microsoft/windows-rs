@@ -16,10 +16,10 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies]
-windows = "0.3.1"
+windows = "0.4.0"
 
 [build-dependencies]
-windows = "0.3.1"
+windows = "0.4.0"
 ```
 
 This will allow Cargo to download, build, and cache Windows support as a package. Next, specify which types you need inside of a `build.rs` build script and the `windows` crate will generate the necessary bindings:
@@ -58,8 +58,8 @@ fn main() -> windows::Result<()> {
     unsafe {
         let event = CreateEventW(
             std::ptr::null_mut(),
-            true.into(),
-            false.into(),
+            true,
+            false,
             std::ptr::null(),
         );
 

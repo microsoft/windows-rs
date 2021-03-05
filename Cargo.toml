@@ -1,6 +1,6 @@
 [package]
 name = "windows"
-version = "0.3.1"
+version = "0.4.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -10,12 +10,12 @@ documentation = "https://docs.rs/windows"
 readme = "README.md"
 
 [dependencies]
-windows_macros = { path = "crates/macros",  version = "0.3.1" }
-gen = { package = "windows_gen", path = "crates/gen",  version = "0.3.1" }
+windows_macros = { path = "crates/macros",  version = "0.4.0" }
+gen = { package = "windows_gen", path = "crates/gen",  version = "0.4.0" }
 const-sha1 = "0.2" # TODO: inline the ConstBuffer type
 
 [build-dependencies]
-windows_macros = { path = "crates/macros",  version = "0.3.1" }
+windows_macros = { path = "crates/macros",  version = "0.4.0" }
 
 [dev-dependencies]
 doc-comment = "0.3"
