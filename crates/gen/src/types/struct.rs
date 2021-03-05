@@ -28,7 +28,8 @@ impl Struct {
     }
 
     pub fn is_blittable(&self) -> bool {
-        if self.0.has_attribute("Windows.Win32.Interop", "RAIIFreeAttribute") {
+        // TODO: should this only be applied to types where we actually take advantage of the RAII attribute?
+        if self.0.full_name() == ("Windows.Win32.Automation", "BSTR") {
             false
         } else {
             self.0.fields().all(|f| f.is_blittable())

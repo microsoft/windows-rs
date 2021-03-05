@@ -34,7 +34,8 @@ impl Function {
         });
 
         let abi_return_type = if let Some(t) = &signature.return_type {
-            let tokens = t.gen_win32_abi(gen);
+            // TODO: This should be gen_win32_abi?
+            let tokens = t.gen_win32(gen);
             quote! { -> #tokens }
         } else {
             TokenStream::new()
