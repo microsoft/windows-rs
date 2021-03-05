@@ -96,6 +96,7 @@ impl Struct {
         let is_winrt = self.0.is_winrt();
         let is_handle = self.is_handle();
         let is_union = self.0.flags().explicit();
+        let has_union = fields.iter().any(|(_, signature, _)| signature.is_explicit());
 
         let runtime_type = if is_winrt {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
@@ -110,12 +111,18 @@ impl Struct {
             quote! {}
         };
 
-        let copy = if self.is_blittable() {
+        let clone_or_copy = if self.is_blittable() {
             quote! {
-                impl ::std::marker::Copy for #name {}
+                #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
         } else {
-            quote! {}
+            if is_union || has_union {
+                quote! {}
+            } else {
+                quote! {
+                    #[derive(::std::clone::Clone)]
+                }
+            }
         };
 
         let body = if is_handle {
@@ -215,7 +222,6 @@ impl Struct {
             None
         });
 
-        let has_union = fields.iter().any(|(_, signature, _)| signature.is_explicit());
 
         let compare = if is_union | has_union {
             quote! {}
@@ -340,12 +346,11 @@ impl Struct {
         quote! {
             #[repr(C)]
             #[allow(non_snake_case)]
-            #[derive(::std::clone::Clone)]
+            #clone_or_copy
             pub #struct_or_union #name #body
             impl #name {
                 #(#constants)*
             }
-            #copy
             #default
             #debug
             #compare
