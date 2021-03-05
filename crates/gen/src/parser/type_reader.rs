@@ -15,7 +15,7 @@ pub struct TypeReader {
     /// of type names to type definitions
     types: BTreeMap<String, BTreeMap<String, TypeRow>>,
 
-    nested: BTreeMap<Row, Vec<Row>>,
+    nested: BTreeMap<Row, BTreeMap<String, Row>>,
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
@@ -66,7 +66,7 @@ impl TypeReader {
         };
 
         let mut types = BTreeMap::<String, BTreeMap<String, TypeRow>>::default();
-        let mut nested = BTreeMap::<Row, Vec<Row>>::default();
+        let mut nested = BTreeMap::<Row, BTreeMap<String, Row>>::new();
 
         for (index, file) in reader.files.iter().enumerate() {
             let index = index as u16;
@@ -132,8 +132,9 @@ impl TypeReader {
                 let row = Row::new(row, TableIndex::NestedClass, index);
                 let enclosed = Row::new(reader.u32(row, 0) - 1, TableIndex::TypeDef, index);
                 let enclosing = Row::new(reader.u32(row, 1) - 1, TableIndex::TypeDef, index);
+                let name = reader.str(enclosed, 1);
 
-                let mut nested = nested.entry(enclosing).or_default().push(enclosed);
+                nested.entry(enclosing).or_default().insert(name.to_string(), enclosed);
             }
         }
 
@@ -186,15 +187,14 @@ impl TypeReader {
             .filter_map(move |row| self.to_element_type(row))
     }
 
-    pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> impl Iterator<Item = tables::TypeDef> {
-        // TODO: surely there's a simpler way to do this...
-        static EMPTY: Vec<Row> = Vec::new();
-        self.nested.get(&enclosing.row).unwrap_or(&EMPTY).iter().map(move |row| {
+    // TODO: how to make this return an iterator?
+    pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> Vec<tables::TypeDef> {
+        self.nested.get(&enclosing.row).iter().flat_map(|t|t.values()).map(move |row| {
             tables::TypeDef {
                 reader: self,
                 row: *row,
             }
-        })
+        }).collect()
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
@@ -247,14 +247,15 @@ impl TypeReader {
 
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            for nested in self.nested_types(&scope.resolve()) {
-                if nested.name() == type_ref.name() {
-                    return nested;
-                }
-            }
-        }
+            let row = self.nested[&scope.resolve().row][type_ref.name()];
 
-        self.resolve_type_def(type_ref.namespace(), type_ref.name())
+            tables::TypeDef {
+                reader: self,
+                row,
+            }
+        } else {
+            self.resolve_type_def(type_ref.namespace(), type_ref.name())
+        }
     }
 
     /// Read a [`u32`] value from a specific [`Row`] and column

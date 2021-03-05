@@ -73,7 +73,8 @@ impl TypeDef {
             })
     }
 
-    pub fn nested_types(&self) -> impl Iterator<Item = tables::TypeDef> {
+    // TODO: this should be an iterator...
+    pub fn nested_types(&self) -> Vec<tables::TypeDef> {
         self.reader.nested_types(self)
     }
 
