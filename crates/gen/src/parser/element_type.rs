@@ -83,7 +83,6 @@ impl ElementType {
                         ("Windows.Win32.SystemServices", "ULARGE_INTEGER") => Self::U64,
                         ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
                         ("System", "Type") => Self::TypeName,
-                        ("", _) => Self::NotYetSupported,
                         _ => Self::from_type_def(type_ref.resolve(), Vec::new()).unwrap(),
                     },
                     TypeDefOrRef::TypeDef(type_def) => {

@@ -163,10 +163,45 @@ impl TypeDef {
         Guid::from_type_def(self).expect("TypeDef::guid")
     }
 
+    fn enclosing_type(&self) -> Option<Self> {
+
+         self.reader
+                .equal_range(
+                    self.row.file_index,
+                    TableIndex::NestedClass,
+                    0,
+                    self.row.index + 1,
+                )
+                .map(move |row| NestedClass {
+                    reader: self.reader,
+                    row,
+                })
+                .next().map(|nested| nested.enclosing_type())
+    }
+
+    fn scoped_name(&self) -> String {
+        if let Some(enclosing_type) = self.enclosing_type() {
+            for (index, nested_type) in enclosing_type.nested_types().iter().enumerate() {
+                if nested_type.name() == self.name() {
+                    return format!("{}_{}", enclosing_type.scoped_name(), index);
+                }
+            }
+        }
+
+        self.name().to_string()
+    }
+
     pub fn gen_name(&self, gen: Gen) -> TokenStream {
-        let name = to_ident(self.name());
-        let namespace = gen.namespace(self.namespace());
-        quote! { #namespace#name }
+        let namespace = self.namespace();
+
+        if namespace.is_empty() {
+            let name = to_ident(&self.scoped_name());
+            quote! { #name }
+        } else {
+            let name = to_ident(self.name());
+            let namespace = gen.namespace(self.namespace());
+            quote! { #namespace#name }
+        }
     }
 
     pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {

@@ -23,7 +23,11 @@ impl Struct {
     }
 
     pub fn definition(&self) -> Vec<tables::TypeDef> {
-        vec![self.0]
+        if self.0.namespace().is_empty() {
+            Vec::new()
+        } else {
+            vec![self.0]
+        }
     }
 
     pub fn is_blittable(&self) -> bool {
@@ -44,11 +48,15 @@ impl Struct {
     }
 
     pub fn gen(&self, gen: Gen) -> TokenStream {
+        self.gen_struct(self.0.name(), gen)
+    }
+
+    fn gen_struct(&self, struct_name: &str, gen: Gen) -> TokenStream {
         if let Some(replacement) = self.gen_replacement() {
             return replacement;
         }
 
-        let name = self.0.gen_name(gen);
+        let name = to_ident(struct_name);
 
         if let Some(guid) = Guid::from_type_def(&self.0) {
             let guid = guid.gen();
@@ -262,9 +270,7 @@ impl Struct {
 
         let extensions = self.gen_extensions();
 
-        let nested_types = self.0.nested_types().iter().map(|nested| {
-            quote! {}
-        });
+        let nested_types = gen_nested_types(struct_name, &self.0, gen);
 
         quote! {
             #[repr(C)]
@@ -296,6 +302,7 @@ impl Struct {
             #copy
             #runtime_type
             #extensions
+            #nested_types
         }
     }
 
@@ -1628,6 +1635,13 @@ impl Struct {
             _ => TokenStream::new(),
         }
     }
+}
+
+fn gen_nested_types<'a>(enclosing_name: &'a str, enclosing_type: &'a tables::TypeDef, gen: Gen) -> TokenStream {
+    TokenStream::from_iter(enclosing_type.nested_types().iter().enumerate().map(|(index, nested_type)| {
+        let nested_name = format!("{}_{}", enclosing_name, index);
+        Struct(*nested_type).gen_struct(&nested_name, gen)
+    }))
 }
 
 #[cfg(test)]
