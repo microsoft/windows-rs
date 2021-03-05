@@ -419,7 +419,15 @@ impl ElementType {
 
     pub fn is_explicit(&self) -> bool {
         match self {
-            Self::Struct(t) => t.0.flags().explicit(),
+            Self::Struct(s) => {
+                if s.0.flags().explicit() {
+                    true
+                } else {
+                    s.0.fields().any(|f| {
+                        f.signature().kind.is_explicit()
+                    })
+                }
+            }
             _ => false,
         }
     }
