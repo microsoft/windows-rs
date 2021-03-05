@@ -243,8 +243,16 @@ impl TypeReader {
         panic!("Could not find type def `{}.{}`", namespace, name);
     }
 
-    pub fn resolve_type_ref(&'static self, def: &tables::TypeRef) -> tables::TypeDef {
-        self.resolve_type_def(def.namespace(), def.name())
+    pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
+        if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
+            for nested in self.nested_types(&scope.resolve()) {
+                if nested.name() == type_ref.name() {
+                    return nested;
+                }
+            }
+        }
+
+        self.resolve_type_def(type_ref.namespace(), type_ref.name())
     }
 
     /// Read a [`u32`] value from a specific [`Row`] and column
