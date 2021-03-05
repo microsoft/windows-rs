@@ -205,9 +205,16 @@ impl TypeDef {
     }
 
     pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
-        let name = to_abi_ident(self.name());
-        let namespace = gen.namespace(self.namespace());
-        quote! { #namespace#name }
+        let namespace = self.namespace();
+
+        if namespace.is_empty() {
+            let name = to_abi_ident(&self.scoped_name());
+            quote! { #name }
+        } else {
+            let name = to_abi_ident(self.name());
+            let namespace = gen.namespace(self.namespace());
+            quote! { #namespace#name }
+        }
     }
 }
 

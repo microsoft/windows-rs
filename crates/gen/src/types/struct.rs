@@ -67,10 +67,22 @@ impl Struct {
             };
         }
 
-        
+        let mut field_names = BTreeMap::<String, u32>::new();
 
-        let fields: Vec<(tables::Field, Signature)> =
-            self.0.fields().map(|f| (f, f.signature())).collect();
+        let fields: Vec<(tables::Field, Signature, Ident)> =
+            self.0.fields().map(|f| { 
+                let name = to_snake(f.name());
+                let overload = field_names.entry(name.clone()).or_insert(0);
+                *overload += 1;
+
+                let name = if *overload > 1 {
+                    format_ident!("{}{}", &name, overload)
+                } else {
+                    to_ident(&name)
+                };
+
+                (f, f.signature(), name) 
+            }).collect();
 
         if fields.is_empty() {
             return quote! {
@@ -107,7 +119,7 @@ impl Struct {
         };
 
         let body = if is_handle {
-            let fields = fields.iter().map(|(_, signature)| {
+            let fields = fields.iter().map(|(_, signature, _)| {
                 let kind = if is_winrt {
                     signature.gen_winrt(gen)
                 } else {
@@ -123,9 +135,7 @@ impl Struct {
                 ( #(#fields),* );
             }
         } else {
-            let fields = fields.iter().map(|(f, signature)| {
-                let name = f.gen_name();
-
+            let fields = fields.iter().map(|(_, signature, name)| {
                 let kind = if is_winrt {
                     signature.gen_winrt(gen)
                 } else {
@@ -164,8 +174,7 @@ impl Struct {
             let fields = if is_winrt {
                 let fields = fields
                     .iter()
-                    .map(|(f, signature)| {
-                        let name = f.gen_name();
+                    .map(|(_, signature, name)| {
                         let kind = signature.gen_winrt_abi(gen);
                         quote! { pub #name: #kind }
                     });
@@ -173,8 +182,7 @@ impl Struct {
             } else {
                 let fields = fields
                     .iter()
-                    .map(|(f, signature)| {
-                        let name = f.gen_name();
+                    .map(|(_, signature, name)| {
                         let kind = signature.gen_win32_abi(gen);
                         quote! { pub #name: #kind }
                     });
@@ -192,7 +200,7 @@ impl Struct {
             }
         };
 
-        let constants = fields.iter().filter_map(|(f, _)| {
+        let constants = fields.iter().filter_map(|(f, _, _)| {
             if f.flags().literal() {
                 if let Some(constant) = f.constant() {
                     let name = to_ident(f.name());
@@ -207,14 +215,12 @@ impl Struct {
             None
         });
 
-        let has_union = fields.iter().any(|(_, signature)| signature.is_explicit());
+        let has_union = fields.iter().any(|(_, signature, _)| signature.is_explicit());
 
         let compare = if is_union | has_union {
             quote! {}
         } else {
-            let compare = fields.iter().enumerate().map(|(index, (f, signature))| {
-                let name = f.gen_name();
-    
+            let compare = fields.iter().enumerate().map(|(index, (_, signature, name))| {
                 if let ElementType::Callback(_) = signature.kind {
                     quote! {
                         self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
@@ -249,21 +255,20 @@ impl Struct {
                 if is_winrt {
                     let defaults = fields
                         .iter()
-                        .map(|(_, signature)| signature.gen_winrt_default());
+                        .map(|(_, signature, _)| signature.gen_winrt_default());
                     quote! {
                         Self( #(#defaults),* )
                     }
                 } else {
                     let defaults = fields
                         .iter()
-                        .map(|(_, signature)| signature.gen_win32_default());
+                        .map(|(_, signature, _)| signature.gen_win32_default());
                     quote! {
                         Self( #(#defaults),* )
                     }
                 }
             } else {
-                let defaults = fields.iter().map(|(f, signature)| {
-                    let name = f.gen_name();
+                let defaults = fields.iter().map(|(_, signature, name)| {
                     let value = if is_winrt {
                         signature.gen_winrt_default()
                     } else {
@@ -296,25 +301,23 @@ impl Struct {
             let debug_fields = fields
                 .iter()
                 .enumerate()
-                .filter_map(|(index, (field, signature))| {
+                .filter_map(|(index, (_, signature, name))| {
                     // TODO: there must be a simpler way to implement Debug just to exclude this type.
                     if let ElementType::Callback(_) = signature.kind {
                         return None;
                     }
-    
-                    let name = to_snake(field.name());
+
+                    let field = name.as_str();
     
                     if is_handle {
                         let index = Literal::u32_unsuffixed(index as u32);
     
                         Some(quote! {
-                            .field(#name, &format_args!("{:?}", self.#index))
+                            .field(#field, &format_args!("{:?}", self.#index))
                         })
                     } else {
-                        let field = to_ident(&name);
-    
                         Some(quote! {
-                            .field(#name, &format_args!("{:?}", self.#field))
+                            .field(#field, &format_args!("{:?}", self.#name))
                         })
                     }
                 });

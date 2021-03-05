@@ -59,7 +59,10 @@ impl TypeTree {
                     &ElementType::from_type_def(def, Vec::new()).unwrap(),
                 );
             }
+
+            if !namespace.is_empty() {
             self.insert(namespace, 0, t);
+            }
         }
     }
 
