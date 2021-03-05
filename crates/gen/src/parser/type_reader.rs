@@ -77,6 +77,10 @@ impl TypeReader {
                 let namespace = reader.str(def, 2);
                 let name = trim_tick(reader.str(def, 1));
 
+                if namespace.is_empty() {
+                    continue;
+                }
+
                 types
                     .entry(namespace.to_string())
                     .or_default()
@@ -130,10 +134,6 @@ impl TypeReader {
                 let enclosing = Row::new(reader.u32(row, 1) - 1, TableIndex::TypeDef, index);
 
                 nested.entry(enclosing).or_default().push(enclosed);
-
-                // let enclosed = reader.str(enclosed, 1);
-                // let enclosing = reader.str(enclosing, 1);
-                // println!("{} -> {}", enclosing, enclosed);
             }
         }
 
@@ -186,6 +186,15 @@ impl TypeReader {
             .filter_map(move |row| self.to_element_type(row))
     }
 
+    pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> impl Iterator<Item = tables::TypeDef> {
+        self.nested[&enclosing.row].iter().map(move |row| {
+            tables::TypeDef {
+                reader: self,
+                row: *row,
+            }
+        })
+    }
+
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
         if let Some(types) = self.types.get(namespace) {
             if let Some(row) = types.get(trim_tick(name)) {
@@ -232,6 +241,10 @@ impl TypeReader {
         }
 
         panic!("Could not find type def `{}.{}`", namespace, name);
+    }
+
+    pub fn resolve_type_ref(&'static self, def: &tables::TypeRef) -> tables::TypeDef {
+        self.resolve_type_def(def.namespace(), def.name())
     }
 
     /// Read a [`u32`] value from a specific [`Row`] and column

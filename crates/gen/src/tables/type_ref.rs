@@ -19,6 +19,6 @@ impl TypeRef {
     }
 
     pub fn resolve(&self) -> TypeDef {
-        self.reader.resolve_type_def(self.namespace(), self.name())
+        self.reader.resolve_type_ref(self)
     }
 }
