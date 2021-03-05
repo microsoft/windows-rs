@@ -73,18 +73,22 @@ impl Struct {
         let fields: Vec<(tables::Field, Signature, Ident)> = self
             .0
             .fields()
-            .map(|f| {
-                let name = to_snake(f.name());
-                let overload = field_names.entry(name.clone()).or_insert(0);
-                *overload += 1;
-
-                let name = if *overload > 1 {
-                    format_ident!("{}{}", &name, overload)
+            .filter_map(|f| {
+                if f.flags().literal() {
+                    None
                 } else {
-                    to_ident(&name)
-                };
+                    let name = to_snake(f.name());
+                    let overload = field_names.entry(name.clone()).or_insert(0);
+                    *overload += 1;
 
-                (f, f.signature(), name)
+                    let name = if *overload > 1 {
+                        format_ident!("{}{}", &name, overload)
+                    } else {
+                        to_ident(&name)
+                    };
+
+                    Some((f, f.signature(), name))
+                }
             })
             .collect();
 
@@ -209,7 +213,7 @@ impl Struct {
             }
         };
 
-        let constants = fields.iter().filter_map(|(f, _, _)| {
+        let constants = self.0.fields().filter_map(|f| {
             if f.flags().literal() {
                 if let Some(constant) = f.constant() {
                     let name = to_ident(f.name());
