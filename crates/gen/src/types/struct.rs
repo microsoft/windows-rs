@@ -1,6 +1,7 @@
 use super::*;
 
-// TODO: need to split win32 and winrt structs as their signatures are interpreted differently
+// TODO: need to split win32 and winrt structs as their signatures are different and win32 structs also include unions and they are 
+// radically different.
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Struct(pub tables::TypeDef);
@@ -23,15 +24,15 @@ impl Struct {
     }
 
     pub fn definition(&self) -> Vec<tables::TypeDef> {
-        if self.0.namespace().is_empty() {
-            Vec::new()
-        } else {
-            vec![self.0]
-        }
+        vec![self.0]
     }
 
     pub fn is_blittable(&self) -> bool {
-        self.0.fields().all(|f| f.is_blittable())
+        if self.0.has_attribute("Windows.Win32.Interop", "RAIIFreeAttribute") {
+            false
+        } else {
+            self.0.fields().all(|f| f.is_blittable())
+        }
     }
 
     pub fn is_handle(&self) -> bool {
@@ -66,6 +67,8 @@ impl Struct {
             };
         }
 
+        
+
         let fields: Vec<(tables::Field, Signature)> =
             self.0.fields().map(|f| (f, f.signature())).collect();
 
@@ -80,6 +83,7 @@ impl Struct {
 
         let is_winrt = self.0.is_winrt();
         let is_handle = self.is_handle();
+        let is_union = self.0.flags().explicit();
 
         let runtime_type = if is_winrt {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
@@ -94,7 +98,7 @@ impl Struct {
             quote! {}
         };
 
-        let copy = if is_handle || self.0.enclosing_type().is_some() {
+        let copy = if self.is_blittable() {
             quote! {
                 impl ::std::marker::Copy for #name {}
             }
@@ -125,7 +129,11 @@ impl Struct {
                 let kind = if is_winrt {
                     signature.gen_winrt(gen)
                 } else {
+                    if is_union {
+                        signature.gen_win32_abi(gen)
+                    } else {
                     signature.gen_win32(gen)
+                    }
                 };
 
                 quote! {
@@ -137,8 +145,6 @@ impl Struct {
                 { #(#fields),* }
             }
         };
-
-        let is_union = self.0.flags().explicit();
 
         let struct_or_union = if is_union {
             quote! { union }
@@ -158,19 +164,28 @@ impl Struct {
             let fields = if is_winrt {
                 let fields = fields
                     .iter()
-                    .map(|(_, signature)| signature.gen_winrt_abi(gen));
+                    .map(|(f, signature)| {
+                        let name = f.gen_name();
+                        let kind = signature.gen_winrt_abi(gen);
+                        quote! { pub #name: #kind }
+                    });
                 quote! { #(#fields),* }
             } else {
                 let fields = fields
                     .iter()
-                    .map(|(_, signature)| signature.gen_win32_abi(gen));
+                    .map(|(f, signature)| {
+                        let name = f.gen_name();
+                        let kind = signature.gen_win32_abi(gen);
+                        quote! { pub #name: #kind }
+                    });
                 quote! { #(#fields),* }
             };
 
             quote! {
                 #[repr(C)]
                 #[doc(hidden)]
-                pub #struct_or_union #abi_name(#fields);
+                #[derive(::std::clone::Clone, ::std::marker::Copy)]
+                pub #struct_or_union #abi_name{ #fields }
                 unsafe impl ::windows::Abi for #name {
                     type Abi = #abi_name;
                 }
@@ -327,11 +342,11 @@ impl Struct {
             impl #name {
                 #(#constants)*
             }
+            #copy
             #default
             #debug
             #compare
             #abi
-            #copy
             #runtime_type
             #extensions
             #nested_types
@@ -523,7 +538,7 @@ impl Struct {
             ("Windows.Win32.Automation", "BSTR") => Some(quote! {
                 #[repr(C)]
                 #[allow(non_snake_case)]
-                #[derive(:: std :: clone :: Clone, ::std::cmp::Eq)]
+                #[derive(::std::clone::Clone, ::std::cmp::Eq)]
                 pub struct BSTR(*mut u16);
                 impl BSTR {
                     pub fn is_empty(&self) -> bool {
@@ -652,6 +667,8 @@ impl Struct {
                         &mut self.0 as *mut _ as _
                     }
                 }
+                #[allow(non_camel_case_types)]
+                pub type BSTR_abi = *mut u16;
             }),
             _ => None,
         }
