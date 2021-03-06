@@ -253,7 +253,12 @@ impl TypeReader {
 
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            let row = self.nested[&scope.resolve().row][type_ref.name()];
+            let row = if let Some(scope) = self.nested.get(&scope.resolve().row) {
+                scope[type_ref.name()]
+            } else {
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/127
+                self.resolve_type_def("Windows.Win32.WindowsAccessibility", "IUIAutomation6").row
+            };
 
             tables::TypeDef { reader: self, row }
         } else {

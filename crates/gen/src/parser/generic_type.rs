@@ -90,11 +90,22 @@ impl GenericType {
 
     pub fn gen_guid(&self, gen: Gen) -> TokenStream {
         if self.generics.is_empty() {
-            let guid = self.def.guid().gen();
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/312
+            match Guid::from_type_def(&self.def) {
+                Some(guid) => {
+                    let guid = guid.gen();
 
-            quote! {
-                ::windows::Guid::from_values(#guid)
+                    quote! {
+                        ::windows::Guid::from_values(#guid)
+                    }
+                }
+                None => {
+                    quote! {
+                        ::windows::Guid::zeroed()
+                    }
+                }
             }
+
         } else {
             let tokens = self.gen_name(gen);
 

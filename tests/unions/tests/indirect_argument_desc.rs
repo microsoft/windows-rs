@@ -7,7 +7,6 @@ use test_unions::windows::win32::direct3d12::{
 fn test() {
     assert_eq!(std::mem::size_of::<D3D12_INDIRECT_ARGUMENT_DESC>(), 16);
 
-    // TODO: this should be 6 but the metadata says 3... https://github.com/microsoft/win32metadata/issues/309
     assert_eq!(
         D3D12_INDIRECT_ARGUMENT_TYPE::D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW.0,
         3
