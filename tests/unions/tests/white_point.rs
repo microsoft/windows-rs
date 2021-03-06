@@ -2,7 +2,7 @@ use test_unions::windows::win32::windows_color_system::{WhitePoint, WhitePoint_0
 
 #[test]
 fn test() {
-    assert!(std::mem::size_of::<WhitePoint>() == 16);
+    assert_eq!(std::mem::size_of::<WhitePoint>(), 16);
 
     let mut wp = WhitePoint {
         r#type: WhitePoint::TEMPERATURE,
