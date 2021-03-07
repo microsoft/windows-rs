@@ -69,6 +69,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
             let mut file = ::std::fs::File::create(&path).expect("Failed to create windows.rs");
             file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
+            // TODO: measure how long this takes for large files and if too long skip this step if file is larger than N megabytes.
             let mut cmd = ::std::process::Command::new("rustfmt");
             cmd.arg(&path);
             let _ = cmd.output();
