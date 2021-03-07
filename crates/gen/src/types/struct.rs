@@ -237,7 +237,13 @@ impl Struct {
                 .iter()
                 .enumerate()
                 .map(|(index, (_, signature, name))| {
-                    if let ElementType::Callback(_) = signature.kind {
+                    let is_callback = if let ElementType::Callback(_) = signature.kind {
+                            true
+                    } else {
+                        false
+                    };
+
+                    if is_callback && signature.pointers == 0 {
                         quote! {
                             self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                         }
