@@ -105,7 +105,6 @@ impl GenericType {
                     }
                 }
             }
-
         } else {
             let tokens = self.gen_name(gen);
 

@@ -238,7 +238,7 @@ impl Struct {
                 .enumerate()
                 .map(|(index, (_, signature, name))| {
                     let is_callback = if let ElementType::Callback(_) = signature.kind {
-                            true
+                        true
                     } else {
                         false
                     };
@@ -572,6 +572,7 @@ impl Struct {
                     fn from_wide(value: &[u16]) -> Self {
                         #[link(name = "oleaut32")]
                         extern "system" {
+                            #[allow(clashing_extern_declarations)]
                             fn SysAllocStringLen(value: *const u16, len: u32) -> *mut u16;
                         }
 
@@ -584,6 +585,7 @@ impl Struct {
                     fn as_wide(&self) -> &[u16] {
                         #[link(name = "oleaut32")]
                         extern "system" {
+                            #[allow(clashing_extern_declarations)]
                             fn SysStringLen(bstr: *mut u16) -> u32;
                         }
 
@@ -676,6 +678,7 @@ impl Struct {
                     fn drop(&mut self) {
                         #[link(name = "oleaut32")]
                         extern "system" {
+                            #[allow(clashing_extern_declarations)]
                             fn SysFreeString(bstr: *mut u16);
                         }
 
@@ -1401,6 +1404,7 @@ impl Struct {
 
                         #[link(name = "d2d1")]
                         extern "system" {
+                            #[allow(clashing_extern_declarations)]
                             fn D2D1MakeRotateMatrix(angle: f32, center: Center, matrix: &mut Matrix3x2);
                         }
 

@@ -40,42 +40,41 @@ impl Class {
         fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
             for child in parent.def.interface_impls() {
                 if let Some(def) = child.generic_interface(&parent.generics) {
-                        let kind = if !is_base && child.is_default() {
-                            InterfaceKind::Default
-                        } else if child.is_overridable() {
-                            InterfaceKind::Overridable
-                        } else {
-                            InterfaceKind::NonDefault
-                        };
+                    let kind = if !is_base && child.is_default() {
+                        InterfaceKind::Default
+                    } else if child.is_overridable() {
+                        InterfaceKind::Overridable
+                    } else {
+                        InterfaceKind::NonDefault
+                    };
 
-                        let mut found = false;
+                    let mut found = false;
 
-                        for existing in result.iter_mut() {
-                            if existing.def == def {
-                                found = true;
+                    for existing in result.iter_mut() {
+                        if existing.def == def {
+                            found = true;
 
-                                if kind == InterfaceKind::Default {
-                                    existing.kind = kind;
-                                }
+                            if kind == InterfaceKind::Default {
+                                existing.kind = kind;
                             }
                         }
+                    }
 
-                        if !found {
-                            add_interfaces(result, &def, is_base);
+                    if !found {
+                        add_interfaces(result, &def, is_base);
 
-                            let version = def.def.version();
+                        let version = def.def.version();
 
-                            result.push(InterfaceInfo {
-                                def,
-                                kind,
-                                is_base,
-                                version,
-                            });
-                        }
+                        result.push(InterfaceInfo {
+                            def,
+                            kind,
+                            is_base,
+                            version,
+                        });
                     }
                 }
             }
-        
+        }
 
         let mut result = Vec::new();
         add_interfaces(&mut result, &self.0, false);

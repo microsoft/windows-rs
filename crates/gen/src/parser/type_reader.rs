@@ -257,7 +257,8 @@ impl TypeReader {
                 scope[type_ref.name()]
             } else {
                 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/127
-                self.resolve_type_def("Windows.Win32.WindowsAccessibility", "IUIAutomation6").row
+                self.resolve_type_def("Windows.Win32.WindowsAccessibility", "IUIAutomation6")
+                    .row
             };
 
             tables::TypeDef { reader: self, row }
