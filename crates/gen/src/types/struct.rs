@@ -104,6 +104,8 @@ impl Struct {
         let is_winrt = self.0.is_winrt();
         let is_handle = self.is_handle();
         let is_union = self.0.flags().explicit();
+
+        // TODO: add test for Windows.Win32.Security.TRUSTEE_A
         let has_union = fields
             .iter()
             .any(|(_, signature, _)| signature.is_explicit());

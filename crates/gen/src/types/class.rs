@@ -40,9 +40,6 @@ impl Class {
         fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
             for child in parent.def.interface_impls() {
                 if let Some(def) = child.generic_interface(&parent.generics) {
-                    if !result.iter().any(|info| info.def == def) {
-                        add_interfaces(result, &def, is_base);
-
                         let kind = if !is_base && child.is_default() {
                             InterfaceKind::Default
                         } else if child.is_overridable() {
@@ -51,18 +48,34 @@ impl Class {
                             InterfaceKind::NonDefault
                         };
 
-                        let version = def.def.version();
+                        let mut found = false;
 
-                        result.push(InterfaceInfo {
-                            def,
-                            kind,
-                            is_base,
-                            version,
-                        });
+                        for existing in result.iter_mut() {
+                            if existing.def == def {
+                                found = true;
+
+                                if kind == InterfaceKind::Default {
+                                    existing.kind = kind;
+                                }
+                            }
+                        }
+
+                        if !found {
+                            add_interfaces(result, &def, is_base);
+
+                            let version = def.def.version();
+
+                            result.push(InterfaceInfo {
+                                def,
+                                kind,
+                                is_base,
+                                version,
+                            });
+                        }
                     }
                 }
             }
-        }
+        
 
         let mut result = Vec::new();
         add_interfaces(&mut result, &self.0, false);
@@ -374,5 +387,30 @@ mod tests {
         assert_eq!(bases[0].def.name(), "ContainerVisual");
         assert_eq!(bases[1].def.name(), "Visual");
         assert_eq!(bases[2].def.name(), "CompositionObject");
+    }
+
+    #[test]
+    fn test_double_default() {
+        // TimedMetadataStreamDescriptor is a wonky class. It has IMediaStreamDescriptor as its default interface, but also implements
+        // IMediaStreamDescriptor2 which also implements IMediaStreamDescriptor. This is unfortunately legal but rather unusual and
+        // language projections need to be careful not to be confused by this.
+
+        let c = TypeReader::get_class("Windows.Media.Core", "TimedMetadataStreamDescriptor");
+        let mut i = c.interfaces();
+        assert_eq!(i.len(), 4);
+
+        i.sort_by(|a, b| a.def.def.name().cmp(b.def.def.name()));
+
+        assert_eq!(i[0].def.def.name(), "IMediaStreamDescriptor");
+        assert_eq!(i[0].kind, InterfaceKind::Default);
+
+        assert_eq!(i[1].def.def.name(), "IMediaStreamDescriptor2");
+        assert_eq!(i[1].kind, InterfaceKind::NonDefault);
+
+        assert_eq!(i[2].def.def.name(), "ITimedMetadataStreamDescriptor");
+        assert_eq!(i[2].kind, InterfaceKind::NonDefault);
+
+        assert_eq!(i[3].def.def.name(), "ITimedMetadataStreamDescriptorFactory");
+        assert_eq!(i[3].kind, InterfaceKind::Static);
     }
 }

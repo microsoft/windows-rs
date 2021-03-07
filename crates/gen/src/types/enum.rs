@@ -49,7 +49,7 @@ impl Enum {
         // TODO: add bitwise operators if its u32 *or* if its got the Win32 flags attribute
         let bitwise = match underlying_type {
             ElementType::I32 => TokenStream::new(),
-            ElementType::U32 => quote! {
+            ElementType::U32 | ElementType::U16 => quote! {
                 // TODO: add BitOrAssign and BitAndAssign
                 impl ::std::ops::BitOr for #name {
                     type Output = Self;
@@ -72,6 +72,7 @@ impl Enum {
         let underlying_type = match underlying_type {
             ElementType::I32 => format_ident!("i32"),
             ElementType::U32 => format_ident!("u32"),
+            ElementType::U16 => format_ident!("u16"),
             _ => unexpected!(),
         };
 

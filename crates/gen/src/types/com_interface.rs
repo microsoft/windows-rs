@@ -185,6 +185,7 @@ impl ComInterface {
 
         quote! {
             #[repr(transparent)]
+            #[allow(non_camel_case_types)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name(::windows::IUnknown);
             impl #name {
