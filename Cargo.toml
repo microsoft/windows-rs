@@ -12,7 +12,7 @@ readme = "README.md"
 [dependencies]
 windows_macros = { path = "crates/macros",  version = "0.4.0" }
 gen = { package = "windows_gen", path = "crates/gen",  version = "0.4.0" }
-const-sha1 = "0.2" # TODO: inline the ConstBuffer type
+const-sha1 = "0.2"
 
 [build-dependencies]
 windows_macros = { path = "crates/macros",  version = "0.4.0" }

@@ -473,37 +473,9 @@ impl MethodParam {
 
         if self.is_convertible() {
             quote! { #name.into_param().abi() }
-        //} else if self.signature.pointers == 1 && self.signature.kind.is_nullable() {
         } else {
-            //quote! { #name }
             quote! { ::std::mem::transmute(#name) }
         }
-
-        // if self.param.is_input() {
-        //     if self.is_convertible() {
-        //         if self.is_const() {
-        //             quote! { &#name.into_param().abi() }
-        //         } else {
-        //             quote! { #name.into_param().abi() }
-        //         }
-        //     } else if self.signature.pointers == 0 && self.signature.kind.is_nullable() {
-        //         quote! { #name }
-        //     } else if self.signature.kind.is_blittable() {
-        //         quote! { #name }
-        //     } else if self.signature.pointers == 0 {
-        //         quote! { ::windows::Abi::abi(#name) }
-        //     } else {
-        //         quote! { ::std::mem::transmute(#name) }
-        //     }
-        // } else if self.signature.kind.is_blittable() {
-        //     quote! { #name }
-        // } else {
-        //     if self.signature.pointers > 0 && !self.signature.kind.is_nullable() {
-        //         quote! { #name }
-        //     } else {
-        //         quote! { ::windows::Abi::set_abi(#name) }
-        //     }
-        // }
     }
 
     pub fn gen_winrt_produce_type(&self, gen: Gen) -> TokenStream {

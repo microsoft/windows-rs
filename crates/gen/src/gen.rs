@@ -13,10 +13,6 @@ pub enum Gen {
 
 impl Gen {
     pub fn namespace(&self, namespace: &str) -> TokenStream {
-        // if namespace.is_empty() {
-        //     return TokenStream::new();
-        // }
-
         match self {
             Self::Absolute => {
                 let mut tokens = TokenStream::new();
