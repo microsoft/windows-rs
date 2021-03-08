@@ -106,7 +106,7 @@ impl ElementType {
         }
     }
 
-    // TODO: this only returns Option<T> instead of just T because the TypeReader's cache still has constracts and attributes
+    // TODO: this only returns Option<T> instead of just T because the TypeReader's cache still has contracts and attributes
     // that need to be excluded but are hard to do at that layer.
     pub fn from_type_def(def: tables::TypeDef, generics: Vec<Self>) -> Option<Self> {
         match def.kind() {

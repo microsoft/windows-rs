@@ -9,9 +9,10 @@ pub struct GenericType {
 impl GenericType {
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
         blob.read_unsigned();
-        // TODO: add "read_type_def_or_ref" method to Blob reader.
+
         let def =
             TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index).resolve();
+            
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 
         for _ in 0..args.capacity() {

@@ -93,7 +93,6 @@ impl TypeTree {
     }
 
     pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
-        // TODO: can we do this to avoid creating dependencies vectors?
         let gen = Gen::Relative(self.namespace);
 
         self.types
