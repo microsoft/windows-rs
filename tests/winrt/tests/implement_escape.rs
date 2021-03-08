@@ -4,8 +4,7 @@ use test_winrt::*;
 fn implement_escape() {}
 
 #[::windows::implement(windows::ui::xaml::data::ICustomPropertyProvider)]
-struct BookShu {
-}
+struct BookShu {}
 
 impl BookShu {
     pub fn r#type(&self) -> ::windows::Result<windows::ui::xaml::interop::TypeName> {
