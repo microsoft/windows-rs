@@ -67,12 +67,14 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
             path.push("windows.rs");
             let mut file = ::std::fs::File::create(&path).expect("Failed to create windows.rs");
-            file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
+            let bytes = #tokens.as_bytes();
+            file.write_all(bytes).expect("Could not write generated code to output file");
 
-            // TODO: measure how long this takes for large files and if too long skip this step if file is larger than N megabytes.
-            let mut cmd = ::std::process::Command::new("rustfmt");
-            cmd.arg(&path);
-            let _ = cmd.output();
+            if bytes.len() < 100_000_000 {
+                let mut cmd = ::std::process::Command::new("rustfmt");
+                cmd.arg(&path);
+                let _ = cmd.output();
+            }
 
             fn copy(source: &::std::path::PathBuf, destination: &mut ::std::path::PathBuf) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
