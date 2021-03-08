@@ -8,22 +8,12 @@ use std::iter::FromIterator;
 #[proc_macro]
 pub fn table(name: TokenStream) -> TokenStream {
     let ident = syn::parse_macro_input!(name as syn::Ident);
-    let name = ident.to_string();
 
     quote!(
         #[derive(Copy, Clone)]
         pub struct #ident {
             pub reader: &'static super::TypeReader,
             pub row: super::Row,
-        }
-
-        // TODO: don't implement Debug here so individual tabls can implement it directly with more useful info
-        impl std::fmt::Debug for #ident {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                f.debug_struct(#name)
-                    .field("row", &self.row)
-                    .finish()
-            }
         }
 
         impl PartialEq for #ident {

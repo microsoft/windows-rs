@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug)]
 pub struct TypeTree {
     pub namespace: &'static str,
     pub types: Vec<ElementType>,
@@ -50,18 +51,13 @@ impl TypeTree {
         set: &mut BTreeSet<ElementType>,
         t: &ElementType,
     ) {
-        if set.insert(t.clone()) {
-            for def in t.dependencies() {
-                self.insert_if(
-                    reader,
-                    def.namespace(),
-                    set,
-                    &ElementType::from_type_def(def, Vec::new()).unwrap(),
-                );
-            }
+            if set.insert(t.clone()) {
+                for def in t.dependencies() {
+                    self.insert_if(reader, def.namespace(), set, &def);
+                }
 
-            if !namespace.is_empty() {
-                self.insert(namespace, 0, t);
+                if !namespace.is_empty() {
+                    self.insert(namespace, 0, t);
             }
         }
     }

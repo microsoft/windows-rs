@@ -218,6 +218,12 @@ impl TypeDef {
     }
 }
 
+impl std::fmt::Debug for TypeDef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}.{}", self.namespace(), self.name())
+    }
+}
+
 struct Bases(TypeDef);
 
 impl Iterator for Bases {

@@ -99,6 +99,13 @@ impl Attribute {
     }
 }
 
+impl std::fmt::Debug for Attribute {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let (namespace, name) = self.full_name();
+        write!(f, "{}.{}", namespace, name)
+    }
+}
+
 fn read_enum(element_type: &ElementType, blob: &mut Blob) -> ConstantValue {
     match element_type {
         ElementType::I8 => ConstantValue::I8(blob.read_i8()),

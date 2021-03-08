@@ -57,3 +57,10 @@ impl InterfaceImpl {
         })
     }
 }
+
+impl std::fmt::Debug for InterfaceImpl {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let interface = self.interface();
+        write!(f, "{}.{}", interface.namespace(), interface.name())
+    }
+}

@@ -11,3 +11,9 @@ impl GenericParam {
         quote! { #name }
     }
 }
+
+impl std::fmt::Debug for GenericParam {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.name())
+    }
+}

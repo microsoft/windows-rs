@@ -4,12 +4,12 @@ use super::*;
 pub struct Callback(pub tables::TypeDef);
 
 impl Callback {
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+    pub fn dependencies(&self) -> Vec<ElementType> {
         self.method().dependencies(&[])
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
-        vec![self.0]
+    pub fn definition(&self) -> Vec<ElementType> {
+        vec![ElementType::Callback(self.clone())]
     }
 
     fn method(&self) -> tables::MethodDef {

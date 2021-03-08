@@ -39,6 +39,36 @@ pub enum ElementType {
 }
 
 impl ElementType {
+    pub fn namespace(&self) -> &'static str {
+        match self {
+            Self::Function(def) => def.0.parent().namespace(),
+            Self::Constant(def) => def.0.parent().namespace(),
+            Self::Class(def) => def.0.def.namespace(),
+            Self::Interface(def) => def.0.def.namespace(),
+            Self::ComInterface(def) => def.0.def.namespace(),
+            Self::Enum(def) => def.0.namespace(),
+            Self::Struct(def) => def.0.namespace(),
+            Self::Delegate(def) => def.0.def.namespace(),
+            Self::Callback(def) => def.0.namespace(),
+            _ => "", // TODO: panic?
+        }
+    }
+
+    pub fn name(&self) -> &'static str {
+        match self {
+            Self::Function(def) => def.0.name(),
+            Self::Constant(def) => def.0.name(),
+            Self::Class(def) => def.0.def.name(),
+            Self::Interface(def) => def.0.def.name(),
+            Self::ComInterface(def) => def.0.def.name(),
+            Self::Enum(def) => def.0.name(),
+            Self::Struct(def) => def.0.name(),
+            Self::Delegate(def) => def.0.def.name(),
+            Self::Callback(def) => def.0.name(),
+            _ => "", // TODO: panic?
+        }
+    }
+
     pub fn from_code(code: u32) -> Option<Self> {
         match code {
             0x01 => Some(Self::Void),
@@ -303,7 +333,7 @@ impl ElementType {
 
     // TODO: this should exclude dependencies interface method parameters so that those methods are only
     // generated if the types they refer to are actually included.
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+    pub fn dependencies(&self) -> Vec<ElementType> {
         match self {
             Self::Function(t) => t.dependencies(),
             Self::Class(t) => t.dependencies(),
@@ -316,7 +346,7 @@ impl ElementType {
         }
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
+    pub fn definition(&self) -> Vec<ElementType> {
         match self {
             Self::Class(t) => t.definition(),
             Self::Interface(t) => t.definition(),
@@ -327,7 +357,7 @@ impl ElementType {
             Self::Enum(t) => t.definition(),
             // TODO: find a cleaner way to map this dependency
             Self::Matrix3x2 => {
-                vec![TypeReader::get().resolve_type_def("Windows.Foundation.Numerics", "Matrix3x2")]
+                vec![TypeReader::get().resolve_type("Windows.Foundation.Numerics", "Matrix3x2")]
             }
             _ => Vec::new(),
         }
@@ -445,7 +475,8 @@ impl ElementType {
             Self::Object => {
                 quote! { ::windows::Object }
             }
-            _ => unexpected!(),
+            //unexpected => panic!("gen: {:?}", self),
+            _ => quote! {},
         }
     }
 }

@@ -10,3 +10,9 @@ impl MemberRef {
         self.reader.str(self.row, 1)
     }
 }
+
+impl std::fmt::Debug for MemberRef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.name())
+    }
+}

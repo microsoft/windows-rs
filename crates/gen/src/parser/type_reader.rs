@@ -379,7 +379,7 @@ impl TypeReader {
         first
     }
 
-    fn upper_bound_of(
+    pub(crate) fn upper_bound_of(
         &self,
         table: TableIndex,
         file: u16,

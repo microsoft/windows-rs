@@ -19,6 +19,23 @@ impl MethodDef {
         self.reader.str(self.row, 3)
     }
 
+    pub fn parent(&self) -> TypeDef {
+        let row = self.reader.upper_bound_of(
+            TableIndex::TypeDef,
+            self.row.file_index,
+            0,
+            self.reader.files[self.row.file_index as usize].tables[TableIndex::TypeDef as usize]
+                .row_count,
+            5,
+            self.row.index + 1,
+        );
+
+        TypeDef {
+            reader: self.reader,
+            row: Row::new(row, TableIndex::TypeDef, self.row.file_index),
+        }
+    }
+
     pub fn rust_name(&self) -> String {
         if self.flags().special() {
             let name = self.name();
@@ -135,10 +152,17 @@ impl MethodDef {
         }
     }
 
-    pub fn dependencies(&self, generics: &[ElementType]) -> Vec<TypeDef> {
+    pub fn dependencies(&self, generics: &[ElementType]) -> Vec<ElementType> {
         self.signature(generics).dependencies()
     }
 }
+
+impl std::fmt::Debug for MethodDef {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.name())
+    }
+}
+
 
 #[cfg(test)]
 mod tests {

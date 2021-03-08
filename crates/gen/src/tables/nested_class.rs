@@ -2,7 +2,7 @@ use super::*;
 macros::table!(NestedClass);
 
 impl NestedClass {
-    pub fn nested_class(&self) -> TypeDef {
+    pub fn nested_type(&self) -> TypeDef {
         let row = Row::new(
             self.reader.u32(self.row, 0) - 1,
             TableIndex::TypeDef,
@@ -25,4 +25,12 @@ impl NestedClass {
             row,
         }
     }
+}
+
+impl std::fmt::Debug for NestedClass {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("NestedClass")
+        .field("nested_type", &self.nested_type())
+        .field("enclosing_type", &self.enclosing_type())
+        .finish()    }
 }

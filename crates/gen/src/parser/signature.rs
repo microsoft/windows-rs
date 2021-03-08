@@ -42,7 +42,7 @@ impl Signature {
         })
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
+    pub fn definition(&self) -> Vec<ElementType> {
         self.kind.definition()
     }
 

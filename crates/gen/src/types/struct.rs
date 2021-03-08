@@ -19,12 +19,19 @@ impl Struct {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        // tODO: inject dependnecies 
+        // match self.0.full_name(){
+        //     ("Windows.Win32.Automation", "BSTR") => vec![
+        //         self.0.reader.resolve_type("SysAllocStringLen")
+        //     ],
+        // _ =>
         self.0.fields().map(|f| f.definition()).flatten().collect()
+        //}
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
-        vec![self.0]
+    pub fn definition(&self) -> Vec<ElementType> {
+        vec![ElementType::Struct(self.clone())]
     }
 
     pub fn is_blittable(&self) -> bool {

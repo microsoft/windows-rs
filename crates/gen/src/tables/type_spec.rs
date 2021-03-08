@@ -7,3 +7,11 @@ impl TypeSpec {
         self.reader.blob(self.row, 0)
     }
 }
+
+impl std::fmt::Debug for TypeSpec {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("TypeSpec")
+        .field("row", &self.row)
+        .finish()
+    }
+}

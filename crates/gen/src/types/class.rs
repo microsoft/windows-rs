@@ -143,10 +143,15 @@ impl Class {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
-        let generics = self.0.generics.iter().map(|g| g.definition());
-        let interfaces = self.0.interfaces().map(|i| i.definition());
-        let bases = self.0.bases().map(|b| b.definition());
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        let generics = self.0.generics.iter().map(|g| g.definition()).flatten();
+
+        let interfaces = self
+            .0
+            .interfaces()
+            .map(|i| ElementType::from_type_def(i.def, Vec::new()).unwrap());
+
+        let bases = self.0.bases().map(|b| ElementType::Class(Class(b)));
 
         let factories = self.0.def.attributes().filter_map(|attribute| {
             match attribute.full_name() {
@@ -155,7 +160,10 @@ impl Class {
                 | ("Windows.Foundation.Metadata", "ComposableAttribute") => {
                     for (_, arg) in attribute.args() {
                         if let parser::ConstantValue::TypeDef(def) = arg {
-                            return Some(def);
+                            return Some(ElementType::Interface(Interface(GenericType {
+                                def,
+                                generics: Vec::new(),
+                            })));
                         }
                     }
                 }
@@ -168,13 +176,12 @@ impl Class {
         generics
             .chain(interfaces)
             .chain(bases)
-            .flatten()
             .chain(factories)
             .collect()
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
-        vec![self.0.def]
+    pub fn definition(&self) -> Vec<ElementType> {
+        vec![ElementType::Class(self.clone())]
     }
 
     pub fn gen(&self, gen: Gen) -> TokenStream {
