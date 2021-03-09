@@ -128,12 +128,9 @@ impl ElementType {
                         ("Windows.Win32.SystemServices", "ULARGE_INTEGER") => Self::U64,
                         ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
                         ("System", "Type") => Self::TypeName,
-                        _ => Self::from_type_def(type_ref.resolve(), Vec::new()).unwrap(),
+                        _ => Self::from_type_def(type_ref.resolve(), Vec::new()),
                     },
-                    TypeDefOrRef::TypeDef(type_def) => {
-                        // TODO: does this ever happen?
-                        Self::from_type_def(type_def, Vec::new()).unwrap()
-                    }
+                    TypeDefOrRef::TypeDef(type_def) => Self::from_type_def(type_def, Vec::new()),
                     _ => unexpected!(),
                 }
             }
@@ -151,36 +148,27 @@ impl ElementType {
         }
     }
 
-    // TODO: this only returns Option<T> instead of just T because the TypeReader's cache still has contracts and attributes
-    // that need to be excluded but are hard to do at that layer.
-    pub fn from_type_def(def: tables::TypeDef, generics: Vec<Self>) -> Option<Self> {
+    pub fn from_type_def(def: tables::TypeDef, generics: Vec<Self>) -> Self {
         match def.kind() {
             TypeKind::Interface => {
                 if def.is_winrt() {
-                    Some(Self::Interface(types::Interface(
-                        GenericType::from_type_def(def, generics),
-                    )))
+                    Self::Interface(types::Interface(GenericType::from_type_def(def, generics)))
                 } else {
-                    Some(Self::ComInterface(types::ComInterface(
-                        GenericType::from_type_def(def, generics),
+                    Self::ComInterface(types::ComInterface(GenericType::from_type_def(
+                        def, generics,
                     )))
                 }
             }
-            TypeKind::Class => Some(Self::Class(types::Class(GenericType::from_type_def(
-                def, generics,
-            )))),
-            TypeKind::Enum => Some(Self::Enum(types::Enum(def))),
-            TypeKind::Struct => Some(Self::Struct(types::Struct(def))),
+            TypeKind::Class => Self::Class(types::Class(GenericType::from_type_def(def, generics))),
+            TypeKind::Enum => Self::Enum(types::Enum(def)),
+            TypeKind::Struct => Self::Struct(types::Struct(def)),
             TypeKind::Delegate => {
                 if def.is_winrt() {
-                    Some(Self::Delegate(types::Delegate(GenericType::from_type_def(
-                        def, generics,
-                    ))))
+                    Self::Delegate(types::Delegate(GenericType::from_type_def(def, generics)))
                 } else {
-                    Some(Self::Callback(types::Callback(def)))
+                    Self::Callback(types::Callback(def))
                 }
             }
-            _ => None,
         }
     }
 

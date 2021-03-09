@@ -128,14 +128,7 @@ impl TypeDef {
             match self.extends().full_name() {
                 ("System", "Enum") => TypeKind::Enum,
                 ("System", "MulticastDelegate") => TypeKind::Delegate,
-                ("System", "Attribute") => TypeKind::Attribute,
-                ("System", "ValueType") => {
-                    if self.has_attribute("Windows.Foundation.Metadata", "ApiContractAttribute") {
-                        TypeKind::Contract
-                    } else {
-                        TypeKind::Struct
-                    }
-                }
+                ("System", "ValueType") => TypeKind::Struct,
                 _ => TypeKind::Class,
             }
         }
