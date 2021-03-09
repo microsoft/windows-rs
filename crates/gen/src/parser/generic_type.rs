@@ -215,11 +215,16 @@ mod tests {
         let reader = TypeReader::get();
         let t = reader.resolve_type("Windows.Foundation", "IAsyncOperation`1");
         assert_eq!(
-            t.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .as_str(),
             "windows :: foundation :: IAsyncOperation :: < TResult >"
         );
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows.Foundation", &TypeTree::from_namespace(""))).as_str(),
+            t.gen_name(&Gen::relative(
+                "Windows.Foundation",
+                &TypeTree::from_namespace("")
+            ))
+            .as_str(),
             "IAsyncOperation < TResult >"
         );
     }

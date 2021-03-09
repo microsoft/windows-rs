@@ -17,11 +17,17 @@ pub enum GenRelation {
 
 impl<'a> Gen<'a> {
     pub fn relative(namespace: &'static str, tree: &'a TypeTree) -> Self {
-        Self { relation: GenRelation::Relative(namespace), tree }
+        Self {
+            relation: GenRelation::Relative(namespace),
+            tree,
+        }
     }
 
     pub fn absolute(tree: &'a TypeTree) -> Self {
-        Self { relation: GenRelation::Absolute, tree }
+        Self {
+            relation: GenRelation::Absolute,
+            tree,
+        }
     }
 
     pub fn includes(&self, signature: &MethodSignature) -> bool {
@@ -90,23 +96,32 @@ mod tests {
         let t = reader.resolve_type("Windows.Foundation", "IStringable");
 
         assert_eq!(
-            t.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .as_str(),
             "windows :: foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows", &TypeTree::from_namespace(""))).as_str(),
+            t.gen_name(&Gen::relative("Windows", &TypeTree::from_namespace("")))
+                .as_str(),
             "foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows.Foundation", &TypeTree::from_namespace(""))).as_str(),
+            t.gen_name(&Gen::relative(
+                "Windows.Foundation",
+                &TypeTree::from_namespace("")
+            ))
+            .as_str(),
             "IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows.Foundation.Collections", &TypeTree::from_namespace("")))
-                .as_str(),
+            t.gen_name(&Gen::relative(
+                "Windows.Foundation.Collections",
+                &TypeTree::from_namespace("")
+            ))
+            .as_str(),
             "super :: IStringable"
         );
     }

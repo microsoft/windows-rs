@@ -88,14 +88,14 @@ impl TypeTree {
         self.includes_namespace_type(namespace, kind)
     }
 
-    fn includes_namespace_type(&self, namespace: &str, kind:&ElementType) -> bool {
+    fn includes_namespace_type(&self, namespace: &str, kind: &ElementType) -> bool {
         if let Some(pos) = namespace.find('.') {
             if let Some(tree) = self.namespaces.get(&namespace[..pos]) {
                 return tree.includes_namespace_type(&namespace[pos + 1..], kind);
             }
         } else {
             if let Some(tree) = self.namespaces.get(namespace) {
-                return tree.types.iter().any(|t|t == kind);
+                return tree.types.iter().any(|t| t.row() == kind.row());
             }
         }
 
@@ -173,7 +173,8 @@ mod tests {
 
         let t = &tree.types[0];
         assert_eq!(
-            t.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .as_str(),
             "windows :: win32 :: file_system :: FILE_ACCESS_FLAGS"
         );
     }

@@ -146,8 +146,8 @@ pub fn gen(
 
                 let signature = method.signature(&[]);
                 let abi_signature = signature.gen_winrt_abi(&gen);
-                let upcall = signature
-                    .gen_winrt_upcall(quote! { (*this).inner.#method_ident }, &gen);
+                let upcall =
+                    signature.gen_winrt_upcall(quote! { (*this).inner.#method_ident }, &gen);
 
                 shims.combine(&quote! {
                     unsafe extern "system" fn #vcall_ident #abi_signature {
