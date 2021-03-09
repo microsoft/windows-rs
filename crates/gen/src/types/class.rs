@@ -155,7 +155,7 @@ impl Class {
                 | ("Windows.Foundation.Metadata", "ComposableAttribute") => {
                     for (_, arg) in attribute.args() {
                         if let parser::ConstantValue::TypeDef(def) = arg {
-                            return Some(ElementType::from_type_def(def, Vec::new()).unwrap());
+                            return Some(ElementType::from_type_def(def, Vec::new()));
                         }
                     }
                 }

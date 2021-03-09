@@ -5,6 +5,4 @@ pub enum TypeKind {
     Enum,
     Struct,
     Delegate,
-    Attribute,
-    Contract,
 }

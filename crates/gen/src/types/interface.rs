@@ -64,7 +64,7 @@ impl Interface {
             .chain(
                 self.0
                     .interfaces()
-                    .map(|i| ElementType::from_type_def(i.def, Vec::new()).unwrap()),
+                    .map(|i| ElementType::from_type_def(i.def, Vec::new())),
             )
             .collect()
     }

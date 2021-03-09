@@ -81,27 +81,35 @@ impl TypeReader {
                     continue;
                 }
 
+                let flags = TypeFlags(reader.u32(def, 0));
+                let extends = reader.u32(def, 3);
+
+                let extends = if extends == 0 {
+                    ("", "")
+                } else {
+                    let extends = Row::new((extends >> 2) - 1, TableIndex::TypeRef, index);
+                    (reader.str(extends, 2), reader.str(extends, 1))
+                };
+
+                if extends == ("System", "Attribute") {
+                    continue;
+                }
+
                 types
                     .entry(namespace.to_string())
                     .or_default()
                     .entry(name.to_string())
                     .or_insert_with(|| TypeRow::TypeDef(def));
 
-                let flags = TypeFlags(reader.u32(def, 0));
-
                 if flags.interface() || flags.windows_runtime() {
                     continue;
                 }
 
-                let extends = reader.u32(def, 3);
-
-                if extends == 0 {
+                if extends == ("", "") {
                     continue;
                 }
 
-                let extends = Row::new((extends >> 2) - 1, TableIndex::TypeRef, index);
-
-                if (reader.str(extends, 2), reader.str(extends, 1)) != ("System", "Object") {
+                if extends != ("System", "Object") {
                     continue;
                 }
 
@@ -187,7 +195,7 @@ impl TypeReader {
     ) -> impl Iterator<Item = ElementType> + '_ {
         self.types[namespace]
             .values()
-            .filter_map(move |row| self.to_element_type(row))
+            .map(move |row| self.to_element_type(row))
     }
 
     // TODO: how to make this return an iterator?
@@ -206,16 +214,14 @@ impl TypeReader {
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
         if let Some(types) = self.types.get(namespace) {
             if let Some(row) = types.get(trim_tick(name)) {
-                return self.to_element_type(row).unwrap();
+                return self.to_element_type(row);
             }
         }
 
         panic!("Could not find type `{}.{}`", namespace, name);
     }
 
-    // TODO: this only returns Option<T> instead of just T because the TypeReader's cache still has constracts and attributes
-    // that need to be excluded but are hard to do at that layer.
-    fn to_element_type(&'static self, row: &TypeRow) -> Option<ElementType> {
+    fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
         match row {
             TypeRow::TypeDef(row) => {
                 let def = tables::TypeDef {
@@ -225,16 +231,14 @@ impl TypeReader {
 
                 ElementType::from_type_def(def, Vec::new())
             }
-            TypeRow::Function(row) => {
-                Some(ElementType::Function(types::Function(tables::MethodDef {
-                    reader: self,
-                    row: *row,
-                })))
-            }
-            TypeRow::Constant(row) => Some(ElementType::Constant(types::Constant(tables::Field {
+            TypeRow::Function(row) => ElementType::Function(types::Function(tables::MethodDef {
                 reader: self,
                 row: *row,
-            }))),
+            })),
+            TypeRow::Constant(row) => ElementType::Constant(types::Constant(tables::Field {
+                reader: self,
+                row: *row,
+            })),
         }
     }
 
