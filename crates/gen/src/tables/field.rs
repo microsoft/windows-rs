@@ -31,6 +31,7 @@ impl Field {
     }
 
     pub fn parent(&self) -> TypeDef {
+        // TODO: stick this in TypeReader
         let row = self.reader.upper_bound_of(
             TableIndex::TypeDef,
             self.row.file_index,
@@ -39,7 +40,7 @@ impl Field {
                 .row_count,
             4,
             self.row.index + 1,
-        );
+        ) - 1;
 
         TypeDef {
             reader: self.reader,

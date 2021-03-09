@@ -20,7 +20,18 @@ impl Struct {
     }
 
     pub fn dependencies(&self) -> Vec<ElementType> {
-        self.0.fields().map(|f| f.definition()).flatten().collect()
+        // TODO: add tests for each
+        match self.0.full_name() {
+            ("Windows.Win32.Automation", "BSTR") => vec![
+                self.0.reader.resolve_type("Windows.Win32.Automation", "SysAllocStringLen"),
+                self.0.reader.resolve_type("Windows.Win32.Automation", "SysStringLen"),
+                self.0.reader.resolve_type("Windows.Win32.Automation", "SysFreeString"),
+            ],
+            ("Windows.Foundation.Numerics", "Matrix3x2") => vec![
+                self.0.reader.resolve_type("Windows.Win32.Direct2D", "D2D1MakeRotateMatrix"),
+            ],
+            _ => self.0.fields().map(|f| f.definition()).flatten().collect(),
+        }
     }
 
     pub fn definition(&self) -> Vec<ElementType> {
@@ -570,30 +581,18 @@ impl Struct {
                         self.0.is_null()
                     }
                     fn from_wide(value: &[u16]) -> Self {
-                        #[link(name = "oleaut32")]
-                        extern "system" {
-                            #[allow(clashing_extern_declarations)]
-                            fn SysAllocStringLen(value: *const u16, len: u32) -> *mut u16;
-                        }
-
                         if value.len() == 0 {
                             return Self(::std::ptr::null_mut());
                         }
 
-                        unsafe { Self(SysAllocStringLen(value.as_ptr(), value.len() as u32)) }
+                        unsafe { SysAllocStringLen(super::system_services::PWSTR(value.as_ptr() as _), value.len() as u32) }
                     }
                     fn as_wide(&self) -> &[u16] {
-                        #[link(name = "oleaut32")]
-                        extern "system" {
-                            #[allow(clashing_extern_declarations)]
-                            fn SysStringLen(bstr: *mut u16) -> u32;
-                        }
-
                         if self.0.is_null() {
                             return &[];
                         }
 
-                        unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, SysStringLen(self.0) as usize) }
+                        unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, SysStringLen(self) as usize) }
                     }
                 }
                 impl  std::convert::From<&str> for BSTR {
@@ -676,14 +675,8 @@ impl Struct {
                 }
                 impl ::std::ops::Drop for BSTR {
                     fn drop(&mut self) {
-                        #[link(name = "oleaut32")]
-                        extern "system" {
-                            #[allow(clashing_extern_declarations)]
-                            fn SysFreeString(bstr: *mut u16);
-                        }
-
                         if !self.0.is_null() {
-                            unsafe { SysFreeString(self.0); }
+                            unsafe { SysFreeString(self as &Self); }
                         }
                     }
                 }
@@ -1398,19 +1391,10 @@ impl Struct {
                             m32: y,
                         }
                     }
-                    pub fn rotation(angle: f32, center_x: f32, center_y: f32) -> Self {
-                        #[repr(C)]
-                        pub struct Center(f32, f32);
-
-                        #[link(name = "d2d1")]
-                        extern "system" {
-                            #[allow(clashing_extern_declarations)]
-                            fn D2D1MakeRotateMatrix(angle: f32, center: Center, matrix: &mut Matrix3x2);
-                        }
-
+                    pub fn rotation(angle: f32, x: f32, y: f32) -> Self {
                         let mut matrix = Self::default();
                         unsafe {
-                            D2D1MakeRotateMatrix(angle, Center(center_x, center_y), &mut matrix);
+                            super::super::win32::direct2d::D2D1MakeRotateMatrix(angle, super::super::win32::direct2d::D2D_POINT_2F{x, y}, &mut matrix);
                         }
                         matrix
                     }
