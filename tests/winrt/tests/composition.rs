@@ -1,38 +1,24 @@
-// TODO: Replace with bindings
-#[link(name = "coremessaging")]
-extern "stdcall" {
-    fn CreateDispatcherQueueController(
-        options: DispatcherQueueOptions,
-        dispatcherQueueController: &mut Option<windows::IUnknown>,
-    ) -> windows::ErrorCode;
-}
+use test_winrt::{
+    windows::system::DispatcherQueueController,
+    windows::win32::system_services::{CreateDispatcherQueueController, DispatcherQueueOptions, DISPATCHERQUEUE_THREAD_TYPE, DISPATCHERQUEUE_THREAD_APARTMENTTYPE},
+};
 
-#[repr(C)]
-struct DispatcherQueueOptions {
-    size: u32,
-    thread_type: i32,
-    apartment_type: i32,
-}
-
-fn create_dispatcher() -> windows::IUnknown {
+fn create_dispatcher() -> DispatcherQueueController {
     // We need a DispatcherQueue on our thread to properly create a Compositor. Note that since
     // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
 
     let options = DispatcherQueueOptions {
-        size: std::mem::size_of::<DispatcherQueueOptions>() as u32,
-        thread_type: 2,    // DQTYPE_THREAD_CURRENT
-        apartment_type: 0, // DQTAT_COM_NONE
+        dw_size: std::mem::size_of::<DispatcherQueueOptions>() as u32,
+        thread_type: DISPATCHERQUEUE_THREAD_TYPE::DQTYPE_THREAD_CURRENT,
+        apartment_type: DISPATCHERQUEUE_THREAD_APARTMENTTYPE::DQTAT_COM_NONE,
     };
 
     let mut interop = None;
 
     unsafe {
         CreateDispatcherQueueController(options, &mut interop)
-            .ok()
-            .unwrap();
+            .and_some(interop).unwrap()
     }
-
-    interop.unwrap()
 }
 
 #[test]
