@@ -152,7 +152,7 @@ impl MethodDef {
         }
     }
 
-    pub fn dependencies(&self, generics: &[ElementType]) -> Vec<TypeDef> {
+    pub fn dependencies(&self, generics: &[ElementType]) -> Vec<ElementType> {
         self.signature(generics).dependencies()
     }
 }

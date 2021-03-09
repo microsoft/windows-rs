@@ -12,11 +12,11 @@ impl Delegate {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+    pub fn dependencies(&self) -> Vec<ElementType> {
         self.method().dependencies(&self.0.generics)
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
+    pub fn definition(&self) -> Vec<ElementType> {
         self.0.definition()
     }
 

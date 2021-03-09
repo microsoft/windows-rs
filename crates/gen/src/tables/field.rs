@@ -54,7 +54,7 @@ impl Field {
         Signature::from_blob(&mut blob, &[]).expect("Field")
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
+    pub fn definition(&self) -> Vec<ElementType> {
         self.signature().definition()
     }
 

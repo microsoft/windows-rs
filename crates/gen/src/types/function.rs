@@ -9,7 +9,7 @@ impl Function {
         quote! { #name }
     }
 
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+    pub fn dependencies(&self) -> Vec<ElementType> {
         self.0.dependencies(&[])
     }
 

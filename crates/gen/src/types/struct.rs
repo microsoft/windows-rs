@@ -19,12 +19,12 @@ impl Struct {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+    pub fn dependencies(&self) -> Vec<ElementType> {
         self.0.fields().map(|f| f.definition()).flatten().collect()
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
-        vec![self.0]
+    pub fn definition(&self) -> Vec<ElementType> {
+        vec![ElementType::Struct(self.clone())]
     }
 
     pub fn is_blittable(&self) -> bool {

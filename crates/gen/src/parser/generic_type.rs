@@ -38,9 +38,9 @@ impl GenericType {
         }
     }
 
-    pub fn definition(&self) -> Vec<tables::TypeDef> {
+    pub fn definition(&self) -> Vec<ElementType> {
         let mut definition = Vec::new();
-        definition.push(self.def);
+        definition.push(ElementType::from_type_def(self.def, Vec::new()).unwrap());
 
         for generic in &self.generics {
             definition.append(&mut generic.definition());

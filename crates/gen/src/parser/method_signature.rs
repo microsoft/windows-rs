@@ -13,7 +13,7 @@ pub struct MethodParam {
 }
 
 impl MethodSignature {
-    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
+    pub fn dependencies(&self) -> Vec<ElementType> {
         self.return_type
             .iter()
             .map(|s| s.definition())
