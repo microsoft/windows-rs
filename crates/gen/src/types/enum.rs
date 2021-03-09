@@ -42,7 +42,7 @@ impl Enum {
         unexpected!();
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let underlying_type = self.underlying_type();
 

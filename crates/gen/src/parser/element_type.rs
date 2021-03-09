@@ -172,7 +172,7 @@ impl ElementType {
         }
     }
 
-    pub fn gen_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -225,7 +225,7 @@ impl ElementType {
         }
     }
 
-    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -463,7 +463,7 @@ impl ElementType {
         }
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Function(t) => t.gen(gen),
             Self::Constant(t) => t.gen(),
@@ -489,7 +489,7 @@ mod tests {
 
     #[test]
     fn test_bool() {
-        assert_eq!(ElementType::Bool.gen_name(Gen::Absolute).as_str(), "bool");
+        assert_eq!(ElementType::Bool.gen_name(&Gen::Absolute).as_str(), "bool");
     }
 
     #[test]

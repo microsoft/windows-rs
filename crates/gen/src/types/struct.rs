@@ -59,7 +59,7 @@ impl Struct {
             .has_attribute("Windows.Win32.Interop", "NativeTypedefAttribute")
     }
 
-    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         if self.is_blittable() {
             self.0.gen_name(gen)
         } else {
@@ -67,11 +67,11 @@ impl Struct {
         }
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         self.gen_struct(self.0.name(), gen)
     }
 
-    fn gen_struct(&self, struct_name: &str, gen: Gen) -> TokenStream {
+    fn gen_struct(&self, struct_name: &str, gen: &Gen) -> TokenStream {
         if let Some(replacement) = self.gen_replacement() {
             return replacement;
         }
@@ -1709,7 +1709,7 @@ impl Struct {
 fn gen_nested_types<'a>(
     enclosing_name: &'a str,
     enclosing_type: &'a tables::TypeDef,
-    gen: Gen,
+    gen: &Gen,
 ) -> TokenStream {
     TokenStream::from_iter(enclosing_type.nested_types().iter().enumerate().map(
         |(index, nested_type)| {

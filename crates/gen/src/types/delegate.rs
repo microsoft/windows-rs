@@ -28,7 +28,7 @@ impl Delegate {
             .expect("Callback")
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let turbo_abi_name = self.0.gen_turbo_abi_name(gen);

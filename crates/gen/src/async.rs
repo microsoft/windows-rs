@@ -3,7 +3,7 @@ use super::*;
 pub fn gen_async(
     def: &GenericType,
     interfaces: &[InterfaceInfo],
-    gen: Gen,
+    gen: &Gen,
 ) -> (TokenStream, TokenStream) {
     let kind = async_kind(def);
 
@@ -49,7 +49,7 @@ fn gen_async_kind(
     kind: AsyncKind,
     name: &GenericType,
     self_name: &GenericType,
-    gen: Gen,
+    gen: &Gen,
 ) -> (TokenStream, TokenStream) {
     let return_type = match kind {
         AsyncKind::Operation | AsyncKind::OperationWithProgress => name.generics[0].gen_name(gen),

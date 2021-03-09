@@ -22,7 +22,7 @@ impl MethodSignature {
             .collect()
     }
 
-    pub fn gen_winrt_constraint(&self, gen: Gen) -> TokenStream {
+    pub fn gen_winrt_constraint(&self, gen: &Gen) -> TokenStream {
         let params = self.params.iter().map(|p| p.gen_winrt_produce_type(gen));
 
         let return_type = if let Some(return_type) = &self.return_type {
@@ -42,7 +42,7 @@ impl MethodSignature {
 
     // All WinRT ABI methods return an HRESULT while any return type is transformed into a trailing
     // out parameter. This is unlike Win32 methods that don't require this transformation.
-    pub fn gen_winrt_abi(&self, gen: Gen) -> TokenStream {
+    pub fn gen_winrt_abi(&self, gen: &Gen) -> TokenStream {
         let params = self
             .params
             .iter()
@@ -89,7 +89,7 @@ impl MethodSignature {
         &self,
         method: &MethodInfo,
         interface: &InterfaceInfo,
-        gen: Gen,
+        gen: &Gen,
     ) -> TokenStream {
         let params = if interface.kind == InterfaceKind::Composable {
             &self.params[..self.params.len() - 2]
@@ -197,7 +197,7 @@ impl MethodSignature {
         }
     }
 
-    pub fn gen_winrt_constraints(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
+    pub fn gen_winrt_constraints(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
         let mut tokens = Vec::new();
 
         for (index, param) in params.iter().enumerate() {
@@ -215,7 +215,7 @@ impl MethodSignature {
         TokenStream::from_iter(tokens)
     }
 
-    pub fn gen_winrt_params(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
+    pub fn gen_winrt_params(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
         TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
             let name = param.param.gen_name();
             let tokens = param.signature.kind.gen_name(gen);
@@ -261,7 +261,7 @@ impl MethodSignature {
         }))
     }
 
-    pub fn gen_winrt_upcall(&self, inner: TokenStream, gen: Gen) -> TokenStream {
+    pub fn gen_winrt_upcall(&self, inner: TokenStream, gen: &Gen) -> TokenStream {
         let invoke_args = self
             .params
             .iter()
@@ -299,7 +299,7 @@ impl MethodSignature {
         }
     }
 
-    pub fn gen_win32_constraints(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
+    pub fn gen_win32_constraints(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
         let mut tokens = Vec::new();
 
         for (index, param) in params.iter().enumerate() {
@@ -317,7 +317,7 @@ impl MethodSignature {
         TokenStream::from_iter(tokens)
     }
 
-    pub fn gen_win32_params(&self, params: &[MethodParam], gen: Gen) -> TokenStream {
+    pub fn gen_win32_params(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
         TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
             let name = param.param.gen_name();
 
@@ -344,7 +344,7 @@ impl MethodParam {
         self.signature.is_const || self.param.is_const()
     }
 
-    fn gen_winrt_invoke_arg(&self, gen: Gen) -> TokenStream {
+    fn gen_winrt_invoke_arg(&self, gen: &Gen) -> TokenStream {
         let name = self.param.gen_name();
         let kind = self.signature.kind.gen_name(gen);
 
@@ -412,7 +412,7 @@ impl MethodParam {
         }
     }
 
-    pub fn gen_win32(&self, gen: Gen) -> TokenStream {
+    pub fn gen_win32(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
         let is_const = self.is_const();
 
@@ -437,7 +437,7 @@ impl MethodParam {
         tokens
     }
 
-    pub fn gen_win32_abi(&self, gen: Gen) -> TokenStream {
+    pub fn gen_win32_abi(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
         let is_const = self.is_const();
 
@@ -453,7 +453,7 @@ impl MethodParam {
         tokens
     }
 
-    pub fn gen_win32_abi_param(&self, gen: Gen) -> TokenStream {
+    pub fn gen_win32_abi_param(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         for _ in 0..self.signature.pointers {
@@ -478,7 +478,7 @@ impl MethodParam {
         }
     }
 
-    pub fn gen_winrt_produce_type(&self, gen: Gen) -> TokenStream {
+    pub fn gen_winrt_produce_type(&self, gen: &Gen) -> TokenStream {
         let tokens = self.signature.kind.gen_name(gen);
 
         if self.signature.is_array {

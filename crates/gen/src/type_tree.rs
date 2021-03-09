@@ -93,7 +93,7 @@ impl TypeTree {
 
         self.types
             .iter()
-            .map(move |t| t.gen(gen))
+            .map(move |t| t.gen(&gen))
             .chain(gen_namespaces(&self.namespaces))
     }
 }
@@ -159,7 +159,7 @@ mod tests {
 
         let t = &tree.types[0];
         assert_eq!(
-            t.gen_name(Gen::Absolute).as_str(),
+            t.gen_name(&Gen::Absolute).as_str(),
             "windows :: win32 :: file_system :: FILE_ACCESS_FLAGS"
         );
     }

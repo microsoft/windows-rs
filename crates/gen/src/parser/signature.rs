@@ -59,7 +59,7 @@ impl Signature {
         self.pointers == 0 && self.kind.is_explicit()
     }
 
-    pub fn gen_win32(&self, gen: Gen) -> TokenStream {
+    pub fn gen_win32(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
@@ -84,7 +84,7 @@ impl Signature {
         tokens
     }
 
-    pub fn gen_winrt(&self, gen: Gen) -> TokenStream {
+    pub fn gen_winrt(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
@@ -109,7 +109,7 @@ impl Signature {
         tokens
     }
 
-    pub fn gen_win32_abi(&self, gen: Gen) -> TokenStream {
+    pub fn gen_win32_abi(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
@@ -125,7 +125,7 @@ impl Signature {
         tokens
     }
 
-    pub fn gen_winrt_abi(&self, gen: Gen) -> TokenStream {
+    pub fn gen_winrt_abi(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
