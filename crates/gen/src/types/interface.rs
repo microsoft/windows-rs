@@ -86,10 +86,18 @@ impl Interface {
             .methods()
             .map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
 
+        let is_exclusive = self.0.def.is_exclusive();
+
+        let hidden = if is_exclusive {
+            quote! { #[doc(hidden)] }
+        } else {
+            quote! {}
+        };
+
         // The exclusive interface may be a factory interface and then we still need a type to use
         // with the factory cache. And we don't know at this stage whether the interface is for
         // the class or its factory.
-        let public_type = if self.0.def.is_exclusive() {
+        let public_type = if is_exclusive {
             TokenStream::new()
         } else {
             let type_signature = self
@@ -136,6 +144,7 @@ impl Interface {
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+            #hidden
             pub struct #name(::windows::Object, #phantoms) where #constraints;
             unsafe impl<#constraints> ::windows::Interface for #name {
                 type Vtable = #abi_name;
