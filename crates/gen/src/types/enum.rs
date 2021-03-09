@@ -46,10 +46,17 @@ impl Enum {
         let name = self.0.gen_name(gen);
         let underlying_type = self.underlying_type();
 
-        // TODO: add bitwise operators if its u32 *or* if its got the Win32 flags attribute
+        // WinRT enums don't have the flags attribute but are paritioned merely based
+        // on whether they are signed.
         let bitwise = match underlying_type {
-            ElementType::I32 => TokenStream::new(),
-            ElementType::U32 | ElementType::U16 => quote! {
+            ElementType::U32 => true,
+            _ => false,
+        };
+
+        // Win32 enums sadly don't use unsigned values uniformly so we need to rely
+        // on the flags attribute.
+        let bitwise = if bitwise || self.0.has_attribute("System", "FlagsAttribute") {
+            quote! {
                 // TODO: add BitOrAssign and BitAndAssign
                 impl ::std::ops::BitOr for #name {
                     type Output = Self;
@@ -65,8 +72,9 @@ impl Enum {
                         Self(self.0 & rhs.0)
                     }
                 }
-            },
-            _ => unexpected!(),
+            }
+        } else {
+            quote! {}
         };
 
         let underlying_type = match underlying_type {

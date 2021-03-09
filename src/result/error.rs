@@ -83,32 +83,7 @@ impl Error {
             }
         }
 
-        const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 0x0000_0100;
-        const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 0x0000_1000;
-        const FORMAT_MESSAGE_IGNORE_INSERTS: u32 = 0x0000_0200;
-        let mut message = HeapString(std::ptr::null_mut());
-
-        // If that fails simply ask for the generic formatted message for the error code.
-        unsafe {
-            let size = FormatMessageW(
-                FORMAT_MESSAGE_ALLOCATE_BUFFER
-                    | FORMAT_MESSAGE_FROM_SYSTEM
-                    | FORMAT_MESSAGE_IGNORE_INSERTS,
-                std::ptr::null_mut(),
-                self.code,
-                0x0000_0400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
-                &mut message.0,
-                0,
-                std::ptr::null_mut(),
-            );
-
-            String::from_utf16_lossy(std::slice::from_raw_parts(
-                message.0 as *const u16,
-                size as usize,
-            ))
-            .trim_end()
-            .to_owned()
-        }
+        self.code.message()
     }
 }
 
@@ -186,33 +161,22 @@ impl std::fmt::Display for Error {
 
 impl std::error::Error for Error {}
 
-pub struct HeapString(RawPtr);
-
-impl Drop for HeapString {
-    fn drop(&mut self) {
-        if !self.0.is_null() {
-            unsafe {
-                heap_free(self.0);
-            }
-        }
-    }
-}
-
-#[link(name = "kernel32")]
-extern "system" {
-    fn FormatMessageW(
-        flags: u32,
-        source: RawPtr,
-        code: ErrorCode,
-        language: u32,
-        buffer: *mut RawPtr,
-        size: u32,
-        args: RawPtr,
-    ) -> u32;
-}
-
 demand_load! {
     "combase.dll" {
         fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_message() {
+        let code = Error::fast_error(ErrorCode::from_win32(0));
+        assert_eq!(code.message(), "The operation completed successfully.");
+
+        let code = Error::fast_error(ErrorCode::from_win32(997));
+        assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
     }
 }
