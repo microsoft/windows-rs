@@ -1,5 +1,7 @@
 use crate::*;
 
+use bindings::windows::win32::com::{CoTaskMemAlloc, CoTaskMemFree};
+
 /// A WinRT array stores elements contiguously in a heap-allocated buffer.
 pub struct Array<T: RuntimeType> {
     data: *mut T::DefaultType,
@@ -141,12 +143,6 @@ impl<T: RuntimeType> Drop for Array<T> {
     fn drop(&mut self) {
         self.clear();
     }
-}
-
-#[link(name = "ole32")]
-extern "system" {
-    fn CoTaskMemAlloc(len: usize) -> RawPtr;
-    fn CoTaskMemFree(ptr: RawPtr);
 }
 
 #[cfg(test)]

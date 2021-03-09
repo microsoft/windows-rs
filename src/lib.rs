@@ -14,7 +14,6 @@ mod macros;
 mod interfaces;
 mod result;
 mod runtime;
-mod strings;
 mod traits;
 
 use interfaces::*;
@@ -23,10 +22,9 @@ use runtime::*;
 pub use interfaces::{IActivationFactory, IAgileObject, IUnknown, Object};
 pub use result::{Error, ErrorCode, Result};
 pub use runtime::{
-    create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, Param,
-    RefCount, Waiter,
+    create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, HString,
+    Param, RefCount, Waiter,
 };
-pub use strings::{CoString, HString};
 pub use traits::{Abi, Interface, IntoParam, RuntimeName, RuntimeType};
 pub use windows_macros::{build, implement};
 

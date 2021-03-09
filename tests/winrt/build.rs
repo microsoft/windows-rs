@@ -12,6 +12,7 @@ fn main() {
         windows::ui::xaml::*,
         windows::data::xml::dom::*,
         windows::application_model::appointments::AppointmentDaysOfWeek,
+        windows::win32::system_services::CreateDispatcherQueueController,
 
         // Usage of method named `try` when `ICurrencyIdentifiersStatics` is generated
         // This tests that it is escaped.
@@ -29,5 +30,6 @@ fn main() {
 
         // Test for https://github.com/microsoft/windows-rs/issues/386
         windows::ui::xaml::data::ICustomPropertyProvider,
+
     );
 }

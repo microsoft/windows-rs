@@ -1,13 +1,18 @@
 use crate::*;
 
+use bindings::{
+    windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject, HANDLE, PWSTR},
+    windows::win32::windows_programming::CloseHandle,
+};
+
 /// A simple blocking waiter used by the generated bindings and should not be used directly.
-pub struct Waiter(RawPtr);
-pub struct WaiterSignaler(RawPtr);
+pub struct Waiter(HANDLE);
+pub struct WaiterSignaler(HANDLE);
 
 impl Waiter {
     pub fn new() -> (Waiter, WaiterSignaler) {
         unsafe {
-            let handle = CreateEventW(std::ptr::null_mut(), 1, 0, std::ptr::null_mut());
+            let handle = CreateEventW(std::ptr::null_mut(), true, false, PWSTR::default());
             (Waiter(handle), WaiterSignaler(handle))
         }
     }
@@ -31,12 +36,4 @@ impl Drop for Waiter {
             CloseHandle(self.0);
         }
     }
-}
-
-#[link(name = "kernel32")]
-extern "system" {
-    fn CreateEventW(security: RawPtr, manual: i32, state: i32, name: RawPtr) -> RawPtr;
-    fn SetEvent(handle: RawPtr) -> i32;
-    fn WaitForSingleObject(handle: RawPtr, milliseconds: u32) -> u32;
-    fn CloseHandle(handle: RawPtr) -> i32;
 }
