@@ -184,7 +184,7 @@ impl TypeReader {
         self.types.keys()
     }
 
-    /// Get all type definitions ([`TypeDef`]s) for a given namespace
+    /// Get all types for a given namespace
     ///
     /// # Panics
     ///
