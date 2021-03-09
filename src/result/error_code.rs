@@ -1,5 +1,10 @@
 use crate::*;
-use bindings::windows::win32::debug::GetLastError;
+
+use bindings::{
+    windows::win32::debug::{FormatMessageW, GetLastError},
+    windows::win32::system_services::PWSTR,
+    windows::win32::windows_programming::FORMAT_MESSAGE_OPTIONS,
+};
 
 /// A primitive error code value returned by most COM functions. An `ErrorCode` is sometimes called an `HRESULT`.
 #[repr(transparent)]
@@ -80,14 +85,40 @@ impl ErrorCode {
     }
 
     /// Creates a failure code with the provided win32 error code. This is equivalent to
-    // [HRESULT_FROM_WIN32](https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-hresult_from_win32).
+    /// [HRESULT_FROM_WIN32](https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-hresult_from_win32).
     #[inline]
-    pub(crate) fn from_win32(error: u32) -> Self {
+    pub fn from_win32(error: u32) -> Self {
         Self(if error as i32 <= 0 {
             error
         } else {
             (error & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
         })
+    }
+
+    /// The error message describing the error.
+    pub fn message(&self) -> String {
+        let mut message = HeapString(std::ptr::null_mut());
+
+        unsafe {
+            let size = FormatMessageW(
+                FORMAT_MESSAGE_OPTIONS::FORMAT_MESSAGE_ALLOCATE_BUFFER
+                    | FORMAT_MESSAGE_OPTIONS::FORMAT_MESSAGE_FROM_SYSTEM
+                    | FORMAT_MESSAGE_OPTIONS::FORMAT_MESSAGE_IGNORE_INSERTS,
+                std::ptr::null(),
+                self.0,
+                0x0000_0400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
+                PWSTR(std::mem::transmute(&mut message.0)),
+                0,
+                std::ptr::null_mut(),
+            );
+
+            String::from_utf16_lossy(std::slice::from_raw_parts(
+                message.0 as *const u16,
+                size as usize,
+            ))
+            .trim_end()
+            .to_owned()
+        }
     }
 
     // This is a limited and closed set of common values used for flow control. In general, error codes are not actionable
@@ -117,5 +148,31 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
         }
 
         ErrorCode(0)
+    }
+}
+
+pub struct HeapString(*mut u16);
+
+impl Drop for HeapString {
+    fn drop(&mut self) {
+        if !self.0.is_null() {
+            unsafe {
+                heap_free(self.0 as _);
+            }
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_message() {
+        let code = ErrorCode::from_win32(0);
+        assert_eq!(code.message(), "The operation completed successfully.");
+
+        let code = ErrorCode::from_win32(997);
+        assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
     }
 }
