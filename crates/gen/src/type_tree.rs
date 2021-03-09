@@ -53,12 +53,7 @@ impl TypeTree {
     ) {
         if set.insert(t.row()) {
             for def in t.dependencies() {
-                self.insert_if(
-                    reader,
-                    def.namespace(),
-                    set,
-                    &def,
-                );
+                self.insert_if(reader, def.namespace(), set, &def);
             }
 
             if !namespace.is_empty() {

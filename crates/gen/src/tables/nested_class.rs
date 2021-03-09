@@ -30,7 +30,8 @@ impl NestedClass {
 impl std::fmt::Debug for NestedClass {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("NestedClass")
-        .field("nested_type", &self.nested_type())
-        .field("enclosing_type", &self.enclosing_type())
-        .finish()    }
+            .field("nested_type", &self.nested_type())
+            .field("enclosing_type", &self.enclosing_type())
+            .finish()
+    }
 }

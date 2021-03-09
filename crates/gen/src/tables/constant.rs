@@ -34,7 +34,7 @@ impl Constant {
 impl std::fmt::Debug for Constant {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("Constant")
-        .field("value", &self.value())
-        .finish()
+            .field("value", &self.value())
+            .finish()
     }
 }

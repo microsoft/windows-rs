@@ -10,7 +10,11 @@ impl ComInterface {
             .methods()
             .map(|m| m.dependencies(&[]))
             .flatten()
-            .chain(self.0.interfaces().map(|i| ElementType::from_type_def(i.def, Vec::new()).unwrap()))
+            .chain(
+                self.0
+                    .interfaces()
+                    .map(|i| ElementType::from_type_def(i.def, Vec::new()).unwrap()),
+            )
             .collect()
     }
 
