@@ -89,7 +89,7 @@ impl TypeTree {
     }
 
     pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
-        let gen = Gen::Relative(self.namespace);
+        let gen = Gen::relative(self.namespace);
 
         self.types
             .iter()
@@ -159,7 +159,7 @@ mod tests {
 
         let t = &tree.types[0];
         assert_eq!(
-            t.gen_name(&Gen::Absolute).as_str(),
+            t.gen_name(&Gen::absolute()).as_str(),
             "windows :: win32 :: file_system :: FILE_ACCESS_FLAGS"
         );
     }

@@ -123,7 +123,7 @@ impl GenericType {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen(&Gen::Absolute);
+            let g = g.gen(&Gen::absolute());
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
@@ -150,16 +150,16 @@ impl GenericType {
         }
     }
 
-    pub fn gen_phantoms(&self) -> TokenStream {
+    pub fn gen_phantoms(&self, gen: &Gen) -> TokenStream {
         TokenStream::from_iter(self.generics.iter().map(|g| {
-            let g = g.gen(&Gen::Absolute);
+            let g = g.gen(gen);
             quote! { ::std::marker::PhantomData::<#g>, }
         }))
     }
 
-    pub fn gen_constraints(&self) -> TokenStream {
+    pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
         TokenStream::from_iter(self.generics.iter().map(|g| {
-            let g = g.gen(&Gen::Absolute);
+            let g = g.gen(gen);
             quote! { #g: ::windows::RuntimeType + 'static, }
         }))
     }
@@ -215,11 +215,11 @@ mod tests {
         let reader = TypeReader::get();
         let t = reader.resolve_type("Windows.Foundation", "IAsyncOperation`1");
         assert_eq!(
-            t.gen_name(&Gen::Absolute).as_str(),
+            t.gen_name(&Gen::absolute()).as_str(),
             "windows :: foundation :: IAsyncOperation :: < TResult >"
         );
         assert_eq!(
-            t.gen_name(&Gen::Relative("Windows.Foundation")).as_str(),
+            t.gen_name(&Gen::relative("Windows.Foundation")).as_str(),
             "IAsyncOperation < TResult >"
         );
     }

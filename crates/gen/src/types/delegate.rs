@@ -36,8 +36,8 @@ impl Delegate {
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
-        let phantoms = self.0.gen_phantoms();
-        let constraints = self.0.gen_constraints();
+        let phantoms = self.0.gen_phantoms(gen);
+        let constraints = self.0.gen_constraints(gen);
 
         let method = MethodInfo {
             name: "invoke".to_string(),

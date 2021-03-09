@@ -64,7 +64,7 @@ fn gen_async_kind(
         _ => panic!("Unexpected AsyncKind"),
     };
 
-    let constraints = self_name.gen_constraints();
+    let constraints = self_name.gen_constraints(gen);
     let name = self_name.gen_name(gen);
     let namespace = gen.namespace("Windows.Foundation");
 

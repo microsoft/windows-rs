@@ -489,7 +489,7 @@ mod tests {
 
     #[test]
     fn test_bool() {
-        assert_eq!(ElementType::Bool.gen_name(&Gen::Absolute).as_str(), "bool");
+        assert_eq!(ElementType::Bool.gen_name(&Gen::absolute()).as_str(), "bool");
     }
 
     #[test]

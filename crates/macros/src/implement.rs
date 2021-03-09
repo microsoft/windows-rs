@@ -129,8 +129,10 @@ pub fn gen(
                 }
             });
 
-            let vtable_ident = t.0.gen_abi_name(&gen::Gen::Absolute);
-            let interface_ident = t.0.gen_name(&gen::Gen::Absolute);
+            let gen = gen::Gen::absolute();
+
+            let vtable_ident = t.0.gen_abi_name(&gen);
+            let interface_ident = t.0.gen_name(&gen);
             let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
 
             for (vtable_offset, method) in t.0.def.methods().enumerate() {
@@ -142,9 +144,9 @@ pub fn gen(
                 });
 
                 let signature = method.signature(&[]);
-                let abi_signature = signature.gen_winrt_abi(&gen::Gen::Absolute);
+                let abi_signature = signature.gen_winrt_abi(&gen);
                 let upcall = signature
-                    .gen_winrt_upcall(quote! { (*this).inner.#method_ident }, &gen::Gen::Absolute);
+                    .gen_winrt_upcall(quote! { (*this).inner.#method_ident }, &gen);
 
                 shims.combine(&quote! {
                     unsafe extern "system" fn #vcall_ident #abi_signature {

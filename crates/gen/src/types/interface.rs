@@ -77,8 +77,8 @@ impl Interface {
         let name = self.0.gen_name(gen);
         let guid = self.0.gen_guid(gen);
         let abi_name = self.0.gen_abi_name(gen);
-        let phantoms = self.0.gen_phantoms();
-        let constraints = self.0.gen_constraints();
+        let phantoms = self.0.gen_phantoms(gen);
+        let constraints = self.0.gen_constraints(gen);
 
         let abi_signatures = self
             .0
@@ -184,12 +184,12 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            i[0].def.gen_name(&Gen::absolute()).as_str(),
             "windows :: foundation :: IAsyncOperation :: < TResult >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
+            i[1].def.gen_name(&Gen::absolute()).as_str(),
             "windows :: foundation :: IAsyncInfo"
         );
     }
@@ -201,12 +201,12 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            i[0].def.gen_name(&Gen::absolute()).as_str(),
             "windows :: foundation :: collections :: IMap :: < K , V >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
+            i[1].def.gen_name(&Gen::absolute()).as_str(),
             "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
         );
     }

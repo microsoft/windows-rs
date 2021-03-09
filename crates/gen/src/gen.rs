@@ -6,15 +6,28 @@ use std::iter::FromIterator;
 // Perhaps store the BTreeSet<ElementType> used to build the TypeTree.
 
 #[derive(Copy, Clone, PartialEq, Eq, Debug)]
-pub enum Gen {
+pub struct Gen {
+    relation: GenRelation,
+}
+
+#[derive(Copy, Clone, PartialEq, Eq, Debug)]
+pub enum GenRelation {
     Absolute,
     Relative(&'static str),
 }
 
 impl Gen {
+    pub fn relative(namespace: &'static str) -> Self {
+        Self { relation: GenRelation::Relative(namespace) }
+    }
+
+    pub fn absolute() -> Self {
+        Self { relation: GenRelation::Absolute }
+    }
+
     pub fn namespace(&self, namespace: &str) -> TokenStream {
-        match self {
-            Self::Absolute => {
+        match self.relation {
+            GenRelation::Absolute => {
                 let mut tokens = TokenStream::new();
 
                 for namespace in namespace.split('.') {
@@ -25,8 +38,8 @@ impl Gen {
 
                 tokens
             }
-            Self::Relative(relative) => {
-                if namespace == *relative {
+            GenRelation::Relative(relative) => {
+                if namespace == relative {
                     return TokenStream::new();
                 }
 
@@ -68,22 +81,22 @@ mod tests {
         let t = reader.resolve_type("Windows.Foundation", "IStringable");
 
         assert_eq!(
-            t.gen_name(&Gen::Absolute).as_str(),
+            t.gen_name(&Gen::absolute()).as_str(),
             "windows :: foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::Relative("Windows")).as_str(),
+            t.gen_name(&Gen::relative("Windows")).as_str(),
             "foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::Relative("Windows.Foundation")).as_str(),
+            t.gen_name(&Gen::relative("Windows.Foundation")).as_str(),
             "IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::Relative("Windows.Foundation.Collections"))
+            t.gen_name(&Gen::relative("Windows.Foundation.Collections"))
                 .as_str(),
             "super :: IStringable"
         );
