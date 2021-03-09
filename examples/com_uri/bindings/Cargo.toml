@@ -1,0 +1,11 @@
+[package]
+name = "com_uri_bindings"
+version = "0.4.0"
+authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
+edition = "2018"
+
+[dependencies]
+windows = { path = "../../.." }
+
+[build-dependencies]
+windows = { path = "../../.." }
