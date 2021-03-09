@@ -24,6 +24,16 @@ impl<'a> Gen<'a> {
         Self { relation: GenRelation::Absolute, tree }
     }
 
+    pub fn includes(&self, signature: &MethodSignature) -> bool {
+        for kind in signature.dependencies() {
+            if !self.tree.includes(&kind) {
+                return false;
+            }
+        }
+
+        true
+    }
+
     pub fn namespace(&self, namespace: &str) -> TokenStream {
         match self.relation {
             GenRelation::Absolute => {

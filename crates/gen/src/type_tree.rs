@@ -78,15 +78,29 @@ impl TypeTree {
         }
     }
 
-    // pub fn remove(&mut self, namespace: &str) {
-    //     if let Some(pos) = namespace.find('.') {
-    //         if let Some(tree) = self.namespaces.get_mut(&namespace[..pos]) {
-    //             tree.remove(&namespace[pos + 1..])
-    //         }
-    //     } else {
-    //         self.namespaces.remove(namespace);
-    //     }
-    // }
+    pub fn includes(&self, kind: &ElementType) -> bool {
+        let namespace = kind.namespace();
+
+        if namespace.is_empty() {
+            return true;
+        }
+
+        self.includes_namespace_type(namespace, kind)
+    }
+
+    fn includes_namespace_type(&self, namespace: &str, kind:&ElementType) -> bool {
+        if let Some(pos) = namespace.find('.') {
+            if let Some(tree) = self.namespaces.get(&namespace[..pos]) {
+                return tree.includes_namespace_type(&namespace[pos + 1..], kind);
+            }
+        } else {
+            if let Some(tree) = self.namespaces.get(namespace) {
+                return tree.types.iter().any(|t|t == kind);
+            }
+        }
+
+        false
+    }
 
     pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         let gen = Gen::relative(self.namespace, self);

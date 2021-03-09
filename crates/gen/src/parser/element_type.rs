@@ -65,7 +65,7 @@ impl ElementType {
             Self::Struct(def) => def.0.namespace(),
             Self::Delegate(def) => def.0.def.namespace(),
             Self::Callback(def) => def.0.namespace(),
-            _ => unexpected!(),
+            _ => "",
         }
     }
 
