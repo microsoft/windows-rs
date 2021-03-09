@@ -48,10 +48,10 @@ impl TypeTree {
         &mut self,
         reader: &TypeReader,
         namespace: &'static str,
-        set: &mut BTreeSet<ElementType>,
+        set: &mut BTreeSet<Row>,
         t: &ElementType,
     ) {
-        if set.insert(t.clone()) {
+        if set.insert(t.row()) {
             for def in t.dependencies() {
                 self.insert_if(
                     reader,
