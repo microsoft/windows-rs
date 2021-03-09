@@ -65,7 +65,7 @@ impl ElementType {
             Self::Struct(def) => def.0.namespace(),
             Self::Delegate(def) => def.0.def.namespace(),
             Self::Callback(def) => def.0.namespace(),
-            _ => "", // TODO: panic?
+            _ => unexpected!(),
         }
     }
 
@@ -489,7 +489,7 @@ mod tests {
 
     #[test]
     fn test_bool() {
-        assert_eq!(ElementType::Bool.gen_name(&Gen::absolute()).as_str(), "bool");
+        assert_eq!(ElementType::Bool.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(), "bool");
     }
 
     #[test]

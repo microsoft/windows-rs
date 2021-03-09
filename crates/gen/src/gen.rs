@@ -5,24 +5,23 @@ use std::iter::FromIterator;
 // should be included depending on whether its definition is included in the tree.
 // Perhaps store the BTreeSet<ElementType> used to build the TypeTree.
 
-#[derive(Copy, Clone, PartialEq, Eq, Debug)]
-pub struct Gen {
+pub struct Gen<'a> {
     relation: GenRelation,
+    tree: &'a TypeTree,
 }
 
-#[derive(Copy, Clone, PartialEq, Eq, Debug)]
 pub enum GenRelation {
     Absolute,
     Relative(&'static str),
 }
 
-impl Gen {
-    pub fn relative(namespace: &'static str) -> Self {
-        Self { relation: GenRelation::Relative(namespace) }
+impl<'a> Gen<'a> {
+    pub fn relative(namespace: &'static str, tree: &'a TypeTree) -> Self {
+        Self { relation: GenRelation::Relative(namespace), tree }
     }
 
-    pub fn absolute() -> Self {
-        Self { relation: GenRelation::Absolute }
+    pub fn absolute(tree: &'a TypeTree) -> Self {
+        Self { relation: GenRelation::Absolute, tree }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -81,22 +80,22 @@ mod tests {
         let t = reader.resolve_type("Windows.Foundation", "IStringable");
 
         assert_eq!(
-            t.gen_name(&Gen::absolute()).as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
             "windows :: foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows")).as_str(),
+            t.gen_name(&Gen::relative("Windows", &TypeTree::from_namespace(""))).as_str(),
             "foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows.Foundation")).as_str(),
+            t.gen_name(&Gen::relative("Windows.Foundation", &TypeTree::from_namespace(""))).as_str(),
             "IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows.Foundation.Collections"))
+            t.gen_name(&Gen::relative("Windows.Foundation.Collections", &TypeTree::from_namespace("")))
                 .as_str(),
             "super :: IStringable"
         );

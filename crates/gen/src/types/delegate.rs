@@ -56,10 +56,10 @@ impl Delegate {
 
         let type_signature = if self.0.generics.is_empty() {
             self.0
-                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.def.guid()))
+                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.def.guid()), gen)
         } else {
             self.0
-                .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()))
+                .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()), gen)
         };
 
         let (box_name, box_definition) = if self.0.generics.is_empty() {

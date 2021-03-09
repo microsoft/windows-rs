@@ -115,7 +115,7 @@ impl GenericType {
         }
     }
 
-    pub fn gen_signature(&self, signature: &str) -> TokenStream {
+    pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
 
         if self.generics.is_empty() {
@@ -123,7 +123,7 @@ impl GenericType {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen(&Gen::absolute());
+            let g = g.gen(gen);
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
@@ -215,11 +215,11 @@ mod tests {
         let reader = TypeReader::get();
         let t = reader.resolve_type("Windows.Foundation", "IAsyncOperation`1");
         assert_eq!(
-            t.gen_name(&Gen::absolute()).as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
             "windows :: foundation :: IAsyncOperation :: < TResult >"
         );
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows.Foundation")).as_str(),
+            t.gen_name(&Gen::relative("Windows.Foundation", &TypeTree::from_namespace(""))).as_str(),
             "IAsyncOperation < TResult >"
         );
     }

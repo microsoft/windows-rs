@@ -8,7 +8,7 @@ pub struct TypeTree {
 }
 
 impl TypeTree {
-    fn from_namespace(namespace: &'static str) -> Self {
+    pub fn from_namespace(namespace: &'static str) -> Self {
         Self {
             namespace,
             types: Vec::new(),
@@ -78,18 +78,18 @@ impl TypeTree {
         }
     }
 
-    pub fn remove(&mut self, namespace: &str) {
-        if let Some(pos) = namespace.find('.') {
-            if let Some(tree) = self.namespaces.get_mut(&namespace[..pos]) {
-                tree.remove(&namespace[pos + 1..])
-            }
-        } else {
-            self.namespaces.remove(namespace);
-        }
-    }
+    // pub fn remove(&mut self, namespace: &str) {
+    //     if let Some(pos) = namespace.find('.') {
+    //         if let Some(tree) = self.namespaces.get_mut(&namespace[..pos]) {
+    //             tree.remove(&namespace[pos + 1..])
+    //         }
+    //     } else {
+    //         self.namespaces.remove(namespace);
+    //     }
+    // }
 
     pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
-        let gen = Gen::relative(self.namespace);
+        let gen = Gen::relative(self.namespace, self);
 
         self.types
             .iter()
@@ -159,7 +159,7 @@ mod tests {
 
         let t = &tree.types[0];
         assert_eq!(
-            t.gen_name(&Gen::absolute()).as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
             "windows :: win32 :: file_system :: FILE_ACCESS_FLAGS"
         );
     }
