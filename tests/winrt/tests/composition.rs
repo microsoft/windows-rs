@@ -1,6 +1,9 @@
 use test_winrt::{
     windows::system::DispatcherQueueController,
-    windows::win32::system_services::{CreateDispatcherQueueController, DispatcherQueueOptions, DISPATCHERQUEUE_THREAD_TYPE, DISPATCHERQUEUE_THREAD_APARTMENTTYPE},
+    windows::win32::system_services::{
+        CreateDispatcherQueueController, DispatcherQueueOptions,
+        DISPATCHERQUEUE_THREAD_APARTMENTTYPE, DISPATCHERQUEUE_THREAD_TYPE,
+    },
 };
 
 fn create_dispatcher() -> DispatcherQueueController {
@@ -17,7 +20,8 @@ fn create_dispatcher() -> DispatcherQueueController {
 
     unsafe {
         CreateDispatcherQueueController(options, &mut interop)
-            .and_some(interop).unwrap()
+            .and_some(interop)
+            .unwrap()
     }
 }
 

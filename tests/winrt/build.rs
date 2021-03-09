@@ -30,6 +30,6 @@ fn main() {
 
         // Test for https://github.com/microsoft/windows-rs/issues/386
         windows::ui::xaml::data::ICustomPropertyProvider,
-        
+
     );
 }

@@ -1,13 +1,21 @@
 use crate::*;
 
+use bindings::windows::win32::com::{CoCreateInstance, CoInitializeEx, COINIT};
+
 /// Initializes COM for use by the calling thread for the multi-threaded apartment (MTA).
 pub fn initialize_mta() -> Result<()> {
-    unsafe { CoInitializeEx(0, COINIT_MULTITHREADED).ok() }
+    unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT::COINIT_MULTITHREADED.0 as u32).ok() }
 }
 
 /// Initializes COM for use by the calling thread for a single-threaded apartment (STA).
 pub fn initialize_sta() -> Result<()> {
-    unsafe { CoInitializeEx(0, COINIT_APARTMENTTHREADED).ok() }
+    unsafe {
+        CoInitializeEx(
+            std::ptr::null_mut(),
+            COINIT::COINIT_APARTMENTTHREADED.0 as u32,
+        )
+        .ok()
+    }
 }
 
 /// Creates a COM object with the given CLSID.
@@ -17,19 +25,5 @@ pub fn create_instance<T: Interface>(clsid: &Guid) -> Result<T> {
     unsafe { CoCreateInstance(clsid, None, CLSCTX_ALL, &T::IID, object.set_abi()).and_some(object) }
 }
 
-const COINIT_MULTITHREADED: u32 = 0;
-const COINIT_APARTMENTTHREADED: u32 = 2;
+// https://github.com/microsoft/win32metadata/issues/203
 const CLSCTX_ALL: u32 = 23;
-
-#[link(name = "ole32")]
-extern "system" {
-    fn CoInitializeEx(reserved: isize, apartment: u32) -> ErrorCode;
-
-    fn CoCreateInstance(
-        clsid: &Guid,
-        outer: Option<IUnknown>,
-        clsctx: u32,
-        iid: &Guid,
-        object: *mut *mut std::ffi::c_void,
-    ) -> ErrorCode;
-}

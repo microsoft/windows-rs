@@ -22,8 +22,8 @@ use runtime::*;
 pub use interfaces::{IActivationFactory, IAgileObject, IUnknown, Object};
 pub use result::{Error, ErrorCode, Result};
 pub use runtime::{
-    create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, Param,
-    RefCount, Waiter, HString,
+    create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, HString,
+    Param, RefCount, Waiter,
 };
 pub use traits::{Abi, Interface, IntoParam, RuntimeName, RuntimeType};
 pub use windows_macros::{build, implement};
