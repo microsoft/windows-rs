@@ -26,11 +26,12 @@ This will allow Cargo to download, build, and cache Windows support as a package
 
 ```rust
 fn main() {
-    windows::build!(
-        windows::data::xml::dom::*,
-        windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject},
-        windows::win32::windows_programming::CloseHandle,
-    );
+  windows::build!(
+      windows::data::xml::dom::*,
+      windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject},
+      windows::win32::windows_programming::CloseHandle,
+      windows::win32::windows_and_messaging::MessageBoxA,
+  );
 }
 ```
 
@@ -43,7 +44,8 @@ mod bindings {
 
 use bindings::{
     windows::data::xml::dom::*,
-    windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject},
+    windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject, PWSTR},
+    windows::win32::windows_and_messaging::{MessageBoxA, HWND},
     windows::win32::windows_programming::CloseHandle,
 };
 
@@ -56,18 +58,13 @@ fn main() -> windows::Result<()> {
     assert!(root.inner_text()? == "hello world");
 
     unsafe {
-        let event = CreateEventW(
-            std::ptr::null_mut(),
-            true,
-            false,
-            std::ptr::null(),
-        );
+        let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR::default());
 
         SetEvent(event).ok()?;
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
 
-        // TODO: add MessageBoxA example
+        MessageBoxA(HWND(0), "Text", "Caption", 0);
     }
 
     Ok(())
