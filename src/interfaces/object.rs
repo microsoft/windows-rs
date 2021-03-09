@@ -1,5 +1,5 @@
-use crate::foundation::{IReference, IStringable, PropertyValue};
-use crate::*;
+use super::*;
+use bindings::windows::foundation::{IReference, IStringable, PropertyValue};
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 /// `Object` implements the
@@ -59,6 +59,7 @@ impl std::fmt::Debug for Object {
         // name to give some idea of what the object represents. This implementation
         // is used by all of the generated `Debug` implementations for WinRT
         // classes and interfaces.
+
         let name = self
             .cast::<IStringable>()
             .and_then(|s| s.to_string())

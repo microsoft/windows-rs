@@ -1,4 +1,10 @@
 use crate::*;
+use std::convert::TryInto;
+
+use bindings::{
+    windows::win32::automation::{GetErrorInfo, SetErrorInfo, BSTR},
+    windows::win32::winrt::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
+};
 
 /// A WinRT error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq)]
@@ -20,12 +26,17 @@ impl Error {
             let _ = RoOriginateError(code, message.abi() as _);
         }
 
+        let mut info = None;
+        let info = unsafe {
+            GetErrorInfo(0, &mut info)
+                .and_some(info)
+                .and_then(|e| e.cast())
+                .ok()
+        };
+
         // The error information is then associated with the returning error object and no longer
         // associated with the thread.
-        Self {
-            code,
-            info: IRestrictedErrorInfo::from_thread().ok(),
-        }
+        Self { code, info }
     }
 
     // Use internally to create an Error object without error info. Typically used with QueryInterface
@@ -50,7 +61,22 @@ impl Error {
     pub fn message(&self) -> String {
         // First attempt to retrieve the restricted error information.
         if let Some(info) = &self.info {
-            let (code, message) = info.details();
+            let mut fallback = BSTR::default();
+            let mut message = BSTR::default();
+            let mut unused = BSTR::default();
+            let mut code = ErrorCode(0);
+
+            unsafe {
+                let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut unused);
+            }
+
+            let message = if !message.is_empty() {
+                message
+            } else {
+                fallback
+            };
+
+            let message: String = message.try_into().unwrap_or_default();
 
             if self.code == code {
                 return message.trim_end().to_owned();
@@ -101,12 +127,22 @@ impl std::convert::From<Error> for ErrorCode {
 
 impl std::convert::From<ErrorCode> for Error {
     fn from(code: ErrorCode) -> Self {
-        if let Ok(info) = IRestrictedErrorInfo::from_thread() {
+        let mut info = None;
+        let info: Option<IRestrictedErrorInfo> = unsafe {
+            GetErrorInfo(0, &mut info)
+                .and_some(info)
+                .and_then(|e| e.cast())
+                .ok()
+        };
+
+        if let Some(info) = info {
             // If it does (and therefore running on a recent version of Windows)
             // then capture_propagation_context adds a breadcrumb to the error
             // info to make debugging easier.
             if let Ok(capture) = info.cast::<ILanguageExceptionErrorInfo2>() {
-                capture.capture_propagation_context();
+                unsafe {
+                    let _ = capture.CapturePropagationContext(None);
+                }
             }
 
             return Self {
@@ -115,8 +151,18 @@ impl std::convert::From<ErrorCode> for Error {
             };
         }
 
-        if let Ok(info) = IErrorInfo::from_thread() {
-            Self::new(code, &info.description())
+        let mut result = None;
+        unsafe {
+            let _ = GetErrorInfo(0, &mut result);
+        }
+
+        if let Some(info) = result {
+            let mut message = BSTR::default();
+            unsafe {
+                let _ = info.GetDescription(&mut message);
+            }
+            let message: String = message.try_into().unwrap_or_default();
+            Self::new(code, &message)
         } else {
             Self::new(code, "")
         }
@@ -163,11 +209,6 @@ extern "system" {
         size: u32,
         args: RawPtr,
     ) -> u32;
-}
-
-#[link(name = "oleaut32")]
-extern "system" {
-    fn SetErrorInfo(reserved: u32, info: Option<IErrorInfo>) -> ErrorCode;
 }
 
 demand_load! {

@@ -8,21 +8,12 @@ use std::iter::FromIterator;
 #[proc_macro]
 pub fn table(name: TokenStream) -> TokenStream {
     let ident = syn::parse_macro_input!(name as syn::Ident);
-    let name = ident.to_string();
 
     quote!(
         #[derive(Copy, Clone)]
         pub struct #ident {
             pub reader: &'static super::TypeReader,
             pub row: super::Row,
-        }
-
-        impl std::fmt::Debug for #ident {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                f.debug_struct(#name)
-                    .field("row", &self.row)
-                    .finish()
-            }
         }
 
         impl PartialEq for #ident {
@@ -54,7 +45,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
     let input = syn::parse_macro_input!(input as syn::ItemEnum);
 
     if args.len() != 1 {
-        panic!("The `type_code` attribute expects a single integer literal argument");
+        panic!("type_code");
     }
 
     let bits = &args[0];
@@ -75,11 +66,11 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         }
 
         variants.push(quote!(
-            #name(#name),
+            #name(tables::#name),
         ));
 
         decodes.push(quote!(
-            #enumerator => Self::#name( #name{ reader, row:Row::new(code.1, TableIndex::#table, file) }),
+            #enumerator => Self::#name( tables::#name{ reader, row:Row::new(code.1, TableIndex::#table, file) }),
         ));
 
         encodes.push(quote!(
@@ -103,7 +94,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
                 let code = (code & ((1 << #bits) - 1), (code >> #bits) - 1);
                 match code.0 {
                     #decodes
-                    _ => panic!("Failed to decode type code"),
+                    _ => panic!("type_code"),
                 }
             }
         }

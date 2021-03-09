@@ -1,3 +1,5 @@
+use super::*;
+
 pub trait HexReader {
     fn next_u8(&mut self) -> u8;
     fn next_u16(&mut self) -> u16;
@@ -11,7 +13,7 @@ impl HexReader for std::str::Bytes<'_> {
             b'0'..=b'9' => value - b'0',
             b'A'..=b'F' => 10 + value - b'A',
             b'a'..=b'f' => 10 + value - b'a',
-            _ => panic!("Invalid GUID string"),
+            _ => unexpected!(),
         }
     }
 

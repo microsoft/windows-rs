@@ -1,4 +1,5 @@
 use crate::*;
+use bindings::windows::win32::debug::GetLastError;
 
 /// A primitive error code value returned by most COM functions. An `ErrorCode` is sometimes called an `HRESULT`.
 #[repr(transparent)]
@@ -117,9 +118,4 @@ impl<T> std::convert::From<Result<T>> for ErrorCode {
 
         ErrorCode(0)
     }
-}
-
-#[link(name = "kernel32")]
-extern "system" {
-    fn GetLastError() -> u32;
 }

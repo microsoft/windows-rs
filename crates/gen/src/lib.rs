@@ -1,56 +1,44 @@
-mod callback;
-mod class;
-mod com_interface;
-mod constant;
-mod delegate;
-mod r#enum;
-mod format_ident;
-mod function;
-mod futures;
-mod hex_reader;
-mod interface;
-mod interface_kind;
-mod iterator;
-mod method;
-mod method_kind;
-mod namespace;
-mod required_interface;
-mod signature;
-mod r#struct;
-mod to_snake;
-mod r#type;
-mod type_definition;
-mod type_guid;
-mod type_limits;
-mod type_name;
-mod type_namespaces;
-mod type_tree;
-pub mod winmd;
+pub use squote::{format_ident, quote, Ident, Literal, TokenStream};
+pub use std::collections::{BTreeMap, BTreeSet};
+pub use std::iter::FromIterator;
 
-pub use callback::*;
-pub use class::*;
-pub use com_interface::*;
-pub use constant::*;
-pub use delegate::*;
-pub use format_ident::*;
-pub use function::*;
-pub use futures::*;
+mod r#async;
+mod gen;
+mod guid;
+mod hex_reader;
+mod iterator;
+mod object;
+mod parser;
+pub mod tables;
+mod to_ident;
+mod to_snake;
+mod type_limits;
+mod type_tree;
+pub mod types;
+mod workspace;
+
+pub use gen::*;
+pub use guid::*;
 pub use hex_reader::*;
-pub use interface::*;
-pub use interface_kind::*;
 pub use iterator::*;
-pub use method::*;
-pub use method_kind::*;
-pub use namespace::*;
-pub use r#enum::*;
-pub use r#struct::*;
-pub use r#type::*;
-pub use required_interface::*;
-pub use signature::*;
+pub use object::*;
+pub use parser::*;
+pub use r#async::*;
+pub use to_ident::*;
 pub use to_snake::*;
-pub use type_definition::*;
-pub use type_guid::*;
 pub use type_limits::*;
-pub use type_name::*;
-pub use type_namespaces::*;
 pub use type_tree::*;
+pub use workspace::*;
+
+// Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
+#[macro_export]
+macro_rules! unexpected {
+    () => {{
+        fn f() {}
+        fn type_name_of<T>(_: T) -> &'static str {
+            std::any::type_name::<T>()
+        }
+        let name = type_name_of(f);
+        panic!("{}", &name[..name.len() - 3]);
+    }};
+}

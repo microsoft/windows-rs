@@ -1,14 +1,15 @@
-use crate::*;
-use squote::{quote, TokenStream};
+use super::*;
 
 // Provides iterator support for the well-known WinRT collection interfaces and any classes or
 // interfaces that implement any of these interfaces. It also favors high-speed iteration and
 // only falls back to IIterator<T> if nothing faster is available. VectorIterator and
 // VectorViewIterator are faster iterators than IIterator<T> because they only require a single
 // vcall per iteration wheras IIterator<T> requires two.
-pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenStream {
+pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: Gen) -> TokenStream {
+    let name = def.def.full_name();
+
     // If the type is IIterator<T> then simply implement the Iterator trait over top.
-    if name.name == "IIterator`1" && name.namespace == "Windows.Foundation.Collections" {
+    if name == ("Windows.Foundation.Collections", "IIterator`1") {
         return quote! {
             impl<T: ::windows::RuntimeType> ::std::iter::Iterator for IIterator<T> {
                 type Item = T;
@@ -28,7 +29,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
 
     // If the type is IIterable<T> then implement the IntoIterator trait and rely on the resulting
     // IIterator<T> returned by first() to implement the Iterator trait.
-    if name.name == "IIterable`1" && name.namespace == "Windows.Foundation.Collections" {
+    if name == ("Windows.Foundation.Collections", "IIterable`1") {
         return quote! {
             impl<T: ::windows::RuntimeType> ::std::iter::IntoIterator for IIterable<T> {
                 type Item = T;
@@ -50,7 +51,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
     }
 
     // If the type is IVectorView<T> then provide the VectorViewIterator fast iterator.
-    if name.name == "IVectorView`1" && name.namespace == "Windows.Foundation.Collections" {
+    if name == ("Windows.Foundation.Collections", "IVectorView`1") {
         return quote! {
             pub struct VectorViewIterator<T: ::windows::RuntimeType + 'static> {
                 vector: IVectorView<T>,
@@ -99,7 +100,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
     }
 
     // If the type is IVector<T> then provide the VectorIterator fast iterator.
-    if name.name == "IVector`1" && name.namespace == "Windows.Foundation.Collections" {
+    if name == ("Windows.Foundation.Collections", "IVector`1") {
         return quote! {
             pub struct VectorIterator<T: ::windows::RuntimeType + 'static> {
                 vector: IVector<T>,
@@ -148,19 +149,20 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
     }
 
     let mut iterable = None;
+    let wfc = gen.namespace("Windows.Foundation.Collections");
 
     // If the class or interface is not one of the well-known collection interfaces, we then see whether it
     // implements any one of them. Here is where we favor IVectorView/IVector over IIterable.
     for interface in interfaces {
-        if interface.name.name == "IVectorView`1"
-            && interface.name.namespace == "Windows.Foundation.Collections"
-        {
-            let item = interface.name.generics[0].gen();
-            let wfc = gen_namespace(&interface.name.namespace, &name.namespace);
-            let name = name.gen();
+        let name = interface.def.def.full_name();
+
+        if name == ("Windows.Foundation.Collections", "IVectorView`1") {
+            let constraints = def.gen_constraints();
+            let item = interface.def.generics[0].gen_name(gen);
+            let name = def.gen_name(gen);
 
             return quote! {
-                impl ::std::iter::IntoIterator for #name {
+                impl<#constraints> ::std::iter::IntoIterator for #name {
                     type Item = #item;
                     type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
@@ -168,7 +170,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
                         #wfc VectorViewIterator::new(self.into())
                     }
                 }
-                impl<'a> ::std::iter::IntoIterator for &'a #name {
+                impl<'a, #constraints> ::std::iter::IntoIterator for &'a #name {
                     type Item = #item;
                     type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
@@ -179,15 +181,13 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
             };
         }
 
-        if interface.name.name == "IVectorView`1"
-            && interface.name.namespace == "Windows.Foundation.Collections"
-        {
-            let item = interface.name.generics[0].gen();
-            let wfc = gen_namespace(&interface.name.namespace, &name.namespace);
-            let name = name.gen();
+        if name == ("Windows.Foundation.Collections", "IVector`1") {
+            let constraints = def.gen_constraints();
+            let item = interface.def.generics[0].gen_name(gen);
+            let name = def.gen_name(gen);
 
             return quote! {
-                impl ::std::iter::IntoIterator for #name {
+                impl<#constraints> ::std::iter::IntoIterator for #name {
                     type Item = #item;
                     type IntoIter = #wfc VectorIterator<Self::Item>;
 
@@ -195,7 +195,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
                         #wfc VectorIterator::new(self.into())
                     }
                 }
-                impl<'a> ::std::iter::IntoIterator for &'a #name {
+                impl<'a, #constraints> ::std::iter::IntoIterator for &'a #name {
                     type Item = #item;
                     type IntoIter = #wfc VectorIterator<Self::Item>;
 
@@ -206,9 +206,7 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
             };
         }
 
-        if interface.name.name == "IIterable`1"
-            && interface.name.namespace == "Windows.Foundation.Collections"
-        {
+        if name == ("Windows.Foundation.Collections", "IIterable`1") {
             iterable = Some(interface);
         }
     }
@@ -216,10 +214,9 @@ pub fn gen_iterator(name: &TypeName, interfaces: &[RequiredInterface]) -> TokenS
     match iterable {
         None => TokenStream::new(),
         Some(interface) => {
-            let constraints = name.gen_constraint();
-            let item = interface.name.generics[0].gen();
-            let wfc = gen_namespace(&interface.name.namespace, &name.namespace);
-            let name = name.gen();
+            let constraints = def.gen_constraints();
+            let item = interface.def.generics[0].gen_name(gen);
+            let name = def.gen_name(gen);
 
             quote! {
                impl<#constraints> ::std::iter::IntoIterator for #name {

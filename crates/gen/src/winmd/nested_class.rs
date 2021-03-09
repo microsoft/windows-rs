@@ -1,1 +1,0 @@
-macros::table!(NestedClass);
