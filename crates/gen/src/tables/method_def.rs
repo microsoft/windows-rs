@@ -152,7 +152,7 @@ impl MethodDef {
         }
     }
 
-    pub fn dependencies(&self, generics: &[ElementType]) -> Vec<ElementType> {
+    pub fn dependencies(&self, generics: &[ElementType]) -> Vec<TypeDef> {
         self.signature(generics).dependencies()
     }
 }
@@ -162,7 +162,6 @@ impl std::fmt::Debug for MethodDef {
         write!(f, "{}", self.name())
     }
 }
-
 
 #[cfg(test)]
 mod tests {

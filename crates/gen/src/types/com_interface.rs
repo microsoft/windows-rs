@@ -4,22 +4,18 @@ use super::*;
 pub struct ComInterface(pub GenericType);
 
 impl ComInterface {
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0
             .def
             .methods()
             .map(|m| m.dependencies(&[]))
             .flatten()
-            .chain(
-                self.0
-                    .interfaces()
-                    .map(|i| ElementType::ComInterface(ComInterface(i))),
-            )
+            .chain(self.0.interfaces().map(|i| i.def))
             .collect()
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::ComInterface(self.clone())]
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
+        vec![self.0.def]
     }
 
     pub fn interfaces(&self) -> Vec<tables::TypeDef> {

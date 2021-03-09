@@ -51,13 +51,18 @@ impl TypeTree {
         set: &mut BTreeSet<ElementType>,
         t: &ElementType,
     ) {
-            if set.insert(t.clone()) {
-                for def in t.dependencies() {
-                    self.insert_if(reader, def.namespace(), set, &def);
-                }
+        if set.insert(t.clone()) {
+            for def in t.dependencies() {
+                self.insert_if(
+                    reader,
+                    def.namespace(),
+                    set,
+                    &ElementType::from_type_def(def, Vec::new()).unwrap(),
+                );
+            }
 
-                if !namespace.is_empty() {
-                    self.insert(namespace, 0, t);
+            if !namespace.is_empty() {
+                self.insert(namespace, 0, t);
             }
         }
     }

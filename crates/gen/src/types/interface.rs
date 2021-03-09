@@ -55,22 +55,18 @@ impl Interface {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         self.0
             .def
             .methods()
             .map(|m| m.dependencies(&self.0.generics))
             .flatten()
-            .chain(
-                self.0
-                    .interfaces()
-                    .map(|i| ElementType::from_type_def(i.def, Vec::new()).unwrap())
-            )
+            .chain(self.0.interfaces().map(|i| i.def))
             .collect()
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::Interface(self.clone())]
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
+        self.0.definition()
     }
 
     pub fn gen(&self, gen: Gen) -> TokenStream {

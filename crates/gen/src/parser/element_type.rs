@@ -333,7 +333,7 @@ impl ElementType {
 
     // TODO: this should exclude dependencies interface method parameters so that those methods are only
     // generated if the types they refer to are actually included.
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self) -> Vec<tables::TypeDef> {
         match self {
             Self::Function(t) => t.dependencies(),
             Self::Class(t) => t.dependencies(),
@@ -346,7 +346,7 @@ impl ElementType {
         }
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
+    pub fn definition(&self) -> Vec<tables::TypeDef> {
         match self {
             Self::Class(t) => t.definition(),
             Self::Interface(t) => t.definition(),
@@ -357,7 +357,7 @@ impl ElementType {
             Self::Enum(t) => t.definition(),
             // TODO: find a cleaner way to map this dependency
             Self::Matrix3x2 => {
-                vec![TypeReader::get().resolve_type("Windows.Foundation.Numerics", "Matrix3x2")]
+                vec![TypeReader::get().resolve_type_def("Windows.Foundation.Numerics", "Matrix3x2")]
             }
             _ => Vec::new(),
         }
@@ -475,8 +475,7 @@ impl ElementType {
             Self::Object => {
                 quote! { ::windows::Object }
             }
-            //unexpected => panic!("gen: {:?}", self),
-            _ => quote! {},
+            _ => unexpected!(),
         }
     }
 }
