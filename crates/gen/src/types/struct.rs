@@ -144,13 +144,11 @@ impl Struct {
             quote! {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
+        } else if is_union || has_union {
+            quote! {}
         } else {
-            if is_union || has_union {
-                quote! {}
-            } else {
-                quote! {
-                    #[derive(::std::clone::Clone)]
-                }
+            quote! {
+                #[derive(::std::clone::Clone)]
             }
         };
 
@@ -174,12 +172,10 @@ impl Struct {
             let fields = fields.iter().map(|(_, signature, name)| {
                 let kind = if is_winrt {
                     signature.gen_winrt(gen)
+                } else if is_union {
+                    signature.gen_win32_abi(gen)
                 } else {
-                    if is_union {
-                        signature.gen_win32_abi(gen)
-                    } else {
-                        signature.gen_win32(gen)
-                    }
+                    signature.gen_win32(gen)
                 };
 
                 quote! {

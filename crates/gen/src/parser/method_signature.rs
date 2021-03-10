@@ -258,13 +258,11 @@ impl MethodSignature {
                 quote! { #name: &mut ::std::option::Option<#tokens>, }
             } else if let ElementType::GenericParam(_) = param.signature.kind {
                 quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
+            } else if param.signature.pointers > 0 {
+                let tokens = param.signature.gen_winrt_abi(gen);
+                quote! { #name: #tokens, }
             } else {
-                if param.signature.pointers > 0 {
-                    let tokens = param.signature.gen_winrt_abi(gen);
-                    quote! { #name: #tokens, }
-                } else {
-                    quote! { #name: &mut #tokens, }
-                }
+                quote! { #name: &mut #tokens, }
             }
         }))
     }
@@ -372,12 +370,10 @@ impl MethodParam {
                 quote! { #name }
             } else if let ElementType::Enum(_) = self.signature.kind {
                 quote! { #name }
+            } else if self.is_const() {
+                quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
             } else {
-                if self.is_const() {
-                    quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
-                } else {
-                    quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
-                }
+                quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
             }
         } else {
             quote! { ::std::mem::transmute_copy(&#name) }
@@ -411,12 +407,10 @@ impl MethodParam {
             }
         } else if self.signature.kind.is_blittable() {
             quote! { #name }
+        } else if self.signature.pointers > 0 && !self.signature.kind.is_nullable() {
+            quote! { #name }
         } else {
-            if self.signature.pointers > 0 && !self.signature.kind.is_nullable() {
-                quote! { #name }
-            } else {
-                quote! { ::windows::Abi::set_abi(#name) }
-            }
+            quote! { ::windows::Abi::set_abi(#name) }
         }
     }
 

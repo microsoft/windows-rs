@@ -103,10 +103,8 @@ impl TypeTree {
             if let Some(tree) = self.namespaces.get(&namespace[..pos]) {
                 return tree.includes_namespace_type(&namespace[pos + 1..], kind);
             }
-        } else {
-            if let Some(tree) = self.namespaces.get(namespace) {
-                return tree.types.iter().any(|t| t.row() == kind.row());
-            }
+        } else if let Some(tree) = self.namespaces.get(namespace) {
+            return tree.types.iter().any(|t| t.row() == kind.row());
         }
 
         false
