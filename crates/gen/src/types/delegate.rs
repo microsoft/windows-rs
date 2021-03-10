@@ -28,7 +28,7 @@ impl Delegate {
             .expect("Callback")
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let turbo_abi_name = self.0.gen_turbo_abi_name(gen);
@@ -36,10 +36,10 @@ impl Delegate {
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
-        let intf_struct_phantoms = self.0.gen_phantoms();
-        let abi_phantoms = self.0.gen_phantoms();
-        let vtable_phantoms = self.0.gen_phantoms();
-        let constraints = self.0.gen_constraints();
+        let intf_struct_phantoms = self.0.gen_phantoms(gen);
+        let abi_phantoms = self.0.gen_phantoms(gen);
+        let vtable_phantoms = self.0.gen_phantoms(gen);
+        let constraints = self.0.gen_constraints(gen);
 
         let method = MethodInfo {
             name: "invoke".to_string(),
@@ -58,10 +58,10 @@ impl Delegate {
 
         let type_signature = if self.0.generics.is_empty() {
             self.0
-                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.def.guid()))
+                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.def.guid()), gen)
         } else {
             self.0
-                .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()))
+                .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()), gen)
         };
 
         let (box_name, box_definition) = if self.0.generics.is_empty() {

@@ -26,7 +26,7 @@ impl InterfaceInfo {
         });
     }
 
-    pub fn gen_methods(interfaces: &Vec<Self>, gen: Gen) -> TokenStream {
+    pub fn gen_methods(interfaces: &Vec<Self>, gen: &Gen) -> TokenStream {
         let mut method_names = BTreeMap::<String, u32>::new();
         // TODO: get rid of all these temporary streams and use iterators. This just
         // ends up creating a bunch of temporary strings under the hood.
@@ -56,7 +56,7 @@ impl InterfaceInfo {
         &self,
         from: &TokenStream,
         constraints: &TokenStream,
-        gen: Gen,
+        gen: &Gen,
     ) -> TokenStream {
         if self.def.def.is_exclusive() {
             return TokenStream::new();

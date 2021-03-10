@@ -184,7 +184,7 @@ impl TypeDef {
         self.name().to_string()
     }
 
-    pub fn gen_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         let namespace = self.namespace();
 
         if namespace.is_empty() {
@@ -197,7 +197,7 @@ impl TypeDef {
         }
     }
 
-    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         let namespace = self.namespace();
 
         if namespace.is_empty() {

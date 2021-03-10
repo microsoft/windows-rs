@@ -77,19 +77,19 @@ impl GenericType {
             .filter_map(move |i| i.generic_interface(&self.generics))
     }
 
-    pub fn gen_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         self.format_name(gen, to_ident, false)
     }
 
-    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         self.format_name(gen, to_abi_ident, false)
     }
 
-    pub fn gen_turbo_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_turbo_abi_name(&self, gen: &Gen) -> TokenStream {
         self.format_name(gen, to_abi_ident, true)
     }
 
-    pub fn gen_guid(&self, gen: Gen) -> TokenStream {
+    pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
         if self.generics.is_empty() {
             // TODO: workaround for https://github.com/microsoft/win32metadata/issues/312
             match Guid::from_type_def(&self.def) {
@@ -115,7 +115,7 @@ impl GenericType {
         }
     }
 
-    pub fn gen_signature(&self, signature: &str) -> TokenStream {
+    pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
 
         if self.generics.is_empty() {
@@ -123,7 +123,7 @@ impl GenericType {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen(Gen::Absolute);
+            let g = g.gen(gen);
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
@@ -150,16 +150,16 @@ impl GenericType {
         }
     }
 
-    pub fn gen_phantoms(&self) -> impl Iterator<Item = TokenStream> + '_ {
+    pub fn gen_phantoms(&self, gen: &Gen) -> impl Iterator<Item = TokenStream> + '_ {
         self.generics.iter().map(|g| {
-            let g = g.gen(Gen::Absolute);
+            let g = g.gen(gen);
             quote! { ::std::marker::PhantomData::<#g> }
         })
     }
 
-    pub fn gen_constraints(&self) -> TokenStream {
+    pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
         TokenStream::from_iter(self.generics.iter().map(|g| {
-            let g = g.gen(Gen::Absolute);
+            let g = g.gen(gen);
             quote! { #g: ::windows::RuntimeType + 'static, }
         }))
     }
@@ -182,7 +182,7 @@ impl GenericType {
         }
     }
 
-    fn format_name<F>(&self, gen: Gen, format_name: F, turbo: bool) -> TokenStream
+    fn format_name<F>(&self, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
     where
         F: FnOnce(&str) -> Ident,
     {
@@ -215,11 +215,16 @@ mod tests {
         let reader = TypeReader::get();
         let t = reader.resolve_type("Windows.Foundation", "IAsyncOperation`1");
         assert_eq!(
-            t.gen_name(Gen::Absolute).as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .as_str(),
             "windows :: foundation :: IAsyncOperation :: < TResult >"
         );
         assert_eq!(
-            t.gen_name(Gen::Relative("Windows.Foundation")).as_str(),
+            t.gen_name(&Gen::relative(
+                "Windows.Foundation",
+                &TypeTree::from_namespace("")
+            ))
+            .as_str(),
             "IAsyncOperation < TResult >"
         );
     }
