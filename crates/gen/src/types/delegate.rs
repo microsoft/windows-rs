@@ -110,7 +110,7 @@ impl Delegate {
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn #abi_signature,
-                #phantoms
+                pub #phantoms
             ) where #constraints;
             #[repr(C)]
             struct #box_definition where #constraints {
