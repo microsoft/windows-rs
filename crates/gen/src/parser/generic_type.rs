@@ -29,7 +29,7 @@ impl GenericType {
         if generics.is_empty() {
             let generics = def
                 .generics()
-                .map(|generic| ElementType::GenericParam(generic))
+                .map(ElementType::GenericParam)
                 .collect();
 
             Self { def, generics }

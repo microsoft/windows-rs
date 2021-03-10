@@ -35,14 +35,10 @@ use syn::parse_macro_input;
 pub fn build(stream: TokenStream) -> TokenStream {
     let build = parse_macro_input!(stream as BuildLimits);
 
-    let time = std::time::Instant::now();
-
     let tokens = match build.to_tokens_string() {
         Ok(t) => t,
         Err(t) => return t.into(),
     };
-
-    println!("GEN TIME: {}s", time.elapsed().as_secs());
 
     let workspace_windows_dir = gen::workspace_windows_dir();
 

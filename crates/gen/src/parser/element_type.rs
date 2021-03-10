@@ -365,17 +365,17 @@ impl ElementType {
     }
 
     pub fn is_nullable(&self) -> bool {
-        match self {
+        matches!(
+            self,
             Self::Object
-            | Self::IUnknown
-            | Self::Function(_)
-            | Self::Interface(_)
-            | Self::Class(_)
-            | Self::ComInterface(_)
-            | Self::Delegate(_)
-            | Self::Callback(_) => true,
-            _ => false,
-        }
+                | Self::IUnknown
+                | Self::Function(_)
+                | Self::Interface(_)
+                | Self::Class(_)
+                | Self::ComInterface(_)
+                | Self::Delegate(_)
+                | Self::Callback(_)
+        )
     }
 
     pub fn is_blittable(&self) -> bool {
@@ -394,50 +394,46 @@ impl ElementType {
     }
 
     pub fn is_convertible(&self) -> bool {
-        match self {
+        matches!(
+            self,
             Self::String
-            | Self::Object
-            | Self::Guid
-            | Self::IUnknown
-            | Self::Matrix3x2
-            | Self::GenericParam(_)
-            | Self::Class(_)
-            | Self::Interface(_)
-            | Self::ComInterface(_)
-            | Self::Struct(_)
-            | Self::Delegate(_) => true,
-            _ => false,
-        }
+                | Self::Object
+                | Self::Guid
+                | Self::IUnknown
+                | Self::Matrix3x2
+                | Self::GenericParam(_)
+                | Self::Class(_)
+                | Self::Interface(_)
+                | Self::ComInterface(_)
+                | Self::Struct(_)
+                | Self::Delegate(_)
+        )
     }
 
     pub fn is_callback(&self) -> bool {
-        if let Self::Callback(_) = self {
-            true
-        } else {
-            false
-        }
+        matches!(self, Self::Callback(_))
     }
 
     pub fn is_primitive(&self) -> bool {
-        match self {
+        matches!(
+            self,
             Self::Bool
-            | Self::Char
-            | Self::I8
-            | Self::U8
-            | Self::I16
-            | Self::U16
-            | Self::I32
-            | Self::U32
-            | Self::I64
-            | Self::U64
-            | Self::F32
-            | Self::F64
-            | Self::ISize
-            | Self::USize
-            | Self::ErrorCode
-            | Self::Enum(_) => true,
-            _ => false,
-        }
+                | Self::Char
+                | Self::I8
+                | Self::U8
+                | Self::I16
+                | Self::U16
+                | Self::I32
+                | Self::U32
+                | Self::I64
+                | Self::U64
+                | Self::F32
+                | Self::F64
+                | Self::ISize
+                | Self::USize
+                | Self::ErrorCode
+                | Self::Enum(_)
+        )
     }
 
     pub fn is_struct(&self) -> bool {
