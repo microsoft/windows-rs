@@ -8,7 +8,7 @@ pub struct TypeTree {
 }
 
 impl TypeTree {
-    fn from_namespace(namespace: &'static str) -> Self {
+    pub fn from_namespace(namespace: &'static str) -> Self {
         Self {
             namespace,
             types: Vec::new(),
@@ -78,34 +78,59 @@ impl TypeTree {
         }
     }
 
-    pub fn remove(&mut self, namespace: &str) {
-        if let Some(pos) = namespace.find('.') {
-            if let Some(tree) = self.namespaces.get_mut(&namespace[..pos]) {
-                tree.remove(&namespace[pos + 1..])
+    pub fn include_method(&self, signature: &MethodSignature) -> bool {
+        for kind in signature.dependencies() {
+            if !self.includes(&kind) {
+                return false;
             }
-        } else {
-            self.namespaces.remove(namespace);
         }
+
+        true
     }
 
-    pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
-        let gen = Gen::Relative(self.namespace);
+    pub fn includes(&self, kind: &ElementType) -> bool {
+        let namespace = kind.namespace();
+
+        if namespace.is_empty() {
+            return true;
+        }
+
+        self.includes_namespace_type(namespace, kind)
+    }
+
+    fn includes_namespace_type(&self, namespace: &str, kind: &ElementType) -> bool {
+        if let Some(pos) = namespace.find('.') {
+            if let Some(tree) = self.namespaces.get(&namespace[..pos]) {
+                return tree.includes_namespace_type(&namespace[pos + 1..], kind);
+            }
+        } else {
+            if let Some(tree) = self.namespaces.get(namespace) {
+                return tree.types.iter().any(|t| t.row() == kind.row());
+            }
+        }
+
+        false
+    }
+
+    pub fn gen<'a>(&'a self, root: &'a Self) -> impl Iterator<Item = TokenStream> + 'a {
+        let gen = Gen::relative(self.namespace, root);
 
         self.types
             .iter()
-            .map(move |t| t.gen(gen))
-            .chain(gen_namespaces(&self.namespaces))
+            .map(move |t| t.gen(&gen))
+            .chain(gen_namespaces(&self.namespaces, root))
     }
 }
 
 fn gen_namespaces<'a>(
     namespaces: &'a BTreeMap<&'static str, TypeTree>,
+    root: &'a TypeTree,
 ) -> impl Iterator<Item = TokenStream> + 'a {
-    namespaces.iter().map(|(name, tree)| {
+    namespaces.iter().map(move |(name, tree)| {
         let name = to_snake(name);
         let name = to_ident(&name);
 
-        let tokens = tree.gen();
+        let tokens = tree.gen(root);
 
         quote! {
             // TODO: remove `unused_variables` when https://github.com/microsoft/windows-rs/issues/212 is fixed
@@ -159,7 +184,8 @@ mod tests {
 
         let t = &tree.types[0];
         assert_eq!(
-            t.gen_name(Gen::Absolute).as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .as_str(),
             "windows :: win32 :: file_system :: FILE_ACCESS_FLAGS"
         );
     }

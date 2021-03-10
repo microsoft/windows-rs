@@ -1,3 +1,3 @@
 fn main() {
-    windows::build!(windows::ui::Colors);
+    windows::build!(windows::ui::Colors, windows::ui::Color);
 }

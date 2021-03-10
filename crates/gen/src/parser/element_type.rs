@@ -65,7 +65,7 @@ impl ElementType {
             Self::Struct(def) => def.0.namespace(),
             Self::Delegate(def) => def.0.def.namespace(),
             Self::Callback(def) => def.0.namespace(),
-            _ => "", // TODO: panic?
+            _ => "",
         }
     }
 
@@ -172,7 +172,7 @@ impl ElementType {
         }
     }
 
-    pub fn gen_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -225,7 +225,7 @@ impl ElementType {
         }
     }
 
-    pub fn gen_abi_name(&self, gen: Gen) -> TokenStream {
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -463,7 +463,7 @@ impl ElementType {
         }
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Function(t) => t.gen(gen),
             Self::Constant(t) => t.gen(),
@@ -489,7 +489,12 @@ mod tests {
 
     #[test]
     fn test_bool() {
-        assert_eq!(ElementType::Bool.gen_name(Gen::Absolute).as_str(), "bool");
+        assert_eq!(
+            ElementType::Bool
+                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .as_str(),
+            "bool"
+        );
     }
 
     #[test]
@@ -524,8 +529,7 @@ mod tests {
         assert_eq!(d[0].name(), "ID2D1Resource");
 
         let d = t.dependencies();
-        assert_eq!(d.len(), 1);
-        assert_eq!(d[0].name(), "ID2D1Factory");
+        assert_eq!(d.len(), 0);
     }
 
     #[test]
@@ -536,9 +540,7 @@ mod tests {
         assert_eq!(d[0].name(), "IUriRuntimeClassFactory");
 
         let d = t.dependencies();
-        assert_eq!(d.len(), 2);
-        assert_eq!(d[0].name(), "Uri");
-        assert_eq!(d[1].name(), "Uri");
+        assert_eq!(d.len(), 0);
     }
 
     #[test]
@@ -548,14 +550,9 @@ mod tests {
         assert_eq!(d.len(), 1);
         assert_eq!(d[0].name(), "IAsyncAction");
 
-        let mut d = t.dependencies();
-        assert_eq!(d.len(), 3);
-
-        d.sort_by(|a, b| a.name().cmp(b.name()));
-
-        assert_eq!(d[0].name(), "AsyncActionCompletedHandler");
-        assert_eq!(d[1].name(), "AsyncActionCompletedHandler");
-        assert_eq!(d[2].name(), "IAsyncInfo");
+        let d = t.dependencies();
+        assert_eq!(d.len(), 1);
+        assert_eq!(d[0].name(), "IAsyncInfo");
     }
 
     #[test]

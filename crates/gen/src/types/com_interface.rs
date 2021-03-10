@@ -6,15 +6,8 @@ pub struct ComInterface(pub GenericType);
 impl ComInterface {
     pub fn dependencies(&self) -> Vec<ElementType> {
         self.0
-            .def
-            .methods()
-            .map(|m| m.dependencies(&[]))
-            .flatten()
-            .chain(
-                self.0
-                    .interfaces()
-                    .map(|i| ElementType::from_type_def(i.def, Vec::new())),
-            )
+            .interfaces()
+            .map(|i| ElementType::from_type_def(i.def, Vec::new()))
             .collect()
     }
 
@@ -44,7 +37,7 @@ impl ComInterface {
         result
     }
 
-    pub fn gen(&self, gen: Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let guid = self.0.gen_guid(gen);
@@ -59,6 +52,10 @@ impl ComInterface {
             .flatten()
             .map(|method| {
                 let signature = method.signature(&[]);
+
+                if !gen.include_method(&signature) {
+                    return quote! { () };
+                }
 
                 let params = signature.params.iter().map(|p| {
                     let name = p.param.gen_name();
@@ -96,6 +93,10 @@ impl ComInterface {
             .enumerate()
             .map(|(vtable_offset, method)| {
                 let signature = method.signature(&[]);
+
+                if !gen.include_method(&signature) {
+                    return quote! {};
+                }
 
                 let constraints = signature.gen_win32_constraints(&signature.params, gen);
                 let params = signature.gen_win32_params(&signature.params, gen);
