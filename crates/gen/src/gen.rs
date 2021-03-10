@@ -34,7 +34,7 @@ impl<'a> Gen<'a> {
         if let GenRelation::Absolute = self.relation {
             return true;
         }
-        
+
         self.tree.include_method(signature)
     }
 

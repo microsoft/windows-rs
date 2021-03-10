@@ -191,7 +191,7 @@ impl Class {
                         let interface_type = interface.def.gen_name(gen);
 
                         Some(quote! {
-                            #[allow(non_snake_case)]
+                            #[allow(non_snake_case, dead_code)]
                             fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
                                 callback: F,
                             ) -> ::windows::Result<R> {

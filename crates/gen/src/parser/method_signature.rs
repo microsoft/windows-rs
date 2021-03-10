@@ -96,7 +96,6 @@ impl MethodSignature {
         gen: &Gen,
     ) -> TokenStream {
         if !gen.include_method(self) {
-            println!("ignoring method: {}", method.name);
             return quote! {};
         }
 

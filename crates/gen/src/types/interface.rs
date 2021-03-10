@@ -56,17 +56,23 @@ impl Interface {
     }
 
     pub fn dependencies(&self) -> Vec<ElementType> {
-        self.0
+        let interfaces = self
+            .0
+            .interfaces()
+            .map(|i| ElementType::from_type_def(i.def, Vec::new()));
+
+        let methods = self
+            .0
             .def
             .methods()
             .map(|m| m.dependencies(&self.0.generics))
-            .flatten()
-            .chain(
-                self.0
-                    .interfaces()
-                    .map(|i| ElementType::from_type_def(i.def, Vec::new())),
-            )
-            .collect()
+            .flatten();
+
+        if self.0.generics.is_empty() {
+            interfaces.collect()
+        } else {
+            interfaces.chain(methods).collect()
+        }
     }
 
     pub fn definition(&self) -> Vec<ElementType> {

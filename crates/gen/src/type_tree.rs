@@ -78,7 +78,7 @@ impl TypeTree {
         }
     }
 
-    pub fn include_method(&self, signature: &MethodSignature) ->bool {
+    pub fn include_method(&self, signature: &MethodSignature) -> bool {
         for kind in signature.dependencies() {
             if !self.includes(&kind) {
                 return false;
@@ -109,7 +109,6 @@ impl TypeTree {
             }
         }
 
-        println!("exluding: {:?}", kind);
         false
     }
 
@@ -125,7 +124,7 @@ impl TypeTree {
 
 fn gen_namespaces<'a>(
     namespaces: &'a BTreeMap<&'static str, TypeTree>,
-    root: &'a TypeTree
+    root: &'a TypeTree,
 ) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
         let name = to_snake(name);
