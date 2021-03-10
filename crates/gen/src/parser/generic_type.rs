@@ -150,11 +150,11 @@ impl GenericType {
         }
     }
 
-    pub fn gen_phantoms(&self) -> TokenStream {
-        TokenStream::from_iter(self.generics.iter().map(|g| {
+    pub fn gen_phantoms(&self) -> impl Iterator<Item = TokenStream> + '_ {
+        self.generics.iter().map(|g| {
             let g = g.gen(Gen::Absolute);
-            quote! { ::std::marker::PhantomData::<#g>, }
-        }))
+            quote! { ::std::marker::PhantomData::<#g> }
+        })
     }
 
     pub fn gen_constraints(&self) -> TokenStream {

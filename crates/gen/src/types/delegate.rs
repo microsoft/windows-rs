@@ -36,7 +36,9 @@ impl Delegate {
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
-        let phantoms = self.0.gen_phantoms();
+        let intf_struct_phantoms = self.0.gen_phantoms();
+        let abi_phantoms = self.0.gen_phantoms();
+        let vtable_phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
 
         let method = MethodInfo {
@@ -81,7 +83,7 @@ impl Delegate {
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-            pub struct #name(::windows::IUnknown, #phantoms) where #constraints;
+            pub struct #name(::windows::IUnknown, #(#intf_struct_phantoms,)*) where #constraints;
             impl<#constraints> #name {
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = #box_name {
@@ -110,7 +112,7 @@ impl Delegate {
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn #abi_signature,
-                pub #phantoms
+                #(pub #abi_phantoms,)*
             ) where #constraints;
             #[repr(C)]
             struct #box_definition where #constraints {
@@ -125,7 +127,7 @@ impl Delegate {
                     Self::AddRef,
                     Self::Release,
                     Self::Invoke,
-                    #phantoms
+                    #(#vtable_phantoms,)*
                 );
                 unsafe extern "system" fn QueryInterface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode {
                     let this = this as *mut ::windows::RawPtr as *mut Self;
