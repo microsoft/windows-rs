@@ -31,6 +31,10 @@ impl<'a> Gen<'a> {
     }
 
     pub fn include_method(&self, signature: &MethodSignature) -> bool {
+        if let GenRelation::Absolute = self.relation {
+            return true;
+        }
+        
         self.tree.include_method(signature)
     }
 
