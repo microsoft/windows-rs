@@ -5,9 +5,10 @@ pub struct ComInterface(pub GenericType);
 
 impl ComInterface {
     pub fn dependencies(&self) -> Vec<ElementType> {
-                self.0
-                    .interfaces()
-                    .map(|i| ElementType::from_type_def(i.def, Vec::new())).collect()
+        self.0
+            .interfaces()
+            .map(|i| ElementType::from_type_def(i.def, Vec::new()))
+            .collect()
     }
 
     pub fn definition(&self) -> Vec<ElementType> {
