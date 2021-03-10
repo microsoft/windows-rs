@@ -92,9 +92,8 @@ impl TypeDef {
             })
     }
 
-    pub fn has_attribute(&self, namespace: &str, name: &str) -> bool {
-        self.attributes()
-            .any(|attribute| attribute.full_name() == (namespace, name))
+    pub fn has_attribute(&self, name: &str) -> bool {
+        self.attributes().any(|attribute| attribute.name() == name)
     }
 
     pub fn is_winrt(&self) -> bool {
@@ -102,14 +101,12 @@ impl TypeDef {
     }
 
     pub fn is_exclusive(&self) -> bool {
-        self.has_attribute("Windows.Foundation.Metadata", "ExclusiveToAttribute")
+        self.has_attribute("ExclusiveToAttribute")
     }
 
     pub fn is_agile(&self) -> bool {
         self.attributes().any(|attribute| {
-            if attribute.full_name()
-                == ("Windows.Foundation.Metadata", "MarshalingBehaviorAttribute")
-            {
+            if attribute.name() == "MarshalingBehaviorAttribute" {
                 if let Some((_, value)) = attribute.args().get(0) {
                     if let ConstantValue::I32(2) = value {
                         return true;
@@ -136,9 +133,8 @@ impl TypeDef {
 
     pub fn version(&self) -> (u16, u16) {
         for attribute in self.attributes() {
-            match attribute.full_name() {
-                ("Windows.Foundation.Metadata", "ContractVersionAttribute")
-                | ("Windows.Foundation.Metadata", "VersionAttribute") => {
+            match attribute.name() {
+                "ContractVersionAttribute" | "VersionAttribute" => {
                     for (_, value) in attribute.args() {
                         if let ConstantValue::U32(value) = value {
                             return ((value >> 16) as u16, (value & 0xFFFF) as u16);

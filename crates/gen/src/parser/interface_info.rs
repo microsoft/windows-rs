@@ -68,7 +68,6 @@ impl InterfaceInfo {
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
-                            // TODO: if classes are defined as Class(DefaultInterface) then this can become `#into(value)`
                             unsafe { ::std::mem::transmute(value) }
                         }
                     }

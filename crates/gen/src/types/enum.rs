@@ -55,7 +55,7 @@ impl Enum {
 
         // Win32 enums sadly don't use unsigned values uniformly so we need to rely
         // on the flags attribute.
-        let bitwise = if bitwise || self.0.has_attribute("System", "FlagsAttribute") {
+        let bitwise = if bitwise || self.0.has_attribute("FlagsAttribute") {
             quote! {
                 // TODO: add BitOrAssign and BitAndAssign
                 impl ::std::ops::BitOr for #name {

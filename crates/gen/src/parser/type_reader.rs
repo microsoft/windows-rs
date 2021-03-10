@@ -5,7 +5,6 @@ use std::path::PathBuf;
 
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
-    // TODO: fields should be private
     /// The parsed Windows metadata files the [`TypeReader`] has access to
     pub(crate) files: Vec<File>,
     /// Types known to this [`TypeReader`]

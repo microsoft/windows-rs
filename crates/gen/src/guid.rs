@@ -6,9 +6,8 @@ pub struct Guid(u32, u16, u16, u8, u8, u8, u8, u8, u8, u8, u8);
 impl Guid {
     pub fn from_type_def(def: &tables::TypeDef) -> Option<Self> {
         for attribute in def.attributes() {
-            match attribute.full_name() {
-                ("Windows.Foundation.Metadata", "GuidAttribute")
-                | ("Windows.Win32.Interop", "GuidAttribute") => {
+            match attribute.name() {
+                "GuidAttribute" => {
                     let args = attribute.args();
 
                     return Some(Self(

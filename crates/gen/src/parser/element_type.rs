@@ -80,7 +80,7 @@ impl ElementType {
             Self::Struct(def) => def.0.name(),
             Self::Delegate(def) => def.0.def.name(),
             Self::Callback(def) => def.0.name(),
-            _ => "", // TODO: panic?
+            _ => "",
         }
     }
 
@@ -334,8 +334,6 @@ impl ElementType {
         }
     }
 
-    // TODO: this should exclude dependencies interface method parameters so that those methods are only
-    // generated if the types they refer to are actually included.
     pub fn dependencies(&self) -> Vec<ElementType> {
         match self {
             Self::Function(t) => t.dependencies(),

@@ -55,8 +55,7 @@ impl Struct {
     }
 
     pub fn is_handle(&self) -> bool {
-        self.0
-            .has_attribute("Windows.Win32.Interop", "NativeTypedefAttribute")
+        self.0.has_attribute("NativeTypedefAttribute")
     }
 
     pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {

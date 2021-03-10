@@ -8,8 +8,8 @@ fn named_arguments() {
     let mut some_int = 0;
     let mut some_bool = 0;
     for attribute in type_def.attributes() {
-        match attribute.full_name() {
-            ("TestComponent", "CustomTestAttribute") => {
+        match attribute.name() {
+            "CustomTestAttribute" => {
                 for (name, arg) in attribute.args() {
                     match (&name as &str, &arg) {
                         ("SomeString", gen::ConstantValue::String(value)) => {
