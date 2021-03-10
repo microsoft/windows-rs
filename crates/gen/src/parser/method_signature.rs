@@ -43,9 +43,9 @@ impl MethodSignature {
     // All WinRT ABI methods return an HRESULT while any return type is transformed into a trailing
     // out parameter. This is unlike Win32 methods that don't require this transformation.
     pub fn gen_winrt_abi(&self, gen: &Gen) -> TokenStream {
-        // if !gen.includes(self) {
-        //     return quote! { () };
-        // }
+        if !gen.include_method(self) {
+            return quote! { () };
+        }
 
         let params = self
             .params
@@ -95,9 +95,10 @@ impl MethodSignature {
         interface: &InterfaceInfo,
         gen: &Gen,
     ) -> TokenStream {
-        // if !gen.includes(self) {
-        //     return quote! {};
-        // }
+        if !gen.include_method(self) {
+            println!("ignoring method: {}", method.name);
+            return quote! {};
+        }
 
         let params = if interface.kind == InterfaceKind::Composable {
             &self.params[..self.params.len() - 2]

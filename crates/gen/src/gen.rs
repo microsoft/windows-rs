@@ -30,14 +30,8 @@ impl<'a> Gen<'a> {
         }
     }
 
-    pub fn includes(&self, signature: &MethodSignature) -> bool {
-        for kind in signature.dependencies() {
-            if !self.tree.includes(&kind) {
-                return false;
-            }
-        }
-
-        true
+    pub fn include_method(&self, signature: &MethodSignature) -> bool {
+        self.tree.include_method(signature)
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {

@@ -21,7 +21,7 @@ impl BuildLimits {
 
         let tree = TypeTree::from_limits(reader, &limits);
 
-        let ts = tree.gen().fold(squote::TokenStream::new(), |mut accum, n| {
+        let ts = tree.gen(&tree).fold(squote::TokenStream::new(), |mut accum, n| {
             accum.combine(&n);
             accum
         });

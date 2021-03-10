@@ -78,6 +78,16 @@ impl TypeTree {
         }
     }
 
+    pub fn include_method(&self, signature: &MethodSignature) ->bool {
+        for kind in signature.dependencies() {
+            if !self.includes(&kind) {
+                return false;
+            }
+        }
+
+        true
+    }
+
     pub fn includes(&self, kind: &ElementType) -> bool {
         let namespace = kind.namespace();
 
@@ -99,27 +109,29 @@ impl TypeTree {
             }
         }
 
+        println!("exluding: {:?}", kind);
         false
     }
 
-    pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
-        let gen = Gen::relative(self.namespace, self);
+    pub fn gen<'a>(&'a self, root: &'a Self) -> impl Iterator<Item = TokenStream> + 'a {
+        let gen = Gen::relative(self.namespace, root);
 
         self.types
             .iter()
             .map(move |t| t.gen(&gen))
-            .chain(gen_namespaces(&self.namespaces))
+            .chain(gen_namespaces(&self.namespaces, root))
     }
 }
 
 fn gen_namespaces<'a>(
     namespaces: &'a BTreeMap<&'static str, TypeTree>,
+    root: &'a TypeTree
 ) -> impl Iterator<Item = TokenStream> + 'a {
-    namespaces.iter().map(|(name, tree)| {
+    namespaces.iter().map(move |(name, tree)| {
         let name = to_snake(name);
         let name = to_ident(&name);
 
-        let tokens = tree.gen();
+        let tokens = tree.gen(root);
 
         quote! {
             // TODO: remove `unused_variables` when https://github.com/microsoft/windows-rs/issues/212 is fixed
