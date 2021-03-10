@@ -4,7 +4,10 @@ fn main() {
         windows::foundation::collections::*,
         windows::foundation::*,
         windows::ai::machine_learning::*,
-        windows::storage::streams::{DataReader, DataWriter, InMemoryRandomAccessStream, DataWriterStoreOperation, DataReaderLoadOperation},
+        windows::storage::streams::{
+            DataReader, DataWriter, InMemoryRandomAccessStream, DataWriterStoreOperation,
+            DataReaderLoadOperation
+        },
         windows::ui::{Color, Colors},
         windows::ui::composition::{Compositor, SpriteVisual, Visual, CompositionColorBrush, VisualCollection},
         windows::foundation::numerics::*,
@@ -12,7 +15,11 @@ fn main() {
         windows::ui::xaml::*,
         windows::data::xml::dom::*,
         windows::application_model::appointments::AppointmentDaysOfWeek,
-        windows::application_model::activation::{LaunchActivatedEventArgs, IActivatedEventArgs, FileActivatedEventArgs, SearchActivatedEventArgs, ShareTargetActivatedEventArgs, FileOpenPickerActivatedEventArgs, FileSavePickerActivatedEventArgs, CachedFileUpdaterActivatedEventArgs, BackgroundActivatedEventArgs},
+        windows::application_model::activation::{
+            LaunchActivatedEventArgs, IActivatedEventArgs, FileActivatedEventArgs,SearchActivatedEventArgs,
+            ShareTargetActivatedEventArgs, FileOpenPickerActivatedEventArgs, FileSavePickerActivatedEventArgs,
+            CachedFileUpdaterActivatedEventArgs, BackgroundActivatedEventArgs,
+        },
         windows::win32::system_services::CreateDispatcherQueueController,
         windows::ui::xaml::interop::TypeName,
         windows::ui::xaml::data::ICustomProperty,
