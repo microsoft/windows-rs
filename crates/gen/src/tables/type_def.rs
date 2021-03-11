@@ -107,10 +107,8 @@ impl TypeDef {
     pub fn is_agile(&self) -> bool {
         self.attributes().any(|attribute| {
             if attribute.name() == "MarshalingBehaviorAttribute" {
-                if let Some((_, value)) = attribute.args().get(0) {
-                    if let ConstantValue::I32(2) = value {
-                        return true;
-                    }
+                if let Some((_, ConstantValue::I32(2))) = attribute.args().get(0) {
+                    return true;
                 }
             }
 

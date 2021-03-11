@@ -19,13 +19,11 @@ impl Class {
     fn has_default_constructor(&self) -> bool {
         for attribute in self.0.def.attributes() {
             if attribute.name() == "ActivatableAttribute" {
-                if attribute.args().iter().any(|arg| {
-                    if let parser::ConstantValue::TypeDef(_) = arg.1 {
-                        true
-                    } else {
-                        false
-                    }
-                }) {
+                if attribute
+                    .args()
+                    .iter()
+                    .any(|arg| matches!(arg.1, parser::ConstantValue::TypeDef(_)))
+                {
                     continue;
                 } else {
                     return true;

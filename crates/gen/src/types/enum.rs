@@ -24,7 +24,7 @@ impl Enum {
     }
 
     pub fn underlying_type(&self) -> ElementType {
-        for field in self.0.fields() {
+        if let Some(field) = self.0.fields().next() {
             if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
