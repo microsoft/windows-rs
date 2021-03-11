@@ -100,6 +100,14 @@ impl TypeDefOrRef {
 }
 
 impl MemberRefParent {
+    pub fn name(&self) -> &'static str {
+        match self {
+            Self::TypeDef(value) => value.name(),
+            Self::TypeRef(value) => value.name(),
+            _ => unexpected!(),
+        }
+    }
+
     pub fn full_name(&self) -> (&'static str, &'static str) {
         match self {
             Self::TypeDef(value) => value.full_name(),

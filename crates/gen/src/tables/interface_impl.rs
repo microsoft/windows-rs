@@ -20,17 +20,16 @@ impl InterfaceImpl {
             })
     }
 
-    pub fn has_attribute(&self, namespace: &str, name: &str) -> bool {
-        self.attributes()
-            .any(|attribute| attribute.full_name() == (namespace, name))
+    pub fn has_attribute(&self, name: &str) -> bool {
+        self.attributes().any(|attribute| attribute.name() == name)
     }
 
     pub fn is_default(&self) -> bool {
-        self.has_attribute("Windows.Foundation.Metadata", "DefaultAttribute")
+        self.has_attribute("DefaultAttribute")
     }
 
     pub fn is_overridable(&self) -> bool {
-        self.has_attribute("Windows.Foundation.Metadata", "OverridableAttribute")
+        self.has_attribute("OverridableAttribute")
     }
 
     pub fn generic_interface(&self, generics: &[ElementType]) -> Option<parser::GenericType> {

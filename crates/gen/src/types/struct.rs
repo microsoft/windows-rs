@@ -55,8 +55,7 @@ impl Struct {
     }
 
     pub fn is_handle(&self) -> bool {
-        self.0
-            .has_attribute("Windows.Win32.Interop", "NativeTypedefAttribute")
+        self.0.has_attribute("NativeTypedefAttribute")
     }
 
     pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
@@ -145,13 +144,11 @@ impl Struct {
             quote! {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
+        } else if is_union || has_union {
+            quote! {}
         } else {
-            if is_union || has_union {
-                quote! {}
-            } else {
-                quote! {
-                    #[derive(::std::clone::Clone)]
-                }
+            quote! {
+                #[derive(::std::clone::Clone)]
             }
         };
 
@@ -175,12 +172,10 @@ impl Struct {
             let fields = fields.iter().map(|(_, signature, name)| {
                 let kind = if is_winrt {
                     signature.gen_winrt(gen)
+                } else if is_union {
+                    signature.gen_win32_abi(gen)
                 } else {
-                    if is_union {
-                        signature.gen_win32_abi(gen)
-                    } else {
-                        signature.gen_win32(gen)
-                    }
+                    signature.gen_win32(gen)
                 };
 
                 quote! {
@@ -255,11 +250,7 @@ impl Struct {
                 .iter()
                 .enumerate()
                 .map(|(index, (_, signature, name))| {
-                    let is_callback = if let ElementType::Callback(_) = signature.kind {
-                        true
-                    } else {
-                        false
-                    };
+                    let is_callback = matches!(signature.kind, ElementType::Callback(_));
 
                     if is_callback && signature.pointers == 0 {
                         quote! {
@@ -406,11 +397,7 @@ impl Struct {
                 impl BOOL {
                     #[inline]
                     pub fn as_bool(self) -> bool {
-                        if self.0 == 0 {
-                            false
-                        } else {
-                            true
-                        }
+                        !(self.0 == 0)
                     }
                     #[inline]
                     pub fn ok(self) -> ::windows::Result<()> {
@@ -517,7 +504,7 @@ impl Struct {
                 unsafe impl ::windows::Abi for PWSTR {
                     type Abi = Self;
 
-                    fn drop_param<'a>(param: &mut ::windows::Param<'a, Self>) {
+                    fn drop_param(param: &mut ::windows::Param<Self>) {
                         if let ::windows::Param::Boxed(value) = param {
                             if !value.0.is_null() {
                                 unsafe { ::std::boxed::Box::from_raw(value.0); }
@@ -557,7 +544,7 @@ impl Struct {
                 unsafe impl ::windows::Abi for PSTR {
                     type Abi = Self;
 
-                    fn drop_param<'a>(param: &mut ::windows::Param<'a, Self>) {
+                    fn drop_param(param: &mut ::windows::Param<Self>) {
                         if let ::windows::Param::Boxed(value) = param {
                             if !value.0.is_null() {
                                 unsafe { ::std::boxed::Box::from_raw(value.0); }
@@ -1711,12 +1698,15 @@ fn gen_nested_types<'a>(
     enclosing_type: &'a tables::TypeDef,
     gen: &Gen,
 ) -> TokenStream {
-    TokenStream::from_iter(enclosing_type.nested_types().iter().enumerate().map(
-        |(index, nested_type)| {
+    enclosing_type
+        .nested_types()
+        .iter()
+        .enumerate()
+        .map(|(index, nested_type)| {
             let nested_name = format!("{}_{}", enclosing_name, index);
             Struct(*nested_type).gen_struct(&nested_name, gen)
-        },
-    ))
+        })
+        .collect()
 }
 
 #[cfg(test)]

@@ -5,7 +5,6 @@ use std::path::PathBuf;
 
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
-    // TODO: fields should be private
     /// The parsed Windows metadata files the [`TypeReader`] has access to
     pub(crate) files: Vec<File>,
     /// Types known to this [`TypeReader`]
@@ -46,7 +45,7 @@ impl TypeReader {
     ///
     /// This function panics if the if the files where the windows metadata are stored cannot be read.
     fn from_iter<I: IntoIterator<Item = PathBuf>>(files: I) -> Self {
-        let mut files: Vec<File> = files.into_iter().map(|file| File::new(file)).collect();
+        let mut files: Vec<File> = files.into_iter().map(File::new).collect();
 
         if !files.iter().any(|file| file.name.starts_with("Windows.")) {
             files.push(File::from_bytes(

@@ -57,7 +57,7 @@ impl MethodDef {
             }
         } else {
             for attribute in self.attributes() {
-                if attribute.full_name() == ("Windows.Foundation.Metadata", "OverloadAttribute") {
+                if attribute.name() == "OverloadAttribute" {
                     for (_, arg) in attribute.args() {
                         if let ConstantValue::String(name) = arg {
                             return to_snake(&name);

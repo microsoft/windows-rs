@@ -6,26 +6,22 @@ pub struct Guid(u32, u16, u16, u8, u8, u8, u8, u8, u8, u8, u8);
 impl Guid {
     pub fn from_type_def(def: &tables::TypeDef) -> Option<Self> {
         for attribute in def.attributes() {
-            match attribute.full_name() {
-                ("Windows.Foundation.Metadata", "GuidAttribute")
-                | ("Windows.Win32.Interop", "GuidAttribute") => {
-                    let args = attribute.args();
+            if attribute.name() == "GuidAttribute" {
+                let args = attribute.args();
 
-                    return Some(Self(
-                        args[0].1.unwrap_u32(),
-                        args[1].1.unwrap_u16(),
-                        args[2].1.unwrap_u16(),
-                        args[3].1.unwrap_u8(),
-                        args[4].1.unwrap_u8(),
-                        args[5].1.unwrap_u8(),
-                        args[6].1.unwrap_u8(),
-                        args[7].1.unwrap_u8(),
-                        args[8].1.unwrap_u8(),
-                        args[9].1.unwrap_u8(),
-                        args[10].1.unwrap_u8(),
-                    ));
-                }
-                _ => {}
+                return Some(Self(
+                    args[0].1.unwrap_u32(),
+                    args[1].1.unwrap_u16(),
+                    args[2].1.unwrap_u16(),
+                    args[3].1.unwrap_u8(),
+                    args[4].1.unwrap_u8(),
+                    args[5].1.unwrap_u8(),
+                    args[6].1.unwrap_u8(),
+                    args[7].1.unwrap_u8(),
+                    args[8].1.unwrap_u8(),
+                    args[9].1.unwrap_u8(),
+                    args[10].1.unwrap_u8(),
+                ));
             }
         }
 

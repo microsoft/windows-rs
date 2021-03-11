@@ -18,14 +18,12 @@ impl Class {
 
     fn has_default_constructor(&self) -> bool {
         for attribute in self.0.def.attributes() {
-            if attribute.full_name() == ("Windows.Foundation.Metadata", "ActivatableAttribute") {
-                if attribute.args().iter().any(|arg| {
-                    if let parser::ConstantValue::TypeDef(_) = arg.1 {
-                        true
-                    } else {
-                        false
-                    }
-                }) {
+            if attribute.name() == "ActivatableAttribute" {
+                if attribute
+                    .args()
+                    .iter()
+                    .any(|arg| matches!(arg.1, parser::ConstantValue::TypeDef(_)))
+                {
                     continue;
                 } else {
                     return true;
@@ -84,9 +82,8 @@ impl Class {
         }
 
         for attribute in self.0.def.attributes() {
-            match attribute.full_name() {
-                ("Windows.Foundation.Metadata", "StaticAttribute")
-                | ("Windows.Foundation.Metadata", "ActivatableAttribute") => {
+            match attribute.name() {
+                "StaticAttribute" | "ActivatableAttribute" => {
                     for (_, arg) in attribute.args() {
                         if let parser::ConstantValue::TypeDef(def) = arg {
                             let def = GenericType::from_type_def(def, Vec::new());
@@ -103,7 +100,7 @@ impl Class {
                         }
                     }
                 }
-                ("Windows.Foundation.Metadata", "ComposableAttribute") => {
+                "ComposableAttribute" => {
                     // One of the arguments is a CompositionType enum and the Public variant
                     // has a value of 2 as a signed 32-bit integer.
 
@@ -149,10 +146,8 @@ impl Class {
         let bases = self.0.bases().map(|b| b.definition());
 
         let factories = self.0.def.attributes().filter_map(|attribute| {
-            match attribute.full_name() {
-                ("Windows.Foundation.Metadata", "StaticAttribute")
-                | ("Windows.Foundation.Metadata", "ActivatableAttribute")
-                | ("Windows.Foundation.Metadata", "ComposableAttribute") => {
+            match attribute.name() {
+                "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                     for (_, arg) in attribute.args() {
                         if let parser::ConstantValue::TypeDef(def) = arg {
                             return Some(ElementType::from_type_def(def, Vec::new()));

@@ -41,14 +41,12 @@ impl Interface {
             }
         }
 
-        let mut result = Vec::new();
-
-        result.push(InterfaceInfo {
+        let mut result = vec![InterfaceInfo {
             def: self.0.clone(),
             kind: InterfaceKind::Default,
             is_base: false,
             version: self.0.def.version(),
-        });
+        }];
 
         add_interfaces(&mut result, &self.0, false);
         InterfaceInfo::sort(&mut result);

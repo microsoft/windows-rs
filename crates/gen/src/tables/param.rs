@@ -28,9 +28,8 @@ impl Param {
             })
     }
 
-    pub fn has_attribute(&self, namespace: &str, name: &str) -> bool {
-        self.attributes()
-            .any(|attribute| attribute.full_name() == (namespace, name))
+    pub fn has_attribute(&self, name: &str) -> bool {
+        self.attributes().any(|attribute| attribute.name() == name)
     }
 
     pub fn is_input(&self) -> bool {
@@ -38,7 +37,7 @@ impl Param {
     }
 
     pub fn is_const(&self) -> bool {
-        self.has_attribute("Windows.Win32.Interop", "ConstAttribute")
+        self.has_attribute("ConstAttribute")
     }
 
     pub fn gen_name(&self) -> Ident {

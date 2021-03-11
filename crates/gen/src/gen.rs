@@ -1,10 +1,6 @@
 use super::*;
 use std::iter::FromIterator;
 
-// TODO: Gen should store TypeTree somehow so code gen can quickly check whether a given interface method
-// should be included depending on whether its definition is included in the tree.
-// Perhaps store the BTreeSet<ElementType> used to build the TypeTree.
-
 pub struct Gen<'a> {
     relation: GenRelation,
     tree: &'a TypeTree,

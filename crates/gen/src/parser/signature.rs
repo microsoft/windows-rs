@@ -7,7 +7,6 @@ pub struct Signature {
     pub by_ref: bool,
     pub is_const: bool,
     pub is_array: bool,
-    // TODO: add is_input here
 }
 
 impl Signature {
@@ -47,7 +46,6 @@ impl Signature {
     }
 
     pub fn is_blittable(&self) -> bool {
-        // TODO: In theory, this should deal with "tree" structs that point to themselves - need a test for this.
         self.pointers > 0 || self.kind.is_blittable()
     }
 

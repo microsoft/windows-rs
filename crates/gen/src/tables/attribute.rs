@@ -6,11 +6,9 @@ impl Attribute {
         self.reader.decode(self.row, 1)
     }
 
-    // TODO: add method to just get name
-
-    pub fn full_name(&self) -> (&'static str, &'static str) {
+    pub fn name(&self) -> &'static str {
         if let AttributeType::MemberRef(method) = self.constructor() {
-            return method.parent().full_name();
+            return method.parent().name();
         }
 
         unexpected!();
@@ -101,8 +99,7 @@ impl Attribute {
 
 impl std::fmt::Debug for Attribute {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let (namespace, name) = self.full_name();
-        write!(f, "{}.{}", namespace, name)
+        write!(f, "{}", self.name())
     }
 }
 
