@@ -250,11 +250,7 @@ impl Struct {
                 .iter()
                 .enumerate()
                 .map(|(index, (_, signature, name))| {
-                    let is_callback = if let ElementType::Callback(_) = signature.kind {
-                        true
-                    } else {
-                        false
-                    };
+                    let is_callback = matches!(signature.kind,  ElementType::Callback(_));
 
                     if is_callback && signature.pointers == 0 {
                         quote! {
