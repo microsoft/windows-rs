@@ -508,7 +508,7 @@ impl Struct {
                 unsafe impl ::windows::Abi for PWSTR {
                     type Abi = Self;
 
-                    fn drop_param<'a>(param: &mut ::windows::Param<'a, Self>) {
+                    fn drop_param(param: &mut ::windows::Param<Self>) {
                         if let ::windows::Param::Boxed(value) = param {
                             if !value.0.is_null() {
                                 unsafe { ::std::boxed::Box::from_raw(value.0); }
@@ -548,7 +548,7 @@ impl Struct {
                 unsafe impl ::windows::Abi for PSTR {
                     type Abi = Self;
 
-                    fn drop_param<'a>(param: &mut ::windows::Param<'a, Self>) {
+                    fn drop_param(param: &mut ::windows::Param<Self>) {
                         if let ::windows::Param::Boxed(value) = param {
                             if !value.0.is_null() {
                                 unsafe { ::std::boxed::Box::from_raw(value.0); }
