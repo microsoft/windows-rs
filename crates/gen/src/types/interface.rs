@@ -81,7 +81,7 @@ impl Interface {
         let name = self.0.gen_name(gen);
         let guid = self.0.gen_guid(gen);
         let abi_name = self.0.gen_abi_name(gen);
-        let intf_phantoms = self.0.gen_phantoms(gen);
+        let struct_phantoms = self.0.gen_phantoms(gen);
         let abi_phantoms = self.0.gen_phantoms(gen);
         let constraints = self.0.gen_constraints(gen);
 
@@ -150,7 +150,7 @@ impl Interface {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             #hidden
-            pub struct #name(::windows::Object, #(#intf_phantoms,)*) where #constraints;
+            pub struct #name(::windows::Object, #(#struct_phantoms,)*) where #constraints;
             unsafe impl<#constraints> ::windows::Interface for #name {
                 type Vtable = #abi_name;
                 const IID: ::windows::Guid = #guid;

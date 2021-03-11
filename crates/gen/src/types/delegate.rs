@@ -36,7 +36,7 @@ impl Delegate {
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
-        let intf_struct_phantoms = self.0.gen_phantoms(gen);
+        let struct_phantoms = self.0.gen_phantoms(gen);
         let abi_phantoms = self.0.gen_phantoms(gen);
         let vtable_phantoms = self.0.gen_phantoms(gen);
         let constraints = self.0.gen_constraints(gen);
@@ -83,7 +83,7 @@ impl Delegate {
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-            pub struct #name(::windows::IUnknown, #(#intf_struct_phantoms,)*) where #constraints;
+            pub struct #name(::windows::IUnknown, #(#struct_phantoms,)*) where #constraints;
             impl<#constraints> #name {
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = #box_name {
