@@ -224,47 +224,51 @@ impl MethodSignature {
     }
 
     pub fn gen_winrt_params(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
-        TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
-            let name = param.param.gen_name();
-            let tokens = param.signature.kind.gen_name(gen);
+        params
+            .iter()
+            .enumerate()
+            .map(|(index, param)| {
+                let name = param.param.gen_name();
+                let tokens = param.signature.kind.gen_name(gen);
 
-            if param.signature.is_array {
-                if param.param.is_input() {
-                    quote! { #name: &[<#tokens as ::windows::RuntimeType>::DefaultType], }
-                } else if param.signature.by_ref {
-                    quote! { #name: &mut ::windows::Array<#tokens>, }
-                } else {
-                    quote! { #name: &mut [<#tokens as ::windows::RuntimeType>::DefaultType], }
-                }
-            } else if param.param.is_input() {
-                if param.is_convertible() {
-                    let tokens = squote::format_ident!("T{}__", index);
+                if param.signature.is_array {
+                    if param.param.is_input() {
+                        quote! { #name: &[<#tokens as ::windows::RuntimeType>::DefaultType], }
+                    } else if param.signature.by_ref {
+                        quote! { #name: &mut ::windows::Array<#tokens>, }
+                    } else {
+                        quote! { #name: &mut [<#tokens as ::windows::RuntimeType>::DefaultType], }
+                    }
+                } else if param.param.is_input() {
+                    if param.is_convertible() {
+                        let tokens = squote::format_ident!("T{}__", index);
+                        quote! { #name: #tokens, }
+                    } else {
+                        let mut signature = quote! {};
+
+                        for _ in 0..param.signature.pointers {
+                            if param.is_const() {
+                                signature.combine(&quote! { *const });
+                            } else {
+                                signature.combine(&quote! { *mut });
+                            }
+                        }
+
+                        signature.combine(&tokens);
+                        quote! { #name: #signature, }
+                    }
+                } else if param.signature.kind.is_nullable() {
+                    quote! { #name: &mut ::std::option::Option<#tokens>, }
+                } else if let ElementType::GenericParam(_) = param.signature.kind {
+                    quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
+                } else if param.signature.pointers > 0 {
+                    let tokens = param.signature.gen_winrt_abi(gen);
                     quote! { #name: #tokens, }
                 } else {
-                    let mut signature = quote! {};
-
-                    for _ in 0..param.signature.pointers {
-                        if param.is_const() {
-                            signature.combine(&quote! { *const });
-                        } else {
-                            signature.combine(&quote! { *mut });
-                        }
-                    }
-
-                    signature.combine(&tokens);
-                    quote! { #name: #signature, }
+                    quote! { #name: &mut #tokens, }
                 }
-            } else if param.signature.kind.is_nullable() {
-                quote! { #name: &mut ::std::option::Option<#tokens>, }
-            } else if let ElementType::GenericParam(_) = param.signature.kind {
-                quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
-            } else if param.signature.pointers > 0 {
-                let tokens = param.signature.gen_winrt_abi(gen);
-                quote! { #name: #tokens, }
-            } else {
-                quote! { #name: &mut #tokens, }
-            }
-        }))
+            })
+            .collect()
     }
 
     pub fn gen_winrt_upcall(&self, inner: TokenStream, gen: &Gen) -> TokenStream {
@@ -324,17 +328,21 @@ impl MethodSignature {
     }
 
     pub fn gen_win32_params(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
-        TokenStream::from_iter(params.iter().enumerate().map(|(index, param)| {
-            let name = param.param.gen_name();
+        params
+            .iter()
+            .enumerate()
+            .map(|(index, param)| {
+                let name = param.param.gen_name();
 
-            if param.is_convertible() {
-                let tokens = squote::format_ident!("T{}__", index);
-                quote! { #name: #tokens, }
-            } else {
-                let tokens = param.gen_win32(gen);
-                quote! { #name: #tokens, }
-            }
-        }))
+                if param.is_convertible() {
+                    let tokens = squote::format_ident!("T{}__", index);
+                    quote! { #name: #tokens, }
+                } else {
+                    let tokens = param.gen_win32(gen);
+                    quote! { #name: #tokens, }
+                }
+            })
+            .collect()
     }
 }
 

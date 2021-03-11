@@ -1706,12 +1706,15 @@ fn gen_nested_types<'a>(
     enclosing_type: &'a tables::TypeDef,
     gen: &Gen,
 ) -> TokenStream {
-    TokenStream::from_iter(enclosing_type.nested_types().iter().enumerate().map(
-        |(index, nested_type)| {
+    enclosing_type
+        .nested_types()
+        .iter()
+        .enumerate()
+        .map(|(index, nested_type)| {
             let nested_name = format!("{}_{}", enclosing_name, index);
             Struct(*nested_type).gen_struct(&nested_name, gen)
-        },
-    ))
+        })
+        .collect()
 }
 
 #[cfg(test)]
