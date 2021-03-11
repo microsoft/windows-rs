@@ -48,7 +48,7 @@ impl Enum {
 
         // WinRT enums don't have the flags attribute but are paritioned merely based
         // on whether they are signed.
-        let bitwise = matches!( underlying_type ,            ElementType::U32);
+        let bitwise = matches!(underlying_type, ElementType::U32);
 
         // Win32 enums sadly don't use unsigned values uniformly so we need to rely
         // on the flags attribute.

@@ -250,7 +250,7 @@ impl Struct {
                 .iter()
                 .enumerate()
                 .map(|(index, (_, signature, name))| {
-                    let is_callback = matches!(signature.kind,  ElementType::Callback(_));
+                    let is_callback = matches!(signature.kind, ElementType::Callback(_));
 
                     if is_callback && signature.pointers == 0 {
                         quote! {
@@ -397,11 +397,7 @@ impl Struct {
                 impl BOOL {
                     #[inline]
                     pub fn as_bool(self) -> bool {
-                        if self.0 == 0 {
-                            false
-                        } else {
-                            true
-                        }
+                        !(self.0 == 0)
                     }
                     #[inline]
                     pub fn ok(self) -> ::windows::Result<()> {
