@@ -366,13 +366,7 @@ impl MethodParam {
         // https://github.com/microsoft/windows-rs/issues/212
 
         if self.signature.is_array {
-            if self.param.is_input() {
-                quote! { ::std::mem::transmute_copy(&#name) }
-            } else if self.signature.by_ref {
-                quote! { ::std::mem::transmute_copy(&#name) }
-            } else {
-                quote! { ::std::mem::transmute_copy(&#name) }
-            }
+            quote! { ::std::mem::transmute_copy(&#name) }
         } else if self.param.is_input() {
             if self.signature.kind.is_primitive() {
                 quote! { #name }
@@ -413,9 +407,9 @@ impl MethodParam {
             } else {
                 quote! { ::std::mem::transmute(#name) }
             }
-        } else if self.signature.kind.is_blittable() {
-            quote! { #name }
-        } else if self.signature.pointers > 0 && !self.signature.kind.is_nullable() {
+        } else if self.signature.kind.is_blittable()
+            || (self.signature.pointers > 0 && !self.signature.kind.is_nullable())
+        {
             quote! { #name }
         } else {
             quote! { ::windows::Abi::set_abi(#name) }

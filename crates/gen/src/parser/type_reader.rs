@@ -45,7 +45,7 @@ impl TypeReader {
     ///
     /// This function panics if the if the files where the windows metadata are stored cannot be read.
     fn from_iter<I: IntoIterator<Item = PathBuf>>(files: I) -> Self {
-        let mut files: Vec<File> = files.into_iter().map(|file| File::new(file)).collect();
+        let mut files: Vec<File> = files.into_iter().map(File::new).collect();
 
         if !files.iter().any(|file| file.name.starts_with("Windows.")) {
             files.push(File::from_bytes(
