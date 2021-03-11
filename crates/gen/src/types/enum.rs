@@ -24,7 +24,7 @@ impl Enum {
     }
 
     pub fn underlying_type(&self) -> ElementType {
-        for field in self.0.fields() {
+        if let Some(field) = self.0.fields().next() {
             if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
@@ -48,14 +48,11 @@ impl Enum {
 
         // WinRT enums don't have the flags attribute but are paritioned merely based
         // on whether they are signed.
-        let bitwise = match underlying_type {
-            ElementType::U32 => true,
-            _ => false,
-        };
+        let bitwise = matches!(underlying_type, ElementType::U32);
 
         // Win32 enums sadly don't use unsigned values uniformly so we need to rely
         // on the flags attribute.
-        let bitwise = if bitwise || self.0.has_attribute("System", "FlagsAttribute") {
+        let bitwise = if bitwise || self.0.has_attribute("FlagsAttribute") {
             quote! {
                 // TODO: add BitOrAssign and BitAndAssign
                 impl ::std::ops::BitOr for #name {

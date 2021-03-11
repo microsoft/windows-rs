@@ -17,7 +17,7 @@ pub fn delay_load(
         }
 
         if let Some(address) = GetProcAddress(library, function) {
-            Ok(std::mem::transmute(address))
+            Ok(address as _)
         } else {
             FreeLibrary(library);
             Err(ErrorCode::from_thread())

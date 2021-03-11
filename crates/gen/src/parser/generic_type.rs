@@ -27,10 +27,7 @@ impl GenericType {
 
     pub fn from_type_def(def: tables::TypeDef, generics: Vec<ElementType>) -> Self {
         if generics.is_empty() {
-            let generics = def
-                .generics()
-                .map(|generic| ElementType::GenericParam(generic))
-                .collect();
+            let generics = def.generics().map(ElementType::GenericParam).collect();
 
             Self { def, generics }
         } else {
@@ -39,8 +36,7 @@ impl GenericType {
     }
 
     pub fn definition(&self) -> Vec<ElementType> {
-        let mut definition = Vec::new();
-        definition.push(ElementType::from_type_def(self.def, Vec::new()));
+        let mut definition = vec![ElementType::from_type_def(self.def, Vec::new())];
 
         for generic in &self.generics {
             definition.append(&mut generic.definition());
@@ -151,17 +147,23 @@ impl GenericType {
     }
 
     pub fn gen_phantoms(&self, gen: &Gen) -> TokenStream {
-        TokenStream::from_iter(self.generics.iter().map(|g| {
-            let g = g.gen(gen);
-            quote! { ::std::marker::PhantomData::<#g>, }
-        }))
+        self.generics
+            .iter()
+            .map(|g| {
+                let g = g.gen(gen);
+                quote! { ::std::marker::PhantomData::<#g>, }
+            })
+            .collect()
     }
 
     pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
-        TokenStream::from_iter(self.generics.iter().map(|g| {
-            let g = g.gen(gen);
-            quote! { #g: ::windows::RuntimeType + 'static, }
-        }))
+        self.generics
+            .iter()
+            .map(|g| {
+                let g = g.gen(gen);
+                quote! { #g: ::windows::RuntimeType + 'static, }
+            })
+            .collect()
     }
 
     pub fn interface_signature(&self) -> String {

@@ -4,7 +4,7 @@ macros::table!(Constant);
 impl Constant {
     pub fn value_type(&self) -> ElementType {
         let code = self.reader.u32(self.row, 0);
-        ElementType::from_code(code).expect(&format!("Unexpected ElementType: {:x}", code))
+        ElementType::from_code(code).unwrap_or_else(|| panic!("Unexpected ElementType: {:x}", code))
     }
 
     pub fn value_blob(&self) -> Blob {

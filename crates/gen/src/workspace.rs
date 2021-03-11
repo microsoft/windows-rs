@@ -27,7 +27,7 @@ fn workspace_dir() -> std::path::PathBuf {
             + 1;
 
         let ending_index = json[beginning_index..]
-            .find("\"")
+            .find('"')
             .expect("Cargo metadata ended before closing '\"' in `workspace_root` value");
 
         let workspace_root = &json[beginning_index..beginning_index + ending_index];
