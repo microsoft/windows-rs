@@ -5,7 +5,7 @@
 - Much smaller code gen, leading to faster build times.
 - The Windows crate now uses generated bindings rather than hand-written bindings internally.
 - Improved error handling functions.
-- Improved support for common types like BOOL, BSTR, PWSTR, PSTR.
+- Improved support for common types like `BOOL`, `BSTR`, `PWSTR`, `PSTR`.
 - Updated metadata providing many fixes and improvements to Win32 APIs.
 - Simpler internal metadata representation to support a broader set of type systems more naturally.
 - Many more improvements and fixes.
