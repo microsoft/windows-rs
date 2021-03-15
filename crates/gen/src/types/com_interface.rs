@@ -188,6 +188,18 @@ impl ComInterface {
                 });
         }
 
+        let send_sync = if matches!(
+            self.0.def.full_name(),
+            ("Windows.Win32.WinRT", "IRestrictedErrorInfo")
+        ) {
+            quote! {
+                unsafe impl ::std::marker::Send for #name {}
+                unsafe impl ::std::marker::Sync for #name {}
+            }
+        } else {
+            quote! {}
+        };
+
         quote! {
             #[repr(transparent)]
             #[allow(non_camel_case_types)]
@@ -205,6 +217,7 @@ impl ComInterface {
                 #(#methods)*
             }
             #conversions
+            #send_sync
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(
