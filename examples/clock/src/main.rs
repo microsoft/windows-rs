@@ -427,8 +427,8 @@ impl Window {
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
-                Default::default(),
-                Default::default(),
+                HWND(0),
+                HMENU(0),
                 instance,
                 self as *mut _ as _,
             );
