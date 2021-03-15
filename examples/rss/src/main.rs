@@ -1,7 +1,4 @@
-use bindings::{
-    windows::foundation::Uri,
-    windows::web::syndication::SyndicationClient,
-};
+use bindings::{windows::foundation::Uri, windows::web::syndication::SyndicationClient};
 
 fn main() -> windows::Result<()> {
     let uri = Uri::create_uri("https://kennykerr.ca/feed")?;
