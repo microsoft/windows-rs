@@ -356,7 +356,7 @@ impl Window {
 
     fn message_handler(&mut self, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
         unsafe {
-            match message as i32 {
+            match message {
                 WM_PAINT => {
                     let mut ps = PAINTSTRUCT::default();
                     BeginPaint(self.handle, &mut ps);
@@ -404,7 +404,10 @@ impl Window {
                 h_cursor: LoadCursorA(HINSTANCE(0), PSTR(IDC_ARROW as *mut u8)),
                 h_instance: instance,
                 lpsz_class_name: PSTR(b"window\0".as_ptr() as _),
-                style: (CS_HREDRAW | CS_VREDRAW) as u32,
+
+                // TODO: https://github.com/microsoft/win32metadata/issues/352
+                // TODO: https://github.com/microsoft/win32metadata/issues/356
+                style: (WINDOWSCLASS_STYLES::CS_HREDRAW | WINDOWSCLASS_STYLES::CS_VREDRAW).0,
                 lpfn_wnd_proc: Some(Self::wndproc),
                 ..Default::default()
             };
@@ -412,17 +415,20 @@ impl Window {
             let atom = RegisterClassA(&wc);
             debug_assert!(atom != 0);
 
+            // TODO: https://github.com/microsoft/win32metadata/issues/353
+            const CW_USEDEFAULT: i32 = -2147483648;
+
             let handle = CreateWindowExA(
-                0,
+                Default::default(),
                 "window",
                 "Sample Window",
-                WS_OVERLAPPEDWINDOW | WS_VISIBLE,
+                WINDOWS_STYLE::WS_OVERLAPPEDWINDOW | WINDOWS_STYLE::WS_VISIBLE,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
-                HWND(0),
-                HMENU(0),
+                Default::default(),
+                Default::default(),
                 instance,
                 self as *mut _ as _,
             );
@@ -435,7 +441,16 @@ impl Window {
                 if self.visible {
                     self.render()?;
 
-                    while PeekMessageA(&mut message, HWND(0), 0, 0, PM_REMOVE as u32).into() {
+                    // TODO: https://github.com/microsoft/win32metadata/issues/331
+                    while PeekMessageA(
+                        &mut message,
+                        HWND(0),
+                        0,
+                        0,
+                        PeekMessage_wRemoveMsg::PM_REMOVE,
+                    )
+                    .into()
+                    {
                         if message.message == WM_QUIT as u32 {
                             return Ok(());
                         }
@@ -463,9 +478,12 @@ impl Window {
                 let cs = lparam.0 as *const CREATESTRUCTA;
                 let this = (*cs).lp_create_params as *mut Self;
                 (*this).handle = window;
-                SetWindowLongPtrA(window, GWLP_USERDATA, this as _);
+
+                // TODO: https://github.com/microsoft/win32metadata/issues/331
+                SetWindowLongPtrA(window, GetWindowLongPtr_nIndex::GWLP_USERDATA.0, this as _);
             } else {
-                let this = GetWindowLongPtrA(window, GWLP_USERDATA) as *mut Self;
+                let this = GetWindowLongPtrA(window, GetWindowLongPtr_nIndex::GWLP_USERDATA.0)
+                    as *mut Self;
 
                 if !this.is_null() {
                     return (*this).message_handler(message, wparam, lparam);

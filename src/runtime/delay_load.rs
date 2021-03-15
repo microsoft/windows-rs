@@ -1,7 +1,7 @@
 use crate::*;
 
 use bindings::windows::win32::system_services::{
-    FreeLibrary, GetProcAddress, LoadLibraryExW, HANDLE,
+    FreeLibrary, GetProcAddress, LoadLibraryExW, LoadLibraryEx_dwFlags, HANDLE,
 };
 
 pub fn delay_load(
@@ -10,7 +10,8 @@ pub fn delay_load(
     flags: u32,
 ) -> std::result::Result<RawPtr, ErrorCode> {
     unsafe {
-        let library = LoadLibraryExW(library, HANDLE(0), flags);
+        // TODO: https://github.com/microsoft/win32metadata/issues/331
+        let library = LoadLibraryExW(library, HANDLE(0), LoadLibraryEx_dwFlags(flags));
 
         if library == 0 {
             return Err(ErrorCode::from_thread());

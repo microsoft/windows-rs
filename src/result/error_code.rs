@@ -1,9 +1,8 @@
 use crate::*;
 
 use bindings::{
-    windows::win32::debug::{FormatMessageW, GetLastError},
+    windows::win32::debug::{FormatMessageW, GetLastError, FORMAT_MESSAGE_OPTIONS},
     windows::win32::system_services::PWSTR,
-    windows::win32::windows_programming::FORMAT_MESSAGE_OPTIONS,
 };
 
 /// A primitive error code value returned by most COM functions. An `ErrorCode` is sometimes called an `HRESULT`.

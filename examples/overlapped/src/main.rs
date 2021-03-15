@@ -14,12 +14,13 @@ fn main() -> windows::Result<()> {
             FILE_SHARE_FLAGS::FILE_SHARE_READ,
             std::ptr::null_mut(),
             FILE_CREATE_FLAGS::OPEN_EXISTING,
-            FILE_FLAGS_AND_ATTRIBUTES(0x40000000), // https://github.com/microsoft/win32metadata/issues/317
+            // TODO: https://github.com/microsoft/win32metadata/issues/317
+            FILE_FLAGS_AND_ATTRIBUTES(0x40000000),
             HANDLE(0),
         );
 
         if file.0 == -1 {
-            // https://github.com/microsoft/win32metadata/issues/316
+            // TODO: https://github.com/microsoft/win32metadata/issues/316
             windows::ErrorCode::from_thread().ok()?;
         }
 
@@ -51,7 +52,7 @@ fn main() -> windows::Result<()> {
         }
 
         let wait_ok = WaitForSingleObject(overlapped.h_event, 2000);
-        assert!(wait_ok == 0); // https://github.com/microsoft/win32metadata/issues/77
+        assert!(wait_ok == WAIT_RETURN_CAUSE::WAIT_OBJECT_0);
 
         let mut bytes_copied = 0;
         let overlapped_ok = GetOverlappedResult(file, &mut overlapped, &mut bytes_copied, false);
