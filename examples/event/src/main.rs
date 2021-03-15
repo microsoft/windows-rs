@@ -1,5 +1,7 @@
 use bindings::{
-    windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject, PWSTR},
+    windows::win32::system_services::{
+        CreateEventW, SetEvent, WaitForSingleObject, PWSTR, WAIT_RETURN_CAUSE,
+    },
     windows::win32::windows_programming::CloseHandle,
 };
 
@@ -12,7 +14,7 @@ fn main() -> windows::Result<()> {
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
-        assert!(result == 0); // https://github.com/microsoft/win32metadata/issues/77
+        assert!(result == WAIT_RETURN_CAUSE::WAIT_OBJECT_0);
 
         CloseHandle(event).ok()
     }

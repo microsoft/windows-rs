@@ -6,20 +6,21 @@ use test_win32::{
     windows::win32::direct3d_hlsl::D3DCOMPILER_DLL,
     windows::win32::display_devices::RECT,
     windows::win32::dxgi::{
-        CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_FORMAT, DXGI_MODE_DESC,
-        DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
+        CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_ERROR_INVALID_CALL, DXGI_FORMAT,
+        DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
     },
     windows::win32::game_mode::HasExpandedResources,
     windows::win32::ldap::ldapsearch,
     windows::win32::security::ACCESS_MODE,
     windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
     windows::win32::system_services::{
-        CreateEventW, SetEvent, WaitForSingleObject, BOOL, DXGI_ERROR_INVALID_CALL, HANDLE, PSTR,
-        PWSTR, WM_KEYUP,
+        CreateEventW, SetEvent, WaitForSingleObject, BOOL, HANDLE, PSTR, PWSTR, WAIT_RETURN_CAUSE,
     },
     windows::win32::ui_animation::{UIAnimationManager, UIAnimationTransitionLibrary},
     windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
-    windows::win32::windows_and_messaging::{CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW},
+    windows::win32::windows_and_messaging::{
+        CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP,
+    },
     windows::win32::windows_color_system::WhitePoint,
     windows::win32::windows_programming::CloseHandle,
 };
@@ -109,7 +110,7 @@ fn size32() {
 
 #[test]
 fn constant() {
-    assert!(WM_KEYUP == 257i32);
+    assert!(WM_KEYUP == 257u32);
     assert!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA == 1f32);
     assert!(UIA_ScrollPatternNoScroll == -1f64);
     assert!(D3DCOMPILER_DLL == "d3dcompiler_47.dll");
@@ -129,7 +130,7 @@ fn function() -> windows::Result<()> {
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
-        assert!(result == 0); // https://github.com/microsoft/win32metadata/issues/77
+        assert!(result == WAIT_RETURN_CAUSE::WAIT_OBJECT_0);
 
         CloseHandle(event).ok()?;
         Ok(())
@@ -261,7 +262,7 @@ fn onecore_imports() -> windows::Result<()> {
                     .as_wide()
                     .as_ptr() as _,
             ),
-            0,
+            Default::default(),
             0,
             &mut uri,
         )

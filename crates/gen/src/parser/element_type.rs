@@ -589,7 +589,7 @@ mod tests {
 
     #[test]
     fn test_win32_callback() {
-        let t = TypeReader::get().resolve_type("Windows.Win32.MenusAndResources", "WNDENUMPROC");
+        let t = TypeReader::get().resolve_type("Windows.Win32.WindowsAndMessaging", "WNDENUMPROC");
         let d = t.definition();
         assert_eq!(d.len(), 1);
         assert_eq!(d[0].name(), "WNDENUMPROC");

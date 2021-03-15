@@ -18,15 +18,12 @@ fn main() {
             CreateDXGIFactory1, IDXGIDevice, IDXGIFactory2, IDXGIFactory7, IDXGIOutput, IDXGISurface,
             IDXGISwapChain1, DXGI_FORMAT, DXGI_PRESENT_TEST, DXGI_RGBA, DXGI_SAMPLE_DESC,
             DXGI_SWAP_CHAIN_DESC1, DXGI_SWAP_CHAIN_FULLSCREEN_DESC, DXGI_SWAP_EFFECT,
-            DXGI_USAGE_RENDER_TARGET_OUTPUT,
+            DXGI_USAGE_RENDER_TARGET_OUTPUT, DXGI_ERROR_UNSUPPORTED,
         },
         windows::win32::gdi::{BeginPaint, EndPaint, ValidateRect, PAINTSTRUCT},
-        windows::win32::menus_and_resources::{LoadCursorA, HMENU},
         windows::win32::system_services::{
-            GetModuleHandleA, CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, DXGI_ERROR_INVALID_CALL,
-            DXGI_ERROR_UNSUPPORTED, DXGI_STATUS_OCCLUDED, GWLP_USERDATA, HINSTANCE, IDC_ARROW, LRESULT,
-            PM_REMOVE, PSTR, SIZE_MINIMIZED, WM_ACTIVATE, WM_DESTROY, WM_DISPLAYCHANGE, WM_NCCREATE,
-            WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, WS_OVERLAPPEDWINDOW, WS_VISIBLE,
+            GetModuleHandleA, DXGI_STATUS_OCCLUDED, HINSTANCE, LRESULT,
+            PSTR, WINDOWSCLASS_STYLES,
         },
         windows::win32::ui_animation::{
             IUIAnimationManager, IUIAnimationTransition, IUIAnimationTransitionLibrary,
@@ -36,7 +33,8 @@ fn main() {
         windows::win32::windows_and_messaging::{
             CreateWindowExA, DefWindowProcA, DispatchMessageA, GetMessageA, PeekMessageA,
             PostQuitMessage, RegisterClassA, CREATESTRUCTA, HWND, LPARAM, MINMAXINFO, MSG, WNDCLASSA,
-            WPARAM,
+            WPARAM, LoadCursorA, IDC_ARROW, SIZE_MINIMIZED, WM_DESTROY, WM_ACTIVATE, WM_DISPLAYCHANGE,
+            WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, GetWindowLongPtr_nIndex,
         },
         windows::win32::windows_programming::{
             GetLocalTime, QueryPerformanceCounter, QueryPerformanceFrequency,
