@@ -1,0 +1,9 @@
+[package]
+name = "rss"
+version = "0.4.0"
+authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
+edition = "2018"
+
+[dependencies]
+bindings = { package = "rss_bindings", path = "bindings" }
+windows = { path = "../.." }
