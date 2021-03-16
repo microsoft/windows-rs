@@ -358,6 +358,7 @@ impl ElementType {
             Self::Struct(t) => t.dependencies(),
             Self::Delegate(t) => t.dependencies(),
             Self::Callback(t) => t.dependencies(),
+            Self::Array((signature, _)) => signature.dependencies(),
             _ => Vec::new(),
         }
     }
@@ -371,6 +372,7 @@ impl ElementType {
             Self::Delegate(t) => t.definition(),
             Self::Callback(t) => t.definition(),
             Self::Enum(t) => t.definition(),
+            Self::Array((signature, _)) => signature.definition(),
             // TODO: find a cleaner way to map this dependency
             Self::Matrix3x2 => {
                 vec![TypeReader::get().resolve_type("Windows.Foundation.Numerics", "Matrix3x2")]

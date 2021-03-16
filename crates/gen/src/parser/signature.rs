@@ -45,6 +45,10 @@ impl Signature {
         self.kind.definition()
     }
 
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        self.kind.dependencies()
+    }
+
     pub fn is_blittable(&self) -> bool {
         self.pointers > 0 || self.kind.is_blittable()
     }
