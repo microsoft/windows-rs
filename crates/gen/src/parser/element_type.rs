@@ -2,7 +2,6 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum ElementType {
-    NotYetSupported,
     Void,
     Bool,
     Char,
@@ -26,6 +25,7 @@ pub enum ElementType {
     Matrix3x2,
     TypeName,
     GenericParam(tables::GenericParam),
+    Array((Box<Signature>, u32)),
 
     Function(types::Function),
     Constant(types::Constant),
@@ -135,7 +135,13 @@ impl ElementType {
                 }
             }
             0x13 => generics[blob.read_unsigned() as usize].clone(),
-            0x14 => Self::NotYetSupported, // arrays
+            0x14 => {
+                let kind = Signature::from_blob(blob, generics).unwrap();
+                let _rank = blob.read_unsigned();
+                let _bounds_count = blob.read_unsigned();
+                let bounds = blob.read_unsigned();
+                Self::Array((Box::new(kind), bounds))
+            }
             0x15 => {
                 let def = GenericType::from_blob(blob, generics);
                 match def.def.kind() {
@@ -208,8 +214,10 @@ impl ElementType {
                 let numerics = gen.namespace("Windows.Foundation.Numerics");
                 quote! { #numerics Matrix3x2 }
             }
-            Self::NotYetSupported => {
-                quote! { ::windows::NOT_YET_SUPPORTED_TYPE }
+            Self::Array((kind, len)) => {
+                let name = kind.gen_win32(gen);
+                let len = Literal::u32_unsuffixed(*len);
+                quote! { [#name; #len] }
             }
             Self::GenericParam(generic) => generic.gen_name(),
             Self::Function(t) => t.gen_name(),
@@ -261,8 +269,10 @@ impl ElementType {
                 let numerics = gen.namespace("Windows.Foundation.Numerics");
                 quote! { #numerics Matrix3x2 }
             }
-            Self::NotYetSupported => {
-                quote! { ::windows::NOT_YET_SUPPORTED_TYPE }
+            Self::Array((kind, len)) => {
+                let name = kind.gen_win32_abi(gen);
+                let len = Literal::u32_unsuffixed(*len);
+                quote! { [#name; #len] }
             }
             Self::GenericParam(generic) => {
                 let name = generic.gen_name();
@@ -304,6 +314,11 @@ impl ElementType {
             | Self::ISize
             | Self::USize => quote! { 0 },
             Self::F32 | Self::F64 => quote! { 0.0 },
+            Self::Array((kind, len)) => {
+                let default = kind.gen_win32_default();
+                let len = Literal::u32_unsuffixed(*len);
+                quote! { [#default; #len] }
+            }
             _ => quote! { ::std::default::Default::default() },
         }
     }
@@ -343,6 +358,7 @@ impl ElementType {
             Self::Struct(t) => t.dependencies(),
             Self::Delegate(t) => t.dependencies(),
             Self::Callback(t) => t.dependencies(),
+            Self::Array((signature, _)) => signature.dependencies(),
             _ => Vec::new(),
         }
     }
@@ -356,6 +372,7 @@ impl ElementType {
             Self::Delegate(t) => t.definition(),
             Self::Callback(t) => t.definition(),
             Self::Enum(t) => t.definition(),
+            Self::Array((signature, _)) => signature.definition(),
             // TODO: find a cleaner way to map this dependency
             Self::Matrix3x2 => {
                 vec![TypeReader::get().resolve_type("Windows.Foundation.Numerics", "Matrix3x2")]
