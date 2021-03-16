@@ -17,7 +17,7 @@ pub struct TypeReader {
     nested: BTreeMap<Row, BTreeMap<String, Row>>,
 }
 
-#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 enum TypeRow {
     TypeDef(Row),
     Function(Row),
@@ -114,6 +114,11 @@ impl TypeReader {
 
                 for field in reader.list(def, TableIndex::Field, 4) {
                     let name = reader.str(field, 1);
+
+                    // TODO: https://github.com/microsoft/win32metadata/issues/361
+                    if name == "PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION" {
+                        continue;
+                    }
 
                     types
                         .entry(namespace.to_string())

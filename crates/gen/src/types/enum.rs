@@ -74,13 +74,7 @@ impl Enum {
             quote! {}
         };
 
-        let underlying_type = match underlying_type {
-            ElementType::I32 => format_ident!("i32"),
-            ElementType::U32 => format_ident!("u32"),
-            ElementType::U16 => format_ident!("u16"),
-            _ => unexpected!(),
-        };
-
+        let underlying_type = underlying_type.gen_name(gen);
         let mut last: Option<ConstantValue> = None;
 
         let fields = self.0.fields().filter_map(|field| {
