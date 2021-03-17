@@ -1,6 +1,6 @@
 use bindings::windows::win32;
-use bindings::windows::win32::system_services::{BOOL, PWSTR};
 use win32::intl;
+use win32::system_services::{BOOL, PWSTR};
 
 fn main() -> windows::Result<()> {
     let input = std::env::args()
@@ -58,6 +58,7 @@ fn main() -> windows::Result<()> {
         // Get the corrective action
         let mut action = intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_NONE;
         unsafe { error.get_CorrectiveAction(&mut action).ok()? };
+        println!("{:?}", action);
 
         match action {
             intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_DELETE => {
