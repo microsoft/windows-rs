@@ -5,40 +5,6 @@ use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
 use std::iter::FromIterator;
 
-#[proc_macro]
-pub fn table(name: TokenStream) -> TokenStream {
-    let ident = syn::parse_macro_input!(name as syn::Ident);
-
-    quote!(
-        #[derive(Copy, Clone)]
-        pub struct #ident {
-            pub reader: &'static super::TypeReader,
-            pub row: super::Row,
-        }
-
-        impl PartialEq for #ident {
-            fn eq(&self, other: &Self) -> bool {
-                self.row == other.row
-            }
-        }
-
-        impl Eq for #ident {}
-
-        impl Ord for #ident {
-            fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-                self.row.cmp(&other.row)
-            }
-        }
-
-        impl PartialOrd for #ident {
-            fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-                Some(self.cmp(other))
-            }
-        }
-    )
-    .into()
-}
-
 #[proc_macro_attribute]
 pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
     let args = syn::parse_macro_input!(args as syn::AttributeArgs);
@@ -70,11 +36,11 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
         ));
 
         decodes.push(quote!(
-            #enumerator => Self::#name( tables::#name{ reader, row:Row::new(code.1, TableIndex::#table, file) }),
+            #enumerator => Self::#name( tables::#name(Row::new(code.1, TableIndex::#table, file))),
         ));
 
         encodes.push(quote!(
-            Self::#name(value) => ((value.row.index + 1) << #bits) | #enumerator,
+            Self::#name(value) => ((value.0.row + 1) << #bits) | #enumerator,
         ));
 
         enumerator += 1;
@@ -90,7 +56,7 @@ pub fn type_code(args: TokenStream, input: TokenStream) -> TokenStream {
             #variants
         }
         impl Decode for #name {
-            fn decode(reader: &'static TypeReader, code: u32, file:u16) -> Self {
+            fn decode(file: &'static File, code: u32) -> Self {
                 let code = (code & ((1 << #bits) - 1), (code >> #bits) - 1);
                 match code.0 {
                     #decodes

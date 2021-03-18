@@ -1,4 +1,5 @@
 use super::*;
+use std::cmp::Ordering;
 
 #[derive(Default)]
 pub struct TableData {
@@ -82,7 +83,172 @@ impl TableData {
     }
 }
 
+impl std::fmt::Debug for File {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.name)
+    }
+}
+
 impl File {
+    pub fn u32(&self, row: u32, table: TableIndex, column: u32) -> u32 {
+        let table = &self.tables[table as usize];
+        let offset = table.data + row * table.row_size + table.columns[column as usize].0;
+        match table.columns[column as usize].1 {
+            1 => self.bytes.copy_as::<u8>(offset) as u32,
+            2 => self.bytes.copy_as::<u16>(offset) as u32,
+            4 => self.bytes.copy_as::<u32>(offset) as u32,
+            _ => self.bytes.copy_as::<u64>(offset) as u32,
+        }
+    }
+
+    pub fn str(&'static self, row: u32, table: TableIndex, column: u32) -> &'static str {
+        let offset = (self.strings + self.u32(row, table, column)) as usize;
+        let last = self.bytes[offset..]
+            .iter()
+            .position(|c| *c == b'\0')
+            .unwrap();
+        std::str::from_utf8(&self.bytes[offset..offset + last]).unwrap()
+    }
+
+    pub(crate) fn decode<T: Decode>(&'static self, row: u32, table: TableIndex, column: u32) -> T {
+        T::decode(self, self.u32(row, table, column))
+    }
+
+    pub(crate) fn list(
+        &'static self,
+        row: &Row,
+        table: TableIndex,
+        column: u32,
+    ) -> impl Iterator<Item = Row> {
+        let first = self.u32(row.row, row.table, column) - 1;
+
+        let last = if row.row + 1 < self.tables[row.table as usize].row_count {
+            self.u32(row.row + 1, row.table, column) - 1
+        } else {
+            self.tables[table as usize].row_count
+        };
+
+        (first..last).map(move |value| Row::new(value, table, self))
+    }
+
+    pub fn blob(&'static self, row: u32, table: TableIndex, column: u32) -> Blob {
+        let offset = (self.blobs + self.u32(row, table, column)) as usize;
+        let initial_byte = self.bytes[offset];
+        let (blob_size, blob_size_bytes) = match initial_byte >> 5 {
+            0..=3 => (initial_byte & 0x7f, 1),
+            4..=5 => (initial_byte & 0x3f, 2),
+            6 => (initial_byte & 0x1f, 4),
+            _ => unexpected!(),
+        };
+        let mut blob_size = blob_size as usize;
+        for byte in &self.bytes[offset + 1..offset + blob_size_bytes] {
+            blob_size = blob_size.checked_shl(8).unwrap_or(0) + (*byte as usize);
+        }
+        Blob {
+            file: self,
+            offset: offset + blob_size_bytes,
+            size: blob_size,
+        }
+    }
+
+    pub(crate) fn equal_range(
+        &'static self,
+        table: TableIndex,
+        column: u32,
+        value: u32,
+    ) -> impl Iterator<Item = Row> {
+        let (first, last) = self.equal_range_of(
+            table,
+            0,
+            self.tables[table as usize].row_count,
+            column,
+            value,
+        );
+
+        (first..last).map(move |row| Row::new(row, table, self))
+    }
+
+    fn lower_bound_of(
+        &self,
+        table: TableIndex,
+        mut first: u32,
+        last: u32,
+        column: u32,
+        value: u32,
+    ) -> u32 {
+        let mut count = last - first;
+        while count > 0 {
+            let count2 = count / 2;
+            let middle = first + count2;
+            if self.u32(middle, table, column) < value {
+                first = middle + 1;
+                count -= count2 + 1;
+            } else {
+                count = count2;
+            }
+        }
+        first
+    }
+
+    pub(crate) fn upper_bound_of(
+        &self,
+        table: TableIndex,
+        mut first: u32,
+        last: u32,
+        column: u32,
+        value: u32,
+    ) -> u32 {
+        let mut count = last - first;
+
+        while count > 0 {
+            let count2 = count / 2;
+            let middle = first + count2;
+            if value < self.u32(middle, table, column) {
+                count = count2
+            } else {
+                first = middle + 1;
+                count -= count2 + 1;
+            }
+        }
+
+        first
+    }
+
+    fn equal_range_of(
+        &self,
+        table: TableIndex,
+        mut first: u32,
+        mut last: u32,
+        column: u32,
+        value: u32,
+    ) -> (u32, u32) {
+        let mut count = last - first;
+        loop {
+            if count == 0 {
+                last = first;
+                break;
+            }
+            let count2 = count / 2;
+            let middle = first + count2;
+            let middle_value = self.u32(middle, table, column);
+            match middle_value.cmp(&value) {
+                Ordering::Less => {
+                    first = middle + 1;
+                    count -= count2 + 1;
+                }
+                Ordering::Greater => count = count2,
+                Ordering::Equal => {
+                    let first2 = self.lower_bound_of(table, first, middle, column, value);
+                    first += count;
+                    last = self.upper_bound_of(table, middle + 1, first, column, value);
+                    first = first2;
+                    break;
+                }
+            }
+        }
+        (first, last)
+    }
+
     pub(crate) fn from_bytes(name: String, bytes: Vec<u8>) -> Self {
         let mut file = Self {
             name,

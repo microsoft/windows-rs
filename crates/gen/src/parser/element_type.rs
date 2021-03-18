@@ -41,15 +41,15 @@ pub enum ElementType {
 impl ElementType {
     pub fn row(&self) -> Row {
         match self {
-            Self::Function(def) => def.0.row,
-            Self::Constant(def) => def.0.row,
-            Self::Class(def) => def.0.def.row,
-            Self::Interface(def) => def.0.def.row,
-            Self::ComInterface(def) => def.0.def.row,
-            Self::Enum(def) => def.0.row,
-            Self::Struct(def) => def.0.row,
-            Self::Delegate(def) => def.0.def.row,
-            Self::Callback(def) => def.0.row,
+            Self::Function(def) => def.0 .0,
+            Self::Constant(def) => def.0 .0,
+            Self::Class(def) => def.0.def.0,
+            Self::Interface(def) => def.0.def.0,
+            Self::ComInterface(def) => def.0.def.0,
+            Self::Enum(def) => def.0 .0,
+            Self::Struct(def) => def.0 .0,
+            Self::Delegate(def) => def.0.def.0,
+            Self::Callback(def) => def.0 .0,
             _ => unexpected!(),
         }
     }
@@ -116,7 +116,7 @@ impl ElementType {
 
         match code {
             0x11 | 0x12 => {
-                let code = TypeDefOrRef::decode(blob.reader, blob.read_unsigned(), blob.file_index);
+                let code = TypeDefOrRef::decode(blob.file, blob.read_unsigned());
 
                 match code {
                     TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {

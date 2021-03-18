@@ -2,15 +2,14 @@ use super::*;
 use std::convert::TryInto;
 
 pub struct Blob {
-    pub reader: &'static TypeReader,
-    pub file_index: u16,
+    pub file: &'static File,
     pub offset: usize,
     pub size: usize,
 }
 
 impl Blob {
     fn bytes(&self) -> &'static [u8] {
-        &self.reader.files[self.file_index as usize].bytes[self.offset..]
+        &self.file.bytes[self.offset..]
     }
 
     pub fn peek_unsigned(&self) -> (u32, usize) {
@@ -56,11 +55,7 @@ impl Blob {
                 break;
             } else {
                 self.offset += offset;
-                mods.push(TypeDefOrRef::decode(
-                    self.reader,
-                    self.read_unsigned(),
-                    self.file_index,
-                ))
+                mods.push(TypeDefOrRef::decode(self.file, self.read_unsigned()))
             }
         }
 
@@ -70,14 +65,11 @@ impl Blob {
     pub fn read_str(&mut self) -> &'static str {
         let len = self.read_unsigned() as usize;
         self.offset += len;
-        std::str::from_utf8(
-            &self.reader.files[self.file_index as usize].bytes[self.offset - len..self.offset],
-        )
-        .unwrap()
+        std::str::from_utf8(&self.file.bytes[self.offset - len..self.offset]).unwrap()
     }
 
     pub fn read_utf16(&self) -> String {
-        let bytes = &self.reader.files[self.file_index as usize].bytes[self.offset..];
+        let bytes = &self.file.bytes[self.offset..];
         if bytes.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
             let bytes = bytes
                 .chunks_exact(2)

@@ -1,9 +1,11 @@
 use super::*;
-macros::table!(Attribute);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct Attribute(pub Row);
 
 impl Attribute {
     pub fn constructor(&self) -> AttributeType {
-        self.reader.decode(self.row, 1)
+        self.0.decode(1)
     }
 
     pub fn name(&self) -> &'static str {
@@ -16,14 +18,8 @@ impl Attribute {
 
     pub fn args(&self) -> Vec<(String, ConstantValue)> {
         let (mut sig, mut values) = match self.constructor() {
-            AttributeType::MethodDef(method) => (
-                self.reader.blob(method.row, 4),
-                self.reader.blob(self.row, 2),
-            ),
-            AttributeType::MemberRef(method) => (
-                self.reader.blob(method.row, 2),
-                self.reader.blob(self.row, 2),
-            ),
+            AttributeType::MethodDef(method) => (method.0.blob(4), self.0.blob(2)),
+            AttributeType::MemberRef(method) => (method.0.blob(2), self.0.blob(2)),
         };
 
         let prolog = values.read_u16();
@@ -50,8 +46,7 @@ impl Attribute {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
                     ConstantValue::TypeDef(
-                        self.reader
-                            .resolve_type_def(&name[0..index], &name[index + 1..]),
+                        TypeReader::get().resolve_type_def(&name[0..index], &name[index + 1..]),
                     )
                 }
                 ElementType::Enum(def) => {
@@ -84,8 +79,7 @@ impl Attribute {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
                     ConstantValue::TypeDef(
-                        self.reader
-                            .resolve_type_def(&name[0..index], &name[index + 1..]),
+                        TypeReader::get().resolve_type_def(&name[0..index], &name[index + 1..]),
                     )
                 }
                 _ => unexpected!(),

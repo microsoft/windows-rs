@@ -1,17 +1,19 @@
 use super::*;
-macros::table!(TypeDef);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct TypeDef(pub Row);
 
 impl TypeDef {
     pub fn flags(&self) -> TypeFlags {
-        TypeFlags(self.reader.u32(self.row, 0))
+        TypeFlags(self.0.u32(0))
     }
 
     pub fn name(&self) -> &'static str {
-        self.reader.str(self.row, 1)
+        self.0.str(1)
     }
 
     pub fn namespace(&self) -> &'static str {
-        self.reader.str(self.row, 2)
+        self.0.str(2)
     }
 
     // TODO: all "full_name" methods should return a FullName struct that provides a fast compare for match expressions
@@ -19,8 +21,14 @@ impl TypeDef {
         (self.namespace(), self.name())
     }
 
-    fn extends(&self) -> TypeDefOrRef {
-        self.reader.decode(self.row, 3)
+    pub fn extends(&self) -> (&'static str, &'static str) {
+        let extends = self.0.u32(3);
+
+        if extends == 0 {
+            ("", "")
+        } else {
+            TypeDefOrRef::decode(self.0.file, extends).full_name()
+        }
     }
 
     pub fn bases(&self) -> impl Iterator<Item = TypeDef> + '_ {
@@ -28,68 +36,45 @@ impl TypeDef {
     }
 
     pub fn fields(&self) -> impl Iterator<Item = Field> + '_ {
-        self.reader
-            .list(self.row, TableIndex::Field, 4)
-            .map(move |row| Field {
-                reader: self.reader,
-                row,
-            })
+        self.0.list(4, TableIndex::Field).map(Field)
     }
 
     pub fn methods(&self) -> impl Iterator<Item = MethodDef> + '_ {
-        self.reader
-            .list(self.row, TableIndex::MethodDef, 5)
-            .map(move |row| MethodDef {
-                reader: self.reader,
-                row,
-            })
+        self.0.list(5, TableIndex::MethodDef).map(MethodDef)
     }
 
     pub fn generics(&self) -> impl Iterator<Item = GenericParam> + '_ {
-        self.reader
+        self.0
+            .file
             .equal_range(
-                self.row.file_index,
                 TableIndex::GenericParam,
                 2,
                 TypeOrMethodDef::TypeDef(*self).encode(),
             )
-            .map(move |row| GenericParam {
-                reader: self.reader,
-                row,
-            })
+            .map(GenericParam)
     }
 
     pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> + '_ {
-        self.reader
-            .equal_range(
-                self.row.file_index,
-                TableIndex::InterfaceImpl,
-                0,
-                self.row.index + 1,
-            )
-            .map(move |row| InterfaceImpl {
-                reader: self.reader,
-                row,
-            })
+        self.0
+            .file
+            .equal_range(TableIndex::InterfaceImpl, 0, self.0.row + 1)
+            .map(InterfaceImpl)
     }
 
     // TODO: this should be an iterator...
     pub fn nested_types(&self) -> Vec<tables::TypeDef> {
-        self.reader.nested_types(self)
+        TypeReader::get().nested_types(self)
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
-        self.reader
+        self.0
+            .file
             .equal_range(
-                self.row.file_index,
                 TableIndex::CustomAttribute,
                 0,
                 HasAttribute::TypeDef(*self).encode(),
             )
-            .map(move |row| Attribute {
-                reader: self.reader,
-                row,
-            })
+            .map(Attribute)
     }
 
     pub fn has_attribute(&self, name: &str) -> bool {
@@ -120,7 +105,7 @@ impl TypeDef {
         if self.flags().interface() {
             TypeKind::Interface
         } else {
-            match self.extends().full_name() {
+            match self.extends() {
                 ("System", "Enum") => TypeKind::Enum,
                 ("System", "MulticastDelegate") => TypeKind::Delegate,
                 ("System", "ValueType") => TypeKind::Struct,
@@ -151,17 +136,10 @@ impl TypeDef {
     }
 
     pub fn enclosing_type(&self) -> Option<Self> {
-        self.reader
-            .equal_range(
-                self.row.file_index,
-                TableIndex::NestedClass,
-                0,
-                self.row.index + 1,
-            )
-            .map(move |row| NestedClass {
-                reader: self.reader,
-                row,
-            })
+        self.0
+            .file
+            .equal_range(TableIndex::NestedClass, 0, self.0.row + 1)
+            .map(NestedClass)
             .next()
             .map(|nested| nested.enclosing_type())
     }
@@ -217,12 +195,12 @@ impl Iterator for Bases {
     type Item = TypeDef;
 
     fn next(&mut self) -> Option<Self::Item> {
-        let extends = self.0.extends();
+        let (namespace, name) = self.0.extends();
 
-        if extends.full_name() == ("System", "Object") {
+        if (namespace, name) == ("System", "Object") {
             None
         } else {
-            self.0 = extends.resolve();
+            self.0 = TypeReader::get().resolve_type_def(namespace, name);
             Some(self.0)
         }
     }

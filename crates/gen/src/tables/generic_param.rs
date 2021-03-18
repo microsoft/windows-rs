@@ -1,9 +1,11 @@
 use super::*;
-macros::table!(GenericParam);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct GenericParam(pub Row);
 
 impl GenericParam {
     pub fn name(&self) -> &'static str {
-        self.reader.str(self.row, 3)
+        self.0.str(3)
     }
 
     pub fn gen_name(&self) -> TokenStream {
