@@ -11,10 +11,16 @@ env:
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
     strategy: 
-      matrix: 
-        rust: [stable]
+      matrix:
+        include:
+        - os: windows-latest
+          rust: stable
+          other: x86_64-pc-windows-msvc
+        - os: ubuntu-latest
+          rust: stable
+          other: i686-unknown-linux-gnu
     steps:
     - uses: actions/checkout@v2
     - uses: actions-rs/toolchain@v1
