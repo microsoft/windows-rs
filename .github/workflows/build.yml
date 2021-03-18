@@ -34,7 +34,7 @@ jobs:
       run: cargo build
       if: matrix.os == 'ubuntu-latest'
 
-    - name: tests
+    - name: test
       run: cargo test --all
       if: matrix.os == 'windows-latest'
 
