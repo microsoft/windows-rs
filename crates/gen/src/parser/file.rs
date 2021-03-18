@@ -90,7 +90,6 @@ impl std::fmt::Debug for File {
 }
 
 impl File {
-    /// Read a [`u32`] value from a specific [`Row`] and column
     pub fn u32(&self, row: u32, table: TableIndex, column: u32) -> u32 {
         let table = &self.tables[table as usize];
         let offset = table.data + row * table.row_size + table.columns[column as usize].0;
@@ -102,7 +101,6 @@ impl File {
         }
     }
 
-    /// Read a [`&str`] value from a specific [`Row`] and column
     pub fn str(&'static self, row: u32, table: TableIndex, column: u32) -> &'static str {
         let offset = (self.strings + self.u32(row, table, column)) as usize;
         let last = self.bytes[offset..]
@@ -112,7 +110,6 @@ impl File {
         std::str::from_utf8(&self.bytes[offset..offset + last]).unwrap()
     }
 
-    /// Read a `T: Decode` value from a specific [`Row`] and column
     pub(crate) fn decode<T: Decode>(&'static self, row: u32, table: TableIndex, column: u32) -> T {
         T::decode(self, self.u32(row, table, column))
     }
@@ -134,7 +131,6 @@ impl File {
         (first..last).map(move |value| Row::new(value, table, self))
     }
 
-    /// Read a blob for a given row and column
     pub fn blob(&'static self, row: u32, table: TableIndex, column: u32) -> Blob {
         let offset = (self.blobs + self.u32(row, table, column)) as usize;
         let initial_byte = self.bytes[offset];

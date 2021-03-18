@@ -2,7 +2,6 @@ use super::*;
 
 // TODO: need Copy?
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
-// TODO: does Row have to be public?
 pub struct AssemblyRef(pub Row);
 
 impl std::fmt::Debug for AssemblyRef {

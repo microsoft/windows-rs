@@ -3,9 +3,7 @@ use std::collections::BTreeMap;
 
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
-    // TODO: Use &'static str here
     types: BTreeMap<&'static str, BTreeMap<&'static str, TypeRow>>,
-
     nested: BTreeMap<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>,
 }
 
@@ -204,7 +202,6 @@ impl TypeReader {
 
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            // TODO: don't call resolve method here as it goes through indirection to self
             if let Some(scope) = self.nested.get(&scope.resolve()) {
                 scope[type_ref.name()]
             } else {
