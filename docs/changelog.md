@@ -1,3 +1,9 @@
+# 0.5.0
+
+- Support for Win32 arrays. ([#608](https://github.com/microsoft/windows-rs/pull/608))
+- Updated metadata providing many fixes and improvements to Win32 APIs.
+- Many more improvements and fixes.
+
 # 0.4.0
 
 - Win32 unions and nested structs are now generated correctly.

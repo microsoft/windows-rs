@@ -1,6 +1,6 @@
 [package]
 name = "ocr"
-version = "0.4.0"
+version = "0.5.0"
 authors = ["Kenny Kerr <kenny.kerr@microsoft.com>"]
 edition = "2018"
 
