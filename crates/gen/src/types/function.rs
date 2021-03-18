@@ -50,13 +50,21 @@ impl Function {
             link = "onecoreuap";
         }
 
-        quote! {
-            pub unsafe fn #name<#constraints>(#params) #return_type {
-                #[link(name = #link)]
-                extern "system" {
-                    pub fn #name(#(#abi_params),*) #abi_return_type;
+        if cfg!(windows) {
+            quote! {
+                pub unsafe fn #name<#constraints>(#params) #return_type {
+                    #[link(name = #link)]
+                    extern "system" {
+                        pub fn #name(#(#abi_params),*) #abi_return_type;
+                    }
+                    #name(#(#args),*)
                 }
-                #name(#(#args),*)
+            }
+        } else {
+            quote! {
+                pub unsafe fn #name<#constraints>(#params) #return_type {
+                    panic!("Unsupported target OS");
+                }
             }
         }
     }
