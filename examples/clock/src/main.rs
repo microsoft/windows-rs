@@ -730,9 +730,31 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
 }
 
 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/142
-#[link(name = "user32")]
-extern "system" {
-    fn SetWindowLongPtrA(window: HWND, index: i32, value: isize) -> isize;
 
-    fn GetWindowLongPtrA(window: HWND, index: i32) -> isize;
+#[allow(non_snake_case)]
+unsafe fn SetWindowLongPtrA(window: HWND, index: i32, value: isize) -> isize {
+    if cfg!(windows) {
+        #[link(name = "user32")]
+        extern "system" {
+            fn SetWindowLongPtrA(window: HWND, index: i32, value: isize) -> isize;
+        }
+
+        SetWindowLongPtrA(window, index, value)
+    } else {
+        panic!("Unsupported target OS");
+    }
+}
+
+#[allow(non_snake_case)]
+unsafe fn GetWindowLongPtrA(window: HWND, index: i32) -> isize {
+    if cfg!(windows) {
+        #[link(name = "user32")]
+        extern "system" {
+            fn GetWindowLongPtrA(window: HWND, index: i32) -> isize;
+        }
+
+        GetWindowLongPtrA(window, index)
+    } else {
+        panic!("Unsupported target OS");
+    }
 }
