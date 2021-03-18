@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly
+    manifestVersion="1.0"
+    xmlns="urn:schemas-microsoft-com:asm.v1"
+    xmlns:asmv1="urn:schemas-microsoft-com:asm.v1"
+    xmlns:asmv3="urn:schemas-microsoft-com:asm.v3"
+    xmlns:settings="http://schemas.microsoft.com/SMI/2005/WindowsSettings">
+  <assemblyIdentity version="1.0.0.0" name="Sample"/>
+    <asmv3:application>
+    <windowsSettings>
+      <settings:dpiAware>true</settings:dpiAware>
+    </windowsSettings>
+  </asmv3:application>
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity
+          type="win32"
+          name="Microsoft.Windows.Common-Controls"
+          version="6.0.0.0"
+          processorArchitecture="*"
+          publicKeyToken="6595b64144ccf1df"
+          language="*"
+        />
+    </dependentAssembly>
+  </dependency>
+</asmv1:assembly>

@@ -1,14 +1,16 @@
 use super::*;
-macros::table!(Constant);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct Constant(pub Row);
 
 impl Constant {
     pub fn value_type(&self) -> ElementType {
-        let code = self.reader.u32(self.row, 0);
+        let code = self.0.u32(0);
         ElementType::from_code(code).unwrap_or_else(|| panic!("Unexpected ElementType: {:x}", code))
     }
 
     pub fn value_blob(&self) -> Blob {
-        self.reader.blob(self.row, 2)
+        self.0.blob(2)
     }
 
     pub fn value(&self) -> ConstantValue {

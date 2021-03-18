@@ -1,40 +1,32 @@
 use super::*;
-macros::table!(MethodDef);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct MethodDef(pub Row);
 
 impl MethodDef {
     pub fn flags(&self) -> MethodFlags {
-        MethodFlags(self.reader.u32(self.row, 2))
+        MethodFlags(self.0.u32(2))
     }
 
     pub fn params(&self) -> impl Iterator<Item = Param> + '_ {
-        self.reader
-            .list(self.row, TableIndex::Param, 5)
-            .map(move |row| Param {
-                reader: self.reader,
-                row,
-            })
+        self.0.list(5, TableIndex::Param).map(Param)
     }
 
     pub fn name(&self) -> &'static str {
-        self.reader.str(self.row, 3)
+        self.0.str(3)
     }
 
     pub fn parent(&self) -> TypeDef {
         // TODO: stick this in TypeReader
-        let row = self.reader.upper_bound_of(
+        let row = self.0.file.upper_bound_of(
             TableIndex::TypeDef,
-            self.row.file_index,
             0,
-            self.reader.files[self.row.file_index as usize].tables[TableIndex::TypeDef as usize]
-                .row_count,
+            self.0.file.tables[TableIndex::TypeDef as usize].row_count,
             5,
-            self.row.index + 1,
+            self.0.row + 1,
         ) - 1;
 
-        TypeDef {
-            reader: self.reader,
-            row: Row::new(row, TableIndex::TypeDef, self.row.file_index),
-        }
+        TypeDef(Row::new(row, TableIndex::TypeDef, self.0.file))
     }
 
     pub fn rust_name(&self) -> String {
@@ -72,7 +64,7 @@ impl MethodDef {
 
     // TODO: find uses of MethodDef::blob and replace with MethodDef::signature?
     pub fn blob(&self) -> Blob {
-        self.reader.blob(self.row, 4)
+        self.0.blob(4)
     }
 
     pub fn kind(&self) -> MethodKind {
@@ -97,31 +89,25 @@ impl MethodDef {
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
-        self.reader
+        self.0
+            .file
             .equal_range(
-                self.row.file_index,
                 TableIndex::CustomAttribute,
                 0,
                 HasAttribute::MethodDef(*self).encode(),
             )
-            .map(move |row| Attribute {
-                reader: self.reader,
-                row,
-            })
+            .map(Attribute)
     }
 
     pub fn impl_map(&self) -> Option<ImplMap> {
-        self.reader
+        self.0
+            .file
             .equal_range(
-                self.row.file_index,
                 TableIndex::ImplMap,
                 1,
                 MemberForwarded::MethodDef(*self).encode(),
             )
-            .map(move |row| ImplMap {
-                reader: self.reader,
-                row,
-            })
+            .map(ImplMap)
             .next()
     }
 

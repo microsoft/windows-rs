@@ -20,23 +20,18 @@ impl Struct {
     }
 
     pub fn dependencies(&self) -> Vec<ElementType> {
+        let reader = TypeReader::get();
+
         // TODO: add tests for each
         match self.0.full_name() {
             ("Windows.Win32.Automation", "BSTR") => vec![
-                self.0
-                    .reader
-                    .resolve_type("Windows.Win32.Automation", "SysAllocStringLen"),
-                self.0
-                    .reader
-                    .resolve_type("Windows.Win32.Automation", "SysStringLen"),
-                self.0
-                    .reader
-                    .resolve_type("Windows.Win32.Automation", "SysFreeString"),
+                reader.resolve_type("Windows.Win32.Automation", "SysAllocStringLen"),
+                reader.resolve_type("Windows.Win32.Automation", "SysStringLen"),
+                reader.resolve_type("Windows.Win32.Automation", "SysFreeString"),
             ],
-            ("Windows.Foundation.Numerics", "Matrix3x2") => vec![self
-                .0
-                .reader
-                .resolve_type("Windows.Win32.Direct2D", "D2D1MakeRotateMatrix")],
+            ("Windows.Foundation.Numerics", "Matrix3x2") => {
+                vec![reader.resolve_type("Windows.Win32.Direct2D", "D2D1MakeRotateMatrix")]
+            }
             _ => self.0.fields().map(|f| f.definition()).flatten().collect(),
         }
     }

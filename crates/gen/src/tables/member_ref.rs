@@ -1,13 +1,15 @@
 use super::*;
-macros::table!(MemberRef);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct MemberRef(pub Row);
 
 impl MemberRef {
     pub fn parent(&self) -> MemberRefParent {
-        self.reader.decode(self.row, 0)
+        self.0.decode(0)
     }
 
     pub fn name(&self) -> &'static str {
-        self.reader.str(self.row, 1)
+        self.0.str(1)
     }
 }
 

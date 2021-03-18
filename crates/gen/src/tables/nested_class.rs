@@ -1,29 +1,23 @@
 use super::*;
-macros::table!(NestedClass);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct NestedClass(pub Row);
 
 impl NestedClass {
     pub fn nested_type(&self) -> TypeDef {
-        let row = Row::new(
-            self.reader.u32(self.row, 0) - 1,
+        TypeDef(Row::new(
+            self.0.u32(0) - 1,
             TableIndex::TypeDef,
-            self.row.file_index,
-        );
-        TypeDef {
-            reader: self.reader,
-            row,
-        }
+            self.0.file,
+        ))
     }
 
     pub fn enclosing_type(&self) -> TypeDef {
-        let row = Row::new(
-            self.reader.u32(self.row, 1) - 1,
+        TypeDef(Row::new(
+            self.0.u32(1) - 1,
             TableIndex::TypeDef,
-            self.row.file_index,
-        );
-        TypeDef {
-            reader: self.reader,
-            row,
-        }
+            self.0.file,
+        ))
     }
 }
 

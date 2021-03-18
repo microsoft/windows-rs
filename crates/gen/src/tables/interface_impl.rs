@@ -1,23 +1,22 @@
 use super::*;
-macros::table!(InterfaceImpl);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct InterfaceImpl(pub Row);
 
 impl InterfaceImpl {
     pub fn interface(&self) -> TypeDefOrRef {
-        self.reader.decode(self.row, 1)
+        self.0.decode(1)
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
-        self.reader
+        self.0
+            .file
             .equal_range(
-                self.row.file_index,
                 TableIndex::CustomAttribute,
                 0,
                 HasAttribute::InterfaceImpl(*self).encode(),
             )
-            .map(move |row| Attribute {
-                reader: self.reader,
-                row,
-            })
+            .map(Attribute)
     }
 
     pub fn has_attribute(&self, name: &str) -> bool {
