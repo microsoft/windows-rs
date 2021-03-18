@@ -30,9 +30,14 @@ jobs:
         override: true
         components: rustfmt
 
+    - name: build
+      run: cargo build
+      if: matrix.os == 'ubuntu-latest'
+
     - name: tests
       run: cargo test --all
+      if: matrix.os == 'windows-latest'
 
     - name: fmt
       run: cargo fmt --all -- --check
-      if: matrix.rust == 'stable'
+      if: matrix.os == 'windows-latest'
