@@ -1,51 +1,41 @@
 use super::*;
-macros::table!(Field);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct Field(pub Row);
 
 impl Field {
     pub fn name(&self) -> &'static str {
-        self.reader.str(self.row, 1)
+        self.0.str(1)
     }
 
     // TODO: find uses of Field::blob and replace with Field::signature?
     pub fn blob(&self) -> Blob {
-        self.reader.blob(self.row, 2)
+        self.0.blob(2)
     }
 
     pub fn flags(&self) -> FieldFlags {
-        FieldFlags(self.reader.u32(self.row, 0))
+        FieldFlags(self.0.u32(0))
     }
 
     pub fn constant(&self) -> Option<Constant> {
-        self.reader
-            .equal_range(
-                self.row.file_index,
-                TableIndex::Constant,
-                1,
-                HasConstant::Field(*self).encode(),
-            )
-            .map(move |row| Constant {
-                reader: self.reader,
-                row,
-            })
+        self.0
+            .file
+            .equal_range(TableIndex::Constant, 1, HasConstant::Field(*self).encode())
+            .map(Constant)
             .next()
     }
 
     pub fn parent(&self) -> TypeDef {
         // TODO: stick this in TypeReader
-        let row = self.reader.upper_bound_of(
+        let row = self.0.file.upper_bound_of(
             TableIndex::TypeDef,
-            self.row.file_index,
             0,
-            self.reader.files[self.row.file_index as usize].tables[TableIndex::TypeDef as usize]
-                .row_count,
+            self.0.file.tables[TableIndex::TypeDef as usize].row_count,
             4,
-            self.row.index + 1,
+            self.0.row + 1,
         ) - 1;
 
-        TypeDef {
-            reader: self.reader,
-            row: Row::new(row, TableIndex::TypeDef, self.row.file_index),
-        }
+        TypeDef(Row::new(row, TableIndex::TypeDef, self.0.file))
     }
 
     pub fn signature(&self) -> Signature {

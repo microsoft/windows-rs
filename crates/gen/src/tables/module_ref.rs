@@ -1,8 +1,11 @@
-macros::table!(ModuleRef);
+use super::*;
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct ModuleRef(pub Row);
 
 impl ModuleRef {
     pub fn name(&self) -> &'static str {
-        self.reader.str(self.row, 0)
+        self.0.str(0)
     }
 }
 

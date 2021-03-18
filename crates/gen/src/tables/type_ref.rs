@@ -1,25 +1,28 @@
 use super::*;
-macros::table!(TypeRef);
+
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct TypeRef(pub Row);
 
 impl TypeRef {
     pub fn scope(&self) -> ResolutionScope {
-        self.reader.decode(self.row, 0)
+        self.0.decode(0)
     }
 
     pub fn name(&self) -> &'static str {
-        self.reader.str(self.row, 1)
+        self.0.str(1)
     }
 
     pub fn namespace(&self) -> &'static str {
-        self.reader.str(self.row, 2)
+        self.0.str(2)
     }
 
     pub fn full_name(&self) -> (&'static str, &'static str) {
         (self.namespace(), self.name())
     }
 
+    // TODO: consider removing and making cache hits explicit
     pub fn resolve(&self) -> TypeDef {
-        self.reader.resolve_type_ref(self)
+        TypeReader::get().resolve_type_ref(self)
     }
 }
 

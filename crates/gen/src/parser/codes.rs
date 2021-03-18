@@ -2,7 +2,7 @@ use super::*;
 use macros::type_code;
 
 pub trait Decode {
-    fn decode(reader: &'static TypeReader, code: u32, file: u16) -> Self;
+    fn decode(file: &'static File, code: u32) -> Self;
 }
 
 #[type_code(2)]
