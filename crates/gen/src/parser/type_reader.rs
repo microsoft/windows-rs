@@ -40,7 +40,9 @@ impl TypeReader {
         let files = workspace_winmds();
 
         let mut types = BTreeMap::<&'static str, BTreeMap<&'static str, TypeRow>>::default();
-        let mut nested = BTreeMap::<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>::new();
+
+        let mut nested =
+            BTreeMap::<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>::new();
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -184,12 +186,8 @@ impl TypeReader {
 
     fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
         match row {
-            TypeRow::TypeDef(row) => {
-                ElementType::from_type_def(*row, Vec::new())
-            }
-            TypeRow::Function(row) => {
-                ElementType::Function(types::Function(*row))
-            }
+            TypeRow::TypeDef(row) => ElementType::from_type_def(*row, Vec::new()),
+            TypeRow::Function(row) => ElementType::Function(types::Function(*row)),
             TypeRow::Constant(row) => ElementType::Constant(types::Constant(*row)),
         }
     }
