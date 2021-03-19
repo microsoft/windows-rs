@@ -18,6 +18,9 @@ jobs:
         - os: windows-latest
           rust: stable
           other: x86_64-pc-windows-msvc
+        - os: windows-latest
+          rust: nightly
+          other: x86_64-pc-windows-msvc
         - os: ubuntu-latest
           rust: stable
           other: i686-unknown-linux-gnu
