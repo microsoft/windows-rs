@@ -29,12 +29,9 @@ jobs:
           other: i686-unknown-linux-gnu
     steps:
     - uses: actions/checkout@v2
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: ${{ matrix.rust }}
-        profile: minimal
-        override: true
-        components: rustfmt
+    - run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+    - run: rustup target add ${{ matrix.other }}
+    - run: rustup component add rustfmt || echo "rustfmt not available"
 
     - name: build
       run: cargo build
