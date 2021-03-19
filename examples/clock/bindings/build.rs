@@ -23,7 +23,7 @@ fn main() {
         windows::win32::gdi::{BeginPaint, EndPaint, ValidateRect, PAINTSTRUCT},
         windows::win32::system_services::{
             GetModuleHandleA, DXGI_STATUS_OCCLUDED, HINSTANCE, LRESULT,
-            PSTR, WINDOWSCLASS_STYLES,
+            PSTR,
         },
         windows::win32::ui_animation::{
             IUIAnimationManager, IUIAnimationTransition, IUIAnimationTransitionLibrary,
@@ -34,7 +34,7 @@ fn main() {
             CreateWindowExA, DefWindowProcA, DispatchMessageA, GetMessageA, PeekMessageA,
             PostQuitMessage, RegisterClassA, CREATESTRUCTA, HWND, LPARAM, MINMAXINFO, MSG, WNDCLASSA,
             WPARAM, LoadCursorA, IDC_ARROW, SIZE_MINIMIZED, WM_DESTROY, WM_ACTIVATE, WM_DISPLAYCHANGE,
-            WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, GetWindowLongPtr_nIndex,
+            WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, GWLP_USERDATA, WNDCLASS_STYLES,
         },
         windows::win32::windows_programming::{
             GetLocalTime, QueryPerformanceCounter, QueryPerformanceFrequency,
