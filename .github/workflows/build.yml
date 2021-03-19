@@ -38,7 +38,7 @@ jobs:
       if: matrix.os == 'ubuntu-latest'
 
     - name: test
-      run: cargo test --all
+      run: cargo test --all --target ${{ matrix.other }}
       if: matrix.os == 'windows-latest'
 
     - name: fmt
