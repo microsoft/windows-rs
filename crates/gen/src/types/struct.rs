@@ -330,8 +330,14 @@ impl Struct {
                     .enumerate()
                     .filter_map(|(index, (_, signature, name))| {
                         // TODO: there must be a simpler way to implement Debug just to exclude this type.
-                        if let ElementType::Callback(_) = signature.kind {
-                            return None;
+                        match &signature.kind {
+                            ElementType::Callback(_) => return None,
+                            ElementType::Array((kind, _)) => {
+                                if let ElementType::Callback(_) = kind.kind {
+                                    return None;
+                                }
+                            }
+                            _ => {}
                         }
 
                         let field = name.as_str();
