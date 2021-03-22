@@ -122,6 +122,20 @@ impl Struct {
             .iter()
             .any(|(_, signature, _)| signature.is_explicit());
 
+        // TODO: workaround for getting windows-docs building
+        let has_delegate_array = fields.iter().any(|(_, signature, _)| {
+            match &signature.kind {
+                ElementType::Array((kind, _)) => {
+                    if let ElementType::Callback(_) = kind.kind {
+                        return true;
+                    }
+                }
+                _ => {}
+            }
+
+            false
+        });
+
         let runtime_type = if is_winrt {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
 
@@ -238,7 +252,7 @@ impl Struct {
             None
         });
 
-        let compare = if is_union | has_union {
+        let compare = if is_union | has_union | has_delegate_array {
             quote! {}
         } else {
             let compare = fields
@@ -274,7 +288,7 @@ impl Struct {
             }
         };
 
-        let default = if is_union || has_union {
+        let default = if is_union || has_union || has_delegate_array {
             quote! {}
         } else {
             let defaults = if is_handle {
@@ -319,7 +333,7 @@ impl Struct {
             }
         };
 
-        let debug = if is_union || has_union {
+        let debug = if is_union || has_union || has_delegate_array {
             quote! {}
         } else {
             let debug_name = self.0.name();
