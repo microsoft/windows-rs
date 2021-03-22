@@ -1,6 +1,6 @@
 [package]
 name = "windows"
-version = "0.6.0"
+version = "0.6.1"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -11,12 +11,12 @@ readme = "README.md"
 exclude = [".github", ".windows", "docs", "examples"]
 
 [dependencies]
-windows_macros = { path = "crates/macros",  version = "0.6.0" }
-gen = { package = "windows_gen", path = "crates/gen",  version = "0.6.0" }
+windows_macros = { path = "crates/macros",  version = "0.6.1" }
+gen = { package = "windows_gen", path = "crates/gen",  version = "0.6.1" }
 const-sha1 = "0.2"
 
 [build-dependencies]
-windows_macros = { path = "crates/macros",  version = "0.6.0" }
+windows_macros = { path = "crates/macros",  version = "0.6.1" }
 
 [dev-dependencies]
 doc-comment = "0.3"

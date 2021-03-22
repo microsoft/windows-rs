@@ -1,12 +1,12 @@
 [package]
 name = "test_unions"
-version = "0.6.0"
+version = "0.6.1"
 authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
 windows = { path = "../.." }
-gen = { package = "windows_gen", path = "../../crates/gen",  version = "0.6.0" }
+gen = { package = "windows_gen", path = "../../crates/gen",  version = "0.6.1" }
 
 [build-dependencies]
 windows = { path = "../.." }

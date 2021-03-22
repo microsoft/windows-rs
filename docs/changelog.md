@@ -1,4 +1,4 @@
-# 0.6.0
+# 0.6.1
 
 - Add Linux build support (compile only).
 - Add full x64 and x86 build support.
