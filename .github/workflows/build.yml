@@ -21,24 +21,31 @@ jobs:
         - os: windows-latest
           rust: nightly
           other: x86_64-pc-windows-msvc
+        - os: windows-latest
+          rust: stable
+          other: i686-pc-windows-msvc
+        - os: windows-latest
+          rust: nightly
+          other: i686-pc-windows-msvc
         - os: ubuntu-latest
           rust: stable
           other: i686-unknown-linux-gnu
     steps:
     - uses: actions/checkout@v2
-    - uses: actions-rs/toolchain@v1
-      with:
-        toolchain: ${{ matrix.rust }}
-        profile: minimal
-        override: true
-        components: rustfmt
+    - run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+    - run: rustup target add ${{ matrix.other }}
+    - run: rustup component add rustfmt || echo "rustfmt not available"
 
-    - name: build
+    - name: build linux
       run: cargo build
       if: matrix.os == 'ubuntu-latest'
 
-    - name: test
-      run: cargo test --all
+    - name: build windows
+      run: cargo build --all --target ${{ matrix.other }}
+      if: matrix.os == 'windows-latest'
+
+    - name: test windows
+      run: cargo test --all --target ${{ matrix.other }}
       if: matrix.os == 'windows-latest'
 
     - name: fmt

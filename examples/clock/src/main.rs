@@ -478,9 +478,9 @@ impl Window {
                 (*this).handle = window;
 
                 // TODO: https://github.com/microsoft/win32metadata/issues/331
-                SetWindowLongPtrA(window, GWLP_USERDATA, this as _);
+                SetWindowLongA(window, GWLP_USERDATA, this as _);
             } else {
-                let this = GetWindowLongPtrA(window, GWLP_USERDATA) as *mut Self;
+                let this = GetWindowLongA(window, GWLP_USERDATA) as *mut Self;
 
                 if !this.is_null() {
                     return (*this).message_handler(message, wparam, lparam);
@@ -727,9 +727,35 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
 }
 
 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/142
-#[link(name = "user32")]
-extern "system" {
-    fn SetWindowLongPtrA(window: HWND, index: i32, value: isize) -> isize;
 
-    fn GetWindowLongPtrA(window: HWND, index: i32) -> isize;
+#[allow(non_snake_case)]
+unsafe fn SetWindowLongA(window: HWND, index: i32, value: isize) -> isize {
+    #[link(name = "user32")]
+    extern "system" {
+        #[cfg(target_pointer_width = "32")]
+        #[link_name = "SetWindowLongA"]
+        fn SetWindowLongA(window: HWND, index: i32, value: i32) -> isize;
+
+        #[cfg(target_pointer_width = "64")]
+        #[link_name = "SetWindowLongPtrA"]
+        fn SetWindowLongA(window: HWND, index: i32, value: isize) -> isize;
+    }
+
+    SetWindowLongA(window, index, value as _)
+}
+
+#[allow(non_snake_case)]
+unsafe fn GetWindowLongA(window: HWND, index: i32) -> isize {
+    #[link(name = "user32")]
+    extern "system" {
+        #[cfg(target_pointer_width = "32")]
+        #[link_name = "GetWindowLongA"]
+        fn GetWindowLongA(window: HWND, index: i32) -> i32;
+
+        #[cfg(target_pointer_width = "64")]
+        #[link_name = "GetWindowLongPtrA"]
+        fn GetWindowLongA(window: HWND, index: i32) -> isize;
+    }
+
+    GetWindowLongA(window, index) as _
 }

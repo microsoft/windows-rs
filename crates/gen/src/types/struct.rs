@@ -122,6 +122,16 @@ impl Struct {
             .iter()
             .any(|(_, signature, _)| signature.is_explicit());
 
+        // TODO: workaround for getting windows-docs building
+        let has_complex_array = fields
+            .iter()
+            .any(|(_, signature, _)| match &signature.kind {
+                ElementType::Array((signature, _)) => {
+                    !signature.is_blittable() || signature.kind.is_nullable()
+                }
+                _ => false,
+            });
+
         let runtime_type = if is_winrt {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
 
@@ -238,7 +248,7 @@ impl Struct {
             None
         });
 
-        let compare = if is_union | has_union {
+        let compare = if is_union | has_union | has_complex_array {
             quote! {}
         } else {
             let compare = fields
@@ -274,7 +284,7 @@ impl Struct {
             }
         };
 
-        let default = if is_union || has_union {
+        let default = if is_union || has_union || has_complex_array {
             quote! {}
         } else {
             let defaults = if is_handle {
@@ -319,7 +329,7 @@ impl Struct {
             }
         };
 
-        let debug = if is_union || has_union {
+        let debug = if is_union || has_union || has_complex_array {
             quote! {}
         } else {
             let debug_name = self.0.name();
@@ -330,8 +340,14 @@ impl Struct {
                     .enumerate()
                     .filter_map(|(index, (_, signature, name))| {
                         // TODO: there must be a simpler way to implement Debug just to exclude this type.
-                        if let ElementType::Callback(_) = signature.kind {
-                            return None;
+                        match &signature.kind {
+                            ElementType::Callback(_) => return None,
+                            ElementType::Array((kind, _)) => {
+                                if let ElementType::Callback(_) = kind.kind {
+                                    return None;
+                                }
+                            }
+                            _ => {}
                         }
 
                         let field = name.as_str();
