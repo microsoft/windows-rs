@@ -28,7 +28,10 @@ impl Constant {
                         pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid);
                     }
                 }
-                None => unexpected!(),
+                None => {
+                    // TODO: add support for https://github.com/microsoft/win32metadata/issues/339
+                    quote! {}
+                }
             }
         } else {
             let value = self.0.constant().expect("Field").value().gen();
