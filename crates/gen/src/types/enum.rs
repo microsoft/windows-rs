@@ -96,7 +96,6 @@ impl Enum {
                         pub const #name: Self = Self(#value);
                     })
                 } else {
-                    // TODO: need test for implicit value enums (and create win32metadata bug)
                     last = Some(ConstantValue::I32(0));
 
                     Some(quote! {
