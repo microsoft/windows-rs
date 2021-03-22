@@ -126,7 +126,9 @@ impl Struct {
         let has_complex_array = fields
             .iter()
             .any(|(_, signature, _)| match &signature.kind {
-                ElementType::Array((kind, _)) => !kind.is_blittable(),
+                ElementType::Array((signature, _)) => {
+                    !signature.is_blittable() || signature.kind.is_nullable()
+                }
                 _ => false,
             });
 
