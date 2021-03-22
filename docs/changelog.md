@@ -1,3 +1,10 @@
+# 0.6.0
+
+- Add Linux build support (compile only).
+- Add full x64 and x86 build support.
+- Workarounds for Rust documentation issues.
+- Updated metadata providing many fixes and improvements to Win32 APIs.
+
 # 0.5.0
 
 - Support for Win32 arrays. ([#608](https://github.com/microsoft/windows-rs/pull/608))
