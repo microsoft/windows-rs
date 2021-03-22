@@ -2,6 +2,7 @@ use test_win32::{
     windows::win32::automation::BSTR,
     windows::win32::com::CreateUri,
     windows::win32::debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
+    windows::win32::direct2d::CLSID_D2D1Shadow,
     windows::win32::direct3d11::D3DDisassemble11Trace,
     windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
     windows::win32::direct3d_hlsl::D3DCOMPILER_DLL,
@@ -115,6 +116,7 @@ fn constant() {
     assert!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA == 1f32);
     assert!(UIA_ScrollPatternNoScroll == -1f64);
     assert!(D3DCOMPILER_DLL == "d3dcompiler_47.dll");
+    assert!(CLSID_D2D1Shadow == Guid::from("C67EA361-1863-4e69-89DB-695D3E9A5B6B"));
 }
 
 #[test]

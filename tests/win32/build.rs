@@ -22,6 +22,7 @@ fn main() {
             SetEvent,
             WaitForSingleObject,
         },
+        windows::win32::direct2d::CLSID_D2D1Shadow,
         windows::win32::direct3d12::{
             D3D12_DEFAULT_BLEND_FACTOR_ALPHA
         },
