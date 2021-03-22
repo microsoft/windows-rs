@@ -31,6 +31,7 @@ fn workspace_dir() -> std::path::PathBuf {
             .arg("metadata")
             .arg("--format-version=1")
             .arg("--no-deps")
+            .arg("--offline")
             .output()
             .expect("Failed to run `cargo metadata`");
 

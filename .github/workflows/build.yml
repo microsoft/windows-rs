@@ -33,11 +33,15 @@ jobs:
     - run: rustup target add ${{ matrix.other }}
     - run: rustup component add rustfmt || echo "rustfmt not available"
 
-    - name: build
+    - name: build linux
       run: cargo build
       if: matrix.os == 'ubuntu-latest'
 
-    - name: test
+    - name: build windows
+      run: cargo build --all --target ${{ matrix.other }}
+      if: matrix.os == 'windows-latest'
+
+    - name: test windows
       run: cargo test --all --target ${{ matrix.other }}
       if: matrix.os == 'windows-latest'
 

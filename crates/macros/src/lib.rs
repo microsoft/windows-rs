@@ -42,10 +42,6 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
     let workspace_windows_dir = gen::workspace_windows_dir();
 
-    let mut source = workspace_windows_dir.clone();
-    source.push(ARCHITECTURE);
-    let source = source.to_str().expect("Invalid workspace architecture dir");
-
     let mut destination = workspace_windows_dir.clone();
     destination.pop();
     destination.push("target");
@@ -67,14 +63,11 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
             path.push("windows.rs");
             let mut file = ::std::fs::File::create(&path).expect("Failed to create windows.rs");
-            let bytes = #tokens.as_bytes();
-            file.write_all(bytes).expect("Could not write generated code to output file");
+            file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
 
-            if bytes.len() < 100_000_000 {
-                let mut cmd = ::std::process::Command::new("rustfmt");
-                cmd.arg(&path);
-                let _ = cmd.output();
-            }
+            let mut cmd = ::std::process::Command::new("rustfmt");
+            cmd.arg(&path);
+            let _ = cmd.output();
 
             fn copy(source: &::std::path::PathBuf, destination: &mut ::std::path::PathBuf) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
@@ -114,7 +107,17 @@ pub fn build(stream: TokenStream) -> TokenStream {
 
             if ::std::path::PathBuf::from(#workspace_windows_dir).exists() {
                 println!("cargo:rerun-if-changed={}", #workspace_windows_dir);
-                let source = ::std::path::PathBuf::from(#source);
+                let mut source = ::std::path::PathBuf::from(#workspace_windows_dir);
+
+                // The `target_arch` cfg is not set for build scripts so we need to sniff it out from the environment variable.
+                source.push(match ::std::env::var("CARGO_CFG_TARGET_ARCH").expect("No `CARGO_CFG_TARGET_ARCH` env variable set").as_str() {
+                    "x86_64" => "x64",
+                    "x86" => "x86",
+                    "arm" => "arm",
+                    "aarch64" => "arm64",
+                    unexpected => panic!("Unexpected `{}` architecture set by `CARGO_CFG_TARGET_ARCH`", unexpected),
+                });
+
                 let destination = ::std::path::PathBuf::from(#destination);
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
@@ -147,12 +150,3 @@ pub(crate) fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
     }
     result
 }
-
-#[cfg(target_arch = "x86_64")]
-const ARCHITECTURE: &str = "x64";
-#[cfg(target_arch = "x86")]
-const ARCHITECTURE: &str = "x86";
-#[cfg(target_arch = "arm")]
-const ARCHITECTURE: &str = "arm";
-#[cfg(target_arch = "aarch64")]
-const ARCHITECTURE: &str = "arm64";

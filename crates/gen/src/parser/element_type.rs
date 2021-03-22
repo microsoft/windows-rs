@@ -406,6 +406,7 @@ impl ElementType {
             | Self::ComInterface(_)
             | Self::Delegate(_) => false,
             Self::Struct(def) => def.is_blittable(),
+            Self::Array((kind, _)) => kind.is_blittable(),
             _ => true,
         }
     }
@@ -470,6 +471,7 @@ impl ElementType {
                     s.0.fields().any(|f| f.signature().is_explicit())
                 }
             }
+            Self::Array((kind, _)) => kind.is_explicit(),
             _ => false,
         }
     }
