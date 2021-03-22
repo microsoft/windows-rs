@@ -405,9 +405,7 @@ impl Window {
                 h_instance: instance,
                 lpsz_class_name: PSTR(b"window\0".as_ptr() as _),
 
-                // TODO: https://github.com/microsoft/win32metadata/issues/352
-                // TODO: https://github.com/microsoft/win32metadata/issues/356
-                style: (WINDOWSCLASS_STYLES::CS_HREDRAW | WINDOWSCLASS_STYLES::CS_VREDRAW).0,
+                style: WNDCLASS_STYLES::CS_HREDRAW | WNDCLASS_STYLES::CS_VREDRAW,
                 lpfn_wnd_proc: Some(Self::wndproc),
                 ..Default::default()
             };
@@ -480,10 +478,9 @@ impl Window {
                 (*this).handle = window;
 
                 // TODO: https://github.com/microsoft/win32metadata/issues/331
-                SetWindowLongPtrA(window, GetWindowLongPtr_nIndex::GWLP_USERDATA.0, this as _);
+                SetWindowLongPtrA(window, GWLP_USERDATA, this as _);
             } else {
-                let this = GetWindowLongPtrA(window, GetWindowLongPtr_nIndex::GWLP_USERDATA.0)
-                    as *mut Self;
+                let this = GetWindowLongPtrA(window, GWLP_USERDATA) as *mut Self;
 
                 if !this.is_null() {
                     return (*this).message_handler(message, wparam, lparam);

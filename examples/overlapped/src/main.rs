@@ -11,9 +11,9 @@ fn main() -> windows::Result<()> {
         let file = CreateFileA(
             filename.as_path().to_str().unwrap(),
             FILE_ACCESS_FLAGS::FILE_GENERIC_READ,
-            FILE_SHARE_FLAGS::FILE_SHARE_READ,
+            FILE_SHARE_MODE::FILE_SHARE_READ,
             std::ptr::null_mut(),
-            FILE_CREATE_FLAGS::OPEN_EXISTING,
+            FILE_CREATION_DISPOSITION::OPEN_EXISTING,
             // TODO: https://github.com/microsoft/win32metadata/issues/317
             FILE_FLAGS_AND_ATTRIBUTES(0x40000000),
             HANDLE(0),
