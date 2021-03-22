@@ -413,9 +413,6 @@ impl Window {
             let atom = RegisterClassA(&wc);
             debug_assert!(atom != 0);
 
-            // TODO: https://github.com/microsoft/win32metadata/issues/353
-            const CW_USEDEFAULT: i32 = -2147483648;
-
             let handle = CreateWindowExA(
                 Default::default(),
                 "window",

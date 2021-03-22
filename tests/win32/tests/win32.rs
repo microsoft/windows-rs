@@ -1,4 +1,5 @@
 use test_win32::{
+    windows::win32::automation::BSTR,
     windows::win32::com::CreateUri,
     windows::win32::debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
     windows::win32::direct3d11::D3DDisassemble11Trace,
@@ -289,30 +290,19 @@ fn onecore_imports() -> windows::Result<()> {
     }
 }
 
-// TODO: light up BSTR as windows::BString
+#[test]
+fn interface() -> windows::Result<()> {
+    unsafe {
+        let mut uri = None;
+        let uri =
+            CreateUri("http://kennykerr.ca", Default::default(), 0, &mut uri).and_some(uri)?;
 
-// #[test]
-// fn interface() -> windows::Result<()> {
-//     unsafe {
-//         let s = windows::HString::from("https://kennykerr.ca");
-//         let mut uri = None;
-
-//         // TODO: should unwrap with Result<Uri> like WinRT but need https://github.com/microsoft/win32metadata/issues/24
-//         let hr = CreateUri(s.as_wide().as_ptr() as *mut u16, 1, 0, &mut uri);
-//         windows::ErrorCode(hr as u32).ok()?;
-
-//         assert!(uri.is_some());
-
-//         if let Some(uri) = uri {
-//             let mut domain = windows::BString::new();
-//             let hr = uri.GetDomain(domain.set_abi() as *mut *mut u16);
-//             windows::ErrorCode(hr as u32).ok()?;
-
-//             assert!(domain == "kennykerr.ca");
-//         }
-//     }
-//     Ok(())
-// }
+        let mut domain = BSTR::default();
+        uri.GetDomain(&mut domain).ok()?;
+        assert!(domain == "kennykerr.ca");
+    }
+    Ok(())
+}
 
 #[test]
 fn callback() {

@@ -86,7 +86,6 @@ impl GenericType {
 
     pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
         if self.generics.is_empty() {
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/312
             match Guid::from_type_def(&self.def) {
                 Some(guid) => {
                     let guid = guid.gen();

@@ -82,11 +82,6 @@ impl TypeReader {
                 for field in def.fields() {
                     let name = field.name();
 
-                    // TODO: https://github.com/microsoft/win32metadata/issues/361
-                    if name == "PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION" {
-                        continue;
-                    }
-
                     types
                         .entry(namespace)
                         .or_default()

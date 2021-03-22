@@ -4,7 +4,6 @@ use bindings::windows::win32::com::{CoCreateInstance, CoInitializeEx, COINIT};
 
 /// Initializes COM for use by the calling thread for the multi-threaded apartment (MTA).
 pub fn initialize_mta() -> Result<()> {
-    // https://github.com/microsoft/win32metadata/issues/323
     // https://github.com/microsoft/win32metadata/issues/95
     unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT::COINIT_MULTITHREADED.0 as u32).ok() }
 }

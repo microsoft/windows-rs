@@ -35,6 +35,7 @@ fn main() {
             PostQuitMessage, RegisterClassA, CREATESTRUCTA, HWND, LPARAM, MINMAXINFO, MSG, WNDCLASSA,
             WPARAM, LoadCursorA, IDC_ARROW, SIZE_MINIMIZED, WM_DESTROY, WM_ACTIVATE, WM_DISPLAYCHANGE,
             WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, GWLP_USERDATA, WNDCLASS_STYLES,
+            CW_USEDEFAULT,
         },
         windows::win32::windows_programming::{
             GetLocalTime, QueryPerformanceCounter, QueryPerformanceFrequency,
