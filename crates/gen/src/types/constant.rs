@@ -17,16 +17,28 @@ impl Constant {
             return quote! {};
         }
 
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/88
-        if self.0.constant().is_none() {
-            return quote! {};
-        }
-
         let name = to_ident(name);
-        let value = self.0.constant().expect("Field").value().gen();
 
-        quote! {
-            pub const #name: #value;
+        if self.0.constant().is_none() {
+            match Guid::from_attributes(self.0.attributes()) {
+                Some(guid) => {
+                    let guid = guid.gen();
+
+                    quote! {
+                        pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid);
+                    }
+                }
+                None => {
+                    // TODO: add support for https://github.com/microsoft/win32metadata/issues/339
+                    quote! {}
+                }
+            }
+        } else {
+            let value = self.0.constant().expect("Field").value().gen();
+
+            quote! {
+                pub const #name: #value;
+            }
         }
     }
 }

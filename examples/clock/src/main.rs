@@ -523,7 +523,7 @@ fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID
     let mut shadow = None;
     unsafe {
         let shadow = target
-            .CreateEffect(&"C67EA361-1863-4e69-89DB-695D3E9A5B6B".into(), &mut shadow)
+            .CreateEffect(&CLSID_D2D1Shadow, &mut shadow)
             .and_some(shadow)?;
 
         shadow.SetInput(0, clock, true);

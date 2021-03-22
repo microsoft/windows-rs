@@ -86,7 +86,7 @@ impl GenericType {
 
     pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
         if self.generics.is_empty() {
-            match Guid::from_type_def(&self.def) {
+            match Guid::from_attributes(self.def.attributes()) {
                 Some(guid) => {
                     let guid = guid.gen();
 

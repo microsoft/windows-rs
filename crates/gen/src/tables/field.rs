@@ -38,6 +38,17 @@ impl Field {
         TypeDef(Row::new(row, TableIndex::TypeDef, self.0.file))
     }
 
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+        self.0
+            .file
+            .equal_range(
+                TableIndex::CustomAttribute,
+                0,
+                HasAttribute::Field(*self).encode(),
+            )
+            .map(Attribute)
+    }
+
     pub fn signature(&self) -> Signature {
         let mut blob = self.blob();
         blob.read_unsigned();

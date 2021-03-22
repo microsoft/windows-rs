@@ -72,7 +72,7 @@ impl Struct {
 
         let name = to_ident(struct_name);
 
-        if let Some(guid) = Guid::from_type_def(&self.0) {
+        if let Some(guid) = Guid::from_attributes(self.0.attributes()) {
             let guid = guid.gen();
 
             return quote! {

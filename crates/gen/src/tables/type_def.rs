@@ -132,7 +132,7 @@ impl TypeDef {
     }
 
     pub fn guid(&self) -> Guid {
-        Guid::from_type_def(self).expect("TypeDef::guid")
+        Guid::from_attributes(self.attributes()).expect("TypeDef::guid")
     }
 
     pub fn enclosing_type(&self) -> Option<Self> {
