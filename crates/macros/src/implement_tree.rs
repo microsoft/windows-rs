@@ -12,7 +12,6 @@ pub enum ImplementTree {
 
 pub struct ImplementPath {
     pub ident: Ident,
-    pub colon2_token: Token![::],
     pub tree: Box<ImplementTree>,
 }
 
@@ -32,9 +31,9 @@ impl Parse for ImplementTree {
         if lookahead.peek(Ident) {
             let ident = input.call(Ident::parse_any)?;
             if input.peek(Token![::]) {
+                input.parse::<syn::Token![::]>()?;
                 Ok(ImplementTree::Path(ImplementPath {
                     ident,
-                    colon2_token: input.parse()?,
                     tree: Box::new(input.parse()?),
                 }))
             } else {

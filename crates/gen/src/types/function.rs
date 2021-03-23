@@ -46,7 +46,7 @@ impl Function {
         let mut link = self.0.impl_map().expect("Function").scope().name();
 
         // TODO: workaround for https://github.com/microsoft/windows-rs/issues/463
-        if link.contains("-ms-win-") || link == "D3DCOMPILER_47" {
+        if link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli" {
             link = "onecoreuap";
         }
 

@@ -5,15 +5,19 @@ use squote::{format_ident, quote, Literal, TokenStream};
 struct Implements(Vec<gen::ElementType>);
 
 impl syn::parse::Parse for Implements {
-    fn parse(inner_type: syn::parse::ParseStream) -> syn::parse::Result<Self> {
+    fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut types = Vec::new();
         let reader = gen::TypeReader::get();
 
         loop {
-            use_tree_to_types(reader, &inner_type.parse::<ImplementTree>()?, &mut types)?;
-
-            if inner_type.parse::<syn::Token!(,)>().is_err() {
+            if input.is_empty() {
                 break;
+            }
+
+            use_tree_to_types(reader, &input.parse::<ImplementTree>()?, &mut types)?;
+
+            if !input.is_empty() {
+                input.parse::<syn::Token![,]>()?;
             }
         }
 
