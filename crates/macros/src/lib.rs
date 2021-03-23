@@ -35,7 +35,7 @@ use syn::parse_macro_input;
 pub fn build(stream: TokenStream) -> TokenStream {
     let build = parse_macro_input!(stream as BuildLimits);
 
-    let tokens = match build.to_tokens_string() {
+    let tokens = match build.into_tokens_string() {
         Ok(t) => t,
         Err(t) => return t.into(),
     };
@@ -69,7 +69,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
             cmd.arg(&path);
             let _ = cmd.output();
 
-            fn copy(source: &::std::path::PathBuf, destination: &mut ::std::path::PathBuf) {
+            fn copy(source: &::std::path::Path, destination: &mut ::std::path::PathBuf) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
                     for file in files.filter_map(|file| file.ok())  {
                         if let ::std::result::Result::Ok(file_type) = file.file_type() {
@@ -86,7 +86,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
                 }
             }
 
-            fn copy_to_profile(source: &::std::path::PathBuf, destination: &::std::path::PathBuf, profile: &str) {
+            fn copy_to_profile(source: &::std::path::Path, destination: &::std::path::Path, profile: &str) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(destination) {
                     for file in files.filter_map(|file| file.ok())  {
                         if let ::std::result::Result::Ok(file_type) = file.file_type() {

@@ -31,7 +31,6 @@ pub use windows_macros::{build, implement};
 extern crate self as windows;
 
 mod bindings {
-    #![allow(dead_code)]
     include_bindings!();
 }
 

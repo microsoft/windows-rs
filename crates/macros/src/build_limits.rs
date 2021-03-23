@@ -6,7 +6,7 @@ use syn::spanned::Spanned;
 pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 
 impl BuildLimits {
-    pub fn to_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
+    pub fn into_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
         let reader = TypeReader::get();
         let mut limits = TypeLimits::new(reader);
 

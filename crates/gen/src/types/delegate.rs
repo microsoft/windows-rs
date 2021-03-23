@@ -120,7 +120,6 @@ impl Delegate {
                 invoke: F,
                 count: ::windows::RefCount,
             }
-            #[allow(non_snake_case)]
             impl<#constraints #fn_constraint> #box_name {
                 const VTABLE: #abi_name = #turbo_abi_name(
                     Self::QueryInterface,

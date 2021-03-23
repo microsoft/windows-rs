@@ -202,7 +202,6 @@ impl ComInterface {
 
         quote! {
             #[repr(transparent)]
-            #[allow(non_camel_case_types)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name(::windows::IUnknown);
             impl #name {
@@ -212,7 +211,6 @@ impl ComInterface {
                 type Vtable = #abi_name;
                 const IID: ::windows::Guid = #guid;
             }
-            #[allow(non_snake_case)]
             impl #name {
                 #(#methods)*
             }

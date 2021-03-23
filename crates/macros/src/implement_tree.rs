@@ -45,10 +45,9 @@ impl Parse for ImplementTree {
             }
         } else if lookahead.peek(Brace) {
             let content;
-            Ok(ImplementTree::Group(ImplementGroup {
-                brace_token: braced!(content in input),
-                items: content.parse_terminated(ImplementTree::parse)?,
-            }))
+            let brace_token = braced!(content in input);
+            let items = content.parse_terminated(ImplementTree::parse)?;
+            Ok(ImplementTree::Group(ImplementGroup { brace_token, items }))
         } else {
             Err(lookahead.error())
         }

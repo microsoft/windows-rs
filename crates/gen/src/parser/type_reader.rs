@@ -135,12 +135,12 @@ impl TypeReader {
         self.types
             .keys()
             .find(|namespace| namespace.to_lowercase() == lowercase)
-            .map(|namespace| *namespace)
+            .copied()
     }
 
     /// Get all the namespace names that the [`TypeReader`] knows about
     pub fn namespaces(&'static self) -> impl Iterator<Item = &'static str> {
-        self.types.keys().map(|namespace| *namespace)
+        self.types.keys().copied()
     }
 
     /// Get all types for a given namespace
@@ -163,7 +163,7 @@ impl TypeReader {
             .get(enclosing)
             .iter()
             .flat_map(|t| t.values())
-            .map(|def| *def)
+            .copied()
             .collect()
     }
 
