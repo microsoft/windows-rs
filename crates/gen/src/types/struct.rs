@@ -156,7 +156,7 @@ impl Struct {
             quote! {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
-        } else if is_union || has_union {
+        } else if is_union || has_union || layout.is_some() {
             quote! {}
         } else {
             quote! {
