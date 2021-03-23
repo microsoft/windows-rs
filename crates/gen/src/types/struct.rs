@@ -107,7 +107,6 @@ impl Struct {
         if fields.is_empty() {
             return quote! {
                 #[repr(C)]
-                #[allow(non_snake_case)]
                 #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy)]
                 pub struct #name(pub u8);
             };
@@ -415,7 +414,6 @@ impl Struct {
 
         quote! {
             #repr
-            #[allow(non_camel_case_types)]
             #clone_or_copy
             pub #struct_or_union #name #body
             impl #name {
@@ -435,7 +433,6 @@ impl Struct {
         match self.0.full_name() {
             ("Windows.Win32.SystemServices", "BOOL") => Some(quote! {
                 #[repr(C)]
-                #[allow(non_snake_case)]
                 #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::default::Default)]
                 pub struct BOOL(pub i32);
                 impl BOOL {
@@ -530,7 +527,6 @@ impl Struct {
 
             ("Windows.Win32.SystemServices", "PWSTR") => Some(quote! {
                 #[repr(C)]
-                #[allow(non_snake_case)]
                 #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::cmp::Eq, ::std::fmt::Debug)]
                 pub struct PWSTR(pub *mut u16);
                 impl ::std::default::Default for PWSTR {
@@ -570,7 +566,6 @@ impl Struct {
             }),
             ("Windows.Win32.SystemServices", "PSTR") => Some(quote! {
                 #[repr(C)]
-                #[allow(non_snake_case)]
                 #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::cmp::Eq, ::std::fmt::Debug)]
                 pub struct PSTR(pub *mut u8);
                 impl ::std::default::Default for PSTR {
@@ -611,7 +606,6 @@ impl Struct {
             // TODO: This can be an extension rather than replacement?
             ("Windows.Win32.Automation", "BSTR") => Some(quote! {
                 #[repr(C)]
-                #[allow(non_snake_case)]
                 #[derive(::std::clone::Clone, ::std::cmp::Eq)]
                 pub struct BSTR(*mut u16);
                 impl BSTR {
@@ -726,7 +720,6 @@ impl Struct {
                         &mut self.0 as *mut _ as _
                     }
                 }
-                #[allow(non_camel_case_types)]
                 pub type BSTR_abi = *mut u16;
             }),
             _ => None,

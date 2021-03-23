@@ -41,7 +41,6 @@ impl Callback {
         };
 
         quote! {
-            #[allow(non_camel_case_types)]
             pub type #name = extern "system" fn(#(#params),*) #return_type;
         }
     }

@@ -130,12 +130,10 @@ impl Enum {
         };
 
         quote! {
-            #[allow(non_camel_case_types)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]
             #[repr(transparent)]
             pub struct #name(pub #underlying_type);
             impl #name {
-                #![allow(non_upper_case_globals)]
                 #(#fields)*
             }
             impl ::std::convert::From<#underlying_type> for #name {
