@@ -20,7 +20,7 @@ pub struct File {
     /// The index of the blobs data
     pub(crate) blobs: u32,
     /// The table data
-    pub(crate) tables: [TableData; 16],
+    pub(crate) tables: [TableData; 17],
 }
 
 /// A well-known index of data into the winmd tables array
@@ -43,6 +43,7 @@ pub enum TableIndex {
     NestedClass,
     Module,
     AssemblyRef,
+    ClassLayout,
 }
 
 impl TableData {
@@ -342,7 +343,6 @@ impl File {
         let mut unused_assembly_processor = TableData::default();
         let mut unused_assembly_ref_os = TableData::default();
         let mut unused_assembly_ref_processor = TableData::default();
-        let mut unused_class_layout = TableData::default();
         let mut unused_decl_security = TableData::default();
         let mut unused_event = TableData::default();
         let mut unused_event_map = TableData::default();
@@ -381,7 +381,7 @@ impl File {
                 0x0c => file.tables[TableIndex::CustomAttribute as usize].row_count = row_count,
                 0x0d => unused_field_marshal.row_count = row_count,
                 0x0e => unused_decl_security.row_count = row_count,
-                0x0f => unused_class_layout.row_count = row_count,
+                0x0f => file.tables[TableIndex::ClassLayout as usize].row_count = row_count,
                 0x10 => unused_field_layout.row_count = row_count,
                 0x11 => unused_standalone_sig.row_count = row_count,
                 0x12 => unused_event_map.row_count = row_count,
@@ -538,7 +538,7 @@ impl File {
             0,
             0,
         );
-        unused_class_layout.set_columns(
+        file.tables[TableIndex::ClassLayout as usize].set_columns(
             2,
             4,
             file.tables[TableIndex::TypeDef as usize].index_size(),
@@ -730,7 +730,7 @@ impl File {
         file.tables[TableIndex::CustomAttribute as usize].set_data(&mut view);
         unused_field_marshal.set_data(&mut view);
         unused_decl_security.set_data(&mut view);
-        unused_class_layout.set_data(&mut view);
+        file.tables[TableIndex::ClassLayout as usize].set_data(&mut view);
         unused_field_layout.set_data(&mut view);
         unused_standalone_sig.set_data(&mut view);
         unused_event_map.set_data(&mut view);

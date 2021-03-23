@@ -116,6 +116,14 @@ impl Struct {
         let is_winrt = self.0.is_winrt();
         let is_handle = self.is_handle();
         let is_union = self.0.flags().explicit();
+        let layout = self.0.class_layout();
+
+        let repr = if let Some(layout) = layout {
+            let packing = Literal::u32_unsuffixed(layout.packing_size());
+            quote! { #[repr(C, packed(#packing))] }
+        } else {
+            quote! { #[repr(C)] }
+        };
 
         // TODO: add test for Windows.Win32.Security.TRUSTEE_A
         let has_union = fields
@@ -223,7 +231,7 @@ impl Struct {
             };
 
             quote! {
-                #[repr(C)]
+                #repr
                 #[doc(hidden)]
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
                 pub #struct_or_union #abi_name{ #fields }
@@ -274,13 +282,24 @@ impl Struct {
                     }
                 });
 
-            quote! {
-                impl ::std::cmp::PartialEq for #name {
-                    fn eq(&self, other: &Self) -> bool {
-                        #(#compare)&&*
+            if layout.is_some() {
+                quote! {
+                    impl ::std::cmp::PartialEq for #name {
+                        fn eq(&self, other: &Self) -> bool {
+                            unsafe { #(#compare)&&* }
+                        }
                     }
+                    impl ::std::cmp::Eq for #name {}
                 }
-                impl ::std::cmp::Eq for #name {}
+            } else {
+                quote! {
+                    impl ::std::cmp::PartialEq for #name {
+                        fn eq(&self, other: &Self) -> bool {
+                            #(#compare)&&*
+                        }
+                    }
+                    impl ::std::cmp::Eq for #name {}
+                }
             }
         };
 
@@ -365,12 +384,26 @@ impl Struct {
                         }
                     });
 
-            quote! {
-                impl ::std::fmt::Debug for #name {
-                    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                        fmt.debug_struct(#debug_name)
-                            #(#debug_fields)*
-                            .finish()
+            if layout.is_some() {
+                quote! {
+                    impl ::std::fmt::Debug for #name {
+                        fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                            unsafe {
+                                fmt.debug_struct(#debug_name)
+                                    #(#debug_fields)*
+                                    .finish()
+                            }
+                        }
+                    }
+                }
+            } else {
+                quote! {
+                    impl ::std::fmt::Debug for #name {
+                        fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                            fmt.debug_struct(#debug_name)
+                                #(#debug_fields)*
+                                .finish()
+                        }
                     }
                 }
             }
@@ -381,8 +414,8 @@ impl Struct {
         let nested_types = gen_nested_types(struct_name, &self.0, gen);
 
         quote! {
-            #[repr(C)]
-            #[allow(non_snake_case)]
+            #repr
+            #[allow(non_camel_case_types)]
             #clone_or_copy
             pub #struct_or_union #name #body
             impl #name {

@@ -2,6 +2,7 @@ pub use super::*;
 
 mod assembly_ref;
 mod attribute;
+mod class_layout;
 mod constant;
 mod field;
 mod generic_param;
@@ -19,6 +20,7 @@ mod type_spec;
 
 pub use assembly_ref::*;
 pub use attribute::*;
+pub use class_layout::*;
 pub use constant::*;
 pub use field::*;
 pub use generic_param::*;
