@@ -131,8 +131,9 @@ fn gen_namespaces<'a>(
         let tokens = tree.gen(root);
 
         quote! {
-            // TODO: remove `unused_variables` when https://github.com/microsoft/windows-rs/issues/212 is fixed
-            #[allow(unused_variables, non_upper_case_globals, non_snake_case)]
+            // TODO: https://github.com/microsoft/windows-rs/issues/212
+            // TODO: https://github.com/microsoft/win32metadata/issues/380
+            #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe)]
             pub mod #name {
                 #(#tokens)*
             }

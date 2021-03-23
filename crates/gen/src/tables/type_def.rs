@@ -156,6 +156,14 @@ impl TypeDef {
         self.name().to_string()
     }
 
+    pub fn class_layout(&self) -> Option<ClassLayout> {
+        self.0
+            .file
+            .equal_range(TableIndex::ClassLayout, 2, self.0.row + 1)
+            .map(ClassLayout)
+            .next()
+    }
+
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         let namespace = self.namespace();
 
