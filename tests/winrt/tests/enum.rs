@@ -44,4 +44,22 @@ fn unsigned_enum() {
     let weekend = AppointmentDaysOfWeek::Sunday | AppointmentDaysOfWeek::Saturday;
     assert!(weekend == 0x41.into());
     assert!(weekend.0 == 0x41);
+
+    let mut days = AppointmentDaysOfWeek::Monday;
+    days |= AppointmentDaysOfWeek::Tuesday;
+    days |= AppointmentDaysOfWeek::Wednesday;
+
+    assert!(
+        days == AppointmentDaysOfWeek::Monday
+            | AppointmentDaysOfWeek::Tuesday
+            | AppointmentDaysOfWeek::Wednesday
+    );
+
+    days &= AppointmentDaysOfWeek::Monday
+        | AppointmentDaysOfWeek::Wednesday
+        | AppointmentDaysOfWeek::Friday;
+
+    assert!(days == AppointmentDaysOfWeek::Monday | AppointmentDaysOfWeek::Wednesday);
+    days = days & AppointmentDaysOfWeek::Wednesday;
+    assert!(days == AppointmentDaysOfWeek::Wednesday);
 }

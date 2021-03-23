@@ -54,7 +54,6 @@ impl Enum {
         // on the flags attribute.
         let bitwise = if bitwise || self.0.has_attribute("FlagsAttribute") {
             quote! {
-                // TODO: add BitOrAssign and BitAndAssign
                 impl ::std::ops::BitOr for #name {
                     type Output = Self;
 
@@ -67,6 +66,16 @@ impl Enum {
 
                     fn bitand(self, rhs: Self) -> Self {
                         Self(self.0 & rhs.0)
+                    }
+                }
+                impl ::std::ops::BitOrAssign for #name {
+                    fn bitor_assign(&mut self, rhs: Self) {
+                        self.0.bitor_assign(rhs.0)
+                    }
+                }
+                impl ::std::ops::BitAndAssign for #name {
+                    fn bitand_assign(&mut self, rhs: Self) {
+                        self.0.bitand_assign(rhs.0)
                     }
                 }
             }
