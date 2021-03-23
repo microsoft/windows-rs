@@ -106,14 +106,14 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 recurse(reader, &*p.tree, current)
             }
             syn::UseTree::Glob(g) => {
-                let namespace = find_namespace(reader, &current.clone(), g.span())?;
+                let namespace = find_namespace(reader, &current, g.span())?;
                 Ok(NamespaceTypes {
                     namespace,
                     limit: TypeLimit::All,
                 })
             }
             syn::UseTree::Group(g) => {
-                let namespace = find_namespace(reader, &current.clone(), g.span())?;
+                let namespace = find_namespace(reader, &current, g.span())?;
 
                 let mut types = Vec::with_capacity(g.items.len());
                 for tree in &g.items {
@@ -136,7 +136,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 })
             }
             syn::UseTree::Name(n) => {
-                let namespace = find_namespace(reader, &current.clone(), n.span())?;
+                let namespace = find_namespace(reader, &current, n.span())?;
                 let name = n.ident.to_string();
                 Ok(NamespaceTypes {
                     namespace,
