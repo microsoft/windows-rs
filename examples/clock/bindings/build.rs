@@ -14,9 +14,11 @@ fn main() {
             D3D11CreateDevice, ID3D11Device, D3D11_CREATE_DEVICE_FLAG, D3D11_SDK_VERSION,
             D3D_DRIVER_TYPE,
         },
+        // TODO: https://github.com/microsoft/win32metadata/issues/385
+        windows::win32::direct3d9::D3DCOLORVALUE,
         windows::win32::dxgi::{
             CreateDXGIFactory1, IDXGIDevice, IDXGIFactory2, IDXGIFactory7, IDXGIOutput, IDXGISurface,
-            IDXGISwapChain1, DXGI_FORMAT, DXGI_PRESENT_TEST, DXGI_RGBA, DXGI_SAMPLE_DESC,
+            IDXGISwapChain1, DXGI_FORMAT, DXGI_PRESENT_TEST, DXGI_SAMPLE_DESC,
             DXGI_SWAP_CHAIN_DESC1, DXGI_SWAP_CHAIN_FULLSCREEN_DESC, DXGI_SWAP_EFFECT,
             DXGI_USAGE_RENDER_TARGET_OUTPUT, DXGI_ERROR_UNSUPPORTED,
         },
@@ -33,9 +35,9 @@ fn main() {
         windows::win32::windows_and_messaging::{
             CreateWindowExA, DefWindowProcA, DispatchMessageA, GetMessageA, PeekMessageA,
             PostQuitMessage, RegisterClassA, CREATESTRUCTA, HWND, LPARAM, MINMAXINFO, MSG, WNDCLASSA,
-            WPARAM, LoadCursorA, IDC_ARROW, SIZE_MINIMIZED, WM_DESTROY, WM_ACTIVATE, WM_DISPLAYCHANGE,
-            WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, GWLP_USERDATA, WNDCLASS_STYLES,
-            CW_USEDEFAULT,
+            WPARAM, LoadCursorW, IDC_ARROW, SIZE_MINIMIZED, WM_DESTROY, WM_ACTIVATE, WM_DISPLAYCHANGE,
+            WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, WNDCLASS_STYLES,
+            CW_USEDEFAULT, IDC_HAND, SetWindowLongA, SetWindowLongPtrA, GetWindowLongA, GetWindowLongPtrA,
         },
         windows::win32::windows_programming::{
             GetLocalTime, QueryPerformanceCounter, QueryPerformanceFrequency,

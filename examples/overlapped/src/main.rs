@@ -18,8 +18,7 @@ fn main() -> windows::Result<()> {
             HANDLE(0),
         );
 
-        // TODO: https://github.com/microsoft/win32metadata/issues/316
-        if file.0 == -1 {
+        if file == INVALID_HANDLE_VALUE {
             windows::ErrorCode::from_thread().ok()?;
         }
 
