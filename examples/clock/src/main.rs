@@ -475,7 +475,6 @@ impl Window {
                 let this = (*cs).lp_create_params as *mut Self;
                 (*this).handle = window;
 
-                // TODO: https://github.com/microsoft/win32metadata/issues/331
                 SetWindowLong(window, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA, this as _);
             } else {
                 let this = GetWindowLong(window, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA) as *mut Self;
