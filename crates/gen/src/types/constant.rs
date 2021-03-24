@@ -4,12 +4,16 @@ use super::*;
 pub struct Constant(pub tables::Field);
 
 impl Constant {
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        self.0.signature().kind.definition()
+    }
+
     pub fn gen_name(&self) -> TokenStream {
         let name = format_ident!("{}", self.0.name());
         quote! { #name }
     }
 
-    pub fn gen(&self) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.name();
 
         // TODO: workaround for https://github.com/microsoft/win32metadata/issues/90
@@ -19,7 +23,23 @@ impl Constant {
 
         let name = to_ident(name);
 
-        if self.0.constant().is_none() {
+        if let Some(constant) = self.0.constant() {
+            let signature = self.0.signature();
+            if signature.kind == constant.value_type() {
+                let value = constant.value().gen();
+
+                quote! {
+                    pub const #name: #value;
+                }
+            } else {
+                let kind = signature.gen_win32(gen);
+                let value = constant.value().gen_value();
+
+                quote! {
+                    pub const #name: #kind = #kind(#value as _);
+                }
+            }
+        } else {
             match Guid::from_attributes(self.0.attributes()) {
                 Some(guid) => {
                     let guid = guid.gen();
@@ -32,12 +52,6 @@ impl Constant {
                     // TODO: add support for https://github.com/microsoft/win32metadata/issues/339
                     quote! {}
                 }
-            }
-        } else {
-            let value = self.0.constant().expect("Field").value().gen();
-
-            quote! {
-                pub const #name: #value;
             }
         }
     }

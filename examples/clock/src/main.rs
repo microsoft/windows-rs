@@ -1,8 +1,9 @@
 use bindings::{
     windows::foundation::numerics::*, windows::win32::direct2d::*, windows::win32::direct3d11::*,
-    windows::win32::dxgi::*, windows::win32::gdi::*, windows::win32::menus_and_resources::*,
-    windows::win32::system_services::*, windows::win32::ui_animation::*,
-    windows::win32::windows_and_messaging::*, windows::win32::windows_programming::*,
+    windows::win32::direct3d9::*, windows::win32::dxgi::*, windows::win32::gdi::*,
+    windows::win32::menus_and_resources::*, windows::win32::system_services::*,
+    windows::win32::ui_animation::*, windows::win32::windows_and_messaging::*,
+    windows::win32::windows_programming::*,
 };
 
 use windows::*;
@@ -128,7 +129,7 @@ impl Window {
         let error = self.present(1, 0);
 
         if error.is_err() {
-            if error.0 == DXGI_STATUS_OCCLUDED as u32 {
+            if error == DXGI_STATUS_OCCLUDED {
                 unsafe {
                     self.dxfactory
                         .RegisterOcclusionStatusWindow(
@@ -172,7 +173,7 @@ impl Window {
                 .Update(get_time(self.frequency)?, std::ptr::null_mut())
                 .ok()?;
 
-            target.Clear(&DXGI_RGBA {
+            target.Clear(&D3DCOLORVALUE {
                 r: 1.0,
                 g: 1.0,
                 b: 1.0,
@@ -401,7 +402,7 @@ impl Window {
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {
-                h_cursor: LoadCursorA(HINSTANCE(0), PSTR(IDC_ARROW as *mut u8)),
+                h_cursor: LoadCursorW(HINSTANCE(0), IDC_HAND),
                 h_instance: instance,
                 lpsz_class_name: PSTR(b"window\0".as_ptr() as _),
 
@@ -417,7 +418,7 @@ impl Window {
                 Default::default(),
                 "window",
                 "Sample Window",
-                WINDOWS_STYLE::WS_OVERLAPPEDWINDOW | WINDOWS_STYLE::WS_VISIBLE,
+                WINDOW_STYLE::WS_OVERLAPPEDWINDOW | WINDOW_STYLE::WS_VISIBLE,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
@@ -475,9 +476,9 @@ impl Window {
                 (*this).handle = window;
 
                 // TODO: https://github.com/microsoft/win32metadata/issues/331
-                SetWindowLongA(window, GWLP_USERDATA, this as _);
+                SetWindowLong(window, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA, this as _);
             } else {
-                let this = GetWindowLongA(window, GWLP_USERDATA) as *mut Self;
+                let this = GetWindowLong(window, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA) as *mut Self;
 
                 if !this.is_null() {
                     return (*this).message_handler(message, wparam, lparam);
@@ -498,7 +499,7 @@ fn get_time(frequency: i64) -> Result<f64> {
 }
 
 fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
-    let color = DXGI_RGBA {
+    let color = D3DCOLORVALUE {
         r: 0.92,
         g: 0.38,
         b: 0.208,
@@ -616,7 +617,7 @@ fn create_device() -> Result<ID3D11Device> {
     let mut result = create_device_with_type(D3D_DRIVER_TYPE::D3D_DRIVER_TYPE_HARDWARE);
 
     if let Err(err) = &result {
-        if err.code().0 == DXGI_ERROR_UNSUPPORTED as u32 {
+        if err.code() == DXGI_ERROR_UNSUPPORTED {
             result = create_device_with_type(D3D_DRIVER_TYPE::D3D_DRIVER_TYPE_WARP);
         }
     }
@@ -723,36 +724,26 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
     .and_some(swapchain)
 }
 
-// TODO: workaround for https://github.com/microsoft/win32metadata/issues/142
-
 #[allow(non_snake_case)]
-unsafe fn SetWindowLongA(window: HWND, index: i32, value: isize) -> isize {
-    #[link(name = "user32")]
-    extern "system" {
-        #[cfg(target_pointer_width = "32")]
-        #[link_name = "SetWindowLongA"]
-        fn SetWindowLongA(window: HWND, index: i32, value: i32) -> isize;
-
-        #[cfg(target_pointer_width = "64")]
-        #[link_name = "SetWindowLongPtrA"]
-        fn SetWindowLongA(window: HWND, index: i32, value: isize) -> isize;
-    }
-
-    SetWindowLongA(window, index, value as _)
+#[cfg(target_pointer_width = "32")]
+unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
+    SetWindowLongA(window, index, value as _) as _
 }
 
 #[allow(non_snake_case)]
-unsafe fn GetWindowLongA(window: HWND, index: i32) -> isize {
-    #[link(name = "user32")]
-    extern "system" {
-        #[cfg(target_pointer_width = "32")]
-        #[link_name = "GetWindowLongA"]
-        fn GetWindowLongA(window: HWND, index: i32) -> i32;
+#[cfg(target_pointer_width = "64")]
+unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
+    SetWindowLongPtrA(window, index, value)
+}
 
-        #[cfg(target_pointer_width = "64")]
-        #[link_name = "GetWindowLongPtrA"]
-        fn GetWindowLongA(window: HWND, index: i32) -> isize;
-    }
-
+#[allow(non_snake_case)]
+#[cfg(target_pointer_width = "32")]
+unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
     GetWindowLongA(window, index) as _
+}
+
+#[allow(non_snake_case)]
+#[cfg(target_pointer_width = "64")]
+unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
+    GetWindowLongPtrA(window, index)
 }

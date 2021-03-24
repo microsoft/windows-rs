@@ -358,6 +358,7 @@ impl ElementType {
             Self::Struct(t) => t.dependencies(),
             Self::Delegate(t) => t.dependencies(),
             Self::Callback(t) => t.dependencies(),
+            Self::Constant(t) => t.dependencies(),
             Self::Array((signature, _)) => signature.dependencies(),
             _ => Vec::new(),
         }
@@ -479,7 +480,7 @@ impl ElementType {
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Function(t) => t.gen(gen),
-            Self::Constant(t) => t.gen(),
+            Self::Constant(t) => t.gen(gen),
             Self::Class(t) => t.gen(gen),
             Self::Interface(t) => t.gen(gen),
             Self::ComInterface(t) => t.gen(gen),
