@@ -214,7 +214,7 @@ mod tests {
         assert_eq!(
             t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
                 .as_str(),
-            "windows :: foundation :: IAsyncOperation :: < TResult >"
+            "Windows :: Foundation :: IAsyncOperation :: < TResult >"
         );
         assert_eq!(
             t.gen_name(&Gen::relative(

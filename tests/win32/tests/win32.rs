@@ -1,30 +1,30 @@
 use test_win32::{
-    windows::win32::automation::BSTR,
-    windows::win32::com::CreateUri,
-    windows::win32::debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
-    windows::win32::direct2d::CLSID_D2D1Shadow,
-    windows::win32::direct3d11::D3DDisassemble11Trace,
-    windows::win32::direct3d12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
-    windows::win32::direct3d_hlsl::D3DCOMPILER_DLL,
-    windows::win32::display_devices::RECT,
-    windows::win32::dxgi::{
+    Windows::Win32::Automation::BSTR,
+    Windows::Win32::Com::CreateUri,
+    Windows::Win32::Debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
+    Windows::Win32::Direct2D::CLSID_D2D1Shadow,
+    Windows::Win32::Direct3D11::D3DDisassemble11Trace,
+    Windows::Win32::Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
+    Windows::Win32::Direct3DHlsl::D3DCOMPILER_DLL,
+    Windows::Win32::DisplayDevices::RECT,
+    Windows::Win32::Dxgi::{
         CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_ERROR_INVALID_CALL, DXGI_FORMAT,
         DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
     },
-    windows::win32::game_mode::HasExpandedResources,
-    windows::win32::ldap::ldapsearch,
-    windows::win32::security::ACCESS_MODE,
-    windows::win32::structured_storage::{CreateStreamOnHGlobal, STREAM_SEEK},
-    windows::win32::system_services::{
+    Windows::Win32::GameMode::HasExpandedResources,
+    Windows::Win32::Ldap::ldapsearch,
+    Windows::Win32::Security::ACCESS_MODE,
+    Windows::Win32::StructuredStorage::{CreateStreamOnHGlobal, STREAM_SEEK},
+    Windows::Win32::SystemServices::{
         CreateEventW, SetEvent, WaitForSingleObject, BOOL, HANDLE, PSTR, PWSTR, WAIT_RETURN_CAUSE,
     },
-    windows::win32::ui_animation::{UIAnimationManager, UIAnimationTransitionLibrary},
-    windows::win32::windows_accessibility::UIA_ScrollPatternNoScroll,
-    windows::win32::windows_and_messaging::{
+    Windows::Win32::UIAnimation::{UIAnimationManager, UIAnimationTransitionLibrary},
+    Windows::Win32::WindowsAccessibility::UIA_ScrollPatternNoScroll,
+    Windows::Win32::WindowsAndMessaging::{
         CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP,
     },
-    windows::win32::windows_color_system::WhitePoint,
-    windows::win32::windows_programming::CloseHandle,
+    Windows::Win32::WindowsColorSystem::WhitePoint,
+    Windows::Win32::WindowsProgramming::CloseHandle,
 };
 
 use windows::{Abi, Guid, Interface};
@@ -78,15 +78,15 @@ fn rect() {
 #[test]
 fn dxgi_mode_desc() {
     let _ = DXGI_MODE_DESC {
-        width: 1,
-        height: 2,
-        refresh_rate: DXGI_RATIONAL {
-            numerator: 3,
-            denominator: 5,
+        Width: 1,
+        Height: 2,
+        RefreshRate: DXGI_RATIONAL {
+            Numerator: 3,
+            Denominator: 5,
         },
-        format: DXGI_FORMAT::DXGI_FORMAT_R32_TYPELESS,
-        scanline_ordering: DXGI_MODE_SCANLINE_ORDER::DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
-        scaling: DXGI_MODE_SCALING::DXGI_MODE_SCALING_CENTERED,
+        Format: DXGI_FORMAT::DXGI_FORMAT_R32_TYPELESS,
+        ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER::DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
+        Scaling: DXGI_MODE_SCALING::DXGI_MODE_SCALING_CENTERED,
     };
 }
 

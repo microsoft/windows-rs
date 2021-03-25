@@ -1,55 +1,55 @@
-use test_unions::windows::win32::system_services::{
+use test_unions::Windows::Win32::SystemServices::{
     HANDLE, OVERLAPPED, OVERLAPPED_0, OVERLAPPED_0_0,
 };
 
 #[test]
 fn test() {
     let mut o = OVERLAPPED {
-        internal: 1,
-        internal_high: 2,
-        anonymous: OVERLAPPED_0 {
-            pointer: std::ptr::null_mut(),
+        Internal: 1,
+        InternalHigh: 2,
+        Anonymous: OVERLAPPED_0 {
+            Pointer: std::ptr::null_mut(),
         },
-        h_event: HANDLE(0),
+        hEvent: HANDLE(0),
     };
 
-    assert_eq!(o.internal, 1);
-    o.internal = 10;
-    assert_eq!(o.internal, 10);
+    assert_eq!(o.Internal, 1);
+    o.Internal = 10;
+    assert_eq!(o.Internal, 10);
 
-    assert_eq!(o.internal_high, 2);
-    o.internal_high = 20;
-    assert_eq!(o.internal_high, 20);
+    assert_eq!(o.InternalHigh, 2);
+    o.InternalHigh = 20;
+    assert_eq!(o.InternalHigh, 20);
 
-    assert_eq!(o.h_event, HANDLE(0));
-    o.h_event = HANDLE(1);
-    assert_eq!(o.h_event, HANDLE(1));
+    assert_eq!(o.hEvent, HANDLE(0));
+    o.hEvent = HANDLE(1);
+    assert_eq!(o.hEvent, HANDLE(1));
 
     unsafe {
-        assert_eq!(o.anonymous.pointer, std::ptr::null_mut());
+        assert_eq!(o.Anonymous.Pointer, std::ptr::null_mut());
     }
 
     unsafe {
-        assert_eq!(o.anonymous.anonymous.offset, 0);
-        assert_eq!(o.anonymous.anonymous.offset_high, 0);
+        assert_eq!(o.Anonymous.Anonymous.Offset, 0);
+        assert_eq!(o.Anonymous.Anonymous.OffsetHigh, 0);
     }
 
-    o.anonymous.anonymous.offset = 100;
-    o.anonymous.anonymous.offset_high = 200;
+    o.Anonymous.Anonymous.Offset = 100;
+    o.Anonymous.Anonymous.OffsetHigh = 200;
 
     unsafe {
-        assert_eq!(o.anonymous.anonymous.offset, 100);
-        assert_eq!(o.anonymous.anonymous.offset_high, 200);
+        assert_eq!(o.Anonymous.Anonymous.Offset, 100);
+        assert_eq!(o.Anonymous.Anonymous.OffsetHigh, 200);
     }
 
-    o.anonymous.anonymous = OVERLAPPED_0_0 {
-        offset: 10,
-        offset_high: 20,
+    o.Anonymous.Anonymous = OVERLAPPED_0_0 {
+        Offset: 10,
+        OffsetHigh: 20,
     };
 
     unsafe {
-        assert_eq!(o.anonymous.anonymous.offset, 10);
-        assert_eq!(o.anonymous.anonymous.offset_high, 20);
+        assert_eq!(o.Anonymous.Anonymous.Offset, 10);
+        assert_eq!(o.Anonymous.Anonymous.OffsetHigh, 20);
     }
 }
 

@@ -71,15 +71,15 @@ fn gen_async_kind(
     (
         quote! {
             pub fn get(&self) -> ::windows::Result<#return_type> {
-                if self.status()? == #namespace AsyncStatus::Started {
+                if self.Status()? == #namespace AsyncStatus::Started {
                     let (waiter, signaler) = ::windows::Waiter::new();
-                    self.set_completed(#namespace  #handler::new(move |_sender, _args| {
+                    self.SetCompleted(#namespace  #handler::new(move |_sender, _args| {
                         // Safe because the waiter will only be dropped after being signaled.
                         unsafe { signaler.signal(); }
                         Ok(())
                     }))?;
                 }
-                self.get_results()
+                self.GetResults()
             }
         },
         quote! {
@@ -87,17 +87,17 @@ fn gen_async_kind(
                 type Output = ::windows::Result<#return_type>;
 
                 fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
-                    if self.status()? == #namespace AsyncStatus::Started {
+                    if self.Status()? == #namespace AsyncStatus::Started {
                         let waker = context.waker().clone();
 
-                        let _ = self.set_completed(#namespace #handler::new(move |_sender, _args| {
+                        let _ = self.SetCompleted(#namespace #handler::new(move |_sender, _args| {
                             waker.wake_by_ref();
                             Ok(())
                         }));
 
                         ::std::task::Poll::Pending
                     } else {
-                        ::std::task::Poll::Ready(self.get_results())
+                        ::std::task::Poll::Ready(self.GetResults())
                     }
                 }
             }

@@ -1,9 +1,9 @@
 fn main() {
     windows::build!(
-        windows::foundation::collections::IVector,
-        windows::foundation::{IAsyncOperationWithProgress, Uri},
+        Windows::Foundation::Collections::IVector,
+        Windows::Foundation::{IAsyncOperationWithProgress, Uri},
 
-        windows::web::syndication::{
+        Windows::Web::Syndication::{
             ISyndicationText, RetrievalProgress, SyndicationClient, SyndicationFeed, SyndicationItem,
         },
     );

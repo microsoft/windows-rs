@@ -131,10 +131,10 @@ impl TypeReader {
         Self { types, nested }
     }
 
-    pub fn find_lowercase_namespace(&'static self, lowercase: &str) -> Option<&'static str> {
+    pub fn find_namespace(&'static self, find: &str) -> Option<&'static str> {
         self.types
             .keys()
-            .find(|namespace| namespace.to_lowercase() == lowercase)
+            .find(|namespace| *namespace == &find)
             .copied()
     }
 

@@ -1,76 +1,77 @@
 use ::windows::Result;
 use test_winrt::*;
 
-#[::windows::implement(windows::ui::xaml::{IApplicationOverrides, IApplicationOverrides2})]
+#[::windows::implement(Windows::UI::Xaml::{IApplicationOverrides, IApplicationOverrides2})]
 struct App {}
 
+#[allow(non_snake_case)]
 impl App {
-    fn on_activated(
+    fn OnActivated(
         &self,
-        _args: &Option<windows::application_model::activation::IActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::IActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_launched(
+    fn OnLaunched(
         &self,
-        _args: &Option<windows::application_model::activation::LaunchActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_file_activated(
+    fn OnFileActivated(
         &self,
-        _args: &Option<windows::application_model::activation::FileActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::FileActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_search_activated(
+    fn OnSearchActivated(
         &self,
-        _args: &Option<windows::application_model::activation::SearchActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::SearchActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_share_target_activated(
+    fn OnShareTargetActivated(
         &self,
-        _args: &Option<windows::application_model::activation::ShareTargetActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::ShareTargetActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_file_open_picker_activated(
+    fn OnFileOpenPickerActivated(
         &self,
-        _args: &Option<windows::application_model::activation::FileOpenPickerActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_file_save_picker_activated(
+    fn OnFileSavePickerActivated(
         &self,
-        _args: &Option<windows::application_model::activation::FileSavePickerActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::FileSavePickerActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_cached_file_updater_activated(
+    fn OnCachedFileUpdaterActivated(
         &self,
-        _args: &Option<windows::application_model::activation::CachedFileUpdaterActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_window_created(
+    fn OnWindowCreated(
         &self,
-        _args: &Option<windows::ui::xaml::WindowCreatedEventArgs>,
+        _args: &Option<Windows::UI::Xaml::WindowCreatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }
 
-    fn on_background_activated(
+    fn OnBackgroundActivated(
         &self,
-        _args: &Option<windows::application_model::activation::BackgroundActivatedEventArgs>,
+        _args: &Option<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs>,
     ) -> Result<()> {
         Ok(())
     }

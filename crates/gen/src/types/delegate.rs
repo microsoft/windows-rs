@@ -42,7 +42,7 @@ impl Delegate {
         let constraints = self.0.gen_constraints(gen);
 
         let method = MethodInfo {
-            name: "invoke".to_string(),
+            name: "Invoke".to_string(),
             vtable_offset: 3,
             overload: 0,
         };

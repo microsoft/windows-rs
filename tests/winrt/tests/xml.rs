@@ -1,14 +1,14 @@
-use test_winrt::windows::data::xml::dom::XmlDocument;
+use test_winrt::Windows::Data::Xml::Dom::XmlDocument;
 
 // Simple test to validate that default constructors are projected as static `new` methods.
 #[test]
 fn xml() -> windows::Result<()> {
     let doc = XmlDocument::new()?;
 
-    doc.load_xml("<html>hello world</html>")?;
-    let root = doc.document_element()?;
-    assert!(root.node_name()? == "html");
-    assert!(root.inner_text()? == "hello world");
+    doc.LoadXml("<html>hello world</html>")?;
+    let root = doc.DocumentElement()?;
+    assert!(root.NodeName()? == "html");
+    assert!(root.InnerText()? == "hello world");
 
     Ok(())
 }

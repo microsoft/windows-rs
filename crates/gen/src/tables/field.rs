@@ -65,7 +65,7 @@ impl Field {
     }
 
     pub fn gen_name(&self) -> Ident {
-        to_ident(&to_snake(self.name()))
+        to_ident(self.name())
     }
 }
 

@@ -1,16 +1,16 @@
-use test_winrt::windows::foundation::{IClosable, IStringable, Uri};
+use test_winrt::Windows::Foundation::{IClosable, IStringable, Uri};
 use windows::{Interface, Result};
 
 #[test]
 fn try_into() -> Result<()> {
-    let uri = Uri::create_uri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri("http://kennykerr.ca")?;
 
     // Implicit cast to IStringable should work.
-    assert!(uri.to_string()? == "http://kennykerr.ca/");
+    assert!(uri.ToString()? == "http://kennykerr.ca/");
 
     // Uri implements IStringable so this cast should succeed.
     let s: Result<IStringable> = uri.cast();
-    assert!(s.unwrap().to_string()? == "http://kennykerr.ca/");
+    assert!(s.unwrap().ToString()? == "http://kennykerr.ca/");
 
     // Uri does not implement IClosable so this should fail.
     let c: Result<IClosable> = uri.cast();
@@ -20,7 +20,7 @@ fn try_into() -> Result<()> {
     // its default interface GUID to resolve the cast.
     let s: IStringable = uri.cast()?;
     let uri: Uri = s.cast()?;
-    assert!(uri.domain()? == "kennykerr.ca");
+    assert!(uri.Domain()? == "kennykerr.ca");
 
     Ok(())
 }

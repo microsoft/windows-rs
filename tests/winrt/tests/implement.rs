@@ -1,5 +1,5 @@
 use ::windows::Interface;
-use test_winrt::windows;
+use test_winrt::Windows;
 
 #[test]
 fn implement() -> ::windows::Result<()> {
@@ -10,11 +10,11 @@ fn implement() -> ::windows::Result<()> {
             sender,
         };
 
-        let s: windows::foundation::IStringable = t.into();
-        assert!(s.to_string()? == "hello");
+        let s: Windows::Foundation::IStringable = t.into();
+        assert!(s.ToString()? == "hello");
 
-        let c: windows::foundation::IClosable = s.cast()?;
-        c.close()?;
+        let c: Windows::Foundation::IClosable = s.cast()?;
+        c.Close()?;
         assert!(receiver.recv().unwrap() == "close: hello");
     }
     assert!(receiver.recv().unwrap() == "drop: hello");
@@ -26,12 +26,12 @@ fn implement() -> ::windows::Result<()> {
             sender,
         };
 
-        let c: windows::foundation::IClosable = t.into();
-        c.close()?;
+        let c: Windows::Foundation::IClosable = t.into();
+        c.Close()?;
         assert!(receiver.recv().unwrap() == "close: world");
 
-        let s: windows::foundation::IStringable = c.cast()?;
-        assert!(s.to_string()? == "world");
+        let s: Windows::Foundation::IStringable = c.cast()?;
+        assert!(s.ToString()? == "world");
     }
     assert!(receiver.recv().unwrap() == "drop: world");
 
@@ -42,8 +42,8 @@ fn implement() -> ::windows::Result<()> {
             sender,
         };
 
-        let s: windows::foundation::IStringable = t.into();
-        assert!(s.to_string()? == "object");
+        let s: Windows::Foundation::IStringable = t.into();
+        assert!(s.ToString()? == "object");
 
         // Confirms that the conversion to `Object` properly handles
         // reference counting.
@@ -54,7 +54,7 @@ fn implement() -> ::windows::Result<()> {
     Ok(())
 }
 
-#[::windows::implement(windows::foundation::{IStringable, IClosable})]
+#[::windows::implement(Windows::Foundation::{IStringable, IClosable})]
 struct Thing {
     value: String,
     sender: std::sync::mpsc::Sender<String>,
@@ -66,12 +66,13 @@ impl Drop for Thing {
     }
 }
 
+#[allow(non_snake_case)]
 impl Thing {
-    fn to_string(&self) -> ::windows::Result<::windows::HString> {
+    fn ToString(&self) -> ::windows::Result<::windows::HString> {
         Ok(::windows::HString::from(&self.value))
     }
 
-    fn close(&self) -> ::windows::Result<()> {
+    fn Close(&self) -> ::windows::Result<()> {
         self.sender.send(format!("close: {}", self.value)).unwrap();
         Ok(())
     }

@@ -1,6 +1,6 @@
 use crate::*;
 
-use bindings::windows::win32::system_services::{
+use bindings::Windows::Win32::SystemServices::{
     GetProcessHeap, HeapAlloc, HeapFree, HeapReAlloc_dwFlags,
 };
 

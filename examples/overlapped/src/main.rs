@@ -1,6 +1,6 @@
 use bindings::{
-    windows::win32::debug::*, windows::win32::file_system::*, windows::win32::system_services::*,
-    windows::win32::windows_programming::*,
+    Windows::Win32::Debug::*, Windows::Win32::FileSystem::*, Windows::Win32::SystemServices::*,
+    Windows::Win32::WindowsProgramming::*,
 };
 
 fn main() -> windows::Result<()> {
@@ -23,18 +23,18 @@ fn main() -> windows::Result<()> {
         }
 
         let mut overlapped = OVERLAPPED {
-            anonymous: OVERLAPPED_0 {
-                anonymous: OVERLAPPED_0_0 {
-                    offset: 9,
-                    offset_high: 0,
+            Anonymous: OVERLAPPED_0 {
+                Anonymous: OVERLAPPED_0_0 {
+                    Offset: 9,
+                    OffsetHigh: 0,
                 },
             },
-            h_event: CreateEventA(std::ptr::null_mut(), true, false, PSTR::default()),
-            internal: 0,
-            internal_high: 0,
+            hEvent: CreateEventA(std::ptr::null_mut(), true, false, PSTR::default()),
+            Internal: 0,
+            InternalHigh: 0,
         };
 
-        assert!(overlapped.h_event.0 != 0);
+        assert!(overlapped.hEvent.0 != 0);
 
         let mut buffer: [u8; 12] = Default::default();
         let read_ok = ReadFile(
@@ -49,7 +49,7 @@ fn main() -> windows::Result<()> {
             assert_eq!(GetLastError(), ERROR_IO_PENDING as u32);
         }
 
-        let wait_ok = WaitForSingleObject(overlapped.h_event, 2000);
+        let wait_ok = WaitForSingleObject(overlapped.hEvent, 2000);
         assert!(wait_ok == WAIT_RETURN_CAUSE::WAIT_OBJECT_0);
 
         let mut bytes_copied = 0;

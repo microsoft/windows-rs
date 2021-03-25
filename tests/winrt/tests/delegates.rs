@@ -1,10 +1,10 @@
 use std::convert::*;
 
 use test_winrt::{
-    windows::foundation::collections::{
+    Windows::Foundation::Collections::{
         CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
     },
-    windows::foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
+    Windows::Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
 };
 
 use windows::{Abi, Interface};
@@ -29,7 +29,7 @@ fn non_generic() -> windows::Result<()> {
 
     // TODO: delegates are function objects (logically) and we should be able
     // to call them without an explicit `invoke` method e.g. `d(args);`
-    d.invoke(None, AsyncStatus::Completed)?;
+    d.Invoke(None, AsyncStatus::Completed)?;
 
     assert!(rx.recv().unwrap());
 
@@ -45,7 +45,7 @@ fn generic() -> windows::Result<()> {
         windows::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
     );
 
-    let uri = Uri::create_uri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri("http://kennykerr.ca")?;
     let (tx, rx) = std::sync::mpsc::channel();
 
     let uri_clone = uri.clone();
@@ -58,8 +58,8 @@ fn generic() -> windows::Result<()> {
         Ok(())
     });
 
-    let port = uri.port()?;
-    d.invoke(uri, port)?;
+    let port = uri.Port()?;
+    d.Invoke(uri, port)?;
 
     assert!(rx.recv().unwrap());
 
@@ -73,21 +73,21 @@ fn event() -> windows::Result<()> {
 
     let set_clone = set.clone();
     // TODO: Should be able to elide the delegate construction and simply say:
-    // set.map_changed(|sender, args| {...})?;
-    set.map_changed(
+    // set.MapChanged(|sender, args| {...})?;
+    set.MapChanged(
         MapChangedEventHandler::<windows::HString, windows::Object>::new(move |sender, args| {
             let args = args.as_ref().unwrap();
             tx.send(true).unwrap();
             let set = set_clone.clone();
             let map: IObservableMap<windows::HString, windows::Object> = set.into();
             assert!(map.abi() == sender.abi());
-            assert!(args.key()? == "A");
-            assert!(args.collection_change()? == CollectionChange::ItemInserted);
+            assert!(args.Key()? == "A");
+            assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
             Ok(())
         }),
     )?;
 
-    set.insert("A", windows::Object::try_from(1_u32)?)?;
+    set.Insert("A", windows::Object::try_from(1_u32)?)?;
 
     assert!(rx.recv().unwrap());
 

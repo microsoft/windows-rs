@@ -1,4 +1,3 @@
-use super::*;
 use gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
@@ -106,14 +105,14 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 recurse(reader, &*p.tree, current)
             }
             syn::UseTree::Glob(g) => {
-                let namespace = find_namespace(reader, &current, g.span())?;
+                let namespace = find_namespace(reader, current.trim_matches('"'), g.span())?;
                 Ok(NamespaceTypes {
                     namespace,
                     limit: TypeLimit::All,
                 })
             }
             syn::UseTree::Group(g) => {
-                let namespace = find_namespace(reader, &current, g.span())?;
+                let namespace = find_namespace(reader, current.trim_matches('"'), g.span())?;
 
                 let mut types = Vec::with_capacity(g.items.len());
                 for tree in &g.items {
@@ -136,7 +135,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 })
             }
             syn::UseTree::Name(n) => {
-                let namespace = find_namespace(reader, &current, n.span())?;
+                let namespace = find_namespace(reader, current.trim_matches('"'), n.span())?;
                 let name = n.ident.to_string();
                 Ok(NamespaceTypes {
                     namespace,
@@ -158,8 +157,7 @@ fn find_namespace(
     namespace: &str,
     span: proc_macro2::Span,
 ) -> syn::parse::Result<&'static str> {
-    let namespace = namespace_literal_to_rough_namespace(namespace);
-    if let Some(namespace) = reader.find_lowercase_namespace(&namespace) {
+    if let Some(namespace) = reader.find_namespace(&namespace) {
         Ok(namespace)
     } else {
         Err(syn::Error::new(span, "Module not found"))

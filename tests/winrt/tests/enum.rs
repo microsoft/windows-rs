@@ -1,6 +1,6 @@
 use test_winrt::{
-    windows::application_model::appointments::AppointmentDaysOfWeek,
-    windows::foundation::AsyncStatus,
+    Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek,
+    Windows::Foundation::AsyncStatus,
 };
 
 #[test]

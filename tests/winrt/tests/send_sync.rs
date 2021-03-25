@@ -1,16 +1,16 @@
 use std::thread;
-use test_winrt::windows::foundation::*;
-use test_winrt::windows::storage::streams::*;
+use test_winrt::Windows::Foundation::*;
+use test_winrt::Windows::Storage::Streams::*;
 use windows::{ErrorCode, Interface};
 
 // Simple test to validate that types with MarshalingType.Agile are marked Send and Sync
 // (if this compiles it worked)
 #[test]
 fn send_sync() -> windows::Result<()> {
-    let url = Uri::create_uri("http://kennykerr.ca")?;
+    let url = Uri::CreateUri("http://kennykerr.ca")?;
 
     thread::spawn(move || {
-        assert_eq!("http://kennykerr.ca/", url.to_string().unwrap());
+        assert_eq!("http://kennykerr.ca/", url.ToString().unwrap());
     });
 
     Ok(())
@@ -20,24 +20,24 @@ fn send_sync() -> windows::Result<()> {
 fn send_async() {
     let stream = InMemoryRandomAccessStream::new().unwrap();
 
-    let writer = DataWriter::create_data_writer(&stream).unwrap();
-    writer.write_byte(1).unwrap();
-    writer.write_byte(2).unwrap();
-    writer.write_byte(3).unwrap();
-    let store_async = writer.store_async().unwrap();
+    let writer = DataWriter::CreateDataWriter(&stream).unwrap();
+    writer.WriteByte(1).unwrap();
+    writer.WriteByte(2).unwrap();
+    writer.WriteByte(3).unwrap();
+    let store_async = writer.StoreAsync().unwrap();
 
     let wait = thread::spawn(move || {
         store_async.get().unwrap();
 
-        stream.seek(0).unwrap();
-        let reader = DataReader::create_data_reader(&stream).unwrap();
-        let load_async = reader.load_async(3).unwrap();
+        stream.Seek(0).unwrap();
+        let reader = DataReader::CreateDataReader(&stream).unwrap();
+        let load_async = reader.LoadAsync(3).unwrap();
 
         let wait = thread::spawn(move || {
             load_async.get().unwrap();
 
             let mut bytes: [u8; 3] = [0; 3];
-            reader.read_bytes(&mut bytes).unwrap();
+            reader.ReadBytes(&mut bytes).unwrap();
 
             assert!(bytes[0] == 1);
             assert!(bytes[1] == 2);
@@ -54,24 +54,24 @@ fn send_async() {
 fn send_async_no_class() {
     let stream = InMemoryRandomAccessStream::new().unwrap();
 
-    let writer = DataWriter::create_data_writer(&stream).unwrap();
-    writer.write_byte(1).unwrap();
-    writer.write_byte(2).unwrap();
-    writer.write_byte(3).unwrap();
-    let store_async: IAsyncOperation<u32> = writer.store_async().unwrap().cast().unwrap();
+    let writer = DataWriter::CreateDataWriter(&stream).unwrap();
+    writer.WriteByte(1).unwrap();
+    writer.WriteByte(2).unwrap();
+    writer.WriteByte(3).unwrap();
+    let store_async: IAsyncOperation<u32> = writer.StoreAsync().unwrap().cast().unwrap();
 
     let wait = thread::spawn(move || {
         store_async.get().unwrap();
 
-        stream.seek(0).unwrap();
-        let reader = DataReader::create_data_reader(&stream).unwrap();
-        let load_async: IAsyncOperation<u32> = reader.load_async(3).unwrap().cast().unwrap();
+        stream.Seek(0).unwrap();
+        let reader = DataReader::CreateDataReader(&stream).unwrap();
+        let load_async: IAsyncOperation<u32> = reader.LoadAsync(3).unwrap().cast().unwrap();
 
         let wait = thread::spawn(move || {
             load_async.get().unwrap();
 
             let mut bytes: [u8; 3] = [0; 3];
-            reader.read_bytes(&mut bytes).unwrap();
+            reader.ReadBytes(&mut bytes).unwrap();
 
             assert!(bytes[0] == 1);
             assert!(bytes[1] == 2);
@@ -86,7 +86,7 @@ fn send_async_no_class() {
 
 #[test]
 fn send_sync_err() {
-    let err = Uri::create_uri("BADURI").unwrap_err();
+    let err = Uri::CreateUri("BADURI").unwrap_err();
     let code = err.code();
 
     let wait = thread::spawn(move || {

@@ -1,9 +1,9 @@
 fn main() {
     windows::build!(
-        windows::graphics::imaging::{SoftwareBitmap, BitmapDecoder},
-        windows::media::ocr::{OcrEngine, OcrResult},
-        windows::storage::{FileAccessMode, StorageFile},
-        windows::foundation::IAsyncOperation,
-        windows::storage::streams::IRandomAccessStream,
+        Windows::Graphics::Imaging::{SoftwareBitmap, BitmapDecoder},
+        Windows::Media::Ocr::{OcrEngine, OcrResult},
+        Windows::Storage::{FileAccessMode, StorageFile},
+        Windows::Foundation::IAsyncOperation,
+        Windows::Storage::Streams::IRandomAccessStream,
     );
 }

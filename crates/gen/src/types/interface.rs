@@ -193,14 +193,14 @@ mod tests {
             i[0].def
                 .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
                 .as_str(),
-            "windows :: foundation :: IAsyncOperation :: < TResult >"
+            "Windows :: Foundation :: IAsyncOperation :: < TResult >"
         );
 
         assert_eq!(
             i[1].def
                 .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
                 .as_str(),
-            "windows :: foundation :: IAsyncInfo"
+            "Windows :: Foundation :: IAsyncInfo"
         );
     }
 
@@ -214,12 +214,12 @@ mod tests {
             i[0].def
                 .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
                 .as_str(),
-            "windows :: foundation :: collections :: IMap :: < K , V >"
+            "Windows :: Foundation :: Collections :: IMap :: < K , V >"
         );
 
         assert_eq!(
             i[1].def.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
-            "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < K , V > >"
+            "Windows :: Foundation :: Collections :: IIterable :: < Windows :: Foundation :: Collections :: IKeyValuePair :: < K , V > >"
         );
     }
 }

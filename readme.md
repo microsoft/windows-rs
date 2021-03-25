@@ -27,10 +27,12 @@ This will allow Cargo to download, build, and cache Windows support as a package
 ```rust
 fn main() {
   windows::build!(
-      windows::data::xml::dom::*,
-      windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject},
-      windows::win32::windows_programming::CloseHandle,
-      windows::win32::windows_and_messaging::MessageBoxA,
+      Windows::Win32::WindowsProgramming::CloseHandle,
+      Windows::Win32::WindowsAndMessaging::MessageBoxA,
+      Windows::Data::Xml::Dom::*,
+      Windows::Win32::SystemServices::{
+          CreateEventW, SetEvent, WaitForSingleObject
+      },
   );
 }
 ```
@@ -43,19 +45,21 @@ mod bindings {
 }
 
 use bindings::{
-    windows::data::xml::dom::*,
-    windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject, PWSTR},
-    windows::win32::windows_and_messaging::{MessageBoxA, HWND},
-    windows::win32::windows_programming::CloseHandle,
+      Windows::Win32::WindowsProgramming::CloseHandle,
+      Windows::Win32::WindowsAndMessaging::MessageBoxA,
+      Windows::Data::Xml::Dom::*,
+      Windows::Win32::SystemServices::{
+          CreateEventW, SetEvent, WaitForSingleObject
+      },
 };
 
 fn main() -> windows::Result<()> {
     let doc = XmlDocument::new()?;
-    doc.load_xml("<html>hello world</html>")?;
+    doc.LoadXml("<html>hello world</html>")?;
 
-    let root = doc.document_element()?;
-    assert!(root.node_name()? == "html");
-    assert!(root.inner_text()? == "hello world");
+    let root = doc.DocumentElement()?;
+    assert!(root.NodeName()? == "html");
+    assert!(root.InnerText()? == "hello world");
 
     unsafe {
         let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR::default());

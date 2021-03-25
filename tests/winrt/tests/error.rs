@@ -1,4 +1,4 @@
-use test_winrt::windows::foundation::Uri;
+use test_winrt::Windows::Foundation::Uri;
 
 #[test]
 fn from_hresult() {
@@ -25,7 +25,7 @@ fn originate() {
 
 #[test]
 fn bad_uri() {
-    let result = Uri::create_uri("INVALID");
+    let result = Uri::CreateUri("INVALID");
     let error: windows::Error = result.unwrap_err();
 
     assert_eq!(error.code(), windows::ErrorCode(0x80070057));

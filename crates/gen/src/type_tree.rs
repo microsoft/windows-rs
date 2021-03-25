@@ -125,8 +125,7 @@ fn gen_namespaces<'a>(
     root: &'a TypeTree,
 ) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
-        let name = to_snake(name);
-        let name = to_ident(&name);
+        let name = to_ident(name);
 
         let tokens = tree.gen(root);
 
@@ -185,7 +184,7 @@ mod tests {
         assert_eq!(
             t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
                 .as_str(),
-            "windows :: win32 :: file_system :: FILE_ACCESS_FLAGS"
+            "Windows :: Win32 :: FileSystem :: FILE_ACCESS_FLAGS"
         );
     }
 }

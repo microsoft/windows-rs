@@ -1,4 +1,4 @@
-use test_win32_arrays::windows::win32::windows_and_messaging::NCCALCSIZE_PARAMS;
+use test_win32_arrays::Windows::Win32::WindowsAndMessaging::NCCALCSIZE_PARAMS;
 
 #[test]
 #[cfg(target_arch = "x86_64")]

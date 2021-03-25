@@ -3,30 +3,31 @@ use test_winrt::*;
 #[test]
 fn implement_escape() {}
 
-#[::windows::implement(windows::ui::xaml::data::ICustomPropertyProvider)]
+#[::windows::implement(Windows::UI::Xaml::Data::ICustomPropertyProvider)]
 struct BookShu {}
 
+#[allow(non_snake_case)]
 impl BookShu {
-    pub fn r#type(&self) -> ::windows::Result<windows::ui::xaml::interop::TypeName> {
+    pub fn Type(&self) -> ::windows::Result<Windows::UI::Xaml::Interop::TypeName> {
         panic!();
     }
 
-    pub fn get_custom_property(
+    pub fn GetCustomProperty(
         &self,
         _name: &::windows::HString,
-    ) -> ::windows::Result<windows::ui::xaml::data::ICustomProperty> {
+    ) -> ::windows::Result<Windows::UI::Xaml::Data::ICustomProperty> {
         panic!();
     }
 
-    pub fn get_indexed_property(
+    pub fn GetIndexedProperty(
         &self,
         _name: &::windows::HString,
-        _type: &windows::ui::xaml::interop::TypeName,
-    ) -> ::windows::Result<windows::ui::xaml::data::ICustomProperty> {
+        _type: &Windows::UI::Xaml::Interop::TypeName,
+    ) -> ::windows::Result<Windows::UI::Xaml::Data::ICustomProperty> {
         panic!();
     }
 
-    pub fn get_string_representation(&self) -> ::windows::Result<::windows::HString> {
+    pub fn GetStringRepresentation(&self) -> ::windows::Result<::windows::HString> {
         panic!();
     }
 }

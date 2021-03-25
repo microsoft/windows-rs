@@ -80,8 +80,6 @@ impl Struct {
             };
         }
 
-        let mut field_names = BTreeMap::<String, u32>::new();
-
         let fields: Vec<(tables::Field, Signature, Ident)> = self
             .0
             .fields()
@@ -89,17 +87,7 @@ impl Struct {
                 if f.flags().literal() {
                     None
                 } else {
-                    let name = to_snake(f.name());
-                    let overload = field_names.entry(name.clone()).or_insert(0);
-                    *overload += 1;
-
-                    let name = if *overload > 1 {
-                        format_ident!("{}{}", &name, overload)
-                    } else {
-                        to_ident(&name)
-                    };
-
-                    Some((f, f.signature(), name))
+                    Some((f, f.signature(), to_ident(f.name())))
                 }
             })
             .collect();
@@ -617,7 +605,7 @@ impl Struct {
                             return Self(::std::ptr::null_mut());
                         }
 
-                        unsafe { SysAllocStringLen(super::system_services::PWSTR(value.as_ptr() as _), value.len() as u32) }
+                        unsafe { SysAllocStringLen(super::SystemServices::PWSTR(value.as_ptr() as _), value.len() as u32) }
                     }
                     fn as_wide(&self) -> &[u16] {
                         if self.0.is_null() {
@@ -732,13 +720,13 @@ impl Struct {
                 impl ::std::convert::From<::std::time::Duration> for TimeSpan {
                     fn from(value: ::std::time::Duration) -> Self {
                         Self {
-                            duration: (value.as_nanos() / 100) as i64,
+                            Duration: (value.as_nanos() / 100) as i64,
                         }
                     }
                 }
                 impl ::std::convert::From<TimeSpan> for ::std::time::Duration {
                     fn from(value: TimeSpan) -> Self {
-                        ::std::time::Duration::from_nanos((value.duration * 100) as u64)
+                        ::std::time::Duration::from_nanos((value.Duration * 100) as u64)
                     }
                 }
                 impl<'a> ::windows::IntoParam<'a, TimeSpan> for ::std::time::Duration {
@@ -750,19 +738,19 @@ impl Struct {
             ("Windows.Foundation.Numerics", "Vector2") => quote! {
                 impl Vector2 {
                     pub fn zero() -> Self {
-                        Self { x: 0f32, y: 0f32 }
+                        Self { X: 0f32, Y: 0f32 }
                     }
                     pub fn one() -> Self {
-                        Self { x: 1f32, y: 1f32 }
+                        Self { X: 1f32, Y: 1f32 }
                     }
                     pub fn unit_x() -> Self {
-                        Self { x: 1.0, y: 0.0 }
+                        Self { X: 1.0, Y: 0.0 }
                     }
                     pub fn unit_y() -> Self {
-                        Self { x: 0.0, y: 1.0 }
+                        Self { X: 0.0, Y: 1.0 }
                     }
                     pub fn dot(&self, rhs: &Self) -> f32 {
-                        self.x * rhs.x + self.y * rhs.y
+                        self.X * rhs.X + self.Y * rhs.Y
                     }
                     pub fn length_squared(&self) -> f32 {
                         self.dot(self)
@@ -782,38 +770,38 @@ impl Struct {
 
                     fn impl_add(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x + rhs.x,
-                            y: self.y + rhs.y,
+                            X: self.X + rhs.X,
+                            Y: self.Y + rhs.Y,
                         }
                     }
                     fn impl_sub(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x - rhs.x,
-                            y: self.y - rhs.y,
+                            X: self.X - rhs.X,
+                            Y: self.Y - rhs.Y,
                         }
                     }
                     fn impl_div(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x / rhs.x,
-                            y: self.y / rhs.y,
+                            X: self.X / rhs.X,
+                            Y: self.Y / rhs.Y,
                         }
                     }
                     fn impl_div_f32(&self, rhs: f32) -> Self {
                         Self {
-                            x: self.x / rhs,
-                            y: self.y / rhs,
+                            X: self.X / rhs,
+                            Y: self.Y / rhs,
                         }
                     }
                     fn impl_mul(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x * rhs.x,
-                            y: self.y * rhs.y,
+                            X: self.X * rhs.X,
+                            Y: self.Y * rhs.Y,
                         }
                     }
                     fn impl_mul_f32(&self, rhs: f32) -> Self {
                         Self {
-                            x: self.x * rhs,
-                            y: self.y * rhs,
+                            X: self.X * rhs,
+                            Y: self.Y * rhs,
                         }
                     }
                 }
@@ -943,41 +931,41 @@ impl Struct {
                 impl Vector3 {
                     pub fn zero() -> Self {
                         Self {
-                            x: 0f32,
-                            y: 0f32,
-                            z: 0f32,
+                            X: 0f32,
+                            Y: 0f32,
+                            Z: 0f32,
                         }
                     }
                     pub fn one() -> Self {
                         Self {
-                            x: 1f32,
-                            y: 1f32,
-                            z: 1f32,
+                            X: 1f32,
+                            Y: 1f32,
+                            Z: 1f32,
                         }
                     }
                     pub fn unit_x() -> Self {
                         Self {
-                            x: 1.0,
-                            y: 0.0,
-                            z: 0.0,
+                            X: 1.0,
+                            Y: 0.0,
+                            Z: 0.0,
                         }
                     }
                     pub fn unit_y() -> Self {
                         Self {
-                            x: 0.0,
-                            y: 1.0,
-                            z: 0.0,
+                            X: 0.0,
+                            Y: 1.0,
+                            Z: 0.0,
                         }
                     }
                     pub fn unit_z() -> Self {
                         Self {
-                            x: 0.0,
-                            y: 0.0,
-                            z: 1.0,
+                            X: 0.0,
+                            Y: 0.0,
+                            Z: 1.0,
                         }
                     }
                     pub fn dot(&self, rhs: &Self) -> f32 {
-                        self.x * rhs.x + self.y * rhs.y + self.z * rhs.z
+                        self.X * rhs.X + self.Y * rhs.Y + self.Z * rhs.Z
                     }
                     pub fn length_squared(&self) -> f32 {
                         self.dot(self)
@@ -997,44 +985,44 @@ impl Struct {
 
                     fn impl_add(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x + rhs.x,
-                            y: self.y + rhs.y,
-                            z: self.z + rhs.z,
+                            X: self.X + rhs.X,
+                            Y: self.Y + rhs.Y,
+                            Z: self.Z + rhs.Z,
                         }
                     }
                     fn impl_sub(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x - rhs.x,
-                            y: self.y - rhs.y,
-                            z: self.z - rhs.z,
+                            X: self.X - rhs.X,
+                            Y: self.Y - rhs.Y,
+                            Z: self.Z - rhs.Z,
                         }
                     }
                     fn impl_div(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x / rhs.x,
-                            y: self.y / rhs.y,
-                            z: self.z / rhs.z,
+                            X: self.X / rhs.X,
+                            Y: self.Y / rhs.Y,
+                            Z: self.Z / rhs.Z,
                         }
                     }
                     fn impl_div_f32(&self, rhs: f32) -> Self {
                         Self {
-                            x: self.x / rhs,
-                            y: self.y / rhs,
-                            z: self.z / rhs,
+                            X: self.X / rhs,
+                            Y: self.Y / rhs,
+                            Z: self.Z / rhs,
                         }
                     }
                     fn impl_mul(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x * rhs.x,
-                            y: self.y * rhs.y,
-                            z: self.z * rhs.z,
+                            X: self.X * rhs.X,
+                            Y: self.Y * rhs.Y,
+                            Z: self.Z * rhs.Z,
                         }
                     }
                     fn impl_mul_f32(&self, rhs: f32) -> Self {
                         Self {
-                            x: self.x * rhs,
-                            y: self.y * rhs,
-                            z: self.z * rhs,
+                            X: self.X * rhs,
+                            Y: self.Y * rhs,
+                            Z: self.Z * rhs,
                         }
                     }
                 }
@@ -1164,54 +1152,54 @@ impl Struct {
                 impl Vector4 {
                     pub fn zero() -> Self {
                         Self {
-                            x: 0f32,
-                            y: 0f32,
-                            z: 0f32,
-                            w: 0f32,
+                            X: 0f32,
+                            Y: 0f32,
+                            Z: 0f32,
+                            W: 0f32,
                         }
                     }
                     pub fn one() -> Self {
                         Self {
-                            x: 1f32,
-                            y: 1f32,
-                            z: 1f32,
-                            w: 1f32,
+                            X: 1f32,
+                            Y: 1f32,
+                            Z: 1f32,
+                            W: 1f32,
                         }
                     }
                     pub fn unit_x() -> Self {
                         Self {
-                            x: 1.0,
-                            y: 0.0,
-                            z: 0.0,
-                            w: 0.0,
+                            X: 1.0,
+                            Y: 0.0,
+                            Z: 0.0,
+                            W: 0.0,
                         }
                     }
                     pub fn unit_y() -> Self {
                         Self {
-                            x: 0.0,
-                            y: 1.0,
-                            z: 0.0,
-                            w: 0.0,
+                            X: 0.0,
+                            Y: 1.0,
+                            Z: 0.0,
+                            W: 0.0,
                         }
                     }
                     pub fn unit_z() -> Self {
                         Self {
-                            x: 0.0,
-                            y: 0.0,
-                            z: 1.0,
-                            w: 0.0,
+                            X: 0.0,
+                            Y: 0.0,
+                            Z: 1.0,
+                            W: 0.0,
                         }
                     }
                     pub fn unit_w() -> Self {
                         Self {
-                            x: 0.0,
-                            y: 0.0,
-                            z: 0.0,
-                            w: 1.0,
+                            X: 0.0,
+                            Y: 0.0,
+                            Z: 0.0,
+                            W: 1.0,
                         }
                     }
                     pub fn dot(&self, rhs: &Self) -> f32 {
-                        self.x * rhs.x + self.y * rhs.y + self.z * rhs.z + self.w * rhs.w
+                        self.X * rhs.X + self.Y * rhs.Y + self.Z * rhs.Z + self.W * rhs.W
                     }
                     pub fn length_squared(&self) -> f32 {
                         self.dot(self)
@@ -1231,50 +1219,50 @@ impl Struct {
 
                     fn impl_add(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x + rhs.x,
-                            y: self.y + rhs.y,
-                            z: self.z + rhs.z,
-                            w: self.w + rhs.w,
+                            X: self.X + rhs.X,
+                            Y: self.Y + rhs.Y,
+                            Z: self.Z + rhs.Z,
+                            W: self.W + rhs.W,
                         }
                     }
                     fn impl_sub(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x - rhs.x,
-                            y: self.y - rhs.y,
-                            z: self.z - rhs.z,
-                            w: self.w - rhs.w,
+                            X: self.X - rhs.X,
+                            Y: self.Y - rhs.Y,
+                            Z: self.Z - rhs.Z,
+                            W: self.W - rhs.W,
                         }
                     }
                     fn impl_div(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x / rhs.x,
-                            y: self.y / rhs.y,
-                            z: self.z / rhs.z,
-                            w: self.w / rhs.w,
+                            X: self.X / rhs.X,
+                            Y: self.Y / rhs.Y,
+                            Z: self.Z / rhs.Z,
+                            W: self.W / rhs.W,
                         }
                     }
                     fn impl_div_f32(&self, rhs: f32) -> Self {
                         Self {
-                            x: self.x / rhs,
-                            y: self.y / rhs,
-                            z: self.z / rhs,
-                            w: self.w / rhs,
+                            X: self.X / rhs,
+                            Y: self.Y / rhs,
+                            Z: self.Z / rhs,
+                            W: self.W / rhs,
                         }
                     }
                     fn impl_mul(&self, rhs: &Self) -> Self {
                         Self {
-                            x: self.x * rhs.x,
-                            y: self.y * rhs.y,
-                            z: self.z * rhs.z,
-                            w: self.w * rhs.w,
+                            X: self.X * rhs.X,
+                            Y: self.Y * rhs.Y,
+                            Z: self.Z * rhs.Z,
+                            W: self.W * rhs.W,
                         }
                     }
                     fn impl_mul_f32(&self, rhs: f32) -> Self {
                         Self {
-                            x: self.x * rhs,
-                            y: self.y * rhs,
-                            z: self.z * rhs,
-                            w: self.w * rhs,
+                            X: self.X * rhs,
+                            Y: self.Y * rhs,
+                            Z: self.Z * rhs,
+                            W: self.W * rhs,
                         }
                     }
                 }
@@ -1404,69 +1392,69 @@ impl Struct {
                 impl Matrix3x2 {
                     pub fn identity() -> Self {
                         Self {
-                            m11: 1.0,
-                            m12: 0.0,
-                            m21: 0.0,
-                            m22: 1.0,
-                            m31: 0.0,
-                            m32: 0.0,
+                            M11: 1.0,
+                            M12: 0.0,
+                            M21: 0.0,
+                            M22: 1.0,
+                            M31: 0.0,
+                            M32: 0.0,
                         }
                     }
                     pub fn translation(x: f32, y: f32) -> Self {
                         Self {
-                            m11: 1.0,
-                            m12: 0.0,
-                            m21: 0.0,
-                            m22: 1.0,
-                            m31: x,
-                            m32: y,
+                            M11: 1.0,
+                            M12: 0.0,
+                            M21: 0.0,
+                            M22: 1.0,
+                            M31: x,
+                            M32: y,
                         }
                     }
                     pub fn rotation(angle: f32, x: f32, y: f32) -> Self {
                         let mut matrix = Self::default();
                         unsafe {
-                            super::super::win32::direct2d::D2D1MakeRotateMatrix(angle, super::super::win32::direct2d::D2D_POINT_2F{x, y}, &mut matrix);
+                            super::super::Win32::Direct2D::D2D1MakeRotateMatrix(angle, super::super::Win32::Direct2D::D2D_POINT_2F{x, y}, &mut matrix);
                         }
                         matrix
                     }
                     fn impl_add(&self, rhs: &Self) -> Self {
                         Self {
-                            m11: self.m11 + rhs.m11,
-                            m12: self.m12 + rhs.m12,
-                            m21: self.m21 + rhs.m21,
-                            m22: self.m22 + rhs.m22,
-                            m31: self.m31 + rhs.m31,
-                            m32: self.m32 + rhs.m32,
+                            M11: self.M11 + rhs.M11,
+                            M12: self.M12 + rhs.M12,
+                            M21: self.M21 + rhs.M21,
+                            M22: self.M22 + rhs.M22,
+                            M31: self.M31 + rhs.M31,
+                            M32: self.M32 + rhs.M32,
                         }
                     }
                     fn impl_sub(&self, rhs: &Self) -> Self {
                         Self {
-                            m11: self.m11 - rhs.m11,
-                            m12: self.m12 - rhs.m12,
-                            m21: self.m21 - rhs.m21,
-                            m22: self.m22 - rhs.m22,
-                            m31: self.m31 - rhs.m31,
-                            m32: self.m32 - rhs.m32,
+                            M11: self.M11 - rhs.M11,
+                            M12: self.M12 - rhs.M12,
+                            M21: self.M21 - rhs.M21,
+                            M22: self.M22 - rhs.M22,
+                            M31: self.M31 - rhs.M31,
+                            M32: self.M32 - rhs.M32,
                         }
                     }
                     fn impl_mul(&self, rhs: &Self) -> Self {
                         Self {
-                            m11: self.m11 * rhs.m11 + self.m12 * rhs.m21,
-                            m12: self.m11 * rhs.m12 + self.m12 * rhs.m22,
-                            m21: self.m21 * rhs.m11 + self.m22 * rhs.m21,
-                            m22: self.m21 * rhs.m12 + self.m22 * rhs.m22,
-                            m31: self.m31 * rhs.m11 + self.m32 * rhs.m21 + rhs.m31,
-                            m32: self.m31 * rhs.m12 + self.m32 * rhs.m22 + rhs.m32,
+                            M11: self.M11 * rhs.M11 + self.M12 * rhs.M21,
+                            M12: self.M11 * rhs.M12 + self.M12 * rhs.M22,
+                            M21: self.M21 * rhs.M11 + self.M22 * rhs.M21,
+                            M22: self.M21 * rhs.M12 + self.M22 * rhs.M22,
+                            M31: self.M31 * rhs.M11 + self.M32 * rhs.M21 + rhs.M31,
+                            M32: self.M31 * rhs.M12 + self.M32 * rhs.M22 + rhs.M32,
                         }
                     }
                     fn impl_mul_f32(&self, rhs: f32) -> Self {
                         Self {
-                            m11: self.m11 * rhs,
-                            m12: self.m12 * rhs,
-                            m21: self.m21 * rhs,
-                            m22: self.m22 * rhs,
-                            m31: self.m31 * rhs,
-                            m32: self.m32 * rhs,
+                            M11: self.M11 * rhs,
+                            M12: self.M12 * rhs,
+                            M21: self.M21 * rhs,
+                            M22: self.M22 * rhs,
+                            M31: self.M31 * rhs,
+                            M32: self.M32 * rhs,
                         }
                     }
                 }
@@ -1560,82 +1548,82 @@ impl Struct {
                 impl Matrix4x4 {
                     fn impl_add(&self, rhs: &Self) -> Self {
                         Self {
-                            m11: self.m11 + rhs.m11,
-                            m12: self.m12 + rhs.m12,
-                            m13: self.m13 + rhs.m13,
-                            m14: self.m14 + rhs.m14,
-                            m21: self.m21 + rhs.m21,
-                            m22: self.m22 + rhs.m22,
-                            m23: self.m23 + rhs.m23,
-                            m24: self.m24 + rhs.m24,
-                            m31: self.m31 + rhs.m31,
-                            m32: self.m32 + rhs.m32,
-                            m33: self.m33 + rhs.m33,
-                            m34: self.m34 + rhs.m34,
-                            m41: self.m41 + rhs.m41,
-                            m42: self.m42 + rhs.m42,
-                            m43: self.m43 + rhs.m43,
-                            m44: self.m44 + rhs.m44,
+                            M11: self.M11 + rhs.M11,
+                            M12: self.M12 + rhs.M12,
+                            M13: self.M13 + rhs.M13,
+                            M14: self.M14 + rhs.M14,
+                            M21: self.M21 + rhs.M21,
+                            M22: self.M22 + rhs.M22,
+                            M23: self.M23 + rhs.M23,
+                            M24: self.M24 + rhs.M24,
+                            M31: self.M31 + rhs.M31,
+                            M32: self.M32 + rhs.M32,
+                            M33: self.M33 + rhs.M33,
+                            M34: self.M34 + rhs.M34,
+                            M41: self.M41 + rhs.M41,
+                            M42: self.M42 + rhs.M42,
+                            M43: self.M43 + rhs.M43,
+                            M44: self.M44 + rhs.M44,
                         }
                     }
                     fn impl_sub(&self, rhs: &Self) -> Self {
                         Self {
-                            m11: self.m11 - rhs.m11,
-                            m12: self.m12 - rhs.m12,
-                            m13: self.m13 - rhs.m13,
-                            m14: self.m14 - rhs.m14,
-                            m21: self.m21 - rhs.m21,
-                            m22: self.m22 - rhs.m22,
-                            m23: self.m23 - rhs.m23,
-                            m24: self.m24 - rhs.m24,
-                            m31: self.m31 - rhs.m31,
-                            m32: self.m32 - rhs.m32,
-                            m33: self.m33 - rhs.m33,
-                            m34: self.m34 - rhs.m34,
-                            m41: self.m41 - rhs.m41,
-                            m42: self.m42 - rhs.m42,
-                            m43: self.m43 - rhs.m43,
-                            m44: self.m44 - rhs.m44,
+                            M11: self.M11 - rhs.M11,
+                            M12: self.M12 - rhs.M12,
+                            M13: self.M13 - rhs.M13,
+                            M14: self.M14 - rhs.M14,
+                            M21: self.M21 - rhs.M21,
+                            M22: self.M22 - rhs.M22,
+                            M23: self.M23 - rhs.M23,
+                            M24: self.M24 - rhs.M24,
+                            M31: self.M31 - rhs.M31,
+                            M32: self.M32 - rhs.M32,
+                            M33: self.M33 - rhs.M33,
+                            M34: self.M34 - rhs.M34,
+                            M41: self.M41 - rhs.M41,
+                            M42: self.M42 - rhs.M42,
+                            M43: self.M43 - rhs.M43,
+                            M44: self.M44 - rhs.M44,
                         }
                     }
                     fn impl_mul(&self, rhs: &Self) -> Self {
                         Self {
-                            m11: self.m11 * rhs.m11 + self.m12 * rhs.m21 + self.m13 * rhs.m31 + self.m14 * rhs.m41,
-                            m12: self.m11 * rhs.m12 + self.m12 * rhs.m22 + self.m13 * rhs.m32 + self.m14 * rhs.m42,
-                            m13: self.m11 * rhs.m13 + self.m12 * rhs.m23 + self.m13 * rhs.m33 + self.m14 * rhs.m43,
-                            m14: self.m11 * rhs.m14 + self.m12 * rhs.m24 + self.m13 * rhs.m34 + self.m14 * rhs.m44,
-                            m21: self.m21 * rhs.m11 + self.m22 * rhs.m21 + self.m23 * rhs.m31 + self.m24 * rhs.m41,
-                            m22: self.m21 * rhs.m12 + self.m22 * rhs.m22 + self.m23 * rhs.m32 + self.m24 * rhs.m42,
-                            m23: self.m21 * rhs.m13 + self.m22 * rhs.m23 + self.m23 * rhs.m33 + self.m24 * rhs.m43,
-                            m24: self.m21 * rhs.m14 + self.m22 * rhs.m24 + self.m23 * rhs.m34 + self.m24 * rhs.m44,
-                            m31: self.m31 * rhs.m11 + self.m32 * rhs.m21 + self.m33 * rhs.m31 + self.m34 * rhs.m41,
-                            m32: self.m31 * rhs.m12 + self.m32 * rhs.m22 + self.m33 * rhs.m32 + self.m34 * rhs.m42,
-                            m33: self.m31 * rhs.m13 + self.m32 * rhs.m23 + self.m33 * rhs.m33 + self.m34 * rhs.m43,
-                            m34: self.m31 * rhs.m14 + self.m32 * rhs.m24 + self.m33 * rhs.m34 + self.m34 * rhs.m44,
-                            m41: self.m41 * rhs.m11 + self.m42 * rhs.m21 + self.m43 * rhs.m31 + self.m44 * rhs.m41,
-                            m42: self.m41 * rhs.m12 + self.m42 * rhs.m22 + self.m43 * rhs.m32 + self.m44 * rhs.m42,
-                            m43: self.m41 * rhs.m13 + self.m42 * rhs.m23 + self.m43 * rhs.m33 + self.m44 * rhs.m43,
-                            m44: self.m41 * rhs.m14 + self.m42 * rhs.m24 + self.m43 * rhs.m34 + self.m44 * rhs.m44,
+                            M11: self.M11 * rhs.M11 + self.M12 * rhs.M21 + self.M13 * rhs.M31 + self.M14 * rhs.M41,
+                            M12: self.M11 * rhs.M12 + self.M12 * rhs.M22 + self.M13 * rhs.M32 + self.M14 * rhs.M42,
+                            M13: self.M11 * rhs.M13 + self.M12 * rhs.M23 + self.M13 * rhs.M33 + self.M14 * rhs.M43,
+                            M14: self.M11 * rhs.M14 + self.M12 * rhs.M24 + self.M13 * rhs.M34 + self.M14 * rhs.M44,
+                            M21: self.M21 * rhs.M11 + self.M22 * rhs.M21 + self.M23 * rhs.M31 + self.M24 * rhs.M41,
+                            M22: self.M21 * rhs.M12 + self.M22 * rhs.M22 + self.M23 * rhs.M32 + self.M24 * rhs.M42,
+                            M23: self.M21 * rhs.M13 + self.M22 * rhs.M23 + self.M23 * rhs.M33 + self.M24 * rhs.M43,
+                            M24: self.M21 * rhs.M14 + self.M22 * rhs.M24 + self.M23 * rhs.M34 + self.M24 * rhs.M44,
+                            M31: self.M31 * rhs.M11 + self.M32 * rhs.M21 + self.M33 * rhs.M31 + self.M34 * rhs.M41,
+                            M32: self.M31 * rhs.M12 + self.M32 * rhs.M22 + self.M33 * rhs.M32 + self.M34 * rhs.M42,
+                            M33: self.M31 * rhs.M13 + self.M32 * rhs.M23 + self.M33 * rhs.M33 + self.M34 * rhs.M43,
+                            M34: self.M31 * rhs.M14 + self.M32 * rhs.M24 + self.M33 * rhs.M34 + self.M34 * rhs.M44,
+                            M41: self.M41 * rhs.M11 + self.M42 * rhs.M21 + self.M43 * rhs.M31 + self.M44 * rhs.M41,
+                            M42: self.M41 * rhs.M12 + self.M42 * rhs.M22 + self.M43 * rhs.M32 + self.M44 * rhs.M42,
+                            M43: self.M41 * rhs.M13 + self.M42 * rhs.M23 + self.M43 * rhs.M33 + self.M44 * rhs.M43,
+                            M44: self.M41 * rhs.M14 + self.M42 * rhs.M24 + self.M43 * rhs.M34 + self.M44 * rhs.M44,
                         }
                     }
                     fn impl_mul_f32(&self, rhs: f32) -> Self {
                         Self {
-                            m11: self.m11 * rhs,
-                            m12: self.m12 * rhs,
-                            m13: self.m13 * rhs,
-                            m14: self.m14 * rhs,
-                            m21: self.m21 * rhs,
-                            m22: self.m22 * rhs,
-                            m23: self.m23 * rhs,
-                            m24: self.m24 * rhs,
-                            m31: self.m31 * rhs,
-                            m32: self.m32 * rhs,
-                            m33: self.m33 * rhs,
-                            m34: self.m34 * rhs,
-                            m41: self.m41 * rhs,
-                            m42: self.m42 * rhs,
-                            m43: self.m43 * rhs,
-                            m44: self.m44 * rhs,
+                            M11: self.M11 * rhs,
+                            M12: self.M12 * rhs,
+                            M13: self.M13 * rhs,
+                            M14: self.M14 * rhs,
+                            M21: self.M21 * rhs,
+                            M22: self.M22 * rhs,
+                            M23: self.M23 * rhs,
+                            M24: self.M24 * rhs,
+                            M31: self.M31 * rhs,
+                            M32: self.M32 * rhs,
+                            M33: self.M33 * rhs,
+                            M34: self.M34 * rhs,
+                            M41: self.M41 * rhs,
+                            M42: self.M42 * rhs,
+                            M43: self.M43 * rhs,
+                            M44: self.M44 * rhs,
                         }
                     }
                 }

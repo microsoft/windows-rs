@@ -1,5 +1,5 @@
 fn main() {
     windows::build!(
-        windows::win32::windows_and_messaging::{EnumWindows, GetWindowTextW}
+        Windows::Win32::WindowsAndMessaging::{EnumWindows, GetWindowTextW}
     );
 }

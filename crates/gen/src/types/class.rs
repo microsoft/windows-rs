@@ -343,19 +343,19 @@ mod tests {
 
         assert_eq!(
             i[0].def.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
-            "windows :: foundation :: collections :: IMap :: < :: windows :: HString , :: windows :: HString >"
+            "Windows :: Foundation :: Collections :: IMap :: < :: windows :: HString , :: windows :: HString >"
         );
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
         assert_eq!(
             i[1].def.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
-            "windows :: foundation :: collections :: IIterable :: < windows :: foundation :: collections :: IKeyValuePair :: < :: windows :: HString , :: windows :: HString > >"
+            "Windows :: Foundation :: Collections :: IIterable :: < Windows :: Foundation :: Collections :: IKeyValuePair :: < :: windows :: HString , :: windows :: HString > >"
         );
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
         assert_eq!(
             i[2].def.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
-            "windows :: foundation :: collections :: IObservableMap :: < :: windows :: HString , :: windows :: HString >"
+            "Windows :: Foundation :: Collections :: IObservableMap :: < :: windows :: HString , :: windows :: HString >"
         );
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);
     }
