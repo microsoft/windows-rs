@@ -1,6 +1,6 @@
 use bindings::{
     Windows::Foundation::Numerics::*, Windows::Win32::Direct2D::*, Windows::Win32::Direct3D11::*,
-    Windows::Win32::Direct3D9::*, Windows::Win32::Dxgi::*, Windows::Win32::Gdi::*,
+    Windows::Win32::Dxgi::*, Windows::Win32::Gdi::*,
     Windows::Win32::MenusAndResources::*, Windows::Win32::SystemServices::*,
     Windows::Win32::UIAnimation::*, Windows::Win32::WindowsAndMessaging::*,
     Windows::Win32::WindowsProgramming::*,
@@ -173,7 +173,7 @@ impl Window {
                 .Update(get_time(self.frequency)?, std::ptr::null_mut())
                 .ok()?;
 
-            target.Clear(&D3DCOLORVALUE {
+            target.Clear(&D2D1_COLOR_F {
                 r: 1.0,
                 g: 1.0,
                 b: 1.0,
@@ -498,7 +498,7 @@ fn get_time(frequency: i64) -> Result<f64> {
 }
 
 fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
-    let color = D3DCOLORVALUE {
+    let color = D2D1_COLOR_F {
         r: 0.92,
         g: 0.38,
         b: 0.208,
