@@ -32,7 +32,16 @@ impl Struct {
             ("Windows.Foundation.Numerics", "Matrix3x2") => {
                 vec![reader.resolve_type("Windows.Win32.Direct2D", "D2D1MakeRotateMatrix")]
             }
-            _ => self.0.fields().map(|f| f.definition()).flatten().collect(),
+            _ => {
+                // TODO: add test for this dependency
+                let mut dependencies: Vec<ElementType> = self.0.fields().map(|f| f.definition()).flatten().collect();
+
+                if let Some(dependency) = self.0.is_convertible() {
+                    dependencies.push(dependency);
+                }
+
+                dependencies
+            }
         }
     }
 
@@ -397,8 +406,21 @@ impl Struct {
         };
 
         let extensions = self.gen_extensions();
-
         let nested_types = gen_nested_types(struct_name, &self.0, gen);
+
+        let convertible = if let Some(dependency) = self.0.is_convertible() {
+            let dependency = dependency.gen_name(gen);
+            
+            quote! {
+                impl<'a> ::windows::IntoParam<'a, #dependency> for #name {
+                    fn into_param(self) -> ::windows::Param<'a, #dependency> {
+                        ::windows::Param::Owned(#dependency(self.0))
+                    }
+                }
+            }
+        } else {
+            quote! {}
+        };
 
         quote! {
             #repr
@@ -414,6 +436,7 @@ impl Struct {
             #runtime_type
             #extensions
             #nested_types
+            #convertible
         }
     }
 
