@@ -1,6 +1,3 @@
-// work around for cross compilation bug https://github.com/rust-lang/rust/issues/82991
-extern crate windows_gen_macros as macros;
-
 pub use squote::{format_ident, quote, Ident, Literal, TokenStream};
 pub use std::collections::{BTreeMap, BTreeSet};
 pub use std::iter::FromIterator;
