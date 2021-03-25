@@ -44,7 +44,7 @@ impl Param {
     }
 
     pub fn gen_name(&self) -> Ident {
-        to_ident(self.name())
+        to_ident(&self.name().to_lowercase())
     }
 
     pub fn gen_abi_size_name(&self) -> Ident {

@@ -737,6 +737,9 @@ impl Struct {
             },
             ("Windows.Foundation.Numerics", "Vector2") => quote! {
                 impl Vector2 {
+                    pub fn new(X: f32, Y: f32) -> Self {
+                        Self { X, Y }
+                    }
                     pub fn zero() -> Self {
                         Self { X: 0f32, Y: 0f32 }
                     }
@@ -929,6 +932,9 @@ impl Struct {
             },
             ("Windows.Foundation.Numerics", "Vector3") => quote! {
                 impl Vector3 {
+                    pub fn new(X: f32, Y: f32, Z: f32) -> Self {
+                        Self { X, Y, Z }
+                    }
                     pub fn zero() -> Self {
                         Self {
                             X: 0f32,
@@ -1150,6 +1156,9 @@ impl Struct {
             },
             ("Windows.Foundation.Numerics", "Vector4") => quote! {
                 impl Vector4 {
+                    pub fn new(X: f32, Y: f32, Z: f32, W: f32) -> Self {
+                        Self { X, Y, Z, W }
+                    }
                     pub fn zero() -> Self {
                         Self {
                             X: 0f32,
