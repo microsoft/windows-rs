@@ -2,8 +2,8 @@ use crate::*;
 use std::convert::TryInto;
 
 use bindings::{
-    windows::win32::automation::{GetErrorInfo, SetErrorInfo, BSTR},
-    windows::win32::winrt::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
+    Windows::Win32::Automation::{GetErrorInfo, SetErrorInfo, BSTR},
+    Windows::Win32::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
 
 /// A WinRT error object consists of both an error code as well as detailed error information for debugging.

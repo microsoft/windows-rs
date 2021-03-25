@@ -3,9 +3,9 @@ mod bindings {
 }
 
 fn main() -> windows::Result<()> {
-    use bindings::windows::ui::Colors;
+    use bindings::Windows::UI::Colors;
 
-    let red = Colors::red()?;
+    let red = Colors::Red()?;
     println!("Red: {:?}", red);
 
     Ok(())

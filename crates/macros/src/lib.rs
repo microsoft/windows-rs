@@ -23,12 +23,12 @@ use syn::parse_macro_input;
 /// `build` will generate any other WinRT types needed for the specified type to work.
 ///
 /// # Example
-/// The following `build!` generates all types inside of the `microsoft::ai::machine_learning`
+/// The following `build!` generates all types inside of the `Microsoft::AI::MachineLearning`
 /// namespace.
 ///
 /// ```rust,ignore
 /// build!(
-///     microsoft::ai::machine_learning::*
+///     Microsoft::AI::MachineLearning::*
 /// );
 /// ```
 #[proc_macro]
@@ -137,16 +137,4 @@ pub fn build(stream: TokenStream) -> TokenStream {
 #[proc_macro_attribute]
 pub fn implement(attribute: TokenStream, input: TokenStream) -> TokenStream {
     implement::gen(attribute, input)
-}
-
-// Snake <-> camel casing is lossy so we go for character but not case conversion
-// and deal with casing once we have an index of namespaces to compare against.
-pub(crate) fn namespace_literal_to_rough_namespace(namespace: &str) -> String {
-    let mut result = String::with_capacity(namespace.len());
-    for c in namespace.chars() {
-        if c != '"' && c != '_' {
-            result.extend(c.to_lowercase());
-        }
-    }
-    result
 }

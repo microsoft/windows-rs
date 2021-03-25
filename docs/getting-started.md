@@ -54,9 +54,9 @@ fn main() {
     windows::build!(
         // Note that we're using the `intl` namespace which is nested inside the `win32` namespace
         // which itself is inside the `windows` namespace.
-        windows::win32::intl::{ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, CORRECTIVE_ACTION, IEnumSpellingError, ISpellingError},
-        windows::win32::system_services::{BOOL, PWSTR},
-        windows::win32::com::IEnumString
+        Windows::Win32::Intl::{ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, CORRECTIVE_ACTION, IEnumSpellingError, ISpellingError},
+        Windows::Win32::SystemServices::{BOOL, PWSTR},
+        Windows::Win32::Com::IEnumString
     )
 }
 ```
@@ -94,8 +94,8 @@ fn main() -> windows::Result<()> {
 Next, we'll initialize the `ISpellCheckerFactory` which is what gives us access to spellcheckers. We'll first make sure the `intl` namespace and two types we'll need `PWSTR` and `BOOL` are in scope at the top of the main.rs file:
 
 ```rust
-use bindings::windows::win32::intl;
-use bindings::windows::win32::system_services::{BOOL, PWSTR};
+use bindings::Windows::Win32::Intl;
+use bindings::Windows::Win32::SystemServices::{BOOL, PWSTR};
 ```
 
 Then we can do the initialization by calling `windows::create_instance` which calls [CoCreateInstance](https://docs.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-cocreateinstance) under the hood:
@@ -106,7 +106,7 @@ fn main() -> window::Result<()> {
     // initialize the main thread as a multithreaded apartment
     windows::initialize_mta()?;
     // Create ISpellCheckerFactory
-    let factory: intl::ISpellCheckerFactory = windows::create_instance(&intl::SpellCheckerFactory)?;
+    let factory: Intl::ISpellCheckerFactory = windows::create_instance(&Intl::SpellCheckerFactory)?;
     // The rest of the code will go here!
     Ok(())
 }
@@ -183,7 +183,7 @@ Lastly, we'll get the "corrective action" (i.e., the thing the spellchecker reco
 // Inside the `loop`
 
 // Get the corrective action
-let mut action = intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_NONE;
+let mut action = Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_NONE;
 unsafe { error.get_CorrectiveAction(&mut action).ok()? };
 println!("Corrective Action: {:?}", action);
 ```

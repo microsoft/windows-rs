@@ -15,10 +15,10 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
                 type Item = T;
 
                 fn next(&mut self) -> ::std::option::Option<Self::Item> {
-                    let result = self.current().ok();
+                    let result = self.Current().ok();
 
                     if result.is_some() {
-                        self.move_next().ok()?;
+                        self.MoveNext().ok()?;
                     }
 
                     result
@@ -36,7 +36,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
                 type IntoIter = IIterator<Self::Item>;
 
                 fn into_iter(self) -> Self::IntoIter {
-                    self.first().unwrap()
+                    self.First().unwrap()
                 }
             }
             impl<'a, T: ::windows::RuntimeType> ::std::iter::IntoIterator for &'a IIterable<T> {
@@ -44,7 +44,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
                 type IntoIter = IIterator<Self::Item>;
 
                 fn into_iter(self) -> Self::IntoIter {
-                    self.first().unwrap()
+                    self.First().unwrap()
                 }
             }
         };
@@ -61,7 +61,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
 
             impl<T: ::windows::RuntimeType> VectorViewIterator<T> {
                 pub fn new(vector: IVectorView<T>) -> Self {
-                    let size = vector.size().unwrap();
+                    let size = vector.Size().unwrap();
                     Self { vector, current: 0, size }
                 }
             }
@@ -74,7 +74,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
                         return None;
                     }
 
-                    let result = self.vector.get_at(self.current);
+                    let result = self.vector.GetAt(self.current);
                     self.current += 1;
                     result.ok()
                 }
@@ -110,7 +110,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
 
             impl<T: ::windows::RuntimeType> VectorIterator<T> {
                 pub fn new(vector: IVector<T>) -> Self {
-                    let size = vector.size().unwrap();
+                    let size = vector.Size().unwrap();
                     Self { vector, current: 0, size }
                 }
             }
@@ -123,7 +123,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
                         return None;
                     }
 
-                    let result = self.vector.get_at(self.current);
+                    let result = self.vector.GetAt(self.current);
                     self.current += 1;
                     result.ok()
                 }
@@ -224,7 +224,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
                     type IntoIter = #wfc IIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        self.first().unwrap()
+                        self.First().unwrap()
                     }
                 }
                 impl<'a, #constraints> ::std::iter::IntoIterator for &'a #name {
@@ -232,7 +232,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
                     type IntoIter = #wfc IIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        self.first().unwrap()
+                        self.First().unwrap()
                     }
                 }
             }

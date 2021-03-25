@@ -1,3 +1,3 @@
 fn main() {
-    windows::build!(microsoft::graphics::canvas::CanvasDevice);
+    windows::build!(Microsoft::Graphics::Canvas::CanvasDevice);
 }

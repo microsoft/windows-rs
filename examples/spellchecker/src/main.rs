@@ -1,6 +1,6 @@
-use bindings::windows::win32;
-use win32::intl;
-use win32::system_services::{BOOL, PWSTR};
+use bindings::Windows::Win32;
+use Win32::Intl;
+use Win32::SystemServices::{BOOL, PWSTR};
 
 fn main() -> windows::Result<()> {
     let input = std::env::args()
@@ -10,7 +10,7 @@ fn main() -> windows::Result<()> {
     windows::initialize_mta()?;
 
     // Create ISpellCheckerFactory
-    let factory: intl::ISpellCheckerFactory = windows::create_instance(&intl::SpellCheckerFactory)?;
+    let factory: Intl::ISpellCheckerFactory = windows::create_instance(&Intl::SpellCheckerFactory)?;
 
     // Make sure that the "en-US" locale is supported
     let mut supported: BOOL = false.into();
@@ -56,15 +56,15 @@ fn main() -> windows::Result<()> {
         let substring = &input[start_index as usize..(start_index + length) as usize];
 
         // Get the corrective action
-        let mut action = intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_NONE;
+        let mut action = Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_NONE;
         unsafe { error.get_CorrectiveAction(&mut action).ok()? };
         println!("{:?}", action);
 
         match action {
-            intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_DELETE => {
+            Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_DELETE => {
                 println!("Delete '{}'", substring);
             }
-            intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_REPLACE => {
+            Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_REPLACE => {
                 // Get the replacement as a widestring and convert to a Rust String
                 let mut replacement = PWSTR::default();
                 unsafe { error.get_Replacement(&mut replacement).ok()? };
@@ -73,7 +73,7 @@ fn main() -> windows::Result<()> {
                     read_to_string(replacement)
                 });
             }
-            intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_GET_SUGGESTIONS => {
+            Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
                 let mut suggestions = None;
                 unsafe { checker.Suggest(substring, &mut suggestions).ok()? };

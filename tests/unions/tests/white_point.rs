@@ -1,4 +1,4 @@
-use test_unions::windows::win32::windows_color_system::{WhitePoint, WhitePoint_0, XYYPoint};
+use test_unions::Windows::Win32::WindowsColorSystem::{WhitePoint, WhitePoint_0, XYYPoint};
 
 #[test]
 fn test() {
@@ -6,7 +6,7 @@ fn test() {
 
     let mut wp = WhitePoint {
         r#type: WhitePoint::TEMPERATURE,
-        anonymous: WhitePoint_0 { cct: 1.2 },
+        Anonymous: WhitePoint_0 { CCT: 1.2 },
     };
 
     assert_eq!(wp.r#type, 1);
@@ -16,34 +16,34 @@ fn test() {
     assert_eq!(wp.r#type, 0);
 
     unsafe {
-        assert_eq!(wp.anonymous.cct, 1.2);
+        assert_eq!(wp.Anonymous.CCT, 1.2);
     }
 
-    wp.anonymous.cct = 3.4;
+    wp.Anonymous.CCT = 3.4;
 
     unsafe {
-        assert_eq!(wp.anonymous.cct, 3.4);
+        assert_eq!(wp.Anonymous.CCT, 3.4);
     }
 
-    wp.anonymous.xyy.x = 1.0;
-    wp.anonymous.xyy.y = 2.0;
-    wp.anonymous.xyy.y2 = 3.0;
+    wp.Anonymous.xyY.x = 1.0;
+    wp.Anonymous.xyY.y = 2.0;
+    wp.Anonymous.xyY.Y = 3.0;
 
     unsafe {
-        assert_eq!(wp.anonymous.xyy.x, 1.0);
-        assert_eq!(wp.anonymous.xyy.y, 2.0);
-        assert_eq!(wp.anonymous.xyy.y2, 3.0);
+        assert_eq!(wp.Anonymous.xyY.x, 1.0);
+        assert_eq!(wp.Anonymous.xyY.y, 2.0);
+        assert_eq!(wp.Anonymous.xyY.Y, 3.0);
     }
 
-    wp.anonymous.xyy = XYYPoint {
+    wp.Anonymous.xyY = XYYPoint {
         x: 10.0,
         y: 11.0,
-        y2: 12.0,
+        Y: 12.0,
     };
 
     unsafe {
-        assert_eq!(wp.anonymous.xyy.x, 10.0);
-        assert_eq!(wp.anonymous.xyy.y, 11.0);
-        assert_eq!(wp.anonymous.xyy.y2, 12.0);
+        assert_eq!(wp.Anonymous.xyY.x, 10.0);
+        assert_eq!(wp.Anonymous.xyY.y, 11.0);
+        assert_eq!(wp.Anonymous.xyY.Y, 12.0);
     }
 }

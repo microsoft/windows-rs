@@ -1,3 +1,3 @@
 fn main() {
-    windows::build!(windows::win32::windows_and_messaging::MessageBoxA);
+    windows::build!(Windows::Win32::WindowsAndMessaging::MessageBoxA);
 }

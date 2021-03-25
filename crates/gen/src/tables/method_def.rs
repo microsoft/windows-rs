@@ -30,35 +30,33 @@ impl MethodDef {
     }
 
     pub fn rust_name(&self) -> String {
-        if self.flags().special() {
-            let name = self.name();
+        let name = self.name();
 
+        if self.flags().special() {
             if name.starts_with("get") {
-                to_snake(&name[4..])
+                name[4..].to_string()
             } else if name.starts_with("put") {
-                let mut name = to_snake(name);
-                name.replace_range(..3, "set");
-                name
+                format!("Set{}", &name[4..])
             } else if name.starts_with("add") {
-                to_snake(&name[4..])
+                name[4..].to_string()
             } else if name.starts_with("remove") {
-                to_snake(name)
+                format!("Remove{}", &name[7..])
             } else {
                 // A delegate's 'Invoke' method is "special" but lacks a preamble.
-                "invoke".to_owned()
+                "Invoke".to_string()
             }
         } else {
             for attribute in self.attributes() {
                 if attribute.name() == "OverloadAttribute" {
                     for (_, arg) in attribute.args() {
                         if let ConstantValue::String(name) = arg {
-                            return to_snake(&name);
+                            return name;
                         }
                     }
                 }
             }
 
-            to_snake(self.name())
+            name.to_string()
         }
     }
 

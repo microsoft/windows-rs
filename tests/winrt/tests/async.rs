@@ -1,21 +1,21 @@
 #[test]
 fn async_get() -> windows::Result<()> {
-    use test_winrt::windows::storage::streams::*;
+    use test_winrt::Windows::Storage::Streams::*;
 
     let stream = &InMemoryRandomAccessStream::new()?;
 
-    let writer = DataWriter::create_data_writer(stream)?;
-    writer.write_byte(1)?;
-    writer.write_byte(2)?;
-    writer.write_byte(3)?;
-    writer.store_async()?.get()?;
+    let writer = DataWriter::CreateDataWriter(stream)?;
+    writer.WriteByte(1)?;
+    writer.WriteByte(2)?;
+    writer.WriteByte(3)?;
+    writer.StoreAsync()?.get()?;
 
-    stream.seek(0)?;
-    let reader = DataReader::create_data_reader(stream)?;
-    reader.load_async(3)?.get()?;
+    stream.Seek(0)?;
+    let reader = DataReader::CreateDataReader(stream)?;
+    reader.LoadAsync(3)?.get()?;
 
     let mut bytes: [u8; 3] = [0; 3];
-    reader.read_bytes(&mut bytes)?;
+    reader.ReadBytes(&mut bytes)?;
 
     assert!(bytes[0] == 1);
     assert!(bytes[1] == 2);
@@ -25,22 +25,22 @@ fn async_get() -> windows::Result<()> {
 }
 
 async fn async_await() -> windows::Result<()> {
-    use test_winrt::windows::storage::streams::*;
+    use test_winrt::Windows::Storage::Streams::*;
 
     let stream = &InMemoryRandomAccessStream::new()?;
 
-    let writer = DataWriter::create_data_writer(stream)?;
-    writer.write_byte(1)?;
-    writer.write_byte(2)?;
-    writer.write_byte(3)?;
-    writer.store_async()?.await?;
+    let writer = DataWriter::CreateDataWriter(stream)?;
+    writer.WriteByte(1)?;
+    writer.WriteByte(2)?;
+    writer.WriteByte(3)?;
+    writer.StoreAsync()?.await?;
 
-    stream.seek(0)?;
-    let reader = DataReader::create_data_reader(stream)?;
-    reader.load_async(3)?.await?;
+    stream.Seek(0)?;
+    let reader = DataReader::CreateDataReader(stream)?;
+    reader.LoadAsync(3)?.await?;
 
     let mut bytes: [u8; 3] = [0; 3];
-    reader.read_bytes(&mut bytes)?;
+    reader.ReadBytes(&mut bytes)?;
 
     assert!(bytes[0] == 1);
     assert!(bytes[1] == 2);

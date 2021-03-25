@@ -3,7 +3,7 @@
 use crate::*;
 use gen::HexReader;
 
-use bindings::windows::win32::com::CLSIDFromProgID;
+use bindings::Windows::Win32::Com::CLSIDFromProgID;
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
 /// used to identify COM and WinRT interfaces.

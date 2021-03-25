@@ -1,9 +1,9 @@
 use bindings::{
-    windows::foundation::numerics::*, windows::win32::direct2d::*, windows::win32::direct3d11::*,
-    windows::win32::direct3d9::*, windows::win32::dxgi::*, windows::win32::gdi::*,
-    windows::win32::menus_and_resources::*, windows::win32::system_services::*,
-    windows::win32::ui_animation::*, windows::win32::windows_and_messaging::*,
-    windows::win32::windows_programming::*,
+    Windows::Foundation::Numerics::*, Windows::Win32::Direct2D::*, Windows::Win32::Direct3D11::*,
+    Windows::Win32::Direct3D9::*, Windows::Win32::Dxgi::*, Windows::Win32::Gdi::*,
+    Windows::Win32::MenusAndResources::*, Windows::Win32::SystemServices::*,
+    Windows::Win32::UIAnimation::*, Windows::Win32::WindowsAndMessaging::*,
+    Windows::Win32::WindowsProgramming::*,
 };
 
 use windows::*;
@@ -46,9 +46,9 @@ impl Angles {
         let mut time = Default::default();
         unsafe { GetLocalTime(&mut time) };
 
-        let second = (time.w_second as f32 + time.w_milliseconds as f32 / 1000.0) * 6.0;
-        let minute = time.w_minute as f32 * 6.0 + second / 60.0;
-        let hour = (time.w_hour % 12) as f32 * 30.0 + minute / 12.0;
+        let second = (time.wSecond as f32 + time.wMilliseconds as f32 / 1000.0) * 6.0;
+        let minute = time.wMinute as f32 * 6.0 + second / 60.0;
+        let hour = (time.wHour % 12) as f32 * 30.0 + minute / 12.0;
 
         Self {
             second,
@@ -225,8 +225,8 @@ impl Window {
 
         let ellipse = D2D1_ELLIPSE {
             point: D2D_POINT_2F::default(),
-            radiusx: radius,
-            radiusy: radius,
+            radiusX: radius,
+            radiusY: radius,
         };
 
         let mut swing = 0.0;
@@ -314,14 +314,14 @@ impl Window {
         };
 
         let properties = D2D1_BITMAP_PROPERTIES1 {
-            pixel_format: D2D1_PIXEL_FORMAT {
+            pixelFormat: D2D1_PIXEL_FORMAT {
                 format: DXGI_FORMAT::DXGI_FORMAT_B8G8R8A8_UNORM,
-                alpha_mode: D2D1_ALPHA_MODE::D2D1_ALPHA_MODE_PREMULTIPLIED,
+                alphaMode: D2D1_ALPHA_MODE::D2D1_ALPHA_MODE_PREMULTIPLIED,
             },
-            dpix: self.dpi,
-            dpiy: self.dpi,
-            bitmap_options: D2D1_BITMAP_OPTIONS::D2D1_BITMAP_OPTIONS_TARGET,
-            color_context: None,
+            dpiX: self.dpi,
+            dpiY: self.dpi,
+            bitmapOptions: D2D1_BITMAP_OPTIONS::D2D1_BITMAP_OPTIONS_TARGET,
+            colorContext: None,
         };
 
         let mut bitmap = None;
@@ -402,12 +402,12 @@ impl Window {
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {
-                h_cursor: LoadCursorW(HINSTANCE(0), IDC_HAND),
-                h_instance: instance,
-                lpsz_class_name: PSTR(b"window\0".as_ptr() as _),
+                hCursor: LoadCursorW(HINSTANCE(0), IDC_HAND),
+                hInstance: instance,
+                lpszClassName: PSTR(b"window\0".as_ptr() as _),
 
                 style: WNDCLASS_STYLES::CS_HREDRAW | WNDCLASS_STYLES::CS_VREDRAW,
-                lpfn_wnd_proc: Some(Self::wndproc),
+                lpfnWndProc: Some(Self::wndproc),
                 ..Default::default()
             };
 
@@ -472,7 +472,7 @@ impl Window {
         unsafe {
             if message == WM_NCCREATE as u32 {
                 let cs = lparam.0 as *const CREATESTRUCTA;
-                let this = (*cs).lp_create_params as *mut Self;
+                let this = (*cs).lpCreateParams as *mut Self;
                 (*this).handle = window;
 
                 SetWindowLong(window, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA, this as _);
@@ -535,7 +535,7 @@ fn create_factory() -> Result<ID2D1Factory1> {
     let mut options = D2D1_FACTORY_OPTIONS::default();
 
     if cfg!(debug_assertions) {
-        options.debug_level = D2D1_DEBUG_LEVEL::D2D1_DEBUG_LEVEL_INFORMATION;
+        options.debugLevel = D2D1_DEBUG_LEVEL::D2D1_DEBUG_LEVEL_INFORMATION;
     }
 
     let mut result = None;
@@ -560,8 +560,8 @@ fn create_dxfactory() -> Result<IDXGIFactory2> {
 
 fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
     let props = D2D1_STROKE_STYLE_PROPERTIES {
-        start_cap: D2D1_CAP_STYLE::D2D1_CAP_STYLE_ROUND,
-        end_cap: D2D1_CAP_STYLE::D2D1_CAP_STYLE_TRIANGLE,
+        startCap: D2D1_CAP_STYLE::D2D1_CAP_STYLE_ROUND,
+        endCap: D2D1_CAP_STYLE::D2D1_CAP_STYLE_TRIANGLE,
         ..Default::default()
     };
 
@@ -670,15 +670,15 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
     };
 
     let props = D2D1_BITMAP_PROPERTIES1 {
-        pixel_format: D2D1_PIXEL_FORMAT {
+        pixelFormat: D2D1_PIXEL_FORMAT {
             format: DXGI_FORMAT::DXGI_FORMAT_B8G8R8A8_UNORM,
-            alpha_mode: D2D1_ALPHA_MODE::D2D1_ALPHA_MODE_IGNORE,
+            alphaMode: D2D1_ALPHA_MODE::D2D1_ALPHA_MODE_IGNORE,
         },
-        dpix: 96.0,
-        dpiy: 96.0,
-        bitmap_options: D2D1_BITMAP_OPTIONS::D2D1_BITMAP_OPTIONS_TARGET
+        dpiX: 96.0,
+        dpiY: 96.0,
+        bitmapOptions: D2D1_BITMAP_OPTIONS::D2D1_BITMAP_OPTIONS_TARGET
             | D2D1_BITMAP_OPTIONS::D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
-        color_context: None,
+        colorContext: None,
     };
 
     let mut bitmap = None;
@@ -697,14 +697,14 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
     let factory = get_dxgi_factory(device)?;
 
     let props = DXGI_SWAP_CHAIN_DESC1 {
-        format: DXGI_FORMAT::DXGI_FORMAT_B8G8R8A8_UNORM,
-        sample_desc: DXGI_SAMPLE_DESC {
-            count: 1,
-            quality: 0,
+        Format: DXGI_FORMAT::DXGI_FORMAT_B8G8R8A8_UNORM,
+        SampleDesc: DXGI_SAMPLE_DESC {
+            Count: 1,
+            Quality: 0,
         },
-        buffer_usage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
-        buffer_count: 2,
-        swap_effect: DXGI_SWAP_EFFECT::DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
+        BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
+        BufferCount: 2,
+        SwapEffect: DXGI_SWAP_EFFECT::DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
         ..Default::default()
     };
 

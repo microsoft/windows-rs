@@ -1,9 +1,9 @@
 use test_winrt::{
-    windows::application_model::email::EmailAttachment,
-    windows::devices::wi_fi_direct::{
+    Windows::ApplicationModel::Email::EmailAttachment,
+    Windows::Devices::WiFiDirect::{
         WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
     },
-    windows::storage::streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
+    Windows::Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 };
 
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test
@@ -11,21 +11,21 @@ use test_winrt::{
 #[test]
 fn wifi() -> windows::Result<()> {
     // get_device_selector from IWiFiDirectDeviceStatics
-    let a = WiFiDirectDevice::get_device_selector()?;
+    let a = WiFiDirectDevice::GetDeviceSelector()?;
     assert!(!a.is_empty());
 
     // from_id_async from IWiFiDirectDeviceStatics
     assert!(
-        WiFiDirectDevice::from_id_async(a)?.get()
+        WiFiDirectDevice::FromIdAsync(a)?.get()
             == Err(windows::Error::fast_error(windows::ErrorCode::E_POINTER))
     );
 
     // get_device_selector overload from IWiFiDirectDeviceStatics2 is renamed to get_device_selector2
-    let c = WiFiDirectDevice::get_device_selector2(WiFiDirectDeviceSelectorType::DeviceInterface)?;
+    let c = WiFiDirectDevice::GetDeviceSelector2(WiFiDirectDeviceSelectorType::DeviceInterface)?;
     assert!(!c.is_empty());
 
     // from_id_async overload from IWiFiDirectDeviceStatics2 is renamed to from_id_async2
-    WiFiDirectDevice::from_id_async2(c, WiFiDirectConnectionParameters::new()?)?;
+    WiFiDirectDevice::FromIdAsync2(c, WiFiDirectConnectionParameters::new()?)?;
     Ok(())
 }
 
@@ -34,19 +34,19 @@ fn wifi() -> windows::Result<()> {
 #[test]
 fn email() -> windows::Result<()> {
     let stream = InMemoryRandomAccessStream::new()?;
-    let reference = RandomAccessStreamReference::create_from_stream(stream)?;
+    let reference = RandomAccessStreamReference::CreateFromStream(stream)?;
 
     // Default constructor via IActivationFactory
     let a = EmailAttachment::new()?;
-    assert!(a.file_name()? == "");
+    assert!(a.FileName()? == "");
 
     // create from IEmailAttachmentFactory
-    let b = EmailAttachment::create("create.txt", &reference)?;
-    assert!(b.file_name()? == "create.txt");
+    let b = EmailAttachment::Create("create.txt", &reference)?;
+    assert!(b.FileName()? == "create.txt");
 
     // create from IEmailAttachmentFactory2 is renamed to create2
-    let c = EmailAttachment::create2("create2.txt", &reference, "text")?;
-    assert!(c.file_name()? == "create2.txt");
+    let c = EmailAttachment::Create2("create2.txt", &reference, "text")?;
+    assert!(c.FileName()? == "create2.txt");
 
     Ok(())
 }

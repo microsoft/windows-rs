@@ -1,6 +1,6 @@
 fn main() {
     windows::build!(
-        windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject},
-        windows::win32::windows_programming::CloseHandle
+        Windows::Win32::SystemServices::{CreateEventW, SetEvent, WaitForSingleObject},
+        Windows::Win32::WindowsProgramming::CloseHandle
     );
 }

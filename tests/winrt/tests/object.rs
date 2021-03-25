@@ -1,9 +1,9 @@
-use test_winrt::test_component;
-use test_winrt::windows::foundation::{IStringable, PropertyValue, Uri};
+use test_winrt::TestComponent;
+use test_winrt::Windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]
 fn class() -> windows::Result<()> {
-    let uri = Uri::create_uri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri("http://kennykerr.ca")?;
 
     // All WinRT classes are convertible to windows::Object.
     let object: windows::Object = uri.into();
@@ -15,7 +15,7 @@ fn class() -> windows::Result<()> {
 
 #[test]
 fn interface() -> windows::Result<()> {
-    let uri = Uri::create_uri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri("http://kennykerr.ca")?;
     let stringable: IStringable = uri.into();
 
     // All WinRT interfaces are convertible to windows::Object.
@@ -28,7 +28,7 @@ fn interface() -> windows::Result<()> {
 
 #[test]
 fn boxing() -> windows::Result<()> {
-    let object = PropertyValue::create_string("hello")?;
+    let object = PropertyValue::CreateString("hello")?;
 
     assert!(object.type_name()? == "Windows.Foundation.IReference`1<String>");
 
@@ -37,21 +37,21 @@ fn boxing() -> windows::Result<()> {
 
 #[test]
 fn object_param() -> windows::Result<()> {
-    let uri = Uri::create_uri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri("http://kennykerr.ca")?;
 
-    let name = test_component::TestRunner::expect_object(&uri)?;
+    let name = TestComponent::TestRunner::ExpectObject(&uri)?;
     assert_eq!(name, "Windows.Foundation.Uri");
 
-    let name = test_component::TestRunner::expect_object(uri)?;
+    let name = TestComponent::TestRunner::ExpectObject(uri)?;
     assert_eq!(name, "Windows.Foundation.Uri");
 
-    let uri = Uri::create_uri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri("http://kennykerr.ca")?;
     let stringable: IStringable = uri.into();
 
-    let name = test_component::TestRunner::expect_object(&stringable)?;
+    let name = TestComponent::TestRunner::ExpectObject(&stringable)?;
     assert_eq!(name, "Windows.Foundation.Uri");
 
-    let name = test_component::TestRunner::expect_object(stringable)?;
+    let name = TestComponent::TestRunner::ExpectObject(stringable)?;
     assert_eq!(name, "Windows.Foundation.Uri");
 
     Ok(())

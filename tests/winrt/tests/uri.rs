@@ -1,4 +1,4 @@
-use test_winrt::windows::foundation::{IStringable, IUriRuntimeClass, Uri};
+use test_winrt::Windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::{IAgileObject, Interface, RuntimeName};
 
 #[test]
@@ -10,17 +10,17 @@ fn uri() -> windows::Result<()> {
         windows::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 
-    let uri = &Uri::create_uri("http://kennykerr.ca")?;
+    let uri = &Uri::CreateUri("http://kennykerr.ca")?;
 
     assert!(uri.cast::<IAgileObject>().is_ok());
-    assert!(uri.domain()? == "kennykerr.ca");
-    assert!(uri.port()? == 80);
+    assert!(uri.Domain()? == "kennykerr.ca");
+    assert!(uri.Port()? == 80);
 
     // Calls QueryInterface followed by IStringable::ToString under the hood
-    assert!(uri.to_string()? == "http://kennykerr.ca/");
+    assert!(uri.ToString()? == "http://kennykerr.ca/");
 
     let stringable: IStringable = uri.into();
-    assert!(stringable.to_string()? == uri.to_string()?);
+    assert!(stringable.ToString()? == uri.ToString()?);
 
     Ok(())
 }
@@ -30,22 +30,22 @@ fn interface_conversion() -> windows::Result<()> {
     // TODO: Find an example where the default constructor is not exclusive.
 
     // TODO: Convert from ??? class to (non-exclusive) default interface by value (dropping the class).
-    let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
+    let uri: Uri = Uri::CreateUri("http://kennykerr.ca")?;
     let _default: IUriRuntimeClass = uri.cast()?;
 
     // TODO: Convert from ??? class to (non-exclusive) default interface by reference (retaining the class).
-    let uri: &Uri = &Uri::create_uri("http://kennykerr.ca")?;
+    let uri: &Uri = &Uri::CreateUri("http://kennykerr.ca")?;
     let _default: IUriRuntimeClass = uri.cast()?;
 
     // Convert from Uri class to non-default non-generic interface by value.
-    let uri: Uri = Uri::create_uri("http://kennykerr.ca")?;
+    let uri: Uri = Uri::CreateUri("http://kennykerr.ca")?;
     let default: IStringable = uri.into();
-    assert!(default.to_string()? == "http://kennykerr.ca/");
+    assert!(default.ToString()? == "http://kennykerr.ca/");
 
     // Convert from Uri class to non-default non-generic interface by reference.
-    let uri: &Uri = &Uri::create_uri("http://kennykerr.ca")?;
+    let uri: &Uri = &Uri::CreateUri("http://kennykerr.ca")?;
     let default: IStringable = uri.into();
-    assert!(default.to_string()? == uri.to_string()?);
+    assert!(default.ToString()? == uri.ToString()?);
 
     // Convert from ??? class to default generic interface by value.
 

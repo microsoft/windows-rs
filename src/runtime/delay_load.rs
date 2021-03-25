@@ -1,6 +1,6 @@
 use crate::*;
 
-use bindings::windows::win32::system_services::{
+use bindings::Windows::Win32::SystemServices::{
     FreeLibrary, GetProcAddress, LoadLibraryExW, LoadLibraryEx_dwFlags, HANDLE,
 };
 

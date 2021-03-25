@@ -1,4 +1,4 @@
-use test_unions::windows::win32::direct3d12::{
+use test_unions::Windows::Win32::Direct3D12::{
     D3D12_INDIRECT_ARGUMENT_DESC, D3D12_INDIRECT_ARGUMENT_DESC_0, D3D12_INDIRECT_ARGUMENT_DESC_0_4,
     D3D12_INDIRECT_ARGUMENT_TYPE,
 };
@@ -13,25 +13,25 @@ fn test() {
     );
 
     let mut desc = D3D12_INDIRECT_ARGUMENT_DESC {
-        r#type: D3D12_INDIRECT_ARGUMENT_TYPE::D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW,
-        anonymous: D3D12_INDIRECT_ARGUMENT_DESC_0 {
-            vertex_buffer: D3D12_INDIRECT_ARGUMENT_DESC_0_4 { slot: 123 },
+        Type: D3D12_INDIRECT_ARGUMENT_TYPE::D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW,
+        Anonymous: D3D12_INDIRECT_ARGUMENT_DESC_0 {
+            VertexBuffer: D3D12_INDIRECT_ARGUMENT_DESC_0_4 { Slot: 123 },
         },
     };
 
     assert_eq!(
-        desc.r#type,
+        desc.Type,
         D3D12_INDIRECT_ARGUMENT_TYPE::D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW
     );
 
-    desc.r#type = D3D12_INDIRECT_ARGUMENT_TYPE::D3D12_INDIRECT_ARGUMENT_TYPE_CONSTANT;
+    desc.Type = D3D12_INDIRECT_ARGUMENT_TYPE::D3D12_INDIRECT_ARGUMENT_TYPE_CONSTANT;
 
     assert_eq!(
-        desc.r#type,
+        desc.Type,
         D3D12_INDIRECT_ARGUMENT_TYPE::D3D12_INDIRECT_ARGUMENT_TYPE_CONSTANT
     );
 
     unsafe {
-        assert_eq!(desc.anonymous.vertex_buffer.slot, 123);
+        assert_eq!(desc.Anonymous.VertexBuffer.Slot, 123);
     }
 }

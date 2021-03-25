@@ -1,13 +1,13 @@
-use test_winrt::windows::foundation::GuidHelper;
+use test_winrt::Windows::Foundation::GuidHelper;
 use windows::Guid;
 
 #[test]
 fn guid_helper() -> windows::Result<()> {
-    let a = GuidHelper::create_new_guid()?;
-    let b = GuidHelper::create_new_guid()?;
+    let a = GuidHelper::CreateNewGuid()?;
+    let b = GuidHelper::CreateNewGuid()?;
 
-    assert!(!GuidHelper::equals(&a, &b)?);
-    assert!(GuidHelper::equals(&a, &a)?);
+    assert!(!GuidHelper::Equals(&a, &b)?);
+    assert!(GuidHelper::Equals(&a, &a)?);
 
     Ok(())
 }

@@ -40,7 +40,7 @@ impl<'a> Gen<'a> {
                 let mut tokens = TokenStream::new();
 
                 for namespace in namespace.split('.') {
-                    let namespace = to_ident(&to_snake(namespace));
+                    let namespace = to_ident(namespace);
 
                     tokens.combine(&quote! { #namespace:: });
                 }
@@ -70,7 +70,7 @@ impl<'a> Gen<'a> {
                 }
 
                 tokens.extend(namespace.map(|namespace| {
-                    let namespace = to_ident(&to_snake(namespace));
+                    let namespace = to_ident(namespace);
                     quote! { #namespace:: }
                 }));
 
@@ -92,13 +92,13 @@ mod tests {
         assert_eq!(
             t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
                 .as_str(),
-            "windows :: foundation :: IStringable"
+            "Windows :: Foundation :: IStringable"
         );
 
         assert_eq!(
             t.gen_name(&Gen::relative("Windows", &TypeTree::from_namespace("")))
                 .as_str(),
-            "foundation :: IStringable"
+            "Foundation :: IStringable"
         );
 
         assert_eq!(
