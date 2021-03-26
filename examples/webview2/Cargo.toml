@@ -1,0 +1,11 @@
+[package]
+name = "webview2"
+version = "0.1.0"
+authors = ["Bill Avery <bill.avery@microsoft.com>"]
+edition = "2018"
+
+[dependencies]
+bindings = { package = "webview2_bindings", path = "bindings" }
+windows = { path = "../.." }
+serde = { version = "1.0.125", features = ["derive"] }
+serde_json = "1.0.64"
