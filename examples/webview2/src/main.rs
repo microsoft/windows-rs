@@ -551,7 +551,7 @@ impl WebView {
     fn get_window_webview(hwnd: HWND) -> Option<Box<WebView>> {
         unsafe {
             let data =
-                WindowsAndMessaging::GetWindowLongPtrA(hwnd, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA);
+                GetWindowLong(hwnd, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA);
 
             match data {
                 0 => None,
@@ -670,4 +670,16 @@ unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize
 #[cfg(target_pointer_width = "64")]
 unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
     WindowsAndMessaging::SetWindowLongPtrA(window, index, value)
+}
+
+#[allow(non_snake_case)]
+#[cfg(target_pointer_width = "32")]
+unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
+    WindowsAndMessaging::GetWindowLongA(window, index, value as _) as _
+}
+
+#[allow(non_snake_case)]
+#[cfg(target_pointer_width = "64")]
+unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
+    WindowsAndMessaging::GetWindowLongPtrA(window, index)
 }
