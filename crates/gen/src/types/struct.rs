@@ -34,7 +34,8 @@ impl Struct {
             }
             _ => {
                 // TODO: add test for this dependency
-                let mut dependencies: Vec<ElementType> = self.0.fields().map(|f| f.definition()).flatten().collect();
+                let mut dependencies: Vec<ElementType> =
+                    self.0.fields().map(|f| f.definition()).flatten().collect();
 
                 if let Some(dependency) = self.0.is_convertible() {
                     dependencies.push(dependency);
@@ -410,7 +411,7 @@ impl Struct {
 
         let convertible = if let Some(dependency) = self.0.is_convertible() {
             let dependency = dependency.gen_name(gen);
-            
+
             quote! {
                 impl<'a> ::windows::IntoParam<'a, #dependency> for #name {
                     fn into_param(self) -> ::windows::Param<'a, #dependency> {

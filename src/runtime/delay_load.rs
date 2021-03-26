@@ -1,13 +1,8 @@
 use crate::*;
 
-use bindings::Windows::Win32::SystemServices::{
-    FreeLibrary, GetProcAddress, LoadLibraryA,
-};
+use bindings::Windows::Win32::SystemServices::{FreeLibrary, GetProcAddress, LoadLibraryA};
 
-pub fn delay_load(
-    library: &str,
-    function: &str,
-) -> std::result::Result<RawPtr, ErrorCode> {
+pub fn delay_load(library: &str, function: &str) -> std::result::Result<RawPtr, ErrorCode> {
     unsafe {
         let library = LoadLibraryA(library);
 

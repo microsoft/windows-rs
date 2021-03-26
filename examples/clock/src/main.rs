@@ -1,9 +1,8 @@
 use bindings::{
     Windows::Foundation::Numerics::*, Windows::Win32::Direct2D::*, Windows::Win32::Direct3D11::*,
-    Windows::Win32::Dxgi::*, Windows::Win32::Gdi::*,
-    Windows::Win32::MenusAndResources::*, Windows::Win32::SystemServices::*,
-    Windows::Win32::UIAnimation::*, Windows::Win32::WindowsAndMessaging::*,
-    Windows::Win32::WindowsProgramming::*,
+    Windows::Win32::Dxgi::*, Windows::Win32::Gdi::*, Windows::Win32::MenusAndResources::*,
+    Windows::Win32::SystemServices::*, Windows::Win32::UIAnimation::*,
+    Windows::Win32::WindowsAndMessaging::*, Windows::Win32::WindowsProgramming::*,
 };
 
 use windows::*;
