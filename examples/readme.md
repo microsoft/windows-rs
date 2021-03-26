@@ -38,6 +38,10 @@ A few sample projects to help you get started with the `windows` crate.
 
 [simple](simple) - An example of including bindings without a separate bindings crate when you only need to use a very small number of Windows APIs.
 
+## webview2
+
+[webview2](webview2) - An example which runs Microsoft.Web.WebView2.Core in a standalone frame using pre-release WinRT APIs. If you want to run this program, you will need the [prerequisites](https://docs.microsoft.com/en-us/microsoft-edge/webview2/gettingstarted/win32#prerequisites) for the WebView2 runtime installed on your machine.
+
 ## win2d
 
 [win2d](win2d) - An example using dependencies like [Win2D](https://www.nuget.org/packages/Win2D.uwp) where that component provides its own winmd for describing its API surface as well as a runtime DLL that must be deployed with the app. It is further complicated as Win2D requires the [VCRTForwarders](https://www.nuget.org/packages/Microsoft.VCRTForwarders.140/) in order to load. 
