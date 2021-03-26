@@ -10,7 +10,6 @@ use bindings::{
     Windows::{
         Foundation::*,
         Win32::{
-            self,
             DisplayDevices::{RECT, SIZE},
             Gdi,
             HiDpi::{self, PROCESS_DPI_AWARENESS},
@@ -37,24 +36,20 @@ fn main() -> Result<()> {
     let webview = WebView::create(true, None)?;
 
     // Bind a quick and dirty calculator callback.
-    let bound = webview.clone();
-    webview.bind("hostCallback", move |id, request| {
-        if request.len() == 3 {
-            if let Some(Value::String(str)) = request.get(0) {
-                if str == "Add" {
-                    if let Some(Value::Number(a)) = request.get(1) {
-                        if let Some(Value::Number(b)) = request.get(2) {
-                            let result = a.as_f64().unwrap_or(0f64) + b.as_f64().unwrap_or(0f64);
-                            let result = Number::from_f64(result);
-                            if let Some(result) = result {
-                                let result = Value::Number(result);
-                                bound.resolve(id, 0, result).unwrap_or(&bound);
-                            }
-                        }
-                    }
+    webview.bind("hostCallback", move |request| {
+        if let [Value::String(str), Value::Number(a), Value::Number(b)] = &request[..] {
+            if str == "Add" {
+                let result = a.as_f64().unwrap_or(0f64) + b.as_f64().unwrap_or(0f64);
+                let result = Number::from_f64(result);
+                if let Some(result) = result {
+                    return Ok(Value::Number(result));
                 }
             }
         }
+
+        Err(Error::CallbackError(String::from(
+            r#"Usage: window.hostCallback("Add", a, b)"#,
+        )))
     })?;
 
     // Configure the target URL and add an init script to trigger the calculator callback.
@@ -69,38 +64,86 @@ fn main() -> Result<()> {
     webview.run()
 }
 
+#[derive(Debug)]
+pub enum Error {
+    WindowsError(windows::Error),
+    JsonError(serde_json::Error),
+    CallbackError(String),
+    TaskCanceled,
+    LockError,
+    SendError,
+}
+
+impl From<windows::Error> for Error {
+    fn from(err: windows::Error) -> Self {
+        Self::WindowsError(err)
+    }
+}
+
+impl From<ErrorCode> for Error {
+    fn from(err: ErrorCode) -> Self {
+        Self::WindowsError(windows::Error::fast_error(err))
+    }
+}
+
+impl From<serde_json::Error> for Error {
+    fn from(err: serde_json::Error) -> Self {
+        Self::JsonError(err)
+    }
+}
+
+impl<'a, T: 'a> From<std::sync::PoisonError<T>> for Error {
+    fn from(_: std::sync::PoisonError<T>) -> Self {
+        Self::LockError
+    }
+}
+
+impl<'a, T: 'a> From<std::sync::TryLockError<T>> for Error {
+    fn from(_: std::sync::TryLockError<T>) -> Self {
+        Self::LockError
+    }
+}
+
+impl<'a, T: 'a> From<std::sync::mpsc::SendError<T>> for Error {
+    fn from(_: std::sync::mpsc::SendError<T>) -> Self {
+        Self::SendError
+    }
+}
+
+type Result<T> = std::result::Result<T, Error>;
+
+struct Window(HWND);
+
+impl Drop for Window {
+    fn drop(&mut self) {
+        unsafe {
+            WindowsAndMessaging::DestroyWindow(self.0);
+        }
+    }
+}
+
 #[derive(Clone)]
 pub struct FrameWindow {
     window: Arc<HWND>,
     size: Arc<Mutex<SIZE>>,
 }
 
-impl Drop for FrameWindow {
-    fn drop(&mut self) {
-        if Arc::strong_count(&self.window) == 0 {
-            unsafe {
-                WindowsAndMessaging::DestroyWindow(*self.window);
-                WindowsAndMessaging::PostQuitMessage(0);
-            }
-        }
-    }
-}
-
 impl FrameWindow {
     fn new() -> Self {
         let hwnd = {
-            let class_name = CString::new("WebView").expect("lpszClassName");
+            let class_name = "WebView";
             let mut window_class = WNDCLASSA::default();
             window_class.lpfnWndProc = Some(window_proc);
-            window_class.lpszClassName = PSTR(class_name.as_ptr() as *mut _);
+            let c_class_name = CString::new(class_name).expect("lpszClassName");
+            window_class.lpszClassName = PSTR(c_class_name.as_ptr() as *mut _);
 
             unsafe {
                 WindowsAndMessaging::RegisterClassA(&window_class);
 
                 WindowsAndMessaging::CreateWindowExA(
                     WINDOW_EX_STYLE(0),
-                    PSTR(class_name.as_ptr() as *mut _),
-                    PSTR(class_name.as_ptr() as *mut _),
+                    class_name,
+                    class_name,
                     WINDOW_STYLE::WS_OVERLAPPEDWINDOW,
                     WindowsAndMessaging::CW_USEDEFAULT,
                     WindowsAndMessaging::CW_USEDEFAULT,
@@ -121,31 +164,24 @@ impl FrameWindow {
     }
 }
 
+struct WebViewController(CoreWebView2Controller);
+
 #[derive(Clone)]
 pub struct WebView {
-    controller: Arc<CoreWebView2Controller>,
+    controller: Arc<WebViewController>,
     webview: Arc<CoreWebView2>,
     tx: mpsc::Sender<Box<dyn FnOnce(WebView) + Send>>,
     rx: Arc<mpsc::Receiver<Box<dyn FnOnce(WebView) + Send>>>,
     thread_id: u32,
-    token: EventRegistrationToken,
-    bindings: Arc<Mutex<HashMap<String, Box<dyn FnMut(u64, Vec<Value>)>>>>,
+    bindings: Arc<Mutex<HashMap<String, Box<dyn FnMut(Vec<Value>) -> Result<Value>>>>>,
     frame: Option<FrameWindow>,
     parent: Arc<HWND>,
     url: Arc<Mutex<HString>>,
 }
 
-unsafe impl Send for WebView {}
-unsafe impl Sync for WebView {}
-
-impl Drop for WebView {
+impl Drop for WebViewController {
     fn drop(&mut self) {
-        match Arc::strong_count(&self.controller) {
-            0 => {
-                self.controller.Close().expect("call Close");
-            }
-            _ => (),
-        }
+        self.0.Close().expect("call Close");
     }
 }
 
@@ -215,28 +251,8 @@ impl WebView {
             settings.SetAreDefaultContextMenusEnabled(false)?;
         }
 
-        let bindings: Arc<Mutex<HashMap<String, Box<dyn FnMut(u64, Vec<Value>)>>>> =
-            Arc::new(Mutex::new(HashMap::new()));
-        let bindings_ref = bindings.clone();
-        let token = webview.WebMessageReceived(TypedEventHandler::<
-            CoreWebView2,
-            CoreWebView2WebMessageReceivedEventArgs,
-        >::new(move |_sender, args| {
-            if let Some(args) = args {
-                if let Ok(message) = String::from_utf16(args.WebMessageAsJson()?.as_wide()) {
-                    if let Ok(value) = serde_json::from_str::<InvokeMessage>(&message) {
-                        let mut bindings = bindings_ref.lock().expect("lock bindings");
-                        if let Some(f) = bindings.get_mut(&value.method) {
-                            (*f)(value.id, value.params);
-                        }
-                    }
-                }
-            }
-            Ok(())
-        }))?;
-
         if let Some(frame) = frame.as_ref() {
-            *frame.size.lock().expect("lock size") = size;
+            *frame.size.lock()? = size;
         }
 
         let (tx, rx) = mpsc::channel();
@@ -244,13 +260,12 @@ impl WebView {
         let thread_id = unsafe { SystemServices::GetCurrentThreadId() };
 
         let webview = WebView {
-            controller: Arc::new(controller),
+            controller: Arc::new(WebViewController(controller)),
             webview: Arc::new(webview),
             tx,
             rx,
             thread_id,
-            token,
-            bindings,
+            bindings: Arc::new(Mutex::new(HashMap::new())),
             frame,
             parent: Arc::new(parent),
             url: Arc::new(Mutex::new(HString::new())),
@@ -259,6 +274,34 @@ impl WebView {
         // Inject the invoke handler.
         webview
             .init(r#"window.external = { invoke: s => window.chrome.webview.postMessage(s) };"#)?;
+
+        let bindings = webview.bindings.clone();
+        let bound = webview.clone();
+        let _token = webview.webview.WebMessageReceived(TypedEventHandler::<
+            CoreWebView2,
+            CoreWebView2WebMessageReceivedEventArgs,
+        >::new(move |_sender, args| {
+            if let Some(args) = args {
+                if let Ok(message) = String::from_utf16(args.WebMessageAsJson()?.as_wide()) {
+                    if let Ok(value) = serde_json::from_str::<InvokeMessage>(&message) {
+                        if let Ok(mut bindings) = bindings.try_lock() {
+                            if let Some(f) = bindings.get_mut(&value.method) {
+                                match (*f)(value.params) {
+                                    Ok(result) => bound.resolve(value.id, 0, result),
+                                    Err(err) => bound.resolve(
+                                        value.id,
+                                        1,
+                                        Value::String(format!("{:#?}", err)),
+                                    ),
+                                }
+                                .unwrap();
+                            }
+                        }
+                    }
+                }
+            }
+            Ok(())
+        }))?;
 
         if webview.frame.is_some() {
             WebView::set_window_webview(parent, Box::new(webview.clone()));
@@ -269,10 +312,10 @@ impl WebView {
 
     pub fn run(self) -> Result<()> {
         let webview = self.webview.as_ref();
-        let url = self.url.lock().expect("lock url").clone();
+        let url = self.url.try_lock()?.clone();
         let (tx, rx) = mpsc::channel();
 
-        if url.len() > 0 {
+        if !url.is_empty() {
             let token =
                 webview.NavigationCompleted(TypedEventHandler::<
                     CoreWebView2,
@@ -310,13 +353,7 @@ impl WebView {
                 let result = WindowsAndMessaging::GetMessageA(&mut msg, h_wnd, 0, 0).0;
 
                 match result {
-                    -1 => {
-                        break {
-                            let error =
-                                format!("GetMessageW failed: {}", Win32::Debug::GetLastError());
-                            Err(Error::new(ErrorCode::E_NOINTERFACE, &error))
-                        }
-                    }
+                    -1 => break Err(ErrorCode::from_thread().into()),
                     0 => break Ok(()),
                     _ => match msg.message {
                         WindowsAndMessaging::WM_APP => (),
@@ -357,7 +394,7 @@ impl WebView {
                 cx: width,
                 cy: height,
             };
-            self.controller.SetBounds(Rect {
+            self.controller.0.SetBounds(Rect {
                 X: 0f32,
                 Y: 0f32,
                 Width: width as f32,
@@ -449,11 +486,10 @@ impl WebView {
 
     pub fn bind<F>(&self, name: &str, f: F) -> Result<&Self>
     where
-        F: FnMut(u64, Vec<Value>) + 'static,
+        F: FnMut(Vec<Value>) -> Result<Value> + 'static,
     {
         self.bindings
-            .lock()
-            .unwrap()
+            .lock()?
             .insert(String::from(name), Box::new(f));
 
         let js = String::from(
@@ -504,7 +540,7 @@ impl WebView {
 
     fn set_window_webview(hwnd: HWND, webview: Box<WebView>) {
         unsafe {
-            WindowsAndMessaging::SetWindowLongPtrA(
+            SetWindowLong(
                 hwnd,
                 WINDOW_LONG_PTR_INDEX::GWLP_USERDATA,
                 Box::into_raw(webview) as _,
@@ -533,15 +569,10 @@ impl WebView {
 }
 
 fn set_process_dpi_awareness() -> Result<()> {
-    let code = unsafe {
-        HiDpi::SetProcessDpiAwareness(PROCESS_DPI_AWARENESS::PROCESS_PER_MONITOR_DPI_AWARE)
+    unsafe {
+        HiDpi::SetProcessDpiAwareness(PROCESS_DPI_AWARENESS::PROCESS_PER_MONITOR_DPI_AWARE).ok()?
     };
-
-    if code.is_err() {
-        Err(Error::fast_error(code))
-    } else {
-        Ok(())
-    }
+    Ok(())
 }
 
 extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: LPARAM) -> LRESULT {
@@ -560,6 +591,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
             let size = get_window_size(hwnd);
             webview
                 .controller
+                .0
                 .SetBounds(Rect {
                     X: 0f32,
                     Y: 0f32,
@@ -587,6 +619,14 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
     }
 }
 
+/// The WebView2 threading model runs everything on the UI thread, including callbacks which it triggers
+/// with `PostMessage`, and we're using this here because it's waiting for some async operations in WebView2
+/// to finish before starting the main message loop in `WebView::run`. As long as there are no pending
+/// results in `rx`, it will pump Window messages and check for a result after each message is dispatched.
+///
+/// `GetMessage` is a blocking call, so if we want to send results from another thread, senders from other
+/// threads should "kick" the message loop after sending the result by calling `PostThreadMessage` with an
+/// ignorable/unhandled message such as `WM_APP`.
 fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
     let mut msg = MSG::default();
     let hwnd = HWND::default();
@@ -599,10 +639,9 @@ fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
         unsafe {
             match WindowsAndMessaging::GetMessageA(&mut msg, hwnd, 0, 0).0 {
                 -1 => {
-                    let error = format!("GetMessageW failed: {}", Win32::Debug::GetLastError());
-                    return Err(Error::new(ErrorCode::E_NOINTERFACE, &error));
+                    return Err(ErrorCode::from_thread().into());
                 }
-                0 => return Err(Error::new(ErrorCode::E_NOINTERFACE, "task canceled")),
+                0 => return Err(Error::TaskCanceled),
                 _ => {
                     WindowsAndMessaging::TranslateMessage(&msg);
                     WindowsAndMessaging::DispatchMessageA(&msg);
@@ -619,4 +658,16 @@ fn get_window_size(hwnd: HWND) -> SIZE {
         cx: client_rect.right - client_rect.left,
         cy: client_rect.bottom - client_rect.top,
     }
+}
+
+#[allow(non_snake_case)]
+#[cfg(target_pointer_width = "32")]
+unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
+    WindowsAndMessaging::SetWindowLongA(window, index, value as _) as _
+}
+
+#[allow(non_snake_case)]
+#[cfg(target_pointer_width = "64")]
+unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
+    WindowsAndMessaging::SetWindowLongPtrA(window, index, value)
 }
