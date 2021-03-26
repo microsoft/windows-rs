@@ -381,13 +381,8 @@ impl WebView {
 
     pub fn set_title(&self, title: &str) -> Result<&Self> {
         if let Some(frame) = self.frame.as_ref() {
-            if let Ok(title) = CString::new(title) {
-                unsafe {
-                    WindowsAndMessaging::SetWindowTextA(
-                        *frame.window,
-                        PSTR(title.as_ptr() as *mut _),
-                    );
-                }
+            unsafe {
+                WindowsAndMessaging::SetWindowTextA(*frame.window, title);
             }
         }
         Ok(self)
