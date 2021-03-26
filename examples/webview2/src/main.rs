@@ -33,7 +33,7 @@ fn main() -> Result<()> {
     initialize_sta()?;
     set_process_dpi_awareness()?;
 
-    let webview = WebView::create(true, None)?;
+    let webview = WebView::create(None, true)?;
 
     // Bind a quick and dirty calculator callback.
     webview.bind("hostCallback", move |request| {
@@ -193,7 +193,7 @@ struct InvokeMessage {
 }
 
 impl WebView {
-    pub fn create(debug: bool, parent: Option<HWND>) -> Result<WebView> {
+    pub fn create(parent: Option<HWND>, debug: bool) -> Result<WebView> {
         let (parent, frame) = match parent {
             Some(hwnd) => (hwnd, None),
             None => {
@@ -304,7 +304,7 @@ impl WebView {
         }))?;
 
         if webview.frame.is_some() {
-            WebView::set_window_webview(parent, Box::new(webview.clone()));
+            WebView::set_window_webview(parent, Some(Box::new(webview.clone())));
         }
 
         Ok(webview)
@@ -371,6 +371,11 @@ impl WebView {
         self.dispatch(|_webview| unsafe {
             WindowsAndMessaging::PostQuitMessage(0);
         })?;
+
+        if self.frame.is_some() {
+            WebView::set_window_webview(self.get_window(), None);
+        }
+
         Ok(())
     }
 
@@ -423,16 +428,12 @@ impl WebView {
     }
 
     pub fn navigate(&self, url: &str) -> Result<&Self> {
-        let url: Vec<u16> = url.encode_utf16().collect();
-        let url = HString::from_wide(&url);
+        let url = url.into();
         *self.url.lock().expect("lock url") = url;
         Ok(self)
     }
 
     pub fn init(&self, js: &str) -> Result<&Self> {
-        let js: Vec<u16> = js.encode_utf16().collect();
-        let js = HString::from_wide(&js);
-
         let (tx, rx) = mpsc::channel();
         let webview = self.webview.as_ref();
         webview
@@ -449,9 +450,6 @@ impl WebView {
     }
 
     pub fn eval(&self, js: &str) -> Result<&Self> {
-        let js: Vec<u16> = js.encode_utf16().collect();
-        let js = HString::from_wide(&js);
-
         let webview = self.webview.as_ref();
         let (tx, rx) = mpsc::channel();
         webview
@@ -538,13 +536,19 @@ impl WebView {
         })
     }
 
-    fn set_window_webview(hwnd: HWND, webview: Box<WebView>) {
+    fn set_window_webview(hwnd: HWND, webview: Option<Box<WebView>>) -> Option<Box<WebView>> {
         unsafe {
-            SetWindowLong(
+            match SetWindowLong(
                 hwnd,
                 WINDOW_LONG_PTR_INDEX::GWLP_USERDATA,
-                Box::into_raw(webview) as _,
-            );
+                match webview {
+                    Some(webview) => Box::into_raw(webview) as _,
+                    None => 0 as _,
+                },
+            ) {
+                0 => None,
+                ptr => Some(Box::from_raw(ptr as *mut _)),
+            }
         }
     }
 
