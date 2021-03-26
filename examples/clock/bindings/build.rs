@@ -8,14 +8,12 @@ fn main() {
             D2D1_BRUSH_PROPERTIES, D2D1_CAP_STYLE, D2D1_COMPOSITE_MODE, D2D1_DEBUG_LEVEL,
             D2D1_DEVICE_CONTEXT_OPTIONS, D2D1_ELLIPSE, D2D1_FACTORY_OPTIONS, D2D1_FACTORY_TYPE,
             D2D1_INTERPOLATION_MODE, D2D1_PIXEL_FORMAT, D2D1_STROKE_STYLE_PROPERTIES, D2D1_UNIT_MODE,
-            D2D_POINT_2F, D2D_RECT_F, D2D_SIZE_F, D2D_SIZE_U, CLSID_D2D1Shadow,
+            D2D_POINT_2F, D2D_RECT_F, D2D_SIZE_F, D2D_SIZE_U, CLSID_D2D1Shadow, D2D1_COLOR_F,
         },
         Windows::Win32::Direct3D11::{
             D3D11CreateDevice, ID3D11Device, D3D11_CREATE_DEVICE_FLAG, D3D11_SDK_VERSION,
             D3D_DRIVER_TYPE,
         },
-        // TODO: https://github.com/microsoft/win32metadata/issues/385
-        Windows::Win32::Direct3D9::D3DCOLORVALUE,
         Windows::Win32::Dxgi::{
             CreateDXGIFactory1, IDXGIDevice, IDXGIFactory2, IDXGIFactory7, IDXGIOutput, IDXGISurface,
             IDXGISwapChain1, DXGI_FORMAT, DXGI_PRESENT_TEST, DXGI_SAMPLE_DESC,

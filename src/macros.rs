@@ -18,11 +18,10 @@ macro_rules! demand_load {
                 static ONCE: ::std::sync::Once = ::std::sync::Once::new();
                 static mut VALUE: ::std::mem::MaybeUninit<::std::result::Result<$crate::RawPtr, $crate::ErrorCode>> =
                     ::std::mem::MaybeUninit::uninit();
-                const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 0x0000_0800;
 
                 ONCE.call_once(|| {
                     VALUE = ::std::mem::MaybeUninit::new(
-                        $crate::delay_load($library, ::std::stringify!($sym), LOAD_LIBRARY_SEARCH_SYSTEM32)
+                        $crate::delay_load($library, ::std::stringify!($sym))
                     )
                 });
 

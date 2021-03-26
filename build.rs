@@ -8,7 +8,7 @@ fn main() {
         Windows::Win32::Com::{CoTaskMemAlloc, CoTaskMemFree, CLSIDFromProgID, CoInitializeEx, CoCreateInstance, COINIT},
         Windows::Win32::SystemServices::{
             CreateEventW, SetEvent, WaitForSingleObject, GetProcessHeap, HeapAlloc, HeapFree, GetProcAddress,
-            LoadLibraryExW, FreeLibrary,
+            LoadLibraryA, FreeLibrary,
         },
     );
 }
