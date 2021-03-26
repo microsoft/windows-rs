@@ -675,7 +675,7 @@ unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "32")]
 unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    WindowsAndMessaging::GetWindowLongA(window, index, value as _) as _
+    WindowsAndMessaging::GetWindowLongA(window, index) as _
 }
 
 #[allow(non_snake_case)]
