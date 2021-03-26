@@ -33,7 +33,6 @@ impl Struct {
                 vec![reader.resolve_type("Windows.Win32.Direct2D", "D2D1MakeRotateMatrix")]
             }
             _ => {
-                // TODO: add test for this dependency
                 let mut dependencies: Vec<ElementType> =
                     self.0.fields().map(|f| f.definition()).flatten().collect();
 
