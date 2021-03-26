@@ -550,8 +550,7 @@ impl WebView {
 
     fn get_window_webview(hwnd: HWND) -> Option<Box<WebView>> {
         unsafe {
-            let data =
-                GetWindowLong(hwnd, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA);
+            let data = GetWindowLong(hwnd, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA);
 
             match data {
                 0 => None,
