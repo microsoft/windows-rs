@@ -1,0 +1,11 @@
+[package]
+name = "webview2_bindings"
+version = "0.1.0"
+authors = ["Bill Avery <bill.avery@microsoft.com>"]
+edition = "2018"
+
+[dependencies]
+windows = { path = "../../.." }
+
+[build-dependencies]
+windows = { path = "../../.." }
