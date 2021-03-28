@@ -27,11 +27,11 @@ This will allow Cargo to download, build, and cache Windows support as a package
 ```rust
 fn main() {
   windows::build!(
-      Windows::Win32::WindowsProgramming::CloseHandle,
-      Windows::Win32::WindowsAndMessaging::MessageBoxA,
-      Windows::Data::Xml::Dom::*,
-      Windows::Win32::SystemServices::{
-          CreateEventW, SetEvent, WaitForSingleObject
+      windows::win32::windows_programming::CloseHandle,
+      windows::win32::windows_and_messaging::{MessageBoxA, HWND, MB_FLAGS},
+      windows::data::xml::dom::*,
+      windows::win32::system_services::{
+          CreateEventW, SetEvent, WaitForSingleObject, PWSTR
       },
   );
 }
@@ -45,12 +45,10 @@ mod bindings {
 }
 
 use bindings::{
-      Windows::Win32::WindowsProgramming::CloseHandle,
-      Windows::Win32::WindowsAndMessaging::MessageBoxA,
-      Windows::Data::Xml::Dom::*,
-      Windows::Win32::SystemServices::{
-          CreateEventW, SetEvent, WaitForSingleObject
-      },
+    windows::data::xml::dom::*,
+    windows::win32::system_services::{CreateEventW, SetEvent, WaitForSingleObject, PWSTR},
+    windows::win32::windows_and_messaging::{MessageBoxA, HWND, MB_FLAGS},
+    windows::win32::windows_programming::CloseHandle,
 };
 
 fn main() -> windows::Result<()> {
@@ -68,7 +66,7 @@ fn main() -> windows::Result<()> {
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
 
-        MessageBoxA(HWND(0), "Text", "Caption", 0);
+        MessageBoxA(HWND(0), "Text", "Caption", MB_FLAGS::MB_OK);
     }
 
     Ok(())
