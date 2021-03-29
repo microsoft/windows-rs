@@ -1,3 +1,13 @@
+# 0.7.0
+
+- Preserve original API case. ([#646](https://github.com/microsoft/windows-rs/pull/646))
+- Add support for struct packing. ([#636](https://github.com/microsoft/windows-rs/pull/636))
+- Add bitwise assign operators. ([#635](https://github.com/microsoft/windows-rs/pull/635))
+- Add guid constants. ([#634](https://github.com/microsoft/windows-rs/pull/634))
+- Add WebView2 example. ([#647](https://github.com/microsoft/windows-rs/pull/647))
+- Updated metadata providing many fixes and improvements to Win32 APIs.
+- Other improvements and fixes.
+
 # 0.6.0
 
 - Add Linux build support (compile only).
