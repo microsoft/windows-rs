@@ -63,17 +63,7 @@ impl Struct {
             return true;
         }
 
-        self.0.fields().any(|field| {
-            let signature = field.signature();
-
-            if signature.pointers == 0 {
-                if let ElementType::Struct(def) = signature.kind {
-                    return def.is_packed();
-                }
-            }
-
-            false
-        })
+        self.0.fields().any(|field| field.signature().is_packed())
     }
 
     pub fn is_handle(&self) -> bool {

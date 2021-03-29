@@ -61,6 +61,18 @@ impl Signature {
         self.pointers == 0 && self.kind.is_explicit()
     }
 
+    pub fn is_packed(&self) -> bool {
+        if self.pointers > 0 {
+            return false;
+        }
+
+        match &self.kind {
+            ElementType::Struct(def) => def.is_packed(),
+            ElementType::Array((signature, _)) => signature.is_packed(),
+            _ => false,
+        }
+    }
+
     pub fn gen_win32(&self, gen: &Gen) -> TokenStream {
         let mut tokens = TokenStream::new();
 
