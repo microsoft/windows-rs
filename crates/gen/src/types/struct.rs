@@ -58,6 +58,24 @@ impl Struct {
         }
     }
 
+    pub fn is_packed(&self) -> bool {
+        if self.0.class_layout().is_some() {
+            return true;
+        }
+
+        self.0.fields().any(|field| {
+            let signature = field.signature();
+
+            if signature.pointers == 0 {
+                if let ElementType::Struct(def) = signature.kind {
+                    return def.is_packed();
+                }
+            }
+
+            false
+        })
+    }
+
     pub fn is_handle(&self) -> bool {
         self.0.has_attribute("NativeTypedefAttribute")
     }
@@ -113,6 +131,7 @@ impl Struct {
         let is_handle = self.is_handle();
         let is_union = self.0.flags().explicit();
         let layout = self.0.class_layout();
+        let is_packed = self.is_packed();
 
         let repr = if let Some(layout) = layout {
             let packing = Literal::u32_unsuffixed(layout.packing_size());
@@ -153,7 +172,7 @@ impl Struct {
             quote! {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
-        } else if is_union || has_union || layout.is_some() {
+        } else if is_union || has_union || is_packed {
             quote! {}
         } else {
             quote! {
@@ -252,7 +271,7 @@ impl Struct {
             None
         });
 
-        let compare = if is_union | has_union | has_complex_array {
+        let compare = if is_union | has_union | has_complex_array | is_packed {
             quote! {}
         } else {
             let compare = fields
@@ -299,7 +318,7 @@ impl Struct {
             }
         };
 
-        let default = if is_union || has_union || has_complex_array {
+        let default = if is_union || has_union || has_complex_array || is_packed {
             quote! {}
         } else {
             let defaults = if is_handle {
@@ -344,7 +363,7 @@ impl Struct {
             }
         };
 
-        let debug = if is_union || has_union || has_complex_array {
+        let debug = if is_union || has_union || has_complex_array || is_packed {
             quote! {}
         } else {
             let debug_name = self.0.name();

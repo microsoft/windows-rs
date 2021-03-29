@@ -1,6 +1,6 @@
 [package]
 name = "windows_macros"
-version = "0.6.0"
+version = "0.7.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -10,7 +10,7 @@ description = "Macros for the windows crate"
 proc-macro = true
 
 [dependencies]
-gen = { package = "windows_gen", path = "../gen", version = "0.6.0" }
+gen = { package = "windows_gen", path = "../gen", version = "0.7.0" }
 syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing"] }
 quote = "1.0"
 squote = "0.1.2"
