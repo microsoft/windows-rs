@@ -5,8 +5,18 @@ mod implement_tree;
 use build_limits::*;
 use implement_tree::*;
 use proc_macro::TokenStream;
-use quote::quote;
+use squote::quote;
 use syn::parse_macro_input;
+
+struct RawString(String);
+
+impl squote::ToTokens for RawString {
+    fn to_tokens(&self, tokens: &mut squote::TokenStream) {
+        tokens.push_str("\nr#\"");
+        tokens.push_str(&self.0);
+        tokens.push_str("\"#\n");
+    }
+}
 
 /// A macro for generating WinRT modules to a .rs file at build time.
 ///
@@ -40,16 +50,18 @@ pub fn build(stream: TokenStream) -> TokenStream {
         Err(t) => return t.into(),
     };
 
+    let tokens = RawString(tokens);
+
     let workspace_windows_dir = gen::workspace_windows_dir();
 
     let mut destination = workspace_windows_dir.clone();
     destination.pop();
     destination.push("target");
-    let destination = destination.to_str().expect("Invalid workspace target dir");
+    let destination = RawString(destination.to_str().expect("Invalid workspace target dir").to_string());
 
-    let workspace_windows_dir = workspace_windows_dir
+    let workspace_windows_dir = RawString(workspace_windows_dir
         .to_str()
-        .expect("Invalid workspace windows dir");
+        .expect("Invalid workspace windows dir").to_string());
 
     let tokens = quote! {
         {
@@ -125,8 +137,8 @@ pub fn build(stream: TokenStream) -> TokenStream {
         }
     };
 
-    tokens.into()
-}
+   // panic!("{}", tokens.as_str());
+    tokens.as_str().parse().unwrap()}
 
 /// Rust structs can use the `implement` macro to implement entire WinRT classes or
 /// any combination of existing COM and WinRT interfaces.

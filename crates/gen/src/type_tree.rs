@@ -115,7 +115,11 @@ impl TypeTree {
 
         self.types
             .iter()
-            .map(move |t| t.gen(&gen))
+            .map(move |t| {
+                let mut tokens = t.gen(&gen);
+                tokens.push('\n');
+                tokens
+            })
             .chain(gen_namespaces(&self.namespaces, root))
     }
 }
