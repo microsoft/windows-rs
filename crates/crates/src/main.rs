@@ -94,20 +94,18 @@ windows = "{}"
     let mut limits = gen::TypeLimits::new(reader);
 
     for namespace in reader.namespaces() {
-        if !namespace.starts_with(module) {
-            continue;
-        }
-
         if module == "Windows.UI" && namespace.starts_with("Windows.UI.Xaml") {
             continue;
         }
 
-        println!("- {}", namespace);
+        if namespace == module || namespace.starts_with(&format!("{}.", module)) {
+            println!("- {}", namespace);
 
-        limits.insert(gen::NamespaceTypes {
-            namespace,
-            limit: gen::TypeLimit::All,
-        });
+            limits.insert(gen::NamespaceTypes {
+                namespace,
+                limit: gen::TypeLimit::All,
+            });
+        }
     }
 
     let tree = gen::TypeTree::from_limits(reader, &limits);
