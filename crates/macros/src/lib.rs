@@ -11,9 +11,9 @@ struct RawString(String);
 
 impl ToTokens for RawString {
     fn to_tokens(&self, tokens: &mut TokenStream) {
-        tokens.push_str("\nr#\"");
+        tokens.push_str("r#\"");
         tokens.push_str(&self.0);
-        tokens.push_str("\"#\n");
+        tokens.push_str("\"#");
     }
 }
 
@@ -44,9 +44,7 @@ impl ToTokens for RawString {
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildLimits);
 
-    let tokens = build.into_tokens_string();
-    let tokens = RawString(tokens);
-
+    let tokens = RawString(build.into_tokens_string());
     let workspace_windows_dir = gen::workspace_windows_dir();
 
     let mut destination = workspace_windows_dir.clone();
