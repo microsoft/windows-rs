@@ -1,6 +1,5 @@
 #![forbid(unsafe_code)]
 
-mod format;
 mod to_tokens;
 mod token_stream;
 
@@ -9,7 +8,6 @@ mod token_stream;
 #[path = "runtime.rs"]
 pub mod __private;
 
-pub use format::*;
 pub use to_tokens::*;
 pub use token_stream::*;
 
@@ -48,6 +46,21 @@ macro_rules! quote {
         $crate::quote_each_token!(_s $($tt)*);
         _s
     }};
+}
+
+/// Formatting macro for constructing `Ident`s.
+///
+/// <br>
+///
+/// # Syntax
+///
+/// Syntax is copied from the [`format!`] macro, supporting both positional and
+/// named arguments.
+#[macro_export]
+macro_rules! format_ident {
+    ($($fmt:tt)*) => {
+        $crate::Ident::new(format!($($fmt)*))
+    };
 }
 
 // Extract the names of all #metavariables and pass them to the $call macro.
