@@ -21,7 +21,7 @@ pub fn workspace_winmds() -> &'static [File] {
     unsafe { &*VALUE.as_ptr() }
 }
 
-fn workspace_dir() -> std::path::PathBuf {
+pub fn workspace_dir() -> std::path::PathBuf {
     use std::{mem::MaybeUninit, sync::Once};
     static ONCE: Once = Once::new();
     static mut VALUE: MaybeUninit<std::path::PathBuf> = MaybeUninit::uninit();
