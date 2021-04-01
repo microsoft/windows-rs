@@ -86,7 +86,7 @@ fn use_tree_to_types(
 
 pub fn gen(
     attribute: proc_macro::TokenStream,
-    mut original_type: proc_macro::TokenStream,
+    original_type: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let inner_type = original_type.clone();
 
@@ -273,16 +273,7 @@ pub fn gen(
         }
     });
 
-    let tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
-
-    original_type.extend(std::iter::once(tokens));
-    //tokens.combine(&original_type.into());
-
-    // let tokens = squote::quote! {
-    //     #inner_type
-    //     #tokens
-    // };
-
-    // println!("{}", tokens.to_string());
-    original_type
+    let mut tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
+    tokens.extend(std::iter::once(original_type));
+    tokens
 }

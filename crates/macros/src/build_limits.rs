@@ -146,10 +146,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
     recurse(reader, use_tree, &mut String::new())
 }
 
-fn find_namespace(
-    reader: &'static TypeReader,
-    namespace: &str,
-) -> &'static str {
+fn find_namespace(reader: &'static TypeReader, namespace: &str) -> &'static str {
     if let Some(namespace) = reader.find_namespace(&namespace) {
         namespace
     } else {

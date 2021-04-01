@@ -153,12 +153,10 @@ mod tests {
         let reader = TypeReader::get();
         let mut limits = TypeLimits::new(reader);
 
-        limits
-            .insert(NamespaceTypes {
-                namespace: "Windows.Win32.FileSystem",
-                limit: TypeLimit::Some(vec!["FILE_ACCESS_FLAGS".to_string()]),
-            })
-            .unwrap();
+        limits.insert(NamespaceTypes {
+            namespace: "Windows.Win32.FileSystem",
+            limit: TypeLimit::Some(vec!["FILE_ACCESS_FLAGS".to_string()]),
+        });
 
         let tree = TypeTree::from_limits(reader, &limits);
 

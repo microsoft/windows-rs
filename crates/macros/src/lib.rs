@@ -53,11 +53,19 @@ pub fn build(stream: TokenStream) -> TokenStream {
     let mut destination = workspace_windows_dir.clone();
     destination.pop();
     destination.push("target");
-    let destination = RawString(destination.to_str().expect("Invalid workspace target dir").to_string());
+    let destination = RawString(
+        destination
+            .to_str()
+            .expect("Invalid workspace target dir")
+            .to_string(),
+    );
 
-    let workspace_windows_dir = RawString(workspace_windows_dir
-        .to_str()
-        .expect("Invalid workspace windows dir").to_string());
+    let workspace_windows_dir = RawString(
+        workspace_windows_dir
+            .to_str()
+            .expect("Invalid workspace windows dir")
+            .to_string(),
+    );
 
     let tokens = quote! {
         {
@@ -133,8 +141,8 @@ pub fn build(stream: TokenStream) -> TokenStream {
         }
     };
 
-   // panic!("{}", tokens.as_str());
-    tokens.as_str().parse().unwrap()}
+    tokens.as_str().parse().unwrap()
+}
 
 /// Rust structs can use the `implement` macro to implement entire WinRT classes or
 /// any combination of existing COM and WinRT interfaces.
