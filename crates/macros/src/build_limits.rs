@@ -10,12 +10,7 @@ impl BuildLimits {
         let mut limits = TypeLimits::new(reader);
 
         for limit in self.0 {
-            let types = limit.types;
-            let namespace = types.namespace;
-
-            if !limits.insert(types) {
-                panic!("'{}' is not a known namespace", namespace);
-            }
+            limits.insert(limit.types);
         }
 
         let tree = TypeTree::from_limits(reader, &limits);
@@ -105,14 +100,14 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 recurse(reader, &*p.tree, current)
             }
             syn::UseTree::Glob(_) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'));
+                let namespace = reader.resolve_namespace(current.trim_matches('"'));
                 Ok(NamespaceTypes {
                     namespace,
                     limit: TypeLimit::All,
                 })
             }
             syn::UseTree::Group(g) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'));
+                let namespace = reader.resolve_namespace(current.trim_matches('"'));
 
                 let mut types = Vec::with_capacity(g.items.len());
                 for tree in &g.items {
@@ -129,7 +124,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 })
             }
             syn::UseTree::Name(n) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'));
+                let namespace = reader.resolve_namespace(current.trim_matches('"'));
                 let name = n.ident.to_string();
                 Ok(NamespaceTypes {
                     namespace,
@@ -144,13 +139,4 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
     }
 
     recurse(reader, use_tree, &mut String::new())
-}
-
-fn find_namespace(reader: &'static TypeReader, namespace: &str) -> &'static str {
-    if let Some(namespace) = reader.find_namespace(&namespace) {
-        namespace
-    } else {
-        // TODO: this seems redundant since we already check this during TypeLimits::insert
-        panic!("'{}' is not a known namespace", namespace);
-    }
 }

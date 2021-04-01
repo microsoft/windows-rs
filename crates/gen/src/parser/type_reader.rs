@@ -129,11 +129,11 @@ impl TypeReader {
         Self { types, nested }
     }
 
-    pub fn find_namespace(&'static self, find: &str) -> Option<&'static str> {
+    pub fn resolve_namespace(&'static self, find: &str) -> &'static str {
         self.types
             .keys()
             .find(|namespace| *namespace == &find)
-            .copied()
+            .expect(&format!("Could not find namespace `{}`", find))
     }
 
     /// Get all the namespace names that the [`TypeReader`] knows about

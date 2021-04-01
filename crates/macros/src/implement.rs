@@ -55,7 +55,6 @@ fn use_tree_to_types(
             }
             ImplementTree::Name(name) => {
                 let namespace = current.trim_matches('"');
-                let namespace = reader.find_namespace(&namespace).unwrap(); // TODO: handle
 
                 let mut meta_name = name.ident.to_string();
                 let generic_count = name.generics.params.len();
