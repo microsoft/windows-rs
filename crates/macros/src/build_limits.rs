@@ -120,13 +120,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                         syn::UseTree::Name(n) => {
                             types.push(n.ident.to_string());
                         }
-                        syn::UseTree::Rename(_) => {
-                            return Err(syn::Error::new(
-                                tree.span(),
-                                "Renaming syntax is not supported",
-                            ))
-                        }
-                        _ => return Err(syn::Error::new(tree.span(), "Nested paths not allowed")),
+                        _ => return Err(syn::Error::new(tree.span(), "Unsupported syntax")),
                     }
                 }
                 Ok(NamespaceTypes {
