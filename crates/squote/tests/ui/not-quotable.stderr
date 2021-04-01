@@ -1,8 +1,0 @@
-error[E0277]: the trait bound `std::net::Ipv4Addr: quote::to_tokens::ToTokens` is not satisfied
- --> $DIR/not-quotable.rs:6:13
-  |
-6 |     let _ = quote! { #ip };
-  |             ^^^^^^^^^^^^^^ the trait `quote::to_tokens::ToTokens` is not implemented for `std::net::Ipv4Addr`
-  |
-  = note: required by `quote::to_tokens::ToTokens::to_tokens`
-  = note: this error originates in a macro (in Nightly builds, run with -Z macro-backtrace for more info)
