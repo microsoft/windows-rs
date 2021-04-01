@@ -86,8 +86,10 @@ fn use_tree_to_types(
 
 pub fn gen(
     attribute: proc_macro::TokenStream,
-    inner_type: proc_macro::TokenStream,
+    mut original_type: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
+    let inner_type = original_type.clone();
+
     let implements = syn::parse_macro_input!(attribute as Implements);
     let inner_type = syn::parse_macro_input!(inner_type as syn::ItemStruct);
     let inner_name = inner_type.ident.to_string();
@@ -271,13 +273,16 @@ pub fn gen(
         }
     });
 
-    let tokens = tokens.parse::<proc_macro2::TokenStream>().unwrap();
+    let tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
 
-    let tokens = quote::quote! {
-        #inner_type
-        #tokens
-    };
+    original_type.extend(std::iter::once(tokens));
+    //tokens.combine(&original_type.into());
+
+    // let tokens = squote::quote! {
+    //     #inner_type
+    //     #tokens
+    // };
 
     // println!("{}", tokens.to_string());
-    tokens.into()
+    original_type
 }
