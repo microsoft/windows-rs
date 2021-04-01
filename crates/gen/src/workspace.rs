@@ -47,7 +47,8 @@ fn workspace_dir() -> std::path::PathBuf {
             .find('"')
             .expect("Cargo metadata ended before closing '\"' in `workspace_root` value");
 
-        let workspace_root = &json[beginning_index..beginning_index + ending_index];
+        let workspace_root =
+            json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\");
 
         // This is safe because `Once` provides thread-safe one-time initialization
         unsafe { VALUE = MaybeUninit::new(workspace_root.into()) }

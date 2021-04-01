@@ -1,33 +1,26 @@
-use gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
+use super::*;
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
 
 pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 
 impl BuildLimits {
-    pub fn into_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
+    pub fn into_tokens_string(self) -> String {
         let reader = TypeReader::get();
         let mut limits = TypeLimits::new(reader);
 
         for limit in self.0 {
-            let types = limit.types;
-            let syntax = limit.syntax;
-            limits.insert(types).map_err(|ns| {
-                syn::Error::new_spanned(syntax, format!("'{}' is not a known namespace", ns))
-                    .to_compile_error()
-            })?;
+            limits.insert(limit.types);
         }
 
         let tree = TypeTree::from_limits(reader, &limits);
 
-        let ts = tree
-            .gen(&tree)
-            .fold(squote::TokenStream::new(), |mut accum, n| {
-                accum.combine(&n);
-                accum
-            });
+        let ts = tree.gen(&tree).fold(TokenStream::new(), |mut accum, n| {
+            accum.combine(&n);
+            accum
+        });
 
-        Ok(ts.into_string())
+        ts.into_string()
     }
 }
 
@@ -104,15 +97,15 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
 
                 recurse(reader, &*p.tree, current)
             }
-            syn::UseTree::Glob(g) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'), g.span())?;
+            syn::UseTree::Glob(_) => {
+                let namespace = reader.resolve_namespace(current.trim_matches('"'));
                 Ok(NamespaceTypes {
                     namespace,
                     limit: TypeLimit::All,
                 })
             }
             syn::UseTree::Group(g) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'), g.span())?;
+                let namespace = reader.resolve_namespace(current.trim_matches('"'));
 
                 let mut types = Vec::with_capacity(g.items.len());
                 for tree in &g.items {
@@ -120,13 +113,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                         syn::UseTree::Name(n) => {
                             types.push(n.ident.to_string());
                         }
-                        syn::UseTree::Rename(_) => {
-                            return Err(syn::Error::new(
-                                tree.span(),
-                                "Renaming syntax is not supported",
-                            ))
-                        }
-                        _ => return Err(syn::Error::new(tree.span(), "Nested paths not allowed")),
+                        _ => return Err(syn::Error::new(tree.span(), "Unsupported syntax")),
                     }
                 }
                 Ok(NamespaceTypes {
@@ -135,7 +122,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 })
             }
             syn::UseTree::Name(n) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'), n.span())?;
+                let namespace = reader.resolve_namespace(current.trim_matches('"'));
                 let name = n.ident.to_string();
                 Ok(NamespaceTypes {
                     namespace,
@@ -150,16 +137,4 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
     }
 
     recurse(reader, use_tree, &mut String::new())
-}
-
-fn find_namespace(
-    reader: &'static TypeReader,
-    namespace: &str,
-    span: proc_macro2::Span,
-) -> syn::parse::Result<&'static str> {
-    if let Some(namespace) = reader.find_namespace(&namespace) {
-        Ok(namespace)
-    } else {
-        Err(syn::Error::new(span, "Module not found"))
-    }
 }

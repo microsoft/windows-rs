@@ -3,10 +3,19 @@ mod implement;
 mod implement_tree;
 
 use build_limits::*;
+use gen::*;
 use implement_tree::*;
-use proc_macro::TokenStream;
-use quote::quote;
 use syn::parse_macro_input;
+
+struct RawString(String);
+
+impl ToTokens for RawString {
+    fn to_tokens(&self, tokens: &mut TokenStream) {
+        tokens.push_str("r#\"");
+        tokens.push_str(&self.0);
+        tokens.push_str("\"#");
+    }
+}
 
 /// A macro for generating WinRT modules to a .rs file at build time.
 ///
@@ -32,24 +41,28 @@ use syn::parse_macro_input;
 /// );
 /// ```
 #[proc_macro]
-pub fn build(stream: TokenStream) -> TokenStream {
+pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildLimits);
 
-    let tokens = match build.into_tokens_string() {
-        Ok(t) => t,
-        Err(t) => return t.into(),
-    };
-
+    let tokens = RawString(build.into_tokens_string());
     let workspace_windows_dir = gen::workspace_windows_dir();
 
     let mut destination = workspace_windows_dir.clone();
     destination.pop();
     destination.push("target");
-    let destination = destination.to_str().expect("Invalid workspace target dir");
+    let destination = RawString(
+        destination
+            .to_str()
+            .expect("Invalid workspace target dir")
+            .to_string(),
+    );
 
-    let workspace_windows_dir = workspace_windows_dir
-        .to_str()
-        .expect("Invalid workspace windows dir");
+    let workspace_windows_dir = RawString(
+        workspace_windows_dir
+            .to_str()
+            .expect("Invalid workspace windows dir")
+            .to_string(),
+    );
 
     let tokens = quote! {
         {
@@ -125,7 +138,7 @@ pub fn build(stream: TokenStream) -> TokenStream {
         }
     };
 
-    tokens.into()
+    tokens.as_str().parse().unwrap()
 }
 
 /// Rust structs can use the `implement` macro to implement entire WinRT classes or
@@ -135,6 +148,9 @@ pub fn build(stream: TokenStream) -> TokenStream {
 /// interfaces are implemented. Otherwise, whatever interfaces are contained within
 /// the attribute TokenStream are implemented.
 #[proc_macro_attribute]
-pub fn implement(attribute: TokenStream, input: TokenStream) -> TokenStream {
+pub fn implement(
+    attribute: proc_macro::TokenStream,
+    input: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
     implement::gen(attribute, input)
 }

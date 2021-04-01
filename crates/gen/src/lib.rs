@@ -1,4 +1,3 @@
-pub use squote::{format_ident, quote, Ident, Literal, TokenStream};
 pub use std::collections::{BTreeMap, BTreeSet};
 pub use std::iter::FromIterator;
 
@@ -9,6 +8,7 @@ mod hex_reader;
 mod iterator;
 mod object;
 mod parser;
+mod squote;
 pub mod tables;
 mod to_ident;
 mod type_limits;
@@ -23,6 +23,7 @@ pub use iterator::*;
 pub use object::*;
 pub use parser::*;
 pub use r#async::*;
+pub use squote::*;
 pub use to_ident::*;
 pub use type_limits::*;
 pub use type_tree::*;
