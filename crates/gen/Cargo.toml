@@ -8,5 +8,4 @@ description = "Code generation for the windows crate"
 
 [dependencies]
 syn = { version = "1.0", default-features = false, features = ["full"] }
-proc-macro2 = "1.0"
 squote = { package = "windows_quote", path = "../squote", version = "0.7.0" }

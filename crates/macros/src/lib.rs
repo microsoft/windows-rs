@@ -45,11 +45,7 @@ impl squote::ToTokens for RawString {
 pub fn build(stream: TokenStream) -> TokenStream {
     let build = parse_macro_input!(stream as BuildLimits);
 
-    let tokens = match build.into_tokens_string() {
-        Ok(t) => t,
-        Err(t) => return t.into(),
-    };
-
+    let tokens = build.into_tokens_string();
     let tokens = RawString(tokens);
 
     let workspace_windows_dir = gen::workspace_windows_dir();

@@ -14,13 +14,13 @@ impl TypeLimits {
         }
     }
 
-    pub fn insert(&mut self, mut limit: NamespaceTypes) -> Result<(), &'static str> {
+    pub fn insert(&mut self, mut limit: NamespaceTypes) -> bool {
         if let Some(namespace) = self.reader.find_namespace(&limit.namespace) {
             limit.namespace = namespace;
             self.inner.insert(limit);
-            Ok(())
+            true
         } else {
-            Err(limit.namespace)
+            false
         }
     }
 

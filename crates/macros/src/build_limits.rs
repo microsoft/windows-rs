@@ -5,17 +5,17 @@ use syn::spanned::Spanned;
 pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
 
 impl BuildLimits {
-    pub fn into_tokens_string(self) -> Result<String, proc_macro2::TokenStream> {
+    pub fn into_tokens_string(self) -> String {
         let reader = TypeReader::get();
         let mut limits = TypeLimits::new(reader);
 
         for limit in self.0 {
             let types = limit.types;
-            let syntax = limit.syntax;
-            limits.insert(types).map_err(|ns| {
-                syn::Error::new_spanned(syntax, format!("'{}' is not a known namespace", ns))
-                    .to_compile_error()
-            })?;
+            let namespace = types.namespace;
+
+            if !limits.insert(types) {
+                panic!("'{}' is not a known namespace", namespace);
+            }
         }
 
         let tree = TypeTree::from_limits(reader, &limits);
@@ -27,7 +27,7 @@ impl BuildLimits {
                 accum
             });
 
-        Ok(ts.into_string())
+        ts.into_string()
     }
 }
 
@@ -104,15 +104,15 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
 
                 recurse(reader, &*p.tree, current)
             }
-            syn::UseTree::Glob(g) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'), g.span())?;
+            syn::UseTree::Glob(_) => {
+                let namespace = find_namespace(reader, current.trim_matches('"'));
                 Ok(NamespaceTypes {
                     namespace,
                     limit: TypeLimit::All,
                 })
             }
             syn::UseTree::Group(g) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'), g.span())?;
+                let namespace = find_namespace(reader, current.trim_matches('"'));
 
                 let mut types = Vec::with_capacity(g.items.len());
                 for tree in &g.items {
@@ -135,7 +135,7 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
                 })
             }
             syn::UseTree::Name(n) => {
-                let namespace = find_namespace(reader, current.trim_matches('"'), n.span())?;
+                let namespace = find_namespace(reader, current.trim_matches('"'));
                 let name = n.ident.to_string();
                 Ok(NamespaceTypes {
                     namespace,
@@ -155,11 +155,11 @@ fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<Na
 fn find_namespace(
     reader: &'static TypeReader,
     namespace: &str,
-    span: proc_macro2::Span,
-) -> syn::parse::Result<&'static str> {
+) -> &'static str {
     if let Some(namespace) = reader.find_namespace(&namespace) {
-        Ok(namespace)
+        namespace
     } else {
-        Err(syn::Error::new(span, "Module not found"))
+        // TODO: this seems redundant since we already check this during TypeLimits::insert
+        panic!("'{}' is not a known namespace", namespace);
     }
 }
