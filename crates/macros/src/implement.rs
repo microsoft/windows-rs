@@ -1,5 +1,4 @@
 use super::*;
-use squote::{format_ident, quote, Literal, TokenStream};
 
 // TODO: distinguish between COM and WinRT interfaces
 struct Implements(Vec<gen::ElementType>);

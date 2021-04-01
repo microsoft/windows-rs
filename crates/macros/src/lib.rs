@@ -4,14 +4,13 @@ mod implement_tree;
 
 use build_limits::*;
 use implement_tree::*;
-use proc_macro::TokenStream;
-use squote::quote;
+use gen::*;
 use syn::parse_macro_input;
 
 struct RawString(String);
 
-impl squote::ToTokens for RawString {
-    fn to_tokens(&self, tokens: &mut squote::TokenStream) {
+impl ToTokens for RawString {
+    fn to_tokens(&self, tokens: &mut TokenStream) {
         tokens.push_str("\nr#\"");
         tokens.push_str(&self.0);
         tokens.push_str("\"#\n");
@@ -42,7 +41,7 @@ impl squote::ToTokens for RawString {
 /// );
 /// ```
 #[proc_macro]
-pub fn build(stream: TokenStream) -> TokenStream {
+pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildLimits);
 
     let tokens = build.into_tokens_string();
@@ -151,6 +150,6 @@ pub fn build(stream: TokenStream) -> TokenStream {
 /// interfaces are implemented. Otherwise, whatever interfaces are contained within
 /// the attribute TokenStream are implemented.
 #[proc_macro_attribute]
-pub fn implement(attribute: TokenStream, input: TokenStream) -> TokenStream {
+pub fn implement(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     implement::gen(attribute, input)
 }

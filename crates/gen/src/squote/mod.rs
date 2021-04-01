@@ -1,25 +1,3 @@
-//! This crate provides the [`quote!`] macro for turning Rust syntax tree data
-//! structures into tokens of source code.
-//!
-//! [`quote!`]: macro.quote.html
-//!
-//! The idea of quasi-quoting is that we write *code* that we treat as *data*.
-//! Within the `quote!` macro, we can write what looks like code to our text
-//! editor or IDE. We get all the benefits of the editor's brace matching,
-//! syntax highlighting, indentation, and maybe autocompletion. But rather than
-//! compiling that as code into the current crate, we can treat it as data, pass
-//! it around, mutate it, and eventually hand it back to the compiler as tokens
-//! to compile into the macro caller's crate.
-//!
-//! This crate is motivated by the procedural macro use case, but is a
-//! general-purpose Rust quasi-quoting library and is not specific to procedural
-//! macros.
-//!
-//! ```toml
-//! [dependencies]
-//! squote = "1.0"
-//! ```
-
 #![forbid(unsafe_code)]
 
 mod format;
@@ -31,8 +9,9 @@ mod token_stream;
 #[path = "runtime.rs"]
 pub mod __private;
 
-pub use crate::to_tokens::ToTokens;
-pub use crate::token_stream::{Delimiter, Ident, Literal, TokenStream};
+pub use format::*;
+pub use to_tokens::*;
+pub use token_stream::*;
 
 /// The whole point.
 ///

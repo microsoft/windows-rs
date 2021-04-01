@@ -12,4 +12,3 @@ proc-macro = true
 [dependencies]
 gen = { package = "windows_gen", path = "../gen", version = "0.7.0" }
 syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing"] }
-squote = { package = "windows_quote", path = "../squote", version = "0.7.0" }

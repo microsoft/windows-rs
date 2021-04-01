@@ -1,4 +1,4 @@
-use gen::{NamespaceTypes, TypeLimit, TypeLimits, TypeReader, TypeTree};
+use super::*;
 use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
 
@@ -17,7 +17,7 @@ impl BuildLimits {
 
         let ts = tree
             .gen(&tree)
-            .fold(squote::TokenStream::new(), |mut accum, n| {
+            .fold(TokenStream::new(), |mut accum, n| {
                 accum.combine(&n);
                 accum
             });

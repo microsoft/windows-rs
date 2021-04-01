@@ -210,7 +210,7 @@ impl MethodSignature {
 
         for (index, param) in params.iter().enumerate() {
             if param.is_convertible() {
-                let name = squote::format_ident!("T{}__", index);
+                let name = format_ident!("T{}__", index);
                 let into = param.signature.kind.gen_name(gen);
                 tokens.push(quote! { #name: ::windows::IntoParam<'a, #into>, });
             }
@@ -241,7 +241,7 @@ impl MethodSignature {
                     }
                 } else if param.param.is_input() {
                     if param.is_convertible() {
-                        let tokens = squote::format_ident!("T{}__", index);
+                        let tokens = format_ident!("T{}__", index);
                         quote! { #name: #tokens, }
                     } else {
                         let mut signature = quote! {};
@@ -314,7 +314,7 @@ impl MethodSignature {
 
         for (index, param) in params.iter().enumerate() {
             if param.is_convertible() {
-                let name = squote::format_ident!("T{}__", index);
+                let name = format_ident!("T{}__", index);
                 let into = param.signature.kind.gen_name(gen);
                 tokens.push(quote! { #name: ::windows::IntoParam<'a, #into>, });
             }
@@ -335,7 +335,7 @@ impl MethodSignature {
                 let name = param.param.gen_name();
 
                 if param.is_convertible() {
-                    let tokens = squote::format_ident!("T{}__", index);
+                    let tokens = format_ident!("T{}__", index);
                     quote! { #name: #tokens, }
                 } else {
                     let tokens = param.gen_win32(gen);

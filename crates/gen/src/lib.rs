@@ -1,4 +1,3 @@
-pub use squote::{format_ident, quote, Ident, Literal, TokenStream};
 pub use std::collections::{BTreeMap, BTreeSet};
 pub use std::iter::FromIterator;
 
@@ -9,6 +8,7 @@ mod hex_reader;
 mod iterator;
 mod object;
 mod parser;
+mod squote;
 pub mod tables;
 mod to_ident;
 mod type_limits;
@@ -27,6 +27,7 @@ pub use to_ident::*;
 pub use type_limits::*;
 pub use type_tree::*;
 pub use workspace::*;
+pub use squote::*;
 
 // Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
 #[macro_export]
