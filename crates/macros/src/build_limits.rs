@@ -15,12 +15,10 @@ impl BuildLimits {
 
         let tree = TypeTree::from_limits(reader, &limits);
 
-        let ts = tree
-            .gen(&tree)
-            .fold(TokenStream::new(), |mut accum, n| {
-                accum.combine(&n);
-                accum
-            });
+        let ts = tree.gen(&tree).fold(TokenStream::new(), |mut accum, n| {
+            accum.combine(&n);
+            accum
+        });
 
         ts.into_string()
     }

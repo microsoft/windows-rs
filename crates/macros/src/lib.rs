@@ -3,8 +3,8 @@ mod implement;
 mod implement_tree;
 
 use build_limits::*;
-use implement_tree::*;
 use gen::*;
+use implement_tree::*;
 use syn::parse_macro_input;
 
 struct RawString(String);
@@ -150,6 +150,9 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 /// interfaces are implemented. Otherwise, whatever interfaces are contained within
 /// the attribute TokenStream are implemented.
 #[proc_macro_attribute]
-pub fn implement(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn implement(
+    attribute: proc_macro::TokenStream,
+    input: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
     implement::gen(attribute, input)
 }

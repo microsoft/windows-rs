@@ -23,11 +23,11 @@ pub use iterator::*;
 pub use object::*;
 pub use parser::*;
 pub use r#async::*;
+pub use squote::*;
 pub use to_ident::*;
 pub use type_limits::*;
 pub use type_tree::*;
 pub use workspace::*;
-pub use squote::*;
 
 // Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
 #[macro_export]
