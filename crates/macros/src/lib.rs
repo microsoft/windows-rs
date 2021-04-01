@@ -141,6 +141,17 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     tokens.as_str().parse().unwrap()
 }
 
+#[proc_macro]
+pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let build = parse_macro_input!(stream as BuildLimits);
+
+    let mut tokens = String::new();
+    tokens.push_str("r#\"");
+    tokens.push_str(&build.into_tokens_string());
+    tokens.push_str("\"#");
+    tokens.parse().unwrap()
+}
+
 /// Rust structs can use the `implement` macro to implement entire WinRT classes or
 /// any combination of existing COM and WinRT interfaces.
 ///

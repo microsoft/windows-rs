@@ -1,8 +1,6 @@
 #![allow(clippy::many_single_char_names)]
 
 use crate::*;
-use gen::HexReader;
-
 use bindings::Windows::Win32::Com::CLSIDFromProgID;
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
@@ -136,5 +134,31 @@ impl From<&str> for Guid {
         let k = bytes.next_u8() * 16 + bytes.next_u8();
 
         Guid::from_values(a, b, c, [d, e, f, g, h, i, j, k])
+    }
+}
+
+trait HexReader {
+    fn next_u8(&mut self) -> u8;
+    fn next_u16(&mut self) -> u16;
+    fn next_u32(&mut self) -> u32;
+}
+
+impl HexReader for std::str::Bytes<'_> {
+    fn next_u8(&mut self) -> u8 {
+        let value = self.next().unwrap();
+        match value {
+            b'0'..=b'9' => value - b'0',
+            b'A'..=b'F' => 10 + value - b'A',
+            b'a'..=b'f' => 10 + value - b'a',
+            _ => panic!(),
+        }
+    }
+
+    fn next_u16(&mut self) -> u16 {
+        self.next_u8().into()
+    }
+
+    fn next_u32(&mut self) -> u32 {
+        self.next_u8().into()
     }
 }

@@ -11,6 +11,7 @@ Learn more here: <https://github.com/microsoft/windows-rs>
 #[macro_use]
 mod macros;
 
+mod bindings;
 mod interfaces;
 mod result;
 mod runtime;
@@ -26,13 +27,11 @@ pub use runtime::{
     Param, RefCount, Waiter,
 };
 pub use traits::{Abi, Interface, IntoParam, RuntimeName, RuntimeType};
+
+#[cfg(feature = "macros")]
 pub use windows_macros::{build, implement};
 
 extern crate self as windows;
-
-mod bindings {
-    include_bindings!();
-}
 
 // TODO: rather than hiding, consider just removing
 #[doc(hidden)]

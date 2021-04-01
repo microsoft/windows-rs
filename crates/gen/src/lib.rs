@@ -4,7 +4,6 @@ pub use std::iter::FromIterator;
 mod r#async;
 mod gen;
 mod guid;
-mod hex_reader;
 mod iterator;
 mod object;
 mod parser;
@@ -18,7 +17,6 @@ mod workspace;
 
 pub use gen::*;
 pub use guid::*;
-pub use hex_reader::*;
 pub use iterator::*;
 pub use object::*;
 pub use parser::*;
