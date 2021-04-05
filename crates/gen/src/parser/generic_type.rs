@@ -117,7 +117,7 @@ impl GenericType {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen(gen);
+            let g = g.gen(&TypeConstraints::Empty, gen);
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
@@ -146,7 +146,7 @@ impl GenericType {
 
     pub fn gen_phantoms<'a>(&'a self, gen: &'a Gen) -> impl Iterator<Item = TokenStream> + 'a {
         self.generics.iter().map(move |g| {
-            let g = g.gen(gen);
+            let g = g.gen(&TypeConstraints::Empty, gen);
             quote! { ::std::marker::PhantomData::<#g> }
         })
     }
@@ -155,7 +155,7 @@ impl GenericType {
         self.generics
             .iter()
             .map(|g| {
-                let g = g.gen(gen);
+                let g = g.gen(&TypeConstraints::Empty, gen);
                 quote! { #g: ::windows::RuntimeType + 'static, }
             })
             .collect()

@@ -2,30 +2,41 @@ use super::*;
 
 #[derive(Debug)]
 pub struct TypeTree {
-    pub namespace: &'static str,
-    pub types: Vec<ElementType>,
-    pub namespaces: BTreeMap<&'static str, TypeTree>,
+    constraints: TypeConstraints,
+    namespace: &'static str,
+    types: Vec<ElementType>,
+    namespaces: BTreeMap<&'static str, TypeTree>,
 }
 
 impl TypeTree {
-    pub fn from_namespace(namespace: &'static str) -> Self {
+    pub fn from_namespace(constraints: BTreeSet<TypeConstraint>, namespace: &'static str) -> Self {
         Self {
+            constraints: TypeConstraints::from_iter(constraints),
             namespace,
             types: Vec::new(),
             namespaces: BTreeMap::new(),
         }
     }
 
+    fn merge<'a, C>(&mut self, constraints: C, t: &ElementType)
+    where
+        C: IntoIterator,
+        C::Item: AsRef<TypeConstraint>,
+    {
+        self.constraints.merge(constraints);
+        self.types.push(t.clone());
+    }
+
     pub fn from_limits(reader: &'static TypeReader, limits: &TypeLimits) -> Self {
-        let mut root = Self::from_namespace("");
+        let mut root = Self::from_namespace(Default::default(), "");
 
         let mut set = BTreeSet::new();
 
-        for limit in limits.limits() {
+        for (limit, meta) in limits.limits() {
             match &limit.limit {
                 TypeLimit::All => {
                     for def in reader.namespace_types(&limit.namespace) {
-                        root.insert_if(reader, &limit.namespace, &mut set, &def);
+                        root.insert_if(reader, &limit.namespace, &mut set, &def, meta);
                     }
                 }
                 TypeLimit::Some(types) => {
@@ -35,6 +46,7 @@ impl TypeTree {
                             &limit.namespace,
                             &mut set,
                             &reader.resolve_type(&limit.namespace, name),
+                            meta,
                         );
                     }
                 }
@@ -50,31 +62,39 @@ impl TypeTree {
         namespace: &'static str,
         set: &mut BTreeSet<Row>,
         t: &ElementType,
+        meta: &TypeLimitMeta,
     ) {
         if set.insert(t.row()) {
             for def in t.dependencies() {
-                self.insert_if(reader, def.namespace(), set, &def);
+                self.insert_if(reader, def.namespace(), set, &def, meta);
             }
 
             if !namespace.is_empty() {
-                self.insert(namespace, 0, t);
+                self.insert(namespace, 0, t, meta);
             }
         }
     }
 
-    fn insert(&mut self, namespace: &'static str, pos: usize, t: &ElementType) {
+    fn insert(
+        &mut self,
+        namespace: &'static str,
+        pos: usize,
+        t: &ElementType,
+        meta: &TypeLimitMeta,
+    ) {
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
             self.namespaces
                 .entry(&namespace[pos..next])
-                .or_insert_with(|| Self::from_namespace(&namespace[..next]))
-                .insert(namespace, next + 1, t);
+                .or_insert_with(|| {
+                    Self::from_namespace(meta.constraints.clone(), &namespace[..next])
+                })
+                .insert(namespace, next + 1, t, meta);
         } else {
             self.namespaces
                 .entry(&namespace[pos..])
-                .or_insert_with(|| Self::from_namespace(namespace))
-                .types
-                .push(t.clone());
+                .or_insert_with(|| Self::from_namespace(meta.constraints.clone(), namespace))
+                .merge(&meta.constraints, t);
         }
     }
 
@@ -115,7 +135,7 @@ impl TypeTree {
 
         self.types
             .iter()
-            .map(move |t| t.gen(&gen))
+            .map(move |t| t.gen(&self.constraints, &gen))
             .chain(gen_namespaces(&self.namespaces, root))
     }
 }

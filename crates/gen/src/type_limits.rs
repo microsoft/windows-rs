@@ -1,25 +1,25 @@
 use super::*;
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 pub struct TypeLimits {
     reader: &'static TypeReader,
-    inner: BTreeSet<NamespaceTypes>,
+    inner: BTreeMap<NamespaceTypes, TypeLimitMeta>,
 }
 
 impl TypeLimits {
     pub fn new(reader: &'static TypeReader) -> Self {
         Self {
             reader,
-            inner: BTreeSet::new(),
+            inner: BTreeMap::new(),
         }
     }
 
-    pub fn insert(&mut self, mut limit: NamespaceTypes) {
+    pub fn insert(&mut self, mut limit: NamespaceTypes, namespace: TypeLimitMeta) {
         limit.namespace = self.reader.resolve_namespace(&limit.namespace);
-        self.inner.insert(limit);
+        self.inner.insert(limit, namespace);
     }
 
-    pub fn limits(&self) -> impl Iterator<Item = &NamespaceTypes> {
+    pub fn limits(&self) -> impl Iterator<Item = (&NamespaceTypes, &TypeLimitMeta)> {
         self.inner.iter()
     }
 }
@@ -34,4 +34,11 @@ pub struct NamespaceTypes {
 pub enum TypeLimit {
     All,
     Some(Vec<String>),
+}
+
+/// Additional metadata associated with a namespace.
+#[derive(Clone)]
+pub struct TypeLimitMeta {
+    /// Constraints in place for compiling the type. Like feature flags.
+    pub constraints: BTreeSet<TypeConstraint>,
 }

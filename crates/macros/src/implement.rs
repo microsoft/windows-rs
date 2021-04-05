@@ -133,7 +133,7 @@ pub fn gen(
                 }
             });
 
-            let empty = gen::TypeTree::from_namespace("");
+            let empty = gen::TypeTree::from_namespace(Default::default(), "");
             let gen = gen::Gen::absolute(&empty);
 
             let vtable_ident = t.0.gen_abi_name(&gen);

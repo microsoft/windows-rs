@@ -477,9 +477,9 @@ impl ElementType {
         }
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    pub fn gen(&self, type_constraints: &TypeConstraints, gen: &Gen) -> TokenStream {
         match self {
-            Self::Function(t) => t.gen(gen),
+            Self::Function(t) => t.gen(type_constraints, gen),
             Self::Constant(t) => t.gen(gen),
             Self::Class(t) => t.gen(gen),
             Self::Interface(t) => t.gen(gen),

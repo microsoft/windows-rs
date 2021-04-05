@@ -13,7 +13,7 @@ impl Function {
         self.0.dependencies(&[])
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    pub fn gen(&self, type_constraints: &TypeConstraints, gen: &Gen) -> TokenStream {
         let name = self.gen_name();
         let signature = self.0.signature(&[]);
 
@@ -52,6 +52,7 @@ impl Function {
 
         if cfg!(windows) {
             quote! {
+                #type_constraints
                 pub unsafe fn #name<#constraints>(#params) #return_type {
                     #[link(name = #link)]
                     extern "system" {

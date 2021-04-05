@@ -1,5 +1,4 @@
 use super::*;
-use std::convert::{TryFrom, TryInto};
 use syn::spanned::Spanned;
 
 pub struct BuildLimits(pub std::collections::BTreeSet<TypesDeclaration>);
@@ -10,7 +9,7 @@ impl BuildLimits {
         let mut limits = TypeLimits::new(reader);
 
         for limit in self.0 {
-            limits.insert(limit.types);
+            limits.insert(limit.types, limit.namespace);
         }
 
         let tree = TypeTree::from_limits(reader, &limits);
@@ -26,7 +25,18 @@ impl BuildLimits {
 
 pub struct TypesDeclaration {
     pub types: NamespaceTypes,
+    pub namespace: TypeLimitMeta,
     pub syntax: syn::UseTree,
+}
+
+impl TypesDeclaration {
+    fn new(tree: syn::UseTree, constraints: BTreeSet<TypeConstraint>) -> syn::Result<Self> {
+        Ok(Self {
+            types: use_tree_to_namespace_types(&tree)?,
+            namespace: TypeLimitMeta { constraints },
+            syntax: tree,
+        })
+    }
 }
 
 impl std::cmp::PartialOrd for TypesDeclaration {
@@ -49,26 +59,20 @@ impl PartialEq for TypesDeclaration {
 
 impl Eq for TypesDeclaration {}
 
-impl TryFrom<syn::UseTree> for TypesDeclaration {
-    type Error = syn::Error;
-    fn try_from(tree: syn::UseTree) -> Result<Self, Self::Error> {
-        Ok(Self {
-            types: use_tree_to_namespace_types(&tree)?,
-            syntax: tree,
-        })
-    }
-}
-
 impl syn::parse::Parse for BuildLimits {
     fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut limits = std::collections::BTreeSet::new();
-        loop {
-            if input.is_empty() {
-                break;
+        while !input.is_empty() {
+            let mut constraints = BTreeSet::new();
+
+            while input.peek(syn::Token![#]) {
+                for attribute in input.call(syn::Attribute::parse_outer)? {
+                    constraints.extend(parse_type_constraint_meta(attribute)?);
+                }
             }
 
             let use_tree: syn::UseTree = input.parse()?;
-            let limit: TypesDeclaration = use_tree.try_into()?;
+            let limit = TypesDeclaration::new(use_tree, constraints)?;
 
             limits.insert(limit);
 
@@ -76,8 +80,61 @@ impl syn::parse::Parse for BuildLimits {
                 input.parse::<syn::Token![,]>()?;
             }
         }
+
         Ok(Self(limits))
     }
+}
+
+fn parse_type_constraint_meta(attr: syn::Attribute) -> syn::parse::Result<Vec<TypeConstraint>> {
+    let meta = attr.parse_meta()?;
+
+    let mut constraints = Vec::new();
+
+    let list = match meta {
+        syn::Meta::List(list) if list.path == CFG => list,
+        meta => {
+            return Err(syn::Error::new(
+                meta.span(),
+                "expected `#[cfg(..)]` attribute",
+            ))
+        }
+    };
+
+    for nested in list.nested {
+        let meta = match nested {
+            syn::NestedMeta::Meta(meta) => meta,
+            meta => {
+                return Err(syn::Error::new(
+                    meta.span(),
+                    "unsupported `#[cfg(..)]` attribute",
+                ))
+            }
+        };
+
+        match meta {
+            syn::Meta::NameValue(name_value) if name_value.path == FEATURE => {
+                let s = match name_value.lit {
+                    syn::Lit::Str(s) => s.value(),
+                    lit => {
+                        return Err(syn::Error::new(
+                            lit.span(),
+                            "expected string as argument to `#[cfg(feature = ...)]`",
+                        ))
+                    }
+                };
+
+                constraints.push(TypeConstraint::Feature(s.into()));
+            }
+            meta => {
+                return Err(syn::Error::new(
+                    meta.span(),
+                    "unsupported `#[cfg(..)]` attribute",
+                ))
+            }
+        }
+    }
+
+    Ok(constraints)
 }
 
 fn use_tree_to_namespace_types(use_tree: &syn::UseTree) -> syn::parse::Result<NamespaceTypes> {

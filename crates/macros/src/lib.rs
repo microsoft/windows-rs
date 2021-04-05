@@ -1,10 +1,12 @@
 mod build_limits;
 mod implement;
 mod implement_tree;
+mod symbols;
 
 use build_limits::*;
 use gen::*;
 use implement_tree::*;
+use symbols::*;
 use syn::parse_macro_input;
 
 struct RawString(String);
