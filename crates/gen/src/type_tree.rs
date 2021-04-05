@@ -169,10 +169,15 @@ mod tests {
         let reader = TypeReader::get();
         let mut limits = TypeLimits::new(reader);
 
-        limits.insert(NamespaceTypes {
-            namespace: "Windows.Win32.FileSystem",
-            limit: TypeLimit::Some(vec!["FILE_ACCESS_FLAGS".to_string()]),
-        });
+        limits.insert(
+            NamespaceTypes {
+                namespace: "Windows.Win32.FileSystem",
+                limit: TypeLimit::Some(vec!["FILE_ACCESS_FLAGS".to_string()]),
+            },
+            TypeLimitMeta {
+                constraints: Default::default(),
+            },
+        );
 
         let tree = TypeTree::from_limits(reader, &limits);
 
@@ -200,8 +205,11 @@ mod tests {
 
         let t = &tree.types[0];
         assert_eq!(
-            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
-                .as_str(),
+            t.gen_name(&Gen::absolute(&TypeTree::from_namespace(
+                Default::default(),
+                ""
+            )))
+            .as_str(),
             "Windows :: Win32 :: FileSystem :: FILE_ACCESS_FLAGS"
         );
     }

@@ -109,10 +109,15 @@ windows = {{ version = "{}", default-features = false }}
         if namespace == module || namespace.starts_with(&format!("{}.", module)) {
             println!("- {}", namespace);
 
-            limits.insert(gen::NamespaceTypes {
-                namespace,
-                limit: gen::TypeLimit::All,
-            });
+            limits.insert(
+                gen::NamespaceTypes {
+                    namespace,
+                    limit: gen::TypeLimit::All,
+                },
+                gen::TypeLimitMeta {
+                    constraints: Default::default(),
+                },
+            );
         }
     }
 

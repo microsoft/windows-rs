@@ -191,14 +191,20 @@ mod tests {
 
         assert_eq!(
             i[0].def
-                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .gen_name(&Gen::absolute(&TypeTree::from_namespace(
+                    Default::default(),
+                    ""
+                )))
                 .as_str(),
             "Windows :: Foundation :: IAsyncOperation :: < TResult >"
         );
 
         assert_eq!(
             i[1].def
-                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .gen_name(&Gen::absolute(&TypeTree::from_namespace(
+                    Default::default(),
+                    ""
+                )))
                 .as_str(),
             "Windows :: Foundation :: IAsyncInfo"
         );
@@ -212,13 +218,16 @@ mod tests {
 
         assert_eq!(
             i[0].def
-                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .gen_name(&Gen::absolute(&TypeTree::from_namespace(
+                    Default::default(),
+                    ""
+                )))
                 .as_str(),
             "Windows :: Foundation :: Collections :: IMap :: < K , V >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::absolute(&TypeTree::from_namespace(""))).as_str(),
+            i[1].def.gen_name(&Gen::absolute(&TypeTree::from_namespace(Default::default(), ""))).as_str(),
             "Windows :: Foundation :: Collections :: IIterable :: < Windows :: Foundation :: Collections :: IKeyValuePair :: < K , V > >"
         );
     }

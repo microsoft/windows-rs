@@ -189,7 +189,10 @@ mod tests {
         let r = s.return_type.unwrap();
         assert_eq!(
             r.kind
-                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .gen_name(&Gen::absolute(&TypeTree::from_namespace(
+                    Default::default(),
+                    ""
+                )))
                 .as_str(),
             "V"
         );
@@ -203,7 +206,10 @@ mod tests {
         assert_eq!(
             p.signature
                 .kind
-                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .gen_name(&Gen::absolute(&TypeTree::from_namespace(
+                    Default::default(),
+                    ""
+                )))
                 .as_str(),
             "K"
         );
