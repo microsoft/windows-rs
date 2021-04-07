@@ -2049,6 +2049,13 @@ pub mod Windows {
             clippy::all
         )]
         pub mod Com {
+            pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::ErrorCode {
+                #[link(name = "OLE32")]
+                extern "system" {
+                    pub fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::ErrorCode;
+                }
+                CoCreateGuid(::std::mem::transmute(pguid))
+            }
             pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
                 #[link(name = "OLE32")]
                 extern "system" {
@@ -2896,33 +2903,6 @@ pub mod Windows {
                     pub fn FreeLibrary(hlibmodule: isize) -> BOOL;
                 }
                 FreeLibrary(::std::mem::transmute(hlibmodule))
-            }
-            pub unsafe fn CreateEventA<
-                'a,
-                T1__: ::windows::IntoParam<'a, BOOL>,
-                T2__: ::windows::IntoParam<'a, BOOL>,
-                T3__: ::windows::IntoParam<'a, PSTR>,
-            >(
-                lpeventattributes: *mut SECURITY_ATTRIBUTES,
-                bmanualreset: T1__,
-                binitialstate: T2__,
-                lpname: T3__,
-            ) -> HANDLE {
-                #[link(name = "KERNEL32")]
-                extern "system" {
-                    pub fn CreateEventA(
-                        lpeventattributes: *mut SECURITY_ATTRIBUTES,
-                        bmanualreset: BOOL,
-                        binitialstate: BOOL,
-                        lpname: PSTR,
-                    ) -> HANDLE;
-                }
-                CreateEventA(
-                    ::std::mem::transmute(lpeventattributes),
-                    bmanualreset.into_param().abi(),
-                    binitialstate.into_param().abi(),
-                    lpname.into_param().abi(),
-                )
             }
         }
         #[allow(
