@@ -1,7 +1,7 @@
 #![allow(clippy::many_single_char_names)]
 
 use crate::*;
-use bindings::Windows::Win32::Com::CLSIDFromProgID;
+use bindings::Windows::Win32::Com::{CLSIDFromProgID, CoCreateGuid};
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
 /// used to identify COM and WinRT interfaces.
@@ -15,6 +15,15 @@ pub struct Guid {
 }
 
 impl Guid {
+    /// Creates a unique `Guid` value.
+    pub fn new() -> Result<Self> {
+        let mut value = Self::zeroed();
+        unsafe {
+            CoCreateGuid(&mut value).ok()?;
+        }
+        Ok(value)
+    }
+
     /// Creates a `Guid` represented by the all-zero byte-pattern.
     pub const fn zeroed() -> Guid {
         Guid {
@@ -160,5 +169,17 @@ impl HexReader for std::str::Bytes<'_> {
 
     fn next_u32(&mut self) -> u32 {
         self.next_u8().into()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_new() {
+        let zeroed = Guid::zeroed();
+        let unique = Guid::new().unwrap();
+        assert_ne!(zeroed, unique);
     }
 }
