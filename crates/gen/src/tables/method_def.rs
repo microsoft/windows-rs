@@ -97,6 +97,14 @@ impl MethodDef {
             .map(Attribute)
     }
 
+    pub fn has_attribute(&self, name: &str) -> bool {
+        self.attributes().any(|attribute| attribute.name() == name)
+    }
+
+    pub fn is_deprecated(&self) -> bool {
+        self.has_attribute("DeprecatedAttribute")
+    }
+
     pub fn impl_map(&self) -> Option<ImplMap> {
         self.0
             .file

@@ -42,6 +42,7 @@ impl InterfaceInfo {
                     name,
                     vtable_offset: vtable_offset as u32 + 6,
                     overload: *overload,
+                    is_deprecated: method.is_deprecated(),
                 };
 
                 let signature = method.signature(&interface.def.generics);

@@ -166,8 +166,15 @@ impl MethodSignature {
             }
         };
 
+        let deprecated = if method.is_deprecated {
+            quote! { #[cfg(feature = "deprecated")] }
+        } else {
+            quote! {}
+        };
+
         match interface.kind {
             InterfaceKind::Default => quote! {
+                #deprecated
                 pub fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                     let this = self;
                     unsafe {
@@ -177,6 +184,7 @@ impl MethodSignature {
             },
             InterfaceKind::NonDefault | InterfaceKind::Overridable => {
                 quote! {
+                    #deprecated
                     pub fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                         let this = &::windows::Interface::cast::<#interface_name>(self).unwrap();
                         unsafe {
@@ -187,6 +195,7 @@ impl MethodSignature {
             }
             InterfaceKind::Static | InterfaceKind::Composable => {
                 quote! {
+                    #deprecated
                     pub fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
                         Self::#interface_name(|this| unsafe { #vcall })
                     }

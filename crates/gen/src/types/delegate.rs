@@ -45,6 +45,7 @@ impl Delegate {
             name: "Invoke".to_string(),
             vtable_offset: 3,
             overload: 0,
+            is_deprecated: false,
         };
 
         let interface = InterfaceInfo {
