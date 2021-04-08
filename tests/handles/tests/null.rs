@@ -1,4 +1,7 @@
-use test_extensions::Windows::Win32::SystemServices::{HANDLE, PSTR, PWSTR};
+use test_handles::{
+    Windows::Win32::Gdi::HGDIOBJ,
+    Windows::Win32::SystemServices::{HANDLE, PSTR, PWSTR},
+};
 
 #[test]
 fn test() {
@@ -15,4 +18,8 @@ fn test() {
 
     assert_eq!(PWSTR::NULL, PWSTR(std::ptr::null_mut()));
     assert_eq!(PWSTR::NULL.is_null(), true);
+
+    assert_eq!(HGDIOBJ::NULL, HGDIOBJ(0));
+    assert_eq!(HGDIOBJ::NULL.is_null(), true);
+    assert_eq!(HGDIOBJ(1).is_null(), false);
 }
