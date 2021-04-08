@@ -275,7 +275,7 @@ impl Struct {
                             self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                         }
                     } else if is_handle {
-                        let index = Literal::u32_unsuffixed(index as u32);
+                        let index = Literal::usize_unsuffixed(index);
 
                         quote! {
                             self.#index == other.#index
@@ -391,7 +391,7 @@ impl Struct {
                         let field = name.as_str();
 
                         if is_handle {
-                            let index = Literal::u32_unsuffixed(index as u32);
+                            let index = Literal::usize_unsuffixed(index);
 
                             Some(quote! {
                                 .field(#field, &format_args!("{:?}", self.#index))

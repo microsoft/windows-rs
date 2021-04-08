@@ -103,7 +103,7 @@ pub fn gen(
 
     for (interface_count, implement) in implements.0.iter().enumerate() {
         if let gen::ElementType::Interface(t) = implement {
-            vtable_ordinals.push(Literal::u32_unsuffixed(interface_count as u32));
+            vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
             let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
             let add_ref = format_ident!("AddRef_abi{}", interface_count);
@@ -138,7 +138,7 @@ pub fn gen(
 
             let vtable_ident = t.0.gen_abi_name(&gen);
             let interface_ident = t.0.gen_name(&gen);
-            let interface_literal = Literal::u32_unsuffixed(interface_count as u32);
+            let interface_literal = Literal::usize_unsuffixed(interface_count);
 
             for (vtable_offset, method) in t.0.def.methods().enumerate() {
                 let method_ident = gen::to_ident(&method.rust_name());

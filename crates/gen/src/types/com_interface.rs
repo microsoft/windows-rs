@@ -125,7 +125,7 @@ impl ComInterface {
                     to_ident(name)
                 };
 
-                let vtable_offset = Literal::u32_unsuffixed(vtable_offset as u32 + 3);
+                let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
 
                 quote! {
                     pub unsafe fn #name<#constraints>(&self, #params) #return_type {
