@@ -344,7 +344,21 @@ impl Struct {
                 }
             };
 
+            let null = if is_handle {
+                quote! {
+                    impl #name {
+                        pub const NULL: Self = #defaults;
+                        pub fn is_null(&self) -> bool {
+                            self == &Self::NULL
+                        }
+                    }
+                }
+            } else {
+                quote! {}
+            };
+
             quote! {
+                #null
                 impl ::std::default::Default for #name {
                     fn default() -> Self {
                         #defaults

@@ -2418,6 +2418,12 @@ pub mod Windows {
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HANDLE(pub isize);
             impl HANDLE {}
+            impl HANDLE {
+                pub const NULL: Self = Self(0);
+                pub fn is_null(&self) -> bool {
+                    self == &Self::NULL
+                }
+            }
             impl ::std::default::Default for HANDLE {
                 fn default() -> Self {
                     Self(0)
@@ -2438,6 +2444,12 @@ pub mod Windows {
             impl ::std::cmp::Eq for HANDLE {}
             unsafe impl ::windows::Abi for HANDLE {
                 type Abi = Self;
+            }
+            impl HANDLE {
+                pub const INVALID: Self = Self(-1);
+                pub fn is_invalid(&self) -> bool {
+                    self.0 == -1
+                }
             }
             #[repr(C)]
             #[derive(
@@ -2728,6 +2740,12 @@ pub mod Windows {
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HeapHandle(pub isize);
             impl HeapHandle {}
+            impl HeapHandle {
+                pub const NULL: Self = Self(0);
+                pub fn is_null(&self) -> bool {
+                    self == &Self::NULL
+                }
+            }
             impl ::std::default::Default for HeapHandle {
                 fn default() -> Self {
                     Self(0)
@@ -2753,6 +2771,12 @@ pub mod Windows {
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct ProcessHeapHandle(pub isize);
             impl ProcessHeapHandle {}
+            impl ProcessHeapHandle {
+                pub const NULL: Self = Self(0);
+                pub fn is_null(&self) -> bool {
+                    self == &Self::NULL
+                }
+            }
             impl ::std::default::Default for ProcessHeapHandle {
                 fn default() -> Self {
                     Self(0)

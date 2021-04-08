@@ -1,5 +1,5 @@
 [package]
-name = "test_extensions"
+name = "test_handles"
 version = "0.7.0"
 authors = ["Microsoft"]
 edition = "2018"
