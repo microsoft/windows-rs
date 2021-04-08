@@ -1,7 +1,7 @@
 use crate::*;
 
 use bindings::{
-    Windows::Win32::SystemServices::{CreateEventW, SetEvent, WaitForSingleObject, HANDLE, PWSTR},
+    Windows::Win32::SystemServices::{CreateEventA, SetEvent, WaitForSingleObject, HANDLE, PSTR},
     Windows::Win32::WindowsProgramming::CloseHandle,
 };
 
@@ -12,7 +12,7 @@ pub struct WaiterSignaler(HANDLE);
 impl Waiter {
     pub fn new() -> (Waiter, WaiterSignaler) {
         unsafe {
-            let handle = CreateEventW(std::ptr::null_mut(), true, false, PWSTR::default());
+            let handle = CreateEventA(std::ptr::null_mut(), true, false, PSTR::NULL);
             (Waiter(handle), WaiterSignaler(handle))
         }
     }

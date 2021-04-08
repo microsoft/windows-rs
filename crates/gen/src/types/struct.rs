@@ -467,6 +467,7 @@ impl Struct {
             ("Windows.Foundation.Numerics", "Vector4") => gen_vector4(),
             ("Windows.Foundation.Numerics", "Matrix3x2") => gen_matrix3x2(),
             ("Windows.Foundation.Numerics", "Matrix4x4") => gen_matrix4x4(),
+            ("Windows.Win32.SystemServices", "HANDLE") => gen_handle(),
             _ => TokenStream::new(),
         }
     }

@@ -15,10 +15,10 @@ fn main() -> windows::Result<()> {
             std::ptr::null_mut(),
             FILE_CREATION_DISPOSITION::OPEN_EXISTING,
             FILE_FLAGS_AND_ATTRIBUTES::FILE_FLAG_OVERLAPPED,
-            HANDLE(0),
+            HANDLE::NULL,
         );
 
-        if file == INVALID_HANDLE_VALUE {
+        if file.is_invalid() {
             windows::ErrorCode::from_thread().ok()?;
         }
 
@@ -29,7 +29,7 @@ fn main() -> windows::Result<()> {
                     OffsetHigh: 0,
                 },
             },
-            hEvent: CreateEventA(std::ptr::null_mut(), true, false, PSTR::default()),
+            hEvent: CreateEventA(std::ptr::null_mut(), true, false, PSTR::NULL),
             Internal: 0,
             InternalHigh: 0,
         };

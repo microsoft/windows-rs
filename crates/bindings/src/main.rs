@@ -11,7 +11,7 @@ fn main() -> std::io::Result<()> {
             CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, CLSIDFromProgID, CoInitializeEx, CoCreateInstance,
         },
         Windows::Win32::SystemServices::{
-            CreateEventW, SetEvent, WaitForSingleObject, GetProcessHeap, HeapAlloc, HeapFree, GetProcAddress,
+            CreateEventA, SetEvent, WaitForSingleObject, GetProcessHeap, HeapAlloc, HeapFree, GetProcAddress,
             LoadLibraryA, FreeLibrary,
         },
     );

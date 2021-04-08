@@ -2366,6 +2366,12 @@ pub mod Windows {
                 :: std :: fmt :: Debug,
             )]
             pub struct PWSTR(pub *mut u16);
+            impl PWSTR {
+                pub const NULL: Self = Self(::std::ptr::null_mut());
+                pub fn is_null(&self) -> bool {
+                    self.0.is_null()
+                }
+            }
             impl ::std::default::Default for PWSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
@@ -2562,11 +2568,67 @@ pub mod Windows {
             unsafe impl ::windows::Abi for SECURITY_ATTRIBUTES {
                 type Abi = Self;
             }
-            pub unsafe fn CreateEventW<
+            #[repr(C)]
+            #[derive(
+                :: std :: clone :: Clone,
+                :: std :: marker :: Copy,
+                :: std :: cmp :: Eq,
+                :: std :: fmt :: Debug,
+            )]
+            pub struct PSTR(pub *mut u8);
+            impl PSTR {
+                pub const NULL: Self = Self(::std::ptr::null_mut());
+                pub fn is_null(&self) -> bool {
+                    self.0.is_null()
+                }
+            }
+            impl ::std::default::Default for PSTR {
+                fn default() -> Self {
+                    Self(::std::ptr::null_mut())
+                }
+            }
+            impl ::std::cmp::PartialEq for PSTR {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            unsafe impl ::windows::Abi for PSTR {
+                type Abi = Self;
+                fn drop_param(param: &mut ::windows::Param<Self>) {
+                    if let ::windows::Param::Boxed(value) = param {
+                        if !value.0.is_null() {
+                            unsafe {
+                                ::std::boxed::Box::from_raw(value.0);
+                            }
+                        }
+                    }
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, PSTR> for &'a str {
+                fn into_param(self) -> ::windows::Param<'a, PSTR> {
+                    ::windows::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(
+                        self.bytes()
+                            .chain(::std::iter::once(0))
+                            .collect::<std::vec::Vec<u8>>()
+                            .into_boxed_slice(),
+                    ) as _))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, PSTR> for String {
+                fn into_param(self) -> ::windows::Param<'a, PSTR> {
+                    ::windows::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(
+                        self.bytes()
+                            .chain(::std::iter::once(0))
+                            .collect::<std::vec::Vec<u8>>()
+                            .into_boxed_slice(),
+                    ) as _))
+                }
+            }
+            pub unsafe fn CreateEventA<
                 'a,
                 T1__: ::windows::IntoParam<'a, BOOL>,
                 T2__: ::windows::IntoParam<'a, BOOL>,
-                T3__: ::windows::IntoParam<'a, PWSTR>,
+                T3__: ::windows::IntoParam<'a, PSTR>,
             >(
                 lpeventattributes: *mut SECURITY_ATTRIBUTES,
                 bmanualreset: T1__,
@@ -2575,14 +2637,14 @@ pub mod Windows {
             ) -> HANDLE {
                 #[link(name = "KERNEL32")]
                 extern "system" {
-                    pub fn CreateEventW(
+                    pub fn CreateEventA(
                         lpeventattributes: *mut SECURITY_ATTRIBUTES,
                         bmanualreset: BOOL,
                         binitialstate: BOOL,
-                        lpname: PWSTR,
+                        lpname: PSTR,
                     ) -> HANDLE;
                 }
-                CreateEventW(
+                CreateEventA(
                     ::std::mem::transmute(lpeventattributes),
                     bmanualreset.into_param().abi(),
                     binitialstate.into_param().abi(),
@@ -2822,56 +2884,6 @@ pub mod Windows {
                 )
             }
             pub type FARPROC = extern "system" fn() -> isize;
-            #[repr(C)]
-            #[derive(
-                :: std :: clone :: Clone,
-                :: std :: marker :: Copy,
-                :: std :: cmp :: Eq,
-                :: std :: fmt :: Debug,
-            )]
-            pub struct PSTR(pub *mut u8);
-            impl ::std::default::Default for PSTR {
-                fn default() -> Self {
-                    Self(::std::ptr::null_mut())
-                }
-            }
-            impl ::std::cmp::PartialEq for PSTR {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-                }
-            }
-            unsafe impl ::windows::Abi for PSTR {
-                type Abi = Self;
-                fn drop_param(param: &mut ::windows::Param<Self>) {
-                    if let ::windows::Param::Boxed(value) = param {
-                        if !value.0.is_null() {
-                            unsafe {
-                                ::std::boxed::Box::from_raw(value.0);
-                            }
-                        }
-                    }
-                }
-            }
-            impl<'a> ::windows::IntoParam<'a, PSTR> for &'a str {
-                fn into_param(self) -> ::windows::Param<'a, PSTR> {
-                    ::windows::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(
-                        self.bytes()
-                            .chain(::std::iter::once(0))
-                            .collect::<std::vec::Vec<u8>>()
-                            .into_boxed_slice(),
-                    ) as _))
-                }
-            }
-            impl<'a> ::windows::IntoParam<'a, PSTR> for String {
-                fn into_param(self) -> ::windows::Param<'a, PSTR> {
-                    ::windows::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(
-                        self.bytes()
-                            .chain(::std::iter::once(0))
-                            .collect::<std::vec::Vec<u8>>()
-                            .into_boxed_slice(),
-                    ) as _))
-                }
-            }
             pub unsafe fn GetProcAddress<'a, T1__: ::windows::IntoParam<'a, PSTR>>(
                 hmodule: isize,
                 lpprocname: T1__,
