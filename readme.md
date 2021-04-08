@@ -62,7 +62,7 @@ fn main() -> windows::Result<()> {
     assert!(root.InnerText()? == "hello world");
 
     unsafe {
-        let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR::default());
+        let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR::NULL);
 
         SetEvent(event).ok()?;
         WaitForSingleObject(event, 0);

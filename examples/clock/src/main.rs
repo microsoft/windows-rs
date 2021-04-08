@@ -397,7 +397,7 @@ impl Window {
 
     fn run(&mut self) -> Result<()> {
         unsafe {
-            let instance = HINSTANCE(GetModuleHandleA(PSTR::default()));
+            let instance = HINSTANCE(GetModuleHandleA(PSTR::NULL));
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {

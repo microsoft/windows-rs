@@ -66,7 +66,7 @@ fn main() -> windows::Result<()> {
             }
             Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_REPLACE => {
                 // Get the replacement as a widestring and convert to a Rust String
-                let mut replacement = PWSTR::default();
+                let mut replacement = PWSTR::NULL;
                 unsafe { error.get_Replacement(&mut replacement).ok()? };
 
                 println!("Replace: {} with {}", substring, unsafe {
@@ -82,7 +82,7 @@ fn main() -> windows::Result<()> {
                 // Loop through the suggestions
                 loop {
                     // Get the next suggestion breaking if the call to `Next` failed
-                    let mut suggestion = PWSTR::default();
+                    let mut suggestion = PWSTR::NULL;
                     let result =
                         unsafe { suggestions.Next(1, &mut suggestion, std::ptr::null_mut()) };
                     if result == windows::ErrorCode::S_FALSE {
