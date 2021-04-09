@@ -10,6 +10,8 @@ The Rust language projection follows in the tradition established by [C++/WinRT]
 
 Watch the [Getting Started](https://www.youtube.com/watch?v=LajquCjHXK4) video! Microsoft Docs also has content on [developing with Rust on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/rust/).
 
+Check out the [FAQ](./docs/FAQ.md) for answers to frequently asked questions.
+
 ## Getting started
 
 Start by adding the following to your Cargo.toml file:
@@ -80,3 +82,5 @@ To reduce build time, use a `bindings` crate rather simply a module. This will a
 There is an experimental [documentation generator](https://github.com/microsoft/windows-docs-rs) for the Windows API. The documentation [is published here](https://microsoft.github.io/windows-docs-rs/). This can be useful to figure out how the various Windows APIs map to Rust modules and which `use` paths you need to use from within the `build` macro.
 
 More examples [can be found here](examples). Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs) is also a great example.
+
+A more in-depth getting started guide can also be found [here](./docs/getting-started).
