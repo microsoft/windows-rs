@@ -141,7 +141,7 @@ impl Delegate {
                         };
 
                     if (*interface).is_null() {
-                        ::windows::ErrorCode(0x8000_4002)
+                        ::windows::ErrorCode(0x8000_4002) // E_NOINTERFACE
                     } else {
                         (*this).count.add_ref();
                         ::windows::ErrorCode(0)
