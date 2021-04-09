@@ -56,7 +56,7 @@ fn main() {
         // Note that we're using the `Intl` namespace which is nested inside the `Win32` namespace
         // which itself is inside the `Windows` namespace.
         Windows::Win32::Intl::{ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, CORRECTIVE_ACTION, IEnumSpellingError, ISpellingError},
-        Windows::Win32::SystemServices::{BOOL, PWSTR},
+        Windows::Win32::SystemServices::{BOOL, PWSTR, S_FALSE},
         Windows::Win32::Com::IEnumString
     )
 }

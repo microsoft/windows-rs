@@ -2250,6 +2250,58 @@ pub mod Windows {
                     ::std::mem::transmute(ppv),
                 )
             }
+            #[repr(transparent)]
+            #[derive(
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: clone :: Clone,
+                :: std :: fmt :: Debug,
+            )]
+            pub struct IAgileObject(::windows::IUnknown);
+            impl IAgileObject {}
+            unsafe impl ::windows::Interface for IAgileObject {
+                type Vtable = IAgileObject_abi;
+                const IID: ::windows::Guid = ::windows::Guid::from_values(
+                    2498374548,
+                    59852,
+                    18912,
+                    [192, 255, 238, 100, 202, 143, 91, 144],
+                );
+            }
+            impl IAgileObject {}
+            impl ::std::convert::From<IAgileObject> for ::windows::IUnknown {
+                fn from(value: IAgileObject) -> Self {
+                    unsafe { ::std::mem::transmute(value) }
+                }
+            }
+            impl ::std::convert::From<&IAgileObject> for ::windows::IUnknown {
+                fn from(value: &IAgileObject) -> Self {
+                    ::std::convert::From::from(::std::clone::Clone::clone(value))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IAgileObject {
+                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IAgileObject {
+                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                        ::std::clone::Clone::clone(self),
+                    ))
+                }
+            }
+            #[repr(C)]
+            #[doc(hidden)]
+            pub struct IAgileObject_abi(
+                pub  unsafe extern "system" fn(
+                    this: ::windows::RawPtr,
+                    iid: &::windows::Guid,
+                    interface: *mut ::windows::RawPtr,
+                ) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+            );
         }
         #[allow(
             unused_variables,
@@ -2940,6 +2992,9 @@ pub mod Windows {
                 }
                 FreeLibrary(::std::mem::transmute(hlibmodule))
             }
+            pub const CO_E_NOTINITIALIZED: ::windows::ErrorCode =
+                ::windows::ErrorCode(-2147221008i32 as _);
+            pub const E_POINTER: ::windows::ErrorCode = ::windows::ErrorCode(-2147467261i32 as _);
         }
         #[allow(
             unused_variables,

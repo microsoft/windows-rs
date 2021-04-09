@@ -17,10 +17,10 @@ mod result;
 mod runtime;
 mod traits;
 
-use interfaces::*;
 use runtime::*;
 
-pub use interfaces::{IActivationFactory, IAgileObject, IUnknown, Object};
+pub use bindings::Windows::Win32::Com::IAgileObject;
+pub use interfaces::{IActivationFactory, IUnknown, Object};
 pub use result::{Error, ErrorCode, Result};
 pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, HString,

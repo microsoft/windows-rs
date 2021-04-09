@@ -20,7 +20,7 @@ fn main() {
             ShareTargetActivatedEventArgs, FileOpenPickerActivatedEventArgs, FileSavePickerActivatedEventArgs,
             CachedFileUpdaterActivatedEventArgs, BackgroundActivatedEventArgs,
         },
-        Windows::Win32::SystemServices::CreateDispatcherQueueController,
+        Windows::Win32::SystemServices::{CreateDispatcherQueueController, E_POINTER, E_NOINTERFACE},
         Windows::UI::Xaml::Interop::TypeName,
         Windows::UI::Xaml::Data::ICustomProperty,
 
