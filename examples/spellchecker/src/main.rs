@@ -1,6 +1,6 @@
 use bindings::Windows::Win32;
 use Win32::Intl;
-use Win32::SystemServices::{BOOL, PWSTR};
+use Win32::SystemServices::{BOOL, PWSTR, S_FALSE};
 
 fn main() -> windows::Result<()> {
     let input = std::env::args()
@@ -38,7 +38,7 @@ fn main() -> windows::Result<()> {
         // Get the next error in the enumerator
         let mut error = None;
         let result = unsafe { errors.Next(&mut error) };
-        if result == windows::ErrorCode::S_FALSE {
+        if result == S_FALSE {
             break;
         }
         result.ok()?;
@@ -85,7 +85,7 @@ fn main() -> windows::Result<()> {
                     let mut suggestion = PWSTR::NULL;
                     let result =
                         unsafe { suggestions.Next(1, &mut suggestion, std::ptr::null_mut()) };
-                    if result == windows::ErrorCode::S_FALSE {
+                    if result == S_FALSE {
                         break;
                     }
                     result.ok()?;

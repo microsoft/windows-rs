@@ -141,10 +141,10 @@ impl Delegate {
                         };
 
                     if (*interface).is_null() {
-                        ::windows::ErrorCode::E_NOINTERFACE
+                        ::windows::ErrorCode(0x8000_4002)
                     } else {
                         (*this).count.add_ref();
-                        ::windows::ErrorCode::S_OK
+                        ::windows::ErrorCode(0)
                     }
                 }
                 unsafe extern "system" fn AddRef(this: ::windows::RawPtr) -> u32 {

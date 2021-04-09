@@ -221,10 +221,10 @@ pub fn gen(
                     };
 
                     if (*interface).is_null() {
-                        ::windows::ErrorCode::E_NOINTERFACE
+                        ::windows::ErrorCode(0x8000_4002)
                     } else {
                         self.count.add_ref();
-                        ::windows::ErrorCode::S_OK
+                        ::windows::ErrorCode(0)
                     }
                 }
             }
@@ -258,7 +258,7 @@ pub fn gen(
             ) -> ::windows::ErrorCode {
                 let h: ::windows::HString = "Thing".into(); // TODO: replace with class name or first interface
                 *value = ::std::mem::transmute(h);
-                ::windows::ErrorCode::S_OK
+                ::windows::ErrorCode(0)
             }
             unsafe extern "system" fn GetTrustLevel(_: ::windows::RawPtr, value: *mut i32) -> ::windows::ErrorCode {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer

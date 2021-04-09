@@ -1,4 +1,4 @@
-use test_winrt::Windows::Foundation::Uri;
+use test_winrt::{Windows::Foundation::Uri, Windows::Win32::SystemServices::E_NOINTERFACE};
 
 #[test]
 fn from_hresult() {
@@ -35,10 +35,7 @@ fn bad_uri() {
 #[test]
 fn convertible() {
     fn windows_error() -> windows::Result<()> {
-        Err(windows::Error::new(
-            windows::ErrorCode::E_NOINTERFACE,
-            "test message",
-        ))
+        Err(windows::Error::new(E_NOINTERFACE, "test message"))
     }
 
     fn convertible_error() -> std::result::Result<(), Box<dyn std::error::Error>> {

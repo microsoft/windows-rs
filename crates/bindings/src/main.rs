@@ -9,10 +9,11 @@ fn main() -> std::io::Result<()> {
         Windows::Win32::WindowsProgramming::CloseHandle,
         Windows::Win32::Com::{
             CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, CLSIDFromProgID, CoInitializeEx, CoCreateInstance,
+            IAgileObject,
         },
         Windows::Win32::SystemServices::{
             CreateEventA, SetEvent, WaitForSingleObject, GetProcessHeap, HeapAlloc, HeapFree, GetProcAddress,
-            LoadLibraryA, FreeLibrary,
+            LoadLibraryA, FreeLibrary, CO_E_NOTINITIALIZED, E_POINTER,
         },
     );
 
