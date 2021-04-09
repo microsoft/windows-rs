@@ -2,7 +2,7 @@ use crate::*;
 
 use bindings::{
     Windows::Win32::Debug::{FormatMessageW, GetLastError, FORMAT_MESSAGE_OPTIONS},
-    Windows::Win32::SystemServices::PWSTR,
+    Windows::Win32::SystemServices::{E_POINTER, PWSTR},
 };
 
 /// A primitive error code value returned by most COM functions. An `ErrorCode` is sometimes called an `HRESULT`.
@@ -50,7 +50,7 @@ impl ErrorCode {
             if let Some(result) = some {
                 Ok(result)
             } else {
-                Err(Error::fast_error(ErrorCode::E_POINTER))
+                Err(Error::fast_error(E_POINTER))
             }
         } else {
             Err(Error::from(self))
@@ -119,24 +119,6 @@ impl ErrorCode {
             .to_owned()
         }
     }
-
-    // This is a limited and closed set of common values used for flow control. In general, error codes are not actionable
-    // beyond debugging and should be considered fatal. This list should therefore not be expanded.
-
-    /// The operation succeeded.
-    pub const S_OK: ErrorCode = ErrorCode(0);
-
-    /// Completed without error, but only partial results were obtained.
-    pub const S_FALSE: ErrorCode = ErrorCode(1);
-
-    /// The COM runtime has not been loaded.
-    pub const CO_E_NOTINITIALIZED: ErrorCode = ErrorCode(0x8004_01F0);
-
-    /// The requested interface is not implemented.
-    pub const E_NOINTERFACE: ErrorCode = ErrorCode(0x8000_4002);
-
-    /// A null pointer was sent or received.
-    pub const E_POINTER: ErrorCode = ErrorCode(0x8000_4003);
 }
 
 unsafe impl Abi for ErrorCode {
