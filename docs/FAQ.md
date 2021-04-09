@@ -20,7 +20,7 @@ It turns out that `IntoParam<'a, PWSTR>` is implemented for `&'a str` so we can 
 
 If you get an error message saying that a specific type does not satisfy the trait bound, then you are passing a type which cannot be converted to the correct type. If you think this is in error (i.e., you think the type you have should be trivially convertible to the param type in question), don't hesitate to [file an issue](https://github.com/microsoft/windows-rs/issues).
 
-## I get an "method missing" error when the documentation says the method exists.
+## I get a "method missing" error when the documentation says the method exists.
 
 In order to greatly reduce the amount of code generated, methods are only generated when all of their argument and return types have also been generated. Make sure to include the types of the missing method's arguments and return type in the `build!` macro.
 
