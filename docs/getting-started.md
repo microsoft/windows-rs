@@ -124,7 +124,7 @@ pub unsafe fn IsSupported<'a, T0__: IntoParam<'a, PWSTR>>(
     &self,
     languagetag: T0__,
     value: *mut BOOL
-) -> ErrorCode
+) -> HRESULT
 ```
 
 This looks somewhat complicated, but it makes using the API pretty straight forward. The method is generic on both a lifetime `'a`, and a generic type parameter `T0__`. `T0__` is constrained by a trait `IntoParam` which is defined in the `windows` crate itself. Essentially, `IntoParam` is a slightly specialized version of Rust's `std::convert::Into`. It is implemented on all types that can be converted to the type its generic over. 
@@ -181,7 +181,7 @@ fn main() -> window::Result<()> {
         let mut error = None;
         let result = unsafe { errors.Next(&mut error) };
         // Getting S_FALSE means there are no more errors
-        if result == windows::ErrorCode::S_FALSE {
+        if result == windows::HRESULT::S_FALSE {
             break;
         }
         // We still need to check that `Next` didn't return an unexpected error

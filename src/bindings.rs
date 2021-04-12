@@ -411,79 +411,79 @@ pub mod Windows {
                 this: ::windows::RawPtr,
                 iid: &::windows::Guid,
                 interface: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 count: *mut u32,
                 values: *mut *mut ::windows::Guid,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: *mut i32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(),
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut bool,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut u8,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut i16,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut u16,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut i32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut u32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut i64,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut u64,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut f32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut f64,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut u16,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut bool,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut ::windows::Guid,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(),
             pub unsafe extern "system" fn(),
             pub unsafe extern "system" fn(),
@@ -493,72 +493,72 @@ pub mod Windows {
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut u8,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut i16,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut u16,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut i32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut u32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut i64,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut u64,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut f32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut f64,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut u16,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut bool,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
                 value: *mut *mut ::windows::Guid,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(),
             pub unsafe extern "system" fn(),
             pub unsafe extern "system" fn(),
@@ -1003,26 +1003,26 @@ pub mod Windows {
                 this: ::windows::RawPtr,
                 iid: &::windows::Guid,
                 interface: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 count: *mut u32,
                 values: *mut *mut ::windows::Guid,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: *mut i32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut <T as ::windows::Abi>::Abi,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub ::std::marker::PhantomData<T>,
         )
         where
@@ -1087,26 +1087,26 @@ pub mod Windows {
                 this: ::windows::RawPtr,
                 iid: &::windows::Guid,
                 interface: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 count: *mut u32,
                 values: *mut *mut ::windows::Guid,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: *mut i32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
         );
         #[repr(transparent)]
         #[derive(
@@ -1133,96 +1133,96 @@ pub mod Windows {
                 this: ::windows::RawPtr,
                 iid: &::windows::Guid,
                 interface: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 count: *mut u32,
                 values: *mut *mut ::windows::Guid,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: *mut i32,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: u8,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: i16,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: u16,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: i32,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: u32,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: i64,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: u64,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: f32,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: f64,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: u16,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: bool,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: ::windows::RawPtr,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: ::windows::RawPtr,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value: ::windows::Guid,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(),
             pub unsafe extern "system" fn(),
             pub unsafe extern "system" fn(),
@@ -1233,85 +1233,85 @@ pub mod Windows {
                 value_array_size: u32,
                 value: *const u8,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const i16,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const u16,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const i32,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const u32,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const i64,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const u64,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const f32,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const f64,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const u16,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const bool,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const ::windows::RawPtr,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const ::windows::RawPtr,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
                 value: *const ::windows::Guid,
                 result__: *mut ::windows::RawPtr,
-            ) -> ::windows::ErrorCode,
+            ) -> ::windows::HRESULT,
             pub unsafe extern "system" fn(),
             pub unsafe extern "system" fn(),
             pub unsafe extern "system" fn(),
@@ -1909,13 +1909,13 @@ pub mod Windows {
                 );
             }
             impl IErrorInfo {
-                pub unsafe fn GetGUID(&self, pguid: *mut ::windows::Guid) -> ::windows::ErrorCode {
+                pub unsafe fn GetGUID(&self, pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).3)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(pguid),
                     )
                 }
-                pub unsafe fn GetSource(&self, pbstrsource: *mut BSTR) -> ::windows::ErrorCode {
+                pub unsafe fn GetSource(&self, pbstrsource: *mut BSTR) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).4)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(pbstrsource),
@@ -1924,13 +1924,13 @@ pub mod Windows {
                 pub unsafe fn GetDescription(
                     &self,
                     pbstrdescription: *mut BSTR,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).5)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(pbstrdescription),
                     )
                 }
-                pub unsafe fn GetHelpFile(&self, pbstrhelpfile: *mut BSTR) -> ::windows::ErrorCode {
+                pub unsafe fn GetHelpFile(&self, pbstrhelpfile: *mut BSTR) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).6)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(pbstrhelpfile),
@@ -1939,7 +1939,7 @@ pub mod Windows {
                 pub unsafe fn GetHelpContext(
                     &self,
                     pdwhelpcontext: *mut u32,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).7)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(pdwhelpcontext),
@@ -1975,40 +1975,40 @@ pub mod Windows {
                     this: ::windows::RawPtr,
                     iid: &::windows::Guid,
                     interface: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     pguid: *mut ::windows::Guid,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     pbstrsource: *mut BSTR_abi,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     pbstrdescription: *mut BSTR_abi,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     pbstrhelpfile: *mut BSTR_abi,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     pdwhelpcontext: *mut u32,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
             );
             pub unsafe fn GetErrorInfo(
                 dwreserved: u32,
                 pperrinfo: *mut ::std::option::Option<IErrorInfo>,
-            ) -> ::windows::ErrorCode {
+            ) -> ::windows::HRESULT {
                 #[link(name = "OLEAUT32")]
                 extern "system" {
                     pub fn GetErrorInfo(
                         dwreserved: u32,
                         pperrinfo: *mut ::windows::RawPtr,
-                    ) -> ::windows::ErrorCode;
+                    ) -> ::windows::HRESULT;
                 }
                 GetErrorInfo(
                     ::std::mem::transmute(dwreserved),
@@ -2018,13 +2018,13 @@ pub mod Windows {
             pub unsafe fn SetErrorInfo<'a>(
                 dwreserved: u32,
                 perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
-            ) -> ::windows::ErrorCode {
+            ) -> ::windows::HRESULT {
                 #[link(name = "OLEAUT32")]
                 extern "system" {
                     pub fn SetErrorInfo(
                         dwreserved: u32,
                         perrinfo: ::windows::RawPtr,
-                    ) -> ::windows::ErrorCode;
+                    ) -> ::windows::HRESULT;
                 }
                 SetErrorInfo(
                     ::std::mem::transmute(dwreserved),
@@ -2042,10 +2042,10 @@ pub mod Windows {
             clippy::all
         )]
         pub mod Com {
-            pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::ErrorCode {
+            pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
                 #[link(name = "OLE32")]
                 extern "system" {
-                    pub fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::ErrorCode;
+                    pub fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
                 }
                 CoCreateGuid(::std::mem::transmute(pguid))
             }
@@ -2066,13 +2066,13 @@ pub mod Windows {
             pub unsafe fn CLSIDFromProgID<'a>(
                 lpszprogid: impl ::windows::IntoParam<'a, super::SystemServices::PWSTR>,
                 lpclsid: *mut ::windows::Guid,
-            ) -> ::windows::ErrorCode {
+            ) -> ::windows::HRESULT {
                 #[link(name = "OLE32")]
                 extern "system" {
                     pub fn CLSIDFromProgID(
                         lpszprogid: super::SystemServices::PWSTR,
                         lpclsid: *mut ::windows::Guid,
-                    ) -> ::windows::ErrorCode;
+                    ) -> ::windows::HRESULT;
                 }
                 CLSIDFromProgID(
                     lpszprogid.into_param().abi(),
@@ -2128,13 +2128,13 @@ pub mod Windows {
             pub unsafe fn CoInitializeEx(
                 pvreserved: *mut ::std::ffi::c_void,
                 dwcoinit: COINIT,
-            ) -> ::windows::ErrorCode {
+            ) -> ::windows::HRESULT {
                 #[link(name = "OLE32")]
                 extern "system" {
                     pub fn CoInitializeEx(
                         pvreserved: *mut ::std::ffi::c_void,
                         dwcoinit: COINIT,
-                    ) -> ::windows::ErrorCode;
+                    ) -> ::windows::HRESULT;
                 }
                 CoInitializeEx(
                     ::std::mem::transmute(pvreserved),
@@ -2218,7 +2218,7 @@ pub mod Windows {
                 dwclscontext: CLSCTX,
                 riid: *const ::windows::Guid,
                 ppv: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::ErrorCode {
+            ) -> ::windows::HRESULT {
                 #[link(name = "OLE32")]
                 extern "system" {
                     pub fn CoCreateInstance(
@@ -2227,7 +2227,7 @@ pub mod Windows {
                         dwclscontext: CLSCTX,
                         riid: *const ::windows::Guid,
                         ppv: *mut *mut ::std::ffi::c_void,
-                    ) -> ::windows::ErrorCode;
+                    ) -> ::windows::HRESULT;
                 }
                 CoCreateInstance(
                     ::std::mem::transmute(rclsid),
@@ -2285,7 +2285,7 @@ pub mod Windows {
                     this: ::windows::RawPtr,
                     iid: &::windows::Guid,
                     interface: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
             );
@@ -2509,7 +2509,7 @@ pub mod Windows {
                     if self.as_bool() {
                         Ok(())
                     } else {
-                        Err(::windows::ErrorCode::from_thread().into())
+                        Err(::windows::HRESULT::from_thread().into())
                     }
                 }
                 #[inline]
@@ -2972,9 +2972,9 @@ pub mod Windows {
                 }
                 FreeLibrary(::std::mem::transmute(hlibmodule))
             }
-            pub const CO_E_NOTINITIALIZED: ::windows::ErrorCode =
-                ::windows::ErrorCode(-2147221008i32 as _);
-            pub const E_POINTER: ::windows::ErrorCode = ::windows::ErrorCode(-2147467261i32 as _);
+            pub const CO_E_NOTINITIALIZED: ::windows::HRESULT =
+                ::windows::HRESULT(-2147221008i32 as _);
+            pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
         }
         #[allow(
             unused_variables,
@@ -3008,10 +3008,10 @@ pub mod Windows {
                 pub unsafe fn GetErrorDetails(
                     &self,
                     description: *mut super::Automation::BSTR,
-                    error: *mut ::windows::ErrorCode,
+                    error: *mut ::windows::HRESULT,
                     restricteddescription: *mut super::Automation::BSTR,
                     capabilitysid: *mut super::Automation::BSTR,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).3)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(description),
@@ -3023,7 +3023,7 @@ pub mod Windows {
                 pub unsafe fn GetReference(
                     &self,
                     reference: *mut super::Automation::BSTR,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).4)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(reference),
@@ -3061,20 +3061,20 @@ pub mod Windows {
                     this: ::windows::RawPtr,
                     iid: &::windows::Guid,
                     interface: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     description: *mut super::Automation::BSTR_abi,
-                    error: *mut ::windows::ErrorCode,
+                    error: *mut ::windows::HRESULT,
                     restricteddescription: *mut super::Automation::BSTR_abi,
                     capabilitysid: *mut super::Automation::BSTR_abi,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     reference: *mut super::Automation::BSTR_abi,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
             );
             #[repr(transparent)]
             #[derive(
@@ -3098,7 +3098,7 @@ pub mod Windows {
                 pub unsafe fn GetLanguageException(
                     &self,
                     languageexception: *mut ::std::option::Option<::windows::IUnknown>,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).3)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(languageexception),
@@ -3134,13 +3134,13 @@ pub mod Windows {
                     this: ::windows::RawPtr,
                     iid: &::windows::Guid,
                     interface: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     languageexception: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
             );
             #[repr(transparent)]
             #[derive(
@@ -3164,7 +3164,7 @@ pub mod Windows {
                 pub unsafe fn GetLanguageException(
                     &self,
                     languageexception: *mut ::std::option::Option<::windows::IUnknown>,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).3)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(languageexception),
@@ -3175,7 +3175,7 @@ pub mod Windows {
                     previouslanguageexceptionerrorinfo: *mut ::std::option::Option<
                         ILanguageExceptionErrorInfo2,
                     >,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).4)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(previouslanguageexceptionerrorinfo),
@@ -3184,7 +3184,7 @@ pub mod Windows {
                 pub unsafe fn CapturePropagationContext<'a>(
                     &self,
                     languageexception: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).5)(
                         ::windows::Abi::abi(self),
                         languageexception.into_param().abi(),
@@ -3195,7 +3195,7 @@ pub mod Windows {
                     propagatedlanguageexceptionerrorinfohead: *mut ::std::option::Option<
                         ILanguageExceptionErrorInfo2,
                     >,
-                ) -> ::windows::ErrorCode {
+                ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).6)(
                         ::windows::Abi::abi(self),
                         ::std::mem::transmute(propagatedlanguageexceptionerrorinfohead),
@@ -3259,25 +3259,25 @@ pub mod Windows {
                     this: ::windows::RawPtr,
                     iid: &::windows::Guid,
                     interface: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     languageexception: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     previouslanguageexceptionerrorinfo: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     languageexception: ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     propagatedlanguageexceptionerrorinfohead: *mut ::windows::RawPtr,
-                ) -> ::windows::ErrorCode,
+                ) -> ::windows::HRESULT,
             );
         }
         #[allow(

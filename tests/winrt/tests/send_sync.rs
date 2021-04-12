@@ -1,7 +1,7 @@
 use std::thread;
 use test_winrt::Windows::Foundation::*;
 use test_winrt::Windows::Storage::Streams::*;
-use windows::{ErrorCode, Interface};
+use windows::{Interface, HRESULT};
 
 // Simple test to validate that types with MarshalingType.Agile are marked Send and Sync
 // (if this compiles it worked)
@@ -91,7 +91,7 @@ fn send_sync_err() {
 
     let wait = thread::spawn(move || {
         assert_eq!(err.message(), "BADURI is not a valid absolute URI.");
-        assert_eq!(code, ErrorCode(0x8007_0057));
+        assert_eq!(code, HRESULT(0x8007_0057));
     });
 
     wait.join().unwrap();

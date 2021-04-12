@@ -9,14 +9,14 @@ use bindings::{
 /// A WinRT error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq)]
 pub struct Error {
-    code: ErrorCode,
+    code: HRESULT,
     info: Option<IRestrictedErrorInfo>,
 }
 
 impl Error {
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.
-    pub fn new(code: ErrorCode, message: &str) -> Self {
+    pub fn new(code: HRESULT, message: &str) -> Self {
         let message: HString = message.into();
 
         // RoOriginateError creates the error object and associates it with the thread.
@@ -43,12 +43,12 @@ impl Error {
     // (E_NOINTERFACE) or the absense of an object to return (E_POINTER) to avoid the code gen overhead
     // for casts that should be cheap (few instructions). Think of it as a way to create recoverable errors
     // that don't need th overhead of debugging origination info.
-    pub fn fast_error(code: ErrorCode) -> Self {
+    pub fn fast_error(code: HRESULT) -> Self {
         Self { code, info: None }
     }
 
     /// The error code describing the error.
-    pub fn code(&self) -> ErrorCode {
+    pub fn code(&self) -> HRESULT {
         self.code
     }
 
@@ -64,7 +64,7 @@ impl Error {
             let mut fallback = BSTR::default();
             let mut message = BSTR::default();
             let mut unused = BSTR::default();
-            let mut code = ErrorCode(0);
+            let mut code = HRESULT(0);
 
             unsafe {
                 let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut unused);
@@ -87,7 +87,7 @@ impl Error {
     }
 }
 
-impl std::convert::From<Error> for ErrorCode {
+impl std::convert::From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code;
         let info = error.info.and_then(|info| info.cast().ok());
@@ -100,8 +100,8 @@ impl std::convert::From<Error> for ErrorCode {
     }
 }
 
-impl std::convert::From<ErrorCode> for Error {
-    fn from(code: ErrorCode) -> Self {
+impl std::convert::From<HRESULT> for Error {
+    fn from(code: HRESULT) -> Self {
         let mut info = None;
         let info: Option<IRestrictedErrorInfo> = unsafe {
             GetErrorInfo(0, &mut info)
@@ -163,7 +163,7 @@ impl std::error::Error for Error {}
 
 demand_load! {
     "combase.dll" {
-        fn RoOriginateError(code: ErrorCode, message: RawPtr) -> i32;
+        fn RoOriginateError(code: HRESULT, message: RawPtr) -> i32;
     }
 }
 
@@ -173,10 +173,10 @@ mod tests {
 
     #[test]
     fn test_message() {
-        let code = Error::fast_error(ErrorCode::from_win32(0));
+        let code = Error::fast_error(HRESULT::from_win32(0));
         assert_eq!(code.message(), "The operation completed successfully.");
 
-        let code = Error::fast_error(ErrorCode::from_win32(997));
+        let code = Error::fast_error(HRESULT::from_win32(997));
         assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
     }
 }

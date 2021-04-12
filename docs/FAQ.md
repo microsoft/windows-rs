@@ -9,7 +9,7 @@ pub unsafe fn IsSupported<'a, T0__: IntoParam<'a, PWSTR>>(
     &self,
     languagetag: T0__,
     value: *mut BOOL
-) -> ErrorCode
+) -> HRESULT
 ```
 
 This looks somewhat complicated, but it makes using the API pretty straight forward. The method is generic on both a lifetime `'a`, and a generic type parameter `T0__`. `T0__` is constrained by a trait `IntoParam` which is defined in the `windows` crate itself. Essentially, `IntoParam` is a slightly specialized version of Rust's `std::convert::Into`. It is implemented on all types that can be converted to a parameter of the type its generic over. 
