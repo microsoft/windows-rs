@@ -80,8 +80,8 @@ impl From<windows::Error> for Error {
     }
 }
 
-impl From<ErrorCode> for Error {
-    fn from(err: ErrorCode) -> Self {
+impl From<HRESULT> for Error {
+    fn from(err: HRESULT) -> Self {
         Self::WindowsError(windows::Error::fast_error(err))
     }
 }
@@ -353,7 +353,7 @@ impl WebView {
                 let result = WindowsAndMessaging::GetMessageA(&mut msg, h_wnd, 0, 0).0;
 
                 match result {
-                    -1 => break Err(ErrorCode::from_thread().into()),
+                    -1 => break Err(HRESULT::from_thread().into()),
                     0 => break Ok(()),
                     _ => match msg.message {
                         WindowsAndMessaging::WM_APP => (),
@@ -637,7 +637,7 @@ fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
         unsafe {
             match WindowsAndMessaging::GetMessageA(&mut msg, hwnd, 0, 0).0 {
                 -1 => {
-                    return Err(ErrorCode::from_thread().into());
+                    return Err(HRESULT::from_thread().into());
                 }
                 0 => return Err(Error::TaskCanceled),
                 _ => {

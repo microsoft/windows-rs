@@ -159,7 +159,7 @@ impl Window {
         self.shadow = None;
     }
 
-    fn present(&self, sync: u32, flags: u32) -> ErrorCode {
+    fn present(&self, sync: u32, flags: u32) -> HRESULT {
         unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags) }
     }
 

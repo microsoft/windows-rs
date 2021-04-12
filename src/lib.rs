@@ -21,7 +21,7 @@ use runtime::*;
 
 pub use bindings::Windows::Win32::Com::IAgileObject;
 pub use interfaces::{IActivationFactory, IUnknown, Object};
-pub use result::{Error, ErrorCode, Result};
+pub use result::{Error, Result, HRESULT};
 pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, HString,
     Param, RefCount, Waiter,

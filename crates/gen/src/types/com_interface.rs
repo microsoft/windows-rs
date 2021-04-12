@@ -219,7 +219,7 @@ impl ComInterface {
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::ErrorCode,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 #(pub unsafe extern "system" fn #abi_signatures,)*

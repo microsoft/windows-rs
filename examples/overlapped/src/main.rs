@@ -19,7 +19,7 @@ fn main() -> windows::Result<()> {
         );
 
         if file.is_invalid() {
-            windows::ErrorCode::from_thread().ok()?;
+            windows::HRESULT::from_thread().ok()?;
         }
 
         let mut overlapped = OVERLAPPED {

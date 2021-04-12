@@ -3,7 +3,7 @@ use bindings::Windows::Win32::SystemServices::CO_E_NOTINITIALIZED;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-type DllGetActivationFactory = extern "system" fn(name: RawPtr, factory: *mut RawPtr) -> ErrorCode;
+type DllGetActivationFactory = extern "system" fn(name: RawPtr, factory: *mut RawPtr) -> HRESULT;
 
 /// Attempts to load and cache the factory interface for the given WinRT class. This is automatically
 // used by the generated bindings and should not generally be used directly.
@@ -128,9 +128,9 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
 demand_load! {
     "ole32.dll" {
-        fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> ErrorCode;
+        fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
     }
     "combase.dll" {
-        fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> ErrorCode;
+        fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> HRESULT;
     }
 }

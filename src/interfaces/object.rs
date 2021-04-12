@@ -22,16 +22,12 @@ impl Object {
 
 #[repr(C)]
 pub struct Object_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: RawPtr,
-        count: *mut u32,
-        values: *mut *mut Guid,
-    ) -> ErrorCode,
-    pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> ErrorCode,
-    pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> ErrorCode,
+    pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> HRESULT,
+    pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
+    pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
 );
 
 unsafe impl Interface for Object {

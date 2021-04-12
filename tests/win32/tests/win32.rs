@@ -149,7 +149,7 @@ fn bool_as_error() {
         assert!(result.is_err());
 
         let error: windows::Error = result.unwrap_err();
-        assert_eq!(error.code(), windows::ErrorCode(0x8007_0006));
+        assert_eq!(error.code(), windows::HRESULT(0x8007_0006));
         assert_eq!(error.message(), "The handle is invalid.");
     }
 }

@@ -14,9 +14,9 @@ macro_rules! demand_load {
     } )* ) => {
         $($(
             #[allow(non_snake_case)]
-            unsafe fn $sym( $( $param: $pty ),* ) -> ::std::result::Result<$rt, $crate::ErrorCode> {
+            unsafe fn $sym( $( $param: $pty ),* ) -> ::std::result::Result<$rt, $crate::HRESULT> {
                 static ONCE: ::std::sync::Once = ::std::sync::Once::new();
-                static mut VALUE: ::std::mem::MaybeUninit<::std::result::Result<$crate::RawPtr, $crate::ErrorCode>> =
+                static mut VALUE: ::std::mem::MaybeUninit<::std::result::Result<$crate::RawPtr, $crate::HRESULT>> =
                     ::std::mem::MaybeUninit::uninit();
 
                 ONCE.call_once(|| {

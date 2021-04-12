@@ -5,13 +5,14 @@ use bindings::{
     Windows::Win32::SystemServices::{E_POINTER, PWSTR},
 };
 
-/// A primitive error code value returned by most COM functions. An `ErrorCode` is sometimes called an `HRESULT`.
+/// A primitive error code value returned by most COM functions.
 #[repr(transparent)]
 #[derive(Copy, Clone, Default, Debug, PartialEq)]
 #[must_use]
-pub struct ErrorCode(pub u32);
+#[allow(non_camel_case_types)]
+pub struct HRESULT(pub u32);
 
-impl ErrorCode {
+impl HRESULT {
     /// Returns `true` if `self` is a success code.
     #[inline]
     pub fn is_ok(self) -> bool {
@@ -33,7 +34,7 @@ impl ErrorCode {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
 
-    /// Converts the `ErrorCode` to `Result<()>`.
+    /// Converts the `HRESULT` to `Result<()>`.
     #[inline]
     pub fn ok(self) -> Result<()> {
         if self.is_ok() {
@@ -57,7 +58,7 @@ impl ErrorCode {
         }
     }
 
-    /// Calls `op` if `self` is a success code, otherwise returns `ErrorCode`
+    /// Calls `op` if `self` is a success code, otherwise returns `HRESULT`
     /// converted to `Result<T>`.
     #[inline]
     pub fn and_then<F, T>(self, op: F) -> Result<T>
@@ -83,8 +84,9 @@ impl ErrorCode {
         Self::from_win32(unsafe { GetLastError() })
     }
 
-    /// Creates a failure code with the provided win32 error code. This is equivalent to
-    /// [HRESULT_FROM_WIN32](https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-hresult_from_win32).
+    /// Creates a failure code with the provided win32 error code.
+    ///
+    ///This is equivalent to [HRESULT_FROM_WIN32](https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-hresult_from_win32).
     #[inline]
     pub fn from_win32(error: u32) -> Self {
         Self(if error as i32 <= 0 {
@@ -121,17 +123,17 @@ impl ErrorCode {
     }
 }
 
-unsafe impl Abi for ErrorCode {
+unsafe impl Abi for HRESULT {
     type Abi = Self;
 }
 
-impl<T> std::convert::From<Result<T>> for ErrorCode {
+impl<T> std::convert::From<Result<T>> for HRESULT {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
             return error.into();
         }
 
-        ErrorCode(0)
+        HRESULT(0)
     }
 }
 
@@ -153,10 +155,10 @@ mod tests {
 
     #[test]
     fn test_message() {
-        let code = ErrorCode::from_win32(0);
+        let code = HRESULT::from_win32(0);
         assert_eq!(code.message(), "The operation completed successfully.");
 
-        let code = ErrorCode::from_win32(997);
+        let code = HRESULT::from_win32(997);
         assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
     }
 }
