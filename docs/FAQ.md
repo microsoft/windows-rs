@@ -5,16 +5,14 @@
 Let's take a look at the method signature of `ISpellCheckerFactor::IsSupported`:
 
 ```rust
-pub unsafe fn IsSupported<'a, T0__: IntoParam<'a, PWSTR>>(
+pub unsafe fn IsSupported<'a>(
     &self,
-    languagetag: T0__,
-    value: *mut BOOL
+    languageTag: impl IntoParam<'a, PWSTR>,
+    value: *mut BOOL,
 ) -> HRESULT
 ```
 
-This looks somewhat complicated, but it makes using the API pretty straight forward. The method is generic on both a lifetime `'a`, and a generic type parameter `T0__`. `T0__` is constrained by a trait `IntoParam` which is defined in the `windows` crate itself. Essentially, `IntoParam` is a slightly specialized version of Rust's `std::convert::Into`. It is implemented on all types that can be converted to a parameter of the type its generic over. 
-
-In other words, `T0__` is any type that can be converted into a parameter of type `PWSTR` that lives for at least the lifetime `'a`. 
+This looks a little complicated, but it makes using the API straightforward. The method is generic on both a lifetime `'a` and the trait `IntoParam` defined in the `windows` crate. Essentially, `IntoParam` is a slightly specialized version of Rust's `std::convert::Into`. It is implemented on all types that can be converted to a parameter of the type its generic over. In other words, it is any type that can be converted into a parameter of type `PWSTR` that lives for at least the lifetime `'a`. 
 
 It turns out that `IntoParam<'a, PWSTR>` is implemented for `&'a str` so we can simply pass a string literal. `IntoParam<'a, PWSTR>` is also implemented on `String` and `PWSTR` itself. As long as we supply any type that implements `IntoParam<'a, PWSTR>` our code will compile!
 
