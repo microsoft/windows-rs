@@ -108,7 +108,7 @@ impl MethodSignature {
         let name = self.gen_name(method, interface);
 
         let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
-        let constraints = self.gen_winrt_constraints(params, gen);
+        let constraints = self.gen_constraints(params);
         let args = params.iter().map(|p| p.gen_winrt_abi_arg());
         let params = self.gen_winrt_params(params, gen);
         let interface_name = interface.def.gen_name(gen);
@@ -214,29 +214,18 @@ impl MethodSignature {
         }
     }
 
-    pub fn gen_winrt_constraints(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for (index, param) in params.iter().enumerate() {
-            if param.is_convertible() {
-                let name = format_ident!("T{}__", index);
-                let into = param.signature.kind.gen_name(gen);
-                tokens.push(quote! { #name: ::windows::IntoParam<'a, #into>, });
-            }
+    pub fn gen_constraints(&self, params: &[MethodParam]) -> TokenStream {
+        if params.iter().any(|param| param.is_convertible()) {
+            quote! { 'a }
+        } else {
+            quote! {}
         }
-
-        if !tokens.is_empty() {
-            tokens.insert(0, quote! { 'a, });
-        }
-
-        TokenStream::from_iter(tokens)
     }
 
     pub fn gen_winrt_params(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
         params
             .iter()
-            .enumerate()
-            .map(|(index, param)| {
+            .map(|param| {
                 let name = param.param.gen_name();
                 let tokens = param.signature.kind.gen_name(gen);
 
@@ -250,8 +239,8 @@ impl MethodSignature {
                     }
                 } else if param.param.is_input() {
                     if param.is_convertible() {
-                        let tokens = format_ident!("T{}__", index);
-                        quote! { #name: #tokens, }
+                        let into = param.signature.kind.gen_name(gen);
+                        quote! { #name: impl ::windows::IntoParam<'a, #into>, }
                     } else {
                         let mut signature = quote! {};
 
@@ -318,34 +307,15 @@ impl MethodSignature {
         }
     }
 
-    pub fn gen_win32_constraints(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
-        let mut tokens = Vec::new();
-
-        for (index, param) in params.iter().enumerate() {
-            if param.is_convertible() {
-                let name = format_ident!("T{}__", index);
-                let into = param.signature.kind.gen_name(gen);
-                tokens.push(quote! { #name: ::windows::IntoParam<'a, #into>, });
-            }
-        }
-
-        if !tokens.is_empty() {
-            tokens.insert(0, quote! { 'a, });
-        }
-
-        TokenStream::from_iter(tokens)
-    }
-
     pub fn gen_win32_params(&self, params: &[MethodParam], gen: &Gen) -> TokenStream {
         params
             .iter()
-            .enumerate()
-            .map(|(index, param)| {
+            .map(|param| {
                 let name = param.param.gen_name();
 
                 if param.is_convertible() {
-                    let tokens = format_ident!("T{}__", index);
-                    quote! { #name: #tokens, }
+                    let into = param.signature.kind.gen_name(gen);
+                    quote! { #name: impl ::windows::IntoParam<'a, #into>, }
                 } else {
                     let tokens = param.gen_win32(gen);
                     quote! { #name: #tokens, }

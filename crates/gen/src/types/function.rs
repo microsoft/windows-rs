@@ -17,7 +17,7 @@ impl Function {
         let name = self.gen_name();
         let signature = self.0.signature(&[]);
 
-        let constraints = signature.gen_win32_constraints(&signature.params, gen);
+        let constraints = signature.gen_constraints(&signature.params);
         let params = signature.gen_win32_params(&signature.params, gen);
 
         let return_type = if let Some(t) = &signature.return_type {

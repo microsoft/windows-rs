@@ -1460,8 +1460,8 @@ pub mod Windows {
                     .from_abi::<::windows::Object>(result__)
                 })
             }
-            pub fn CreateString<'a, T0__: ::windows::IntoParam<'a, ::windows::HString>>(
-                value: T0__,
+            pub fn CreateString<'a>(
+                value: impl ::windows::IntoParam<'a, ::windows::HString>,
             ) -> ::windows::Result<::windows::Object> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::Object as ::windows::Abi>::Abi =
@@ -1474,8 +1474,8 @@ pub mod Windows {
                     .from_abi::<::windows::Object>(result__)
                 })
             }
-            pub fn CreateInspectable<'a, T0__: ::windows::IntoParam<'a, ::windows::Object>>(
-                value: T0__,
+            pub fn CreateInspectable<'a>(
+                value: impl ::windows::IntoParam<'a, ::windows::Object>,
             ) -> ::windows::Result<::windows::Object> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::Object as ::windows::Abi>::Abi =
@@ -1488,8 +1488,8 @@ pub mod Windows {
                     .from_abi::<::windows::Object>(result__)
                 })
             }
-            pub fn CreateGuid<'a, T0__: ::windows::IntoParam<'a, ::windows::Guid>>(
-                value: T0__,
+            pub fn CreateGuid<'a>(
+                value: impl ::windows::IntoParam<'a, ::windows::Guid>,
             ) -> ::windows::Result<::windows::Object> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::Object as ::windows::Abi>::Abi =
@@ -1747,11 +1747,8 @@ pub mod Windows {
             clippy::all
         )]
         pub mod Automation {
-            pub unsafe fn SysAllocStringLen<
-                'a,
-                T0__: ::windows::IntoParam<'a, super::SystemServices::PWSTR>,
-            >(
-                strin: T0__,
+            pub unsafe fn SysAllocStringLen<'a>(
+                strin: impl ::windows::IntoParam<'a, super::SystemServices::PWSTR>,
                 ui: u32,
             ) -> BSTR {
                 #[link(name = "OLEAUT32")]
@@ -1760,18 +1757,14 @@ pub mod Windows {
                 }
                 SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
             }
-            pub unsafe fn SysStringLen<'a, T0__: ::windows::IntoParam<'a, BSTR>>(
-                pbstr: T0__,
-            ) -> u32 {
+            pub unsafe fn SysStringLen<'a>(pbstr: impl ::windows::IntoParam<'a, BSTR>) -> u32 {
                 #[link(name = "OLEAUT32")]
                 extern "system" {
                     pub fn SysStringLen(pbstr: BSTR_abi) -> u32;
                 }
                 SysStringLen(pbstr.into_param().abi())
             }
-            pub unsafe fn SysFreeString<'a, T0__: ::windows::IntoParam<'a, BSTR>>(
-                bstrstring: T0__,
-            ) {
+            pub unsafe fn SysFreeString<'a>(bstrstring: impl ::windows::IntoParam<'a, BSTR>) {
                 #[link(name = "OLEAUT32")]
                 extern "system" {
                     pub fn SysFreeString(bstrstring: BSTR_abi);
@@ -2022,9 +2015,9 @@ pub mod Windows {
                     ::std::mem::transmute(pperrinfo),
                 )
             }
-            pub unsafe fn SetErrorInfo<'a, T1__: ::windows::IntoParam<'a, IErrorInfo>>(
+            pub unsafe fn SetErrorInfo<'a>(
                 dwreserved: u32,
-                perrinfo: T1__,
+                perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
             ) -> ::windows::ErrorCode {
                 #[link(name = "OLEAUT32")]
                 extern "system" {
@@ -2070,11 +2063,8 @@ pub mod Windows {
                 }
                 CoTaskMemFree(::std::mem::transmute(pv))
             }
-            pub unsafe fn CLSIDFromProgID<
-                'a,
-                T0__: ::windows::IntoParam<'a, super::SystemServices::PWSTR>,
-            >(
-                lpszprogid: T0__,
+            pub unsafe fn CLSIDFromProgID<'a>(
+                lpszprogid: impl ::windows::IntoParam<'a, super::SystemServices::PWSTR>,
                 lpclsid: *mut ::windows::Guid,
             ) -> ::windows::ErrorCode {
                 #[link(name = "OLE32")]
@@ -2222,12 +2212,9 @@ pub mod Windows {
                     self.0.bitand_assign(rhs.0)
                 }
             }
-            pub unsafe fn CoCreateInstance<
-                'a,
-                T1__: ::windows::IntoParam<'a, ::windows::IUnknown>,
-            >(
+            pub unsafe fn CoCreateInstance<'a>(
                 rclsid: *const ::windows::Guid,
-                punkouter: T1__,
+                punkouter: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
                 dwclscontext: CLSCTX,
                 riid: *const ::windows::Guid,
                 ppv: *mut *mut ::std::ffi::c_void,
@@ -2688,16 +2675,11 @@ pub mod Windows {
                     ) as _))
                 }
             }
-            pub unsafe fn CreateEventA<
-                'a,
-                T1__: ::windows::IntoParam<'a, BOOL>,
-                T2__: ::windows::IntoParam<'a, BOOL>,
-                T3__: ::windows::IntoParam<'a, PSTR>,
-            >(
+            pub unsafe fn CreateEventA<'a>(
                 lpeventattributes: *mut SECURITY_ATTRIBUTES,
-                bmanualreset: T1__,
-                binitialstate: T2__,
-                lpname: T3__,
+                bmanualreset: impl ::windows::IntoParam<'a, BOOL>,
+                binitialstate: impl ::windows::IntoParam<'a, BOOL>,
+                lpname: impl ::windows::IntoParam<'a, PSTR>,
             ) -> HANDLE {
                 #[link(name = "KERNEL32")]
                 extern "system" {
@@ -2715,9 +2697,7 @@ pub mod Windows {
                     lpname.into_param().abi(),
                 )
             }
-            pub unsafe fn SetEvent<'a, T0__: ::windows::IntoParam<'a, HANDLE>>(
-                hevent: T0__,
-            ) -> BOOL {
+            pub unsafe fn SetEvent<'a>(hevent: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
                 #[link(name = "KERNEL32")]
                 extern "system" {
                     pub fn SetEvent(hevent: HANDLE) -> BOOL;
@@ -2772,8 +2752,8 @@ pub mod Windows {
                     self.0.bitand_assign(rhs.0)
                 }
             }
-            pub unsafe fn WaitForSingleObject<'a, T0__: ::windows::IntoParam<'a, HANDLE>>(
-                hhandle: T0__,
+            pub unsafe fn WaitForSingleObject<'a>(
+                hhandle: impl ::windows::IntoParam<'a, HANDLE>,
                 dwmilliseconds: u32,
             ) -> WAIT_RETURN_CAUSE {
                 #[link(name = "KERNEL32")]
@@ -2921,8 +2901,8 @@ pub mod Windows {
                     self.0.bitand_assign(rhs.0)
                 }
             }
-            pub unsafe fn HeapAlloc<'a, T0__: ::windows::IntoParam<'a, HeapHandle>>(
-                hheap: T0__,
+            pub unsafe fn HeapAlloc<'a>(
+                hheap: impl ::windows::IntoParam<'a, HeapHandle>,
                 dwflags: HEAP_FLAGS,
                 dwbytes: usize,
             ) -> *mut ::std::ffi::c_void {
@@ -2940,8 +2920,8 @@ pub mod Windows {
                     ::std::mem::transmute(dwbytes),
                 )
             }
-            pub unsafe fn HeapFree<'a, T0__: ::windows::IntoParam<'a, HeapHandle>>(
-                hheap: T0__,
+            pub unsafe fn HeapFree<'a>(
+                hheap: impl ::windows::IntoParam<'a, HeapHandle>,
                 dwflags: HEAP_FLAGS,
                 lpmem: *mut ::std::ffi::c_void,
             ) -> BOOL {
@@ -2960,9 +2940,9 @@ pub mod Windows {
                 )
             }
             pub type FARPROC = extern "system" fn() -> isize;
-            pub unsafe fn GetProcAddress<'a, T1__: ::windows::IntoParam<'a, PSTR>>(
+            pub unsafe fn GetProcAddress<'a>(
                 hmodule: isize,
-                lpprocname: T1__,
+                lpprocname: impl ::windows::IntoParam<'a, PSTR>,
             ) -> ::std::option::Option<FARPROC> {
                 #[link(name = "KERNEL32")]
                 extern "system" {
@@ -2976,8 +2956,8 @@ pub mod Windows {
                     lpprocname.into_param().abi(),
                 )
             }
-            pub unsafe fn LoadLibraryA<'a, T0__: ::windows::IntoParam<'a, PSTR>>(
-                lplibfilename: T0__,
+            pub unsafe fn LoadLibraryA<'a>(
+                lplibfilename: impl ::windows::IntoParam<'a, PSTR>,
             ) -> isize {
                 #[link(name = "KERNEL32")]
                 extern "system" {
@@ -3201,12 +3181,9 @@ pub mod Windows {
                         ::std::mem::transmute(previouslanguageexceptionerrorinfo),
                     )
                 }
-                pub unsafe fn CapturePropagationContext<
-                    'a,
-                    T0__: ::windows::IntoParam<'a, ::windows::IUnknown>,
-                >(
+                pub unsafe fn CapturePropagationContext<'a>(
                     &self,
-                    languageexception: T0__,
+                    languageexception: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
                 ) -> ::windows::ErrorCode {
                     (::windows::Interface::vtable(self).5)(
                         ::windows::Abi::abi(self),
@@ -3313,11 +3290,8 @@ pub mod Windows {
             clippy::all
         )]
         pub mod WindowsProgramming {
-            pub unsafe fn CloseHandle<
-                'a,
-                T0__: ::windows::IntoParam<'a, super::SystemServices::HANDLE>,
-            >(
-                hobject: T0__,
+            pub unsafe fn CloseHandle<'a>(
+                hobject: impl ::windows::IntoParam<'a, super::SystemServices::HANDLE>,
             ) -> super::SystemServices::BOOL {
                 #[link(name = "KERNEL32")]
                 extern "system" {
