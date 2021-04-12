@@ -85,7 +85,7 @@ impl MethodSignature {
             }));
 
         quote! {
-            (this: ::windows::RawPtr, #(#params),*) -> ::windows::ErrorCode
+            (this: ::windows::RawPtr, #(#params),*) -> ::windows::HRESULT
         }
     }
 
@@ -294,7 +294,7 @@ impl MethodSignature {
                             let (ok_data__, ok_data_len__) = ok__.into_abi();
                             *result__ = ok_data__;
                             *result_size__ = ok_data_len__;
-                            ::windows::ErrorCode(0)
+                            ::windows::HRESULT(0)
                         }
                         ::std::result::Result::Err(err) => err.into()
                     }
@@ -306,7 +306,7 @@ impl MethodSignature {
                         ::std::result::Result::Ok(ok__) => {
                             *result__ = ::std::mem::transmute_copy(&ok__);
                             ::std::mem::forget(ok__);
-                            ::windows::ErrorCode(0)
+                            ::windows::HRESULT(0)
                         }
                         ::std::result::Result::Err(err) => err.into()
                     }

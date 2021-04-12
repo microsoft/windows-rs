@@ -21,7 +21,7 @@ pub enum ElementType {
     Object,
     Guid,
     IUnknown,
-    ErrorCode,
+    HRESULT,
     Matrix3x2,
     TypeName,
     GenericParam(tables::GenericParam),
@@ -122,8 +122,8 @@ impl ElementType {
                     TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
                         ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
                         ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
-                        ("Windows.Foundation", "HResult") => Self::ErrorCode,
-                        ("Windows.Win32.Com", "HRESULT") => Self::ErrorCode,
+                        ("Windows.Foundation", "HResult") => Self::HRESULT,
+                        ("Windows.Win32.Com", "HRESULT") => Self::HRESULT,
                         ("Windows.Win32.SystemServices", "LARGE_INTEGER") => Self::I64,
                         ("Windows.Win32.SystemServices", "ULARGE_INTEGER") => Self::U64,
                         ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
@@ -207,8 +207,8 @@ impl ElementType {
             Self::IUnknown => {
                 quote! { ::windows::IUnknown }
             }
-            Self::ErrorCode => {
-                quote! { ::windows::ErrorCode }
+            Self::HRESULT => {
+                quote! { ::windows::HRESULT }
             }
             Self::Matrix3x2 => {
                 let numerics = gen.namespace("Windows.Foundation.Numerics");
@@ -262,8 +262,8 @@ impl ElementType {
             Self::IUnknown => {
                 quote! { ::windows::RawPtr }
             }
-            Self::ErrorCode => {
-                quote! { ::windows::ErrorCode }
+            Self::HRESULT => {
+                quote! { ::windows::HRESULT }
             }
             Self::Matrix3x2 => {
                 let numerics = gen.namespace("Windows.Foundation.Numerics");
@@ -450,7 +450,7 @@ impl ElementType {
                 | Self::F64
                 | Self::ISize
                 | Self::USize
-                | Self::ErrorCode
+                | Self::HRESULT
                 | Self::Enum(_)
         )
     }
