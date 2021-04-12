@@ -28,14 +28,14 @@ This will allow Cargo to download, build, and cache Windows support as a package
 
 ```rust
 fn main() {
-  windows::build!(
-      Windows::Win32::WindowsProgramming::CloseHandle,
-      Windows::Win32::WindowsAndMessaging::MessageBoxA,
-      Windows::Data::Xml::Dom::*,
-      Windows::Win32::SystemServices::{
-          CreateEventW, SetEvent, WaitForSingleObject
-      },
-  );
+    windows::build!(
+        Windows::Data::Xml::Dom::*,
+        Windows::Win32::WindowsProgramming::CloseHandle,
+        Windows::Win32::WindowsAndMessaging::MessageBoxA,
+        Windows::Win32::SystemServices::{
+            CreateEventW, SetEvent, WaitForSingleObject
+        },
+    );
 }
 ```
 
@@ -47,12 +47,10 @@ mod bindings {
 }
 
 use bindings::{
-      Windows::Win32::WindowsProgramming::CloseHandle,
-      Windows::Win32::WindowsAndMessaging::MessageBoxA,
-      Windows::Data::Xml::Dom::*,
-      Windows::Win32::SystemServices::{
-          CreateEventW, SetEvent, WaitForSingleObject
-      },
+    Windows::Data::Xml::Dom::*,
+    Windows::Win32::SystemServices::{CreateEventW, SetEvent, WaitForSingleObject, PWSTR},
+    Windows::Win32::WindowsAndMessaging::{MessageBoxA, HWND, MESSAGEBOX_STYLE},
+    Windows::Win32::WindowsProgramming::CloseHandle,
 };
 
 fn main() -> windows::Result<()> {
@@ -65,12 +63,11 @@ fn main() -> windows::Result<()> {
 
     unsafe {
         let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR::NULL);
-
         SetEvent(event).ok()?;
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
 
-        MessageBoxA(HWND(0), "Text", "Caption", 0);
+        MessageBoxA(HWND(0), "Text", "Caption", MESSAGEBOX_STYLE::MB_OK);
     }
 
     Ok(())
