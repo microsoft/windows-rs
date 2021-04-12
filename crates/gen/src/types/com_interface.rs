@@ -98,7 +98,7 @@ impl ComInterface {
                     return quote! {};
                 }
 
-                let constraints = signature.gen_win32_constraints(&signature.params, gen);
+                let constraints = signature.gen_constraints(&signature.params);
                 let params = signature.gen_win32_params(&signature.params, gen);
 
                 let (udt_return_type, udt_return_local, return_type, udt_return_expression) = if let Some(t) = &signature.return_type {
