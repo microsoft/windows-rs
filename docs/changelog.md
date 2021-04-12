@@ -1,3 +1,12 @@
+# 0.8.0
+
+- Simplify convertible parameters. ([#694](https://github.com/microsoft/windows-rs/pull/694))
+- ErrorCode is now called HRESULT. ([#693](https://github.com/microsoft/windows-rs/pull/693))
+- Add deprecated feature to conditionally include deprecated APIs (#680)
+- Add default "macros" feature (#663)
+- Updated metadata providing many fixes and improvements to Win32 APIs.
+- Other improvements and fixes.
+
 # 0.7.0
 
 - Preserve original API case. ([#646](https://github.com/microsoft/windows-rs/pull/646))
