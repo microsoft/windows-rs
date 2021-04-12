@@ -3307,14 +3307,14 @@ pub mod Windows {
 #[allow(dead_code)]
 const CRATE_VERSION_EQUAL: () = {
     const CURRENT_VERSION: &str = env!("CARGO_PKG_VERSION");
-    const EXPECTED_VERSION: &str = "0.7.0";
+    const EXPECTED_VERSION: &str = "0.8.0";
     if CURRENT_VERSION.len() != EXPECTED_VERSION.len() {
-        ["The current version of the crate does not match the version the bindings were generated against: 0.7.0."][100];
+        ["The current version of the crate does not match the version the bindings were generated against: 0.8.0."][100];
     }
     let mut index = 0;
     while index < CURRENT_VERSION.len() {
         if CURRENT_VERSION.as_bytes()[index] != EXPECTED_VERSION.as_bytes()[index] {
-            ["The current version of the crate does not match the version the bindings were generated against: 0.7.0."][100];
+            ["The current version of the crate does not match the version the bindings were generated against: 0.8.0."][100];
         }
         index += 1;
     }
