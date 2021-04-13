@@ -17,7 +17,7 @@ use bindings::{
             MenusAndResources::HMENU,
             SystemServices::{self, HINSTANCE, LRESULT, PSTR},
             WindowsAndMessaging::{
-                self, SetWindowPos_uFlags, HWND, LPARAM, MSG, SHOW_WINDOW_CMD, WINDOW_EX_STYLE,
+                self, HWND, LPARAM, MSG, SET_WINDOW_POS_FLAGS, SHOW_WINDOW_CMD, WINDOW_EX_STYLE,
                 WINDOW_LONG_PTR_INDEX, WINDOW_STYLE, WNDCLASSA, WPARAM,
             },
         },
@@ -409,9 +409,9 @@ impl WebView {
                     0,
                     width,
                     height,
-                    SetWindowPos_uFlags::SWP_NOACTIVATE
-                        | SetWindowPos_uFlags::SWP_NOZORDER
-                        | SetWindowPos_uFlags::SWP_NOMOVE,
+                    SET_WINDOW_POS_FLAGS::SWP_NOACTIVATE
+                        | SET_WINDOW_POS_FLAGS::SWP_NOZORDER
+                        | SET_WINDOW_POS_FLAGS::SWP_NOMOVE,
                 );
             }
         }
