@@ -81,7 +81,7 @@ impl HRESULT {
     /// Retrieves the error code stored on the calling thread.
     #[inline]
     pub fn from_thread() -> Self {
-        Self::from_win32(unsafe { GetLastError() })
+        Self::from_win32(unsafe { GetLastError().0 })
     }
 
     /// Creates a failure code with the provided win32 error code.

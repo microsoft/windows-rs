@@ -46,7 +46,7 @@ fn main() -> windows::Result<()> {
         );
 
         if !read_ok.as_bool() {
-            assert_eq!(GetLastError(), ERROR_IO_PENDING as u32);
+            assert_eq!(GetLastError(), WIN32_ERROR::ERROR_IO_PENDING);
         }
 
         let wait_ok = WaitForSingleObject(overlapped.hEvent, 2000);

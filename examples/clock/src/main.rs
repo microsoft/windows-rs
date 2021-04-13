@@ -442,7 +442,7 @@ impl Window {
                         HWND(0),
                         0,
                         0,
-                        PeekMessage_wRemoveMsg::PM_REMOVE,
+                        PEEK_MESSAGE_REMOVE_TYPE::PM_REMOVE,
                     )
                     .into()
                     {
