@@ -80,4 +80,4 @@ There is an experimental [documentation generator](https://github.com/microsoft/
 
 More examples [can be found here](examples). Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs) is also a great example.
 
-A more in-depth getting started guide can also be found [here](./docs/getting-started).
+A more in-depth getting started guide can also be found [here](docs/getting-started.md).
