@@ -14,10 +14,9 @@ use bindings::{
             Gdi,
             HiDpi::{self, PROCESS_DPI_AWARENESS},
             KeyboardAndMouseInput,
-            MenusAndResources::HMENU,
             SystemServices::{self, HINSTANCE, LRESULT, PSTR},
             WindowsAndMessaging::{
-                self, HWND, LPARAM, MSG, SET_WINDOW_POS_FLAGS, SHOW_WINDOW_CMD, WINDOW_EX_STYLE,
+                self, HWND, LPARAM, MSG, SET_WINDOW_POS_FLAGS, SHOW_WINDOW_CMD,
                 WINDOW_LONG_PTR_INDEX, WINDOW_STYLE, WNDCLASSA, WPARAM,
             },
         },
@@ -141,17 +140,17 @@ impl FrameWindow {
                 WindowsAndMessaging::RegisterClassA(&window_class);
 
                 WindowsAndMessaging::CreateWindowExA(
-                    WINDOW_EX_STYLE(0),
+                    Default::default(),
                     class_name,
                     class_name,
                     WINDOW_STYLE::WS_OVERLAPPEDWINDOW,
                     WindowsAndMessaging::CW_USEDEFAULT,
                     WindowsAndMessaging::CW_USEDEFAULT,
-                    640,
-                    480,
-                    HWND(0),
-                    HMENU(0),
-                    HINSTANCE(SystemServices::GetModuleHandleA(PSTR(0 as *mut _))),
+                    WindowsAndMessaging::CW_USEDEFAULT,
+                    WindowsAndMessaging::CW_USEDEFAULT,
+                    None,
+                    None,
+                    HINSTANCE(SystemServices::GetModuleHandleA(None)),
                     0 as *mut _,
                 )
             }
@@ -404,7 +403,7 @@ impl WebView {
             unsafe {
                 WindowsAndMessaging::SetWindowPos(
                     *frame.window,
-                    HWND(0),
+                    None,
                     0,
                     0,
                     width,

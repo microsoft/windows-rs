@@ -1,8 +1,8 @@
 use bindings::{
     Windows::Foundation::Numerics::*, Windows::Win32::Direct2D::*, Windows::Win32::Direct3D11::*,
-    Windows::Win32::Dxgi::*, Windows::Win32::Gdi::*, Windows::Win32::MenusAndResources::*,
-    Windows::Win32::SystemServices::*, Windows::Win32::UIAnimation::*,
-    Windows::Win32::WindowsAndMessaging::*, Windows::Win32::WindowsProgramming::*,
+    Windows::Win32::Dxgi::*, Windows::Win32::Gdi::*, Windows::Win32::SystemServices::*,
+    Windows::Win32::UIAnimation::*, Windows::Win32::WindowsAndMessaging::*,
+    Windows::Win32::WindowsProgramming::*,
 };
 
 use windows::*;
@@ -131,11 +131,7 @@ impl Window {
             if error == DXGI_STATUS_OCCLUDED {
                 unsafe {
                     self.dxfactory
-                        .RegisterOcclusionStatusWindow(
-                            self.handle,
-                            WM_USER as u32,
-                            &mut self.occlusion,
-                        )
+                        .RegisterOcclusionStatusWindow(self.handle, WM_USER, &mut self.occlusion)
                         .ok()?;
                 }
                 self.visible = false;
@@ -397,11 +393,11 @@ impl Window {
 
     fn run(&mut self) -> Result<()> {
         unsafe {
-            let instance = HINSTANCE(GetModuleHandleA(PSTR::NULL));
+            let instance = HINSTANCE(GetModuleHandleA(None));
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {
-                hCursor: LoadCursorW(HINSTANCE(0), IDC_HAND),
+                hCursor: LoadCursorW(None, IDC_HAND),
                 hInstance: instance,
                 lpszClassName: PSTR(b"window\0".as_ptr() as _),
 
@@ -422,8 +418,8 @@ impl Window {
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
-                HWND(0),
-                HMENU(0),
+                None,
+                None,
                 instance,
                 self as *mut _ as _,
             );
@@ -436,26 +432,27 @@ impl Window {
                 if self.visible {
                     self.render()?;
 
-                    // TODO: https://github.com/microsoft/win32metadata/issues/331
                     while PeekMessageA(
                         &mut message,
-                        HWND(0),
+                        None,
                         0,
                         0,
                         PEEK_MESSAGE_REMOVE_TYPE::PM_REMOVE,
                     )
                     .into()
                     {
-                        if message.message == WM_QUIT as u32 {
+                        if message.message == WM_QUIT {
                             return Ok(());
                         }
                         DispatchMessageA(&message);
                     }
                 } else {
-                    GetMessageA(&mut message, HWND(0), 0, 0);
-                    if message.message == WM_QUIT as u32 {
+                    GetMessageA(&mut message, None, 0, 0);
+
+                    if message.message == WM_QUIT {
                         return Ok(());
                     }
+
                     DispatchMessageA(&message);
                 }
             }
@@ -469,7 +466,7 @@ impl Window {
         lparam: LPARAM,
     ) -> LRESULT {
         unsafe {
-            if message == WM_NCCREATE as u32 {
+            if message == WM_NCCREATE {
                 let cs = lparam.0 as *const CREATESTRUCTA;
                 let this = (*cs).lpCreateParams as *mut Self;
                 (*this).handle = window;
@@ -602,7 +599,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
             flags,
             std::ptr::null(),
             0,
-            D3D11_SDK_VERSION as u32,
+            D3D11_SDK_VERSION,
             &mut device,
             std::ptr::null_mut(),
             &mut None,

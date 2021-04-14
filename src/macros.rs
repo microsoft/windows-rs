@@ -1,4 +1,4 @@
-/// Includes the generating bindings into the current context.
+/// Includes the generated bindings into the current context.
 #[macro_export]
 macro_rules! include_bindings {
     () => {

@@ -1,5 +1,5 @@
 mod bindings {
-    ::windows::include_bindings!();
+    windows::include_bindings!();
 }
 
 fn main() -> windows::Result<()> {

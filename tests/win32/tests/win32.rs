@@ -272,9 +272,9 @@ fn onecore_imports() -> windows::Result<()> {
         assert!(port == 80);
 
         let result = MiniDumpWriteDump(
-            HANDLE(0),
+            None,
             0,
-            HANDLE(0),
+            None,
             MINIDUMP_TYPE::MiniDumpNormal,
             std::ptr::null_mut(),
             std::ptr::null_mut(),
