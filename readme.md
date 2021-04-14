@@ -43,13 +43,13 @@ Finally, make use of any Windows APIs as needed.
 
 ```rust
 mod bindings {
-    ::windows::include_bindings!();
+    windows::include_bindings!();
 }
 
 use bindings::{
     Windows::Data::Xml::Dom::*,
-    Windows::Win32::SystemServices::{CreateEventW, SetEvent, WaitForSingleObject, PWSTR},
-    Windows::Win32::WindowsAndMessaging::{MessageBoxA, HWND, MESSAGEBOX_STYLE},
+    Windows::Win32::SystemServices::{CreateEventW, SetEvent, WaitForSingleObject},
+    Windows::Win32::WindowsAndMessaging::{MessageBoxA, MESSAGEBOX_STYLE},
     Windows::Win32::WindowsProgramming::CloseHandle,
 };
 
@@ -62,12 +62,12 @@ fn main() -> windows::Result<()> {
     assert!(root.InnerText()? == "hello world");
 
     unsafe {
-        let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR::NULL);
+        let event = CreateEventW(std::ptr::null_mut(), true, false, None);
         SetEvent(event).ok()?;
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
 
-        MessageBoxA(HWND(0), "Text", "Caption", MESSAGEBOX_STYLE::MB_OK);
+        MessageBoxA(None, "Text", "Caption", MESSAGEBOX_STYLE::MB_OK);
     }
 
     Ok(())

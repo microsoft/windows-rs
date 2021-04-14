@@ -1,1 +1,1 @@
-::windows::include_bindings!();
+windows::include_bindings!();
