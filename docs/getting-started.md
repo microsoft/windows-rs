@@ -29,10 +29,10 @@ We can generate our bindings inside of the `bindings` crate. To do this, we'll n
 ```toml
 # ^^ The rest of the Cargo.toml remains the same
 [dependencies]
-windows = "0.7" # Check https://crates.io/crates/windows for the latest version
+windows = "0.8" # Check https://crates.io/crates/windows for the latest version
 
 [build-dependencies]
-windows = "0.7"
+windows = "0.8"
 ```
 
 Now that the `bindings` crate depends on the `windows` crate, we can generate our bindings inside of a build script. In case you're not familiar with build scripts, they're simply Rust files that get run automatically by cargo when building a Rust crate. To add one, we simply put a "build.rs" file in the `bindings` crate's directory. We'll add the `windows::build!` macro which is where we declare which Windows APIs we want to generate bindings for.
@@ -74,7 +74,7 @@ This effectively copy/pastes the generated code into the `lib.rs` file. The `bin
 # ^^ The rest of the Cargo.toml remains the same
 [dependencies]
 bindings = { path = "bindings" }
-windows = "0.7" # This should match the version you used in the bindings crate
+windows = "0.8" # This should match the version you used in the bindings crate
 ```
 
 And we're done bootstrapping the project. Now we'll move on to the code of the `spellchecker` crate which will use both the generated bindings from the `bindings` crate as well as helper functionality from the `windows` crate.
@@ -215,7 +215,7 @@ We should get the following output:
 Corrective Action: CORRECTIVE_ACTION(1)
 ```
 
-Looking at the [docs for `CORRECTIVE_ACTION](https://docs.microsoft.com/en-us/windows/win32/api/spellcheck/ne-spellcheck-corrective_action), we can see that 1-index action corresponds to `CORRECTIVE_ACTION_GET_SUGGESTIONS`, meaning the spellchecking API has suggestions.
+Looking at the [docs for `CORRECTIVE_ACTION`](https://docs.microsoft.com/en-us/windows/win32/api/spellcheck/ne-spellcheck-corrective_action), we can see that 1-index action corresponds to `CORRECTIVE_ACTION_GET_SUGGESTIONS`, meaning the spellchecking API has suggestions.
 
 ## Next Steps
 
