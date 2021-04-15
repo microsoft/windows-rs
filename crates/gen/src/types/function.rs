@@ -4,9 +4,10 @@ use super::*;
 pub struct Function(pub tables::MethodDef);
 
 impl Function {
-    pub fn gen_name(&self) -> TokenStream {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
+        let namespace = gen.namespace(self.0.parent().namespace());
         let name = format_ident!("{}", self.0.name());
-        quote! { #name }
+        quote! { #namespace #name }
     }
 
     pub fn dependencies(&self) -> Vec<ElementType> {
@@ -14,7 +15,7 @@ impl Function {
     }
 
     pub fn gen(&self, gen: &Gen) -> TokenStream {
-        let name = self.gen_name();
+        let name = self.gen_name(gen);
         let signature = self.0.signature(&[]);
 
         let constraints = signature.gen_constraints(&signature.params);
