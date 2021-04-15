@@ -21,28 +21,29 @@ impl Struct {
 
     pub fn dependencies(&self) -> Vec<ElementType> {
         let reader = TypeReader::get();
+        let mut dependencies = vec![];
 
-        // TODO: add tests for each
         match self.0.full_name() {
-            ("Windows.Win32.Automation", "BSTR") => vec![
-                reader.resolve_type("Windows.Win32.Automation", "SysAllocStringLen"),
-                reader.resolve_type("Windows.Win32.Automation", "SysStringLen"),
-                reader.resolve_type("Windows.Win32.Automation", "SysFreeString"),
-            ],
+            ("Windows.Win32.Automation", "BSTR") => {
+                dependencies.push(reader.resolve_type("Windows.Win32.Automation", "SysFreeString"));
+                dependencies
+                    .push(reader.resolve_type("Windows.Win32.Automation", "SysAllocStringLen"));
+                dependencies.push(reader.resolve_type("Windows.Win32.Automation", "SysStringLen"));
+            }
             ("Windows.Foundation.Numerics", "Matrix3x2") => {
-                vec![reader.resolve_type("Windows.Win32.Direct2D", "D2D1MakeRotateMatrix")]
+                dependencies
+                    .push(reader.resolve_type("Windows.Win32.Direct2D", "D2D1MakeRotateMatrix"));
             }
             _ => {
-                let mut dependencies: Vec<ElementType> =
-                    self.0.fields().map(|f| f.definition()).flatten().collect();
+                dependencies.extend(self.0.fields().map(|f| f.definition()).flatten());
 
                 if let Some(dependency) = self.0.is_convertible() {
                     dependencies.push(dependency);
                 }
-
-                dependencies
             }
         }
+
+        dependencies
     }
 
     pub fn definition(&self) -> Vec<ElementType> {
@@ -50,7 +51,7 @@ impl Struct {
     }
 
     pub fn is_blittable(&self) -> bool {
-        // TODO: should this only be applied to types where we actually take advantage of the RAII attribute?
+        // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
         if self.0.full_name() == ("Windows.Win32.Automation", "BSTR") {
             false
         } else {
@@ -313,57 +314,44 @@ impl Struct {
         let default = if is_union || has_union || has_complex_array || is_packed {
             quote! {}
         } else {
-            let defaults = if is_handle {
-                if is_winrt {
-                    let defaults = fields
-                        .iter()
-                        .map(|(_, signature, _)| signature.gen_winrt_default());
-                    quote! {
-                        Self( #(#defaults),* )
-                    }
+            let defaults = fields.iter().map(|(_, signature, name)| {
+                let value = if is_winrt {
+                    signature.gen_winrt_default()
                 } else {
-                    let defaults = fields
-                        .iter()
-                        .map(|(_, signature, _)| signature.gen_win32_default());
-                    quote! {
-                        Self( #(#defaults),* )
-                    }
-                }
-            } else {
-                let defaults = fields.iter().map(|(_, signature, name)| {
-                    let value = if is_winrt {
-                        signature.gen_winrt_default()
-                    } else {
-                        signature.gen_win32_default()
-                    };
+                    signature.gen_win32_default()
+                };
+
+                if is_handle {
+                    value
+                } else {
                     quote! {
                         #name: #value
                     }
-                });
-
-                quote! {
-                    Self{ #(#defaults),* }
                 }
-            };
+            });
 
-            let null = if is_handle {
+            let defaults = quote! { #(#defaults),* };
+
+            if is_handle {
                 quote! {
+                    impl ::std::default::Default for #name {
+                        fn default() -> Self {
+                            Self(#defaults)
+                        }
+                    }
                     impl #name {
-                        pub const NULL: Self = #defaults;
+                        pub const NULL: Self = Self(#defaults);
                         pub fn is_null(&self) -> bool {
-                            self == &Self::NULL
+                            self.0 == #defaults
                         }
                     }
                 }
             } else {
-                quote! {}
-            };
-
-            quote! {
-                #null
-                impl ::std::default::Default for #name {
-                    fn default() -> Self {
-                        #defaults
+                quote! {
+                    impl ::std::default::Default for #name {
+                        fn default() -> Self {
+                            Self{ #defaults }
+                        }
                     }
                 }
             }
@@ -467,6 +455,7 @@ impl Struct {
 
     fn gen_replacement(&self) -> Option<TokenStream> {
         match self.0.full_name() {
+            ("Windows.Win32.SystemServices", "BOOL") => Some(gen_bool32()),
             ("Windows.Win32.SystemServices", "PWSTR") => Some(gen_pwstr()),
             ("Windows.Win32.SystemServices", "PSTR") => Some(gen_pstr()),
             ("Windows.Win32.Automation", "BSTR") => Some(gen_bstr()),
@@ -482,7 +471,6 @@ impl Struct {
             ("Windows.Foundation.Numerics", "Vector4") => gen_vector4(),
             ("Windows.Foundation.Numerics", "Matrix3x2") => gen_matrix3x2(),
             ("Windows.Foundation.Numerics", "Matrix4x4") => gen_matrix4x4(),
-            ("Windows.Win32.SystemServices", "BOOL") => gen_bool32(),
             ("Windows.Win32.SystemServices", "HANDLE") => gen_handle(),
             _ => TokenStream::new(),
         }

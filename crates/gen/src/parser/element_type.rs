@@ -220,7 +220,7 @@ impl ElementType {
                 quote! { [#name; #len] }
             }
             Self::GenericParam(generic) => generic.gen_name(),
-            Self::Function(t) => t.gen_name(),
+            Self::Function(t) => t.gen_name(gen),
             Self::Constant(t) => t.gen_name(),
             Self::Class(t) => t.0.gen_name(gen),
             Self::Interface(t) => t.0.gen_name(gen),

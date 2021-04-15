@@ -1747,6 +1747,13 @@ pub mod Windows {
             clippy::all
         )]
         pub mod Automation {
+            pub unsafe fn SysFreeString<'a>(bstrstring: impl ::windows::IntoParam<'a, BSTR>) {
+                #[link(name = "OLEAUT32")]
+                extern "system" {
+                    pub fn SysFreeString(bstrstring: BSTR_abi);
+                }
+                SysFreeString(bstrstring.into_param().abi())
+            }
             pub unsafe fn SysAllocStringLen<'a>(
                 strin: impl ::windows::IntoParam<'a, super::SystemServices::PWSTR>,
                 ui: u32,
@@ -1763,13 +1770,6 @@ pub mod Windows {
                     pub fn SysStringLen(pbstr: BSTR_abi) -> u32;
                 }
                 SysStringLen(pbstr.into_param().abi())
-            }
-            pub unsafe fn SysFreeString<'a>(bstrstring: impl ::windows::IntoParam<'a, BSTR>) {
-                #[link(name = "OLEAUT32")]
-                extern "system" {
-                    pub fn SysFreeString(bstrstring: BSTR_abi);
-                }
-                SysFreeString(bstrstring.into_param().abi())
             }
             #[repr(transparent)]
             #[derive(:: std :: cmp :: Eq)]
@@ -5660,15 +5660,15 @@ pub mod Windows {
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HANDLE(pub isize);
             impl HANDLE {}
-            impl HANDLE {
-                pub const NULL: Self = Self(0);
-                pub fn is_null(&self) -> bool {
-                    self == &Self::NULL
-                }
-            }
             impl ::std::default::Default for HANDLE {
                 fn default() -> Self {
                     Self(0)
+                }
+            }
+            impl HANDLE {
+                pub const NULL: Self = Self(0);
+                pub fn is_null(&self) -> bool {
+                    self.0 == 0
                 }
             }
             impl ::std::fmt::Debug for HANDLE {
@@ -5694,33 +5694,15 @@ pub mod Windows {
                 }
             }
             #[repr(transparent)]
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[derive(
+                :: std :: default :: Default,
+                :: std :: clone :: Clone,
+                :: std :: marker :: Copy,
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: fmt :: Debug,
+            )]
             pub struct BOOL(pub i32);
-            impl BOOL {}
-            impl BOOL {
-                pub const NULL: Self = Self(0);
-                pub fn is_null(&self) -> bool {
-                    self == &Self::NULL
-                }
-            }
-            impl ::std::default::Default for BOOL {
-                fn default() -> Self {
-                    Self(0)
-                }
-            }
-            impl ::std::fmt::Debug for BOOL {
-                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    fmt.debug_struct("BOOL")
-                        .field("Value", &format_args!("{:?}", self.0))
-                        .finish()
-                }
-            }
-            impl ::std::cmp::PartialEq for BOOL {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-                }
-            }
-            impl ::std::cmp::Eq for BOOL {}
             unsafe impl ::windows::Abi for BOOL {
                 type Abi = Self;
             }
@@ -5988,15 +5970,15 @@ pub mod Windows {
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HeapHandle(pub isize);
             impl HeapHandle {}
-            impl HeapHandle {
-                pub const NULL: Self = Self(0);
-                pub fn is_null(&self) -> bool {
-                    self == &Self::NULL
-                }
-            }
             impl ::std::default::Default for HeapHandle {
                 fn default() -> Self {
                     Self(0)
+                }
+            }
+            impl HeapHandle {
+                pub const NULL: Self = Self(0);
+                pub fn is_null(&self) -> bool {
+                    self.0 == 0
                 }
             }
             impl ::std::fmt::Debug for HeapHandle {
@@ -6019,15 +6001,15 @@ pub mod Windows {
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct ProcessHeapHandle(pub isize);
             impl ProcessHeapHandle {}
-            impl ProcessHeapHandle {
-                pub const NULL: Self = Self(0);
-                pub fn is_null(&self) -> bool {
-                    self == &Self::NULL
-                }
-            }
             impl ::std::default::Default for ProcessHeapHandle {
                 fn default() -> Self {
                     Self(0)
+                }
+            }
+            impl ProcessHeapHandle {
+                pub const NULL: Self = Self(0);
+                pub fn is_null(&self) -> bool {
+                    self.0 == 0
                 }
             }
             impl ::std::fmt::Debug for ProcessHeapHandle {
