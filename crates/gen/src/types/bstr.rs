@@ -2,8 +2,8 @@ use super::*;
 
 pub fn gen_bstr() -> TokenStream {
     quote! {
-        #[repr(C)]
-        #[derive(::std::clone::Clone, ::std::cmp::Eq)]
+        #[repr(transparent)]
+        #[derive(::std::cmp::Eq)]
         pub struct BSTR(*mut u16);
         impl BSTR {
             pub fn is_empty(&self) -> bool {

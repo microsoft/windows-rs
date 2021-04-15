@@ -2,9 +2,6 @@ use super::*;
 
 pub fn gen_bool32() -> TokenStream {
     quote! {
-        #[repr(C)]
-        #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::default::Default)]
-        pub struct BOOL(pub i32);
         impl BOOL {
             #[inline]
             pub fn as_bool(self) -> bool {
@@ -26,15 +23,6 @@ pub fn gen_bool32() -> TokenStream {
             pub fn expect(self, msg: &str) {
                 self.ok().expect(msg);
             }
-        }
-        impl ::std::fmt::Debug for BOOL {
-            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                let msg = if self.as_bool() { "true" } else { "false" };
-                fmt.write_str(msg)
-            }
-        }
-        unsafe impl ::windows::Abi for BOOL {
-            type Abi = Self;
         }
         impl ::std::convert::From<BOOL> for bool {
             fn from(value: BOOL) -> Self {

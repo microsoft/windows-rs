@@ -1771,8 +1771,8 @@ pub mod Windows {
                 }
                 SysFreeString(bstrstring.into_param().abi())
             }
-            #[repr(C)]
-            #[derive(:: std :: clone :: Clone, :: std :: cmp :: Eq)]
+            #[repr(transparent)]
+            #[derive(:: std :: cmp :: Eq)]
             pub struct BSTR(*mut u16);
             impl BSTR {
                 pub fn is_empty(&self) -> bool {
@@ -5600,7 +5600,7 @@ pub mod Windows {
             clippy::all
         )]
         pub mod SystemServices {
-            #[repr(C)]
+            #[repr(transparent)]
             #[derive(
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
@@ -5656,7 +5656,7 @@ pub mod Windows {
                     ) as _))
                 }
             }
-            #[repr(C)]
+            #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HANDLE(pub isize);
             impl HANDLE {}
@@ -5693,15 +5693,37 @@ pub mod Windows {
                     self.0 == -1
                 }
             }
-            #[repr(C)]
-            #[derive(
-                :: std :: clone :: Clone,
-                :: std :: marker :: Copy,
-                :: std :: cmp :: PartialEq,
-                :: std :: cmp :: Eq,
-                :: std :: default :: Default,
-            )]
+            #[repr(transparent)]
+            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct BOOL(pub i32);
+            impl BOOL {}
+            impl BOOL {
+                pub const NULL: Self = Self(0);
+                pub fn is_null(&self) -> bool {
+                    self == &Self::NULL
+                }
+            }
+            impl ::std::default::Default for BOOL {
+                fn default() -> Self {
+                    Self(0)
+                }
+            }
+            impl ::std::fmt::Debug for BOOL {
+                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                    fmt.debug_struct("BOOL")
+                        .field("Value", &format_args!("{:?}", self.0))
+                        .finish()
+                }
+            }
+            impl ::std::cmp::PartialEq for BOOL {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            impl ::std::cmp::Eq for BOOL {}
+            unsafe impl ::windows::Abi for BOOL {
+                type Abi = Self;
+            }
             impl BOOL {
                 #[inline]
                 pub fn as_bool(self) -> bool {
@@ -5723,15 +5745,6 @@ pub mod Windows {
                 pub fn expect(self, msg: &str) {
                     self.ok().expect(msg);
                 }
-            }
-            impl ::std::fmt::Debug for BOOL {
-                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    let msg = if self.as_bool() { "true" } else { "false" };
-                    fmt.write_str(msg)
-                }
-            }
-            unsafe impl ::windows::Abi for BOOL {
-                type Abi = Self;
             }
             impl ::std::convert::From<BOOL> for bool {
                 fn from(value: BOOL) -> Self {
@@ -5822,7 +5835,7 @@ pub mod Windows {
             unsafe impl ::windows::Abi for SECURITY_ATTRIBUTES {
                 type Abi = Self;
             }
-            #[repr(C)]
+            #[repr(transparent)]
             #[derive(
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
@@ -5971,7 +5984,7 @@ pub mod Windows {
                     ::std::mem::transmute(dwmilliseconds),
                 )
             }
-            #[repr(C)]
+            #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HeapHandle(pub isize);
             impl HeapHandle {}
@@ -6002,7 +6015,7 @@ pub mod Windows {
             unsafe impl ::windows::Abi for HeapHandle {
                 type Abi = Self;
             }
-            #[repr(C)]
+            #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct ProcessHeapHandle(pub isize);
             impl ProcessHeapHandle {}
