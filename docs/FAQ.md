@@ -18,7 +18,7 @@ It turns out that `IntoParam<'a, PWSTR>` is implemented for `&'a str` so we can 
 
 If you get an error message saying that a specific type does not satisfy the trait bound, then you are passing a type which cannot be converted to the correct type. If you think this is in error (i.e., you think the type you have should be trivially convertible to the param type in question), don't hesitate to [file an issue](https://github.com/microsoft/windows-rs/issues).
 
-## I get an error when trying to pass a NULL pointer to a function that should take null?
+## Why do I get an error when trying to pass a NULL pointer to a function that should take null?
 
 Often times, the `windows` crate does not allow the use of null pointers when safer alternatives exist. In Rust, optional values are modeled using the `Option` type which the `windows` crate takes full advantage of for COM interfaces. So instead of passing a `NULL` pointer, you can pass `None` instead.
 
