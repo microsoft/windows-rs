@@ -20,7 +20,7 @@ If you get an error message saying that a specific type does not satisfy the tra
 
 ## Why do I get an error when trying to pass a NULL pointer to a function that should take null?
 
-Often times, the `windows` crate does not allow the use of null pointers when safer alternatives exist. In Rust, optional values are modeled using the `Option` type which the `windows` crate takes full advantage of for COM interfaces. So instead of passing a `NULL` pointer, you can pass `None` instead.
+The `windows` crate does not allow the use of null pointers when safer alternatives exist. In Rust, optional values are modeled using the `Option` type which the `windows` crate takes advantage of for COM interfaces. So instead of passing a `NULL` pointer, you can pass `None` instead.
 
 For example, in C/C++ [`IShellFolder::BindToObject`](https://docs.microsoft.com/en-us/windows/win32/api/shobjidl_core/nf-shobjidl_core-ishellfolder-bindtoobject)'s third parameter is a pointer to an `IBindCtx` interface. The C and C++ docs state that passing `NULL` is appropriate when the parameter is not used.
 
