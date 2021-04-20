@@ -24,7 +24,7 @@ The `windows` crate does not allow the use of null pointers when safer alternati
 
 For example, in C/C++ [`IShellFolder::BindToObject`](https://docs.microsoft.com/en-us/windows/win32/api/shobjidl_core/nf-shobjidl_core-ishellfolder-bindtoobject)'s third parameter is a pointer to an `IBindCtx` interface. The C and C++ docs state that passing `NULL` is appropriate when the parameter is not used.
 
-In Rust this parameter is [translated](https://microsoft.github.io/windows-docs-rs/doc/bindings/Windows/Win32/Shell/struct.IShellFolder.html#method.BindToObject) as `impl IntoParam<'a, IBindCtx>`. If you try to pass a null pointer (from `std::ptr::null` or `std::ptr::null_mut`), the code won't compile. Instead you can pass `None`, and the code will compile.
+In Rust this parameter is [translated](https://microsoft.github.io/windows-docs-rs/doc/bindings/Windows/Win32/Shell/struct.IShellFolder.html#method.BindToObject) as `impl IntoParam<'a, IBindCtx>`. If you try to pass a null pointer (from `std::ptr::null` or `std::ptr::null_mut`), the code won't compile. Instead, you can pass `None` and the code will compile.
 
 ## Why do I get a "method missing" error when the documentation says the method exists?
 
