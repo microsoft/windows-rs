@@ -18,7 +18,15 @@ It turns out that `IntoParam<'a, PWSTR>` is implemented for `&'a str` so we can 
 
 If you get an error message saying that a specific type does not satisfy the trait bound, then you are passing a type which cannot be converted to the correct type. If you think this is in error (i.e., you think the type you have should be trivially convertible to the param type in question), don't hesitate to [file an issue](https://github.com/microsoft/windows-rs/issues).
 
-## I get a "method missing" error when the documentation says the method exists.
+## Why do I get an error when trying to pass a NULL pointer to a function that should take null?
+
+The `windows` crate does not allow the use of null pointers when safer alternatives exist. In Rust, optional values are modeled using the `Option` type which the `windows` crate takes advantage of for COM interfaces. So instead of passing a `NULL` pointer, you can pass `None` instead.
+
+For example, in C/C++ [`IShellFolder::BindToObject`](https://docs.microsoft.com/en-us/windows/win32/api/shobjidl_core/nf-shobjidl_core-ishellfolder-bindtoobject)'s third parameter is a pointer to an `IBindCtx` interface. The C and C++ docs state that passing `NULL` is appropriate when the parameter is not used.
+
+In Rust this parameter is [translated](https://microsoft.github.io/windows-docs-rs/doc/bindings/Windows/Win32/Shell/struct.IShellFolder.html#method.BindToObject) as `impl IntoParam<'a, IBindCtx>`. If you try to pass a null pointer (from `std::ptr::null` or `std::ptr::null_mut`), the code won't compile. Instead, you can pass `None` and the code will compile.
+
+## Why do I get a "method missing" error when the documentation says the method exists?
 
 In order to greatly reduce the amount of code generated, methods are only generated when all of their argument and return types have also been generated. Make sure to include the types of the missing method's arguments and return type in the `build!` macro.
 
