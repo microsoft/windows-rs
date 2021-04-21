@@ -11,12 +11,12 @@ impl<I: Interface> Weak<I> {
         Self(None, PhantomData)
     }
 
-    pub(crate) fn downgrade(source: &IWeakReferenceSource) -> Result<Self> {
-        Ok(Self(Some(source.downgrade()?), PhantomData))
-    }
-
-    /// Attempts to upgradew the weak reference to a strong reference.
+    /// Attempts to upgrade the weak reference to a strong reference.
     pub fn upgrade(&self) -> Option<I> {
         self.0.as_ref().and_then(|inner| inner.upgrade::<I>())
+    }
+
+    pub(crate) fn downgrade(source: &IWeakReferenceSource) -> Result<Self> {
+        Ok(Self(Some(source.downgrade()?), PhantomData))
     }
 }
