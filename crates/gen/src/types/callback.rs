@@ -41,7 +41,7 @@ impl Callback {
         };
 
         quote! {
-            pub type #name = extern "system" fn(#(#params),*) #return_type;
+            pub type #name = unsafe extern "system" fn(#(#params),*) #return_type;
         }
     }
 }

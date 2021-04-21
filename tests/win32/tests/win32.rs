@@ -304,18 +304,20 @@ fn interface() -> windows::Result<()> {
 
 #[test]
 fn callback() {
-    let a: PROPENUMPROCA = callback_a;
-    assert!(BOOL(789) == a(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
+    unsafe {
+        let a: PROPENUMPROCA = callback_a;
+        assert!(BOOL(789) == a(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
 
-    let a: PROPENUMPROCW = callback_w;
-    assert!(
-        BOOL(789)
-            == a(
-                HWND(123),
-                PWSTR(windows::HString::from("hello w\0").as_wide().as_ptr() as _),
-                HANDLE(456)
-            )
-    );
+        let a: PROPENUMPROCW = callback_w;
+        assert!(
+            BOOL(789)
+                == a(
+                    HWND(123),
+                    PWSTR(windows::HString::from("hello w\0").as_wide().as_ptr() as _),
+                    HANDLE(456)
+                )
+        );
+    }
 }
 
 // TODO: second parameter should be *const i8
