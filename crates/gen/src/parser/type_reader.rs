@@ -114,7 +114,11 @@ impl TypeReader {
 
         let exclude = &[
             ("Windows.Foundation", "HResult"),
+            ("Windows.Win32.Com", "HRESULT"),
             ("Windows.Win32.Com", "IUnknown"),
+            ("Windows.Win32.WinRT", "HSTRING"),
+            ("Windows.Win32.WinRT", "IInspectable"),
+            ("Windows.Win32.WinRT", "IActivationFactory"),
             ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F"),
             ("Windows.Win32.SystemServices", "LARGE_INTEGER"),
             ("Windows.Win32.SystemServices", "ULARGE_INTEGER"),

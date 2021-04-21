@@ -124,6 +124,8 @@ impl ElementType {
                         ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
                         ("Windows.Foundation", "HResult") => Self::HRESULT,
                         ("Windows.Win32.Com", "HRESULT") => Self::HRESULT,
+                        ("Windows.Win32.WinRT", "HSTRING") => Self::String,
+                        ("Windows.Win32.WinRT", "IInspectable") => Self::Object,
                         ("Windows.Win32.SystemServices", "LARGE_INTEGER") => Self::I64,
                         ("Windows.Win32.SystemServices", "ULARGE_INTEGER") => Self::U64,
                         ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,

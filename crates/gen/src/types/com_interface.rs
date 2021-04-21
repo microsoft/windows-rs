@@ -205,14 +205,11 @@ impl ComInterface {
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             pub struct #name(::windows::IUnknown);
             impl #name {
-
+                #(#methods)*
             }
             unsafe impl ::windows::Interface for #name {
                 type Vtable = #abi_name;
                 const IID: ::windows::Guid = #guid;
-            }
-            impl #name {
-                #(#methods)*
             }
             #conversions
             #send_sync
