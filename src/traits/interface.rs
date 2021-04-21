@@ -35,4 +35,10 @@ pub unsafe trait Interface: Sized + Abi {
             .and_some(result)
         }
     }
+
+    /// Attempts to create a `Weak` reference to this object.
+    fn downgrade(&self) -> Result<Weak<Self>> {
+        self.cast::<IWeakReferenceSource>()
+            .and_then(|source| Weak::downgrade(&source))
+    }
 }

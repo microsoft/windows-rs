@@ -17,6 +17,7 @@ mod result;
 mod runtime;
 mod traits;
 
+use interfaces::*;
 use runtime::*;
 
 pub use bindings::Windows::Win32::Com::IAgileObject;
@@ -24,7 +25,7 @@ pub use interfaces::{IActivationFactory, IUnknown, Object};
 pub use result::{Error, Result, HRESULT};
 pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, HString,
-    Param, RefCount, Waiter,
+    Param, RefCount, Waiter, Weak,
 };
 pub use traits::{Abi, Interface, IntoParam, RuntimeName, RuntimeType};
 

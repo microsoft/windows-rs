@@ -8,6 +8,7 @@ mod hstring;
 mod param;
 mod ref_count;
 mod waiter;
+mod weak;
 
 pub use array::*;
 pub use com::*;
@@ -19,3 +20,4 @@ pub use hstring::*;
 pub use param::*;
 pub use ref_count::*;
 pub use waiter::*;
+pub use weak::*;
