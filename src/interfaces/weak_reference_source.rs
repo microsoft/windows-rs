@@ -1,7 +1,7 @@
 use super::*;
 
 #[repr(transparent)]
-#[derive(Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq, Debug)]
 pub struct IWeakReferenceSource(IUnknown);
 
 impl IWeakReferenceSource {

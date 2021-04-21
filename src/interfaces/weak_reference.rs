@@ -1,7 +1,7 @@
 use crate::*;
 
 #[repr(transparent)]
-#[derive(Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq, Debug)]
 pub struct IWeakReference(IUnknown);
 
 impl IWeakReference {
