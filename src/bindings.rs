@@ -1898,16 +1898,6 @@ pub mod Windows {
                 :: std :: fmt :: Debug,
             )]
             pub struct IErrorInfo(::windows::IUnknown);
-            impl IErrorInfo {}
-            unsafe impl ::windows::Interface for IErrorInfo {
-                type Vtable = IErrorInfo_abi;
-                const IID: ::windows::Guid = ::windows::Guid::from_values(
-                    485667104,
-                    21629,
-                    4123,
-                    [142, 101, 8, 0, 43, 43, 209, 25],
-                );
-            }
             impl IErrorInfo {
                 pub unsafe fn GetGUID(&self, pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).3)(
@@ -1945,6 +1935,15 @@ pub mod Windows {
                         ::std::mem::transmute(pdwhelpcontext),
                     )
                 }
+            }
+            unsafe impl ::windows::Interface for IErrorInfo {
+                type Vtable = IErrorInfo_abi;
+                const IID: ::windows::Guid = ::windows::Guid::from_values(
+                    485667104,
+                    21629,
+                    4123,
+                    [142, 101, 8, 0, 43, 43, 209, 25],
+                );
             }
             impl ::std::convert::From<IErrorInfo> for ::windows::IUnknown {
                 fn from(value: IErrorInfo) -> Self {
@@ -2255,7 +2254,6 @@ pub mod Windows {
                     [192, 255, 238, 100, 202, 143, 91, 144],
                 );
             }
-            impl IAgileObject {}
             impl ::std::convert::From<IAgileObject> for ::windows::IUnknown {
                 fn from(value: IAgileObject) -> Self {
                     unsafe { ::std::mem::transmute(value) }
@@ -6192,16 +6190,6 @@ pub mod Windows {
                 :: std :: fmt :: Debug,
             )]
             pub struct IRestrictedErrorInfo(::windows::IUnknown);
-            impl IRestrictedErrorInfo {}
-            unsafe impl ::windows::Interface for IRestrictedErrorInfo {
-                type Vtable = IRestrictedErrorInfo_abi;
-                const IID: ::windows::Guid = ::windows::Guid::from_values(
-                    2193256594,
-                    19592,
-                    17021,
-                    [167, 188, 22, 221, 147, 254, 182, 126],
-                );
-            }
             impl IRestrictedErrorInfo {
                 pub unsafe fn GetErrorDetails(
                     &self,
@@ -6227,6 +6215,15 @@ pub mod Windows {
                         ::std::mem::transmute(reference),
                     )
                 }
+            }
+            unsafe impl ::windows::Interface for IRestrictedErrorInfo {
+                type Vtable = IRestrictedErrorInfo_abi;
+                const IID: ::windows::Guid = ::windows::Guid::from_values(
+                    2193256594,
+                    19592,
+                    17021,
+                    [167, 188, 22, 221, 147, 254, 182, 126],
+                );
             }
             impl ::std::convert::From<IRestrictedErrorInfo> for ::windows::IUnknown {
                 fn from(value: IRestrictedErrorInfo) -> Self {
@@ -6282,16 +6279,6 @@ pub mod Windows {
                 :: std :: fmt :: Debug,
             )]
             pub struct ILanguageExceptionErrorInfo(::windows::IUnknown);
-            impl ILanguageExceptionErrorInfo {}
-            unsafe impl ::windows::Interface for ILanguageExceptionErrorInfo {
-                type Vtable = ILanguageExceptionErrorInfo_abi;
-                const IID: ::windows::Guid = ::windows::Guid::from_values(
-                    77782003,
-                    57219,
-                    4460,
-                    [9, 70, 8, 18, 171, 246, 224, 125],
-                );
-            }
             impl ILanguageExceptionErrorInfo {
                 pub unsafe fn GetLanguageException(
                     &self,
@@ -6302,6 +6289,15 @@ pub mod Windows {
                         ::std::mem::transmute(languageexception),
                     )
                 }
+            }
+            unsafe impl ::windows::Interface for ILanguageExceptionErrorInfo {
+                type Vtable = ILanguageExceptionErrorInfo_abi;
+                const IID: ::windows::Guid = ::windows::Guid::from_values(
+                    77782003,
+                    57219,
+                    4460,
+                    [9, 70, 8, 18, 171, 246, 224, 125],
+                );
             }
             impl ::std::convert::From<ILanguageExceptionErrorInfo> for ::windows::IUnknown {
                 fn from(value: ILanguageExceptionErrorInfo) -> Self {
@@ -6348,16 +6344,6 @@ pub mod Windows {
                 :: std :: fmt :: Debug,
             )]
             pub struct ILanguageExceptionErrorInfo2(::windows::IUnknown);
-            impl ILanguageExceptionErrorInfo2 {}
-            unsafe impl ::windows::Interface for ILanguageExceptionErrorInfo2 {
-                type Vtable = ILanguageExceptionErrorInfo2_abi;
-                const IID: ::windows::Guid = ::windows::Guid::from_values(
-                    1464264132,
-                    23447,
-                    16972,
-                    [182, 32, 40, 34, 145, 87, 52, 221],
-                );
-            }
             impl ILanguageExceptionErrorInfo2 {
                 pub unsafe fn GetLanguageException(
                     &self,
@@ -6399,6 +6385,15 @@ pub mod Windows {
                         ::std::mem::transmute(propagatedlanguageexceptionerrorinfohead),
                     )
                 }
+            }
+            unsafe impl ::windows::Interface for ILanguageExceptionErrorInfo2 {
+                type Vtable = ILanguageExceptionErrorInfo2_abi;
+                const IID: ::windows::Guid = ::windows::Guid::from_values(
+                    1464264132,
+                    23447,
+                    16972,
+                    [182, 32, 40, 34, 145, 87, 52, 221],
+                );
             }
             impl ::std::convert::From<ILanguageExceptionErrorInfo2> for ::windows::IUnknown {
                 fn from(value: ILanguageExceptionErrorInfo2) -> Self {
