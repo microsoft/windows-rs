@@ -7,7 +7,7 @@
 )]
 
 use crate::*;
-use std::sync::atomic::AtomicIsize;
+use std::sync::atomic::{AtomicIsize, Ordering};
 
 /// A thread-safe reference count for use with COM weak reference implementations.
 #[repr(transparent)]
@@ -72,6 +72,10 @@ impl TearOff {
         &mut *((this as *mut RawPtr).sub(1) as *mut Self)
     }
 
+    unsafe fn query_interface(&self, iid: &Guid, interface: *mut RawPtr) -> HRESULT {
+        ((*(*(self.object as *mut *mut _) as *mut IUnknown_vtable)).0)(self.object, iid, interface)
+    }
+
     unsafe extern "system" fn StrongQueryInterface(
         ptr: RawPtr,
         iid: &Guid,
@@ -89,7 +93,7 @@ impl TearOff {
 
         // As the tear-off is sharing the identity of the object, simply delegate any remaining
         // queries to the object.
-        ((*(*(this.object as *mut *mut _) as *mut IUnknown_vtable)).0)(this.object, iid, interface)
+        this.query_interface(iid, interface)
     }
 
     unsafe extern "system" fn WeakQueryInterface(
@@ -175,6 +179,29 @@ impl TearOff {
     ) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
-        panic!();
+        let count = this.strong_count.0.load(Ordering::Relaxed);
+
+        loop {
+            if count == 0 {
+                *interface = std::ptr::null_mut();
+                return HRESULT(0);
+            }
+
+            // Attempt to acquire a strong reference count to stabilize the object for the duration
+            // of the `QueryInterface` call.
+            if this
+                .strong_count
+                .0
+                .compare_exchange_weak(count, count + 1, Ordering::Acquire, Ordering::Relaxed)
+                .is_ok()
+            {
+                // Let the object respond to the upgrade query.
+                let result = this.query_interface(iid, interface);
+                // Decrement the temporary reference account used to stablize the object.
+                this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
+                // Return the result of the query.
+                return result;
+            }
+        }
     }
 }

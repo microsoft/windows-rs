@@ -3,7 +3,7 @@ use std::sync::atomic::{fence, AtomicI32, Ordering};
 /// A thread-safe reference count for use with COM/HSTRING implementations.
 #[repr(transparent)]
 #[derive(Default)]
-pub struct RefCount(AtomicI32);
+pub struct RefCount(pub(crate) AtomicI32);
 
 impl RefCount {
     /// Creates a new `RefCount` with an initial value of `1`.
