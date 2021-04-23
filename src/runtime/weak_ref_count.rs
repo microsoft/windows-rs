@@ -26,6 +26,10 @@ impl WeakRefCount {
     pub fn release(&self) -> u32 {
         panic!();
     }
+
+    pub fn promote(&self) -> IWeakReferenceSource {
+        panic!();
+    }
 }
 
 #[repr(C)]
