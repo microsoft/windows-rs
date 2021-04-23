@@ -9,6 +9,7 @@ mod param;
 mod ref_count;
 mod waiter;
 mod weak;
+mod weak_ref_count;
 
 pub use array::*;
 pub use com::*;
@@ -21,3 +22,4 @@ pub use param::*;
 pub use ref_count::*;
 pub use waiter::*;
 pub use weak::*;
+pub use weak_ref_count::*;

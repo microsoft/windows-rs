@@ -1,17 +1,14 @@
-// Implementation of a weak reference count and tearoff
-
-// Somehow try to bake everything in here so we can keep the implement macro simple.
-
-use std::sync::atomic::{fence, AtomicI32, Ordering};
+use crate::*;
+use std::sync::atomic::{fence, AtomicIsize, AtomicU32, Ordering};
 
 /// A thread-safe reference count for use with COM weak reference implementations.
 #[repr(transparent)]
 #[derive(Default)]
-pub struct WeakRefCount(AtomicI32);
+pub struct WeakRefCount(AtomicIsize);
 
 impl WeakRefCount {
     pub fn new() -> Self {
-        Self(AtomicI32::new(1))
+        Self(AtomicIsize::new(1))
     }
 
     pub fn add_ref(&self) -> u32 {
@@ -30,3 +27,26 @@ impl WeakRefCount {
         remaining as u32
     }
 }
+
+struct TearOff {
+    object: RawPtr,
+    source_vtable: *const IWeakReferenceSource_vtable,
+    weak_vtable: *const IWeakReference_vtable,
+    strong_count: AtomicU32,
+    weak_count: AtomicU32,
+}
+
+// impl TearOff {
+//     fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
+//         let com = TearOff {
+//             object,
+//             source_vtable: &Self::SOURCE_VTABLE,
+//             weak_vtable: &Self::WEAK_VTABLE,
+//             strong_count,
+//             weak_count: 1,
+//         };
+//         unsafe {
+//             std::mem::transmute(::std::boxed::Box::new(com))
+//         }
+//     }
+// }

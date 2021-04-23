@@ -25,7 +25,7 @@ pub use interfaces::{IActivationFactory, IUnknown, Object};
 pub use result::{Error, Result, HRESULT};
 pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, HString,
-    Param, RefCount, Waiter, Weak,
+    Param, RefCount, Waiter, Weak, WeakRefCount,
 };
 pub use traits::{Abi, Interface, IntoParam, RuntimeName, RuntimeType};
 
