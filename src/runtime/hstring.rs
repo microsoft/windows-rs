@@ -247,7 +247,7 @@ impl Header {
             (*header).flags = 0;
             (*header).len = len;
             (*header).data = &mut (*(*header).shared.as_mut_ptr()).buffer_start;
-            (*(*header).shared.as_mut_ptr()).count = RefCount::new();
+            (*(*header).shared.as_mut_ptr()).count = RefCount::new(1);
         }
         header
     }

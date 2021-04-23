@@ -140,6 +140,8 @@ impl Delegate {
                             ::std::ptr::null_mut()
                         };
 
+                    // TODO: implement IMarshal
+
                     if (*interface).is_null() {
                         ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
                     } else {

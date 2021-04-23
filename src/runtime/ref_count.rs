@@ -7,8 +7,8 @@ pub struct RefCount(AtomicI32);
 
 impl RefCount {
     /// Creates a new `RefCount` with an initial value of `1`.
-    pub fn new() -> Self {
-        Self(AtomicI32::new(1))
+    pub fn new(count: u32) -> Self {
+        Self(AtomicI32::new(count as _))
     }
 
     /// Increments the reference count, returning the new value.

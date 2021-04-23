@@ -1,7 +1,13 @@
-#![allow(non_upper_case_globals, non_snake_case, non_camel_case_types, dead_code, unused_variables)]
+#![allow(
+    non_upper_case_globals,
+    non_snake_case,
+    non_camel_case_types,
+    dead_code,
+    unused_variables
+)]
 
 use crate::*;
-use std::sync::atomic::{fence, AtomicIsize, AtomicI32, Ordering};
+use std::sync::atomic::{fence, AtomicIsize, Ordering};
 
 /// A thread-safe reference count for use with COM weak reference implementations.
 #[repr(transparent)]
@@ -35,8 +41,8 @@ struct TearOff {
     strong_vtable: *const IWeakReferenceSource_vtable,
     weak_vtable: *const IWeakReference_vtable,
     object: RawPtr,
-    strong_count: AtomicI32,
-    weak_count: AtomicI32,
+    strong_count: RefCount,
+    weak_count: RefCount,
 }
 
 impl TearOff {
@@ -46,8 +52,8 @@ impl TearOff {
                 strong_vtable: &Self::STRONG_VTABLE,
                 weak_vtable: &Self::WEAK_VTABLE,
                 object,
-                strong_count: AtomicI32::new(strong_count as _),
-                weak_count: AtomicI32::new(1),
+                strong_count: RefCount::new(strong_count),
+                weak_count: RefCount::new(1),
             }))
         }
     }
@@ -66,68 +72,110 @@ impl TearOff {
         Self::WeakUpgrade,
     );
 
-    unsafe fn from_strong_vtable(this: RawPtr) -> *mut Self {
-        this as *mut RawPtr as *mut Self
+    unsafe fn from_strong_ptr<'a>(this: RawPtr) -> &'a mut Self {
+        &mut *(this as *mut RawPtr as *mut Self)
     }
 
-    unsafe fn from_weak_vtable(this: RawPtr) -> *mut Self {
-        (this as *mut RawPtr).sub(1) as *mut Self
+    unsafe fn from_weak_ptr<'a>(this: RawPtr) -> &'a mut Self {
+        &mut *((this as *mut RawPtr).sub(1) as *mut Self)
     }
 
-    unsafe extern "system" fn StrongQueryInterface(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT {
-        let this = Self::from_strong_vtable(this);
-        
-        panic!();
-    }
+    unsafe extern "system" fn StrongQueryInterface(
+        ptr: RawPtr,
+        iid: &Guid,
+        interface: *mut RawPtr,
+    ) -> HRESULT {
+        let this = Self::from_strong_ptr(ptr);
 
-    unsafe extern "system" fn StrongAddRef(this: ::windows::RawPtr) -> u32 {
-        let this = Self::from_strong_vtable(this);
-        // Implement strong `AddRef` directly as we own the reference.
-        ((*this).strong_count.fetch_add(1, Ordering::Relaxed) + 1) as u32
-    }
-
-    unsafe extern "system" fn StrongRelease(this: ::windows::RawPtr) -> u32 {
-        let this = Self::from_strong_vtable(this);
-        // Forward strong `Release` to the object so that it can destroy itself.
-        // It will then cause the tear-off to be destroyed as needed.
-        ((*(*((*this).object as *mut *mut _) as *mut IUnknown_vtable)).2)((*this).object)
-    }
-
-    unsafe extern "system" fn StrongDowngrade(this: RawPtr, interface: *mut RawPtr) -> HRESULT {
-        let this = Self::from_strong_vtable(this);
-        panic!();
-    }
-
-    unsafe extern "system" fn WeakQueryInterface(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT {
-        let this = Self::from_weak_vtable(this);
-        panic!();
-    }
-
-    unsafe extern "system" fn WeakAddRef(this: ::windows::RawPtr) -> u32 {
-        let this = Self::from_weak_vtable(this);
-        // Implement weak `AddRef` directly as we own the reference.
-        ((*this).weak_count.fetch_add(1, Ordering::Relaxed) + 1) as u32
-    }
-
-    unsafe extern "system" fn WeakRelease(this: ::windows::RawPtr) -> u32 {
-        let this = Self::from_weak_vtable(this);
-        // Implement weak `Release` directly as we own the reference.
-        let remaining = (*this).weak_count.fetch_sub(1, Ordering::Release) - 1;
-
-        // If there are no remaining references, it means that the object has already been destroyed.
-        // Go ahead and destroy the tear-off.
-        if remaining == 0 {
-            fence(Ordering::Acquire);
-            Box::from_raw(this);
-        } else if remaining < 0 {
-            panic!("Object has been over-released.");
+        // Only directly respond to queries for the the tear-off's strong interface. This is
+        // effectively a self-query.
+        if iid == &IWeakReferenceSource::IID {
+            *interface = ptr;
+            this.strong_count.add_ref();
+            return HRESULT(0);
         }
 
-        remaining as u32
+        // As the tear-off is sharing the identity of the object, simply delegate any remaining
+        // queries to the object.
+        ((*(*(this.object as *mut *mut _) as *mut IUnknown_vtable)).0)(this.object, iid, interface)
     }
 
-    unsafe extern "system" fn WeakUpgrade(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT {
-        let this = Self::from_weak_vtable(this);
+    unsafe extern "system" fn WeakQueryInterface(
+        ptr: RawPtr,
+        iid: &Guid,
+        interface: *mut RawPtr,
+    ) -> HRESULT {
+        let this = Self::from_weak_ptr(ptr);
+
+        // While the weak vtable is packed into the same allocation as the strong vtable and
+        // tear-off, it represents a distinct COM identity and thus does not share or delegate to
+        // the object.
+
+        *interface =
+            if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID {
+                ptr
+            } else {
+                std::ptr::null_mut()
+            };
+
+        // TODO: implement IMarshal
+
+        if (*interface).is_null() {
+            HRESULT(0x8000_4002) // E_NOINTERFACE
+        } else {
+            this.weak_count.add_ref();
+            HRESULT(0)
+        }
+    }
+
+    unsafe extern "system" fn StrongAddRef(ptr: ::windows::RawPtr) -> u32 {
+        let this = Self::from_strong_ptr(ptr);
+
+        // Implement `AddRef` directly as we own the strong reference.
+        this.strong_count.add_ref()
+    }
+
+    unsafe extern "system" fn WeakAddRef(ptr: ::windows::RawPtr) -> u32 {
+        let this = Self::from_weak_ptr(ptr);
+
+        // Implement `AddRef` directly as we own the weak reference.
+        this.weak_count.add_ref()
+    }
+
+    unsafe extern "system" fn StrongRelease(ptr: ::windows::RawPtr) -> u32 {
+        let this = Self::from_strong_ptr(ptr);
+
+        // Forward strong `Release` to the object so that it can destroy itself. It will then
+        // decrement its weak reference and allow the tear-off to be released as needd.
+        ((*(*(this.object as *mut *mut _) as *mut IUnknown_vtable)).2)((*this).object)
+    }
+
+    unsafe extern "system" fn WeakRelease(ptr: ::windows::RawPtr) -> u32 {
+        let this = Self::from_weak_ptr(ptr);
+
+        // Implement `Release` directly as we own the weak reference.
+        let remaining = (*this).weak_count.release();
+
+        // If there are no remaining references, it means that the object has already been
+        // destroyed. Go ahead and destroy the tear-off.
+        if remaining == 0 {
+            Box::from_raw(this);
+        }
+
+        remaining
+    }
+
+    unsafe extern "system" fn StrongDowngrade(ptr: RawPtr, interface: *mut RawPtr) -> HRESULT {
+        let this = Self::from_strong_ptr(ptr);
+        panic!();
+    }
+
+    unsafe extern "system" fn WeakUpgrade(
+        ptr: RawPtr,
+        iid: &Guid,
+        interface: *mut RawPtr,
+    ) -> HRESULT {
+        let this = Self::from_weak_ptr(ptr);
         panic!();
     }
 }
