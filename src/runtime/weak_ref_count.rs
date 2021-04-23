@@ -7,7 +7,7 @@
 )]
 
 use crate::*;
-use std::sync::atomic::{fence, AtomicIsize, Ordering};
+use std::sync::atomic::AtomicIsize;
 
 /// A thread-safe reference count for use with COM weak reference implementations.
 #[repr(transparent)]
@@ -20,19 +20,11 @@ impl WeakRefCount {
     }
 
     pub fn add_ref(&self) -> u32 {
-        (self.0.fetch_add(1, Ordering::Relaxed) + 1) as u32
+        panic!();
     }
 
     pub fn release(&self) -> u32 {
-        let remaining = self.0.fetch_sub(1, Ordering::Release) - 1;
-
-        if remaining == 0 {
-            fence(Ordering::Acquire);
-        } else if remaining < 0 {
-            panic!("Object has been over-released.");
-        }
-
-        remaining as u32
+        panic!();
     }
 }
 
@@ -167,7 +159,13 @@ impl TearOff {
 
     unsafe extern "system" fn StrongDowngrade(ptr: RawPtr, interface: *mut RawPtr) -> HRESULT {
         let this = Self::from_strong_ptr(ptr);
-        panic!();
+
+        // The strong vtable hands out a reference to the weak vtable. This is always safe and
+        // straightforward since a strong refernece guarantees there is at lerast one weak
+        // reference.
+        *interface = &mut this.weak_vtable as *mut _ as _;
+        this.weak_count.add_ref();
+        HRESULT(0)
     }
 
     unsafe extern "system" fn WeakUpgrade(
@@ -176,6 +174,7 @@ impl TearOff {
         interface: *mut RawPtr,
     ) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
+
         panic!();
     }
 }
