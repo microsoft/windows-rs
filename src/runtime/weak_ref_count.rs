@@ -27,7 +27,7 @@ impl WeakRefCount {
         panic!();
     }
 
-    pub fn promote(&self) -> IWeakReferenceSource {
+    pub fn promote(&self, object: &IUnknown) -> IWeakReferenceSource {
         panic!();
     }
 }
