@@ -1,14 +1,33 @@
 fn main() {
     windows::build!(
-        Microsoft::Web::WebView2::Core::*,
         Microsoft::Web::WebView2::Win32::*,
-        Windows::Foundation::*,
-        Windows::Win32::DisplayDevices::{POINT, RECT, SIZE},
+        Windows::Win32::Com::{
+            CoTaskMemAlloc,
+            CoTaskMemFree
+        },
+        Windows::Win32::DisplayDevices::{
+            POINT,
+            RECT,
+            SIZE
+        },
         Windows::Win32::Gdi::UpdateWindow,
-        Windows::Win32::HiDpi::{PROCESS_DPI_AWARENESS, SetProcessDpiAwareness},
+        Windows::Win32::HiDpi::{
+            PROCESS_DPI_AWARENESS,
+            SetProcessDpiAwareness
+        },
         Windows::Win32::KeyboardAndMouseInput::SetFocus,
         Windows::Win32::MenusAndResources::HMENU,
-        Windows::Win32::SystemServices::{GetCurrentThreadId, GetModuleHandleA, HINSTANCE, LRESULT, PWSTR},
+        Windows::Win32::SystemServices::{
+            E_NOINTERFACE,
+            E_POINTER,
+            GetCurrentThreadId,
+            GetModuleHandleA,
+            HINSTANCE,
+            LRESULT,
+            PWSTR,
+            S_OK
+        },
+        Windows::Win32::WinRT::EventRegistrationToken,
         Windows::Win32::WindowsAndMessaging::*
     )
 }
