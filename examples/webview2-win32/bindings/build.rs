@@ -1,6 +1,7 @@
 fn main() {
     windows::build!(
         Microsoft::Web::WebView2::Core::*,
+        Microsoft::Web::WebView2::Win32::*,
         Windows::Foundation::*,
         Windows::Win32::DisplayDevices::{POINT, RECT, SIZE},
         Windows::Win32::Gdi::UpdateWindow,
