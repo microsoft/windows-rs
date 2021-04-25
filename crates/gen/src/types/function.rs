@@ -34,6 +34,18 @@ impl Function {
             link = "onecoreuap";
         }
 
+        let static_lib = def
+            .attributes()
+            .filter_map(|attribute| match attribute.name() {
+                "StaticLibraryAttribute" => Some(attribute.args()[0].1.gen_value()),
+                _ => None,
+            })
+            .next();
+        let link = match static_lib {
+            Some(libName) => quote! { #[link(name = #libName, kind = #static_lib)] },
+            None => quote! { #[link(name = )]},
+        };
+
         if signature.has_query_interface() {
             let leading_params = &signature.params[..signature.params.len() - 2];
             let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
@@ -43,7 +55,7 @@ impl Function {
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(#params) -> ::windows::Result<T> {
                     #[cfg(windows)]
                     {
-                        #[link(name = #link)]
+                        #link
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
@@ -71,7 +83,7 @@ impl Function {
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
                     #[cfg(windows)]
                     {
-                        #[link(name = #link)]
+                        #link
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
@@ -88,7 +100,7 @@ impl Function {
                     pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
                         #[cfg(windows)]
                         {
-                            #[link(name = #link)]
+                            #link
                             extern "system" {
                                 fn #name(#(#abi_params),*) -> ::windows::HRESULT;
                             }
@@ -105,7 +117,7 @@ impl Function {
                     pub unsafe fn #name<#constraints>(#params) -> #return_type {
                         #[cfg(windows)]
                         {
-                            #[link(name = #link)]
+                            #link
                             extern "system" {
                                 fn #name(#(#abi_params),*) #abi_return_type;
                             }
@@ -121,7 +133,7 @@ impl Function {
                 pub unsafe fn #name<#constraints>(#params) {
                     #[cfg(windows)]
                     {
-                        #[link(name = #link)]
+                        #link
                         extern "system" {
                             fn #name(#(#abi_params),*);
                         }

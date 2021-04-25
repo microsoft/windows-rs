@@ -90,6 +90,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                                 if let ::std::option::Option::Some(filename) = path.file_name() {
                                     if filename == profile {
                                         copy(source, &mut path);
+                                        println!("cargo:rustc-link-search=native={}", path.to_str().expect("Invalid profile dir"));
                                     } else {
                                         copy_to_profile(source, &path, profile);
                                     }
