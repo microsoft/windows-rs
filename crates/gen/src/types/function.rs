@@ -52,13 +52,30 @@ impl Function {
         }
 
         if cfg!(windows) {
-            quote! {
-                pub unsafe fn #name<#constraints>(#params) #return_type {
-                    #[link(name = #link)]
-                    extern "system" {
-                        pub fn #name(#(#abi_params),*) #abi_return_type;
+            // Allow static libraries by including the .lib suffix
+            let static_lib_suffix = ".lib";
+
+            if link.to_lowercase().ends_with(static_lib_suffix) {
+                link = &link[..(link.len() - static_lib_suffix.len())];
+
+                quote! {
+                    pub unsafe fn #name<#constraints>(#params) #return_type {
+                        #[link(name = #link, kind = "static")]
+                        extern "system" {
+                            pub fn #name(#(#abi_params),*) #abi_return_type;
+                        }
+                        #name(#(#args),*)
                     }
-                    #name(#(#args),*)
+                }
+            } else {
+                quote! {
+                    pub unsafe fn #name<#constraints>(#params) #return_type {
+                        #[link(name = #link)]
+                        extern "system" {
+                            pub fn #name(#(#abi_params),*) #abi_return_type;
+                        }
+                        #name(#(#args),*)
+                    }
                 }
             }
         } else {
