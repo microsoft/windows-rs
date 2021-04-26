@@ -17,6 +17,7 @@ mod result;
 mod runtime;
 mod traits;
 
+use interfaces::*;
 use runtime::*;
 
 pub use bindings::Windows::Win32::Com::IAgileObject;

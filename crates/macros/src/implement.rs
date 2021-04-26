@@ -205,7 +205,7 @@ pub fn gen(
                 Self {
                     vtable: (#(&Self::VTABLE.#vtable_ordinals,)*),
                     inner,
-                    count: ::windows::RefCount::new()
+                    count: ::windows::RefCount::new(1)
                 }
             }
             fn QueryInterface(&mut self, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {

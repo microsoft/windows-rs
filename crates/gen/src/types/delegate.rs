@@ -89,7 +89,7 @@ impl Delegate {
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = #box_name {
                         vtable: &#box_name::VTABLE,
-                        count: ::windows::RefCount::new(),
+                        count: ::windows::RefCount::new(1),
                         invoke,
                     };
                     unsafe {
