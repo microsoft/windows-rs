@@ -79,6 +79,9 @@ impl TypeReader {
                     continue;
                 }
 
+                // TODO: index fields of Win32 enums as well - these should also be module-level constants
+                // and thus be possible to identify individually as a build script. The Win32 enums then 
+                // become like handle structs, which is more natural anyway.
                 for field in def.fields() {
                     let name = field.name();
 
