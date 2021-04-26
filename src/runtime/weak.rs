@@ -1,4 +1,5 @@
 use crate::*;
+use bindings::Windows::Win32::WinRT::{IWeakReference, IWeakReferenceSource};
 use std::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.
@@ -13,10 +14,18 @@ impl<I: Interface> Weak<I> {
 
     /// Attempts to upgrade the weak reference to a strong reference.
     pub fn upgrade(&self) -> Option<I> {
-        self.0.as_ref().and_then(|inner| inner.upgrade::<I>())
+        self.0.as_ref().and_then(|inner| unsafe {
+            let mut result = None;
+            let _ = (inner.vtable().3)(inner.abi(), &I::IID, &mut result as *mut _ as _);
+            result
+        })
     }
 
     pub(crate) fn downgrade(source: &IWeakReferenceSource) -> Result<Self> {
-        Ok(Self(Some(source.downgrade()?), PhantomData))
+        let mut reference = None;
+        unsafe {
+            let _ = source.GetWeakReference(&mut reference);
+        }
+        Ok(Self(reference, PhantomData))
     }
 }
