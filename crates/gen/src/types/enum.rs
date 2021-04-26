@@ -88,13 +88,13 @@ impl Enum {
 
         let fields = self.0.fields().filter_map(|field| {
             if field.flags().literal() {
-                let name = to_ident(field.name());
+                let field_name = to_ident(field.name());
 
                 if let Some(constant) = field.constant() {
                     let value = constant.value().gen_value();
 
                     Some(quote! {
-                        pub const #name: Self = Self(#value);
+                        pub const #field_name: #name = #name(#value);
                     })
                 } else if let Some(last_value) = &last {
                     let next = last_value.next();
@@ -102,13 +102,13 @@ impl Enum {
                     last = Some(next);
 
                     Some(quote! {
-                        pub const #name: Self = Self(#value);
+                        pub const #field_name: #name = #name(#value);
                     })
                 } else {
                     last = Some(ConstantValue::I32(0));
 
                     Some(quote! {
-                        pub const #name: Self = Self(0);
+                        pub const #field_name: #name = #name(0);
                     })
                 }
             } else {
@@ -129,13 +129,23 @@ impl Enum {
             quote! {}
         };
 
+        let fields = if self.0.is_winrt() {
+            quote! {
+                impl #name {
+                    #(#fields)*
+                }
+            }
+        } else {
+            quote! {
+                #(#fields)*
+            }
+        };
+
         quote! {
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]
             #[repr(transparent)]
             pub struct #name(pub #underlying_type);
-            impl #name {
-                #(#fields)*
-            }
+            #fields
             impl ::std::convert::From<#underlying_type> for #name {
                 fn from(value: #underlying_type) -> Self {
                     Self(value)

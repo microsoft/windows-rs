@@ -1,5 +1,5 @@
 use bindings::Windows::Win32;
-use Win32::Intl;
+use Win32::Intl::*;
 use Win32::SystemServices::{BOOL, PWSTR, S_FALSE};
 
 fn main() -> windows::Result<()> {
@@ -10,7 +10,7 @@ fn main() -> windows::Result<()> {
     windows::initialize_mta()?;
 
     // Create ISpellCheckerFactory
-    let factory: Intl::ISpellCheckerFactory = windows::create_instance(&Intl::SpellCheckerFactory)?;
+    let factory: ISpellCheckerFactory = windows::create_instance(&SpellCheckerFactory)?;
 
     // Make sure that the "en-US" locale is supported
     let mut supported: BOOL = false.into();
@@ -56,15 +56,15 @@ fn main() -> windows::Result<()> {
         let substring = &input[start_index as usize..(start_index + length) as usize];
 
         // Get the corrective action
-        let mut action = Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_NONE;
+        let mut action = CORRECTIVE_ACTION_NONE;
         unsafe { error.get_CorrectiveAction(&mut action).ok()? };
         println!("{:?}", action);
 
         match action {
-            Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_DELETE => {
+            CORRECTIVE_ACTION_DELETE => {
                 println!("Delete '{}'", substring);
             }
-            Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_REPLACE => {
+            CORRECTIVE_ACTION_REPLACE => {
                 // Get the replacement as a widestring and convert to a Rust String
                 let mut replacement = PWSTR::NULL;
                 unsafe { error.get_Replacement(&mut replacement).ok()? };
@@ -73,7 +73,7 @@ fn main() -> windows::Result<()> {
                     read_to_string(replacement)
                 });
             }
-            Intl::CORRECTIVE_ACTION::CORRECTIVE_ACTION_GET_SUGGESTIONS => {
+            CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
                 let mut suggestions = None;
                 unsafe { checker.Suggest(substring, &mut suggestions).ok()? };

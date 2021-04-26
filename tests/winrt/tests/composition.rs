@@ -1,10 +1,4 @@
-use test_winrt::{
-    Windows::System::DispatcherQueueController,
-    Windows::Win32::SystemServices::{
-        CreateDispatcherQueueController, DispatcherQueueOptions,
-        DISPATCHERQUEUE_THREAD_APARTMENTTYPE, DISPATCHERQUEUE_THREAD_TYPE,
-    },
-};
+use test_winrt::{Windows::System::DispatcherQueueController, Windows::Win32::SystemServices::*};
 
 fn create_dispatcher() -> DispatcherQueueController {
     // We need a DispatcherQueue on our thread to properly create a Compositor. Note that since
@@ -12,8 +6,8 @@ fn create_dispatcher() -> DispatcherQueueController {
 
     let options = DispatcherQueueOptions {
         dwSize: std::mem::size_of::<DispatcherQueueOptions>() as u32,
-        threadType: DISPATCHERQUEUE_THREAD_TYPE::DQTYPE_THREAD_CURRENT,
-        apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE::DQTAT_COM_NONE,
+        threadType: DQTYPE_THREAD_CURRENT,
+        apartmentType: DQTAT_COM_NONE,
     };
 
     let mut interop = None;

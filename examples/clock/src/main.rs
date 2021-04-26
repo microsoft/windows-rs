@@ -190,8 +190,8 @@ impl Window {
                 output,
                 std::ptr::null(),
                 std::ptr::null(),
-                D2D1_INTERPOLATION_MODE::D2D1_INTERPOLATION_MODE_LINEAR,
-                D2D1_COMPOSITE_MODE::D2D1_COMPOSITE_MODE_SOURCE_OVER,
+                D2D1_INTERPOLATION_MODE_LINEAR,
+                D2D1_COMPOSITE_MODE_SOURCE_OVER,
             );
 
             target.SetTransform(&Matrix3x2::identity());
@@ -200,8 +200,8 @@ impl Window {
                 clock,
                 std::ptr::null(),
                 std::ptr::null(),
-                D2D1_INTERPOLATION_MODE::D2D1_INTERPOLATION_MODE_LINEAR,
-                D2D1_COMPOSITE_MODE::D2D1_COMPOSITE_MODE_SOURCE_OVER,
+                D2D1_INTERPOLATION_MODE_LINEAR,
+                D2D1_COMPOSITE_MODE_SOURCE_OVER,
             );
         }
 
@@ -310,12 +310,12 @@ impl Window {
 
         let properties = D2D1_BITMAP_PROPERTIES1 {
             pixelFormat: D2D1_PIXEL_FORMAT {
-                format: DXGI_FORMAT::DXGI_FORMAT_B8G8R8A8_UNORM,
-                alphaMode: D2D1_ALPHA_MODE::D2D1_ALPHA_MODE_PREMULTIPLIED,
+                format: DXGI_FORMAT_B8G8R8A8_UNORM,
+                alphaMode: D2D1_ALPHA_MODE_PREMULTIPLIED,
             },
             dpiX: self.dpi,
             dpiY: self.dpi,
-            bitmapOptions: D2D1_BITMAP_OPTIONS::D2D1_BITMAP_OPTIONS_TARGET,
+            bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET,
             colorContext: None,
         };
 
@@ -335,7 +335,7 @@ impl Window {
 
             if unsafe {
                 swapchain
-                    .ResizeBuffers(0, 0, 0, DXGI_FORMAT::DXGI_FORMAT_UNKNOWN, 0)
+                    .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0)
                     .is_ok()
             } {
                 create_swapchain_bitmap(swapchain, &target)?;
@@ -401,7 +401,7 @@ impl Window {
                 hInstance: instance,
                 lpszClassName: PSTR(b"window\0".as_ptr() as _),
 
-                style: WNDCLASS_STYLES::CS_HREDRAW | WNDCLASS_STYLES::CS_VREDRAW,
+                style: CS_HREDRAW | CS_VREDRAW,
                 lpfnWndProc: Some(Self::wndproc),
                 ..Default::default()
             };
@@ -413,7 +413,7 @@ impl Window {
                 Default::default(),
                 "window",
                 "Sample Window",
-                WINDOW_STYLE::WS_OVERLAPPEDWINDOW | WINDOW_STYLE::WS_VISIBLE,
+                WS_OVERLAPPEDWINDOW | WS_VISIBLE,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,
@@ -432,15 +432,7 @@ impl Window {
                 if self.visible {
                     self.render()?;
 
-                    while PeekMessageA(
-                        &mut message,
-                        None,
-                        0,
-                        0,
-                        PEEK_MESSAGE_REMOVE_TYPE::PM_REMOVE,
-                    )
-                    .into()
-                    {
+                    while PeekMessageA(&mut message, None, 0, 0, PM_REMOVE).into() {
                         if message.message == WM_QUIT {
                             return Ok(());
                         }
@@ -471,9 +463,9 @@ impl Window {
                 let this = (*cs).lpCreateParams as *mut Self;
                 (*this).handle = window;
 
-                SetWindowLong(window, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA, this as _);
+                SetWindowLong(window, GWLP_USERDATA, this as _);
             } else {
-                let this = GetWindowLong(window, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA) as *mut Self;
+                let this = GetWindowLong(window, GWLP_USERDATA) as *mut Self;
 
                 if !this.is_null() {
                     return (*this).message_handler(message, wparam, lparam);
@@ -531,14 +523,14 @@ fn create_factory() -> Result<ID2D1Factory1> {
     let mut options = D2D1_FACTORY_OPTIONS::default();
 
     if cfg!(debug_assertions) {
-        options.debugLevel = D2D1_DEBUG_LEVEL::D2D1_DEBUG_LEVEL_INFORMATION;
+        options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
     }
 
     let mut result = None;
 
     unsafe {
         D2D1CreateFactory(
-            D2D1_FACTORY_TYPE::D2D1_FACTORY_TYPE_SINGLE_THREADED,
+            D2D1_FACTORY_TYPE_SINGLE_THREADED,
             &ID2D1Factory1::IID,
             &options,
             result.set_abi(),
@@ -556,8 +548,8 @@ fn create_dxfactory() -> Result<IDXGIFactory2> {
 
 fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
     let props = D2D1_STROKE_STYLE_PROPERTIES {
-        startCap: D2D1_CAP_STYLE::D2D1_CAP_STYLE_ROUND,
-        endCap: D2D1_CAP_STYLE::D2D1_CAP_STYLE_TRIANGLE,
+        startCap: D2D1_CAP_STYLE_ROUND,
+        endCap: D2D1_CAP_STYLE_TRIANGLE,
         ..Default::default()
     };
 
@@ -583,10 +575,10 @@ fn create_transition() -> Result<IUIAnimationTransition> {
 }
 
 fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
-    let mut flags = D3D11_CREATE_DEVICE_FLAG::D3D11_CREATE_DEVICE_BGRA_SUPPORT;
+    let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
 
     if cfg!(debug_assertions) {
-        flags |= D3D11_CREATE_DEVICE_FLAG::D3D11_CREATE_DEVICE_DEBUG;
+        flags |= D3D11_CREATE_DEVICE_DEBUG;
     }
 
     let mut device = None;
@@ -609,11 +601,11 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
 }
 
 fn create_device() -> Result<ID3D11Device> {
-    let mut result = create_device_with_type(D3D_DRIVER_TYPE::D3D_DRIVER_TYPE_HARDWARE);
+    let mut result = create_device_with_type(D3D_DRIVER_TYPE_HARDWARE);
 
     if let Err(err) = &result {
         if err.code() == DXGI_ERROR_UNSUPPORTED {
-            result = create_device_with_type(D3D_DRIVER_TYPE::D3D_DRIVER_TYPE_WARP);
+            result = create_device_with_type(D3D_DRIVER_TYPE_WARP);
         }
     }
 
@@ -632,12 +624,9 @@ fn create_render_target(
             .and_some(d2device)?;
 
         let target = d2device
-            .CreateDeviceContext(
-                D2D1_DEVICE_CONTEXT_OPTIONS::D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
-                &mut target,
-            )
+            .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut target)
             .and_some(target)?;
-        target.SetUnitMode(D2D1_UNIT_MODE::D2D1_UNIT_MODE_DIPS);
+        target.SetUnitMode(D2D1_UNIT_MODE_DIPS);
 
         Ok(target)
     }
@@ -667,13 +656,12 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
 
     let props = D2D1_BITMAP_PROPERTIES1 {
         pixelFormat: D2D1_PIXEL_FORMAT {
-            format: DXGI_FORMAT::DXGI_FORMAT_B8G8R8A8_UNORM,
-            alphaMode: D2D1_ALPHA_MODE::D2D1_ALPHA_MODE_IGNORE,
+            format: DXGI_FORMAT_B8G8R8A8_UNORM,
+            alphaMode: D2D1_ALPHA_MODE_IGNORE,
         },
         dpiX: 96.0,
         dpiY: 96.0,
-        bitmapOptions: D2D1_BITMAP_OPTIONS::D2D1_BITMAP_OPTIONS_TARGET
-            | D2D1_BITMAP_OPTIONS::D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
+        bitmapOptions: D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
         colorContext: None,
     };
 
@@ -693,14 +681,14 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
     let factory = get_dxgi_factory(device)?;
 
     let props = DXGI_SWAP_CHAIN_DESC1 {
-        Format: DXGI_FORMAT::DXGI_FORMAT_B8G8R8A8_UNORM,
+        Format: DXGI_FORMAT_B8G8R8A8_UNORM,
         SampleDesc: DXGI_SAMPLE_DESC {
             Count: 1,
             Quality: 0,
         },
         BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
         BufferCount: 2,
-        SwapEffect: DXGI_SWAP_EFFECT::DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
+        SwapEffect: DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
         ..Default::default()
     };
 

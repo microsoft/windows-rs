@@ -1,7 +1,10 @@
 use crate::*;
 
 use bindings::{
-    Windows::Win32::Debug::{FormatMessageW, GetLastError, FORMAT_MESSAGE_OPTIONS},
+    Windows::Win32::Debug::{
+        FormatMessageW, GetLastError, FORMAT_MESSAGE_ALLOCATE_BUFFER, FORMAT_MESSAGE_FROM_SYSTEM,
+        FORMAT_MESSAGE_IGNORE_INSERTS,
+    },
     Windows::Win32::SystemServices::{E_POINTER, PWSTR},
 };
 
@@ -102,9 +105,9 @@ impl HRESULT {
 
         unsafe {
             let size = FormatMessageW(
-                FORMAT_MESSAGE_OPTIONS::FORMAT_MESSAGE_ALLOCATE_BUFFER
-                    | FORMAT_MESSAGE_OPTIONS::FORMAT_MESSAGE_FROM_SYSTEM
-                    | FORMAT_MESSAGE_OPTIONS::FORMAT_MESSAGE_IGNORE_INSERTS,
+                FORMAT_MESSAGE_ALLOCATE_BUFFER
+                    | FORMAT_MESSAGE_FROM_SYSTEM
+                    | FORMAT_MESSAGE_IGNORE_INSERTS,
                 std::ptr::null(),
                 self.0,
                 0x0000_0400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
