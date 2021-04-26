@@ -6135,7 +6135,7 @@ pub mod Windows {
                     ::std::mem::transmute(lpmem),
                 )
             }
-            pub type FARPROC = extern "system" fn() -> isize;
+            pub type FARPROC = unsafe extern "system" fn() -> isize;
             pub unsafe fn GetProcAddress<'a>(
                 hmodule: isize,
                 lpprocname: impl ::windows::IntoParam<'a, PSTR>,
@@ -6470,6 +6470,131 @@ pub mod Windows {
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     propagatedlanguageexceptionerrorinfohead: *mut ::windows::RawPtr,
+                ) -> ::windows::HRESULT,
+            );
+            #[repr(transparent)]
+            #[derive(
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: clone :: Clone,
+                :: std :: fmt :: Debug,
+            )]
+            pub struct IWeakReference(::windows::IUnknown);
+            impl IWeakReference {
+                pub unsafe fn Resolve(
+                    &self,
+                    riid: *const ::windows::Guid,
+                    objectreference: *mut ::std::option::Option<::windows::Object>,
+                ) -> ::windows::HRESULT {
+                    (::windows::Interface::vtable(self).3)(
+                        ::windows::Abi::abi(self),
+                        ::std::mem::transmute(riid),
+                        ::std::mem::transmute(objectreference),
+                    )
+                }
+            }
+            unsafe impl ::windows::Interface for IWeakReference {
+                type Vtable = IWeakReference_abi;
+                const IID: ::windows::Guid =
+                    ::windows::Guid::from_values(55, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+            }
+            impl ::std::convert::From<IWeakReference> for ::windows::IUnknown {
+                fn from(value: IWeakReference) -> Self {
+                    unsafe { ::std::mem::transmute(value) }
+                }
+            }
+            impl ::std::convert::From<&IWeakReference> for ::windows::IUnknown {
+                fn from(value: &IWeakReference) -> Self {
+                    ::std::convert::From::from(::std::clone::Clone::clone(value))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IWeakReference {
+                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IWeakReference {
+                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                        ::std::clone::Clone::clone(self),
+                    ))
+                }
+            }
+            #[repr(C)]
+            #[doc(hidden)]
+            pub struct IWeakReference_abi(
+                pub  unsafe extern "system" fn(
+                    this: ::windows::RawPtr,
+                    iid: &::windows::Guid,
+                    interface: *mut ::windows::RawPtr,
+                ) -> ::windows::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub  unsafe extern "system" fn(
+                    this: ::windows::RawPtr,
+                    riid: *const ::windows::Guid,
+                    objectreference: *mut ::windows::RawPtr,
+                ) -> ::windows::HRESULT,
+            );
+            #[repr(transparent)]
+            #[derive(
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: clone :: Clone,
+                :: std :: fmt :: Debug,
+            )]
+            pub struct IWeakReferenceSource(::windows::IUnknown);
+            impl IWeakReferenceSource {
+                pub unsafe fn GetWeakReference(
+                    &self,
+                    weakreference: *mut ::std::option::Option<IWeakReference>,
+                ) -> ::windows::HRESULT {
+                    (::windows::Interface::vtable(self).3)(
+                        ::windows::Abi::abi(self),
+                        ::std::mem::transmute(weakreference),
+                    )
+                }
+            }
+            unsafe impl ::windows::Interface for IWeakReferenceSource {
+                type Vtable = IWeakReferenceSource_abi;
+                const IID: ::windows::Guid =
+                    ::windows::Guid::from_values(56, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+            }
+            impl ::std::convert::From<IWeakReferenceSource> for ::windows::IUnknown {
+                fn from(value: IWeakReferenceSource) -> Self {
+                    unsafe { ::std::mem::transmute(value) }
+                }
+            }
+            impl ::std::convert::From<&IWeakReferenceSource> for ::windows::IUnknown {
+                fn from(value: &IWeakReferenceSource) -> Self {
+                    ::std::convert::From::from(::std::clone::Clone::clone(value))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IWeakReferenceSource {
+                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IWeakReferenceSource {
+                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                        ::std::clone::Clone::clone(self),
+                    ))
+                }
+            }
+            #[repr(C)]
+            #[doc(hidden)]
+            pub struct IWeakReferenceSource_abi(
+                pub  unsafe extern "system" fn(
+                    this: ::windows::RawPtr,
+                    iid: &::windows::Guid,
+                    interface: *mut ::windows::RawPtr,
+                ) -> ::windows::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub  unsafe extern "system" fn(
+                    this: ::windows::RawPtr,
+                    weakreference: *mut ::windows::RawPtr,
                 ) -> ::windows::HRESULT,
             );
         }
