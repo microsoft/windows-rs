@@ -60,7 +60,7 @@ impl Angles {
 impl Window {
     fn new() -> Result<Self> {
         let factory = create_factory()?;
-        let dxfactory = create_dxfactory()?;
+        let dxfactory: IDXGIFactory2 = unsafe { CreateDXGIFactory1()? };
         let style = create_style(&factory)?;
         let manager: IUIAnimationManager = create_instance(&UIAnimationManager)?;
         let transition = create_transition()?;
@@ -547,13 +547,6 @@ fn create_factory() -> Result<ID2D1Factory1> {
     }
 }
 
-fn create_dxfactory() -> Result<IDXGIFactory2> {
-    unsafe {
-        let mut dxfactory: Option<IDXGIFactory2> = None;
-        CreateDXGIFactory1(&IDXGIFactory2::IID, dxfactory.set_abi()).and_some(dxfactory)
-    }
-}
-
 fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
     let props = D2D1_STROKE_STYLE_PROPERTIES {
         startCap: D2D1_CAP_STYLE::D2D1_CAP_STYLE_ROUND,
@@ -647,23 +640,15 @@ fn get_dxgi_factory(device: &ID3D11Device) -> Result<IDXGIFactory2> {
     let dxdevice = device.cast::<IDXGIDevice>()?;
     let mut adapter = None;
     unsafe {
-        let adapter = dxdevice.GetAdapter(&mut adapter).and_some(adapter)?;
-        let mut parent = None;
-
-        adapter
-            .GetParent(&IDXGIFactory2::IID, parent.set_abi())
-            .and_some(parent)
+        dxdevice
+            .GetAdapter(&mut adapter)
+            .and_some(adapter)?
+            .GetParent()
     }
 }
 
 fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceContext) -> Result<()> {
-    let mut surface = None;
-
-    let surface: IDXGISurface = unsafe {
-        swapchain
-            .GetBuffer(0, &IDXGISurface::IID, surface.set_abi())
-            .and_some(surface)?
-    };
+    let surface: IDXGISurface = unsafe { swapchain.GetBuffer(0)? };
 
     let props = D2D1_BITMAP_PROPERTIES1 {
         pixelFormat: D2D1_PIXEL_FORMAT {

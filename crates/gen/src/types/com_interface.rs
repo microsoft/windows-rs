@@ -127,11 +127,25 @@ impl ComInterface {
 
                 let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
 
-                quote! {
-                    pub unsafe fn #name<#constraints>(&self, #params) #return_type {
-                        #udt_return_local
-                        (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* #udt_return_type)
-                        #udt_return_expression
+                if signature.has_query_interface() {
+                    let leading_params = &signature.params[..signature.params.len() - 2];
+                    let params = signature.gen_win32_params(leading_params, gen);
+                    let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+
+                    quote! {
+                        pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params) -> ::windows::Result<T> {
+                            let mut result__ = ::std::option::Option::None;
+                            (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
+                        }
+                    }
+                }
+                else {
+                    quote! {
+                        pub unsafe fn #name<#constraints>(&self, #params) #return_type {
+                            #udt_return_local
+                            (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* #udt_return_type)
+                            #udt_return_expression
+                        }
                     }
                 }
             });

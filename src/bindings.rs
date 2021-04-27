@@ -2211,13 +2211,11 @@ pub mod Windows {
                     self.0.bitand_assign(rhs.0)
                 }
             }
-            pub unsafe fn CoCreateInstance<'a>(
+            pub unsafe fn CoCreateInstance<'a, T: ::windows::Interface>(
                 rclsid: *const ::windows::Guid,
                 punkouter: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
                 dwclscontext: CLSCTX,
-                riid: *const ::windows::Guid,
-                ppv: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::HRESULT {
+            ) -> ::windows::Result<T> {
                 #[link(name = "OLE32")]
                 extern "system" {
                     pub fn CoCreateInstance(
@@ -2228,13 +2226,15 @@ pub mod Windows {
                         ppv: *mut *mut ::std::ffi::c_void,
                     ) -> ::windows::HRESULT;
                 }
+                let mut result__ = ::std::option::Option::None;
                 CoCreateInstance(
                     ::std::mem::transmute(rclsid),
                     punkouter.into_param().abi(),
                     ::std::mem::transmute(dwclscontext),
-                    ::std::mem::transmute(riid),
-                    ::std::mem::transmute(ppv),
+                    &<T as ::windows::Interface>::IID,
+                    ::windows::Abi::set_abi(&mut result__),
                 )
+                .and_some(result__)
             }
             #[repr(transparent)]
             #[derive(
@@ -6625,14 +6625,14 @@ pub mod Windows {
 #[allow(dead_code)]
 const CRATE_VERSION_EQUAL: () = {
     const CURRENT_VERSION: &str = env!("CARGO_PKG_VERSION");
-    const EXPECTED_VERSION: &str = "0.8.0";
+    const EXPECTED_VERSION: &str = "0.9.0";
     if CURRENT_VERSION.len() != EXPECTED_VERSION.len() {
-        ["The current version of the crate does not match the version the bindings were generated against: 0.8.0."][100];
+        ["The current version of the crate does not match the version the bindings were generated against: 0.9.0."][100];
     }
     let mut index = 0;
     while index < CURRENT_VERSION.len() {
         if CURRENT_VERSION.as_bytes()[index] != EXPECTED_VERSION.as_bytes()[index] {
-            ["The current version of the crate does not match the version the bindings were generated against: 0.8.0."][100];
+            ["The current version of the crate does not match the version the bindings were generated against: 0.9.0."][100];
         }
         index += 1;
     }
