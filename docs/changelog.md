@@ -1,6 +1,8 @@
 # 0.9.0
 
-
+- Transform QueryInterface-like functions into generic functions. ([#735](https://github.com/microsoft/windows-rs/pull/735))
+- Updated metadata providing many fixes and improvements to Win32 APIs.
+- Other improvements and fixes.
 
 # 0.8.0
 
