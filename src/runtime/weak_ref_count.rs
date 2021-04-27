@@ -30,9 +30,32 @@ impl WeakRefCount {
         panic!();
     }
 
-    pub fn promote(&self, object: &IUnknown) -> IWeakReferenceSource {
-        panic!();
+    pub unsafe fn promote(&self, object: &IUnknown) -> IWeakReferenceSource {
+        let count = self.0.load(Ordering::Relaxed);
+
+        if is_weak_ref(count) {
+            return TearOff::from_encoding(count);
+        }
+
+        let tear_off = TearOff::new(object.abi(), count as _);
+        let encoding: usize = ((tear_off.abi() as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
+
+        loop {
+            if self.0.compare_exchange_weak(count, encoding as _, Ordering::AcqRel, Ordering::Relaxed).is_ok() {
+                return tear_off;
+            }
+
+            if is_weak_ref(count) {
+                return TearOff::from_encoding(count);
+            }
+
+            TearOff::from_strong_ptr(tear_off.abi()).strong_count.0.store(count as _, Ordering::SeqCst);
+        }
     }
+}
+
+fn is_weak_ref(value: isize) -> bool {
+    value < 0
 }
 
 #[repr(C)]
@@ -45,8 +68,7 @@ struct TearOff {
 }
 
 impl TearOff {
-    fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
-        unsafe {
+    unsafe fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
             std::mem::transmute(::std::boxed::Box::new(TearOff {
                 strong_vtable: &Self::STRONG_VTABLE,
                 weak_vtable: &Self::WEAK_VTABLE,
@@ -54,7 +76,12 @@ impl TearOff {
                 strong_count: RefCount::new(strong_count),
                 weak_count: RefCount::new(1),
             }))
-        }
+    }
+
+    unsafe fn from_encoding(encoding: isize) -> IWeakReferenceSource {
+        let tear_off = TearOff::decode(encoding);
+        tear_off.strong_count.add_ref();
+        return std::mem::transmute(tear_off.strong_vtable);
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_abi = IWeakReferenceSource_abi(
@@ -77,6 +104,10 @@ impl TearOff {
 
     unsafe fn from_weak_ptr<'a>(this: RawPtr) -> &'a mut Self {
         &mut *((this as *mut RawPtr).sub(1) as *mut Self)
+    }
+
+    unsafe fn decode<'a>(value: isize) -> &'a mut Self {
+        std::mem::transmute(value << 1)
     }
 
     unsafe fn query_interface(&self, iid: *const Guid, interface: *mut RawPtr) -> HRESULT {
