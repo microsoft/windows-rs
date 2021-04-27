@@ -23,33 +23,88 @@ impl WeakRefCount {
     }
 
     pub fn add_ref(&self) -> u32 {
-        panic!();
+        let count_or_pointer = self.0.load(Ordering::Relaxed);
+
+        loop {
+            if is_weak_ref(count_or_pointer) {
+                unsafe {
+                    return TearOff::decode(count_or_pointer).strong_count.add_ref();
+                }
+            }
+
+            if self
+                .0
+                .compare_exchange_weak(
+                    count_or_pointer,
+                    count_or_pointer + 1,
+                    Ordering::Relaxed,
+                    Ordering::Relaxed,
+                )
+                .is_ok()
+            {
+                return count_or_pointer as u32 + 1;
+            }
+        }
     }
 
-    pub fn release(&self) -> u32 {
-        panic!();
+    fn release(&self) -> u32 {
+        let count_or_pointer = self.0.load(Ordering::Relaxed);
+
+        loop {
+            if is_weak_ref(count_or_pointer) {
+                unsafe {
+                    return TearOff::decode(count_or_pointer).strong_count.release();
+                }
+            }
+
+            if self
+                .0
+                .compare_exchange_weak(
+                    count_or_pointer,
+                    count_or_pointer - 1,
+                    Ordering::Relaxed,
+                    Ordering::Relaxed,
+                )
+                .is_ok()
+            {
+                return count_or_pointer as u32 - 1;
+            }
+        }
     }
 
     pub unsafe fn promote(&self, object: &IUnknown) -> IWeakReferenceSource {
-        let count = self.0.load(Ordering::Relaxed);
+        let count_or_pointer = self.0.load(Ordering::Relaxed);
 
-        if is_weak_ref(count) {
-            return TearOff::from_encoding(count);
+        if is_weak_ref(count_or_pointer) {
+            return TearOff::from_encoding(count_or_pointer);
         }
 
-        let tear_off = TearOff::new(object.abi(), count as _);
-        let encoding: usize = ((tear_off.abi() as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
+        let tear_off = TearOff::new(object.abi(), count_or_pointer as _);
+        let encoding: usize =
+            ((tear_off.abi() as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
 
         loop {
-            if self.0.compare_exchange_weak(count, encoding as _, Ordering::AcqRel, Ordering::Relaxed).is_ok() {
+            if self
+                .0
+                .compare_exchange_weak(
+                    count_or_pointer,
+                    encoding as _,
+                    Ordering::AcqRel,
+                    Ordering::Relaxed,
+                )
+                .is_ok()
+            {
                 return tear_off;
             }
 
-            if is_weak_ref(count) {
-                return TearOff::from_encoding(count);
+            if is_weak_ref(count_or_pointer) {
+                return TearOff::from_encoding(count_or_pointer);
             }
 
-            TearOff::from_strong_ptr(tear_off.abi()).strong_count.0.store(count as _, Ordering::SeqCst);
+            TearOff::from_strong_ptr(tear_off.abi())
+                .strong_count
+                .0
+                .store(count_or_pointer as _, Ordering::SeqCst);
         }
     }
 }
@@ -69,13 +124,13 @@ struct TearOff {
 
 impl TearOff {
     unsafe fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
-            std::mem::transmute(::std::boxed::Box::new(TearOff {
-                strong_vtable: &Self::STRONG_VTABLE,
-                weak_vtable: &Self::WEAK_VTABLE,
-                object,
-                strong_count: RefCount::new(strong_count),
-                weak_count: RefCount::new(1),
-            }))
+        std::mem::transmute(::std::boxed::Box::new(TearOff {
+            strong_vtable: &Self::STRONG_VTABLE,
+            weak_vtable: &Self::WEAK_VTABLE,
+            object,
+            strong_count: RefCount::new(strong_count),
+            weak_count: RefCount::new(1),
+        }))
     }
 
     unsafe fn from_encoding(encoding: isize) -> IWeakReferenceSource {
