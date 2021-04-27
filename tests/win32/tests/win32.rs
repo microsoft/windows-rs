@@ -27,7 +27,7 @@ use test_win32::{
     Windows::Win32::WindowsProgramming::CloseHandle,
 };
 
-use windows::{Abi, Guid, Interface};
+use windows::{Abi, Guid};
 
 #[test]
 fn signed_enum32() {
