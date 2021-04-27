@@ -62,7 +62,7 @@ impl WeakRefCount {
                 .compare_exchange_weak(
                     count_or_pointer,
                     count_or_pointer - 1,
-                    Ordering::Relaxed,
+                    Ordering::Release,
                     Ordering::Relaxed,
                 )
                 .is_ok()
@@ -98,7 +98,9 @@ impl WeakRefCount {
                 )
                 .is_ok()
             {
-                return std::mem::transmute(tear_off);
+                let result: RawPtr = std::mem::transmute(tear_off);
+                TearOff::from_strong_ptr(result).strong_count.add_ref();
+                return result;
             }
 
             if is_weak_ref(count_or_pointer) {
