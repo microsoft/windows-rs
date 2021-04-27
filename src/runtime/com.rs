@@ -14,10 +14,5 @@ pub fn initialize_sta() -> Result<()> {
 
 /// Creates a COM object with the given CLSID.
 pub fn create_instance<T: Interface>(clsid: &Guid) -> Result<T> {
-    let mut object = None;
-
-    unsafe {
-        CoCreateInstance(clsid, None, CLSCTX::CLSCTX_ALL, &T::IID, object.set_abi())
-            .and_some(object)
-    }
+    unsafe { CoCreateInstance(clsid, None, CLSCTX::CLSCTX_ALL) }
 }

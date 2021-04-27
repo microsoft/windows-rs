@@ -2211,13 +2211,11 @@ pub mod Windows {
                     self.0.bitand_assign(rhs.0)
                 }
             }
-            pub unsafe fn CoCreateInstance<'a>(
+            pub unsafe fn CoCreateInstance<'a, T: ::windows::Interface>(
                 rclsid: *const ::windows::Guid,
                 punkouter: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
                 dwclscontext: CLSCTX,
-                riid: *const ::windows::Guid,
-                ppv: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::HRESULT {
+            ) -> ::windows::Result<T> {
                 #[link(name = "OLE32")]
                 extern "system" {
                     pub fn CoCreateInstance(
@@ -2228,13 +2226,15 @@ pub mod Windows {
                         ppv: *mut *mut ::std::ffi::c_void,
                     ) -> ::windows::HRESULT;
                 }
+                let mut result__ = ::std::option::Option::None;
                 CoCreateInstance(
                     ::std::mem::transmute(rclsid),
                     punkouter.into_param().abi(),
                     ::std::mem::transmute(dwclscontext),
-                    ::std::mem::transmute(riid),
-                    ::std::mem::transmute(ppv),
+                    &<T as ::windows::Interface>::IID,
+                    ::windows::Abi::set_abi(&mut result__),
                 )
+                .and_some(result__)
             }
             #[repr(transparent)]
             #[derive(

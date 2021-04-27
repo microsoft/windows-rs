@@ -38,6 +38,12 @@ pub enum ElementType {
     Callback(types::Callback),
 }
 
+impl Default for ElementType {
+    fn default() -> Self {
+        Self::Void
+    }
+}
+
 impl ElementType {
     pub fn row(&self) -> Row {
         match self {
