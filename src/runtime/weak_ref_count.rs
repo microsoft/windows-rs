@@ -47,7 +47,7 @@ impl WeakRefCount {
         }
     }
 
-    fn release(&self) -> u32 {
+    pub fn release(&self) -> u32 {
         let count_or_pointer = self.0.load(Ordering::Relaxed);
 
         loop {
@@ -72,14 +72,18 @@ impl WeakRefCount {
         }
     }
 
-    pub unsafe fn promote(&self, object: &IUnknown) -> IWeakReferenceSource {
+    pub unsafe fn query(&self, iid: &::windows::Guid, object: RawPtr) -> RawPtr {
+        if iid != &IWeakReferenceSource::IID {
+            return std::ptr::null_mut();
+        }
+
         let count_or_pointer = self.0.load(Ordering::Relaxed);
 
         if is_weak_ref(count_or_pointer) {
             return TearOff::from_encoding(count_or_pointer);
         }
 
-        let tear_off = TearOff::new(object.abi(), count_or_pointer as _);
+        let tear_off = TearOff::new(object, count_or_pointer as _);
         let encoding: usize =
             ((tear_off.abi() as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
 
@@ -94,7 +98,7 @@ impl WeakRefCount {
                 )
                 .is_ok()
             {
-                return tear_off;
+                return std::mem::transmute(tear_off);
             }
 
             if is_weak_ref(count_or_pointer) {
@@ -133,7 +137,7 @@ impl TearOff {
         }))
     }
 
-    unsafe fn from_encoding(encoding: isize) -> IWeakReferenceSource {
+    unsafe fn from_encoding(encoding: isize) -> RawPtr {
         let tear_off = TearOff::decode(encoding);
         tear_off.strong_count.add_ref();
         return std::mem::transmute(tear_off.strong_vtable);

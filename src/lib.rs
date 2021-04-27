@@ -20,8 +20,13 @@ mod traits;
 use interfaces::*;
 use runtime::*;
 
+#[doc(hidden)]
 pub use bindings::Windows::Win32::Com::IAgileObject;
-pub use interfaces::{IActivationFactory, IUnknown, Object};
+
+#[doc(hidden)]
+pub use interfaces::IActivationFactory;
+
+pub use interfaces::{IUnknown, Object};
 pub use result::{Error, Result, HRESULT};
 pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, HString,
