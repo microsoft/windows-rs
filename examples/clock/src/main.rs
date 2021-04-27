@@ -60,7 +60,7 @@ impl Angles {
 impl Window {
     fn new() -> Result<Self> {
         let factory = create_factory()?;
-        let dxfactory = create_dxfactory()?;
+        let dxfactory: IDXGIFactory2 = unsafe { CreateDXGIFactory1()? };
         let style = create_style(&factory)?;
         let manager: IUIAnimationManager = create_instance(&UIAnimationManager)?;
         let transition = create_transition()?;
@@ -544,13 +544,6 @@ fn create_factory() -> Result<ID2D1Factory1> {
             result.set_abi(),
         )
         .and_some(result)
-    }
-}
-
-fn create_dxfactory() -> Result<IDXGIFactory2> {
-    unsafe {
-        let mut dxfactory: Option<IDXGIFactory2> = None;
-        CreateDXGIFactory1(&IDXGIFactory2::IID, dxfactory.set_abi()).and_some(dxfactory)
     }
 }
 

@@ -222,10 +222,7 @@ fn com() -> windows::Result<()> {
 #[test]
 fn com_inheritance() {
     unsafe {
-        let mut factory: Option<IDXGIFactory7> = None;
-        let factory: IDXGIFactory7 = CreateDXGIFactory1(&IDXGIFactory7::IID, factory.set_abi())
-            .and_some(factory)
-            .unwrap();
+        let factory: IDXGIFactory7 = CreateDXGIFactory1().unwrap();
 
         // IDXGIFactory
         assert!(factory.GetWindowAssociation(std::ptr::null_mut()) == DXGI_ERROR_INVALID_CALL);

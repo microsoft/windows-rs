@@ -22,6 +22,15 @@ impl MethodSignature {
             .collect()
     }
 
+    pub fn has_query_interface(&self) -> bool {
+        self.return_type.as_ref().map_or(false, |signature| {
+            signature.kind == ElementType::HRESULT
+                && self.params.len() >= 2
+                && self.params[self.params.len() - 2].signature.kind == ElementType::Guid
+                && self.params[self.params.len() - 1].signature.kind == ElementType::Void
+        })
+    }
+
     pub fn gen_winrt_constraint(&self, gen: &Gen) -> TokenStream {
         let params = self.params.iter().map(|p| p.gen_winrt_produce_type(gen));
 
@@ -216,7 +225,7 @@ impl MethodSignature {
 
     pub fn gen_constraints(&self, params: &[MethodParam]) -> TokenStream {
         if params.iter().any(|param| param.is_convertible()) {
-            quote! { 'a }
+            quote! { 'a, }
         } else {
             quote! {}
         }
