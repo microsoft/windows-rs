@@ -142,7 +142,7 @@ impl TearOff {
     unsafe fn from_encoding(encoding: isize) -> RawPtr {
         let tear_off = TearOff::decode(encoding);
         tear_off.strong_count.add_ref();
-        return std::mem::transmute(tear_off.strong_vtable);
+        return std::mem::transmute(tear_off);
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_abi = IWeakReferenceSource_abi(

@@ -225,7 +225,7 @@ pub fn gen(
                         return ::windows::HRESULT(0);
                     }
 
-                    *interface = ::std::mem::transmute(self.count.query(iid, &mut self.vtable.0 as *mut _ as _));
+                    *interface = self.count.query(iid, &mut self.vtable.0 as *mut _ as _);
 
                     if (*interface).is_null() {
                         ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE

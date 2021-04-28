@@ -24,6 +24,21 @@ fn test_implement() -> Result<()> {
 }
 
 #[test]
+fn test_no_tearoff() {
+    let (sender, receiver) = std::sync::mpsc::channel();
+
+    {
+        let strong: IStringable = Stringable {sender }.into();
+        let _ = strong.clone();
+        let _ = strong.cast::<IStringable>().unwrap();
+        assert_eq!(strong.ToString().unwrap(), "Stringable");
+
+    }
+
+    assert!(receiver.recv().unwrap() == "drop");
+}
+
+#[test]
 fn test_queries() {
     let (sender, receiver) = std::sync::mpsc::channel();
 
@@ -35,18 +50,18 @@ fn test_queries() {
         assert!(strong.cast::<IWeakReference>().is_err());
 
         let source = strong.cast::<IWeakReferenceSource>().unwrap();
-        // assert!(source.cast::<IWeakReferenceSource>().is_ok());   
-        // assert!(source.cast::<IWeakReference>().is_err());
-        // assert!(source.cast::<IUnknown>().unwrap() == strong.cast::<IUnknown>().unwrap());
+        assert!(source.cast::<IWeakReferenceSource>().is_ok());   
+        assert!(source.cast::<IWeakReference>().is_err());
+        assert!(source.cast::<IUnknown>().unwrap() == strong.cast::<IUnknown>().unwrap());
 
-        // let mut weak = None;
-        // let weak = unsafe { source.GetWeakReference(&mut weak).and_some(weak).unwrap() };
-        // assert!(weak.cast::<IWeakReference>().is_ok());
-        // assert!(weak.cast::<IWeakReferenceSource>().is_err());
-        // assert!(weak.cast::<Object>().is_err());
-        // assert!(weak.cast::<IStringable>().is_err());
-        // assert!(weak.cast::<IWeakReference>().unwrap() == weak);
-        // assert!(weak.cast::<IUnknown>().unwrap() != strong.cast::<IUnknown>().unwrap());
+        let mut weak = None;
+        let weak = unsafe { source.GetWeakReference(&mut weak).and_some(weak).unwrap() };
+        assert!(weak.cast::<IWeakReference>().is_ok());
+        assert!(weak.cast::<IWeakReferenceSource>().is_err());
+        assert!(weak.cast::<Object>().is_err());
+        assert!(weak.cast::<IStringable>().is_err());
+        assert!(weak.cast::<IWeakReference>().unwrap() == weak);
+        assert!(weak.cast::<IUnknown>().unwrap() != strong.cast::<IUnknown>().unwrap());
     }
 
     assert!(receiver.recv().unwrap() == "drop");
