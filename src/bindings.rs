@@ -1801,13 +1801,18 @@ pub mod Windows {
                     }
                 }
             }
-            impl std::convert::From<&str> for BSTR {
+            impl ::std::clone::Clone for BSTR {
+                fn clone(&self) -> Self {
+                    Self::from_wide(self.as_wide())
+                }
+            }
+            impl ::std::convert::From<&str> for BSTR {
                 fn from(value: &str) -> Self {
                     let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                     Self::from_wide(&value)
                 }
             }
-            impl std::convert::From<::std::string::String> for BSTR {
+            impl ::std::convert::From<::std::string::String> for BSTR {
                 fn from(value: ::std::string::String) -> Self {
                     value.as_str().into()
                 }
