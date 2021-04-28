@@ -24,10 +24,20 @@ impl MethodSignature {
 
     pub fn has_query_interface(&self) -> bool {
         self.return_type.as_ref().map_or(false, |signature| {
-            signature.kind == ElementType::HRESULT
-                && self.params.len() >= 2
-                && self.params[self.params.len() - 2].signature.kind == ElementType::Guid
-                && self.params[self.params.len() - 1].signature.kind == ElementType::Void
+            if signature.kind == ElementType::HRESULT && self.params.len() >= 2 {
+                let guid = &self.params[self.params.len() - 2];
+                let object = &self.params[self.params.len() - 1];
+
+                if guid.signature.kind == ElementType::Guid
+                    && guid.is_const()
+                    && object.signature.kind == ElementType::Void
+                    && object.signature.pointers == 2
+                {
+                    return true;
+                }
+            }
+
+            false
         })
     }
 

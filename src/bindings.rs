@@ -1801,13 +1801,18 @@ pub mod Windows {
                     }
                 }
             }
-            impl std::convert::From<&str> for BSTR {
+            impl ::std::clone::Clone for BSTR {
+                fn clone(&self) -> Self {
+                    Self::from_wide(self.as_wide())
+                }
+            }
+            impl ::std::convert::From<&str> for BSTR {
                 fn from(value: &str) -> Self {
                     let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
                     Self::from_wide(&value)
                 }
             }
-            impl std::convert::From<::std::string::String> for BSTR {
+            impl ::std::convert::From<::std::string::String> for BSTR {
                 fn from(value: ::std::string::String) -> Self {
                     value.as_str().into()
                 }
@@ -6622,20 +6627,3 @@ pub mod Windows {
         }
     }
 }
-#[allow(dead_code)]
-const CRATE_VERSION_EQUAL: () = {
-    const CURRENT_VERSION: &str = env!("CARGO_PKG_VERSION");
-    const EXPECTED_VERSION: &str = "0.9.0";
-    if CURRENT_VERSION.len() != EXPECTED_VERSION.len() {
-        ["The current version of the crate does not match the version the bindings were generated against: 0.9.0."][100];
-    }
-    let mut index = 0;
-    while index < CURRENT_VERSION.len() {
-        if CURRENT_VERSION.as_bytes()[index] != EXPECTED_VERSION.as_bytes()[index] {
-            ["The current version of the crate does not match the version the bindings were generated against: 0.9.0."][100];
-        }
-        index += 1;
-    }
-
-    ()
-};

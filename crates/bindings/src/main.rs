@@ -27,7 +27,6 @@ fn main() -> std::io::Result<()> {
     )?;
 
     file.write_all(tokens.as_bytes())?;
-    file.write_all(gen_crate_version_assert().as_bytes())?;
     drop(file);
 
     let mut cmd = ::std::process::Command::new("rustfmt");
@@ -35,31 +34,4 @@ fn main() -> std::io::Result<()> {
     cmd.output()?;
 
     Ok(())
-}
-
-fn gen_crate_version_assert() -> String {
-    format!(
-        r#"
-#[allow(dead_code)]
-const CRATE_VERSION_EQUAL: () = {{
-    const CURRENT_VERSION: &str = env!("CARGO_PKG_VERSION");
-    const EXPECTED_VERSION: &str = "{}";
-    if CURRENT_VERSION.len() != EXPECTED_VERSION.len() {{
-        ["The current version of the crate does not match the version the bindings were generated against: {}."][100];
-    }}
-    let mut index = 0;
-    while index < CURRENT_VERSION.len() {{
-        if CURRENT_VERSION.as_bytes()[index] != EXPECTED_VERSION.as_bytes()[index] {{
-            ["The current version of the crate does not match the version the bindings were generated against: {}."][100];
-        }}
-        index += 1;
-    }}
-
-    ()
-}};
-            "#,
-        env!("CARGO_PKG_VERSION"),
-        env!("CARGO_PKG_VERSION"),
-        env!("CARGO_PKG_VERSION")
-    )
 }
