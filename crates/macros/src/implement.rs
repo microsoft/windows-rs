@@ -195,7 +195,7 @@ pub fn gen(
         struct #box_ident {
             vtable: (#(*const #vtable_idents,)*),
             inner: #inner_ident,
-            count: ::windows::RefCount,
+            count: ::windows::WeakRefCount,
         }
         impl #box_ident {
             const VTABLE: (#(#vtable_idents,)*) = (
@@ -205,7 +205,7 @@ pub fn gen(
                 Self {
                     vtable: (#(&Self::VTABLE.#vtable_ordinals,)*),
                     inner,
-                    count: ::windows::RefCount::new()
+                    count: ::windows::WeakRefCount::new()
                 }
             }
             fn QueryInterface(&mut self, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
@@ -220,10 +220,16 @@ pub fn gen(
                         _ => ::std::ptr::null_mut(),
                     };
 
+                    if !(*interface).is_null() {
+                        self.count.add_ref();
+                        return ::windows::HRESULT(0);
+                    }
+
+                    *interface = self.count.query(iid, &mut self.vtable.0 as *mut _ as _);
+
                     if (*interface).is_null() {
                         ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
                     } else {
-                        self.count.add_ref();
                         ::windows::HRESULT(0)
                     }
                 }

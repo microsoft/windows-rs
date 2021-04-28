@@ -8,14 +8,14 @@ use crate::*;
 pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
 
 #[repr(C)]
-pub struct IUnknown_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
+pub struct IUnknown_abi(
+    pub unsafe extern "system" fn(this: RawPtr, iid: *const Guid, interface: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
 );
 
 unsafe impl Interface for IUnknown {
-    type Vtable = IUnknown_vtable;
+    type Vtable = IUnknown_abi;
 
     const IID: Guid = Guid::from_values(
         0x0000_0000,
