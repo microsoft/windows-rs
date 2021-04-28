@@ -1,6 +1,6 @@
 [package]
 name = "test_structs"
-version = "0.9.0"
+version = "0.9.1"
 authors = ["Microsoft"]
 edition = "2018"
 
