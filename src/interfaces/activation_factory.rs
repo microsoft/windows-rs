@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// WinRT classes have a supporting factory object that implements `IActivationFactory` to create a new
 /// instance of the WinRT class with some default state. `IActivationFactory` represents the
@@ -18,7 +18,7 @@ impl IActivationFactory {
 
             // Even though the factory will generally return the WinRT default interface, this isn't guaranteed
             // so a cast is required to convert the `Object` into `I`, or the class type.
-            (self.vtable().6)(self.abi(), &mut object)
+            (self.vtable().activate_instance)(self.abi(), &mut object)
                 .and_some(object)?
                 .cast()
         }
@@ -26,15 +26,11 @@ impl IActivationFactory {
 }
 
 #[repr(C)]
-pub struct IActivationFactory_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> HRESULT, // ActivateInstance
-);
+pub struct IActivationFactory_vtable {
+    pubobject_vtable: Object_vtable,
+    pub activate_instance:
+        unsafe extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> HRESULT,
+}
 
 unsafe impl Interface for IActivationFactory {
     type Vtable = IActivationFactory_vtable;

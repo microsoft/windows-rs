@@ -28,7 +28,7 @@ pub unsafe trait Interface: Sized + Abi {
         unsafe {
             let mut result = None;
 
-            (self.assume_vtable::<IUnknown>().0)(
+            (self.assume_vtable::<IUnknown>().query_interface)(
                 std::mem::transmute_copy(self),
                 &T::IID,
                 &mut result as *mut _ as _,

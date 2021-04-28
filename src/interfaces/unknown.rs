@@ -8,11 +8,12 @@ use crate::*;
 pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
 
 #[repr(C)]
-pub struct IUnknown_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr) -> u32,
-);
+pub struct IUnknown_vtable {
+    pub query_interface:
+        unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
+    pub add_ref: unsafe extern "system" fn(this: RawPtr) -> u32,
+    pub release: unsafe extern "system" fn(this: RawPtr) -> u32,
+}
 
 unsafe impl Interface for IUnknown {
     type Vtable = IUnknown_vtable;
@@ -28,7 +29,7 @@ unsafe impl Interface for IUnknown {
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {
-            (self.vtable().1)(self.abi()); // AddRef
+            (self.vtable().add_ref)(self.abi());
         }
 
         Self(self.0)
@@ -38,7 +39,7 @@ impl Clone for IUnknown {
 impl Drop for IUnknown {
     fn drop(&mut self) {
         unsafe {
-            (self.vtable().2)(self.abi()); // Release
+            (self.vtable().release)(self.abi());
         }
     }
 }

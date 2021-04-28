@@ -14,21 +14,21 @@ impl Object {
     pub fn type_name(&self) -> Result<HString> {
         unsafe {
             let mut abi = std::ptr::null_mut();
-            (self.vtable().4)(self.abi(), &mut abi).ok()?;
+            (self.vtable().get_runtime_class_name)(self.abi(), &mut abi).ok()?;
             Ok(std::mem::transmute(abi))
         }
     }
 }
 
 #[repr(C)]
-pub struct Object_vtable(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
-);
+pub struct Object_vtable {
+    pub iunknown_vtable: IUnknown_vtable,
+    pub get_iids:
+        unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> HRESULT,
+    pub get_runtime_class_name:
+        unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
+    pub get_trust_level: unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
+}
 
 unsafe impl Interface for Object {
     type Vtable = Object_vtable;
