@@ -8,15 +8,15 @@ fn test_implement() -> Result<()> {
     let (sender, receiver) = std::sync::mpsc::channel();
 
     {
-    let strong: IStringable = Stringable {sender }.into();
+        let strong: IStringable = Stringable { sender }.into();
 
-    let weak = strong.downgrade()?;
-    assert_eq!(weak.upgrade().unwrap(), strong);
+        let weak = strong.downgrade()?;
+        assert_eq!(weak.upgrade().unwrap(), strong);
 
-    assert_eq!(strong.ToString()?, "Stringable");
-    drop(strong);
+        assert_eq!(strong.ToString()?, "Stringable");
+        drop(strong);
 
-    assert_eq!(weak.upgrade(), None);
+        assert_eq!(weak.upgrade(), None);
     }
 
     assert!(receiver.recv().unwrap() == "drop");
@@ -28,11 +28,10 @@ fn test_no_tearoff() {
     let (sender, receiver) = std::sync::mpsc::channel();
 
     {
-        let strong: IStringable = Stringable {sender }.into();
+        let strong: IStringable = Stringable { sender }.into();
         let _ = strong.clone();
         let _ = strong.cast::<IStringable>().unwrap();
         assert_eq!(strong.ToString().unwrap(), "Stringable");
-
     }
 
     assert!(receiver.recv().unwrap() == "drop");
@@ -43,14 +42,14 @@ fn test_queries() {
     let (sender, receiver) = std::sync::mpsc::channel();
 
     {
-        let strong: IStringable = Stringable {sender}.into();
+        let strong: IStringable = Stringable { sender }.into();
         assert!(strong.cast::<Object>().is_ok());
         assert!(strong.cast::<IStringable>().is_ok());
         assert!(strong.cast::<IWeakReferenceSource>().is_ok());
         assert!(strong.cast::<IWeakReference>().is_err());
 
         let source = strong.cast::<IWeakReferenceSource>().unwrap();
-        assert!(source.cast::<IWeakReferenceSource>().is_ok());   
+        assert!(source.cast::<IWeakReferenceSource>().is_ok());
         assert!(source.cast::<IWeakReference>().is_err());
         assert!(source.cast::<IUnknown>().unwrap() == strong.cast::<IUnknown>().unwrap());
 
