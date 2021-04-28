@@ -53,7 +53,14 @@ impl WeakRefCount {
         loop {
             if is_weak_ref(count_or_pointer) {
                 unsafe {
-                    return TearOff::decode(count_or_pointer).strong_count.release();
+                    let tear_off = TearOff::decode(count_or_pointer);
+                    let remaining = tear_off.strong_count.release();
+
+                    if remaining == 0 {
+                        TearOff::WeakRelease(&mut tear_off.weak_vtable as *mut _ as _);
+                    }
+
+                    return remaining;
                 }
             }
 
