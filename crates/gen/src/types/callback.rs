@@ -40,8 +40,24 @@ impl Callback {
             quote! {}
         };
 
+        let query_interface_fn = if signature.has_query_interface() {
+            let constraints = signature.gen_constraints(&signature.params);
+            let leading_params = &signature.params[..signature.params.len() - 2];
+            let params = signature.gen_win32_params(leading_params, gen);
+            let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+            quote! {
+                pub unsafe fn #name<#constraints T: ::windows::Interface>(func: &#name, #params) -> ::windows::Result<T> {
+                    let mut result__ = ::std::option::Option::None;
+                    (func)(#(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
+                }
+            }
+        } else {
+            quote!()
+        };
+
         quote! {
             pub type #name = unsafe extern "system" fn(#(#params),*) #return_type;
+            #query_interface_fn
         }
     }
 }
