@@ -1,0 +1,10 @@
+[package]
+name = "dxc"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+bindings = { package = "dxc_bindings", path = "bindings" }
+libloading = "0.7"
+windows = { path = "../.." }
