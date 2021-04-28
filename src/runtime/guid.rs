@@ -1,7 +1,7 @@
 #![allow(clippy::many_single_char_names)]
 
 use crate::*;
-use bindings::Windows::Win32::Com::{CLSIDFromProgID, CoCreateGuid};
+use bindings::Windows::Win32::System::Com::{CLSIDFromProgID, CoCreateGuid};
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
 /// used to identify COM and WinRT interfaces.

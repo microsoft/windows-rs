@@ -1,6 +1,6 @@
 use crate::*;
 
-use bindings::Windows::Win32::Com::{CoCreateInstance, CoInitializeEx, CLSCTX, COINIT};
+use bindings::Windows::Win32::System::Com::{CoCreateInstance, CoInitializeEx, CLSCTX, COINIT};
 
 /// Initializes COM for use by the calling thread for the multi-threaded apartment (MTA).
 pub fn initialize_mta() -> Result<()> {

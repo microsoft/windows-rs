@@ -1,5 +1,5 @@
 use test_interop::{
-    Windows::Foundation::Collections::StringMap, Windows::Win32::WinRT::RoActivateInstance,
+    Windows::Foundation::Collections::StringMap, Windows::Win32::System::WinRT::RoActivateInstance,
 };
 
 use windows::{initialize_mta, Interface, Result};

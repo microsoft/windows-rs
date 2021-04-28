@@ -1,4 +1,4 @@
-use test_unions::Windows::Win32::WindowsColorSystem::{WhitePoint, WhitePoint_0, XYYPoint};
+use test_unions::Windows::Win32::UI::ColorSystem::{WhitePoint, WhitePoint_0, XYYPoint};
 
 #[test]
 fn test() {

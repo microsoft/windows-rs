@@ -26,7 +26,7 @@ pub fn gen_matrix3x2() -> TokenStream {
             pub fn rotation(angle: f32, x: f32, y: f32) -> Self {
                 let mut matrix = Self::default();
                 unsafe {
-                    super::super::Win32::Direct2D::D2D1MakeRotateMatrix(angle, super::super::Win32::Direct2D::D2D_POINT_2F{x, y}, &mut matrix);
+                    super::super::Win32::Graphics::Direct2D::D2D1MakeRotateMatrix(angle, super::super::Win32::Graphics::Direct2D::D2D_POINT_2F{x, y}, &mut matrix);
                 }
                 matrix
             }

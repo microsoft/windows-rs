@@ -38,7 +38,7 @@ impl InterfaceImpl {
                 generics: Vec::new(),
             },
             TypeDefOrRef::TypeRef(def) => {
-                if def.full_name() == ("Windows.Win32.Com", "IUnknown") {
+                if def.full_name() == ("Windows.Win32.System.Com", "IUnknown") {
                     return None;
                 }
 

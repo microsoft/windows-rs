@@ -1,6 +1,6 @@
 use test_winrt::{
     Windows::System::DispatcherQueueController,
-    Windows::Win32::SystemServices::{
+    Windows::Win32::System::SystemServices::{
         CreateDispatcherQueueController, DispatcherQueueOptions,
         DISPATCHERQUEUE_THREAD_APARTMENTTYPE, DISPATCHERQUEUE_THREAD_TYPE,
     },

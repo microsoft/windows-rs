@@ -1,5 +1,5 @@
 use crate::*;
-use bindings::Windows::Win32::WinRT::IWeakReferenceSource;
+use bindings::Windows::Win32::System::WinRT::IWeakReferenceSource;
 
 /// Provides low-level access to a COM interface.
 ///

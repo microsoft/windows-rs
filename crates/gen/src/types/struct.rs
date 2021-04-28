@@ -24,15 +24,21 @@ impl Struct {
         let mut dependencies = vec![];
 
         match self.0.full_name() {
-            ("Windows.Win32.Automation", "BSTR") => {
-                dependencies.push(reader.resolve_type("Windows.Win32.Automation", "SysFreeString"));
-                dependencies
-                    .push(reader.resolve_type("Windows.Win32.Automation", "SysAllocStringLen"));
-                dependencies.push(reader.resolve_type("Windows.Win32.Automation", "SysStringLen"));
+            ("Windows.Win32.System.OleAutomation", "BSTR") => {
+                dependencies.push(
+                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysFreeString"),
+                );
+                dependencies.push(
+                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysAllocStringLen"),
+                );
+                dependencies.push(
+                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysStringLen"),
+                );
             }
             ("Windows.Foundation.Numerics", "Matrix3x2") => {
-                dependencies
-                    .push(reader.resolve_type("Windows.Win32.Direct2D", "D2D1MakeRotateMatrix"));
+                dependencies.push(
+                    reader.resolve_type("Windows.Win32.Graphics.Direct2D", "D2D1MakeRotateMatrix"),
+                );
             }
             _ => {
                 dependencies.extend(self.0.fields().map(|f| f.definition()).flatten());
@@ -52,7 +58,7 @@ impl Struct {
 
     pub fn is_blittable(&self) -> bool {
         // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
-        if self.0.full_name() == ("Windows.Win32.Automation", "BSTR") {
+        if self.0.full_name() == ("Windows.Win32.System.OleAutomation", "BSTR") {
             false
         } else {
             self.0.fields().all(|f| f.is_blittable())
@@ -455,10 +461,10 @@ impl Struct {
 
     fn gen_replacement(&self) -> Option<TokenStream> {
         match self.0.full_name() {
-            ("Windows.Win32.SystemServices", "BOOL") => Some(gen_bool32()),
-            ("Windows.Win32.SystemServices", "PWSTR") => Some(gen_pwstr()),
-            ("Windows.Win32.SystemServices", "PSTR") => Some(gen_pstr()),
-            ("Windows.Win32.Automation", "BSTR") => Some(gen_bstr()),
+            ("Windows.Win32.System.SystemServices", "BOOL") => Some(gen_bool32()),
+            ("Windows.Win32.System.SystemServices", "PWSTR") => Some(gen_pwstr()),
+            ("Windows.Win32.System.SystemServices", "PSTR") => Some(gen_pstr()),
+            ("Windows.Win32.System.OleAutomation", "BSTR") => Some(gen_bstr()),
             _ => None,
         }
     }
@@ -471,7 +477,7 @@ impl Struct {
             ("Windows.Foundation.Numerics", "Vector4") => gen_vector4(),
             ("Windows.Foundation.Numerics", "Matrix3x2") => gen_matrix3x2(),
             ("Windows.Foundation.Numerics", "Matrix4x4") => gen_matrix4x4(),
-            ("Windows.Win32.SystemServices", "HANDLE") => gen_handle(),
+            ("Windows.Win32.System.SystemServices", "HANDLE") => gen_handle(),
             _ => TokenStream::new(),
         }
     }
@@ -505,7 +511,8 @@ mod tests {
 
     #[test]
     fn test_fields() {
-        let t = TypeReader::get_struct("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let t =
+            TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
         let f: Vec<tables::Field> = t.0.fields().collect();
         assert_eq!(f.len(), 7);
 
@@ -525,7 +532,7 @@ mod tests {
         assert_eq!(
             f[5].signature().kind,
             ElementType::Enum(TypeReader::get_enum(
-                "Windows.Win32.Dxgi",
+                "Windows.Win32.Graphics.Dxgi",
                 "DXGI_FRAME_PRESENTATION_MODE"
             ))
         );
@@ -537,10 +544,11 @@ mod tests {
         let t = TypeReader::get_struct("Windows.Foundation", "Point");
         assert_eq!(t.dependencies().len(), 0);
 
-        let t = TypeReader::get_struct("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS");
+        let t = TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS");
         assert_eq!(t.dependencies().len(), 0);
 
-        let t = TypeReader::get_struct("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let t =
+            TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
         let deps = t.dependencies();
         assert_eq!(deps.len(), 1);
         assert_eq!(deps[0].name(), "DXGI_FRAME_PRESENTATION_MODE");

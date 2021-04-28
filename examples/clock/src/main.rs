@@ -1,8 +1,9 @@
 use bindings::{
-    Windows::Foundation::Numerics::*, Windows::Win32::Direct2D::*, Windows::Win32::Direct3D11::*,
-    Windows::Win32::Dxgi::*, Windows::Win32::Gdi::*, Windows::Win32::SystemServices::*,
-    Windows::Win32::UIAnimation::*, Windows::Win32::WindowsAndMessaging::*,
-    Windows::Win32::WindowsProgramming::*,
+    Windows::Foundation::Numerics::*, Windows::Win32::Graphics::Direct2D::*,
+    Windows::Win32::Graphics::Direct3D11::*, Windows::Win32::Graphics::Dxgi::*,
+    Windows::Win32::Graphics::Gdi::*, Windows::Win32::System::SystemServices::*,
+    Windows::Win32::System::WindowsProgramming::*, Windows::Win32::UI::Animation::*,
+    Windows::Win32::UI::WindowsAndMessaging::*,
 };
 
 use windows::*;
@@ -393,7 +394,7 @@ impl Window {
 
     fn run(&mut self) -> Result<()> {
         unsafe {
-            let instance = HINSTANCE(GetModuleHandleA(None));
+            let instance = GetModuleHandleA(None);
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {
@@ -588,7 +589,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
         D3D11CreateDevice(
             None,
             drive_type,
-            0,
+            HINSTANCE::default(),
             flags,
             std::ptr::null(),
             0,

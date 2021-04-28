@@ -43,10 +43,10 @@ Doing the search should lead you to find the following:
 
 ![Search Results](./images/ISpellChecker.png)
 
-Remember the module path that `ISpellChecker` is in underneath `bindings`: `Windows::Win32::Intl`. You'll want to use that exactly when specifying the types you need to generate.
+Remember the module path that `ISpellChecker` is in underneath `bindings`: `Windows::Win32::Globalization`. You'll want to use that exactly when specifying the types you need to generate.
 
 > **Note**
-> It's important to note that for COM and WinRT APIs, methods are only available when all the types use in those methods parameters and return types are also generated. When you want to use a certain type's method, make sure you're generating everything you need to use that method. For example, the `ISpellChecker::Suggest` method takes an argument of type `*mut Option<IEnumString>`. If `IEnumString` (which is located in the `Windows::Win32::Com` namespace), is not generated, `ISpellChecker::Suggest` will not be generated as well.
+> It's important to note that for COM and WinRT APIs, methods are only available when all the types use in those methods parameters and return types are also generated. When you want to use a certain type's method, make sure you're generating everything you need to use that method. For example, the `ISpellChecker::Suggest` method takes an argument of type `*mut Option<IEnumString>`. If `IEnumString` (which is located in the `Windows::Win32::System::Com` namespace), is not generated, `ISpellChecker::Suggest` will not be generated as well.
 
 In the build.rs file add the following:
 
@@ -55,9 +55,9 @@ fn main() {
     windows::build!(
         // Note that we're using the `Intl` namespace which is nested inside the `Win32` namespace
         // which itself is inside the `Windows` namespace.
-        Windows::Win32::Intl::{ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, CORRECTIVE_ACTION, IEnumSpellingError, ISpellingError},
-        Windows::Win32::SystemServices::{BOOL, PWSTR, S_FALSE},
-        Windows::Win32::Com::IEnumString
+        Windows::Win32::Globalization::{ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, CORRECTIVE_ACTION, IEnumSpellingError, ISpellingError},
+        Windows::Win32::System::SystemServices::{BOOL, PWSTR, S_FALSE},
+        Windows::Win32::System::Com::IEnumString
     )
 }
 ```
@@ -95,8 +95,8 @@ fn main() -> windows::Result<()> {
 Next, we'll initialize the `ISpellCheckerFactory` which is what gives us access to spellcheckers. We'll first make sure the `intl` namespace and two types we'll need `PWSTR` and `BOOL` are in scope at the top of the main.rs file:
 
 ```rust
-use bindings::Windows::Win32::Intl;
-use bindings::Windows::Win32::SystemServices::{BOOL, PWSTR};
+use bindings::Windows::Win32::Globalization;
+use bindings::Windows::Win32::System::SystemServices::{BOOL, PWSTR};
 ```
 
 Then we can do the initialization by calling `windows::create_instance` which calls [CoCreateInstance](https://docs.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-cocreateinstance) under the hood:
@@ -127,7 +127,7 @@ pub unsafe fn IsSupported<'a>(
 ) -> HRESULT
 ```
 
-This looks a little complicated, but it makes using the API straightforward. The method is generic on both a lifetime `'a` and the trait `IntoParam` defined in the `windows` crate. Essentially, `IntoParam` is a slightly specialized version of Rust's `std::convert::Into`. It is implemented on all types that can be converted to a parameter of the type its generic over. In other words, it is any type that can be converted into a parameter of type `PWSTR` that lives for at least the lifetime `'a`. 
+This looks a little complicated, but it makes using the API straightforward. The method is generic on both a lifetime `'a` and the trait `IntoParam` defined in the `windows` crate. Essentially, `IntoParam` is a slightly specialized version of Rust's `std::convert::Into`. It is implemented on all types that can be converted to a parameter of the type its generic over. In other words, it is any type that can be converted into a parameter of type `PWSTR` that lives for at least the lifetime `'a`.
 
 It turns out that `IntoParam<'a, PWSTR>` is implemented for `&'a str` so we can simply pass a string literal. `IntoParam<'a, PWSTR>` is also implemented on `String` and `PWSTR` itself.
 

@@ -1,8 +1,9 @@
 use crate::*;
 
 use bindings::{
-    Windows::Win32::SystemServices::{CreateEventA, SetEvent, WaitForSingleObject, HANDLE, PSTR},
-    Windows::Win32::WindowsProgramming::CloseHandle,
+    Windows::Win32::System::SystemServices::{HANDLE, PSTR},
+    Windows::Win32::System::Threading::{CreateEventA, SetEvent, WaitForSingleObject},
+    Windows::Win32::System::WindowsProgramming::CloseHandle,
 };
 
 /// A simple blocking waiter used by the generated bindings and should not be used directly.

@@ -1,4 +1,4 @@
-use test_winrt::{Windows::Foundation::Uri, Windows::Win32::SystemServices::E_NOINTERFACE};
+use test_winrt::{Windows::Foundation::Uri, Windows::Win32::System::SystemServices::E_NOINTERFACE};
 
 #[test]
 fn from_hresult() {
