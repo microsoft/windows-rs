@@ -11,7 +11,7 @@ pub struct IInspectable(IUnknown);
 
 impl IInspectable {
     /// Returns the canonical type name for the underlying object.
-    pub fn type_name(&self) -> Result<HString> {
+    pub fn type_name(&self) -> Result<HSTRING> {
         unsafe {
             let mut abi = std::ptr::null_mut();
             (self.vtable().4)(self.abi(), &mut abi).ok()?;
@@ -108,27 +108,27 @@ impl std::convert::TryFrom<&str> for IInspectable {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<HString> for IInspectable {
+impl std::convert::TryFrom<HSTRING> for IInspectable {
     type Error = Error;
-    fn try_from(value: HString) -> Result<Self> {
+    fn try_from(value: HSTRING) -> Result<Self> {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<&HString> for IInspectable {
+impl std::convert::TryFrom<&HSTRING> for IInspectable {
     type Error = Error;
-    fn try_from(value: &HString) -> Result<Self> {
+    fn try_from(value: &HSTRING) -> Result<Self> {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<IInspectable> for HString {
+impl std::convert::TryFrom<IInspectable> for HSTRING {
     type Error = Error;
     fn try_from(value: IInspectable) -> Result<Self> {
-        <IInspectable as Interface>::cast::<IReference<HString>>(&value)?.Value()
+        <IInspectable as Interface>::cast::<IReference<HSTRING>>(&value)?.Value()
     }
 }
-impl std::convert::TryFrom<&IInspectable> for HString {
+impl std::convert::TryFrom<&IInspectable> for HSTRING {
     type Error = Error;
     fn try_from(value: &IInspectable) -> Result<Self> {
-        <IInspectable as Interface>::cast::<IReference<HString>>(value)?.Value()
+        <IInspectable as Interface>::cast::<IReference<HSTRING>>(value)?.Value()
     }
 }

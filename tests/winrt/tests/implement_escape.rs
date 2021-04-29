@@ -14,20 +14,20 @@ impl BookShu {
 
     pub fn GetCustomProperty(
         &self,
-        _name: &::windows::HString,
+        _name: &::windows::HSTRING,
     ) -> ::windows::Result<Windows::UI::Xaml::Data::ICustomProperty> {
         panic!();
     }
 
     pub fn GetIndexedProperty(
         &self,
-        _name: &::windows::HString,
+        _name: &::windows::HSTRING,
         _type: &Windows::UI::Xaml::Interop::TypeName,
     ) -> ::windows::Result<Windows::UI::Xaml::Data::ICustomProperty> {
         panic!();
     }
 
-    pub fn GetStringRepresentation(&self) -> ::windows::Result<::windows::HString> {
+    pub fn GetStringRepresentation(&self) -> ::windows::Result<::windows::HSTRING> {
         panic!();
     }
 }

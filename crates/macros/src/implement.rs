@@ -262,7 +262,7 @@ pub fn gen(
                 _: ::windows::RawPtr,
                 value: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT {
-                let h: ::windows::HString = "Thing".into(); // TODO: replace with class name or first interface
+                let h: ::windows::HSTRING = "Thing".into(); // TODO: replace with class name or first interface
                 *value = ::std::mem::transmute(h);
                 ::windows::HRESULT(0)
             }

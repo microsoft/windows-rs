@@ -64,7 +64,7 @@ fn uri() -> windows::Result<()> {
 
 #[test]
 fn property_set() -> windows::Result<()> {
-    // The PropertySet class implements IIterable<IKeyValuePair<HString, IInspectable>> so the following
+    // The PropertySet class implements IIterable<IKeyValuePair<HSTRING, IInspectable>> so the following
     // for loop will excercise the IIterator<T> iterator implicitly.
 
     let set = PropertySet::new()?;

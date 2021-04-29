@@ -1,6 +1,6 @@
 use std::convert::{TryFrom, TryInto};
 use test_winrt::Windows::Foundation::{IPropertyValue, PropertyValue};
-use windows::{HString, IInspectable, Interface};
+use windows::{IInspectable, Interface, HSTRING};
 
 macro_rules! primitive_try_into_test {
     ($(($t:ty, $v:literal)),+) => {
@@ -55,26 +55,26 @@ fn boxing_into() -> windows::Result<()> {
     }
 
     let o: IInspectable = "hello".try_into()?;
-    let v: HString = (&o).try_into()?;
+    let v: HSTRING = (&o).try_into()?;
     assert!("hello" == v);
-    let v: HString = o.try_into()?;
+    let v: HSTRING = o.try_into()?;
     assert!("hello" == v);
 
-    let v = HString::from("hello");
+    let v = HSTRING::from("hello");
     let o: IInspectable = (&v).try_into()?;
-    let v: HString = (&o).try_into()?;
+    let v: HSTRING = (&o).try_into()?;
     assert!("hello" == v);
-    let v: HString = o.try_into()?;
+    let v: HSTRING = o.try_into()?;
     assert!("hello" == v);
 
-    let v = HString::from("hello");
+    let v = HSTRING::from("hello");
     let o: IInspectable = v.try_into()?;
-    let v: HString = o.try_into()?;
+    let v: HSTRING = o.try_into()?;
     assert!("hello" == v);
 
     let o = IInspectable::try_from("hello")?;
-    assert_eq!("hello", HString::try_from(&o)?);
-    assert_eq!("hello", HString::try_from(o)?);
+    assert_eq!("hello", HSTRING::try_from(&o)?);
+    assert_eq!("hello", HSTRING::try_from(o)?);
 
     Ok(())
 }

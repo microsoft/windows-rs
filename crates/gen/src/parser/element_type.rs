@@ -204,7 +204,7 @@ impl ElementType {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::String => {
-                quote! { ::windows::HString }
+                quote! { ::windows::HSTRING }
             }
             Self::IInspectable => {
                 quote! { ::windows::IInspectable }

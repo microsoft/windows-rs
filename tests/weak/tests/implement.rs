@@ -73,7 +73,7 @@ struct Stringable {
 
 #[allow(non_snake_case)]
 impl Stringable {
-    fn ToString(&self) -> Result<HString> {
+    fn ToString(&self) -> Result<HSTRING> {
         Ok("Stringable".into())
     }
 }

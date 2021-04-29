@@ -63,7 +63,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
 /// Attempts to load the factory interface for the given WinRT class.
 pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let mut factory: Option<I> = None;
-    let name = HString::from(C::NAME);
+    let name = HSTRING::from(C::NAME);
 
     unsafe {
         // First attempt to get the activation factory via the OS.

@@ -91,8 +91,8 @@ fn params() -> windows::Result<()> {
     }
 
     {
-        let a: windows::HString = "WinRT".into();
-        let mut b = windows::HString::new();
+        let a: windows::HSTRING = "WinRT".into();
+        let mut b = windows::HSTRING::new();
         let c = tests.Param12(&a, &mut b)?;
         assert!(a == b && a == c);
     }
@@ -280,11 +280,11 @@ fn arrays() -> windows::Result<()> {
     }
 
     {
-        let a: [windows::HString; 3] = ["apples".into(), "oranges".into(), "pears".into()];
+        let a: [windows::HSTRING; 3] = ["apples".into(), "oranges".into(), "pears".into()];
         let mut b = [
-            windows::HString::new(),
-            windows::HString::new(),
-            windows::HString::new(),
+            windows::HSTRING::new(),
+            windows::HSTRING::new(),
+            windows::HSTRING::new(),
         ];
         let mut c = windows::Array::new();
         let d = tests.Array12(&a, &mut b, &mut c)?;

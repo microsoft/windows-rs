@@ -5,7 +5,7 @@ fn generic_guids() -> windows::Result<()> {
     use windows::Interface;
 
     type A = IIterable<IStringable>;
-    type B = IKeyValuePair<windows::HString, IAsyncOperationWithProgress<A, f32>>;
+    type B = IKeyValuePair<windows::HSTRING, IAsyncOperationWithProgress<A, f32>>;
 
     //
     // Generated Windows.Foundation GUIDs
@@ -199,7 +199,7 @@ fn generic_guids() -> windows::Result<()> {
     );
 
     assert_eq!(
-        IReference::<windows::HString>::IID,
+        IReference::<windows::HSTRING>::IID,
         windows::Guid::from("FD416DFB-2A07-52EB-AAE3-DFCE14116C05")
     );
 

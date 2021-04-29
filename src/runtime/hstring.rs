@@ -7,10 +7,10 @@ use std::result::Result as StdResult;
 /// A WinRT string, sometimes called an [HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring),
 /// is reference-counted and logically immutable. It should only be used for communicating with WinRT APIs.
 #[repr(transparent)]
-pub struct HString(*mut Header);
+pub struct HSTRING(*mut Header);
 
-impl HString {
-    /// Create an empty `HString`.
+impl HSTRING {
+    /// Create an empty `HSTRING`.
     ///
     /// This function does no allocation.
     pub fn new() -> Self {
@@ -42,12 +42,12 @@ impl HString {
         unsafe { std::slice::from_raw_parts((*header).data, (*header).len as usize) }
     }
 
-    /// Create a `HString` from a slice of 16 bit characters (wchars).
+    /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
     pub fn from_wide(value: &[u16]) -> Self {
         unsafe { Self::from_wide_iter(value.iter().copied(), value.len() as u32) }
     }
 
-    /// Get the contents of this `HString` as a String lossily.
+    /// Get the contents of this `HSTRING` as a String lossily.
     pub fn to_string_lossy(&self) -> String {
         String::from_utf16_lossy(self.as_wide())
     }
@@ -97,7 +97,7 @@ impl HString {
     }
 }
 
-unsafe impl Abi for HString {
+unsafe impl Abi for HSTRING {
     type Abi = RawPtr;
 
     fn set_abi(&mut self) -> *mut RawPtr {
@@ -106,18 +106,18 @@ unsafe impl Abi for HString {
     }
 }
 
-unsafe impl RuntimeType for HString {
+unsafe impl RuntimeType for HSTRING {
     type DefaultType = Self;
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"string");
 }
 
-impl Default for HString {
+impl Default for HSTRING {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl Clone for HString {
+impl Clone for HSTRING {
     fn clone(&self) -> Self {
         if self.is_empty() {
             return Self::new();
@@ -127,16 +127,16 @@ impl Clone for HString {
     }
 }
 
-impl Drop for HString {
+impl Drop for HSTRING {
     fn drop(&mut self) {
         self.clear();
     }
 }
 
-unsafe impl Send for HString {}
-unsafe impl Sync for HString {}
+unsafe impl Send for HSTRING {}
+unsafe impl Sync for HSTRING {}
 
-impl std::fmt::Display for HString {
+impl std::fmt::Display for HSTRING {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         use std::fmt::Write;
         for c in std::char::decode_utf16(self.as_wide().iter().cloned()) {
@@ -146,72 +146,72 @@ impl std::fmt::Display for HString {
     }
 }
 
-impl std::fmt::Debug for HString {
+impl std::fmt::Debug for HSTRING {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", self)
     }
 }
 
-impl From<&str> for HString {
+impl From<&str> for HSTRING {
     fn from(value: &str) -> Self {
         unsafe { Self::from_wide_iter(value.encode_utf16(), value.len() as u32) }
     }
 }
 
-impl From<String> for HString {
+impl From<String> for HSTRING {
     fn from(value: String) -> Self {
         value.as_str().into()
     }
 }
 
-impl From<&String> for HString {
+impl From<&String> for HSTRING {
     fn from(value: &String) -> Self {
         value.as_str().into()
     }
 }
 
-impl PartialEq for HString {
+impl PartialEq for HSTRING {
     fn eq(&self, other: &Self) -> bool {
         self.as_wide() == other.as_wide()
     }
 }
 
-impl PartialEq<String> for HString {
+impl PartialEq<String> for HSTRING {
     fn eq(&self, other: &String) -> bool {
         self == other.as_str()
     }
 }
 
-impl PartialEq<str> for HString {
+impl PartialEq<str> for HSTRING {
     fn eq(&self, other: &str) -> bool {
         self == other
     }
 }
 
-impl PartialEq<&str> for HString {
+impl PartialEq<&str> for HSTRING {
     fn eq(&self, other: &&str) -> bool {
         self.as_wide().iter().copied().eq(other.encode_utf16())
     }
 }
 
-impl PartialEq<HString> for &str {
-    fn eq(&self, other: &HString) -> bool {
+impl PartialEq<HSTRING> for &str {
+    fn eq(&self, other: &HSTRING) -> bool {
         other == self
     }
 }
 
-impl<'a> TryFrom<&'a HString> for String {
+impl<'a> TryFrom<&'a HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
-    fn try_from(hstring: &HString) -> StdResult<Self, Self::Error> {
+    fn try_from(hstring: &HSTRING) -> StdResult<Self, Self::Error> {
         String::from_utf16(hstring.as_wide())
     }
 }
 
-impl TryFrom<HString> for String {
+impl TryFrom<HSTRING> for String {
     type Error = std::string::FromUtf16Error;
 
-    fn try_from(hstring: HString) -> StdResult<Self, Self::Error> {
+    fn try_from(hstring: HSTRING) -> StdResult<Self, Self::Error> {
         String::try_from(&hstring)
     }
 }
@@ -243,7 +243,7 @@ impl Header {
         let header = heap_alloc(alloc_size) as *mut Header;
 
         if header.is_null() {
-            panic!("Could not successfully allocate for HString");
+            panic!("Could not successfully allocate for HSTRING");
         }
 
         unsafe {
@@ -276,7 +276,7 @@ impl Header {
 #[cfg(test)]
 mod tests {
     use super::*;
-    type StringType = HString;
+    type StringType = HSTRING;
 
     #[test]
     fn hstring_works() {

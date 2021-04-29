@@ -161,16 +161,16 @@ pub mod Windows {
                     .from_abi::<bool>(result__)
                 }
             }
-            pub fn GetString(&self) -> ::windows::Result<::windows::HString> {
+            pub fn GetString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = self;
                 unsafe {
-                    let mut result__: <::windows::HString as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).19)(
                         ::windows::Abi::abi(this),
                         &mut result__,
                     )
-                    .from_abi::<::windows::HString>(result__)
+                    .from_abi::<::windows::HSTRING>(result__)
                 }
             }
             pub fn GetGuid(&self) -> ::windows::Result<::windows::Guid> {
@@ -338,7 +338,7 @@ pub mod Windows {
             }
             pub fn GetStringArray(
                 &self,
-                value: &mut ::windows::Array<::windows::HString>,
+                value: &mut ::windows::Array<::windows::HSTRING>,
             ) -> ::windows::Result<()> {
                 let this = self;
                 unsafe {
@@ -713,16 +713,16 @@ pub mod Windows {
                     .from_abi::<bool>(result__)
                 }
             }
-            pub fn GetString(&self) -> ::windows::Result<::windows::HString> {
+            pub fn GetString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
                 unsafe {
-                    let mut result__: <::windows::HString as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).19)(
                         ::windows::Abi::abi(this),
                         &mut result__,
                     )
-                    .from_abi::<::windows::HString>(result__)
+                    .from_abi::<::windows::HSTRING>(result__)
                 }
             }
             pub fn GetGuid(&self) -> ::windows::Result<::windows::Guid> {
@@ -890,7 +890,7 @@ pub mod Windows {
             }
             pub fn GetStringArray(
                 &self,
-                value: &mut ::windows::Array<::windows::HString>,
+                value: &mut ::windows::Array<::windows::HSTRING>,
             ) -> ::windows::Result<()> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
                 unsafe {
@@ -1045,13 +1045,13 @@ pub mod Windows {
             );
         }
         impl IStringable {
-            pub fn ToString(&self) -> ::windows::Result<::windows::HString> {
+            pub fn ToString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = self;
                 unsafe {
-                    let mut result__: <::windows::HString as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(::windows::Abi::abi(this), &mut result__)
-                        .from_abi::<::windows::HString>(result__)
+                        .from_abi::<::windows::HSTRING>(result__)
                 }
             }
         }
@@ -1461,7 +1461,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateString<'a>(
-                value: impl ::windows::IntoParam<'a, ::windows::HString>,
+                value: impl ::windows::IntoParam<'a, ::windows::HSTRING>,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -1668,7 +1668,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateStringArray(
-                value: &[<::windows::HString as ::windows::RuntimeType>::DefaultType],
+                value: &[<::windows::HSTRING as ::windows::RuntimeType>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =

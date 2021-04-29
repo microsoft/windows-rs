@@ -254,7 +254,7 @@ fn onecore_imports() -> windows::Result<()> {
         let mut uri = None;
         let uri = CreateUri(
             PWSTR(
-                windows::HString::from("http://kennykerr.ca")
+                windows::HSTRING::from("http://kennykerr.ca")
                     .as_wide()
                     .as_ptr() as _,
             ),
@@ -310,7 +310,7 @@ fn callback() {
             BOOL(789)
                 == a(
                     HWND(123),
-                    PWSTR(windows::HString::from("hello w\0").as_wide().as_ptr() as _),
+                    PWSTR(windows::HSTRING::from("hello w\0").as_wide().as_ptr() as _),
                     HANDLE(456)
                 )
         );

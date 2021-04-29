@@ -68,8 +68,8 @@ impl Drop for Thing {
 
 #[allow(non_snake_case)]
 impl Thing {
-    fn ToString(&self) -> ::windows::Result<::windows::HString> {
-        Ok(::windows::HString::from(&self.value))
+    fn ToString(&self) -> ::windows::Result<::windows::HSTRING> {
+        Ok(::windows::HSTRING::from(&self.value))
     }
 
     fn Close(&self) -> ::windows::Result<()> {

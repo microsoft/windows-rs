@@ -75,13 +75,13 @@ fn event() -> windows::Result<()> {
     // TODO: Should be able to elide the delegate construction and simply say:
     // set.MapChanged(|sender, args| {...})?;
     set.MapChanged(MapChangedEventHandler::<
-        windows::HString,
+        windows::HSTRING,
         windows::IInspectable,
     >::new(move |sender, args| {
         let args = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
-        let map: IObservableMap<windows::HString, windows::IInspectable> = set.into();
+        let map: IObservableMap<windows::HSTRING, windows::IInspectable> = set.into();
         assert!(map.abi() == sender.abi());
         assert!(args.Key()? == "A");
         assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
