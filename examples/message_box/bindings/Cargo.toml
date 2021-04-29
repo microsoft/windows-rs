@@ -1,6 +1,6 @@
 [package]
 name = "message_box_bindings"
-version = "0.9.1"
+version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
 

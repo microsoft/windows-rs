@@ -1,6 +1,6 @@
 [package]
 name = "com_uri"
-version = "0.9.1"
+version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
 
