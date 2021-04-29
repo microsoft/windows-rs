@@ -139,7 +139,7 @@ struct TearOff {
 
 impl TearOff {
     unsafe fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
-        std::mem::transmute(::std::boxed::Box::new(TearOff {
+        std::mem::transmute(Box::new(TearOff {
             strong_vtable: &Self::STRONG_VTABLE,
             weak_vtable: &Self::WEAK_VTABLE,
             object,
@@ -151,7 +151,7 @@ impl TearOff {
     unsafe fn from_encoding(encoding: isize) -> RawPtr {
         let tear_off = TearOff::decode(encoding);
         tear_off.strong_count.add_ref();
-        return std::mem::transmute(tear_off);
+        std::mem::transmute(tear_off)
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_abi = IWeakReferenceSource_abi(
