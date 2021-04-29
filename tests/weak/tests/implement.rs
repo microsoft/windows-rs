@@ -43,7 +43,7 @@ fn test_queries() {
 
     {
         let strong: IStringable = Stringable { sender }.into();
-        assert!(strong.cast::<Object>().is_ok());
+        assert!(strong.cast::<IInspectable>().is_ok());
         assert!(strong.cast::<IStringable>().is_ok());
         assert!(strong.cast::<IWeakReferenceSource>().is_ok());
         assert!(strong.cast::<IWeakReference>().is_err());
@@ -57,7 +57,7 @@ fn test_queries() {
         let weak = unsafe { source.GetWeakReference(&mut weak).and_some(weak).unwrap() };
         assert!(weak.cast::<IWeakReference>().is_ok());
         assert!(weak.cast::<IWeakReferenceSource>().is_err());
-        assert!(weak.cast::<Object>().is_err());
+        assert!(weak.cast::<IInspectable>().is_err());
         assert!(weak.cast::<IStringable>().is_err());
         assert!(weak.cast::<IWeakReference>().unwrap() == weak);
         assert!(weak.cast::<IUnknown>().unwrap() != strong.cast::<IUnknown>().unwrap());
@@ -73,7 +73,7 @@ struct Stringable {
 
 #[allow(non_snake_case)]
 impl Stringable {
-    fn ToString(&self) -> Result<HString> {
+    fn ToString(&self) -> Result<HSTRING> {
         Ok("Stringable".into())
     }
 }

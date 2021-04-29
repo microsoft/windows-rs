@@ -45,9 +45,9 @@ fn implement() -> ::windows::Result<()> {
         let s: Windows::Foundation::IStringable = t.into();
         assert!(s.ToString()? == "object");
 
-        // Confirms that the conversion to `Object` properly handles
+        // Confirms that the conversion to `IInspectable` properly handles
         // reference counting.
-        let _: ::windows::Object = s.into();
+        let _: ::windows::IInspectable = s.into();
     }
     assert!(receiver.recv().unwrap() == "drop: object");
 
@@ -68,8 +68,8 @@ impl Drop for Thing {
 
 #[allow(non_snake_case)]
 impl Thing {
-    fn ToString(&self) -> ::windows::Result<::windows::HString> {
-        Ok(::windows::HString::from(&self.value))
+    fn ToString(&self) -> ::windows::Result<::windows::HSTRING> {
+        Ok(::windows::HSTRING::from(&self.value))
     }
 
     fn Close(&self) -> ::windows::Result<()> {

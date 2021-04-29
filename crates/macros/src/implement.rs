@@ -213,7 +213,7 @@ pub fn gen(
                     *interface = match iid {
                         #queries
                         &<::windows::IUnknown as ::windows::Interface>::IID
-                        | &<::windows::Object as ::windows::Interface>::IID
+                        | &<::windows::IInspectable as ::windows::Interface>::IID
                         | &<::windows::IAgileObject as ::windows::Interface>::IID => {
                             &mut self.vtable.0 as *mut _ as _
                         }
@@ -262,7 +262,7 @@ pub fn gen(
                 _: ::windows::RawPtr,
                 value: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT {
-                let h: ::windows::HString = "Thing".into(); // TODO: replace with class name or first interface
+                let h: ::windows::HSTRING = "Thing".into(); // TODO: replace with class name or first interface
                 *value = ::std::mem::transmute(h);
                 ::windows::HRESULT(0)
             }

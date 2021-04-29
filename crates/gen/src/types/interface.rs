@@ -151,7 +151,7 @@ impl Interface {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             #hidden
-            pub struct #name(::windows::Object, #(#struct_phantoms,)*) where #constraints;
+            pub struct #name(::windows::IInspectable, #(#struct_phantoms,)*) where #constraints;
             unsafe impl<#constraints> ::windows::Interface for #name {
                 type Vtable = #abi_name;
                 const IID: ::windows::Guid = #guid;

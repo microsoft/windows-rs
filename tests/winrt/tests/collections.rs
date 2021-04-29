@@ -64,14 +64,14 @@ fn uri() -> windows::Result<()> {
 
 #[test]
 fn property_set() -> windows::Result<()> {
-    // The PropertySet class implements IIterable<IKeyValuePair<HString, Object>> so the following
+    // The PropertySet class implements IIterable<IKeyValuePair<HSTRING, IInspectable>> so the following
     // for loop will excercise the IIterator<T> iterator implicitly.
 
     let set = PropertySet::new()?;
 
-    set.Insert("A", windows::Object::try_from(1)?)?;
-    set.Insert("B", windows::Object::try_from(2)?)?;
-    set.Insert("C", windows::Object::try_from(3)?)?;
+    set.Insert("A", windows::IInspectable::try_from(1)?)?;
+    set.Insert("B", windows::IInspectable::try_from(2)?)?;
+    set.Insert("C", windows::IInspectable::try_from(3)?)?;
 
     assert!(set.Size()? == 3);
 

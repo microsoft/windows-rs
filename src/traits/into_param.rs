@@ -34,14 +34,14 @@ impl<'a, T: Abi> IntoParam<'a, T> for &'a Option<T> {
     }
 }
 
-impl<'a> IntoParam<'a, HString> for &'a str {
-    fn into_param(self) -> Param<'a, HString> {
+impl<'a> IntoParam<'a, HSTRING> for &'a str {
+    fn into_param(self) -> Param<'a, HSTRING> {
         Param::Owned(self.into())
     }
 }
 
-impl<'a> IntoParam<'a, HString> for String {
-    fn into_param(self) -> Param<'a, HString> {
+impl<'a> IntoParam<'a, HSTRING> for String {
+    fn into_param(self) -> Param<'a, HSTRING> {
         Param::Owned(self.into())
     }
 }

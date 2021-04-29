@@ -17,7 +17,7 @@ impl Error {
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.
     pub fn new(code: HRESULT, message: &str) -> Self {
-        let message: HString = message.into();
+        let message: HSTRING = message.into();
 
         // RoOriginateError creates the error object and associates it with the thread.
         // Need to ignore the result, as that is the delay-load error, which would mean

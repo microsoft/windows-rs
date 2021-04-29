@@ -27,7 +27,7 @@ pub mod Windows {
             :: std :: clone :: Clone,
             :: std :: fmt :: Debug,
         )]
-        pub struct IPropertyValue(::windows::Object);
+        pub struct IPropertyValue(::windows::IInspectable);
         unsafe impl ::windows::Interface for IPropertyValue {
             type Vtable = IPropertyValue_abi;
             const IID: ::windows::Guid = ::windows::Guid::from_values(
@@ -161,16 +161,16 @@ pub mod Windows {
                     .from_abi::<bool>(result__)
                 }
             }
-            pub fn GetString(&self) -> ::windows::Result<::windows::HString> {
+            pub fn GetString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = self;
                 unsafe {
-                    let mut result__: <::windows::HString as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).19)(
                         ::windows::Abi::abi(this),
                         &mut result__,
                     )
-                    .from_abi::<::windows::HString>(result__)
+                    .from_abi::<::windows::HSTRING>(result__)
                 }
             }
             pub fn GetGuid(&self) -> ::windows::Result<::windows::Guid> {
@@ -338,7 +338,7 @@ pub mod Windows {
             }
             pub fn GetStringArray(
                 &self,
-                value: &mut ::windows::Array<::windows::HString>,
+                value: &mut ::windows::Array<::windows::HSTRING>,
             ) -> ::windows::Result<()> {
                 let this = self;
                 unsafe {
@@ -352,7 +352,7 @@ pub mod Windows {
             }
             pub fn GetInspectableArray(
                 &self,
-                value: &mut ::windows::Array<::windows::Object>,
+                value: &mut ::windows::Array<::windows::IInspectable>,
             ) -> ::windows::Result<()> {
                 let this = self;
                 unsafe {
@@ -384,23 +384,23 @@ pub mod Windows {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
         }
-        impl ::std::convert::From<IPropertyValue> for ::windows::Object {
+        impl ::std::convert::From<IPropertyValue> for ::windows::IInspectable {
             fn from(value: IPropertyValue) -> Self {
                 value.0
             }
         }
-        impl ::std::convert::From<&IPropertyValue> for ::windows::Object {
+        impl ::std::convert::From<&IPropertyValue> for ::windows::IInspectable {
             fn from(value: &IPropertyValue) -> Self {
                 value.0.clone()
             }
         }
-        impl<'a> ::windows::IntoParam<'a, ::windows::Object> for IPropertyValue {
-            fn into_param(self) -> ::windows::Param<'a, ::windows::Object> {
+        impl<'a> ::windows::IntoParam<'a, ::windows::IInspectable> for IPropertyValue {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IInspectable> {
                 ::windows::Param::Owned(self.0)
             }
         }
-        impl<'a> ::windows::IntoParam<'a, ::windows::Object> for &'a IPropertyValue {
-            fn into_param(self) -> ::windows::Param<'a, ::windows::Object> {
+        impl<'a> ::windows::IntoParam<'a, ::windows::IInspectable> for &'a IPropertyValue {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IInspectable> {
                 ::windows::Param::Borrowed(&self.0)
             }
         }
@@ -572,7 +572,7 @@ pub mod Windows {
             :: std :: clone :: Clone,
             :: std :: fmt :: Debug,
         )]
-        pub struct IReference<T>(::windows::Object, ::std::marker::PhantomData<T>)
+        pub struct IReference<T>(::windows::IInspectable, ::std::marker::PhantomData<T>)
         where
             T: ::windows::RuntimeType + 'static;
         unsafe impl<T: ::windows::RuntimeType + 'static> ::windows::Interface for IReference<T> {
@@ -713,16 +713,16 @@ pub mod Windows {
                     .from_abi::<bool>(result__)
                 }
             }
-            pub fn GetString(&self) -> ::windows::Result<::windows::HString> {
+            pub fn GetString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
                 unsafe {
-                    let mut result__: <::windows::HString as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).19)(
                         ::windows::Abi::abi(this),
                         &mut result__,
                     )
-                    .from_abi::<::windows::HString>(result__)
+                    .from_abi::<::windows::HSTRING>(result__)
                 }
             }
             pub fn GetGuid(&self) -> ::windows::Result<::windows::Guid> {
@@ -890,7 +890,7 @@ pub mod Windows {
             }
             pub fn GetStringArray(
                 &self,
-                value: &mut ::windows::Array<::windows::HString>,
+                value: &mut ::windows::Array<::windows::HSTRING>,
             ) -> ::windows::Result<()> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
                 unsafe {
@@ -904,7 +904,7 @@ pub mod Windows {
             }
             pub fn GetInspectableArray(
                 &self,
-                value: &mut ::windows::Array<::windows::Object>,
+                value: &mut ::windows::Array<::windows::IInspectable>,
             ) -> ::windows::Result<()> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
                 unsafe {
@@ -943,30 +943,30 @@ pub mod Windows {
             };
         }
         impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<IReference<T>>
-            for ::windows::Object
+            for ::windows::IInspectable
         {
             fn from(value: IReference<T>) -> Self {
                 value.0
             }
         }
         impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<&IReference<T>>
-            for ::windows::Object
+            for ::windows::IInspectable
         {
             fn from(value: &IReference<T>) -> Self {
                 value.0.clone()
             }
         }
-        impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, ::windows::Object>
-            for IReference<T>
+        impl<'a, T: ::windows::RuntimeType + 'static>
+            ::windows::IntoParam<'a, ::windows::IInspectable> for IReference<T>
         {
-            fn into_param(self) -> ::windows::Param<'a, ::windows::Object> {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IInspectable> {
                 ::windows::Param::Owned(self.0)
             }
         }
-        impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, ::windows::Object>
-            for &'a IReference<T>
+        impl<'a, T: ::windows::RuntimeType + 'static>
+            ::windows::IntoParam<'a, ::windows::IInspectable> for &'a IReference<T>
         {
-            fn into_param(self) -> ::windows::Param<'a, ::windows::Object> {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IInspectable> {
                 ::windows::Param::Borrowed(&self.0)
             }
         }
@@ -1034,7 +1034,7 @@ pub mod Windows {
             :: std :: clone :: Clone,
             :: std :: fmt :: Debug,
         )]
-        pub struct IStringable(::windows::Object);
+        pub struct IStringable(::windows::IInspectable);
         unsafe impl ::windows::Interface for IStringable {
             type Vtable = IStringable_abi;
             const IID: ::windows::Guid = ::windows::Guid::from_values(
@@ -1045,13 +1045,13 @@ pub mod Windows {
             );
         }
         impl IStringable {
-            pub fn ToString(&self) -> ::windows::Result<::windows::HString> {
+            pub fn ToString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = self;
                 unsafe {
-                    let mut result__: <::windows::HString as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(::windows::Abi::abi(this), &mut result__)
-                        .from_abi::<::windows::HString>(result__)
+                        .from_abi::<::windows::HSTRING>(result__)
                 }
             }
         }
@@ -1060,23 +1060,23 @@ pub mod Windows {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
         }
-        impl ::std::convert::From<IStringable> for ::windows::Object {
+        impl ::std::convert::From<IStringable> for ::windows::IInspectable {
             fn from(value: IStringable) -> Self {
                 value.0
             }
         }
-        impl ::std::convert::From<&IStringable> for ::windows::Object {
+        impl ::std::convert::From<&IStringable> for ::windows::IInspectable {
             fn from(value: &IStringable) -> Self {
                 value.0.clone()
             }
         }
-        impl<'a> ::windows::IntoParam<'a, ::windows::Object> for IStringable {
-            fn into_param(self) -> ::windows::Param<'a, ::windows::Object> {
+        impl<'a> ::windows::IntoParam<'a, ::windows::IInspectable> for IStringable {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IInspectable> {
                 ::windows::Param::Owned(self.0)
             }
         }
-        impl<'a> ::windows::IntoParam<'a, ::windows::Object> for &'a IStringable {
-            fn into_param(self) -> ::windows::Param<'a, ::windows::Object> {
+        impl<'a> ::windows::IntoParam<'a, ::windows::IInspectable> for &'a IStringable {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IInspectable> {
                 ::windows::Param::Borrowed(&self.0)
             }
         }
@@ -1116,7 +1116,7 @@ pub mod Windows {
             :: std :: fmt :: Debug,
         )]
         #[doc(hidden)]
-        pub struct IPropertyValueStatics(::windows::Object);
+        pub struct IPropertyValueStatics(::windows::IInspectable);
         unsafe impl ::windows::Interface for IPropertyValueStatics {
             type Vtable = IPropertyValueStatics_abi;
             const IID: ::windows::Guid = ::windows::Guid::from_values(
@@ -1320,193 +1320,193 @@ pub mod Windows {
         );
         pub struct PropertyValue {}
         impl PropertyValue {
-            pub fn CreateEmpty() -> ::windows::Result<::windows::Object> {
+            pub fn CreateEmpty() -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(::windows::Abi::abi(this), &mut result__)
-                        .from_abi::<::windows::Object>(result__)
+                        .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateUInt8(value: u8) -> ::windows::Result<::windows::Object> {
+            pub fn CreateUInt8(value: u8) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).7)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateInt16(value: i16) -> ::windows::Result<::windows::Object> {
+            pub fn CreateInt16(value: i16) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).8)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateUInt16(value: u16) -> ::windows::Result<::windows::Object> {
+            pub fn CreateUInt16(value: u16) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).9)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateInt32(value: i32) -> ::windows::Result<::windows::Object> {
+            pub fn CreateInt32(value: i32) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).10)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateUInt32(value: u32) -> ::windows::Result<::windows::Object> {
+            pub fn CreateUInt32(value: u32) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).11)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateInt64(value: i64) -> ::windows::Result<::windows::Object> {
+            pub fn CreateInt64(value: i64) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).12)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateUInt64(value: u64) -> ::windows::Result<::windows::Object> {
+            pub fn CreateUInt64(value: u64) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).13)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateSingle(value: f32) -> ::windows::Result<::windows::Object> {
+            pub fn CreateSingle(value: f32) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).14)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateDouble(value: f64) -> ::windows::Result<::windows::Object> {
+            pub fn CreateDouble(value: f64) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).15)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateChar16(value: u16) -> ::windows::Result<::windows::Object> {
+            pub fn CreateChar16(value: u16) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).16)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateBoolean(value: bool) -> ::windows::Result<::windows::Object> {
+            pub fn CreateBoolean(value: bool) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).17)(
                         ::windows::Abi::abi(this),
                         value,
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateString<'a>(
-                value: impl ::windows::IntoParam<'a, ::windows::HString>,
-            ) -> ::windows::Result<::windows::Object> {
+                value: impl ::windows::IntoParam<'a, ::windows::HSTRING>,
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).18)(
                         ::windows::Abi::abi(this),
                         value.into_param().abi(),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateInspectable<'a>(
-                value: impl ::windows::IntoParam<'a, ::windows::Object>,
-            ) -> ::windows::Result<::windows::Object> {
+                value: impl ::windows::IntoParam<'a, ::windows::IInspectable>,
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).19)(
                         ::windows::Abi::abi(this),
                         value.into_param().abi(),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateGuid<'a>(
                 value: impl ::windows::IntoParam<'a, ::windows::Guid>,
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).20)(
                         ::windows::Abi::abi(this),
                         value.into_param().abi(),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt8Array(
                 value: &[<u8 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).26)(
                         ::windows::Abi::abi(this),
@@ -1514,14 +1514,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateInt16Array(
                 value: &[<i16 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).27)(
                         ::windows::Abi::abi(this),
@@ -1529,14 +1529,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt16Array(
                 value: &[<u16 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).28)(
                         ::windows::Abi::abi(this),
@@ -1544,14 +1544,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateInt32Array(
                 value: &[<i32 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).29)(
                         ::windows::Abi::abi(this),
@@ -1559,14 +1559,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt32Array(
                 value: &[<u32 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).30)(
                         ::windows::Abi::abi(this),
@@ -1574,14 +1574,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateInt64Array(
                 value: &[<i64 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).31)(
                         ::windows::Abi::abi(this),
@@ -1589,14 +1589,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateUInt64Array(
                 value: &[<u64 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).32)(
                         ::windows::Abi::abi(this),
@@ -1604,14 +1604,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateSingleArray(
                 value: &[<f32 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).33)(
                         ::windows::Abi::abi(this),
@@ -1619,14 +1619,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateDoubleArray(
                 value: &[<f64 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).34)(
                         ::windows::Abi::abi(this),
@@ -1634,14 +1634,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateChar16Array(
                 value: &[<u16 as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).35)(
                         ::windows::Abi::abi(this),
@@ -1649,14 +1649,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateBooleanArray(
                 value: &[<bool as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).36)(
                         ::windows::Abi::abi(this),
@@ -1664,14 +1664,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateStringArray(
-                value: &[<::windows::HString as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+                value: &[<::windows::HSTRING as ::windows::RuntimeType>::DefaultType],
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).37)(
                         ::windows::Abi::abi(this),
@@ -1679,14 +1679,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateInspectableArray(
-                value: &[<::windows::Object as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+                value: &[<::windows::IInspectable as ::windows::RuntimeType>::DefaultType],
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).38)(
                         ::windows::Abi::abi(this),
@@ -1694,14 +1694,14 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             pub fn CreateGuidArray(
                 value: &[<::windows::Guid as ::windows::RuntimeType>::DefaultType],
-            ) -> ::windows::Result<::windows::Object> {
+            ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::Object as ::windows::Abi>::Abi =
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).39)(
                         ::windows::Abi::abi(this),
@@ -1709,7 +1709,7 @@ pub mod Windows {
                         ::std::mem::transmute(value.as_ptr()),
                         &mut result__,
                     )
-                    .from_abi::<::windows::Object>(result__)
+                    .from_abi::<::windows::IInspectable>(result__)
                 })
             }
             fn IPropertyValueStatics<
@@ -6489,7 +6489,7 @@ pub mod Windows {
                 pub unsafe fn Resolve(
                     &self,
                     riid: *const ::windows::Guid,
-                    objectreference: *mut ::std::option::Option<::windows::Object>,
+                    objectreference: *mut ::std::option::Option<::windows::IInspectable>,
                 ) -> ::windows::HRESULT {
                     (::windows::Interface::vtable(self).3)(
                         ::windows::Abi::abi(self),

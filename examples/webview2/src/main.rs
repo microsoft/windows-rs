@@ -175,7 +175,7 @@ pub struct WebView {
     bindings: Arc<Mutex<HashMap<String, Box<dyn FnMut(Vec<Value>) -> Result<Value>>>>>,
     frame: Option<FrameWindow>,
     parent: Arc<HWND>,
-    url: Arc<Mutex<HString>>,
+    url: Arc<Mutex<HSTRING>>,
 }
 
 impl Drop for WebViewController {
@@ -267,7 +267,7 @@ impl WebView {
             bindings: Arc::new(Mutex::new(HashMap::new())),
             frame,
             parent: Arc::new(parent),
-            url: Arc::new(Mutex::new(HString::new())),
+            url: Arc::new(Mutex::new(HSTRING::new())),
         };
 
         // Inject the invoke handler.

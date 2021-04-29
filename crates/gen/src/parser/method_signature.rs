@@ -159,7 +159,7 @@ impl MethodSignature {
         // arguments to ensure the call succeeds in the non-aggregating case.
         let composable_args = if interface.kind == InterfaceKind::Composable {
             quote! {
-                ::std::ptr::null_mut(), ::windows::Abi::set_abi(&mut ::std::option::Option::<::windows::Object>::None),
+                ::std::ptr::null_mut(), ::windows::Abi::set_abi(&mut ::std::option::Option::<::windows::IInspectable>::None),
             }
         } else {
             quote! {}
