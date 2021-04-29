@@ -30,7 +30,7 @@ impl Decode for TypeDefOrRef {
 impl TypeDefOrRef {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.0.row + 1) << 2) | 0,
+            Self::TypeDef(value) => ((value.0.row + 1) << 2),
             Self::TypeRef(value) => ((value.0.row + 1) << 2) | 1,
             Self::TypeSpec(value) => ((value.0.row + 1) << 2) | 2,
         }
@@ -61,7 +61,7 @@ impl Decode for TypeOrMethodDef {
 impl TypeOrMethodDef {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.0.row + 1) << 1) | 0,
+            Self::TypeDef(value) => ((value.0.row + 1) << 1),
             Self::MethodDef(value) => ((value.0.row + 1) << 1) | 1,
         }
     }
@@ -121,7 +121,7 @@ impl Decode for HasAttribute {
 impl HasAttribute {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::MethodDef(value) => ((value.0.row + 1) << 5) | 0,
+            Self::MethodDef(value) => ((value.0.row + 1) << 5),
             Self::Field(value) => ((value.0.row + 1) << 5) | 1,
             Self::TypeRef(value) => ((value.0.row + 1) << 5) | 2,
             Self::TypeDef(value) => ((value.0.row + 1) << 5) | 3,
@@ -166,7 +166,7 @@ impl Decode for MemberRefParent {
 impl MemberRefParent {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.0.row + 1) << 3) | 0,
+            Self::TypeDef(value) => ((value.0.row + 1) << 3),
             Self::TypeRef(value) => ((value.0.row + 1) << 3) | 1,
             Self::MethodDef(value) => ((value.0.row + 1) << 3) | 3,
             Self::TypeSpec(value) => ((value.0.row + 1) << 3) | 4,
@@ -194,7 +194,7 @@ impl Decode for HasConstant {
 impl HasConstant {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::Field(value) => ((value.0.row + 1) << 2) | 0,
+            Self::Field(value) => ((value.0.row + 1) << 2),
             Self::Param(value) => ((value.0.row + 1) << 2) | 1,
         }
     }
@@ -258,7 +258,7 @@ impl Decode for MemberForwarded {
 impl MemberForwarded {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::Field(value) => ((value.0.row + 1) << 1) | 0,
+            Self::Field(value) => ((value.0.row + 1) << 1),
             Self::MethodDef(value) => ((value.0.row + 1) << 1) | 1,
         }
     }
@@ -296,7 +296,7 @@ impl Decode for ResolutionScope {
 impl ResolutionScope {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::Module(value) => ((value.0.row + 1) << 2) | 0,
+            Self::Module(value) => ((value.0.row + 1) << 2),
             Self::ModuleRef(value) => ((value.0.row + 1) << 2) | 1,
             Self::AssemblyRef(value) => ((value.0.row + 1) << 2) | 2,
             Self::TypeRef(value) => ((value.0.row + 1) << 2) | 3,

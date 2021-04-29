@@ -67,6 +67,12 @@ impl TokenStream {
     }
 }
 
+impl Default for TokenStream {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl std::iter::FromIterator<TokenStream> for TokenStream {
     fn from_iter<I: IntoIterator<Item = TokenStream>>(iter: I) -> Self {
         iter.into_iter()
@@ -75,7 +81,7 @@ impl std::iter::FromIterator<TokenStream> for TokenStream {
                 ts.combine(&n);
                 Some(ts)
             })
-            .unwrap_or(TokenStream::new())
+            .unwrap_or_else(TokenStream::new)
     }
 }
 

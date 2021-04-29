@@ -136,7 +136,7 @@ impl TypeReader {
         self.types
             .keys()
             .find(|namespace| *namespace == &find)
-            .expect(&format!("Could not find namespace `{}`", find))
+            .unwrap_or_else(|| panic!("Could not find namespace `{}`", find))
     }
 
     /// Get all the namespace names that the [`TypeReader`] knows about
