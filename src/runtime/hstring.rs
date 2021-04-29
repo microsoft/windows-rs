@@ -133,6 +133,9 @@ impl Drop for HString {
     }
 }
 
+unsafe impl Send for HString {}
+unsafe impl Sync for HString {}
+
 impl std::fmt::Display for HString {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         use std::fmt::Write;
