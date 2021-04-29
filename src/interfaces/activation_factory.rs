@@ -6,7 +6,7 @@ use crate::*;
 /// interface.
 #[repr(transparent)]
 #[derive(Clone, PartialEq, Eq)]
-pub struct IActivationFactory(Object);
+pub struct IActivationFactory(IInspectable);
 
 impl IActivationFactory {
     /// Creates an instance of the WinRT class associated with the factory object.
@@ -17,7 +17,7 @@ impl IActivationFactory {
             let mut object = None;
 
             // Even though the factory will generally return the WinRT default interface, this isn't guaranteed
-            // so a cast is required to convert the `Object` into `I`, or the class type.
+            // so a cast is required to convert the `IInspectable` into `I`, or the class type.
             (self.vtable().6)(self.abi(), &mut object)
                 .and_some(object)?
                 .cast()
@@ -26,18 +26,18 @@ impl IActivationFactory {
 }
 
 #[repr(C)]
-pub struct IActivationFactory_vtable(
+pub struct IActivationFactory_abi(
     pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
-    pub unsafe extern "system" fn(this: RawPtr, object: &mut Option<Object>) -> HRESULT, // ActivateInstance
+    pub unsafe extern "system" fn(this: RawPtr, object: &mut Option<IInspectable>) -> HRESULT, // ActivateInstance
 );
 
 unsafe impl Interface for IActivationFactory {
-    type Vtable = IActivationFactory_vtable;
+    type Vtable = IActivationFactory_abi;
 
     const IID: Guid = Guid::from_values(
         0x0000_0035,

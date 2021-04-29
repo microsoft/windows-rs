@@ -45,9 +45,9 @@ fn implement() -> ::windows::Result<()> {
         let s: Windows::Foundation::IStringable = t.into();
         assert!(s.ToString()? == "object");
 
-        // Confirms that the conversion to `Object` properly handles
+        // Confirms that the conversion to `IInspectable` properly handles
         // reference counting.
-        let _: ::windows::Object = s.into();
+        let _: ::windows::IInspectable = s.into();
     }
     assert!(receiver.recv().unwrap() == "drop: object");
 

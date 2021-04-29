@@ -74,20 +74,21 @@ fn event() -> windows::Result<()> {
     let set_clone = set.clone();
     // TODO: Should be able to elide the delegate construction and simply say:
     // set.MapChanged(|sender, args| {...})?;
-    set.MapChanged(
-        MapChangedEventHandler::<windows::HString, windows::Object>::new(move |sender, args| {
-            let args = args.as_ref().unwrap();
-            tx.send(true).unwrap();
-            let set = set_clone.clone();
-            let map: IObservableMap<windows::HString, windows::Object> = set.into();
-            assert!(map.abi() == sender.abi());
-            assert!(args.Key()? == "A");
-            assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
-            Ok(())
-        }),
-    )?;
+    set.MapChanged(MapChangedEventHandler::<
+        windows::HString,
+        windows::IInspectable,
+    >::new(move |sender, args| {
+        let args = args.as_ref().unwrap();
+        tx.send(true).unwrap();
+        let set = set_clone.clone();
+        let map: IObservableMap<windows::HString, windows::IInspectable> = set.into();
+        assert!(map.abi() == sender.abi());
+        assert!(args.Key()? == "A");
+        assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
+        Ok(())
+    }))?;
 
-    set.Insert("A", windows::Object::try_from(1_u32)?)?;
+    set.Insert("A", windows::IInspectable::try_from(1_u32)?)?;
 
     assert!(rx.recv().unwrap());
 

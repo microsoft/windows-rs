@@ -247,7 +247,7 @@ impl Class {
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-                pub struct #name(::windows::Object);
+                pub struct #name(::windows::IInspectable);
                 impl #name {
                     #new
                     #methods

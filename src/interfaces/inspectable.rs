@@ -2,14 +2,14 @@ use super::*;
 use bindings::Windows::Foundation::{IReference, IStringable, PropertyValue};
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
-/// `Object` implements the
+/// `IInspectable` represents the
 /// [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
 /// interface.
 #[repr(transparent)]
 #[derive(Clone, PartialEq, Eq)]
-pub struct Object(IUnknown);
+pub struct IInspectable(IUnknown);
 
-impl Object {
+impl IInspectable {
     /// Returns the canonical type name for the underlying object.
     pub fn type_name(&self) -> Result<HString> {
         unsafe {
@@ -21,7 +21,7 @@ impl Object {
 }
 
 #[repr(C)]
-pub struct Object_vtable(
+pub struct IInspectable_abi(
     pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
@@ -30,8 +30,8 @@ pub struct Object_vtable(
     pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
 );
 
-unsafe impl Interface for Object {
-    type Vtable = Object_vtable;
+unsafe impl Interface for IInspectable {
+    type Vtable = IInspectable_abi;
 
     const IID: Guid = Guid::from_values(
         0xAF86_E2E0,
@@ -41,14 +41,14 @@ unsafe impl Interface for Object {
     );
 }
 
-unsafe impl RuntimeType for Object {
+unsafe impl RuntimeType for IInspectable {
     type DefaultType = Option<Self>;
 
     const SIGNATURE: crate::ConstBuffer =
         crate::ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }
 
-impl std::fmt::Debug for Object {
+impl std::fmt::Debug for IInspectable {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         // Attempts to retrieve the string representation of the object via the
         // IStringable interface. If that fails, it will use the canonical type
@@ -68,22 +68,22 @@ impl std::fmt::Debug for Object {
 
 macro_rules! primitive_boxed_type {
     ($(($t:ty, $m:ident)),+) => {
-        $(impl std::convert::TryFrom<$t> for Object {
+        $(impl std::convert::TryFrom<$t> for IInspectable {
             type Error = Error;
             fn try_from(value: $t) -> Result<Self> {
                 PropertyValue::$m(value)
             }
         }
-        impl std::convert::TryFrom<Object> for $t {
+        impl std::convert::TryFrom<IInspectable> for $t {
             type Error = Error;
-            fn try_from(value: Object) -> Result<Self> {
-                <Object as Interface>::cast::<IReference<$t>>(&value)?.Value()
+            fn try_from(value: IInspectable) -> Result<Self> {
+                <IInspectable as Interface>::cast::<IReference<$t>>(&value)?.Value()
             }
         }
-        impl std::convert::TryFrom<&Object> for $t {
+        impl std::convert::TryFrom<&IInspectable> for $t {
             type Error = Error;
-            fn try_from(value: &Object) -> Result<Self> {
-                <Object as Interface>::cast::<IReference<$t>>(value)?.Value()
+            fn try_from(value: &IInspectable) -> Result<Self> {
+                <IInspectable as Interface>::cast::<IReference<$t>>(value)?.Value()
             }
         })*
     };
@@ -102,33 +102,33 @@ primitive_boxed_type! {
     (f64, CreateDouble)
 }
 
-impl std::convert::TryFrom<&str> for Object {
+impl std::convert::TryFrom<&str> for IInspectable {
     type Error = Error;
     fn try_from(value: &str) -> Result<Self> {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<HString> for Object {
+impl std::convert::TryFrom<HString> for IInspectable {
     type Error = Error;
     fn try_from(value: HString) -> Result<Self> {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<&HString> for Object {
+impl std::convert::TryFrom<&HString> for IInspectable {
     type Error = Error;
     fn try_from(value: &HString) -> Result<Self> {
         PropertyValue::CreateString(value)
     }
 }
-impl std::convert::TryFrom<Object> for HString {
+impl std::convert::TryFrom<IInspectable> for HString {
     type Error = Error;
-    fn try_from(value: Object) -> Result<Self> {
-        <Object as Interface>::cast::<IReference<HString>>(&value)?.Value()
+    fn try_from(value: IInspectable) -> Result<Self> {
+        <IInspectable as Interface>::cast::<IReference<HString>>(&value)?.Value()
     }
 }
-impl std::convert::TryFrom<&Object> for HString {
+impl std::convert::TryFrom<&IInspectable> for HString {
     type Error = Error;
-    fn try_from(value: &Object) -> Result<Self> {
-        <Object as Interface>::cast::<IReference<HString>>(value)?.Value()
+    fn try_from(value: &IInspectable) -> Result<Self> {
+        <IInspectable as Interface>::cast::<IReference<HString>>(value)?.Value()
     }
 }

@@ -26,7 +26,7 @@ pub use bindings::Windows::Win32::Com::IAgileObject;
 #[doc(hidden)]
 pub use interfaces::IActivationFactory;
 
-pub use interfaces::{IUnknown, Object};
+pub use interfaces::{IInspectable, IUnknown};
 pub use result::{Error, Result, HRESULT};
 pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, HString,

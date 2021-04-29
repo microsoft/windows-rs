@@ -213,7 +213,7 @@ pub fn gen(
                     *interface = match iid {
                         #queries
                         &<::windows::IUnknown as ::windows::Interface>::IID
-                        | &<::windows::Object as ::windows::Interface>::IID
+                        | &<::windows::IInspectable as ::windows::Interface>::IID
                         | &<::windows::IAgileObject as ::windows::Interface>::IID => {
                             &mut self.vtable.0 as *mut _ as _
                         }
