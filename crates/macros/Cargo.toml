@@ -11,4 +11,4 @@ proc-macro = true
 
 [dependencies]
 gen = { package = "windows_gen", path = "../gen", version = "0.9.1" }
-syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing"] }
+syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full"] }

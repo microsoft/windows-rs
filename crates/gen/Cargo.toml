@@ -7,4 +7,3 @@ license = "MIT OR Apache-2.0"
 description = "Code generation for the windows crate"
 
 [dependencies]
-syn = { version = "1.0", default-features = false, features = ["full"] }
