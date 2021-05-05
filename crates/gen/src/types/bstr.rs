@@ -4,24 +4,35 @@ pub fn gen_bstr() -> TokenStream {
     quote! {
         #[repr(transparent)]
         #[derive(::std::cmp::Eq)]
-        pub struct BSTR(*mut u16);
+        /// https://docs.microsoft.com/en-us/previous-versions/windows/desktop/automat/bstr#remarks
+        /// Uses [`::windows::widestring::UStr`] and not [`::windows::widestring::UCstr`], the latter checks for internal nulls.
+        pub struct BSTR(*mut ::windows::widestring::WideChar);
         impl BSTR {
             pub fn is_empty(&self) -> bool {
+                // TODO: Should possibly also check length!
                 self.0.is_null()
             }
-            fn from_wide(value: &[u16]) -> Self {
-                if value.len() == 0 {
+            pub fn len(&self) -> usize {
+                unsafe { SysStringLen(self) as usize }
+            }
+            fn from_wide(value: &::windows::widestring::WideStr) -> Self {
+                if value.is_empty() {
                     return Self(::std::ptr::null_mut());
                 }
-
-                unsafe { SysAllocStringLen(super::SystemServices::PWSTR(value.as_ptr() as _), value.len() as u32) }
-            }
-            fn as_wide(&self) -> &[u16] {
-                if self.0.is_null() {
-                    return &[];
+                unsafe {
+                    SysAllocStringLen(
+                        super::SystemServices::PWSTR(value.as_ptr() as _),
+                        value.len() as u32,
+                    )
                 }
-
-                unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, SysStringLen(self) as usize) }
+            }
+            fn as_wide(&self) -> &::windows::widestring::WideStr {
+                if self.0.is_null() {
+                    // `UStr` unlike `UCStr` doesn't implement an empty-string default yet
+                    ::windows::widestring::WideStr::from_slice(&[])
+                } else {
+                    unsafe { ::windows::widestring::WideStr::from_ptr(self.0, self.len()) }
+                }
             }
         }
         impl ::std::clone::Clone for BSTR {
@@ -29,51 +40,51 @@ pub fn gen_bstr() -> TokenStream {
                 Self::from_wide(self.as_wide())
             }
         }
+
         impl ::std::convert::From<&str> for BSTR {
             fn from(value: &str) -> Self {
-                let value: ::std::vec::Vec<u16> = value.encode_utf16().collect();
+                // TODO: This allocates+copies twice.
+                let value = ::windows::widestring::WideString::from_str(value);
                 Self::from_wide(&value)
             }
         }
-
         impl ::std::convert::From<::std::string::String> for BSTR {
             fn from(value: ::std::string::String) -> Self {
                 value.as_str().into()
             }
         }
-
         impl  ::std::convert::From<&::std::string::String> for BSTR {
             fn from(value: &::std::string::String) -> Self {
                 value.as_str().into()
             }
         }
+
+        #[cfg(windows)]
+        type FromWidestringError = ::std::string::FromUtf16Error;
+        #[cfg(not(windows))]
+        type FromWidestringError = ::windows::widestring::FromUtf32Error;
         impl<'a> ::std::convert::TryFrom<&'a BSTR> for ::std::string::String {
-            type Error = ::std::string::FromUtf16Error;
-
+            type Error = FromWidestringError;
             fn try_from(value: &BSTR) -> ::std::result::Result<Self, Self::Error> {
-                ::std::string::String::from_utf16(value.as_wide())
+                value.as_wide().to_string()
             }
         }
-
         impl ::std::convert::TryFrom<BSTR> for ::std::string::String {
-            type Error = ::std::string::FromUtf16Error;
-
+            type Error = FromWidestringError;
             fn try_from(value: BSTR) -> ::std::result::Result<Self, Self::Error> {
-                ::std::string::String::try_from(&value)
+                value.as_wide().to_string()
             }
         }
+
         impl ::std::default::Default for BSTR {
             fn default() -> Self {
                 Self(::std::ptr::null_mut())
             }
         }
+
         impl ::std::fmt::Display for BSTR {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                use ::std::fmt::Write;
-                for c in ::std::char::decode_utf16(self.as_wide().iter().cloned()) {
-                    f.write_char(c.map_err(|_| ::std::fmt::Error)?)?
-                }
-                Ok(())
+                f.write_str(&self.as_wide().to_string().unwrap())
             }
         }
         impl ::std::fmt::Debug for BSTR {
@@ -81,6 +92,7 @@ pub fn gen_bstr() -> TokenStream {
                 ::std::write!(f, "{}", self)
             }
         }
+
         impl ::std::cmp::PartialEq for BSTR {
             fn eq(&self, other: &Self) -> bool {
                 self.as_wide() == other.as_wide()
@@ -98,30 +110,32 @@ pub fn gen_bstr() -> TokenStream {
         }
         impl ::std::cmp::PartialEq<&str> for BSTR {
             fn eq(&self, other: &&str) -> bool {
-                self.as_wide().iter().copied().eq(other.encode_utf16())
+                let other = ::windows::widestring::WideString::from_str(other);
+                self.as_wide().eq(&other)
             }
         }
-
         impl ::std::cmp::PartialEq<BSTR> for &str {
             fn eq(&self, other: &BSTR) -> bool {
                 other == self
             }
         }
+
         impl ::std::ops::Drop for BSTR {
             fn drop(&mut self) {
                 if !self.0.is_null() {
-                    unsafe { SysFreeString(self as &Self); }
+                    unsafe { SysFreeString(self as &Self) };
                 }
             }
         }
-        unsafe impl ::windows::Abi for BSTR {
-            type Abi = *mut u16;
 
-            fn set_abi(&mut self) -> *mut *mut u16 {
+        unsafe impl ::windows::Abi for BSTR {
+            type Abi = *mut ::windows::widestring::WideChar;
+
+            fn set_abi(&mut self) -> *mut *mut ::windows::widestring::WideChar {
                 debug_assert!(self.0.is_null());
                 &mut self.0 as *mut _ as _
             }
         }
-        pub type BSTR_abi = *mut u16;
+        pub type BSTR_abi = *mut ::windows::widestring::WideChar;
     }
 }
