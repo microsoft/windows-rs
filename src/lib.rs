@@ -45,3 +45,6 @@ pub type RawPtr = *mut std::ffi::c_void;
 
 #[doc(hidden)]
 pub use const_sha1::ConstBuffer;
+
+#[doc(hidden)]
+pub use widestring;
