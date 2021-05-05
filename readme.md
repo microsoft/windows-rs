@@ -8,7 +8,7 @@ The `windows` crate lets you call any Windows API past, present, and future usin
 
 The Rust language projection follows in the tradition established by [C++/WinRT](https://github.com/microsoft/cppwinrt) of building language projections for Windows using standard languages and compilers, providing a natural and idiomatic way for Rust developers to call Windows APIs.
 
-Watch the [Getting Started](https://www.youtube.com/watch?v=LajquCjHXK4) video! Microsoft Docs also has content on [developing with Rust on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/rust/).
+Watch the [Getting Started](https://www.youtube.com/watch?v=-oZrsCPKsn4) video! Microsoft Docs also has content on [developing with Rust on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/rust/).
 
 Check out the [FAQ](./docs/FAQ.md) for answers to frequently asked questions.
 
