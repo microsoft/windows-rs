@@ -1,4 +1,4 @@
-use test_wildcard::Windows::Foundation::Uri;
+use test_build_wildcard::Windows::Foundation::Uri;
 
 #[test]
 fn test() -> windows::Result<()> {
