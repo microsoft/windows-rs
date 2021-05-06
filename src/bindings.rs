@@ -2046,27 +2046,6 @@ pub mod Windows {
             clippy::all
         )]
         pub mod Com {
-            pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
-                #[link(name = "OLE32")]
-                extern "system" {
-                    pub fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
-                }
-                CoCreateGuid(::std::mem::transmute(pguid))
-            }
-            pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
-                #[link(name = "OLE32")]
-                extern "system" {
-                    pub fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
-                }
-                CoTaskMemAlloc(::std::mem::transmute(cb))
-            }
-            pub unsafe fn CoTaskMemFree(pv: *mut ::std::ffi::c_void) {
-                #[link(name = "OLE32")]
-                extern "system" {
-                    pub fn CoTaskMemFree(pv: *mut ::std::ffi::c_void);
-                }
-                CoTaskMemFree(::std::mem::transmute(pv))
-            }
             pub unsafe fn CLSIDFromProgID<'a>(
                 lpszprogid: impl ::windows::IntoParam<'a, super::SystemServices::PWSTR>,
                 lpclsid: *mut ::windows::Guid,
@@ -2083,67 +2062,12 @@ pub mod Windows {
                     ::std::mem::transmute(lpclsid),
                 )
             }
-            #[derive(
-                :: std :: cmp :: PartialEq,
-                :: std :: cmp :: Eq,
-                :: std :: marker :: Copy,
-                :: std :: clone :: Clone,
-                :: std :: default :: Default,
-                :: std :: fmt :: Debug,
-            )]
-            #[repr(transparent)]
-            pub struct COINIT(pub u32);
-            impl COINIT {
-                pub const COINIT_APARTMENTTHREADED: Self = Self(2u32);
-                pub const COINIT_MULTITHREADED: Self = Self(0u32);
-                pub const COINIT_DISABLE_OLE1DDE: Self = Self(4u32);
-                pub const COINIT_SPEED_OVER_MEMORY: Self = Self(8u32);
-            }
-            impl ::std::convert::From<u32> for COINIT {
-                fn from(value: u32) -> Self {
-                    Self(value)
-                }
-            }
-            unsafe impl ::windows::Abi for COINIT {
-                type Abi = Self;
-            }
-            impl ::std::ops::BitOr for COINIT {
-                type Output = Self;
-                fn bitor(self, rhs: Self) -> Self {
-                    Self(self.0 | rhs.0)
-                }
-            }
-            impl ::std::ops::BitAnd for COINIT {
-                type Output = Self;
-                fn bitand(self, rhs: Self) -> Self {
-                    Self(self.0 & rhs.0)
-                }
-            }
-            impl ::std::ops::BitOrAssign for COINIT {
-                fn bitor_assign(&mut self, rhs: Self) {
-                    self.0.bitor_assign(rhs.0)
-                }
-            }
-            impl ::std::ops::BitAndAssign for COINIT {
-                fn bitand_assign(&mut self, rhs: Self) {
-                    self.0.bitand_assign(rhs.0)
-                }
-            }
-            pub unsafe fn CoInitializeEx(
-                pvreserved: *mut ::std::ffi::c_void,
-                dwcoinit: COINIT,
-            ) -> ::windows::HRESULT {
+            pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
                 #[link(name = "OLE32")]
                 extern "system" {
-                    pub fn CoInitializeEx(
-                        pvreserved: *mut ::std::ffi::c_void,
-                        dwcoinit: COINIT,
-                    ) -> ::windows::HRESULT;
+                    pub fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
                 }
-                CoInitializeEx(
-                    ::std::mem::transmute(pvreserved),
-                    ::std::mem::transmute(dwcoinit),
-                )
+                CoCreateGuid(::std::mem::transmute(pguid))
             }
             #[derive(
                 :: std :: cmp :: PartialEq,
@@ -2241,6 +2165,82 @@ pub mod Windows {
                 )
                 .and_some(result__)
             }
+            #[derive(
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: marker :: Copy,
+                :: std :: clone :: Clone,
+                :: std :: default :: Default,
+                :: std :: fmt :: Debug,
+            )]
+            #[repr(transparent)]
+            pub struct COINIT(pub u32);
+            impl COINIT {
+                pub const COINIT_APARTMENTTHREADED: Self = Self(2u32);
+                pub const COINIT_MULTITHREADED: Self = Self(0u32);
+                pub const COINIT_DISABLE_OLE1DDE: Self = Self(4u32);
+                pub const COINIT_SPEED_OVER_MEMORY: Self = Self(8u32);
+            }
+            impl ::std::convert::From<u32> for COINIT {
+                fn from(value: u32) -> Self {
+                    Self(value)
+                }
+            }
+            unsafe impl ::windows::Abi for COINIT {
+                type Abi = Self;
+            }
+            impl ::std::ops::BitOr for COINIT {
+                type Output = Self;
+                fn bitor(self, rhs: Self) -> Self {
+                    Self(self.0 | rhs.0)
+                }
+            }
+            impl ::std::ops::BitAnd for COINIT {
+                type Output = Self;
+                fn bitand(self, rhs: Self) -> Self {
+                    Self(self.0 & rhs.0)
+                }
+            }
+            impl ::std::ops::BitOrAssign for COINIT {
+                fn bitor_assign(&mut self, rhs: Self) {
+                    self.0.bitor_assign(rhs.0)
+                }
+            }
+            impl ::std::ops::BitAndAssign for COINIT {
+                fn bitand_assign(&mut self, rhs: Self) {
+                    self.0.bitand_assign(rhs.0)
+                }
+            }
+            pub unsafe fn CoInitializeEx(
+                pvreserved: *mut ::std::ffi::c_void,
+                dwcoinit: COINIT,
+            ) -> ::windows::HRESULT {
+                #[link(name = "OLE32")]
+                extern "system" {
+                    pub fn CoInitializeEx(
+                        pvreserved: *mut ::std::ffi::c_void,
+                        dwcoinit: COINIT,
+                    ) -> ::windows::HRESULT;
+                }
+                CoInitializeEx(
+                    ::std::mem::transmute(pvreserved),
+                    ::std::mem::transmute(dwcoinit),
+                )
+            }
+            pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
+                #[link(name = "OLE32")]
+                extern "system" {
+                    pub fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
+                }
+                CoTaskMemAlloc(::std::mem::transmute(cb))
+            }
+            pub unsafe fn CoTaskMemFree(pv: *mut ::std::ffi::c_void) {
+                #[link(name = "OLE32")]
+                extern "system" {
+                    pub fn CoTaskMemFree(pv: *mut ::std::ffi::c_void);
+                }
+                CoTaskMemFree(::std::mem::transmute(pv))
+            }
             #[repr(transparent)]
             #[derive(
                 :: std :: cmp :: PartialEq,
@@ -2303,6 +2303,85 @@ pub mod Windows {
             clippy::all
         )]
         pub mod Debug {
+            #[derive(
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: marker :: Copy,
+                :: std :: clone :: Clone,
+                :: std :: default :: Default,
+                :: std :: fmt :: Debug,
+            )]
+            #[repr(transparent)]
+            pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
+            impl FORMAT_MESSAGE_OPTIONS {
+                pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: Self = Self(256u32);
+                pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: Self = Self(8192u32);
+                pub const FORMAT_MESSAGE_FROM_HMODULE: Self = Self(2048u32);
+                pub const FORMAT_MESSAGE_FROM_STRING: Self = Self(1024u32);
+                pub const FORMAT_MESSAGE_FROM_SYSTEM: Self = Self(4096u32);
+                pub const FORMAT_MESSAGE_IGNORE_INSERTS: Self = Self(512u32);
+            }
+            impl ::std::convert::From<u32> for FORMAT_MESSAGE_OPTIONS {
+                fn from(value: u32) -> Self {
+                    Self(value)
+                }
+            }
+            unsafe impl ::windows::Abi for FORMAT_MESSAGE_OPTIONS {
+                type Abi = Self;
+            }
+            impl ::std::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
+                type Output = Self;
+                fn bitor(self, rhs: Self) -> Self {
+                    Self(self.0 | rhs.0)
+                }
+            }
+            impl ::std::ops::BitAnd for FORMAT_MESSAGE_OPTIONS {
+                type Output = Self;
+                fn bitand(self, rhs: Self) -> Self {
+                    Self(self.0 & rhs.0)
+                }
+            }
+            impl ::std::ops::BitOrAssign for FORMAT_MESSAGE_OPTIONS {
+                fn bitor_assign(&mut self, rhs: Self) {
+                    self.0.bitor_assign(rhs.0)
+                }
+            }
+            impl ::std::ops::BitAndAssign for FORMAT_MESSAGE_OPTIONS {
+                fn bitand_assign(&mut self, rhs: Self) {
+                    self.0.bitand_assign(rhs.0)
+                }
+            }
+            pub unsafe fn FormatMessageW(
+                dwflags: FORMAT_MESSAGE_OPTIONS,
+                lpsource: *const ::std::ffi::c_void,
+                dwmessageid: u32,
+                dwlanguageid: u32,
+                lpbuffer: super::SystemServices::PWSTR,
+                nsize: u32,
+                arguments: *mut *mut i8,
+            ) -> u32 {
+                #[link(name = "KERNEL32")]
+                extern "system" {
+                    pub fn FormatMessageW(
+                        dwflags: FORMAT_MESSAGE_OPTIONS,
+                        lpsource: *const ::std::ffi::c_void,
+                        dwmessageid: u32,
+                        dwlanguageid: u32,
+                        lpbuffer: super::SystemServices::PWSTR,
+                        nsize: u32,
+                        arguments: *mut *mut i8,
+                    ) -> u32;
+                }
+                FormatMessageW(
+                    ::std::mem::transmute(dwflags),
+                    ::std::mem::transmute(lpsource),
+                    ::std::mem::transmute(dwmessageid),
+                    ::std::mem::transmute(dwlanguageid),
+                    ::std::mem::transmute(lpbuffer),
+                    ::std::mem::transmute(nsize),
+                    ::std::mem::transmute(arguments),
+                )
+            }
             #[derive(
                 :: std :: cmp :: PartialEq,
                 :: std :: cmp :: Eq,
@@ -5513,85 +5592,6 @@ pub mod Windows {
                 }
                 GetLastError()
             }
-            #[derive(
-                :: std :: cmp :: PartialEq,
-                :: std :: cmp :: Eq,
-                :: std :: marker :: Copy,
-                :: std :: clone :: Clone,
-                :: std :: default :: Default,
-                :: std :: fmt :: Debug,
-            )]
-            #[repr(transparent)]
-            pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
-            impl FORMAT_MESSAGE_OPTIONS {
-                pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: Self = Self(256u32);
-                pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: Self = Self(8192u32);
-                pub const FORMAT_MESSAGE_FROM_HMODULE: Self = Self(2048u32);
-                pub const FORMAT_MESSAGE_FROM_STRING: Self = Self(1024u32);
-                pub const FORMAT_MESSAGE_FROM_SYSTEM: Self = Self(4096u32);
-                pub const FORMAT_MESSAGE_IGNORE_INSERTS: Self = Self(512u32);
-            }
-            impl ::std::convert::From<u32> for FORMAT_MESSAGE_OPTIONS {
-                fn from(value: u32) -> Self {
-                    Self(value)
-                }
-            }
-            unsafe impl ::windows::Abi for FORMAT_MESSAGE_OPTIONS {
-                type Abi = Self;
-            }
-            impl ::std::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
-                type Output = Self;
-                fn bitor(self, rhs: Self) -> Self {
-                    Self(self.0 | rhs.0)
-                }
-            }
-            impl ::std::ops::BitAnd for FORMAT_MESSAGE_OPTIONS {
-                type Output = Self;
-                fn bitand(self, rhs: Self) -> Self {
-                    Self(self.0 & rhs.0)
-                }
-            }
-            impl ::std::ops::BitOrAssign for FORMAT_MESSAGE_OPTIONS {
-                fn bitor_assign(&mut self, rhs: Self) {
-                    self.0.bitor_assign(rhs.0)
-                }
-            }
-            impl ::std::ops::BitAndAssign for FORMAT_MESSAGE_OPTIONS {
-                fn bitand_assign(&mut self, rhs: Self) {
-                    self.0.bitand_assign(rhs.0)
-                }
-            }
-            pub unsafe fn FormatMessageW(
-                dwflags: FORMAT_MESSAGE_OPTIONS,
-                lpsource: *const ::std::ffi::c_void,
-                dwmessageid: u32,
-                dwlanguageid: u32,
-                lpbuffer: super::SystemServices::PWSTR,
-                nsize: u32,
-                arguments: *mut *mut i8,
-            ) -> u32 {
-                #[link(name = "KERNEL32")]
-                extern "system" {
-                    pub fn FormatMessageW(
-                        dwflags: FORMAT_MESSAGE_OPTIONS,
-                        lpsource: *const ::std::ffi::c_void,
-                        dwmessageid: u32,
-                        dwlanguageid: u32,
-                        lpbuffer: super::SystemServices::PWSTR,
-                        nsize: u32,
-                        arguments: *mut *mut i8,
-                    ) -> u32;
-                }
-                FormatMessageW(
-                    ::std::mem::transmute(dwflags),
-                    ::std::mem::transmute(lpsource),
-                    ::std::mem::transmute(dwmessageid),
-                    ::std::mem::transmute(dwlanguageid),
-                    ::std::mem::transmute(lpbuffer),
-                    ::std::mem::transmute(nsize),
-                    ::std::mem::transmute(arguments),
-                )
-            }
         }
         #[allow(
             unused_variables,
@@ -5659,6 +5659,8 @@ pub mod Windows {
                     ) as _))
                 }
             }
+            pub const CO_E_NOTINITIALIZED: ::windows::HRESULT =
+                ::windows::HRESULT(-2147221008i32 as _);
             #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HANDLE(pub isize);
@@ -5898,75 +5900,29 @@ pub mod Windows {
                     lpname.into_param().abi(),
                 )
             }
-            pub unsafe fn SetEvent<'a>(hevent: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
+            pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
+            pub unsafe fn FreeLibrary(hlibmodule: isize) -> BOOL {
                 #[link(name = "KERNEL32")]
                 extern "system" {
-                    pub fn SetEvent(hevent: HANDLE) -> BOOL;
+                    pub fn FreeLibrary(hlibmodule: isize) -> BOOL;
                 }
-                SetEvent(hevent.into_param().abi())
+                FreeLibrary(::std::mem::transmute(hlibmodule))
             }
-            #[derive(
-                :: std :: cmp :: PartialEq,
-                :: std :: cmp :: Eq,
-                :: std :: marker :: Copy,
-                :: std :: clone :: Clone,
-                :: std :: default :: Default,
-                :: std :: fmt :: Debug,
-            )]
-            #[repr(transparent)]
-            pub struct WAIT_RETURN_CAUSE(pub u32);
-            impl WAIT_RETURN_CAUSE {
-                pub const WAIT_OBJECT_0: Self = Self(0u32);
-                pub const WAIT_ABANDONED: Self = Self(128u32);
-                pub const WAIT_ABANDONED_0: Self = Self(128u32);
-                pub const WAIT_IO_COMPLETION: Self = Self(192u32);
-                pub const WAIT_TIMEOUT: Self = Self(258u32);
-                pub const WAIT_FAILED: Self = Self(4294967295u32);
-            }
-            impl ::std::convert::From<u32> for WAIT_RETURN_CAUSE {
-                fn from(value: u32) -> Self {
-                    Self(value)
-                }
-            }
-            unsafe impl ::windows::Abi for WAIT_RETURN_CAUSE {
-                type Abi = Self;
-            }
-            impl ::std::ops::BitOr for WAIT_RETURN_CAUSE {
-                type Output = Self;
-                fn bitor(self, rhs: Self) -> Self {
-                    Self(self.0 | rhs.0)
-                }
-            }
-            impl ::std::ops::BitAnd for WAIT_RETURN_CAUSE {
-                type Output = Self;
-                fn bitand(self, rhs: Self) -> Self {
-                    Self(self.0 & rhs.0)
-                }
-            }
-            impl ::std::ops::BitOrAssign for WAIT_RETURN_CAUSE {
-                fn bitor_assign(&mut self, rhs: Self) {
-                    self.0.bitor_assign(rhs.0)
-                }
-            }
-            impl ::std::ops::BitAndAssign for WAIT_RETURN_CAUSE {
-                fn bitand_assign(&mut self, rhs: Self) {
-                    self.0.bitand_assign(rhs.0)
-                }
-            }
-            pub unsafe fn WaitForSingleObject<'a>(
-                hhandle: impl ::windows::IntoParam<'a, HANDLE>,
-                dwmilliseconds: u32,
-            ) -> WAIT_RETURN_CAUSE {
+            pub type FARPROC = unsafe extern "system" fn() -> isize;
+            pub unsafe fn GetProcAddress<'a>(
+                hmodule: isize,
+                lpprocname: impl ::windows::IntoParam<'a, PSTR>,
+            ) -> ::std::option::Option<FARPROC> {
                 #[link(name = "KERNEL32")]
                 extern "system" {
-                    pub fn WaitForSingleObject(
-                        hhandle: HANDLE,
-                        dwmilliseconds: u32,
-                    ) -> WAIT_RETURN_CAUSE;
+                    pub fn GetProcAddress(
+                        hmodule: isize,
+                        lpprocname: PSTR,
+                    ) -> ::std::option::Option<FARPROC>;
                 }
-                WaitForSingleObject(
-                    hhandle.into_param().abi(),
-                    ::std::mem::transmute(dwmilliseconds),
+                GetProcAddress(
+                    ::std::mem::transmute(hmodule),
+                    lpprocname.into_param().abi(),
                 )
             }
             #[repr(transparent)]
@@ -6140,23 +6096,6 @@ pub mod Windows {
                     ::std::mem::transmute(lpmem),
                 )
             }
-            pub type FARPROC = unsafe extern "system" fn() -> isize;
-            pub unsafe fn GetProcAddress<'a>(
-                hmodule: isize,
-                lpprocname: impl ::windows::IntoParam<'a, PSTR>,
-            ) -> ::std::option::Option<FARPROC> {
-                #[link(name = "KERNEL32")]
-                extern "system" {
-                    pub fn GetProcAddress(
-                        hmodule: isize,
-                        lpprocname: PSTR,
-                    ) -> ::std::option::Option<FARPROC>;
-                }
-                GetProcAddress(
-                    ::std::mem::transmute(hmodule),
-                    lpprocname.into_param().abi(),
-                )
-            }
             pub unsafe fn LoadLibraryA<'a>(
                 lplibfilename: impl ::windows::IntoParam<'a, PSTR>,
             ) -> isize {
@@ -6166,16 +6105,77 @@ pub mod Windows {
                 }
                 LoadLibraryA(lplibfilename.into_param().abi())
             }
-            pub unsafe fn FreeLibrary(hlibmodule: isize) -> BOOL {
+            pub unsafe fn SetEvent<'a>(hevent: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
                 #[link(name = "KERNEL32")]
                 extern "system" {
-                    pub fn FreeLibrary(hlibmodule: isize) -> BOOL;
+                    pub fn SetEvent(hevent: HANDLE) -> BOOL;
                 }
-                FreeLibrary(::std::mem::transmute(hlibmodule))
+                SetEvent(hevent.into_param().abi())
             }
-            pub const CO_E_NOTINITIALIZED: ::windows::HRESULT =
-                ::windows::HRESULT(-2147221008i32 as _);
-            pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
+            #[derive(
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: marker :: Copy,
+                :: std :: clone :: Clone,
+                :: std :: default :: Default,
+                :: std :: fmt :: Debug,
+            )]
+            #[repr(transparent)]
+            pub struct WAIT_RETURN_CAUSE(pub u32);
+            impl WAIT_RETURN_CAUSE {
+                pub const WAIT_OBJECT_0: Self = Self(0u32);
+                pub const WAIT_ABANDONED: Self = Self(128u32);
+                pub const WAIT_ABANDONED_0: Self = Self(128u32);
+                pub const WAIT_IO_COMPLETION: Self = Self(192u32);
+                pub const WAIT_TIMEOUT: Self = Self(258u32);
+                pub const WAIT_FAILED: Self = Self(4294967295u32);
+            }
+            impl ::std::convert::From<u32> for WAIT_RETURN_CAUSE {
+                fn from(value: u32) -> Self {
+                    Self(value)
+                }
+            }
+            unsafe impl ::windows::Abi for WAIT_RETURN_CAUSE {
+                type Abi = Self;
+            }
+            impl ::std::ops::BitOr for WAIT_RETURN_CAUSE {
+                type Output = Self;
+                fn bitor(self, rhs: Self) -> Self {
+                    Self(self.0 | rhs.0)
+                }
+            }
+            impl ::std::ops::BitAnd for WAIT_RETURN_CAUSE {
+                type Output = Self;
+                fn bitand(self, rhs: Self) -> Self {
+                    Self(self.0 & rhs.0)
+                }
+            }
+            impl ::std::ops::BitOrAssign for WAIT_RETURN_CAUSE {
+                fn bitor_assign(&mut self, rhs: Self) {
+                    self.0.bitor_assign(rhs.0)
+                }
+            }
+            impl ::std::ops::BitAndAssign for WAIT_RETURN_CAUSE {
+                fn bitand_assign(&mut self, rhs: Self) {
+                    self.0.bitand_assign(rhs.0)
+                }
+            }
+            pub unsafe fn WaitForSingleObject<'a>(
+                hhandle: impl ::windows::IntoParam<'a, HANDLE>,
+                dwmilliseconds: u32,
+            ) -> WAIT_RETURN_CAUSE {
+                #[link(name = "KERNEL32")]
+                extern "system" {
+                    pub fn WaitForSingleObject(
+                        hhandle: HANDLE,
+                        dwmilliseconds: u32,
+                    ) -> WAIT_RETURN_CAUSE;
+                }
+                WaitForSingleObject(
+                    hhandle.into_param().abi(),
+                    ::std::mem::transmute(dwmilliseconds),
+                )
+            }
         }
         #[allow(
             unused_variables,
@@ -6187,95 +6187,6 @@ pub mod Windows {
             clippy::all
         )]
         pub mod WinRT {
-            #[repr(transparent)]
-            #[derive(
-                :: std :: cmp :: PartialEq,
-                :: std :: cmp :: Eq,
-                :: std :: clone :: Clone,
-                :: std :: fmt :: Debug,
-            )]
-            pub struct IRestrictedErrorInfo(::windows::IUnknown);
-            impl IRestrictedErrorInfo {
-                pub unsafe fn GetErrorDetails(
-                    &self,
-                    description: *mut super::Automation::BSTR,
-                    error: *mut ::windows::HRESULT,
-                    restricteddescription: *mut super::Automation::BSTR,
-                    capabilitysid: *mut super::Automation::BSTR,
-                ) -> ::windows::HRESULT {
-                    (::windows::Interface::vtable(self).3)(
-                        ::windows::Abi::abi(self),
-                        ::std::mem::transmute(description),
-                        ::std::mem::transmute(error),
-                        ::std::mem::transmute(restricteddescription),
-                        ::std::mem::transmute(capabilitysid),
-                    )
-                }
-                pub unsafe fn GetReference(
-                    &self,
-                    reference: *mut super::Automation::BSTR,
-                ) -> ::windows::HRESULT {
-                    (::windows::Interface::vtable(self).4)(
-                        ::windows::Abi::abi(self),
-                        ::std::mem::transmute(reference),
-                    )
-                }
-            }
-            unsafe impl ::windows::Interface for IRestrictedErrorInfo {
-                type Vtable = IRestrictedErrorInfo_abi;
-                const IID: ::windows::Guid = ::windows::Guid::from_values(
-                    2193256594,
-                    19592,
-                    17021,
-                    [167, 188, 22, 221, 147, 254, 182, 126],
-                );
-            }
-            impl ::std::convert::From<IRestrictedErrorInfo> for ::windows::IUnknown {
-                fn from(value: IRestrictedErrorInfo) -> Self {
-                    unsafe { ::std::mem::transmute(value) }
-                }
-            }
-            impl ::std::convert::From<&IRestrictedErrorInfo> for ::windows::IUnknown {
-                fn from(value: &IRestrictedErrorInfo) -> Self {
-                    ::std::convert::From::from(::std::clone::Clone::clone(value))
-                }
-            }
-            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IRestrictedErrorInfo {
-                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
-                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
-                }
-            }
-            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IRestrictedErrorInfo {
-                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
-                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
-                        ::std::clone::Clone::clone(self),
-                    ))
-                }
-            }
-            unsafe impl ::std::marker::Send for IRestrictedErrorInfo {}
-            unsafe impl ::std::marker::Sync for IRestrictedErrorInfo {}
-            #[repr(C)]
-            #[doc(hidden)]
-            pub struct IRestrictedErrorInfo_abi(
-                pub  unsafe extern "system" fn(
-                    this: ::windows::RawPtr,
-                    iid: &::windows::Guid,
-                    interface: *mut ::windows::RawPtr,
-                ) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                pub  unsafe extern "system" fn(
-                    this: ::windows::RawPtr,
-                    description: *mut super::Automation::BSTR_abi,
-                    error: *mut ::windows::HRESULT,
-                    restricteddescription: *mut super::Automation::BSTR_abi,
-                    capabilitysid: *mut super::Automation::BSTR_abi,
-                ) -> ::windows::HRESULT,
-                pub  unsafe extern "system" fn(
-                    this: ::windows::RawPtr,
-                    reference: *mut super::Automation::BSTR_abi,
-                ) -> ::windows::HRESULT,
-            );
             #[repr(transparent)]
             #[derive(
                 :: std :: cmp :: PartialEq,
@@ -6475,6 +6386,95 @@ pub mod Windows {
                 pub  unsafe extern "system" fn(
                     this: ::windows::RawPtr,
                     propagatedlanguageexceptionerrorinfohead: *mut ::windows::RawPtr,
+                ) -> ::windows::HRESULT,
+            );
+            #[repr(transparent)]
+            #[derive(
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: clone :: Clone,
+                :: std :: fmt :: Debug,
+            )]
+            pub struct IRestrictedErrorInfo(::windows::IUnknown);
+            impl IRestrictedErrorInfo {
+                pub unsafe fn GetErrorDetails(
+                    &self,
+                    description: *mut super::Automation::BSTR,
+                    error: *mut ::windows::HRESULT,
+                    restricteddescription: *mut super::Automation::BSTR,
+                    capabilitysid: *mut super::Automation::BSTR,
+                ) -> ::windows::HRESULT {
+                    (::windows::Interface::vtable(self).3)(
+                        ::windows::Abi::abi(self),
+                        ::std::mem::transmute(description),
+                        ::std::mem::transmute(error),
+                        ::std::mem::transmute(restricteddescription),
+                        ::std::mem::transmute(capabilitysid),
+                    )
+                }
+                pub unsafe fn GetReference(
+                    &self,
+                    reference: *mut super::Automation::BSTR,
+                ) -> ::windows::HRESULT {
+                    (::windows::Interface::vtable(self).4)(
+                        ::windows::Abi::abi(self),
+                        ::std::mem::transmute(reference),
+                    )
+                }
+            }
+            unsafe impl ::windows::Interface for IRestrictedErrorInfo {
+                type Vtable = IRestrictedErrorInfo_abi;
+                const IID: ::windows::Guid = ::windows::Guid::from_values(
+                    2193256594,
+                    19592,
+                    17021,
+                    [167, 188, 22, 221, 147, 254, 182, 126],
+                );
+            }
+            impl ::std::convert::From<IRestrictedErrorInfo> for ::windows::IUnknown {
+                fn from(value: IRestrictedErrorInfo) -> Self {
+                    unsafe { ::std::mem::transmute(value) }
+                }
+            }
+            impl ::std::convert::From<&IRestrictedErrorInfo> for ::windows::IUnknown {
+                fn from(value: &IRestrictedErrorInfo) -> Self {
+                    ::std::convert::From::from(::std::clone::Clone::clone(value))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IRestrictedErrorInfo {
+                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IRestrictedErrorInfo {
+                fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                    ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                        ::std::clone::Clone::clone(self),
+                    ))
+                }
+            }
+            unsafe impl ::std::marker::Send for IRestrictedErrorInfo {}
+            unsafe impl ::std::marker::Sync for IRestrictedErrorInfo {}
+            #[repr(C)]
+            #[doc(hidden)]
+            pub struct IRestrictedErrorInfo_abi(
+                pub  unsafe extern "system" fn(
+                    this: ::windows::RawPtr,
+                    iid: &::windows::Guid,
+                    interface: *mut ::windows::RawPtr,
+                ) -> ::windows::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub  unsafe extern "system" fn(
+                    this: ::windows::RawPtr,
+                    description: *mut super::Automation::BSTR_abi,
+                    error: *mut ::windows::HRESULT,
+                    restricteddescription: *mut super::Automation::BSTR_abi,
+                    capabilitysid: *mut super::Automation::BSTR_abi,
+                ) -> ::windows::HRESULT,
+                pub  unsafe extern "system" fn(
+                    this: ::windows::RawPtr,
+                    reference: *mut super::Automation::BSTR_abi,
                 ) -> ::windows::HRESULT,
             );
             #[repr(transparent)]

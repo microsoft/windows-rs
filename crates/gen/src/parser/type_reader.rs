@@ -178,6 +178,28 @@ impl TypeReader {
         panic!("Could not find type `{}.{}`", namespace, name);
     }
 
+    pub fn get_namespace(&'static self, namespace: &str) -> Option<&'static str> {
+        if let Some((namespace, _)) = self.types.get_key_value(namespace) {
+            Some(namespace)
+        } else {
+            None
+        }
+    }
+
+    pub fn get_type_name(
+        &'static self,
+        namespace: &str,
+        name: &str,
+    ) -> Option<(&'static str, &'static str)> {
+        if let Some((namespace, types)) = self.types.get_key_value(namespace) {
+            if let Some((name, _)) = types.get_key_value(trim_tick(name)) {
+                return Some((namespace, name));
+            }
+        }
+
+        None
+    }
+
     fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
         match row {
             TypeRow::TypeDef(row) => ElementType::from_type_def(*row, Vec::new()),
