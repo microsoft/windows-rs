@@ -1,8 +1,8 @@
-mod build_limits;
+mod build_macro;
 mod implement;
 mod implement_tree;
 
-use build_limits::*;
+use build_macro::*;
 use gen::*;
 use implement_tree::*;
 use syn::parse_macro_input;
@@ -42,7 +42,7 @@ impl ToTokens for RawString {
 /// ```
 #[proc_macro]
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let build = parse_macro_input!(stream as BuildLimits);
+    let build = parse_macro_input!(stream as BuildMacro);
 
     let tokens = RawString(build.into_tokens_string());
     let workspace_windows_dir = gen::workspace_windows_dir();
@@ -143,7 +143,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
 #[proc_macro]
 pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let build = parse_macro_input!(stream as BuildLimits);
+    let build = parse_macro_input!(stream as BuildMacro);
 
     let mut tokens = String::new();
     tokens.push_str("r#\"");

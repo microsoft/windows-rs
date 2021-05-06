@@ -16,25 +16,27 @@ impl TypeTree {
         }
     }
 
-    pub fn from_limits(reader: &'static TypeReader, limits: &TypeLimits) -> Self {
+    pub fn from_imports(
+        reader: &'static TypeReader,
+        imports: &BTreeMap<&'static str, ImportLimit>,
+    ) -> Self {
         let mut root = Self::from_namespace("");
-
         let mut set = BTreeSet::new();
 
-        for limit in limits.limits() {
-            match &limit.limit {
-                TypeLimit::All => {
-                    for def in reader.namespace_types(&limit.namespace) {
-                        root.insert_if(reader, &limit.namespace, &mut set, &def);
+        for (namespace, limit) in imports {
+            match limit {
+                ImportLimit::All => {
+                    for def in reader.namespace_types(namespace) {
+                        root.insert_if(reader, namespace, &mut set, &def);
                     }
                 }
-                TypeLimit::Some(types) => {
-                    for name in types {
+                ImportLimit::Some(names) => {
+                    for name in names {
                         root.insert_if(
                             reader,
-                            &limit.namespace,
+                            namespace,
                             &mut set,
-                            &reader.resolve_type(&limit.namespace, name),
+                            &reader.resolve_type(namespace, name),
                         );
                     }
                 }
@@ -147,14 +149,14 @@ mod tests {
     #[test]
     fn test_tree() {
         let reader = TypeReader::get();
-        let mut limits = TypeLimits::new(reader);
+        let mut imports = BTreeMap::new();
 
-        limits.insert(NamespaceTypes {
-            namespace: "Windows.Win32.FileSystem",
-            limit: TypeLimit::Some(vec!["FILE_ACCESS_FLAGS".to_string()]),
-        });
+        let mut single = BTreeSet::new();
+        single.insert("FILE_ACCESS_FLAGS");
 
-        let tree = TypeTree::from_limits(reader, &limits);
+        imports.insert("Windows.Win32.FileSystem", ImportLimit::Some(single));
+
+        let tree = TypeTree::from_imports(reader, &imports);
 
         assert_eq!(tree.namespace, "");
         assert_eq!(tree.types.len(), 0);
