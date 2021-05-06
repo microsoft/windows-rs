@@ -1,4 +1,4 @@
-use std::collections::*;
+use std::collections::BTreeSet;
 
 #[derive(Debug)]
 pub enum ImportLimit {
