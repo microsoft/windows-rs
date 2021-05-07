@@ -126,7 +126,7 @@ impl ElementType {
 
                 match code {
                     TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
-                        ("System", "Guid") | ("Windows.Win32.System.Com", "Guid") => Self::Guid,
+                        ("System", "Guid") => Self::Guid,
                         ("Windows.Win32.System.Com", "IUnknown") => Self::IUnknown,
                         ("Windows.Foundation", "HResult") => Self::HRESULT,
                         ("Windows.Win32.System.Com", "HRESULT") => Self::HRESULT,
