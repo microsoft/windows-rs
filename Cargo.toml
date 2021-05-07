@@ -16,7 +16,6 @@ gen = { package = "windows_gen", path = "crates/gen",  version = "0.9.1", option
 const-sha1 = "0.2"
 
 [dev-dependencies]
-doc-comment = "0.3"
 gen = { package = "windows_gen", path = "crates/gen" }
 
 [workspace]
