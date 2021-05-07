@@ -1,7 +1,7 @@
 use test_weak::*;
 use windows::*;
 use Windows::Foundation::IStringable;
-use Windows::Win32::WinRT::{IWeakReference, IWeakReferenceSource};
+use Windows::Win32::System::WinRT::{IWeakReference, IWeakReferenceSource};
 
 #[test]
 fn test_implement() -> Result<()> {

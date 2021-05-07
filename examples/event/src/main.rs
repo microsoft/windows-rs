@@ -1,8 +1,8 @@
 use bindings::{
-    Windows::Win32::SystemServices::{
+    Windows::Win32::System::Threading::{
         CreateEventW, SetEvent, WaitForSingleObject, WAIT_RETURN_CAUSE,
     },
-    Windows::Win32::WindowsProgramming::CloseHandle,
+    Windows::Win32::System::WindowsProgramming::CloseHandle,
 };
 
 fn main() -> windows::Result<()> {

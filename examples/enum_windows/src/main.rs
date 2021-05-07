@@ -1,6 +1,6 @@
 use bindings::{
-    Windows::Win32::SystemServices::{BOOL, PWSTR},
-    Windows::Win32::WindowsAndMessaging::{EnumWindows, GetWindowTextW, HWND, LPARAM},
+    Windows::Win32::System::SystemServices::{BOOL, PWSTR},
+    Windows::Win32::UI::WindowsAndMessaging::{EnumWindows, GetWindowTextW, HWND, LPARAM},
 };
 
 fn main() -> windows::Result<()> {

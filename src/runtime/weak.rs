@@ -1,5 +1,5 @@
 use crate::*;
-use bindings::Windows::Win32::WinRT::{IWeakReference, IWeakReferenceSource};
+use bindings::Windows::Win32::System::WinRT::{IWeakReference, IWeakReferenceSource};
 use std::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.

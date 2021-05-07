@@ -1,6 +1,6 @@
 use crate::*;
 
-use bindings::Windows::Win32::Com::{CoTaskMemAlloc, CoTaskMemFree};
+use bindings::Windows::Win32::System::Com::{CoTaskMemAlloc, CoTaskMemFree};
 
 /// A WinRT array stores elements contiguously in a heap-allocated buffer.
 pub struct Array<T: RuntimeType> {

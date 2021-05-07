@@ -1,4 +1,4 @@
-use test_unions::Windows::Win32::Direct3D12::{
+use test_unions::Windows::Win32::Graphics::Direct3D12::{
     D3D12_INDIRECT_ARGUMENT_DESC, D3D12_INDIRECT_ARGUMENT_DESC_0, D3D12_INDIRECT_ARGUMENT_DESC_0_4,
     D3D12_INDIRECT_ARGUMENT_TYPE,
 };

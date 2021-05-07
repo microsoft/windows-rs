@@ -21,7 +21,7 @@ use interfaces::*;
 use runtime::*;
 
 #[doc(hidden)]
-pub use bindings::Windows::Win32::Com::IAgileObject;
+pub use bindings::Windows::Win32::System::Com::IAgileObject;
 
 #[doc(hidden)]
 pub use interfaces::IActivationFactory;

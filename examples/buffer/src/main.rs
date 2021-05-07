@@ -1,4 +1,4 @@
-use bindings::{Windows::Foundation::*, Windows::Win32::WinRT::IMemoryBufferByteAccess};
+use bindings::{Windows::Foundation::*, Windows::Win32::System::WinRT::IMemoryBufferByteAccess};
 use windows::*;
 
 fn as_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {

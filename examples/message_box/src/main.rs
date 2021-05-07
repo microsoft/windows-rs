@@ -1,4 +1,4 @@
-use bindings::Windows::Win32::WindowsAndMessaging::{MessageBoxA, MESSAGEBOX_STYLE};
+use bindings::Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MESSAGEBOX_STYLE};
 
 fn main() {
     unsafe {

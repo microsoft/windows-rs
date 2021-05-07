@@ -1,30 +1,31 @@
 use test_win32::{
-    Windows::Win32::Automation::BSTR,
-    Windows::Win32::Com::CreateUri,
-    Windows::Win32::Debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
-    Windows::Win32::Direct2D::CLSID_D2D1Shadow,
-    Windows::Win32::Direct3D11::D3DDisassemble11Trace,
-    Windows::Win32::Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
-    Windows::Win32::Direct3DHlsl::D3DCOMPILER_DLL,
-    Windows::Win32::DisplayDevices::RECT,
-    Windows::Win32::Dxgi::{
+    Windows::Win32::Gaming::HasExpandedResources,
+    Windows::Win32::Graphics::Direct2D::CLSID_D2D1Shadow,
+    Windows::Win32::Graphics::Direct3D11::D3DDisassemble11Trace,
+    Windows::Win32::Graphics::Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
+    Windows::Win32::Graphics::Dxgi::{
         CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_ERROR_INVALID_CALL, DXGI_FORMAT,
         DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
     },
-    Windows::Win32::GameMode::HasExpandedResources,
-    Windows::Win32::Ldap::ldapsearch,
+    Windows::Win32::Graphics::Hlsl::D3DCOMPILER_DLL,
+    Windows::Win32::Networking::Ldap::ldapsearch,
     Windows::Win32::Security::ACCESS_MODE,
-    Windows::Win32::StructuredStorage::{CreateStreamOnHGlobal, STREAM_SEEK},
-    Windows::Win32::SystemServices::{
-        CreateEventW, SetEvent, WaitForSingleObject, BOOL, HANDLE, PSTR, PWSTR, WAIT_RETURN_CAUSE,
+    Windows::Win32::Storage::StructuredStorage::{CreateStreamOnHGlobal, STREAM_SEEK},
+    Windows::Win32::System::Com::CreateUri,
+    Windows::Win32::System::Diagnostics::Debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
+    Windows::Win32::System::OleAutomation::BSTR,
+    Windows::Win32::System::SystemServices::{BOOL, HANDLE, PSTR, PWSTR},
+    Windows::Win32::System::Threading::{
+        CreateEventW, SetEvent, WaitForSingleObject, WAIT_RETURN_CAUSE,
     },
-    Windows::Win32::UIAnimation::{UIAnimationManager, UIAnimationTransitionLibrary},
-    Windows::Win32::WindowsAccessibility::UIA_ScrollPatternNoScroll,
-    Windows::Win32::WindowsAndMessaging::{
+    Windows::Win32::System::WindowsProgramming::CloseHandle,
+    Windows::Win32::UI::Accessibility::UIA_ScrollPatternNoScroll,
+    Windows::Win32::UI::Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
+    Windows::Win32::UI::ColorSystem::WhitePoint,
+    Windows::Win32::UI::DisplayDevices::RECT,
+    Windows::Win32::UI::WindowsAndMessaging::{
         CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP,
     },
-    Windows::Win32::WindowsColorSystem::WhitePoint,
-    Windows::Win32::WindowsProgramming::CloseHandle,
 };
 
 use windows::{Abi, Guid};

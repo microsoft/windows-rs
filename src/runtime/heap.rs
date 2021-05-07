@@ -1,6 +1,6 @@
 use crate::*;
 
-use bindings::Windows::Win32::SystemServices::{GetProcessHeap, HeapAlloc, HeapFree, HEAP_FLAGS};
+use bindings::Windows::Win32::System::Memory::{GetProcessHeap, HeapAlloc, HeapFree, HEAP_FLAGS};
 
 pub fn heap_alloc(bytes: usize) -> RawPtr {
     unsafe { HeapAlloc(GetProcessHeap(), HEAP_FLAGS::HEAP_NONE, bytes) }

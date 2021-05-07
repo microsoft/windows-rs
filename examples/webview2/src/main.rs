@@ -10,14 +10,17 @@ use bindings::{
     Windows::{
         Foundation::*,
         Win32::{
-            DisplayDevices::{RECT, SIZE},
-            Gdi,
-            HiDpi::{self, PROCESS_DPI_AWARENESS},
-            KeyboardAndMouseInput,
-            SystemServices::{self, HINSTANCE, LRESULT, PSTR},
-            WindowsAndMessaging::{
-                self, HWND, LPARAM, MSG, SET_WINDOW_POS_FLAGS, SHOW_WINDOW_CMD,
-                WINDOW_LONG_PTR_INDEX, WINDOW_STYLE, WNDCLASSA, WPARAM,
+            Graphics::Gdi,
+            System::SystemServices::{self, LRESULT, PSTR},
+            System::Threading,
+            UI::{
+                DisplayDevices::{RECT, SIZE},
+                HiDpi::{self, PROCESS_DPI_AWARENESS},
+                KeyboardAndMouseInput,
+                WindowsAndMessaging::{
+                    self, HWND, LPARAM, MSG, SET_WINDOW_POS_FLAGS, SHOW_WINDOW_CMD,
+                    WINDOW_LONG_PTR_INDEX, WINDOW_STYLE, WNDCLASSA, WPARAM,
+                },
             },
         },
     },
@@ -150,7 +153,7 @@ impl FrameWindow {
                     WindowsAndMessaging::CW_USEDEFAULT,
                     None,
                     None,
-                    HINSTANCE(SystemServices::GetModuleHandleA(None)),
+                    SystemServices::GetModuleHandleA(None),
                     0 as *mut _,
                 )
             }
@@ -256,7 +259,7 @@ impl WebView {
 
         let (tx, rx) = mpsc::channel();
         let rx = Arc::new(rx);
-        let thread_id = unsafe { SystemServices::GetCurrentThreadId() };
+        let thread_id = unsafe { Threading::GetCurrentThreadId() };
 
         let webview = WebView {
             controller: Arc::new(WebViewController(controller)),

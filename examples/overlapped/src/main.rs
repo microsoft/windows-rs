@@ -1,6 +1,7 @@
 use bindings::{
-    Windows::Win32::Debug::*, Windows::Win32::FileSystem::*, Windows::Win32::SystemServices::*,
-    Windows::Win32::WindowsProgramming::*,
+    Windows::Win32::Storage::FileSystem::*, Windows::Win32::System::Diagnostics::Debug::*,
+    Windows::Win32::System::SystemServices::*, Windows::Win32::System::Threading::*,
+    Windows::Win32::System::WindowsProgramming::*,
 };
 
 fn main() -> windows::Result<()> {

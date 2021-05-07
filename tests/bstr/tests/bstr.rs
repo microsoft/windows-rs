@@ -1,4 +1,4 @@
-use test_bstr::Windows::Win32::Automation::BSTR;
+use test_bstr::Windows::Win32::System::OleAutomation::BSTR;
 use windows::Abi;
 
 #[test]

@@ -154,7 +154,10 @@ mod tests {
         let mut single = BTreeSet::new();
         single.insert("FILE_ACCESS_FLAGS");
 
-        imports.insert("Windows.Win32.FileSystem", ImportLimit::Some(single));
+        imports.insert(
+            "Windows.Win32.Storage.FileSystem",
+            ImportLimit::Some(single),
+        );
 
         let tree = TypeTree::from_imports(reader, &imports);
 
@@ -174,9 +177,15 @@ mod tests {
         assert_eq!(tree.types.len(), 0);
         assert_eq!(tree.namespaces.len(), 1);
 
+        let tree = &tree.namespaces["Storage"];
+
+        assert_eq!(tree.namespace, "Windows.Win32.Storage");
+        assert_eq!(tree.types.len(), 0);
+        assert_eq!(tree.namespaces.len(), 1);
+
         let tree = &tree.namespaces["FileSystem"];
 
-        assert_eq!(tree.namespace, "Windows.Win32.FileSystem");
+        assert_eq!(tree.namespace, "Windows.Win32.Storage.FileSystem");
         assert_eq!(tree.types.len(), 1);
         assert_eq!(tree.namespaces.len(), 0);
 
@@ -184,7 +193,7 @@ mod tests {
         assert_eq!(
             t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
                 .as_str(),
-            "Windows :: Win32 :: FileSystem :: FILE_ACCESS_FLAGS"
+            "Windows :: Win32 :: Storage :: FileSystem :: FILE_ACCESS_FLAGS"
         );
     }
 }

@@ -7,7 +7,7 @@
 )]
 
 use crate::*;
-use bindings::Windows::Win32::WinRT::{
+use bindings::Windows::Win32::System::WinRT::{
     IWeakReference, IWeakReferenceSource, IWeakReferenceSource_abi, IWeakReference_abi,
 };
 use std::sync::atomic::{AtomicIsize, Ordering};

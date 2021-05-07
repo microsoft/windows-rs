@@ -1,4 +1,4 @@
-use test_interfaces::Windows::Win32::ComponentServices::ITransactionImport;
+use test_interfaces::Windows::Win32::System::ComponentServices::ITransactionImport;
 
 #[test]
 fn test() {

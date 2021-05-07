@@ -204,7 +204,7 @@ impl ComInterface {
 
         let send_sync = if matches!(
             self.0.def.full_name(),
-            ("Windows.Win32.WinRT", "IRestrictedErrorInfo")
+            ("Windows.Win32.System.WinRT", "IRestrictedErrorInfo")
         ) {
             quote! {
                 unsafe impl ::std::marker::Send for #name {}

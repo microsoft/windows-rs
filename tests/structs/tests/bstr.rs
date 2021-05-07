@@ -1,4 +1,4 @@
-use test_structs::Windows::Win32::Debug::DebugPropertyInfo;
+use test_structs::Windows::Win32::System::Diagnostics::Debug::DebugPropertyInfo;
 use windows::Abi;
 
 #[test]

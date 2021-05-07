@@ -1,10 +1,11 @@
 fn main() {
     windows::build!(
-      Windows::Win32::FileSystem::{CreateFileA, ReadFile},
-      Windows::Win32::SystemServices::{
-          CreateEventA, WaitForSingleObject, GetOverlappedResult,
+      Windows::Win32::Storage::FileSystem::{CreateFileA, ReadFile},
+      Windows::Win32::System::SystemServices::GetOverlappedResult,
+      Windows::Win32::System::Threading::{
+          CreateEventA, WaitForSingleObject,
       },
-      Windows::Win32::Debug::GetLastError,
-      Windows::Win32::WindowsProgramming::CloseHandle,
+      Windows::Win32::System::Diagnostics::Debug::GetLastError,
+      Windows::Win32::System::WindowsProgramming::CloseHandle,
     );
 }

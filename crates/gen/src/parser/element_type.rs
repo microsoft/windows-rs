@@ -126,15 +126,15 @@ impl ElementType {
 
                 match code {
                     TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
-                        ("System", "Guid") | ("Windows.Win32.Com", "Guid") => Self::Guid,
-                        ("Windows.Win32.Com", "IUnknown") => Self::IUnknown,
+                        ("System", "Guid") | ("Windows.Win32.System.Com", "Guid") => Self::Guid,
+                        ("Windows.Win32.System.Com", "IUnknown") => Self::IUnknown,
                         ("Windows.Foundation", "HResult") => Self::HRESULT,
-                        ("Windows.Win32.Com", "HRESULT") => Self::HRESULT,
-                        ("Windows.Win32.WinRT", "HSTRING") => Self::String,
-                        ("Windows.Win32.WinRT", "IInspectable") => Self::IInspectable,
-                        ("Windows.Win32.SystemServices", "LARGE_INTEGER") => Self::I64,
-                        ("Windows.Win32.SystemServices", "ULARGE_INTEGER") => Self::U64,
-                        ("Windows.Win32.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
+                        ("Windows.Win32.System.Com", "HRESULT") => Self::HRESULT,
+                        ("Windows.Win32.System.WinRT", "HSTRING") => Self::String,
+                        ("Windows.Win32.System.WinRT", "IInspectable") => Self::IInspectable,
+                        ("Windows.Win32.System.SystemServices", "LARGE_INTEGER") => Self::I64,
+                        ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => Self::U64,
+                        ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
                         ("System", "Type") => Self::TypeName,
                         _ => Self::from_type_def(type_ref.resolve(), Vec::new()),
                     },
@@ -521,7 +521,8 @@ mod tests {
 
     #[test]
     fn test_struct() {
-        let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let t = TypeReader::get()
+            .resolve_type("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
         let d = t.definition();
         assert_eq!(d.len(), 1);
         assert_eq!(d[0].name(), "DXGI_FRAME_STATISTICS_MEDIA");
@@ -533,8 +534,10 @@ mod tests {
 
     #[test]
     fn test_enum() {
-        let t =
-            TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
+        let t = TypeReader::get().resolve_type(
+            "Windows.Win32.Graphics.Dxgi",
+            "DXGI_FRAME_PRESENTATION_MODE",
+        );
         let d = t.definition();
         assert_eq!(d.len(), 1);
         assert_eq!(d[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
@@ -545,7 +548,7 @@ mod tests {
 
     #[test]
     fn test_com_interface() {
-        let t = TypeReader::get().resolve_type("Windows.Win32.Direct2D", "ID2D1Resource");
+        let t = TypeReader::get().resolve_type("Windows.Win32.Graphics.Direct2D", "ID2D1Resource");
         let d = t.definition();
         assert_eq!(d.len(), 1);
         assert_eq!(d[0].name(), "ID2D1Resource");
@@ -595,7 +598,8 @@ mod tests {
 
     #[test]
     fn test_win32_function() {
-        let t = TypeReader::get().resolve_type("Windows.Win32.WindowsAndMessaging", "EnumWindows");
+        let t =
+            TypeReader::get().resolve_type("Windows.Win32.UI.WindowsAndMessaging", "EnumWindows");
         assert_eq!(t.definition().len(), 0);
 
         let mut d = t.dependencies();
@@ -610,14 +614,16 @@ mod tests {
 
     #[test]
     fn test_win32_constant() {
-        let t = TypeReader::get().resolve_type("Windows.Win32.Dxgi", "DXGI_USAGE_SHADER_INPUT");
+        let t = TypeReader::get()
+            .resolve_type("Windows.Win32.Graphics.Dxgi", "DXGI_USAGE_SHADER_INPUT");
         assert_eq!(t.definition().len(), 0);
         assert_eq!(t.dependencies().len(), 0);
     }
 
     #[test]
     fn test_win32_callback() {
-        let t = TypeReader::get().resolve_type("Windows.Win32.WindowsAndMessaging", "WNDENUMPROC");
+        let t =
+            TypeReader::get().resolve_type("Windows.Win32.UI.WindowsAndMessaging", "WNDENUMPROC");
         let d = t.definition();
         assert_eq!(d.len(), 1);
         assert_eq!(d[0].name(), "WNDENUMPROC");
