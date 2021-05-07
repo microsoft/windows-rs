@@ -89,6 +89,10 @@ impl TypeDef {
         self.has_attribute("ExclusiveToAttribute")
     }
 
+    pub fn is_scoped(&self) -> bool {
+        self.is_winrt() || self.has_attribute("ScopedEnumAttribute")
+    }
+
     pub fn is_agile(&self) -> bool {
         self.attributes().any(|attribute| {
             if attribute.name() == "MarshalingBehaviorAttribute" {

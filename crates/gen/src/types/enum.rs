@@ -86,35 +86,45 @@ impl Enum {
         let underlying_type = underlying_type.gen_name(gen);
         let mut last: Option<ConstantValue> = None;
 
-        let fields = self.0.fields().filter_map(|field| {
-            if field.flags().literal() {
-                let name = to_ident(field.name());
-
-                if let Some(constant) = field.constant() {
-                    let value = constant.value().gen_value();
-
-                    Some(quote! {
-                        pub const #name: Self = Self(#value);
-                    })
-                } else if let Some(last_value) = &last {
-                    let next = last_value.next();
-                    let value = next.gen_value();
-                    last = Some(next);
-
-                    Some(quote! {
-                        pub const #name: Self = Self(#value);
-                    })
+        let fields = if self.0.is_scoped() {
+            let fields = self.0.fields().filter_map(|field| {
+                if field.flags().literal() {
+                    let name = to_ident(field.name());
+    
+                    if let Some(constant) = field.constant() {
+                        let value = constant.value().gen_value();
+    
+                        Some(quote! {
+                            pub const #name: Self = Self(#value);
+                        })
+                    } else if let Some(last_value) = &last {
+                        let next = last_value.next();
+                        let value = next.gen_value();
+                        last = Some(next);
+    
+                        Some(quote! {
+                            pub const #name: Self = Self(#value);
+                        })
+                    } else {
+                        last = Some(ConstantValue::I32(0));
+    
+                        Some(quote! {
+                            pub const #name: Self = Self(0);
+                        })
+                    }
                 } else {
-                    last = Some(ConstantValue::I32(0));
-
-                    Some(quote! {
-                        pub const #name: Self = Self(0);
-                    })
+                    None
                 }
-            } else {
-                None
+            });
+
+            quote! {
+                impl #name {
+                    #(#fields)*
+                }
             }
-        });
+        } else {
+            quote! {}
+        };
 
         let runtime_type = if self.0.is_winrt() {
             let signature = Literal::byte_string(&self.type_signature().as_bytes());
@@ -133,9 +143,7 @@ impl Enum {
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]
             #[repr(transparent)]
             pub struct #name(pub #underlying_type);
-            impl #name {
-                #(#fields)*
-            }
+            #fields
             impl ::std::convert::From<#underlying_type> for #name {
                 fn from(value: #underlying_type) -> Self {
                     Self(value)
