@@ -30,13 +30,10 @@ This will allow Cargo to download, build, and cache Windows support as a package
 fn main() {
     windows::build!(
         Windows::Data::Xml::Dom::*,
-        Windows::Win32::System::WindowsProgramming::CloseHandle,
-        Windows::Win32::UI::WindowsAndMessaging::MessageBoxA,
-        Windows::Win32::Threading::{
-            CreateEventW, SetEvent,
-        }
-        Windows::Win32::System::SystemServices::{
-            WaitForSingleObject
+        Windows::Win32::WindowsProgramming::CloseHandle,
+        Windows::Win32::WindowsAndMessaging::MessageBoxA,
+        Windows::Win32::SystemServices::{
+            CreateEventW, SetEvent, WaitForSingleObject
         },
     );
 }
@@ -51,10 +48,9 @@ mod bindings {
 
 use bindings::{
     Windows::Data::Xml::Dom::*,
-    Windows::Win32::System::Threading::{CreateEventW, SetEvent},
-    Windows::Win32::System::SystemServices::{WaitForSingleObject},
-    Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MESSAGEBOX_STYLE},
-    Windows::Win32::System::WindowsProgramming::CloseHandle,
+    Windows::Win32::SystemServices::{CreateEventW, SetEvent, WaitForSingleObject},
+    Windows::Win32::WindowsAndMessaging::{MessageBoxA, MESSAGEBOX_STYLE},
+    Windows::Win32::WindowsProgramming::CloseHandle,
 };
 
 fn main() -> windows::Result<()> {
