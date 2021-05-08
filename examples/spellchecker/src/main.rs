@@ -53,7 +53,7 @@ fn main() -> windows::Result<()> {
             error.get_Length(&mut length).ok()?;
         }
 
-        // Get the substring from the ut8 encoded string
+        // Get the substring from the utf8 encoded string
         let substring = &input[start_index as usize..(start_index + length) as usize];
 
         // Get the corrective action
