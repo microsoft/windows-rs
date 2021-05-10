@@ -7,7 +7,10 @@ fn main() -> std::io::Result<()> {
             CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, CLSIDFromProgID, CoInitializeEx, CoCreateInstance,
             IAgileObject, COINIT_MULTITHREADED, COINIT_APARTMENTTHREADED, CLSCTX_ALL,
         },
-        Windows::Win32::System::Diagnostics::Debug::{GetLastError, FormatMessageW, FORMAT_MESSAGE_ALLOCATE_BUFFER, FORMAT_MESSAGE_FROM_SYSTEM, FORMAT_MESSAGE_IGNORE_INSERTS},
+        Windows::Win32::System::Diagnostics::Debug::{
+            GetLastError, FormatMessageW, FORMAT_MESSAGE_ALLOCATE_BUFFER, FORMAT_MESSAGE_FROM_SYSTEM,
+            FORMAT_MESSAGE_IGNORE_INSERTS,
+        },
         Windows::Win32::System::Memory::{
             GetProcessHeap, HeapAlloc, HeapFree, HEAP_NONE,
         },
