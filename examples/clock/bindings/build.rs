@@ -39,6 +39,7 @@ fn main() {
         Windows::Win32::UI::WindowsAndMessaging::{
             CreateWindowExA, DefWindowProcA, DispatchMessageA, GetMessageA, GetWindowLongPtrA,
             LoadCursorW, PeekMessageA, PostQuitMessage, RegisterClassA, SetWindowLongPtrA,
+            SetWindowLongA, GetWindowLongA,
             CREATESTRUCTA, CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, GWLP_USERDATA, HWND, IDC_HAND,
             LPARAM, MSG, PM_REMOVE, SIZE_MINIMIZED, WINDOW_LONG_PTR_INDEX, WM_ACTIVATE, WM_DESTROY,
             WM_DISPLAYCHANGE, WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, WNDCLASSA, WPARAM,
