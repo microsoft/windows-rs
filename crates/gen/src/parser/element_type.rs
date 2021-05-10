@@ -138,7 +138,13 @@ impl ElementType {
                         ("System", "Type") => Self::TypeName,
                         _ => Self::from_type_def(type_ref.resolve(), Vec::new()),
                     },
-                    TypeDefOrRef::TypeDef(type_def) => Self::from_type_def(type_def, Vec::new()),
+                    TypeDefOrRef::TypeDef(type_def) => Self::from_type_def(
+                        // Need to "re-resolve" the TypeDef as it may point to an arch-specific
+                        // definition. This lets the TypeTree be built for a specific architecture
+                        // without accidentally pulling in the wrong definition.
+                        TypeReader::get().resolve_type_def(type_def.namespace(), type_def.name()),
+                        Vec::new(),
+                    ),
                     _ => unexpected!(),
                 }
             }
