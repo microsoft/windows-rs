@@ -1,6 +1,6 @@
 use bindings::{
     Windows::Win32::System::Threading::{
-        CreateEventW, SetEvent, WaitForSingleObject, WAIT_RETURN_CAUSE,
+        CreateEventW, SetEvent, WaitForSingleObject, WAIT_OBJECT_0,
     },
     Windows::Win32::System::WindowsProgramming::CloseHandle,
 };
@@ -14,7 +14,7 @@ fn main() -> windows::Result<()> {
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
-        assert!(result == WAIT_RETURN_CAUSE::WAIT_OBJECT_0);
+        assert!(result == WAIT_OBJECT_0);
 
         CloseHandle(event).ok()
     }

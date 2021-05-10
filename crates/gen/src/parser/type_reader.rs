@@ -75,17 +75,17 @@ impl TypeReader {
                     ("System", "Object") => {
                         for field in def.fields() {
                             let name = field.name();
-        
+
                             types
                                 .entry(namespace)
                                 .or_default()
                                 .entry(name)
                                 .or_insert_with(|| TypeRow::Constant(field));
                         }
-        
+
                         for method in def.methods() {
                             let name = method.name();
-        
+
                             types
                                 .entry(namespace)
                                 .or_default()
@@ -96,7 +96,7 @@ impl TypeReader {
                     ("System", "Enum") => {
                         for field in def.fields() {
                             let name = field.name();
-        
+
                             types
                                 .entry(namespace)
                                 .or_default()

@@ -90,10 +90,10 @@ impl Enum {
             let fields = self.0.fields().filter_map(|field| {
                 if field.flags().literal() {
                     let name = to_ident(field.name());
-    
+
                     if let Some(constant) = field.constant() {
                         let value = constant.value().gen_value();
-    
+
                         Some(quote! {
                             pub const #name: Self = Self(#value);
                         })
@@ -101,13 +101,13 @@ impl Enum {
                         let next = last_value.next();
                         let value = next.gen_value();
                         last = Some(next);
-    
+
                         Some(quote! {
                             pub const #name: Self = Self(#value);
                         })
                     } else {
                         last = Some(ConstantValue::I32(0));
-    
+
                         Some(quote! {
                             pub const #name: Self = Self(0);
                         })

@@ -1,7 +1,7 @@
-use bindings::Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MESSAGEBOX_STYLE};
+use bindings::Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MB_OK};
 
 fn main() {
     unsafe {
-        MessageBoxA(None, "Hello", "World", MESSAGEBOX_STYLE::MB_OK);
+        MessageBoxA(None, "Hello", "World", MB_OK);
     }
 }
