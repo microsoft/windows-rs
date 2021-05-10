@@ -43,10 +43,10 @@ impl BuildMacro {
 
 impl Parse for BuildMacro {
     fn parse(input: ParseStream) -> Result<Self> {
+        let reader = TypeReader::get();
         let mut build = Self::default();
 
         while !input.is_empty() {
-            let reader = TypeReader::get();
             let tree: UseTree = input.parse()?;
 
             fn walk(
