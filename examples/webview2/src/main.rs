@@ -5,31 +5,20 @@ use std::{
     sync::{mpsc, Arc, Mutex},
 };
 
-use bindings::{
-    Microsoft::Web::WebView2::Core::*,
-    Windows::{
-        Foundation::*,
-        Win32::{
-            Graphics::Gdi,
-            System::SystemServices::{self, LRESULT, PSTR},
-            System::Threading,
-            UI::{
-                DisplayDevices::{RECT, SIZE},
-                HiDpi::{self, PROCESS_DPI_AWARENESS},
-                KeyboardAndMouseInput,
-                WindowsAndMessaging::{
-                    self, HWND, LPARAM, MSG, SET_WINDOW_POS_FLAGS, SHOW_WINDOW_CMD,
-                    WINDOW_LONG_PTR_INDEX, WINDOW_STYLE, WNDCLASSA, WPARAM,
-                },
-            },
-        },
-    },
-};
-
-use windows::*;
-
 use serde::Deserialize;
 use serde_json::{Number, Value};
+use windows::*;
+
+use bindings::{
+    Microsoft::Web::WebView2::Core::*,
+    Windows::Foundation::*,
+    Windows::Win32::{
+        Graphics::Gdi::*,
+        System::SystemServices::*,
+        System::Threading::*,
+        UI::{DisplayDevices::*, HiDpi::*, KeyboardAndMouseInput::*, WindowsAndMessaging::*},
+    },
+};
 
 fn main() -> Result<()> {
     initialize_sta()?;
@@ -119,7 +108,7 @@ struct Window(HWND);
 impl Drop for Window {
     fn drop(&mut self) {
         unsafe {
-            WindowsAndMessaging::DestroyWindow(self.0);
+            DestroyWindow(self.0);
         }
     }
 }
@@ -140,20 +129,20 @@ impl FrameWindow {
             window_class.lpszClassName = PSTR(c_class_name.as_ptr() as *mut _);
 
             unsafe {
-                WindowsAndMessaging::RegisterClassA(&window_class);
+                RegisterClassA(&window_class);
 
-                WindowsAndMessaging::CreateWindowExA(
+                CreateWindowExA(
                     Default::default(),
                     class_name,
                     class_name,
-                    WINDOW_STYLE::WS_OVERLAPPEDWINDOW,
-                    WindowsAndMessaging::CW_USEDEFAULT,
-                    WindowsAndMessaging::CW_USEDEFAULT,
-                    WindowsAndMessaging::CW_USEDEFAULT,
-                    WindowsAndMessaging::CW_USEDEFAULT,
+                    WS_OVERLAPPEDWINDOW,
+                    CW_USEDEFAULT,
+                    CW_USEDEFAULT,
+                    CW_USEDEFAULT,
+                    CW_USEDEFAULT,
                     None,
                     None,
-                    SystemServices::GetModuleHandleA(None),
+                    GetModuleHandleA(None),
                     0 as *mut _,
                 )
             }
@@ -236,7 +225,7 @@ impl WebView {
 
         let size = get_window_size(parent);
         let mut client_rect = RECT::default();
-        unsafe { WindowsAndMessaging::GetClientRect(parent, &mut client_rect) };
+        unsafe { GetClientRect(parent, &mut client_rect) };
         controller.SetBounds(Rect {
             X: 0f32,
             Y: 0f32,
@@ -259,7 +248,7 @@ impl WebView {
 
         let (tx, rx) = mpsc::channel();
         let rx = Arc::new(rx);
-        let thread_id = unsafe { Threading::GetCurrentThreadId() };
+        let thread_id = unsafe { GetCurrentThreadId() };
 
         let webview = WebView {
             controller: Arc::new(WebViewController(controller)),
@@ -337,9 +326,9 @@ impl WebView {
         if let Some(frame) = self.frame.as_ref() {
             let hwnd = *frame.window;
             unsafe {
-                WindowsAndMessaging::ShowWindow(hwnd, SHOW_WINDOW_CMD::SW_SHOW);
-                Gdi::UpdateWindow(hwnd);
-                KeyboardAndMouseInput::SetFocus(hwnd);
+                ShowWindow(hwnd, SW_SHOW);
+                UpdateWindow(hwnd);
+                SetFocus(hwnd);
             }
         }
 
@@ -352,16 +341,16 @@ impl WebView {
             }
 
             unsafe {
-                let result = WindowsAndMessaging::GetMessageA(&mut msg, h_wnd, 0, 0).0;
+                let result = GetMessageA(&mut msg, h_wnd, 0, 0).0;
 
                 match result {
                     -1 => break Err(HRESULT::from_thread().into()),
                     0 => break Ok(()),
                     _ => match msg.message {
-                        WindowsAndMessaging::WM_APP => (),
+                        WM_APP => (),
                         _ => {
-                            WindowsAndMessaging::TranslateMessage(&msg);
-                            WindowsAndMessaging::DispatchMessageA(&msg);
+                            TranslateMessage(&msg);
+                            DispatchMessageA(&msg);
                         }
                     },
                 }
@@ -371,7 +360,7 @@ impl WebView {
 
     pub fn terminate(self) -> Result<()> {
         self.dispatch(|_webview| unsafe {
-            WindowsAndMessaging::PostQuitMessage(0);
+            PostQuitMessage(0);
         })?;
 
         if self.frame.is_some() {
@@ -384,7 +373,7 @@ impl WebView {
     pub fn set_title(&self, title: &str) -> Result<&Self> {
         if let Some(frame) = self.frame.as_ref() {
             unsafe {
-                WindowsAndMessaging::SetWindowTextA(*frame.window, title);
+                SetWindowTextA(*frame.window, title);
             }
         }
         Ok(self)
@@ -404,16 +393,14 @@ impl WebView {
             })?;
 
             unsafe {
-                WindowsAndMessaging::SetWindowPos(
+                SetWindowPos(
                     *frame.window,
                     None,
                     0,
                     0,
                     width,
                     height,
-                    SET_WINDOW_POS_FLAGS::SWP_NOACTIVATE
-                        | SET_WINDOW_POS_FLAGS::SWP_NOZORDER
-                        | SET_WINDOW_POS_FLAGS::SWP_NOMOVE,
+                    SWP_NOACTIVATE | SWP_NOZORDER | SWP_NOMOVE,
                 );
             }
         }
@@ -469,12 +456,7 @@ impl WebView {
         self.tx.send(Box::new(f)).expect("send the fn");
 
         unsafe {
-            WindowsAndMessaging::PostThreadMessageA(
-                self.thread_id,
-                WindowsAndMessaging::WM_APP,
-                WPARAM(0),
-                LPARAM(0),
-            );
+            PostThreadMessageA(self.thread_id, WM_APP, WPARAM(0), LPARAM(0));
         }
         Ok(self)
     }
@@ -537,7 +519,7 @@ impl WebView {
         unsafe {
             match SetWindowLong(
                 hwnd,
-                WINDOW_LONG_PTR_INDEX::GWLP_USERDATA,
+                GWLP_USERDATA,
                 match webview {
                     Some(webview) => Box::into_raw(webview) as _,
                     None => 0 as _,
@@ -551,7 +533,7 @@ impl WebView {
 
     fn get_window_webview(hwnd: HWND) -> Option<Box<WebView>> {
         unsafe {
-            let data = GetWindowLong(hwnd, WINDOW_LONG_PTR_INDEX::GWLP_USERDATA);
+            let data = GetWindowLong(hwnd, GWLP_USERDATA);
 
             match data {
                 0 => None,
@@ -569,16 +551,14 @@ impl WebView {
 }
 
 fn set_process_dpi_awareness() -> Result<()> {
-    unsafe {
-        HiDpi::SetProcessDpiAwareness(PROCESS_DPI_AWARENESS::PROCESS_PER_MONITOR_DPI_AWARE).ok()?
-    };
+    unsafe { SetProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE).ok()? };
     Ok(())
 }
 
 extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: LPARAM) -> LRESULT {
     let webview = match WebView::get_window_webview(hwnd) {
         Some(webview) => webview,
-        None => return unsafe { WindowsAndMessaging::DefWindowProcA(hwnd, msg, w_param, l_param) },
+        None => return unsafe { DefWindowProcA(hwnd, msg, w_param, l_param) },
     };
 
     let frame = webview
@@ -587,7 +567,7 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
         .expect("should only be called for owned windows");
 
     match msg {
-        WindowsAndMessaging::WM_SIZE => {
+        WM_SIZE => {
             let size = get_window_size(hwnd);
             webview
                 .controller
@@ -603,19 +583,19 @@ extern "system" fn window_proc(hwnd: HWND, msg: u32, w_param: WPARAM, l_param: L
             LRESULT(0)
         }
 
-        WindowsAndMessaging::WM_CLOSE => {
+        WM_CLOSE => {
             unsafe {
-                WindowsAndMessaging::DestroyWindow(hwnd);
+                DestroyWindow(hwnd);
             }
             LRESULT(0)
         }
 
-        WindowsAndMessaging::WM_DESTROY => {
+        WM_DESTROY => {
             webview.terminate().expect("window is gone");
             LRESULT(0)
         }
 
-        _ => unsafe { WindowsAndMessaging::DefWindowProcA(hwnd, msg, w_param, l_param) },
+        _ => unsafe { DefWindowProcA(hwnd, msg, w_param, l_param) },
     }
 }
 
@@ -637,14 +617,14 @@ fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
         }
 
         unsafe {
-            match WindowsAndMessaging::GetMessageA(&mut msg, hwnd, 0, 0).0 {
+            match GetMessageA(&mut msg, hwnd, 0, 0).0 {
                 -1 => {
                     return Err(HRESULT::from_thread().into());
                 }
                 0 => return Err(Error::TaskCanceled),
                 _ => {
-                    WindowsAndMessaging::TranslateMessage(&msg);
-                    WindowsAndMessaging::DispatchMessageA(&msg);
+                    TranslateMessage(&msg);
+                    DispatchMessageA(&msg);
                 }
             }
         }
@@ -653,7 +633,7 @@ fn wait_with_pump<T>(rx: mpsc::Receiver<T>) -> Result<T> {
 
 fn get_window_size(hwnd: HWND) -> SIZE {
     let mut client_rect = RECT::default();
-    unsafe { WindowsAndMessaging::GetClientRect(hwnd, &mut client_rect) };
+    unsafe { GetClientRect(hwnd, &mut client_rect) };
     SIZE {
         cx: client_rect.right - client_rect.left,
         cy: client_rect.bottom - client_rect.top,
@@ -663,23 +643,23 @@ fn get_window_size(hwnd: HWND) -> SIZE {
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "32")]
 unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
-    WindowsAndMessaging::SetWindowLongA(window, index, value as _) as _
+    SetWindowLongA(window, index, value as _) as _
 }
 
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "64")]
 unsafe fn SetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX, value: isize) -> isize {
-    WindowsAndMessaging::SetWindowLongPtrA(window, index, value)
+    SetWindowLongPtrA(window, index, value)
 }
 
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "32")]
 unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    WindowsAndMessaging::GetWindowLongA(window, index) as _
+    GetWindowLongA(window, index) as _
 }
 
 #[allow(non_snake_case)]
 #[cfg(target_pointer_width = "64")]
 unsafe fn GetWindowLong(window: HWND, index: WINDOW_LONG_PTR_INDEX) -> isize {
-    WindowsAndMessaging::GetWindowLongPtrA(window, index)
+    GetWindowLongPtrA(window, index)
 }

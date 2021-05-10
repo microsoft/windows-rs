@@ -71,32 +71,40 @@ impl TypeReader {
                     continue;
                 }
 
-                if extends == ("", "") {
-                    continue;
-                }
+                match extends {
+                    ("System", "Object") => {
+                        for field in def.fields() {
+                            let name = field.name();
 
-                if extends != ("System", "Object") {
-                    continue;
-                }
+                            types
+                                .entry(namespace)
+                                .or_default()
+                                .entry(name)
+                                .or_insert_with(|| TypeRow::Constant(field));
+                        }
 
-                for field in def.fields() {
-                    let name = field.name();
+                        for method in def.methods() {
+                            let name = method.name();
 
-                    types
-                        .entry(namespace)
-                        .or_default()
-                        .entry(name)
-                        .or_insert_with(|| TypeRow::Constant(field));
-                }
+                            types
+                                .entry(namespace)
+                                .or_default()
+                                .entry(name)
+                                .or_insert_with(|| TypeRow::Function(method));
+                        }
+                    }
+                    ("System", "Enum") => {
+                        for field in def.fields() {
+                            let name = field.name();
 
-                for method in def.methods() {
-                    let name = method.name();
-
-                    types
-                        .entry(namespace)
-                        .or_default()
-                        .entry(name)
-                        .or_insert_with(|| TypeRow::Function(method));
+                            types
+                                .entry(namespace)
+                                .or_default()
+                                .entry(name)
+                                .or_insert_with(|| TypeRow::Constant(field));
+                        }
+                    }
+                    _ => {}
                 }
             }
 

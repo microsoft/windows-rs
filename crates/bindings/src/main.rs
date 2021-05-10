@@ -5,11 +5,14 @@ fn main() -> std::io::Result<()> {
         Windows::Foundation::{IReference, IStringable, PropertyValue},
         Windows::Win32::System::Com::{
             CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, CLSIDFromProgID, CoInitializeEx, CoCreateInstance,
-            IAgileObject,
+            IAgileObject, COINIT_MULTITHREADED, COINIT_APARTMENTTHREADED, CLSCTX_ALL,
         },
-        Windows::Win32::System::Diagnostics::Debug::{GetLastError, FormatMessageW},
+        Windows::Win32::System::Diagnostics::Debug::{
+            GetLastError, FormatMessageW, FORMAT_MESSAGE_ALLOCATE_BUFFER, FORMAT_MESSAGE_FROM_SYSTEM,
+            FORMAT_MESSAGE_IGNORE_INSERTS,
+        },
         Windows::Win32::System::Memory::{
-            GetProcessHeap, HeapAlloc, HeapFree,
+            GetProcessHeap, HeapAlloc, HeapFree, HEAP_NONE,
         },
         Windows::Win32::System::OleAutomation::{BSTR, GetErrorInfo, IErrorInfo, SetErrorInfo},
         Windows::Win32::System::SystemServices::{

@@ -30,11 +30,9 @@ This will allow Cargo to download, build, and cache Windows support as a package
 fn main() {
     windows::build!(
         Windows::Data::Xml::Dom::*,
-        Windows::Win32::System::Threading::{
-            CreateEventW, SetEvent, WaitForSingleObject
-        },
+        Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
         Windows::Win32::System::WindowsProgramming::CloseHandle,
-        Windows::Win32::UI::WindowsAndMessaging::MessageBoxA,
+        Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MB_OK},
     );
 }
 ```
@@ -50,7 +48,7 @@ use bindings::{
     Windows::Data::Xml::Dom::*,
     Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
     Windows::Win32::System::WindowsProgramming::CloseHandle,
-    Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MESSAGEBOX_STYLE},
+    Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MB_OK},
 };
 
 fn main() -> windows::Result<()> {
@@ -67,7 +65,7 @@ fn main() -> windows::Result<()> {
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
 
-        MessageBoxA(None, "Text", "Caption", MESSAGEBOX_STYLE::MB_OK);
+        MessageBoxA(None, "Text", "Caption", MB_OK);
     }
 
     Ok(())

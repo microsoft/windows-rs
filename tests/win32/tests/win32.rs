@@ -3,21 +3,16 @@ use test_win32::{
     Windows::Win32::Graphics::Direct2D::CLSID_D2D1Shadow,
     Windows::Win32::Graphics::Direct3D11::D3DDisassemble11Trace,
     Windows::Win32::Graphics::Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
-    Windows::Win32::Graphics::Dxgi::{
-        CreateDXGIFactory1, IDXGIFactory7, DXGI_ADAPTER_FLAG, DXGI_ERROR_INVALID_CALL, DXGI_FORMAT,
-        DXGI_MODE_DESC, DXGI_MODE_SCALING, DXGI_MODE_SCANLINE_ORDER, DXGI_RATIONAL,
-    },
+    Windows::Win32::Graphics::Dxgi::*,
     Windows::Win32::Graphics::Hlsl::D3DCOMPILER_DLL,
     Windows::Win32::Networking::Ldap::ldapsearch,
-    Windows::Win32::Security::ACCESS_MODE,
-    Windows::Win32::Storage::StructuredStorage::{CreateStreamOnHGlobal, STREAM_SEEK},
+    Windows::Win32::Security::*,
+    Windows::Win32::Storage::StructuredStorage::*,
     Windows::Win32::System::Com::CreateUri,
-    Windows::Win32::System::Diagnostics::Debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
+    Windows::Win32::System::Diagnostics::Debug::*,
     Windows::Win32::System::OleAutomation::BSTR,
     Windows::Win32::System::SystemServices::{BOOL, HANDLE, PSTR, PWSTR},
-    Windows::Win32::System::Threading::{
-        CreateEventW, SetEvent, WaitForSingleObject, WAIT_RETURN_CAUSE,
-    },
+    Windows::Win32::System::Threading::*,
     Windows::Win32::System::WindowsProgramming::CloseHandle,
     Windows::Win32::UI::Accessibility::UIA_ScrollPatternNoScroll,
     Windows::Win32::UI::Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
@@ -33,19 +28,17 @@ use windows::{Abi, Guid};
 #[test]
 fn signed_enum32() {
     assert!(ACCESS_MODE::default() == 0.into());
-    assert!(ACCESS_MODE::REVOKE_ACCESS.abi() == ACCESS_MODE::REVOKE_ACCESS);
+    assert!(REVOKE_ACCESS.abi() == REVOKE_ACCESS);
+    let e: ACCESS_MODE = REVOKE_ACCESS;
+    assert!(e == REVOKE_ACCESS);
 }
 
 #[test]
 fn unsigned_enum32() {
     assert!(DXGI_ADAPTER_FLAG::default() == 0.into());
-    assert!(
-        DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE.abi()
-            == DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE
-    );
+    assert!(DXGI_ADAPTER_FLAG_SOFTWARE.abi() == DXGI_ADAPTER_FLAG_SOFTWARE);
 
-    let both =
-        DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG::DXGI_ADAPTER_FLAG_REMOTE;
+    let both = DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG_REMOTE;
     assert!(both == 3.into());
 }
 
@@ -85,9 +78,9 @@ fn dxgi_mode_desc() {
             Numerator: 3,
             Denominator: 5,
         },
-        Format: DXGI_FORMAT::DXGI_FORMAT_R32_TYPELESS,
-        ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER::DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
-        Scaling: DXGI_MODE_SCALING::DXGI_MODE_SCALING_CENTERED,
+        Format: DXGI_FORMAT_R32_TYPELESS,
+        ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
+        Scaling: DXGI_MODE_SCALING_CENTERED,
     };
 }
 
@@ -134,7 +127,7 @@ fn function() -> windows::Result<()> {
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
-        assert!(result == WAIT_RETURN_CAUSE::WAIT_OBJECT_0);
+        assert!(result == WAIT_OBJECT_0);
 
         CloseHandle(event).ok()?;
         Ok(())
@@ -184,9 +177,7 @@ fn com() -> windows::Result<()> {
         assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
         let mut position = 123;
 
-        stream
-            .Seek(0, STREAM_SEEK::STREAM_SEEK_SET, &mut position)
-            .ok()?;
+        stream.Seek(0, STREAM_SEEK_SET, &mut position).ok()?;
 
         assert!(position == 0);
         let mut values = vec![0, 0, 0, 0];
@@ -273,7 +264,7 @@ fn onecore_imports() -> windows::Result<()> {
             None,
             0,
             None,
-            MINIDUMP_TYPE::MiniDumpNormal,
+            MiniDumpNormal,
             std::ptr::null_mut(),
             std::ptr::null_mut(),
             std::ptr::null_mut(),

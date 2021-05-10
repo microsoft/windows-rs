@@ -11,11 +11,11 @@ fn main() -> windows::Result<()> {
 
         let file = CreateFileA(
             filename.as_path().to_str().unwrap(),
-            FILE_ACCESS_FLAGS::FILE_GENERIC_READ,
-            FILE_SHARE_MODE::FILE_SHARE_READ,
+            FILE_GENERIC_READ,
+            FILE_SHARE_READ,
             std::ptr::null_mut(),
-            FILE_CREATION_DISPOSITION::OPEN_EXISTING,
-            FILE_FLAGS_AND_ATTRIBUTES::FILE_FLAG_OVERLAPPED,
+            OPEN_EXISTING,
+            FILE_FLAG_OVERLAPPED,
             None,
         );
 
@@ -47,11 +47,11 @@ fn main() -> windows::Result<()> {
         );
 
         if !read_ok.as_bool() {
-            assert_eq!(GetLastError(), WIN32_ERROR::ERROR_IO_PENDING);
+            assert_eq!(GetLastError(), ERROR_IO_PENDING);
         }
 
         let wait_ok = WaitForSingleObject(overlapped.hEvent, 2000);
-        assert!(wait_ok == WAIT_RETURN_CAUSE::WAIT_OBJECT_0);
+        assert!(wait_ok == WAIT_OBJECT_0);
 
         let mut bytes_copied = 0;
         let overlapped_ok = GetOverlappedResult(file, &mut overlapped, &mut bytes_copied, false);
