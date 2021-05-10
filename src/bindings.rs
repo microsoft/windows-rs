@@ -1804,7 +1804,7 @@ pub mod Windows {
                 ) -> ::windows::HRESULT {
                     #[link(name = "OLE32")]
                     extern "system" {
-                        pub fn CLSIDFromProgID(
+                        fn CLSIDFromProgID(
                             lpszprogid: super::SystemServices::PWSTR,
                             lpclsid: *mut ::windows::Guid,
                         ) -> ::windows::HRESULT;
@@ -1859,7 +1859,7 @@ pub mod Windows {
                 pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
                     #[link(name = "OLE32")]
                     extern "system" {
-                        pub fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
+                        fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
                     }
                     CoCreateGuid(::std::mem::transmute(pguid))
                 }
@@ -1870,7 +1870,7 @@ pub mod Windows {
                 ) -> ::windows::Result<T> {
                     #[link(name = "OLE32")]
                     extern "system" {
-                        pub fn CoCreateInstance(
+                        fn CoCreateInstance(
                             rclsid: *const ::windows::Guid,
                             punkouter: ::windows::RawPtr,
                             dwclscontext: CLSCTX,
@@ -1894,7 +1894,7 @@ pub mod Windows {
                 ) -> ::windows::HRESULT {
                     #[link(name = "OLE32")]
                     extern "system" {
-                        pub fn CoInitializeEx(
+                        fn CoInitializeEx(
                             pvreserved: *mut ::std::ffi::c_void,
                             dwcoinit: COINIT,
                         ) -> ::windows::HRESULT;
@@ -1907,14 +1907,14 @@ pub mod Windows {
                 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
                     #[link(name = "OLE32")]
                     extern "system" {
-                        pub fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
+                        fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
                     }
                     CoTaskMemAlloc(::std::mem::transmute(cb))
                 }
                 pub unsafe fn CoTaskMemFree(pv: *mut ::std::ffi::c_void) {
                     #[link(name = "OLE32")]
                     extern "system" {
-                        pub fn CoTaskMemFree(pv: *mut ::std::ffi::c_void);
+                        fn CoTaskMemFree(pv: *mut ::std::ffi::c_void);
                     }
                     CoTaskMemFree(::std::mem::transmute(pv))
                 }
@@ -2049,7 +2049,7 @@ pub mod Windows {
                     ) -> u32 {
                         #[link(name = "KERNEL32")]
                         extern "system" {
-                            pub fn FormatMessageW(
+                            fn FormatMessageW(
                                 dwflags: FORMAT_MESSAGE_OPTIONS,
                                 lpsource: *const ::std::ffi::c_void,
                                 dwmessageid: u32,
@@ -2112,7 +2112,7 @@ pub mod Windows {
                     pub unsafe fn GetLastError() -> WIN32_ERROR {
                         #[link(name = "KERNEL32")]
                         extern "system" {
-                            pub fn GetLastError() -> WIN32_ERROR;
+                            fn GetLastError() -> WIN32_ERROR;
                         }
                         GetLastError()
                     }
@@ -2162,7 +2162,7 @@ pub mod Windows {
                 pub unsafe fn GetProcessHeap() -> HeapHandle {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn GetProcessHeap() -> HeapHandle;
+                        fn GetProcessHeap() -> HeapHandle;
                     }
                     GetProcessHeap()
                 }
@@ -2214,7 +2214,7 @@ pub mod Windows {
                 ) -> *mut ::std::ffi::c_void {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn HeapAlloc(
+                        fn HeapAlloc(
                             hheap: HeapHandle,
                             dwflags: HEAP_FLAGS,
                             dwbytes: usize,
@@ -2233,7 +2233,7 @@ pub mod Windows {
                 ) -> super::SystemServices::BOOL {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn HeapFree(
+                        fn HeapFree(
                             hheap: HeapHandle,
                             dwflags: HEAP_FLAGS,
                             lpmem: *mut ::std::ffi::c_void,
@@ -2259,7 +2259,7 @@ pub mod Windows {
                 pub unsafe fn SysFreeString<'a>(bstrstring: impl ::windows::IntoParam<'a, BSTR>) {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        pub fn SysFreeString(bstrstring: BSTR_abi);
+                        fn SysFreeString(bstrstring: BSTR_abi);
                     }
                     SysFreeString(bstrstring.into_param().abi())
                 }
@@ -2269,17 +2269,14 @@ pub mod Windows {
                 ) -> BSTR {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        pub fn SysAllocStringLen(
-                            strin: super::SystemServices::PWSTR,
-                            ui: u32,
-                        ) -> BSTR;
+                        fn SysAllocStringLen(strin: super::SystemServices::PWSTR, ui: u32) -> BSTR;
                     }
                     SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
                 }
                 pub unsafe fn SysStringLen<'a>(pbstr: impl ::windows::IntoParam<'a, BSTR>) -> u32 {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        pub fn SysStringLen(pbstr: BSTR_abi) -> u32;
+                        fn SysStringLen(pbstr: BSTR_abi) -> u32;
                     }
                     SysStringLen(pbstr.into_param().abi())
                 }
@@ -2529,7 +2526,7 @@ pub mod Windows {
                 ) -> ::windows::HRESULT {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        pub fn GetErrorInfo(
+                        fn GetErrorInfo(
                             dwreserved: u32,
                             pperrinfo: *mut ::windows::RawPtr,
                         ) -> ::windows::HRESULT;
@@ -2545,7 +2542,7 @@ pub mod Windows {
                 ) -> ::windows::HRESULT {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        pub fn SetErrorInfo(
+                        fn SetErrorInfo(
                             dwreserved: u32,
                             perrinfo: ::windows::RawPtr,
                         ) -> ::windows::HRESULT;
@@ -2745,7 +2742,7 @@ pub mod Windows {
                 ) -> BOOL {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn FreeLibrary(hlibmodule: HINSTANCE) -> BOOL;
+                        fn FreeLibrary(hlibmodule: HINSTANCE) -> BOOL;
                     }
                     FreeLibrary(hlibmodule.into_param().abi())
                 }
@@ -2812,7 +2809,7 @@ pub mod Windows {
                 ) -> ::std::option::Option<FARPROC> {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn GetProcAddress(
+                        fn GetProcAddress(
                             hmodule: HINSTANCE,
                             lpprocname: PSTR,
                         ) -> ::std::option::Option<FARPROC>;
@@ -2824,7 +2821,7 @@ pub mod Windows {
                 ) -> HINSTANCE {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn LoadLibraryA(lplibfilename: PSTR) -> HINSTANCE;
+                        fn LoadLibraryA(lplibfilename: PSTR) -> HINSTANCE;
                     }
                     LoadLibraryA(lplibfilename.into_param().abi())
                 }
@@ -2924,7 +2921,7 @@ pub mod Windows {
                 ) -> super::SystemServices::HANDLE {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn CreateEventA(
+                        fn CreateEventA(
                             lpeventattributes: *mut super::SystemServices::SECURITY_ATTRIBUTES,
                             bmanualreset: super::SystemServices::BOOL,
                             binitialstate: super::SystemServices::BOOL,
@@ -2943,7 +2940,7 @@ pub mod Windows {
                 ) -> super::SystemServices::BOOL {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn SetEvent(
+                        fn SetEvent(
                             hevent: super::SystemServices::HANDLE,
                         ) -> super::SystemServices::BOOL;
                     }
@@ -2995,7 +2992,7 @@ pub mod Windows {
                 ) -> WAIT_RETURN_CAUSE {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn WaitForSingleObject(
+                        fn WaitForSingleObject(
                             hhandle: super::SystemServices::HANDLE,
                             dwmilliseconds: u32,
                         ) -> WAIT_RETURN_CAUSE;
@@ -3455,7 +3452,7 @@ pub mod Windows {
                 ) -> super::SystemServices::BOOL {
                     #[link(name = "KERNEL32")]
                     extern "system" {
-                        pub fn CloseHandle(
+                        fn CloseHandle(
                             hobject: super::SystemServices::HANDLE,
                         ) -> super::SystemServices::BOOL;
                     }

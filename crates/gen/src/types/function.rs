@@ -59,7 +59,7 @@ impl Function {
                 quote! {
                     #[link(name = #link)]
                     extern "system" {
-                        pub fn #name(#(#abi_params),*) #abi_return_type;
+                        fn #name(#(#abi_params),*) #abi_return_type;
                     }
                     let mut result__ = ::std::option::Option::None;
                     #name(#(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
@@ -68,7 +68,7 @@ impl Function {
                 quote! {
                     #[link(name = #link)]
                     extern "system" {
-                        pub fn #name(#(#abi_params),*) #abi_return_type;
+                        fn #name(#(#abi_params),*) #abi_return_type;
                     }
                     #name(#(#args),*)
                 }
