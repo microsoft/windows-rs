@@ -36,13 +36,9 @@ fn signed_enum32() {
 #[test]
 fn unsigned_enum32() {
     assert!(DXGI_ADAPTER_FLAG::default() == 0.into());
-    assert!(
-        DXGI_ADAPTER_FLAG_SOFTWARE.abi()
-            == DXGI_ADAPTER_FLAG_SOFTWARE
-    );
+    assert!(DXGI_ADAPTER_FLAG_SOFTWARE.abi() == DXGI_ADAPTER_FLAG_SOFTWARE);
 
-    let both =
-        DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG_REMOTE;
+    let both = DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG_REMOTE;
     assert!(both == 3.into());
 }
 
@@ -181,9 +177,7 @@ fn com() -> windows::Result<()> {
         assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
         let mut position = 123;
 
-        stream
-            .Seek(0, STREAM_SEEK_SET, &mut position)
-            .ok()?;
+        stream.Seek(0, STREAM_SEEK_SET, &mut position).ok()?;
 
         assert!(position == 0);
         let mut values = vec![0, 0, 0, 0];
