@@ -205,7 +205,7 @@ fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
         let mut adapter = None;
         let adapter = unsafe { factory.EnumAdapters1(i, &mut adapter) }.and_some(adapter)?;
 
-        let mut desc: DXGI_ADAPTER_DESC1 = DXGI_ADAPTER_DESC1::default();
+        let mut desc = Default::default();
         unsafe { adapter.GetDesc1(&mut desc) }.ok()?;
 
         if (DXGI_ADAPTER_FLAG::from(desc.Flags) & DXGI_ADAPTER_FLAG_SOFTWARE)
@@ -503,7 +503,12 @@ mod d3d12_hello_triangle {
         // Record commands.
         let clear_color: [f32; 4] = [0.0, 0.2, 0.4, 1.0]; // https://github.com/microsoft/windows-rs/issues/790
         unsafe {
-            command_list.ClearRenderTargetView(rtv_handle, &clear_color[0], 0, std::ptr::null());
+            command_list.ClearRenderTargetView(
+                rtv_handle,
+                clear_color.as_ptr(),
+                0,
+                std::ptr::null(),
+            );
             command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
             command_list.IASetVertexBuffers(0, 1, &resources.vbv);
             command_list.DrawInstanced(3, 1, 0, 0);
