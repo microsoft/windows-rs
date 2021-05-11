@@ -172,21 +172,11 @@ extern "system" fn wndproc<S: DXSample>(
     wparam: WPARAM,
     lparam: LPARAM,
 ) -> LRESULT {
-    let user_data = unsafe { GetWindowLong(window, GWLP_USERDATA) };
-    let sample: Option<&mut S> = match user_data {
-        0 => None,
-        _ => Some(unsafe { transmute(user_data) }),
-    };
-
     match message {
         WM_CREATE => {
             unsafe {
                 let create_struct: &CREATESTRUCTA = transmute(lparam);
-                SetWindowLong(
-                    window,
-                    GWLP_USERDATA,
-                    create_struct.lpCreateParams as isize,
-                );
+                SetWindowLong(window, GWLP_USERDATA, create_struct.lpCreateParams as isize);
             }
             LRESULT::default()
         }
@@ -195,10 +185,11 @@ extern "system" fn wndproc<S: DXSample>(
             LRESULT::default()
         }
         _ => {
-            let handled = match sample {
-                Some(s) => sample_wndproc(s, message, wparam),
-                None => false,
-            };
+            let user_data = unsafe { GetWindowLong(window, GWLP_USERDATA) };
+            let sample = std::ptr::NonNull::<S>::new(user_data as *mut S);
+            let handled = sample.map_or(false, |mut s| {
+                sample_wndproc(unsafe { s.as_mut() }, message, wparam)
+            });
 
             if handled {
                 LRESULT::default()
