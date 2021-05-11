@@ -829,7 +829,7 @@ mod d3d12_hello_triangle {
             }
             .ok()
             .unwrap();
-            
+
             unsafe { WaitForSingleObject(resources.fence_event, INFINITE) };
         }
 
