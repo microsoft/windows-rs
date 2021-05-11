@@ -49,7 +49,7 @@ where
     S: DXSample,
 {
     let instance = unsafe { GetModuleHandleA(None) };
-    debug_assert!(instance.0 != 0);
+    debug_assert!(!instance.is_null());
 
     let wc = WNDCLASSEXA {
         cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
@@ -67,7 +67,7 @@ where
     let size = sample.window_size();
 
     let atom = unsafe { RegisterClassExA(&wc) };
-    debug_assert!(atom != 0);
+    debug_assert_ne!(atom, 0);
 
     let mut window_rect = RECT {
         left: 0,
@@ -99,7 +99,7 @@ where
             &mut sample as *mut _ as _,
         )
     };
-    debug_assert!(hwnd.0 != 0);
+    debug_assert!(!hwnd.is_null());
 
     sample.bind_to_window(&hwnd)?;
 
