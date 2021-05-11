@@ -454,7 +454,7 @@ mod d3d12_hello_triangle {
         }
 
         fn title(&self) -> String {
-            "D3D12 Hello Window".into()
+            "D3D12 Hello Triangle".into()
         }
 
         fn window_size(&self) -> (i32, i32) {
