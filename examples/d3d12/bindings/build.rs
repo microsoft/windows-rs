@@ -21,7 +21,7 @@ fn main() {
             GWLP_USERDATA,
             IDC_ARROW,
             LoadCursorW,
-            MSG,            
+            MSG,
             PeekMessageA,
             PM_REMOVE,
             PostQuitMessage,
