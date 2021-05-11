@@ -341,9 +341,8 @@ mod d3d12_hello_triangle {
                         None,
                         &mut swap_chain_1,
                     )
-                    .ok()?;
-
-                swap_chain_1.unwrap().cast()?
+                    .and_some(swap_chain_1)?
+                    .cast()?
             };
 
             // This sample does not support fullscreen transitions
@@ -595,20 +594,18 @@ mod d3d12_hello_triangle {
             ..Default::default()
         };
 
-        let mut signature: Option<ID3DBlob> = None;
-        let mut error: Option<ID3DBlob> = None;
-
         unsafe {
-            D3D12SerializeRootSignature(
+            let mut error = None;
+            let mut signature = None;
+
+            let signature = D3D12SerializeRootSignature(
                 &desc,
                 D3D_ROOT_SIGNATURE_VERSION_1,
                 &mut signature,
                 &mut error,
             )
-            .ok()?;
+            .and_some(signature)?;
 
-            assert!(signature.is_some());
-            let signature = signature.unwrap();
             device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize())
         }
     }
@@ -617,9 +614,6 @@ mod d3d12_hello_triangle {
         device: &ID3D12Device,
         root_signature: &ID3D12RootSignature,
     ) -> Result<ID3D12PipelineState> {
-        let mut vertex_shader: Option<ID3DBlob> = None;
-        let mut pixel_shader: Option<ID3DBlob> = None;
-
         let compile_flags = if cfg!(debug_assertions) {
             D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION
         } else {
@@ -631,7 +625,8 @@ mod d3d12_hello_triangle {
         let shaders_hlsl_path = asset_path.join("shaders.hlsl");
         let shaders_hlsl = shaders_hlsl_path.to_str().unwrap();
 
-        unsafe {
+        let mut vertex_shader = None;
+        let vertex_shader = unsafe {
             D3DCompileFromFile(
                 shaders_hlsl,
                 std::ptr::null_mut(),
@@ -643,8 +638,11 @@ mod d3d12_hello_triangle {
                 &mut vertex_shader,
                 std::ptr::null_mut(),
             )
-            .ok()?;
+            .and_some(vertex_shader)?
+        };
 
+        let mut pixel_shader = None;
+        let pixel_shader = unsafe {
             D3DCompileFromFile(
                 shaders_hlsl,
                 std::ptr::null_mut(),
@@ -656,11 +654,8 @@ mod d3d12_hello_triangle {
                 &mut pixel_shader,
                 std::ptr::null_mut(),
             )
-            .ok()?;
-        }
-
-        let vertex_shader = vertex_shader.unwrap();
-        let pixel_shader = pixel_shader.unwrap();
+            .and_some(pixel_shader)?
+        };
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
@@ -794,11 +789,11 @@ mod d3d12_hello_triangle {
         };
 
         // Copy the triangle data to the vertex buffer.
-        let mut data: *mut std::ffi::c_void = std::ptr::null_mut();
-
+        
         let mut vbv = D3D12_VERTEX_BUFFER_VIEW::default();
-
+        
         unsafe {
+            let mut data = std::ptr::null_mut();
             vertex_buffer.Map(0, std::ptr::null(), &mut data).ok()?;
             std::ptr::copy_nonoverlapping(
                 vertices.as_ptr(),
