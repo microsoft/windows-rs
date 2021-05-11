@@ -48,43 +48,43 @@ fn run_sample<S>() -> Result<()>
 where
     S: DXSample,
 {
-    unsafe {
-        let instance: HINSTANCE = GetModuleHandleA(None);
-        debug_assert!(instance.0 != 0);
+    let instance = unsafe { GetModuleHandleA(None) };
+    debug_assert!(instance.0 != 0);
 
-        let wc = WNDCLASSEXA {
-            cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
-            style: CS_HREDRAW | CS_VREDRAW,
-            lpfnWndProc: Some(wndproc::<S>),
-            hInstance: instance,
-            hCursor: LoadCursorW(None, IDC_ARROW),
-            lpszClassName: PSTR(b"RustWindowClass\0".as_ptr() as _),
-            ..Default::default()
-        };
+    let wc = WNDCLASSEXA {
+        cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
+        style: CS_HREDRAW | CS_VREDRAW,
+        lpfnWndProc: Some(wndproc::<S>),
+        hInstance: instance,
+        hCursor: unsafe { LoadCursorW(None, IDC_ARROW) },
+        lpszClassName: PSTR(b"RustWindowClass\0".as_ptr() as _),
+        ..Default::default()
+    };
 
-        let command_line = build_command_line();
-        let mut sample = S::new(&command_line)?;
+    let command_line = build_command_line();
+    let mut sample = S::new(&command_line)?;
 
-        let size = sample.window_size();
+    let size = sample.window_size();
 
-        let atom = RegisterClassExA(&wc);
-        debug_assert!(atom != 0);
+    let atom = unsafe { RegisterClassExA(&wc) };
+    debug_assert!(atom != 0);
 
-        let mut window_rect = RECT {
-            left: 0,
-            top: 0,
-            right: size.0,
-            bottom: size.1,
-        };
-        AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW.0, false);
+    let mut window_rect = RECT {
+        left: 0,
+        top: 0,
+        right: size.0,
+        bottom: size.1,
+    };
+    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW.0, false) };
 
-        let mut title = sample.title();
+    let mut title = sample.title();
 
-        if command_line.use_warp_device {
-            title.push_str(" (WARP)");
-        }
+    if command_line.use_warp_device {
+        title.push_str(" (WARP)");
+    }
 
-        let hwnd = CreateWindowExA(
+    let hwnd = unsafe {
+        CreateWindowExA(
             Default::default(),
             "RustWindowClass",
             title,
@@ -97,28 +97,30 @@ where
             None, // no menus
             instance,
             &mut sample as *mut _ as _,
-        );
-        debug_assert!(hwnd.0 != 0);
+        )
+    };
+    debug_assert!(hwnd.0 != 0);
 
-        sample.bind_to_window(&hwnd)?;
+    sample.bind_to_window(&hwnd)?;
 
-        ShowWindow(hwnd, SW_SHOW);
+    unsafe { ShowWindow(hwnd, SW_SHOW) };
 
-        loop {
-            let mut message = MSG::default();
+    loop {
+        let mut message = MSG::default();
 
-            if PeekMessageA(&mut message, None, 0, 0, PM_REMOVE).into() {
+        if unsafe { PeekMessageA(&mut message, None, 0, 0, PM_REMOVE) }.into() {
+            unsafe {
                 TranslateMessage(&mut message);
                 DispatchMessageA(&mut message);
+            }
 
-                if message.message == WM_QUIT {
-                    break;
-                }
+            if message.message == WM_QUIT {
+                break;
             }
         }
-
-        Ok(())
     }
+
+    Ok(())
 }
 
 fn sample_wndproc<S: DXSample>(sample: &mut S, message: u32, wparam: WPARAM) -> bool {
@@ -170,99 +172,93 @@ extern "system" fn wndproc<S: DXSample>(
     wparam: WPARAM,
     lparam: LPARAM,
 ) -> LRESULT {
-    unsafe {
-        let user_data = GetWindowLong(window, GWLP_USERDATA);
-        let sample: Option<&mut S> = match user_data {
-            0 => None,
-            _ => Some(transmute(user_data)),
-        };
+    let user_data = unsafe { GetWindowLong(window, GWLP_USERDATA) };
+    let sample: Option<&mut S> = match user_data {
+        0 => None,
+        _ => Some(unsafe { transmute(user_data) }),
+    };
 
-        match message {
-            WM_CREATE => {
+    match message {
+        WM_CREATE => {
+            unsafe {
                 let create_struct: &CREATESTRUCTA = transmute(lparam);
                 SetWindowLong(
                     window,
                     GWLP_USERDATA,
                     transmute(create_struct.lpCreateParams),
                 );
-                LRESULT::default()
             }
-            WM_DESTROY => {
-                PostQuitMessage(0);
-                LRESULT::default()
-            }
-            _ => {
-                let handled = match sample {
-                    Some(s) => sample_wndproc(s, message, wparam),
-                    None => false,
-                };
+            LRESULT::default()
+        }
+        WM_DESTROY => {
+            unsafe { PostQuitMessage(0) };
+            LRESULT::default()
+        }
+        _ => {
+            let handled = match sample {
+                Some(s) => sample_wndproc(s, message, wparam),
+                None => false,
+            };
 
-                if handled {
-                    LRESULT::default()
-                } else {
-                    DefWindowProcA(window, message, wparam, lparam)
-                }
+            if handled {
+                LRESULT::default()
+            } else {
+                unsafe { DefWindowProcA(window, message, wparam, lparam) }
             }
         }
     }
 }
 
 fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
-    let mut adapter_: Option<IDXGIAdapter1> = None;
+    for i in 0.. {
+        let mut adapter = None;
+        let adapter = unsafe { factory.EnumAdapters1(i, &mut adapter) }.and_some(adapter)?;
 
-    let mut i = 0;
+        let mut desc: DXGI_ADAPTER_DESC1 = DXGI_ADAPTER_DESC1::default();
+        unsafe { adapter.GetDesc1(&mut desc) }.ok()?;
 
-    unsafe {
-        while factory.EnumAdapters1(i, &mut adapter_) != DXGI_ERROR_NOT_FOUND {
-            i = i + 1;
+        if (DXGI_ADAPTER_FLAG::from(desc.Flags) & DXGI_ADAPTER_FLAG_SOFTWARE)
+            != DXGI_ADAPTER_FLAG_NONE
+        {
+            // Don't select the Basic Render Driver adapter. If you want a
+            // software adapter, pass in "/warp" on the command line.
+            continue;
+        }
 
-            if let Some(adapter) = adapter_ {
-                adapter_ = None;
-                let mut desc: DXGI_ADAPTER_DESC1 = DXGI_ADAPTER_DESC1::default();
-                adapter.GetDesc1(&mut desc).ok()?;
+        // We need the variant where we pass in NULL for the outparam.
+        #[link(name = "d3d12")]
+        extern "system" {
+            pub fn D3D12CreateDevice(
+                padapter: ::windows::RawPtr,
+                minimumfeaturelevel: D3D_FEATURE_LEVEL,
+                riid: *const ::windows::Guid,
+                ppdevice: *mut *mut ::std::ffi::c_void,
+            ) -> ::windows::HRESULT;
+        }
 
-                if (DXGI_ADAPTER_FLAG::from(desc.Flags) & DXGI_ADAPTER_FLAG_SOFTWARE)
-                    != DXGI_ADAPTER_FLAG_NONE
-                {
-                    // Don't select the Basic Render Driver adapter.
-                    // If you want a software adapter, pass in "/warp" on the command line.
-                    continue;
-                }
-
-                // We need the variant where we pass in NULL for the outparam.
-                #[link(name = "d3d12")]
-                extern "system" {
-                    pub fn D3D12CreateDevice(
-                        padapter: ::windows::RawPtr,
-                        minimumfeaturelevel: D3D_FEATURE_LEVEL,
-                        riid: *const ::windows::Guid,
-                        ppdevice: *mut *mut ::std::ffi::c_void,
-                    ) -> ::windows::HRESULT;
-                }
-
-                // Check to see whether the adapter supports Direct3D 12, but
-                // don't create the actual device yet.
-                if D3D12CreateDevice(
-                    adapter.abi(),
-                    D3D_FEATURE_LEVEL_11_0,
-                    &ID3D12Device::IID,
-                    std::ptr::null_mut(),
-                )
-                .is_ok()
-                {
-                    return Ok(adapter);
-                }
-            }
+        // Check to see whether the adapter supports Direct3D 12, but don't
+        // create the actual device yet.
+        if unsafe {
+            D3D12CreateDevice(
+                adapter.abi(),
+                D3D_FEATURE_LEVEL_11_0,
+                &ID3D12Device::IID,
+                std::ptr::null_mut(),
+            )
+        }
+        .is_ok()
+        {
+            return Ok(adapter);
         }
     }
 
-    Err(DXGI_ERROR_NOT_FOUND.into())
+    unreachable!()
 }
-
-const FRAME_COUNT: u32 = 2;
 
 mod d3d12_hello_triangle {
     use super::*;
+
+    const FRAME_COUNT: u32 = 2;
 
     pub struct Sample {
         dxgi_factory: IDXGIFactory4,
@@ -330,27 +326,26 @@ mod d3d12_hello_triangle {
                 ..Default::default()
             };
 
+            let mut swap_chain = None;
             let swap_chain: IDXGISwapChain3 = unsafe {
-                let mut swap_chain_1 = None;
-                self.dxgi_factory
-                    .CreateSwapChainForHwnd(
-                        &command_queue,
-                        hwnd,
-                        &swap_chain_desc,
-                        std::ptr::null(),
-                        None,
-                        &mut swap_chain_1,
-                    )
-                    .and_some(swap_chain_1)?
-                    .cast()?
-            };
+                self.dxgi_factory.CreateSwapChainForHwnd(
+                    &command_queue,
+                    hwnd,
+                    &swap_chain_desc,
+                    std::ptr::null(),
+                    None,
+                    &mut swap_chain,
+                )
+            }
+            .and_some(swap_chain)?
+            .cast()?;
 
             // This sample does not support fullscreen transitions
             unsafe {
                 self.dxgi_factory
                     .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)
-                    .ok()?
-            };
+            }
+            .ok()?;
 
             let frame_index = unsafe { swap_chain.GetCurrentBackBufferIndex() };
 
@@ -360,8 +355,8 @@ mod d3d12_hello_triangle {
                         NumDescriptors: FRAME_COUNT,
                         Type: D3D12_DESCRIPTOR_HEAP_TYPE_RTV,
                         ..Default::default()
-                    })?
-            };
+                    })
+            }?;
 
             let rtv_descriptor_size = unsafe {
                 self.device
@@ -371,7 +366,7 @@ mod d3d12_hello_triangle {
 
             let render_targets: [ID3D12Resource; FRAME_COUNT as usize] =
                 array_init::try_array_init(|i: usize| -> Result<ID3D12Resource> {
-                    let render_target: ID3D12Resource = unsafe { swap_chain.GetBuffer(i as u32)? };
+                    let render_target: ID3D12Resource = unsafe { swap_chain.GetBuffer(i as u32) }?;
                     unsafe {
                         self.device.CreateRenderTargetView(
                             &render_target,
@@ -379,8 +374,8 @@ mod d3d12_hello_triangle {
                             &D3D12_CPU_DESCRIPTOR_HANDLE {
                                 ptr: rtv_handle.ptr + i * rtv_descriptor_size,
                             },
-                        );
-                    }
+                        )
+                    };
                     Ok(render_target)
                 })?;
 
@@ -402,8 +397,8 @@ mod d3d12_hello_triangle {
 
             let command_allocator = unsafe {
                 self.device
-                    .CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT)?
-            };
+                    .CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT)
+            }?;
 
             let root_signature = create_root_signature(&self.device)?;
             let pso = create_pipeline_state(&self.device, &root_signature)?;
@@ -414,17 +409,15 @@ mod d3d12_hello_triangle {
                     D3D12_COMMAND_LIST_TYPE_DIRECT,
                     &command_allocator,
                     &pso,
-                )?
-            };
-            unsafe {
-                command_list.Close().ok()?;
-            }
+                )
+            }?;
+            unsafe { command_list.Close() }.ok()?;
 
             let aspect_ratio = width as f32 / height as f32;
 
             let (vertex_buffer, vbv) = create_vertex_buffer(&self.device, aspect_ratio)?;
 
-            let fence = unsafe { self.device.CreateFence(0, D3D12_FENCE_FLAG_NONE)? };
+            let fence = unsafe { self.device.CreateFence(0, D3D12_FENCE_FLAG_NONE) }?;
 
             let fence_value = 1;
 
@@ -466,16 +459,15 @@ mod d3d12_hello_triangle {
                 populate_command_list(&resources).unwrap();
 
                 // Execute the command list.
+                let command_list = ID3D12CommandList::from(&resources.command_list);
                 unsafe {
-                    let command_list = ID3D12CommandList::from(&resources.command_list);
-
                     resources
                         .command_queue
-                        .ExecuteCommandLists(1, &mut Some(command_list));
+                        .ExecuteCommandLists(1, &mut Some(command_list))
+                };
 
-                    // Present the frame.
-                    resources.swap_chain.Present(1, 0).ok().unwrap();
-                }
+                // Present the frame.
+                unsafe { resources.swap_chain.Present(1, 0) }.ok().unwrap();
 
                 wait_for_previous_frame(resources);
             }
@@ -483,43 +475,43 @@ mod d3d12_hello_triangle {
     }
 
     fn populate_command_list(resources: &Resources) -> Result<()> {
+        // Command list allocators can only be reset when the associated
+        // command lists have finished execution on the GPU; apps should use
+        // fences to determine GPU execution progress.
+        unsafe { resources.command_allocator.Reset() }.ok()?;
+
+        let command_list = &resources.command_list;
+
+        // However, when ExecuteCommandList() is called on a particular
+        // command list, that command list can then be reset at any time and
+        // must be before re-recording.
+        unsafe { command_list.Reset(&resources.command_allocator, &resources.pso) }.ok()?;
+
+        // Set necessary state.
         unsafe {
-            // Command list allocators can only be reset when the associated
-            // command lists have finished execution on the GPU; apps should use
-            // fences to determine GPU execution progress.
-            resources.command_allocator.Reset().ok()?;
-
-            let command_list = &resources.command_list;
-
-            // However, when ExecuteCommandList() is called on a particular
-            // command list, that command list can then be reset at any time and
-            // must be before re-recording.
-            command_list
-                .Reset(&resources.command_allocator, &resources.pso)
-                .ok()?;
-
-            // Set necessary state.
             command_list.SetGraphicsRootSignature(&resources.root_signature);
             command_list.RSSetViewports(1, &resources.viewport);
             command_list.RSSetScissorRects(1, &resources.scissor_rect);
+        }
 
-            // Indicate that the back buffer will be used as a render target.
-            let barrier = transition_barrier(
-                &resources.render_targets[resources.frame_index as usize],
-                D3D12_RESOURCE_STATE_PRESENT,
-                D3D12_RESOURCE_STATE_RENDER_TARGET,
-            );
-            command_list.ResourceBarrier(1, &barrier);
+        // Indicate that the back buffer will be used as a render target.
+        let barrier = transition_barrier(
+            &resources.render_targets[resources.frame_index as usize],
+            D3D12_RESOURCE_STATE_PRESENT,
+            D3D12_RESOURCE_STATE_RENDER_TARGET,
+        );
+        unsafe { command_list.ResourceBarrier(1, &barrier) };
 
-            let rtv_handle = D3D12_CPU_DESCRIPTOR_HANDLE {
-                ptr: resources.rtv_heap.GetCPUDescriptorHandleForHeapStart().ptr
-                    + resources.frame_index as usize * resources.rtv_descriptor_size,
-            };
+        let rtv_handle = D3D12_CPU_DESCRIPTOR_HANDLE {
+            ptr: unsafe { resources.rtv_heap.GetCPUDescriptorHandleForHeapStart() }.ptr
+                + resources.frame_index as usize * resources.rtv_descriptor_size,
+        };
 
-            command_list.OMSetRenderTargets(1, &rtv_handle, false, std::ptr::null());
+        unsafe { command_list.OMSetRenderTargets(1, &rtv_handle, false, std::ptr::null()) };
 
-            // Record commands.
-            let clear_color: [f32; 4] = [0.0, 0.2, 0.4, 1.0]; // https://github.com/microsoft/windows-rs/issues/790
+        // Record commands.
+        let clear_color: [f32; 4] = [0.0, 0.2, 0.4, 1.0]; // https://github.com/microsoft/windows-rs/issues/790
+        unsafe {
             command_list.ClearRenderTargetView(rtv_handle, &clear_color[0], 0, std::ptr::null());
             command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
             command_list.IASetVertexBuffers(0, 1, &resources.vbv);
@@ -534,11 +526,9 @@ mod d3d12_hello_triangle {
                     D3D12_RESOURCE_STATE_PRESENT,
                 ),
             );
-
-            command_list.Close().ok()?;
         }
 
-        Ok(())
+        unsafe { command_list.Close() }.ok()
     }
 
     fn transition_barrier(
@@ -576,7 +566,7 @@ mod d3d12_hello_triangle {
             0
         };
 
-        let dxgi_factory: IDXGIFactory4 = unsafe { CreateDXGIFactory2(dxgi_factory_flags)? };
+        let dxgi_factory: IDXGIFactory4 = unsafe { CreateDXGIFactory2(dxgi_factory_flags) }?;
 
         let adapter = if command_line.use_warp_device {
             unsafe { dxgi_factory.EnumWarpAdapter() }
@@ -584,7 +574,7 @@ mod d3d12_hello_triangle {
             get_hardware_adapter(&dxgi_factory)
         }?;
 
-        let device = unsafe { D3D12CreateDevice(adapter, D3D_FEATURE_LEVEL_11_0)? };
+        let device = unsafe { D3D12CreateDevice(adapter, D3D_FEATURE_LEVEL_11_0) }?;
         Ok((dxgi_factory, device))
     }
 
@@ -594,18 +584,20 @@ mod d3d12_hello_triangle {
             ..Default::default()
         };
 
-        unsafe {
-            let mut error = None;
-            let mut signature = None;
+        let mut error = None;
+        let mut signature = None;
 
-            let signature = D3D12SerializeRootSignature(
+        let signature = unsafe {
+            D3D12SerializeRootSignature(
                 &desc,
                 D3D_ROOT_SIGNATURE_VERSION_1,
                 &mut signature,
                 &mut error,
             )
-            .and_some(signature)?;
+        }
+        .and_some(signature)?;
 
+        unsafe {
             device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize())
         }
     }
@@ -638,8 +630,8 @@ mod d3d12_hello_triangle {
                 &mut vertex_shader,
                 std::ptr::null_mut(),
             )
-            .and_some(vertex_shader)?
-        };
+        }
+        .and_some(vertex_shader)?;
 
         let mut pixel_shader = None;
         let pixel_shader = unsafe {
@@ -654,8 +646,8 @@ mod d3d12_hello_triangle {
                 &mut pixel_shader,
                 std::ptr::null_mut(),
             )
-            .and_some(pixel_shader)?
-        };
+        }
+        .and_some(pixel_shader)?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
@@ -678,72 +670,70 @@ mod d3d12_hello_triangle {
             },
         ];
 
-        unsafe {
-            let mut desc = D3D12_GRAPHICS_PIPELINE_STATE_DESC {
-                InputLayout: D3D12_INPUT_LAYOUT_DESC {
-                    pInputElementDescs: input_element_descs.as_mut_ptr(),
-                    NumElements: input_element_descs.len() as u32,
-                },
-                pRootSignature: Some(root_signature.clone()), // << https://github.com/microsoft/windows-rs/discussions/623
-                VS: D3D12_SHADER_BYTECODE {
-                    pShaderBytecode: vertex_shader.GetBufferPointer(),
-                    BytecodeLength: vertex_shader.GetBufferSize(),
-                },
-                PS: D3D12_SHADER_BYTECODE {
-                    pShaderBytecode: pixel_shader.GetBufferPointer(),
-                    BytecodeLength: pixel_shader.GetBufferSize(),
-                },
-                RasterizerState: D3D12_RASTERIZER_DESC {
-                    FillMode: D3D12_FILL_MODE_SOLID,
-                    CullMode: D3D12_CULL_MODE_NONE,
-                    ..Default::default()
-                },
-                BlendState: D3D12_BLEND_DESC {
-                    AlphaToCoverageEnable: false.into(),
-                    IndependentBlendEnable: false.into(),
-                    RenderTarget: [
-                        D3D12_RENDER_TARGET_BLEND_DESC {
-                            BlendEnable: false.into(),
-                            LogicOpEnable: false.into(),
-                            SrcBlend: D3D12_BLEND_ONE,
-                            DestBlend: D3D12_BLEND_ZERO,
-                            BlendOp: D3D12_BLEND_OP_ADD,
-                            SrcBlendAlpha: D3D12_BLEND_ONE,
-                            DestBlendAlpha: D3D12_BLEND_ZERO,
-                            BlendOpAlpha: D3D12_BLEND_OP_ADD,
-                            LogicOp: D3D12_LOGIC_OP_NOOP,
-                            RenderTargetWriteMask: D3D12_COLOR_WRITE_ENABLE_ALL.0 as u8,
-                        },
-                        D3D12_RENDER_TARGET_BLEND_DESC::default(),
-                        D3D12_RENDER_TARGET_BLEND_DESC::default(),
-                        D3D12_RENDER_TARGET_BLEND_DESC::default(),
-                        D3D12_RENDER_TARGET_BLEND_DESC::default(),
-                        D3D12_RENDER_TARGET_BLEND_DESC::default(),
-                        D3D12_RENDER_TARGET_BLEND_DESC::default(),
-                        D3D12_RENDER_TARGET_BLEND_DESC::default(),
-                    ],
-                },
-                DepthStencilState: D3D12_DEPTH_STENCIL_DESC::default(),
-                SampleMask: u32::max_value(),
-                PrimitiveTopologyType: D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE,
-                NumRenderTargets: 1,
-                SampleDesc: DXGI_SAMPLE_DESC {
-                    Count: 1,
-                    ..Default::default()
-                },
+        let mut desc = D3D12_GRAPHICS_PIPELINE_STATE_DESC {
+            InputLayout: D3D12_INPUT_LAYOUT_DESC {
+                pInputElementDescs: input_element_descs.as_mut_ptr(),
+                NumElements: input_element_descs.len() as u32,
+            },
+            pRootSignature: Some(root_signature.clone()), // << https://github.com/microsoft/windows-rs/discussions/623
+            VS: D3D12_SHADER_BYTECODE {
+                pShaderBytecode: unsafe { vertex_shader.GetBufferPointer() },
+                BytecodeLength: unsafe { vertex_shader.GetBufferSize() },
+            },
+            PS: D3D12_SHADER_BYTECODE {
+                pShaderBytecode: unsafe { pixel_shader.GetBufferPointer() },
+                BytecodeLength: unsafe { pixel_shader.GetBufferSize() },
+            },
+            RasterizerState: D3D12_RASTERIZER_DESC {
+                FillMode: D3D12_FILL_MODE_SOLID,
+                CullMode: D3D12_CULL_MODE_NONE,
                 ..Default::default()
-            };
-            desc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
+            },
+            BlendState: D3D12_BLEND_DESC {
+                AlphaToCoverageEnable: false.into(),
+                IndependentBlendEnable: false.into(),
+                RenderTarget: [
+                    D3D12_RENDER_TARGET_BLEND_DESC {
+                        BlendEnable: false.into(),
+                        LogicOpEnable: false.into(),
+                        SrcBlend: D3D12_BLEND_ONE,
+                        DestBlend: D3D12_BLEND_ZERO,
+                        BlendOp: D3D12_BLEND_OP_ADD,
+                        SrcBlendAlpha: D3D12_BLEND_ONE,
+                        DestBlendAlpha: D3D12_BLEND_ZERO,
+                        BlendOpAlpha: D3D12_BLEND_OP_ADD,
+                        LogicOp: D3D12_LOGIC_OP_NOOP,
+                        RenderTargetWriteMask: D3D12_COLOR_WRITE_ENABLE_ALL.0 as u8,
+                    },
+                    D3D12_RENDER_TARGET_BLEND_DESC::default(),
+                    D3D12_RENDER_TARGET_BLEND_DESC::default(),
+                    D3D12_RENDER_TARGET_BLEND_DESC::default(),
+                    D3D12_RENDER_TARGET_BLEND_DESC::default(),
+                    D3D12_RENDER_TARGET_BLEND_DESC::default(),
+                    D3D12_RENDER_TARGET_BLEND_DESC::default(),
+                    D3D12_RENDER_TARGET_BLEND_DESC::default(),
+                ],
+            },
+            DepthStencilState: D3D12_DEPTH_STENCIL_DESC::default(),
+            SampleMask: u32::max_value(),
+            PrimitiveTopologyType: D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE,
+            NumRenderTargets: 1,
+            SampleDesc: DXGI_SAMPLE_DESC {
+                Count: 1,
+                ..Default::default()
+            },
+            ..Default::default()
+        };
+        desc.RTVFormats[0] = DXGI_FORMAT_R8G8B8A8_UNORM;
 
-            device.CreateGraphicsPipelineState(&desc)
-        }
+        unsafe { device.CreateGraphicsPipelineState(&desc) }
     }
 
     fn create_vertex_buffer(
         device: &ID3D12Device,
         aspect_ratio: f32,
     ) -> Result<(ID3D12Resource, D3D12_VERTEX_BUFFER_VIEW)> {
-        let vertices: [Vertex; 3] = [
+        let vertices = [
             Vertex {
                 position: [0.0, 0.25 * aspect_ratio, 0.0],
                 color: [1.0, 0.0, 0.0, 1.0],
@@ -824,27 +814,26 @@ mod d3d12_hello_triangle {
         // Signal and increment the fence value.
         let fence = resources.fence_value;
 
-        unsafe {
-            resources
-                .command_queue
-                .Signal(&resources.fence, fence)
-                .ok()
-                .unwrap();
+        unsafe { resources.command_queue.Signal(&resources.fence, fence) }
+            .ok()
+            .unwrap();
 
-            resources.fence_value = resources.fence_value + 1;
+        resources.fence_value = resources.fence_value + 1;
 
-            // Wait until the previous frame is finished.
-            if resources.fence.GetCompletedValue() < fence {
+        // Wait until the previous frame is finished.
+        if unsafe { resources.fence.GetCompletedValue() } < fence {
+            unsafe {
                 resources
                     .fence
                     .SetEventOnCompletion(fence, resources.fence_event)
-                    .ok()
-                    .unwrap();
-                WaitForSingleObject(resources.fence_event, INFINITE);
             }
-
-            resources.frame_index = resources.swap_chain.GetCurrentBackBufferIndex();
+            .ok()
+            .unwrap();
+            
+            unsafe { WaitForSingleObject(resources.fence_event, INFINITE) };
         }
+
+        resources.frame_index = unsafe { resources.swap_chain.GetCurrentBackBufferIndex() };
     }
 }
 
