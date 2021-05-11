@@ -110,8 +110,8 @@ where
 
         if unsafe { PeekMessageA(&mut message, None, 0, 0, PM_REMOVE) }.into() {
             unsafe {
-                TranslateMessage(&mut message);
-                DispatchMessageA(&mut message);
+                TranslateMessage(&message);
+                DispatchMessageA(&message);
             }
 
             if message.message == WM_QUIT {
@@ -185,7 +185,7 @@ extern "system" fn wndproc<S: DXSample>(
                 SetWindowLong(
                     window,
                     GWLP_USERDATA,
-                    transmute(create_struct.lpCreateParams),
+                    create_struct.lpCreateParams as isize,
                 );
             }
             LRESULT::default()
@@ -784,7 +784,7 @@ mod d3d12_hello_triangle {
             vertex_buffer.Map(0, std::ptr::null(), &mut data).ok()?;
             std::ptr::copy_nonoverlapping(
                 vertices.as_ptr(),
-                std::mem::transmute(data),
+                data as *mut Vertex,
                 std::mem::size_of_val(&vertices),
             );
             vertex_buffer.Unmap(0, std::ptr::null());
@@ -818,7 +818,7 @@ mod d3d12_hello_triangle {
             .ok()
             .unwrap();
 
-        resources.fence_value = resources.fence_value + 1;
+        resources.fence_value += 1;
 
         // Wait until the previous frame is finished.
         if unsafe { resources.fence.GetCompletedValue() } < fence {
