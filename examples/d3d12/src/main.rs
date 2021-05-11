@@ -789,9 +789,6 @@ mod d3d12_hello_triangle {
         };
 
         // Copy the triangle data to the vertex buffer.
-        
-        let mut vbv = D3D12_VERTEX_BUFFER_VIEW::default();
-        
         unsafe {
             let mut data = std::ptr::null_mut();
             vertex_buffer.Map(0, std::ptr::null(), &mut data).ok()?;
@@ -801,11 +798,13 @@ mod d3d12_hello_triangle {
                 std::mem::size_of_val(&vertices),
             );
             vertex_buffer.Unmap(0, std::ptr::null());
-
-            vbv.BufferLocation = vertex_buffer.GetGPUVirtualAddress();
-            vbv.StrideInBytes = std::mem::size_of::<Vertex>() as u32;
-            vbv.SizeInBytes = std::mem::size_of_val(&vertices) as u32;
         }
+
+        let vbv = D3D12_VERTEX_BUFFER_VIEW {
+            BufferLocation: unsafe { vertex_buffer.GetGPUVirtualAddress() },
+            StrideInBytes: std::mem::size_of::<Vertex>() as u32,
+            SizeInBytes: std::mem::size_of_val(&vertices) as u32,
+        };
 
         Ok((vertex_buffer, vbv))
     }
