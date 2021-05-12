@@ -192,18 +192,16 @@ impl TypeDef {
     }
 
     pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
-        let mut methods = BTreeSet::new();
-
-        for interface in self
-            .interface_impls()
+        self.interface_impls()
             .filter(|interface| interface.is_overridable())
-        {
-            for method in interface.interface().resolve().methods() {
-                methods.insert(method.name());
-            }
-        }
-
-        methods
+            .flat_map(|interface| {
+                interface
+                    .interface()
+                    .resolve()
+                    .methods()
+                    .map(|method| method.name())
+            })
+            .collect()
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
