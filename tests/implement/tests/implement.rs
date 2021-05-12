@@ -69,3 +69,5 @@ impl NoExtend {
         Ok(())
     }
 }
+
+// TODO: should be able to extend without implementing any additional interfaces.

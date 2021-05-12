@@ -120,15 +120,11 @@ impl TypeDef {
 
     pub fn is_public_composable(&self) -> bool {
         self.attributes().any(|attribute| {
-            if attribute.name() == "ComposableAttribute" {
-                for arg in attribute.args() {
-                    if let (_, ConstantValue::I32(2)) = arg {
-                        return true;
-                    }
-                }
-            }
-
-            false
+            attribute.name() == "ComposableAttribute"
+                && attribute
+                    .args()
+                    .iter()
+                    .any(|arg| matches!(arg, (_, ConstantValue::I32(2))))
         })
     }
 

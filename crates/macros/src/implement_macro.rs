@@ -47,11 +47,17 @@ impl ImplementMacro {
                             self.implement.insert((namespace, name));
                         }
                         _ => {
-                            return Err(Error::new_spanned(input, "Type not a class or interface"));
+                            return Err(Error::new_spanned(
+                                input,
+                                format!("`{}.{}` not a class or interface", namespace, name),
+                            ));
                         }
                     }
                 } else {
-                    return Err(Error::new_spanned(input, "Type not found in metadata"));
+                    return Err(Error::new_spanned(
+                        input,
+                        format!("`{}.{}` not found in metadata", namespace, name),
+                    ));
                 }
             }
             UseTree::Glob(input) => {
@@ -79,12 +85,14 @@ impl ImplementMacro {
                     .overridable_methods();
 
                 while let Ok(input) = cursor.parse::<Ident>() {
-                    if let Some(name) = methods.get(input.to_string().as_str()) {
+                    let name = input.to_string();
+
+                    if let Some(name) = methods.get(name.as_str()) {
                         self.overrides.insert(name);
                     } else {
                         return Err(Error::new_spanned(
                             input,
-                            "No overridable method with this name",
+                            format!("`{}` not an overridable method", name),
                         ));
                     }
                 }
@@ -136,10 +144,16 @@ impl ImplementMacro {
                     {
                         self.extend = Some((namespace, name));
                     } else {
-                        return Err(Error::new_spanned(input, "Type is not extendable"));
+                        return Err(Error::new_spanned(
+                            input,
+                            format!("`{}.{}` not extendable", namespace, name),
+                        ));
                     }
                 } else {
-                    return Err(Error::new_spanned(input, "Type not found in metadata"));
+                    return Err(Error::new_spanned(
+                        input,
+                        format!("`{}.{}` not found in metadata", namespace, name),
+                    ));
                 }
             }
             _ => {
