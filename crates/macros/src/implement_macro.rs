@@ -77,7 +77,7 @@ impl ImplementMacro {
     }
 
     fn parse_override(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
-        // Any number of methods may be overridden but only if a class is being overriden.
+        // Any number of methods may be overridden but only if a class is being overridden.
         if let Some((namespace, name)) = self.extend {
             if cursor.parse::<Token![override]>().is_ok() {
                 let methods = reader
@@ -142,7 +142,7 @@ impl ImplementMacro {
                         .resolve_type_def(namespace, name)
                         .is_public_composable()
                     {
-                        self.extend = Some((namespace, name));
+                        self.extend.replace((namespace, name));
                     } else {
                         return Err(Error::new_spanned(
                             input,
