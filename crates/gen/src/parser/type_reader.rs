@@ -157,10 +157,7 @@ impl TypeReader {
     /// # Panics
     ///
     /// Panics if the namespace does not exist
-    pub fn namespace_types(
-        &'static self,
-        namespace: &str,
-    ) -> impl Iterator<Item = ElementType> + '_ {
+    pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = ElementType> {
         self.types[namespace]
             .values()
             .map(move |row| self.to_element_type(row))

@@ -31,19 +31,19 @@ impl TypeDef {
         }
     }
 
-    pub fn bases(&self) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn bases(&self) -> impl Iterator<Item = TypeDef> {
         Bases(*self)
     }
 
-    pub fn fields(&self) -> impl Iterator<Item = Field> + '_ {
+    pub fn fields(&self) -> impl Iterator<Item = Field> {
         self.0.list(4, TableIndex::Field).map(Field)
     }
 
-    pub fn methods(&self) -> impl Iterator<Item = MethodDef> + '_ {
+    pub fn methods(&self) -> impl Iterator<Item = MethodDef> {
         self.0.list(5, TableIndex::MethodDef).map(MethodDef)
     }
 
-    pub fn generics(&self) -> impl Iterator<Item = GenericParam> + '_ {
+    pub fn generics(&self) -> impl Iterator<Item = GenericParam> {
         self.0
             .file
             .equal_range(
@@ -54,7 +54,7 @@ impl TypeDef {
             .map(GenericParam)
     }
 
-    pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> + '_ {
+    pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> {
         self.0
             .file
             .equal_range(TableIndex::InterfaceImpl, 0, self.0.row + 1)
@@ -66,7 +66,7 @@ impl TypeDef {
         TypeReader::get().nested_types(self)
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
             .equal_range(

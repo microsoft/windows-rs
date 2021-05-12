@@ -38,7 +38,7 @@ impl Field {
         TypeDef(Row::new(row, TableIndex::TypeDef, self.0.file))
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
             .equal_range(
