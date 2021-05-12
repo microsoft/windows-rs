@@ -70,10 +70,7 @@ impl Parse for BuildMacro {
                         if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
                             build.import(namespace, name);
                         } else {
-                            return Err(Error::new_spanned(
-                                input,
-                                format!("`{}.{}` not found in metadata", namespace, name),
-                            ));
+                            return Err(Error::new_spanned(input, "Type not found in metadata"));
                         }
                     }
                     UseTree::Glob(input) => {
@@ -82,7 +79,7 @@ impl Parse for BuildMacro {
                         } else {
                             return Err(Error::new_spanned(
                                 input,
-                                format!("`{}` not found in metadata", namespace),
+                                "Namespace not found in metadata",
                             ));
                         }
                     }

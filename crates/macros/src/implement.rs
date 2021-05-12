@@ -1,94 +1,12 @@
 use super::*;
 
-// TODO: distinguish between COM and WinRT interfaces
-struct Implements(Vec<gen::ElementType>);
-
-impl syn::parse::Parse for Implements {
-    fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
-        let mut types = Vec::new();
-        let reader = gen::TypeReader::get();
-
-        loop {
-            if input.is_empty() {
-                break;
-            }
-
-            use_tree_to_types(reader, &input.parse::<ImplementTree>()?, &mut types)?;
-
-            if !input.is_empty() {
-                input.parse::<syn::Token![,]>()?;
-            }
-        }
-
-        Ok(Self(types))
-    }
-}
-
-fn use_tree_to_types(
-    reader: &'static gen::TypeReader,
-    tree: &ImplementTree,
-    types: &mut Vec<gen::ElementType>,
-) -> syn::parse::Result<()> {
-    fn recurse(
-        reader: &'static gen::TypeReader,
-        tree: &ImplementTree,
-        types: &mut Vec<gen::ElementType>,
-        current: &mut String,
-    ) -> syn::parse::Result<()> {
-        match tree {
-            ImplementTree::Path(path) => {
-                if !current.is_empty() {
-                    current.push('.');
-                }
-
-                current.push_str(&path.ident.to_string());
-                recurse(reader, &*path.tree, types, current)?;
-            }
-            ImplementTree::Group(group) => {
-                let prev = current.clone();
-
-                for tree in &group.items {
-                    recurse(reader, tree, types, current)?;
-                    *current = prev.clone();
-                }
-            }
-            ImplementTree::Name(name) => {
-                let namespace = current.trim_matches('"');
-
-                let mut meta_name = name.ident.to_string();
-                let generic_count = name.generics.params.len();
-
-                if generic_count > 0 {
-                    meta_name.push('`');
-                    meta_name.push_str(&generic_count.to_string());
-                }
-
-                types.push(reader.resolve_type(namespace, &meta_name));
-
-                // TODO
-                // If type is a class, add any required interfaces.
-                // If type is an interface, add any required interfaces.
-                // If any other kind of type, return an error.
-                // If more than one class, return an error.
-                // If dupe interface, produce warning but continue,
-                //   unless warning is unavoidable (same interface required by different mentioned interfaces)
-                // Finally, remove any dupes (TypeName can be used as key for set container)
-            }
-        }
-
-        Ok(())
-    }
-
-    recurse(reader, tree, types, &mut String::new())
-}
-
 pub fn gen(
     attribute: proc_macro::TokenStream,
     original_type: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let inner_type = original_type.clone();
 
-    let implements = syn::parse_macro_input!(attribute as Implements);
+    let implements = syn::parse_macro_input!(attribute as ImplementMacro);
     let inner_type = syn::parse_macro_input!(inner_type as syn::ItemStruct);
     let inner_name = inner_type.ident.to_string();
     let inner_ident = format_ident!("{}", inner_name); // because squote doesn't know how to deal with syn::*
@@ -101,8 +19,10 @@ pub fn gen(
     let mut shims = TokenStream::new();
     let mut queries = TokenStream::new();
 
-    for (interface_count, implement) in implements.0.iter().enumerate() {
-        if let gen::ElementType::Interface(t) = implement {
+    let reader = TypeReader::get();
+
+    for (interface_count, implement) in implements.implement.iter().enumerate() {
+        if let gen::ElementType::Interface(t) = reader.resolve_type(implement.0, implement.1) {
             vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
             let query_interface = format_ident!("QueryInterface_abi{}", interface_count);

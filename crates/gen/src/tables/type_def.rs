@@ -118,6 +118,20 @@ impl TypeDef {
         })
     }
 
+    pub fn is_public_composable(&self) -> bool {
+        self.attributes().any(|attribute| {
+            if attribute.name() == "ComposableAttribute" {
+                for arg in attribute.args() {
+                    if let (_, ConstantValue::I32(2)) = arg {
+                        return true;
+                    }
+                }
+            }
+
+            false
+        })
+    }
+
     pub fn kind(&self) -> TypeKind {
         if self.flags().interface() {
             TypeKind::Interface
@@ -179,6 +193,21 @@ impl TypeDef {
             .equal_range(TableIndex::ClassLayout, 2, self.0.row + 1)
             .map(ClassLayout)
             .next()
+    }
+
+    pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
+        let mut methods = BTreeSet::new();
+
+        for interface in self
+            .interface_impls()
+            .filter(|interface| interface.is_overridable())
+        {
+            for method in interface.interface().resolve().methods() {
+                methods.insert(method.name());
+            }
+        }
+
+        methods
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
