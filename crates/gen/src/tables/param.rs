@@ -16,7 +16,7 @@ impl Param {
         self.0.str(2)
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
             .equal_range(

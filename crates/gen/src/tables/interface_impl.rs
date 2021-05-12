@@ -8,7 +8,7 @@ impl InterfaceImpl {
         self.0.decode(1)
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
             .equal_range(
