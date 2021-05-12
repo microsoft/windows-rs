@@ -1,40 +1,33 @@
 use test_implement::*;
 use windows::*;
-use Windows::Foundation::IStringable;
+use Windows::Foundation::IClosable;
+
+// TODO: this just tests the syntax until #81 is further along.
 
 #[test]
 fn test_implement() -> Result<()> {
-    let (sender, receiver) = std::sync::mpsc::channel();
+    let app: IClosable = AppWithOverrides {}.into();
+    app.Close()?;
 
-    {
-        let strong: IStringable = Stringable { sender }.into();
+    let app: IClosable = AppNoOverrides {}.into();
+    app.Close()?;
 
-        let weak = strong.downgrade()?;
-        assert_eq!(weak.upgrade().unwrap(), strong);
+    let app: IClosable = NoExtend {}.into();
+    app.Close()?;
 
-        assert_eq!(strong.ToString()?, "Stringable");
-        drop(strong);
-
-        assert_eq!(weak.upgrade(), None);
-    }
-
-    assert!(receiver.recv().unwrap() == "drop");
     Ok(())
 }
 
-// TODO: this just tests the syntax until #81 is further along.
 #[implement(
     extend Windows::UI::Xaml::Application,
     override OnLaunched OnBackgroundActivated,
     Windows::Foundation::IStringable,
     Windows::Foundation::IClosable,
 )]
-struct Stringable {
-    sender: std::sync::mpsc::Sender<String>,
-}
+struct AppWithOverrides {}
 
 #[allow(non_snake_case)]
-impl Stringable {
+impl AppWithOverrides {
     fn ToString(&self) -> Result<HSTRING> {
         Ok("Stringable".into())
     }
@@ -44,8 +37,35 @@ impl Stringable {
     }
 }
 
-impl Drop for Stringable {
-    fn drop(&mut self) {
-        self.sender.send("drop".to_string()).unwrap();
+#[implement(
+    extend Windows::UI::Xaml::Application,
+    Windows::Foundation::{IStringable, IClosable},
+)]
+struct AppNoOverrides {}
+
+#[allow(non_snake_case)]
+impl AppNoOverrides {
+    fn ToString(&self) -> Result<HSTRING> {
+        Ok("Stringable".into())
+    }
+
+    fn Close(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+#[implement(
+    Windows::Foundation::{IStringable, IClosable},
+)]
+struct NoExtend {}
+
+#[allow(non_snake_case)]
+impl NoExtend {
+    fn ToString(&self) -> Result<HSTRING> {
+        Ok("Stringable".into())
+    }
+
+    fn Close(&self) -> Result<()> {
+        Ok(())
     }
 }
