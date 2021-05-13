@@ -1,10 +1,10 @@
 mod build_macro;
 mod implement;
-mod implement_tree;
+mod implement_macro;
 
 use build_macro::*;
 use gen::*;
-use implement_tree::*;
+use implement_macro::*;
 use syn::parse_macro_input;
 
 struct RawString(String);

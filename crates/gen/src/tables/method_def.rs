@@ -8,7 +8,7 @@ impl MethodDef {
         MethodFlags(self.0.u32(2))
     }
 
-    pub fn params(&self) -> impl Iterator<Item = Param> + '_ {
+    pub fn params(&self) -> impl Iterator<Item = Param> {
         self.0.list(5, TableIndex::Param).map(Param)
     }
 
@@ -86,7 +86,7 @@ impl MethodDef {
         }
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
             .equal_range(

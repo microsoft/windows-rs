@@ -1,3 +1,12 @@
+# 0.10.0
+
+- Add support for scoped and unscoped enum constants. ([#787](https://github.com/microsoft/windows-rs/pull/787))
+- Improved compile-time error reporting. ([#773](https://github.com/microsoft/windows-rs/pull/773))
+- Preserve original names for HSTRING and IInspectable. ([#759](https://github.com/microsoft/windows-rs/pull/759))
+- Add support for weak references. ([#745](https://github.com/microsoft/windows-rs/pull/745))
+- Updated metadata providing many fixes and improvements to Win32 APIs. Notably, many Win32 namespaces have been renamed.
+- Other improvements and fixes.
+
 # 0.9.0
 
 - Transform QueryInterface-like functions into generic functions. ([#735](https://github.com/microsoft/windows-rs/pull/735))
