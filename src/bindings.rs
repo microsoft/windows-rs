@@ -2290,16 +2290,50 @@ pub mod Windows {
                         self.0.is_null()
                     }
                     pub fn len(&self) -> usize {
+                        #[cfg(not(windows))]
+                        unsafe fn SysStringLen(s: &BSTR) -> u32 {
+                            unsafe fn SysStringByteLen(s: &BSTR) -> u32 {
+                                if s.0.is_null() {
+                                    0
+                                } else {
+                                    s.0.cast::<u32>().offset(-1).read()
+                                }
+                            }
+                            SysStringByteLen(s)
+                                / std::mem::size_of::<::windows::widestring::WideChar>() as u32
+                        }
                         unsafe { SysStringLen(self) as usize }
                     }
                     fn from_wide(value: &::windows::widestring::WideStr) -> Self {
                         if value.is_empty() {
                             return Self(::std::ptr::null_mut());
                         }
+                        #[cfg(windows)]
                         unsafe {
                             SysAllocStringLen(
                                 super::SystemServices::PWSTR(value.as_ptr() as _),
                                 value.len() as u32,
+                            )
+                        }
+                        #[cfg(not(windows))]
+                        {
+                            const LENGTH_PREFIX_IN_CHARS: usize = std::mem::size_of::<u32>()
+                                / std::mem::size_of::<::windows::widestring::WideChar>();
+                            let mut vec: Vec<::windows::widestring::WideChar> =
+                                vec![0; LENGTH_PREFIX_IN_CHARS + value.len() + 1];
+                            vec[LENGTH_PREFIX_IN_CHARS..LENGTH_PREFIX_IN_CHARS + value.len()]
+                                .copy_from_slice(value.as_slice());
+                            assert_eq!(vec[LENGTH_PREFIX_IN_CHARS + value.len()], 0);
+                            let vec_ptr = vec.as_mut_ptr().cast::<u32>();
+                            std::mem::forget(vec);
+                            unsafe {
+                                *vec_ptr = (value.len()
+                                    * std::mem::size_of::<::windows::widestring::WideChar>())
+                                    as u32
+                            };
+                            BSTR(
+                                unsafe { vec_ptr.offset(1) }
+                                    .cast::<::windows::widestring::WideChar>(),
                             )
                         }
                     }
@@ -2391,6 +2425,10 @@ pub mod Windows {
                 }
                 impl ::std::ops::Drop for BSTR {
                     fn drop(&mut self) {
+                        #[cfg(not(windows))]
+                        fn SysFreeString(s: &BSTR) {
+                            unsafe { ::std::boxed::Box::from_raw(s.0.cast::<u32>().offset(-1)) };
+                        }
                         if !self.0.is_null() {
                             unsafe { SysFreeString(self as &Self) };
                         }
