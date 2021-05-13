@@ -501,11 +501,10 @@ mod d3d12_hello_triangle {
         unsafe { command_list.OMSetRenderTargets(1, &rtv_handle, false, std::ptr::null()) };
 
         // Record commands.
-        let clear_color: [f32; 4] = [0.0, 0.2, 0.4, 1.0]; // https://github.com/microsoft/windows-rs/issues/790
         unsafe {
             command_list.ClearRenderTargetView(
                 rtv_handle,
-                clear_color.as_ptr(),
+                [0.0, 0.2, 0.4, 1.0].as_ptr(),
                 0,
                 std::ptr::null(),
             );
