@@ -579,7 +579,6 @@ mod d3d12_hello_triangle {
             ..Default::default()
         };
 
-        let mut error = None;
         let mut signature = None;
 
         let signature = unsafe {
@@ -587,7 +586,7 @@ mod d3d12_hello_triangle {
                 &desc,
                 D3D_ROOT_SIGNATURE_VERSION_1,
                 &mut signature,
-                &mut error,
+                std::ptr::null_mut(),
             )
         }
         .and_some(signature)?;
