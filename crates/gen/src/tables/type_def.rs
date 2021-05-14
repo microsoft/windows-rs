@@ -31,19 +31,19 @@ impl TypeDef {
         }
     }
 
-    pub fn bases(&self) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn bases(&self) -> impl Iterator<Item = TypeDef> {
         Bases(*self)
     }
 
-    pub fn fields(&self) -> impl Iterator<Item = Field> + '_ {
+    pub fn fields(&self) -> impl Iterator<Item = Field> {
         self.0.list(4, TableIndex::Field).map(Field)
     }
 
-    pub fn methods(&self) -> impl Iterator<Item = MethodDef> + '_ {
+    pub fn methods(&self) -> impl Iterator<Item = MethodDef> {
         self.0.list(5, TableIndex::MethodDef).map(MethodDef)
     }
 
-    pub fn generics(&self) -> impl Iterator<Item = GenericParam> + '_ {
+    pub fn generics(&self) -> impl Iterator<Item = GenericParam> {
         self.0
             .file
             .equal_range(
@@ -54,7 +54,7 @@ impl TypeDef {
             .map(GenericParam)
     }
 
-    pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> + '_ {
+    pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> {
         self.0
             .file
             .equal_range(TableIndex::InterfaceImpl, 0, self.0.row + 1)
@@ -66,7 +66,7 @@ impl TypeDef {
         TypeReader::get().nested_types(self)
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> + '_ {
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
             .equal_range(
@@ -115,6 +115,16 @@ impl TypeDef {
             }
 
             None
+        })
+    }
+
+    pub fn is_public_composable(&self) -> bool {
+        self.attributes().any(|attribute| {
+            attribute.name() == "ComposableAttribute"
+                && attribute
+                    .args()
+                    .iter()
+                    .any(|arg| matches!(arg, (_, ConstantValue::I32(2))))
         })
     }
 
@@ -179,6 +189,19 @@ impl TypeDef {
             .equal_range(TableIndex::ClassLayout, 2, self.0.row + 1)
             .map(ClassLayout)
             .next()
+    }
+
+    pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
+        self.interface_impls()
+            .filter(|interface| interface.is_overridable())
+            .flat_map(|interface| {
+                interface
+                    .interface()
+                    .resolve()
+                    .methods()
+                    .map(|method| method.name())
+            })
+            .collect()
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
