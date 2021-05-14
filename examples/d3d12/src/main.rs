@@ -176,7 +176,7 @@ extern "system" fn wndproc<S: DXSample>(
         WM_CREATE => {
             unsafe {
                 let create_struct: &CREATESTRUCTA = transmute(lparam);
-                SetWindowLong(window, GWLP_USERDATA, create_struct.lpCreateParams as isize);
+                SetWindowLong(window, GWLP_USERDATA, create_struct.lpCreateParams as _);
             }
             LRESULT::default()
         }
@@ -186,7 +186,7 @@ extern "system" fn wndproc<S: DXSample>(
         }
         _ => {
             let user_data = unsafe { GetWindowLong(window, GWLP_USERDATA) };
-            let sample = std::ptr::NonNull::<S>::new(user_data as *mut S);
+            let sample = std::ptr::NonNull::<S>::new(user_data as _);
             let handled = sample.map_or(false, |mut s| {
                 sample_wndproc(unsafe { s.as_mut() }, message, wparam)
             });
