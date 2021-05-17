@@ -10,6 +10,10 @@ A few sample projects to help you get started with the `windows` crate.
 
 [com_uri](com_uri) - A simple example of using the [CreateUri](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms775098(v=vs.85)) function.
 
+## d3d12
+
+[d3d12](d3d12) - The classic [D3D12HelloTriangle](https://github.com/microsoft/DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12HelloWorld/src/HelloTriangle) sample.
+
 ## enum_windows
 
 [enum_windows](enum_windows) - An example of using the [EnumWindows](https://docs.microsoft.com/windows/win32/api/winuser/nf-winuser-enumwindows) function.
