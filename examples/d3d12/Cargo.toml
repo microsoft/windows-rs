@@ -1,0 +1,10 @@
+[package]
+name = "d3d12"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+bindings = { package = "d3d12_bindings", path = "bindings" }
+windows = { path = "../.." }
+array-init = "2.0.0"
