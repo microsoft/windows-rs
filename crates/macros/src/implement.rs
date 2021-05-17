@@ -4,13 +4,13 @@ pub fn gen(
     attribute: proc_macro::TokenStream,
     original_type: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    let inner_type = original_type.clone();
+    let impl_type = original_type.clone();
 
     let implements = syn::parse_macro_input!(attribute as ImplementMacro);
-    let inner_type = syn::parse_macro_input!(inner_type as syn::ItemStruct);
-    let inner_name = inner_type.ident.to_string();
-    let inner_ident = format_ident!("{}", inner_name); // because squote doesn't know how to deal with syn::*
-    let box_ident = format_ident!("{}_box", inner_name);
+    let impl_type = syn::parse_macro_input!(impl_type as syn::ItemStruct);
+    let impl_name = impl_type.ident.to_string();
+    let impl_ident = format_ident!("{}", impl_name); // because squote doesn't know how to deal with syn::*
+    let box_ident = format_ident!("{}_box", impl_name);
 
     let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
@@ -18,6 +18,32 @@ pub fn gen(
     let mut vtable_ctors = TokenStream::new();
     let mut shims = TokenStream::new();
     let mut queries = TokenStream::new();
+
+    let (inner_field, inner_init, inner_query) = if implements.extend.is_some() {
+        (
+            quote! {
+                inner: ::std::option::Option<::windows::IInspectable>,
+            },
+            quote! {
+                inner: ::std::option::Option::None,
+            },
+            quote! {
+                if let Some(inner) = &self.inner {
+                    ::windows::Interface::query(inner, iid, interface)
+                } else {
+                    ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
+                }
+            },
+        )
+    } else {
+        (
+            quote! {},
+            quote! {},
+            quote! {
+                ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
+            },
+        )
+    };
 
     let reader = TypeReader::get();
 
@@ -70,8 +96,8 @@ pub fn gen(
 
                 let signature = method.signature(&[]);
                 let abi_signature = signature.gen_winrt_abi(&gen);
-                let upcall =
-                    signature.gen_winrt_upcall(quote! { (*this).inner.#method_ident }, &gen);
+                let upcall = signature
+                    .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen);
 
                 shims.combine(&quote! {
                     unsafe extern "system" fn #vcall_ident #abi_signature {
@@ -88,9 +114,9 @@ pub fn gen(
             }
 
             tokens.combine(&quote! {
-                impl ::std::convert::From<#inner_ident> for #interface_ident {
-                    fn from(inner: #inner_ident) -> Self {
-                        let com = #box_ident::new(inner);
+                impl ::std::convert::From<#impl_ident> for #interface_ident {
+                    fn from(implementation: #impl_ident) -> Self {
+                        let com = #box_ident::new(implementation);
 
                         unsafe {
                             let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
@@ -114,18 +140,20 @@ pub fn gen(
         #[repr(C)]
         struct #box_ident {
             vtable: (#(*const #vtable_idents,)*),
-            inner: #inner_ident,
+            implementation: #impl_ident,
             count: ::windows::WeakRefCount,
+            #inner_field
         }
         impl #box_ident {
             const VTABLE: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
-            fn new(inner: #inner_ident) -> Self {
+            fn new(implementation: #impl_ident) -> Self {
                 Self {
                     vtable: (#(&Self::VTABLE.#vtable_ordinals,)*),
-                    inner,
-                    count: ::windows::WeakRefCount::new()
+                    implementation,
+                    count: ::windows::WeakRefCount::new(),
+                    #inner_init
                 }
             }
             fn QueryInterface(&mut self, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
@@ -148,7 +176,7 @@ pub fn gen(
                     *interface = self.count.query(iid, &mut self.vtable.0 as *mut _ as _);
 
                     if (*interface).is_null() {
-                        ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
+                        #inner_query
                     } else {
                         ::windows::HRESULT(0)
                     }
