@@ -5,7 +5,8 @@ fn main() {
 
         // Test for https://github.com/microsoft/windows-rs/issues/699
         Windows::Win32::System::Diagnostics::{
-            Debug::GetLastError
+            Debug::GetLastError,
+            ProcessSnapshotting::PssCaptureSnapshot,
         }
     );
 }
