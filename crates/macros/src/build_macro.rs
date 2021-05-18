@@ -80,7 +80,11 @@ impl Parse for BuildMacro {
                         } else {
                             return Err(Error::new_spanned(
                                 input,
-                                format!("`{}.{}` not found in metadata", render_namespace(&namespace), name),
+                                format!(
+                                    "`{}.{}` not found in metadata",
+                                    render_namespace(&namespace),
+                                    name
+                                ),
                             ));
                         }
                     }
