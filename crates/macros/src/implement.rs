@@ -13,7 +13,7 @@ pub fn gen(
     let box_ident = format_ident!("{}_box", impl_name);
 
     // TODO: always implement a dedicate IInspectable vtable - if we know we're implementing a runtimeclass this should return the class name
-    // otherwise an empty string. Having a dedicate IInspectable just avoids all the complexity around finding the "nearest" IInspectable 
+    // otherwise an empty string. Having a dedicate IInspectable just avoids all the complexity around finding the "nearest" IInspectable
     // vtable when multiple are implemented and having one for WinRT objects that don't implement anything, not as uncommon as it sounds.
     let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
@@ -131,6 +131,13 @@ pub fn gen(
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
                     ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
                 }
+            }
+        }
+        impl ::windows::Compose for #impl_ident {
+            unsafe fn compose<'a>(implementation: Self) -> (::windows::IInspectable, &'a mut std::option::Option<::windows::IInspectable>) {
+                let inspectable: ::windows::IInspectable = implementation.into();
+                let this = (::windows::Abi::abi(&inspectable) as *mut ::windows::RawPtr).sub(1) as *mut #box_ident;
+                (inspectable, &mut (*this).base)
             }
         }
         #[repr(C)]
