@@ -186,7 +186,7 @@ impl Class {
                         let interface_type = interface.def.gen_name(gen);
 
                         Some(quote! {
-                            fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
+                            pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
                                 callback: F,
                             ) -> ::windows::Result<R> {
                                 static mut SHARED: ::windows::FactoryCache<#name, #interface_type> =

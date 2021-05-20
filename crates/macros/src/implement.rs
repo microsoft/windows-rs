@@ -12,39 +12,15 @@ pub fn gen(
     let impl_ident = format_ident!("{}", impl_name); // because squote doesn't know how to deal with syn::*
     let box_ident = format_ident!("{}_box", impl_name);
 
+    // TODO: always implement a dedicate IInspectable vtable - if we know we're implementing a runtimeclass this should return the class name
+    // otherwise an empty string. Having a dedicate IInspectable just avoids all the complexity around finding the "nearest" IInspectable 
+    // vtable when multiple are implemented and having one for WinRT objects that don't implement anything, not as uncommon as it sounds.
     let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
     let mut vtable_ordinals = vec![];
     let mut vtable_ctors = TokenStream::new();
     let mut shims = TokenStream::new();
     let mut queries = TokenStream::new();
-
-    let (inner_field, inner_init, inner_query) = if implements.extend.is_some() {
-        (
-            quote! {
-                inner: ::std::option::Option<::windows::IInspectable>,
-            },
-            quote! {
-                inner: ::std::option::Option::None,
-            },
-            quote! {
-                if let Some(inner) = &self.inner {
-                    ::windows::Interface::query(inner, iid, interface)
-                } else {
-                    ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
-                }
-            },
-        )
-    } else {
-        (
-            quote! {},
-            quote! {},
-            quote! {
-                ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
-            },
-        )
-    };
-
     let reader = TypeReader::get();
 
     for (interface_count, implement) in implements.implement.iter().enumerate() {
@@ -60,21 +36,21 @@ pub fn gen(
                 Self::#add_ref,
                 Self::#release,
                 Self::GetIids,
-                Self::GetRuntimeClassName,
+                Self::GetRuntimeClassName, // TODO: needs to be vtable specific unless implementing a class
                 Self::GetTrustLevel,
             };
 
             shims.combine(&quote! {
                 unsafe extern "system" fn #query_interface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
-                    let this = (this as *mut ::windows::RawPtr).sub(#interface_count) as *mut Self;
+                    let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
                     (*this).QueryInterface(iid, interface)
                 }
                 unsafe extern "system" fn #add_ref(this: ::windows::RawPtr) -> u32 {
-                    let this = (this as *mut ::windows::RawPtr).sub(#interface_count) as *mut Self;
+                    let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
                     (*this).AddRef()
                 }
                 unsafe extern "system" fn #release(this: ::windows::RawPtr) -> u32 {
-                    let this = (this as *mut ::windows::RawPtr).sub(#interface_count) as *mut Self;
+                    let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
                     (*this).Release()
                 }
             });
@@ -101,14 +77,14 @@ pub fn gen(
 
                 shims.combine(&quote! {
                     unsafe extern "system" fn #vcall_ident #abi_signature {
-                        let this = (this as *mut ::windows::RawPtr).sub(#interface_count) as *mut Self;
+                        let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
                         #upcall
                     }
                 });
 
                 queries.combine(&quote! {
                     &<#interface_ident as ::windows::Interface>::IID => {
-                        &mut self.vtable.#interface_literal as *mut _ as _
+                        &mut self.vtables.#interface_literal as *mut _ as _
                     }
                 });
             }
@@ -120,7 +96,7 @@ pub fn gen(
 
                         unsafe {
                             let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtable.#interface_literal as *mut _ as _))
+                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
                 }
@@ -137,23 +113,53 @@ pub fn gen(
     }
 
     tokens.combine(&quote! {
+        impl ::std::convert::From<#impl_ident> for ::windows::IUnknown {
+            fn from(implementation: #impl_ident) -> Self {
+                let com = #box_ident::new(implementation);
+
+                unsafe {
+                    let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
+                    ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
+                }
+            }
+        }
+        impl ::std::convert::From<#impl_ident> for ::windows::IInspectable {
+            fn from(implementation: #impl_ident) -> Self {
+                let com = #box_ident::new(implementation);
+
+                unsafe {
+                    let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
+                    ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).identity_vtable as *mut _ as _))
+                }
+            }
+        }
         #[repr(C)]
         struct #box_ident {
-            vtable: (#(*const #vtable_idents,)*),
+            base: ::std::option::Option<::windows::IInspectable>,
+            identity_vtable: *const ::windows::IInspectable_abi,
+            vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
             count: ::windows::WeakRefCount,
-            #inner_field
         }
         impl #box_ident {
-            const VTABLE: (#(#vtable_idents,)*) = (
+            const VTABLES: (#(#vtable_idents,)*) = (
                 #vtable_ctors
+            );
+            const IDENTITY_VTABLE: ::windows::IInspectable_abi = ::windows::IInspectable_abi(
+                Self::identity_query_interface,
+                Self::identity_add_ref,
+                Self::identity_release,
+                Self::GetIids,
+                Self::GetRuntimeClassName, // TODO: identity_type_name,
+                Self::GetTrustLevel,
             );
             fn new(implementation: #impl_ident) -> Self {
                 Self {
-                    vtable: (#(&Self::VTABLE.#vtable_ordinals,)*),
+                    base: ::std::option::Option::None,
+                    identity_vtable: &Self::IDENTITY_VTABLE,
+                    vtables: (#(&Self::VTABLES.#vtable_ordinals,)*),
                     implementation,
                     count: ::windows::WeakRefCount::new(),
-                    #inner_init
                 }
             }
             fn QueryInterface(&mut self, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
@@ -163,7 +169,7 @@ pub fn gen(
                         &<::windows::IUnknown as ::windows::Interface>::IID
                         | &<::windows::IInspectable as ::windows::Interface>::IID
                         | &<::windows::IAgileObject as ::windows::Interface>::IID => {
-                            &mut self.vtable.0 as *mut _ as _
+                            &mut self.identity_vtable as *mut _ as _
                         }
                         _ => ::std::ptr::null_mut(),
                     };
@@ -173,10 +179,14 @@ pub fn gen(
                         return ::windows::HRESULT(0);
                     }
 
-                    *interface = self.count.query(iid, &mut self.vtable.0 as *mut _ as _);
+                    *interface = self.count.query(iid, &mut self.identity_vtable as *mut _ as _);
 
                     if (*interface).is_null() {
-                        #inner_query
+                        if let Some(base) = &self.base {
+                            ::windows::Interface::query(base, iid, interface)
+                        } else {
+                            ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
+                        }
                     } else {
                         ::windows::HRESULT(0)
                     }
@@ -210,6 +220,10 @@ pub fn gen(
                 _: ::windows::RawPtr,
                 value: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT {
+                // TODO: if a class is being implemented then the class name should be returned in all cases.
+                // Otherwise, the interface name should be returned on a per-interface basis and the identity
+                // implementation should return an empty string.
+
                 let h: ::windows::HSTRING = "Thing".into(); // TODO: replace with class name or first interface
                 *value = ::std::mem::transmute(h);
                 ::windows::HRESULT(0)
@@ -220,6 +234,18 @@ pub fn gen(
                 // interfaces.
                 *value = 0;
                 ::windows::HRESULT(0)
+            }
+            unsafe extern "system" fn identity_query_interface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
+                let this = (this as *mut ::windows::RawPtr).sub(1) as *mut Self;
+                (*this).QueryInterface(iid, interface)
+            }
+            unsafe extern "system" fn identity_add_ref(this: ::windows::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::RawPtr).sub(1) as *mut Self;
+                (*this).AddRef()
+            }
+            unsafe extern "system" fn identity_release(this: ::windows::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::RawPtr).sub(1) as *mut Self;
+                (*this).Release()
             }
             #shims
         }
