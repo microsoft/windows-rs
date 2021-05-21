@@ -27,7 +27,7 @@ pub fn gen_bstr() -> TokenStream {
                 unsafe { SysStringLen(self) as usize }
             }
 
-            /// Create a `impl` from a slice of 16-bit characters.
+            /// Create a `BSTR` from a slice of 16-bit characters.
             pub fn from_wide(value: &[u16]) -> Self {
                 if value.len() == 0 {
                     return Self(::std::ptr::null_mut());
