@@ -41,7 +41,7 @@ The question now is: which APIs do we import? Knowing exactly which API you want
 
 Doing the search should lead you to find the following:
 
-![Search Results](./images/ISpellChecker.png)
+![image](https://user-images.githubusercontent.com/9845234/119203528-1654cd00-ba48-11eb-8f48-555b69c3ef5e.png)
 
 Remember the module path that `ISpellChecker` is in underneath `bindings`: `Windows::Win32::Globalization`. You'll want to use that exactly when specifying the types you need to generate.
 

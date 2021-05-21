@@ -12,7 +12,7 @@ pub struct HSTRING(*mut Header);
 impl HSTRING {
     /// Create an empty `HSTRING`.
     ///
-    /// This function does no allocation.
+    /// This function does not allocate memory.
     pub fn new() -> Self {
         Self(std::ptr::null_mut())
     }
@@ -23,7 +23,7 @@ impl HSTRING {
         self.0.is_null()
     }
 
-    /// Returns the length of `self`.
+    /// Returns the length of the string.
     pub fn len(&self) -> usize {
         if self.is_empty() {
             return 0;

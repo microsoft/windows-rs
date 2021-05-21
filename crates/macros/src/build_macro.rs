@@ -52,9 +52,17 @@ impl Parse for BuildMacro {
             fn walk(
                 reader: &'static TypeReader,
                 tree: &UseTree,
-                namespace: &mut String,
+                mut namespace: String,
                 build: &mut BuildMacro,
             ) -> Result<()> {
+                fn render_namespace(namespace: &String) -> &str {
+                    if namespace.is_empty() {
+                        "(global namespace)"
+                    } else {
+                        namespace
+                    }
+                }
+
                 match tree {
                     UseTree::Path(input) => {
                         if !namespace.is_empty() {
@@ -67,28 +75,32 @@ impl Parse for BuildMacro {
                     UseTree::Name(input) => {
                         let name = input.ident.to_string();
 
-                        if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
+                        if let Some((namespace, name)) = reader.get_type_name(&namespace, &name) {
                             build.import(namespace, name);
                         } else {
                             return Err(Error::new_spanned(
                                 input,
-                                format!("`{}.{}` not found in metadata", namespace, name),
+                                format!(
+                                    "`{}.{}` not found in metadata",
+                                    render_namespace(&namespace),
+                                    name
+                                ),
                             ));
                         }
                     }
                     UseTree::Glob(input) => {
-                        if let Some(namespace) = reader.get_namespace(namespace) {
+                        if let Some(namespace) = reader.get_namespace(&namespace) {
                             build.import_namespace(namespace);
                         } else {
                             return Err(Error::new_spanned(
                                 input,
-                                format!("`{}` not found in metadata", namespace),
+                                format!("`{}` not found in metadata", render_namespace(&namespace)),
                             ));
                         }
                     }
                     UseTree::Group(input) => {
                         for tree in &input.items {
-                            walk(reader, tree, namespace, build)?;
+                            walk(reader, tree, namespace.clone(), build)?;
                         }
                     }
                     UseTree::Rename(input) => {
@@ -99,7 +111,7 @@ impl Parse for BuildMacro {
                 Ok(())
             }
 
-            walk(reader, &tree, &mut String::new(), &mut build)?;
+            walk(reader, &tree, String::new(), &mut build)?;
 
             if !input.is_empty() {
                 input.parse::<Token![,]>()?;
