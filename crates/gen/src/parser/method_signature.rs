@@ -157,12 +157,14 @@ impl MethodSignature {
 
         // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
         // arguments to ensure the call succeeds in the non-aggregating case.
-        let composable_args = if interface.kind == InterfaceKind::Composable {
-            quote! {
+        let composable_args = match interface.kind {
+            InterfaceKind::Composable => quote! {
                 ::std::ptr::null_mut(), ::windows::Abi::set_abi(&mut ::std::option::Option::<::windows::IInspectable>::None),
-            }
-        } else {
-            quote! {}
+            },
+            InterfaceKind::Extend => quote! {
+                ::windows::Abi::abi(&derived__), ::windows::Abi::set_abi(base__),
+            },
+            _ => quote! {},
         };
 
         let vcall = if let Some(return_type) = &self.return_type {
@@ -216,6 +218,15 @@ impl MethodSignature {
                 quote! {
                     #deprecated
                     pub fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
+                        Self::#interface_name(|this| unsafe { #vcall })
+                    }
+                }
+            }
+            InterfaceKind::Extend => {
+                quote! {
+                    #deprecated
+                    pub fn #name<#constraints>(self, #params) -> ::windows::Result<#return_type_tokens> {
+                        let (derived__, base__) = ::windows::Compose::compose(self);
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
                 }
