@@ -6,17 +6,38 @@ pub fn gen_bstr() -> TokenStream {
         #[derive(::std::cmp::Eq)]
         pub struct BSTR(*mut u16);
         impl BSTR {
+            /// Create an empty `BSTR`.
+            ///
+            /// This function does not allocate memory.
+            pub fn new() -> Self {
+                Self(std::ptr::null_mut())
+            }
+
+            /// Returns `true` if the string is empty.
             pub fn is_empty(&self) -> bool {
                 self.0.is_null()
             }
-            fn from_wide(value: &[u16]) -> Self {
+
+            /// Returns the length of the string.
+            pub fn len(&self) -> usize {
+                if self.is_empty() {
+                    return 0;
+                }
+
+                unsafe { SysStringLen(self) as usize }
+            }
+
+            /// Create a `BSTR` from a slice of 16-bit characters.
+            pub fn from_wide(value: &[u16]) -> Self {
                 if value.len() == 0 {
                     return Self(::std::ptr::null_mut());
                 }
 
                 unsafe { SysAllocStringLen(super::SystemServices::PWSTR(value.as_ptr() as _), value.len() as u32) }
             }
-            fn as_wide(&self) -> &[u16] {
+
+            /// Get the string as 16-bit characters.
+            pub fn as_wide(&self) -> &[u16] {
                 if self.0.is_null() {
                     return &[];
                 }
