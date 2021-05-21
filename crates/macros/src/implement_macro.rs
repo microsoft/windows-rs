@@ -14,10 +14,12 @@ pub struct ImplementMacro {
 
 impl ImplementMacro {
     fn parse_implement(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
-        self.walk_implement(reader, &cursor.parse()?, &mut String::new())?;
+        if let Ok(tree) = cursor.parse::<UseTree>() {
+            self.walk_implement(reader, &tree, &mut String::new())?;
 
-        if !cursor.is_empty() {
-            cursor.parse::<Token![,]>()?;
+            if !cursor.is_empty() {
+                cursor.parse::<Token![,]>()?;
+            }
         }
 
         Ok(())
