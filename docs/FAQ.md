@@ -35,7 +35,3 @@ For example, if you include `Windows::Media::SpeechSynthesis::SpeechSynthesizer`
 ## How do I implement a WinRT or COM interface?
 
 Implementing WinRT and COM interfaces is under active development, but will be ready soon. Follow [this issue](https://github.com/microsoft/windows-rs/issues/81) for more information.
-
-## How do I create an event handler?
-
-TODO: https://github.com/microsoft/windows-rs/issues/687
