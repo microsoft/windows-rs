@@ -89,6 +89,29 @@ impl Attribute {
 
         args
     }
+
+    // Extracts the public type, if any, of a ComposableAttribute blob.
+    pub fn composable_type(&self) -> Option<TypeDef> {
+        let mut public = false;
+        let mut def = None;
+
+        // One of the arguments is a CompositionType enum and the Public variant
+        // has a value of 2 as a signed 32-bit integer.
+
+        for (_, arg) in self.args() {
+            match arg {
+                parser::ConstantValue::I32(2) => public = true,
+                parser::ConstantValue::TypeDef(value) => def = Some(value),
+                _ => {}
+            }
+        }
+
+        if public {
+            def
+        } else {
+            None
+        }
+    }
 }
 
 impl std::fmt::Debug for Attribute {
