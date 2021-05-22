@@ -465,7 +465,9 @@ impl Struct {
 
     fn gen_replacement(&self) -> Option<TokenStream> {
         match self.0.full_name() {
-            ("Windows.Foundation", "DateTime") => Some(gen_datetime(self.gen_runtime_type(&Ident::new("DateTime")))),
+            ("Windows.Foundation", "DateTime") => {
+                Some(gen_datetime(self.gen_runtime_type(&Ident::new("DateTime"))))
+            }
             ("Windows.Win32.System.SystemServices", "BOOL") => Some(gen_bool32()),
             ("Windows.Win32.System.SystemServices", "PWSTR") => Some(gen_pwstr()),
             ("Windows.Win32.System.SystemServices", "PSTR") => Some(gen_pstr()),

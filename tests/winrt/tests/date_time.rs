@@ -1,6 +1,6 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 // use test_winrt::TestComponent::TestRunner;
-use test_winrt::Windows::Foundation::{IPropertyValue, PropertyValue, DateTime};
+use test_winrt::Windows::Foundation::{DateTime, IPropertyValue, PropertyValue};
 use windows::Interface;
 
 #[test]
