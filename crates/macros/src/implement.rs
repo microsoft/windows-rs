@@ -22,6 +22,8 @@ pub fn gen(
     let mut shims = TokenStream::new();
     let mut queries = TokenStream::new();
     let reader = TypeReader::get();
+    let empty = gen::TypeTree::from_namespace("");
+    let gen = gen::Gen::absolute(&empty);
 
     for (interface_count, implement) in implements.implement.iter().enumerate() {
         if let gen::ElementType::Interface(t) = reader.resolve_type(implement.0, implement.1) {
@@ -54,9 +56,6 @@ pub fn gen(
                     (*this).Release()
                 }
             });
-
-            let empty = gen::TypeTree::from_namespace("");
-            let gen = gen::Gen::absolute(&empty);
 
             let vtable_ident = t.0.gen_abi_name(&gen);
             let interface_ident = t.0.gen_name(&gen);
@@ -112,7 +111,31 @@ pub fn gen(
         }
     }
 
+    let constructors = if let Some((namespace, name)) = implements.extend {
+        let mut factories = Vec::new();
+
+        for attribute in reader.resolve_type_def(namespace, name).attributes() {
+            if attribute.name() == "ComposableAttribute" {
+                if let Some(def) = attribute.composable_type() {
+                    factories.push(InterfaceInfo {
+                        def: GenericType::from_type_def(def, Vec::new()),
+                        kind: InterfaceKind::Extend,
+                        is_base: false,
+                        version: (0, 0),
+                    });
+                }
+            }
+        }
+
+        InterfaceInfo::gen_methods(&factories, &gen)
+    } else {
+        quote! {}
+    };
+
     tokens.combine(&quote! {
+        impl #impl_ident {
+            #constructors
+        }
         impl ::std::convert::From<#impl_ident> for ::windows::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::new(implementation);

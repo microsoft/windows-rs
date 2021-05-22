@@ -118,7 +118,9 @@ impl MethodSignature {
             return quote! {};
         }
 
-        let params = if interface.kind == InterfaceKind::Composable {
+        let params = if interface.kind == InterfaceKind::Composable
+            || interface.kind == InterfaceKind::Extend
+        {
             &self.params[..self.params.len() - 2]
         } else {
             &self.params
@@ -223,11 +225,13 @@ impl MethodSignature {
                 }
             }
             InterfaceKind::Extend => {
+                let interface_name = to_ident(interface.def.def.name());
                 quote! {
-                    #deprecated
                     pub fn #name<#constraints>(self, #params) -> ::windows::Result<#return_type_tokens> {
-                        let (derived__, base__) = ::windows::Compose::compose(self);
-                        Self::#interface_name(|this| unsafe { #vcall })
+                        unsafe {
+                            let (derived__, base__) = ::windows::Compose::compose(self);
+                            #return_type_tokens::#interface_name(|this| unsafe { #vcall })
+                        }
                     }
                 }
             }
@@ -235,7 +239,9 @@ impl MethodSignature {
     }
 
     fn gen_name(&self, method: &MethodInfo, interface: &InterfaceInfo) -> Ident {
-        if interface.kind == InterfaceKind::Composable && self.params.len() == 2 {
+        if (interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend)
+            && self.params.len() == 2
+        {
             format_ident!("new")
         } else if method.overload > 1 {
             format_ident!("{}{}", &method.name, method.overload)
