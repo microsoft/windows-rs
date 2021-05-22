@@ -7,7 +7,7 @@ pub fn gen_datetime(runtime_type: TokenStream) -> TokenStream {
         pub struct DateTime(::std::time::SystemTime);
 
         // SAFETY: relies on [`std::time::SystemTime`](std::time::SystemTime) wrapping `FILETIME` internally on Windows.
-        // That means monitoring [implementation of `std::sys::SystemTime` on Windows](https://github.com/rust-lang/rust/blob/master/library/std/src/sys/windows/time.rs) for any future change.
+        // That means monitoring [implementation of `std::sys::time::SystemTime` on Windows](https://github.com/rust-lang/rust/blob/master/library/std/src/sys/windows/time.rs) for any future change.
         unsafe impl ::windows::Abi for DateTime {
             type Abi = Self;
         }
