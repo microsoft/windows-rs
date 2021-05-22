@@ -154,18 +154,7 @@ impl Struct {
                 _ => false,
             });
 
-        let runtime_type = if is_winrt {
-            let signature = Literal::byte_string(&self.type_signature().as_bytes());
-
-            quote! {
-                unsafe impl ::windows::RuntimeType for #name {
-                    type DefaultType = Self;
-                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
-                }
-            }
-        } else {
-            quote! {}
-        };
+        let runtime_type = self.gen_runtime_type(&name);
 
         let clone_or_copy = if self.is_blittable() {
             quote! {
@@ -459,8 +448,24 @@ impl Struct {
         }
     }
 
+    fn gen_runtime_type(&self, name: &Ident) -> TokenStream {
+        if self.0.is_winrt() {
+            let signature = Literal::byte_string(&self.type_signature().as_bytes());
+
+            quote! {
+                unsafe impl ::windows::RuntimeType for #name {
+                    type DefaultType = Self;
+                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
+                }
+            }
+        } else {
+            TokenStream::new()
+        }
+    }
+
     fn gen_replacement(&self) -> Option<TokenStream> {
         match self.0.full_name() {
+            ("Windows.Foundation", "DateTime") => Some(gen_datetime(self.gen_runtime_type(&Ident::new("DateTime")))),
             ("Windows.Win32.System.SystemServices", "BOOL") => Some(gen_bool32()),
             ("Windows.Win32.System.SystemServices", "PWSTR") => Some(gen_pwstr()),
             ("Windows.Win32.System.SystemServices", "PSTR") => Some(gen_pstr()),
