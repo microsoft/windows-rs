@@ -1,6 +1,5 @@
 fn main() {
     windows::build!(
-        Windows::Win32::System::SystemServices::{HINSTANCE, DLL_PROCESS_ATTACH, DLL_THREAD_ATTACH, DLL_THREAD_DETACH, DLL_PROCESS_DETACH},
-        Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MB_OK},
+        Windows::Win32::System::SystemServices::{BOOL, DLL_PROCESS_ATTACH, DLL_PROCESS_DETACH, DLL_THREAD_ATTACH, DLL_THREAD_DETACH, HINSTANCE},
     );
 }
