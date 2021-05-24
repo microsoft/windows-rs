@@ -1,5 +1,6 @@
-These `.winmd` files together provide the default metadata for the Windows API. This is only used when the
-dependent crate or workspace has an empty or non-existent `.windows/winmd` directory.
+These `.winmd` files together provide the default metadata for the Windows API. This is used when the
+dependent crate or workspace has an empty or non-existent `.windows/winmd` directory or include
+`.winmd` files that start with something other than "Windows.".
 
 ## Windows.Win32.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/
