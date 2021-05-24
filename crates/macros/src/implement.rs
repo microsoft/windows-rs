@@ -25,70 +25,73 @@ pub fn gen(
     let empty = gen::TypeTree::from_namespace("");
     let gen = gen::Gen::absolute(&empty);
 
-    for (interface_count, implement) in implements.implement.iter().enumerate() {
-        if let gen::ElementType::Interface(t) = reader.resolve_type(implement.0, implement.1) {
-            vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
+    for (interface_count, (t, overrides)) in implements.interfaces(reader).iter().enumerate() {
+        if *overrides {
+            continue;
+        }
 
-            let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
-            let add_ref = format_ident!("AddRef_abi{}", interface_count);
-            let release = format_ident!("Release_abi{}", interface_count);
+        vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
-            let mut vtable_ptrs = quote! {
-                Self::#query_interface,
-                Self::#add_ref,
-                Self::#release,
-                Self::GetIids,
-                Self::GetRuntimeClassName, // TODO: needs to be vtable specific unless implementing a class
-                Self::GetTrustLevel,
-            };
+        let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
+        let add_ref = format_ident!("AddRef_abi{}", interface_count);
+        let release = format_ident!("Release_abi{}", interface_count);
 
-            shims.combine(&quote! {
-                unsafe extern "system" fn #query_interface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
-                    let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
-                    (*this).QueryInterface(iid, interface)
-                }
-                unsafe extern "system" fn #add_ref(this: ::windows::RawPtr) -> u32 {
-                    let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
-                    (*this).AddRef()
-                }
-                unsafe extern "system" fn #release(this: ::windows::RawPtr) -> u32 {
-                    let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
-                    (*this).Release()
-                }
+        let mut vtable_ptrs = quote! {
+            Self::#query_interface,
+            Self::#add_ref,
+            Self::#release,
+            Self::GetIids,
+            Self::GetRuntimeClassName, // TODO: needs to be vtable specific unless implementing a class
+            Self::GetTrustLevel,
+        };
+
+        shims.combine(&quote! {
+            unsafe extern "system" fn #query_interface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
+                let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
+                (*this).QueryInterface(iid, interface)
+            }
+            unsafe extern "system" fn #add_ref(this: ::windows::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
+                (*this).AddRef()
+            }
+            unsafe extern "system" fn #release(this: ::windows::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
+                (*this).Release()
+            }
+        });
+
+        let vtable_ident = t.gen_abi_name(&gen);
+        let interface_ident = t.gen_name(&gen);
+        let interface_literal = Literal::usize_unsuffixed(interface_count);
+
+        for (vtable_offset, method) in t.def.methods().enumerate() {
+            let method_ident = gen::to_ident(&method.rust_name());
+            let vcall_ident = format_ident!("abi{}_{}", interface_count, vtable_offset + 6);
+
+            vtable_ptrs.combine(&quote! {
+                Self::#vcall_ident,
             });
 
-            let vtable_ident = t.0.gen_abi_name(&gen);
-            let interface_ident = t.0.gen_name(&gen);
-            let interface_literal = Literal::usize_unsuffixed(interface_count);
+            let signature = method.signature(&[]);
+            let abi_signature = signature.gen_winrt_abi(&gen);
+            let upcall =
+                signature.gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen);
 
-            for (vtable_offset, method) in t.0.def.methods().enumerate() {
-                let method_ident = gen::to_ident(&method.rust_name());
-                let vcall_ident = format_ident!("abi{}_{}", interface_count, vtable_offset + 6);
-
-                vtable_ptrs.combine(&quote! {
-                    Self::#vcall_ident,
-                });
-
-                let signature = method.signature(&[]);
-                let abi_signature = signature.gen_winrt_abi(&gen);
-                let upcall = signature
-                    .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen);
-
-                shims.combine(&quote! {
+            shims.combine(&quote! {
                     unsafe extern "system" fn #vcall_ident #abi_signature {
                         let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
                         #upcall
                     }
                 });
 
-                queries.combine(&quote! {
-                    &<#interface_ident as ::windows::Interface>::IID => {
-                        &mut self.vtables.#interface_literal as *mut _ as _
-                    }
-                });
-            }
+            queries.combine(&quote! {
+                &<#interface_ident as ::windows::Interface>::IID => {
+                    &mut self.vtables.#interface_literal as *mut _ as _
+                }
+            });
+        }
 
-            tokens.combine(&quote! {
+        tokens.combine(&quote! {
                 impl ::std::convert::From<#impl_ident> for #interface_ident {
                     fn from(implementation: #impl_ident) -> Self {
                         let com = #box_ident::new(implementation);
@@ -101,20 +104,20 @@ pub fn gen(
                 }
             });
 
-            vtable_ctors.combine(&quote! {
-                #vtable_ident(
-                    #vtable_ptrs
-                ),
-            });
+        vtable_ctors.combine(&quote! {
+            #vtable_ident(
+                #vtable_ptrs
+            ),
+        });
 
-            vtable_idents.push(vtable_ident);
-        }
+        vtable_idents.push(vtable_ident);
     }
 
     let constructors = if let Some((namespace, name)) = implements.extend {
+        let extend = reader.resolve_type_def(namespace, name);
         let mut factories = Vec::new();
 
-        for attribute in reader.resolve_type_def(namespace, name).attributes() {
+        for attribute in extend.attributes() {
             if attribute.name() == "ComposableAttribute" {
                 if let Some(def) = attribute.composable_type() {
                     factories.push(InterfaceInfo {

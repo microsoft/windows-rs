@@ -1,4 +1,4 @@
-use gen::{TypeKind, TypeReader};
+use gen::{ElementType, GenericType, TypeKind, TypeReader};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;
@@ -13,6 +13,34 @@ pub struct ImplementMacro {
 }
 
 impl ImplementMacro {
+    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(GenericType, bool)> {
+        // TODO: any one of `self.implement` could be a class in which case its interfaces should be enumerated
+
+        let mut result = Vec::new();
+
+        for (namespace, name) in &self.implement {
+            match reader.resolve_type(namespace, name) {
+                ElementType::Interface(interface) => {
+                    result.push((interface.0, false));
+                }
+                ElementType::Class(_) => {
+                    // TODO: add all class interfaces as the class itself is being implemented
+                }
+                _ => panic!(),
+            }
+        }
+
+        if let Some((namespace, name)) = self.extend {
+            let extend = reader.resolve_type_def(namespace, name);
+
+            for interface in extend.overridable_interfaces() {
+                result.push((GenericType::from_type_def(interface, Vec::new()), true));
+            }
+        }
+
+        result
+    }
+
     fn parse_implement(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
         if let Ok(tree) = cursor.parse::<UseTree>() {
             self.walk_implement(reader, &tree, &mut String::new())?;
