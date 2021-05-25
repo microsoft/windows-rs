@@ -26,9 +26,9 @@ pub fn gen(
     let gen = gen::Gen::absolute(&empty);
 
     for (interface_count, (t, overrides)) in implements.interfaces(reader).iter().enumerate() {
-        if *overrides {
-            continue;
-        }
+        // if *overrides {
+        //     continue;
+        // }
 
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
@@ -74,8 +74,16 @@ pub fn gen(
 
             let signature = method.signature(&[]);
             let abi_signature = signature.gen_winrt_abi(&gen);
-            let upcall =
-                signature.gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen);
+            let upcall = if *overrides {
+                if implements.overrides.contains(method.name()) {
+                    signature.gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                } else {
+                    // TODO: QI this.base for overridabl inteface and call method
+                    quote! { panic!() }
+                }
+            } else {
+                signature.gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+            };
 
             shims.combine(&quote! {
                     unsafe extern "system" fn #vcall_ident #abi_signature {
@@ -91,18 +99,20 @@ pub fn gen(
             });
         }
 
-        tokens.combine(&quote! {
-                impl ::std::convert::From<#impl_ident> for #interface_ident {
-                    fn from(implementation: #impl_ident) -> Self {
-                        let com = #box_ident::new(implementation);
+        if !t.def.is_exclusive() {
+            tokens.combine(&quote! {
+                    impl ::std::convert::From<#impl_ident> for #interface_ident {
+                        fn from(implementation: #impl_ident) -> Self {
+                            let com = #box_ident::new(implementation);
 
-                        unsafe {
-                            let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            unsafe {
+                                let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
+                                ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
 
         vtable_ctors.combine(&quote! {
             #vtable_ident(
