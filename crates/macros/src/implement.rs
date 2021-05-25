@@ -76,7 +76,8 @@ pub fn gen(
             let abi_signature = signature.gen_winrt_abi(&gen);
             let upcall = if *overrides {
                 if implements.overrides.contains(method.name()) {
-                    signature.gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                    signature
+                        .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
                 } else {
                     // TODO: QI this.base for overridabl inteface and call method
                     quote! { panic!() }
@@ -112,7 +113,7 @@ pub fn gen(
                         }
                     }
                 });
-            }
+        }
 
         vtable_ctors.combine(&quote! {
             #vtable_ident(
