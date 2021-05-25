@@ -35,6 +35,20 @@ impl AppWithOverrides {
     fn Close(&self) -> Result<()> {
         Ok(())
     }
+
+    fn OnLaunched(
+        &self,
+        _: &Option<Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>,
+    ) -> Result<()> {
+        Ok(())
+    }
+
+    fn OnBackgroundActivated(
+        &self,
+        _: &Option<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs>,
+    ) -> Result<()> {
+        Ok(())
+    }
 }
 
 #[implement(
