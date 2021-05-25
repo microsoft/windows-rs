@@ -79,8 +79,7 @@ pub fn gen(
                     signature
                         .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
                 } else {
-                    // TODO: QI this.base for overridabl inteface and call method
-                    quote! { panic!() }
+                    quote! { ::windows::HRESULT(0) }
                 }
             } else {
                 signature.gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)

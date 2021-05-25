@@ -11,6 +11,7 @@ struct CoreApp();
 #[allow(non_snake_case)]
 impl CoreApp {
     fn CreateView(&self) -> Result<IFrameworkView> {
+        // TODO: need self query `self.into()` to support implementing both IFrameworkViewSource and IFrameworkView on the same object.
         Ok(CoreAppView().into())
     }
 }
