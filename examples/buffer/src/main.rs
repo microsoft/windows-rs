@@ -1,15 +1,13 @@
 use bindings::{Windows::Foundation::*, Windows::Win32::System::WinRT::IMemoryBufferByteAccess};
 use windows::*;
 
-fn as_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
+unsafe fn as_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
     let interop = buffer.cast::<IMemoryBufferByteAccess>()?;
     let mut data = std::ptr::null_mut();
     let mut len = 0;
 
-    unsafe {
-        interop.GetBuffer(&mut data, &mut len).ok()?;
-        Ok(std::slice::from_raw_parts_mut(data, len as _))
-    }
+    interop.GetBuffer(&mut data, &mut len).ok()?;
+    Ok(std::slice::from_raw_parts_mut(data, len as _))
 }
 
 fn main() -> Result<()> {
@@ -18,13 +16,13 @@ fn main() -> Result<()> {
     assert_eq!(reference.Capacity()?, 11);
 
     // Write to buffer...
-    {
+    unsafe {
         let slice = as_slice(&reference)?;
         slice.copy_from_slice(b"hello world");
     }
 
     // Read from buffer...
-    {
+    unsafe {
         let slice = as_slice(&reference)?;
         assert_eq!(slice, b"hello world");
     }
