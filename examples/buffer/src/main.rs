@@ -1,6 +1,11 @@
 use bindings::{Windows::Foundation::*, Windows::Win32::System::WinRT::IMemoryBufferByteAccess};
 use windows::*;
 
+// This example illustrates how to use IMemoryBufferByteAccess to access the underlying buffer
+// owned by the MemoryBuffer/IMemoryBufferReference. Note that this is inherently unsafe as
+// this function does not perform borrow/lifetime checking. The caller must ensure that the
+// IMemoryBufferReference remains alive and that that buffer is not shared across threads.
+
 unsafe fn as_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
     let interop = buffer.cast::<IMemoryBufferByteAccess>()?;
     let mut data = std::ptr::null_mut();
@@ -16,14 +21,14 @@ fn main() -> Result<()> {
     assert_eq!(reference.Capacity()?, 11);
 
     // Write to buffer...
-    unsafe {
-        let slice = as_slice(&reference)?;
+    {
+        let slice = unsafe { as_slice(&reference)? };
         slice.copy_from_slice(b"hello world");
     }
 
     // Read from buffer...
-    unsafe {
-        let slice = as_slice(&reference)?;
+    {
+        let slice = unsafe { as_slice(&reference)? };
         assert_eq!(slice, b"hello world");
     }
 
