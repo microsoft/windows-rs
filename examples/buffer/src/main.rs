@@ -6,7 +6,7 @@ use windows::*;
 // this function does not perform borrow/lifetime checking. The caller must ensure that the
 // IMemoryBufferReference remains alive and that that buffer is not shared across threads.
 
-unsafe fn as_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
+unsafe fn as_mut_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
     let interop = buffer.cast::<IMemoryBufferByteAccess>()?;
     let mut data = std::ptr::null_mut();
     let mut len = 0;
@@ -22,13 +22,13 @@ fn main() -> Result<()> {
 
     // Write to buffer...
     {
-        let slice = unsafe { as_slice(&reference)? };
+        let slice = unsafe { as_mut_slice(&reference)? };
         slice.copy_from_slice(b"hello world");
     }
 
     // Read from buffer...
     {
-        let slice = unsafe { as_slice(&reference)? };
+        let slice = unsafe { as_mut_slice(&reference)? };
         assert_eq!(slice, b"hello world");
     }
 
