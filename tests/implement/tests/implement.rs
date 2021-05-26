@@ -84,4 +84,19 @@ impl NoExtend {
     }
 }
 
-// TODO: should be able to extend without implementing any additional interfaces.
+// TODO: this should work but takes too long to compile - need dependency tracker improvements.
+
+// #[implement(
+//     extend Windows::UI::Xaml::Controls::Button,
+//     override OnContentChanged, // ContentControl
+//     override OnPointerEntered, // Control
+//     override OnApplyTemplate, // FrameworkElement
+// )]
+// struct Button {}
+
+// #[allow(non_snake_case)]
+// impl Button {
+//     fn OnContentChanged(&self, _:&Option<IInspectable>, _:&Option<IInspectable>) -> Result<()> {
+//         Ok(())
+//     }
+// }

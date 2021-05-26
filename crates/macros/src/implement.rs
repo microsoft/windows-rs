@@ -9,12 +9,9 @@ pub fn gen(
     let implements = syn::parse_macro_input!(attribute as ImplementMacro);
     let impl_type = syn::parse_macro_input!(impl_type as syn::ItemStruct);
     let impl_name = impl_type.ident.to_string();
-    let impl_ident = format_ident!("{}", impl_name); // because squote doesn't know how to deal with syn::*
+    let impl_ident = format_ident!("{}", impl_name);
     let box_ident = format_ident!("{}_box", impl_name);
 
-    // TODO: always implement a dedicate IInspectable vtable - if we know we're implementing a runtimeclass this should return the class name
-    // otherwise an empty string. Having a dedicate IInspectable just avoids all the complexity around finding the "nearest" IInspectable
-    // vtable when multiple are implemented and having one for WinRT objects that don't implement anything, not as uncommon as it sounds.
     let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
     let mut vtable_ordinals = vec![];
@@ -26,10 +23,6 @@ pub fn gen(
     let gen = gen::Gen::absolute(&empty);
 
     for (interface_count, (t, overrides)) in implements.interfaces(reader).iter().enumerate() {
-        // if *overrides {
-        //     continue;
-        // }
-
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
         let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
@@ -193,7 +186,7 @@ pub fn gen(
                 Self::identity_add_ref,
                 Self::identity_release,
                 Self::GetIids,
-                Self::GetRuntimeClassName, // TODO: identity_type_name,
+                Self::GetRuntimeClassName,
                 Self::GetTrustLevel,
             );
             fn new(implementation: #impl_ident) -> Self {
@@ -267,7 +260,7 @@ pub fn gen(
                 // Otherwise, the interface name should be returned on a per-interface basis and the identity
                 // implementation should return an empty string.
 
-                let h: ::windows::HSTRING = "Thing".into(); // TODO: replace with class name or first interface
+                let h = ::windows::HSTRING::new();
                 *value = ::std::mem::transmute(h);
                 ::windows::HRESULT(0)
             }
