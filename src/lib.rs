@@ -24,7 +24,7 @@ use runtime::*;
 pub use bindings::Windows::Win32::System::Com::IAgileObject;
 
 #[doc(hidden)]
-pub use interfaces::IActivationFactory;
+pub use interfaces::{IActivationFactory, IInspectable_abi};
 
 pub use interfaces::{IInspectable, IUnknown};
 pub use result::{Error, Result, HRESULT};
@@ -32,7 +32,7 @@ pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, Param,
     RefCount, Waiter, Weak, WeakRefCount, HSTRING,
 };
-pub use traits::{Abi, Interface, IntoParam, RuntimeName, RuntimeType};
+pub use traits::{Abi, Compose, Interface, IntoParam, RuntimeName, RuntimeType};
 
 #[cfg(feature = "macros")]
 pub use windows_macros::{build, implement};

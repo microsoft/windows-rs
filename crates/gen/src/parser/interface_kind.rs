@@ -5,4 +5,5 @@ pub enum InterfaceKind {
     Overridable,
     Static,
     Composable,
+    Extend,
 }

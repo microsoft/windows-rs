@@ -101,35 +101,15 @@ impl Class {
                     }
                 }
                 "ComposableAttribute" => {
-                    // One of the arguments is a CompositionType enum and the Public variant
-                    // has a value of 2 as a signed 32-bit integer.
+                    if let Some(def) = attribute.composable_type() {
+                        let version = def.version();
 
-                    let mut public = false;
-                    let mut def = None;
-
-                    for (_, arg) in attribute.args() {
-                        match arg {
-                            parser::ConstantValue::I32(2) => public = true,
-
-                            parser::ConstantValue::TypeDef(value) => {
-                                def = Some(GenericType::from_type_def(value, Vec::new()))
-                            }
-
-                            _ => {}
-                        }
-                    }
-
-                    if let Some(def) = def {
-                        if public {
-                            let version = def.def.version();
-
-                            result.push(InterfaceInfo {
-                                def,
-                                kind: InterfaceKind::Composable,
-                                is_base: false,
-                                version,
-                            });
-                        }
+                        result.push(InterfaceInfo {
+                            def: GenericType::from_type_def(def, Vec::new()),
+                            kind: InterfaceKind::Composable,
+                            is_base: false,
+                            version,
+                        });
                     }
                 }
                 _ => {}
@@ -186,7 +166,7 @@ impl Class {
                         let interface_type = interface.def.gen_name(gen);
 
                         Some(quote! {
-                            fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
+                            pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
                                 callback: F,
                             ) -> ::windows::Result<R> {
                                 static mut SHARED: ::windows::FactoryCache<#name, #interface_type> =

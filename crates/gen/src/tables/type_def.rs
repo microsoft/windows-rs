@@ -191,16 +191,23 @@ impl TypeDef {
             .next()
     }
 
-    pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
+    pub fn overridable_interfaces(&self) -> Vec<TypeDef> {
         self.interface_impls()
             .filter(|interface| interface.is_overridable())
-            .flat_map(|interface| {
-                interface
-                    .interface()
-                    .resolve()
-                    .methods()
-                    .map(|method| method.name())
-            })
+            .map(|interface| interface.interface().resolve())
+            .chain(
+                self.bases()
+                    .next()
+                    .iter()
+                    .flat_map(|base| base.overridable_interfaces()),
+            )
+            .collect()
+    }
+
+    pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
+        self.overridable_interfaces()
+            .iter()
+            .flat_map(|interface| interface.methods().map(|method| method.name()))
             .collect()
     }
 

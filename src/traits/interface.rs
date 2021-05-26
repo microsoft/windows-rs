@@ -21,6 +21,10 @@ pub unsafe trait Interface: Sized + Abi {
         &(*(*(this as *mut *mut _) as *mut _))
     }
 
+    unsafe fn query(&self, iid: *const Guid, interface: *mut RawPtr) -> HRESULT {
+        (self.assume_vtable::<IUnknown>().0)(std::mem::transmute_copy(self), iid, interface)
+    }
+
     /// Attempts to cast the current interface to another interface using `QueryInterface`.
     /// The name `cast` is preferred to `query` because there is a WinRT method named query but not one
     /// named cast.
