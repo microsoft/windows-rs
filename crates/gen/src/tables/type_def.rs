@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeDef(pub Row);
 
 impl TypeDef {
@@ -32,7 +32,7 @@ impl TypeDef {
     }
 
     pub fn bases(&self) -> impl Iterator<Item = TypeDef> {
-        Bases(*self)
+        Bases(self.clone())
     }
 
     pub fn fields(&self) -> impl Iterator<Item = Field> {
@@ -49,7 +49,7 @@ impl TypeDef {
             .equal_range(
                 TableIndex::GenericParam,
                 2,
-                TypeOrMethodDef::TypeDef(*self).encode(),
+                TypeOrMethodDef::TypeDef(self.clone()).encode(),
             )
             .map(GenericParam)
     }
@@ -72,7 +72,7 @@ impl TypeDef {
             .equal_range(
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::TypeDef(*self).encode(),
+                HasAttribute::TypeDef(self.clone()).encode(),
             )
             .map(Attribute)
     }
@@ -256,7 +256,7 @@ impl Iterator for Bases {
             None
         } else {
             self.0 = TypeReader::get().resolve_type_def(namespace, name);
-            Some(self.0)
+            Some(self.0.clone())
         }
     }
 }

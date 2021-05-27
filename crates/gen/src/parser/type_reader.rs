@@ -7,7 +7,7 @@ pub struct TypeReader {
     nested: BTreeMap<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>,
 }
 
-#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
+#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 enum TypeRow {
     TypeDef(tables::TypeDef),
     Function(tables::MethodDef),
@@ -65,7 +65,7 @@ impl TypeReader {
                     .entry(namespace)
                     .or_default()
                     .entry(name)
-                    .or_insert_with(|| TypeRow::TypeDef(def));
+                    .or_insert_with(|| TypeRow::TypeDef(def.clone()));
 
                 if flags.interface() || flags.windows_runtime() {
                     continue;
@@ -169,7 +169,7 @@ impl TypeReader {
             .get(enclosing)
             .iter()
             .flat_map(|t| t.values())
-            .copied()
+            .cloned()
             .collect()
     }
 
@@ -207,25 +207,27 @@ impl TypeReader {
 
     fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
         match row {
-            TypeRow::TypeDef(row) => ElementType::from_type_def(*row, Vec::new()),
+            TypeRow::TypeDef(row) => ElementType::from_type_def(row, Vec::new()),
             TypeRow::Function(row) => ElementType::Function(types::Function(*row)),
             TypeRow::Constant(row) => ElementType::Constant(types::Constant(*row)),
         }
     }
 
+    // TODO: return refernece?
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
-                return *row;
+                return row.clone();
             }
         }
 
         panic!("Could not find type def `{}.{}`", namespace, name);
     }
 
+    // TODO: return reference?
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            self.nested[&scope.resolve()][type_ref.name()]
+            self.nested[&scope.resolve()][type_ref.name()].clone()
         } else {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
         }

@@ -86,7 +86,7 @@ impl Class {
                 "StaticAttribute" | "ActivatableAttribute" => {
                     for (_, arg) in attribute.args() {
                         if let parser::ConstantValue::TypeDef(def) = arg {
-                            let def = GenericType::from_type_def(def, Vec::new());
+                            let def = GenericType::from_type_def(&def, Vec::new());
                             let version = def.def.version();
 
                             result.push(InterfaceInfo {
@@ -105,7 +105,7 @@ impl Class {
                         let version = def.version();
 
                         result.push(InterfaceInfo {
-                            def: GenericType::from_type_def(def, Vec::new()),
+                            def: GenericType::from_type_def(&def, Vec::new()),
                             kind: InterfaceKind::Composable,
                             is_base: false,
                             version,
@@ -130,7 +130,7 @@ impl Class {
                 "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                     for (_, arg) in attribute.args() {
                         if let parser::ConstantValue::TypeDef(def) = arg {
-                            return Some(ElementType::from_type_def(def, Vec::new()));
+                            return Some(ElementType::from_type_def(&def, Vec::new()));
                         }
                     }
                 }

@@ -7,7 +7,7 @@ impl ComInterface {
     pub fn dependencies(&self) -> Vec<ElementType> {
         self.0
             .interfaces()
-            .map(|i| ElementType::from_type_def(i.def, Vec::new()))
+            .map(|i| ElementType::from_type_def(&i.def, Vec::new()))
             .collect()
     }
 
@@ -17,7 +17,7 @@ impl ComInterface {
 
     pub fn interfaces(&self) -> Vec<tables::TypeDef> {
         let mut result = Vec::new();
-        let mut next = self.0.def;
+        let mut next = self.0.def.clone();
 
         loop {
             let base = if let Some(next) = next
@@ -30,7 +30,7 @@ impl ComInterface {
                 break;
             };
 
-            next = base;
+            next = base.clone();
             result.push(base);
         }
 

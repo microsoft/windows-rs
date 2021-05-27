@@ -24,18 +24,18 @@ impl GenericType {
         }
     }
 
-    pub fn from_type_def(def: tables::TypeDef, generics: Vec<ElementType>) -> Self {
+    pub fn from_type_def(def: &tables::TypeDef, generics: Vec<ElementType>) -> Self {
         if generics.is_empty() {
             let generics = def.generics().map(ElementType::GenericParam).collect();
 
-            Self { def, generics }
+            Self { def: def.clone(), generics }
         } else {
-            Self { def, generics }
+            Self { def: def.clone(), generics }
         }
     }
 
     pub fn definition(&self) -> Vec<ElementType> {
-        let mut definition = vec![ElementType::from_type_def(self.def, Vec::new())];
+        let mut definition = vec![ElementType::from_type_def(&self.def, Vec::new())];
 
         for generic in &self.generics {
             definition.append(&mut generic.definition());
@@ -47,7 +47,7 @@ impl GenericType {
     pub fn bases(&self) -> impl Iterator<Item = Self> + '_ {
         self.def
             .bases()
-            .map(|def| GenericType::from_type_def(def, Vec::new()))
+            .map(|def| GenericType::from_type_def(&def, Vec::new()))
     }
 
     pub fn default_interface(&self) -> Self {

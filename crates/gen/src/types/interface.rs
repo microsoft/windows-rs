@@ -58,7 +58,7 @@ impl Interface {
         let interfaces = self
             .0
             .interfaces()
-            .map(|i| ElementType::from_type_def(i.def, Vec::new()));
+            .map(|i| ElementType::from_type_def(&i.def, Vec::new()));
 
         let methods = self
             .0

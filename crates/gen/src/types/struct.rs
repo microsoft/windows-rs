@@ -494,7 +494,7 @@ fn gen_nested_types<'a>(
         .enumerate()
         .map(|(index, nested_type)| {
             let nested_name = format!("{}_{}", enclosing_name, index);
-            Struct(*nested_type).gen_struct(&nested_name, gen)
+            Struct(nested_type.clone()).gen_struct(&nested_name, gen)
         })
         .collect()
 }

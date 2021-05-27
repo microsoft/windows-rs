@@ -4,7 +4,7 @@ pub trait Decode {
     fn decode(file: &'static File, code: u32) -> Self;
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeDefOrRef {
     TypeDef(tables::TypeDef),
     TypeRef(tables::TypeRef),
@@ -37,7 +37,7 @@ impl TypeDefOrRef {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum TypeOrMethodDef {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),
@@ -67,7 +67,7 @@ impl TypeOrMethodDef {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum HasAttribute {
     MethodDef(tables::MethodDef),
     Field(tables::Field),
@@ -134,7 +134,7 @@ impl HasAttribute {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum MemberRefParent {
     TypeDef(tables::TypeDef),
     TypeRef(tables::TypeRef),
@@ -174,7 +174,7 @@ impl MemberRefParent {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum HasConstant {
     Field(tables::Field),
     Param(tables::Param),
@@ -200,7 +200,7 @@ impl HasConstant {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum AttributeType {
     MethodDef(tables::MethodDef),
     MemberRef(tables::MemberRef),
@@ -234,7 +234,7 @@ impl AttributeType {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum MemberForwarded {
     Field(tables::Field),
     MethodDef(tables::MethodDef),
@@ -264,7 +264,7 @@ impl MemberForwarded {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 pub enum ResolutionScope {
     Module(tables::Module),
     ModuleRef(tables::ModuleRef),
@@ -331,7 +331,7 @@ impl TypeDefOrRef {
 
     pub fn resolve(&self) -> tables::TypeDef {
         match self {
-            Self::TypeDef(value) => *value,
+            Self::TypeDef(value) => value.clone(),
             Self::TypeRef(value) => value.resolve(),
             _ => unexpected!(),
         }

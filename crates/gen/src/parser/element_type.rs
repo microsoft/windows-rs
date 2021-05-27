@@ -136,13 +136,13 @@ impl ElementType {
                         ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => Self::U64,
                         ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
                         ("System", "Type") => Self::TypeName,
-                        _ => Self::from_type_def(type_ref.resolve(), Vec::new()),
+                        _ => Self::from_type_def(&type_ref.resolve(), Vec::new()),
                     },
                     TypeDefOrRef::TypeDef(type_def) => Self::from_type_def(
                         // Need to "re-resolve" the TypeDef as it may point to an arch-specific
                         // definition. This lets the TypeTree be built for a specific architecture
                         // without accidentally pulling in the wrong definition.
-                        TypeReader::get().resolve_type_def(type_def.namespace(), type_def.name()),
+                        &TypeReader::get().resolve_type_def(type_def.namespace(), type_def.name()),
                         Vec::new(),
                     ),
                     _ => unexpected!(),
@@ -168,7 +168,7 @@ impl ElementType {
         }
     }
 
-    pub fn from_type_def(def: tables::TypeDef, generics: Vec<Self>) -> Self {
+    pub fn from_type_def(def: &tables::TypeDef, generics: Vec<Self>) -> Self {
         match def.kind() {
             TypeKind::Interface => {
                 if def.is_winrt() {
@@ -180,13 +180,13 @@ impl ElementType {
                 }
             }
             TypeKind::Class => Self::Class(types::Class(GenericType::from_type_def(def, generics))),
-            TypeKind::Enum => Self::Enum(types::Enum(def)),
-            TypeKind::Struct => Self::Struct(types::Struct(def)),
+            TypeKind::Enum => Self::Enum(types::Enum(def.clone())),
+            TypeKind::Struct => Self::Struct(types::Struct(def.clone())),
             TypeKind::Delegate => {
                 if def.is_winrt() {
                     Self::Delegate(types::Delegate(GenericType::from_type_def(def, generics)))
                 } else {
-                    Self::Callback(types::Callback(def))
+                    Self::Callback(types::Callback(def.clone()))
                 }
             }
         }
