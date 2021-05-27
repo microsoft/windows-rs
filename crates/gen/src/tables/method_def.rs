@@ -26,7 +26,7 @@ impl MethodDef {
             self.0.row + 1,
         ) - 1;
 
-        TypeDef(Row::new(row, TableIndex::TypeDef, self.0.file))
+        Row::new(row, TableIndex::TypeDef, self.0.file).into()
     }
 
     pub fn rust_name(&self) -> String {

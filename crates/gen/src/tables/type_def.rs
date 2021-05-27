@@ -1,9 +1,19 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeDef(pub Row);
+pub struct TypeDef(Row);
+
+impl From<Row> for TypeDef {
+    fn from(row: Row) -> Self {
+        Self(row)
+    }
+}
 
 impl TypeDef {
+    pub fn row(&self) -> &Row {
+        &self.0
+    }
+
     pub fn flags(&self) -> TypeFlags {
         TypeFlags(self.0.u32(0))
     }

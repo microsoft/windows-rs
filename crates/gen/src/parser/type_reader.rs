@@ -46,7 +46,7 @@ impl TypeReader {
             let row_count = file.type_def_table().row_count;
 
             for row in 0..row_count {
-                let def = tables::TypeDef(Row::new(row, TableIndex::TypeDef, file));
+                let def: tables::TypeDef = Row::new(row, TableIndex::TypeDef, file).into();
                 let namespace = def.namespace();
                 let name = trim_tick(def.name());
 

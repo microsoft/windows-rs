@@ -49,13 +49,13 @@ impl ElementType {
         match self {
             Self::Function(def) => def.0 .0,
             Self::Constant(def) => def.0 .0,
-            Self::Class(def) => def.0.def.0,
-            Self::Interface(def) => def.0.def.0,
-            Self::ComInterface(def) => def.0.def.0,
-            Self::Enum(def) => def.0 .0,
-            Self::Struct(def) => def.0 .0,
-            Self::Delegate(def) => def.0.def.0,
-            Self::Callback(def) => def.0 .0,
+            Self::Class(def) => *def.0.def.row(),
+            Self::Interface(def) => *def.0.def.row(),
+            Self::ComInterface(def) => *def.0.def.row(),
+            Self::Enum(def) => *def.0.row(),
+            Self::Struct(def) => *def.0.row(),
+            Self::Delegate(def) => *def.0.def.row(),
+            Self::Callback(def) => *def.0 .row(),
             _ => unexpected!(),
         }
     }
