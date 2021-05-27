@@ -2,7 +2,8 @@ use crate::*;
 use std::convert::TryInto;
 
 use bindings::{
-    Windows::Win32::System::OleAutomation::{GetErrorInfo, SetErrorInfo, BSTR},
+    Windows::Win32::Foundation::BSTR,
+    Windows::Win32::System::OleAutomation::{GetErrorInfo, SetErrorInfo},
     Windows::Win32::System::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
 

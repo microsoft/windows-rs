@@ -1,9 +1,12 @@
 use bindings::{
-    Windows::Foundation::Numerics::*, Windows::Win32::Graphics::Direct2D::*,
-    Windows::Win32::Graphics::Direct3D11::*, Windows::Win32::Graphics::Dxgi::*,
-    Windows::Win32::Graphics::Gdi::*, Windows::Win32::System::SystemServices::*,
-    Windows::Win32::System::WindowsProgramming::*, Windows::Win32::UI::Animation::*,
-    Windows::Win32::UI::WindowsAndMessaging::*,
+    Windows::Foundation::Numerics::*,
+    Windows::Win32::{
+        Foundation::*,
+        Graphics::{Direct2D::*, Direct3D11::*, Dxgi::*, Gdi::*},
+        System::{LibraryLoader::*, Performance::*, SystemInformation::GetLocalTime},
+        UI::Animation::*,
+        UI::WindowsAndMessaging::*,
+    },
 };
 
 use windows::*;

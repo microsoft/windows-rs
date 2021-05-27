@@ -1,7 +1,8 @@
 use bindings::Windows::Win32::{
+    Foundation::*,
     Graphics::{Direct3D11::*, Direct3D12::*, Dxgi::*, Hlsl::*},
-    System::{SystemServices::*, Threading::*, WindowsProgramming::*},
-    UI::{DisplayDevices::*, WindowsAndMessaging::*},
+    System::{LibraryLoader::*, Threading::*, WindowsProgramming::*},
+    UI::WindowsAndMessaging::*,
 };
 use std::mem::transmute;
 use windows::*;

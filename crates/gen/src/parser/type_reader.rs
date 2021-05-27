@@ -322,7 +322,7 @@ const WELL_KNOWN_TYPES: [(&'static str, &'static str, ElementType); 10] = [
         ElementType::IUnknown,
     ),
     ("Windows.Foundation", "HResult", ElementType::HRESULT),
-    ("Windows.Win32.System.Com", "HRESULT", ElementType::HRESULT),
+    ("Windows.Win32.Foundation", "HRESULT", ElementType::HRESULT),
     ("Windows.Win32.System.WinRT", "HSTRING", ElementType::String),
     (
         "Windows.Win32.System.WinRT",

@@ -4,7 +4,7 @@ use test_winrt::{
         WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
     },
     Windows::Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
-    Windows::Win32::System::SystemServices::E_POINTER,
+    Windows::Win32::Foundation::E_POINTER,
 };
 
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test

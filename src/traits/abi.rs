@@ -1,6 +1,6 @@
 use crate::*;
 
-use bindings::Windows::Win32::System::SystemServices::E_POINTER;
+use bindings::Windows::Win32::Foundation::E_POINTER;
 
 /// Provides a generic way of referring to and converting between a Rust object
 /// and its ABI equivalent.

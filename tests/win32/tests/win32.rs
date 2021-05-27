@@ -1,25 +1,19 @@
-use test_win32::{
-    Windows::Win32::Gaming::HasExpandedResources,
-    Windows::Win32::Graphics::Direct2D::CLSID_D2D1Shadow,
-    Windows::Win32::Graphics::Direct3D11::D3DDisassemble11Trace,
-    Windows::Win32::Graphics::Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA,
-    Windows::Win32::Graphics::Dxgi::*,
-    Windows::Win32::Graphics::Hlsl::D3DCOMPILER_DLL,
-    Windows::Win32::Networking::Ldap::ldapsearch,
-    Windows::Win32::Security::*,
-    Windows::Win32::Storage::StructuredStorage::*,
-    Windows::Win32::System::Com::CreateUri,
-    Windows::Win32::System::Diagnostics::Debug::*,
-    Windows::Win32::System::OleAutomation::BSTR,
-    Windows::Win32::System::SystemServices::{BOOL, HANDLE, PSTR, PWSTR},
-    Windows::Win32::System::Threading::*,
-    Windows::Win32::System::WindowsProgramming::CloseHandle,
-    Windows::Win32::UI::Accessibility::UIA_ScrollPatternNoScroll,
-    Windows::Win32::UI::Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
-    Windows::Win32::UI::ColorSystem::WhitePoint,
-    Windows::Win32::UI::DisplayDevices::RECT,
-    Windows::Win32::UI::WindowsAndMessaging::{
-        CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP,
+use test_win32::Windows::Win32::{
+    Foundation::{CloseHandle, BOOL, BSTR, HANDLE, HWND, PSTR, PWSTR, RECT},
+    Gaming::HasExpandedResources,
+    Graphics::{
+        Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace,
+        Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::*, Hlsl::D3DCOMPILER_DLL,
+    },
+    Networking::Ldap::ldapsearch,
+    Security::Authorization::*,
+    Storage::StructuredStorage::*,
+    System::{Com::CreateUri, Diagnostics::Debug::*, Threading::*},
+    UI::{
+        Accessibility::UIA_ScrollPatternNoScroll,
+        Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
+        ColorSystem::WhitePoint,
+        WindowsAndMessaging::{CHOOSECOLORW, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
     },
 };
 

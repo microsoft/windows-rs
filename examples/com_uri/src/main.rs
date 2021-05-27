@@ -1,6 +1,4 @@
-use bindings::{
-    Windows::Win32::System::Com::CreateUri, Windows::Win32::System::OleAutomation::BSTR,
-};
+use bindings::Windows::Win32::{Foundation::BSTR, System::Com::CreateUri};
 
 fn main() -> windows::Result<()> {
     unsafe {

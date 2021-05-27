@@ -258,7 +258,7 @@ impl TypeDef {
                 let mut dependencies = vec![];
 
                 match self.full_name() {
-                    ("Windows.Win32.System.OleAutomation", "BSTR") => {
+                    ("Windows.Win32.Foundation", "BSTR") => {
                         dependencies.push(
                             reader.resolve_type(
                                 "Windows.Win32.System.OleAutomation",
@@ -575,7 +575,7 @@ impl TypeDef {
         match self.kind() {
             TypeKind::Struct => {
                 // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
-                if self.full_name() == ("Windows.Win32.System.OleAutomation", "BSTR") {
+                if self.full_name() == ("Windows.Win32.Foundation", "BSTR") {
                     false
                 } else {
                     self.fields().all(|f| f.is_blittable())
