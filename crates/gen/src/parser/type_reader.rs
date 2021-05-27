@@ -61,9 +61,9 @@ impl TypeReader {
                     continue;
                 }
 
-                types
-                    .entry(namespace)
-                    .or_default()
+                let values = types.entry(namespace).or_default();
+
+                values
                     .entry(name)
                     .or_insert_with(|| TypeRow::TypeDef(def.clone()));
 
@@ -72,13 +72,11 @@ impl TypeReader {
                 }
 
                 match extends {
-                    ("System", "Object") => {
+                    ("System", "Object") | ("System", "Enum") => {
                         for field in def.fields() {
                             let name = field.name();
 
-                            types
-                                .entry(namespace)
-                                .or_default()
+                            values
                                 .entry(name)
                                 .or_insert_with(|| TypeRow::Constant(field));
                         }
@@ -86,22 +84,9 @@ impl TypeReader {
                         for method in def.methods() {
                             let name = method.name();
 
-                            types
-                                .entry(namespace)
-                                .or_default()
+                            values
                                 .entry(name)
                                 .or_insert_with(|| TypeRow::Function(method));
-                        }
-                    }
-                    ("System", "Enum") => {
-                        for field in def.fields() {
-                            let name = field.name();
-
-                            types
-                                .entry(namespace)
-                                .or_default()
-                                .entry(name)
-                                .or_insert_with(|| TypeRow::Constant(field));
                         }
                     }
                     _ => {}

@@ -28,9 +28,15 @@ impl GenericType {
         if generics.is_empty() {
             let generics = def.generics().map(ElementType::GenericParam).collect();
 
-            Self { def: def.clone(), generics }
+            Self {
+                def: def.clone(),
+                generics,
+            }
         } else {
-            Self { def: def.clone(), generics }
+            Self {
+                def: def.clone(),
+                generics,
+            }
         }
     }
 

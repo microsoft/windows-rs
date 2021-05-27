@@ -1,11 +1,11 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeDef(Row);
+pub struct TypeDef(Row, Vec<ElementType>);
 
 impl From<Row> for TypeDef {
     fn from(row: Row) -> Self {
-        Self(row)
+        Self(row, Vec::new())
     }
 }
 

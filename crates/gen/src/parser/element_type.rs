@@ -55,7 +55,7 @@ impl ElementType {
             Self::Enum(def) => *def.0.row(),
             Self::Struct(def) => *def.0.row(),
             Self::Delegate(def) => *def.0.def.row(),
-            Self::Callback(def) => *def.0 .row(),
+            Self::Callback(def) => *def.0.row(),
             _ => unexpected!(),
         }
     }
