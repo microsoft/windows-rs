@@ -1,6 +1,6 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::Data::Xml::Dom::XmlDocument,
         Windows::Data::Xml::Dom::XmlElement
-    );
+    };
 }

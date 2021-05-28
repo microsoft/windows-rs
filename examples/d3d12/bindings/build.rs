@@ -1,5 +1,5 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::Win32::Graphics::Direct3D12::*,
         Windows::Win32::Graphics::Dxgi::*,
         Windows::Win32::Graphics::Direct3D11::{
@@ -56,5 +56,5 @@ fn main() {
         Windows::Win32::UI::DisplayDevices::{
             RECT
         },
-    );
+    };
 }

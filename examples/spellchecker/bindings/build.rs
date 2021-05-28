@@ -1,5 +1,5 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::Win32::Globalization::{
             ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, IEnumSpellingError,
             ISpellingError, CORRECTIVE_ACTION_NONE, CORRECTIVE_ACTION_DELETE,
@@ -7,5 +7,5 @@ fn main() {
         },
         Windows::Win32::System::SystemServices::{BOOL, PWSTR, S_FALSE},
         Windows::Win32::System::Com::IEnumString
-    )
+    };
 }

@@ -1,7 +1,7 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::ApplicationModel::Activation::*,
         Windows::UI::Xaml::*,
         Windows::UI::Xaml::Controls::TextBox,
-    );
+    };
 }

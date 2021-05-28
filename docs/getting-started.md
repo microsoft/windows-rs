@@ -52,13 +52,13 @@ In the build.rs file add the following:
 
 ```rust
 fn main() {
-    windows::build!(
+    windows::build! {
         // Note that we're using the `Intl` namespace which is nested inside the `Win32` namespace
         // which itself is inside the `Windows` namespace.
         Windows::Win32::Globalization::{ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, CORRECTIVE_ACTION, IEnumSpellingError, ISpellingError},
         Windows::Win32::System::SystemServices::{BOOL, PWSTR, S_FALSE},
         Windows::Win32::System::Com::IEnumString
-    )
+    };
 }
 ```
 

@@ -1,3 +1,3 @@
 fn main() {
-    windows::build!(Windows::ApplicationModel::Contacts::KnownContactField);
+    windows::build! {Windows::ApplicationModel::Contacts::KnownContactField};
 }

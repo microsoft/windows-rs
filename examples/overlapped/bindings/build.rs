@@ -1,5 +1,5 @@
 fn main() {
-    windows::build!(
+    windows::build! {
       Windows::Win32::Storage::FileSystem::{
         CreateFileA, ReadFile, FILE_GENERIC_READ, FILE_SHARE_READ, OPEN_EXISTING,
         FILE_FLAG_OVERLAPPED,
@@ -10,5 +10,5 @@ fn main() {
       },
       Windows::Win32::System::Diagnostics::Debug::{GetLastError, ERROR_IO_PENDING},
       Windows::Win32::System::WindowsProgramming::CloseHandle,
-    );
+    };
 }

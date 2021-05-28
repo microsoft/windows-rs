@@ -1,5 +1,5 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::Win32::System::OleAutomation::BSTR,
         Windows::Win32::Security::{
             REVOKE_ACCESS,
@@ -45,5 +45,5 @@ fn main() {
         Windows::Win32::System::UpdateAgent::IAutomaticUpdates,
         Windows::Win32::UI::Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
         Windows::Win32::UI::ColorSystem::WhitePoint,
-    );
+    };
 }

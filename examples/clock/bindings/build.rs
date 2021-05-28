@@ -1,5 +1,5 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::Foundation::Numerics::Matrix3x2,
         Windows::Win32::Graphics::Direct2D::{
             CLSID_D2D1Shadow, D2D1CreateFactory, ID2D1Bitmap1, ID2D1Device, ID2D1DeviceContext,
@@ -45,5 +45,5 @@ fn main() {
             WM_DISPLAYCHANGE, WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, WNDCLASSA, WPARAM,
             WS_OVERLAPPEDWINDOW, WS_VISIBLE,
         },
-    );
+    };
 }

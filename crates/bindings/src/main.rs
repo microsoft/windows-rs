@@ -1,7 +1,7 @@
 use std::io::prelude::*;
 
 fn main() -> std::io::Result<()> {
-    let tokens = windows_macros::generate!(
+    let tokens = windows_macros::generate! {
         Windows::Foundation::{IReference, IStringable, PropertyValue},
         Windows::Win32::System::Com::{
             CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, CLSIDFromProgID, CoInitializeEx, CoCreateInstance,
@@ -25,7 +25,7 @@ fn main() -> std::io::Result<()> {
         Windows::Win32::System::WinRT::{
             IRestrictedErrorInfo, ILanguageExceptionErrorInfo2, IWeakReference, IWeakReferenceSource,
         },
-    );
+    };
 
     let mut path = windows_gen::workspace_dir();
     path.push("src");

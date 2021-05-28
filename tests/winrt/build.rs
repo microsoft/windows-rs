@@ -1,5 +1,5 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::Foundation::Diagnostics::*,
         Windows::Foundation::Collections::*,
         Windows::Foundation::*,
@@ -44,5 +44,5 @@ fn main() {
         // Test for https://github.com/microsoft/windows-rs/issues/386
         Windows::UI::Xaml::Data::ICustomPropertyProvider,
 
-    );
+    };
 }

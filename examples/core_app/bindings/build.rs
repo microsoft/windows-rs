@@ -1,6 +1,6 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::ApplicationModel::Core::*,
         Windows::UI::Core::*,
-    );
+    };
 }

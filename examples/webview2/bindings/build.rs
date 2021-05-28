@@ -1,5 +1,5 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Microsoft::Web::WebView2::Core::*,
         Windows::Foundation::*,
         Windows::Win32::Graphics::Gdi::UpdateWindow,
@@ -12,5 +12,5 @@ fn main() {
         Windows::Win32::UI::KeyboardAndMouseInput::SetFocus,
         Windows::Win32::UI::MenusAndResources::HMENU,
         Windows::Win32::UI::WindowsAndMessaging::*
-    )
+    };
 }
