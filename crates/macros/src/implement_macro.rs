@@ -34,7 +34,7 @@ impl ImplementMacro {
             let extend = reader.resolve_type_def(namespace, name);
 
             for interface in extend.overridable_interfaces() {
-                result.push((GenericType::from_type_def(interface, Vec::new()), true));
+                result.push((GenericType::from_type_def(&interface, Vec::new()), true));
             }
         }
 

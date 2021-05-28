@@ -26,6 +26,8 @@ pub fn workspace_dir() -> std::path::PathBuf {
     static ONCE: Once = Once::new();
     static mut VALUE: MaybeUninit<std::path::PathBuf> = MaybeUninit::uninit();
 
+    // TODO: calling `cargo metadata` just to get the workspace dir takes about 40ms.
+
     ONCE.call_once(|| {
         let output = std::process::Command::new(env!("CARGO"))
             .arg("metadata")
@@ -38,7 +40,7 @@ pub fn workspace_dir() -> std::path::PathBuf {
         const JSON_KEY: &str = r#""workspace_root":"#;
         let json = String::from_utf8(output.stdout).expect("Cargo metadata is not utf-8");
         let beginning_index = json
-            .find(JSON_KEY)
+            .rfind(JSON_KEY)
             .expect("Cargo metadata did not contain `workspace_root` key.")
             + JSON_KEY.len()
             + 1;
@@ -62,7 +64,7 @@ fn get_workspace_winmds() -> Vec<File> {
     let mut windows_path = workspace_windows_dir();
     windows_path.push("winmd");
 
-    let mut paths = vec![];
+    let mut result = vec![];
 
     if let Ok(files) = std::fs::read_dir(windows_path) {
         for file in files.filter_map(|file| file.ok()) {
@@ -71,25 +73,26 @@ fn get_workspace_winmds() -> Vec<File> {
                     let path = file.path();
                     if let Some("winmd") = path.extension().and_then(|extension| extension.to_str())
                     {
-                        paths.push(file.path());
+                        result.push(File::new(path));
                     }
                 }
             }
         }
     }
 
-    let mut files: Vec<File> = paths.into_iter().map(File::new).collect();
+    // TODO: include_bytes is very slow - it takes an extra 60ms compared with memory mapped files.
+    // https://github.com/rust-lang/rust/issues/65818
 
-    if !files.iter().any(|file| file.name.starts_with("Windows.")) {
-        files.push(File::from_bytes(
+    if !result.iter().any(|file| file.name.starts_with("Windows.")) {
+        result.push(File::from_bytes(
             "Windows.Win32.winmd".to_string(),
             include_bytes!("../default/Windows.Win32.winmd").to_vec(),
         ));
-        files.push(File::from_bytes(
+        result.push(File::from_bytes(
             "Windows.WinRT.winmd".to_string(),
             include_bytes!("../default/Windows.WinRT.winmd").to_vec(),
         ));
     }
 
-    files
+    result
 }

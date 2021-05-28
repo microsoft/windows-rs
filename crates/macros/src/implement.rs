@@ -124,7 +124,7 @@ pub fn gen(
             if attribute.name() == "ComposableAttribute" {
                 if let Some(def) = attribute.composable_type() {
                     factories.push(InterfaceInfo {
-                        def: GenericType::from_type_def(def, Vec::new()),
+                        def: GenericType::from_type_def(&def, Vec::new()),
                         kind: InterfaceKind::Extend,
                         is_base: false,
                         version: (0, 0),
