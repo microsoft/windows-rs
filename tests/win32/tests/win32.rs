@@ -1,4 +1,5 @@
 use test_win32::{
+    Windows::Win32::Foundation::{CloseHandle, BOOL, BSTR, HANDLE, PSTR, PWSTR, RECT},
     Windows::Win32::Gaming::HasExpandedResources,
     Windows::Win32::Graphics::Direct2D::CLSID_D2D1Shadow,
     Windows::Win32::Graphics::Direct3D11::D3DDisassemble11Trace,
@@ -10,14 +11,10 @@ use test_win32::{
     Windows::Win32::Storage::StructuredStorage::*,
     Windows::Win32::System::Com::CreateUri,
     Windows::Win32::System::Diagnostics::Debug::*,
-    Windows::Win32::System::OleAutomation::BSTR,
-    Windows::Win32::System::SystemServices::{BOOL, HANDLE, PSTR, PWSTR},
     Windows::Win32::System::Threading::*,
-    Windows::Win32::System::WindowsProgramming::CloseHandle,
     Windows::Win32::UI::Accessibility::UIA_ScrollPatternNoScroll,
     Windows::Win32::UI::Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
     Windows::Win32::UI::ColorSystem::WhitePoint,
-    Windows::Win32::UI::DisplayDevices::RECT,
     Windows::Win32::UI::WindowsAndMessaging::{
         CHOOSECOLORW, HWND, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP,
     },

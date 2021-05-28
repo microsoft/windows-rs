@@ -55,8 +55,8 @@ fn main() {
     windows::build!(
         // Note that we're using the `Intl` namespace which is nested inside the `Win32` namespace
         // which itself is inside the `Windows` namespace.
+        Windows::Win32::Foundation::{BOOL, PWSTR, S_FALSE},
         Windows::Win32::Globalization::{ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, CORRECTIVE_ACTION, IEnumSpellingError, ISpellingError},
-        Windows::Win32::System::SystemServices::{BOOL, PWSTR, S_FALSE},
         Windows::Win32::System::Com::IEnumString
     )
 }
@@ -95,8 +95,8 @@ fn main() -> windows::Result<()> {
 Next, we'll initialize the `ISpellCheckerFactory` which is what gives us access to spellcheckers. We'll first make sure the `intl` namespace and two types we'll need `PWSTR` and `BOOL` are in scope at the top of the main.rs file:
 
 ```rust
+use bindings::Windows::Win32::Foundation::{BOOL, PWSTR};
 use bindings::Windows::Win32::Globalization;
-use bindings::Windows::Win32::System::SystemServices::{BOOL, PWSTR};
 ```
 
 Then we can do the initialization by calling `windows::create_instance` which calls [CoCreateInstance](https://docs.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-cocreateinstance) under the hood:

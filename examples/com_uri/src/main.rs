@@ -1,5 +1,5 @@
 use bindings::{
-    Windows::Win32::System::Com::CreateUri, Windows::Win32::System::OleAutomation::BSTR,
+    Windows::Win32::System::Com::CreateUri, Windows::Win32::Foundation::BSTR,
 };
 
 fn main() -> windows::Result<()> {

@@ -25,11 +25,11 @@ fn main() {
             DXGI_USAGE_RENDER_TARGET_OUTPUT,
         },
         Windows::Win32::Graphics::Gdi::{BeginPaint, EndPaint, PAINTSTRUCT},
-        Windows::Win32::System::SystemServices::{
-            GetModuleHandleA, DXGI_STATUS_OCCLUDED, HINSTANCE, LRESULT, PSTR,
-        },
+        Windows::Win32::Foundation::{DXGI_STATUS_OCCLUDED, HINSTANCE, HWND, LPARAM, LRESULT, PSTR, WPARAM},
+        Windows::Win32::System::LibraryLoader::GetModuleHandleA,
+        Windows::Win32::System::SystemInformation::GetLocalTime,
         Windows::Win32::System::WindowsProgramming::{
-            GetLocalTime, QueryPerformanceCounter, QueryPerformanceFrequency,
+            QueryPerformanceCounter, QueryPerformanceFrequency,
         },
         Windows::Win32::UI::Animation::{
             IUIAnimationManager, IUIAnimationTransition, IUIAnimationTransitionLibrary,
@@ -40,9 +40,9 @@ fn main() {
             CreateWindowExA, DefWindowProcA, DispatchMessageA, GetMessageA, GetWindowLongPtrA,
             LoadCursorW, PeekMessageA, PostQuitMessage, RegisterClassA, SetWindowLongPtrA,
             SetWindowLongA, GetWindowLongA,
-            CREATESTRUCTA, CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, GWLP_USERDATA, HWND, IDC_HAND,
-            LPARAM, MSG, PM_REMOVE, SIZE_MINIMIZED, WINDOW_LONG_PTR_INDEX, WM_ACTIVATE, WM_DESTROY,
-            WM_DISPLAYCHANGE, WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, WNDCLASSA, WPARAM,
+            CREATESTRUCTA, CS_HREDRAW, CS_VREDRAW, CW_USEDEFAULT, GWLP_USERDATA, IDC_HAND,
+            MSG, PM_REMOVE, SIZE_MINIMIZED, WINDOW_LONG_PTR_INDEX, WM_ACTIVATE, WM_DESTROY,
+            WM_DISPLAYCHANGE, WM_NCCREATE, WM_PAINT, WM_QUIT, WM_SIZE, WM_USER, WNDCLASSA,
             WS_OVERLAPPEDWINDOW, WS_VISIBLE,
         },
     );

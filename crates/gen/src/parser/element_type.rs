@@ -129,7 +129,7 @@ impl ElementType {
                         ("System", "Guid") => Self::Guid,
                         ("Windows.Win32.System.Com", "IUnknown") => Self::IUnknown,
                         ("Windows.Foundation", "HResult") => Self::HRESULT,
-                        ("Windows.Win32.System.Com", "HRESULT") => Self::HRESULT,
+                        ("Windows.Win32.Foundation", "HRESULT") => Self::HRESULT,
                         ("Windows.Win32.System.WinRT", "HSTRING") => Self::String,
                         ("Windows.Win32.System.WinRT", "IInspectable") => Self::IInspectable,
                         ("Windows.Win32.System.SystemServices", "LARGE_INTEGER") => Self::I64,

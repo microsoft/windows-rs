@@ -24,7 +24,7 @@ pub fn gen_bstr() -> TokenStream {
                     return 0;
                 }
 
-                unsafe { SysStringLen(self) as usize }
+                unsafe { super::System::OleAutomation::SysStringLen(self) as usize }
             }
 
             /// Create a `BSTR` from a slice of 16-bit characters.
@@ -33,7 +33,7 @@ pub fn gen_bstr() -> TokenStream {
                     return Self(::std::ptr::null_mut());
                 }
 
-                unsafe { SysAllocStringLen(super::SystemServices::PWSTR(value.as_ptr() as _), value.len() as u32) }
+                unsafe { super::System::OleAutomation::SysAllocStringLen(super::Foundation::PWSTR(value.as_ptr() as _), value.len() as u32) }
             }
 
             /// Get the string as 16-bit characters.
@@ -42,7 +42,7 @@ pub fn gen_bstr() -> TokenStream {
                     return &[];
                 }
 
-                unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, SysStringLen(self) as usize) }
+                unsafe { ::std::slice::from_raw_parts(self.0 as *const u16, super::System::OleAutomation::SysStringLen(self) as usize) }
             }
         }
         impl ::std::clone::Clone for BSTR {
@@ -131,7 +131,7 @@ pub fn gen_bstr() -> TokenStream {
         impl ::std::ops::Drop for BSTR {
             fn drop(&mut self) {
                 if !self.0.is_null() {
-                    unsafe { SysFreeString(self as &Self); }
+                    unsafe { super::System::OleAutomation::SysFreeString(self as &Self); }
                 }
             }
         }

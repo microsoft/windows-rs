@@ -1,8 +1,8 @@
 use crate::*;
 
 use bindings::{
+    Windows::Win32::Foundation::{E_POINTER, PWSTR},
     Windows::Win32::System::Diagnostics::Debug::*,
-    Windows::Win32::System::SystemServices::{E_POINTER, PWSTR},
 };
 
 /// A primitive error code value returned by most COM functions.

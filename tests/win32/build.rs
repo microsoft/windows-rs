@@ -1,7 +1,7 @@
 fn main() {
     windows::build!(
-        Windows::Win32::System::OleAutomation::BSTR,
-        Windows::Win32::Security::{
+        Windows::Win32::Foundation::{CloseHandle, BSTR, RECT},
+        Windows::Win32::Security::Authorization::{
             REVOKE_ACCESS,
         },
         Windows::Win32::UI::WindowsAndMessaging::{
@@ -17,9 +17,6 @@ fn main() {
             DXGI_FORMAT_R32_TYPELESS, DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
             DXGI_MODE_SCALING_CENTERED,
         },
-        Windows::Win32::UI::DisplayDevices::{
-            RECT,
-        },
         Windows::Win32::System::Threading::{
             CreateEventW, SetEvent, WaitForSingleObject, WAIT_OBJECT_0,
         },
@@ -32,9 +29,6 @@ fn main() {
         },
         Windows::Win32::Graphics::Hlsl::{
             D3DCOMPILER_DLL
-        },
-        Windows::Win32::System::WindowsProgramming::{
-            CloseHandle
         },
         Windows::Win32::Gaming::HasExpandedResources,
         Windows::Win32::Graphics::Direct3D11::D3DDisassemble11Trace,

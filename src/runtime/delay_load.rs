@@ -1,6 +1,6 @@
 use crate::*;
 
-use bindings::Windows::Win32::System::SystemServices::{FreeLibrary, GetProcAddress, LoadLibraryA};
+use bindings::Windows::Win32::System::LibraryLoader::{FreeLibrary, GetProcAddress, LoadLibraryA};
 
 pub fn delay_load(library: &str, function: &str) -> std::result::Result<RawPtr, HRESULT> {
     unsafe {
