@@ -27,7 +27,7 @@ pub struct File {
 
 /// A well-known index of data into the winmd tables array
 #[repr(u16)]
-#[derive(Copy, Clone, Eq, PartialEq, Debug, PartialOrd, Ord)]
+#[derive(Copy, Clone, Eq, PartialEq, Debug, PartialOrd, Ord, Hash)]
 pub enum TableIndex {
     Constant = 0,
     CustomAttribute,

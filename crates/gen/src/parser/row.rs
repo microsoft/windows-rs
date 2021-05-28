@@ -33,6 +33,14 @@ impl Row {
     }
 }
 
+impl std::hash::Hash for Row {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.row.hash(state);
+        self.table.hash(state);
+        self.file.bytes.as_ptr().hash(state);
+    }
+}
+
 impl PartialEq for Row {
     fn eq(&self, other: &Self) -> bool {
         (self.row, self.table, self.file.bytes.as_ptr() as usize)

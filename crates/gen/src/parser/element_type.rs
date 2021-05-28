@@ -27,6 +27,7 @@ pub enum ElementType {
     GenericParam(tables::GenericParam),
     Array((Box<Signature>, u32)),
 
+    // TODO: most of these should just be stored as a TypeDef(TypeDef)
     Function(types::Function),
     Constant(types::Constant),
     Class(types::Class),

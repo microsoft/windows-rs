@@ -1,10 +1,10 @@
 use super::*;
-use std::collections::BTreeMap;
+use std::collections::HashMap;
 
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
-    types: BTreeMap<&'static str, BTreeMap<&'static str, TypeRow>>,
-    nested: BTreeMap<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>,
+    types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
+    nested: HashMap<tables::TypeDef, HashMap<&'static str, tables::TypeDef>>,
 }
 
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
@@ -37,10 +37,10 @@ impl TypeReader {
     fn new() -> Self {
         let files = workspace_winmds();
 
-        let mut types = BTreeMap::<&'static str, BTreeMap<&'static str, TypeRow>>::default();
+        let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
 
         let mut nested =
-            BTreeMap::<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>::new();
+        HashMap::<tables::TypeDef, HashMap<&'static str, tables::TypeDef>>::new();
 
         for file in files {
             let row_count = file.type_def_table().row_count;
