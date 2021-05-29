@@ -4,27 +4,25 @@ fn main() -> std::io::Result<()> {
     let tokens = windows_macros::generate! {
         Windows::Foundation::{IReference, IStringable, PropertyValue},
         Windows::Win32::System::Com::{
-            CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, CLSIDFromProgID, CoInitializeEx, CoCreateInstance,
-            IAgileObject, COINIT_MULTITHREADED, COINIT_APARTMENTTHREADED, CLSCTX_ALL,
+            CLSIDFromProgID, CoCreateGuid, CoCreateInstance, CoInitializeEx, CoTaskMemAlloc,
+            CoTaskMemFree, IAgileObject, CLSCTX_ALL, COINIT_APARTMENTTHREADED,
+            COINIT_MULTITHREADED,
         },
         Windows::Win32::System::Diagnostics::Debug::{
-            GetLastError, FormatMessageW, FORMAT_MESSAGE_ALLOCATE_BUFFER, FORMAT_MESSAGE_FROM_SYSTEM,
-            FORMAT_MESSAGE_IGNORE_INSERTS,
+            FormatMessageW, GetLastError, FORMAT_MESSAGE_ALLOCATE_BUFFER,
+            FORMAT_MESSAGE_FROM_SYSTEM, FORMAT_MESSAGE_IGNORE_INSERTS,
         },
-        Windows::Win32::System::Memory::{
-            GetProcessHeap, HeapAlloc, HeapFree, HEAP_NONE,
-        },
-        Windows::Win32::System::OleAutomation::{BSTR, GetErrorInfo, IErrorInfo, SetErrorInfo},
+        Windows::Win32::System::Memory::{GetProcessHeap, HeapAlloc, HeapFree, HEAP_NONE},
+        Windows::Win32::System::OleAutomation::{GetErrorInfo, IErrorInfo, SetErrorInfo, BSTR},
         Windows::Win32::System::SystemServices::{
-            GetProcAddress, LoadLibraryA, FreeLibrary, CO_E_NOTINITIALIZED, E_POINTER,
+            FreeLibrary, GetProcAddress, LoadLibraryA, CO_E_NOTINITIALIZED, E_POINTER,
         },
-        Windows::Win32::System::Threading::{
-            CreateEventA, SetEvent, WaitForSingleObject,
+        Windows::Win32::System::Threading::{CreateEventA, SetEvent, WaitForSingleObject},
+        Windows::Win32::System::WinRT::{
+            ILanguageExceptionErrorInfo2, IRestrictedErrorInfo, IWeakReference,
+            IWeakReferenceSource,
         },
         Windows::Win32::System::WindowsProgramming::CloseHandle,
-        Windows::Win32::System::WinRT::{
-            IRestrictedErrorInfo, ILanguageExceptionErrorInfo2, IWeakReference, IWeakReferenceSource,
-        },
     };
 
     let mut path = windows_gen::workspace_dir();
