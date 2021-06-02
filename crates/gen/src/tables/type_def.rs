@@ -78,8 +78,7 @@ impl TypeDef {
             .map(InterfaceImpl)
     }
 
-    // TODO: this should be an iterator...
-    pub fn nested_types(&self) -> Vec<tables::TypeDef> {
+    pub fn nested_types(&self) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
         TypeReader::get().nested_types(self)
     }
 
@@ -190,9 +189,11 @@ impl TypeDef {
 
     fn scoped_name(&self) -> String {
         if let Some(enclosing_type) = self.enclosing_type() {
-            for (index, nested_type) in enclosing_type.nested_types().iter().enumerate() {
-                if nested_type.name() == self.name() {
-                    return format!("{}_{}", enclosing_type.scoped_name(), index);
+            if let Some(nested_types) = enclosing_type.nested_types() {
+                for (index, (nested_type, _)) in nested_types.iter().enumerate() {
+                    if *nested_type == self.name() {
+                        return format!("{}_{}", enclosing_type.scoped_name(), index);
+                    }
                 }
             }
         }
@@ -211,7 +212,7 @@ impl TypeDef {
     pub fn overridable_interfaces(&self) -> Vec<TypeDef> {
         self.interface_impls()
             .filter(|interface| interface.is_overridable())
-            .map(|interface| interface.interface().resolve())
+            .map(|interface| interface.interface().resolve().clone())
             .chain(
                 self.bases()
                     .next()
@@ -221,6 +222,7 @@ impl TypeDef {
             .collect()
     }
 
+    // TODO: hash?
     pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
         self.overridable_interfaces()
             .iter()
@@ -272,7 +274,7 @@ impl Iterator for Bases {
         if (namespace, name) == ("System", "Object") {
             None
         } else {
-            self.0 = TypeReader::get().resolve_type_def(namespace, name);
+            self.0 = TypeReader::get().resolve_type_def(namespace, name).clone();
             Some(self.0.clone())
         }
     }

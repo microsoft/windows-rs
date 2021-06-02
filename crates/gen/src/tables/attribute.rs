@@ -46,7 +46,7 @@ impl Attribute {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
                     ConstantValue::TypeDef(
-                        TypeReader::get().resolve_type_def(&name[0..index], &name[index + 1..]),
+                        TypeReader::get().resolve_type_def(&name[0..index], &name[index + 1..]).clone(),
                     )
                 }
                 ElementType::Enum(def) => {
@@ -79,7 +79,7 @@ impl Attribute {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
                     ConstantValue::TypeDef(
-                        TypeReader::get().resolve_type_def(&name[0..index], &name[index + 1..]),
+                        TypeReader::get().resolve_type_def(&name[0..index], &name[index + 1..]).clone(),
                     )
                 }
                 _ => unexpected!(),

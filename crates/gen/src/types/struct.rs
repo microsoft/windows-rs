@@ -488,15 +488,18 @@ fn gen_nested_types<'a>(
     enclosing_type: &'a tables::TypeDef,
     gen: &Gen,
 ) -> TokenStream {
-    enclosing_type
-        .nested_types()
+    if let Some(nested_types) = enclosing_type.nested_types() {
+        nested_types
         .iter()
         .enumerate()
-        .map(|(index, nested_type)| {
+        .map(|(index, (_, nested_type))| {
             let nested_name = format!("{}_{}", enclosing_name, index);
             Struct(nested_type.clone()).gen_struct(&nested_name, gen)
         })
         .collect()
+    } else {
+        TokenStream::new()
+    }
 }
 
 #[cfg(test)]

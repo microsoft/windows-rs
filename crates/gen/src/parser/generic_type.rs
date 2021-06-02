@@ -10,7 +10,7 @@ impl GenericType {
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
         blob.read_unsigned();
 
-        let def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
+        let def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve().clone();
 
         let mut args = Vec::with_capacity(blob.read_unsigned() as usize);
 

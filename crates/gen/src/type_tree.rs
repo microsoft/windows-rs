@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug)]
 pub struct TypeTree {
     pub namespace: &'static str,
-    pub types: Vec<ElementType>,
+    pub types: Vec<ElementType>, // TODO: BTreeSet to keep code gen order stable?
     pub namespaces: BTreeMap<&'static str, TypeTree>,
 }
 

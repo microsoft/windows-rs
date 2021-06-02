@@ -1,10 +1,12 @@
 use super::*;
-use std::collections::HashMap;
+use std::collections::*;
 
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
     types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
-    nested: HashMap<tables::TypeDef, HashMap<&'static str, tables::TypeDef>>,
+    // Nested types are stored in a BTreeMap to ensure a stable order over time. This impacts
+    // the derived nested type names.
+    nested: HashMap<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>,
 }
 
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
@@ -40,7 +42,7 @@ impl TypeReader {
         let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
 
         let mut nested =
-        HashMap::<tables::TypeDef, HashMap<&'static str, tables::TypeDef>>::new();
+        HashMap::<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>::new();
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -72,7 +74,7 @@ impl TypeReader {
                 }
 
                 match extends {
-                    ("System", "Object") | ("System", "Enum") => {
+                    ("System", "Object") => {
                         for field in def.fields() {
                             let name = field.name();
 
@@ -87,6 +89,15 @@ impl TypeReader {
                             values
                                 .entry(name)
                                 .or_insert_with(|| TypeRow::Function(method));
+                        }
+                    }
+                    ("System", "Enum") => {
+                        for field in def.fields() {
+                            let name = field.name();
+
+                            values
+                                .entry(name)
+                                .or_insert_with(|| TypeRow::Constant(field));
                         }
                     }
                     _ => {}
@@ -149,13 +160,9 @@ impl TypeReader {
     }
 
     // TODO: how to make this return an iterator?
-    pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> Vec<tables::TypeDef> {
+    pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
         self.nested
             .get(enclosing)
-            .iter()
-            .flat_map(|t| t.values())
-            .cloned()
-            .collect()
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
@@ -198,21 +205,19 @@ impl TypeReader {
         }
     }
 
-    // TODO: return refernece?
-    pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
+    pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> &tables::TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
-                return row.clone();
+                return row;
             }
         }
 
         panic!("Could not find type def `{}.{}`", namespace, name);
     }
 
-    // TODO: return reference?
-    pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
+    pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> &tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            self.nested[&scope.resolve()][type_ref.name()].clone()
+            self.nested[&scope.resolve()].get(type_ref.name()).unwrap_or_else(||panic!("Could not find nested type `{}` in `{}.{}`",  type_ref.name(), scope.namespace(), scope.name()))
         } else {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
         }

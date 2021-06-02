@@ -43,7 +43,7 @@ impl InterfaceImpl {
                 }
 
                 GenericType {
-                    def: def.resolve(),
+                    def: def.resolve().clone(),
                     generics: Vec::new(),
                 }
             }
