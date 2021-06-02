@@ -458,7 +458,7 @@ impl Iterator for Bases {
             None
         } else {
             self.0 = TypeReader::get().resolve_type_def(namespace, name).clone();
-            Some(TypeDef::from_type_def(&self.0, Vec::new()))
+            Some(self.0.clone())
         }
     }
 }
