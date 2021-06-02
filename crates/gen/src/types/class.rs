@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Class(pub GenericType);
+pub struct Class(pub tables::TypeDef);
 
 impl Class {
     // TODO: can't this be private and use the interfaces collection?
@@ -10,14 +10,14 @@ impl Class {
 
         format!(
             "rc({}.{};{})",
-            self.0.def.namespace(),
-            self.0.def.name(),
+            self.0.namespace(),
+            self.0.name(),
             default.interface_signature()
         )
     }
 
     fn has_default_constructor(&self) -> bool {
-        for attribute in self.0.def.attributes() {
+        for attribute in self.0.attributes() {
             if attribute.name() == "ActivatableAttribute" {
                 if attribute
                     .args()
@@ -35,9 +35,9 @@ impl Class {
     }
 
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
-        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
-            for child in parent.def.interface_impls() {
-                if let Some(def) = child.generic_interface(&parent.generics) {
+        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &tables::TypeDef, is_base: bool) {
+            for child in parent.interface_impls() {
+                if let Some(def) = child.generic_interface(parent.generics()) {
                     let kind = if !is_base && child.is_default() {
                         InterfaceKind::Default
                     } else if child.is_overridable() {
@@ -61,7 +61,7 @@ impl Class {
                     if !found {
                         add_interfaces(result, &def, is_base);
 
-                        let version = def.def.version();
+                        let version = def.version();
 
                         result.push(InterfaceInfo {
                             def,
@@ -81,13 +81,12 @@ impl Class {
             add_interfaces(&mut result, &base, true);
         }
 
-        for attribute in self.0.def.attributes() {
+        for attribute in self.0.attributes() {
             match attribute.name() {
                 "StaticAttribute" | "ActivatableAttribute" => {
                     for (_, arg) in attribute.args() {
                         if let parser::ConstantValue::TypeDef(def) = arg {
-                            let def = GenericType::from_type_def(&def, Vec::new());
-                            let version = def.def.version();
+                            let version = def.version();
 
                             result.push(InterfaceInfo {
                                 def,
@@ -105,7 +104,7 @@ impl Class {
                         let version = def.version();
 
                         result.push(InterfaceInfo {
-                            def: GenericType::from_type_def(&def, Vec::new()),
+                            def,
                             kind: InterfaceKind::Composable,
                             is_base: false,
                             version,
@@ -121,11 +120,11 @@ impl Class {
     }
 
     pub fn dependencies(&self) -> Vec<ElementType> {
-        let generics = self.0.generics.iter().map(|g| g.definition());
+        let generics = self.0.generics().iter().map(|g| g.definition());
         let interfaces = self.0.interfaces().map(|i| i.definition());
         let bases = self.0.bases().map(|b| b.definition());
 
-        let factories = self.0.def.attributes().filter_map(|attribute| {
+        let factories = self.0.attributes().filter_map(|attribute| {
             match attribute.name() {
                 "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                     for (_, arg) in attribute.args() {
@@ -156,13 +155,13 @@ impl Class {
         let name = self.0.gen_name(gen);
         let interfaces = self.interfaces();
         let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-        let runtime_name = format!("{}.{}", self.0.def.namespace(), self.0.def.name());
+        let runtime_name = format!("{}.{}", self.0.namespace(), self.0.name());
 
         let factories = interfaces.iter().filter_map(|interface| {
             match interface.kind {
                 InterfaceKind::Static | InterfaceKind::Composable => {
-                    if interface.def.def.methods().next().is_some() {
-                        let interface_name = format_ident!("{}", interface.def.def.name());
+                    if interface.def.methods().next().is_some() {
+                        let interface_name = format_ident!("{}", interface.def.name());
                         let interface_type = interface.def.gen_name(gen);
 
                         Some(quote! {
@@ -212,7 +211,7 @@ impl Class {
                 .iter()
                 .map(|interface| interface.gen_conversion(&name, &TokenStream::new(), gen));
 
-            let send_sync = if self.0.def.is_agile() {
+            let send_sync = if self.0.is_agile() {
                 quote! {
                     unsafe impl ::std::marker::Send for #name {}
                     unsafe impl ::std::marker::Sync for #name {}
@@ -349,16 +348,16 @@ mod tests {
         assert_eq!(c.0.bases().count(), 0);
 
         let c = TypeReader::get_class("Windows.UI.Composition", "Visual");
-        let bases: Vec<GenericType> = c.0.bases().collect();
+        let bases: Vec<tables::TypeDef> = c.0.bases().collect();
         assert_eq!(bases.len(), 1);
-        assert_eq!(bases[0].def.name(), "CompositionObject");
+        assert_eq!(bases[0].name(), "CompositionObject");
 
         let c = TypeReader::get_class("Windows.UI.Composition", "SpriteVisual");
-        let bases: Vec<GenericType> = c.0.bases().collect();
+        let bases: Vec<tables::TypeDef> = c.0.bases().collect();
         assert_eq!(bases.len(), 3);
-        assert_eq!(bases[0].def.name(), "ContainerVisual");
-        assert_eq!(bases[1].def.name(), "Visual");
-        assert_eq!(bases[2].def.name(), "CompositionObject");
+        assert_eq!(bases[0].name(), "ContainerVisual");
+        assert_eq!(bases[1].name(), "Visual");
+        assert_eq!(bases[2].name(), "CompositionObject");
     }
 
     #[test]
@@ -371,18 +370,18 @@ mod tests {
         let mut i = c.interfaces();
         assert_eq!(i.len(), 4);
 
-        i.sort_by(|a, b| a.def.def.name().cmp(b.def.def.name()));
+        i.sort_by(|a, b| a.def.name().cmp(b.def.name()));
 
-        assert_eq!(i[0].def.def.name(), "IMediaStreamDescriptor");
+        assert_eq!(i[0].def.name(), "IMediaStreamDescriptor");
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
-        assert_eq!(i[1].def.def.name(), "IMediaStreamDescriptor2");
+        assert_eq!(i[1].def.name(), "IMediaStreamDescriptor2");
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
-        assert_eq!(i[2].def.def.name(), "ITimedMetadataStreamDescriptor");
+        assert_eq!(i[2].def.name(), "ITimedMetadataStreamDescriptor");
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);
 
-        assert_eq!(i[3].def.def.name(), "ITimedMetadataStreamDescriptorFactory");
+        assert_eq!(i[3].def.name(), "ITimedMetadataStreamDescriptorFactory");
         assert_eq!(i[3].kind, InterfaceKind::Static);
     }
 }

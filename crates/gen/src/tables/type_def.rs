@@ -1,6 +1,5 @@
 use super::*;
 
-// TODO: should replace GenericType?
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeDef(Row, Vec<ElementType>);
 
@@ -17,6 +16,10 @@ impl From<Row> for TypeDef {
 }
 
 impl TypeDef {
+    pub fn generics(&self) -> &Vec<ElementType> {
+        &self.1
+    }
+
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
         blob.read_unsigned();
 
@@ -33,11 +36,9 @@ impl TypeDef {
     // TODO: with_generics?
     pub fn from_type_def(def: &tables::TypeDef, generics: Vec<ElementType>) -> Self {
         let mut def = def.clone();
-        // TODO: always true? avoid assert...
-        assert!(def.1.is_empty());
 
         if generics.is_empty() {
-            def.1 = def.generics().map(ElementType::GenericParam).collect();
+            def.1 = def.generic_params().map(ElementType::GenericParam).collect();
         } else {
             def.1 = generics;
         }
@@ -59,7 +60,7 @@ impl TypeDef {
     pub fn default_interface(&self) -> Self {
         for interface in self.interface_impls() {
             if interface.is_default() {
-                if let Some(result) = interface.generic_interface2(&self.1) {
+                if let Some(result) = interface.generic_interface(&self.1) {
                     return result;
                 }
             }
@@ -75,7 +76,7 @@ impl TypeDef {
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
         self
             .interface_impls()
-            .filter_map(move |i| i.generic_interface2(&self.1))
+            .filter_map(move |i| i.generic_interface(&self.1))
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
@@ -268,7 +269,7 @@ impl TypeDef {
         self.0.list(5, TableIndex::MethodDef).map(MethodDef)
     }
 
-    pub fn generics(&self) -> impl Iterator<Item = GenericParam> {
+    pub fn generic_params(&self) -> impl Iterator<Item = GenericParam> {
         self.0
             .file
             .equal_range(

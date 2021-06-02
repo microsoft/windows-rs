@@ -163,7 +163,6 @@ mod tests {
     fn get_method(interface: &types::Interface, method: &str) -> MethodDef {
         interface
             .0
-            .def
             .methods()
             .find(|m| m.name() == method)
             .unwrap()
@@ -191,7 +190,7 @@ mod tests {
         let i = TypeReader::get_interface("Windows.Foundation.Collections", "IMap`2");
         let m = get_method(&i, "Lookup");
 
-        let s = m.signature(&i.0.generics);
+        let s = m.signature(i.0.generics());
         assert_eq!(s.params.len(), 1);
 
         let r = s.return_type.unwrap();

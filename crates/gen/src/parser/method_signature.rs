@@ -225,7 +225,7 @@ impl MethodSignature {
                 }
             }
             InterfaceKind::Extend => {
-                let interface_name = to_ident(interface.def.def.name());
+                let interface_name = to_ident(interface.def.name());
                 quote! {
                     pub fn #name<#constraints>(self, #params) -> ::windows::Result<#return_type_tokens> {
                         unsafe {

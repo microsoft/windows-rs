@@ -57,7 +57,7 @@ pub fn gen(
         let interface_ident = t.gen_name(&gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
 
-        for (vtable_offset, method) in t.def.methods().enumerate() {
+        for (vtable_offset, method) in t.methods().enumerate() {
             let method_ident = gen::to_ident(&method.rust_name());
             let vcall_ident = format_ident!("abi{}_{}", interface_count, vtable_offset + 6);
 
@@ -92,7 +92,7 @@ pub fn gen(
             });
         }
 
-        if !t.def.is_exclusive() {
+        if !t.is_exclusive() {
             tokens.combine(&quote! {
                     impl ::std::convert::From<#impl_ident> for #interface_ident {
                         fn from(implementation: #impl_ident) -> Self {
@@ -124,7 +124,7 @@ pub fn gen(
             if attribute.name() == "ComposableAttribute" {
                 if let Some(def) = attribute.composable_type() {
                     factories.push(InterfaceInfo {
-                        def: GenericType::from_type_def(&def, Vec::new()),
+                        def: tables::TypeDef::from_type_def(&def, Vec::new()),
                         kind: InterfaceKind::Extend,
                         is_base: false,
                         version: (0, 0),

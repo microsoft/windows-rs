@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct InterfaceInfo {
-    pub def: GenericType,
+    pub def: tables::TypeDef,
     pub kind: InterfaceKind,
     pub is_base: bool,
     pub version: (u16, u16),
@@ -22,7 +22,7 @@ impl InterfaceInfo {
                 return a.kind.cmp(&b.kind);
             }
 
-            a.def.def.full_name().cmp(&b.def.def.full_name())
+            a.def.full_name().cmp(&b.def.full_name())
         });
     }
 
@@ -33,7 +33,7 @@ impl InterfaceInfo {
         let mut tokens = TokenStream::new();
 
         for interface in interfaces {
-            for (vtable_offset, method) in interface.def.def.methods().enumerate() {
+            for (vtable_offset, method) in interface.def.methods().enumerate() {
                 let name = method.rust_name();
                 let overload = method_names.entry(name.clone()).or_insert(0);
                 *overload += 1;
@@ -45,7 +45,7 @@ impl InterfaceInfo {
                     is_deprecated: method.is_deprecated(),
                 };
 
-                let signature = method.signature(&interface.def.generics);
+                let signature = method.signature(&interface.def.generics());
                 tokens.combine(&signature.gen_winrt_method(&info, interface, gen));
             }
         }
@@ -59,7 +59,7 @@ impl InterfaceInfo {
         constraints: &TokenStream,
         gen: &Gen,
     ) -> TokenStream {
-        if self.def.def.is_exclusive() {
+        if self.def.is_exclusive() {
             return TokenStream::new();
         }
 

@@ -50,12 +50,12 @@ impl ElementType {
         match self {
             Self::Function(def) => def.0 .0,
             Self::Constant(def) => def.0 .0,
-            Self::Class(def) => *def.0.def.row(),
-            Self::Interface(def) => *def.0.def.row(),
-            Self::ComInterface(def) => *def.0.def.row(),
+            Self::Class(def) => *def.0.row(),
+            Self::Interface(def) => *def.0.row(),
+            Self::ComInterface(def) => *def.0.row(),
             Self::Enum(def) => *def.0.row(),
             Self::Struct(def) => *def.0.row(),
-            Self::Delegate(def) => *def.0.def.row(),
+            Self::Delegate(def) => *def.0.row(),
             Self::Callback(def) => *def.0.row(),
             _ => unexpected!(),
         }
@@ -65,12 +65,12 @@ impl ElementType {
         match self {
             Self::Function(def) => def.0.parent().namespace(),
             Self::Constant(def) => def.0.parent().namespace(),
-            Self::Class(def) => def.0.def.namespace(),
-            Self::Interface(def) => def.0.def.namespace(),
-            Self::ComInterface(def) => def.0.def.namespace(),
+            Self::Class(def) => def.0.namespace(),
+            Self::Interface(def) => def.0.namespace(),
+            Self::ComInterface(def) => def.0.namespace(),
             Self::Enum(def) => def.0.namespace(),
             Self::Struct(def) => def.0.namespace(),
-            Self::Delegate(def) => def.0.def.namespace(),
+            Self::Delegate(def) => def.0.namespace(),
             Self::Callback(def) => def.0.namespace(),
             _ => "",
         }
@@ -80,12 +80,12 @@ impl ElementType {
         match self {
             Self::Function(def) => def.0.name(),
             Self::Constant(def) => def.0.name(),
-            Self::Class(def) => def.0.def.name(),
-            Self::Interface(def) => def.0.def.name(),
-            Self::ComInterface(def) => def.0.def.name(),
+            Self::Class(def) => def.0.name(),
+            Self::Interface(def) => def.0.name(),
+            Self::ComInterface(def) => def.0.name(),
             Self::Enum(def) => def.0.name(),
             Self::Struct(def) => def.0.name(),
-            Self::Delegate(def) => def.0.def.name(),
+            Self::Delegate(def) => def.0.name(),
             Self::Callback(def) => def.0.name(),
             _ => "",
         }
@@ -158,8 +158,8 @@ impl ElementType {
                 Self::Array((Box::new(kind), bounds))
             }
             0x15 => {
-                let def = GenericType::from_blob(blob, generics);
-                match def.def.kind() {
+                let def = tables::TypeDef::from_blob(blob, generics);
+                match def.kind() {
                     TypeKind::Interface => Self::Interface(types::Interface(def)),
                     TypeKind::Delegate => Self::Delegate(types::Delegate(def)),
                     _ => unexpected!(),
@@ -173,19 +173,17 @@ impl ElementType {
         match def.kind() {
             TypeKind::Interface => {
                 if def.is_winrt() {
-                    Self::Interface(types::Interface(GenericType::from_type_def(def, generics)))
+                    Self::Interface(types::Interface(tables::TypeDef::from_type_def(def, generics)))
                 } else {
-                    Self::ComInterface(types::ComInterface(GenericType::from_type_def(
-                        def, generics,
-                    )))
+                    Self::ComInterface(types::ComInterface(def.clone()))
                 }
             }
-            TypeKind::Class => Self::Class(types::Class(GenericType::from_type_def(def, generics))),
+            TypeKind::Class => Self::Class(types::Class(tables::TypeDef::from_type_def(def, generics))),
             TypeKind::Enum => Self::Enum(types::Enum(def.clone())),
             TypeKind::Struct => Self::Struct(types::Struct(def.clone())),
             TypeKind::Delegate => {
                 if def.is_winrt() {
-                    Self::Delegate(types::Delegate(GenericType::from_type_def(def, generics)))
+                    Self::Delegate(types::Delegate(tables::TypeDef::from_type_def(def, generics)))
                 } else {
                     Self::Callback(types::Callback(def.clone()))
                 }

@@ -1,13 +1,13 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct ComInterface(pub GenericType);
+pub struct ComInterface(pub tables::TypeDef);
 
 impl ComInterface {
     pub fn dependencies(&self) -> Vec<ElementType> {
         self.0
             .interfaces()
-            .map(|i| ElementType::from_type_def(&i.def, Vec::new()))
+            .map(|i| ElementType::from_type_def(&i, Vec::new()))
             .collect()
     }
 
@@ -17,7 +17,7 @@ impl ComInterface {
 
     pub fn interfaces(&self) -> Vec<tables::TypeDef> {
         let mut result = Vec::new();
-        let mut next = self.0.def.clone();
+        let mut next = self.0.clone();
 
         loop {
             let base = if let Some(next) = next
@@ -25,7 +25,7 @@ impl ComInterface {
                 .next()
                 .and_then(|i| i.generic_interface(&[]))
             {
-                next.def
+                next
             } else {
                 break;
             };
@@ -47,7 +47,7 @@ impl ComInterface {
         let abi_signatures = bases
             .iter()
             .rev()
-            .chain(std::iter::once(&self.0.def))
+            .chain(std::iter::once(&self.0))
             .map(|def| def.methods())
             .flatten()
             .map(|method| {
@@ -87,7 +87,7 @@ impl ComInterface {
         let methods = bases
             .iter()
             .rev()
-            .chain(std::iter::once(&self.0.def))
+            .chain(std::iter::once(&self.0))
             .map(|def| def.methods())
             .flatten()
             .enumerate()
@@ -203,7 +203,7 @@ impl ComInterface {
         }
 
         let send_sync = if matches!(
-            self.0.def.full_name(),
+            self.0.full_name(),
             ("Windows.Win32.System.WinRT", "IRestrictedErrorInfo")
         ) {
             quote! {

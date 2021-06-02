@@ -1,4 +1,4 @@
-use gen::{ElementType, GenericType, TypeKind, TypeReader};
+use gen::{ElementType, TypeKind, TypeReader, tables::TypeDef};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;
@@ -13,7 +13,7 @@ pub struct ImplementMacro {
 }
 
 impl ImplementMacro {
-    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(GenericType, bool)> {
+    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(TypeDef, bool)> {
         // TODO: any one of `self.implement` could be a class in which case its interfaces should be enumerated
 
         let mut result = Vec::new();
@@ -34,7 +34,7 @@ impl ImplementMacro {
             let extend = reader.resolve_type_def(namespace, name);
 
             for interface in extend.overridable_interfaces() {
-                result.push((GenericType::from_type_def(&interface, Vec::new()), true));
+                result.push((TypeDef::from_type_def(&interface, Vec::new()), true));
             }
         }
 
