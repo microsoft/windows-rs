@@ -53,7 +53,7 @@ impl GenericType {
     pub fn bases(&self) -> impl Iterator<Item = Self> + '_ {
         self.def
             .bases()
-            .map(|def| GenericType::from_type_def(&def, Vec::new()))
+            .map(|def| Self::from_type_def(&def, Vec::new()))
     }
 
     pub fn default_interface(&self) -> Self {

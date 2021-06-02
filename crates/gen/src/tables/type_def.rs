@@ -17,6 +17,214 @@ impl From<Row> for TypeDef {
 }
 
 impl TypeDef {
+    pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
+        blob.read_unsigned();
+
+        let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve().clone();
+        let args = blob.read_unsigned();
+
+        for _ in 0..args {
+            def.1.push(ElementType::from_blob(blob, generics));
+        }
+
+        def
+    }
+
+    // TODO: with_generics?
+    pub fn from_type_def(def: &tables::TypeDef, generics: Vec<ElementType>) -> Self {
+        let mut def = def.clone();
+        // TODO: always true? avoid assert...
+        assert!(def.1.is_empty());
+
+        if generics.is_empty() {
+            def.1 = def.generics().map(ElementType::GenericParam).collect();
+        } else {
+            def.1 = generics;
+        }
+
+        def
+    }
+
+    // TODO: get rid of the definition functions
+    pub fn definition(&self) -> Vec<ElementType> {
+        let mut definition = vec![ElementType::from_type_def(self, Vec::new())];
+
+        for generic in &self.1 {
+            definition.append(&mut generic.definition());
+        }
+
+        definition
+    }
+
+    pub fn default_interface(&self) -> Self {
+        for interface in self.interface_impls() {
+            if interface.is_default() {
+                if let Some(result) = interface.generic_interface2(&self.1) {
+                    return result;
+                }
+            }
+        }
+
+        panic!(
+            "`{}.{}` does not have a default interface.",
+            self.namespace(),
+            self.name()
+        );
+    }
+
+    pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
+        self
+            .interface_impls()
+            .filter_map(move |i| i.generic_interface2(&self.1))
+    }
+
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
+        self.format_name(gen, to_ident, false)
+    }
+
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
+        self.format_name(gen, to_abi_ident, false)
+    }
+
+    pub fn gen_turbo_abi_name(&self, gen: &Gen) -> TokenStream {
+        self.format_name(gen, to_abi_ident, true)
+    }
+
+    fn format_name<F>(&self, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
+    where
+        F: FnOnce(&str) -> Ident,
+    {
+        let namespace = self.namespace();
+
+        if namespace.is_empty() {
+            let name = format_name(&self.scoped_name());
+            quote! { #name }
+        } else {
+            let name = self.name();
+            let namespace = gen.namespace(self.namespace());
+
+            if self.1.is_empty() {
+                let name = format_name(name);
+                quote! { #namespace#name }
+            } else {
+                let colon_separated = if turbo || !namespace.as_str().is_empty() {
+                    quote! { :: }
+                } else {
+                    quote! {}
+                };
+    
+                let name = format_name(&name[..name.len() - 2]);
+                let generics = self.1.iter().map(|g| g.gen_name(gen));
+                quote! { #namespace#name#colon_separated<#(#generics),*> }
+            }
+        }
+    }
+
+    pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
+        if self.1.is_empty() {
+            match Guid::from_attributes(self.attributes()) {
+                Some(guid) => {
+                    let guid = guid.gen();
+
+                    quote! {
+                        ::windows::Guid::from_values(#guid)
+                    }
+                }
+                None => {
+                    quote! {
+                        ::windows::Guid::zeroed()
+                    }
+                }
+            }
+        } else {
+            let tokens = self.gen_name(gen);
+
+            quote! {
+                ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
+            }
+        }
+    }
+
+    
+    pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
+        let signature = Literal::byte_string(signature.as_bytes());
+
+        if self.1.is_empty() {
+            return quote! { ::windows::ConstBuffer::from_slice(#signature) };
+        }
+
+        let generics = self.1.iter().enumerate().map(|(index, g)| {
+            let g = g.gen(gen);
+            let semi = if index != self.1.len() - 1 {
+                Some(quote! {
+                    .push_slice(b";")
+                })
+            } else {
+                None
+            };
+
+            quote! {
+                .push_other(<#g as ::windows::RuntimeType>::SIGNATURE)
+                #semi
+            }
+        });
+
+        quote! {
+            {
+                ::windows::ConstBuffer::new()
+                .push_slice(b"pinterface(")
+                .push_slice(#signature)
+                .push_slice(b";")
+                #(#generics)*
+                .push_slice(b")")
+            }
+        }
+    }
+
+    pub fn gen_phantoms<'a>(&'a self, gen: &'a Gen) -> impl Iterator<Item = TokenStream> + 'a {
+        self.1.iter().map(move |g| {
+            let g = g.gen(gen);
+            quote! { ::std::marker::PhantomData::<#g> }
+        })
+    }
+
+    pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
+        self.1
+            .iter()
+            .map(|g| {
+                let g = g.gen(gen);
+                quote! { #g: ::windows::RuntimeType + 'static, }
+            })
+            .collect()
+    }
+
+    pub fn interface_signature(&self) -> String {
+        let guid = self.guid();
+
+        if self.1.is_empty() {
+            format!("{{{:#?}}}", guid)
+        } else {
+            let mut result = format!("pinterface({{{:#?}}}", guid);
+
+            for generic in &self.1 {
+                result.push(';');
+                result.push_str(&generic.type_signature());
+            }
+
+            result.push(')');
+            result
+        }
+    }
+
+
+
+
+
+
+
+
+
+
     pub fn row(&self) -> &Row {
         &self.0
     }
@@ -229,32 +437,6 @@ impl TypeDef {
             .flat_map(|interface| interface.methods().map(|method| method.name()))
             .collect()
     }
-
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        let namespace = self.namespace();
-
-        if namespace.is_empty() {
-            let name = to_ident(&self.scoped_name());
-            quote! { #name }
-        } else {
-            let name = to_ident(self.name());
-            let namespace = gen.namespace(self.namespace());
-            quote! { #namespace#name }
-        }
-    }
-
-    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
-        let namespace = self.namespace();
-
-        if namespace.is_empty() {
-            let name = to_abi_ident(&self.scoped_name());
-            quote! { #name }
-        } else {
-            let name = to_abi_ident(self.name());
-            let namespace = gen.namespace(self.namespace());
-            quote! { #namespace#name }
-        }
-    }
 }
 
 impl std::fmt::Debug for TypeDef {
@@ -275,7 +457,7 @@ impl Iterator for Bases {
             None
         } else {
             self.0 = TypeReader::get().resolve_type_def(namespace, name).clone();
-            Some(self.0.clone())
+            Some(TypeDef::from_type_def(&self.0, Vec::new()))
         }
     }
 }
