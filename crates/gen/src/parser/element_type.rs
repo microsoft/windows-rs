@@ -252,7 +252,7 @@ impl ElementType {
         }
     }
 
-    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
+    pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
