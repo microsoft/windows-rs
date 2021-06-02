@@ -158,7 +158,6 @@ impl TypeReader {
             .map(move |row| self.to_element_type(row))
     }
 
-    // TODO: how to make this return an iterator?
     pub fn nested_types(
         &'static self,
         enclosing: &tables::TypeDef,
