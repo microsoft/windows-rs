@@ -161,11 +161,7 @@ mod tests {
     use super::*;
 
     fn get_method(interface: &types::Interface, method: &str) -> MethodDef {
-        interface
-            .0
-            .methods()
-            .find(|m| m.name() == method)
-            .unwrap()
+        interface.0.methods().find(|m| m.name() == method).unwrap()
     }
 
     #[test]

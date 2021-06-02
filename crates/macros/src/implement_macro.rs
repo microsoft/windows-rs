@@ -1,4 +1,4 @@
-use gen::{ElementType, TypeKind, TypeReader, tables::TypeDef};
+use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;

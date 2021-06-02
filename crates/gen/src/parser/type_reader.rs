@@ -41,8 +41,7 @@ impl TypeReader {
 
         let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
 
-        let mut nested =
-        HashMap::<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>::new();
+        let mut nested = HashMap::<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>::new();
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -160,9 +159,11 @@ impl TypeReader {
     }
 
     // TODO: how to make this return an iterator?
-    pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
-        self.nested
-            .get(enclosing)
+    pub fn nested_types(
+        &'static self,
+        enclosing: &tables::TypeDef,
+    ) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
+        self.nested.get(enclosing)
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
@@ -217,7 +218,16 @@ impl TypeReader {
 
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> &tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            self.nested[&scope.resolve()].get(type_ref.name()).unwrap_or_else(||panic!("Could not find nested type `{}` in `{}.{}`",  type_ref.name(), scope.namespace(), scope.name()))
+            self.nested[&scope.resolve()]
+                .get(type_ref.name())
+                .unwrap_or_else(|| {
+                    panic!(
+                        "Could not find nested type `{}` in `{}.{}`",
+                        type_ref.name(),
+                        scope.namespace(),
+                        scope.name()
+                    )
+                })
         } else {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
         }

@@ -5,8 +5,7 @@ pub struct Interface(pub tables::TypeDef);
 
 impl Interface {
     pub fn type_signature(&self) -> String {
-        let guid =
-            Guid::from_attributes(self.0.attributes()).expect("Interface::type_signature");
+        let guid = Guid::from_attributes(self.0.attributes()).expect("Interface::type_signature");
 
         if self.0.generics().is_empty() {
             format!("{{{:#?}}}", guid)
@@ -24,7 +23,11 @@ impl Interface {
     }
 
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
-        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &tables::TypeDef, is_base: bool) {
+        fn add_interfaces(
+            result: &mut Vec<InterfaceInfo>,
+            parent: &tables::TypeDef,
+            is_base: bool,
+        ) {
             for child in parent.interface_impls() {
                 if let Some(def) = child.generic_interface(parent.generics()) {
                     if !result.iter().any(|info| info.def == def) {

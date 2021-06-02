@@ -23,7 +23,9 @@ impl TypeDef {
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
         blob.read_unsigned();
 
-        let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve().clone();
+        let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned())
+            .resolve()
+            .clone();
         let args = blob.read_unsigned();
 
         for _ in 0..args {
@@ -38,7 +40,10 @@ impl TypeDef {
         let mut def = def.clone();
 
         if generics.is_empty() {
-            def.1 = def.generic_params().map(ElementType::GenericParam).collect();
+            def.1 = def
+                .generic_params()
+                .map(ElementType::GenericParam)
+                .collect();
         } else {
             def.1 = generics;
         }
@@ -74,8 +79,7 @@ impl TypeDef {
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
-        self
-            .interface_impls()
+        self.interface_impls()
             .filter_map(move |i| i.generic_interface(&self.1))
     }
 
@@ -113,7 +117,7 @@ impl TypeDef {
                 } else {
                     quote! {}
                 };
-    
+
                 let name = format_name(&name[..name.len() - 2]);
                 let generics = self.1.iter().map(|g| g.gen_name(gen));
                 quote! { #namespace#name#colon_separated<#(#generics),*> }
@@ -146,7 +150,6 @@ impl TypeDef {
         }
     }
 
-    
     pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
 
@@ -216,15 +219,6 @@ impl TypeDef {
             result
         }
     }
-
-
-
-
-
-
-
-
-
 
     pub fn row(&self) -> &Row {
         &self.0

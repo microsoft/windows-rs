@@ -173,17 +173,23 @@ impl ElementType {
         match def.kind() {
             TypeKind::Interface => {
                 if def.is_winrt() {
-                    Self::Interface(types::Interface(tables::TypeDef::from_type_def(def, generics)))
+                    Self::Interface(types::Interface(tables::TypeDef::from_type_def(
+                        def, generics,
+                    )))
                 } else {
                     Self::ComInterface(types::ComInterface(def.clone()))
                 }
             }
-            TypeKind::Class => Self::Class(types::Class(tables::TypeDef::from_type_def(def, generics))),
+            TypeKind::Class => {
+                Self::Class(types::Class(tables::TypeDef::from_type_def(def, generics)))
+            }
             TypeKind::Enum => Self::Enum(types::Enum(def.clone())),
             TypeKind::Struct => Self::Struct(types::Struct(def.clone())),
             TypeKind::Delegate => {
                 if def.is_winrt() {
-                    Self::Delegate(types::Delegate(tables::TypeDef::from_type_def(def, generics)))
+                    Self::Delegate(types::Delegate(tables::TypeDef::from_type_def(
+                        def, generics,
+                    )))
                 } else {
                     Self::Callback(types::Callback(def.clone()))
                 }
