@@ -198,6 +198,20 @@ impl TypeDef {
         }
     }
 
+    pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
+        match self.kind() {
+            TypeKind::Enum => self.gen_name(gen),
+            TypeKind::Struct => {
+                if self.is_blittable() {
+                    self.gen_name(gen)
+                } else {
+                    self.gen_abi_name(gen)
+                }
+            }
+            _ => quote! { ::windows::RawPtr },
+        }
+    }
+
     pub fn is_packed(&self) -> bool {
         if self.class_layout().is_some() {
             return true;
@@ -548,11 +562,17 @@ impl TypeDef {
     }
 
     pub fn is_blittable(&self) -> bool {
-        // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
-        if self.full_name() == ("Windows.Win32.System.OleAutomation", "BSTR") {
-            false
-        } else {
-            self.fields().all(|f| f.is_blittable())
+        match self.kind() {
+            TypeKind::Struct => {
+                // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
+                if self.full_name() == ("Windows.Win32.System.OleAutomation", "BSTR") {
+                    false
+                } else {
+                    self.fields().all(|f| f.is_blittable())
+                }
+            }
+            TypeKind::Enum => true,
+            _ => false,
         }
     }
 

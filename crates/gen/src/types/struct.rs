@@ -7,14 +7,6 @@ use super::*;
 pub struct Struct(pub tables::TypeDef);
 
 impl Struct {
-    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
-        if self.0.is_blittable() {
-            self.0.gen_name(gen)
-        } else {
-            self.0.gen_abi_name(gen)
-        }
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         self.gen_struct(self.0.name(), gen)
     }

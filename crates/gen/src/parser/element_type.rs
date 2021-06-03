@@ -298,23 +298,13 @@ impl ElementType {
                 let name = generic.gen_name();
                 quote! { <#name as ::windows::Abi>::Abi }
             }
-            Self::Class(_) => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::Interface(_) => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::ComInterface(_) => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::Enum(t) => t.0.gen_name(gen),
-            Self::Struct(t) => t.gen_abi_name(gen),
-            Self::Delegate(_) => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::Callback(_) => {
-                quote! { ::windows::RawPtr }
-            }
+            Self::Class(def) => def.0.gen_abi_type(gen),
+            Self::Interface(def) => def.0.gen_abi_type(gen),
+            Self::ComInterface(def) => def.0.gen_abi_type(gen),
+            Self::Enum(def) => def.0.gen_abi_type(gen),
+            Self::Struct(def) => def.0.gen_abi_type(gen),
+            Self::Delegate(def) => def.0.gen_abi_type(gen),
+            Self::Callback(def) => def.0.gen_abi_type(gen),
             _ => unexpected!(),
         }
     }
