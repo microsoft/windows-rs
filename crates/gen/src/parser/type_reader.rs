@@ -77,9 +77,7 @@ impl TypeReader {
                         for field in def.fields() {
                             let name = field.name();
 
-                            values
-                                .entry(name)
-                                .or_insert_with(|| TypeRow::Field(field));
+                            values.entry(name).or_insert_with(|| TypeRow::Field(field));
                         }
 
                         for method in def.methods() {
@@ -94,9 +92,7 @@ impl TypeReader {
                         for field in def.fields() {
                             let name = field.name();
 
-                            values
-                                .entry(name)
-                                .or_insert_with(|| TypeRow::Field(field));
+                            values.entry(name).or_insert_with(|| TypeRow::Field(field));
                         }
                     }
                     _ => {}

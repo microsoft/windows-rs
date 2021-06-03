@@ -16,24 +16,6 @@ impl Class {
         )
     }
 
-    fn has_default_constructor(&self) -> bool {
-        for attribute in self.0.attributes() {
-            if attribute.name() == "ActivatableAttribute" {
-                if attribute
-                    .args()
-                    .iter()
-                    .any(|arg| matches!(arg.1, parser::ConstantValue::TypeDef(_)))
-                {
-                    continue;
-                } else {
-                    return true;
-                }
-            }
-        }
-
-        false
-    }
-
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(
             result: &mut Vec<InterfaceInfo>,
@@ -194,7 +176,7 @@ impl Class {
             let object = gen_object(&name, &TokenStream::new());
             let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
-            let new = if self.has_default_constructor() {
+            let new = if self.0.has_default_constructor() {
                 quote! {
                     pub fn new() -> ::windows::Result<Self> {
                         Self::IActivationFactory(|f| f.activate_instance::<Self>())

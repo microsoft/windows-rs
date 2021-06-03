@@ -551,11 +551,15 @@ mod tests {
     #[test]
     fn test_blittable() {
         assert_eq!(
-            TypeReader::get_struct("Windows.Foundation", "Point").0.is_blittable(),
+            TypeReader::get_struct("Windows.Foundation", "Point")
+                .0
+                .is_blittable(),
             true
         );
         assert_eq!(
-            TypeReader::get_struct("Windows.UI.Xaml.Interop", "TypeName").0.is_blittable(),
+            TypeReader::get_struct("Windows.UI.Xaml.Interop", "TypeName")
+                .0
+                .is_blittable(),
             false
         );
     }

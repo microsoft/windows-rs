@@ -4,7 +4,6 @@ use super::*;
 pub struct Constant(pub tables::Field);
 
 impl Constant {
-
     // TODO: move to Field?
     pub fn gen(def: &tables::Field, gen: &Gen) -> TokenStream {
         let name = def.name();

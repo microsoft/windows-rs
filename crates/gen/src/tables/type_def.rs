@@ -51,6 +51,24 @@ impl TypeDef {
         def
     }
 
+    pub fn has_default_constructor(&self) -> bool {
+        for attribute in self.attributes() {
+            if attribute.name() == "ActivatableAttribute" {
+                if attribute
+                    .args()
+                    .iter()
+                    .any(|arg| matches!(arg.1, parser::ConstantValue::TypeDef(_)))
+                {
+                    continue;
+                } else {
+                    return true;
+                }
+            }
+        }
+
+        false
+    }
+
     // TODO: get rid of the definition functions
     pub fn definition(&self) -> Vec<ElementType> {
         let mut definition = vec![ElementType::from_type_def(self, Vec::new())];

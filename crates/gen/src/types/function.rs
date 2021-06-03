@@ -4,7 +4,6 @@ use super::*;
 pub struct Function(pub tables::MethodDef);
 
 impl Function {
-
     // TODO: move to MethodDef?
     pub fn gen(def: &tables::MethodDef, gen: &Gen) -> TokenStream {
         let name = def.gen_name(gen);
