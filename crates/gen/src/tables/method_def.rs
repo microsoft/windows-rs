@@ -4,6 +4,12 @@ use super::*;
 pub struct MethodDef(pub Row);
 
 impl MethodDef {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
+        let namespace = gen.namespace(self.parent().namespace());
+        let name = format_ident!("{}", self.name());
+        quote! { #namespace #name }
+    }
+
     pub fn flags(&self) -> MethodFlags {
         MethodFlags(self.0.u32(2))
     }

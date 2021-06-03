@@ -4,19 +4,11 @@ use super::*;
 pub struct Function(pub tables::MethodDef);
 
 impl Function {
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        let namespace = gen.namespace(self.0.parent().namespace());
-        let name = format_ident!("{}", self.0.name());
-        quote! { #namespace #name }
-    }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        self.0.dependencies(&[])
-    }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
-        let name = self.gen_name(gen);
-        let signature = self.0.signature(&[]);
+    pub fn gen(def: &tables::MethodDef, gen: &Gen) -> TokenStream {
+        let name = def.gen_name(gen);
+        let signature = def.signature(&[]);
 
         let constraints = signature.gen_constraints(&signature.params);
         let params = signature.gen_win32_params(&signature.params, gen);
@@ -44,7 +36,7 @@ impl Function {
 
         let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
 
-        let mut link = self.0.impl_map().expect("Function").scope().name();
+        let mut link = def.impl_map().expect("Function").scope().name();
 
         // TODO: workaround for https://github.com/microsoft/windows-rs/issues/463
         if link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli" {

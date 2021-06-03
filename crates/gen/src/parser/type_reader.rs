@@ -12,7 +12,7 @@ pub struct TypeReader {
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 enum TypeRow {
     TypeDef(tables::TypeDef),
-    Function(tables::MethodDef),
+    MethodDef(tables::MethodDef),
     Constant(tables::Field),
 }
 
@@ -87,7 +87,7 @@ impl TypeReader {
 
                             values
                                 .entry(name)
-                                .or_insert_with(|| TypeRow::Function(method));
+                                .or_insert_with(|| TypeRow::MethodDef(method));
                         }
                     }
                     ("System", "Enum") => {
@@ -200,7 +200,7 @@ impl TypeReader {
     fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
         match row {
             TypeRow::TypeDef(row) => ElementType::from_type_def(row, Vec::new()),
-            TypeRow::Function(row) => ElementType::Function(types::Function(*row)),
+            TypeRow::MethodDef(row) => ElementType::MethodDef(*row),
             TypeRow::Constant(row) => ElementType::Constant(types::Constant(*row)),
         }
     }

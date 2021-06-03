@@ -29,8 +29,10 @@ pub enum ElementType {
 
     // TODO: most of these should just be stored as a TypeDef(TypeDef)
 
-    Function(types::Function),
-    Constant(types::Constant),
+    MethodDef(tables::MethodDef), // Should be tables::MethodDef
+    Constant(types::Constant), // Should be tables::Field
+
+    // TODO: should be TypeDef(TypeDef)
     Class(types::Class),
     Interface(types::Interface),
     ComInterface(types::ComInterface),
@@ -49,7 +51,7 @@ impl Default for ElementType {
 impl ElementType {
     pub fn row(&self) -> Row {
         match self {
-            Self::Function(def) => def.0 .0,
+            Self::MethodDef(def) => def.0,
             Self::Constant(def) => def.0 .0,
             Self::Class(def) => *def.0.row(),
             Self::Interface(def) => *def.0.row(),
@@ -64,7 +66,7 @@ impl ElementType {
 
     pub fn namespace(&self) -> &'static str {
         match self {
-            Self::Function(def) => def.0.parent().namespace(),
+            Self::MethodDef(def) => def.parent().namespace(),
             Self::Constant(def) => def.0.parent().namespace(),
             Self::Class(def) => def.0.namespace(),
             Self::Interface(def) => def.0.namespace(),
@@ -79,7 +81,7 @@ impl ElementType {
 
     pub fn name(&self) -> &'static str {
         match self {
-            Self::Function(def) => def.0.name(),
+            Self::MethodDef(def) => def.name(),
             Self::Constant(def) => def.0.name(),
             Self::Class(def) => def.0.name(),
             Self::Interface(def) => def.0.name(),
@@ -241,7 +243,7 @@ impl ElementType {
                 quote! { [#name; #len] }
             }
             Self::GenericParam(generic) => generic.gen_name(),
-            Self::Function(t) => t.gen_name(gen),
+            Self::MethodDef(t) => t.gen_name(gen),
             Self::Constant(t) => t.gen_name(),
             Self::Class(t) => t.0.gen_name(gen),
             Self::Interface(t) => t.0.gen_name(gen),
@@ -372,7 +374,7 @@ impl ElementType {
 
     pub fn dependencies(&self) -> Vec<ElementType> {
         match self {
-            Self::Function(t) => t.dependencies(),
+            Self::MethodDef(t) => t.dependencies(&[]),
             Self::Class(t) => t.dependencies(),
             Self::Interface(t) => t.dependencies(),
             Self::ComInterface(t) => t.dependencies(),
@@ -408,7 +410,7 @@ impl ElementType {
             self,
             Self::IInspectable
                 | Self::IUnknown
-                | Self::Function(_)
+                | Self::MethodDef(_)
                 | Self::Interface(_)
                 | Self::Class(_)
                 | Self::ComInterface(_)
@@ -500,7 +502,7 @@ impl ElementType {
 
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         match self {
-            Self::Function(t) => t.gen(gen),
+            Self::MethodDef(t) => types::Function::gen(t, gen),
             Self::Constant(t) => t.gen(gen),
             Self::Class(t) => t.gen(gen),
             Self::Interface(t) => t.gen(gen),
