@@ -163,7 +163,10 @@ mod tests {
     #[test]
     fn test_bool() {
         let i = TypeReader::get_interface("Windows.Foundation", "IStringable");
-        assert_eq!(i.0.type_signature(), "{96369f54-8eb6-48f0-abce-c1b211e627c3}")
+        assert_eq!(
+            i.0.type_signature(),
+            "{96369f54-8eb6-48f0-abce-c1b211e627c3}"
+        )
     }
 
     #[test]

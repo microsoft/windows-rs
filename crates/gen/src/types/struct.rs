@@ -488,7 +488,10 @@ mod tests {
     #[test]
     fn test_signature() {
         let t = TypeReader::get_struct("Windows.Foundation", "Point");
-        assert_eq!(t.0.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
+        assert_eq!(
+            t.0.type_signature(),
+            "struct(Windows.Foundation.Point;f4;f4)"
+        );
     }
 
     #[test]

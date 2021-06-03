@@ -70,8 +70,7 @@ impl TypeDef {
     }
 
     pub fn invoke_method(&self) -> tables::MethodDef {
-        self
-            .methods()
+        self.methods()
             .find(|m| m.name() == "Invoke")
             .expect("`Invoke` method not found")
     }
@@ -177,32 +176,19 @@ impl TypeDef {
 
     pub fn type_signature(&self) -> String {
         match self.kind() {
-            TypeKind::Interface => 
-                self.interface_signature(),
-            TypeKind::Class => {
-                let default = self.default_interface();
-
-                format!(
-                    "rc({}.{};{})",
-                    self.namespace(),
-                    self.name(),
-                    default.interface_signature()
-                )
-            }
-            TypeKind::Enum => {
-                let underlying_type = match self.underlying_type() {
-                    ElementType::I32 => "i4",
-                    ElementType::U32 => "u4",
-                    _ => unexpected!(),
-                };
-        
-                format!(
-                    "enum({}.{};{})",
-                    self.namespace(),
-                    self.name(),
-                    underlying_type
-                )
-            }
+            TypeKind::Interface => self.interface_signature(),
+            TypeKind::Class => format!(
+                "rc({}.{};{})",
+                self.namespace(),
+                self.name(),
+                self.default_interface().interface_signature()
+            ),
+            TypeKind::Enum => format!(
+                "enum({}.{};{})",
+                self.namespace(),
+                self.name(),
+                self.underlying_type().type_signature()
+            ),
             TypeKind::Struct => {
                 let mut result = format!("struct({}.{}", self.namespace(), self.name());
 
@@ -210,7 +196,7 @@ impl TypeDef {
                     result.push(';');
                     result.push_str(&field.signature().kind.type_signature());
                 }
-        
+
                 result.push(')');
                 result
             }
