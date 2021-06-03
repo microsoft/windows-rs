@@ -174,6 +174,30 @@ impl TypeDef {
         }
     }
 
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
+        match self.kind() {
+            TypeKind::Interface => {
+                if self.is_winrt() {
+                    types::Interface(tables::TypeDef::from_type_def(self, Vec::new())).gen(gen)
+                } else {
+                    types::ComInterface(self.clone()).gen(gen)
+                }
+            }
+            TypeKind::Class => {
+                types::Class(tables::TypeDef::from_type_def(self, Vec::new())).gen(gen)
+            }
+            TypeKind::Enum => types::Enum(self.clone()).gen(gen),
+            TypeKind::Struct => types::Struct(self.clone()).gen(gen),
+            TypeKind::Delegate => {
+                if self.is_winrt() {
+                    types::Delegate(tables::TypeDef::from_type_def(self, Vec::new())).gen(gen)
+                } else {
+                    types::Callback(self.clone()).gen(gen)
+                }
+            }
+        }
+    }
+
     pub fn is_packed(&self) -> bool {
         if self.class_layout().is_some() {
             return true;

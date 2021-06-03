@@ -38,6 +38,10 @@ impl Field {
         Row::new(row, TableIndex::TypeDef, self.0.file).into()
     }
 
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
+        types::Constant::gen(self, gen)
+    }
+
     pub fn dependencies(&self) -> Vec<ElementType> {
         self.signature().kind.definition()
     }

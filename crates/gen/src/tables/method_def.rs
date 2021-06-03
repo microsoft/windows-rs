@@ -151,6 +151,10 @@ impl MethodDef {
         }
     }
 
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
+        types::Function::gen(self, gen)
+    }
+
     pub fn dependencies(&self, generics: &[ElementType]) -> Vec<ElementType> {
         self.signature(generics).dependencies()
     }

@@ -499,15 +499,15 @@ impl ElementType {
 
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         match self {
-            Self::MethodDef(t) => types::Function::gen(t, gen),
-            Self::Field(t) => types::Constant::gen(t, gen),
-            Self::Class(t) => t.gen(gen),
-            Self::Interface(t) => t.gen(gen),
-            Self::ComInterface(t) => t.gen(gen),
-            Self::Enum(t) => t.gen(gen),
-            Self::Struct(t) => t.gen(gen),
-            Self::Delegate(t) => t.gen(gen),
-            Self::Callback(t) => t.gen(gen),
+            Self::MethodDef(t) => t.gen(gen),
+            Self::Field(t) => t.gen(gen),
+            Self::Class(t) => t.0.gen(gen),
+            Self::Interface(t) => t.0.gen(gen),
+            Self::ComInterface(t) => t.0.gen(gen),
+            Self::Enum(t) => t.0.gen(gen),
+            Self::Struct(t) => t.0.gen(gen),
+            Self::Delegate(t) => t.0.gen(gen),
+            Self::Callback(t) => t.0.gen(gen),
             Self::GenericParam(p) => p.gen_name(),
             Self::IInspectable => {
                 quote! { ::windows::IInspectable }
