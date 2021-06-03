@@ -4,18 +4,6 @@ use super::*;
 pub struct Class(pub tables::TypeDef);
 
 impl Class {
-    // TODO: can't this be private and use the interfaces collection?
-    pub fn type_signature(&self) -> String {
-        let default = self.0.default_interface();
-
-        format!(
-            "rc({}.{};{})",
-            self.0.namespace(),
-            self.0.name(),
-            default.interface_signature()
-        )
-    }
-
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(
             result: &mut Vec<InterfaceInfo>,
@@ -172,7 +160,7 @@ impl Class {
         {
             let guid = default_interface.def.gen_guid(gen);
             let default_abi_name = default_interface.def.gen_abi_name(gen);
-            let type_signature = Literal::byte_string(self.type_signature().as_bytes());
+            let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
             let object = gen_object(&name, &TokenStream::new());
             let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
@@ -295,7 +283,7 @@ mod tests {
     fn test_signature() {
         let c = TypeReader::get_class("Windows.Foundation", "Uri");
         assert_eq!(
-            c.type_signature(),
+            c.0.type_signature(),
             "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
         )
     }

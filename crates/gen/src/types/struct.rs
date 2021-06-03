@@ -7,18 +7,6 @@ use super::*;
 pub struct Struct(pub tables::TypeDef);
 
 impl Struct {
-    pub fn type_signature(&self) -> String {
-        let mut result = format!("struct({}.{}", self.0.namespace(), self.0.name());
-
-        for field in self.0.fields() {
-            result.push(';');
-            result.push_str(&field.signature().kind.type_signature());
-        }
-
-        result.push(')');
-        result
-    }
-
     pub fn dependencies(&self) -> Vec<ElementType> {
         let reader = TypeReader::get();
         let mut dependencies = vec![];
@@ -146,7 +134,7 @@ impl Struct {
             });
 
         let runtime_type = if is_winrt {
-            let signature = Literal::byte_string(&self.type_signature().as_bytes());
+            let signature = Literal::byte_string(&self.0.type_signature().as_bytes());
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
@@ -500,7 +488,7 @@ mod tests {
     #[test]
     fn test_signature() {
         let t = TypeReader::get_struct("Windows.Foundation", "Point");
-        assert_eq!(t.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
+        assert_eq!(t.0.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
     }
 
     #[test]

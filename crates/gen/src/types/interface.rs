@@ -4,24 +4,6 @@ use super::*;
 pub struct Interface(pub tables::TypeDef);
 
 impl Interface {
-    pub fn type_signature(&self) -> String {
-        let guid = Guid::from_attributes(self.0.attributes()).expect("Interface::type_signature");
-
-        if self.0.generics().is_empty() {
-            format!("{{{:#?}}}", guid)
-        } else {
-            let mut result = format!("pinterface({{{:#?}}}", guid);
-
-            for generic in self.0.generics() {
-                result.push(';');
-                result.push_str(&generic.type_signature());
-            }
-
-            result.push(')');
-            result
-        }
-    }
-
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(
             result: &mut Vec<InterfaceInfo>,
@@ -181,7 +163,7 @@ mod tests {
     #[test]
     fn test_bool() {
         let i = TypeReader::get_interface("Windows.Foundation", "IStringable");
-        assert_eq!(i.type_signature(), "{96369f54-8eb6-48f0-abce-c1b211e627c3}")
+        assert_eq!(i.0.type_signature(), "{96369f54-8eb6-48f0-abce-c1b211e627c3}")
     }
 
     #[test]

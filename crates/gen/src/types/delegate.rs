@@ -4,14 +4,6 @@ use super::*;
 pub struct Delegate(pub tables::TypeDef);
 
 impl Delegate {
-    pub fn type_signature(&self) -> String {
-        if self.0.generics().is_empty() {
-            format!("delegate({})", self.0.interface_signature())
-        } else {
-            self.0.interface_signature()
-        }
-    }
-
     pub fn dependencies(&self) -> Vec<ElementType> {
         self.0.invoke_method().dependencies(self.0.generics())
     }

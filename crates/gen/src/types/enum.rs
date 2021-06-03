@@ -8,43 +8,9 @@ impl Enum {
         vec![ElementType::Enum(self.clone())]
     }
 
-    pub fn type_signature(&self) -> String {
-        let underlying_type = match self.underlying_type() {
-            ElementType::I32 => "i4",
-            ElementType::U32 => "u4",
-            _ => unexpected!(),
-        };
-
-        format!(
-            "enum({}.{};{})",
-            self.0.namespace(),
-            self.0.name(),
-            underlying_type
-        )
-    }
-
-    pub fn underlying_type(&self) -> ElementType {
-        if let Some(field) = self.0.fields().next() {
-            if let Some(constant) = field.constant() {
-                return constant.value_type();
-            } else {
-                let blob = &mut field.blob();
-                blob.read_unsigned();
-                blob.read_modifiers();
-
-                blob.read_expected(0x1D);
-                blob.read_modifiers();
-
-                return ElementType::from_blob(blob, &[]);
-            }
-        }
-
-        unexpected!();
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
-        let underlying_type = self.underlying_type();
+        let underlying_type = self.0.underlying_type();
 
         // WinRT enums don't have the flags attribute but are paritioned merely based
         // on whether they are signed.
@@ -127,7 +93,7 @@ impl Enum {
         };
 
         let runtime_type = if self.0.is_winrt() {
-            let signature = Literal::byte_string(&self.type_signature().as_bytes());
+            let signature = Literal::byte_string(&self.0.type_signature().as_bytes());
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
@@ -166,7 +132,7 @@ mod tests {
     fn test_signature() {
         let t = TypeReader::get_enum("Windows.Foundation", "AsyncStatus");
         assert_eq!(
-            t.type_signature(),
+            t.0.type_signature(),
             "enum(Windows.Foundation.AsyncStatus;i4)"
         );
     }

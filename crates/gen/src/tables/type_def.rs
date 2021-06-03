@@ -175,6 +175,89 @@ impl TypeDef {
         }
     }
 
+    pub fn type_signature(&self) -> String {
+        match self.kind() {
+            TypeKind::Interface => {
+                let guid = Guid::from_attributes(self.attributes()).expect("Interface guid not found");
+
+                if self.1.is_empty() {
+                    format!("{{{:#?}}}", guid)
+                } else {
+                    let mut result = format!("pinterface({{{:#?}}}", guid);
+        
+                    for generic in &self.1 {
+                        result.push(';');
+                        result.push_str(&generic.type_signature());
+                    }
+        
+                    result.push(')');
+                    result
+                }
+            }
+            TypeKind::Class => {
+                let default = self.default_interface();
+
+                format!(
+                    "rc({}.{};{})",
+                    self.namespace(),
+                    self.name(),
+                    default.interface_signature()
+                )
+            }
+            TypeKind::Enum => {
+                let underlying_type = match self.underlying_type() {
+                    ElementType::I32 => "i4",
+                    ElementType::U32 => "u4",
+                    _ => unexpected!(),
+                };
+        
+                format!(
+                    "enum({}.{};{})",
+                    self.namespace(),
+                    self.name(),
+                    underlying_type
+                )
+            }
+            TypeKind::Struct => {
+                let mut result = format!("struct({}.{}", self.namespace(), self.name());
+
+                for field in self.fields() {
+                    result.push(';');
+                    result.push_str(&field.signature().kind.type_signature());
+                }
+        
+                result.push(')');
+                result
+            }
+            TypeKind::Delegate => {
+                if self.1.is_empty() {
+                    format!("delegate({})", self.interface_signature())
+                } else {
+                    self.interface_signature()
+                }
+            }
+        }
+    }
+
+    pub fn underlying_type(&self) -> ElementType {
+        if let Some(field) = self.fields().next() {
+            if let Some(constant) = field.constant() {
+                return constant.value_type();
+            } else {
+                let blob = &mut field.blob();
+                blob.read_unsigned();
+                blob.read_modifiers();
+
+                blob.read_expected(0x1D);
+                blob.read_modifiers();
+
+                return ElementType::from_blob(blob, &[]);
+            }
+        }
+
+        unexpected!();
+    }
+
     pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
 

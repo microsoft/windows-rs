@@ -360,11 +360,11 @@ impl ElementType {
             Self::String => "string".to_owned(),
             Self::IInspectable => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
-            Self::Class(t) => t.type_signature(),
-            Self::Interface(t) => t.type_signature(),
-            Self::Enum(t) => t.type_signature(),
-            Self::Struct(t) => t.type_signature(),
-            Self::Delegate(t) => t.type_signature(),
+            Self::Class(t) => t.0.type_signature(),
+            Self::Interface(t) => t.0.type_signature(),
+            Self::Enum(t) => t.0.type_signature(),
+            Self::Struct(t) => t.0.type_signature(),
+            Self::Delegate(t) => t.0.type_signature(),
             _ => unexpected!(),
         }
     }
