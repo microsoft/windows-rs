@@ -26,13 +26,10 @@ pub enum ElementType {
     TypeName,
     GenericParam(tables::GenericParam),
     Array((Box<Signature>, u32)),
+    MethodDef(tables::MethodDef),
+    Field(tables::Field),
 
-    // TODO: most of these should just be stored as a TypeDef(TypeDef)
-
-    MethodDef(tables::MethodDef), // Should be tables::MethodDef
-    Constant(types::Constant), // Should be tables::Field
-
-    // TODO: should be TypeDef(TypeDef)
+    // TODO: these should all be TypeDef(TypeDef)
     Class(types::Class),
     Interface(types::Interface),
     ComInterface(types::ComInterface),
@@ -52,7 +49,7 @@ impl ElementType {
     pub fn row(&self) -> Row {
         match self {
             Self::MethodDef(def) => def.0,
-            Self::Constant(def) => def.0 .0,
+            Self::Field(def) => def.0,
             Self::Class(def) => *def.0.row(),
             Self::Interface(def) => *def.0.row(),
             Self::ComInterface(def) => *def.0.row(),
@@ -67,7 +64,7 @@ impl ElementType {
     pub fn namespace(&self) -> &'static str {
         match self {
             Self::MethodDef(def) => def.parent().namespace(),
-            Self::Constant(def) => def.0.parent().namespace(),
+            Self::Field(def) => def.parent().namespace(),
             Self::Class(def) => def.0.namespace(),
             Self::Interface(def) => def.0.namespace(),
             Self::ComInterface(def) => def.0.namespace(),
@@ -82,7 +79,7 @@ impl ElementType {
     pub fn name(&self) -> &'static str {
         match self {
             Self::MethodDef(def) => def.name(),
-            Self::Constant(def) => def.0.name(),
+            Self::Field(def) => def.name(),
             Self::Class(def) => def.0.name(),
             Self::Interface(def) => def.0.name(),
             Self::ComInterface(def) => def.0.name(),
@@ -244,7 +241,7 @@ impl ElementType {
             }
             Self::GenericParam(generic) => generic.gen_name(),
             Self::MethodDef(t) => t.gen_name(gen),
-            Self::Constant(t) => t.gen_name(),
+            Self::Field(t) => t.gen_name(),
             Self::Class(t) => t.0.gen_name(gen),
             Self::Interface(t) => t.0.gen_name(gen),
             Self::ComInterface(t) => t.0.gen_name(gen),
@@ -381,7 +378,7 @@ impl ElementType {
             Self::Struct(t) => t.dependencies(),
             Self::Delegate(t) => t.dependencies(),
             Self::Callback(t) => t.dependencies(),
-            Self::Constant(t) => t.dependencies(),
+            Self::Field(t) => t.dependencies(),
             Self::Array((signature, _)) => signature.dependencies(),
             _ => Vec::new(),
         }
@@ -503,7 +500,7 @@ impl ElementType {
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::MethodDef(t) => types::Function::gen(t, gen),
-            Self::Constant(t) => t.gen(gen),
+            Self::Field(t) => types::Constant::gen(t, gen),
             Self::Class(t) => t.gen(gen),
             Self::Interface(t) => t.gen(gen),
             Self::ComInterface(t) => t.gen(gen),

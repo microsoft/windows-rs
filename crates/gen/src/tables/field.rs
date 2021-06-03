@@ -38,6 +38,10 @@ impl Field {
         Row::new(row, TableIndex::TypeDef, self.0.file).into()
     }
 
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        self.signature().kind.definition()
+    }
+
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
@@ -64,8 +68,9 @@ impl Field {
         self.signature().is_blittable()
     }
 
-    pub fn gen_name(&self) -> Ident {
-        to_ident(self.name())
+    pub fn gen_name(&self) -> TokenStream {
+        let name = format_ident!("{}", self.name());
+        quote! { #name }
     }
 }
 

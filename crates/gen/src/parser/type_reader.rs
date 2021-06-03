@@ -13,7 +13,7 @@ pub struct TypeReader {
 enum TypeRow {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),
-    Constant(tables::Field),
+    Field(tables::Field),
 }
 
 impl TypeReader {
@@ -79,7 +79,7 @@ impl TypeReader {
 
                             values
                                 .entry(name)
-                                .or_insert_with(|| TypeRow::Constant(field));
+                                .or_insert_with(|| TypeRow::Field(field));
                         }
 
                         for method in def.methods() {
@@ -96,7 +96,7 @@ impl TypeReader {
 
                             values
                                 .entry(name)
-                                .or_insert_with(|| TypeRow::Constant(field));
+                                .or_insert_with(|| TypeRow::Field(field));
                         }
                     }
                     _ => {}
@@ -201,7 +201,7 @@ impl TypeReader {
         match row {
             TypeRow::TypeDef(row) => ElementType::from_type_def(row, Vec::new()),
             TypeRow::MethodDef(row) => ElementType::MethodDef(*row),
-            TypeRow::Constant(row) => ElementType::Constant(types::Constant(*row)),
+            TypeRow::Field(row) => ElementType::Field(*row),
         }
     }
 
