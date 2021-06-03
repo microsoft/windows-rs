@@ -4,7 +4,7 @@ use super::*;
 pub struct Interface(pub tables::TypeDef);
 
 impl Interface {
-    pub fn interfaces(&self) -> Vec<InterfaceInfo> {
+    fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(
             result: &mut Vec<InterfaceInfo>,
             parent: &tables::TypeDef,

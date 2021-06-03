@@ -478,7 +478,7 @@ impl ElementType {
     pub fn is_struct(&self) -> bool {
         match self {
             Self::Guid | Self::Matrix3x2 => true,
-            Self::Struct(t) => !t.is_handle(),
+            Self::Struct(t) => !t.0.is_handle(),
             _ => false,
         }
     }

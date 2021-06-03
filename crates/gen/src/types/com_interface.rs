@@ -4,7 +4,7 @@ use super::*;
 pub struct ComInterface(pub tables::TypeDef);
 
 impl ComInterface {
-    pub fn interfaces(&self) -> Vec<tables::TypeDef> {
+    fn interfaces(&self) -> Vec<tables::TypeDef> {
         let mut result = Vec::new();
         let mut next = self.0.clone();
 

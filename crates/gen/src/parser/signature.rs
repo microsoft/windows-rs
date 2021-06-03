@@ -67,7 +67,7 @@ impl Signature {
         }
 
         match &self.kind {
-            ElementType::Struct(def) => def.is_packed(),
+            ElementType::Struct(def) => def.0.is_packed(),
             ElementType::Array((signature, _)) => signature.is_packed(),
             _ => false,
         }

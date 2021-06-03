@@ -7,18 +7,6 @@ use super::*;
 pub struct Struct(pub tables::TypeDef);
 
 impl Struct {
-    pub fn is_packed(&self) -> bool {
-        if self.0.class_layout().is_some() {
-            return true;
-        }
-
-        self.0.fields().any(|field| field.signature().is_packed())
-    }
-
-    pub fn is_handle(&self) -> bool {
-        self.0.has_attribute("NativeTypedefAttribute")
-    }
-
     pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
         if self.0.is_blittable() {
             self.0.gen_name(gen)
@@ -67,10 +55,10 @@ impl Struct {
         }
 
         let is_winrt = self.0.is_winrt();
-        let is_handle = self.is_handle();
+        let is_handle = self.0.is_handle();
         let is_union = self.0.flags().explicit();
         let layout = self.0.class_layout();
-        let is_packed = self.is_packed();
+        let is_packed = self.0.is_packed();
 
         let repr = if let Some(layout) = layout {
             let packing = Literal::u32_unsuffixed(layout.packing_size());
