@@ -170,6 +170,7 @@ impl ElementType {
         }
     }
 
+    // TODO: remove unused generics param
     pub fn from_type_def(def: &tables::TypeDef, generics: Vec<Self>) -> Self {
         match def.kind() {
             TypeKind::Interface => {
