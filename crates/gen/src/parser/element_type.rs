@@ -28,6 +28,7 @@ pub enum ElementType {
     Array((Box<Signature>, u32)),
 
     // TODO: most of these should just be stored as a TypeDef(TypeDef)
+
     Function(types::Function),
     Constant(types::Constant),
     Class(types::Class),
@@ -425,7 +426,7 @@ impl ElementType {
             | Self::Interface(_)
             | Self::ComInterface(_)
             | Self::Delegate(_) => false,
-            Self::Struct(def) => def.is_blittable(),
+            Self::Struct(def) => def.0.is_blittable(),
             Self::Array((kind, _)) => kind.is_blittable(),
             _ => true,
         }

@@ -347,6 +347,15 @@ impl TypeDef {
         })
     }
 
+    pub fn is_blittable(&self) -> bool {
+        // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
+        if self.full_name() == ("Windows.Win32.System.OleAutomation", "BSTR") {
+            false
+        } else {
+            self.fields().all(|f| f.is_blittable())
+        }
+    }
+
     pub fn kind(&self) -> TypeKind {
         if self.flags().interface() {
             TypeKind::Interface

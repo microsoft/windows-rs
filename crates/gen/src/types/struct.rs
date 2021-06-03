@@ -56,15 +56,6 @@ impl Struct {
         vec![ElementType::Struct(self.clone())]
     }
 
-    pub fn is_blittable(&self) -> bool {
-        // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
-        if self.0.full_name() == ("Windows.Win32.System.OleAutomation", "BSTR") {
-            false
-        } else {
-            self.0.fields().all(|f| f.is_blittable())
-        }
-    }
-
     pub fn is_packed(&self) -> bool {
         if self.0.class_layout().is_some() {
             return true;
@@ -78,7 +69,7 @@ impl Struct {
     }
 
     pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
-        if self.is_blittable() {
+        if self.0.is_blittable() {
             self.0.gen_name(gen)
         } else {
             self.0.gen_abi_name(gen)
@@ -167,7 +158,7 @@ impl Struct {
             quote! {}
         };
 
-        let clone_or_copy = if self.is_blittable() {
+        let clone_or_copy = if self.0.is_blittable() {
             quote! {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
@@ -221,7 +212,7 @@ impl Struct {
             quote! { struct }
         };
 
-        let abi = if self.is_blittable() {
+        let abi = if self.0.is_blittable() {
             quote! {
                 unsafe impl ::windows::Abi for #name {
                     type Abi = Self;
@@ -560,11 +551,11 @@ mod tests {
     #[test]
     fn test_blittable() {
         assert_eq!(
-            TypeReader::get_struct("Windows.Foundation", "Point").is_blittable(),
+            TypeReader::get_struct("Windows.Foundation", "Point").0.is_blittable(),
             true
         );
         assert_eq!(
-            TypeReader::get_struct("Windows.UI.Xaml.Interop", "TypeName").is_blittable(),
+            TypeReader::get_struct("Windows.UI.Xaml.Interop", "TypeName").0.is_blittable(),
             false
         );
     }
