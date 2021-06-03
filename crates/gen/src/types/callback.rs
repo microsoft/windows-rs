@@ -5,23 +5,16 @@ pub struct Callback(pub tables::TypeDef);
 
 impl Callback {
     pub fn dependencies(&self) -> Vec<ElementType> {
-        self.method().dependencies(&[])
+        self.0.invoke_method().dependencies(&[])
     }
 
     pub fn definition(&self) -> Vec<ElementType> {
         vec![ElementType::Callback(self.clone())]
     }
 
-    fn method(&self) -> tables::MethodDef {
-        self.0
-            .methods()
-            .find(|m| m.name() == "Invoke")
-            .expect("Callback")
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
-        let signature = self.method().signature(&[]);
+        let signature = self.0.invoke_method().signature(&[]);
 
         // Note that callbacks are C-style function pointers so the code gen will only use ABI types
         // to ensure the the ABI is faithfully preserved. Other types generally provide an abstraction

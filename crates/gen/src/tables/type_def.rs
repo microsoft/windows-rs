@@ -69,6 +69,13 @@ impl TypeDef {
         false
     }
 
+    pub fn invoke_method(&self) -> tables::MethodDef {
+        self
+            .methods()
+            .find(|m| m.name() == "Invoke")
+            .expect("`Invoke` method not found")
+    }
+
     // TODO: get rid of the definition functions
     pub fn definition(&self) -> Vec<ElementType> {
         let mut definition = vec![ElementType::from_type_def(self, Vec::new())];

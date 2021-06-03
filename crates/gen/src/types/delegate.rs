@@ -13,25 +13,18 @@ impl Delegate {
     }
 
     pub fn dependencies(&self) -> Vec<ElementType> {
-        self.method().dependencies(self.0.generics())
+        self.0.invoke_method().dependencies(self.0.generics())
     }
 
     pub fn definition(&self) -> Vec<ElementType> {
         self.0.definition()
     }
 
-    fn method(&self) -> tables::MethodDef {
-        self.0
-            .methods()
-            .find(|m| m.name() == "Invoke")
-            .expect("Callback")
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let turbo_abi_name = self.0.gen_turbo_abi_name(gen);
-        let signature = self.method().signature(self.0.generics());
+        let signature = self.0.invoke_method().signature(self.0.generics());
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
