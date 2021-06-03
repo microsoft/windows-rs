@@ -4,13 +4,6 @@ use super::*;
 pub struct ComInterface(pub tables::TypeDef);
 
 impl ComInterface {
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        self.0
-            .interfaces()
-            .map(|i| ElementType::from_type_def(&i, Vec::new()))
-            .collect()
-    }
-
     pub fn interfaces(&self) -> Vec<tables::TypeDef> {
         let mut result = Vec::new();
         let mut next = self.0.clone();

@@ -39,25 +39,6 @@ impl Interface {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        let interfaces = self
-            .0
-            .interfaces()
-            .map(|i| ElementType::from_type_def(&i, Vec::new()));
-
-        let methods = self
-            .0
-            .methods()
-            .map(|m| m.dependencies(self.0.generics()))
-            .flatten();
-
-        if self.0.generics().is_empty() {
-            interfaces.collect()
-        } else {
-            interfaces.chain(methods).collect()
-        }
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let guid = self.0.gen_guid(gen);

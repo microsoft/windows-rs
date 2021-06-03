@@ -372,12 +372,12 @@ impl ElementType {
     pub fn dependencies(&self) -> Vec<ElementType> {
         match self {
             Self::MethodDef(t) => t.dependencies(&[]),
-            Self::Class(t) => t.dependencies(),
-            Self::Interface(t) => t.dependencies(),
-            Self::ComInterface(t) => t.dependencies(),
-            Self::Struct(t) => t.dependencies(),
-            Self::Delegate(t) => t.dependencies(),
-            Self::Callback(t) => t.dependencies(),
+            Self::Class(t) => t.0.dependencies(),
+            Self::Interface(t) => t.0.dependencies(),
+            Self::ComInterface(t) => t.0.dependencies(),
+            Self::Struct(t) => t.0.dependencies(),
+            Self::Delegate(t) => t.0.dependencies(),
+            Self::Callback(t) => t.0.dependencies(),
             Self::Field(t) => t.dependencies(),
             Self::Array((signature, _)) => signature.dependencies(),
             _ => Vec::new(),

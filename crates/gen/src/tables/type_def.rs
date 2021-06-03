@@ -174,6 +174,91 @@ impl TypeDef {
         }
     }
 
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        match self.kind() {
+            TypeKind::Interface => {
+                let interfaces = self
+                .interfaces()
+                .map(|i| ElementType::from_type_def(&i, Vec::new()));
+    
+            let methods = self
+                .methods()
+                .map(|m| m.dependencies(&self.1))
+                .flatten();
+    
+            if self.1.is_empty() {
+                interfaces.collect()
+            } else {
+                interfaces.chain(methods).collect()
+            }
+            }
+            TypeKind::Class => {
+                let generics = self.generics().iter().map(|g| g.definition());
+                let interfaces = self.interfaces().map(|i| i.definition());
+                let bases = self.bases().map(|b| b.definition());
+        
+                let factories = self.attributes().filter_map(|attribute| {
+                    match attribute.name() {
+                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
+                            for (_, arg) in attribute.args() {
+                                if let parser::ConstantValue::TypeDef(def) = arg {
+                                    return Some(ElementType::from_type_def(&def, Vec::new()));
+                                }
+                            }
+                        }
+                        _ => {}
+                    }
+        
+                    None
+                });
+        
+                generics
+                    .chain(interfaces)
+                    .chain(bases)
+                    .flatten()
+                    .chain(factories)
+                    .collect()
+            }
+            TypeKind::Enum => 
+                Vec::new(),
+            TypeKind::Struct => {
+                let reader = TypeReader::get();
+                let mut dependencies = vec![];
+        
+                match self.full_name() {
+                    ("Windows.Win32.System.OleAutomation", "BSTR") => {
+                        dependencies.push(
+                            reader.resolve_type("Windows.Win32.System.OleAutomation", "SysFreeString"),
+                        );
+                        dependencies.push(
+                            reader.resolve_type("Windows.Win32.System.OleAutomation", "SysAllocStringLen"),
+                        );
+                        dependencies.push(
+                            reader.resolve_type("Windows.Win32.System.OleAutomation", "SysStringLen"),
+                        );
+                    }
+                    ("Windows.Foundation.Numerics", "Matrix3x2") => {
+                        dependencies.push(
+                            reader.resolve_type("Windows.Win32.Graphics.Direct2D", "D2D1MakeRotateMatrix"),
+                        );
+                    }
+                    _ => {
+                        dependencies.extend(self.fields().map(|f| f.definition()).flatten());
+        
+                        if let Some(dependency) = self.is_convertible() {
+                            dependencies.push(dependency);
+                        }
+                    }
+                }
+        
+                dependencies
+            }
+            TypeKind::Delegate => {
+                self.invoke_method().dependencies(&self.1)
+            }
+        }
+    }
+
     pub fn type_signature(&self) -> String {
         match self.kind() {
             TypeKind::Interface => self.interface_signature(),

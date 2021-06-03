@@ -7,39 +7,6 @@ use super::*;
 pub struct Struct(pub tables::TypeDef);
 
 impl Struct {
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        let reader = TypeReader::get();
-        let mut dependencies = vec![];
-
-        match self.0.full_name() {
-            ("Windows.Win32.System.OleAutomation", "BSTR") => {
-                dependencies.push(
-                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysFreeString"),
-                );
-                dependencies.push(
-                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysAllocStringLen"),
-                );
-                dependencies.push(
-                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysStringLen"),
-                );
-            }
-            ("Windows.Foundation.Numerics", "Matrix3x2") => {
-                dependencies.push(
-                    reader.resolve_type("Windows.Win32.Graphics.Direct2D", "D2D1MakeRotateMatrix"),
-                );
-            }
-            _ => {
-                dependencies.extend(self.0.fields().map(|f| f.definition()).flatten());
-
-                if let Some(dependency) = self.0.is_convertible() {
-                    dependencies.push(dependency);
-                }
-            }
-        }
-
-        dependencies
-    }
-
     pub fn is_packed(&self) -> bool {
         if self.0.class_layout().is_some() {
             return true;
@@ -523,14 +490,14 @@ mod tests {
     #[test]
     fn test_dependencies() {
         let t = TypeReader::get_struct("Windows.Foundation", "Point");
-        assert_eq!(t.dependencies().len(), 0);
+        assert_eq!(t.0.dependencies().len(), 0);
 
         let t = TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS");
-        assert_eq!(t.dependencies().len(), 0);
+        assert_eq!(t.0.dependencies().len(), 0);
 
         let t =
             TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
-        let deps = t.dependencies();
+        let deps = t.0.dependencies();
         assert_eq!(deps.len(), 1);
         assert_eq!(deps[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
     }

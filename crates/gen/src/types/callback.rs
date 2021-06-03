@@ -4,10 +4,6 @@ use super::*;
 pub struct Callback(pub tables::TypeDef);
 
 impl Callback {
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        self.0.invoke_method().dependencies(&[])
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let signature = self.0.invoke_method().signature(&[]);

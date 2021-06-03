@@ -93,34 +93,6 @@ impl Class {
         result
     }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        let generics = self.0.generics().iter().map(|g| g.definition());
-        let interfaces = self.0.interfaces().map(|i| i.definition());
-        let bases = self.0.bases().map(|b| b.definition());
-
-        let factories = self.0.attributes().filter_map(|attribute| {
-            match attribute.name() {
-                "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
-                    for (_, arg) in attribute.args() {
-                        if let parser::ConstantValue::TypeDef(def) = arg {
-                            return Some(ElementType::from_type_def(&def, Vec::new()));
-                        }
-                    }
-                }
-                _ => {}
-            }
-
-            None
-        });
-
-        generics
-            .chain(interfaces)
-            .chain(bases)
-            .flatten()
-            .chain(factories)
-            .collect()
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let interfaces = self.interfaces();
