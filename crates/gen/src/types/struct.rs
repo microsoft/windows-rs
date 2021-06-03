@@ -40,10 +40,6 @@ impl Struct {
         dependencies
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::Struct(self.clone())]
-    }
-
     pub fn is_packed(&self) -> bool {
         if self.0.class_layout().is_some() {
             return true;

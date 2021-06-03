@@ -121,10 +121,6 @@ impl Class {
             .collect()
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::Class(self.clone())]
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let interfaces = self.interfaces();

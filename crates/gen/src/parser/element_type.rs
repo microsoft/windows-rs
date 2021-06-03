@@ -386,13 +386,13 @@ impl ElementType {
 
     pub fn definition(&self) -> Vec<ElementType> {
         match self {
-            Self::Class(t) => t.definition(),
-            Self::Interface(t) => t.definition(),
-            Self::ComInterface(t) => t.definition(),
-            Self::Struct(t) => t.definition(),
-            Self::Delegate(t) => t.definition(),
-            Self::Callback(t) => t.definition(),
-            Self::Enum(t) => t.definition(),
+            Self::Class(t) => t.0.definition(),
+            Self::Interface(t) => t.0.definition(),
+            Self::ComInterface(t) => t.0.definition(),
+            Self::Struct(t) => t.0.definition(),
+            Self::Delegate(t) => t.0.definition(),
+            Self::Callback(t) => t.0.definition(),
+            Self::Enum(t) => t.0.definition(),
             Self::Array((signature, _)) => signature.definition(),
             // TODO: find a cleaner way to map this dependency
             Self::Matrix3x2 => {

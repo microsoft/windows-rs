@@ -11,10 +11,6 @@ impl ComInterface {
             .collect()
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::ComInterface(self.clone())]
-    }
-
     pub fn interfaces(&self) -> Vec<tables::TypeDef> {
         let mut result = Vec::new();
         let mut next = self.0.clone();

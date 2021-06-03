@@ -8,10 +8,6 @@ impl Callback {
         self.0.invoke_method().dependencies(&[])
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::Callback(self.clone())]
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let signature = self.0.invoke_method().signature(&[]);

@@ -4,10 +4,6 @@ use super::*;
 pub struct Enum(pub tables::TypeDef);
 
 impl Enum {
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::Enum(self.clone())]
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let underlying_type = self.0.underlying_type();

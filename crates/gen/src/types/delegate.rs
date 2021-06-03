@@ -8,10 +8,6 @@ impl Delegate {
         self.0.invoke_method().dependencies(self.0.generics())
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        self.0.definition()
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);

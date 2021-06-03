@@ -58,10 +58,6 @@ impl Interface {
         }
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        self.0.definition()
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let guid = self.0.gen_guid(gen);
