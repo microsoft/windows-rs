@@ -41,6 +41,8 @@ impl Delegate {
 
         let invoke = signature.gen_winrt_method(&method, &interface, gen);
 
+        // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
+        // for compile-time const guid calculations.
         let type_signature = if self.0.generics().is_empty() {
             self.0
                 .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()), gen)
