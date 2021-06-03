@@ -177,23 +177,8 @@ impl TypeDef {
 
     pub fn type_signature(&self) -> String {
         match self.kind() {
-            TypeKind::Interface => {
-                let guid = Guid::from_attributes(self.attributes()).expect("Interface guid not found");
-
-                if self.1.is_empty() {
-                    format!("{{{:#?}}}", guid)
-                } else {
-                    let mut result = format!("pinterface({{{:#?}}}", guid);
-        
-                    for generic in &self.1 {
-                        result.push(';');
-                        result.push_str(&generic.type_signature());
-                    }
-        
-                    result.push(')');
-                    result
-                }
-            }
+            TypeKind::Interface => 
+                self.interface_signature(),
             TypeKind::Class => {
                 let default = self.default_interface();
 
