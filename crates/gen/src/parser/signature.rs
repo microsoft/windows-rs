@@ -53,8 +53,8 @@ impl Signature {
         self.pointers > 0 || self.kind.is_blittable()
     }
 
-    pub fn is_struct(&self) -> bool {
-        self.pointers == 0 && self.kind.is_struct()
+    pub fn is_udt(&self) -> bool {
+        self.pointers == 0 && self.kind.is_udt()
     }
 
     pub fn is_explicit(&self) -> bool {

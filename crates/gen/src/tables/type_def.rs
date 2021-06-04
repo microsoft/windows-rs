@@ -308,7 +308,8 @@ impl TypeDef {
 
     pub fn is_convertible(&self) -> bool {
         match self.kind() {
-            TypeKind::Interface | TypeKind::Class | TypeKind::Struct | TypeKind::Delegate => true,
+            TypeKind::Interface | TypeKind::Class | TypeKind::Struct  => true,
+            TypeKind::Delegate => self.is_winrt(),
             _ => false,
         }
     }

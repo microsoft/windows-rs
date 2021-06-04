@@ -418,20 +418,22 @@ impl ElementType {
     }
 
     pub fn is_convertible(&self) -> bool {
-        matches!(
-            self,
+        match self {
+            Self::Class(t) => t.0.is_convertible(),
+            Self::Interface(t) =>t.0.is_convertible(),
+            Self::ComInterface(t) => t.0.is_convertible(),
+            Self::Enum(t) => t.0.is_convertible(),
+            Self::Struct(t) => t.0.is_convertible(),
+            Self::Delegate(t) => t.0.is_convertible(),
+            Self::Callback(t) => t.0.is_convertible(),            
             Self::String
                 | Self::IInspectable
                 | Self::Guid
                 | Self::IUnknown
                 | Self::Matrix3x2
-                | Self::GenericParam(_)
-                | Self::Class(_)
-                | Self::Interface(_)
-                | Self::ComInterface(_)
-                | Self::Struct(_)
-                | Self::Delegate(_)
-        )
+                | Self::GenericParam(_) => true,
+                _ => false,
+        }
     }
 
     pub fn is_callback(&self) -> bool {
@@ -439,8 +441,14 @@ impl ElementType {
     }
 
     pub fn is_primitive(&self) -> bool {
-        matches!(
-            self,
+        match self {
+            Self::Class(t) => t.0.is_primitive(),
+            Self::Interface(t) =>t.0.is_primitive(),
+            Self::ComInterface(t) => t.0.is_primitive(),
+            Self::Enum(t) => t.0.is_primitive(),
+            Self::Struct(t) => t.0.is_primitive(),
+            Self::Delegate(t) => t.0.is_primitive(),
+            Self::Callback(t) => t.0.is_primitive(),            
             Self::Bool
                 | Self::Char
                 | Self::I8
@@ -455,15 +463,21 @@ impl ElementType {
                 | Self::F64
                 | Self::ISize
                 | Self::USize
-                | Self::HRESULT
-                | Self::Enum(_)
-        )
+                | Self::HRESULT => true,
+                _ => false,
+        }
     }
 
-    pub fn is_struct(&self) -> bool {
+    pub fn is_udt(&self) -> bool {
         match self {
+            Self::Class(t) => t.0.is_udt(),
+            Self::Interface(t) =>t.0.is_udt(),
+            Self::ComInterface(t) => t.0.is_udt(),
+            Self::Enum(t) => t.0.is_udt(),
+            Self::Struct(t) => t.0.is_udt(),
+            Self::Delegate(t) => t.0.is_udt(),
+            Self::Callback(t) => t.0.is_udt(),
             Self::Guid | Self::Matrix3x2 => true,
-            Self::Struct(t) => !t.0.is_handle(),
             _ => false,
         }
     }

@@ -53,7 +53,7 @@ impl ComInterface {
                 });
 
                 let (udt_return_type, return_type) = if let Some(t) = &signature.return_type {
-                    if t.is_struct() {
+                    if t.is_udt() {
                         let mut t = t.clone();
                         t.pointers += 1;
                         let tokens = t.gen_win32_abi(gen);
@@ -91,7 +91,7 @@ impl ComInterface {
                 let params = signature.gen_win32_params(&signature.params, gen);
 
                 let (udt_return_type, udt_return_local, return_type, udt_return_expression) = if let Some(t) = &signature.return_type {
-                    if t.is_struct() {
+                    if t.is_udt() {
                         let tokens = t.kind.gen_abi_type(gen);
                         (quote! { &mut result__ }, quote! { let mut result__: #tokens = ::std::default::Default::default(); }, quote! { -> #tokens }, quote! { ;result__ })
                     } else {
