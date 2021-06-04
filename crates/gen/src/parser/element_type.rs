@@ -403,15 +403,17 @@ impl ElementType {
 
     pub fn is_blittable(&self) -> bool {
         match self {
+            Self::Class(t) => t.0.is_blittable(),
+            Self::Interface(t) =>t.0.is_blittable(),
+            Self::ComInterface(t) => t.0.is_blittable(),
+            Self::Enum(t) => t.0.is_blittable(),
+            Self::Struct(t) => t.0.is_blittable(),
+            Self::Delegate(t) => t.0.is_blittable(),
+            Self::Callback(t) => t.0.is_blittable(),     
             Self::String
             | Self::IInspectable
             | Self::IUnknown
-            | Self::GenericParam(_)
-            | Self::Class(_)
-            | Self::Interface(_)
-            | Self::ComInterface(_)
-            | Self::Delegate(_) => false,
-            Self::Struct(def) => def.0.is_blittable(),
+            | Self::GenericParam(_) => false,
             Self::Array((kind, _)) => kind.is_blittable(),
             _ => true,
         }
