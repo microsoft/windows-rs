@@ -388,17 +388,19 @@ impl ElementType {
     }
 
     pub fn is_nullable(&self) -> bool {
-        matches!(
-            self,
+        match self {
+            Self::Class(t) => t.0.is_nullable(),
+            Self::Interface(t) => t.0.is_nullable(),
+            Self::ComInterface(t) => t.0.is_nullable(),
+            Self::Struct(t) => t.0.is_nullable(),
+            Self::Delegate(t) => t.0.is_nullable(),
+            Self::Callback(t) => t.0.is_nullable(),
+            Self::Enum(t) => t.0.is_nullable(),
             Self::IInspectable
                 | Self::IUnknown
-                | Self::MethodDef(_)
-                | Self::Interface(_)
-                | Self::Class(_)
-                | Self::ComInterface(_)
-                | Self::Delegate(_)
-                | Self::Callback(_)
-        )
+                | Self::MethodDef(_) => true,
+            _ => false,
+        }
     }
 
     pub fn is_blittable(&self) -> bool {
