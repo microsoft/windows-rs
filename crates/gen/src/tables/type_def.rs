@@ -35,20 +35,12 @@ impl TypeDef {
         def
     }
 
-    // TODO: with_generics?
-    pub fn from_type_def(def: &tables::TypeDef, generics: Vec<ElementType>) -> Self {
-        let mut def = def.clone();
-
-        if generics.is_empty() {
-            def.1 = def
+    pub fn with_generics(mut self) -> Self {
+            self.1 = self
                 .generic_params()
                 .map(ElementType::GenericParam)
                 .collect();
-        } else {
-            def.1 = generics;
-        }
-
-        def
+        self
     }
 
     pub fn has_default_constructor(&self) -> bool {
@@ -77,7 +69,7 @@ impl TypeDef {
 
     // TODO: get rid of the definition functions
     pub fn definition(&self) -> Vec<ElementType> {
-        let mut definition = vec![ElementType::from_type_def(self, Vec::new())];
+        let mut definition = vec![self.clone().into()];
 
         for generic in &self.1 {
             definition.append(&mut generic.definition());
@@ -175,22 +167,23 @@ impl TypeDef {
     }
 
     pub fn gen(&self, gen: &Gen) -> TokenStream {
+        // TODO: all the cloning here is ridiculous
         match self.kind() {
             TypeKind::Interface => {
                 if self.is_winrt() {
-                    types::Interface(tables::TypeDef::from_type_def(self, Vec::new())).gen(gen)
+                    types::Interface(self.clone().with_generics()).gen(gen)
                 } else {
                     types::ComInterface(self.clone()).gen(gen)
                 }
             }
             TypeKind::Class => {
-                types::Class(tables::TypeDef::from_type_def(self, Vec::new())).gen(gen)
+                types::Class(self.clone().with_generics()).gen(gen)
             }
             TypeKind::Enum => types::Enum(self.clone()).gen(gen),
             TypeKind::Struct => types::Struct(self.clone()).gen(gen),
             TypeKind::Delegate => {
                 if self.is_winrt() {
-                    types::Delegate(tables::TypeDef::from_type_def(self, Vec::new())).gen(gen)
+                    types::Delegate(self.clone().with_generics()).gen(gen)
                 } else {
                     types::Callback(self.clone()).gen(gen)
                 }
@@ -229,7 +222,7 @@ impl TypeDef {
             TypeKind::Interface => {
                 let interfaces = self
                     .interfaces()
-                    .map(|i| ElementType::from_type_def(&i, Vec::new()));
+                    .map(|i| i.into());
 
                 let methods = self.methods().map(|m| m.dependencies(&self.1)).flatten();
 
@@ -249,7 +242,7 @@ impl TypeDef {
                         "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                             for (_, arg) in attribute.args() {
                                 if let parser::ConstantValue::TypeDef(def) = arg {
-                                    return Some(ElementType::from_type_def(&def, Vec::new()));
+                                    return Some(def.into());
                                 }
                             }
                         }

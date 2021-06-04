@@ -21,7 +21,7 @@ impl TypeRef {
     }
 
     // TODO: consider removing and making cache hits explicit
-    pub fn resolve(&self) -> &TypeDef {
+    pub fn resolve(&self) -> TypeDef {
         TypeReader::get().resolve_type_ref(self)
     }
 }

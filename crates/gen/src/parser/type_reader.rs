@@ -193,25 +193,26 @@ impl TypeReader {
         None
     }
 
+    // TODO: replace with From<TypeRow>
     fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
         match row {
-            TypeRow::TypeDef(row) => ElementType::from_type_def(row, Vec::new()),
+            TypeRow::TypeDef(row) => row.clone().into(),
             TypeRow::MethodDef(row) => ElementType::MethodDef(*row),
             TypeRow::Field(row) => ElementType::Field(*row),
         }
     }
 
-    pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> &tables::TypeDef {
+    pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
-                return row;
+                return row.clone()
             }
         }
 
         panic!("Could not find type def `{}.{}`", namespace, name);
     }
 
-    pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> &tables::TypeDef {
+    pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
             self.nested[&scope.resolve()]
                 .get(type_ref.name())
@@ -222,7 +223,7 @@ impl TypeReader {
                         scope.namespace(),
                         scope.name()
                     )
-                })
+                }).clone()
         } else {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
         }

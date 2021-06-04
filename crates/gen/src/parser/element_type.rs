@@ -45,6 +45,32 @@ impl Default for ElementType {
     }
 }
 
+impl From<tables::TypeDef> for ElementType {
+    fn from(def: tables::TypeDef) -> Self {
+        match def.kind() {
+            TypeKind::Interface => {
+                if def.is_winrt() {
+                    Self::Interface(types::Interface(def.with_generics()))
+                } else {
+                    Self::ComInterface(types::ComInterface(def.clone()))
+                }
+            }
+            TypeKind::Class => {
+                Self::Class(types::Class(def.with_generics()))
+            }
+            TypeKind::Enum => Self::Enum(types::Enum(def.clone())),
+            TypeKind::Struct => Self::Struct(types::Struct(def.clone())),
+            TypeKind::Delegate => {
+                if def.is_winrt() {
+                    Self::Delegate(types::Delegate(def.with_generics()))
+                } else {
+                    Self::Callback(types::Callback(def.clone()))
+                }
+            }
+        }
+    }
+}
+
 impl ElementType {
     pub fn row(&self) -> Row {
         match self {
@@ -137,15 +163,13 @@ impl ElementType {
                         ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => Self::U64,
                         ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
                         ("System", "Type") => Self::TypeName,
-                        _ => Self::from_type_def(&type_ref.resolve(), Vec::new()),
+                        _ => type_ref.resolve().into(),
                     },
-                    TypeDefOrRef::TypeDef(type_def) => Self::from_type_def(
+                    TypeDefOrRef::TypeDef(type_def) => 
                         // Need to "re-resolve" the TypeDef as it may point to an arch-specific
                         // definition. This lets the TypeTree be built for a specific architecture
                         // without accidentally pulling in the wrong definition.
-                        &TypeReader::get().resolve_type_def(type_def.namespace(), type_def.name()),
-                        Vec::new(),
-                    ),
+                        TypeReader::get().resolve_type_def(type_def.namespace(), type_def.name()).into(),
                     _ => unexpected!(),
                 }
             }
@@ -166,35 +190,6 @@ impl ElementType {
                 }
             }
             _ => unexpected!(),
-        }
-    }
-
-    // TODO: remove unused generics param
-    pub fn from_type_def(def: &tables::TypeDef, generics: Vec<Self>) -> Self {
-        match def.kind() {
-            TypeKind::Interface => {
-                if def.is_winrt() {
-                    Self::Interface(types::Interface(tables::TypeDef::from_type_def(
-                        def, generics,
-                    )))
-                } else {
-                    Self::ComInterface(types::ComInterface(def.clone()))
-                }
-            }
-            TypeKind::Class => {
-                Self::Class(types::Class(tables::TypeDef::from_type_def(def, generics)))
-            }
-            TypeKind::Enum => Self::Enum(types::Enum(def.clone())),
-            TypeKind::Struct => Self::Struct(types::Struct(def.clone())),
-            TypeKind::Delegate => {
-                if def.is_winrt() {
-                    Self::Delegate(types::Delegate(tables::TypeDef::from_type_def(
-                        def, generics,
-                    )))
-                } else {
-                    Self::Callback(types::Callback(def.clone()))
-                }
-            }
         }
     }
 
