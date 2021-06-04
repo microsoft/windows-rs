@@ -470,13 +470,13 @@ impl ElementType {
 
     pub fn is_explicit(&self) -> bool {
         match self {
-            Self::Struct(s) => {
-                if s.0.flags().explicit() {
-                    true
-                } else {
-                    s.0.fields().any(|f| f.signature().is_explicit())
-                }
-            }
+            Self::Class(t) => t.0.is_explicit(),
+            Self::Interface(t) =>t.0.is_explicit(),
+            Self::ComInterface(t) => t.0.is_explicit(),
+            Self::Enum(t) => t.0.is_explicit(),
+            Self::Struct(t) => t.0.is_explicit(),
+            Self::Delegate(t) => t.0.is_explicit(),
+            Self::Callback(t) => t.0.is_explicit(),
             Self::Array((kind, _)) => kind.is_explicit(),
             _ => false,
         }
