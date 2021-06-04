@@ -385,8 +385,6 @@ impl MethodParam {
         } else if self.param.is_input() {
             if self.signature.kind.is_primitive() {
                 quote! { #name }
-            } else if let ElementType::Enum(_) = self.signature.kind {
-                quote! { #name }
             } else if self.is_const() {
                 quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
             } else {

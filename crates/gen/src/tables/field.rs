@@ -90,9 +90,9 @@ mod tests {
 
     #[test]
     fn test_generic() {
-        let r = TypeReader::get_struct("Windows.Foundation", "Rect");
+        let r = TypeReader::get().resolve_type_def("Windows.Foundation", "Rect");
 
-        let f: Vec<Field> = r.0.fields().collect();
+        let f: Vec<Field> = r.fields().collect();
         assert_eq!(f.len(), 4);
 
         let s = f[0].signature();

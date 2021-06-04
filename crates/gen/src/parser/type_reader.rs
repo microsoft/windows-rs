@@ -159,9 +159,7 @@ impl TypeReader {
     ///
     /// Panics if the namespace does not exist
     pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = ElementType> {
-        self.types[namespace]
-            .values()
-            .map(move |row| row.into())
+        self.types[namespace].values().map(move |row| row.into())
     }
 
     pub fn nested_types(
@@ -203,12 +201,10 @@ impl TypeReader {
         None
     }
 
-
-
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
-                return row.clone()
+                return row.clone();
             }
         }
 
@@ -226,45 +222,10 @@ impl TypeReader {
                         scope.namespace(),
                         scope.name()
                     )
-                }).clone()
+                })
+                .clone()
         } else {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
-        }
-    }
-
-    #[cfg(test)]
-    pub fn get_class(namespace: &str, name: &str) -> types::Class {
-        if let ElementType::Class(value) = Self::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
-    #[cfg(test)]
-    pub fn get_struct(namespace: &str, name: &str) -> types::Struct {
-        if let ElementType::Struct(value) = Self::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
-    #[cfg(test)]
-    pub fn get_enum(namespace: &str, name: &str) -> types::Enum {
-        if let ElementType::Enum(value) = Self::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
-    #[cfg(test)]
-    pub fn get_interface(namespace: &str, name: &str) -> types::Interface {
-        if let ElementType::Interface(value) = Self::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
         }
     }
 }

@@ -199,7 +199,7 @@ impl Struct {
                 .iter()
                 .enumerate()
                 .map(|(index, (_, signature, name))| {
-                    let is_callback = matches!(signature.kind, ElementType::Callback(_));
+                    let is_callback = signature.kind.is_callback();
 
                     if is_callback && signature.pointers == 0 {
                         quote! {
@@ -296,10 +296,12 @@ impl Struct {
                     .enumerate()
                     .filter_map(|(index, (_, signature, name))| {
                         // TODO: there must be a simpler way to implement Debug just to exclude this type.
+                        if signature.kind.is_callback() {
+                            return None;
+                        }
                         match &signature.kind {
-                            ElementType::Callback(_) => return None,
                             ElementType::Array((kind, _)) => {
-                                if let ElementType::Callback(_) = kind.kind {
+                                if kind.kind.is_callback() {
                                     return None;
                                 }
                             }
@@ -430,18 +432,15 @@ mod tests {
 
     #[test]
     fn test_signature() {
-        let t = TypeReader::get_struct("Windows.Foundation", "Point");
-        assert_eq!(
-            t.0.type_signature(),
-            "struct(Windows.Foundation.Point;f4;f4)"
-        );
+        let t = TypeReader::get().resolve_type_def("Windows.Foundation", "Point");
+        assert_eq!(t.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
     }
 
     #[test]
     fn test_fields() {
-        let t =
-            TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
-        let f: Vec<tables::Field> = t.0.fields().collect();
+        let t = TypeReader::get()
+            .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let f: Vec<tables::Field> = t.fields().collect();
         assert_eq!(f.len(), 7);
 
         assert_eq!(f[0].name(), "PresentCount");
@@ -457,27 +456,22 @@ mod tests {
         assert_eq!(f[2].signature().kind, ElementType::U32);
         assert_eq!(f[3].signature().kind, ElementType::I64);
         assert_eq!(f[4].signature().kind, ElementType::I64);
-        assert_eq!(
-            f[5].signature().kind,
-            ElementType::Enum(TypeReader::get_enum(
-                "Windows.Win32.Graphics.Dxgi",
-                "DXGI_FRAME_PRESENTATION_MODE"
-            ))
-        );
+        assert_eq!(f[5].signature().kind.name(), "DXGI_FRAME_PRESENTATION_MODE");
         assert_eq!(f[6].signature().kind, ElementType::U32);
     }
 
     #[test]
     fn test_dependencies() {
-        let t = TypeReader::get_struct("Windows.Foundation", "Point");
-        assert_eq!(t.0.dependencies().len(), 0);
+        let t = TypeReader::get().resolve_type_def("Windows.Foundation", "Point");
+        assert_eq!(t.dependencies().len(), 0);
 
-        let t = TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS");
-        assert_eq!(t.0.dependencies().len(), 0);
+        let t = TypeReader::get()
+            .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS");
+        assert_eq!(t.dependencies().len(), 0);
 
-        let t =
-            TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
-        let deps = t.0.dependencies();
+        let t = TypeReader::get()
+            .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let deps = t.dependencies();
         assert_eq!(deps.len(), 1);
         assert_eq!(deps[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
     }
@@ -485,14 +479,14 @@ mod tests {
     #[test]
     fn test_blittable() {
         assert_eq!(
-            TypeReader::get_struct("Windows.Foundation", "Point")
-                .0
+            TypeReader::get()
+                .resolve_type_def("Windows.Foundation", "Point")
                 .is_blittable(),
             true
         );
         assert_eq!(
-            TypeReader::get_struct("Windows.UI.Xaml.Interop", "TypeName")
-                .0
+            TypeReader::get()
+                .resolve_type_def("Windows.UI.Xaml.Interop", "TypeName")
                 .is_blittable(),
             false
         );

@@ -249,16 +249,17 @@ mod tests {
 
     #[test]
     fn test_signature() {
-        let c = TypeReader::get_class("Windows.Foundation", "Uri");
+        let c = TypeReader::get().resolve_type_def("Windows.Foundation", "Uri");
         assert_eq!(
-            c.0.type_signature(),
+            c.type_signature(),
             "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
         )
     }
 
     #[test]
     fn test_class() {
-        let c = TypeReader::get_class("Windows.Foundation.Collections", "StringMap");
+        let c = TypeReader::get().resolve_type_def("Windows.Foundation.Collections", "StringMap");
+        let c = Class(c);
         let i = c.interfaces();
         assert_eq!(i.len(), 3);
 
@@ -283,19 +284,19 @@ mod tests {
 
     #[test]
     fn test_bases() {
-        let c = TypeReader::get_class("Windows.Foundation", "Uri");
-        assert_eq!(c.0.bases().count(), 0);
+        let c = TypeReader::get().resolve_type_def("Windows.Foundation", "Uri");
+        assert_eq!(c.bases().count(), 0);
 
-        let c = TypeReader::get_class("Windows.UI.Composition", "CompositionObject");
-        assert_eq!(c.0.bases().count(), 0);
+        let c = TypeReader::get().resolve_type_def("Windows.UI.Composition", "CompositionObject");
+        assert_eq!(c.bases().count(), 0);
 
-        let c = TypeReader::get_class("Windows.UI.Composition", "Visual");
-        let bases: Vec<tables::TypeDef> = c.0.bases().collect();
+        let c = TypeReader::get().resolve_type_def("Windows.UI.Composition", "Visual");
+        let bases: Vec<tables::TypeDef> = c.bases().collect();
         assert_eq!(bases.len(), 1);
         assert_eq!(bases[0].name(), "CompositionObject");
 
-        let c = TypeReader::get_class("Windows.UI.Composition", "SpriteVisual");
-        let bases: Vec<tables::TypeDef> = c.0.bases().collect();
+        let c = TypeReader::get().resolve_type_def("Windows.UI.Composition", "SpriteVisual");
+        let bases: Vec<tables::TypeDef> = c.bases().collect();
         assert_eq!(bases.len(), 3);
         assert_eq!(bases[0].name(), "ContainerVisual");
         assert_eq!(bases[1].name(), "Visual");
@@ -308,7 +309,9 @@ mod tests {
         // IMediaStreamDescriptor2 which also implements IMediaStreamDescriptor. This is unfortunately legal but rather unusual and
         // language projections need to be careful not to be confused by this.
 
-        let c = TypeReader::get_class("Windows.Media.Core", "TimedMetadataStreamDescriptor");
+        let c = TypeReader::get()
+            .resolve_type_def("Windows.Media.Core", "TimedMetadataStreamDescriptor");
+        let c = Class(c);
         let mut i = c.interfaces();
         assert_eq!(i.len(), 4);
 

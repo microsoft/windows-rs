@@ -36,11 +36,15 @@ impl TypeDef {
     }
 
     pub fn with_generics(mut self) -> Self {
-            self.1 = self
-                .generic_params()
-                .map(ElementType::GenericParam)
-                .collect();
+        self.1 = self
+            .generic_params()
+            .map(ElementType::GenericParam)
+            .collect();
         self
+    }
+
+    pub fn is_callback(&self) -> bool {
+        !self.is_winrt() && self.kind() == TypeKind::Delegate
     }
 
     pub fn has_default_constructor(&self) -> bool {
@@ -176,9 +180,7 @@ impl TypeDef {
                     types::ComInterface(self.clone()).gen(gen)
                 }
             }
-            TypeKind::Class => {
-                types::Class(self.clone().with_generics()).gen(gen)
-            }
+            TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen),
             TypeKind::Enum => types::Enum(self.clone()).gen(gen),
             TypeKind::Struct => types::Struct(self.clone()).gen(gen),
             TypeKind::Delegate => {
@@ -220,9 +222,7 @@ impl TypeDef {
     pub fn dependencies(&self) -> Vec<ElementType> {
         match self.kind() {
             TypeKind::Interface => {
-                let interfaces = self
-                    .interfaces()
-                    .map(|i| i.into());
+                let interfaces = self.interfaces().map(|i| i.into());
 
                 let methods = self.methods().map(|m| m.dependencies(&self.1)).flatten();
 
@@ -308,7 +308,7 @@ impl TypeDef {
 
     pub fn is_convertible(&self) -> bool {
         match self.kind() {
-            TypeKind::Interface | TypeKind::Class | TypeKind::Struct  => true,
+            TypeKind::Interface | TypeKind::Class | TypeKind::Struct => true,
             TypeKind::Delegate => self.is_winrt(),
             _ => false,
         }

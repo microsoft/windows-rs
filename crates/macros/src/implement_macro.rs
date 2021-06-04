@@ -1,4 +1,4 @@
-use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader};
+use gen::{tables::TypeDef, TypeKind, TypeReader};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;
@@ -19,15 +19,7 @@ impl ImplementMacro {
         let mut result = Vec::new();
 
         for (namespace, name) in &self.implement {
-            match reader.resolve_type(namespace, name) {
-                ElementType::Interface(interface) => {
-                    result.push((interface.0, false));
-                }
-                ElementType::Class(_) => {
-                    // TODO: add all class interfaces as the class itself is being implemented
-                }
-                _ => panic!(),
-            }
+            result.push((reader.resolve_type_def(namespace, name), false));
         }
 
         if let Some((namespace, name)) = self.extend {
