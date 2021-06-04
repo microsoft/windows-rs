@@ -349,7 +349,7 @@ impl Struct {
         let extensions = self.gen_extensions();
         let nested_types = gen_nested_types(struct_name, &self.0, gen);
 
-        let convertible = if let Some(dependency) = self.0.is_convertible() {
+        let convertible = if let Some(dependency) = self.0.is_convertible_to() {
             let dependency = dependency.gen_name(gen);
 
             quote! {

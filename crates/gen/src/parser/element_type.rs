@@ -56,7 +56,7 @@ impl From<tables::TypeDef> for ElementType {
                 }
             }
             TypeKind::Class => {
-                Self::Class(types::Class(def.with_generics()))
+                Self::Class(types::Class(def.clone()))
             }
             TypeKind::Enum => Self::Enum(types::Enum(def.clone())),
             TypeKind::Struct => Self::Struct(types::Struct(def.clone())),

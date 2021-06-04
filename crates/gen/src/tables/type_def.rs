@@ -290,7 +290,7 @@ impl TypeDef {
                     _ => {
                         dependencies.extend(self.fields().map(|f| f.definition()).flatten());
 
-                        if let Some(dependency) = self.is_convertible() {
+                        if let Some(dependency) = self.is_convertible_to() {
                             dependencies.push(dependency);
                         }
                     }
@@ -299,6 +299,33 @@ impl TypeDef {
                 dependencies
             }
             TypeKind::Delegate => self.invoke_method().dependencies(&self.1),
+        }
+    }
+
+    pub fn is_udt(&self) -> bool {
+        self.kind() == TypeKind::Struct && !self.is_handle()
+    }
+
+    pub fn is_convertible(&self) -> bool {
+        match self.kind() {
+            TypeKind::Interface | TypeKind::Class | TypeKind::Struct | TypeKind::Delegate => true,
+            _ => false,
+        }
+    }
+
+    pub fn is_primitive(&self) -> bool {
+        self.kind() == TypeKind::Enum
+    }
+
+    pub fn is_explicit(&self) -> bool {
+        if self.kind() != TypeKind::Struct {
+            return false;
+        }
+
+        if self.flags().explicit() {
+            true
+        } else {
+            self.fields().any(|f| f.signature().is_explicit())
         }
     }
 
@@ -531,7 +558,7 @@ impl TypeDef {
         })
     }
 
-    pub fn is_convertible(&self) -> Option<ElementType> {
+    pub fn is_convertible_to(&self) -> Option<ElementType> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
@@ -601,6 +628,13 @@ impl TypeDef {
 
     pub fn guid(&self) -> Guid {
         Guid::from_attributes(self.attributes()).expect("TypeDef::guid")
+    }
+
+    pub fn is_nullable(&self) -> bool {
+        matches!(
+            self.kind(),
+            TypeKind::Interface | TypeKind::Class | TypeKind::Delegate
+        )
     }
 
     pub fn enclosing_type(&self) -> Option<Self> {

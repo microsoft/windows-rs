@@ -16,6 +16,16 @@ enum TypeRow {
     Field(tables::Field),
 }
 
+impl From<&TypeRow> for ElementType {
+    fn from(from: &TypeRow) -> Self {
+        match from {
+            TypeRow::TypeDef(row) => row.clone().into(),
+            TypeRow::MethodDef(row) => Self::MethodDef(*row),
+            TypeRow::Field(row) => Self::Field(*row),
+        }
+    }
+}
+
 impl TypeReader {
     pub fn get() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
@@ -151,7 +161,7 @@ impl TypeReader {
     pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = ElementType> {
         self.types[namespace]
             .values()
-            .map(move |row| self.to_element_type(row))
+            .map(move |row| row.into())
     }
 
     pub fn nested_types(
@@ -164,7 +174,7 @@ impl TypeReader {
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
         if let Some(types) = self.types.get(namespace) {
             if let Some(row) = types.get(trim_tick(name)) {
-                return self.to_element_type(row);
+                return row.into();
             }
         }
 
@@ -193,14 +203,7 @@ impl TypeReader {
         None
     }
 
-    // TODO: replace with From<TypeRow>
-    fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
-        match row {
-            TypeRow::TypeDef(row) => row.clone().into(),
-            TypeRow::MethodDef(row) => ElementType::MethodDef(*row),
-            TypeRow::Field(row) => ElementType::Field(*row),
-        }
-    }
+
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         if let Some(types) = self.types.get(namespace) {
