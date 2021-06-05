@@ -208,6 +208,10 @@ impl TypeDef {
     }
 
     pub fn is_packed(&self) -> bool {
+        if self.kind() != TypeKind::Struct {
+            return false;
+        }
+
         if self.class_layout().is_some() {
             return true;
         }
