@@ -53,7 +53,7 @@ impl TypeTree {
         set: &mut BTreeSet<Row>,
         t: &ElementType,
     ) {
-        if set.insert(t.row()) {
+        if set.insert(t.row().clone()) {
             for def in t.dependencies() {
                 self.insert_if(reader, def.namespace(), set, &def);
             }

@@ -45,11 +45,11 @@ impl From<tables::TypeDef> for ElementType {
 }
 
 impl ElementType {
-    pub fn row(&self) -> Row {
+    pub fn row(&self) -> &Row {
         match self {
-            Self::MethodDef(def) => def.0,
-            Self::Field(def) => def.0,
-            Self::TypeDef(def) => *def.row(),
+            Self::MethodDef(def) => &def.0,
+            Self::Field(def) => &def.0,
+            Self::TypeDef(def) => def.row(),
             _ => unexpected!(),
         }
     }
