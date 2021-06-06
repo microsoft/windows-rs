@@ -37,7 +37,6 @@ impl Default for ElementType {
     }
 }
 
-// TODO: get rid of this to make it clear when generics are resolved
 impl From<tables::TypeDef> for ElementType {
     fn from(def: tables::TypeDef) -> Self {
         Self::TypeDef(def.with_generics())
