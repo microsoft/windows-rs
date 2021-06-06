@@ -11,7 +11,7 @@ impl Class {
             is_base: bool,
         ) {
             for child in parent.interface_impls() {
-                if let Some(def) = child.generic_interface(parent.generics()) {
+                if let Some(def) = child.generic_interface(&parent.generics) {
                     let kind = if !is_base && child.is_default() {
                         InterfaceKind::Default
                     } else if child.is_overridable() {

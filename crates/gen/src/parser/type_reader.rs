@@ -118,7 +118,7 @@ impl TypeReader {
                 let name = enclosed.name();
 
                 nested
-                    .entry(enclosing.row().clone())
+                    .entry(enclosing.row.clone())
                     .or_default()
                     .insert(name, enclosed);
             }
@@ -169,7 +169,7 @@ impl TypeReader {
         &'static self,
         enclosing: &tables::TypeDef,
     ) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
-        self.nested.get(enclosing.row())
+        self.nested.get(&enclosing.row)
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
@@ -216,7 +216,7 @@ impl TypeReader {
 
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            self.nested[scope.resolve().row()]
+            self.nested[&scope.resolve().row]
                 .get(type_ref.name())
                 .unwrap_or_else(|| {
                     panic!(

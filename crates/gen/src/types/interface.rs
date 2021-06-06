@@ -11,7 +11,7 @@ impl Interface {
             is_base: bool,
         ) {
             for child in parent.interface_impls() {
-                if let Some(def) = child.generic_interface(parent.generics()) {
+                if let Some(def) = child.generic_interface(&parent.generics) {
                     if !result.iter().any(|info| info.def == def) {
                         add_interfaces(result, &def, is_base);
                         let version = def.version();
@@ -50,7 +50,7 @@ impl Interface {
         let abi_signatures = self
             .0
             .methods()
-            .map(|m| m.signature(self.0.generics()).gen_winrt_abi(gen));
+            .map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
 
         let is_exclusive = self.0.is_exclusive();
 

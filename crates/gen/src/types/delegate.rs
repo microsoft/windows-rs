@@ -8,7 +8,7 @@ impl Delegate {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let turbo_abi_name = self.0.gen_turbo_abi_name(gen);
-        let signature = self.0.invoke_method().signature(self.0.generics());
+        let signature = self.0.invoke_method().signature(&self.0.generics);
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
@@ -35,7 +35,7 @@ impl Delegate {
 
         // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
         // for compile-time const guid calculations.
-        let type_signature = if self.0.generics().is_empty() {
+        let type_signature = if self.0.generics.is_empty() {
             self.0
                 .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()), gen)
         } else {
@@ -43,13 +43,13 @@ impl Delegate {
                 .gen_signature(&format!("{{{:#?}}}", &self.0.guid()), gen)
         };
 
-        let (box_name, box_definition) = if self.0.generics().is_empty() {
+        let (box_name, box_definition) = if self.0.generics.is_empty() {
             let name = format_ident!("{}_box", self.0.name());
             (quote! { #name::<F> }, quote! { #name<#fn_constraint> })
         } else {
             let name = self.0.name();
             let name = format_ident!("{}_box", &name[..name.len() - 2]);
-            let generics = self.0.generics().iter().map(|g| g.gen_name(gen));
+            let generics = self.0.generics.iter().map(|g| g.gen_name(gen));
             let generics = quote! { #(#generics,)* };
             (
                 quote! { #name::<#generics F> },

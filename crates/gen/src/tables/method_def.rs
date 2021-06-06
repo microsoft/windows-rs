@@ -199,7 +199,7 @@ mod tests {
         let i = types::Interface(i.with_generics());
         let m = get_method(&i, "Lookup");
 
-        let s = m.signature(i.0.generics());
+        let s = m.signature(&i.0.generics);
         assert_eq!(s.params.len(), 1);
 
         let r = s.return_type.unwrap();

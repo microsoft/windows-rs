@@ -52,7 +52,7 @@ fn gen_async_kind(
     gen: &Gen,
 ) -> (TokenStream, TokenStream) {
     let return_type = match kind {
-        AsyncKind::Operation | AsyncKind::OperationWithProgress => name.generics()[0].gen_name(gen),
+        AsyncKind::Operation | AsyncKind::OperationWithProgress => name.generics[0].gen_name(gen),
         _ => quote! { () },
     };
 

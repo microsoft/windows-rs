@@ -1,19 +1,21 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeDef(Row, Vec<ElementType>);
+pub struct TypeDef {
+    pub row: Row,
+    pub generics: Vec<ElementType>,
+}
 
 impl From<Row> for TypeDef {
     fn from(row: Row) -> Self {
-        Self(row, Vec::new())
+        Self {
+            row,
+            generics: Vec::new(),
+        }
     }
 }
 
 impl TypeDef {
-    pub fn generics(&self) -> &Vec<ElementType> {
-        &self.1
-    }
-
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
         blob.read_unsigned();
 
@@ -21,14 +23,14 @@ impl TypeDef {
         let args = blob.read_unsigned();
 
         for _ in 0..args {
-            def.1.push(ElementType::from_blob(blob, generics));
+            def.generics.push(ElementType::from_blob(blob, generics));
         }
 
         def
     }
 
     pub fn with_generics(mut self) -> Self {
-        self.1 = self
+        self.generics = self
             .generic_params()
             .map(ElementType::GenericParam)
             .collect();
@@ -67,7 +69,7 @@ impl TypeDef {
     pub fn definition(&self) -> Vec<ElementType> {
         let mut definition = vec![self.clone().into()];
 
-        for generic in &self.1 {
+        for generic in &self.generics {
             definition.append(&mut generic.definition());
         }
 
@@ -77,7 +79,7 @@ impl TypeDef {
     pub fn default_interface(&self) -> Self {
         for interface in self.interface_impls() {
             if interface.is_default() {
-                if let Some(result) = interface.generic_interface(&self.1) {
+                if let Some(result) = interface.generic_interface(&self.generics) {
                     return result;
                 }
             }
@@ -92,7 +94,7 @@ impl TypeDef {
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
         self.interface_impls()
-            .filter_map(move |i| i.generic_interface(&self.1))
+            .filter_map(move |i| i.generic_interface(&self.generics))
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
@@ -120,7 +122,7 @@ impl TypeDef {
             let name = self.name();
             let namespace = gen.namespace(self.namespace());
 
-            if self.1.is_empty() {
+            if self.generics.is_empty() {
                 let name = format_name(name);
                 quote! { #namespace#name }
             } else {
@@ -131,14 +133,14 @@ impl TypeDef {
                 };
 
                 let name = format_name(&name[..name.len() - 2]);
-                let generics = self.1.iter().map(|g| g.gen_name(gen));
+                let generics = self.generics.iter().map(|g| g.gen_name(gen));
                 quote! { #namespace#name#colon_separated<#(#generics),*> }
             }
         }
     }
 
     pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
-        if self.1.is_empty() {
+        if self.generics.is_empty() {
             match Guid::from_attributes(self.attributes()) {
                 Some(guid) => {
                     let guid = guid.gen();
@@ -220,16 +222,19 @@ impl TypeDef {
             TypeKind::Interface => {
                 let interfaces = self.interfaces().map(|i| i.into());
 
-                let methods = self.methods().map(|m| m.dependencies(&self.1)).flatten();
+                let methods = self
+                    .methods()
+                    .map(|m| m.dependencies(&self.generics))
+                    .flatten();
 
-                if self.1.is_empty() {
+                if self.generics.is_empty() {
                     interfaces.collect()
                 } else {
                     interfaces.chain(methods).collect()
                 }
             }
             TypeKind::Class => {
-                let generics = self.generics().iter().map(|g| g.definition());
+                let generics = self.generics.iter().map(|g| g.definition());
                 let interfaces = self.interfaces().map(|i| i.definition());
                 let bases = self.bases().map(|b| b.definition());
 
@@ -294,7 +299,7 @@ impl TypeDef {
 
                 dependencies
             }
-            TypeKind::Delegate => self.invoke_method().dependencies(&self.1),
+            TypeKind::Delegate => self.invoke_method().dependencies(&self.generics),
         }
     }
 
@@ -353,7 +358,7 @@ impl TypeDef {
                 result
             }
             TypeKind::Delegate => {
-                if self.1.is_empty() {
+                if self.generics.is_empty() {
                     format!("delegate({})", self.interface_signature())
                 } else {
                     self.interface_signature()
@@ -384,13 +389,13 @@ impl TypeDef {
     pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
 
-        if self.1.is_empty() {
+        if self.generics.is_empty() {
             return quote! { ::windows::ConstBuffer::from_slice(#signature) };
         }
 
-        let generics = self.1.iter().enumerate().map(|(index, g)| {
+        let generics = self.generics.iter().enumerate().map(|(index, g)| {
             let g = g.gen(gen);
-            let semi = if index != self.1.len() - 1 {
+            let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
                 })
@@ -417,14 +422,14 @@ impl TypeDef {
     }
 
     pub fn gen_phantoms<'a>(&'a self, gen: &'a Gen) -> impl Iterator<Item = TokenStream> + 'a {
-        self.1.iter().map(move |g| {
+        self.generics.iter().map(move |g| {
             let g = g.gen(gen);
             quote! { ::std::marker::PhantomData::<#g> }
         })
     }
 
     pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
-        self.1
+        self.generics
             .iter()
             .map(|g| {
                 let g = g.gen(gen);
@@ -436,12 +441,12 @@ impl TypeDef {
     pub fn interface_signature(&self) -> String {
         let guid = self.guid();
 
-        if self.1.is_empty() {
+        if self.generics.is_empty() {
             format!("{{{:#?}}}", guid)
         } else {
             let mut result = format!("pinterface({{{:#?}}}", guid);
 
-            for generic in &self.1 {
+            for generic in &self.generics {
                 result.push(';');
                 result.push_str(&generic.type_signature());
             }
@@ -451,20 +456,16 @@ impl TypeDef {
         }
     }
 
-    pub fn row(&self) -> &Row {
-        &self.0
-    }
-
     pub fn flags(&self) -> TypeFlags {
-        TypeFlags(self.0.u32(0))
+        TypeFlags(self.row.u32(0))
     }
 
     pub fn name(&self) -> &'static str {
-        self.0.str(1)
+        self.row.str(1)
     }
 
     pub fn namespace(&self) -> &'static str {
-        self.0.str(2)
+        self.row.str(2)
     }
 
     // TODO: all "full_name" methods should return a FullName struct that provides a fast compare for match expressions
@@ -473,12 +474,12 @@ impl TypeDef {
     }
 
     pub fn extends(&self) -> (&'static str, &'static str) {
-        let extends = self.0.u32(3);
+        let extends = self.row.u32(3);
 
         if extends == 0 {
             ("", "")
         } else {
-            TypeDefOrRef::decode(self.0.file, extends).full_name()
+            TypeDefOrRef::decode(self.row.file, extends).full_name()
         }
     }
 
@@ -487,15 +488,15 @@ impl TypeDef {
     }
 
     pub fn fields(&self) -> impl Iterator<Item = Field> {
-        self.0.list(4, TableIndex::Field).map(Field)
+        self.row.list(4, TableIndex::Field).map(Field)
     }
 
     pub fn methods(&self) -> impl Iterator<Item = MethodDef> {
-        self.0.list(5, TableIndex::MethodDef).map(MethodDef)
+        self.row.list(5, TableIndex::MethodDef).map(MethodDef)
     }
 
     pub fn generic_params(&self) -> impl Iterator<Item = GenericParam> {
-        self.0
+        self.row
             .file
             .equal_range(
                 TableIndex::GenericParam,
@@ -506,9 +507,9 @@ impl TypeDef {
     }
 
     pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> {
-        self.0
+        self.row
             .file
-            .equal_range(TableIndex::InterfaceImpl, 0, self.0.row + 1)
+            .equal_range(TableIndex::InterfaceImpl, 0, self.row.row + 1)
             .map(InterfaceImpl)
     }
 
@@ -517,7 +518,7 @@ impl TypeDef {
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
-        self.0
+        self.row
             .file
             .equal_range(
                 TableIndex::CustomAttribute,
@@ -635,9 +636,9 @@ impl TypeDef {
     }
 
     pub fn enclosing_type(&self) -> Option<Self> {
-        self.0
+        self.row
             .file
-            .equal_range(TableIndex::NestedClass, 0, self.0.row + 1)
+            .equal_range(TableIndex::NestedClass, 0, self.row.row + 1)
             .map(NestedClass)
             .next()
             .map(|nested| nested.enclosing_type())
@@ -658,9 +659,9 @@ impl TypeDef {
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {
-        self.0
+        self.row
             .file
-            .equal_range(TableIndex::ClassLayout, 2, self.0.row + 1)
+            .equal_range(TableIndex::ClassLayout, 2, self.row.row + 1)
             .map(ClassLayout)
             .next()
     }

@@ -43,7 +43,7 @@ impl InterfaceInfo {
                     is_deprecated: method.is_deprecated(),
                 };
 
-                let signature = method.signature(&interface.def.generics());
+                let signature = method.signature(&interface.def.generics);
                 tokens.combine(&signature.gen_winrt_method(&info, interface, gen));
             }
         }

@@ -30,7 +30,7 @@ impl Decode for TypeDefOrRef {
 impl TypeDefOrRef {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.row().row + 1) << 2),
+            Self::TypeDef(value) => ((value.row.row + 1) << 2),
             Self::TypeRef(value) => ((value.0.row + 1) << 2) | 1,
             Self::TypeSpec(value) => ((value.0.row + 1) << 2) | 2,
         }
@@ -61,7 +61,7 @@ impl Decode for TypeOrMethodDef {
 impl TypeOrMethodDef {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.row().row + 1) << 1),
+            Self::TypeDef(value) => ((value.row.row + 1) << 1),
             Self::MethodDef(value) => ((value.0.row + 1) << 1) | 1,
         }
     }
@@ -124,7 +124,7 @@ impl HasAttribute {
             Self::MethodDef(value) => ((value.0.row + 1) << 5),
             Self::Field(value) => ((value.0.row + 1) << 5) | 1,
             Self::TypeRef(value) => ((value.0.row + 1) << 5) | 2,
-            Self::TypeDef(value) => ((value.row().row + 1) << 5) | 3,
+            Self::TypeDef(value) => ((value.row.row + 1) << 5) | 3,
             Self::Param(value) => ((value.0.row + 1) << 5) | 4,
             Self::InterfaceImpl(value) => ((value.0.row + 1) << 5) | 5,
             Self::MemberRef(value) => ((value.0.row + 1) << 5) | 6,
@@ -166,7 +166,7 @@ impl Decode for MemberRefParent {
 impl MemberRefParent {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.row().row + 1) << 3),
+            Self::TypeDef(value) => ((value.row.row + 1) << 3),
             Self::TypeRef(value) => ((value.0.row + 1) << 3) | 1,
             Self::MethodDef(value) => ((value.0.row + 1) << 3) | 3,
             Self::TypeSpec(value) => ((value.0.row + 1) << 3) | 4,

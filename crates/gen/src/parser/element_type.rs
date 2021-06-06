@@ -49,7 +49,7 @@ impl ElementType {
         match self {
             Self::MethodDef(def) => &def.0,
             Self::Field(def) => &def.0,
-            Self::TypeDef(def) => def.row(),
+            Self::TypeDef(def) => &def.row,
             _ => unexpected!(),
         }
     }
