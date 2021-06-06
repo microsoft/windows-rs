@@ -4,7 +4,7 @@ use std::collections::*;
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
     types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
-    // Nested types are stored in a BTreeMap to ensure a stable order over time. This impacts
+    // Nested types are stored in a BTreeMap to ensure a stable order. This impacts
     // the derived nested type names.
     nested: HashMap<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>,
 }

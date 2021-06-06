@@ -3,6 +3,12 @@ use super::*;
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Field(pub Row);
 
+impl From<Row> for Field {
+    fn from(row: Row) -> Self {
+        Self(row)
+    }
+}
+
 impl Field {
     pub fn name(&self) -> &'static str {
         self.0.str(1)

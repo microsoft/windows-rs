@@ -28,8 +28,6 @@ impl InterfaceInfo {
 
     pub fn gen_methods(interfaces: &[Self], gen: &Gen) -> TokenStream {
         let mut method_names = BTreeMap::<String, u32>::new();
-        // TODO: get rid of all these temporary streams and use iterators. This just
-        // ends up creating a bunch of temporary strings under the hood.
         let mut tokens = TokenStream::new();
 
         for interface in interfaces {
@@ -84,7 +82,7 @@ impl InterfaceInfo {
                     }
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &'a #from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
-                            // tODO: The various conversions are adding ref counting bugs unecessarily
+                            // tODO: The various conversions are adding ref counting bumps unecessarily
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                         }
                     }

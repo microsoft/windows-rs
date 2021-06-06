@@ -37,6 +37,7 @@ impl Default for ElementType {
     }
 }
 
+// TODO: get rid of this to make it clear when generics are resolved
 impl From<tables::TypeDef> for ElementType {
     fn from(def: tables::TypeDef) -> Self {
         Self::TypeDef(def.with_generics())
@@ -139,7 +140,7 @@ impl ElementType {
                 let bounds = blob.read_unsigned();
                 Self::Array((Box::new(kind), bounds))
             }
-            0x15 => Self::TypeDef(tables::TypeDef::from_blob(blob, generics)), // TODO: needs with_generics?
+            0x15 => Self::TypeDef(tables::TypeDef::from_blob(blob, generics)),
             _ => unexpected!(),
         }
     }

@@ -39,7 +39,7 @@ impl InterfaceImpl {
                     return None;
                 }
 
-                def.resolve().clone()
+                def.resolve()
             }
             TypeDefOrRef::TypeSpec(def) => {
                 let mut blob = def.blob();

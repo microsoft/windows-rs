@@ -24,8 +24,7 @@ impl TypeDef {
         blob.read_unsigned();
 
         let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned())
-            .resolve()
-            .clone();
+            .resolve();
         let args = blob.read_unsigned();
 
         for _ in 0..args {

@@ -1,6 +1,5 @@
 use super::*;
 
-// TODO: need Copy?
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct AssemblyRef(pub Row);
 

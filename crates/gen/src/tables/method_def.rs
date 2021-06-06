@@ -3,6 +3,12 @@ use super::*;
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct MethodDef(pub Row);
 
+impl From<Row> for MethodDef {
+    fn from(row: Row) -> Self {
+        Self(row)
+    }
+}
+
 impl MethodDef {
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         let namespace = gen.namespace(self.parent().namespace());
@@ -66,11 +72,6 @@ impl MethodDef {
         }
     }
 
-    // TODO: find uses of MethodDef::blob and replace with MethodDef::signature?
-    pub fn blob(&self) -> Blob {
-        self.0.blob(4)
-    }
-
     pub fn kind(&self) -> MethodKind {
         if self.flags().special() {
             let name = self.name();
@@ -126,7 +127,7 @@ impl MethodDef {
     pub fn signature(&self, generics: &[ElementType]) -> MethodSignature {
         let params = self.params();
 
-        let mut blob = self.blob();
+        let mut blob = self.0.blob(4);
         blob.read_unsigned();
         blob.read_unsigned(); // parameter count
 
