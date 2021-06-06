@@ -1,6 +1,5 @@
 use super::*;
 
-// TODO: need to be a trait?
 pub trait Decode {
     fn decode(file: &'static File, code: u32) -> Self;
 }
