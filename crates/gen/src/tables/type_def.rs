@@ -668,7 +668,7 @@ impl TypeDef {
     pub fn overridable_interfaces(&self) -> Vec<TypeDef> {
         self.interface_impls()
             .filter(|interface| interface.is_overridable())
-            .map(|interface| interface.interface().resolve().clone())
+            .map(|interface| interface.interface().resolve())
             .chain(
                 self.bases()
                     .next()
@@ -704,7 +704,7 @@ impl Iterator for Bases {
         if (namespace, name) == ("System", "Object") {
             None
         } else {
-            self.0 = TypeReader::get().resolve_type_def(namespace, name).clone();
+            self.0 = TypeReader::get().resolve_type_def(namespace, name);
             Some(self.0.clone())
         }
     }

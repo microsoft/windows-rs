@@ -301,13 +301,11 @@ impl Struct {
                         if signature.kind.is_callback() {
                             return None;
                         }
-                        match &signature.kind {
-                            ElementType::Array((kind, _)) => {
-                                if kind.kind.is_callback() {
-                                    return None;
-                                }
+
+                        if let ElementType::Array((kind, _)) = &signature.kind {
+                            if kind.kind.is_callback() {
+                                return None;
                             }
-                            _ => {}
                         }
 
                         let field = name.as_str();

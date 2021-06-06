@@ -17,7 +17,7 @@ impl BuildMacro {
         if let ImportLimit::Some(names) = self
             .imports
             .entry(namespace)
-            .or_insert_with(|| ImportLimit::none())
+            .or_insert_with(ImportLimit::none)
         {
             names.insert(name);
         }
@@ -55,7 +55,7 @@ impl Parse for BuildMacro {
                 mut namespace: String,
                 build: &mut BuildMacro,
             ) -> Result<()> {
-                fn render_namespace(namespace: &String) -> &str {
+                fn render_namespace(namespace: &str) -> &str {
                     if namespace.is_empty() {
                         "(global namespace)"
                     } else {
