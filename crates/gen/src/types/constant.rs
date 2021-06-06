@@ -4,17 +4,9 @@ use super::*;
 pub struct Constant(pub tables::Field);
 
 impl Constant {
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        self.0.signature().kind.definition()
-    }
-
-    pub fn gen_name(&self) -> TokenStream {
-        let name = format_ident!("{}", self.0.name());
-        quote! { #name }
-    }
-
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
-        let name = self.0.name();
+    // TODO: move to Field?
+    pub fn gen(def: &tables::Field, gen: &Gen) -> TokenStream {
+        let name = def.name();
 
         // TODO: workaround for https://github.com/microsoft/win32metadata/issues/90
         if name == "NaN" || name == "POSITIVE_INFINITY" || name == "NEGATIVE_INFINITY" {
@@ -23,8 +15,8 @@ impl Constant {
 
         let name = to_ident(name);
 
-        if let Some(constant) = self.0.constant() {
-            let signature = self.0.signature();
+        if let Some(constant) = def.constant() {
+            let signature = def.signature();
             if signature.kind == constant.value_type() {
                 let value = constant.value().gen();
 
@@ -40,7 +32,7 @@ impl Constant {
                 }
             }
         } else {
-            match Guid::from_attributes(self.0.attributes()) {
+            match Guid::from_attributes(def.attributes()) {
                 Some(guid) => {
                     let guid = guid.gen();
 

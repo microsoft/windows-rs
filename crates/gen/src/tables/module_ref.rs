@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone)]
 pub struct ModuleRef(pub Row);
 
 impl ModuleRef {

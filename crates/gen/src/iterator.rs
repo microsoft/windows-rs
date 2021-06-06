@@ -5,8 +5,8 @@ use super::*;
 // only falls back to IIterator<T> if nothing faster is available. VectorIterator and
 // VectorViewIterator are faster iterators than IIterator<T> because they only require a single
 // vcall per iteration wheras IIterator<T> requires two.
-pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) -> TokenStream {
-    let name = def.def.full_name();
+pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> TokenStream {
+    let name = def.full_name();
 
     // If the type is IIterator<T> then simply implement the Iterator trait over top.
     if name == ("Windows.Foundation.Collections", "IIterator`1") {
@@ -154,7 +154,7 @@ pub fn gen_iterator(def: &GenericType, interfaces: &[InterfaceInfo], gen: &Gen) 
     // If the class or interface is not one of the well-known collection interfaces, we then see whether it
     // implements any one of them. Here is where we favor IVectorView/IVector over IIterable.
     for interface in interfaces {
-        let name = interface.def.def.full_name();
+        let name = interface.def.full_name();
 
         if name == ("Windows.Foundation.Collections", "IVectorView`1") {
             let constraints = def.gen_constraints(gen);

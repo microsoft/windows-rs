@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord, Default)]
+#[derive(Debug, Clone, Eq, Ord, PartialEq, PartialOrd, Default)]
 pub struct Signature {
     pub kind: ElementType,
     pub pointers: usize,
@@ -53,8 +53,8 @@ impl Signature {
         self.pointers > 0 || self.kind.is_blittable()
     }
 
-    pub fn is_struct(&self) -> bool {
-        self.pointers == 0 && self.kind.is_struct()
+    pub fn is_udt(&self) -> bool {
+        self.pointers == 0 && self.kind.is_udt()
     }
 
     pub fn is_explicit(&self) -> bool {
@@ -67,7 +67,7 @@ impl Signature {
         }
 
         match &self.kind {
-            ElementType::Struct(def) => def.is_packed(),
+            ElementType::TypeDef(def) => def.is_packed(),
             ElementType::Array((signature, _)) => signature.is_packed(),
             _ => false,
         }
@@ -135,7 +135,7 @@ impl Signature {
             }
         }
 
-        tokens.combine(&self.kind.gen_abi_name(gen));
+        tokens.combine(&self.kind.gen_abi_type(gen));
         tokens
     }
 
@@ -151,7 +151,7 @@ impl Signature {
             }
         }
 
-        tokens.combine(&self.kind.gen_abi_name(gen));
+        tokens.combine(&self.kind.gen_abi_type(gen));
         tokens
     }
 

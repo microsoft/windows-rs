@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, Debug)]
+#[derive(Clone, Debug)]
 pub struct Row {
     pub row: u32,
     pub table: TableIndex,
@@ -30,6 +30,14 @@ impl Row {
 
     pub fn list(&self, column: u32, table: TableIndex) -> impl Iterator<Item = Self> {
         self.file.list(self, table, column)
+    }
+}
+
+impl std::hash::Hash for Row {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.row.hash(state);
+        self.table.hash(state);
+        self.file.bytes.as_ptr().hash(state);
     }
 }
 

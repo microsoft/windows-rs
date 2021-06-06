@@ -225,7 +225,7 @@ impl MethodSignature {
                 }
             }
             InterfaceKind::Extend => {
-                let interface_name = to_ident(interface.def.def.name());
+                let interface_name = to_ident(interface.def.name());
                 quote! {
                     pub fn #name<#constraints>(self, #params) -> ::windows::Result<#return_type_tokens> {
                         unsafe {
@@ -385,8 +385,6 @@ impl MethodParam {
         } else if self.param.is_input() {
             if self.signature.kind.is_primitive() {
                 quote! { #name }
-            } else if let ElementType::Enum(_) = self.signature.kind {
-                quote! { #name }
             } else if self.is_const() {
                 quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
             } else {
@@ -468,7 +466,7 @@ impl MethodParam {
             }
         }
 
-        tokens.combine(&self.signature.kind.gen_abi_name(gen));
+        tokens.combine(&self.signature.kind.gen_abi_type(gen));
         tokens
     }
 
@@ -483,7 +481,7 @@ impl MethodParam {
             }
         }
 
-        tokens.combine(&self.signature.kind.gen_abi_name(gen));
+        tokens.combine(&self.signature.kind.gen_abi_type(gen));
         tokens
     }
 

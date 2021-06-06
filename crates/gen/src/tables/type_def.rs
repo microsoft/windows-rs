@@ -1,19 +1,471 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeDef(pub Row);
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct TypeDef {
+    pub row: Row,
+    pub generics: Vec<ElementType>,
+}
+
+impl From<Row> for TypeDef {
+    fn from(row: Row) -> Self {
+        Self {
+            row,
+            generics: Vec::new(),
+        }
+    }
+}
 
 impl TypeDef {
+    pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
+        blob.read_unsigned();
+
+        let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
+        let args = blob.read_unsigned();
+
+        for _ in 0..args {
+            def.generics.push(ElementType::from_blob(blob, generics));
+        }
+
+        def
+    }
+
+    pub fn with_generics(mut self) -> Self {
+        self.generics = self
+            .generic_params()
+            .map(ElementType::GenericParam)
+            .collect();
+        self
+    }
+
+    pub fn is_callback(&self) -> bool {
+        !self.is_winrt() && self.kind() == TypeKind::Delegate
+    }
+
+    pub fn has_default_constructor(&self) -> bool {
+        for attribute in self.attributes() {
+            if attribute.name() == "ActivatableAttribute" {
+                if attribute
+                    .args()
+                    .iter()
+                    .any(|arg| matches!(arg.1, parser::ConstantValue::TypeDef(_)))
+                {
+                    continue;
+                } else {
+                    return true;
+                }
+            }
+        }
+
+        false
+    }
+
+    pub fn invoke_method(&self) -> tables::MethodDef {
+        self.methods()
+            .find(|m| m.name() == "Invoke")
+            .expect("`Invoke` method not found")
+    }
+
+    // TODO: get rid of the definition functions
+    pub fn definition(&self) -> Vec<ElementType> {
+        let mut definition = vec![self.clone().into()];
+
+        for generic in &self.generics {
+            definition.append(&mut generic.definition());
+        }
+
+        definition
+    }
+
+    pub fn default_interface(&self) -> Self {
+        for interface in self.interface_impls() {
+            if interface.is_default() {
+                if let Some(result) = interface.generic_interface(&self.generics) {
+                    return result;
+                }
+            }
+        }
+
+        panic!(
+            "`{}.{}` does not have a default interface.",
+            self.namespace(),
+            self.name()
+        );
+    }
+
+    pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
+        self.interface_impls()
+            .filter_map(move |i| i.generic_interface(&self.generics))
+    }
+
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
+        self.format_name(gen, to_ident, false)
+    }
+
+    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
+        self.format_name(gen, to_abi_ident, false)
+    }
+
+    pub fn gen_turbo_abi_name(&self, gen: &Gen) -> TokenStream {
+        self.format_name(gen, to_abi_ident, true)
+    }
+
+    fn format_name<F>(&self, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
+    where
+        F: FnOnce(&str) -> Ident,
+    {
+        let namespace = self.namespace();
+
+        if namespace.is_empty() {
+            let name = format_name(&self.scoped_name());
+            quote! { #name }
+        } else {
+            let name = self.name();
+            let namespace = gen.namespace(self.namespace());
+
+            if self.generics.is_empty() {
+                let name = format_name(name);
+                quote! { #namespace#name }
+            } else {
+                let colon_separated = if turbo || !namespace.as_str().is_empty() {
+                    quote! { :: }
+                } else {
+                    quote! {}
+                };
+
+                let name = format_name(&name[..name.len() - 2]);
+                let generics = self.generics.iter().map(|g| g.gen_name(gen));
+                quote! { #namespace#name#colon_separated<#(#generics),*> }
+            }
+        }
+    }
+
+    pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
+        if self.generics.is_empty() {
+            match Guid::from_attributes(self.attributes()) {
+                Some(guid) => {
+                    let guid = guid.gen();
+
+                    quote! {
+                        ::windows::Guid::from_values(#guid)
+                    }
+                }
+                None => {
+                    quote! {
+                        ::windows::Guid::zeroed()
+                    }
+                }
+            }
+        } else {
+            let tokens = self.gen_name(gen);
+
+            quote! {
+                ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
+            }
+        }
+    }
+
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
+        // TODO: all the cloning here is ridiculous
+        match self.kind() {
+            TypeKind::Interface => {
+                if self.is_winrt() {
+                    types::Interface(self.clone().with_generics()).gen(gen)
+                } else {
+                    types::ComInterface(self.clone()).gen(gen)
+                }
+            }
+            TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen),
+            TypeKind::Enum => types::Enum(self.clone()).gen(gen),
+            TypeKind::Struct => types::Struct(self.clone()).gen(gen),
+            TypeKind::Delegate => {
+                if self.is_winrt() {
+                    types::Delegate(self.clone().with_generics()).gen(gen)
+                } else {
+                    types::Callback(self.clone()).gen(gen)
+                }
+            }
+        }
+    }
+
+    pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
+        match self.kind() {
+            TypeKind::Enum => self.gen_name(gen),
+            TypeKind::Struct => {
+                if self.is_blittable() {
+                    self.gen_name(gen)
+                } else {
+                    self.gen_abi_name(gen)
+                }
+            }
+            _ => quote! { ::windows::RawPtr },
+        }
+    }
+
+    pub fn is_packed(&self) -> bool {
+        if self.kind() != TypeKind::Struct {
+            return false;
+        }
+
+        if self.class_layout().is_some() {
+            return true;
+        }
+
+        self.fields().any(|field| field.signature().is_packed())
+    }
+
+    pub fn is_handle(&self) -> bool {
+        self.has_attribute("NativeTypedefAttribute")
+    }
+
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        match self.kind() {
+            TypeKind::Interface => {
+                let interfaces = self.interfaces().map(|i| i.into());
+
+                let methods = self
+                    .methods()
+                    .map(|m| m.dependencies(&self.generics))
+                    .flatten();
+
+                if self.generics.is_empty() {
+                    interfaces.collect()
+                } else {
+                    interfaces.chain(methods).collect()
+                }
+            }
+            TypeKind::Class => {
+                let generics = self.generics.iter().map(|g| g.definition());
+                let interfaces = self.interfaces().map(|i| i.definition());
+                let bases = self.bases().map(|b| b.definition());
+
+                let factories = self.attributes().filter_map(|attribute| {
+                    match attribute.name() {
+                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
+                            for (_, arg) in attribute.args() {
+                                if let parser::ConstantValue::TypeDef(def) = arg {
+                                    return Some(def.into());
+                                }
+                            }
+                        }
+                        _ => {}
+                    }
+
+                    None
+                });
+
+                generics
+                    .chain(interfaces)
+                    .chain(bases)
+                    .flatten()
+                    .chain(factories)
+                    .collect()
+            }
+            TypeKind::Enum => Vec::new(),
+            TypeKind::Struct => {
+                let reader = TypeReader::get();
+                let mut dependencies = vec![];
+
+                match self.full_name() {
+                    ("Windows.Win32.System.OleAutomation", "BSTR") => {
+                        dependencies.push(
+                            reader.resolve_type(
+                                "Windows.Win32.System.OleAutomation",
+                                "SysFreeString",
+                            ),
+                        );
+                        dependencies.push(reader.resolve_type(
+                            "Windows.Win32.System.OleAutomation",
+                            "SysAllocStringLen",
+                        ));
+                        dependencies.push(
+                            reader
+                                .resolve_type("Windows.Win32.System.OleAutomation", "SysStringLen"),
+                        );
+                    }
+                    ("Windows.Foundation.Numerics", "Matrix3x2") => {
+                        dependencies.push(reader.resolve_type(
+                            "Windows.Win32.Graphics.Direct2D",
+                            "D2D1MakeRotateMatrix",
+                        ));
+                    }
+                    _ => {
+                        dependencies.extend(self.fields().map(|f| f.definition()).flatten());
+
+                        if let Some(dependency) = self.is_convertible_to() {
+                            dependencies.push(dependency);
+                        }
+                    }
+                }
+
+                dependencies
+            }
+            TypeKind::Delegate => self.invoke_method().dependencies(&self.generics),
+        }
+    }
+
+    pub fn is_udt(&self) -> bool {
+        self.kind() == TypeKind::Struct && !self.is_handle()
+    }
+
+    pub fn is_convertible(&self) -> bool {
+        match self.kind() {
+            TypeKind::Interface | TypeKind::Class | TypeKind::Struct => true,
+            TypeKind::Delegate => self.is_winrt(),
+            _ => false,
+        }
+    }
+
+    pub fn is_primitive(&self) -> bool {
+        self.kind() == TypeKind::Enum
+    }
+
+    pub fn is_explicit(&self) -> bool {
+        if self.kind() != TypeKind::Struct {
+            return false;
+        }
+
+        if self.flags().explicit() {
+            true
+        } else {
+            self.fields().any(|f| f.signature().is_explicit())
+        }
+    }
+
+    pub fn type_signature(&self) -> String {
+        match self.kind() {
+            TypeKind::Interface => self.interface_signature(),
+            TypeKind::Class => format!(
+                "rc({}.{};{})",
+                self.namespace(),
+                self.name(),
+                self.default_interface().interface_signature()
+            ),
+            TypeKind::Enum => format!(
+                "enum({}.{};{})",
+                self.namespace(),
+                self.name(),
+                self.underlying_type().type_signature()
+            ),
+            TypeKind::Struct => {
+                let mut result = format!("struct({}.{}", self.namespace(), self.name());
+
+                for field in self.fields() {
+                    result.push(';');
+                    result.push_str(&field.signature().kind.type_signature());
+                }
+
+                result.push(')');
+                result
+            }
+            TypeKind::Delegate => {
+                if self.generics.is_empty() {
+                    format!("delegate({})", self.interface_signature())
+                } else {
+                    self.interface_signature()
+                }
+            }
+        }
+    }
+
+    pub fn underlying_type(&self) -> ElementType {
+        if let Some(field) = self.fields().next() {
+            if let Some(constant) = field.constant() {
+                return constant.value_type();
+            } else {
+                let blob = &mut field.blob();
+                blob.read_unsigned();
+                blob.read_modifiers();
+
+                blob.read_expected(0x1D);
+                blob.read_modifiers();
+
+                return ElementType::from_blob(blob, &[]);
+            }
+        }
+
+        unexpected!();
+    }
+
+    pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
+        let signature = Literal::byte_string(signature.as_bytes());
+
+        if self.generics.is_empty() {
+            return quote! { ::windows::ConstBuffer::from_slice(#signature) };
+        }
+
+        let generics = self.generics.iter().enumerate().map(|(index, g)| {
+            let g = g.gen(gen);
+            let semi = if index != self.generics.len() - 1 {
+                Some(quote! {
+                    .push_slice(b";")
+                })
+            } else {
+                None
+            };
+
+            quote! {
+                .push_other(<#g as ::windows::RuntimeType>::SIGNATURE)
+                #semi
+            }
+        });
+
+        quote! {
+            {
+                ::windows::ConstBuffer::new()
+                .push_slice(b"pinterface(")
+                .push_slice(#signature)
+                .push_slice(b";")
+                #(#generics)*
+                .push_slice(b")")
+            }
+        }
+    }
+
+    pub fn gen_phantoms<'a>(&'a self, gen: &'a Gen) -> impl Iterator<Item = TokenStream> + 'a {
+        self.generics.iter().map(move |g| {
+            let g = g.gen(gen);
+            quote! { ::std::marker::PhantomData::<#g> }
+        })
+    }
+
+    pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
+        self.generics
+            .iter()
+            .map(|g| {
+                let g = g.gen(gen);
+                quote! { #g: ::windows::RuntimeType + 'static, }
+            })
+            .collect()
+    }
+
+    pub fn interface_signature(&self) -> String {
+        let guid = self.guid();
+
+        if self.generics.is_empty() {
+            format!("{{{:#?}}}", guid)
+        } else {
+            let mut result = format!("pinterface({{{:#?}}}", guid);
+
+            for generic in &self.generics {
+                result.push(';');
+                result.push_str(&generic.type_signature());
+            }
+
+            result.push(')');
+            result
+        }
+    }
+
     pub fn flags(&self) -> TypeFlags {
-        TypeFlags(self.0.u32(0))
+        TypeFlags(self.row.u32(0))
     }
 
     pub fn name(&self) -> &'static str {
-        self.0.str(1)
+        self.row.str(1)
     }
 
     pub fn namespace(&self) -> &'static str {
-        self.0.str(2)
+        self.row.str(2)
     }
 
     // TODO: all "full_name" methods should return a FullName struct that provides a fast compare for match expressions
@@ -22,57 +474,56 @@ impl TypeDef {
     }
 
     pub fn extends(&self) -> (&'static str, &'static str) {
-        let extends = self.0.u32(3);
+        let extends = self.row.u32(3);
 
         if extends == 0 {
             ("", "")
         } else {
-            TypeDefOrRef::decode(self.0.file, extends).full_name()
+            TypeDefOrRef::decode(self.row.file, extends).full_name()
         }
     }
 
     pub fn bases(&self) -> impl Iterator<Item = TypeDef> {
-        Bases(*self)
+        Bases(self.clone())
     }
 
     pub fn fields(&self) -> impl Iterator<Item = Field> {
-        self.0.list(4, TableIndex::Field).map(Field)
+        self.row.list(4, TableIndex::Field).map(Field)
     }
 
     pub fn methods(&self) -> impl Iterator<Item = MethodDef> {
-        self.0.list(5, TableIndex::MethodDef).map(MethodDef)
+        self.row.list(5, TableIndex::MethodDef).map(MethodDef)
     }
 
-    pub fn generics(&self) -> impl Iterator<Item = GenericParam> {
-        self.0
+    pub fn generic_params(&self) -> impl Iterator<Item = GenericParam> {
+        self.row
             .file
             .equal_range(
                 TableIndex::GenericParam,
                 2,
-                TypeOrMethodDef::TypeDef(*self).encode(),
+                TypeOrMethodDef::TypeDef(self.clone()).encode(),
             )
             .map(GenericParam)
     }
 
     pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> {
-        self.0
+        self.row
             .file
-            .equal_range(TableIndex::InterfaceImpl, 0, self.0.row + 1)
+            .equal_range(TableIndex::InterfaceImpl, 0, self.row.row + 1)
             .map(InterfaceImpl)
     }
 
-    // TODO: this should be an iterator...
-    pub fn nested_types(&self) -> Vec<tables::TypeDef> {
+    pub fn nested_types(&self) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
         TypeReader::get().nested_types(self)
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
-        self.0
+        self.row
             .file
             .equal_range(
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::TypeDef(*self).encode(),
+                HasAttribute::TypeDef(self.clone()).encode(),
             )
             .map(Attribute)
     }
@@ -105,7 +556,7 @@ impl TypeDef {
         })
     }
 
-    pub fn is_convertible(&self) -> Option<ElementType> {
+    pub fn is_convertible_to(&self) -> Option<ElementType> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
@@ -126,6 +577,21 @@ impl TypeDef {
                     .iter()
                     .any(|arg| matches!(arg, (_, ConstantValue::I32(2))))
         })
+    }
+
+    pub fn is_blittable(&self) -> bool {
+        match self.kind() {
+            TypeKind::Struct => {
+                // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
+                if self.full_name() == ("Windows.Win32.System.OleAutomation", "BSTR") {
+                    false
+                } else {
+                    self.fields().all(|f| f.is_blittable())
+                }
+            }
+            TypeKind::Enum => true,
+            _ => false,
+        }
     }
 
     pub fn kind(&self) -> TypeKind {
@@ -162,10 +628,17 @@ impl TypeDef {
         Guid::from_attributes(self.attributes()).expect("TypeDef::guid")
     }
 
+    pub fn is_nullable(&self) -> bool {
+        matches!(
+            self.kind(),
+            TypeKind::Interface | TypeKind::Class | TypeKind::Delegate
+        )
+    }
+
     pub fn enclosing_type(&self) -> Option<Self> {
-        self.0
+        self.row
             .file
-            .equal_range(TableIndex::NestedClass, 0, self.0.row + 1)
+            .equal_range(TableIndex::NestedClass, 0, self.row.row + 1)
             .map(NestedClass)
             .next()
             .map(|nested| nested.enclosing_type())
@@ -173,9 +646,11 @@ impl TypeDef {
 
     fn scoped_name(&self) -> String {
         if let Some(enclosing_type) = self.enclosing_type() {
-            for (index, nested_type) in enclosing_type.nested_types().iter().enumerate() {
-                if nested_type.name() == self.name() {
-                    return format!("{}_{}", enclosing_type.scoped_name(), index);
+            if let Some(nested_types) = enclosing_type.nested_types() {
+                for (index, (nested_type, _)) in nested_types.iter().enumerate() {
+                    if *nested_type == self.name() {
+                        return format!("{}_{}", enclosing_type.scoped_name(), index);
+                    }
                 }
             }
         }
@@ -184,9 +659,9 @@ impl TypeDef {
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {
-        self.0
+        self.row
             .file
-            .equal_range(TableIndex::ClassLayout, 2, self.0.row + 1)
+            .equal_range(TableIndex::ClassLayout, 2, self.row.row + 1)
             .map(ClassLayout)
             .next()
     }
@@ -204,37 +679,12 @@ impl TypeDef {
             .collect()
     }
 
+    // TODO: hash?
     pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
         self.overridable_interfaces()
             .iter()
             .flat_map(|interface| interface.methods().map(|method| method.name()))
             .collect()
-    }
-
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        let namespace = self.namespace();
-
-        if namespace.is_empty() {
-            let name = to_ident(&self.scoped_name());
-            quote! { #name }
-        } else {
-            let name = to_ident(self.name());
-            let namespace = gen.namespace(self.namespace());
-            quote! { #namespace#name }
-        }
-    }
-
-    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
-        let namespace = self.namespace();
-
-        if namespace.is_empty() {
-            let name = to_abi_ident(&self.scoped_name());
-            quote! { #name }
-        } else {
-            let name = to_abi_ident(self.name());
-            let namespace = gen.namespace(self.namespace());
-            quote! { #namespace#name }
-        }
     }
 }
 
@@ -256,7 +706,7 @@ impl Iterator for Bases {
             None
         } else {
             self.0 = TypeReader::get().resolve_type_def(namespace, name);
-            Some(self.0)
+            Some(self.0.clone())
         }
     }
 }

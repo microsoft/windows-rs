@@ -1,35 +1,20 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Interface(pub GenericType);
+pub struct Interface(pub tables::TypeDef);
 
 impl Interface {
-    pub fn type_signature(&self) -> String {
-        let guid =
-            Guid::from_attributes(self.0.def.attributes()).expect("Interface::type_signature");
-
-        if self.0.generics.is_empty() {
-            format!("{{{:#?}}}", guid)
-        } else {
-            let mut result = format!("pinterface({{{:#?}}}", guid);
-
-            for generic in &self.0.generics {
-                result.push(';');
-                result.push_str(&generic.type_signature());
-            }
-
-            result.push(')');
-            result
-        }
-    }
-
-    pub fn interfaces(&self) -> Vec<InterfaceInfo> {
-        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &GenericType, is_base: bool) {
-            for child in parent.def.interface_impls() {
+    fn interfaces(&self) -> Vec<InterfaceInfo> {
+        fn add_interfaces(
+            result: &mut Vec<InterfaceInfo>,
+            parent: &tables::TypeDef,
+            is_base: bool,
+        ) {
+            for child in parent.interface_impls() {
                 if let Some(def) = child.generic_interface(&parent.generics) {
                     if !result.iter().any(|info| info.def == def) {
                         add_interfaces(result, &def, is_base);
-                        let version = def.def.version();
+                        let version = def.version();
 
                         result.push(InterfaceInfo {
                             def,
@@ -46,36 +31,12 @@ impl Interface {
             def: self.0.clone(),
             kind: InterfaceKind::Default,
             is_base: false,
-            version: self.0.def.version(),
+            version: self.0.version(),
         }];
 
         add_interfaces(&mut result, &self.0, false);
         InterfaceInfo::sort(&mut result);
         result
-    }
-
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        let interfaces = self
-            .0
-            .interfaces()
-            .map(|i| ElementType::from_type_def(i.def, Vec::new()));
-
-        let methods = self
-            .0
-            .def
-            .methods()
-            .map(|m| m.dependencies(&self.0.generics))
-            .flatten();
-
-        if self.0.generics.is_empty() {
-            interfaces.collect()
-        } else {
-            interfaces.chain(methods).collect()
-        }
-    }
-
-    pub fn definition(&self) -> Vec<ElementType> {
-        self.0.definition()
     }
 
     pub fn gen(&self, gen: &Gen) -> TokenStream {
@@ -88,11 +49,10 @@ impl Interface {
 
         let abi_signatures = self
             .0
-            .def
             .methods()
             .map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
 
-        let is_exclusive = self.0.def.is_exclusive();
+        let is_exclusive = self.0.is_exclusive();
 
         let hidden = if is_exclusive {
             quote! { #[doc(hidden)] }
@@ -108,7 +68,7 @@ impl Interface {
         } else {
             let type_signature = self
                 .0
-                .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()), gen);
+                .gen_signature(&format!("{{{:#?}}}", &self.0.guid()), gen);
 
             let interfaces = self.interfaces();
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
@@ -179,13 +139,14 @@ mod tests {
 
     #[test]
     fn test_bool() {
-        let i = TypeReader::get_interface("Windows.Foundation", "IStringable");
+        let i = TypeReader::get().resolve_type_def("Windows.Foundation", "IStringable");
         assert_eq!(i.type_signature(), "{96369f54-8eb6-48f0-abce-c1b211e627c3}")
     }
 
     #[test]
     fn test_interfaces() {
-        let i = TypeReader::get_interface("Windows.Foundation", "IAsyncOperation`1");
+        let i = TypeReader::get().resolve_type_def("Windows.Foundation", "IAsyncOperation`1");
+        let i = Interface(i.with_generics());
         let i = i.interfaces();
         assert_eq!(i.len(), 2);
 
@@ -206,7 +167,8 @@ mod tests {
 
     #[test]
     fn test_generic_interfaces() {
-        let i = TypeReader::get_interface("Windows.Foundation.Collections", "IMap`2");
+        let i = TypeReader::get().resolve_type_def("Windows.Foundation.Collections", "IMap`2");
+        let i = Interface(i.with_generics());
         let i = i.interfaces();
         assert_eq!(i.len(), 2);
 

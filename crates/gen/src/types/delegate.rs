@@ -1,38 +1,14 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Delegate(pub GenericType);
+pub struct Delegate(pub tables::TypeDef);
 
 impl Delegate {
-    pub fn type_signature(&self) -> String {
-        if self.0.generics.is_empty() {
-            format!("delegate({})", self.0.interface_signature())
-        } else {
-            self.0.interface_signature()
-        }
-    }
-
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        self.method().dependencies(&self.0.generics)
-    }
-
-    pub fn definition(&self) -> Vec<ElementType> {
-        self.0.definition()
-    }
-
-    fn method(&self) -> tables::MethodDef {
-        self.0
-            .def
-            .methods()
-            .find(|m| m.name() == "Invoke")
-            .expect("Callback")
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let abi_name = self.0.gen_abi_name(gen);
         let turbo_abi_name = self.0.gen_turbo_abi_name(gen);
-        let signature = self.method().signature(&self.0.generics);
+        let signature = self.0.invoke_method().signature(&self.0.generics);
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
@@ -57,19 +33,21 @@ impl Delegate {
 
         let invoke = signature.gen_winrt_method(&method, &interface, gen);
 
+        // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
+        // for compile-time const guid calculations.
         let type_signature = if self.0.generics.is_empty() {
             self.0
-                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.def.guid()), gen)
+                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()), gen)
         } else {
             self.0
-                .gen_signature(&format!("{{{:#?}}}", &self.0.def.guid()), gen)
+                .gen_signature(&format!("{{{:#?}}}", &self.0.guid()), gen)
         };
 
         let (box_name, box_definition) = if self.0.generics.is_empty() {
-            let name = format_ident!("{}_box", self.0.def.name());
+            let name = format_ident!("{}_box", self.0.name());
             (quote! { #name::<F> }, quote! { #name<#fn_constraint> })
         } else {
-            let name = self.0.def.name();
+            let name = self.0.name();
             let name = format_ident!("{}_box", &name[..name.len() - 2]);
             let generics = self.0.generics.iter().map(|g| g.gen_name(gen));
             let generics = quote! { #(#generics,)* };

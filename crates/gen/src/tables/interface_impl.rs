@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone)]
 pub struct InterfaceImpl(pub Row);
 
 impl InterfaceImpl {
@@ -14,7 +14,7 @@ impl InterfaceImpl {
             .equal_range(
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::InterfaceImpl(*self).encode(),
+                HasAttribute::InterfaceImpl(self.clone()).encode(),
             )
             .map(Attribute)
     }
@@ -31,26 +31,20 @@ impl InterfaceImpl {
         self.has_attribute("OverridableAttribute")
     }
 
-    pub fn generic_interface(&self, generics: &[ElementType]) -> Option<parser::GenericType> {
+    pub fn generic_interface(&self, generics: &[ElementType]) -> Option<tables::TypeDef> {
         Some(match self.interface() {
-            TypeDefOrRef::TypeDef(def) => GenericType {
-                def,
-                generics: Vec::new(),
-            },
+            TypeDefOrRef::TypeDef(def) => def,
             TypeDefOrRef::TypeRef(def) => {
                 if def.full_name() == ("Windows.Win32.System.Com", "IUnknown") {
                     return None;
                 }
 
-                GenericType {
-                    def: def.resolve(),
-                    generics: Vec::new(),
-                }
+                def.resolve()
             }
             TypeDefOrRef::TypeSpec(def) => {
                 let mut blob = def.blob();
                 blob.read_unsigned();
-                GenericType::from_blob(&mut blob, &generics)
+                TypeDef::from_blob(&mut blob, &generics)
             }
         })
     }

@@ -7,84 +7,6 @@ use super::*;
 pub struct Struct(pub tables::TypeDef);
 
 impl Struct {
-    pub fn type_signature(&self) -> String {
-        let mut result = format!("struct({}.{}", self.0.namespace(), self.0.name());
-
-        for field in self.0.fields() {
-            result.push(';');
-            result.push_str(&field.signature().kind.type_signature());
-        }
-
-        result.push(')');
-        result
-    }
-
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        let reader = TypeReader::get();
-        let mut dependencies = vec![];
-
-        match self.0.full_name() {
-            ("Windows.Win32.System.OleAutomation", "BSTR") => {
-                dependencies.push(
-                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysFreeString"),
-                );
-                dependencies.push(
-                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysAllocStringLen"),
-                );
-                dependencies.push(
-                    reader.resolve_type("Windows.Win32.System.OleAutomation", "SysStringLen"),
-                );
-            }
-            ("Windows.Foundation.Numerics", "Matrix3x2") => {
-                dependencies.push(
-                    reader.resolve_type("Windows.Win32.Graphics.Direct2D", "D2D1MakeRotateMatrix"),
-                );
-            }
-            _ => {
-                dependencies.extend(self.0.fields().map(|f| f.definition()).flatten());
-
-                if let Some(dependency) = self.0.is_convertible() {
-                    dependencies.push(dependency);
-                }
-            }
-        }
-
-        dependencies
-    }
-
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::Struct(self.clone())]
-    }
-
-    pub fn is_blittable(&self) -> bool {
-        // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
-        if self.0.full_name() == ("Windows.Win32.System.OleAutomation", "BSTR") {
-            false
-        } else {
-            self.0.fields().all(|f| f.is_blittable())
-        }
-    }
-
-    pub fn is_packed(&self) -> bool {
-        if self.0.class_layout().is_some() {
-            return true;
-        }
-
-        self.0.fields().any(|field| field.signature().is_packed())
-    }
-
-    pub fn is_handle(&self) -> bool {
-        self.0.has_attribute("NativeTypedefAttribute")
-    }
-
-    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
-        if self.is_blittable() {
-            self.0.gen_name(gen)
-        } else {
-            self.0.gen_abi_name(gen)
-        }
-    }
-
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         self.gen_struct(self.0.name(), gen)
     }
@@ -107,11 +29,13 @@ impl Struct {
         let fields: Vec<(tables::Field, Signature, Ident)> = self
             .0
             .fields()
-            .filter_map(|f| {
+            .filter_map(move |f| {
                 if f.flags().literal() {
                     None
                 } else {
-                    Some((f, f.signature(), to_ident(f.name())))
+                    let signature = f.signature();
+                    let name = f.name();
+                    Some((f, signature, to_ident(name)))
                 }
             })
             .collect();
@@ -125,12 +49,12 @@ impl Struct {
         }
 
         let is_winrt = self.0.is_winrt();
-        let is_handle = self.is_handle();
+        let is_handle = self.0.is_handle();
         let is_union = self.0.flags().explicit();
         let layout = self.0.class_layout();
-        let is_packed = self.is_packed();
+        let is_packed = self.0.is_packed();
 
-        let repr = if let Some(layout) = layout {
+        let repr = if let Some(layout) = &layout {
             let packing = Literal::u32_unsuffixed(layout.packing_size());
             quote! { #[repr(C, packed(#packing))] }
         } else if is_handle {
@@ -155,7 +79,7 @@ impl Struct {
             });
 
         let runtime_type = if is_winrt {
-            let signature = Literal::byte_string(&self.type_signature().as_bytes());
+            let signature = Literal::byte_string(&self.0.type_signature().as_bytes());
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
@@ -167,7 +91,7 @@ impl Struct {
             quote! {}
         };
 
-        let clone_or_copy = if self.is_blittable() {
+        let clone_or_copy = if self.0.is_blittable() {
             quote! {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
@@ -221,7 +145,7 @@ impl Struct {
             quote! { struct }
         };
 
-        let abi = if self.is_blittable() {
+        let abi = if self.0.is_blittable() {
             quote! {
                 unsafe impl ::windows::Abi for #name {
                     type Abi = Self;
@@ -277,7 +201,7 @@ impl Struct {
                 .iter()
                 .enumerate()
                 .map(|(index, (_, signature, name))| {
-                    let is_callback = matches!(signature.kind, ElementType::Callback(_));
+                    let is_callback = signature.kind.is_callback();
 
                     if is_callback && signature.pointers == 0 {
                         quote! {
@@ -374,14 +298,14 @@ impl Struct {
                     .enumerate()
                     .filter_map(|(index, (_, signature, name))| {
                         // TODO: there must be a simpler way to implement Debug just to exclude this type.
-                        match &signature.kind {
-                            ElementType::Callback(_) => return None,
-                            ElementType::Array((kind, _)) => {
-                                if let ElementType::Callback(_) = kind.kind {
-                                    return None;
-                                }
+                        if signature.kind.is_callback() {
+                            return None;
+                        }
+
+                        if let ElementType::Array((kind, _)) = &signature.kind {
+                            if kind.kind.is_callback() {
+                                return None;
                             }
-                            _ => {}
                         }
 
                         let field = name.as_str();
@@ -427,7 +351,7 @@ impl Struct {
         let extensions = self.gen_extensions();
         let nested_types = gen_nested_types(struct_name, &self.0, gen);
 
-        let convertible = if let Some(dependency) = self.0.is_convertible() {
+        let convertible = if let Some(dependency) = self.0.is_convertible_to() {
             let dependency = dependency.gen_name(gen);
 
             quote! {
@@ -488,15 +412,18 @@ fn gen_nested_types<'a>(
     enclosing_type: &'a tables::TypeDef,
     gen: &Gen,
 ) -> TokenStream {
-    enclosing_type
-        .nested_types()
-        .iter()
-        .enumerate()
-        .map(|(index, nested_type)| {
-            let nested_name = format!("{}_{}", enclosing_name, index);
-            Struct(*nested_type).gen_struct(&nested_name, gen)
-        })
-        .collect()
+    if let Some(nested_types) = enclosing_type.nested_types() {
+        nested_types
+            .iter()
+            .enumerate()
+            .map(|(index, (_, nested_type))| {
+                let nested_name = format!("{}_{}", enclosing_name, index);
+                Struct(nested_type.clone()).gen_struct(&nested_name, gen)
+            })
+            .collect()
+    } else {
+        TokenStream::new()
+    }
 }
 
 #[cfg(test)]
@@ -505,15 +432,15 @@ mod tests {
 
     #[test]
     fn test_signature() {
-        let t = TypeReader::get_struct("Windows.Foundation", "Point");
+        let t = TypeReader::get().resolve_type_def("Windows.Foundation", "Point");
         assert_eq!(t.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
     }
 
     #[test]
     fn test_fields() {
-        let t =
-            TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
-        let f: Vec<tables::Field> = t.0.fields().collect();
+        let t = TypeReader::get()
+            .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let f: Vec<tables::Field> = t.fields().collect();
         assert_eq!(f.len(), 7);
 
         assert_eq!(f[0].name(), "PresentCount");
@@ -529,26 +456,21 @@ mod tests {
         assert_eq!(f[2].signature().kind, ElementType::U32);
         assert_eq!(f[3].signature().kind, ElementType::I64);
         assert_eq!(f[4].signature().kind, ElementType::I64);
-        assert_eq!(
-            f[5].signature().kind,
-            ElementType::Enum(TypeReader::get_enum(
-                "Windows.Win32.Graphics.Dxgi",
-                "DXGI_FRAME_PRESENTATION_MODE"
-            ))
-        );
+        assert_eq!(f[5].signature().kind.name(), "DXGI_FRAME_PRESENTATION_MODE");
         assert_eq!(f[6].signature().kind, ElementType::U32);
     }
 
     #[test]
     fn test_dependencies() {
-        let t = TypeReader::get_struct("Windows.Foundation", "Point");
+        let t = TypeReader::get().resolve_type_def("Windows.Foundation", "Point");
         assert_eq!(t.dependencies().len(), 0);
 
-        let t = TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS");
+        let t = TypeReader::get()
+            .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS");
         assert_eq!(t.dependencies().len(), 0);
 
-        let t =
-            TypeReader::get_struct("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let t = TypeReader::get()
+            .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
         let deps = t.dependencies();
         assert_eq!(deps.len(), 1);
         assert_eq!(deps[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
@@ -557,11 +479,15 @@ mod tests {
     #[test]
     fn test_blittable() {
         assert_eq!(
-            TypeReader::get_struct("Windows.Foundation", "Point").is_blittable(),
+            TypeReader::get()
+                .resolve_type_def("Windows.Foundation", "Point")
+                .is_blittable(),
             true
         );
         assert_eq!(
-            TypeReader::get_struct("Windows.UI.Xaml.Interop", "TypeName").is_blittable(),
+            TypeReader::get()
+                .resolve_type_def("Windows.UI.Xaml.Interop", "TypeName")
+                .is_blittable(),
             false
         );
     }

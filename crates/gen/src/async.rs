@@ -1,7 +1,7 @@
-use super::*;
+use crate::*;
 
 pub fn gen_async(
-    def: &GenericType,
+    def: &tables::TypeDef,
     interfaces: &[InterfaceInfo],
     gen: &Gen,
 ) -> (TokenStream, TokenStream) {
@@ -31,12 +31,12 @@ pub enum AsyncKind {
     OperationWithProgress,
 }
 
-pub fn async_kind(def: &GenericType) -> AsyncKind {
-    if def.def.namespace() != "Windows.Foundation" {
+pub fn async_kind(def: &tables::TypeDef) -> AsyncKind {
+    if def.namespace() != "Windows.Foundation" {
         return AsyncKind::None;
     }
 
-    match def.def.name() {
+    match def.name() {
         "IAsyncAction" => AsyncKind::Action,
         "IAsyncActionWithProgress`1" => AsyncKind::ActionWithProgress,
         "IAsyncOperation`1" => AsyncKind::Operation,
@@ -47,8 +47,8 @@ pub fn async_kind(def: &GenericType) -> AsyncKind {
 
 fn gen_async_kind(
     kind: AsyncKind,
-    name: &GenericType,
-    self_name: &GenericType,
+    name: &tables::TypeDef,
+    self_name: &tables::TypeDef,
     gen: &Gen,
 ) -> (TokenStream, TokenStream) {
     let return_type = match kind {

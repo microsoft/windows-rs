@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Debug, Clone, Eq, Ord, PartialEq, PartialOrd)]
 pub enum ElementType {
     Void,
     Bool,
@@ -26,16 +26,9 @@ pub enum ElementType {
     TypeName,
     GenericParam(tables::GenericParam),
     Array((Box<Signature>, u32)),
-
-    Function(types::Function),
-    Constant(types::Constant),
-    Class(types::Class),
-    Interface(types::Interface),
-    ComInterface(types::ComInterface),
-    Enum(types::Enum),
-    Struct(types::Struct),
-    Delegate(types::Delegate),
-    Callback(types::Callback),
+    MethodDef(tables::MethodDef),
+    Field(tables::Field),
+    TypeDef(tables::TypeDef),
 }
 
 impl Default for ElementType {
@@ -44,48 +37,36 @@ impl Default for ElementType {
     }
 }
 
+impl From<tables::TypeDef> for ElementType {
+    fn from(def: tables::TypeDef) -> Self {
+        Self::TypeDef(def.with_generics())
+    }
+}
+
 impl ElementType {
-    pub fn row(&self) -> Row {
+    pub fn row(&self) -> &Row {
         match self {
-            Self::Function(def) => def.0 .0,
-            Self::Constant(def) => def.0 .0,
-            Self::Class(def) => def.0.def.0,
-            Self::Interface(def) => def.0.def.0,
-            Self::ComInterface(def) => def.0.def.0,
-            Self::Enum(def) => def.0 .0,
-            Self::Struct(def) => def.0 .0,
-            Self::Delegate(def) => def.0.def.0,
-            Self::Callback(def) => def.0 .0,
+            Self::MethodDef(def) => &def.0,
+            Self::Field(def) => &def.0,
+            Self::TypeDef(def) => &def.row,
             _ => unexpected!(),
         }
     }
 
     pub fn namespace(&self) -> &'static str {
         match self {
-            Self::Function(def) => def.0.parent().namespace(),
-            Self::Constant(def) => def.0.parent().namespace(),
-            Self::Class(def) => def.0.def.namespace(),
-            Self::Interface(def) => def.0.def.namespace(),
-            Self::ComInterface(def) => def.0.def.namespace(),
-            Self::Enum(def) => def.0.namespace(),
-            Self::Struct(def) => def.0.namespace(),
-            Self::Delegate(def) => def.0.def.namespace(),
-            Self::Callback(def) => def.0.namespace(),
+            Self::MethodDef(def) => def.parent().namespace(),
+            Self::Field(def) => def.parent().namespace(),
+            Self::TypeDef(def) => def.namespace(),
             _ => "",
         }
     }
 
     pub fn name(&self) -> &'static str {
         match self {
-            Self::Function(def) => def.0.name(),
-            Self::Constant(def) => def.0.name(),
-            Self::Class(def) => def.0.def.name(),
-            Self::Interface(def) => def.0.def.name(),
-            Self::ComInterface(def) => def.0.def.name(),
-            Self::Enum(def) => def.0.name(),
-            Self::Struct(def) => def.0.name(),
-            Self::Delegate(def) => def.0.def.name(),
-            Self::Callback(def) => def.0.name(),
+            Self::MethodDef(def) => def.name(),
+            Self::Field(def) => def.name(),
+            Self::TypeDef(def) => def.name(),
             _ => "",
         }
     }
@@ -136,15 +117,17 @@ impl ElementType {
                         ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => Self::U64,
                         ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
                         ("System", "Type") => Self::TypeName,
-                        _ => Self::from_type_def(type_ref.resolve(), Vec::new()),
+                        _ => type_ref.resolve().into(),
                     },
-                    TypeDefOrRef::TypeDef(type_def) => Self::from_type_def(
-                        // Need to "re-resolve" the TypeDef as it may point to an arch-specific
-                        // definition. This lets the TypeTree be built for a specific architecture
-                        // without accidentally pulling in the wrong definition.
-                        TypeReader::get().resolve_type_def(type_def.namespace(), type_def.name()),
-                        Vec::new(),
-                    ),
+                    TypeDefOrRef::TypeDef(type_def) =>
+                    // Need to "re-resolve" the TypeDef as it may point to an arch-specific
+                    // definition. This lets the TypeTree be built for a specific architecture
+                    // without accidentally pulling in the wrong definition.
+                    {
+                        TypeReader::get()
+                            .resolve_type_def(type_def.namespace(), type_def.name())
+                            .into()
+                    }
                     _ => unexpected!(),
                 }
             }
@@ -156,39 +139,8 @@ impl ElementType {
                 let bounds = blob.read_unsigned();
                 Self::Array((Box::new(kind), bounds))
             }
-            0x15 => {
-                let def = GenericType::from_blob(blob, generics);
-                match def.def.kind() {
-                    TypeKind::Interface => Self::Interface(types::Interface(def)),
-                    TypeKind::Delegate => Self::Delegate(types::Delegate(def)),
-                    _ => unexpected!(),
-                }
-            }
+            0x15 => Self::TypeDef(tables::TypeDef::from_blob(blob, generics)),
             _ => unexpected!(),
-        }
-    }
-
-    pub fn from_type_def(def: tables::TypeDef, generics: Vec<Self>) -> Self {
-        match def.kind() {
-            TypeKind::Interface => {
-                if def.is_winrt() {
-                    Self::Interface(types::Interface(GenericType::from_type_def(def, generics)))
-                } else {
-                    Self::ComInterface(types::ComInterface(GenericType::from_type_def(
-                        def, generics,
-                    )))
-                }
-            }
-            TypeKind::Class => Self::Class(types::Class(GenericType::from_type_def(def, generics))),
-            TypeKind::Enum => Self::Enum(types::Enum(def)),
-            TypeKind::Struct => Self::Struct(types::Struct(def)),
-            TypeKind::Delegate => {
-                if def.is_winrt() {
-                    Self::Delegate(types::Delegate(GenericType::from_type_def(def, generics)))
-                } else {
-                    Self::Callback(types::Callback(def))
-                }
-            }
         }
     }
 
@@ -234,20 +186,14 @@ impl ElementType {
                 quote! { [#name; #len] }
             }
             Self::GenericParam(generic) => generic.gen_name(),
-            Self::Function(t) => t.gen_name(gen),
-            Self::Constant(t) => t.gen_name(),
-            Self::Class(t) => t.0.gen_name(gen),
-            Self::Interface(t) => t.0.gen_name(gen),
-            Self::ComInterface(t) => t.0.gen_name(gen),
-            Self::Enum(t) => t.0.gen_name(gen),
-            Self::Struct(t) => t.0.gen_name(gen),
-            Self::Delegate(t) => t.0.gen_name(gen),
-            Self::Callback(t) => t.0.gen_name(gen),
+            Self::MethodDef(t) => t.gen_name(gen),
+            Self::Field(t) => t.gen_name(),
+            Self::TypeDef(t) => t.gen_name(gen),
             _ => unexpected!(),
         }
     }
 
-    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
+    pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -292,23 +238,7 @@ impl ElementType {
                 let name = generic.gen_name();
                 quote! { <#name as ::windows::Abi>::Abi }
             }
-            Self::Class(_) => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::Interface(_) => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::ComInterface(_) => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::Enum(t) => t.0.gen_name(gen),
-            Self::Struct(t) => t.gen_abi_name(gen),
-            Self::Delegate(_) => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::Callback(_) => {
-                quote! { ::windows::RawPtr }
-            }
+            Self::TypeDef(def) => def.gen_abi_type(gen),
             _ => unexpected!(),
         }
     }
@@ -354,25 +284,16 @@ impl ElementType {
             Self::String => "string".to_owned(),
             Self::IInspectable => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
-            Self::Class(t) => t.type_signature(),
-            Self::Interface(t) => t.type_signature(),
-            Self::Enum(t) => t.type_signature(),
-            Self::Struct(t) => t.type_signature(),
-            Self::Delegate(t) => t.type_signature(),
+            Self::TypeDef(t) => t.type_signature(),
             _ => unexpected!(),
         }
     }
 
     pub fn dependencies(&self) -> Vec<ElementType> {
         match self {
-            Self::Function(t) => t.dependencies(),
-            Self::Class(t) => t.dependencies(),
-            Self::Interface(t) => t.dependencies(),
-            Self::ComInterface(t) => t.dependencies(),
-            Self::Struct(t) => t.dependencies(),
-            Self::Delegate(t) => t.dependencies(),
-            Self::Callback(t) => t.dependencies(),
-            Self::Constant(t) => t.dependencies(),
+            Self::MethodDef(t) => t.dependencies(&[]),
+            Self::TypeDef(t) => t.dependencies(),
+            Self::Field(t) => t.dependencies(),
             Self::Array((signature, _)) => signature.dependencies(),
             _ => Vec::new(),
         }
@@ -380,13 +301,7 @@ impl ElementType {
 
     pub fn definition(&self) -> Vec<ElementType> {
         match self {
-            Self::Class(t) => t.definition(),
-            Self::Interface(t) => t.definition(),
-            Self::ComInterface(t) => t.definition(),
-            Self::Struct(t) => t.definition(),
-            Self::Delegate(t) => t.definition(),
-            Self::Callback(t) => t.definition(),
-            Self::Enum(t) => t.definition(),
+            Self::TypeDef(t) => t.definition(),
             Self::Array((signature, _)) => signature.definition(),
             // TODO: find a cleaner way to map this dependency
             Self::Matrix3x2 => {
@@ -397,95 +312,75 @@ impl ElementType {
     }
 
     pub fn is_nullable(&self) -> bool {
-        matches!(
-            self,
-            Self::IInspectable
-                | Self::IUnknown
-                | Self::Function(_)
-                | Self::Interface(_)
-                | Self::Class(_)
-                | Self::ComInterface(_)
-                | Self::Delegate(_)
-                | Self::Callback(_)
-        )
+        match self {
+            Self::TypeDef(t) => t.is_nullable(),
+            Self::IInspectable | Self::IUnknown | Self::MethodDef(_) => true,
+            _ => false,
+        }
     }
 
     pub fn is_blittable(&self) -> bool {
         match self {
-            Self::String
-            | Self::IInspectable
-            | Self::IUnknown
-            | Self::GenericParam(_)
-            | Self::Class(_)
-            | Self::Interface(_)
-            | Self::ComInterface(_)
-            | Self::Delegate(_) => false,
-            Self::Struct(def) => def.is_blittable(),
+            Self::TypeDef(t) => t.is_blittable(),
+            Self::String | Self::IInspectable | Self::IUnknown | Self::GenericParam(_) => false,
             Self::Array((kind, _)) => kind.is_blittable(),
             _ => true,
         }
     }
 
     pub fn is_convertible(&self) -> bool {
-        matches!(
-            self,
+        match self {
+            Self::TypeDef(t) => t.is_convertible(),
             Self::String
-                | Self::IInspectable
-                | Self::Guid
-                | Self::IUnknown
-                | Self::Matrix3x2
-                | Self::GenericParam(_)
-                | Self::Class(_)
-                | Self::Interface(_)
-                | Self::ComInterface(_)
-                | Self::Struct(_)
-                | Self::Delegate(_)
-        )
+            | Self::IInspectable
+            | Self::Guid
+            | Self::IUnknown
+            | Self::Matrix3x2
+            | Self::GenericParam(_) => true,
+            _ => false,
+        }
     }
 
     pub fn is_callback(&self) -> bool {
-        matches!(self, Self::Callback(_))
+        match self {
+            Self::TypeDef(def) => def.is_callback(),
+            _ => false,
+        }
     }
 
     pub fn is_primitive(&self) -> bool {
-        matches!(
-            self,
+        match self {
+            Self::TypeDef(t) => t.is_primitive(),
             Self::Bool
-                | Self::Char
-                | Self::I8
-                | Self::U8
-                | Self::I16
-                | Self::U16
-                | Self::I32
-                | Self::U32
-                | Self::I64
-                | Self::U64
-                | Self::F32
-                | Self::F64
-                | Self::ISize
-                | Self::USize
-                | Self::HRESULT
-                | Self::Enum(_)
-        )
+            | Self::Char
+            | Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::F32
+            | Self::F64
+            | Self::ISize
+            | Self::USize
+            | Self::HRESULT => true,
+            _ => false,
+        }
     }
 
-    pub fn is_struct(&self) -> bool {
+    pub fn is_udt(&self) -> bool {
         match self {
+            Self::TypeDef(t) => t.is_udt(),
             Self::Guid | Self::Matrix3x2 => true,
-            Self::Struct(t) => !t.is_handle(),
             _ => false,
         }
     }
 
     pub fn is_explicit(&self) -> bool {
         match self {
-            Self::Struct(s) => {
-                if s.0.flags().explicit() {
-                    true
-                } else {
-                    s.0.fields().any(|f| f.signature().is_explicit())
-                }
-            }
+            Self::TypeDef(t) => t.is_explicit(),
             Self::Array((kind, _)) => kind.is_explicit(),
             _ => false,
         }
@@ -493,15 +388,9 @@ impl ElementType {
 
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         match self {
-            Self::Function(t) => t.gen(gen),
-            Self::Constant(t) => t.gen(gen),
-            Self::Class(t) => t.gen(gen),
-            Self::Interface(t) => t.gen(gen),
-            Self::ComInterface(t) => t.gen(gen),
-            Self::Enum(t) => t.gen(gen),
-            Self::Struct(t) => t.gen(gen),
-            Self::Delegate(t) => t.gen(gen),
-            Self::Callback(t) => t.gen(gen),
+            Self::MethodDef(t) => t.gen(gen),
+            Self::Field(t) => t.gen(gen),
+            Self::TypeDef(t) => t.gen(gen),
             Self::GenericParam(p) => p.gen_name(),
             Self::IInspectable => {
                 quote! { ::windows::IInspectable }

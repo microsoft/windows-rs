@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone)]
 pub struct Attribute(pub Row);
 
 impl Attribute {
@@ -46,10 +46,12 @@ impl Attribute {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
                     ConstantValue::TypeDef(
-                        TypeReader::get().resolve_type_def(&name[0..index], &name[index + 1..]),
+                        TypeReader::get()
+                            .resolve_type_def(&name[0..index], &name[index + 1..])
+                            .clone(),
                     )
                 }
-                ElementType::Enum(def) => {
+                ElementType::TypeDef(def) => {
                     let underlying_type = def.underlying_type();
                     read_enum(&underlying_type, &mut values)
                 }
@@ -79,7 +81,9 @@ impl Attribute {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
                     ConstantValue::TypeDef(
-                        TypeReader::get().resolve_type_def(&name[0..index], &name[index + 1..]),
+                        TypeReader::get()
+                            .resolve_type_def(&name[0..index], &name[index + 1..])
+                            .clone(),
                     )
                 }
                 _ => unexpected!(),

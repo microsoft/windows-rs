@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone)]
 pub struct Param(pub Row);
 
 impl Param {
@@ -22,7 +22,7 @@ impl Param {
             .equal_range(
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::Param(*self).encode(),
+                HasAttribute::Param(self.clone()).encode(),
             )
             .map(Attribute)
     }

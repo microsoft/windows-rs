@@ -1,9 +1,21 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct MethodDef(pub Row);
 
+impl From<Row> for MethodDef {
+    fn from(row: Row) -> Self {
+        Self(row)
+    }
+}
+
 impl MethodDef {
+    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
+        let namespace = gen.namespace(self.parent().namespace());
+        let name = format_ident!("{}", self.name());
+        quote! { #namespace #name }
+    }
+
     pub fn flags(&self) -> MethodFlags {
         MethodFlags(self.0.u32(2))
     }
@@ -26,7 +38,7 @@ impl MethodDef {
             self.0.row + 1,
         ) - 1;
 
-        TypeDef(Row::new(row, TableIndex::TypeDef, self.0.file))
+        Row::new(row, TableIndex::TypeDef, self.0.file).into()
     }
 
     pub fn rust_name(&self) -> String {
@@ -60,11 +72,6 @@ impl MethodDef {
         }
     }
 
-    // TODO: find uses of MethodDef::blob and replace with MethodDef::signature?
-    pub fn blob(&self) -> Blob {
-        self.0.blob(4)
-    }
-
     pub fn kind(&self) -> MethodKind {
         if self.flags().special() {
             let name = self.name();
@@ -92,7 +99,7 @@ impl MethodDef {
             .equal_range(
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::MethodDef(*self).encode(),
+                HasAttribute::MethodDef(self.clone()).encode(),
             )
             .map(Attribute)
     }
@@ -111,7 +118,7 @@ impl MethodDef {
             .equal_range(
                 TableIndex::ImplMap,
                 1,
-                MemberForwarded::MethodDef(*self).encode(),
+                MemberForwarded::MethodDef(self.clone()).encode(),
             )
             .map(ImplMap)
             .next()
@@ -120,7 +127,7 @@ impl MethodDef {
     pub fn signature(&self, generics: &[ElementType]) -> MethodSignature {
         let params = self.params();
 
-        let mut blob = self.blob();
+        let mut blob = self.0.blob(4);
         blob.read_unsigned();
         blob.read_unsigned(); // parameter count
 
@@ -145,6 +152,10 @@ impl MethodDef {
         }
     }
 
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
+        types::Function::gen(self, gen)
+    }
+
     pub fn dependencies(&self, generics: &[ElementType]) -> Vec<ElementType> {
         self.signature(generics).dependencies()
     }
@@ -161,17 +172,13 @@ mod tests {
     use super::*;
 
     fn get_method(interface: &types::Interface, method: &str) -> MethodDef {
-        interface
-            .0
-            .def
-            .methods()
-            .find(|m| m.name() == method)
-            .unwrap()
+        interface.0.methods().find(|m| m.name() == method).unwrap()
     }
 
     #[test]
     fn test_method() {
-        let i = TypeReader::get_interface("Windows.Foundation", "IStringable");
+        let i = TypeReader::get().resolve_type_def("Windows.Foundation", "IStringable");
+        let i = types::Interface(i);
         let m = get_method(&i, "ToString");
         assert_eq!(m.name(), "ToString");
 
@@ -188,7 +195,8 @@ mod tests {
 
     #[test]
     fn test_generic() {
-        let i = TypeReader::get_interface("Windows.Foundation.Collections", "IMap`2");
+        let i = TypeReader::get().resolve_type_def("Windows.Foundation.Collections", "IMap`2");
+        let i = types::Interface(i.with_generics());
         let m = get_method(&i, "Lookup");
 
         let s = m.signature(&i.0.generics);

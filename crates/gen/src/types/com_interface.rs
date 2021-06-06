@@ -1,23 +1,12 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct ComInterface(pub GenericType);
+pub struct ComInterface(pub tables::TypeDef);
 
 impl ComInterface {
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        self.0
-            .interfaces()
-            .map(|i| ElementType::from_type_def(i.def, Vec::new()))
-            .collect()
-    }
-
-    pub fn definition(&self) -> Vec<ElementType> {
-        vec![ElementType::ComInterface(self.clone())]
-    }
-
-    pub fn interfaces(&self) -> Vec<tables::TypeDef> {
+    fn interfaces(&self) -> Vec<tables::TypeDef> {
         let mut result = Vec::new();
-        let mut next = self.0.def;
+        let mut next = self.0.clone();
 
         loop {
             let base = if let Some(next) = next
@@ -25,12 +14,12 @@ impl ComInterface {
                 .next()
                 .and_then(|i| i.generic_interface(&[]))
             {
-                next.def
+                next
             } else {
                 break;
             };
 
-            next = base;
+            next = base.clone();
             result.push(base);
         }
 
@@ -47,7 +36,7 @@ impl ComInterface {
         let abi_signatures = bases
             .iter()
             .rev()
-            .chain(std::iter::once(&self.0.def))
+            .chain(std::iter::once(&self.0))
             .map(|def| def.methods())
             .flatten()
             .map(|method| {
@@ -64,7 +53,7 @@ impl ComInterface {
                 });
 
                 let (udt_return_type, return_type) = if let Some(t) = &signature.return_type {
-                    if t.is_struct() {
+                    if t.is_udt() {
                         let mut t = t.clone();
                         t.pointers += 1;
                         let tokens = t.gen_win32_abi(gen);
@@ -87,7 +76,7 @@ impl ComInterface {
         let methods = bases
             .iter()
             .rev()
-            .chain(std::iter::once(&self.0.def))
+            .chain(std::iter::once(&self.0))
             .map(|def| def.methods())
             .flatten()
             .enumerate()
@@ -102,8 +91,8 @@ impl ComInterface {
                 let params = signature.gen_win32_params(&signature.params, gen);
 
                 let (udt_return_type, udt_return_local, return_type, udt_return_expression) = if let Some(t) = &signature.return_type {
-                    if t.is_struct() {
-                        let tokens = t.kind.gen_abi_name(gen);
+                    if t.is_udt() {
+                        let tokens = t.kind.gen_abi_type(gen);
                         (quote! { &mut result__ }, quote! { let mut result__: #tokens = ::std::default::Default::default(); }, quote! { -> #tokens }, quote! { ;result__ })
                     } else {
                         let tokens = t.gen_win32_abi(gen);
@@ -203,7 +192,7 @@ impl ComInterface {
         }
 
         let send_sync = if matches!(
-            self.0.def.full_name(),
+            self.0.full_name(),
             ("Windows.Win32.System.WinRT", "IRestrictedErrorInfo")
         ) {
             quote! {

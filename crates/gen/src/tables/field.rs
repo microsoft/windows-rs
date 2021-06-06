@@ -1,7 +1,13 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Field(pub Row);
+
+impl From<Row> for Field {
+    fn from(row: Row) -> Self {
+        Self(row)
+    }
+}
 
 impl Field {
     pub fn name(&self) -> &'static str {
@@ -20,7 +26,11 @@ impl Field {
     pub fn constant(&self) -> Option<Constant> {
         self.0
             .file
-            .equal_range(TableIndex::Constant, 1, HasConstant::Field(*self).encode())
+            .equal_range(
+                TableIndex::Constant,
+                1,
+                HasConstant::Field(self.clone()).encode(),
+            )
             .map(Constant)
             .next()
     }
@@ -35,7 +45,15 @@ impl Field {
             self.0.row + 1,
         ) - 1;
 
-        TypeDef(Row::new(row, TableIndex::TypeDef, self.0.file))
+        Row::new(row, TableIndex::TypeDef, self.0.file).into()
+    }
+
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
+        types::Constant::gen(self, gen)
+    }
+
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        self.signature().kind.definition()
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
@@ -44,7 +62,7 @@ impl Field {
             .equal_range(
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::Field(*self).encode(),
+                HasAttribute::Field(self.clone()).encode(),
             )
             .map(Attribute)
     }
@@ -64,8 +82,9 @@ impl Field {
         self.signature().is_blittable()
     }
 
-    pub fn gen_name(&self) -> Ident {
-        to_ident(self.name())
+    pub fn gen_name(&self) -> TokenStream {
+        let name = format_ident!("{}", self.name());
+        quote! { #name }
     }
 }
 
@@ -81,9 +100,9 @@ mod tests {
 
     #[test]
     fn test_generic() {
-        let r = TypeReader::get_struct("Windows.Foundation", "Rect");
+        let r = TypeReader::get().resolve_type_def("Windows.Foundation", "Rect");
 
-        let f: Vec<Field> = r.0.fields().collect();
+        let f: Vec<Field> = r.fields().collect();
         assert_eq!(f.len(), 4);
 
         let s = f[0].signature();

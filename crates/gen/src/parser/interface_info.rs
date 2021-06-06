@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct InterfaceInfo {
-    pub def: GenericType,
+    pub def: tables::TypeDef,
     pub kind: InterfaceKind,
     pub is_base: bool,
     pub version: (u16, u16),
@@ -22,18 +22,16 @@ impl InterfaceInfo {
                 return a.kind.cmp(&b.kind);
             }
 
-            a.def.def.full_name().cmp(&b.def.def.full_name())
+            a.def.full_name().cmp(&b.def.full_name())
         });
     }
 
     pub fn gen_methods(interfaces: &[Self], gen: &Gen) -> TokenStream {
         let mut method_names = BTreeMap::<String, u32>::new();
-        // TODO: get rid of all these temporary streams and use iterators. This just
-        // ends up creating a bunch of temporary strings under the hood.
         let mut tokens = TokenStream::new();
 
         for interface in interfaces {
-            for (vtable_offset, method) in interface.def.def.methods().enumerate() {
+            for (vtable_offset, method) in interface.def.methods().enumerate() {
                 let name = method.rust_name();
                 let overload = method_names.entry(name.clone()).or_insert(0);
                 *overload += 1;
@@ -59,7 +57,7 @@ impl InterfaceInfo {
         constraints: &TokenStream,
         gen: &Gen,
     ) -> TokenStream {
-        if self.def.def.is_exclusive() {
+        if self.def.is_exclusive() {
             return TokenStream::new();
         }
 
@@ -84,7 +82,7 @@ impl InterfaceInfo {
                     }
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &'a #from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
-                            // tODO: The various conversions are adding ref counting bugs unecessarily
+                            // tODO: The various conversions are adding ref counting bumps unecessarily
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                         }
                     }

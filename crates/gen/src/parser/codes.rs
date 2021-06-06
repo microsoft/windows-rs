@@ -4,7 +4,7 @@ pub trait Decode {
     fn decode(file: &'static File, code: u32) -> Self;
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum TypeDefOrRef {
     TypeDef(tables::TypeDef),
     TypeRef(tables::TypeRef),
@@ -15,7 +15,7 @@ impl Decode for TypeDefOrRef {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match code.0 {
-            0 => Self::TypeDef(tables::TypeDef(Row::new(code.1, TableIndex::TypeDef, file))),
+            0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
             1 => Self::TypeRef(tables::TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
             2 => Self::TypeSpec(tables::TypeSpec(Row::new(
                 code.1,
@@ -30,14 +30,14 @@ impl Decode for TypeDefOrRef {
 impl TypeDefOrRef {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.0.row + 1) << 2),
+            Self::TypeDef(value) => ((value.row.row + 1) << 2),
             Self::TypeRef(value) => ((value.0.row + 1) << 2) | 1,
             Self::TypeSpec(value) => ((value.0.row + 1) << 2) | 2,
         }
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum TypeOrMethodDef {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),
@@ -47,7 +47,7 @@ impl Decode for TypeOrMethodDef {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 1) - 1), (code >> 1) - 1);
         match code.0 {
-            0 => Self::TypeDef(tables::TypeDef(Row::new(code.1, TableIndex::TypeDef, file))),
+            0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
             1 => Self::MethodDef(tables::MethodDef(Row::new(
                 code.1,
                 TableIndex::MethodDef,
@@ -61,13 +61,13 @@ impl Decode for TypeOrMethodDef {
 impl TypeOrMethodDef {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.0.row + 1) << 1),
+            Self::TypeDef(value) => ((value.row.row + 1) << 1),
             Self::MethodDef(value) => ((value.0.row + 1) << 1) | 1,
         }
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum HasAttribute {
     MethodDef(tables::MethodDef),
     Field(tables::Field),
@@ -91,7 +91,7 @@ impl Decode for HasAttribute {
             ))),
             1 => Self::Field(tables::Field(Row::new(code.1, TableIndex::Field, file))),
             2 => Self::TypeRef(tables::TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
-            3 => Self::TypeDef(tables::TypeDef(Row::new(code.1, TableIndex::TypeDef, file))),
+            3 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
             4 => Self::Param(tables::Param(Row::new(code.1, TableIndex::Param, file))),
             5 => Self::InterfaceImpl(tables::InterfaceImpl(Row::new(
                 code.1,
@@ -124,7 +124,7 @@ impl HasAttribute {
             Self::MethodDef(value) => ((value.0.row + 1) << 5),
             Self::Field(value) => ((value.0.row + 1) << 5) | 1,
             Self::TypeRef(value) => ((value.0.row + 1) << 5) | 2,
-            Self::TypeDef(value) => ((value.0.row + 1) << 5) | 3,
+            Self::TypeDef(value) => ((value.row.row + 1) << 5) | 3,
             Self::Param(value) => ((value.0.row + 1) << 5) | 4,
             Self::InterfaceImpl(value) => ((value.0.row + 1) << 5) | 5,
             Self::MemberRef(value) => ((value.0.row + 1) << 5) | 6,
@@ -134,7 +134,7 @@ impl HasAttribute {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum MemberRefParent {
     TypeDef(tables::TypeDef),
     TypeRef(tables::TypeRef),
@@ -146,7 +146,7 @@ impl Decode for MemberRefParent {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match code.0 {
-            0 => Self::TypeDef(tables::TypeDef(Row::new(code.1, TableIndex::TypeDef, file))),
+            0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
             1 => Self::TypeRef(tables::TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
             3 => Self::MethodDef(tables::MethodDef(Row::new(
                 code.1,
@@ -166,7 +166,7 @@ impl Decode for MemberRefParent {
 impl MemberRefParent {
     pub fn encode(&self) -> u32 {
         match self {
-            Self::TypeDef(value) => ((value.0.row + 1) << 3),
+            Self::TypeDef(value) => ((value.row.row + 1) << 3),
             Self::TypeRef(value) => ((value.0.row + 1) << 3) | 1,
             Self::MethodDef(value) => ((value.0.row + 1) << 3) | 3,
             Self::TypeSpec(value) => ((value.0.row + 1) << 3) | 4,
@@ -174,7 +174,7 @@ impl MemberRefParent {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum HasConstant {
     Field(tables::Field),
     Param(tables::Param),
@@ -200,7 +200,7 @@ impl HasConstant {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum AttributeType {
     MethodDef(tables::MethodDef),
     MemberRef(tables::MemberRef),
@@ -234,7 +234,7 @@ impl AttributeType {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum MemberForwarded {
     Field(tables::Field),
     MethodDef(tables::MethodDef),
@@ -264,7 +264,7 @@ impl MemberForwarded {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum ResolutionScope {
     Module(tables::Module),
     ModuleRef(tables::ModuleRef),
@@ -331,7 +331,7 @@ impl TypeDefOrRef {
 
     pub fn resolve(&self) -> tables::TypeDef {
         match self {
-            Self::TypeDef(value) => *value,
+            Self::TypeDef(value) => value.clone(),
             Self::TypeRef(value) => value.resolve(),
             _ => unexpected!(),
         }

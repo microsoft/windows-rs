@@ -1,17 +1,29 @@
 use super::*;
-use std::collections::BTreeMap;
+use std::collections::*;
 
 /// A reader of type information from Windows Metadata
 pub struct TypeReader {
-    types: BTreeMap<&'static str, BTreeMap<&'static str, TypeRow>>,
-    nested: BTreeMap<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>,
+    types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
+    // Nested types are stored in a BTreeMap to ensure a stable order. This impacts
+    // the derived nested type names.
+    nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
 }
 
-#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
+#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 enum TypeRow {
     TypeDef(tables::TypeDef),
-    Function(tables::MethodDef),
-    Constant(tables::Field),
+    MethodDef(tables::MethodDef),
+    Field(tables::Field),
+}
+
+impl From<&TypeRow> for ElementType {
+    fn from(from: &TypeRow) -> Self {
+        match from {
+            TypeRow::TypeDef(row) => row.clone().into(),
+            TypeRow::MethodDef(row) => Self::MethodDef(row.clone()),
+            TypeRow::Field(row) => Self::Field(row.clone()),
+        }
+    }
 }
 
 impl TypeReader {
@@ -37,16 +49,15 @@ impl TypeReader {
     fn new() -> Self {
         let files = workspace_winmds();
 
-        let mut types = BTreeMap::<&'static str, BTreeMap<&'static str, TypeRow>>::default();
+        let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
 
-        let mut nested =
-            BTreeMap::<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>::new();
+        let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
 
         for file in files {
             let row_count = file.type_def_table().row_count;
 
             for row in 0..row_count {
-                let def = tables::TypeDef(Row::new(row, TableIndex::TypeDef, file));
+                let def: tables::TypeDef = Row::new(row, TableIndex::TypeDef, file).into();
                 let namespace = def.namespace();
                 let name = trim_tick(def.name());
 
@@ -61,11 +72,11 @@ impl TypeReader {
                     continue;
                 }
 
-                types
-                    .entry(namespace)
-                    .or_default()
+                let values = types.entry(namespace).or_default();
+
+                values
                     .entry(name)
-                    .or_insert_with(|| TypeRow::TypeDef(def));
+                    .or_insert_with(|| TypeRow::TypeDef(def.clone()));
 
                 if flags.interface() || flags.windows_runtime() {
                     continue;
@@ -76,32 +87,22 @@ impl TypeReader {
                         for field in def.fields() {
                             let name = field.name();
 
-                            types
-                                .entry(namespace)
-                                .or_default()
-                                .entry(name)
-                                .or_insert_with(|| TypeRow::Constant(field));
+                            values.entry(name).or_insert_with(|| TypeRow::Field(field));
                         }
 
                         for method in def.methods() {
                             let name = method.name();
 
-                            types
-                                .entry(namespace)
-                                .or_default()
+                            values
                                 .entry(name)
-                                .or_insert_with(|| TypeRow::Function(method));
+                                .or_insert_with(|| TypeRow::MethodDef(method));
                         }
                     }
                     ("System", "Enum") => {
                         for field in def.fields() {
                             let name = field.name();
 
-                            types
-                                .entry(namespace)
-                                .or_default()
-                                .entry(name)
-                                .or_insert_with(|| TypeRow::Constant(field));
+                            values.entry(name).or_insert_with(|| TypeRow::Field(field));
                         }
                     }
                     _ => {}
@@ -116,7 +117,10 @@ impl TypeReader {
                 let enclosing = row.enclosing_type();
                 let name = enclosed.name();
 
-                nested.entry(enclosing).or_default().insert(name, enclosed);
+                nested
+                    .entry(enclosing.row.clone())
+                    .or_default()
+                    .insert(name, enclosed);
             }
         }
 
@@ -158,25 +162,20 @@ impl TypeReader {
     ///
     /// Panics if the namespace does not exist
     pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = ElementType> {
-        self.types[namespace]
-            .values()
-            .map(move |row| self.to_element_type(row))
+        self.types[namespace].values().map(move |row| row.into())
     }
 
-    // TODO: how to make this return an iterator?
-    pub fn nested_types(&'static self, enclosing: &tables::TypeDef) -> Vec<tables::TypeDef> {
-        self.nested
-            .get(enclosing)
-            .iter()
-            .flat_map(|t| t.values())
-            .copied()
-            .collect()
+    pub fn nested_types(
+        &'static self,
+        enclosing: &tables::TypeDef,
+    ) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
+        self.nested.get(&enclosing.row)
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
         if let Some(types) = self.types.get(namespace) {
             if let Some(row) = types.get(trim_tick(name)) {
-                return self.to_element_type(row);
+                return row.into();
             }
         }
 
@@ -205,18 +204,10 @@ impl TypeReader {
         None
     }
 
-    fn to_element_type(&'static self, row: &TypeRow) -> ElementType {
-        match row {
-            TypeRow::TypeDef(row) => ElementType::from_type_def(*row, Vec::new()),
-            TypeRow::Function(row) => ElementType::Function(types::Function(*row)),
-            TypeRow::Constant(row) => ElementType::Constant(types::Constant(*row)),
-        }
-    }
-
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         if let Some(types) = self.types.get(namespace) {
             if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
-                return *row;
+                return row.clone();
             }
         }
 
@@ -225,45 +216,19 @@ impl TypeReader {
 
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            self.nested[&scope.resolve()][type_ref.name()]
+            self.nested[&scope.resolve().row]
+                .get(type_ref.name())
+                .unwrap_or_else(|| {
+                    panic!(
+                        "Could not find nested type `{}` in `{}.{}`",
+                        type_ref.name(),
+                        scope.namespace(),
+                        scope.name()
+                    )
+                })
+                .clone()
         } else {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
-        }
-    }
-
-    #[cfg(test)]
-    pub fn get_class(namespace: &str, name: &str) -> types::Class {
-        if let ElementType::Class(value) = Self::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
-    #[cfg(test)]
-    pub fn get_struct(namespace: &str, name: &str) -> types::Struct {
-        if let ElementType::Struct(value) = Self::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
-    #[cfg(test)]
-    pub fn get_enum(namespace: &str, name: &str) -> types::Enum {
-        if let ElementType::Enum(value) = Self::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
-        }
-    }
-
-    #[cfg(test)]
-    pub fn get_interface(namespace: &str, name: &str) -> types::Interface {
-        if let ElementType::Interface(value) = Self::get().resolve_type(namespace, name) {
-            value.clone()
-        } else {
-            unexpected!();
         }
     }
 }
