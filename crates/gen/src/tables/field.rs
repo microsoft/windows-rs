@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Field(pub Row);
 
 impl From<Row> for Field {
@@ -26,7 +26,11 @@ impl Field {
     pub fn constant(&self) -> Option<Constant> {
         self.0
             .file
-            .equal_range(TableIndex::Constant, 1, HasConstant::Field(*self).encode())
+            .equal_range(
+                TableIndex::Constant,
+                1,
+                HasConstant::Field(self.clone()).encode(),
+            )
             .map(Constant)
             .next()
     }
@@ -58,7 +62,7 @@ impl Field {
             .equal_range(
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::Field(*self).encode(),
+                HasAttribute::Field(self.clone()).encode(),
             )
             .map(Attribute)
     }

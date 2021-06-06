@@ -6,7 +6,7 @@ pub struct TypeReader {
     types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
     // Nested types are stored in a BTreeMap to ensure a stable order. This impacts
     // the derived nested type names.
-    nested: HashMap<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>,
+    nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
 }
 
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
@@ -20,8 +20,8 @@ impl From<&TypeRow> for ElementType {
     fn from(from: &TypeRow) -> Self {
         match from {
             TypeRow::TypeDef(row) => row.clone().into(),
-            TypeRow::MethodDef(row) => Self::MethodDef(*row),
-            TypeRow::Field(row) => Self::Field(*row),
+            TypeRow::MethodDef(row) => Self::MethodDef(row.clone()),
+            TypeRow::Field(row) => Self::Field(row.clone()),
         }
     }
 }
@@ -51,7 +51,7 @@ impl TypeReader {
 
         let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
 
-        let mut nested = HashMap::<tables::TypeDef, BTreeMap<&'static str, tables::TypeDef>>::new();
+        let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -117,7 +117,10 @@ impl TypeReader {
                 let enclosing = row.enclosing_type();
                 let name = enclosed.name();
 
-                nested.entry(enclosing).or_default().insert(name, enclosed);
+                nested
+                    .entry(enclosing.row().clone())
+                    .or_default()
+                    .insert(name, enclosed);
             }
         }
 
@@ -166,7 +169,7 @@ impl TypeReader {
         &'static self,
         enclosing: &tables::TypeDef,
     ) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
-        self.nested.get(enclosing)
+        self.nested.get(enclosing.row())
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
@@ -213,7 +216,7 @@ impl TypeReader {
 
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            self.nested[&scope.resolve()]
+            self.nested[scope.resolve().row()]
                 .get(type_ref.name())
                 .unwrap_or_else(|| {
                     panic!(

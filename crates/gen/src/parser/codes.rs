@@ -1,10 +1,11 @@
 use super::*;
 
+// TODO: need to be a trait?
 pub trait Decode {
     fn decode(file: &'static File, code: u32) -> Self;
 }
 
-#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum TypeDefOrRef {
     TypeDef(tables::TypeDef),
     TypeRef(tables::TypeRef),
@@ -37,7 +38,7 @@ impl TypeDefOrRef {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum TypeOrMethodDef {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),
@@ -67,7 +68,7 @@ impl TypeOrMethodDef {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum HasAttribute {
     MethodDef(tables::MethodDef),
     Field(tables::Field),
@@ -134,7 +135,7 @@ impl HasAttribute {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum MemberRefParent {
     TypeDef(tables::TypeDef),
     TypeRef(tables::TypeRef),
@@ -174,7 +175,7 @@ impl MemberRefParent {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum HasConstant {
     Field(tables::Field),
     Param(tables::Param),
@@ -200,7 +201,7 @@ impl HasConstant {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum AttributeType {
     MethodDef(tables::MethodDef),
     MemberRef(tables::MemberRef),
@@ -234,7 +235,7 @@ impl AttributeType {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum MemberForwarded {
     Field(tables::Field),
     MethodDef(tables::MethodDef),
@@ -264,7 +265,7 @@ impl MemberForwarded {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Debug)]
 pub enum ResolutionScope {
     Module(tables::Module),
     ModuleRef(tables::ModuleRef),

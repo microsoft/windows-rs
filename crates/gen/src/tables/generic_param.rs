@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
 pub struct GenericParam(pub Row);
 
 impl GenericParam {

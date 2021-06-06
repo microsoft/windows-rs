@@ -29,11 +29,13 @@ impl Struct {
         let fields: Vec<(tables::Field, Signature, Ident)> = self
             .0
             .fields()
-            .filter_map(|f| {
+            .filter_map(move |f| {
                 if f.flags().literal() {
                     None
                 } else {
-                    Some((f, f.signature(), to_ident(f.name())))
+                    let signature = f.signature();
+                    let name = f.name();
+                    Some((f, signature, to_ident(name)))
                 }
             })
             .collect();
@@ -52,7 +54,7 @@ impl Struct {
         let layout = self.0.class_layout();
         let is_packed = self.0.is_packed();
 
-        let repr = if let Some(layout) = layout {
+        let repr = if let Some(layout) = &layout {
             let packing = Literal::u32_unsuffixed(layout.packing_size());
             quote! { #[repr(C, packed(#packing))] }
         } else if is_handle {

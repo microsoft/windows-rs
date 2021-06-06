@@ -3,12 +3,6 @@ use super::*;
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeDef(Row, Vec<ElementType>);
 
-impl std::hash::Hash for TypeDef {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        self.0.hash(state);
-    }
-}
-
 impl From<Row> for TypeDef {
     fn from(row: Row) -> Self {
         Self(row, Vec::new())
@@ -23,8 +17,7 @@ impl TypeDef {
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
         blob.read_unsigned();
 
-        let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned())
-            .resolve();
+        let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
         let args = blob.read_unsigned();
 
         for _ in 0..args {

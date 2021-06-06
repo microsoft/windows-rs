@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone)]
 pub struct AssemblyRef(pub Row);
 
 impl std::fmt::Debug for AssemblyRef {

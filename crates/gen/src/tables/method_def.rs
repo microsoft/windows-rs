@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct MethodDef(pub Row);
 
 impl From<Row> for MethodDef {
@@ -99,7 +99,7 @@ impl MethodDef {
             .equal_range(
                 TableIndex::CustomAttribute,
                 0,
-                HasAttribute::MethodDef(*self).encode(),
+                HasAttribute::MethodDef(self.clone()).encode(),
             )
             .map(Attribute)
     }
@@ -118,7 +118,7 @@ impl MethodDef {
             .equal_range(
                 TableIndex::ImplMap,
                 1,
-                MemberForwarded::MethodDef(*self).encode(),
+                MemberForwarded::MethodDef(self.clone()).encode(),
             )
             .map(ImplMap)
             .next()
