@@ -26,13 +26,18 @@ fn update_file(entry: &std::fs::DirEntry, set: bool) -> std::io::Result<()> {
             let mut file = std::fs::File::open(&path)?;
             let mut data = String::new();
             file.read_to_string(&mut data)?;
+            drop(file);
+
+            let macro_str = "windows::build! \x7b";
+            let use_str = "use \x7b // fmt";
 
             let data = if set { 
-                data.replace("windows::build!", "use")
+                data.replace(macro_str, use_str);
             } else {
-                data.replace("use", "windows::build!")
+                data.replace(use_str, macro_str)
             };
 
+            let mut file = std::fs::File::create(&path)?;
             file.write_all(data.as_bytes())?;
         }
     }
@@ -42,6 +47,8 @@ fn update_file(entry: &std::fs::DirEntry, set: bool) -> std::io::Result<()> {
 
 fn main() -> std::io::Result<()> {
     let workspace = windows_gen::workspace_dir();
-    update_dir(&workspace, true);
-    update_dir(&workspace, false);
+   // update_dir(&workspace, true)?;
+    update_dir(&workspace, false)?;
+
+    Ok(())
 }
