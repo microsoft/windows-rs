@@ -1,6 +1,6 @@
 fn main() {
-    windows::build!(
+    windows::build! {
         Windows::Foundation::Uri,
         Windows::Win32::System::WinRT::{IWeakReference, IWeakReferenceSource},
-    );
+    };
 }

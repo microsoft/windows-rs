@@ -57,3 +57,14 @@ jobs:
         git diff --exit-code || (echo '::error::Generated bindings are out-of-date. Make sure to update them by running `cargo run -p windows_bindings`'; exit 1)
       shell: bash
       if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
+
+  format-macro:
+    runs-on: windows-latest
+    name: Format `build!` macros
+    steps:
+    - uses: actions/checkout@v2
+    - name: Invoke `windows_fmt`
+      run: cargo r -p windows_fmt
+    - name: Diff formatting result
+      shell: bash
+      run: git diff --exit-code || (echo '::error::Some `build!` macros were improperly formatted. Please run `cargo run -p windows_fmt` and push again'; exit 1)
