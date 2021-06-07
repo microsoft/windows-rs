@@ -6,7 +6,8 @@ use std::process::Command;
 use std::process::Stdio;
 
 fn format_file(file: &Path, pattern: &str) -> Result<()> {
-    const SHIM: &str = "use format_build_macro::{";
+    const SHIM: &str = "use format_build_macro::";
+    const SHIM_CURLY: &str = "use format_build_macro::{";
 
     let contents = std::fs::read(file)?;
     let contents = String::from_utf8(contents).expect("Failed to parse UTF-8");
@@ -28,10 +29,22 @@ fn format_file(file: &Path, pattern: &str) -> Result<()> {
     let output = child.wait_with_output().expect("Failed to read stdout");
     let contents = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
 
-    // Some build macros contain a single item, where curly braces are removed. Those
-    // cannot easily be formatted yet.
-    if contents.contains(SHIM) {
+    // Some build macros contain a single item, where curly braces are removed
+    if contents.contains(SHIM_CURLY) {
         std::fs::write(file, contents.replace(SHIM, pattern))?;
+    } else if let Some(macro_start) = contents.find(SHIM) {
+        // If curly braces have been removed, find the `use` statement and terminating semicolon
+        let usetree_start = macro_start + SHIM.len();
+        let semi = contents[usetree_start..].find(';').expect("Semi");
+        // Replace `use` with macro call and insert curly braces around the UseTree
+        let macro_ = format!(
+            "{}{{{}}}",
+            pattern,
+            &contents[usetree_start..usetree_start + semi]
+        );
+        let mut contents = contents;
+        contents.replace_range(macro_start..usetree_start + semi, &macro_);
+        std::fs::write(file, contents)?;
     }
 
     Ok(())
@@ -43,7 +56,7 @@ fn walk_path(path: &Path) -> Result<()> {
             walk_path(&entry?.path())?;
         }
     } else if path.file_name() == Some(OsStr::new("build.rs")) {
-        format_file(path, "windows::build! {")?;
+        format_file(path, "windows::build! ")?;
     }
 
     Ok(())
@@ -55,6 +68,6 @@ fn main() -> Result<()> {
 
     format_file(
         &dir.join("crates/bindings/src/main.rs"),
-        "let tokens = windows_macros::generate! {",
+        "let tokens = windows_macros::generate! ",
     )
 }
