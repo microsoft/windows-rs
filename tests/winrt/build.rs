@@ -31,8 +31,7 @@ fn main() {
         Windows::Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 
         Windows::Win32::System::SystemServices::{
-            CreateDispatcherQueueController, DQTAT_COM_NONE, DQTYPE_THREAD_CURRENT, E_NOINTERFACE,
-            E_POINTER,
+            CreateDispatcherQueueController, E_NOINTERFACE, E_POINTER,
         },
         Windows::AI::MachineLearning::*,
         Windows::UI::Composition::{

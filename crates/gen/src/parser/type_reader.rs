@@ -98,13 +98,6 @@ impl TypeReader {
                                 .or_insert_with(|| TypeRow::MethodDef(method));
                         }
                     }
-                    ("System", "Enum") => {
-                        for field in def.fields() {
-                            let name = field.name();
-
-                            values.entry(name).or_insert_with(|| TypeRow::Field(field));
-                        }
-                    }
                     _ => {}
                 }
             }
