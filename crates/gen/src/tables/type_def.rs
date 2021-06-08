@@ -16,21 +16,6 @@ impl From<Row> for TypeDef {
 }
 
 impl TypeDef {
-    pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
-        let reader = TypeReader::get();
-
-        blob.read_unsigned();
-
-        let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
-        let args = blob.read_unsigned();
-
-        for _ in 0..args {
-            def.generics.push(reader.type_from_blob(blob, generics));
-        }
-
-        def
-    }
-
     pub fn with_generics(mut self) -> Self {
         self.generics = self
             .generic_params()

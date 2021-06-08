@@ -245,9 +245,15 @@ impl TypeReader {
                         ("Windows.Win32.System.Com", "HRESULT") => ElementType::HRESULT,
                         ("Windows.Win32.System.WinRT", "HSTRING") => ElementType::String,
                         ("Windows.Win32.System.WinRT", "IInspectable") => ElementType::IInspectable,
-                        ("Windows.Win32.System.SystemServices", "LARGE_INTEGER") => ElementType::I64,
-                        ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => ElementType::U64,
-                        ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => ElementType::Matrix3x2,
+                        ("Windows.Win32.System.SystemServices", "LARGE_INTEGER") => {
+                            ElementType::I64
+                        }
+                        ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => {
+                            ElementType::U64
+                        }
+                        ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => {
+                            ElementType::Matrix3x2
+                        }
                         ("System", "Type") => ElementType::TypeName,
                         _ => type_ref.resolve().into(),
                     },
@@ -256,8 +262,7 @@ impl TypeReader {
                     // definition. This lets the TypeTree be built for a specific architecture
                     // without accidentally pulling in the wrong definition.
                     {
-                        self
-                            .resolve_type_def(type_def.namespace(), type_def.name())
+                        self.resolve_type_def(type_def.namespace(), type_def.name())
                             .into()
                     }
                     _ => unexpected!(),
@@ -271,7 +276,18 @@ impl TypeReader {
                 let bounds = blob.read_unsigned();
                 ElementType::Array((Box::new(kind), bounds))
             }
-            0x15 => ElementType::TypeDef(tables::TypeDef::from_blob(blob, generics)),
+            0x15 => {
+                blob.read_unsigned();
+
+                let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
+                let args = blob.read_unsigned();
+
+                for _ in 0..args {
+                    def.generics.push(self.type_from_blob(blob, generics));
+                }
+
+                ElementType::TypeDef(def)
+            }
             _ => unexpected!(),
         }
     }
