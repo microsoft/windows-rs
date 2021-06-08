@@ -259,6 +259,7 @@ impl TypeReader {
 
     pub fn type_from_code(&'static self, code: &TypeDefOrRef, generics: &[ElementType]) -> ElementType {
         match code {
+            // TODO: store these in a const table shared with exclusions
             TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
                 ("System", "Guid") => ElementType::Guid,
                 ("Windows.Win32.System.Com", "IUnknown") => ElementType::IUnknown,
