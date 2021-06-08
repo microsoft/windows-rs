@@ -27,7 +27,6 @@ impl From<&TypeRow> for ElementType {
 }
 
 impl TypeReader {
-    // TODO: move almost all methods that require this get() to the TypeReader impl.
     pub fn get() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();

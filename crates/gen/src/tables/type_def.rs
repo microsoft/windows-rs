@@ -63,7 +63,6 @@ impl TypeDef {
         definition
     }
 
-    // TODO: return ElementType?
     pub fn default_interface(&self) -> Self {
         for interface in self.interface_impls() {
             if interface.is_default() {

@@ -31,7 +31,6 @@ impl InterfaceImpl {
         self.has_attribute("OverridableAttribute")
     }
 
-    // tODO: remove wrapper
     pub fn generic_interface(&self, generics: &[ElementType]) -> ElementType {
         TypeReader::get().type_from_code(&self.interface(), generics)
     }
