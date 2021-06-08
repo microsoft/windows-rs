@@ -131,7 +131,7 @@ impl MethodDef {
         blob.read_unsigned();
         blob.read_unsigned(); // parameter count
 
-        let return_type = Signature::from_blob(&mut blob, generics);
+        let return_type = TypeReader::get().signature_from_blob(&mut blob, generics);
 
         let params = params
             .filter_map(|param| {
@@ -140,7 +140,7 @@ impl MethodDef {
                 } else {
                     Some(MethodParam {
                         param,
-                        signature: Signature::from_blob(&mut blob, generics).expect("MethodDef"),
+                        signature: TypeReader::get().signature_from_blob(&mut blob, generics).expect("MethodDef"),
                     })
                 }
             })

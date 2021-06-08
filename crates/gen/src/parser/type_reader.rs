@@ -226,6 +226,37 @@ impl TypeReader {
         }
     }
 
+    pub fn signature_from_blob(&'static self, blob: &mut Blob, generics: &[ElementType]) -> Option<Signature> {
+        let is_const = blob
+            .read_modifiers()
+            .iter()
+            .any(|def| def.full_name() == ("System.Runtime.CompilerServices", "IsConst"));
+
+        let by_ref = blob.read_expected(0x10);
+
+        if blob.read_expected(0x01) {
+            return None;
+        }
+
+        let is_array = blob.read_expected(0x1D);
+
+        let mut pointers = 0;
+
+        while blob.read_expected(0x0f) {
+            pointers += 1;
+        }
+
+        let kind = self.type_from_blob(blob, generics);
+
+        Some(Signature {
+            kind,
+            pointers,
+            by_ref,
+            is_const,
+            is_array,
+        })
+    }
+
     pub fn type_from_blob(&'static self, blob: &mut Blob, generics: &[ElementType]) -> ElementType {
         let code = blob.read_unsigned();
 
@@ -270,7 +301,7 @@ impl TypeReader {
             }
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x14 => {
-                let kind = Signature::from_blob(blob, generics).unwrap();
+                let kind = self.signature_from_blob(blob, generics).unwrap();
                 let _rank = blob.read_unsigned();
                 let _bounds_count = blob.read_unsigned();
                 let bounds = blob.read_unsigned();
