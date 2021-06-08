@@ -18,10 +18,10 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies]
-windows = "0.10.0"
+windows = "0.11.0"
 
 [build-dependencies]
-windows = "0.10.0"
+windows = "0.11.0"
 ```
 
 This will allow Cargo to download, build, and cache Windows support as a package. Next, specify which types you need inside of a `build.rs` build script and the `windows` crate will generate the necessary bindings:
@@ -30,9 +30,9 @@ This will allow Cargo to download, build, and cache Windows support as a package
 fn main() {
     windows::build! {
         Windows::Data::Xml::Dom::*,
-        Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
         Windows::Win32::Foundation::CloseHandle,
-        Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MB_OK},
+        Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
+        Windows::Win32::UI::WindowsAndMessaging::MessageBoxA,
     };
 }
 ```
@@ -46,8 +46,8 @@ mod bindings {
 
 use bindings::{
     Windows::Data::Xml::Dom::*,
-    Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
     Windows::Win32::Foundation::CloseHandle,
+    Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
     Windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MB_OK},
 };
 
