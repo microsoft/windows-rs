@@ -26,13 +26,12 @@ fn main() {
 
         Windows::Storage::Streams::{
             DataReader, DataReaderLoadOperation, DataWriter, DataWriterStoreOperation,
-            InMemoryRandomAccessStream,
+            InMemoryRandomAccessStream, RandomAccessStreamReference,
         },
-        Windows::Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 
-        Windows::Win32::System::SystemServices::{
-            CreateDispatcherQueueController, E_NOINTERFACE, E_POINTER,
-        },
+        Windows::Win32::Foundation::{E_NOINTERFACE, E_POINTER},
+
+        Windows::Win32::System::WinRT::CreateDispatcherQueueController,
         Windows::AI::MachineLearning::*,
         Windows::UI::Composition::{
             CompositionColorBrush, Compositor, SpriteVisual, Visual, VisualCollection,

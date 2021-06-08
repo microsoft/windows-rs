@@ -1,12 +1,12 @@
 fn main() {
     windows::build! {
+        Windows::Win32::Foundation::{HINSTANCE, PSTR, RECT},
         Windows::Win32::Graphics::Direct3D12::*,
         Windows::Win32::Graphics::Dxgi::*,
         Windows::Win32::Graphics::Hlsl::*,
-        Windows::Win32::System::SystemServices::{GetModuleHandleA, HINSTANCE, PSTR},
+        Windows::Win32::System::LibraryLoader::GetModuleHandleA,
         Windows::Win32::System::Threading::{CreateEventA, WaitForSingleObject},
         Windows::Win32::System::WindowsProgramming::INFINITE,
-        Windows::Win32::UI::DisplayDevices::RECT,
         Windows::Win32::UI::WindowsAndMessaging::{
             AdjustWindowRect, CreateWindowExA, DefWindowProcA, DispatchMessageA, GetWindowLongA,
             GetWindowLongPtrA, LoadCursorW, PeekMessageA, PostQuitMessage, RegisterClassExA,

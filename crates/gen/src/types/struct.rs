@@ -385,10 +385,10 @@ impl Struct {
 
     fn gen_replacement(&self) -> Option<TokenStream> {
         match self.0.full_name() {
-            ("Windows.Win32.System.SystemServices", "BOOL") => Some(gen_bool32()),
-            ("Windows.Win32.System.SystemServices", "PWSTR") => Some(gen_pwstr()),
-            ("Windows.Win32.System.SystemServices", "PSTR") => Some(gen_pstr()),
-            ("Windows.Win32.System.OleAutomation", "BSTR") => Some(gen_bstr()),
+            ("Windows.Win32.Foundation", "BOOL") => Some(gen_bool32()),
+            ("Windows.Win32.Foundation", "PWSTR") => Some(gen_pwstr()),
+            ("Windows.Win32.Foundation", "PSTR") => Some(gen_pstr()),
+            ("Windows.Win32.Foundation", "BSTR") => Some(gen_bstr()),
             _ => None,
         }
     }
@@ -401,7 +401,7 @@ impl Struct {
             ("Windows.Foundation.Numerics", "Vector4") => gen_vector4(),
             ("Windows.Foundation.Numerics", "Matrix3x2") => gen_matrix3x2(),
             ("Windows.Foundation.Numerics", "Matrix4x4") => gen_matrix4x4(),
-            ("Windows.Win32.System.SystemServices", "HANDLE") => gen_handle(),
+            ("Windows.Win32.Foundation", "HANDLE") => gen_handle(),
             _ => TokenStream::new(),
         }
     }

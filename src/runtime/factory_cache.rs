@@ -1,5 +1,5 @@
 use crate::*;
-use bindings::Windows::Win32::System::SystemServices::CO_E_NOTINITIALIZED;
+use bindings::Windows::Win32::Foundation::CO_E_NOTINITIALIZED;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
