@@ -11,8 +11,14 @@ impl ComInterface {
         loop {
             let base = if let Some(next) = next
                 .interface_impls()
+                .filter_map(move |i| {
+                    if let ElementType::TypeDef(def) = i.generic_interface(&[]) {
+                        Some(def)
+                    } else {
+                        None
+                    }
+                })
                 .next()
-                .and_then(|i| i.generic_interface(&[]))
             {
                 next
             } else {

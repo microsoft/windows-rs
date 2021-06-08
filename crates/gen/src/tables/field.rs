@@ -71,7 +71,9 @@ impl Field {
         let mut blob = self.blob();
         blob.read_unsigned();
         blob.read_modifiers();
-        Signature::from_blob(&mut blob, &[]).expect("Field")
+        TypeReader::get()
+            .signature_from_blob(&mut blob, &[])
+            .expect("Field")
     }
 
     pub fn definition(&self) -> Vec<ElementType> {

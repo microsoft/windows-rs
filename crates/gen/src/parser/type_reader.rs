@@ -117,20 +117,9 @@ impl TypeReader {
             }
         }
 
-        let exclude = &[
-            ("Windows.Foundation", "HResult"),
-            ("Windows.Win32.System.Com", "HRESULT"),
-            ("Windows.Win32.System.Com", "IUnknown"),
-            ("Windows.Win32.System.WinRT", "HSTRING"),
-            ("Windows.Win32.System.WinRT", "IActivationFactory"),
-            ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F"),
-            ("Windows.Win32.System.SystemServices", "LARGE_INTEGER"),
-            ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER"),
-        ];
-
-        for (namespace, name) in exclude {
-            if let Some(value) = types.get_mut(*namespace) {
-                value.remove(*name);
+        for (namespace, name, _) in &WELL_KNOWN_TYPES {
+            if let Some(value) = types.get_mut(namespace) {
+                value.remove(name);
             }
         }
 
@@ -224,6 +213,98 @@ impl TypeReader {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
         }
     }
+
+    pub fn signature_from_blob(
+        &'static self,
+        blob: &mut Blob,
+        generics: &[ElementType],
+    ) -> Option<Signature> {
+        let is_const = blob
+            .read_modifiers()
+            .iter()
+            .any(|def| def.full_name() == ("System.Runtime.CompilerServices", "IsConst"));
+
+        let by_ref = blob.read_expected(0x10);
+
+        if blob.read_expected(0x01) {
+            return None;
+        }
+
+        let is_array = blob.read_expected(0x1D);
+
+        let mut pointers = 0;
+
+        while blob.read_expected(0x0f) {
+            pointers += 1;
+        }
+
+        let kind = self.type_from_blob(blob, generics);
+
+        Some(Signature {
+            kind,
+            pointers,
+            by_ref,
+            is_const,
+            is_array,
+        })
+    }
+
+    pub fn type_from_code(
+        &'static self,
+        code: &TypeDefOrRef,
+        generics: &[ElementType],
+    ) -> ElementType {
+        if let TypeDefOrRef::TypeSpec(def) = code {
+            let mut blob = def.blob();
+            return self.type_from_blob(&mut blob, generics);
+        }
+
+        let full_name = code.full_name();
+
+        for (namespace, name, kind) in &WELL_KNOWN_TYPES {
+            if full_name == (namespace, name) {
+                return kind.clone();
+            }
+        }
+
+        code.resolve().into()
+    }
+
+    pub fn type_from_blob(&'static self, blob: &mut Blob, generics: &[ElementType]) -> ElementType {
+        let code = blob.read_unsigned();
+
+        if let Some(code) = ElementType::from_code(code) {
+            return code;
+        }
+
+        match code {
+            0x11 | 0x12 => self.type_from_code(
+                &TypeDefOrRef::decode(blob.file, blob.read_unsigned()),
+                generics,
+            ),
+            0x13 => generics[blob.read_unsigned() as usize].clone(),
+            0x14 => {
+                let kind = self.signature_from_blob(blob, generics).unwrap();
+                let _rank = blob.read_unsigned();
+                let _bounds_count = blob.read_unsigned();
+                let bounds = blob.read_unsigned();
+                ElementType::Array((Box::new(kind), bounds))
+            }
+            0x15 => {
+                blob.read_unsigned();
+
+                let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
+                let args = blob.read_unsigned();
+
+                for _ in 0..args {
+                    def.generics.push(self.type_from_blob(blob, generics));
+                }
+
+                ElementType::TypeDef(def)
+            }
+            _ => unexpected!(),
+        }
+    }
 }
 
 fn trim_tick(name: &str) -> &str {
@@ -232,3 +313,36 @@ fn trim_tick(name: &str) -> &str {
         _ => name,
     }
 }
+
+const WELL_KNOWN_TYPES: [(&'static str, &'static str, ElementType); 10] = [
+    ("System", "Guid", ElementType::Guid),
+    (
+        "Windows.Win32.System.Com",
+        "IUnknown",
+        ElementType::IUnknown,
+    ),
+    ("Windows.Foundation", "HResult", ElementType::HRESULT),
+    ("Windows.Win32.System.Com", "HRESULT", ElementType::HRESULT),
+    ("Windows.Win32.System.WinRT", "HSTRING", ElementType::String),
+    (
+        "Windows.Win32.System.WinRT",
+        "IInspectable",
+        ElementType::IInspectable,
+    ),
+    (
+        "Windows.Win32.System.SystemServices",
+        "LARGE_INTEGER",
+        ElementType::I64,
+    ),
+    (
+        "Windows.Win32.System.SystemServices",
+        "ULARGE_INTEGER",
+        ElementType::U64,
+    ),
+    (
+        "Windows.Win32.Graphics.Direct2D",
+        "D2D_MATRIX_3X2_F",
+        ElementType::Matrix3x2,
+    ),
+    ("System", "Type", ElementType::TypeName),
+];

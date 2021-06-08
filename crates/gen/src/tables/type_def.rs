@@ -16,19 +16,6 @@ impl From<Row> for TypeDef {
 }
 
 impl TypeDef {
-    pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
-        blob.read_unsigned();
-
-        let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
-        let args = blob.read_unsigned();
-
-        for _ in 0..args {
-            def.generics.push(ElementType::from_blob(blob, generics));
-        }
-
-        def
-    }
-
     pub fn with_generics(mut self) -> Self {
         self.generics = self
             .generic_params()
@@ -79,8 +66,8 @@ impl TypeDef {
     pub fn default_interface(&self) -> Self {
         for interface in self.interface_impls() {
             if interface.is_default() {
-                if let Some(result) = interface.generic_interface(&self.generics) {
-                    return result;
+                if let ElementType::TypeDef(def) = interface.generic_interface(&self.generics) {
+                    return def;
                 }
             }
         }
@@ -93,8 +80,13 @@ impl TypeDef {
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
-        self.interface_impls()
-            .filter_map(move |i| i.generic_interface(&self.generics))
+        self.interface_impls().filter_map(move |i| {
+            if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) {
+                Some(def)
+            } else {
+                None
+            }
+        })
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
@@ -379,7 +371,7 @@ impl TypeDef {
                 blob.read_expected(0x1D);
                 blob.read_modifiers();
 
-                return ElementType::from_blob(blob, &[]);
+                return TypeReader::get().type_from_blob(blob, &[]);
             }
         }
 
@@ -685,6 +677,13 @@ impl TypeDef {
             .iter()
             .flat_map(|interface| interface.methods().map(|method| method.name()))
             .collect()
+    }
+
+    // May need to "re-resolve" the TypeDef as it may point to an arch-specific
+    // definition. This lets the TypeTree be built for a specific architecture
+    // without accidentally pulling in the wrong definition.
+    pub fn resolve(&self) -> Self {
+        TypeReader::get().resolve_type_def(self.namespace(), self.name())
     }
 }
 

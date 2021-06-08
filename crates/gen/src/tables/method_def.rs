@@ -125,13 +125,14 @@ impl MethodDef {
     }
 
     pub fn signature(&self, generics: &[ElementType]) -> MethodSignature {
+        let reader = TypeReader::get();
         let params = self.params();
 
         let mut blob = self.0.blob(4);
         blob.read_unsigned();
         blob.read_unsigned(); // parameter count
 
-        let return_type = Signature::from_blob(&mut blob, generics);
+        let return_type = reader.signature_from_blob(&mut blob, generics);
 
         let params = params
             .filter_map(|param| {
@@ -140,7 +141,9 @@ impl MethodDef {
                 } else {
                     Some(MethodParam {
                         param,
-                        signature: Signature::from_blob(&mut blob, generics).expect("MethodDef"),
+                        signature: reader
+                            .signature_from_blob(&mut blob, generics)
+                            .expect("MethodDef"),
                     })
                 }
             })

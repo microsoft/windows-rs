@@ -331,7 +331,7 @@ impl TypeDefOrRef {
 
     pub fn resolve(&self) -> tables::TypeDef {
         match self {
-            Self::TypeDef(value) => value.clone(),
+            Self::TypeDef(value) => value.resolve(),
             Self::TypeRef(value) => value.resolve(),
             _ => unexpected!(),
         }

@@ -94,56 +94,6 @@ impl ElementType {
         }
     }
 
-    pub fn from_blob(blob: &mut Blob, generics: &[Self]) -> Self {
-        let code = blob.read_unsigned();
-
-        if let Some(code) = Self::from_code(code) {
-            return code;
-        }
-
-        match code {
-            0x11 | 0x12 => {
-                let code = TypeDefOrRef::decode(blob.file, blob.read_unsigned());
-
-                match code {
-                    TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
-                        ("System", "Guid") => Self::Guid,
-                        ("Windows.Win32.System.Com", "IUnknown") => Self::IUnknown,
-                        ("Windows.Foundation", "HResult") => Self::HRESULT,
-                        ("Windows.Win32.System.Com", "HRESULT") => Self::HRESULT,
-                        ("Windows.Win32.System.WinRT", "HSTRING") => Self::String,
-                        ("Windows.Win32.System.WinRT", "IInspectable") => Self::IInspectable,
-                        ("Windows.Win32.System.SystemServices", "LARGE_INTEGER") => Self::I64,
-                        ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => Self::U64,
-                        ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => Self::Matrix3x2,
-                        ("System", "Type") => Self::TypeName,
-                        _ => type_ref.resolve().into(),
-                    },
-                    TypeDefOrRef::TypeDef(type_def) =>
-                    // Need to "re-resolve" the TypeDef as it may point to an arch-specific
-                    // definition. This lets the TypeTree be built for a specific architecture
-                    // without accidentally pulling in the wrong definition.
-                    {
-                        TypeReader::get()
-                            .resolve_type_def(type_def.namespace(), type_def.name())
-                            .into()
-                    }
-                    _ => unexpected!(),
-                }
-            }
-            0x13 => generics[blob.read_unsigned() as usize].clone(),
-            0x14 => {
-                let kind = Signature::from_blob(blob, generics).unwrap();
-                let _rank = blob.read_unsigned();
-                let _bounds_count = blob.read_unsigned();
-                let bounds = blob.read_unsigned();
-                Self::Array((Box::new(kind), bounds))
-            }
-            0x15 => Self::TypeDef(tables::TypeDef::from_blob(blob, generics)),
-            _ => unexpected!(),
-        }
-    }
-
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
