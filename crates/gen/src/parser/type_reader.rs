@@ -117,7 +117,7 @@ impl TypeReader {
             }
         }
 
-        for (namespace, name, _) in WELL_KNOWN_TYPES {
+        for (namespace, name, _) in &WELL_KNOWN_TYPES {
             if let Some(value) = types.get_mut(namespace) {
                 value.remove(name);
             }
@@ -261,9 +261,9 @@ impl TypeReader {
 
         let full_name = code.full_name();
 
-        for (namespace, name, kind) in WELL_KNOWN_TYPES {
+        for (namespace, name, kind) in &WELL_KNOWN_TYPES {
             if full_name == (namespace, name) {
-                return kind;
+                return kind.clone();
             }
         }
 
