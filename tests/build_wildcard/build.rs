@@ -1,3 +1,5 @@
 fn main() {
-    windows::build! {Windows::Foundation::*};
+    windows::build! {
+        Windows::Foundation::*,
+    };
 }
