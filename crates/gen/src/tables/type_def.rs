@@ -17,13 +17,15 @@ impl From<Row> for TypeDef {
 
 impl TypeDef {
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Self {
+        let reader = TypeReader::get();
+
         blob.read_unsigned();
 
         let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
         let args = blob.read_unsigned();
 
         for _ in 0..args {
-            def.generics.push(ElementType::from_blob(blob, generics));
+            def.generics.push(reader.type_from_blob(blob, generics));
         }
 
         def
@@ -379,7 +381,7 @@ impl TypeDef {
                 blob.read_expected(0x1D);
                 blob.read_modifiers();
 
-                return ElementType::from_blob(blob, &[]);
+                return TypeReader::get().type_from_blob(blob, &[]);
             }
         }
 

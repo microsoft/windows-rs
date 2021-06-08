@@ -10,6 +10,7 @@ pub struct Signature {
 }
 
 impl Signature {
+    // TODO: move to TypeReader
     pub fn from_blob(blob: &mut Blob, generics: &[ElementType]) -> Option<Self> {
         let is_const = blob
             .read_modifiers()
@@ -30,7 +31,7 @@ impl Signature {
             pointers += 1;
         }
 
-        let kind = ElementType::from_blob(blob, generics);
+        let kind = TypeReader::get().type_from_blob(blob, generics);
 
         Some(Self {
             kind,

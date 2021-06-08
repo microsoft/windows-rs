@@ -27,6 +27,7 @@ impl From<&TypeRow> for ElementType {
 }
 
 impl TypeReader {
+    // TODO: move almost all methods that require this get() to the TypeReader impl.
     pub fn get() -> &'static Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
@@ -222,6 +223,56 @@ impl TypeReader {
                 .clone()
         } else {
             self.resolve_type_def(type_ref.namespace(), type_ref.name())
+        }
+    }
+
+    pub fn type_from_blob(&'static self, blob: &mut Blob, generics: &[ElementType]) -> ElementType {
+        let code = blob.read_unsigned();
+
+        if let Some(code) = ElementType::from_code(code) {
+            return code;
+        }
+
+        match code {
+            0x11 | 0x12 => {
+                let code = TypeDefOrRef::decode(blob.file, blob.read_unsigned());
+
+                match code {
+                    TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
+                        ("System", "Guid") => ElementType::Guid,
+                        ("Windows.Win32.System.Com", "IUnknown") => ElementType::IUnknown,
+                        ("Windows.Foundation", "HResult") => ElementType::HRESULT,
+                        ("Windows.Win32.System.Com", "HRESULT") => ElementType::HRESULT,
+                        ("Windows.Win32.System.WinRT", "HSTRING") => ElementType::String,
+                        ("Windows.Win32.System.WinRT", "IInspectable") => ElementType::IInspectable,
+                        ("Windows.Win32.System.SystemServices", "LARGE_INTEGER") => ElementType::I64,
+                        ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => ElementType::U64,
+                        ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => ElementType::Matrix3x2,
+                        ("System", "Type") => ElementType::TypeName,
+                        _ => type_ref.resolve().into(),
+                    },
+                    TypeDefOrRef::TypeDef(type_def) =>
+                    // Need to "re-resolve" the TypeDef as it may point to an arch-specific
+                    // definition. This lets the TypeTree be built for a specific architecture
+                    // without accidentally pulling in the wrong definition.
+                    {
+                        self
+                            .resolve_type_def(type_def.namespace(), type_def.name())
+                            .into()
+                    }
+                    _ => unexpected!(),
+                }
+            }
+            0x13 => generics[blob.read_unsigned() as usize].clone(),
+            0x14 => {
+                let kind = Signature::from_blob(blob, generics).unwrap();
+                let _rank = blob.read_unsigned();
+                let _bounds_count = blob.read_unsigned();
+                let bounds = blob.read_unsigned();
+                ElementType::Array((Box::new(kind), bounds))
+            }
+            0x15 => ElementType::TypeDef(tables::TypeDef::from_blob(blob, generics)),
+            _ => unexpected!(),
         }
     }
 }
