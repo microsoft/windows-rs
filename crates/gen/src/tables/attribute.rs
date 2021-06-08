@@ -83,7 +83,7 @@ impl Attribute {
                     let name = values.read_str();
                     let index = name.rfind('.').unwrap();
                     ConstantValue::TypeDef(
-                        TypeReader::get()
+                        reader
                             .resolve_type_def(&name[0..index], &name[index + 1..])
                             .clone(),
                     )

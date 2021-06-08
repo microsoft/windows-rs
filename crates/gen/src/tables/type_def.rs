@@ -63,11 +63,12 @@ impl TypeDef {
         definition
     }
 
+    // TODO: return ElementType?
     pub fn default_interface(&self) -> Self {
         for interface in self.interface_impls() {
             if interface.is_default() {
-                if let Some(result) = interface.generic_interface(&self.generics) {
-                    return result;
+                if let ElementType::TypeDef(def) = interface.generic_interface(&self.generics) {
+                    return def;
                 }
             }
         }
@@ -81,7 +82,13 @@ impl TypeDef {
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
         self.interface_impls()
-            .filter_map(move |i| i.generic_interface(&self.generics))
+            .filter_map(move |i| {
+                if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) {
+                    Some(def)
+                } else {
+                    None
+                }
+            })
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {

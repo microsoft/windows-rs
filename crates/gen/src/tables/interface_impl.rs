@@ -31,29 +31,9 @@ impl InterfaceImpl {
         self.has_attribute("OverridableAttribute")
     }
 
-    // TODO: return ElementType
-    pub fn generic_interface(&self, generics: &[ElementType]) -> Option<tables::TypeDef> {
-        let reader = TypeReader::get();
-
-        match self.interface() {
-            TypeDefOrRef::TypeDef(def) => Some(def),
-            TypeDefOrRef::TypeRef(def) => {
-                if def.full_name() == ("Windows.Win32.System.Com", "IUnknown") {
-                    None
-                } else {
-                    Some(def.resolve())
-                }
-            }
-            TypeDefOrRef::TypeSpec(def) => {
-                let mut blob = def.blob();
-
-                if let ElementType::TypeDef(def) = reader.type_from_blob(&mut blob, generics) {
-                    Some(def)
-                } else {
-                    None
-                }
-            }
-        }
+    // tODO: remove wrapper
+    pub fn generic_interface(&self, generics: &[ElementType]) -> ElementType {
+        TypeReader::get().type_from_code(&self.interface(), generics)
     }
 }
 

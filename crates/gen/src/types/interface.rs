@@ -11,7 +11,7 @@ impl Interface {
             is_base: bool,
         ) {
             for child in parent.interface_impls() {
-                if let Some(def) = child.generic_interface(&parent.generics) {
+                if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
                     if !result.iter().any(|info| info.def == def) {
                         add_interfaces(result, &def, is_base);
                         let version = def.version();
