@@ -48,44 +48,46 @@ impl Enum {
         let underlying_type = underlying_type.gen_name(gen);
         let mut last: Option<ConstantValue> = None;
 
-        let fields = if self.0.is_scoped() {
-            let fields = self.0.fields().filter_map(|field| {
-                if field.flags().literal() {
-                    let name = to_ident(field.name());
+        let fields = self.0.fields().filter_map(|field| {
+            if field.flags().literal() {
+                let field_name = to_ident(field.name());
 
-                    if let Some(constant) = field.constant() {
-                        let value = constant.value().gen_value();
+                if let Some(constant) = field.constant() {
+                    let value = constant.value().gen_value();
 
-                        Some(quote! {
-                            pub const #name: Self = Self(#value);
-                        })
-                    } else if let Some(last_value) = &last {
-                        let next = last_value.next();
-                        let value = next.gen_value();
-                        last = Some(next);
+                    Some(quote! {
+                        pub const #field_name: #name = #name(#value);
+                    })
+                } else if let Some(last_value) = &last {
+                    let next = last_value.next();
+                    let value = next.gen_value();
+                    last = Some(next);
 
-                        Some(quote! {
-                            pub const #name: Self = Self(#value);
-                        })
-                    } else {
-                        last = Some(ConstantValue::I32(0));
-
-                        Some(quote! {
-                            pub const #name: Self = Self(0);
-                        })
-                    }
+                    Some(quote! {
+                        pub const #field_name: #name = #name(#value);
+                    })
                 } else {
-                    None
-                }
-            });
+                    last = Some(ConstantValue::I32(0));
 
+                    Some(quote! {
+                        pub const #field_name: #name = #name(0);
+                    })
+                }
+            } else {
+                None
+            }
+        });
+
+        let fields = if self.0.is_scoped() {
             quote! {
                 impl #name {
                     #(#fields)*
                 }
             }
         } else {
-            quote! {}
+            quote! {
+                #(#fields)*
+            }
         };
 
         let runtime_type = if self.0.is_winrt() {
