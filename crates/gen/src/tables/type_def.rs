@@ -680,6 +680,9 @@ impl TypeDef {
             .collect()
     }
 
+    // May need to "re-resolve" the TypeDef as it may point to an arch-specific
+    // definition. This lets the TypeTree be built for a specific architecture
+    // without accidentally pulling in the wrong definition.
     pub fn resolve(&self) -> Self {
         TypeReader::get().resolve_type_def(self.namespace(), self.name())
     }
