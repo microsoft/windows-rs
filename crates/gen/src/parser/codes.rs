@@ -329,9 +329,13 @@ impl TypeDefOrRef {
         }
     }
 
+                // Need to "re-resolve" the TypeDef as it may point to an arch-specific
+            // definition. This lets the TypeTree be built for a specific architecture
+            // without accidentally pulling in the wrong definition.
+
     pub fn resolve(&self) -> tables::TypeDef {
         match self {
-            Self::TypeDef(value) => value.clone(),
+            Self::TypeDef(value) => value.resolve(),
             Self::TypeRef(value) => value.resolve(),
             _ => unexpected!(),
         }

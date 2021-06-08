@@ -81,14 +81,13 @@ impl TypeDef {
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
-        self.interface_impls()
-            .filter_map(move |i| {
-                if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) {
-                    Some(def)
-                } else {
-                    None
-                }
-            })
+        self.interface_impls().filter_map(move |i| {
+            if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) {
+                Some(def)
+            } else {
+                None
+            }
+        })
     }
 
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
@@ -679,6 +678,10 @@ impl TypeDef {
             .iter()
             .flat_map(|interface| interface.methods().map(|method| method.name()))
             .collect()
+    }
+
+    pub fn resolve(&self) -> Self {
+        TypeReader::get().resolve_type_def(self.namespace(), self.name())
     }
 }
 

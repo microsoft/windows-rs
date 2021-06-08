@@ -226,7 +226,11 @@ impl TypeReader {
         }
     }
 
-    pub fn signature_from_blob(&'static self, blob: &mut Blob, generics: &[ElementType]) -> Option<Signature> {
+    pub fn signature_from_blob(
+        &'static self,
+        blob: &mut Blob,
+        generics: &[ElementType],
+    ) -> Option<Signature> {
         let is_const = blob
             .read_modifiers()
             .iter()
@@ -257,41 +261,26 @@ impl TypeReader {
         })
     }
 
-    pub fn type_from_code(&'static self, code: &TypeDefOrRef, generics: &[ElementType]) -> ElementType {
-        match code {
-            // TODO: store these in a const table shared with exclusions
-            TypeDefOrRef::TypeRef(type_ref) => match type_ref.full_name() {
-                ("System", "Guid") => ElementType::Guid,
-                ("Windows.Win32.System.Com", "IUnknown") => ElementType::IUnknown,
-                ("Windows.Foundation", "HResult") => ElementType::HRESULT,
-                ("Windows.Win32.System.Com", "HRESULT") => ElementType::HRESULT,
-                ("Windows.Win32.System.WinRT", "HSTRING") => ElementType::String,
-                ("Windows.Win32.System.WinRT", "IInspectable") => ElementType::IInspectable,
-                ("Windows.Win32.System.SystemServices", "LARGE_INTEGER") => {
-                    ElementType::I64
-                }
-                ("Windows.Win32.System.SystemServices", "ULARGE_INTEGER") => {
-                    ElementType::U64
-                }
-                ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F") => {
-                    ElementType::Matrix3x2
-                }
-                ("System", "Type") => ElementType::TypeName,
-                _ => type_ref.resolve().into(),
-            },
-            TypeDefOrRef::TypeDef(type_def) =>
-            // Need to "re-resolve" the TypeDef as it may point to an arch-specific
-            // definition. This lets the TypeTree be built for a specific architecture
-            // without accidentally pulling in the wrong definition.
-            {
-                self.resolve_type_def(type_def.namespace(), type_def.name())
-                    .into()
-            }
-            TypeDefOrRef::TypeSpec(def) => {
-                let mut blob = def.blob();
-                self.type_from_blob(&mut blob, generics)
+    pub fn type_from_code(
+        &'static self,
+        code: &TypeDefOrRef,
+        generics: &[ElementType],
+    ) -> ElementType {
+
+        if let TypeDefOrRef::TypeSpec(def) = code {
+            let mut blob = def.blob();
+            return self.type_from_blob(&mut blob, generics);
+        }
+
+        let full_name = code.full_name();
+
+        for (namespace, name, kind) in WELL_KNOWN_TYPES {
+            if full_name == (namespace, name) {
+                return kind;
             }
         }
+
+        code.resolve().into()
     }
 
     pub fn type_from_blob(&'static self, blob: &mut Blob, generics: &[ElementType]) -> ElementType {
@@ -302,9 +291,10 @@ impl TypeReader {
         }
 
         match code {
-            0x11 | 0x12 => {
-                self.type_from_code(&TypeDefOrRef::decode(blob.file, blob.read_unsigned()), generics)
-            }
+            0x11 | 0x12 => self.type_from_code(
+                &TypeDefOrRef::decode(blob.file, blob.read_unsigned()),
+                generics,
+            ),
             0x13 => generics[blob.read_unsigned() as usize].clone(),
             0x14 => {
                 let kind = self.signature_from_blob(blob, generics).unwrap();
@@ -336,3 +326,36 @@ fn trim_tick(name: &str) -> &str {
         _ => name,
     }
 }
+
+const WELL_KNOWN_TYPES: [(&'static str, &'static str, ElementType); 10] = [
+    ("System", "Guid", ElementType::Guid),
+    (
+        "Windows.Win32.System.Com",
+        "IUnknown",
+        ElementType::IUnknown,
+    ),
+    ("Windows.Foundation", "HResult", ElementType::HRESULT),
+    ("Windows.Win32.System.Com", "HRESULT", ElementType::HRESULT),
+    ("Windows.Win32.System.WinRT", "HSTRING", ElementType::String),
+    (
+        "Windows.Win32.System.WinRT",
+        "IInspectable",
+        ElementType::IInspectable,
+    ),
+    (
+        "Windows.Win32.System.SystemServices",
+        "LARGE_INTEGER",
+        ElementType::I64,
+    ),
+    (
+        "Windows.Win32.System.SystemServices",
+        "ULARGE_INTEGER",
+        ElementType::U64,
+    ),
+    (
+        "Windows.Win32.Graphics.Direct2D",
+        "D2D_MATRIX_3X2_F",
+        ElementType::Matrix3x2,
+    ),
+    ("System", "Type", ElementType::TypeName),
+];

@@ -140,7 +140,9 @@ impl MethodDef {
                 } else {
                     Some(MethodParam {
                         param,
-                        signature: TypeReader::get().signature_from_blob(&mut blob, generics).expect("MethodDef"),
+                        signature: TypeReader::get()
+                            .signature_from_blob(&mut blob, generics)
+                            .expect("MethodDef"),
                     })
                 }
             })
