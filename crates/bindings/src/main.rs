@@ -5,7 +5,7 @@ fn main() -> std::io::Result<()> {
         Windows::{
             Foundation::{IReference, IStringable, PropertyValue},
             Win32::{
-                Foundation::{CloseHandle, BSTR, CO_E_NOTINITIALIZED, E_POINTER},
+                Foundation::{CloseHandle, BSTR, CO_E_NOTINITIALIZED, E_NOINTERFACE, E_POINTER},
                 System::{
                     Com::{
                         CLSIDFromProgID, CoCreateGuid, CoCreateInstance, CoInitializeEx,

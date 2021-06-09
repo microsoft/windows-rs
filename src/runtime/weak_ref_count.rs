@@ -7,8 +7,11 @@
 )]
 
 use crate::*;
-use bindings::Windows::Win32::System::WinRT::{
-    IWeakReference, IWeakReferenceSource, IWeakReferenceSource_abi, IWeakReference_abi,
+use bindings::Windows::Win32::{
+    Foundation::E_NOINTERFACE,
+    System::WinRT::{
+        IWeakReference, IWeakReferenceSource, IWeakReferenceSource_abi, IWeakReference_abi,
+    },
 };
 use std::sync::atomic::{AtomicIsize, Ordering};
 
@@ -225,7 +228,7 @@ impl TearOff {
         // TODO: implement IMarshal
 
         if (*interface).is_null() {
-            HRESULT(0x8000_4002) // E_NOINTERFACE
+            E_NOINTERFACE
         } else {
             this.weak_count.add_ref();
             HRESULT(0)
