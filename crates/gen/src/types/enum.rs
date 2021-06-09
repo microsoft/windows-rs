@@ -49,6 +49,11 @@ impl Enum {
         let mut last: Option<ConstantValue> = None;
 
         let fields = self.0.fields().filter_map(|field| {
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/522
+            if field.name() == self.0.name() {
+                return None;
+            }
+
             if field.flags().literal() {
                 let field_name = to_ident(field.name());
 
