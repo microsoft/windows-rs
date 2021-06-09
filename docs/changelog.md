@@ -1,6 +1,7 @@
 # 0.11.0
 
 - Added build macro formatting tool. ([#828](https://github.com/microsoft/windows-rs/pull/828))
+- Improved cross-compiler support. ([#830](https://github.com/microsoft/windows-rs/pull/830))
 - Simplify use of unscoped enums. ([#843](https://github.com/microsoft/windows-rs/pull/843))
 - Support for WinRT inheritance (Xaml). ([#821](https://github.com/microsoft/windows-rs/pull/821))
 - Fix groups inside namespaces in build macro. ([#806](https://github.com/microsoft/windows-rs/pull/806))
