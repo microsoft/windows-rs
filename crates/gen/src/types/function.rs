@@ -42,30 +42,36 @@ impl Function {
             link = "onecoreuap";
         }
 
-        let body = if cfg!(windows) {
-            if signature.has_query_interface() {
-                let leading_params = &signature.params[..signature.params.len() - 2];
-                let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+        let body = if signature.has_query_interface() {
+            let leading_params = &signature.params[..signature.params.len() - 2];
+            let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
 
-                quote! {
-                    #[link(name = #link)]
-                    extern "system" {
-                        fn #name(#(#abi_params),*) #abi_return_type;
-                    }
-                    let mut result__ = ::std::option::Option::None;
-                    #name(#(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
+            quote! {
+                #[link(name = #link)]
+                extern "system" {
+                    fn #name(#(#abi_params),*) #abi_return_type;
                 }
-            } else {
-                quote! {
-                    #[link(name = #link)]
-                    extern "system" {
-                        fn #name(#(#abi_params),*) #abi_return_type;
-                    }
-                    #name(#(#args),*)
-                }
+                let mut result__ = ::std::option::Option::None;
+                #name(#(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
             }
         } else {
             quote! {
+                #[link(name = #link)]
+                extern "system" {
+                    fn #name(#(#abi_params),*) #abi_return_type;
+                }
+                #name(#(#args),*)
+            }
+        };
+
+        // Don't link on windows dlls when generating code for non-windows:
+        let body = quote! {
+            #[cfg(windows)]
+            {
+                #body
+            }
+            #[cfg(not(windows))]
+            {
                 unimplemented!("Unsupported target OS");
             }
         };

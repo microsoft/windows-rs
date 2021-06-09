@@ -2060,11 +2060,18 @@ pub mod Windows {
                 }
             }
             pub unsafe fn CloseHandle<'a>(hobject: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
-                #[link(name = "KERNEL32")]
-                extern "system" {
-                    fn CloseHandle(hobject: HANDLE) -> BOOL;
+                #[cfg(windows)]
+                {
+                    #[link(name = "KERNEL32")]
+                    extern "system" {
+                        fn CloseHandle(hobject: HANDLE) -> BOOL;
+                    }
+                    CloseHandle(hobject.into_param().abi())
                 }
-                CloseHandle(hobject.into_param().abi())
+                #[cfg(not(windows))]
+                {
+                    unimplemented!("Unsupported target OS");
+                }
             }
             pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
             #[repr(transparent)]
@@ -2231,24 +2238,38 @@ pub mod Windows {
                     lpszprogid: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
                     lpclsid: *mut ::windows::Guid,
                 ) -> ::windows::HRESULT {
-                    #[link(name = "OLE32")]
-                    extern "system" {
-                        fn CLSIDFromProgID(
-                            lpszprogid: super::super::Foundation::PWSTR,
-                            lpclsid: *mut ::windows::Guid,
-                        ) -> ::windows::HRESULT;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLE32")]
+                        extern "system" {
+                            fn CLSIDFromProgID(
+                                lpszprogid: super::super::Foundation::PWSTR,
+                                lpclsid: *mut ::windows::Guid,
+                            ) -> ::windows::HRESULT;
+                        }
+                        CLSIDFromProgID(
+                            lpszprogid.into_param().abi(),
+                            ::std::mem::transmute(lpclsid),
+                        )
                     }
-                    CLSIDFromProgID(
-                        lpszprogid.into_param().abi(),
-                        ::std::mem::transmute(lpclsid),
-                    )
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
-                    #[link(name = "OLE32")]
-                    extern "system" {
-                        fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLE32")]
+                        extern "system" {
+                            fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
+                        }
+                        CoCreateGuid(::std::mem::transmute(pguid))
                     }
-                    CoCreateGuid(::std::mem::transmute(pguid))
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -2324,25 +2345,32 @@ pub mod Windows {
                     punkouter: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
                     dwclscontext: CLSCTX,
                 ) -> ::windows::Result<T> {
-                    #[link(name = "OLE32")]
-                    extern "system" {
-                        fn CoCreateInstance(
-                            rclsid: *const ::windows::Guid,
-                            punkouter: ::windows::RawPtr,
-                            dwclscontext: CLSCTX,
-                            riid: *const ::windows::Guid,
-                            ppv: *mut *mut ::std::ffi::c_void,
-                        ) -> ::windows::HRESULT;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLE32")]
+                        extern "system" {
+                            fn CoCreateInstance(
+                                rclsid: *const ::windows::Guid,
+                                punkouter: ::windows::RawPtr,
+                                dwclscontext: CLSCTX,
+                                riid: *const ::windows::Guid,
+                                ppv: *mut *mut ::std::ffi::c_void,
+                            ) -> ::windows::HRESULT;
+                        }
+                        let mut result__ = ::std::option::Option::None;
+                        CoCreateInstance(
+                            ::std::mem::transmute(rclsid),
+                            punkouter.into_param().abi(),
+                            ::std::mem::transmute(dwclscontext),
+                            &<T as ::windows::Interface>::IID,
+                            ::windows::Abi::set_abi(&mut result__),
+                        )
+                        .and_some(result__)
                     }
-                    let mut result__ = ::std::option::Option::None;
-                    CoCreateInstance(
-                        ::std::mem::transmute(rclsid),
-                        punkouter.into_param().abi(),
-                        ::std::mem::transmute(dwclscontext),
-                        &<T as ::windows::Interface>::IID,
-                        ::windows::Abi::set_abi(&mut result__),
-                    )
-                    .and_some(result__)
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -2392,31 +2420,52 @@ pub mod Windows {
                     pvreserved: *mut ::std::ffi::c_void,
                     dwcoinit: COINIT,
                 ) -> ::windows::HRESULT {
-                    #[link(name = "OLE32")]
-                    extern "system" {
-                        fn CoInitializeEx(
-                            pvreserved: *mut ::std::ffi::c_void,
-                            dwcoinit: COINIT,
-                        ) -> ::windows::HRESULT;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLE32")]
+                        extern "system" {
+                            fn CoInitializeEx(
+                                pvreserved: *mut ::std::ffi::c_void,
+                                dwcoinit: COINIT,
+                            ) -> ::windows::HRESULT;
+                        }
+                        CoInitializeEx(
+                            ::std::mem::transmute(pvreserved),
+                            ::std::mem::transmute(dwcoinit),
+                        )
                     }
-                    CoInitializeEx(
-                        ::std::mem::transmute(pvreserved),
-                        ::std::mem::transmute(dwcoinit),
-                    )
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
-                    #[link(name = "OLE32")]
-                    extern "system" {
-                        fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLE32")]
+                        extern "system" {
+                            fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
+                        }
+                        CoTaskMemAlloc(::std::mem::transmute(cb))
                     }
-                    CoTaskMemAlloc(::std::mem::transmute(cb))
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn CoTaskMemFree(pv: *mut ::std::ffi::c_void) {
-                    #[link(name = "OLE32")]
-                    extern "system" {
-                        fn CoTaskMemFree(pv: *mut ::std::ffi::c_void);
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLE32")]
+                        extern "system" {
+                            fn CoTaskMemFree(pv: *mut ::std::ffi::c_void);
+                        }
+                        CoTaskMemFree(::std::mem::transmute(pv))
                     }
-                    CoTaskMemFree(::std::mem::transmute(pv))
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 #[repr(transparent)]
                 #[derive(
@@ -2553,27 +2602,34 @@ pub mod Windows {
                         nsize: u32,
                         arguments: *mut *mut i8,
                     ) -> u32 {
-                        #[link(name = "KERNEL32")]
-                        extern "system" {
-                            fn FormatMessageW(
-                                dwflags: FORMAT_MESSAGE_OPTIONS,
-                                lpsource: *const ::std::ffi::c_void,
-                                dwmessageid: u32,
-                                dwlanguageid: u32,
-                                lpbuffer: super::super::super::Foundation::PWSTR,
-                                nsize: u32,
-                                arguments: *mut *mut i8,
-                            ) -> u32;
+                        #[cfg(windows)]
+                        {
+                            #[link(name = "KERNEL32")]
+                            extern "system" {
+                                fn FormatMessageW(
+                                    dwflags: FORMAT_MESSAGE_OPTIONS,
+                                    lpsource: *const ::std::ffi::c_void,
+                                    dwmessageid: u32,
+                                    dwlanguageid: u32,
+                                    lpbuffer: super::super::super::Foundation::PWSTR,
+                                    nsize: u32,
+                                    arguments: *mut *mut i8,
+                                ) -> u32;
+                            }
+                            FormatMessageW(
+                                ::std::mem::transmute(dwflags),
+                                ::std::mem::transmute(lpsource),
+                                ::std::mem::transmute(dwmessageid),
+                                ::std::mem::transmute(dwlanguageid),
+                                ::std::mem::transmute(lpbuffer),
+                                ::std::mem::transmute(nsize),
+                                ::std::mem::transmute(arguments),
+                            )
                         }
-                        FormatMessageW(
-                            ::std::mem::transmute(dwflags),
-                            ::std::mem::transmute(lpsource),
-                            ::std::mem::transmute(dwmessageid),
-                            ::std::mem::transmute(dwlanguageid),
-                            ::std::mem::transmute(lpbuffer),
-                            ::std::mem::transmute(nsize),
-                            ::std::mem::transmute(arguments),
-                        )
+                        #[cfg(not(windows))]
+                        {
+                            unimplemented!("Unsupported target OS");
+                        }
                     }
                     #[derive(
                         :: std :: cmp :: PartialEq,
@@ -6588,11 +6644,18 @@ pub mod Windows {
                         }
                     }
                     pub unsafe fn GetLastError() -> WIN32_ERROR {
-                        #[link(name = "KERNEL32")]
-                        extern "system" {
-                            fn GetLastError() -> WIN32_ERROR;
+                        #[cfg(windows)]
+                        {
+                            #[link(name = "KERNEL32")]
+                            extern "system" {
+                                fn GetLastError() -> WIN32_ERROR;
+                            }
+                            GetLastError()
                         }
-                        GetLastError()
+                        #[cfg(not(windows))]
+                        {
+                            unimplemented!("Unsupported target OS");
+                        }
                     }
                 }
             }
@@ -6609,37 +6672,58 @@ pub mod Windows {
                 pub unsafe fn FreeLibrary<'a>(
                     hlibmodule: impl ::windows::IntoParam<'a, super::super::Foundation::HINSTANCE>,
                 ) -> super::super::Foundation::BOOL {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn FreeLibrary(
-                            hlibmodule: super::super::Foundation::HINSTANCE,
-                        ) -> super::super::Foundation::BOOL;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn FreeLibrary(
+                                hlibmodule: super::super::Foundation::HINSTANCE,
+                            ) -> super::super::Foundation::BOOL;
+                        }
+                        FreeLibrary(hlibmodule.into_param().abi())
                     }
-                    FreeLibrary(hlibmodule.into_param().abi())
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn GetProcAddress<'a>(
                     hmodule: impl ::windows::IntoParam<'a, super::super::Foundation::HINSTANCE>,
                     lpprocname: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
                 ) -> ::std::option::Option<super::super::Foundation::FARPROC> {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn GetProcAddress(
-                            hmodule: super::super::Foundation::HINSTANCE,
-                            lpprocname: super::super::Foundation::PSTR,
-                        ) -> ::std::option::Option<super::super::Foundation::FARPROC>;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn GetProcAddress(
+                                hmodule: super::super::Foundation::HINSTANCE,
+                                lpprocname: super::super::Foundation::PSTR,
+                            ) -> ::std::option::Option<super::super::Foundation::FARPROC>;
+                        }
+                        GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi())
                     }
-                    GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi())
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn LoadLibraryA<'a>(
                     lplibfilename: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
                 ) -> super::super::Foundation::HINSTANCE {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn LoadLibraryA(
-                            lplibfilename: super::super::Foundation::PSTR,
-                        ) -> super::super::Foundation::HINSTANCE;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn LoadLibraryA(
+                                lplibfilename: super::super::Foundation::PSTR,
+                            ) -> super::super::Foundation::HINSTANCE;
+                        }
+                        LoadLibraryA(lplibfilename.into_param().abi())
                     }
-                    LoadLibraryA(lplibfilename.into_param().abi())
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
             }
             #[allow(
@@ -6684,11 +6768,18 @@ pub mod Windows {
                     type Abi = Self;
                 }
                 pub unsafe fn GetProcessHeap() -> HeapHandle {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn GetProcessHeap() -> HeapHandle;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn GetProcessHeap() -> HeapHandle;
+                        }
+                        GetProcessHeap()
                     }
-                    GetProcessHeap()
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -6752,38 +6843,52 @@ pub mod Windows {
                     dwflags: HEAP_FLAGS,
                     dwbytes: usize,
                 ) -> *mut ::std::ffi::c_void {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn HeapAlloc(
-                            hheap: HeapHandle,
-                            dwflags: HEAP_FLAGS,
-                            dwbytes: usize,
-                        ) -> *mut ::std::ffi::c_void;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn HeapAlloc(
+                                hheap: HeapHandle,
+                                dwflags: HEAP_FLAGS,
+                                dwbytes: usize,
+                            ) -> *mut ::std::ffi::c_void;
+                        }
+                        HeapAlloc(
+                            hheap.into_param().abi(),
+                            ::std::mem::transmute(dwflags),
+                            ::std::mem::transmute(dwbytes),
+                        )
                     }
-                    HeapAlloc(
-                        hheap.into_param().abi(),
-                        ::std::mem::transmute(dwflags),
-                        ::std::mem::transmute(dwbytes),
-                    )
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn HeapFree<'a>(
                     hheap: impl ::windows::IntoParam<'a, HeapHandle>,
                     dwflags: HEAP_FLAGS,
                     lpmem: *mut ::std::ffi::c_void,
                 ) -> super::super::Foundation::BOOL {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn HeapFree(
-                            hheap: HeapHandle,
-                            dwflags: HEAP_FLAGS,
-                            lpmem: *mut ::std::ffi::c_void,
-                        ) -> super::super::Foundation::BOOL;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn HeapFree(
+                                hheap: HeapHandle,
+                                dwflags: HEAP_FLAGS,
+                                lpmem: *mut ::std::ffi::c_void,
+                            ) -> super::super::Foundation::BOOL;
+                        }
+                        HeapFree(
+                            hheap.into_param().abi(),
+                            ::std::mem::transmute(dwflags),
+                            ::std::mem::transmute(lpmem),
+                        )
                     }
-                    HeapFree(
-                        hheap.into_param().abi(),
-                        ::std::mem::transmute(dwflags),
-                        ::std::mem::transmute(lpmem),
-                    )
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
             }
             #[allow(
@@ -6799,33 +6904,54 @@ pub mod Windows {
                 pub unsafe fn SysFreeString<'a>(
                     bstrstring: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
                 ) {
-                    #[link(name = "OLEAUT32")]
-                    extern "system" {
-                        fn SysFreeString(bstrstring: super::super::Foundation::BSTR_abi);
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLEAUT32")]
+                        extern "system" {
+                            fn SysFreeString(bstrstring: super::super::Foundation::BSTR_abi);
+                        }
+                        SysFreeString(bstrstring.into_param().abi())
                     }
-                    SysFreeString(bstrstring.into_param().abi())
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn SysAllocStringLen<'a>(
                     strin: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
                     ui: u32,
                 ) -> super::super::Foundation::BSTR {
-                    #[link(name = "OLEAUT32")]
-                    extern "system" {
-                        fn SysAllocStringLen(
-                            strin: super::super::Foundation::PWSTR,
-                            ui: u32,
-                        ) -> super::super::Foundation::BSTR;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLEAUT32")]
+                        extern "system" {
+                            fn SysAllocStringLen(
+                                strin: super::super::Foundation::PWSTR,
+                                ui: u32,
+                            ) -> super::super::Foundation::BSTR;
+                        }
+                        SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
                     }
-                    SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn SysStringLen<'a>(
                     pbstr: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
                 ) -> u32 {
-                    #[link(name = "OLEAUT32")]
-                    extern "system" {
-                        fn SysStringLen(pbstr: super::super::Foundation::BSTR_abi) -> u32;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLEAUT32")]
+                        extern "system" {
+                            fn SysStringLen(pbstr: super::super::Foundation::BSTR_abi) -> u32;
+                        }
+                        SysStringLen(pbstr.into_param().abi())
                     }
-                    SysStringLen(pbstr.into_param().abi())
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 #[repr(transparent)]
                 #[derive(
@@ -6950,33 +7076,47 @@ pub mod Windows {
                     dwreserved: u32,
                     pperrinfo: *mut ::std::option::Option<IErrorInfo>,
                 ) -> ::windows::HRESULT {
-                    #[link(name = "OLEAUT32")]
-                    extern "system" {
-                        fn GetErrorInfo(
-                            dwreserved: u32,
-                            pperrinfo: *mut ::windows::RawPtr,
-                        ) -> ::windows::HRESULT;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLEAUT32")]
+                        extern "system" {
+                            fn GetErrorInfo(
+                                dwreserved: u32,
+                                pperrinfo: *mut ::windows::RawPtr,
+                            ) -> ::windows::HRESULT;
+                        }
+                        GetErrorInfo(
+                            ::std::mem::transmute(dwreserved),
+                            ::std::mem::transmute(pperrinfo),
+                        )
                     }
-                    GetErrorInfo(
-                        ::std::mem::transmute(dwreserved),
-                        ::std::mem::transmute(pperrinfo),
-                    )
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn SetErrorInfo<'a>(
                     dwreserved: u32,
                     perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
                 ) -> ::windows::HRESULT {
-                    #[link(name = "OLEAUT32")]
-                    extern "system" {
-                        fn SetErrorInfo(
-                            dwreserved: u32,
-                            perrinfo: ::windows::RawPtr,
-                        ) -> ::windows::HRESULT;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLEAUT32")]
+                        extern "system" {
+                            fn SetErrorInfo(
+                                dwreserved: u32,
+                                perrinfo: ::windows::RawPtr,
+                            ) -> ::windows::HRESULT;
+                        }
+                        SetErrorInfo(
+                            ::std::mem::transmute(dwreserved),
+                            perrinfo.into_param().abi(),
+                        )
                     }
-                    SetErrorInfo(
-                        ::std::mem::transmute(dwreserved),
-                        perrinfo.into_param().abi(),
-                    )
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
             }
             #[allow(
@@ -6995,32 +7135,46 @@ pub mod Windows {
                     binitialstate: impl ::windows::IntoParam<'a, super::super::Foundation::BOOL>,
                     lpname: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
                 ) -> super::super::Foundation::HANDLE {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn CreateEventA(
-                            lpeventattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-                            bmanualreset: super::super::Foundation::BOOL,
-                            binitialstate: super::super::Foundation::BOOL,
-                            lpname: super::super::Foundation::PSTR,
-                        ) -> super::super::Foundation::HANDLE;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn CreateEventA(
+                                lpeventattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+                                bmanualreset: super::super::Foundation::BOOL,
+                                binitialstate: super::super::Foundation::BOOL,
+                                lpname: super::super::Foundation::PSTR,
+                            ) -> super::super::Foundation::HANDLE;
+                        }
+                        CreateEventA(
+                            ::std::mem::transmute(lpeventattributes),
+                            bmanualreset.into_param().abi(),
+                            binitialstate.into_param().abi(),
+                            lpname.into_param().abi(),
+                        )
                     }
-                    CreateEventA(
-                        ::std::mem::transmute(lpeventattributes),
-                        bmanualreset.into_param().abi(),
-                        binitialstate.into_param().abi(),
-                        lpname.into_param().abi(),
-                    )
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 pub unsafe fn SetEvent<'a>(
                     hevent: impl ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
                 ) -> super::super::Foundation::BOOL {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn SetEvent(
-                            hevent: super::super::Foundation::HANDLE,
-                        ) -> super::super::Foundation::BOOL;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn SetEvent(
+                                hevent: super::super::Foundation::HANDLE,
+                            ) -> super::super::Foundation::BOOL;
+                        }
+                        SetEvent(hevent.into_param().abi())
                     }
-                    SetEvent(hevent.into_param().abi())
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -7072,17 +7226,24 @@ pub mod Windows {
                     hhandle: impl ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
                     dwmilliseconds: u32,
                 ) -> WAIT_RETURN_CAUSE {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn WaitForSingleObject(
-                            hhandle: super::super::Foundation::HANDLE,
-                            dwmilliseconds: u32,
-                        ) -> WAIT_RETURN_CAUSE;
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "KERNEL32")]
+                        extern "system" {
+                            fn WaitForSingleObject(
+                                hhandle: super::super::Foundation::HANDLE,
+                                dwmilliseconds: u32,
+                            ) -> WAIT_RETURN_CAUSE;
+                        }
+                        WaitForSingleObject(
+                            hhandle.into_param().abi(),
+                            ::std::mem::transmute(dwmilliseconds),
+                        )
                     }
-                    WaitForSingleObject(
-                        hhandle.into_param().abi(),
-                        ::std::mem::transmute(dwmilliseconds),
-                    )
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
             }
             #[allow(
