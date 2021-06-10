@@ -2,7 +2,7 @@ use super::*;
 use bindings::Windows::Foundation::{IReference, IStringable, PropertyValue};
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
-/// `IInspectable` represents the
+/// [`IInspectable`] represents the
 /// [IInspectable](https://docs.microsoft.com/en-us/windows/win32/api/inspectable/nn-inspectable-iinspectable)
 /// interface.
 #[repr(transparent)]

@@ -14,7 +14,7 @@ pub unsafe trait Interface: Sized + Abi {
         self.assume_vtable::<Self>()
     }
 
-    /// Returns the vtable for an assumed interface. The name comes from `Box`'s `assume_init` method as
+    /// Returns the vtable for an assumed interface. The name comes from [`Box::assume_init()`] as
     /// it assumes the vtable is implemented by the current interface's vtable (e.g. a parent interface).
     unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
         let this: RawPtr = std::mem::transmute_copy(self);
@@ -41,7 +41,7 @@ pub unsafe trait Interface: Sized + Abi {
         }
     }
 
-    /// Attempts to create a `Weak` reference to this object.
+    /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
         self.cast::<IWeakReferenceSource>()
             .and_then(|source| Weak::downgrade(&source))
