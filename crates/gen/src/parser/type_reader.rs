@@ -1,16 +1,82 @@
 use super::*;
 use std::collections::*;
 
-/// A reader of type information from Windows Metadata
+pub enum TypeInclude {
+    Full,
+    Minimal,
+    None,
+}
+
+pub struct TypeEntry {
+    def: TypeRow,
+    include: TypeInclude,
+}
+
+pub struct TypeTree2 {
+    pub namespace: &'static str,
+    pub types: HashMap<&'static str, TypeEntry>,
+    pub namespaces: HashMap<&'static str, TypeTree2>,
+}
+
+impl TypeTree2 {
+    pub fn from_namespace(namespace: &'static str) -> Self {
+        Self {
+            namespace,
+            types: HashMap::new(),
+            namespaces: HashMap::new(),
+        }
+    }
+
+    pub fn insert_namespace(&mut self, namespace: &'static str, pos: usize) -> &mut Self {
+        if let Some(next) = namespace[pos..].find('.') {
+            let next = pos + next;
+            self.namespaces
+                .entry(&namespace[pos..next])
+                .or_insert_with(|| Self::from_namespace(&namespace[..next]))
+        } else {
+            self.namespaces
+                .entry(&namespace[pos..])
+                .or_insert_with(|| Self::from_namespace(namespace))
+        }
+    }
+
+    // pub fn get_namespace(&mut self, namespace: &'static str, pos: usize) -> Option<&mut Self> {
+    //     if let Some(next) = namespace[pos..].find('.') {
+    //         let next = pos + next;
+    //         self.namespaces
+    //             .entry(&namespace[pos..next])
+    //             .or_insert_with(|| Self::from_namespace(&namespace[..next]))
+    //     } else {
+    //         self.namespaces
+    //             .entry(&namespace[pos..])
+    //             .or_insert_with(|| Self::from_namespace(namespace))
+    //     }
+    // }
+
+    pub fn insert_type(&mut self, name: &'static str, def: TypeRow) {
+        self.types.entry(name).or_insert_with(|| TypeEntry {
+            def,
+            include: TypeInclude::None,
+        });
+    }
+
+    // pub fn remove(&mut self, namespace: &'static str, name: &'static str) {
+    //     // TODO: namespace will add the TypeTree if it doesn't exist, which isn't ideal.
+    //     self.insert_namespace(namespace, 0).types.remove(name);
+    // }
+}
+
 pub struct TypeReader {
     types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
     // Nested types are stored in a BTreeMap to ensure a stable order. This impacts
     // the derived nested type names.
     nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
+
+    types2: TypeTree2,
 }
 
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
-enum TypeRow {
+pub enum TypeRow {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),
     Field(tables::Field),
@@ -53,6 +119,8 @@ impl TypeReader {
 
         let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
 
+        let mut types2 = TypeTree2::from_namespace("");
+
         for file in files {
             let row_count = file.type_def_table().row_count;
 
@@ -65,7 +133,6 @@ impl TypeReader {
                     continue;
                 }
 
-                let flags = def.flags();
                 let extends = def.extends();
 
                 if extends == ("System", "Attribute") {
@@ -73,21 +140,27 @@ impl TypeReader {
                 }
 
                 let values = types.entry(namespace).or_default();
+                let mut namespace = types2.insert_namespace(namespace, 0);
 
-                values
-                    .entry(name)
-                    .or_insert_with(|| TypeRow::TypeDef(def.clone()));
+                if def.flags().windows_runtime() {
+                    values
+                        .entry(name)
+                        .or_insert_with(|| TypeRow::TypeDef(def.clone()));
+                } else {
+                    if extends != ("System", "Object") {
+                        values
+                            .entry(name)
+                            .or_insert_with(|| TypeRow::TypeDef(def.clone()));
 
-                if flags.interface() || flags.windows_runtime() {
-                    continue;
-                }
-
-                match extends {
-                    ("System", "Object") => {
+                        namespace.insert_type(name, TypeRow::TypeDef(def));
+                    } else {
                         for field in def.fields() {
                             let name = field.name();
 
-                            values.entry(name).or_insert_with(|| TypeRow::Field(field));
+                            values
+                                .entry(name)
+                                .or_insert_with(|| TypeRow::Field(field.clone()));
+                            namespace.insert_type(name, TypeRow::Field(field));
                         }
 
                         for method in def.methods() {
@@ -95,10 +168,10 @@ impl TypeReader {
 
                             values
                                 .entry(name)
-                                .or_insert_with(|| TypeRow::MethodDef(method));
+                                .or_insert_with(|| TypeRow::MethodDef(method.clone()));
+                            namespace.insert_type(name, TypeRow::MethodDef(method));
                         }
                     }
-                    _ => {}
                 }
             }
 
@@ -121,9 +194,14 @@ impl TypeReader {
             if let Some(value) = types.get_mut(namespace) {
                 value.remove(name);
             }
+            //types.remove(namespace, name);
         }
 
-        Self { types, nested }
+        Self {
+            types,
+            nested,
+            types2,
+        }
     }
 
     pub fn resolve_namespace(&'static self, find: &str) -> &'static str {
