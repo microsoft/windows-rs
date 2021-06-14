@@ -1,5 +1,4 @@
 use super::*;
-use std::iter::FromIterator;
 
 pub struct Gen<'a> {
     relation: GenRelation,
@@ -26,6 +25,7 @@ impl<'a> Gen<'a> {
         }
     }
 
+    // TODO: This method is very slow - remove in favor of dependency tracking retaining all methods #592
     pub fn include_method(&self, signature: &MethodSignature) -> bool {
         if let GenRelation::Absolute = self.relation {
             return true;
@@ -52,7 +52,6 @@ impl<'a> Gen<'a> {
                     return TokenStream::new();
                 }
 
-                let mut tokens = Vec::new();
                 let mut relative = relative.split('.').peekable();
                 let mut namespace = namespace.split('.').peekable();
 
@@ -63,18 +62,18 @@ impl<'a> Gen<'a> {
                     namespace.next();
                 }
 
-                let count = relative.count();
+                let mut tokens = TokenStream::new();
 
-                if count > 0 {
-                    tokens.resize(tokens.len() + count, quote! { super:: });
+                for _ in 0..relative.count() {
+                    tokens.push_str("super::");
                 }
 
-                tokens.extend(namespace.map(|namespace| {
-                    let namespace = to_ident(namespace);
-                    quote! { #namespace:: }
-                }));
+                for namespace in namespace {
+                    tokens.push_str(namespace);
+                    tokens.push_str("::");
+                }
 
-                TokenStream::from_iter(tokens)
+                tokens
             }
         }
     }
@@ -98,7 +97,7 @@ mod tests {
         assert_eq!(
             t.gen_name(&Gen::relative("Windows", &TypeTree::from_namespace("")))
                 .as_str(),
-            "Foundation :: IStringable"
+            "Foundation:: IStringable"
         );
 
         assert_eq!(
@@ -116,7 +115,7 @@ mod tests {
                 &TypeTree::from_namespace("")
             ))
             .as_str(),
-            "super :: IStringable"
+            "super:: IStringable"
         );
     }
 }
