@@ -134,7 +134,7 @@ impl From<&TypeRow> for ElementType {
 }
 
 impl TypeReader {
-    pub fn get() -> &'static Self {
+    pub fn get_mut() -> &'static mut Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
         static mut VALUE: MaybeUninit<TypeReader> = MaybeUninit::uninit();
@@ -145,8 +145,13 @@ impl TypeReader {
         });
 
         // This is safe because `call_once` has already been called.
-        unsafe { &*VALUE.as_ptr() }
+        unsafe { &mut *VALUE.as_mut_ptr() }
     }
+
+    pub fn get() -> &'static Self {
+        Self::get_mut()
+    }
+
 
     /// Insert WinRT metadata at the given paths
     ///
