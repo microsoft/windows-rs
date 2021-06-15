@@ -460,7 +460,6 @@ impl TypeDef {
         self.row.str(2)
     }
 
-    // TODO: all "full_name" methods should return a FullName struct that provides a fast compare for match expressions
     pub fn full_name(&self) -> (&'static str, &'static str) {
         (self.namespace(), self.name())
     }

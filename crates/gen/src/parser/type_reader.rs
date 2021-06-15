@@ -12,6 +12,7 @@ pub struct TypeEntry {
     include: TypeInclude,
 }
 
+// TODO: call this TypeNamespace?
 pub struct TypeTree2 {
     pub namespace: &'static str,
     pub types: HashMap<&'static str, TypeEntry>,
@@ -33,25 +34,13 @@ impl TypeTree2 {
             self.namespaces
                 .entry(&namespace[pos..next])
                 .or_insert_with(|| Self::from_namespace(&namespace[..next]))
+                .insert_namespace(namespace, next + 1)
         } else {
             self.namespaces
                 .entry(&namespace[pos..])
                 .or_insert_with(|| Self::from_namespace(namespace))
         }
     }
-
-    // pub fn get_namespace(&mut self, namespace: &'static str, pos: usize) -> Option<&mut Self> {
-    //     if let Some(next) = namespace[pos..].find('.') {
-    //         let next = pos + next;
-    //         self.namespaces
-    //             .entry(&namespace[pos..next])
-    //             .or_insert_with(|| Self::from_namespace(&namespace[..next]))
-    //     } else {
-    //         self.namespaces
-    //             .entry(&namespace[pos..])
-    //             .or_insert_with(|| Self::from_namespace(namespace))
-    //     }
-    // }
 
     pub fn insert_type(&mut self, name: &'static str, def: TypeRow) {
         self.types.entry(name).or_insert_with(|| TypeEntry {
@@ -60,9 +49,51 @@ impl TypeTree2 {
         });
     }
 
-    // pub fn remove(&mut self, namespace: &'static str, name: &'static str) {
-    //     // TODO: namespace will add the TypeTree if it doesn't exist, which isn't ideal.
-    //     self.insert_namespace(namespace, 0).types.remove(name);
+    // TODO: slow method - how to make this an iterator?
+    pub fn namespaces(&self)-> Vec<&'static str> {
+        let mut namespaces = Vec::new();
+
+        for tree in self.namespaces.values() {
+            if !tree.types.is_empty() {
+                namespaces.push(tree.namespace)
+            }
+
+            namespaces.append(&mut tree.namespaces());
+        }
+
+        namespaces
+    }
+
+    // pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
+    //     if let Some(next) = namespace[pos..].find('.') {
+    //         let next = pos + next;
+    //         self.namespaces
+    //             .get(&namespace[pos..next])
+    //             .and_then(|child| child.get_namespace(&namespace[..next]))
+    //     } else {
+    //         self.namespaces
+    //             .get(&namespace[pos..])
+    //     }
+    // }
+
+    // pub fn get_namespace_mut(&self, namespace: &str) -> Option<&Self> {
+    //     if let Some(next) = namespace[pos..].find('.') {
+    //         let next = pos + next;
+    //         self.namespaces
+    //             .get_mut(&namespace[pos..next])
+    //             .and_then(|child| child.get_namespace_mut(&namespace[..next]))
+    //     } else {
+    //         self.namespaces
+    //             .get_mut(&namespace[pos..])
+    //     }
+    // }
+
+    // pub fn get_type(&self, namespace: &str, name: &str) -> Option<&TypeEntry> {
+    //     self.get_namespace(namespace).types.get(name)
+    // }
+
+    // pub fn get_type_mut(&mut self, namespace: &str, name: &str) -> Option<&mut TypeEntry> {
+    //     self.get_namespace_mut(namespace).types.get_mut(name)
     // }
 }
 
@@ -133,6 +164,10 @@ impl TypeReader {
                     continue;
                 }
 
+                if is_well_known(namespace, name) {
+                    continue;
+                }
+
                 let extends = def.extends();
 
                 if extends == ("System", "Attribute") {
@@ -146,6 +181,8 @@ impl TypeReader {
                     values
                         .entry(name)
                         .or_insert_with(|| TypeRow::TypeDef(def.clone()));
+
+                    namespace.insert_type(name, TypeRow::TypeDef(def));
                 } else {
                     if extends != ("System", "Object") {
                         values
@@ -160,6 +197,7 @@ impl TypeReader {
                             values
                                 .entry(name)
                                 .or_insert_with(|| TypeRow::Field(field.clone()));
+
                             namespace.insert_type(name, TypeRow::Field(field));
                         }
 
@@ -169,6 +207,7 @@ impl TypeReader {
                             values
                                 .entry(name)
                                 .or_insert_with(|| TypeRow::MethodDef(method.clone()));
+
                             namespace.insert_type(name, TypeRow::MethodDef(method));
                         }
                     }
@@ -190,13 +229,6 @@ impl TypeReader {
             }
         }
 
-        for (namespace, name, _) in &WELL_KNOWN_TYPES {
-            if let Some(value) = types.get_mut(namespace) {
-                value.remove(name);
-            }
-            //types.remove(namespace, name);
-        }
-
         Self {
             types,
             nested,
@@ -204,16 +236,10 @@ impl TypeReader {
         }
     }
 
-    pub fn resolve_namespace(&'static self, find: &str) -> &'static str {
-        self.types
-            .keys()
-            .find(|namespace| *namespace == &find)
-            .unwrap_or_else(|| panic!("Could not find namespace `{}`", find))
-    }
-
     /// Get all the namespace names that the [`TypeReader`] knows about
-    pub fn namespaces(&'static self) -> impl Iterator<Item = &'static str> {
-        self.types.keys().copied()
+    pub fn namespaces(&'static self) -> Vec<&'static str> {
+        //self.types.keys().copied()
+        self.types2.namespaces()
     }
 
     /// Get all types for a given namespace
@@ -386,10 +412,21 @@ impl TypeReader {
 }
 
 fn trim_tick(name: &str) -> &str {
-    match name.as_bytes().get(name.len() - 2) {
-        Some(c) if *c == b'`' => &name[..name.len() - 2],
+    let len = name.len() -2;
+    match name.as_bytes().get(len) {
+        Some(c) if *c == b'`' => &name[..len],
         _ => name,
     }
+}
+
+fn is_well_known(namespace: &'static str, name: &'static str) -> bool {
+    for entry in &WELL_KNOWN_TYPES {
+        if name == entry.1 && namespace == entry.0 {
+            return true;
+        }
+    }
+
+    false
 }
 
 const WELL_KNOWN_TYPES: [(&'static str, &'static str, ElementType); 10] = [
