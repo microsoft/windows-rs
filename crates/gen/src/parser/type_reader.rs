@@ -1,15 +1,17 @@
 use super::*;
 use std::collections::*;
 
+#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 pub enum TypeInclude {
     Full,
     Minimal,
     None,
 }
 
+#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 pub struct TypeEntry {
-    def: TypeRow,
-    include: TypeInclude,
+    pub def: TypeRow,
+    pub include: TypeInclude,
 }
 
 // TODO: call this TypeNamespace?
@@ -64,46 +66,54 @@ impl TypeTree2 {
         namespaces
     }
 
-    // pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
-    //     if let Some(next) = namespace[pos..].find('.') {
-    //         let next = pos + next;
-    //         self.namespaces
-    //             .get(&namespace[pos..next])
-    //             .and_then(|child| child.get_namespace(&namespace[..next]))
-    //     } else {
-    //         self.namespaces
-    //             .get(&namespace[pos..])
-    //     }
-    // }
+    pub fn get_type(&self, namespace: &str, name: &str) -> Option<&TypeEntry> {
+        self.get_namespace(namespace).and_then(|tree|tree.types.get(name))
+    }
 
-    // pub fn get_namespace_mut(&self, namespace: &str) -> Option<&Self> {
-    //     if let Some(next) = namespace[pos..].find('.') {
-    //         let next = pos + next;
-    //         self.namespaces
-    //             .get_mut(&namespace[pos..next])
-    //             .and_then(|child| child.get_namespace_mut(&namespace[..next]))
-    //     } else {
-    //         self.namespaces
-    //             .get_mut(&namespace[pos..])
-    //     }
-    // }
+    pub fn get_type_mut(&mut self, namespace: &str, name: &str) -> Option<&mut TypeEntry> {
+        self.get_namespace_mut(namespace).and_then(|tree|tree.types.get_mut(name))
+    }
 
-    // pub fn get_type(&self, namespace: &str, name: &str) -> Option<&TypeEntry> {
-    //     self.get_namespace(namespace).types.get(name)
-    // }
+    pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
+        self.get_namespace_pos(namespace, 0)
+    }
 
-    // pub fn get_type_mut(&mut self, namespace: &str, name: &str) -> Option<&mut TypeEntry> {
-    //     self.get_namespace_mut(namespace).types.get_mut(name)
-    // }
+    pub fn get_namespace_mut(&mut self, namespace: &str) -> Option<&mut Self> {
+        self.get_namespace_mut_pos(namespace, 0)
+    }
+
+    fn get_namespace_pos(&self, namespace: &str, pos: usize) -> Option<&Self> {
+        if let Some(next) = namespace[pos..].find('.') {
+            let next = pos + next;
+            self.namespaces
+                .get(&namespace[pos..next])
+                .and_then(|child| child.get_namespace_pos(namespace, next + 1))
+        } else {
+            self.namespaces
+                .get(&namespace[pos..])
+        }
+    }
+
+    fn get_namespace_mut_pos(&mut self, namespace: &str, pos: usize) -> Option<&mut Self> {
+        if let Some(next) = namespace[pos..].find('.') {
+            let next = pos + next;
+            self.namespaces
+                .get_mut(&namespace[pos..next])
+                .and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
+        } else {
+            self.namespaces
+                .get_mut(&namespace[pos..])
+        }
+    }
 }
 
 pub struct TypeReader {
-    types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
+    //types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
     // Nested types are stored in a BTreeMap to ensure a stable order. This impacts
     // the derived nested type names.
     nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
 
-    types2: TypeTree2,
+    pub types2: TypeTree2,
 }
 
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
@@ -146,7 +156,7 @@ impl TypeReader {
     fn new() -> Self {
         let files = workspace_winmds();
 
-        let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
+        //let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
 
         let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
 
@@ -174,29 +184,29 @@ impl TypeReader {
                     continue;
                 }
 
-                let values = types.entry(namespace).or_default();
-                let mut namespace = types2.insert_namespace(namespace, 0);
+                //let values = types.entry(namespace).or_default();
+                let namespace = types2.insert_namespace(namespace, 0);
 
                 if def.flags().windows_runtime() {
-                    values
-                        .entry(name)
-                        .or_insert_with(|| TypeRow::TypeDef(def.clone()));
+                    // values
+                    //     .entry(name)
+                    //     .or_insert_with(|| TypeRow::TypeDef(def.clone()));
 
                     namespace.insert_type(name, TypeRow::TypeDef(def));
                 } else {
                     if extends != ("System", "Object") {
-                        values
-                            .entry(name)
-                            .or_insert_with(|| TypeRow::TypeDef(def.clone()));
+                        // values
+                        //     .entry(name)
+                        //     .or_insert_with(|| TypeRow::TypeDef(def.clone()));
 
                         namespace.insert_type(name, TypeRow::TypeDef(def));
                     } else {
                         for field in def.fields() {
                             let name = field.name();
 
-                            values
-                                .entry(name)
-                                .or_insert_with(|| TypeRow::Field(field.clone()));
+                            // values
+                            //     .entry(name)
+                            //     .or_insert_with(|| TypeRow::Field(field.clone()));
 
                             namespace.insert_type(name, TypeRow::Field(field));
                         }
@@ -204,9 +214,9 @@ impl TypeReader {
                         for method in def.methods() {
                             let name = method.name();
 
-                            values
-                                .entry(name)
-                                .or_insert_with(|| TypeRow::MethodDef(method.clone()));
+                            // values
+                            //     .entry(name)
+                            //     .or_insert_with(|| TypeRow::MethodDef(method.clone()));
 
                             namespace.insert_type(name, TypeRow::MethodDef(method));
                         }
@@ -230,7 +240,7 @@ impl TypeReader {
         }
 
         Self {
-            types,
+            //types,
             nested,
             types2,
         }
@@ -242,14 +252,11 @@ impl TypeReader {
         self.types2.namespaces()
     }
 
-    /// Get all types for a given namespace
-    ///
-    /// # Panics
-    ///
-    /// Panics if the namespace does not exist
-    pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = ElementType> {
-        self.types[namespace].values().map(move |row| row.into())
-    }
+    // // TODO: remove this function
+    // pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = ElementType> {
+    //     //self.types[namespace].values().map(move |row| row.into())
+    //     self.types2.get_namespace(namespace).map(|tree|tree.types.values().map(move |row| row.def.into())).iter()
+    // }
 
     pub fn nested_types(
         &'static self,
@@ -259,43 +266,52 @@ impl TypeReader {
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
-        if let Some(types) = self.types.get(namespace) {
-            if let Some(row) = types.get(trim_tick(name)) {
-                return row.into();
-            }
+        if let Some(def) = self.types2.get_type(namespace, trim_tick(name)) {
+            return (&def.def).into();
         }
+        // if let Some(types) = self.types.get(namespace) {
+        //     if let Some(row) = types.get(trim_tick(name)) {
+        //         return row.into();
+        //     }
+        // }
 
         panic!("Could not find type `{}.{}`", namespace, name);
     }
 
-    pub fn get_namespace(&'static self, namespace: &str) -> Option<&'static str> {
-        if let Some((namespace, _)) = self.types.get_key_value(namespace) {
-            Some(namespace)
-        } else {
-            None
-        }
-    }
+    // pub fn get_namespace(&'static self, namespace: &str) -> Option<&'static str> {
+    //     if let Some((namespace, _)) = self.types.get_key_value(namespace) {
+    //         Some(namespace)
+    //     } else {
+    //         None
+    //     }
+    // }
 
-    pub fn get_type_name(
-        &'static self,
-        namespace: &str,
-        name: &str,
-    ) -> Option<(&'static str, &'static str)> {
-        if let Some((namespace, types)) = self.types.get_key_value(namespace) {
-            if let Some((name, _)) = types.get_key_value(trim_tick(name)) {
-                return Some((namespace, name));
-            }
-        }
+    // pub fn get_type_name(
+    //     &'static self,
+    //     namespace: &str,
+    //     name: &str,
+    // ) -> Option<(&'static str, &'static str)> {
+    //     if let Some((namespace, types)) = self.types.get_key_value(namespace) {
+    //         if let Some((name, _)) = types.get_key_value(trim_tick(name)) {
+    //             return Some((namespace, name));
+    //         }
+    //     }
 
-        None
-    }
+    //     None
+    // }
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
-        if let Some(types) = self.types.get(namespace) {
-            if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
+        if let Some(def) = self.types2.get_type(namespace, trim_tick(name)) {
+            if let TypeRow::TypeDef(row) = &def.def {
                 return row.clone();
             }
         }
+
+        // if let Some(types) = self.types.get(namespace) {
+        //     if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
+        //         return row.clone();
+        //     }
+        // }
 
         panic!("Could not find type def `{}.{}`", namespace, name);
     }

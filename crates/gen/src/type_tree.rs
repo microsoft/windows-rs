@@ -26,8 +26,14 @@ impl TypeTree {
         for (namespace, limit) in imports {
             match limit {
                 ImportLimit::All => {
-                    for def in reader.namespace_types(namespace) {
-                        root.insert_if(reader, namespace, &mut set, &def);
+                    // for def in reader.namespace_types(namespace) {
+                    //     root.insert_if(reader, namespace, &mut set, &def);
+                    // }
+                    if let Some(ns) = reader.types2.get_namespace(namespace) {
+                        for def in ns.types.values() {
+                            let def: ElementType = (&def.def).into();
+                            root.insert_if(reader, namespace, &mut set, &def);
+                        }
                     }
                 }
                 ImportLimit::Some(names) => {
