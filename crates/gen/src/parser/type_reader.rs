@@ -113,7 +113,7 @@ pub struct TypeReader {
     // the derived nested type names.
     nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
 
-    pub types2: TypeTree2,
+    pub types: TypeTree2,
 }
 
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
@@ -165,7 +165,7 @@ impl TypeReader {
 
         let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
 
-        let mut types2 = TypeTree2::from_namespace("");
+        let mut types = TypeTree2::from_namespace("");
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -190,7 +190,7 @@ impl TypeReader {
                 }
 
                 //let values = types.entry(namespace).or_default();
-                let namespace = types2.insert_namespace(namespace, 0);
+                let namespace = types.insert_namespace(namespace, 0);
 
                 if def.flags().windows_runtime() {
                     // values
@@ -247,20 +247,37 @@ impl TypeReader {
         Self {
             //types,
             nested,
-            types2,
+            types,
         }
     }
 
     /// Get all the namespace names that the [`TypeReader`] knows about
     pub fn namespaces(&'static self) -> Vec<&'static str> {
         //self.types.keys().copied()
-        self.types2.namespaces()
+        self.types.namespaces()
     }
 
-    // // TODO: remove this function
-    // pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = ElementType> {
-    //     //self.types[namespace].values().map(move |row| row.into())
-    //     self.types2.get_namespace(namespace).map(|tree|tree.types.values().map(move |row| row.def.into())).iter()
+    // pub fn import_namespace(&mut self, set: &mut HashSet<Row>, namespace :&str) -> bool {
+    //     // if let Some(tree) = self.get_namespace_mut(namespace) {
+    //     //     tree.types.values_mut().for_each(|entry|self.import_type_if(set, entry));
+    //     //     true
+    //     // } else {
+    //     //     false
+    //     // }
+    //     false
+    // }
+
+    // pub fn import_type(&mut self, set: &mut HashSet<Row>, namespace :&str, name:&str) -> bool {
+    //     if let Some(entry) = self.types.get_type_mut(namespace, name) {
+    //         self.import_type_if(set, entry);
+    //         true
+    //     } else {
+    //         false
+    //     }
+    // }
+
+    // fn import_type_if(&mut self, set: &mut HashSet<Row>, entry: &mut TypeEntry) {
+
     // }
 
     pub fn nested_types(
@@ -271,7 +288,7 @@ impl TypeReader {
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
-        if let Some(def) = self.types2.get_type(namespace, trim_tick(name)) {
+        if let Some(def) = self.types.get_type(namespace, trim_tick(name)) {
             return (&def.def).into();
         }
         // if let Some(types) = self.types.get(namespace) {
@@ -306,7 +323,7 @@ impl TypeReader {
     // }
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
-        if let Some(def) = self.types2.get_type(namespace, trim_tick(name)) {
+        if let Some(def) = self.types.get_type(namespace, trim_tick(name)) {
             if let TypeRow::TypeDef(row) = &def.def {
                 return row.clone();
             }
