@@ -1,6 +1,7 @@
 use bindings::Windows::Win32;
 use Win32::Foundation::{BOOL, PWSTR, S_FALSE};
 use Win32::Globalization;
+use Win32::System::Com::CoTaskMemFree;
 
 fn main() -> windows::Result<()> {
     let input = std::env::args()
@@ -73,6 +74,8 @@ fn main() -> windows::Result<()> {
                 println!("Replace: {} with {}", substring, unsafe {
                     read_to_string(replacement)
                 });
+
+                unsafe { CoTaskMemFree(replacement.0 as *mut _) };
             }
             Globalization::CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
@@ -94,6 +97,8 @@ fn main() -> windows::Result<()> {
                     println!("Maybe replace: {} with {}", substring, unsafe {
                         read_to_string(suggestion)
                     });
+
+                    unsafe { CoTaskMemFree(suggestion.0 as *mut _) };
                 }
             }
             _ => {}
