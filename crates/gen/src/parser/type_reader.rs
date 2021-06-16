@@ -14,16 +14,6 @@ pub struct TypeEntry {
     pub include: TypeInclude,
 }
 
-pub struct TypeEntryMut {
-    pub reader: &'static mut TypeReader,
-    pub entry: &'static mut TypeEntry,
-}
-
-pub struct TypeTreeMut {
-    pub reader: &'static mut TypeReader,
-    pub tree: &'static mut TypeTree2,
-}
-
 // TODO: call this TypeNamespace?
 pub struct TypeTree2 {
     pub namespace: &'static str,
@@ -80,10 +70,9 @@ impl TypeTree2 {
         self.types.get(name)
     }
 
-    // pub fn get_type_mut(&'static mut self, reader: &'static mut TypeReader, name: &str) -> Option<TypeEntryMut> {
-    //         self.types.get_mut(name).and_then(move |entry| 
-    //             Some(TypeEntryMut{ reader, entry}))
-    // }
+    pub fn get_type_mut(&mut self, name: &str) -> Option<&mut TypeEntry> {
+        self.types.get_mut(name)
+    }
 
     pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
         self.get_namespace_pos(namespace, 0)
@@ -98,6 +87,22 @@ impl TypeTree2 {
         } else {
             self.namespaces
                 .get(&namespace[pos..])
+        }
+    }
+
+    pub fn get_namespace_mut(&mut self, namespace: &str) -> Option<&mut Self> {
+        self.get_namespace_mut_pos(namespace, 0)
+    }
+
+    fn get_namespace_mut_pos(&mut self, namespace: &str, pos: usize) -> Option<&mut Self> {
+        if let Some(next) = namespace[pos..].find('.') {
+            let next = pos + next;
+            self.namespaces
+                .get_mut(&namespace[pos..next])
+                .and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
+        } else {
+            self.namespaces
+                .get_mut(&namespace[pos..])
         }
     }
 }
@@ -116,6 +121,16 @@ pub enum TypeRow {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),
     Field(tables::Field),
+}
+
+impl TypeRow {
+    pub fn dependencies(&self) -> Vec<ElementType> {
+        match self {
+            Self::TypeDef(def) => def.dependencies(),
+            Self::MethodDef(def) => def.dependencies(&[]),
+            Self::Field(def) => def.dependencies(),
+        }
+    }
 }
 
 impl From<&TypeRow> for ElementType {
@@ -252,28 +267,30 @@ impl TypeReader {
         self.types.namespaces()
     }
 
-    // pub fn import_namespace(&mut self, set: &mut HashSet<Row>, namespace :&str) -> bool {
-    //     // if let Some(tree) = self.get_namespace_mut(namespace) {
-    //     //     tree.types.values_mut().for_each(|entry|self.import_type_if(set, entry));
-    //     //     true
-    //     // } else {
-    //     //     false
-    //     // }
-    //     false
-    // }
+    pub fn import_type(&mut self, namespace :&str, name:&str) -> bool {
+        self.import_type_include(namespace, name, TypeInclude::Full)
+    }
 
-    // pub fn import_type(&mut self, set: &mut HashSet<Row>, namespace :&str, name:&str) -> bool {
-    //     if let Some(entry) = self.types.get_type_mut(namespace, name) {
-    //         self.import_type_if(set, entry);
-    //         true
-    //     } else {
-    //         false
-    //     }
-    // }
+    fn import_type_include(&mut self, namespace :&str, name:&str, include: TypeInclude) -> bool {
+        if let Some(entry) = self.types.get_namespace_mut(namespace).and_then(|tree|tree.get_type_mut(name)) {
+            if include == TypeInclude::Full {
+                if entry.include != TypeInclude::Full {
+                    entry.include = TypeInclude::Full;
 
-    // fn import_type_if(&mut self, set: &mut HashSet<Row>, entry: &mut TypeEntry) {
+                    for def in entry.def.dependencies() {
+                        self.import_type_include(def.namespace(), def.name(), TypeInclude::Minimal);
+                    }
+                }
+            } else {
+                entry.include = TypeInclude::Minimal;
+            }
+            
+            true
+        } else {
+            false
+        }
+    }
 
-    // }
 
     pub fn nested_types(
         &'static self,
