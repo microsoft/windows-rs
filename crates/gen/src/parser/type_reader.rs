@@ -14,6 +14,16 @@ pub struct TypeEntry {
     pub include: TypeInclude,
 }
 
+pub struct TypeEntryMut {
+    pub reader: &'static mut TypeReader,
+    pub entry: &'static mut TypeEntry,
+}
+
+pub struct TypeTreeMut {
+    pub reader: &'static mut TypeReader,
+    pub tree: &'static mut TypeTree2,
+}
+
 // TODO: call this TypeNamespace?
 pub struct TypeTree2 {
     pub namespace: &'static str,
@@ -51,7 +61,7 @@ impl TypeTree2 {
         });
     }
 
-    // TODO: slow method - how to make this an iterator?
+    // TODO: slow method - remove or make this an iterator somehow?
     pub fn namespaces(&self)-> Vec<&'static str> {
         let mut namespaces = Vec::new();
 
@@ -66,20 +76,17 @@ impl TypeTree2 {
         namespaces
     }
 
-    pub fn get_type(&self, namespace: &str, name: &str) -> Option<&TypeEntry> {
-        self.get_namespace(namespace).and_then(|tree|tree.types.get(name))
+    pub fn get_type(&self, name: &str) -> Option<&TypeEntry> {
+        self.types.get(name)
     }
 
-    pub fn get_type_mut(&mut self, namespace: &str, name: &str) -> Option<&mut TypeEntry> {
-        self.get_namespace_mut(namespace).and_then(|tree|tree.types.get_mut(name))
-    }
+    // pub fn get_type_mut(&'static mut self, reader: &'static mut TypeReader, name: &str) -> Option<TypeEntryMut> {
+    //         self.types.get_mut(name).and_then(move |entry| 
+    //             Some(TypeEntryMut{ reader, entry}))
+    // }
 
     pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
         self.get_namespace_pos(namespace, 0)
-    }
-
-    pub fn get_namespace_mut(&mut self, namespace: &str) -> Option<&mut Self> {
-        self.get_namespace_mut_pos(namespace, 0)
     }
 
     fn get_namespace_pos(&self, namespace: &str, pos: usize) -> Option<&Self> {
@@ -91,18 +98,6 @@ impl TypeTree2 {
         } else {
             self.namespaces
                 .get(&namespace[pos..])
-        }
-    }
-
-    fn get_namespace_mut_pos(&mut self, namespace: &str, pos: usize) -> Option<&mut Self> {
-        if let Some(next) = namespace[pos..].find('.') {
-            let next = pos + next;
-            self.namespaces
-                .get_mut(&namespace[pos..next])
-                .and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
-        } else {
-            self.namespaces
-                .get_mut(&namespace[pos..])
         }
     }
 }
@@ -288,7 +283,7 @@ impl TypeReader {
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
-        if let Some(def) = self.types.get_type(namespace, trim_tick(name)) {
+        if let Some(def) = self.types.get_namespace(namespace).and_then(|tree|tree.get_type(trim_tick(name))) {
             return (&def.def).into();
         }
         // if let Some(types) = self.types.get(namespace) {
@@ -299,6 +294,22 @@ impl TypeReader {
 
         panic!("Could not find type `{}.{}`", namespace, name);
     }
+
+    // pub fn get_namespace_mut(&'static mut self, namespace: &str) -> Option<TypeTreeMut> {
+    //     self.get_namespace_mut_pos(namespace, 0)
+    // }
+    
+    // fn get_namespace_mut_pos(&'static mut self, namespace: &str, pos: usize) -> Option<TypeTreeMut> {
+    //     if let Some(next) = namespace[pos..].find('.') {
+    //         let next = pos + next;
+    //         self.namespaces
+    //             .get_mut(&namespace[pos..next])
+    //             .and_then(move |child| child.get_namespace_mut_pos(reader, namespace, next + 1))
+    //     } else {
+    //         self.namespaces
+    //             .get_mut(&namespace[pos..]).and_then(move |tree|Some(TypeTreeMut{reader, tree}))
+    //     }
+    // }
 
     // pub fn get_namespace(&'static self, namespace: &str) -> Option<&'static str> {
     //     if let Some((namespace, _)) = self.types.get_key_value(namespace) {
@@ -323,7 +334,8 @@ impl TypeReader {
     // }
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
-        if let Some(def) = self.types.get_type(namespace, trim_tick(name)) {
+        // TODO: repeated in resolve_type above
+        if let Some(def) = self.types.get_namespace(namespace).and_then(|tree|tree.get_type(trim_tick(name))) {
             if let TypeRow::TypeDef(row) = &def.def {
                 return row.clone();
             }
