@@ -267,6 +267,19 @@ impl TypeReader {
         self.types.namespaces()
     }
 
+    pub fn import_namespace(&mut self, namespace: &str) -> bool {
+        // TODO: borrow hackery going on here...
+        if let Some(namespace) = Self::get().types.get_namespace(namespace) {
+            for name in namespace.types.keys() {
+                self.import_type_include(namespace.namespace, name, TypeInclude::Full);
+            }
+
+            true
+        } else {
+            false
+        }
+    }
+
     pub fn import_type(&mut self, namespace :&str, name:&str) -> bool {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
