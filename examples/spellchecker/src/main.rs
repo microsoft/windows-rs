@@ -22,18 +22,13 @@ fn main() -> windows::Result<()> {
 
     // Create a ISpellChecker
     let mut checker = None;
-    unsafe { factory.CreateSpellChecker(locale, &mut checker).ok()? };
-    let checker = checker.unwrap();
+    let checker = unsafe { factory.CreateSpellChecker(locale, &mut checker) }.and_some(checker)?;
 
     // Get errors enumerator for the supplied string
+    println!("Checking the text: '{}'", input);
     let mut errors = None;
-    unsafe {
-        println!("Checking the text: '{}'", input);
-        checker
-            .ComprehensiveCheck(input.clone(), &mut errors)
-            .ok()?
-    };
-    let errors = errors.unwrap();
+    let errors =
+        unsafe { checker.ComprehensiveCheck(input.clone(), &mut errors) }.and_some(errors)?;
 
     // Loop through all the errors
     loop {
@@ -43,8 +38,7 @@ fn main() -> windows::Result<()> {
         if result == S_FALSE {
             break;
         }
-        result.ok()?;
-        let error = error.unwrap();
+        let error = result.and_some(error)?;
 
         // Get the start index and length of the error
         let mut start_index = 0u32;
@@ -80,8 +74,8 @@ fn main() -> windows::Result<()> {
             Globalization::CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
                 let mut suggestions = None;
-                unsafe { checker.Suggest(substring, &mut suggestions).ok()? };
-                let suggestions = suggestions.unwrap();
+                let suggestions = unsafe { checker.Suggest(substring, &mut suggestions) }
+                    .and_some(suggestions)?;
 
                 // Loop through the suggestions
                 loop {
