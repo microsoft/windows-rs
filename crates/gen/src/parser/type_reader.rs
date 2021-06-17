@@ -396,7 +396,6 @@ impl TypeReader {
         {
             let copy = entry.def.clone();
 
-            // TODO: Should consolidate these branches to avoid repetition
             if include == TypeInclude::Full {
                 if entry.include != TypeInclude::Full {
                     entry.include = TypeInclude::Full;
@@ -405,7 +404,7 @@ impl TypeReader {
             } else {
                 if entry.include == TypeInclude::None {
                     entry.include = TypeInclude::Minimal;
-                    self.import_type_dependencies(&copy);
+                    self.import_type_dependencies(&copy); // TODO: make this minimal import (only include minimal dependencies)
                 }
             }
 
