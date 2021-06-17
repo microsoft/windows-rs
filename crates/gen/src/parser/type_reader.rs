@@ -28,8 +28,9 @@ impl TypeEntry {
 // TODO: call this TypeNamespace?
 pub struct TypeTree2 {
     pub namespace: &'static str,
-    pub types: HashMap<&'static str, TypeEntry>,
-    pub namespaces: HashMap<&'static str, TypeTree2>,
+    // TODO: Probably need to be btrees again to ensure output is stable
+    pub types: BTreeMap<&'static str, TypeEntry>,
+    pub namespaces: BTreeMap<&'static str, TypeTree2>,
     pub include: bool,
 }
 
@@ -37,8 +38,8 @@ impl TypeTree2 {
     pub fn from_namespace(namespace: &'static str) -> Self {
         Self {
             namespace,
-            types: HashMap::new(),
-            namespaces: HashMap::new(),
+            types: BTreeMap::new(),
+            namespaces: BTreeMap::new(),
             include: false,
         }
     }
@@ -131,7 +132,7 @@ impl TypeTree2 {
 }
 
 fn gen_namespaces<'a>(
-    namespaces: &'a HashMap<&'static str, TypeTree2>,
+    namespaces: &'a BTreeMap<&'static str, TypeTree2>,
 ) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
         if tree.include {
