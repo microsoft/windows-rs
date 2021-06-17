@@ -332,6 +332,20 @@ impl TypeReader {
         }
     }
 
+    pub fn get_type_name(
+        &'static self,
+        namespace: &str,
+        name: &str,
+    ) -> Option<(&'static str, &'static str)> {
+        if let Some(tree) = self.types.get_namespace(namespace) {
+            if let Some((key,value)) = tree.types.get_key_value(name) {
+                return Some((tree.namespace, key));
+            }
+        }
+
+        None
+    }
+
     pub fn import_type(&mut self, namespace :&str, name:&str) -> bool {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
