@@ -1,7 +1,7 @@
 use super::*;
 use std::collections::*;
 
-#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
+#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 pub enum TypeInclude {
     Full,
     Minimal,
@@ -16,8 +16,12 @@ pub struct TypeEntry {
 
 impl TypeEntry {
     pub fn gen(&self, gen: &Gen) -> TokenStream {
+        if self.include == TypeInclude::None {
+            return TokenStream::new();
+        }
+        
         match &self.def {
-            TypeRow::TypeDef(def) =>                 def.clone().with_generics().gen(gen), // TODO: pass in self.include
+            TypeRow::TypeDef(def) =>                 def.clone().with_generics().gen(gen, self.include), // TODO: pass in self.include
             TypeRow::MethodDef(def) => def.gen(gen),
             TypeRow::Field(def) => def.gen(gen),
         }

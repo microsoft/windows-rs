@@ -38,6 +38,14 @@ pub mod Windows {
             );
         }
         impl IPropertyValue {
+            pub fn Type(&self) -> ::windows::Result<PropertyType> {
+                let this = self;
+                unsafe {
+                    let mut result__: <PropertyType as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).6)(::windows::Abi::abi(this), &mut result__)
+                        .from_abi::<PropertyType>(result__)
+                }
+            }
             pub fn IsNumericScalar(&self) -> ::windows::Result<bool> {
                 let this = self;
                 unsafe {
@@ -183,6 +191,61 @@ pub mod Windows {
                         &mut result__,
                     )
                     .from_abi::<::windows::Guid>(result__)
+                }
+            }
+            pub fn GetDateTime(&self) -> ::windows::Result<DateTime> {
+                let this = self;
+                unsafe {
+                    let mut result__: <DateTime as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).21)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<DateTime>(result__)
+                }
+            }
+            pub fn GetTimeSpan(&self) -> ::windows::Result<TimeSpan> {
+                let this = self;
+                unsafe {
+                    let mut result__: <TimeSpan as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).22)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<TimeSpan>(result__)
+                }
+            }
+            pub fn GetPoint(&self) -> ::windows::Result<Point> {
+                let this = self;
+                unsafe {
+                    let mut result__: <Point as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).23)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<Point>(result__)
+                }
+            }
+            pub fn GetSize(&self) -> ::windows::Result<Size> {
+                let this = self;
+                unsafe {
+                    let mut result__: <Size as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).24)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<Size>(result__)
+                }
+            }
+            pub fn GetRect(&self) -> ::windows::Result<Rect> {
+                let this = self;
+                unsafe {
+                    let mut result__: <Rect as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).25)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<Rect>(result__)
                 }
             }
             pub fn GetUInt8Array(&self, value: &mut ::windows::Array<u8>) -> ::windows::Result<()> {
@@ -378,6 +441,76 @@ pub mod Windows {
                     .ok()
                 }
             }
+            pub fn GetDateTimeArray(
+                &self,
+                value: &mut ::windows::Array<DateTime>,
+            ) -> ::windows::Result<()> {
+                let this = self;
+                unsafe {
+                    (::windows::Interface::vtable(this).40)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetTimeSpanArray(
+                &self,
+                value: &mut ::windows::Array<TimeSpan>,
+            ) -> ::windows::Result<()> {
+                let this = self;
+                unsafe {
+                    (::windows::Interface::vtable(this).41)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetPointArray(
+                &self,
+                value: &mut ::windows::Array<Point>,
+            ) -> ::windows::Result<()> {
+                let this = self;
+                unsafe {
+                    (::windows::Interface::vtable(this).42)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetSizeArray(
+                &self,
+                value: &mut ::windows::Array<Size>,
+            ) -> ::windows::Result<()> {
+                let this = self;
+                unsafe {
+                    (::windows::Interface::vtable(this).43)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetRectArray(
+                &self,
+                value: &mut ::windows::Array<Rect>,
+            ) -> ::windows::Result<()> {
+                let this = self;
+                unsafe {
+                    (::windows::Interface::vtable(this).44)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
         }
         unsafe impl ::windows::RuntimeType for IPropertyValue {
             type DefaultType = ::std::option::Option<Self>;
@@ -427,7 +560,10 @@ pub mod Windows {
                 this: ::windows::RawPtr,
                 value: *mut i32,
             ) -> ::windows::HRESULT,
-            pub unsafe extern "system" fn(),
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                result__: *mut PropertyType,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 result__: *mut bool,
@@ -484,11 +620,26 @@ pub mod Windows {
                 this: ::windows::RawPtr,
                 result__: *mut ::windows::Guid,
             ) -> ::windows::HRESULT,
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                result__: *mut DateTime,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                result__: *mut TimeSpan,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                result__: *mut Point,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                result__: *mut Size,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                result__: *mut Rect,
+            ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
@@ -559,11 +710,286 @@ pub mod Windows {
                 value_array_size: *mut u32,
                 value: *mut *mut ::windows::Guid,
             ) -> ::windows::HRESULT,
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: *mut u32,
+                value: *mut *mut DateTime,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: *mut u32,
+                value: *mut *mut TimeSpan,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: *mut u32,
+                value: *mut *mut Point,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: *mut u32,
+                value: *mut *mut Size,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: *mut u32,
+                value: *mut *mut Rect,
+            ) -> ::windows::HRESULT,
+        );
+        #[repr(transparent)]
+        #[derive(
+            :: std :: cmp :: PartialEq,
+            :: std :: cmp :: Eq,
+            :: std :: clone :: Clone,
+            :: std :: fmt :: Debug,
+        )]
+        #[doc(hidden)]
+        pub struct IPropertyValueStatics(::windows::IInspectable);
+        unsafe impl ::windows::Interface for IPropertyValueStatics {
+            type Vtable = IPropertyValueStatics_abi;
+            const IID: ::windows::Guid = ::windows::Guid::from_values(
+                1654381512,
+                55602,
+                20468,
+                [150, 185, 141, 150, 197, 193, 232, 88],
+            );
+        }
+        #[repr(C)]
+        #[doc(hidden)]
+        pub struct IPropertyValueStatics_abi(
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                iid: &::windows::Guid,
+                interface: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+            pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                count: *mut u32,
+                values: *mut *mut ::windows::Guid,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: *mut i32,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: u8,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: i16,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: u16,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: i32,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: u32,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: i64,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: u64,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: f32,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: f64,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: u16,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: bool,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: ::windows::RawPtr,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: ::windows::RawPtr,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: ::windows::Guid,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: DateTime,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: TimeSpan,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: Point,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: Size,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value: Rect,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const u8,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const i16,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const u16,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const i32,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const u32,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const i64,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const u64,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const f32,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const f64,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const u16,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const bool,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const ::windows::RawPtr,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const ::windows::RawPtr,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const ::windows::Guid,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const DateTime,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const TimeSpan,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const Point,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const Size,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
+            pub  unsafe extern "system" fn(
+                this: ::windows::RawPtr,
+                value_array_size: u32,
+                value: *const Rect,
+                result__: *mut ::windows::RawPtr,
+            ) -> ::windows::HRESULT,
         );
         #[repr(transparent)]
         #[derive(
@@ -588,6 +1014,14 @@ pub mod Windows {
                     let mut result__: <T as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(::windows::Abi::abi(this), &mut result__)
                         .from_abi::<T>(result__)
+                }
+            }
+            pub fn Type(&self) -> ::windows::Result<PropertyType> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    let mut result__: <PropertyType as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).6)(::windows::Abi::abi(this), &mut result__)
+                        .from_abi::<PropertyType>(result__)
                 }
             }
             pub fn IsNumericScalar(&self) -> ::windows::Result<bool> {
@@ -735,6 +1169,61 @@ pub mod Windows {
                         &mut result__,
                     )
                     .from_abi::<::windows::Guid>(result__)
+                }
+            }
+            pub fn GetDateTime(&self) -> ::windows::Result<DateTime> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    let mut result__: <DateTime as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).21)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<DateTime>(result__)
+                }
+            }
+            pub fn GetTimeSpan(&self) -> ::windows::Result<TimeSpan> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    let mut result__: <TimeSpan as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).22)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<TimeSpan>(result__)
+                }
+            }
+            pub fn GetPoint(&self) -> ::windows::Result<Point> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    let mut result__: <Point as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).23)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<Point>(result__)
+                }
+            }
+            pub fn GetSize(&self) -> ::windows::Result<Size> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    let mut result__: <Size as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).24)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<Size>(result__)
+                }
+            }
+            pub fn GetRect(&self) -> ::windows::Result<Rect> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    let mut result__: <Rect as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).25)(
+                        ::windows::Abi::abi(this),
+                        &mut result__,
+                    )
+                    .from_abi::<Rect>(result__)
                 }
             }
             pub fn GetUInt8Array(&self, value: &mut ::windows::Array<u8>) -> ::windows::Result<()> {
@@ -923,6 +1412,76 @@ pub mod Windows {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
                 unsafe {
                     (::windows::Interface::vtable(this).39)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetDateTimeArray(
+                &self,
+                value: &mut ::windows::Array<DateTime>,
+            ) -> ::windows::Result<()> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    (::windows::Interface::vtable(this).40)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetTimeSpanArray(
+                &self,
+                value: &mut ::windows::Array<TimeSpan>,
+            ) -> ::windows::Result<()> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    (::windows::Interface::vtable(this).41)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetPointArray(
+                &self,
+                value: &mut ::windows::Array<Point>,
+            ) -> ::windows::Result<()> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    (::windows::Interface::vtable(this).42)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetSizeArray(
+                &self,
+                value: &mut ::windows::Array<Size>,
+            ) -> ::windows::Result<()> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    (::windows::Interface::vtable(this).43)(
+                        ::windows::Abi::abi(this),
+                        value.set_abi_len(),
+                        value.set_abi(),
+                    )
+                    .ok()
+                }
+            }
+            pub fn GetRectArray(
+                &self,
+                value: &mut ::windows::Array<Rect>,
+            ) -> ::windows::Result<()> {
+                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                unsafe {
+                    (::windows::Interface::vtable(this).44)(
                         ::windows::Abi::abi(this),
                         value.set_abi_len(),
                         value.set_abi(),
@@ -1108,216 +1667,6 @@ pub mod Windows {
                 result__: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT,
         );
-        #[repr(transparent)]
-        #[derive(
-            :: std :: cmp :: PartialEq,
-            :: std :: cmp :: Eq,
-            :: std :: clone :: Clone,
-            :: std :: fmt :: Debug,
-        )]
-        #[doc(hidden)]
-        pub struct IPropertyValueStatics(::windows::IInspectable);
-        unsafe impl ::windows::Interface for IPropertyValueStatics {
-            type Vtable = IPropertyValueStatics_abi;
-            const IID: ::windows::Guid = ::windows::Guid::from_values(
-                1654381512,
-                55602,
-                20468,
-                [150, 185, 141, 150, 197, 193, 232, 88],
-            );
-        }
-        #[repr(C)]
-        #[doc(hidden)]
-        pub struct IPropertyValueStatics_abi(
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                iid: &::windows::Guid,
-                interface: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-            pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                count: *mut u32,
-                values: *mut *mut ::windows::Guid,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: *mut i32,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: u8,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: i16,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: u16,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: i32,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: u32,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: i64,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: u64,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: f32,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: f64,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: u16,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: bool,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: ::windows::RawPtr,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: ::windows::RawPtr,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value: ::windows::Guid,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const u8,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const i16,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const u16,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const i32,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const u32,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const i64,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const u64,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const f32,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const f64,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const u16,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const bool,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const ::windows::RawPtr,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const ::windows::RawPtr,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub  unsafe extern "system" fn(
-                this: ::windows::RawPtr,
-                value_array_size: u32,
-                value: *const ::windows::Guid,
-                result__: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT,
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-            pub unsafe extern "system" fn(),
-        );
         pub struct PropertyValue {}
         impl PropertyValue {
             pub fn CreateEmpty() -> ::windows::Result<::windows::IInspectable> {
@@ -1495,6 +1844,76 @@ pub mod Windows {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).20)(
+                        ::windows::Abi::abi(this),
+                        value.into_param().abi(),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreateDateTime<'a>(
+                value: impl ::windows::IntoParam<'a, DateTime>,
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).21)(
+                        ::windows::Abi::abi(this),
+                        value.into_param().abi(),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreateTimeSpan<'a>(
+                value: impl ::windows::IntoParam<'a, TimeSpan>,
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).22)(
+                        ::windows::Abi::abi(this),
+                        value.into_param().abi(),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreatePoint<'a>(
+                value: impl ::windows::IntoParam<'a, Point>,
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).23)(
+                        ::windows::Abi::abi(this),
+                        value.into_param().abi(),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreateSize<'a>(
+                value: impl ::windows::IntoParam<'a, Size>,
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).24)(
+                        ::windows::Abi::abi(this),
+                        value.into_param().abi(),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreateRect<'a>(
+                value: impl ::windows::IntoParam<'a, Rect>,
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).25)(
                         ::windows::Abi::abi(this),
                         value.into_param().abi(),
                         &mut result__,
@@ -1712,6 +2131,81 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
+            pub fn CreateDateTimeArray(
+                value: &[<DateTime as ::windows::RuntimeType>::DefaultType],
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).40)(
+                        ::windows::Abi::abi(this),
+                        value.len() as u32,
+                        ::std::mem::transmute(value.as_ptr()),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreateTimeSpanArray(
+                value: &[<TimeSpan as ::windows::RuntimeType>::DefaultType],
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).41)(
+                        ::windows::Abi::abi(this),
+                        value.len() as u32,
+                        ::std::mem::transmute(value.as_ptr()),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreatePointArray(
+                value: &[<Point as ::windows::RuntimeType>::DefaultType],
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).42)(
+                        ::windows::Abi::abi(this),
+                        value.len() as u32,
+                        ::std::mem::transmute(value.as_ptr()),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreateSizeArray(
+                value: &[<Size as ::windows::RuntimeType>::DefaultType],
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).43)(
+                        ::windows::Abi::abi(this),
+                        value.len() as u32,
+                        ::std::mem::transmute(value.as_ptr()),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
+            pub fn CreateRectArray(
+                value: &[<Rect as ::windows::RuntimeType>::DefaultType],
+            ) -> ::windows::Result<::windows::IInspectable> {
+                Self::IPropertyValueStatics(|this| unsafe {
+                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
+                        ::std::mem::zeroed();
+                    (::windows::Interface::vtable(this).44)(
+                        ::windows::Abi::abi(this),
+                        value.len() as u32,
+                        ::std::mem::transmute(value.as_ptr()),
+                        &mut result__,
+                    )
+                    .from_abi::<::windows::IInspectable>(result__)
+                })
+            }
             pub fn IPropertyValueStatics<
                 R,
                 F: FnOnce(&IPropertyValueStatics) -> ::windows::Result<R>,
@@ -1749,58 +2243,86 @@ pub mod Windows {
         pub mod Foundation {
             #[repr(transparent)]
             #[derive(
+                :: std :: default :: Default,
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
+                :: std :: cmp :: PartialEq,
                 :: std :: cmp :: Eq,
                 :: std :: fmt :: Debug,
             )]
-            pub struct PWSTR(pub *mut u16);
-            impl PWSTR {
-                pub const NULL: Self = Self(::std::ptr::null_mut());
-                pub fn is_null(&self) -> bool {
-                    self.0.is_null()
-                }
-            }
-            impl ::std::default::Default for PWSTR {
-                fn default() -> Self {
-                    Self(::std::ptr::null_mut())
-                }
-            }
-            impl ::std::cmp::PartialEq for PWSTR {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-                }
-            }
-            unsafe impl ::windows::Abi for PWSTR {
+            pub struct BOOL(pub i32);
+            unsafe impl ::windows::Abi for BOOL {
                 type Abi = Self;
-                fn drop_param(param: &mut ::windows::Param<Self>) {
-                    if let ::windows::Param::Boxed(value) = param {
-                        if !value.0.is_null() {
-                            unsafe {
-                                ::std::boxed::Box::from_raw(value.0);
-                            }
-                        }
+            }
+            impl BOOL {
+                #[inline]
+                pub fn as_bool(self) -> bool {
+                    !(self.0 == 0)
+                }
+                #[inline]
+                pub fn ok(self) -> ::windows::Result<()> {
+                    if self.as_bool() {
+                        Ok(())
+                    } else {
+                        Err(::windows::HRESULT::from_thread().into())
+                    }
+                }
+                #[inline]
+                pub fn unwrap(self) {
+                    self.ok().unwrap();
+                }
+                #[inline]
+                pub fn expect(self, msg: &str) {
+                    self.ok().expect(msg);
+                }
+            }
+            impl ::std::convert::From<BOOL> for bool {
+                fn from(value: BOOL) -> Self {
+                    value.as_bool()
+                }
+            }
+            impl ::std::convert::From<&BOOL> for bool {
+                fn from(value: &BOOL) -> Self {
+                    value.as_bool()
+                }
+            }
+            impl ::std::convert::From<bool> for BOOL {
+                fn from(value: bool) -> Self {
+                    if value {
+                        BOOL(1)
+                    } else {
+                        BOOL(0)
                     }
                 }
             }
-            impl<'a> ::windows::IntoParam<'a, PWSTR> for &'a str {
-                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
-                    ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
-                        self.encode_utf16()
-                            .chain(::std::iter::once(0))
-                            .collect::<std::vec::Vec<u16>>()
-                            .into_boxed_slice(),
-                    ) as _))
+            impl ::std::convert::From<&bool> for BOOL {
+                fn from(value: &bool) -> Self {
+                    (*value).into()
                 }
             }
-            impl<'a> ::windows::IntoParam<'a, PWSTR> for String {
-                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
-                    ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
-                        self.encode_utf16()
-                            .chain(::std::iter::once(0))
-                            .collect::<std::vec::Vec<u16>>()
-                            .into_boxed_slice(),
-                    ) as _))
+            impl ::std::cmp::PartialEq<bool> for BOOL {
+                fn eq(&self, other: &bool) -> bool {
+                    self.as_bool() == *other
+                }
+            }
+            impl ::std::cmp::PartialEq<BOOL> for bool {
+                fn eq(&self, other: &BOOL) -> bool {
+                    *self == other.as_bool()
+                }
+            }
+            impl std::ops::Not for BOOL {
+                type Output = Self;
+                fn not(self) -> Self::Output {
+                    if self.as_bool() {
+                        BOOL(0)
+                    } else {
+                        BOOL(1)
+                    }
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, BOOL> for bool {
+                fn into_param(self) -> ::windows::Param<'a, BOOL> {
+                    ::windows::Param::Owned(self.into())
                 }
             }
             #[repr(transparent)]
@@ -1938,90 +2460,22 @@ pub mod Windows {
             pub type BSTR_abi = *mut u16;
             pub const CO_E_NOTINITIALIZED: ::windows::HRESULT =
                 ::windows::HRESULT(-2147221008i32 as _);
-            #[repr(transparent)]
-            #[derive(
-                :: std :: default :: Default,
-                :: std :: clone :: Clone,
-                :: std :: marker :: Copy,
-                :: std :: cmp :: PartialEq,
-                :: std :: cmp :: Eq,
-                :: std :: fmt :: Debug,
-            )]
-            pub struct BOOL(pub i32);
-            unsafe impl ::windows::Abi for BOOL {
-                type Abi = Self;
-            }
-            impl BOOL {
-                #[inline]
-                pub fn as_bool(self) -> bool {
-                    !(self.0 == 0)
-                }
-                #[inline]
-                pub fn ok(self) -> ::windows::Result<()> {
-                    if self.as_bool() {
-                        Ok(())
-                    } else {
-                        Err(::windows::HRESULT::from_thread().into())
+            pub unsafe fn CloseHandle<'a>(hobject: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
+                #[cfg(windows)]
+                {
+                    #[link(name = "KERNEL32")]
+                    extern "system" {
+                        fn CloseHandle(hobject: HANDLE) -> BOOL;
                     }
+                    CloseHandle(hobject.into_param().abi())
                 }
-                #[inline]
-                pub fn unwrap(self) {
-                    self.ok().unwrap();
-                }
-                #[inline]
-                pub fn expect(self, msg: &str) {
-                    self.ok().expect(msg);
+                #[cfg(not(windows))]
+                {
+                    unimplemented!("Unsupported target OS");
                 }
             }
-            impl ::std::convert::From<BOOL> for bool {
-                fn from(value: BOOL) -> Self {
-                    value.as_bool()
-                }
-            }
-            impl ::std::convert::From<&BOOL> for bool {
-                fn from(value: &BOOL) -> Self {
-                    value.as_bool()
-                }
-            }
-            impl ::std::convert::From<bool> for BOOL {
-                fn from(value: bool) -> Self {
-                    if value {
-                        BOOL(1)
-                    } else {
-                        BOOL(0)
-                    }
-                }
-            }
-            impl ::std::convert::From<&bool> for BOOL {
-                fn from(value: &bool) -> Self {
-                    (*value).into()
-                }
-            }
-            impl ::std::cmp::PartialEq<bool> for BOOL {
-                fn eq(&self, other: &bool) -> bool {
-                    self.as_bool() == *other
-                }
-            }
-            impl ::std::cmp::PartialEq<BOOL> for bool {
-                fn eq(&self, other: &BOOL) -> bool {
-                    *self == other.as_bool()
-                }
-            }
-            impl std::ops::Not for BOOL {
-                type Output = Self;
-                fn not(self) -> Self::Output {
-                    if self.as_bool() {
-                        BOOL(0)
-                    } else {
-                        BOOL(1)
-                    }
-                }
-            }
-            impl<'a> ::windows::IntoParam<'a, BOOL> for bool {
-                fn into_param(self) -> ::windows::Param<'a, BOOL> {
-                    ::windows::Param::Owned(self.into())
-                }
-            }
+            pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
+            pub type FARPROC = unsafe extern "system" fn() -> isize;
             #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HANDLE(pub isize);
@@ -2059,21 +2513,6 @@ pub mod Windows {
                     self.0 == -1
                 }
             }
-            pub unsafe fn CloseHandle<'a>(hobject: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
-                #[cfg(windows)]
-                {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn CloseHandle(hobject: HANDLE) -> BOOL;
-                    }
-                    CloseHandle(hobject.into_param().abi())
-                }
-                #[cfg(not(windows))]
-                {
-                    unimplemented!("Unsupported target OS");
-                }
-            }
-            pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
             #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HINSTANCE(pub isize);
@@ -2105,7 +2544,6 @@ pub mod Windows {
             unsafe impl ::windows::Abi for HINSTANCE {
                 type Abi = Self;
             }
-            pub type FARPROC = unsafe extern "system" fn() -> isize;
             #[repr(transparent)]
             #[derive(
                 :: std :: clone :: Clone,
@@ -2158,6 +2596,62 @@ pub mod Windows {
                         self.bytes()
                             .chain(::std::iter::once(0))
                             .collect::<std::vec::Vec<u8>>()
+                            .into_boxed_slice(),
+                    ) as _))
+                }
+            }
+            #[repr(transparent)]
+            #[derive(
+                :: std :: clone :: Clone,
+                :: std :: marker :: Copy,
+                :: std :: cmp :: Eq,
+                :: std :: fmt :: Debug,
+            )]
+            pub struct PWSTR(pub *mut u16);
+            impl PWSTR {
+                pub const NULL: Self = Self(::std::ptr::null_mut());
+                pub fn is_null(&self) -> bool {
+                    self.0.is_null()
+                }
+            }
+            impl ::std::default::Default for PWSTR {
+                fn default() -> Self {
+                    Self(::std::ptr::null_mut())
+                }
+            }
+            impl ::std::cmp::PartialEq for PWSTR {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            unsafe impl ::windows::Abi for PWSTR {
+                type Abi = Self;
+                fn drop_param(param: &mut ::windows::Param<Self>) {
+                    if let ::windows::Param::Boxed(value) = param {
+                        if !value.0.is_null() {
+                            unsafe {
+                                ::std::boxed::Box::from_raw(value.0);
+                            }
+                        }
+                    }
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for &'a str {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                    ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
+                        self.encode_utf16()
+                            .chain(::std::iter::once(0))
+                            .collect::<std::vec::Vec<u16>>()
+                            .into_boxed_slice(),
+                    ) as _))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for String {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                    ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
+                        self.encode_utf16()
+                            .chain(::std::iter::once(0))
+                            .collect::<std::vec::Vec<u16>>()
                             .into_boxed_slice(),
                     ) as _))
                 }
@@ -2234,43 +2728,6 @@ pub mod Windows {
                 clippy::all
             )]
             pub mod Com {
-                pub unsafe fn CLSIDFromProgID<'a>(
-                    lpszprogid: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
-                    lpclsid: *mut ::windows::Guid,
-                ) -> ::windows::HRESULT {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "OLE32")]
-                        extern "system" {
-                            fn CLSIDFromProgID(
-                                lpszprogid: super::super::Foundation::PWSTR,
-                                lpclsid: *mut ::windows::Guid,
-                            ) -> ::windows::HRESULT;
-                        }
-                        CLSIDFromProgID(
-                            lpszprogid.into_param().abi(),
-                            ::std::mem::transmute(lpclsid),
-                        )
-                    }
-                    #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
-                pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "OLE32")]
-                        extern "system" {
-                            fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
-                        }
-                        CoCreateGuid(::std::mem::transmute(pguid))
-                    }
-                    #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
                 #[derive(
                     :: std :: cmp :: PartialEq,
                     :: std :: cmp :: Eq,
@@ -2340,32 +2797,23 @@ pub mod Windows {
                         self.0.bitand_assign(rhs.0)
                     }
                 }
-                pub unsafe fn CoCreateInstance<'a, T: ::windows::Interface>(
-                    rclsid: *const ::windows::Guid,
-                    punkouter: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
-                    dwclscontext: CLSCTX,
-                ) -> ::windows::Result<T> {
+                pub unsafe fn CLSIDFromProgID<'a>(
+                    lpszprogid: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
+                    lpclsid: *mut ::windows::Guid,
+                ) -> ::windows::HRESULT {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLE32")]
                         extern "system" {
-                            fn CoCreateInstance(
-                                rclsid: *const ::windows::Guid,
-                                punkouter: ::windows::RawPtr,
-                                dwclscontext: CLSCTX,
-                                riid: *const ::windows::Guid,
-                                ppv: *mut *mut ::std::ffi::c_void,
+                            fn CLSIDFromProgID(
+                                lpszprogid: super::super::Foundation::PWSTR,
+                                lpclsid: *mut ::windows::Guid,
                             ) -> ::windows::HRESULT;
                         }
-                        let mut result__ = ::std::option::Option::None;
-                        CoCreateInstance(
-                            ::std::mem::transmute(rclsid),
-                            punkouter.into_param().abi(),
-                            ::std::mem::transmute(dwclscontext),
-                            &<T as ::windows::Interface>::IID,
-                            ::windows::Abi::set_abi(&mut result__),
+                        CLSIDFromProgID(
+                            lpszprogid.into_param().abi(),
+                            ::std::mem::transmute(lpclsid),
                         )
-                        .and_some(result__)
                     }
                     #[cfg(not(windows))]
                     {
@@ -2414,6 +2862,52 @@ pub mod Windows {
                 impl ::std::ops::BitAndAssign for COINIT {
                     fn bitand_assign(&mut self, rhs: Self) {
                         self.0.bitand_assign(rhs.0)
+                    }
+                }
+                pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLE32")]
+                        extern "system" {
+                            fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
+                        }
+                        CoCreateGuid(::std::mem::transmute(pguid))
+                    }
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+                pub unsafe fn CoCreateInstance<'a, T: ::windows::Interface>(
+                    rclsid: *const ::windows::Guid,
+                    punkouter: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
+                    dwclscontext: CLSCTX,
+                ) -> ::windows::Result<T> {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLE32")]
+                        extern "system" {
+                            fn CoCreateInstance(
+                                rclsid: *const ::windows::Guid,
+                                punkouter: ::windows::RawPtr,
+                                dwclscontext: CLSCTX,
+                                riid: *const ::windows::Guid,
+                                ppv: *mut *mut ::std::ffi::c_void,
+                            ) -> ::windows::HRESULT;
+                        }
+                        let mut result__ = ::std::option::Option::None;
+                        CoCreateInstance(
+                            ::std::mem::transmute(rclsid),
+                            punkouter.into_param().abi(),
+                            ::std::mem::transmute(dwclscontext),
+                            &<T as ::windows::Interface>::IID,
+                            ::windows::Abi::set_abi(&mut result__),
+                        )
+                        .and_some(result__)
+                    }
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
                     }
                 }
                 pub unsafe fn CoInitializeEx(
@@ -2625,6 +3119,20 @@ pub mod Windows {
                                 ::std::mem::transmute(nsize),
                                 ::std::mem::transmute(arguments),
                             )
+                        }
+                        #[cfg(not(windows))]
+                        {
+                            unimplemented!("Unsupported target OS");
+                        }
+                    }
+                    pub unsafe fn GetLastError() -> WIN32_ERROR {
+                        #[cfg(windows)]
+                        {
+                            #[link(name = "KERNEL32")]
+                            extern "system" {
+                                fn GetLastError() -> WIN32_ERROR;
+                            }
+                            GetLastError()
                         }
                         #[cfg(not(windows))]
                         {
@@ -6643,20 +7151,6 @@ pub mod Windows {
                             self.0.bitand_assign(rhs.0)
                         }
                     }
-                    pub unsafe fn GetLastError() -> WIN32_ERROR {
-                        #[cfg(windows)]
-                        {
-                            #[link(name = "KERNEL32")]
-                            extern "system" {
-                                fn GetLastError() -> WIN32_ERROR;
-                            }
-                            GetLastError()
-                        }
-                        #[cfg(not(windows))]
-                        {
-                            unimplemented!("Unsupported target OS");
-                        }
-                    }
                 }
             }
             #[allow(
@@ -6736,37 +7230,6 @@ pub mod Windows {
                 clippy::all
             )]
             pub mod Memory {
-                #[repr(transparent)]
-                #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-                pub struct HeapHandle(pub isize);
-                impl HeapHandle {}
-                impl ::std::default::Default for HeapHandle {
-                    fn default() -> Self {
-                        Self(0)
-                    }
-                }
-                impl HeapHandle {
-                    pub const NULL: Self = Self(0);
-                    pub fn is_null(&self) -> bool {
-                        self.0 == 0
-                    }
-                }
-                impl ::std::fmt::Debug for HeapHandle {
-                    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                        fmt.debug_struct("HeapHandle")
-                            .field("Value", &format_args!("{:?}", self.0))
-                            .finish()
-                    }
-                }
-                impl ::std::cmp::PartialEq for HeapHandle {
-                    fn eq(&self, other: &Self) -> bool {
-                        self.0 == other.0
-                    }
-                }
-                impl ::std::cmp::Eq for HeapHandle {}
-                unsafe impl ::windows::Abi for HeapHandle {
-                    type Abi = Self;
-                }
                 pub unsafe fn GetProcessHeap() -> HeapHandle {
                     #[cfg(windows)]
                     {
@@ -6890,6 +7353,37 @@ pub mod Windows {
                         unimplemented!("Unsupported target OS");
                     }
                 }
+                #[repr(transparent)]
+                #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+                pub struct HeapHandle(pub isize);
+                impl HeapHandle {}
+                impl ::std::default::Default for HeapHandle {
+                    fn default() -> Self {
+                        Self(0)
+                    }
+                }
+                impl HeapHandle {
+                    pub const NULL: Self = Self(0);
+                    pub fn is_null(&self) -> bool {
+                        self.0 == 0
+                    }
+                }
+                impl ::std::fmt::Debug for HeapHandle {
+                    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                        fmt.debug_struct("HeapHandle")
+                            .field("Value", &format_args!("{:?}", self.0))
+                            .finish()
+                    }
+                }
+                impl ::std::cmp::PartialEq for HeapHandle {
+                    fn eq(&self, other: &Self) -> bool {
+                        self.0 == other.0
+                    }
+                }
+                impl ::std::cmp::Eq for HeapHandle {}
+                unsafe impl ::windows::Abi for HeapHandle {
+                    type Abi = Self;
+                }
             }
             #[allow(
                 unused_variables,
@@ -6901,52 +7395,23 @@ pub mod Windows {
                 clippy::all
             )]
             pub mod OleAutomation {
-                pub unsafe fn SysFreeString<'a>(
-                    bstrstring: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
-                ) {
+                pub unsafe fn GetErrorInfo(
+                    dwreserved: u32,
+                    pperrinfo: *mut ::std::option::Option<IErrorInfo>,
+                ) -> ::windows::HRESULT {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLEAUT32")]
                         extern "system" {
-                            fn SysFreeString(bstrstring: super::super::Foundation::BSTR_abi);
+                            fn GetErrorInfo(
+                                dwreserved: u32,
+                                pperrinfo: *mut ::windows::RawPtr,
+                            ) -> ::windows::HRESULT;
                         }
-                        SysFreeString(bstrstring.into_param().abi())
-                    }
-                    #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
-                pub unsafe fn SysAllocStringLen<'a>(
-                    strin: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
-                    ui: u32,
-                ) -> super::super::Foundation::BSTR {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "OLEAUT32")]
-                        extern "system" {
-                            fn SysAllocStringLen(
-                                strin: super::super::Foundation::PWSTR,
-                                ui: u32,
-                            ) -> super::super::Foundation::BSTR;
-                        }
-                        SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
-                    }
-                    #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
-                pub unsafe fn SysStringLen<'a>(
-                    pbstr: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
-                ) -> u32 {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "OLEAUT32")]
-                        extern "system" {
-                            fn SysStringLen(pbstr: super::super::Foundation::BSTR_abi) -> u32;
-                        }
-                        SysStringLen(pbstr.into_param().abi())
+                        GetErrorInfo(
+                            ::std::mem::transmute(dwreserved),
+                            ::std::mem::transmute(pperrinfo),
+                        )
                     }
                     #[cfg(not(windows))]
                     {
@@ -7072,29 +7537,6 @@ pub mod Windows {
                         pdwhelpcontext: *mut u32,
                     ) -> ::windows::HRESULT,
                 );
-                pub unsafe fn GetErrorInfo(
-                    dwreserved: u32,
-                    pperrinfo: *mut ::std::option::Option<IErrorInfo>,
-                ) -> ::windows::HRESULT {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "OLEAUT32")]
-                        extern "system" {
-                            fn GetErrorInfo(
-                                dwreserved: u32,
-                                pperrinfo: *mut ::windows::RawPtr,
-                            ) -> ::windows::HRESULT;
-                        }
-                        GetErrorInfo(
-                            ::std::mem::transmute(dwreserved),
-                            ::std::mem::transmute(pperrinfo),
-                        )
-                    }
-                    #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
                 pub unsafe fn SetErrorInfo<'a>(
                     dwreserved: u32,
                     perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
@@ -7112,6 +7554,58 @@ pub mod Windows {
                             ::std::mem::transmute(dwreserved),
                             perrinfo.into_param().abi(),
                         )
+                    }
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+                pub unsafe fn SysAllocStringLen<'a>(
+                    strin: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
+                    ui: u32,
+                ) -> super::super::Foundation::BSTR {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLEAUT32")]
+                        extern "system" {
+                            fn SysAllocStringLen(
+                                strin: super::super::Foundation::PWSTR,
+                                ui: u32,
+                            ) -> super::super::Foundation::BSTR;
+                        }
+                        SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
+                    }
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+                pub unsafe fn SysFreeString<'a>(
+                    bstrstring: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
+                ) {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLEAUT32")]
+                        extern "system" {
+                            fn SysFreeString(bstrstring: super::super::Foundation::BSTR_abi);
+                        }
+                        SysFreeString(bstrstring.into_param().abi())
+                    }
+                    #[cfg(not(windows))]
+                    {
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+                pub unsafe fn SysStringLen<'a>(
+                    pbstr: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
+                ) -> u32 {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = "OLEAUT32")]
+                        extern "system" {
+                            fn SysStringLen(pbstr: super::super::Foundation::BSTR_abi) -> u32;
+                        }
+                        SysStringLen(pbstr.into_param().abi())
                     }
                     #[cfg(not(windows))]
                     {

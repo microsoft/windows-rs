@@ -336,15 +336,10 @@ impl ElementType {
         }
     }
 
+    // TODO: remove this
     pub fn gen(&self, gen: &Gen) -> TokenStream {
         match self {
-            Self::MethodDef(t) => t.gen(gen),
-            Self::Field(t) => t.gen(gen),
-            Self::TypeDef(t) => t.gen(gen),
             Self::GenericParam(p) => p.gen_name(),
-            Self::IInspectable => {
-                quote! { ::windows::IInspectable }
-            }
             _ => unexpected!(),
         }
     }

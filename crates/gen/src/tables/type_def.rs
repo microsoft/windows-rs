@@ -156,7 +156,8 @@ impl TypeDef {
         }
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    // TODO: use `include` to determin whether to gen full or minimal definition
+    pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         // TODO: all the cloning here is ridiculous
         match self.kind() {
             TypeKind::Interface => {
@@ -414,6 +415,7 @@ impl TypeDef {
     }
 
     pub fn gen_phantoms<'a>(&'a self, gen: &'a Gen) -> impl Iterator<Item = TokenStream> + 'a {
+        // TODO: this gen really only needs the GenericParam name
         self.generics.iter().map(move |g| {
             let g = g.gen(gen);
             quote! { ::std::marker::PhantomData::<#g> }
@@ -421,6 +423,7 @@ impl TypeDef {
     }
 
     pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
+        // TODO: this gen really only needs the GenericParam name
         self.generics
             .iter()
             .map(|g| {
