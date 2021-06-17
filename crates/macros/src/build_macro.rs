@@ -1,7 +1,6 @@
 use super::*;
 
 use gen::TypeReader;
-use std::collections::*;
 use syn::parse::*;
 use syn::*;
 

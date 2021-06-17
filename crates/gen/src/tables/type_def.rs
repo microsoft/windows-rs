@@ -373,7 +373,7 @@ impl TypeDef {
         unexpected!();
     }
 
-    pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
+    pub fn gen_signature(&self, signature: &str) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
 
         if self.generics.is_empty() {

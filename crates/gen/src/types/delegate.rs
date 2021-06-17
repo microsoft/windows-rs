@@ -37,10 +37,10 @@ impl Delegate {
         // for compile-time const guid calculations.
         let type_signature = if self.0.generics.is_empty() {
             self.0
-                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()), gen)
+                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()))
         } else {
             self.0
-                .gen_signature(&format!("{{{:#?}}}", &self.0.guid()), gen)
+                .gen_signature(&format!("{{{:#?}}}", &self.0.guid()))
         };
 
         let (box_name, box_definition) = if self.0.generics.is_empty() {
