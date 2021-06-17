@@ -167,6 +167,7 @@ pub struct TypeReader {
     pub types: TypeTree2,
 }
 
+// TODO: all the dependencies functions should return collection of TypeRow (not ElementType)
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 pub enum TypeRow {
     TypeDef(tables::TypeDef),
@@ -175,11 +176,27 @@ pub enum TypeRow {
 }
 
 impl TypeRow {
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self) -> Vec<TypeRow> {
         match self {
             Self::TypeDef(def) => def.dependencies(),
-            Self::MethodDef(def) => def.dependencies(&[]),
+            Self::MethodDef(def) => def.dependencies(),
             Self::Field(def) => def.dependencies(),
+        }
+    }
+
+    pub fn name(&self) -> &str {
+        match self {
+            Self::TypeDef(def) => def.name(),
+            Self::MethodDef(def) => def.name(),
+            Self::Field(def) => def.name(),
+        }
+    }
+
+    pub fn namespace(&self) -> &str {
+        match self {
+            Self::TypeDef(def) => def.namespace(),
+            Self::MethodDef(def) => def.parent().namespace(),
+            Self::Field(def) => def.parent().namespace(),
         }
     }
 }
@@ -341,7 +358,7 @@ impl TypeReader {
         name: &str,
     ) -> Option<(&'static str, &'static str)> {
         if let Some(tree) = self.types.get_namespace(namespace) {
-            if let Some((key, value)) = tree.types.get_key_value(name) {
+            if let Some((key, _)) = tree.types.get_key_value(name) {
                 return Some((tree.namespace, key));
             }
         }
@@ -353,29 +370,44 @@ impl TypeReader {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
 
+    fn import_type_dependencies(&mut self, def: &TypeRow) {
+        // TODO: should pass `include` to dependnecies so we can bleed off and not make this recursive,
+        // not include dependencies of classes/interfaces that are minimally imported.
+        for def in def.dependencies() {
+            let namespace = def.namespace();
+
+            if namespace.is_empty() {
+            // TODO: if def.namespace is empty it means its a nested type and we need to find its dependencies but we need its TypeDef...
+                for def in def.dependencies() {
+                    self.import_type_dependencies(&def);
+                }
+            } else {
+                self.import_type_include(namespace, def.name(), TypeInclude::Minimal);
+            }
+        }
+    }
+
     fn import_type_include(&mut self, namespace: &str, name: &str, include: TypeInclude) -> bool {
+        assert!(!namespace.is_empty());
         if let Some(entry) = self
             .types
             .get_namespace_mut(namespace)
             .and_then(|tree| tree.get_type_mut(name))
         {
+            let copy = entry.def.clone();
+
+            // TODO: Should consolidate these branches to avoid repetition
             if include == TypeInclude::Full {
                 if entry.include != TypeInclude::Full {
                     entry.include = TypeInclude::Full;
-
-                    for def in entry.def.dependencies() {
-                        self.import_type_include(def.namespace(), def.name(), TypeInclude::Minimal);
-                    }
+                    self.import_type_dependencies(&copy);
                 }
             } else {
                 if entry.include == TypeInclude::None {
                     entry.include = TypeInclude::Minimal;
-
-                    for def in entry.def.dependencies() {
-                        self.import_type_include(def.namespace(), def.name(), TypeInclude::Minimal);
-                    }
+                    self.import_type_dependencies(&copy);
                 }
-                        }
+            }
 
             true
         } else {
@@ -405,6 +437,25 @@ impl TypeReader {
         // }
 
         panic!("Could not find type `{}.{}`", namespace, name);
+    }
+
+    pub fn result_type_row(&'static self, namespace: &str, name: &str) -> TypeRow {
+        // TODO: repeated in resolve_type above
+        if let Some(def) = self
+            .types
+            .get_namespace(namespace)
+            .and_then(|tree| tree.get_type(trim_tick(name)))
+        {
+            return def.def.clone();
+        }
+
+        // if let Some(types) = self.types.get(namespace) {
+        //     if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
+        //         return row.clone();
+        //     }
+        // }
+
+        panic!("Could not find type row `{}.{}`", namespace, name);
     }
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {

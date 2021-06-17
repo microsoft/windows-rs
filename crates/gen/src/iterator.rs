@@ -157,7 +157,7 @@ pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &G
         let name = interface.def.full_name();
 
         if name == ("Windows.Foundation.Collections", "IVectorView`1") {
-            let constraints = def.gen_constraints(gen);
+            let constraints = def.gen_constraints();
             let item = interface.def.generics[0].gen_name(gen);
             let name = def.gen_name(gen);
 
@@ -182,7 +182,7 @@ pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &G
         }
 
         if name == ("Windows.Foundation.Collections", "IVector`1") {
-            let constraints = def.gen_constraints(gen);
+            let constraints = def.gen_constraints();
             let item = interface.def.generics[0].gen_name(gen);
             let name = def.gen_name(gen);
 
@@ -214,7 +214,7 @@ pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &G
     match iterable {
         None => TokenStream::new(),
         Some(interface) => {
-            let constraints = def.gen_constraints(gen);
+            let constraints = def.gen_constraints();
             let item = interface.def.generics[0].gen_name(gen);
             let name = def.gen_name(gen);
 

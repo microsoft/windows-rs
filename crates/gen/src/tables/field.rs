@@ -52,7 +52,7 @@ impl Field {
         types::Constant::gen(self, gen)
     }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self) -> Vec<TypeRow> {
         self.signature().kind.definition()
     }
 
@@ -76,7 +76,7 @@ impl Field {
             .expect("Field")
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
+    pub fn definition(&self) -> Vec<TypeRow> {
         self.signature().definition()
     }
 

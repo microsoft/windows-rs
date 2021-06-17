@@ -240,9 +240,9 @@ impl ElementType {
     }
 
     // TODO: all dependencies methods should take a TypeInclude parameter and return a tuple?
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self) -> Vec<TypeRow> {
         match self {
-            Self::MethodDef(t) => t.dependencies(&[]),
+            Self::MethodDef(t) => t.dependencies(),
             Self::TypeDef(t) => t.dependencies(),
             Self::Field(t) => t.dependencies(),
             Self::Array((signature, _)) => signature.dependencies(),
@@ -250,13 +250,13 @@ impl ElementType {
         }
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
+    pub fn definition(&self) -> Vec<TypeRow> {
         match self {
             Self::TypeDef(t) => t.definition(),
             Self::Array((signature, _)) => signature.definition(),
             // TODO: find a cleaner way to map this dependency
             Self::Matrix3x2 => {
-                vec![TypeReader::get().resolve_type("Windows.Foundation.Numerics", "Matrix3x2")]
+                vec![TypeRow::TypeDef(TypeReader::get().resolve_type_def("Windows.Foundation.Numerics", "Matrix3x2"))]
             }
             _ => Vec::new(),
         }
@@ -338,7 +338,7 @@ impl ElementType {
     }
 
     // TODO: remove this
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    pub fn gen(&self) -> TokenStream {
         match self {
             Self::GenericParam(p) => p.gen_name(),
             _ => unexpected!(),

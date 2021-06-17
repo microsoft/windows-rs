@@ -11,7 +11,6 @@ mod parser;
 mod squote;
 pub mod tables;
 mod to_ident;
-mod type_tree;
 pub mod types;
 mod workspace;
 
@@ -24,7 +23,6 @@ pub use parser::*;
 pub use r#async::*;
 pub use squote::*;
 pub use to_ident::*;
-pub use type_tree::*;
 pub use workspace::*;
 
 // Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.

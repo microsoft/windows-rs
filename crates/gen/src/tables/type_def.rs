@@ -53,8 +53,8 @@ impl TypeDef {
     }
 
     // TODO: get rid of the definition functions
-    pub fn definition(&self) -> Vec<ElementType> {
-        let mut definition = vec![self.clone().into()];
+    pub fn definition(&self) -> Vec<TypeRow> {
+        let mut definition = vec![TypeRow::TypeDef(self.clone())];
 
         for generic in &self.generics {
             definition.append(&mut generic.definition());
@@ -210,14 +210,14 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self) -> Vec<TypeRow> {
         match self.kind() {
             TypeKind::Interface => {
-                let interfaces = self.interfaces().map(|i| i.into());
+                let interfaces = self.interfaces().map(|i| TypeRow::TypeDef(i.clone()));
 
                 let methods = self
                     .methods()
-                    .map(|m| m.dependencies(&self.generics))
+                    .map(|m| m.dependencies())
                     .flatten();
 
                 interfaces.chain(methods).collect()
@@ -232,7 +232,7 @@ impl TypeDef {
                         "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                             for (_, arg) in attribute.args() {
                                 if let parser::ConstantValue::TypeDef(def) = arg {
-                                    return Some(def.into());
+                                    return Some(TypeRow::TypeDef(def.clone()));
                                 }
                             }
                         }
@@ -257,38 +257,39 @@ impl TypeDef {
                 match self.full_name() {
                     ("Windows.Win32.Foundation", "BSTR") => {
                         dependencies.push(
-                            reader.resolve_type(
+                            reader.result_type_row(
                                 "Windows.Win32.System.OleAutomation",
                                 "SysFreeString",
                             ),
                         );
-                        dependencies.push(reader.resolve_type(
+                        dependencies.push(reader.result_type_row(
                             "Windows.Win32.System.OleAutomation",
                             "SysAllocStringLen",
                         ));
                         dependencies.push(
                             reader
-                                .resolve_type("Windows.Win32.System.OleAutomation", "SysStringLen"),
+                                .result_type_row("Windows.Win32.System.OleAutomation", "SysStringLen"),
                         );
                     }
                     ("Windows.Foundation.Numerics", "Matrix3x2") => {
-                        dependencies.push(reader.resolve_type(
+                        dependencies.push(reader.result_type_row(
                             "Windows.Win32.Graphics.Direct2D",
                             "D2D1MakeRotateMatrix",
                         ));
                     }
                     _ => {
+                        // TODO: doesn't seem to pick up nested type dependencies e.g. D3D11_DEPTH_STENCIL_VIEW_DESC
                         dependencies.extend(self.fields().map(|f| f.definition()).flatten());
 
                         if let Some(dependency) = self.is_convertible_to() {
-                            dependencies.push(dependency);
+                            dependencies.push(TypeRow::TypeDef(dependency));
                         }
                     }
                 }
 
                 dependencies
             }
-            TypeKind::Delegate => self.invoke_method().dependencies(&self.generics),
+            TypeKind::Delegate => self.invoke_method().dependencies(),
         }
     }
 
@@ -383,7 +384,7 @@ impl TypeDef {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen(gen);
+            let g = g.gen();
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
@@ -410,20 +411,20 @@ impl TypeDef {
         }
     }
 
-    pub fn gen_phantoms<'a>(&'a self, gen: &'a Gen) -> impl Iterator<Item = TokenStream> + 'a {
+    pub fn gen_phantoms<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         // TODO: this gen really only needs the GenericParam name
         self.generics.iter().map(move |g| {
-            let g = g.gen(gen);
+            let g = g.gen();
             quote! { ::std::marker::PhantomData::<#g> }
         })
     }
 
-    pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
+    pub fn gen_constraints(&self) -> TokenStream {
         // TODO: this gen really only needs the GenericParam name
         self.generics
             .iter()
             .map(|g| {
-                let g = g.gen(gen);
+                let g = g.gen();
                 quote! { #g: ::windows::RuntimeType + 'static, }
             })
             .collect()
@@ -546,12 +547,12 @@ impl TypeDef {
         })
     }
 
-    pub fn is_convertible_to(&self) -> Option<ElementType> {
+    pub fn is_convertible_to(&self) -> Option<TypeDef> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
                     // TODO: https://github.com/microsoft/win32metadata/issues/389
-                    return Some(TypeReader::get().resolve_type(self.namespace(), name));
+                    return Some(TypeReader::get().resolve_type_def(self.namespace(), name));
                 }
             }
 

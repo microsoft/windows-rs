@@ -43,9 +43,9 @@ impl Interface {
         let name = self.0.gen_name(gen);
         let guid = self.0.gen_guid(gen);
         let abi_name = self.0.gen_abi_name(gen);
-        let struct_phantoms = self.0.gen_phantoms(gen);
-        let abi_phantoms = self.0.gen_phantoms(gen);
-        let constraints = self.0.gen_constraints(gen);
+        let struct_phantoms = self.0.gen_phantoms();
+        let abi_phantoms = self.0.gen_phantoms();
+        let constraints = self.0.gen_constraints();
 
         let abi_signatures = self
             .0
