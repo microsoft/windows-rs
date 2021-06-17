@@ -239,6 +239,7 @@ impl ElementType {
         }
     }
 
+    // TODO: all dependencies methods should take a TypeInclude parameter and return a tuple?
     pub fn dependencies(&self) -> Vec<ElementType> {
         match self {
             Self::MethodDef(t) => t.dependencies(&[]),
