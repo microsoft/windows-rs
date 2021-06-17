@@ -377,7 +377,7 @@ impl TypeReader {
             let namespace = def.namespace();
 
             if namespace.is_empty() {
-            // TODO: if def.namespace is empty it means its a nested type and we need to find its dependencies but we need its TypeDef...
+                // TODO: if def.namespace is empty it means its a nested type and we need to find its dependencies but we need its TypeDef...
                 self.import_type_dependencies(&def);
             } else {
                 self.import_type_include(namespace, def.name(), TypeInclude::Minimal);

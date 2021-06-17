@@ -215,10 +215,7 @@ impl TypeDef {
             TypeKind::Interface => {
                 let interfaces = self.interfaces().map(|i| TypeRow::TypeDef(i.clone()));
 
-                let methods = self
-                    .methods()
-                    .map(|m| m.dependencies())
-                    .flatten();
+                let methods = self.methods().map(|m| m.dependencies()).flatten();
 
                 interfaces.chain(methods).collect()
             }
@@ -256,19 +253,19 @@ impl TypeDef {
 
                 match self.full_name() {
                     ("Windows.Win32.Foundation", "BSTR") => {
-                        dependencies.push(
-                            reader.result_type_row(
-                                "Windows.Win32.System.OleAutomation",
-                                "SysFreeString",
-                            ),
-                        );
+                        dependencies.push(reader.result_type_row(
+                            "Windows.Win32.System.OleAutomation",
+                            "SysFreeString",
+                        ));
                         dependencies.push(reader.result_type_row(
                             "Windows.Win32.System.OleAutomation",
                             "SysAllocStringLen",
                         ));
                         dependencies.push(
-                            reader
-                                .result_type_row("Windows.Win32.System.OleAutomation", "SysStringLen"),
+                            reader.result_type_row(
+                                "Windows.Win32.System.OleAutomation",
+                                "SysStringLen",
+                            ),
                         );
                     }
                     ("Windows.Foundation.Numerics", "Matrix3x2") => {
