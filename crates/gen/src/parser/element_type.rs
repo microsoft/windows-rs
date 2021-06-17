@@ -358,7 +358,7 @@ mod tests {
     fn test_bool() {
         assert_eq!(
             ElementType::Bool
-                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+                .gen_name(&Gen::absolute())
                 .as_str(),
             "bool"
         );

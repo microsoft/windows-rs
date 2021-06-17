@@ -48,10 +48,6 @@ impl ComInterface {
             .map(|method| {
                 let signature = method.signature(&[]);
 
-                if !gen.include_method(&signature) {
-                    return quote! { () };
-                }
-
                 let params = signature.params.iter().map(|p| {
                     let name = p.param.gen_name();
                     let tokens = p.gen_win32_abi_param(gen);
@@ -88,11 +84,6 @@ impl ComInterface {
             .enumerate()
             .map(|(vtable_offset, method)| {
                 let signature = method.signature(&[]);
-
-                if !gen.include_method(&signature) {
-                    return quote! {};
-                }
-
                 let constraints = signature.gen_constraints(&signature.params);
                 let params = signature.gen_win32_params(&signature.params, gen);
 

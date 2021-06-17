@@ -14,6 +14,12 @@ pub struct TypeEntry {
     pub include: TypeInclude,
 }
 
+impl TypeEntry {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
+        TokenStream::new()
+    }
+}
+
 // TODO: call this TypeNamespace?
 pub struct TypeTree2 {
     pub namespace: &'static str,
@@ -105,6 +111,34 @@ impl TypeTree2 {
                 .get_mut(&namespace[pos..])
         }
     }
+    
+    pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+        let gen = Gen::relative(self.namespace);
+
+        self.types
+            .iter()
+            .map(move |t| t.1.gen(&gen))
+            .chain(gen_namespaces(&self.namespaces))
+    }
+}
+
+fn gen_namespaces<'a>(
+    namespaces: &'a HashMap<&'static str, TypeTree2>,
+) -> impl Iterator<Item = TokenStream> + 'a {
+    namespaces.iter().map(move |(name, tree)| {
+        let name = to_ident(name);
+
+        let tokens = tree.gen();
+
+        quote! {
+            // TODO: https://github.com/microsoft/windows-rs/issues/212
+            // TODO: https://github.com/microsoft/win32metadata/issues/380
+            #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+            pub mod #name {
+                #(#tokens)*
+            }
+        }
+    })
 }
 
 pub struct TypeReader {
@@ -489,6 +523,7 @@ impl TypeReader {
             _ => unexpected!(),
         }
     }
+
 }
 
 fn trim_tick(name: &str) -> &str {

@@ -86,16 +86,6 @@ impl TypeTree {
         }
     }
 
-    pub fn include_method(&self, signature: &MethodSignature) -> bool {
-        for kind in signature.dependencies() {
-            if !self.includes(&kind) {
-                return false;
-            }
-        }
-
-        true
-    }
-
     pub fn includes(&self, kind: &ElementType) -> bool {
         let namespace = kind.namespace();
 
@@ -119,7 +109,7 @@ impl TypeTree {
     }
 
     pub fn gen<'a>(&'a self, root: &'a Self) -> impl Iterator<Item = TokenStream> + 'a {
-        let gen = Gen::relative(self.namespace, root);
+        let gen = Gen::relative(self.namespace);
 
         self.types
             .iter()
@@ -197,7 +187,7 @@ mod tests {
 
         let t = &tree.types[0];
         assert_eq!(
-            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+            t.gen_name(&Gen::absolute())
                 .as_str(),
             "Windows :: Win32 :: Storage :: FileSystem :: FILE_ACCESS_FLAGS"
         );

@@ -1,8 +1,8 @@
 use super::*;
 
-pub struct Gen<'a> {
+// TODO: replace with GenRelation
+pub struct Gen {
     relation: GenRelation,
-    tree: &'a TypeTree,
 }
 
 pub enum GenRelation {
@@ -10,28 +10,17 @@ pub enum GenRelation {
     Relative(&'static str),
 }
 
-impl<'a> Gen<'a> {
-    pub fn relative(namespace: &'static str, tree: &'a TypeTree) -> Self {
+impl Gen {
+    pub fn relative(namespace: &'static str) -> Self {
         Self {
             relation: GenRelation::Relative(namespace),
-            tree,
         }
     }
 
-    pub fn absolute(tree: &'a TypeTree) -> Self {
+    pub fn absolute() -> Self {
         Self {
             relation: GenRelation::Absolute,
-            tree,
         }
-    }
-
-    // TODO: This method is very slow - remove in favor of dependency tracking retaining all methods #592
-    pub fn include_method(&self, signature: &MethodSignature) -> bool {
-        if let GenRelation::Absolute = self.relation {
-            return true;
-        }
-
-        self.tree.include_method(signature)
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -89,13 +78,13 @@ mod tests {
         let t = reader.resolve_type("Windows.Foundation", "IStringable");
 
         assert_eq!(
-            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
+            t.gen_name(&Gen::absolute())
                 .as_str(),
             "Windows :: Foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows", &TypeTree::from_namespace("")))
+            t.gen_name(&Gen::relative("Windows", ))
                 .as_str(),
             "Foundation:: IStringable"
         );
@@ -103,7 +92,7 @@ mod tests {
         assert_eq!(
             t.gen_name(&Gen::relative(
                 "Windows.Foundation",
-                &TypeTree::from_namespace("")
+                
             ))
             .as_str(),
             "IStringable"
@@ -112,7 +101,7 @@ mod tests {
         assert_eq!(
             t.gen_name(&Gen::relative(
                 "Windows.Foundation.Collections",
-                &TypeTree::from_namespace("")
+                
             ))
             .as_str(),
             "super:: IStringable"
