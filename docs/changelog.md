@@ -1,3 +1,16 @@
+# 0.11.0
+
+- Added build macro formatting tool. ([#828](https://github.com/microsoft/windows-rs/pull/828))
+- Improved cross-compiler support. ([#830](https://github.com/microsoft/windows-rs/pull/830))
+- Simplify use of unscoped enums. ([#843](https://github.com/microsoft/windows-rs/pull/843))
+- Support for WinRT inheritance (Xaml). ([#821](https://github.com/microsoft/windows-rs/pull/821))
+- Fix groups inside namespaces in build macro. ([#806](https://github.com/microsoft/windows-rs/pull/806))
+- Add Direct3D 12 sample. ([#791](https://github.com/microsoft/windows-rs/pull/791))
+- Improved build macro performance.
+- Improved CI build validation.
+- Updated Win32 metadata.
+- Other improvements and fixes.
+
 # 0.10.0
 
 - Add support for scoped and unscoped enum constants. ([#787](https://github.com/microsoft/windows-rs/pull/787))

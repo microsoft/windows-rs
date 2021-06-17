@@ -7,12 +7,6 @@ impl Constant {
     // TODO: move to Field?
     pub fn gen(def: &tables::Field, gen: &Gen) -> TokenStream {
         let name = def.name();
-
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/90
-        if name == "NaN" || name == "POSITIVE_INFINITY" || name == "NEGATIVE_INFINITY" {
-            return quote! {};
-        }
-
         let name = to_ident(name);
 
         if let Some(constant) = def.constant() {
