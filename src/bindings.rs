@@ -20,6 +20,38 @@ pub mod Windows {
         clippy::all
     )]
     pub mod Foundation {
+        #[repr(C)]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        pub struct DateTime {
+            pub UniversalTime: i64,
+        }
+        impl DateTime {}
+        impl ::std::default::Default for DateTime {
+            fn default() -> Self {
+                Self { UniversalTime: 0 }
+            }
+        }
+        impl ::std::fmt::Debug for DateTime {
+            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                fmt.debug_struct("DateTime")
+                    .field("UniversalTime", &format_args!("{:?}", self.UniversalTime))
+                    .finish()
+            }
+        }
+        impl ::std::cmp::PartialEq for DateTime {
+            fn eq(&self, other: &Self) -> bool {
+                self.UniversalTime == other.UniversalTime
+            }
+        }
+        impl ::std::cmp::Eq for DateTime {}
+        unsafe impl ::windows::Abi for DateTime {
+            type Abi = Self;
+        }
+        unsafe impl ::windows::RuntimeType for DateTime {
+            type DefaultType = Self;
+            const SIGNATURE: ::windows::ConstBuffer =
+                ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
+        }
         #[repr(transparent)]
         #[derive(
             :: std :: cmp :: PartialEq,
@@ -1667,6 +1699,106 @@ pub mod Windows {
                 result__: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT,
         );
+        #[repr(C)]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        pub struct Point {
+            pub X: f32,
+            pub Y: f32,
+        }
+        impl Point {}
+        impl ::std::default::Default for Point {
+            fn default() -> Self {
+                Self { X: 0.0, Y: 0.0 }
+            }
+        }
+        impl ::std::fmt::Debug for Point {
+            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                fmt.debug_struct("Point")
+                    .field("X", &format_args!("{:?}", self.X))
+                    .field("Y", &format_args!("{:?}", self.Y))
+                    .finish()
+            }
+        }
+        impl ::std::cmp::PartialEq for Point {
+            fn eq(&self, other: &Self) -> bool {
+                self.X == other.X && self.Y == other.Y
+            }
+        }
+        impl ::std::cmp::Eq for Point {}
+        unsafe impl ::windows::Abi for Point {
+            type Abi = Self;
+        }
+        unsafe impl ::windows::RuntimeType for Point {
+            type DefaultType = Self;
+            const SIGNATURE: ::windows::ConstBuffer =
+                ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
+        }
+        #[derive(
+            :: std :: cmp :: PartialEq,
+            :: std :: cmp :: Eq,
+            :: std :: marker :: Copy,
+            :: std :: clone :: Clone,
+            :: std :: default :: Default,
+            :: std :: fmt :: Debug,
+        )]
+        #[repr(transparent)]
+        pub struct PropertyType(pub i32);
+        impl PropertyType {
+            pub const Empty: PropertyType = PropertyType(0i32);
+            pub const UInt8: PropertyType = PropertyType(1i32);
+            pub const Int16: PropertyType = PropertyType(2i32);
+            pub const UInt16: PropertyType = PropertyType(3i32);
+            pub const Int32: PropertyType = PropertyType(4i32);
+            pub const UInt32: PropertyType = PropertyType(5i32);
+            pub const Int64: PropertyType = PropertyType(6i32);
+            pub const UInt64: PropertyType = PropertyType(7i32);
+            pub const Single: PropertyType = PropertyType(8i32);
+            pub const Double: PropertyType = PropertyType(9i32);
+            pub const Char16: PropertyType = PropertyType(10i32);
+            pub const Boolean: PropertyType = PropertyType(11i32);
+            pub const String: PropertyType = PropertyType(12i32);
+            pub const Inspectable: PropertyType = PropertyType(13i32);
+            pub const DateTime: PropertyType = PropertyType(14i32);
+            pub const TimeSpan: PropertyType = PropertyType(15i32);
+            pub const Guid: PropertyType = PropertyType(16i32);
+            pub const Point: PropertyType = PropertyType(17i32);
+            pub const Size: PropertyType = PropertyType(18i32);
+            pub const Rect: PropertyType = PropertyType(19i32);
+            pub const OtherType: PropertyType = PropertyType(20i32);
+            pub const UInt8Array: PropertyType = PropertyType(1025i32);
+            pub const Int16Array: PropertyType = PropertyType(1026i32);
+            pub const UInt16Array: PropertyType = PropertyType(1027i32);
+            pub const Int32Array: PropertyType = PropertyType(1028i32);
+            pub const UInt32Array: PropertyType = PropertyType(1029i32);
+            pub const Int64Array: PropertyType = PropertyType(1030i32);
+            pub const UInt64Array: PropertyType = PropertyType(1031i32);
+            pub const SingleArray: PropertyType = PropertyType(1032i32);
+            pub const DoubleArray: PropertyType = PropertyType(1033i32);
+            pub const Char16Array: PropertyType = PropertyType(1034i32);
+            pub const BooleanArray: PropertyType = PropertyType(1035i32);
+            pub const StringArray: PropertyType = PropertyType(1036i32);
+            pub const InspectableArray: PropertyType = PropertyType(1037i32);
+            pub const DateTimeArray: PropertyType = PropertyType(1038i32);
+            pub const TimeSpanArray: PropertyType = PropertyType(1039i32);
+            pub const GuidArray: PropertyType = PropertyType(1040i32);
+            pub const PointArray: PropertyType = PropertyType(1041i32);
+            pub const SizeArray: PropertyType = PropertyType(1042i32);
+            pub const RectArray: PropertyType = PropertyType(1043i32);
+            pub const OtherTypeArray: PropertyType = PropertyType(1044i32);
+        }
+        impl ::std::convert::From<i32> for PropertyType {
+            fn from(value: i32) -> Self {
+                Self(value)
+            }
+        }
+        unsafe impl ::windows::Abi for PropertyType {
+            type Abi = Self;
+        }
+        unsafe impl ::windows::RuntimeType for PropertyType {
+            type DefaultType = Self;
+            const SIGNATURE: ::windows::ConstBuffer =
+                ::windows::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
+        }
         pub struct PropertyValue {}
         impl PropertyValue {
             pub fn CreateEmpty() -> ::windows::Result<::windows::IInspectable> {
@@ -2219,6 +2351,138 @@ pub mod Windows {
         }
         impl ::windows::RuntimeName for PropertyValue {
             const NAME: &'static str = "Windows.Foundation.PropertyValue";
+        }
+        #[repr(C)]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        pub struct Rect {
+            pub X: f32,
+            pub Y: f32,
+            pub Width: f32,
+            pub Height: f32,
+        }
+        impl Rect {}
+        impl ::std::default::Default for Rect {
+            fn default() -> Self {
+                Self {
+                    X: 0.0,
+                    Y: 0.0,
+                    Width: 0.0,
+                    Height: 0.0,
+                }
+            }
+        }
+        impl ::std::fmt::Debug for Rect {
+            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                fmt.debug_struct("Rect")
+                    .field("X", &format_args!("{:?}", self.X))
+                    .field("Y", &format_args!("{:?}", self.Y))
+                    .field("Width", &format_args!("{:?}", self.Width))
+                    .field("Height", &format_args!("{:?}", self.Height))
+                    .finish()
+            }
+        }
+        impl ::std::cmp::PartialEq for Rect {
+            fn eq(&self, other: &Self) -> bool {
+                self.X == other.X
+                    && self.Y == other.Y
+                    && self.Width == other.Width
+                    && self.Height == other.Height
+            }
+        }
+        impl ::std::cmp::Eq for Rect {}
+        unsafe impl ::windows::Abi for Rect {
+            type Abi = Self;
+        }
+        unsafe impl ::windows::RuntimeType for Rect {
+            type DefaultType = Self;
+            const SIGNATURE: ::windows::ConstBuffer =
+                ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
+        }
+        #[repr(C)]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        pub struct Size {
+            pub Width: f32,
+            pub Height: f32,
+        }
+        impl Size {}
+        impl ::std::default::Default for Size {
+            fn default() -> Self {
+                Self {
+                    Width: 0.0,
+                    Height: 0.0,
+                }
+            }
+        }
+        impl ::std::fmt::Debug for Size {
+            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                fmt.debug_struct("Size")
+                    .field("Width", &format_args!("{:?}", self.Width))
+                    .field("Height", &format_args!("{:?}", self.Height))
+                    .finish()
+            }
+        }
+        impl ::std::cmp::PartialEq for Size {
+            fn eq(&self, other: &Self) -> bool {
+                self.Width == other.Width && self.Height == other.Height
+            }
+        }
+        impl ::std::cmp::Eq for Size {}
+        unsafe impl ::windows::Abi for Size {
+            type Abi = Self;
+        }
+        unsafe impl ::windows::RuntimeType for Size {
+            type DefaultType = Self;
+            const SIGNATURE: ::windows::ConstBuffer =
+                ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
+        }
+        #[repr(C)]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        pub struct TimeSpan {
+            pub Duration: i64,
+        }
+        impl TimeSpan {}
+        impl ::std::default::Default for TimeSpan {
+            fn default() -> Self {
+                Self { Duration: 0 }
+            }
+        }
+        impl ::std::fmt::Debug for TimeSpan {
+            fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+                fmt.debug_struct("TimeSpan")
+                    .field("Duration", &format_args!("{:?}", self.Duration))
+                    .finish()
+            }
+        }
+        impl ::std::cmp::PartialEq for TimeSpan {
+            fn eq(&self, other: &Self) -> bool {
+                self.Duration == other.Duration
+            }
+        }
+        impl ::std::cmp::Eq for TimeSpan {}
+        unsafe impl ::windows::Abi for TimeSpan {
+            type Abi = Self;
+        }
+        unsafe impl ::windows::RuntimeType for TimeSpan {
+            type DefaultType = Self;
+            const SIGNATURE: ::windows::ConstBuffer =
+                ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
+        }
+        impl ::std::convert::From<::std::time::Duration> for TimeSpan {
+            fn from(value: ::std::time::Duration) -> Self {
+                Self {
+                    Duration: (value.as_nanos() / 100) as i64,
+                }
+            }
+        }
+        impl ::std::convert::From<TimeSpan> for ::std::time::Duration {
+            fn from(value: TimeSpan) -> Self {
+                ::std::time::Duration::from_nanos((value.Duration * 100) as u64)
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, TimeSpan> for ::std::time::Duration {
+            fn into_param(self) -> ::windows::Param<'a, TimeSpan> {
+                ::windows::Param::Owned(self.into())
+            }
         }
     }
     #[allow(

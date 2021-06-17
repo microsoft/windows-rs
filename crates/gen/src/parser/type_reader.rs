@@ -368,8 +368,14 @@ impl TypeReader {
                     }
                 }
             } else {
-                entry.include = TypeInclude::Minimal;
-            }
+                if entry.include == TypeInclude::None {
+                    entry.include = TypeInclude::Minimal;
+
+                    for def in entry.def.dependencies() {
+                        self.import_type_include(def.namespace(), def.name(), TypeInclude::Minimal);
+                    }
+                }
+                        }
 
             true
         } else {
