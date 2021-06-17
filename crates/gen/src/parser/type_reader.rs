@@ -16,7 +16,12 @@ pub struct TypeEntry {
 
 impl TypeEntry {
     pub fn gen(&self, gen: &Gen) -> TokenStream {
-        TokenStream::new()
+        match &self.def {
+            TypeRow::TypeDef(def) =>                 def.clone().with_generics().gen(gen), // TODO: pass in self.include
+            TypeRow::MethodDef(def) => def.gen(gen),
+            TypeRow::Field(def) => def.gen(gen),
+        }
+
     }
 }
 
@@ -25,6 +30,7 @@ pub struct TypeTree2 {
     pub namespace: &'static str,
     pub types: HashMap<&'static str, TypeEntry>,
     pub namespaces: HashMap<&'static str, TypeTree2>,
+    pub include: bool,
 }
 
 impl TypeTree2 {
@@ -33,6 +39,7 @@ impl TypeTree2 {
             namespace,
             types: HashMap::new(),
             namespaces: HashMap::new(),
+            include: false,
         }
     }
 
@@ -101,6 +108,7 @@ impl TypeTree2 {
     }
 
     fn get_namespace_mut_pos(&mut self, namespace: &str, pos: usize) -> Option<&mut Self> {
+        self.include = true;
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
             self.namespaces
@@ -108,7 +116,7 @@ impl TypeTree2 {
                 .and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
         } else {
             self.namespaces
-                .get_mut(&namespace[pos..])
+                .get_mut(&namespace[pos..]).and_then(|ns|{ns.include = true; Some(ns)})
         }
     }
     
@@ -126,18 +134,22 @@ fn gen_namespaces<'a>(
     namespaces: &'a HashMap<&'static str, TypeTree2>,
 ) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
-        let name = to_ident(name);
+        if tree.include {
+            let name = to_ident(name);
 
-        let tokens = tree.gen();
+            let tokens = tree.gen();
 
-        quote! {
-            // TODO: https://github.com/microsoft/windows-rs/issues/212
-            // TODO: https://github.com/microsoft/win32metadata/issues/380
-            #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-            pub mod #name {
-                #(#tokens)*
+            quote! {
+                // TODO: https://github.com/microsoft/windows-rs/issues/212
+                // TODO: https://github.com/microsoft/win32metadata/issues/380
+                #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+                pub mod #name {
+                    #(#tokens)*
+                }
             }
-        }
+         } else {
+             TokenStream::new()
+         }
     })
 }
 
@@ -178,6 +190,10 @@ impl From<&TypeRow> for ElementType {
 }
 
 impl TypeReader {
+    pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+        self.types.gen()
+    }
+
     pub fn get_mut() -> &'static mut Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
@@ -210,6 +226,7 @@ impl TypeReader {
         let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
 
         let mut types = TypeTree2::from_namespace("");
+        types.include = true;
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -319,7 +336,7 @@ impl TypeReader {
     }
 
     fn import_type_include(&mut self, namespace :&str, name:&str, include: TypeInclude) -> bool {
-        if let Some(entry) = self.types.get_namespace_mut(namespace).and_then(|tree|tree.get_type_mut(name)) {
+        if let Some(entry) = self.types.get_namespace_mut(namespace).and_then(|tree| tree.get_type_mut(name)) {
             if include == TypeInclude::Full {
                 if entry.include != TypeInclude::Full {
                     entry.include = TypeInclude::Full;
@@ -358,44 +375,6 @@ impl TypeReader {
 
         panic!("Could not find type `{}.{}`", namespace, name);
     }
-
-    // pub fn get_namespace_mut(&'static mut self, namespace: &str) -> Option<TypeTreeMut> {
-    //     self.get_namespace_mut_pos(namespace, 0)
-    // }
-    
-    // fn get_namespace_mut_pos(&'static mut self, namespace: &str, pos: usize) -> Option<TypeTreeMut> {
-    //     if let Some(next) = namespace[pos..].find('.') {
-    //         let next = pos + next;
-    //         self.namespaces
-    //             .get_mut(&namespace[pos..next])
-    //             .and_then(move |child| child.get_namespace_mut_pos(reader, namespace, next + 1))
-    //     } else {
-    //         self.namespaces
-    //             .get_mut(&namespace[pos..]).and_then(move |tree|Some(TypeTreeMut{reader, tree}))
-    //     }
-    // }
-
-    // pub fn get_namespace(&'static self, namespace: &str) -> Option<&'static str> {
-    //     if let Some((namespace, _)) = self.types.get_key_value(namespace) {
-    //         Some(namespace)
-    //     } else {
-    //         None
-    //     }
-    // }
-
-    // pub fn get_type_name(
-    //     &'static self,
-    //     namespace: &str,
-    //     name: &str,
-    // ) -> Option<(&'static str, &'static str)> {
-    //     if let Some((namespace, types)) = self.types.get_key_value(namespace) {
-    //         if let Some((name, _)) = types.get_key_value(trim_tick(name)) {
-    //             return Some((namespace, name));
-    //         }
-    //     }
-
-    //     None
-    // }
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         // TODO: repeated in resolve_type above
@@ -500,7 +479,8 @@ impl TypeReader {
                 &TypeDefOrRef::decode(blob.file, blob.read_unsigned()),
                 generics,
             ),
-            0x13 => generics[blob.read_unsigned() as usize].clone(),
+            0x13 => 
+                 generics.get(blob.read_unsigned() as usize).unwrap_or_else(||&ElementType::Void).clone(),
             0x14 => {
                 let kind = self.signature_from_blob(blob, generics).unwrap();
                 let _rank = blob.read_unsigned();
