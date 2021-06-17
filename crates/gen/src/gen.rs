@@ -78,32 +78,23 @@ mod tests {
         let t = reader.resolve_type("Windows.Foundation", "IStringable");
 
         assert_eq!(
-            t.gen_name(&Gen::absolute())
-                .as_str(),
+            t.gen_name(&Gen::absolute()).as_str(),
             "Windows :: Foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows", ))
-                .as_str(),
+            t.gen_name(&Gen::relative("Windows",)).as_str(),
             "Foundation:: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative(
-                "Windows.Foundation",
-                
-            ))
-            .as_str(),
+            t.gen_name(&Gen::relative("Windows.Foundation",)).as_str(),
             "IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative(
-                "Windows.Foundation.Collections",
-                
-            ))
-            .as_str(),
+            t.gen_name(&Gen::relative("Windows.Foundation.Collections",))
+                .as_str(),
             "super:: IStringable"
         );
     }

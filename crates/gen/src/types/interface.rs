@@ -151,16 +151,12 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def
-                .gen_name(&Gen::absolute())
-                .as_str(),
+            i[0].def.gen_name(&Gen::absolute()).as_str(),
             "Windows :: Foundation :: IAsyncOperation :: < TResult >"
         );
 
         assert_eq!(
-            i[1].def
-                .gen_name(&Gen::absolute())
-                .as_str(),
+            i[1].def.gen_name(&Gen::absolute()).as_str(),
             "Windows :: Foundation :: IAsyncInfo"
         );
     }
@@ -173,9 +169,7 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def
-                .gen_name(&Gen::absolute())
-                .as_str(),
+            i[0].def.gen_name(&Gen::absolute()).as_str(),
             "Windows :: Foundation :: Collections :: IMap :: < K , V >"
         );
 

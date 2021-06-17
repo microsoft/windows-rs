@@ -220,11 +220,7 @@ impl TypeDef {
                     .map(|m| m.dependencies(&self.generics))
                     .flatten();
 
-                if self.generics.is_empty() {
-                    interfaces.collect()
-                } else {
-                    interfaces.chain(methods).collect()
-                }
+                interfaces.chain(methods).collect()
             }
             TypeKind::Class => {
                 let generics = self.generics.iter().map(|g| g.definition());

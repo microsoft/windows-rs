@@ -31,13 +31,7 @@ impl Parse for BuildMacro {
         while !input.is_empty() {
             let tree: UseTree = input.parse()?;
 
-            fn walk(
-                
-                tree: &UseTree,
-                mut namespace: String,
-                build: &mut BuildMacro,
-            ) -> Result<()> {
-
+            fn walk(tree: &UseTree, mut namespace: String, build: &mut BuildMacro) -> Result<()> {
                 fn render_namespace(namespace: &str) -> &str {
                     if namespace.is_empty() {
                         "(global namespace)"
@@ -82,7 +76,7 @@ impl Parse for BuildMacro {
                     }
                     UseTree::Group(input) => {
                         for tree in &input.items {
-                            walk( tree, namespace.clone(), build)?;
+                            walk(tree, namespace.clone(), build)?;
                         }
                     }
                     UseTree::Rename(input) => {
@@ -93,7 +87,7 @@ impl Parse for BuildMacro {
                 Ok(())
             }
 
-            walk( &tree, String::new(), &mut build)?;
+            walk(&tree, String::new(), &mut build)?;
 
             if !input.is_empty() {
                 input.parse::<Token![,]>()?;

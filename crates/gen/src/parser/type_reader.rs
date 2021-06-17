@@ -19,13 +19,12 @@ impl TypeEntry {
         if self.include == TypeInclude::None {
             return TokenStream::new();
         }
-        
+
         match &self.def {
-            TypeRow::TypeDef(def) =>                 def.clone().with_generics().gen(gen, self.include), // TODO: pass in self.include
+            TypeRow::TypeDef(def) => def.clone().with_generics().gen(gen, self.include), // TODO: pass in self.include
             TypeRow::MethodDef(def) => def.gen(gen),
             TypeRow::Field(def) => def.gen(gen),
         }
-
     }
 }
 
@@ -70,7 +69,7 @@ impl TypeTree2 {
     }
 
     // TODO: slow method - remove or make this an iterator somehow?
-    pub fn namespaces(&self)-> Vec<&'static str> {
+    pub fn namespaces(&self) -> Vec<&'static str> {
         let mut namespaces = Vec::new();
 
         for tree in self.namespaces.values() {
@@ -103,8 +102,7 @@ impl TypeTree2 {
                 .get(&namespace[pos..next])
                 .and_then(|child| child.get_namespace_pos(namespace, next + 1))
         } else {
-            self.namespaces
-                .get(&namespace[pos..])
+            self.namespaces.get(&namespace[pos..])
         }
     }
 
@@ -120,11 +118,13 @@ impl TypeTree2 {
                 .get_mut(&namespace[pos..next])
                 .and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
         } else {
-            self.namespaces
-                .get_mut(&namespace[pos..]).and_then(|ns|{ns.include = true; Some(ns)})
+            self.namespaces.get_mut(&namespace[pos..]).and_then(|ns| {
+                ns.include = true;
+                Some(ns)
+            })
         }
     }
-    
+
     pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         let gen = Gen::relative(self.namespace);
 
@@ -216,7 +216,6 @@ impl TypeReader {
     pub fn get() -> &'static Self {
         Self::get_mut()
     }
-
 
     /// Insert WinRT metadata at the given paths
     ///
@@ -342,7 +341,7 @@ impl TypeReader {
         name: &str,
     ) -> Option<(&'static str, &'static str)> {
         if let Some(tree) = self.types.get_namespace(namespace) {
-            if let Some((key,value)) = tree.types.get_key_value(name) {
+            if let Some((key, value)) = tree.types.get_key_value(name) {
                 return Some((tree.namespace, key));
             }
         }
@@ -350,12 +349,16 @@ impl TypeReader {
         None
     }
 
-    pub fn import_type(&mut self, namespace :&str, name:&str) -> bool {
+    pub fn import_type(&mut self, namespace: &str, name: &str) -> bool {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
 
-    fn import_type_include(&mut self, namespace :&str, name:&str, include: TypeInclude) -> bool {
-        if let Some(entry) = self.types.get_namespace_mut(namespace).and_then(|tree| tree.get_type_mut(name)) {
+    fn import_type_include(&mut self, namespace: &str, name: &str, include: TypeInclude) -> bool {
+        if let Some(entry) = self
+            .types
+            .get_namespace_mut(namespace)
+            .and_then(|tree| tree.get_type_mut(name))
+        {
             if include == TypeInclude::Full {
                 if entry.include != TypeInclude::Full {
                     entry.include = TypeInclude::Full;
@@ -367,13 +370,12 @@ impl TypeReader {
             } else {
                 entry.include = TypeInclude::Minimal;
             }
-            
+
             true
         } else {
             false
         }
     }
-
 
     pub fn nested_types(
         &'static self,
@@ -383,7 +385,11 @@ impl TypeReader {
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
-        if let Some(def) = self.types.get_namespace(namespace).and_then(|tree|tree.get_type(trim_tick(name))) {
+        if let Some(def) = self
+            .types
+            .get_namespace(namespace)
+            .and_then(|tree| tree.get_type(trim_tick(name)))
+        {
             return (&def.def).into();
         }
         // if let Some(types) = self.types.get(namespace) {
@@ -397,7 +403,11 @@ impl TypeReader {
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         // TODO: repeated in resolve_type above
-        if let Some(def) = self.types.get_namespace(namespace).and_then(|tree|tree.get_type(trim_tick(name))) {
+        if let Some(def) = self
+            .types
+            .get_namespace(namespace)
+            .and_then(|tree| tree.get_type(trim_tick(name)))
+        {
             if let TypeRow::TypeDef(row) = &def.def {
                 return row.clone();
             }
@@ -498,8 +508,10 @@ impl TypeReader {
                 &TypeDefOrRef::decode(blob.file, blob.read_unsigned()),
                 generics,
             ),
-            0x13 => 
-                 generics.get(blob.read_unsigned() as usize).unwrap_or_else(||&ElementType::Void).clone(),
+            0x13 => generics
+                .get(blob.read_unsigned() as usize)
+                .unwrap_or_else(|| &ElementType::Void)
+                .clone(),
             0x14 => {
                 let kind = self.signature_from_blob(blob, generics).unwrap();
                 let _rank = blob.read_unsigned();
@@ -522,11 +534,10 @@ impl TypeReader {
             _ => unexpected!(),
         }
     }
-
 }
 
 fn trim_tick(name: &str) -> &str {
-    let len = name.len() -2;
+    let len = name.len() - 2;
     match name.as_bytes().get(len) {
         Some(c) if *c == b'`' => &name[..len],
         _ => name,

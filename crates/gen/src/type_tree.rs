@@ -187,8 +187,7 @@ mod tests {
 
         let t = &tree.types[0];
         assert_eq!(
-            t.gen_name(&Gen::absolute())
-                .as_str(),
+            t.gen_name(&Gen::absolute()).as_str(),
             "Windows :: Win32 :: Storage :: FileSystem :: FILE_ACCESS_FLAGS"
         );
     }
