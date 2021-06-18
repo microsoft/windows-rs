@@ -22,7 +22,7 @@ If you get an error message saying that a specific type does not satisfy the tra
 
 The `windows` crate does not allow the use of null pointers when safer alternatives exist. In Rust, optional values are modeled using the `Option` type which the `windows` crate takes advantage of for COM interfaces. So instead of passing a `NULL` pointer, you can pass `None` instead.
 
-For example, in C/C++ [`IShellFolder::BindToObject`](https://docs.microsoft.com/en-us/windows/win32/api/shobjidl_core/nf-shobjidl_core-ishellfolder-bindtoobject)'s third parameter is a pointer to an `IBindCtx` interface. The C and C++ docs state that passing `NULL` is appropriate when the parameter is not used.
+For example, in C/C++ [`IShellFolder::BindToObject`](https://docs.microsoft.com/en-us/windows/win32/api/shobjidl_core/nf-shobjidl_core-ishellfolder-bindtoobject)'s second parameter is a pointer to an `IBindCtx` interface. The C and C++ docs state that passing `NULL` is appropriate when the parameter is not used.
 
 In Rust this parameter is [translated](https://microsoft.github.io/windows-docs-rs/doc/bindings/Windows/Win32/Shell/struct.IShellFolder.html#method.BindToObject) as `impl IntoParam<'a, IBindCtx>`. If you try to pass a null pointer (from `std::ptr::null` or `std::ptr::null_mut`), the code won't compile. Instead, you can pass `None` and the code will compile.
 
