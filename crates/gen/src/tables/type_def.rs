@@ -221,7 +221,14 @@ impl TypeDef {
 
                 let interfaces = self.interfaces().map(|i| TypeEntry{include: TypeInclude::Full, def: TypeRow::TypeDef(i.clone())});
 
-                let methods = self.methods().map(|m| m.dependencies(TypeInclude::Minimal)).flatten();
+                // TODO: IIterable needs IIterator's full definition in order to support iteration
+                let include = if self.full_name() == ("Windows.Foundation.Collections", "IIterable`1") {
+                    TypeInclude::Full
+                } else {
+                    TypeInclude::Minimal
+                };
+
+                let methods = self.methods().map(|m| m.dependencies(include)).flatten();
 
                 interfaces.chain(methods).collect()
             }

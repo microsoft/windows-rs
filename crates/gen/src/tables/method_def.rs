@@ -160,7 +160,7 @@ impl MethodDef {
     }
 
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        self.signature(&[]).dependencies(TypeInclude::Minimal)
+        self.signature(&[]).dependencies(include)
     }
 }
 
