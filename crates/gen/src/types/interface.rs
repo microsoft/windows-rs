@@ -66,9 +66,7 @@ impl Interface {
         let public_type = if is_exclusive {
             TokenStream::new()
         } else {
-            let type_signature = self
-                .0
-                .gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
+            let type_signature = self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
 
             let interfaces = self.interfaces();
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
