@@ -2550,12 +2550,15 @@ pub mod Windows {
                     value.as_bool()
                 }
             }
-            impl ::std::convert::From<bool> for BOOL {
-                fn from(value: bool) -> Self {
-                    if value {
-                        BOOL(1)
-                    } else {
-                        BOOL(0)
+            unsafe impl ::windows::Abi for PWSTR {
+                type Abi = Self;
+                fn drop_param(param: &mut ::windows::Param<'_, Self>) {
+                    if let ::windows::Param::Boxed(value) = param {
+                        if !value.0.is_null() {
+                            unsafe {
+                                ::std::boxed::Box::from_raw(value.0);
+                            }
+                        }
                     }
                 }
             }
@@ -2724,12 +2727,84 @@ pub mod Windows {
             pub type BSTR_abi = *mut u16;
             pub const CO_E_NOTINITIALIZED: ::windows::HRESULT =
                 ::windows::HRESULT(-2147221008i32 as _);
-            pub unsafe fn CloseHandle<'a>(hobject: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
-                #[cfg(windows)]
-                {
-                    #[link(name = "KERNEL32")]
-                    extern "system" {
-                        fn CloseHandle(hobject: HANDLE) -> BOOL;
+            #[repr(transparent)]
+            #[derive(
+                :: std :: default :: Default,
+                :: std :: clone :: Clone,
+                :: std :: marker :: Copy,
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: fmt :: Debug,
+            )]
+            pub struct BOOL(pub i32);
+            unsafe impl ::windows::Abi for BOOL {
+                type Abi = Self;
+            }
+            impl BOOL {
+                #[inline]
+                pub fn as_bool(self) -> bool {
+                    !(self.0 == 0)
+                }
+                #[inline]
+                pub fn ok(self) -> ::windows::Result<()> {
+                    if self.as_bool() {
+                        Ok(())
+                    } else {
+                        Err(::windows::HRESULT::from_thread().into())
+                    }
+                }
+                #[inline]
+                #[track_caller]
+                pub fn unwrap(self) {
+                    self.ok().unwrap();
+                }
+                #[inline]
+                #[track_caller]
+                pub fn expect(self, msg: &str) {
+                    self.ok().expect(msg);
+                }
+            }
+            impl ::std::convert::From<BOOL> for bool {
+                fn from(value: BOOL) -> Self {
+                    value.as_bool()
+                }
+            }
+            impl ::std::convert::From<&BOOL> for bool {
+                fn from(value: &BOOL) -> Self {
+                    value.as_bool()
+                }
+            }
+            impl ::std::convert::From<bool> for BOOL {
+                fn from(value: bool) -> Self {
+                    if value {
+                        BOOL(1)
+                    } else {
+                        BOOL(0)
+                    }
+                }
+            }
+            impl ::std::convert::From<&bool> for BOOL {
+                fn from(value: &bool) -> Self {
+                    (*value).into()
+                }
+            }
+            impl ::std::cmp::PartialEq<bool> for BOOL {
+                fn eq(&self, other: &bool) -> bool {
+                    self.as_bool() == *other
+                }
+            }
+            impl ::std::cmp::PartialEq<BOOL> for bool {
+                fn eq(&self, other: &BOOL) -> bool {
+                    *self == other.as_bool()
+                }
+            }
+            impl std::ops::Not for BOOL {
+                type Output = Self;
+                fn not(self) -> Self::Output {
+                    if self.as_bool() {
+                        BOOL(0)
+                    } else {
+                        BOOL(1)
                     }
                     CloseHandle(hobject.into_param().abi())
                 }
@@ -2777,6 +2852,22 @@ pub mod Windows {
                     self.0 == -1
                 }
             }
+            pub unsafe fn CloseHandle<'a>(hobject: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
+                #[cfg(windows)]
+                {
+                    #[link(name = "KERNEL32")]
+                    extern "system" {
+                        fn CloseHandle(hobject: HANDLE) -> BOOL;
+                    }
+                    CloseHandle(hobject.into_param().abi())
+                }
+                #[cfg(not(windows))]
+                {
+                    unimplemented!("Unsupported target OS");
+                }
+            }
+            pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
+            pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
             #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             pub struct HINSTANCE(pub isize);
@@ -2834,7 +2925,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::Abi for PSTR {
                 type Abi = Self;
-                fn drop_param(param: &mut ::windows::Param<Self>) {
+                fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
                         if !value.0.is_null() {
                             unsafe {

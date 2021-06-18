@@ -51,6 +51,12 @@ jobs:
       run: cargo fmt --all -- --check
       if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
 
+    - name: check docs
+      env:
+        RUSTDOCFLAGS: -Dwarnings
+      run: cargo doc --no-deps --workspace
+      if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
+
     - name: generate bindings
       run: |
         cargo run -p windows_bindings --target ${{ matrix.other }}

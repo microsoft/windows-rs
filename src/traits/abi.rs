@@ -10,7 +10,8 @@ use bindings::Windows::Win32::Foundation::E_POINTER;
 pub unsafe trait Abi: Sized {
     /// The abi representation of the implementing type.
     ///
-    /// *SAFETY*: `Self` and `Abi` *must* have the same exact in-memory representation.
+    /// # Safety
+    /// `Self` and `Abi` *must* have the same exact in-memory representation.
     type Abi;
 
     /// Casts the Rust object to its ABI type without copying the object.

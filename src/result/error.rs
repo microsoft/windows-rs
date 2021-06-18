@@ -40,21 +40,22 @@ impl Error {
         Self { code, info }
     }
 
-    // Use internally to create an Error object without error info. Typically used with QueryInterface
-    // (E_NOINTERFACE) or the absense of an object to return (E_POINTER) to avoid the code gen overhead
-    // for casts that should be cheap (few instructions). Think of it as a way to create recoverable errors
-    // that don't need th overhead of debugging origination info.
-    pub fn fast_error(code: HRESULT) -> Self {
+    #[doc(hidden)]
+    /// Used internally to create an Error object without error info. Typically used with [`Interface::query`]
+    /// (`E_NOINTERFACE`) or the absence of an object to return (`E_POINTER`) to avoid the
+    /// code gen overhead for casts that should be cheap (few instructions). Think of it as a way to create
+    /// recoverable errors that don't need the overhead of debugging origination info.
+    pub const fn fast_error(code: HRESULT) -> Self {
         Self { code, info: None }
     }
 
     /// The error code describing the error.
-    pub fn code(&self) -> HRESULT {
+    pub const fn code(&self) -> HRESULT {
         self.code
     }
 
     /// The error information describing the error.
-    pub fn info(&self) -> &Option<IRestrictedErrorInfo> {
+    pub const fn info(&self) -> &Option<IRestrictedErrorInfo> {
         &self.info
     }
 
