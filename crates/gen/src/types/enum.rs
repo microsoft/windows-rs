@@ -4,7 +4,7 @@ use super::*;
 pub struct Enum(pub tables::TypeDef);
 
 impl Enum {
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = self.0.gen_name(gen);
         let underlying_type = self.0.underlying_type();
 
@@ -48,51 +48,59 @@ impl Enum {
         let underlying_type = underlying_type.gen_name(gen);
         let mut last: Option<ConstantValue> = None;
 
-        let fields = self.0.fields().filter_map(|field| {
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/522
-            if field.name() == self.0.name() {
-                return None;
-            }
+        let fields: Vec<tables::Field> = self.0.fields().collect();
 
-            if field.flags().literal() {
-                let field_name = to_ident(field.name());
+        // A minimal enum definition  still include all fields unless there are too many fields.
+        // In such cases, the build script simply needs to import the type directly to generate all fields.
+        let fields = if include == TypeInclude::Full || fields.len() < 100 {
+            let fields = fields.iter().filter_map(|field| {
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/522
+                if field.name() == self.0.name() {
+                    return None;
+                }
 
-                if let Some(constant) = field.constant() {
-                    let value = constant.value().gen_value();
+                if field.flags().literal() {
+                    let field_name = to_ident(field.name());
 
-                    Some(quote! {
-                        pub const #field_name: #name = #name(#value);
-                    })
-                } else if let Some(last_value) = &last {
-                    let next = last_value.next();
-                    let value = next.gen_value();
-                    last = Some(next);
+                    if let Some(constant) = field.constant() {
+                        let value = constant.value().gen_value();
 
-                    Some(quote! {
-                        pub const #field_name: #name = #name(#value);
-                    })
+                        Some(quote! {
+                            pub const #field_name: #name = #name(#value);
+                        })
+                    } else if let Some(last_value) = &last {
+                        let next = last_value.next();
+                        let value = next.gen_value();
+                        last = Some(next);
+
+                        Some(quote! {
+                            pub const #field_name: #name = #name(#value);
+                        })
+                    } else {
+                        last = Some(ConstantValue::I32(0));
+
+                        Some(quote! {
+                            pub const #field_name: #name = #name(0);
+                        })
+                    }
                 } else {
-                    last = Some(ConstantValue::I32(0));
+                    None
+                }
+            });
 
-                    Some(quote! {
-                        pub const #field_name: #name = #name(0);
-                    })
+            if self.0.is_scoped() {
+                quote! {
+                    impl #name {
+                        #(#fields)*
+                    }
                 }
             } else {
-                None
-            }
-        });
-
-        let fields = if self.0.is_scoped() {
-            quote! {
-                impl #name {
+                quote! {
                     #(#fields)*
                 }
             }
         } else {
-            quote! {
-                #(#fields)*
-            }
+            TokenStream::new()
         };
 
         let runtime_type = if self.0.is_winrt() {

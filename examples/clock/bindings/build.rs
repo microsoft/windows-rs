@@ -19,7 +19,7 @@ fn main() {
                         CreateDXGIFactory1, IDXGIDevice, IDXGIFactory2, IDXGIFactory7, IDXGIOutput,
                         IDXGISurface, IDXGISwapChain1, DXGI_ERROR_UNSUPPORTED, DXGI_PRESENT_TEST,
                         DXGI_SAMPLE_DESC, DXGI_SWAP_CHAIN_DESC1, DXGI_SWAP_CHAIN_FULLSCREEN_DESC,
-                        DXGI_USAGE_RENDER_TARGET_OUTPUT,
+                        DXGI_USAGE_RENDER_TARGET_OUTPUT,DXGI_FORMAT
                     },
                     Gdi::{BeginPaint, EndPaint, PAINTSTRUCT},
                 },
