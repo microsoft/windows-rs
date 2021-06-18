@@ -50,12 +50,12 @@ impl Error {
     }
 
     /// The error code describing the error.
-    pub fn code(&self) -> HRESULT {
+    pub const fn code(&self) -> HRESULT {
         self.code
     }
 
     /// The error information describing the error.
-    pub fn info(&self) -> &Option<IRestrictedErrorInfo> {
+    pub const fn info(&self) -> &Option<IRestrictedErrorInfo> {
         &self.info
     }
 

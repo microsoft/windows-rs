@@ -1773,7 +1773,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::Abi for PWSTR {
                 type Abi = Self;
-                fn drop_param(param: &mut ::windows::Param<Self>) {
+                fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
                         if !value.0.is_null() {
                             unsafe {
@@ -1965,10 +1965,12 @@ pub mod Windows {
                     }
                 }
                 #[inline]
+                #[track_caller]
                 pub fn unwrap(self) {
                     self.ok().unwrap();
                 }
                 #[inline]
+                #[track_caller]
                 pub fn expect(self, msg: &str) {
                     self.ok().expect(msg);
                 }
@@ -2133,7 +2135,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::Abi for PSTR {
                 type Abi = Self;
-                fn drop_param(param: &mut ::windows::Param<Self>) {
+                fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
                         if !value.0.is_null() {
                             unsafe {
