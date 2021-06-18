@@ -53,11 +53,11 @@ impl TypeDef {
     }
 
     // TODO: get rid of the definition functions
-    pub fn definition(&self) -> Vec<TypeRow> {
-        let mut definition = vec![TypeRow::TypeDef(self.clone())];
+    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        let mut definition = vec![TypeEntry{ include, def: TypeRow::TypeDef(self.clone())}];
 
         for generic in &self.generics {
-            definition.append(&mut generic.definition());
+            definition.append(&mut generic.definition(include));
         }
 
         definition
@@ -210,26 +210,28 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn dependencies(&self) -> Vec<TypeRow> {
+    pub fn dependencies(&self) -> Vec<TypeEntry> {
+        // TODO: interface and class definitions should be Full and only their method dependnecies should be minimal
+        // so that inheritance works correctly
         match self.kind() {
             TypeKind::Interface => {
-                let interfaces = self.interfaces().map(|i| TypeRow::TypeDef(i.clone()));
+                let interfaces = self.interfaces().map(|i| TypeEntry{include: TypeInclude::Full, def: TypeRow::TypeDef(i.clone())});
 
                 let methods = self.methods().map(|m| m.dependencies()).flatten();
 
                 interfaces.chain(methods).collect()
             }
             TypeKind::Class => {
-                let generics = self.generics.iter().map(|g| g.definition());
-                let interfaces = self.interfaces().map(|i| i.definition());
-                let bases = self.bases().map(|b| b.definition());
+                let generics = self.generics.iter().map(|g| g.definition(TypeInclude::Minimal));
+                let interfaces = self.interfaces().map(|i| i.definition(TypeInclude::Full));
+                let bases = self.bases().map(|b| b.definition(TypeInclude::Full));
 
                 let factories = self.attributes().filter_map(|attribute| {
                     match attribute.name() {
                         "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                             for (_, arg) in attribute.args() {
                                 if let parser::ConstantValue::TypeDef(def) = arg {
-                                    return Some(TypeRow::TypeDef(def.clone()));
+                                    return Some(TypeEntry{include: TypeInclude::Full, def: TypeRow::TypeDef(def.clone())});
                                 }
                             }
                         }
@@ -253,33 +255,33 @@ impl TypeDef {
 
                 match self.full_name() {
                     ("Windows.Win32.Foundation", "BSTR") => {
-                        dependencies.push(reader.result_type_row(
+                        dependencies.push(TypeEntry{include:TypeInclude::Minimal, def: reader.result_type_row(
                             "Windows.Win32.System.OleAutomation",
                             "SysFreeString",
-                        ));
-                        dependencies.push(reader.result_type_row(
+                        )});
+                        dependencies.push(TypeEntry{include:TypeInclude::Minimal, def: reader.result_type_row(
                             "Windows.Win32.System.OleAutomation",
                             "SysAllocStringLen",
-                        ));
+                        )});
                         dependencies.push(
-                            reader.result_type_row(
+                            TypeEntry{include:TypeInclude::Minimal, def: reader.result_type_row(
                                 "Windows.Win32.System.OleAutomation",
                                 "SysStringLen",
                             ),
-                        );
+                            });
                     }
                     ("Windows.Foundation.Numerics", "Matrix3x2") => {
-                        dependencies.push(reader.result_type_row(
+                        dependencies.push(TypeEntry{include:TypeInclude::Minimal, def: reader.result_type_row(
                             "Windows.Win32.Graphics.Direct2D",
                             "D2D1MakeRotateMatrix",
-                        ));
+                        )});
                     }
                     _ => {
                         // TODO: doesn't seem to pick up nested type dependencies e.g. D3D11_DEPTH_STENCIL_VIEW_DESC
-                        dependencies.extend(self.fields().map(|f| f.definition()).flatten());
+                        dependencies.extend(self.fields().map(|f| f.definition(TypeInclude::Minimal)).flatten());
 
                         if let Some(dependency) = self.is_convertible_to() {
-                            dependencies.push(TypeRow::TypeDef(dependency));
+                            dependencies.push(TypeEntry{include:TypeInclude::Minimal, def: TypeRow::TypeDef(dependency)});
                         }
                     }
                 }

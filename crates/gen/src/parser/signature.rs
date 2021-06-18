@@ -10,11 +10,11 @@ pub struct Signature {
 }
 
 impl Signature {
-    pub fn definition(&self) -> Vec<TypeRow> {
-        self.kind.definition()
+    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        self.kind.definition(include)
     }
 
-    pub fn dependencies(&self) -> Vec<TypeRow> {
+    pub fn dependencies(&self) -> Vec<TypeEntry> {
         self.kind.dependencies()
     }
 

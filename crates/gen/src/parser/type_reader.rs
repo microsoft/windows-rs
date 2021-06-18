@@ -176,7 +176,7 @@ pub enum TypeRow {
 }
 
 impl TypeRow {
-    pub fn dependencies(&self) -> Vec<TypeRow> {
+    pub fn dependencies(&self) -> Vec<TypeEntry> {
         match self {
             Self::TypeDef(def) => def.dependencies(),
             Self::MethodDef(def) => def.dependencies(),
@@ -373,14 +373,14 @@ impl TypeReader {
     fn import_type_dependencies(&mut self, def: &TypeRow) {
         // TODO: should pass `include` to dependnecies so we can bleed off and not make this recursive,
         // not include dependencies of classes/interfaces that are minimally imported.
-        for def in def.dependencies() {
-            let namespace = def.namespace();
+        for entry in def.dependencies() {
+            let namespace = entry.def.namespace();
 
             if namespace.is_empty() {
                 // TODO: if def.namespace is empty it means its a nested type and we need to find its dependencies but we need its TypeDef...
-                self.import_type_dependencies(&def);
+                self.import_type_dependencies(&entry.def);
             } else {
-                self.import_type_include(namespace, trim_tick(def.name()), TypeInclude::Minimal);
+                self.import_type_include(namespace, trim_tick(entry.def.name()), entry.include);
             }
         }
     }

@@ -159,7 +159,7 @@ impl MethodDef {
         types::Function::gen(self, gen)
     }
 
-    pub fn dependencies(&self) -> Vec<TypeRow> {
+    pub fn dependencies(&self) -> Vec<TypeEntry> {
         self.signature(&[]).dependencies()
     }
 }
