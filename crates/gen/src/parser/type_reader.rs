@@ -366,6 +366,7 @@ impl TypeReader {
         None
     }
 
+    // TODO: need tests that validate the correct full/minimal imports for different types
     pub fn import_type(&mut self, namespace: &str, name: &str) -> bool {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
