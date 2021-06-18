@@ -152,11 +152,11 @@ pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     tokens.parse().unwrap()
 }
 
-/// Rust structs can use the `implement` macro to implement entire WinRT classes or
-/// any combination of existing COM and WinRT interfaces.
+/// Rust structs can use the [`macro@implement`] attribute macro to implement entire WinRT
+/// classes or any combination of existing COM and WinRT interfaces.
 ///
-/// If the attribute `TokenStream` contains the name of a WinRT class then all of its
-/// interfaces are implemented. Otherwise, whatever interfaces are contained within
+/// If the attribute [`proc_macro::TokenStream`] contains the name of a WinRT class then all
+/// of its interfaces are implemented. Otherwise, whatever interfaces are contained within
 /// the attribute TokenStream are implemented.
 #[proc_macro_attribute]
 pub fn implement(

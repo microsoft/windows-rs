@@ -13,29 +13,29 @@ use bindings::{
 pub struct HRESULT(pub u32);
 
 impl HRESULT {
-    /// Returns `true` if `self` is a success code.
+    /// Returns [`true`] if `self` is a success code.
     #[inline]
-    pub fn is_ok(self) -> bool {
+    pub const fn is_ok(self) -> bool {
         self.0 & 0x8000_0000 == 0
     }
 
-    /// Returns `true` if `self` is a failure code.
+    /// Returns [`true`] if `self` is a failure code.
     #[inline]
-    pub fn is_err(self) -> bool {
+    pub const fn is_err(self) -> bool {
         !self.is_ok()
     }
 
     /// Asserts that `self` is a success code.
     ///
-    /// This will  invoke the `panic!` macro if `self` is a failure code and display
-    /// the `HRESULT` value for diagnostics.
+    /// This will invoke the [`panic!`] macro if `self` is a failure code and display
+    /// the [`HRESULT`] value for diagnostics.
     #[inline]
     #[track_caller]
     pub fn unwrap(self) {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
 
-    /// Converts the `HRESULT` to `Result<()>`.
+    /// Converts the [`HRESULT`] to [`Result<()>`][Result<_>].
     #[inline]
     pub fn ok(self) -> Result<()> {
         if self.is_ok() {
@@ -45,7 +45,7 @@ impl HRESULT {
         }
     }
 
-    /// Returns the `Option` as a `Result` if the option is a `Some` value, returning
+    /// Returns the [`Option`] as a [`Result`] if the option is a [`Some`] value, returning
     /// a suitable error if not.
     pub fn and_some<T: Interface>(self, some: Option<T>) -> Result<T> {
         if self.is_ok() {
@@ -59,8 +59,8 @@ impl HRESULT {
         }
     }
 
-    /// Calls `op` if `self` is a success code, otherwise returns `HRESULT`
-    /// converted to `Result<T>`.
+    /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
+    /// converted to [`Result<T>`].
     #[inline]
     pub fn and_then<F, T>(self, op: F) -> Result<T>
     where
@@ -70,7 +70,7 @@ impl HRESULT {
         Ok(op())
     }
 
-    /// If the `Result` is `Ok` converts the `T::Abi` into `T`.
+    /// If the [`Result`] is [`Ok`] converts the `T::Abi` into `T`.
     pub unsafe fn from_abi<T: Abi>(self, abi: T::Abi) -> Result<T> {
         if self.is_ok() {
             T::from_abi(abi)
@@ -87,7 +87,7 @@ impl HRESULT {
 
     /// Creates a failure code with the provided win32 error code.
     ///
-    ///This is equivalent to [HRESULT_FROM_WIN32](https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-hresult_from_win32).
+    /// This is equivalent to [HRESULT_FROM_WIN32](https://docs.microsoft.com/en-us/windows/win32/api/winerror/nf-winerror-hresult_from_win32).
     #[inline]
     pub fn from_win32(error: u32) -> Self {
         Self(if error as i32 <= 0 {
