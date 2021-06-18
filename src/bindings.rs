@@ -1965,10 +1965,12 @@ pub mod Windows {
                     }
                 }
                 #[inline]
+                #[track_caller]
                 pub fn unwrap(self) {
                     self.ok().unwrap();
                 }
                 #[inline]
+                #[track_caller]
                 pub fn expect(self, msg: &str) {
                     self.ok().expect(msg);
                 }

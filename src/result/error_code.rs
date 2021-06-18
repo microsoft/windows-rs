@@ -30,6 +30,7 @@ impl HRESULT {
     /// This will  invoke the `panic!` macro if `self` is a failure code and display
     /// the `HRESULT` value for diagnostics.
     #[inline]
+    #[track_caller]
     pub fn unwrap(self) {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
