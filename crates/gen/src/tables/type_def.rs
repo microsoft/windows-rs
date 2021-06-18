@@ -162,12 +162,12 @@ impl TypeDef {
         match self.kind() {
             TypeKind::Interface => {
                 if self.is_winrt() {
-                    types::Interface(self.clone().with_generics()).gen(gen)
+                    types::Interface(self.clone().with_generics()).gen(gen, include)
                 } else {
-                    types::ComInterface(self.clone()).gen(gen)
+                    types::ComInterface(self.clone()).gen(gen, include)
                 }
             }
-            TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen),
+            TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen, include),
             TypeKind::Enum => types::Enum(self.clone()).gen(gen, include),
             TypeKind::Struct => types::Struct(self.clone()).gen(gen),
             TypeKind::Delegate => {

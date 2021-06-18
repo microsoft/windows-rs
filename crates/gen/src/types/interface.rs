@@ -39,7 +39,7 @@ impl Interface {
         result
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = self.0.gen_name(gen);
         let guid = self.0.gen_guid(gen);
         let abi_name = self.0.gen_abi_name(gen);

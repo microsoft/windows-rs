@@ -93,7 +93,7 @@ impl Class {
         result
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = self.0.gen_name(gen);
         let interfaces = self.interfaces();
         let methods = InterfaceInfo::gen_methods(&interfaces, gen);
