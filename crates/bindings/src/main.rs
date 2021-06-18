@@ -9,11 +9,11 @@ fn main() -> std::io::Result<()> {
                 System::{
                     Com::{
                         CLSIDFromProgID, CoCreateGuid, CoCreateInstance, CoInitializeEx,
-                        CoTaskMemAlloc, CoTaskMemFree, IAgileObject,
+                        CoTaskMemAlloc, CoTaskMemFree, IAgileObject,COINIT,CLSCTX,
                     },
-                    Diagnostics::Debug::{FormatMessageW, GetLastError},
+                    Diagnostics::Debug::{FormatMessageW, GetLastError, FORMAT_MESSAGE_OPTIONS},
                     LibraryLoader::{FreeLibrary, GetProcAddress, LoadLibraryA},
-                    Memory::{GetProcessHeap, HeapAlloc, HeapFree},
+                    Memory::{GetProcessHeap, HeapAlloc, HeapFree, HEAP_FLAGS},
                     OleAutomation::{GetErrorInfo, IErrorInfo, SetErrorInfo},
                     Threading::{CreateEventA, SetEvent, WaitForSingleObject},
                     WinRT::{
