@@ -396,7 +396,8 @@ mod tests {
         assert_eq!(d[0].name(), "ID2D1Resource");
 
         let d = t.dependencies();
-        assert_eq!(d.len(), 0);
+        assert_eq!(d.len(), 1);
+        assert_eq!(d[0].name(), "ID2D1Factory");
     }
 
     #[test]
@@ -407,7 +408,9 @@ mod tests {
         assert_eq!(d[0].name(), "IUriRuntimeClassFactory");
 
         let d = t.dependencies();
-        assert_eq!(d.len(), 0);
+        assert_eq!(d.len(), 2);
+        assert_eq!(d[0].name(), "Uri");
+        assert_eq!(d[1].name(), "Uri");
     }
 
     #[test]
@@ -417,9 +420,12 @@ mod tests {
         assert_eq!(d.len(), 1);
         assert_eq!(d[0].name(), "IAsyncAction");
 
-        let d = t.dependencies();
-        assert_eq!(d.len(), 1);
-        assert_eq!(d[0].name(), "IAsyncInfo");
+        let mut d = t.dependencies();
+        assert_eq!(d.len(), 3);
+        d.sort_by(|a, b| a.name().cmp(b.name()));
+        assert_eq!(d[0].name(), "AsyncActionCompletedHandler");
+        assert_eq!(d[1].name(), "AsyncActionCompletedHandler");
+        assert_eq!(d[2].name(), "IAsyncInfo");
     }
 
     #[test]
