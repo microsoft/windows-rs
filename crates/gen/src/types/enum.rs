@@ -4,7 +4,7 @@ use super::*;
 pub struct Enum(pub tables::TypeDef);
 
 impl Enum {
-    pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
+    pub fn gen(&self, gen: &Gen) -> TokenStream {
         let name = self.0.gen_name(gen);
         let underlying_type = self.0.underlying_type();
 
@@ -48,55 +48,51 @@ impl Enum {
         let underlying_type = underlying_type.gen_name(gen);
         let mut last: Option<ConstantValue> = None;
 
-        let fields = if include == TypeInclude::Full {
-            let fields = self.0.fields().filter_map(|field| {
-                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/522
-                if field.name() == self.0.name() {
-                    return None;
-                }
+        let fields = self.0.fields().filter_map(|field| {
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/522
+            if field.name() == self.0.name() {
+                return None;
+            }
 
-                if field.flags().literal() {
-                    let field_name = to_ident(field.name());
+            if field.flags().literal() {
+                let field_name = to_ident(field.name());
 
-                    if let Some(constant) = field.constant() {
-                        let value = constant.value().gen_value();
+                if let Some(constant) = field.constant() {
+                    let value = constant.value().gen_value();
 
-                        Some(quote! {
-                            pub const #field_name: #name = #name(#value);
-                        })
-                    } else if let Some(last_value) = &last {
-                        let next = last_value.next();
-                        let value = next.gen_value();
-                        last = Some(next);
+                    Some(quote! {
+                        pub const #field_name: #name = #name(#value);
+                    })
+                } else if let Some(last_value) = &last {
+                    let next = last_value.next();
+                    let value = next.gen_value();
+                    last = Some(next);
 
-                        Some(quote! {
-                            pub const #field_name: #name = #name(#value);
-                        })
-                    } else {
-                        last = Some(ConstantValue::I32(0));
-
-                        Some(quote! {
-                            pub const #field_name: #name = #name(0);
-                        })
-                    }
+                    Some(quote! {
+                        pub const #field_name: #name = #name(#value);
+                    })
                 } else {
-                    None
-                }
-            });
+                    last = Some(ConstantValue::I32(0));
 
-            if self.0.is_scoped() {
-                quote! {
-                    impl #name {
-                        #(#fields)*
-                    }
+                    Some(quote! {
+                        pub const #field_name: #name = #name(0);
+                    })
                 }
             } else {
-                quote! {
+                None
+            }
+        });
+
+        let fields = if self.0.is_scoped() {
+            quote! {
+                impl #name {
                     #(#fields)*
                 }
             }
         } else {
-            TokenStream::new()
+            quote! {
+                #(#fields)*
+            }
         };
 
         let runtime_type = if self.0.is_winrt() {

@@ -168,7 +168,7 @@ impl TypeDef {
                 }
             }
             TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen),
-            TypeKind::Enum => types::Enum(self.clone()).gen(gen, include),
+            TypeKind::Enum => types::Enum(self.clone()).gen(gen),
             TypeKind::Struct => types::Struct(self.clone()).gen(gen),
             TypeKind::Delegate => {
                 if self.is_winrt() {
