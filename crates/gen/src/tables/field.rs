@@ -52,8 +52,8 @@ impl Field {
         types::Constant::gen(self, gen)
     }
 
-    pub fn dependencies(&self) -> Vec<TypeEntry> {
-        self.signature().kind.definition(TypeInclude::Minimal)
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        self.signature().kind.definition(include)
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {

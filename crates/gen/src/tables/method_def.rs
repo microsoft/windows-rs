@@ -159,8 +159,8 @@ impl MethodDef {
         types::Function::gen(self, gen)
     }
 
-    pub fn dependencies(&self) -> Vec<TypeEntry> {
-        self.signature(&[]).dependencies()
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        self.signature(&[]).dependencies(TypeInclude::Minimal)
     }
 }
 

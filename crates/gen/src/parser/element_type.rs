@@ -240,12 +240,12 @@ impl ElementType {
     }
 
     // TODO: all dependencies methods should take a TypeInclude parameter and return a tuple?
-    pub fn dependencies(&self) -> Vec<TypeEntry> {
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
-            Self::MethodDef(t) => t.dependencies(),
-            Self::TypeDef(t) => t.dependencies(),
-            Self::Field(t) => t.dependencies(),
-            Self::Array((signature, _)) => signature.dependencies(),
+            Self::MethodDef(t) => t.dependencies(include),
+            Self::TypeDef(t) => t.dependencies(include),
+            Self::Field(t) => t.dependencies(include),
+            Self::Array((signature, _)) => signature.dependencies(include),
             _ => Vec::new(),
         }
     }

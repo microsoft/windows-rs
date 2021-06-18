@@ -176,11 +176,11 @@ pub enum TypeRow {
 }
 
 impl TypeRow {
-    pub fn dependencies(&self) -> Vec<TypeEntry> {
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
-            Self::TypeDef(def) => def.dependencies(),
-            Self::MethodDef(def) => def.dependencies(),
-            Self::Field(def) => def.dependencies(),
+            Self::TypeDef(def) => def.dependencies(include),
+            Self::MethodDef(def) => def.dependencies(include),
+            Self::Field(def) => def.dependencies(include),
         }
     }
 
@@ -370,15 +370,15 @@ impl TypeReader {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
 
-    fn import_type_dependencies(&mut self, def: &TypeRow) {
+    fn import_type_dependencies(&mut self, def: &TypeRow, include: TypeInclude) {
         // TODO: should pass `include` to dependnecies so we can bleed off and not make this recursive,
         // not include dependencies of classes/interfaces that are minimally imported.
-        for entry in def.dependencies() {
+        for entry in def.dependencies(include) {
             let namespace = entry.def.namespace();
 
             if namespace.is_empty() {
                 // TODO: if def.namespace is empty it means its a nested type and we need to find its dependencies but we need its TypeDef...
-                self.import_type_dependencies(&entry.def);
+                self.import_type_dependencies(&entry.def, entry.include);
             } else {
                 self.import_type_include(namespace, trim_tick(entry.def.name()), entry.include);
             }
@@ -397,12 +397,12 @@ impl TypeReader {
             if include == TypeInclude::Full {
                 if entry.include != TypeInclude::Full {
                     entry.include = TypeInclude::Full;
-                    self.import_type_dependencies(&copy);
+                    self.import_type_dependencies(&copy, include);
                 }
             } else {
                 if entry.include == TypeInclude::None {
                     entry.include = TypeInclude::Minimal;
-                    self.import_type_dependencies(&copy); // TODO: make this minimal import (only include minimal dependencies)
+                    self.import_type_dependencies(&copy, include); // TODO: make this minimal import (only include minimal dependencies)
                 }
             }
 

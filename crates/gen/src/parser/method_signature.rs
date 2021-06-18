@@ -13,11 +13,11 @@ pub struct MethodParam {
 }
 
 impl MethodSignature {
-    pub fn dependencies(&self) -> Vec<TypeEntry> {
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         self.return_type
             .iter()
-            .map(|s| s.definition(TypeInclude::Minimal))
-            .chain(self.params.iter().map(|p| p.signature.definition(TypeInclude::Minimal)))
+            .map(|s| s.definition(include))
+            .chain(self.params.iter().map(|p| p.signature.definition(include)))
             .flatten()
             .collect()
     }

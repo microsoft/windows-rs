@@ -14,8 +14,8 @@ impl Signature {
         self.kind.definition(include)
     }
 
-    pub fn dependencies(&self) -> Vec<TypeEntry> {
-        self.kind.dependencies()
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        self.kind.dependencies(include)
     }
 
     pub fn is_blittable(&self) -> bool {

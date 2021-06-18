@@ -210,18 +210,26 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn dependencies(&self) -> Vec<TypeEntry> {
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         // TODO: interface and class definitions should be Full and only their method dependnecies should be minimal
         // so that inheritance works correctly
         match self.kind() {
             TypeKind::Interface => {
+                if include == TypeInclude::Minimal {
+                    return Vec::new();
+                }
+
                 let interfaces = self.interfaces().map(|i| TypeEntry{include: TypeInclude::Full, def: TypeRow::TypeDef(i.clone())});
 
-                let methods = self.methods().map(|m| m.dependencies()).flatten();
+                let methods = self.methods().map(|m| m.dependencies(TypeInclude::Minimal)).flatten();
 
                 interfaces.chain(methods).collect()
             }
             TypeKind::Class => {
+                if include == TypeInclude::Minimal {
+                    return Vec::new();
+                }
+
                 let generics = self.generics.iter().map(|g| g.definition(TypeInclude::Minimal));
                 let interfaces = self.interfaces().map(|i| i.definition(TypeInclude::Full));
                 let bases = self.bases().map(|b| b.definition(TypeInclude::Full));
@@ -288,7 +296,7 @@ impl TypeDef {
 
                 dependencies
             }
-            TypeKind::Delegate => self.invoke_method().dependencies(),
+            TypeKind::Delegate => self.invoke_method().dependencies(TypeInclude::Minimal),
         }
     }
 
