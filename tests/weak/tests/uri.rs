@@ -1,5 +1,5 @@
-use test_weak::Windows::Foundation::Uri;
-use windows::{factory, IActivationFactory, Interface, Result, HRESULT};
+use test_weak::Windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
+use windows::{factory, IActivationFactory, Interface, Result};
 
 // The Uri class supports weak references, so it is used to test a successful downgrade and upgrade.
 #[test]
@@ -23,7 +23,7 @@ fn test_failure() -> Result<()> {
     assert_eq!(result.is_err(), true);
 
     // E_NOINTERFACE is returned because IWeakReferenceSource is not implemented.
-    assert_eq!(result.unwrap_err().code(), HRESULT(0x8000_4002));
+    assert_eq!(result.unwrap_err().code(), E_NOINTERFACE);
 
     Ok(())
 }

@@ -2075,6 +2075,7 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
             }
+            pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
             pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
             #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
