@@ -41,92 +41,110 @@ impl Interface {
 
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = self.0.gen_name(gen);
-        let guid = self.0.gen_guid(gen);
-        let abi_name = self.0.gen_abi_name(gen);
         let struct_phantoms = self.0.gen_phantoms();
-        let abi_phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
+        let type_signature = self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
 
-        let abi_signatures = self
-            .0
-            .methods()
-            .map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
+        if include == TypeInclude::Full {
+            let guid = self.0.gen_guid(gen);
+            let abi_name = self.0.gen_abi_name(gen);
+            let abi_phantoms = self.0.gen_phantoms();
 
-        let is_exclusive = self.0.is_exclusive();
+            let abi_signatures = self
+                .0
+                .methods()
+                .map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
 
-        let hidden = if is_exclusive {
-            quote! { #[doc(hidden)] }
-        } else {
-            quote! {}
-        };
+            let is_exclusive = self.0.is_exclusive();
 
-        // The exclusive interface may be a factory interface and then we still need a type to use
-        // with the factory cache. And we don't know at this stage whether the interface is for
-        // the class or its factory.
-        let public_type = if is_exclusive {
-            TokenStream::new()
-        } else {
-            let type_signature = self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
-
-            let interfaces = self.interfaces();
-            let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-            let (async_get, future) = gen_async(&self.0, &interfaces, gen);
-            let object = gen_object(&name, &constraints);
-            let iterator = gen_iterator(&self.0, &interfaces, gen);
-
-            let send_sync = if async_kind(&self.0) == AsyncKind::None {
-                quote! {}
+            let hidden = if is_exclusive {
+                quote! { #[doc(hidden)] }
             } else {
+                quote! {}
+            };
+
+            // The exclusive interface may be a factory interface and then we still need a type to use
+            // with the factory cache. And we don't know at this stage whether the interface is for
+            // the class or its factory.
+            let public_type = if is_exclusive {
+                TokenStream::new()
+            } else {
+
+                let interfaces = self.interfaces();
+                let methods = InterfaceInfo::gen_methods(&interfaces, gen);
+                let (async_get, future) = gen_async(&self.0, &interfaces, gen);
+                let object = gen_object(&name, &constraints);
+                let iterator = gen_iterator(&self.0, &interfaces, gen);
+
+                let send_sync = if async_kind(&self.0) == AsyncKind::None {
+                    quote! {}
+                } else {
+                    quote! {
+                        unsafe impl<#constraints> ::std::marker::Send for #name {}
+                        unsafe impl<#constraints> ::std::marker::Sync for #name {}
+                    }
+                };
+
+                let conversions = interfaces
+                    .iter()
+                    .filter(|interface| interface.kind != InterfaceKind::Default)
+                    .map(|interface| interface.gen_conversion(&name, &constraints, gen));
+
                 quote! {
-                    unsafe impl<#constraints> ::std::marker::Send for #name {}
-                    unsafe impl<#constraints> ::std::marker::Sync for #name {}
+                    impl<#constraints> #name {
+                        #methods
+                        #async_get
+                    }
+                    unsafe impl<#constraints> ::windows::RuntimeType for #name {
+                        type DefaultType = ::std::option::Option<Self>;
+                        const SIGNATURE: ::windows::ConstBuffer = #type_signature;
+                    }
+                    #future
+                    #object
+                    #(#conversions)*
+                    #send_sync
+                    #iterator
                 }
             };
 
-            let conversions = interfaces
-                .iter()
-                .filter(|interface| interface.kind != InterfaceKind::Default)
-                .map(|interface| interface.gen_conversion(&name, &constraints, gen));
-
             quote! {
-                impl<#constraints> #name {
-                    #methods
-                    #async_get
+                #[repr(transparent)]
+                #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                #hidden
+                pub struct #name(::windows::IInspectable, #(#struct_phantoms,)*) where #constraints;
+                unsafe impl<#constraints> ::windows::Interface for #name {
+                    type Vtable = #abi_name;
+                    const IID: ::windows::Guid = #guid;
+                }
+                #public_type
+                #[repr(C)]
+                #[doc(hidden)]
+                pub struct #abi_name(
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::windows::Guid) -> ::windows::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut ::windows::RawPtr) -> ::windows::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut i32) -> ::windows::HRESULT,
+                    #(pub unsafe extern "system" fn #abi_signatures,)*
+                    #(pub #abi_phantoms,)*
+                ) where #constraints;
+            }
+        } else {
+            quote! {
+                // TODO: all minimal types hsould be doc hidden
+                #[repr(transparent)]
+                #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                pub struct #name(::windows::IInspectable, #(#struct_phantoms,)*) where #constraints;
+                unsafe impl<#constraints> ::windows::Interface for #name {
+                    type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
+                    const IID: ::windows::Guid = ::windows::Guid::zeroed();
                 }
                 unsafe impl<#constraints> ::windows::RuntimeType for #name {
                     type DefaultType = ::std::option::Option<Self>;
                     const SIGNATURE: ::windows::ConstBuffer = #type_signature;
                 }
-                #future
-                #object
-                #(#conversions)*
-                #send_sync
-                #iterator
             }
-        };
-
-        quote! {
-            #[repr(transparent)]
-            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-            #hidden
-            pub struct #name(::windows::IInspectable, #(#struct_phantoms,)*) where #constraints;
-            unsafe impl<#constraints> ::windows::Interface for #name {
-                type Vtable = #abi_name;
-                const IID: ::windows::Guid = #guid;
-            }
-            #public_type
-            #[repr(C)]
-            #[doc(hidden)]
-            pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::windows::Guid) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut ::windows::RawPtr) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut i32) -> ::windows::HRESULT,
-                #(pub unsafe extern "system" fn #abi_signatures,)*
-                #(pub #abi_phantoms,)*
-            ) where #constraints;
         }
     }
 }

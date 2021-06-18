@@ -96,116 +96,146 @@ impl Class {
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = self.0.gen_name(gen);
         let interfaces = self.interfaces();
-        let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-        let runtime_name = format!("{}.{}", self.0.namespace(), self.0.name());
 
-        let factories = interfaces.iter().filter_map(|interface| {
-            match interface.kind {
-                InterfaceKind::Static | InterfaceKind::Composable => {
-                    if interface.def.methods().next().is_some() {
-                        let interface_name = format_ident!("{}", interface.def.name());
-                        let interface_type = interface.def.gen_name(gen);
+        if include == TypeInclude::Full {
+            let methods = InterfaceInfo::gen_methods(&interfaces, gen);
+            let runtime_name = format!("{}.{}", self.0.namespace(), self.0.name());
 
-                        Some(quote! {
-                            pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
-                                callback: F,
-                            ) -> ::windows::Result<R> {
-                                static mut SHARED: ::windows::FactoryCache<#name, #interface_type> =
-                                    ::windows::FactoryCache::new();
-                                unsafe { SHARED.call(callback) }
-                            }
-                        })
-                    } else {
-                        None
+            let factories = interfaces.iter().filter_map(|interface| {
+                match interface.kind {
+                    InterfaceKind::Static | InterfaceKind::Composable => {
+                        if interface.def.methods().next().is_some() {
+                            let interface_name = format_ident!("{}", interface.def.name());
+                            let interface_type = interface.def.gen_name(gen);
+
+                            Some(quote! {
+                                pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
+                                    callback: F,
+                                ) -> ::windows::Result<R> {
+                                    static mut SHARED: ::windows::FactoryCache<#name, #interface_type> =
+                                        ::windows::FactoryCache::new();
+                                    unsafe { SHARED.call(callback) }
+                                }
+                            })
+                        } else {
+                            None
+                        }
+                    }
+                    _ => None
+                }
+            });
+
+            if let Some(default_interface) =
+                interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
+            {
+                let guid = default_interface.def.gen_guid(gen);
+                let default_abi_name = default_interface.def.gen_abi_name(gen);
+                let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
+                let object = gen_object(&name, &TokenStream::new());
+                let (async_get, future) = gen_async(&self.0, &interfaces, gen);
+
+                let new = if self.0.has_default_constructor() {
+                    quote! {
+                        pub fn new() -> ::windows::Result<Self> {
+                            Self::IActivationFactory(|f| f.activate_instance::<Self>())
+                        }
+                        fn IActivationFactory<R, F: FnOnce(&::windows::IActivationFactory) -> ::windows::Result<R>>(
+                            callback: F,
+                        ) -> ::windows::Result<R> {
+                            static mut SHARED: ::windows::FactoryCache<#name, ::windows::IActivationFactory> =
+                                ::windows::FactoryCache::new();
+                            unsafe { SHARED.call(callback) }
+                        }
+                    }
+                } else {
+                    quote! {}
+                };
+
+                let conversions = interfaces
+                    .iter()
+                    .map(|interface| interface.gen_conversion(&name, &TokenStream::new(), gen));
+
+                let send_sync = if self.0.is_agile() {
+                    quote! {
+                        unsafe impl ::std::marker::Send for #name {}
+                        unsafe impl ::std::marker::Sync for #name {}
+                    }
+                } else {
+                    TokenStream::new()
+                };
+
+                let bases = self.gen_base_conversions(&name, gen);
+                let iterator = gen_iterator(&self.0, &interfaces, gen);
+
+                quote! {
+                    #[repr(transparent)]
+                    #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                    pub struct #name(::windows::IInspectable);
+                    impl #name {
+                        #new
+                        #methods
+                        #async_get
+                        #(#factories)*
+                    }
+                    unsafe impl ::windows::RuntimeType for #name {
+                        type DefaultType = ::std::option::Option<Self>;
+                        const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
+                    }
+                    unsafe impl ::windows::Interface for #name {
+                        type Vtable = #default_abi_name;
+                        const IID: ::windows::Guid = #guid;
+                    }
+                    impl ::windows::RuntimeName for #name {
+                        const NAME: &'static str = #runtime_name;
+                    }
+                    #future
+                    #object
+                    #(#conversions)*
+                    #(#bases)*
+                    #send_sync
+                    #iterator
+                }
+            } else {
+                quote! {
+                    pub struct #name {}
+                    impl #name {
+                        #methods
+                        #(#factories)*
+                    }
+                    impl ::windows::RuntimeName for #name {
+                        const NAME: &'static str = #runtime_name;
                     }
                 }
-                _ => None
             }
-        });
+        } else {
+            // TODO: what if we want a minimal static class?
 
-        if let Some(default_interface) =
+            // TODO: I don't think this test is needed - if its a depednecy then by definition its not a static class and has a default interface
+            if let Some(default_interface) =
             interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
         {
-            let guid = default_interface.def.gen_guid(gen);
-            let default_abi_name = default_interface.def.gen_abi_name(gen);
             let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
-            let object = gen_object(&name, &TokenStream::new());
-            let (async_get, future) = gen_async(&self.0, &interfaces, gen);
-
-            let new = if self.0.has_default_constructor() {
-                quote! {
-                    pub fn new() -> ::windows::Result<Self> {
-                        Self::IActivationFactory(|f| f.activate_instance::<Self>())
-                    }
-                    fn IActivationFactory<R, F: FnOnce(&::windows::IActivationFactory) -> ::windows::Result<R>>(
-                        callback: F,
-                    ) -> ::windows::Result<R> {
-                        static mut SHARED: ::windows::FactoryCache<#name, ::windows::IActivationFactory> =
-                            ::windows::FactoryCache::new();
-                        unsafe { SHARED.call(callback) }
-                    }
-                }
-            } else {
-                quote! {}
-            };
-
-            let conversions = interfaces
-                .iter()
-                .map(|interface| interface.gen_conversion(&name, &TokenStream::new(), gen));
-
-            let send_sync = if self.0.is_agile() {
-                quote! {
-                    unsafe impl ::std::marker::Send for #name {}
-                    unsafe impl ::std::marker::Sync for #name {}
-                }
-            } else {
-                TokenStream::new()
-            };
-
-            let bases = self.gen_base_conversions(&name, gen);
-            let iterator = gen_iterator(&self.0, &interfaces, gen);
 
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                 pub struct #name(::windows::IInspectable);
-                impl #name {
-                    #new
-                    #methods
-                    #async_get
-                    #(#factories)*
+                // TODO: do we need RuntimeType trait for generics?
+                // tODO: do we need this for generics/structs/fields/params?
+                unsafe impl ::windows::Interface for #name {
+                    type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
+                    const IID: ::windows::Guid = ::windows::Guid::zeroed(); // Do we need the actual GUID for generics?
                 }
                 unsafe impl ::windows::RuntimeType for #name {
                     type DefaultType = ::std::option::Option<Self>;
                     const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
                 }
-                unsafe impl ::windows::Interface for #name {
-                    type Vtable = #default_abi_name;
-                    const IID: ::windows::Guid = #guid;
-                }
-                impl ::windows::RuntimeName for #name {
-                    const NAME: &'static str = #runtime_name;
-                }
-                #future
-                #object
-                #(#conversions)*
-                #(#bases)*
-                #send_sync
-                #iterator
             }
-        } else {
-            quote! {
-                pub struct #name {}
-                impl #name {
-                    #methods
-                    #(#factories)*
-                }
-                impl ::windows::RuntimeName for #name {
-                    const NAME: &'static str = #runtime_name;
-                }
-            }
+        } else {    
+            TokenStream::new()
         }
     }
+}
 
     fn gen_base_conversions<'a>(
         &'a self,
