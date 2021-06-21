@@ -5,7 +5,7 @@ fn get_imports(namespace: &'static str, name: &'static str) -> BTreeMap<&'static
     reader.import_type(namespace, name);
     let mut map = BTreeMap::<&'static str, TypeInclude>::new();
 
-    fn walk(tree: &mut TypeTree2, map: &mut BTreeMap<&'static str, TypeInclude>) {
+    fn walk(tree: &mut TypeTree, map: &mut BTreeMap<&'static str, TypeInclude>) {
         if tree.include {
             for (name, entry) in &mut tree.types {
                 if entry.include != TypeInclude::None {

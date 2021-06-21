@@ -28,16 +28,14 @@ impl TypeEntry {
     }
 }
 
-// TODO: call this TypeNamespace?
-pub struct TypeTree2 {
+pub struct TypeTree {
     pub namespace: &'static str,
-    // TODO: Probably need to be btrees again to ensure output is stable
     pub types: BTreeMap<&'static str, TypeEntry>,
-    pub namespaces: BTreeMap<&'static str, TypeTree2>,
+    pub namespaces: BTreeMap<&'static str, TypeTree>,
     pub include: bool,
 }
 
-impl TypeTree2 {
+impl TypeTree {
     pub fn from_namespace(namespace: &'static str) -> Self {
         Self {
             namespace,
@@ -136,7 +134,7 @@ impl TypeTree2 {
 }
 
 fn gen_namespaces<'a>(
-    namespaces: &'a BTreeMap<&'static str, TypeTree2>,
+    namespaces: &'a BTreeMap<&'static str, TypeTree>,
 ) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
         if tree.include {
@@ -164,7 +162,7 @@ pub struct TypeReader {
     // the derived nested type names.
     nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
 
-    pub types: TypeTree2,
+    pub types: TypeTree,
 }
 
 // TODO: all the dependencies functions should return collection of TypeRow (not ElementType)
@@ -246,7 +244,7 @@ impl TypeReader {
 
         let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
 
-        let mut types = TypeTree2::from_namespace("");
+        let mut types = TypeTree::from_namespace("");
         types.include = true;
 
         for file in files {
