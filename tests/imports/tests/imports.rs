@@ -40,4 +40,14 @@ fn test_dependencies() {
     assert_eq!(imports["ID2D1Resource"], TypeInclude::Full); // full because ID2D1Image derives from it
     assert_eq!(imports["BOOL"], TypeInclude::Minimal); // from ID2D1ImageSource method
     assert_eq!(imports["ID2D1Factory"], TypeInclude::Minimal); // from ID2D1Resource method
+
+    let imports = get_imports("Windows.Win32.Graphics.Direct3D12", "D3D12_INDIRECT_ARGUMENT_DESC");
+    assert_eq!(imports.len(), 2);
+    assert_eq!(imports["D3D12_INDIRECT_ARGUMENT_DESC"], TypeInclude::Full);
+    assert_eq!(imports["D3D12_INDIRECT_ARGUMENT_TYPE"], TypeInclude::Minimal);
+
+    let imports = get_imports("Windows.Win32.UI.ColorSystem", "WhitePoint");
+    assert_eq!(imports.len(), 2);
+    assert_eq!(imports["WhitePoint"], TypeInclude::Full);
+    assert_eq!(imports["XYYPoint"], TypeInclude::Minimal);
 }
