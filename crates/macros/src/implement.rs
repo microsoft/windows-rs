@@ -19,7 +19,7 @@ pub fn gen(
     let mut shims = TokenStream::new();
     let mut queries = TokenStream::new();
     let reader = TypeReader::get();
-    let gen = gen::Gen::absolute();
+    let gen = gen::Gen::Absolute;
 
     for (interface_count, (t, overrides)) in implements.interfaces(reader).iter().enumerate() {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
