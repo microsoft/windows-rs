@@ -179,7 +179,7 @@ impl TypeRow {
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
             Self::TypeDef(def) => def.dependencies(include),
-            Self::MethodDef(def) => def.dependencies(include),
+            Self::MethodDef(def) => def.dependencies(),
             Self::Field(def) => def.dependencies(include),
         }
     }

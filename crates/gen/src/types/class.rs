@@ -208,31 +208,22 @@ impl Class {
                 }
             }
         } else {
-            // TODO: what if we want a minimal static class?
+            let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
 
-            // TODO: I don't think this test is needed - if its a depednecy then by definition its not a static class and has a default interface
-            if let Some(default_interface) =
-                interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
-            {
-                let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
-
-                quote! {
-                    #[repr(transparent)]
-                    #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-                    pub struct #name(::windows::IInspectable);
-                    // TODO: do we need RuntimeType trait for generics?
-                    // tODO: do we need this for generics/structs/fields/params?
-                    unsafe impl ::windows::Interface for #name {
-                        type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
-                        const IID: ::windows::Guid = ::windows::Guid::zeroed(); // Do we need the actual GUID for generics?
-                    }
-                    unsafe impl ::windows::RuntimeType for #name {
-                        type DefaultType = ::std::option::Option<Self>;
-                        const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
-                    }
+            quote! {
+                #[repr(transparent)]
+                #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                pub struct #name(::windows::IInspectable);
+                // TODO: do we need RuntimeType trait for generics?
+                // tODO: do we need this for generics/structs/fields/params?
+                unsafe impl ::windows::Interface for #name {
+                    type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
+                    const IID: ::windows::Guid = ::windows::Guid::zeroed(); // Do we need the actual GUID for generics?
                 }
-            } else {
-                TokenStream::new()
+                unsafe impl ::windows::RuntimeType for #name {
+                    type DefaultType = ::std::option::Option<Self>;
+                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
+                }
             }
         }
     }

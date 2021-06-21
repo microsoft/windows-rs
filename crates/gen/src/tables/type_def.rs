@@ -228,7 +228,7 @@ impl TypeDef {
                 });
                 let methods = self
                     .methods()
-                    .map(|m| m.dependencies(TypeInclude::Minimal))
+                    .map(|m| m.dependencies())
                     .flatten();
                 let mut dependencies: Vec<TypeEntry> = interfaces.chain(methods).collect();
 
@@ -337,7 +337,7 @@ impl TypeDef {
 
                 dependencies
             }
-            TypeKind::Delegate => self.invoke_method().dependencies(TypeInclude::Minimal),
+            TypeKind::Delegate => self.invoke_method().dependencies(),
         }
     }
 
