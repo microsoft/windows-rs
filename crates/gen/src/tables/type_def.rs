@@ -429,7 +429,7 @@ impl TypeDef {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen();
+            let g = g.gen_name(&Gen::Absolute);
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
@@ -459,7 +459,7 @@ impl TypeDef {
     pub fn gen_phantoms<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         // TODO: this gen really only needs the GenericParam name
         self.generics.iter().map(move |g| {
-            let g = g.gen();
+            let g = g.gen_name(&Gen::Absolute);
             quote! { ::std::marker::PhantomData::<#g> }
         })
     }
@@ -469,7 +469,7 @@ impl TypeDef {
         self.generics
             .iter()
             .map(|g| {
-                let g = g.gen();
+                let g = g.gen_name(&Gen::Absolute);
                 quote! { #g: ::windows::RuntimeType + 'static, }
             })
             .collect()

@@ -239,7 +239,6 @@ impl ElementType {
         }
     }
 
-    // TODO: all dependencies methods should take a TypeInclude parameter and return a tuple?
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
             Self::MethodDef(t) => t.dependencies(),
@@ -340,14 +339,6 @@ impl ElementType {
             Self::TypeDef(t) => t.is_explicit(),
             Self::Array((kind, _)) => kind.is_explicit(),
             _ => false,
-        }
-    }
-
-    // TODO: remove this
-    pub fn gen(&self) -> TokenStream {
-        match self {
-            Self::GenericParam(p) => p.gen_name(),
-            _ => unexpected!(),
         }
     }
 }
