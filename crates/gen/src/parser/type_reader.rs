@@ -379,7 +379,7 @@ impl TypeReader {
 
             if namespace.is_empty() {
                 // TODO: if def.namespace is empty it means its a nested type and we need to find its dependencies but we need its TypeDef...
-                self.import_type_dependencies(&entry.def, entry.include);
+                self.import_type_dependencies(&entry.def, TypeInclude::Minimal);
             } else {
                 self.import_type_include(namespace, trim_tick(entry.def.name()), entry.include);
             }
