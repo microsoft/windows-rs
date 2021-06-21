@@ -12,7 +12,7 @@ fn main() {
         Windows::Win32::Graphics::Hlsl::D3DCOMPILER_DLL,
         Windows::Win32::Networking::Ldap::ldapsearch,
         Windows::Win32::Security::Authorization::ACCESS_MODE,
-        Windows::Win32::Storage::StructuredStorage::{CreateStreamOnHGlobal, STREAM_SEEK, IStream},
+        Windows::Win32::Storage::StructuredStorage::{CreateStreamOnHGlobal, IStream, STREAM_SEEK},
         Windows::Win32::System::Com::{CreateUri, IUri},
         Windows::Win32::System::Diagnostics::Debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
         Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},

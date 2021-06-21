@@ -226,10 +226,7 @@ impl TypeDef {
                     include: TypeInclude::Full,
                     def: TypeRow::TypeDef(i.clone()),
                 });
-                let methods = self
-                    .methods()
-                    .map(|m| m.dependencies())
-                    .flatten();
+                let methods = self.methods().map(|m| m.dependencies()).flatten();
                 let mut dependencies: Vec<TypeEntry> = interfaces.chain(methods).collect();
 
                 // TODO: IIterable needs IIterator's full definition in order to support iteration

@@ -1,8 +1,8 @@
 fn main() {
     windows::build! {
         Windows::Win32::Foundation::{HINSTANCE, PSTR, RECT},
-        Windows::Win32::Graphics::Direct3D12::*,
         Windows::Win32::Graphics::Direct3D11::*,
+        Windows::Win32::Graphics::Direct3D12::*,
         Windows::Win32::Graphics::Dxgi::*,
         Windows::Win32::Graphics::Hlsl::*,
         Windows::Win32::System::LibraryLoader::GetModuleHandleA,
