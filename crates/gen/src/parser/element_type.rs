@@ -256,10 +256,13 @@ impl ElementType {
             Self::Array((signature, _)) => signature.definition(include),
             // TODO: find a cleaner way to map this dependency
             Self::Matrix3x2 => {
-                vec![TypeEntry{ include, def: TypeRow::TypeDef(TypeReader::get().resolve_type_def(
-                    "Windows.Foundation.Numerics",
-                    "Matrix3x2",
-                ))}]
+                vec![TypeEntry {
+                    include,
+                    def: TypeRow::TypeDef(
+                        TypeReader::get()
+                            .resolve_type_def("Windows.Foundation.Numerics", "Matrix3x2"),
+                    ),
+                }]
             }
             _ => Vec::new(),
         }

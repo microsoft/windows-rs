@@ -14,7 +14,9 @@ fn get_imports(namespace: &'static str, name: &'static str) -> BTreeMap<&'static
                 }
             }
 
-            tree.namespaces.values_mut().for_each(|mut tree|walk(&mut tree, map));
+            tree.namespaces
+                .values_mut()
+                .for_each(|mut tree| walk(&mut tree, map));
         }
     }
 

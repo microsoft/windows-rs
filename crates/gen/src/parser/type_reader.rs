@@ -437,7 +437,7 @@ impl TypeReader {
         panic!("Could not find type `{}.{}`", namespace, name);
     }
 
-    pub fn result_type_row(&'static self, namespace: &str, name: &str) -> TypeRow {
+    pub fn resolve_type_row(&'static self, namespace: &str, name: &str) -> TypeRow {
         // TODO: repeated in resolve_type above
         if let Some(def) = self
             .types

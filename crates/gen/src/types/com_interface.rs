@@ -224,8 +224,7 @@ impl ComInterface {
                     #(pub unsafe extern "system" fn #abi_signatures,)*
                 );
             }
-        }
-        else {
+        } else {
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]

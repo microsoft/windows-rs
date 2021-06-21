@@ -69,7 +69,6 @@ impl Interface {
             let public_type = if is_exclusive {
                 TokenStream::new()
             } else {
-
                 let interfaces = self.interfaces();
                 let methods = InterfaceInfo::gen_methods(&interfaces, gen);
                 let (async_get, future) = gen_async(&self.0, &interfaces, gen);
