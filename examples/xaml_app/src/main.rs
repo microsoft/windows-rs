@@ -4,8 +4,9 @@ use bindings::*;
 use windows::*;
 
 use bindings::{
-    Windows::ApplicationModel::Activation::*, Windows::UI::Xaml::Controls::TextBox,
-    Windows::UI::Xaml::*,
+    Windows::ApplicationModel::Activation::LaunchActivatedEventArgs,
+    Windows::UI::Xaml::Controls::TextBox,
+    Windows::UI::Xaml::{Window, Application, ApplicationInitializationCallback},
 };
 
 #[implement(
