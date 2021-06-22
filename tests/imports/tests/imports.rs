@@ -56,4 +56,58 @@ fn test_dependencies() {
     assert_eq!(imports.len(), 2);
     assert_eq!(imports["WhitePoint"], TypeInclude::Full);
     assert_eq!(imports["XYYPoint"], TypeInclude::Minimal);
+
+    let imports = get_imports("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+    assert_eq!(imports.len(), 2);
+    assert_eq!(imports["DXGI_FRAME_STATISTICS_MEDIA"], TypeInclude::Full);
+    assert_eq!(imports["DXGI_FRAME_PRESENTATION_MODE"], TypeInclude::Minimal);
+
+    let imports = get_imports("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
+    assert_eq!(imports.len(), 1);
+    assert_eq!(imports["DXGI_FRAME_PRESENTATION_MODE"], TypeInclude::Full);
+
+    let imports = get_imports("Windows.Foundation", "IUriRuntimeClassFactory");
+    assert_eq!(imports.len(), 2);
+    assert_eq!(imports["IUriRuntimeClassFactory"], TypeInclude::Full);
+    assert_eq!(imports["Uri"], TypeInclude::Minimal);
+
+    let imports = get_imports("Windows.Foundation", "IAsyncAction");
+    assert_eq!(imports.len(), 4);
+    assert_eq!(imports["IAsyncAction"], TypeInclude::Full);
+    assert_eq!(imports["IAsyncInfo"], TypeInclude::Full);
+    assert_eq!(imports["AsyncActionCompletedHandler"], TypeInclude::Minimal);
+    assert_eq!(imports["AsyncStatus"], TypeInclude::Minimal);
+
+    let imports = get_imports("Windows.Foundation", "AsyncActionCompletedHandler");
+    assert_eq!(imports.len(), 3);
+    assert_eq!(imports["AsyncActionCompletedHandler"], TypeInclude::Full);
+    assert_eq!(imports["IAsyncAction"], TypeInclude::Minimal);
+    assert_eq!(imports["AsyncStatus"], TypeInclude::Minimal);
+
+    let imports = get_imports("Windows.Foundation.Collections", "StringMap");
+    assert_eq!(imports.len(), 10);
+    assert_eq!(imports["StringMap"], TypeInclude::Full);
+    assert_eq!(imports["IMap"], TypeInclude::Full);
+    assert_eq!(imports["IIterable"], TypeInclude::Full);
+    assert_eq!(imports["IIterator"], TypeInclude::Full);
+    assert_eq!(imports["IKeyValuePair"], TypeInclude::Full);
+    assert_eq!(imports["IObservableMap"], TypeInclude::Full);
+    assert_eq!(imports["EventRegistrationToken"], TypeInclude::Minimal);
+    assert_eq!(imports["IMapChangedEventArgs"], TypeInclude::Minimal);
+    assert_eq!(imports["IMapView"], TypeInclude::Minimal);
+    assert_eq!(imports["MapChangedEventHandler"], TypeInclude::Minimal);
+
+    let imports = get_imports("Windows.Win32.Graphics.Direct3D11", "D3D11_DEPTH_STENCIL_VIEW_DESC");
+    assert_eq!(imports.len(), 9);
+    assert_eq!(imports["D3D11_DEPTH_STENCIL_VIEW_DESC"], TypeInclude::Full);
+    assert_eq!(imports["DXGI_FORMAT"], TypeInclude::Minimal);
+    assert_eq!(imports["D3D11_DSV_DIMENSION"], TypeInclude::Minimal);
+    assert_eq!(imports["D3D11_TEX1D_DSV"], TypeInclude::Minimal);
+    assert_eq!(imports["D3D11_TEX1D_ARRAY_DSV"], TypeInclude::Minimal);
+    assert_eq!(imports["D3D11_TEX2D_DSV"], TypeInclude::Minimal);
+    assert_eq!(imports["D3D11_TEX2D_ARRAY_DSV"], TypeInclude::Minimal);
+    assert_eq!(imports["D3D11_TEX2DMS_DSV"], TypeInclude::Minimal);
+    assert_eq!(imports["D3D11_TEX2DMS_ARRAY_DSV"], TypeInclude::Minimal);
+
+    // TODO: add a composable class test (like Composition/Xaml)
 }

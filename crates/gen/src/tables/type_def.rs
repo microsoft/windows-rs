@@ -52,7 +52,6 @@ impl TypeDef {
             .expect("`Invoke` method not found")
     }
 
-    // TODO: get rid of the definition functions
     pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
         let mut definition = vec![TypeEntry {
             include,
@@ -159,7 +158,6 @@ impl TypeDef {
         }
     }
 
-    // TODO: use `include` to determin whether to gen full or minimal definition
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         // TODO: all the cloning here is ridiculous
         match self.kind() {
@@ -214,8 +212,6 @@ impl TypeDef {
     }
 
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        // TODO: interface and class definitions should be Full and only their method dependnecies should be minimal
-        // so that inheritance works correctly
         match self.kind() {
             TypeKind::Interface => {
                 if include == TypeInclude::Minimal {
@@ -229,7 +225,8 @@ impl TypeDef {
                 let methods = self.methods().map(|m| m.dependencies()).flatten();
                 let mut dependencies: Vec<TypeEntry> = interfaces.chain(methods).collect();
 
-                // TODO: IIterable needs IIterator's full definition in order to support iteration
+                // TODO: IIterable needs IIterator's full definition in order to support iteration. 
+                // Find a more natural way to express this dependency.
                 if self.full_name() == ("Windows.Foundation.Collections", "IIterable`1") {
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Full,
@@ -316,7 +313,6 @@ impl TypeDef {
                         });
                     }
                     _ => {
-                        // TODO: doesn't seem to pick up nested type dependencies e.g. D3D11_DEPTH_STENCIL_VIEW_DESC
                         dependencies.extend(
                             self.fields()
                                 .map(|f| f.definition(TypeInclude::Minimal))

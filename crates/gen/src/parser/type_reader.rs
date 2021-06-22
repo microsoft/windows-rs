@@ -21,7 +21,7 @@ impl TypeEntry {
         }
 
         match &self.def {
-            TypeRow::TypeDef(def) => def.clone().with_generics().gen(gen, self.include), // TODO: pass in self.include
+            TypeRow::TypeDef(def) => def.clone().with_generics().gen(gen, self.include),
             TypeRow::MethodDef(def) => def.gen(gen),
             TypeRow::Field(def) => def.gen(gen),
         }
@@ -165,7 +165,6 @@ pub struct TypeReader {
     pub types: TypeTree,
 }
 
-// TODO: all the dependencies functions should return collection of TypeRow (not ElementType)
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
 pub enum TypeRow {
     TypeDef(tables::TypeDef),
@@ -364,19 +363,16 @@ impl TypeReader {
         None
     }
 
-    // TODO: need tests that validate the correct full/minimal imports for different types
     pub fn import_type(&mut self, namespace: &str, name: &str) -> bool {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
 
     fn import_type_dependencies(&mut self, def: &TypeRow, include: TypeInclude) {
-        // TODO: should pass `include` to dependnecies so we can bleed off and not make this recursive,
-        // not include dependencies of classes/interfaces that are minimally imported.
         for entry in def.dependencies(include) {
             let namespace = entry.def.namespace();
 
+            // If def.namespace is empty it means its a nested type and we need to find its dependencies to avoid type slicing.
             if namespace.is_empty() {
-                // TODO: if def.namespace is empty it means its a nested type and we need to find its dependencies but we need its TypeDef...
                 self.import_type_dependencies(&entry.def, TypeInclude::Minimal);
             } else {
                 self.import_type_include(namespace, trim_tick(entry.def.name()), entry.include);
@@ -401,7 +397,7 @@ impl TypeReader {
             } else {
                 if entry.include == TypeInclude::None {
                     entry.include = TypeInclude::Minimal;
-                    self.import_type_dependencies(&copy, include); // TODO: make this minimal import (only include minimal dependencies)
+                    self.import_type_dependencies(&copy, include);
                 }
             }
 
@@ -426,17 +422,11 @@ impl TypeReader {
         {
             return (&def.def).into();
         }
-        // if let Some(types) = self.types.get(namespace) {
-        //     if let Some(row) = types.get(trim_tick(name)) {
-        //         return row.into();
-        //     }
-        // }
 
         panic!("Could not find type `{}.{}`", namespace, name);
     }
 
     pub fn resolve_type_row(&'static self, namespace: &str, name: &str) -> TypeRow {
-        // TODO: repeated in resolve_type above
         if let Some(def) = self
             .types
             .get_namespace(namespace)
@@ -445,17 +435,10 @@ impl TypeReader {
             return def.def.clone();
         }
 
-        // if let Some(types) = self.types.get(namespace) {
-        //     if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
-        //         return row.clone();
-        //     }
-        // }
-
         panic!("Could not find type row `{}.{}`", namespace, name);
     }
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
-        // TODO: repeated in resolve_type above
         if let Some(def) = self
             .types
             .get_namespace(namespace)
@@ -465,12 +448,6 @@ impl TypeReader {
                 return row.clone();
             }
         }
-
-        // if let Some(types) = self.types.get(namespace) {
-        //     if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
-        //         return row.clone();
-        //     }
-        // }
 
         panic!("Could not find type def `{}.{}`", namespace, name);
     }
