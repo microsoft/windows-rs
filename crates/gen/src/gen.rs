@@ -1,42 +1,14 @@
 use super::*;
-use std::iter::FromIterator;
 
-pub struct Gen<'a> {
-    relation: GenRelation,
-    tree: &'a TypeTree,
-}
-
-pub enum GenRelation {
+pub enum Gen {
     Absolute,
     Relative(&'static str),
 }
 
-impl<'a> Gen<'a> {
-    pub fn relative(namespace: &'static str, tree: &'a TypeTree) -> Self {
-        Self {
-            relation: GenRelation::Relative(namespace),
-            tree,
-        }
-    }
-
-    pub fn absolute(tree: &'a TypeTree) -> Self {
-        Self {
-            relation: GenRelation::Absolute,
-            tree,
-        }
-    }
-
-    pub fn include_method(&self, signature: &MethodSignature) -> bool {
-        if let GenRelation::Absolute = self.relation {
-            return true;
-        }
-
-        self.tree.include_method(signature)
-    }
-
+impl Gen {
     pub fn namespace(&self, namespace: &str) -> TokenStream {
-        match self.relation {
-            GenRelation::Absolute => {
+        match self {
+            Self::Absolute => {
                 let mut tokens = TokenStream::new();
 
                 for namespace in namespace.split('.') {
@@ -47,12 +19,11 @@ impl<'a> Gen<'a> {
 
                 tokens
             }
-            GenRelation::Relative(relative) => {
-                if namespace == relative {
+            Self::Relative(relative) => {
+                if namespace == *relative {
                     return TokenStream::new();
                 }
 
-                let mut tokens = Vec::new();
                 let mut relative = relative.split('.').peekable();
                 let mut namespace = namespace.split('.').peekable();
 
@@ -63,18 +34,18 @@ impl<'a> Gen<'a> {
                     namespace.next();
                 }
 
-                let count = relative.count();
+                let mut tokens = TokenStream::new();
 
-                if count > 0 {
-                    tokens.resize(tokens.len() + count, quote! { super:: });
+                for _ in 0..relative.count() {
+                    tokens.push_str("super::");
                 }
 
-                tokens.extend(namespace.map(|namespace| {
-                    let namespace = to_ident(namespace);
-                    quote! { #namespace:: }
-                }));
+                for namespace in namespace {
+                    tokens.push_str(namespace);
+                    tokens.push_str("::");
+                }
 
-                TokenStream::from_iter(tokens)
+                tokens
             }
         }
     }
@@ -90,33 +61,24 @@ mod tests {
         let t = reader.resolve_type("Windows.Foundation", "IStringable");
 
         assert_eq!(
-            t.gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
-                .as_str(),
+            t.gen_name(&Gen::Absolute).as_str(),
             "Windows :: Foundation :: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative("Windows", &TypeTree::from_namespace("")))
-                .as_str(),
-            "Foundation :: IStringable"
+            t.gen_name(&Gen::Relative("Windows")).as_str(),
+            "Foundation:: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative(
-                "Windows.Foundation",
-                &TypeTree::from_namespace("")
-            ))
-            .as_str(),
+            t.gen_name(&Gen::Relative("Windows.Foundation")).as_str(),
             "IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::relative(
-                "Windows.Foundation.Collections",
-                &TypeTree::from_namespace("")
-            ))
-            .as_str(),
-            "super :: IStringable"
+            t.gen_name(&Gen::Relative("Windows.Foundation.Collections"))
+                .as_str(),
+            "super:: IStringable"
         );
     }
 }

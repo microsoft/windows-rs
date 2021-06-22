@@ -52,8 +52,8 @@ impl Field {
         types::Constant::gen(self, gen)
     }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        self.signature().kind.definition()
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        self.signature().kind.definition(include)
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
@@ -76,8 +76,8 @@ impl Field {
             .expect("Field")
     }
 
-    pub fn definition(&self) -> Vec<ElementType> {
-        self.signature().definition()
+    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        self.signature().definition(include)
     }
 
     pub fn is_blittable(&self) -> bool {

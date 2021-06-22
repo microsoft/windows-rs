@@ -1,0 +1,9 @@
+[package]
+name = "test_imports"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+windows_gen = { path = "../../crates/gen" }
+

@@ -13,11 +13,11 @@ pub struct MethodParam {
 }
 
 impl MethodSignature {
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         self.return_type
             .iter()
-            .map(|s| s.definition())
-            .chain(self.params.iter().map(|p| p.signature.definition()))
+            .map(|s| s.definition(include))
+            .chain(self.params.iter().map(|p| p.signature.definition(include)))
             .flatten()
             .collect()
     }
@@ -62,10 +62,6 @@ impl MethodSignature {
     // All WinRT ABI methods return an HRESULT while any return type is transformed into a trailing
     // out parameter. This is unlike Win32 methods that don't require this transformation.
     pub fn gen_winrt_abi(&self, gen: &Gen) -> TokenStream {
-        if !gen.include_method(self) {
-            return quote! { () };
-        }
-
         let params = self
             .params
             .iter()
@@ -114,10 +110,6 @@ impl MethodSignature {
         interface: &InterfaceInfo,
         gen: &Gen,
     ) -> TokenStream {
-        if !gen.include_method(self) {
-            return quote! {};
-        }
-
         let params = if interface.kind == InterfaceKind::Composable
             || interface.kind == InterfaceKind::Extend
         {

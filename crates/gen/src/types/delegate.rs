@@ -12,10 +12,10 @@ impl Delegate {
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = self.0.gen_guid(gen);
-        let struct_phantoms = self.0.gen_phantoms(gen);
-        let abi_phantoms = self.0.gen_phantoms(gen);
-        let vtable_phantoms = self.0.gen_phantoms(gen);
-        let constraints = self.0.gen_constraints(gen);
+        let struct_phantoms = self.0.gen_phantoms();
+        let abi_phantoms = self.0.gen_phantoms();
+        let vtable_phantoms = self.0.gen_phantoms();
+        let constraints = self.0.gen_constraints();
 
         let method = MethodInfo {
             name: "Invoke".to_string(),
@@ -37,10 +37,9 @@ impl Delegate {
         // for compile-time const guid calculations.
         let type_signature = if self.0.generics.is_empty() {
             self.0
-                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()), gen)
+                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()))
         } else {
-            self.0
-                .gen_signature(&format!("{{{:#?}}}", &self.0.guid()), gen)
+            self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()))
         };
 
         let (box_name, box_definition) = if self.0.generics.is_empty() {

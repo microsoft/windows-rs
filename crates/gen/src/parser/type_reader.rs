@@ -1,19 +1,45 @@
 use super::*;
 use std::collections::*;
 
-/// A reader of type information from Windows Metadata
 pub struct TypeReader {
-    types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
     // Nested types are stored in a BTreeMap to ensure a stable order. This impacts
     // the derived nested type names.
     nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
+
+    pub types: TypeTree,
 }
 
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
-enum TypeRow {
+pub enum TypeRow {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),
     Field(tables::Field),
+}
+
+impl TypeRow {
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        match self {
+            Self::TypeDef(def) => def.dependencies(include),
+            Self::MethodDef(def) => def.dependencies(),
+            Self::Field(def) => def.dependencies(include),
+        }
+    }
+
+    pub fn name(&self) -> &str {
+        match self {
+            Self::TypeDef(def) => def.name(),
+            Self::MethodDef(def) => def.name(),
+            Self::Field(def) => def.name(),
+        }
+    }
+
+    pub fn namespace(&self) -> &str {
+        match self {
+            Self::TypeDef(def) => def.namespace(),
+            Self::MethodDef(def) => def.parent().namespace(),
+            Self::Field(def) => def.parent().namespace(),
+        }
+    }
 }
 
 impl From<&TypeRow> for ElementType {
@@ -27,7 +53,11 @@ impl From<&TypeRow> for ElementType {
 }
 
 impl TypeReader {
-    pub fn get() -> &'static Self {
+    pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+        self.types.gen()
+    }
+
+    pub fn get_mut() -> &'static mut Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
         static mut VALUE: MaybeUninit<TypeReader> = MaybeUninit::uninit();
@@ -38,7 +68,11 @@ impl TypeReader {
         });
 
         // This is safe because `call_once` has already been called.
-        unsafe { &*VALUE.as_ptr() }
+        unsafe { &mut *VALUE.as_mut_ptr() }
+    }
+
+    pub fn get() -> &'static Self {
+        Self::get_mut()
     }
 
     /// Insert WinRT metadata at the given paths
@@ -48,10 +82,9 @@ impl TypeReader {
     /// This function panics if the if the files where the windows metadata are stored cannot be read.
     fn new() -> Self {
         let files = workspace_winmds();
-
-        let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
-
         let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
+        let mut types = TypeTree::from_namespace("");
+        types.include = true;
 
         for file in files {
             let row_count = file.type_def_table().row_count;
@@ -65,40 +98,34 @@ impl TypeReader {
                     continue;
                 }
 
-                let flags = def.flags();
+                if is_well_known(namespace, name) {
+                    continue;
+                }
+
                 let extends = def.extends();
 
                 if extends == ("System", "Attribute") {
                     continue;
                 }
 
-                let values = types.entry(namespace).or_default();
+                let namespace = types.insert_namespace(namespace, 0);
 
-                values
-                    .entry(name)
-                    .or_insert_with(|| TypeRow::TypeDef(def.clone()));
-
-                if flags.interface() || flags.windows_runtime() {
-                    continue;
-                }
-
-                match extends {
-                    ("System", "Object") => {
+                if def.flags().windows_runtime() {
+                    namespace.insert_type(name, TypeRow::TypeDef(def));
+                } else {
+                    if extends != ("System", "Object") {
+                        namespace.insert_type(name, TypeRow::TypeDef(def));
+                    } else {
                         for field in def.fields() {
                             let name = field.name();
-
-                            values.entry(name).or_insert_with(|| TypeRow::Field(field));
+                            namespace.insert_type(name, TypeRow::Field(field));
                         }
 
                         for method in def.methods() {
                             let name = method.name();
-
-                            values
-                                .entry(name)
-                                .or_insert_with(|| TypeRow::MethodDef(method));
+                            namespace.insert_type(name, TypeRow::MethodDef(method));
                         }
                     }
-                    _ => {}
                 }
             }
 
@@ -117,34 +144,84 @@ impl TypeReader {
             }
         }
 
-        for (namespace, name, _) in &WELL_KNOWN_TYPES {
-            if let Some(value) = types.get_mut(namespace) {
-                value.remove(name);
-            }
-        }
-
-        Self { types, nested }
-    }
-
-    pub fn resolve_namespace(&'static self, find: &str) -> &'static str {
-        self.types
-            .keys()
-            .find(|namespace| *namespace == &find)
-            .unwrap_or_else(|| panic!("Could not find namespace `{}`", find))
+        Self { nested, types }
     }
 
     /// Get all the namespace names that the [`TypeReader`] knows about
-    pub fn namespaces(&'static self) -> impl Iterator<Item = &'static str> {
-        self.types.keys().copied()
+    pub fn namespaces(&'static self) -> Vec<&'static str> {
+        //self.types.keys().copied()
+        self.types.namespaces()
     }
 
-    /// Get all types for a given namespace
-    ///
-    /// # Panics
-    ///
-    /// Panics if the namespace does not exist
-    pub fn namespace_types(&'static self, namespace: &str) -> impl Iterator<Item = ElementType> {
-        self.types[namespace].values().map(move |row| row.into())
+    pub fn import_namespace(&mut self, namespace: &str) -> bool {
+        // TODO: borrow hackery going on here...
+        if let Some(namespace) = Self::get().types.get_namespace(namespace) {
+            for name in namespace.types.keys() {
+                self.import_type_include(namespace.namespace, name, TypeInclude::Full);
+            }
+
+            true
+        } else {
+            false
+        }
+    }
+
+    pub fn get_type_name(
+        &'static self,
+        namespace: &str,
+        name: &str,
+    ) -> Option<(&'static str, &'static str)> {
+        if let Some(tree) = self.types.get_namespace(namespace) {
+            if let Some((key, _)) = tree.types.get_key_value(name) {
+                return Some((tree.namespace, key));
+            }
+        }
+
+        None
+    }
+
+    pub fn import_type(&mut self, namespace: &str, name: &str) -> bool {
+        self.import_type_include(namespace, name, TypeInclude::Full)
+    }
+
+    fn import_type_dependencies(&mut self, def: &TypeRow, include: TypeInclude) {
+        for entry in def.dependencies(include) {
+            let namespace = entry.def.namespace();
+
+            // If def.namespace is empty it means its a nested type and we need to find its dependencies to avoid type slicing.
+            if namespace.is_empty() {
+                self.import_type_dependencies(&entry.def, TypeInclude::Minimal);
+            } else {
+                self.import_type_include(namespace, trim_tick(entry.def.name()), entry.include);
+            }
+        }
+    }
+
+    fn import_type_include(&mut self, namespace: &str, name: &str, include: TypeInclude) -> bool {
+        assert!(!namespace.is_empty());
+        if let Some(entry) = self
+            .types
+            .get_namespace_mut(namespace)
+            .and_then(|tree| tree.get_type_mut(name))
+        {
+            let copy = entry.def.clone();
+
+            if include == TypeInclude::Full {
+                if entry.include != TypeInclude::Full {
+                    entry.include = TypeInclude::Full;
+                    self.import_type_dependencies(&copy, include);
+                }
+            } else {
+                if entry.include == TypeInclude::None {
+                    entry.include = TypeInclude::Minimal;
+                    self.import_type_dependencies(&copy, include);
+                }
+            }
+
+            true
+        } else {
+            false
+        }
     }
 
     pub fn nested_types(
@@ -155,40 +232,36 @@ impl TypeReader {
     }
 
     pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
-        if let Some(types) = self.types.get(namespace) {
-            if let Some(row) = types.get(trim_tick(name)) {
-                return row.into();
-            }
+        if let Some(def) = self
+            .types
+            .get_namespace(namespace)
+            .and_then(|tree| tree.get_type(trim_tick(name)))
+        {
+            return (&def.def).into();
         }
 
         panic!("Could not find type `{}.{}`", namespace, name);
     }
 
-    pub fn get_namespace(&'static self, namespace: &str) -> Option<&'static str> {
-        if let Some((namespace, _)) = self.types.get_key_value(namespace) {
-            Some(namespace)
-        } else {
-            None
-        }
-    }
-
-    pub fn get_type_name(
-        &'static self,
-        namespace: &str,
-        name: &str,
-    ) -> Option<(&'static str, &'static str)> {
-        if let Some((namespace, types)) = self.types.get_key_value(namespace) {
-            if let Some((name, _)) = types.get_key_value(trim_tick(name)) {
-                return Some((namespace, name));
-            }
+    pub fn resolve_type_row(&'static self, namespace: &str, name: &str) -> TypeRow {
+        if let Some(def) = self
+            .types
+            .get_namespace(namespace)
+            .and_then(|tree| tree.get_type(trim_tick(name)))
+        {
+            return def.def.clone();
         }
 
-        None
+        panic!("Could not find type row `{}.{}`", namespace, name);
     }
 
     pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
-        if let Some(types) = self.types.get(namespace) {
-            if let Some(TypeRow::TypeDef(row)) = types.get(trim_tick(name)) {
+        if let Some(def) = self
+            .types
+            .get_namespace(namespace)
+            .and_then(|tree| tree.get_type(trim_tick(name)))
+        {
+            if let TypeRow::TypeDef(row) = &def.def {
                 return row.clone();
             }
         }
@@ -282,7 +355,10 @@ impl TypeReader {
                 &TypeDefOrRef::decode(blob.file, blob.read_unsigned()),
                 generics,
             ),
-            0x13 => generics[blob.read_unsigned() as usize].clone(),
+            0x13 => generics
+                .get(blob.read_unsigned() as usize)
+                .unwrap_or_else(|| &ElementType::Void)
+                .clone(),
             0x14 => {
                 let kind = self.signature_from_blob(blob, generics).unwrap();
                 let _rank = blob.read_unsigned();
@@ -308,10 +384,21 @@ impl TypeReader {
 }
 
 fn trim_tick(name: &str) -> &str {
-    match name.as_bytes().get(name.len() - 2) {
-        Some(c) if *c == b'`' => &name[..name.len() - 2],
+    let len = name.len() - 2;
+    match name.as_bytes().get(len) {
+        Some(c) if *c == b'`' => &name[..len],
         _ => name,
     }
+}
+
+fn is_well_known(namespace: &'static str, name: &'static str) -> bool {
+    for entry in &WELL_KNOWN_TYPES {
+        if name == entry.1 && namespace == entry.0 {
+            return true;
+        }
+    }
+
+    false
 }
 
 const WELL_KNOWN_TYPES: [(&'static str, &'static str, ElementType); 10] = [

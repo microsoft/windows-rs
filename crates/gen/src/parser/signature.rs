@@ -10,12 +10,12 @@ pub struct Signature {
 }
 
 impl Signature {
-    pub fn definition(&self) -> Vec<ElementType> {
-        self.kind.definition()
+    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        self.kind.definition(include)
     }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
-        self.kind.dependencies()
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        self.kind.dependencies(include)
     }
 
     pub fn is_blittable(&self) -> bool {

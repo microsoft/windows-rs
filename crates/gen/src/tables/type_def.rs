@@ -52,12 +52,14 @@ impl TypeDef {
             .expect("`Invoke` method not found")
     }
 
-    // TODO: get rid of the definition functions
-    pub fn definition(&self) -> Vec<ElementType> {
-        let mut definition = vec![self.clone().into()];
+    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
+        let mut definition = vec![TypeEntry {
+            include,
+            def: TypeRow::TypeDef(self.clone()),
+        }];
 
         for generic in &self.generics {
-            definition.append(&mut generic.definition());
+            definition.append(&mut generic.definition(include));
         }
 
         definition
@@ -156,18 +158,18 @@ impl TypeDef {
         }
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
+    pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         // TODO: all the cloning here is ridiculous
         match self.kind() {
             TypeKind::Interface => {
                 if self.is_winrt() {
-                    types::Interface(self.clone().with_generics()).gen(gen)
+                    types::Interface(self.clone().with_generics()).gen(gen, include)
                 } else {
-                    types::ComInterface(self.clone()).gen(gen)
+                    types::ComInterface(self.clone()).gen(gen, include)
                 }
             }
-            TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen),
-            TypeKind::Enum => types::Enum(self.clone()).gen(gen),
+            TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen, include),
+            TypeKind::Enum => types::Enum(self.clone()).gen(gen, include),
             TypeKind::Struct => types::Struct(self.clone()).gen(gen),
             TypeKind::Delegate => {
                 if self.is_winrt() {
@@ -209,33 +211,53 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn dependencies(&self) -> Vec<ElementType> {
+    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self.kind() {
             TypeKind::Interface => {
-                let interfaces = self.interfaces().map(|i| i.into());
-
-                let methods = self
-                    .methods()
-                    .map(|m| m.dependencies(&self.generics))
-                    .flatten();
-
-                if self.generics.is_empty() {
-                    interfaces.collect()
-                } else {
-                    interfaces.chain(methods).collect()
+                if include == TypeInclude::Minimal {
+                    return Vec::new();
                 }
+
+                let interfaces = self.interfaces().map(|i| TypeEntry {
+                    include: TypeInclude::Full,
+                    def: TypeRow::TypeDef(i.clone()),
+                });
+                let methods = self.methods().map(|m| m.dependencies()).flatten();
+                let mut dependencies: Vec<TypeEntry> = interfaces.chain(methods).collect();
+
+                // TODO: IIterable needs IIterator's full definition in order to support iteration.
+                // Find a more natural way to express this dependency.
+                if self.full_name() == ("Windows.Foundation.Collections", "IIterable`1") {
+                    dependencies.push(TypeEntry {
+                        include: TypeInclude::Full,
+                        def: TypeReader::get()
+                            .resolve_type_row("Windows.Foundation.Collections", "IIterator`1"),
+                    });
+                }
+
+                dependencies
             }
             TypeKind::Class => {
-                let generics = self.generics.iter().map(|g| g.definition());
-                let interfaces = self.interfaces().map(|i| i.definition());
-                let bases = self.bases().map(|b| b.definition());
+                if include == TypeInclude::Minimal {
+                    return Vec::new();
+                }
+
+                let generics = self
+                    .generics
+                    .iter()
+                    .map(|g| g.definition(TypeInclude::Minimal));
+                let interfaces = self.interfaces().map(|i| i.definition(TypeInclude::Full));
+                let bases = self.bases().map(|b| b.definition(TypeInclude::Full));
 
                 let factories = self.attributes().filter_map(|attribute| {
                     match attribute.name() {
                         "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                             for (_, arg) in attribute.args() {
                                 if let parser::ConstantValue::TypeDef(def) = arg {
-                                    return Some(def.into());
+                                    return Some(TypeEntry {
+                                        include: TypeInclude::Full,
+                                        def: TypeRow::TypeDef(def.clone()),
+                                    });
                                 }
                             }
                         }
@@ -259,39 +281,56 @@ impl TypeDef {
 
                 match self.full_name() {
                     ("Windows.Win32.Foundation", "BSTR") => {
-                        dependencies.push(
-                            reader.resolve_type(
+                        dependencies.push(TypeEntry {
+                            include: TypeInclude::Minimal,
+                            def: reader.resolve_type_row(
                                 "Windows.Win32.System.OleAutomation",
                                 "SysFreeString",
                             ),
-                        );
-                        dependencies.push(reader.resolve_type(
-                            "Windows.Win32.System.OleAutomation",
-                            "SysAllocStringLen",
-                        ));
-                        dependencies.push(
-                            reader
-                                .resolve_type("Windows.Win32.System.OleAutomation", "SysStringLen"),
-                        );
+                        });
+                        dependencies.push(TypeEntry {
+                            include: TypeInclude::Minimal,
+                            def: reader.resolve_type_row(
+                                "Windows.Win32.System.OleAutomation",
+                                "SysAllocStringLen",
+                            ),
+                        });
+                        dependencies.push(TypeEntry {
+                            include: TypeInclude::Minimal,
+                            def: reader.resolve_type_row(
+                                "Windows.Win32.System.OleAutomation",
+                                "SysStringLen",
+                            ),
+                        });
                     }
                     ("Windows.Foundation.Numerics", "Matrix3x2") => {
-                        dependencies.push(reader.resolve_type(
-                            "Windows.Win32.Graphics.Direct2D",
-                            "D2D1MakeRotateMatrix",
-                        ));
+                        dependencies.push(TypeEntry {
+                            include: TypeInclude::Minimal,
+                            def: reader.resolve_type_row(
+                                "Windows.Win32.Graphics.Direct2D",
+                                "D2D1MakeRotateMatrix",
+                            ),
+                        });
                     }
                     _ => {
-                        dependencies.extend(self.fields().map(|f| f.definition()).flatten());
+                        dependencies.extend(
+                            self.fields()
+                                .map(|f| f.definition(TypeInclude::Minimal))
+                                .flatten(),
+                        );
 
                         if let Some(dependency) = self.is_convertible_to() {
-                            dependencies.push(dependency);
+                            dependencies.push(TypeEntry {
+                                include: TypeInclude::Minimal,
+                                def: TypeRow::TypeDef(dependency),
+                            });
                         }
                     }
                 }
 
                 dependencies
             }
-            TypeKind::Delegate => self.invoke_method().dependencies(&self.generics),
+            TypeKind::Delegate => self.invoke_method().dependencies(),
         }
     }
 
@@ -378,7 +417,7 @@ impl TypeDef {
         unexpected!();
     }
 
-    pub fn gen_signature(&self, signature: &str, gen: &Gen) -> TokenStream {
+    pub fn gen_signature(&self, signature: &str) -> TokenStream {
         let signature = Literal::byte_string(signature.as_bytes());
 
         if self.generics.is_empty() {
@@ -386,7 +425,7 @@ impl TypeDef {
         }
 
         let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen(gen);
+            let g = g.gen_name(&Gen::Absolute);
             let semi = if index != self.generics.len() - 1 {
                 Some(quote! {
                     .push_slice(b";")
@@ -413,18 +452,18 @@ impl TypeDef {
         }
     }
 
-    pub fn gen_phantoms<'a>(&'a self, gen: &'a Gen) -> impl Iterator<Item = TokenStream> + 'a {
+    pub fn gen_phantoms<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
         self.generics.iter().map(move |g| {
-            let g = g.gen(gen);
+            let g = g.gen_name(&Gen::Absolute);
             quote! { ::std::marker::PhantomData::<#g> }
         })
     }
 
-    pub fn gen_constraints(&self, gen: &Gen) -> TokenStream {
+    pub fn gen_constraints(&self) -> TokenStream {
         self.generics
             .iter()
             .map(|g| {
-                let g = g.gen(gen);
+                let g = g.gen_name(&Gen::Absolute);
                 quote! { #g: ::windows::RuntimeType + 'static, }
             })
             .collect()
@@ -460,7 +499,6 @@ impl TypeDef {
         self.row.str(2)
     }
 
-    // TODO: all "full_name" methods should return a FullName struct that provides a fast compare for match expressions
     pub fn full_name(&self) -> (&'static str, &'static str) {
         (self.namespace(), self.name())
     }
@@ -548,12 +586,12 @@ impl TypeDef {
         })
     }
 
-    pub fn is_convertible_to(&self) -> Option<ElementType> {
+    pub fn is_convertible_to(&self) -> Option<TypeDef> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
                     // TODO: https://github.com/microsoft/win32metadata/issues/389
-                    return Some(TypeReader::get().resolve_type(self.namespace(), name));
+                    return Some(TypeReader::get().resolve_type_def(self.namespace(), name));
                 }
             }
 
@@ -671,7 +709,6 @@ impl TypeDef {
             .collect()
     }
 
-    // TODO: hash?
     pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
         self.overridable_interfaces()
             .iter()

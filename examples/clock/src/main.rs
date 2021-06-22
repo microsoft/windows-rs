@@ -325,11 +325,9 @@ impl Window {
 
         let mut bitmap = None;
 
-        // TODO: CreateBitmap2 changes to CreateBitmap depending on what overloaded methods are included based on
-        // dependency trimming. We should make this name is stable regardless of what's included.
         unsafe {
             target
-                .CreateBitmap(size_u, std::ptr::null(), 0, &properties, &mut bitmap)
+                .CreateBitmap2(size_u, std::ptr::null(), 0, &properties, &mut bitmap)
                 .and_some(bitmap)
         }
     }

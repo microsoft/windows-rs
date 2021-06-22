@@ -159,8 +159,8 @@ impl MethodDef {
         types::Function::gen(self, gen)
     }
 
-    pub fn dependencies(&self, generics: &[ElementType]) -> Vec<ElementType> {
-        self.signature(generics).dependencies()
+    pub fn dependencies(&self) -> Vec<TypeEntry> {
+        self.signature(&[]).dependencies(TypeInclude::Minimal)
     }
 }
 
@@ -206,12 +206,7 @@ mod tests {
         assert_eq!(s.params.len(), 1);
 
         let r = s.return_type.unwrap();
-        assert_eq!(
-            r.kind
-                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
-                .as_str(),
-            "V"
-        );
+        assert_eq!(r.kind.gen_name(&Gen::Absolute).as_str(), "V");
         assert_eq!(r.pointers, 0);
         assert_eq!(r.by_ref, false);
         assert_eq!(r.is_const, false);
@@ -219,13 +214,7 @@ mod tests {
 
         let p = &s.params[0];
         assert_eq!(p.param.name(), "key");
-        assert_eq!(
-            p.signature
-                .kind
-                .gen_name(&Gen::absolute(&TypeTree::from_namespace("")))
-                .as_str(),
-            "K"
-        );
+        assert_eq!(p.signature.kind.gen_name(&Gen::Absolute).as_str(), "K");
         assert_eq!(p.signature.pointers, 0);
         assert_eq!(p.signature.by_ref, false);
         assert_eq!(p.signature.is_const, false);
