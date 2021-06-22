@@ -87,6 +87,16 @@ impl Error {
 
         self.code.message()
     }
+
+    /// Returns the win32 error code if the underlying HRESULT's facility is win32
+    fn win32_code(&self) -> Option<u32> {
+        let hresult = self.code.0;
+        if ((hresult >> 16) & 0x7FF) == 7 {
+            Some(hresult & 0xFFFF)
+        } else {
+            None
+        }
+    }
 }
 
 impl std::convert::From<Error> for HRESULT {
@@ -148,10 +158,14 @@ impl std::convert::From<HRESULT> for Error {
 
 impl std::fmt::Debug for Error {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        fmt.debug_struct("Error")
+        let mut debug = fmt.debug_struct("Error");
+        debug
             .field("code", &format_args!("{:#010X}", self.code.0))
-            .field("message", &self.message())
-            .finish()
+            .field("message", &self.message());
+        if let Some(win32) = self.win32_code() {
+            debug.field("win32_code", &format_args!("{}", win32));
+        }
+        debug.finish()
     }
 }
 
@@ -180,5 +194,12 @@ mod tests {
 
         let code = Error::fast_error(HRESULT::from_win32(997));
         assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
+    }
+
+    #[test]
+    fn win32_error_conversion() {
+        let code = Error::fast_error(HRESULT::from_win32(18));
+        let win32_error = code.win32_code();
+        assert_eq!(win32_error, Some(18))
     }
 }
