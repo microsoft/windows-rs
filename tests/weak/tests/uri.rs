@@ -20,7 +20,7 @@ fn test_failure() -> Result<()> {
     let strong = factory::<Uri, IActivationFactory>()?;
     let result = strong.downgrade();
 
-    assert_eq!(result.is_err(), false);
+    assert_eq!(result.is_err(), true);
 
     // E_NOINTERFACE is returned because IWeakReferenceSource is not implemented.
     assert_eq!(result.unwrap_err().code(), E_NOINTERFACE);

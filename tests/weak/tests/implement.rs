@@ -16,7 +16,7 @@ fn test_implement() -> Result<()> {
         assert_eq!(strong.ToString()?, "Stringable");
         drop(strong);
 
-        assert_eq!(weak.upgrade(), None);
+        assert_eq!(weak.upgrade(), None); 
     }
 
     assert!(receiver.recv().unwrap() == "drop");
