@@ -1,3 +1,8 @@
+# 0.12.0
+
+- Smarter dependency tracking. ([#896](https://github.com/microsoft/windows-rs/pull/896))
+- Other improvements and fixes.
+
 # 0.11.0
 
 - Added build macro formatting tool. ([#828](https://github.com/microsoft/windows-rs/pull/828))
