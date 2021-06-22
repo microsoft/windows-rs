@@ -34,10 +34,10 @@ impl ComInterface {
 
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = self.0.gen_name(gen);
+        let guid = self.0.gen_guid(gen);
 
         if include == TypeInclude::Full {
             let abi_name = self.0.gen_abi_name(gen);
-            let guid = self.0.gen_guid(gen);
 
             let bases = self.interfaces();
 
@@ -228,10 +228,11 @@ impl ComInterface {
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                #[doc(hidden)]
                 pub struct #name(::windows::IUnknown);
                 unsafe impl ::windows::Interface for #name {
                     type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
-                    const IID: ::windows::Guid = ::windows::Guid::zeroed();
+                    const IID: ::windows::Guid = #guid;
                 }
             }
         }

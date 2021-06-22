@@ -44,9 +44,9 @@ impl Interface {
         let struct_phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
         let type_signature = self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
+        let guid = self.0.gen_guid(gen);
 
         if include == TypeInclude::Full {
-            let guid = self.0.gen_guid(gen);
             let abi_name = self.0.gen_abi_name(gen);
             let abi_phantoms = self.0.gen_phantoms();
 
@@ -131,13 +131,13 @@ impl Interface {
             }
         } else {
             quote! {
-                // TODO: all minimal types hsould be doc hidden
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                #[doc(hidden)]
                 pub struct #name(::windows::IInspectable, #(#struct_phantoms,)*) where #constraints;
                 unsafe impl<#constraints> ::windows::Interface for #name {
                     type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
-                    const IID: ::windows::Guid = ::windows::Guid::zeroed();
+                    const IID: ::windows::Guid = #guid;
                 }
                 unsafe impl<#constraints> ::windows::RuntimeType for #name {
                     type DefaultType = ::std::option::Option<Self>;
