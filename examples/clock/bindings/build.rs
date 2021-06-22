@@ -11,10 +11,9 @@ fn main() {
                     },
                     Direct3D11::{D3D11CreateDevice, ID3D11Device, D3D11_SDK_VERSION},
                     Dxgi::{
-                        CreateDXGIFactory1, IDXGIAdapter, IDXGIDevice, IDXGIFactory2, 
-                         IDXGISwapChain1, DXGI_ERROR_UNSUPPORTED,
-                        DXGI_FORMAT, DXGI_PRESENT_TEST,
-                         DXGI_USAGE_RENDER_TARGET_OUTPUT,
+                        CreateDXGIFactory1, IDXGIAdapter, IDXGIDevice, IDXGIFactory2, IDXGISwapChain1,
+                        DXGI_ERROR_UNSUPPORTED, DXGI_FORMAT, DXGI_PRESENT_TEST,
+                        DXGI_USAGE_RENDER_TARGET_OUTPUT,
                     },
                     Gdi::{BeginPaint, EndPaint, PAINTSTRUCT},
                 },
@@ -25,9 +24,8 @@ fn main() {
                 },
                 UI::{
                     Animation::{
-                        IUIAnimationManager,  IUIAnimationTransitionLibrary,
-                        IUIAnimationVariable, UIAnimationManager, UIAnimationTransitionLibrary,
-                        
+                        IUIAnimationManager, IUIAnimationTransitionLibrary, IUIAnimationVariable,
+                        UIAnimationManager, UIAnimationTransitionLibrary,
                     },
                     WindowsAndMessaging::{
                         CreateWindowExA, DefWindowProcA, DispatchMessageA, GetMessageA, GetWindowLongA,

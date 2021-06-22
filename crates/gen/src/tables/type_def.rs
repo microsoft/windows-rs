@@ -225,7 +225,7 @@ impl TypeDef {
                 let methods = self.methods().map(|m| m.dependencies()).flatten();
                 let mut dependencies: Vec<TypeEntry> = interfaces.chain(methods).collect();
 
-                // TODO: IIterable needs IIterator's full definition in order to support iteration. 
+                // TODO: IIterable needs IIterator's full definition in order to support iteration.
                 // Find a more natural way to express this dependency.
                 if self.full_name() == ("Windows.Foundation.Collections", "IIterable`1") {
                     dependencies.push(TypeEntry {

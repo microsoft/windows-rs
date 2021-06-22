@@ -60,9 +60,15 @@ fn test_dependencies() {
     let imports = get_imports("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
     assert_eq!(imports.len(), 2);
     assert_eq!(imports["DXGI_FRAME_STATISTICS_MEDIA"], TypeInclude::Full);
-    assert_eq!(imports["DXGI_FRAME_PRESENTATION_MODE"], TypeInclude::Minimal);
+    assert_eq!(
+        imports["DXGI_FRAME_PRESENTATION_MODE"],
+        TypeInclude::Minimal
+    );
 
-    let imports = get_imports("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
+    let imports = get_imports(
+        "Windows.Win32.Graphics.Dxgi",
+        "DXGI_FRAME_PRESENTATION_MODE",
+    );
     assert_eq!(imports.len(), 1);
     assert_eq!(imports["DXGI_FRAME_PRESENTATION_MODE"], TypeInclude::Full);
 
@@ -97,7 +103,10 @@ fn test_dependencies() {
     assert_eq!(imports["IMapView"], TypeInclude::Minimal);
     assert_eq!(imports["MapChangedEventHandler"], TypeInclude::Minimal);
 
-    let imports = get_imports("Windows.Win32.Graphics.Direct3D11", "D3D11_DEPTH_STENCIL_VIEW_DESC");
+    let imports = get_imports(
+        "Windows.Win32.Graphics.Direct3D11",
+        "D3D11_DEPTH_STENCIL_VIEW_DESC",
+    );
     assert_eq!(imports.len(), 9);
     assert_eq!(imports["D3D11_DEPTH_STENCIL_VIEW_DESC"], TypeInclude::Full);
     assert_eq!(imports["DXGI_FORMAT"], TypeInclude::Minimal);

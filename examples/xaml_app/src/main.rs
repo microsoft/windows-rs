@@ -6,7 +6,7 @@ use windows::*;
 use bindings::{
     Windows::ApplicationModel::Activation::LaunchActivatedEventArgs,
     Windows::UI::Xaml::Controls::TextBox,
-    Windows::UI::Xaml::{Window, Application, ApplicationInitializationCallback},
+    Windows::UI::Xaml::{Application, ApplicationInitializationCallback, Window},
 };
 
 #[implement(
