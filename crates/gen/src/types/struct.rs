@@ -460,22 +460,6 @@ mod tests {
         assert_eq!(f[6].signature().kind, ElementType::U32);
     }
 
-    // #[test]
-    // fn test_dependencies() {
-    //     let t = TypeReader::get().resolve_type_def("Windows.Foundation", "Point");
-    //     assert_eq!(t.dependencies().len(), 0);
-
-    //     let t = TypeReader::get()
-    //         .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS");
-    //     assert_eq!(t.dependencies().len(), 0);
-
-    //     let t = TypeReader::get()
-    //         .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
-    //     let deps = t.dependencies();
-    //     assert_eq!(deps.len(), 1);
-    //     assert_eq!(deps[0].name(), "DXGI_FRAME_PRESENTATION_MODE");
-    // }
-
     #[test]
     fn test_blittable() {
         assert_eq!(

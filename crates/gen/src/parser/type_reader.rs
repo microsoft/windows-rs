@@ -2,7 +2,6 @@ use super::*;
 use std::collections::*;
 
 pub struct TypeReader {
-    //types: HashMap<&'static str, HashMap<&'static str, TypeRow>>,
     // Nested types are stored in a BTreeMap to ensure a stable order. This impacts
     // the derived nested type names.
     nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
