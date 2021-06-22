@@ -78,6 +78,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run windows_bindings
       run: |
-        cargo run -p windows_bindings --target ${{ matrix.other }}
+        cargo run -p windows_bindings
         git diff --exit-code || (echo '::error::Generated bindings are out-of-date. Make sure to update them by running `cargo run -p windows_bindings`'; exit 1)
       shell: bash
