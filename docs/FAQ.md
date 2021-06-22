@@ -1,5 +1,9 @@
 # Frequently Asked Questions
 
+## What is the minimum version of Rust (MSRV) that that this crate can be used with?
+
+This crate can be used on Rust 1.51.0 and above.
+
 ## How do I read the signatures of generated functions and methods? What's with `IntoParam`?
 
 Let's take a look at the method signature of `ISpellCheckerFactor::IsSupported`:
