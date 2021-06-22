@@ -38,42 +38,48 @@ jobs:
     - run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
     - run: rustup target add ${{ matrix.other }}
 
-    - name: build linux
+    - name: linux build
       run: cargo build
       if: matrix.os == 'ubuntu-latest'
 
-    - name: build windows
-      run: cargo build --all --target ${{ matrix.other }}
-      if: matrix.os == 'windows-latest'
-
-    - name: test windows
+    - name: windows build
       run: cargo test --all --target ${{ matrix.other }}
       if: matrix.os == 'windows-latest'
 
-    - name: fmt
-      run: cargo fmt --all -- --check
-      if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
-
-    - name: check docs
-      env:
-        RUSTDOCFLAGS: -Dwarnings
-      run: cargo doc --no-deps --workspace
-      if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
-
-    - name: generate bindings
-      run: |
-        cargo run -p windows_bindings --target ${{ matrix.other }}
-        git diff --exit-code || (echo '::error::Generated bindings are out-of-date. Make sure to update them by running `cargo run -p windows_bindings`'; exit 1)
-      shell: bash
-      if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
-
-  format-macro:
+  cargo_fmt:
     runs-on: windows-latest
-    name: Format `build!` macros
+    name: Check cargo formatting
     steps:
     - uses: actions/checkout@v2
-    - name: Invoke `windows_fmt`
-      run: cargo r -p windows_fmt
-    - name: Diff formatting result
+    - name: Run cargo fmt
+      run: cargo fmt --all -- --check
+
+  cargo_doc:
+    runs-on: windows-latest
+    name: Check cargo docs
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run cargo doc
+      run: cargo doc --no-deps --workspace
+
+  windows_fmt:
+    runs-on: windows-latest
+    name: Check macro formatting
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run windows_fmt
+      run: cargo run -p windows_fmt
+    - name: Diff results
       shell: bash
       run: git diff --exit-code || (echo '::error::Some `build!` macros were improperly formatted. Please run `cargo run -p windows_fmt` and push again'; exit 1)
+
+  windows_bindings:
+    runs-on: windows-latest
+    name: Check bindings
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run windows_bindings
+      run: cargo run -p windows_bindings
+    - name: Diff results
+      shell: bash
+      run: git diff --exit-code || (echo '::error::Generated bindings are out-of-date. Please run `cargo run -p windows_bindings`'; exit 1)
