@@ -453,7 +453,6 @@ impl TypeDef {
     }
 
     pub fn gen_phantoms<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
-        // TODO: this gen really only needs the GenericParam name
         self.generics.iter().map(move |g| {
             let g = g.gen_name(&Gen::Absolute);
             quote! { ::std::marker::PhantomData::<#g> }
@@ -461,7 +460,6 @@ impl TypeDef {
     }
 
     pub fn gen_constraints(&self) -> TokenStream {
-        // TODO: this gen really only needs the GenericParam name
         self.generics
             .iter()
             .map(|g| {
@@ -711,7 +709,6 @@ impl TypeDef {
             .collect()
     }
 
-    // TODO: hash?
     pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
         self.overridable_interfaces()
             .iter()
