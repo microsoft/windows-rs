@@ -107,7 +107,7 @@ impl File {
     pub fn str(&'static self, row: u32, table: TableIndex, column: u32) -> &'static str {
         let offset = (self.strings + self.u32(row, table, column)) as usize;
 
-        // Idealy this would use clib's strlen, but that dependency adds over a second to the overall build.
+        // Idealy this would use clib's strlen as its a lot faster, but that dependency adds over a second to the overall build.
         unsafe {
             let mut last = 0;
             for c in &self.bytes[offset..] {
