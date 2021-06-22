@@ -64,7 +64,7 @@ jobs:
 
   windows_fmt:
     runs-on: windows-latest
-    name: Check build macro formatting
+    name: Check macro formatting
     steps:
     - uses: actions/checkout@v2
     - name: Run windows_fmt
