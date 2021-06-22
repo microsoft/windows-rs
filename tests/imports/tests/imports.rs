@@ -73,9 +73,10 @@ fn test_dependencies() {
     assert_eq!(imports["DXGI_FRAME_PRESENTATION_MODE"], TypeInclude::Full);
 
     let imports = get_imports("Windows.Foundation", "IUriRuntimeClassFactory");
-    assert_eq!(imports.len(), 2);
+    assert_eq!(imports.len(), 3);
     assert_eq!(imports["IUriRuntimeClassFactory"], TypeInclude::Full);
     assert_eq!(imports["Uri"], TypeInclude::Minimal);
+    assert_eq!(imports["IUriRuntimeClass"], TypeInclude::Minimal);
 
     let imports = get_imports("Windows.Foundation", "IAsyncAction");
     assert_eq!(imports.len(), 4);

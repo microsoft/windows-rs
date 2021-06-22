@@ -238,8 +238,17 @@ impl TypeDef {
                 dependencies
             }
             TypeKind::Class => {
+                let class = types::Class(self.clone());
                 if include == TypeInclude::Minimal {
-                    return Vec::new();
+                    if let Some(default_interface) = class
+                        .interfaces()
+                        .iter()
+                        .find(|i| i.kind == InterfaceKind::Default)
+                    {
+                        return default_interface.def.definition(TypeInclude::Minimal);
+                    } else {
+                        return Vec::new();
+                    }
                 }
 
                 let generics = self

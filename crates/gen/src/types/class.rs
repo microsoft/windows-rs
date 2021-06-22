@@ -208,15 +208,22 @@ impl Class {
                 }
             }
         } else {
+            let default_interface = interfaces
+                .iter()
+                .find(|i| i.kind == InterfaceKind::Default)
+                .unwrap();
+
+            let guid = default_interface.def.gen_guid(gen);
             let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
 
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+                #[doc(hidden)]
                 pub struct #name(::windows::IInspectable);
                 unsafe impl ::windows::Interface for #name {
                     type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
-                    const IID: ::windows::Guid = ::windows::Guid::zeroed();
+                    const IID: ::windows::Guid = #guid;
                 }
                 unsafe impl ::windows::RuntimeType for #name {
                     type DefaultType = ::std::option::Option<Self>;
