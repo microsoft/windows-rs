@@ -83,11 +83,7 @@ impl TypeReader {
     /// This function panics if the if the files where the windows metadata are stored cannot be read.
     fn new() -> Self {
         let files = workspace_winmds();
-
-        //let mut types = HashMap::<&'static str, HashMap<&'static str, TypeRow>>::default();
-
         let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
-
         let mut types = TypeTree::from_namespace("");
         types.include = true;
 
@@ -113,40 +109,21 @@ impl TypeReader {
                     continue;
                 }
 
-                //let values = types.entry(namespace).or_default();
                 let namespace = types.insert_namespace(namespace, 0);
 
                 if def.flags().windows_runtime() {
-                    // values
-                    //     .entry(name)
-                    //     .or_insert_with(|| TypeRow::TypeDef(def.clone()));
-
                     namespace.insert_type(name, TypeRow::TypeDef(def));
                 } else {
                     if extends != ("System", "Object") {
-                        // values
-                        //     .entry(name)
-                        //     .or_insert_with(|| TypeRow::TypeDef(def.clone()));
-
                         namespace.insert_type(name, TypeRow::TypeDef(def));
                     } else {
                         for field in def.fields() {
                             let name = field.name();
-
-                            // values
-                            //     .entry(name)
-                            //     .or_insert_with(|| TypeRow::Field(field.clone()));
-
                             namespace.insert_type(name, TypeRow::Field(field));
                         }
 
                         for method in def.methods() {
                             let name = method.name();
-
-                            // values
-                            //     .entry(name)
-                            //     .or_insert_with(|| TypeRow::MethodDef(method.clone()));
-
                             namespace.insert_type(name, TypeRow::MethodDef(method));
                         }
                     }
@@ -169,7 +146,6 @@ impl TypeReader {
         }
 
         Self {
-            //types,
             nested,
             types,
         }
