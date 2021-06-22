@@ -42,17 +42,9 @@ jobs:
       run: cargo build
       if: matrix.os == 'ubuntu-latest'
 
-    - name: build windows
-      run: cargo build --all --target ${{ matrix.other }}
-      if: matrix.os == 'windows-latest'
-
     - name: test windows
       run: cargo test --all --target ${{ matrix.other }}
       if: matrix.os == 'windows-latest'
-
-    - name: fmt
-      run: cargo fmt --all -- --check
-      if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
 
     - name: check docs
       env:
@@ -67,13 +59,22 @@ jobs:
       shell: bash
       if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
 
-  format-macro:
+  windows_fmt:
     runs-on: windows-latest
-    name: Format `build!` macros
+    name: Check `build!` macro formatting
     steps:
     - uses: actions/checkout@v2
-    - name: Invoke `windows_fmt`
+    - name: Run `windows_fmt`
       run: cargo r -p windows_fmt
     - name: Diff formatting result
       shell: bash
       run: git diff --exit-code || (echo '::error::Some `build!` macros were improperly formatted. Please run `cargo run -p windows_fmt` and push again'; exit 1)
+
+  cargo_fmt:
+    runs-on: windows-latest
+    name: Check cargo formatting
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run `cargo fmt`
+      run: cargo fmt --all -- --check
+
