@@ -144,10 +144,7 @@ impl TypeReader {
             }
         }
 
-        Self {
-            nested,
-            types,
-        }
+        Self { nested, types }
     }
 
     /// Get all the namespace names that the [`TypeReader`] knows about
