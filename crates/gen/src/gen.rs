@@ -66,17 +66,17 @@ mod tests {
         );
 
         assert_eq!(
-            t.gen_name(&Gen::Relative("Windows",)).as_str(),
+            t.gen_name(&Gen::Relative("Windows")).as_str(),
             "Foundation:: IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::Relative("Windows.Foundation",)).as_str(),
+            t.gen_name(&Gen::Relative("Windows.Foundation")).as_str(),
             "IStringable"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::Relative("Windows.Foundation.Collections",))
+            t.gen_name(&Gen::Relative("Windows.Foundation.Collections"))
                 .as_str(),
             "super:: IStringable"
         );
