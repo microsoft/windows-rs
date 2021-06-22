@@ -3,7 +3,7 @@ fn main() {
         Windows::Foundation::Uri,
         Windows::Win32::{
             Foundation::E_NOINTERFACE,
-            System::WinRT::{IWeakReferenceSource, IWeakReference},
+            System::WinRT::{IWeakReference, IWeakReferenceSource},
         },
     };
 }

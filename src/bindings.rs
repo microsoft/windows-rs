@@ -1588,7 +1588,6 @@ pub mod Windows {
             }
         }
         #[repr(C)]
-        #[doc(hidden)]
         pub struct IReference_abi<T>(
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
