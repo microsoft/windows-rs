@@ -46,12 +46,6 @@ jobs:
       run: cargo test --all --target ${{ matrix.other }}
       if: matrix.os == 'windows-latest'
 
-    - name: check docs
-      env:
-        RUSTDOCFLAGS: -Dwarnings
-      run: cargo doc --no-deps --workspace
-      if: matrix.os == 'windows-latest' && matrix.rust == 'stable'
-
   cargo_fmt:
     runs-on: windows-latest
     name: Check cargo formatting
@@ -60,6 +54,14 @@ jobs:
     - name: Run cargo fmt
       run: cargo fmt --all -- --check
 
+  cargo_doc:
+    runs-on: windows-latest
+    name: Check cargo docs
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run cargo doc
+      run: cargo doc --no-deps --workspace
+
   windows_fmt:
     runs-on: windows-latest
     name: Check build macro formatting
@@ -67,7 +69,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run windows_fmt
       run: cargo run -p windows_fmt
-    - name: Diff formatting result
+    - name: Diff results
       shell: bash
       run: git diff --exit-code || (echo '::error::Some `build!` macros were improperly formatted. Please run `cargo run -p windows_fmt` and push again'; exit 1)
 
@@ -78,6 +80,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run windows_bindings
       run: cargo run -p windows_bindings
-    - name: Diff formatting result
+    - name: Diff results
       shell: bash
       run: git diff --exit-code || (echo '::error::Generated bindings are out-of-date. Please run `cargo run -p windows_bindings`'; exit 1)
