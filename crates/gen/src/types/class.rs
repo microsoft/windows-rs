@@ -214,11 +214,9 @@ impl Class {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                 pub struct #name(::windows::IInspectable);
-                // TODO: do we need RuntimeType trait for generics?
-                // tODO: do we need this for generics/structs/fields/params?
                 unsafe impl ::windows::Interface for #name {
                     type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
-                    const IID: ::windows::Guid = ::windows::Guid::zeroed(); // Do we need the actual GUID for generics?
+                    const IID: ::windows::Guid = ::windows::Guid::zeroed();
                 }
                 unsafe impl ::windows::RuntimeType for #name {
                     type DefaultType = ::std::option::Option<Self>;
