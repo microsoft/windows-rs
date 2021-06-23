@@ -2736,9 +2736,7 @@ pub mod Windows {
                     CloseHandle(hobject.into_param().abi())
                 }
                 #[cfg(not(windows))]
-                {
-                    unimplemented!("Unsupported target OS");
-                }
+                unimplemented!("Unsupported target OS");
             }
             pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
             pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
@@ -3083,9 +3081,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -3141,9 +3137,7 @@ pub mod Windows {
                         CoCreateGuid(::std::mem::transmute(pguid))
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn CoCreateInstance<'a, T: ::windows::Interface>(
                     rclsid: *const ::windows::Guid,
@@ -3173,9 +3167,7 @@ pub mod Windows {
                         .and_some(result__)
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn CoInitializeEx(
                     pvreserved: *mut ::std::ffi::c_void,
@@ -3196,9 +3188,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
                     #[cfg(windows)]
@@ -3210,9 +3200,7 @@ pub mod Windows {
                         CoTaskMemAlloc(::std::mem::transmute(cb))
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn CoTaskMemFree(pv: *mut ::std::ffi::c_void) {
                     #[cfg(windows)]
@@ -3224,9 +3212,7 @@ pub mod Windows {
                         CoTaskMemFree(::std::mem::transmute(pv))
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
                 #[derive(
@@ -3388,9 +3374,7 @@ pub mod Windows {
                             )
                         }
                         #[cfg(not(windows))]
-                        {
-                            unimplemented!("Unsupported target OS");
-                        }
+                        unimplemented!("Unsupported target OS");
                     }
                     pub unsafe fn GetLastError() -> WIN32_ERROR {
                         #[cfg(windows)]
@@ -3402,9 +3386,7 @@ pub mod Windows {
                             GetLastError()
                         }
                         #[cfg(not(windows))]
-                        {
-                            unimplemented!("Unsupported target OS");
-                        }
+                        unimplemented!("Unsupported target OS");
                     }
                     #[derive(
                         :: std :: cmp :: PartialEq,
@@ -3472,9 +3454,7 @@ pub mod Windows {
                         FreeLibrary(hlibmodule.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn GetProcAddress<'a>(
                     hmodule: impl ::windows::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -3492,9 +3472,7 @@ pub mod Windows {
                         GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn LoadLibraryA<'a>(
                     lplibfilename: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3510,9 +3488,7 @@ pub mod Windows {
                         LoadLibraryA(lplibfilename.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
             }
             #[allow(
@@ -3535,9 +3511,7 @@ pub mod Windows {
                         GetProcessHeap()
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -3618,9 +3592,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn HeapFree<'a>(
                     hheap: impl ::windows::IntoParam<'a, HeapHandle>,
@@ -3644,9 +3616,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
                 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -3709,9 +3679,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
                 #[derive(
@@ -3856,9 +3824,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn SysAllocStringLen<'a>(
                     strin: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3876,9 +3842,7 @@ pub mod Windows {
                         SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn SysFreeString<'a>(
                     bstrstring: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -3892,9 +3856,7 @@ pub mod Windows {
                         SysFreeString(bstrstring.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn SysStringLen<'a>(
                     pbstr: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -3908,9 +3870,7 @@ pub mod Windows {
                         SysStringLen(pbstr.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
             }
             #[allow(
@@ -3948,9 +3908,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn SetEvent<'a>(
                     hevent: impl ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3966,9 +3924,7 @@ pub mod Windows {
                         SetEvent(hevent.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -4035,9 +3991,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
             }
             #[allow(
