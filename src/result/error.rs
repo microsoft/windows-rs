@@ -27,10 +27,8 @@ impl Error {
             let _ = RoOriginateError(code, message.abi() as _);
         }
 
-        let mut info = None;
         let info = unsafe {
-            GetErrorInfo(0, &mut info)
-                .and_some(info)
+            GetErrorInfo(0)
                 .and_then(|e| e.cast())
                 .ok()
         };
@@ -114,10 +112,8 @@ impl std::convert::From<Error> for HRESULT {
 
 impl std::convert::From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
-        let mut info = None;
         let info: Option<IRestrictedErrorInfo> = unsafe {
-            GetErrorInfo(0, &mut info)
-                .and_some(info)
+            GetErrorInfo(0)
                 .and_then(|e| e.cast())
                 .ok()
         };
@@ -138,12 +134,7 @@ impl std::convert::From<HRESULT> for Error {
             };
         }
 
-        let mut result = None;
-        unsafe {
-            let _ = GetErrorInfo(0, &mut result);
-        }
-
-        if let Some(info) = result {
+        if let Ok(info) = unsafe { GetErrorInfo(0) } {
             let message = unsafe { info.GetDescription().unwrap_or_default() };
             let message: String = message.try_into().unwrap_or_default();
             Self::new(code, &message)

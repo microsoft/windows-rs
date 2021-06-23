@@ -3064,8 +3064,7 @@ pub mod Windows {
                 }
                 pub unsafe fn CLSIDFromProgID<'a>(
                     lpszprogid: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
-                    lpclsid: *mut ::windows::Guid,
-                ) -> ::windows::HRESULT {
+                ) -> ::windows::Result<::windows::Guid> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLE32")]
@@ -3075,10 +3074,10 @@ pub mod Windows {
                                 lpclsid: *mut ::windows::Guid,
                             ) -> ::windows::HRESULT;
                         }
-                        CLSIDFromProgID(
-                            lpszprogid.into_param().abi(),
-                            ::std::mem::transmute(lpclsid),
-                        )
+                        let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
+                        CLSIDFromProgID(lpszprogid.into_param().abi(), &mut result__)
+                            .from_abi::<::windows::Guid>(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3127,14 +3126,16 @@ pub mod Windows {
                         self.0.bitand_assign(rhs.0)
                     }
                 }
-                pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
+                pub unsafe fn CoCreateGuid() -> ::windows::Result<::windows::Guid> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLE32")]
                         extern "system" {
                             fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
                         }
-                        CoCreateGuid(::std::mem::transmute(pguid))
+                        let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
+                        CoCreateGuid(&mut result__).from_abi::<::windows::Guid>(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3660,10 +3661,7 @@ pub mod Windows {
                 clippy::all
             )]
             pub mod OleAutomation {
-                pub unsafe fn GetErrorInfo(
-                    dwreserved: u32,
-                    pperrinfo: *mut ::std::option::Option<IErrorInfo>,
-                ) -> ::windows::HRESULT {
+                pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::Result<IErrorInfo> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLEAUT32")]
@@ -3673,10 +3671,10 @@ pub mod Windows {
                                 pperrinfo: *mut ::windows::RawPtr,
                             ) -> ::windows::HRESULT;
                         }
-                        GetErrorInfo(
-                            ::std::mem::transmute(dwreserved),
-                            ::std::mem::transmute(pperrinfo),
-                        )
+                        let mut result__: <IErrorInfo as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
+                        GetErrorInfo(::std::mem::transmute(dwreserved), &mut result__)
+                            .from_abi::<IErrorInfo>(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
