@@ -85,7 +85,7 @@ impl NoExtend {
 }
 
 #[implement(
-    // TODO: need the same error reporting as the build macro for when the types aren't found.
+    // TODO: make sure we have the same error reporting as the build macro for when the types/overrides aren't found.
     extend Windows::UI::Xaml::Controls::Button,
     override OnContentChanged, // ContentControl
     override OnPointerEntered, // Control
