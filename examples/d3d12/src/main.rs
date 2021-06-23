@@ -203,11 +203,10 @@ extern "system" fn wndproc<S: DXSample>(
 
 fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
     for i in 0.. {
-        let mut adapter = None;
-        let adapter = unsafe { factory.EnumAdapters1(i, &mut adapter) }.and_some(adapter)?;
+        let adapter = unsafe { factory.EnumAdapters1(i)? };
 
-        let mut desc = Default::default();
-        unsafe { adapter.GetDesc1(&mut desc) }.ok()?;
+        let desc = 
+        unsafe { adapter.GetDesc1()? };
 
         if (DXGI_ADAPTER_FLAG::from(desc.Flags) & DXGI_ADAPTER_FLAG_SOFTWARE)
             != DXGI_ADAPTER_FLAG_NONE
@@ -318,18 +317,15 @@ mod d3d12_hello_triangle {
                 ..Default::default()
             };
 
-            let mut swap_chain = None;
             let swap_chain: IDXGISwapChain3 = unsafe {
                 self.dxgi_factory.CreateSwapChainForHwnd(
                     &command_queue,
                     hwnd,
                     &swap_chain_desc,
                     std::ptr::null(),
-                    None,
-                    &mut swap_chain,
-                )
+                    None
+                )?
             }
-            .and_some(swap_chain)?
             .cast()?;
 
             // This sample does not support fullscreen transitions

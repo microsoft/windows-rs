@@ -224,6 +224,7 @@ fn gen_method(
         let leading_params = &signature.params[..signature.params.len() - 1];
         let params = signature.gen_win32_params(leading_params, gen);
         let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+
         let return_type_tokens = signature
             .params
             .last()
