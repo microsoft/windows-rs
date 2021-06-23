@@ -64,16 +64,14 @@ impl Function {
             }
         };
 
-        // Don't link on windows dlls when generating code for non-windows:
+        // Don't link against windows DLLs when generating code for non-Windows targets.
         let body = quote! {
             #[cfg(windows)]
             {
                 #body
             }
             #[cfg(not(windows))]
-            {
-                unimplemented!("Unsupported target OS");
-            }
+            unimplemented!("Unsupported target OS");
         };
 
         if signature.has_query_interface() {
@@ -91,5 +89,7 @@ impl Function {
                 }
             }
         }
+
+        // TODO: do the same here as for COM methods with retval signatures
     }
 }
