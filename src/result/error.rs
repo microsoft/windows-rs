@@ -144,10 +144,7 @@ impl std::convert::From<HRESULT> for Error {
         }
 
         if let Some(info) = result {
-            let mut message = BSTR::default();
-            unsafe {
-                let _ = info.GetDescription(&mut message);
-            }
+            let message = unsafe { info.GetDescription().unwrap_or_default() };
             let message: String = message.try_into().unwrap_or_default();
             Self::new(code, &message)
         } else {

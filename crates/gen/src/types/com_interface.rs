@@ -84,7 +84,9 @@ impl ComInterface {
                 .map(|def| def.methods())
                 .flatten()
                 .enumerate()
-                .map(|(vtable_offset, method)|gen_method(vtable_offset, &method, &mut method_names, gen));
+                .map(|(vtable_offset, method)| {
+                    gen_method(vtable_offset, &method, &mut method_names, gen)
+                });
 
             let mut conversions = TokenStream::new();
 
@@ -187,7 +189,12 @@ impl ComInterface {
     }
 }
 
-fn gen_method(vtable_offset: usize, method: &tables::MethodDef, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
+fn gen_method(
+    vtable_offset: usize,
+    method: &tables::MethodDef,
+    method_names: &mut BTreeMap<String, u32>,
+    gen: &Gen,
+) -> TokenStream {
     let signature = method.signature(&[]);
     let constraints = signature.gen_constraints(&signature.params);
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
@@ -213,23 +220,52 @@ fn gen_method(vtable_offset: usize, method: &tables::MethodDef, method_names: &m
                 (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
             }
         }
-    }
-    else {
+    } else if signature.has_retval() {
+        let leading_params = &signature.params[..signature.params.len() - 1];
+        let params = signature.gen_win32_params(leading_params, gen);
+        let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+        let return_type_tokens = signature
+            .params
+            .last()
+            .unwrap()
+            .signature
+            .kind
+            .gen_name(gen);
+
+        quote! {
+            pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
+                let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* &mut result__)
+                .from_abi::<#return_type_tokens>(result__ )
+            }
+        }
+    } else {
         let params = signature.gen_win32_params(&signature.params, gen);
         let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
 
-        let (udt_return_type, udt_return_local, return_type, udt_return_expression) = if let Some(t) = &signature.return_type {
-            if t.is_udt() {
-                let tokens = t.kind.gen_abi_type(gen);
-                (quote! { &mut result__ }, quote! { let mut result__: #tokens = ::std::default::Default::default(); }, quote! { -> #tokens }, quote! { ;result__ })
+        let (udt_return_type, udt_return_local, return_type, udt_return_expression) =
+            if let Some(t) = &signature.return_type {
+                if t.is_udt() {
+                    let tokens = t.kind.gen_abi_type(gen);
+                    (
+                        quote! { &mut result__ },
+                        quote! { let mut result__: #tokens = ::std::default::Default::default(); },
+                        quote! { -> #tokens },
+                        quote! { ;result__ },
+                    )
+                } else {
+                    let tokens = t.gen_win32_abi(gen);
+                    (quote! {}, quote! {}, quote! { -> #tokens }, quote! {})
+                }
             } else {
-                let tokens = t.gen_win32_abi(gen);
-                (quote! {}, quote!{}, quote! { -> #tokens }, quote!{})
-            }
-        } else {
-            (TokenStream::new(), TokenStream::new(), TokenStream::new(), quote!{})
-        };
-    
+                (
+                    TokenStream::new(),
+                    TokenStream::new(),
+                    TokenStream::new(),
+                    quote! {},
+                )
+            };
+
         quote! {
             pub unsafe fn #name<#constraints>(&self, #params) #return_type {
                 #udt_return_local
@@ -238,4 +274,6 @@ fn gen_method(vtable_offset: usize, method: &tables::MethodDef, method_names: &m
             }
         }
     }
+
+    // TODO: any remaining methods that return HRESULT should just return Result<()> instead.
 }

@@ -43,8 +43,15 @@ impl MethodSignature {
 
     pub fn has_retval(&self) -> bool {
         self.return_type.as_ref().map_or(false, |signature| {
-            if signature.kind == ElementType::HRESULT && self.params.last().map_or(false, |param|!param.param.is_input()) {
-                return self.params[..self.params.len() - 1].iter().all(|param|param.param.is_input());
+            if signature.kind == ElementType::HRESULT
+                && self
+                    .params
+                    .last()
+                    .map_or(false, |param| !param.param.is_input())
+            {
+                return self.params[..self.params.len() - 1]
+                    .iter()
+                    .all(|param| param.param.is_input());
             }
 
             false

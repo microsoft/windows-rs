@@ -23,10 +23,7 @@ impl<I: Interface> Weak<I> {
     }
 
     pub(crate) fn downgrade(source: &IWeakReferenceSource) -> Result<Self> {
-        let mut reference = None;
-        unsafe {
-            let _ = source.GetWeakReference(&mut reference);
-        }
+        let reference = unsafe { source.GetWeakReference().ok() };
         Ok(Self(reference, PhantomData))
     }
 }

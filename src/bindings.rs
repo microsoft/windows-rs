@@ -3722,50 +3722,55 @@ pub mod Windows {
                 )]
                 pub struct IErrorInfo(::windows::IUnknown);
                 impl IErrorInfo {
-                    pub unsafe fn GetGUID(
-                        &self,
-                        pguid: *mut ::windows::Guid,
-                    ) -> ::windows::HRESULT {
+                    pub unsafe fn GetGUID(&self) -> ::windows::Result<::windows::Guid> {
+                        let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pguid),
+                            &mut result__,
                         )
+                        .from_abi::<::windows::Guid>(result__)
                     }
                     pub unsafe fn GetSource(
                         &self,
-                        pbstrsource: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).4)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pbstrsource),
+                            &mut result__,
                         )
+                        .from_abi::<super::super::Foundation::BSTR>(result__)
                     }
                     pub unsafe fn GetDescription(
                         &self,
-                        pbstrdescription: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).5)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pbstrdescription),
+                            &mut result__,
                         )
+                        .from_abi::<super::super::Foundation::BSTR>(result__)
                     }
                     pub unsafe fn GetHelpFile(
                         &self,
-                        pbstrhelpfile: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).6)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pbstrhelpfile),
+                            &mut result__,
                         )
+                        .from_abi::<super::super::Foundation::BSTR>(result__)
                     }
-                    pub unsafe fn GetHelpContext(
-                        &self,
-                        pdwhelpcontext: *mut u32,
-                    ) -> ::windows::HRESULT {
+                    pub unsafe fn GetHelpContext(&self) -> ::windows::Result<u32> {
+                        let mut result__: <u32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).7)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pdwhelpcontext),
+                            &mut result__,
                         )
+                        .from_abi::<u32>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for IErrorInfo {
@@ -4056,12 +4061,14 @@ pub mod Windows {
                 impl ILanguageExceptionErrorInfo {
                     pub unsafe fn GetLanguageException(
                         &self,
-                        languageexception: *mut ::std::option::Option<::windows::IUnknown>,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<::windows::IUnknown> {
+                        let mut result__: <::windows::IUnknown as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(languageexception),
+                            &mut result__,
                         )
+                        .from_abi::<::windows::IUnknown>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for ILanguageExceptionErrorInfo {
@@ -4123,23 +4130,25 @@ pub mod Windows {
                 impl ILanguageExceptionErrorInfo2 {
                     pub unsafe fn GetLanguageException(
                         &self,
-                        languageexception: *mut ::std::option::Option<::windows::IUnknown>,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<::windows::IUnknown> {
+                        let mut result__: <::windows::IUnknown as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(languageexception),
+                            &mut result__,
                         )
+                        .from_abi::<::windows::IUnknown>(result__)
                     }
                     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(
                         &self,
-                        previouslanguageexceptionerrorinfo: *mut ::std::option::Option<
-                            ILanguageExceptionErrorInfo2,
-                        >,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<ILanguageExceptionErrorInfo2> {
+                        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).4)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(previouslanguageexceptionerrorinfo),
+                            &mut result__,
                         )
+                        .from_abi::<ILanguageExceptionErrorInfo2>(result__)
                     }
                     pub unsafe fn CapturePropagationContext<'a>(
                         &self,
@@ -4152,14 +4161,14 @@ pub mod Windows {
                     }
                     pub unsafe fn GetPropagationContextHead(
                         &self,
-                        propagatedlanguageexceptionerrorinfohead: *mut ::std::option::Option<
-                            ILanguageExceptionErrorInfo2,
-                        >,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<ILanguageExceptionErrorInfo2> {
+                        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).6)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(propagatedlanguageexceptionerrorinfohead),
+                            &mut result__,
                         )
+                        .from_abi::<ILanguageExceptionErrorInfo2>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for ILanguageExceptionErrorInfo2 {
@@ -4276,12 +4285,14 @@ pub mod Windows {
                     }
                     pub unsafe fn GetReference(
                         &self,
-                        reference: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).4)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(reference),
+                            &mut result__,
                         )
+                        .from_abi::<super::super::Foundation::BSTR>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for IRestrictedErrorInfo {
@@ -4414,14 +4425,14 @@ pub mod Windows {
                 )]
                 pub struct IWeakReferenceSource(::windows::IUnknown);
                 impl IWeakReferenceSource {
-                    pub unsafe fn GetWeakReference(
-                        &self,
-                        weakreference: *mut ::std::option::Option<IWeakReference>,
-                    ) -> ::windows::HRESULT {
+                    pub unsafe fn GetWeakReference(&self) -> ::windows::Result<IWeakReference> {
+                        let mut result__: <IWeakReference as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(weakreference),
+                            &mut result__,
                         )
+                        .from_abi::<IWeakReference>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for IWeakReferenceSource {
