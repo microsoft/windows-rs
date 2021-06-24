@@ -58,12 +58,12 @@ impl Function {
             let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
 
             let return_type_tokens = signature
-            .params
-            .last()
-            .unwrap()
-            .signature
-            .kind
-            .gen_name(gen);
+                .params
+                .last()
+                .unwrap()
+                .signature
+                .kind
+                .gen_name(gen);
 
             quote! {
                 #[link(name = #link)]
@@ -105,12 +105,12 @@ impl Function {
             let params = signature.gen_win32_params(leading_params, gen);
 
             let return_type_tokens = signature
-            .params
-            .last()
-            .unwrap()
-            .signature
-            .kind
-            .gen_name(gen);
+                .params
+                .last()
+                .unwrap()
+                .signature
+                .kind
+                .gen_name(gen);
 
             quote! {
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {

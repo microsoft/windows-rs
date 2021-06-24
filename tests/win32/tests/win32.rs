@@ -1,5 +1,5 @@
 use test_win32::Windows::Win32::{
-    Foundation::{CloseHandle, BOOL,  HANDLE, HWND, PSTR, PWSTR, RECT},
+    Foundation::{CloseHandle, BOOL, HANDLE, HWND, PSTR, PWSTR, RECT},
     Gaming::HasExpandedResources,
     Graphics::{
         Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace,
@@ -147,24 +147,20 @@ fn com() -> windows::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
         let values = vec![1, 20, 300, 4000];
-        let copied =
-        stream
-            .Write(
-                values.as_ptr() as _,
-                (values.len() * std::mem::size_of::<i32>()) as u32
-            )?;
+        let copied = stream.Write(
+            values.as_ptr() as _,
+            (values.len() * std::mem::size_of::<i32>()) as u32,
+        )?;
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
 
-        let copied =stream
-            .Write(
-                &UIAnimationTransitionLibrary as *const _ as _,
-                std::mem::size_of::<windows::Guid>() as u32
-            )?;
+        let copied = stream.Write(
+            &UIAnimationTransitionLibrary as *const _ as _,
+            std::mem::size_of::<windows::Guid>() as u32,
+        )?;
 
         assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
-        let position = 
-        stream.Seek(0, STREAM_SEEK_SET)?;
+        let position = stream.Seek(0, STREAM_SEEK_SET)?;
 
         assert!(position == 0);
         let mut values = vec![0, 0, 0, 0];
@@ -217,7 +213,10 @@ fn com_inheritance() {
 
         // IDXGIFactory7 (default)
         assert!(
-            factory.RegisterAdaptersChangedEvent(HANDLE(0)).unwrap_err().code()
+            factory
+                .RegisterAdaptersChangedEvent(HANDLE(0))
+                .unwrap_err()
+                .code()
                 == DXGI_ERROR_INVALID_CALL
         );
     }
@@ -236,11 +235,10 @@ fn onecore_imports() -> windows::Result<()> {
                     .as_ptr() as _,
             ),
             Default::default(),
-            0
+            0,
         )?;
 
-        let  port =
-        uri.GetPort()?;
+        let port = uri.GetPort()?;
         assert!(port == 80);
 
         let result = MiniDumpWriteDump(
@@ -263,11 +261,9 @@ fn onecore_imports() -> windows::Result<()> {
 #[test]
 fn interface() -> windows::Result<()> {
     unsafe {
-        let uri =
-            CreateUri("http://kennykerr.ca", Default::default(), 0)?;
+        let uri = CreateUri("http://kennykerr.ca", Default::default(), 0)?;
 
-        let domain = 
-        uri.GetDomain()?;
+        let domain = uri.GetDomain()?;
         assert!(domain == "kennykerr.ca");
     }
     Ok(())

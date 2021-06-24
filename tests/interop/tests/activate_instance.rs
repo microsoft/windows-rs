@@ -12,9 +12,7 @@ use windows::{initialize_mta, Interface, Result};
 fn test() -> Result<()> {
     initialize_mta()?;
 
-    let instance = unsafe {
-        RoActivateInstance("Windows.Foundation.Collections.StringMap")?
-    };
+    let instance = unsafe { RoActivateInstance("Windows.Foundation.Collections.StringMap")? };
 
     let map = instance.cast::<StringMap>()?;
     map.Insert("hello", "world")?;

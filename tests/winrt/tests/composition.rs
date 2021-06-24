@@ -16,10 +16,7 @@ fn create_dispatcher() -> DispatcherQueueController {
         apartmentType: DQTAT_COM_NONE,
     };
 
-    unsafe {
-        CreateDispatcherQueueController(options)
-            .unwrap()
-    }
+    unsafe { CreateDispatcherQueueController(options).unwrap() }
 }
 
 #[test]

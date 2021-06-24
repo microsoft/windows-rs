@@ -17,9 +17,7 @@ pub struct Guid {
 impl Guid {
     /// Creates a unique `Guid` value.
     pub fn new() -> Result<Self> {
-        unsafe {
-            CoCreateGuid()
-        }
+        unsafe { CoCreateGuid() }
     }
 
     /// Creates a `Guid` represented by the all-zero byte-pattern.
@@ -71,9 +69,7 @@ impl Guid {
 
     /// Looks up a CLSID in the registry using the [CLSIDFromProgID](https://docs.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-clsidfromprogid) function.
     pub fn from_progid(progid: &str) -> crate::Result<Guid> {
-        unsafe {
-            CLSIDFromProgID(progid)
-        }
+        unsafe { CLSIDFromProgID(progid) }
     }
 }
 

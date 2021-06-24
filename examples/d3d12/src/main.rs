@@ -205,8 +205,7 @@ fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
     for i in 0.. {
         let adapter = unsafe { factory.EnumAdapters1(i)? };
 
-        let desc = 
-        unsafe { adapter.GetDesc1()? };
+        let desc = unsafe { adapter.GetDesc1()? };
 
         if (DXGI_ADAPTER_FLAG::from(desc.Flags) & DXGI_ADAPTER_FLAG_SOFTWARE)
             != DXGI_ADAPTER_FLAG_NONE
@@ -323,7 +322,7 @@ mod d3d12_hello_triangle {
                     hwnd,
                     &swap_chain_desc,
                     std::ptr::null(),
-                    None
+                    None,
                 )?
             }
             .cast()?;

@@ -24,8 +24,7 @@ fn main() -> windows::Result<()> {
 
     // Get errors enumerator for the supplied string
     println!("Checking the text: '{}'", input);
-    let errors =
-        unsafe { checker.ComprehensiveCheck(input.clone())? };
+    let errors = unsafe { checker.ComprehensiveCheck(input.clone())? };
 
     // Loop through all the errors
     while let Ok(error) = unsafe { errors.Next() } {
@@ -37,8 +36,7 @@ fn main() -> windows::Result<()> {
         let substring = &input[start_index as usize..(start_index + length) as usize];
 
         // Get the corrective action
-        let action = 
-        unsafe { error.get_CorrectiveAction()? };
+        let action = unsafe { error.get_CorrectiveAction()? };
         println!("{:?}", action);
 
         match action {
@@ -47,8 +45,7 @@ fn main() -> windows::Result<()> {
             }
             Globalization::CORRECTIVE_ACTION_REPLACE => {
                 // Get the replacement as a widestring and convert to a Rust String
-                let replacement = 
-                unsafe { error.get_Replacement()? };
+                let replacement = unsafe { error.get_Replacement()? };
 
                 println!("Replace: {} with {}", substring, unsafe {
                     read_to_string(replacement)

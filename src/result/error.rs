@@ -27,11 +27,7 @@ impl Error {
             let _ = RoOriginateError(code, message.abi() as _);
         }
 
-        let info = unsafe {
-            GetErrorInfo(0)
-                .and_then(|e| e.cast())
-                .ok()
-        };
+        let info = unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
 
         // The error information is then associated with the returning error object and no longer
         // associated with the thread.
@@ -112,11 +108,8 @@ impl std::convert::From<Error> for HRESULT {
 
 impl std::convert::From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
-        let info: Option<IRestrictedErrorInfo> = unsafe {
-            GetErrorInfo(0)
-                .and_then(|e| e.cast())
-                .ok()
-        };
+        let info: Option<IRestrictedErrorInfo> =
+            unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
 
         if let Some(info) = info {
             // If it does (and therefore running on a recent version of Windows)
