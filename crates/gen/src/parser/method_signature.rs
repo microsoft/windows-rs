@@ -46,7 +46,15 @@ impl MethodSignature {
             if signature.kind == ElementType::HRESULT
                 && self.params.last().map_or(false, |param| {
                     let flags = param.param.flags();
-                    !flags.input() && flags.output() && param.signature.pointers == 1 && param.signature.kind != ElementType::Void
+                    if flags.input() || !flags.output() || param.signature.pointers != 1 {
+                        return false
+                    }
+                    
+                    match &param.signature.kind {
+                        ElementType::Void => false,
+                        ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
+                        _ => true,
+                    }
                 })
             {
                 return self.params[..self.params.len() - 1].iter().all(|param| {

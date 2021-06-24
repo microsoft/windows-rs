@@ -281,6 +281,4 @@ fn gen_method(
             }
         }
     }
-
-    // TODO: any remaining methods that return HRESULT should just return Result<()> instead.
 }
