@@ -1,5 +1,5 @@
 use test_win32::Windows::Win32::{
-    Foundation::{CloseHandle, BOOL, BSTR, HANDLE, HWND, PSTR, PWSTR, RECT},
+    Foundation::{CloseHandle, BOOL, HANDLE, HWND, PSTR, PWSTR, RECT},
     Gaming::HasExpandedResources,
     Graphics::{
         Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace,
@@ -145,58 +145,43 @@ fn bool_as_error() {
 #[test]
 fn com() -> windows::Result<()> {
     unsafe {
-        let mut stream = None;
-        let stream = CreateStreamOnHGlobal(0, true, &mut stream).and_some(stream)?;
+        let stream = CreateStreamOnHGlobal(0, true)?;
         let values = vec![1, 20, 300, 4000];
-        let mut copied = 0;
-
-        stream
-            .Write(
-                values.as_ptr() as _,
-                (values.len() * std::mem::size_of::<i32>()) as u32,
-                &mut copied,
-            )
-            .ok()?;
+        let copied = stream.Write(
+            values.as_ptr() as _,
+            (values.len() * std::mem::size_of::<i32>()) as u32,
+        )?;
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
 
-        stream
-            .Write(
-                &UIAnimationTransitionLibrary as *const _ as _,
-                std::mem::size_of::<windows::Guid>() as u32,
-                &mut copied,
-            )
-            .ok()?;
+        let copied = stream.Write(
+            &UIAnimationTransitionLibrary as *const _ as _,
+            std::mem::size_of::<windows::Guid>() as u32,
+        )?;
 
         assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
-        let mut position = 123;
-
-        stream.Seek(0, STREAM_SEEK_SET, &mut position).ok()?;
+        let position = stream.Seek(0, STREAM_SEEK_SET)?;
 
         assert!(position == 0);
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
 
-        stream
-            .Read(
-                values.as_mut_ptr() as _,
-                (values.len() * std::mem::size_of::<i32>()) as u32,
-                &mut copied,
-            )
-            .ok()?;
+        stream.Read(
+            values.as_mut_ptr() as _,
+            (values.len() * std::mem::size_of::<i32>()) as u32,
+            &mut copied,
+        )?;
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
         let mut value: windows::Guid = windows::Guid::default();
         let mut copied = 0;
 
-        stream
-            .Read(
-                &mut value as *mut _ as _,
-                std::mem::size_of::<windows::Guid>() as u32,
-                &mut copied,
-            )
-            .ok()?;
+        stream.Read(
+            &mut value as *mut _ as _,
+            std::mem::size_of::<windows::Guid>() as u32,
+            &mut copied,
+        )?;
 
         assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
@@ -211,7 +196,7 @@ fn com_inheritance() {
         let factory: IDXGIFactory7 = CreateDXGIFactory1().unwrap();
 
         // IDXGIFactory
-        assert!(factory.GetWindowAssociation(std::ptr::null_mut()) == DXGI_ERROR_INVALID_CALL);
+        assert!(factory.MakeWindowAssociation(HWND(0), 0).is_ok());
 
         // IDXGIFactory1
         assert!(factory.IsCurrent().as_bool());
@@ -224,7 +209,10 @@ fn com_inheritance() {
 
         // IDXGIFactory7 (default)
         assert!(
-            factory.RegisterAdaptersChangedEvent(HANDLE(0), std::ptr::null_mut())
+            factory
+                .RegisterAdaptersChangedEvent(HANDLE(0))
+                .unwrap_err()
+                .code()
                 == DXGI_ERROR_INVALID_CALL
         );
     }
@@ -234,10 +222,8 @@ fn com_inheritance() {
 #[test]
 fn onecore_imports() -> windows::Result<()> {
     unsafe {
-        let mut has_expanded_resources = BOOL(0);
-        HasExpandedResources(&mut has_expanded_resources).ok()?;
+        HasExpandedResources()?;
 
-        let mut uri = None;
         let uri = CreateUri(
             PWSTR(
                 windows::HSTRING::from("http://kennykerr.ca")
@@ -246,12 +232,9 @@ fn onecore_imports() -> windows::Result<()> {
             ),
             Default::default(),
             0,
-            &mut uri,
-        )
-        .and_some(uri)?;
+        )?;
 
-        let mut port = 0;
-        uri.GetPort(&mut port).ok()?;
+        let port = uri.GetPort()?;
         assert!(port == 80);
 
         let result = MiniDumpWriteDump(
@@ -265,7 +248,7 @@ fn onecore_imports() -> windows::Result<()> {
         );
         assert!(!result.as_bool());
 
-        assert!(D3DDisassemble11Trace(std::ptr::null_mut(), 0, None, 0, 0, 0, &mut None).is_err());
+        assert!(D3DDisassemble11Trace(std::ptr::null_mut(), 0, None, 0, 0, 0).is_err());
 
         Ok(())
     }
@@ -274,12 +257,9 @@ fn onecore_imports() -> windows::Result<()> {
 #[test]
 fn interface() -> windows::Result<()> {
     unsafe {
-        let mut uri = None;
-        let uri =
-            CreateUri("http://kennykerr.ca", Default::default(), 0, &mut uri).and_some(uri)?;
+        let uri = CreateUri("http://kennykerr.ca", Default::default(), 0)?;
 
-        let mut domain = BSTR::default();
-        uri.GetDomain(&mut domain).ok()?;
+        let domain = uri.GetDomain()?;
         assert!(domain == "kennykerr.ca");
     }
     Ok(())

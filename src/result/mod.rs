@@ -1,8 +1,8 @@
 mod error;
-mod error_code;
+mod hresult;
 
 pub use error::*;
-pub use error_code::*;
+pub use hresult::*;
 
 /// A [`Result`] type that provides Windows error information.
 #[must_use]

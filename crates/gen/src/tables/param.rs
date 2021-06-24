@@ -39,10 +39,6 @@ impl Param {
         self.has_attribute("ConstAttribute")
     }
 
-    pub fn is_retval(&self) -> bool {
-        self.has_attribute("RetValAttribute")
-    }
-
     pub fn gen_name(&self) -> Ident {
         to_ident(&self.name().to_lowercase())
     }

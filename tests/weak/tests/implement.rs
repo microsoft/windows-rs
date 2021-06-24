@@ -53,8 +53,7 @@ fn test_queries() {
         assert!(source.cast::<IWeakReference>().is_err());
         assert!(source.cast::<IUnknown>().unwrap() == strong.cast::<IUnknown>().unwrap());
 
-        let mut weak = None;
-        let weak = unsafe { source.GetWeakReference(&mut weak).and_some(weak).unwrap() };
+        let weak = unsafe { source.GetWeakReference().unwrap() };
         assert!(weak.cast::<IWeakReference>().is_ok());
         assert!(weak.cast::<IWeakReferenceSource>().is_err());
         assert!(weak.cast::<IInspectable>().is_err());

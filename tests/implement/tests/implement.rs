@@ -84,19 +84,30 @@ impl NoExtend {
     }
 }
 
-// TODO: this should work but takes too long to compile - need dependency tracker improvements.
+#[implement(
+    // TODO: make sure we have the same error reporting as the build macro for when the types/overrides aren't found.
+    extend Windows::UI::Xaml::Controls::Button,
+    override OnContentChanged, // ContentControl
+    override OnPointerEntered, // Control
+    override OnApplyTemplate, // FrameworkElement
+)]
+struct Button {}
 
-// #[implement(
-//     extend Windows::UI::Xaml::Controls::Button,
-//     override OnContentChanged, // ContentControl
-//     override OnPointerEntered, // Control
-//     override OnApplyTemplate, // FrameworkElement
-// )]
-// struct Button {}
+#[allow(non_snake_case)]
+impl Button {
+    fn OnContentChanged(&self, _: &Option<IInspectable>, _: &Option<IInspectable>) -> Result<()> {
+        Ok(())
+    }
 
-// #[allow(non_snake_case)]
-// impl Button {
-//     fn OnContentChanged(&self, _:&Option<IInspectable>, _:&Option<IInspectable>) -> Result<()> {
-//         Ok(())
-//     }
-// }
+    // TODO: need option to omit Option and/or reference.
+    fn OnPointerEntered(
+        &self,
+        _: &Option<Windows::UI::Xaml::Input::PointerRoutedEventArgs>,
+    ) -> Result<()> {
+        Ok(())
+    }
+
+    fn OnApplyTemplate(&self) -> Result<()> {
+        Ok(())
+    }
+}

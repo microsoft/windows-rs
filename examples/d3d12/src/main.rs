@@ -203,11 +203,9 @@ extern "system" fn wndproc<S: DXSample>(
 
 fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
     for i in 0.. {
-        let mut adapter = None;
-        let adapter = unsafe { factory.EnumAdapters1(i, &mut adapter) }.and_some(adapter)?;
+        let adapter = unsafe { factory.EnumAdapters1(i)? };
 
-        let mut desc = Default::default();
-        unsafe { adapter.GetDesc1(&mut desc) }.ok()?;
+        let desc = unsafe { adapter.GetDesc1()? };
 
         if (DXGI_ADAPTER_FLAG::from(desc.Flags) & DXGI_ADAPTER_FLAG_SOFTWARE)
             != DXGI_ADAPTER_FLAG_NONE
@@ -318,7 +316,6 @@ mod d3d12_hello_triangle {
                 ..Default::default()
             };
 
-            let mut swap_chain = None;
             let swap_chain: IDXGISwapChain3 = unsafe {
                 self.dxgi_factory.CreateSwapChainForHwnd(
                     &command_queue,
@@ -326,18 +323,15 @@ mod d3d12_hello_triangle {
                     &swap_chain_desc,
                     std::ptr::null(),
                     None,
-                    &mut swap_chain,
-                )
+                )?
             }
-            .and_some(swap_chain)?
             .cast()?;
 
             // This sample does not support fullscreen transitions
             unsafe {
                 self.dxgi_factory
-                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)
+                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)?;
             }
-            .ok()?;
 
             let frame_index = unsafe { swap_chain.GetCurrentBackBufferIndex() };
 
@@ -403,7 +397,9 @@ mod d3d12_hello_triangle {
                     &pso,
                 )
             }?;
-            unsafe { command_list.Close() }.ok()?;
+            unsafe {
+                command_list.Close()?;
+            };
 
             let aspect_ratio = width as f32 / height as f32;
 
@@ -470,14 +466,18 @@ mod d3d12_hello_triangle {
         // Command list allocators can only be reset when the associated
         // command lists have finished execution on the GPU; apps should use
         // fences to determine GPU execution progress.
-        unsafe { resources.command_allocator.Reset() }.ok()?;
+        unsafe {
+            resources.command_allocator.Reset()?;
+        }
 
         let command_list = &resources.command_list;
 
         // However, when ExecuteCommandList() is called on a particular
         // command list, that command list can then be reset at any time and
         // must be before re-recording.
-        unsafe { command_list.Reset(&resources.command_allocator, &resources.pso) }.ok()?;
+        unsafe {
+            command_list.Reset(&resources.command_allocator, &resources.pso)?;
+        }
 
         // Set necessary state.
         unsafe {
@@ -524,7 +524,7 @@ mod d3d12_hello_triangle {
             );
         }
 
-        unsafe { command_list.Close() }.ok()
+        unsafe { command_list.Close() }
     }
 
     fn transition_barrier(
@@ -590,7 +590,7 @@ mod d3d12_hello_triangle {
                 std::ptr::null_mut(),
             )
         }
-        .and_some(signature)?;
+        .map(|()| signature.unwrap())?;
 
         unsafe {
             device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize())
@@ -626,7 +626,7 @@ mod d3d12_hello_triangle {
                 std::ptr::null_mut(),
             )
         }
-        .and_some(vertex_shader)?;
+        .map(|()| vertex_shader.unwrap())?;
 
         let mut pixel_shader = None;
         let pixel_shader = unsafe {
@@ -642,7 +642,7 @@ mod d3d12_hello_triangle {
                 std::ptr::null_mut(),
             )
         }
-        .and_some(pixel_shader)?;
+        .map(|()| pixel_shader.unwrap())?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
@@ -776,7 +776,7 @@ mod d3d12_hello_triangle {
         // Copy the triangle data to the vertex buffer.
         unsafe {
             let mut data = std::ptr::null_mut();
-            vertex_buffer.Map(0, std::ptr::null(), &mut data).ok()?;
+            vertex_buffer.Map(0, std::ptr::null(), &mut data)?;
             std::ptr::copy_nonoverlapping(
                 vertices.as_ptr(),
                 data as *mut Vertex,

@@ -2736,9 +2736,7 @@ pub mod Windows {
                     CloseHandle(hobject.into_param().abi())
                 }
                 #[cfg(not(windows))]
-                {
-                    unimplemented!("Unsupported target OS");
-                }
+                unimplemented!("Unsupported target OS");
             }
             pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
             pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
@@ -3066,8 +3064,7 @@ pub mod Windows {
                 }
                 pub unsafe fn CLSIDFromProgID<'a>(
                     lpszprogid: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
-                    lpclsid: *mut ::windows::Guid,
-                ) -> ::windows::HRESULT {
+                ) -> ::windows::Result<::windows::Guid> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLE32")]
@@ -3077,15 +3074,13 @@ pub mod Windows {
                                 lpclsid: *mut ::windows::Guid,
                             ) -> ::windows::HRESULT;
                         }
-                        CLSIDFromProgID(
-                            lpszprogid.into_param().abi(),
-                            ::std::mem::transmute(lpclsid),
-                        )
+                        let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
+                        CLSIDFromProgID(lpszprogid.into_param().abi(), &mut result__)
+                            .from_abi::<::windows::Guid>(result__)
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -3131,19 +3126,19 @@ pub mod Windows {
                         self.0.bitand_assign(rhs.0)
                     }
                 }
-                pub unsafe fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT {
+                pub unsafe fn CoCreateGuid() -> ::windows::Result<::windows::Guid> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLE32")]
                         extern "system" {
                             fn CoCreateGuid(pguid: *mut ::windows::Guid) -> ::windows::HRESULT;
                         }
-                        CoCreateGuid(::std::mem::transmute(pguid))
+                        let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
+                        CoCreateGuid(&mut result__).from_abi::<::windows::Guid>(result__)
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn CoCreateInstance<'a, T: ::windows::Interface>(
                     rclsid: *const ::windows::Guid,
@@ -3173,14 +3168,12 @@ pub mod Windows {
                         .and_some(result__)
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn CoInitializeEx(
                     pvreserved: *mut ::std::ffi::c_void,
                     dwcoinit: COINIT,
-                ) -> ::windows::HRESULT {
+                ) -> ::windows::Result<()> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLE32")]
@@ -3194,11 +3187,10 @@ pub mod Windows {
                             ::std::mem::transmute(pvreserved),
                             ::std::mem::transmute(dwcoinit),
                         )
+                        .ok()
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
                     #[cfg(windows)]
@@ -3210,9 +3202,7 @@ pub mod Windows {
                         CoTaskMemAlloc(::std::mem::transmute(cb))
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn CoTaskMemFree(pv: *mut ::std::ffi::c_void) {
                     #[cfg(windows)]
@@ -3224,9 +3214,7 @@ pub mod Windows {
                         CoTaskMemFree(::std::mem::transmute(pv))
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
                 #[derive(
@@ -3388,9 +3376,7 @@ pub mod Windows {
                             )
                         }
                         #[cfg(not(windows))]
-                        {
-                            unimplemented!("Unsupported target OS");
-                        }
+                        unimplemented!("Unsupported target OS");
                     }
                     pub unsafe fn GetLastError() -> WIN32_ERROR {
                         #[cfg(windows)]
@@ -3402,9 +3388,7 @@ pub mod Windows {
                             GetLastError()
                         }
                         #[cfg(not(windows))]
-                        {
-                            unimplemented!("Unsupported target OS");
-                        }
+                        unimplemented!("Unsupported target OS");
                     }
                     #[derive(
                         :: std :: cmp :: PartialEq,
@@ -3472,9 +3456,7 @@ pub mod Windows {
                         FreeLibrary(hlibmodule.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn GetProcAddress<'a>(
                     hmodule: impl ::windows::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -3492,9 +3474,7 @@ pub mod Windows {
                         GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn LoadLibraryA<'a>(
                     lplibfilename: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3510,9 +3490,7 @@ pub mod Windows {
                         LoadLibraryA(lplibfilename.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
             }
             #[allow(
@@ -3535,9 +3513,7 @@ pub mod Windows {
                         GetProcessHeap()
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -3618,9 +3594,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn HeapFree<'a>(
                     hheap: impl ::windows::IntoParam<'a, HeapHandle>,
@@ -3644,9 +3618,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
                 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -3690,10 +3662,7 @@ pub mod Windows {
                 clippy::all
             )]
             pub mod OleAutomation {
-                pub unsafe fn GetErrorInfo(
-                    dwreserved: u32,
-                    pperrinfo: *mut ::std::option::Option<IErrorInfo>,
-                ) -> ::windows::HRESULT {
+                pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::Result<IErrorInfo> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLEAUT32")]
@@ -3703,15 +3672,13 @@ pub mod Windows {
                                 pperrinfo: *mut ::windows::RawPtr,
                             ) -> ::windows::HRESULT;
                         }
-                        GetErrorInfo(
-                            ::std::mem::transmute(dwreserved),
-                            ::std::mem::transmute(pperrinfo),
-                        )
+                        let mut result__: <IErrorInfo as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
+                        GetErrorInfo(::std::mem::transmute(dwreserved), &mut result__)
+                            .from_abi::<IErrorInfo>(result__)
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
                 #[derive(
@@ -3722,50 +3689,55 @@ pub mod Windows {
                 )]
                 pub struct IErrorInfo(::windows::IUnknown);
                 impl IErrorInfo {
-                    pub unsafe fn GetGUID(
-                        &self,
-                        pguid: *mut ::windows::Guid,
-                    ) -> ::windows::HRESULT {
+                    pub unsafe fn GetGUID(&self) -> ::windows::Result<::windows::Guid> {
+                        let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pguid),
+                            &mut result__,
                         )
+                        .from_abi::<::windows::Guid>(result__)
                     }
                     pub unsafe fn GetSource(
                         &self,
-                        pbstrsource: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).4)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pbstrsource),
+                            &mut result__,
                         )
+                        .from_abi::<super::super::Foundation::BSTR>(result__)
                     }
                     pub unsafe fn GetDescription(
                         &self,
-                        pbstrdescription: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).5)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pbstrdescription),
+                            &mut result__,
                         )
+                        .from_abi::<super::super::Foundation::BSTR>(result__)
                     }
                     pub unsafe fn GetHelpFile(
                         &self,
-                        pbstrhelpfile: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).6)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pbstrhelpfile),
+                            &mut result__,
                         )
+                        .from_abi::<super::super::Foundation::BSTR>(result__)
                     }
-                    pub unsafe fn GetHelpContext(
-                        &self,
-                        pdwhelpcontext: *mut u32,
-                    ) -> ::windows::HRESULT {
+                    pub unsafe fn GetHelpContext(&self) -> ::windows::Result<u32> {
+                        let mut result__: <u32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).7)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(pdwhelpcontext),
+                            &mut result__,
                         )
+                        .from_abi::<u32>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for IErrorInfo {
@@ -3835,7 +3807,7 @@ pub mod Windows {
                 pub unsafe fn SetErrorInfo<'a>(
                     dwreserved: u32,
                     perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
-                ) -> ::windows::HRESULT {
+                ) -> ::windows::Result<()> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLEAUT32")]
@@ -3849,11 +3821,10 @@ pub mod Windows {
                             ::std::mem::transmute(dwreserved),
                             perrinfo.into_param().abi(),
                         )
+                        .ok()
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn SysAllocStringLen<'a>(
                     strin: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3871,9 +3842,7 @@ pub mod Windows {
                         SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn SysFreeString<'a>(
                     bstrstring: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -3887,9 +3856,7 @@ pub mod Windows {
                         SysFreeString(bstrstring.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn SysStringLen<'a>(
                     pbstr: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -3903,9 +3870,7 @@ pub mod Windows {
                         SysStringLen(pbstr.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
             }
             #[allow(
@@ -3943,9 +3908,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 pub unsafe fn SetEvent<'a>(
                     hevent: impl ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3961,9 +3924,7 @@ pub mod Windows {
                         SetEvent(hevent.into_param().abi())
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
                 #[derive(
                     :: std :: cmp :: PartialEq,
@@ -4030,9 +3991,7 @@ pub mod Windows {
                         )
                     }
                     #[cfg(not(windows))]
-                    {
-                        unimplemented!("Unsupported target OS");
-                    }
+                    unimplemented!("Unsupported target OS");
                 }
             }
             #[allow(
@@ -4056,12 +4015,14 @@ pub mod Windows {
                 impl ILanguageExceptionErrorInfo {
                     pub unsafe fn GetLanguageException(
                         &self,
-                        languageexception: *mut ::std::option::Option<::windows::IUnknown>,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<::windows::IUnknown> {
+                        let mut result__: <::windows::IUnknown as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(languageexception),
+                            &mut result__,
                         )
+                        .from_abi::<::windows::IUnknown>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for ILanguageExceptionErrorInfo {
@@ -4123,43 +4084,46 @@ pub mod Windows {
                 impl ILanguageExceptionErrorInfo2 {
                     pub unsafe fn GetLanguageException(
                         &self,
-                        languageexception: *mut ::std::option::Option<::windows::IUnknown>,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<::windows::IUnknown> {
+                        let mut result__: <::windows::IUnknown as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(languageexception),
+                            &mut result__,
                         )
+                        .from_abi::<::windows::IUnknown>(result__)
                     }
                     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(
                         &self,
-                        previouslanguageexceptionerrorinfo: *mut ::std::option::Option<
-                            ILanguageExceptionErrorInfo2,
-                        >,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<ILanguageExceptionErrorInfo2> {
+                        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).4)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(previouslanguageexceptionerrorinfo),
+                            &mut result__,
                         )
+                        .from_abi::<ILanguageExceptionErrorInfo2>(result__)
                     }
                     pub unsafe fn CapturePropagationContext<'a>(
                         &self,
                         languageexception: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<()> {
                         (::windows::Interface::vtable(self).5)(
                             ::windows::Abi::abi(self),
                             languageexception.into_param().abi(),
                         )
+                        .ok()
                     }
                     pub unsafe fn GetPropagationContextHead(
                         &self,
-                        propagatedlanguageexceptionerrorinfohead: *mut ::std::option::Option<
-                            ILanguageExceptionErrorInfo2,
-                        >,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<ILanguageExceptionErrorInfo2> {
+                        let mut result__: <ILanguageExceptionErrorInfo2 as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).6)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(propagatedlanguageexceptionerrorinfohead),
+                            &mut result__,
                         )
+                        .from_abi::<ILanguageExceptionErrorInfo2>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for ILanguageExceptionErrorInfo2 {
@@ -4265,7 +4229,7 @@ pub mod Windows {
                         error: *mut ::windows::HRESULT,
                         restricteddescription: *mut super::super::Foundation::BSTR,
                         capabilitysid: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<()> {
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
                             ::std::mem::transmute(description),
@@ -4273,15 +4237,18 @@ pub mod Windows {
                             ::std::mem::transmute(restricteddescription),
                             ::std::mem::transmute(capabilitysid),
                         )
+                        .ok()
                     }
                     pub unsafe fn GetReference(
                         &self,
-                        reference: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<super::super::Foundation::BSTR> {
+                        let mut result__: <super::super::Foundation::BSTR as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).4)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(reference),
+                            &mut result__,
                         )
+                        .from_abi::<super::super::Foundation::BSTR>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for IRestrictedErrorInfo {
@@ -4414,14 +4381,14 @@ pub mod Windows {
                 )]
                 pub struct IWeakReferenceSource(::windows::IUnknown);
                 impl IWeakReferenceSource {
-                    pub unsafe fn GetWeakReference(
-                        &self,
-                        weakreference: *mut ::std::option::Option<IWeakReference>,
-                    ) -> ::windows::HRESULT {
+                    pub unsafe fn GetWeakReference(&self) -> ::windows::Result<IWeakReference> {
+                        let mut result__: <IWeakReference as ::windows::Abi>::Abi =
+                            ::std::mem::zeroed();
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
-                            ::std::mem::transmute(weakreference),
+                            &mut result__,
                         )
+                        .from_abi::<IWeakReference>(result__)
                     }
                 }
                 unsafe impl ::windows::Interface for IWeakReferenceSource {

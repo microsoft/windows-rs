@@ -41,6 +41,38 @@ impl MethodSignature {
         })
     }
 
+    pub fn has_retval(&self) -> bool {
+        self.return_type.as_ref().map_or(false, |signature| {
+            if signature.kind == ElementType::HRESULT
+                && self.params.last().map_or(false, |param| {
+                    let flags = param.param.flags();
+                    if flags.input() || !flags.output() || param.signature.pointers != 1 {
+                        return false;
+                    }
+
+                    match &param.signature.kind {
+                        ElementType::Void => false,
+                        ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
+                        _ => true,
+                    }
+                })
+            {
+                return self.params[..self.params.len() - 1].iter().all(|param| {
+                    let flags = param.param.flags();
+                    flags.input() && !flags.output()
+                });
+            }
+
+            false
+        })
+    }
+
+    pub fn has_udt_return(&self) -> bool {
+        self.return_type
+            .as_ref()
+            .map_or(false, |signature| signature.is_udt())
+    }
+
     pub fn gen_winrt_constraint(&self, gen: &Gen) -> TokenStream {
         let params = self.params.iter().map(|p| p.gen_winrt_produce_type(gen));
 

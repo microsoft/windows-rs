@@ -77,14 +77,10 @@ impl Window {
         unsafe { QueryPerformanceFrequency(&mut frequency).ok()? };
 
         let variable = unsafe {
-            let mut variable = None;
-            let variable = manager
-                .CreateAnimationVariable(0.0, &mut variable)
-                .and_some(variable)?;
+            let variable = manager.CreateAnimationVariable(0.0)?;
 
-            manager
-                .ScheduleTransition(&variable, transition, get_time(frequency)?)
-                .ok()?;
+            manager.ScheduleTransition(&variable, transition, get_time(frequency)?)?;
+
             variable
         };
 
@@ -127,17 +123,16 @@ impl Window {
         unsafe { target.BeginDraw() };
         self.draw(target)?;
 
-        unsafe { target.EndDraw(std::ptr::null_mut(), std::ptr::null_mut()) }.ok()?;
+        unsafe {
+            target.EndDraw(std::ptr::null_mut(), std::ptr::null_mut())?;
+        }
 
-        let error = self.present(1, 0);
-
-        if error.is_err() {
-            if error == DXGI_STATUS_OCCLUDED {
-                unsafe {
+        if let Err(error) = self.present(1, 0) {
+            if error.code() == DXGI_STATUS_OCCLUDED {
+                self.occlusion = unsafe {
                     self.dxfactory
-                        .RegisterOcclusionStatusWindow(self.handle, WM_USER, &mut self.occlusion)
-                        .ok()?;
-                }
+                        .RegisterOcclusionStatusWindow(self.handle, WM_USER)?
+                };
                 self.visible = false;
             } else {
                 self.release_device();
@@ -159,7 +154,7 @@ impl Window {
         self.shadow = None;
     }
 
-    fn present(&self, sync: u32, flags: u32) -> HRESULT {
+    fn present(&self, sync: u32, flags: u32) -> Result<()> {
         unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags) }
     }
 
@@ -168,9 +163,7 @@ impl Window {
         let shadow = self.shadow.as_ref().unwrap();
 
         unsafe {
-            self.manager
-                .Update(get_time(self.frequency)?, std::ptr::null_mut())
-                .ok()?;
+            self.manager.Update(get_time(self.frequency)?)?;
 
             target.Clear(&D2D1_COLOR_F {
                 r: 1.0,
@@ -228,11 +221,10 @@ impl Window {
             radiusY: radius,
         };
 
-        let mut swing = 0.0;
-        unsafe {
+        let swing = unsafe {
             target.DrawEllipse(&ellipse, brush, radius / 20.0, None);
-            self.variable.GetValue(&mut swing).ok()?;
-        }
+            self.variable.GetValue()?
+        };
         let mut angles = Angles::now();
 
         if swing < 1.0 {
@@ -323,13 +315,7 @@ impl Window {
             colorContext: None,
         };
 
-        let mut bitmap = None;
-
-        unsafe {
-            target
-                .CreateBitmap2(size_u, std::ptr::null(), 0, &properties, &mut bitmap)
-                .and_some(bitmap)
-        }
+        unsafe { target.CreateBitmap2(size_u, std::ptr::null(), 0, &properties) }
     }
 
     fn resize_swapchain_bitmap(&mut self) -> Result<()> {
@@ -502,21 +488,12 @@ fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
         transform: Matrix3x2::identity(),
     };
 
-    let mut brush = None;
-
-    unsafe {
-        target
-            .CreateSolidColorBrush(&color, &properties, &mut brush)
-            .and_some(brush)
-    }
+    unsafe { target.CreateSolidColorBrush(&color, &properties) }
 }
 
 fn create_shadow(target: &ID2D1DeviceContext, clock: &ID2D1Bitmap1) -> Result<ID2D1Effect> {
-    let mut shadow = None;
     unsafe {
-        let shadow = target
-            .CreateEffect(&CLSID_D2D1Shadow, &mut shadow)
-            .and_some(shadow)?;
+        let shadow = target.CreateEffect(&CLSID_D2D1Shadow)?;
 
         shadow.SetInput(0, clock, true);
         Ok(shadow)
@@ -539,7 +516,7 @@ fn create_factory() -> Result<ID2D1Factory1> {
             &options,
             result.set_abi(),
         )
-        .and_some(result)
+        .map(|()| result.unwrap())
     }
 }
 
@@ -550,25 +527,13 @@ fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
         ..Default::default()
     };
 
-    let mut style = None;
-
-    unsafe {
-        factory
-            .CreateStrokeStyle(&props, std::ptr::null(), 0, &mut style)
-            .and_some(style)
-    }
+    unsafe { factory.CreateStrokeStyle(&props, std::ptr::null(), 0) }
 }
 
 fn create_transition() -> Result<IUIAnimationTransition> {
     let library: IUIAnimationTransitionLibrary = create_instance(&UIAnimationTransitionLibrary)?;
 
-    let mut transition = None;
-
-    unsafe {
-        library
-            .CreateAccelerateDecelerateTransition(5.0, 1.0, 0.2, 0.8, &mut transition)
-            .and_some(transition)
-    }
+    unsafe { library.CreateAccelerateDecelerateTransition(5.0, 1.0, 0.2, 0.8) }
 }
 
 fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
@@ -593,7 +558,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
             std::ptr::null_mut(),
             &mut None,
         )
-        .and_some(device)
+        .map(|()| device.unwrap())
     }
 }
 
@@ -613,16 +578,11 @@ fn create_render_target(
     factory: &ID2D1Factory1,
     device: &ID3D11Device,
 ) -> Result<ID2D1DeviceContext> {
-    let mut d2device = None;
-    let mut target = None;
     unsafe {
-        let d2device = factory
-            .CreateDevice(device.cast::<IDXGIDevice>()?, &mut d2device)
-            .and_some(d2device)?;
+        let d2device = factory.CreateDevice(device.cast::<IDXGIDevice>()?)?;
 
-        let target = d2device
-            .CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE, &mut target)
-            .and_some(target)?;
+        let target = d2device.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
+
         target.SetUnitMode(D2D1_UNIT_MODE_DIPS);
 
         Ok(target)
@@ -631,13 +591,7 @@ fn create_render_target(
 
 fn get_dxgi_factory(device: &ID3D11Device) -> Result<IDXGIFactory2> {
     let dxdevice = device.cast::<IDXGIDevice>()?;
-    let mut adapter = None;
-    unsafe {
-        dxdevice
-            .GetAdapter(&mut adapter)
-            .and_some(adapter)?
-            .GetParent()
-    }
+    unsafe { dxdevice.GetAdapter()?.GetParent() }
 }
 
 fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceContext) -> Result<()> {
@@ -654,12 +608,8 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
         colorContext: None,
     };
 
-    let mut bitmap = None;
-
     unsafe {
-        let bitmap = target
-            .CreateBitmapFromDxgiSurface(&surface, &props, &mut bitmap)
-            .and_some(bitmap)?;
+        let bitmap = target.CreateBitmapFromDxgiSurface(&surface, &props)?;
         target.SetTarget(bitmap);
     };
 
@@ -681,19 +631,7 @@ fn create_swapchain(device: &ID3D11Device, window: HWND) -> Result<IDXGISwapChai
         ..Default::default()
     };
 
-    let mut swapchain = None;
-
-    unsafe {
-        factory.CreateSwapChainForHwnd(
-            device,
-            window,
-            &props,
-            std::ptr::null(),
-            None,
-            &mut swapchain,
-        )
-    }
-    .and_some(swapchain)
+    unsafe { factory.CreateSwapChainForHwnd(device, window, &props, std::ptr::null(), None) }
 }
 
 #[allow(non_snake_case)]

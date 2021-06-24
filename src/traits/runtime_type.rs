@@ -36,3 +36,11 @@ primitive_runtime_types! {
     (f32, b"f4"),
     (f64, b"f8")
 }
+
+unsafe impl Abi for isize {
+    type Abi = Self;
+}
+
+unsafe impl Abi for usize {
+    type Abi = Self;
+}

@@ -12,13 +12,6 @@ impl Function {
         let constraints = signature.gen_constraints(&signature.params);
         let params = signature.gen_win32_params(&signature.params, gen);
 
-        let return_type = if let Some(t) = &signature.return_type {
-            let tokens = t.gen_win32(gen);
-            quote! { -> #tokens }
-        } else {
-            quote! {}
-        };
-
         let abi_params = signature.params.iter().map(|p| {
             let name = p.param.gen_name();
             let tokens = p.gen_win32_abi_param(gen);
@@ -34,7 +27,6 @@ impl Function {
         };
 
         let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
-
         let mut link = def.impl_map().expect("Function").scope().name();
 
         // TODO: workaround for https://github.com/microsoft/windows-rs/issues/463
@@ -42,52 +34,101 @@ impl Function {
             link = "onecoreuap";
         }
 
-        let body = if signature.has_query_interface() {
-            let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
-
-            quote! {
-                #[link(name = #link)]
-                extern "system" {
-                    fn #name(#(#abi_params),*) #abi_return_type;
-                }
-                let mut result__ = ::std::option::Option::None;
-                #name(#(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
-            }
-        } else {
-            quote! {
-                #[link(name = #link)]
-                extern "system" {
-                    fn #name(#(#abi_params),*) #abi_return_type;
-                }
-                #name(#(#args),*)
-            }
-        };
-
-        // Don't link on windows dlls when generating code for non-windows:
-        let body = quote! {
-            #[cfg(windows)]
-            {
-                #body
-            }
-            #[cfg(not(windows))]
-            {
-                unimplemented!("Unsupported target OS");
-            }
-        };
-
         if signature.has_query_interface() {
             let leading_params = &signature.params[..signature.params.len() - 2];
+            let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
             let params = signature.gen_win32_params(leading_params, gen);
+
             quote! {
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(#params) -> ::windows::Result<T> {
-                    #body
+                    #[cfg(windows)]
+                    {
+                        #[link(name = #link)]
+                        extern "system" {
+                            fn #name(#(#abi_params),*) #abi_return_type;
+                        }
+                        let mut result__ = ::std::option::Option::None;
+                        #name(#(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
+                    }
+                    #[cfg(not(windows))]
+                    unimplemented!("Unsupported target OS");
+                }
+            }
+        } else if signature.has_retval() {
+            let leading_params = &signature.params[..signature.params.len() - 1];
+            let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+            let params = signature.gen_win32_params(leading_params, gen);
+
+            let return_type_tokens = signature
+                .params
+                .last()
+                .unwrap()
+                .signature
+                .kind
+                .gen_name(gen);
+
+            quote! {
+                pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = #link)]
+                        extern "system" {
+                            fn #name(#(#abi_params),*) #abi_return_type;
+                        }
+                        let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                        #name(#(#args,)* &mut result__).from_abi::<#return_type_tokens>(result__)
+                    }
+                    #[cfg(not(windows))]
+                    unimplemented!("Unsupported target OS");
+                }
+            }
+        } else if let Some(return_type) = &signature.return_type {
+            if return_type.kind == ElementType::HRESULT {
+                quote! {
+                    pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
+                        #[cfg(windows)]
+                        {
+                            #[link(name = #link)]
+                            extern "system" {
+                                fn #name(#(#abi_params),*) -> ::windows::HRESULT;
+                            }
+                            #name(#(#args),*).ok()
+                        }
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+            } else {
+                let return_type = return_type.gen_win32(gen);
+
+                quote! {
+                    pub unsafe fn #name<#constraints>(#params) -> #return_type {
+                        #[cfg(windows)]
+                        {
+                            #[link(name = #link)]
+                            extern "system" {
+                                fn #name(#(#abi_params),*) #abi_return_type;
+                            }
+                            #name(#(#args),*)
+                        }
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
+                    }
                 }
             }
         } else {
             quote! {
-                pub unsafe fn #name<#constraints>(#params) #return_type {
-                    #body
+                pub unsafe fn #name<#constraints>(#params) {
+                    #[cfg(windows)]
+                    {
+                        #[link(name = #link)]
+                        extern "system" {
+                            fn #name(#(#abi_params),*);
+                        }
+                        #name(#(#args),*)
+                    }
+                    #[cfg(not(windows))]
+                    unimplemented!("Unsupported target OS");
                 }
             }
         }
