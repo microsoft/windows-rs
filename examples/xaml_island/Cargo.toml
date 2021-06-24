@@ -1,0 +1,10 @@
+[package]
+name = "xaml_island"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies]
+bindings = { package = "xaml_island_bindings", path = "bindings" }
+raw-window-handle = "^0.3"
+windows = { path = "../.." }
+winit = "^0.25.0"
