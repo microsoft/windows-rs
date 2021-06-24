@@ -80,8 +80,7 @@ impl Window {
             let variable = manager.CreateAnimationVariable(0.0)?;
 
             manager
-                .ScheduleTransition(&variable, transition, get_time(frequency)?)
-                .ok()?;
+                .ScheduleTransition(&variable, transition, get_time(frequency)?)?;
 
             variable
         };
@@ -125,12 +124,10 @@ impl Window {
         unsafe { target.BeginDraw() };
         self.draw(target)?;
 
-        unsafe { target.EndDraw(std::ptr::null_mut(), std::ptr::null_mut()) }.ok()?;
+        unsafe { target.EndDraw(std::ptr::null_mut(), std::ptr::null_mut())?; }
 
-        let error = self.present(1, 0);
-
-        if error.is_err() {
-            if error == DXGI_STATUS_OCCLUDED {
+        if let Err(error) = self.present(1, 0) {
+            if error.code() == DXGI_STATUS_OCCLUDED {
                 self.occlusion = unsafe {
                     self.dxfactory
                         .RegisterOcclusionStatusWindow(self.handle, WM_USER)?
@@ -156,7 +153,7 @@ impl Window {
         self.shadow = None;
     }
 
-    fn present(&self, sync: u32, flags: u32) -> HRESULT {
+    fn present(&self, sync: u32, flags: u32) -> Result<()> {
         unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags) }
     }
 

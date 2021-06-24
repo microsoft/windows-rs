@@ -125,6 +125,6 @@ impl Function {
             }
         }
 
-        // TODO: do the same here as for COM methods with retval signatures
+        // TODO: any remaining methods that return HRESULT should just return Result<()> instead.
     }
 }

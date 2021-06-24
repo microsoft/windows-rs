@@ -171,8 +171,7 @@ fn com() -> windows::Result<()> {
                 values.as_mut_ptr() as _,
                 (values.len() * std::mem::size_of::<i32>()) as u32,
                 &mut copied,
-            )
-            .ok()?;
+            )?;
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
@@ -184,8 +183,7 @@ fn com() -> windows::Result<()> {
                 &mut value as *mut _ as _,
                 std::mem::size_of::<windows::Guid>() as u32,
                 &mut copied,
-            )
-            .ok()?;
+            )?;
 
         assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
         assert!(value == UIAnimationTransitionLibrary);

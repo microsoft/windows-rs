@@ -330,9 +330,8 @@ mod d3d12_hello_triangle {
             // This sample does not support fullscreen transitions
             unsafe {
                 self.dxgi_factory
-                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)
+                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)?;
             }
-            .ok()?;
 
             let frame_index = unsafe { swap_chain.GetCurrentBackBufferIndex() };
 
@@ -398,7 +397,7 @@ mod d3d12_hello_triangle {
                     &pso,
                 )
             }?;
-            unsafe { command_list.Close() }.ok()?;
+            unsafe { command_list.Close()?; };
 
             let aspect_ratio = width as f32 / height as f32;
 
@@ -465,14 +464,14 @@ mod d3d12_hello_triangle {
         // Command list allocators can only be reset when the associated
         // command lists have finished execution on the GPU; apps should use
         // fences to determine GPU execution progress.
-        unsafe { resources.command_allocator.Reset() }.ok()?;
+        unsafe { resources.command_allocator.Reset()?; }
 
         let command_list = &resources.command_list;
 
         // However, when ExecuteCommandList() is called on a particular
         // command list, that command list can then be reset at any time and
         // must be before re-recording.
-        unsafe { command_list.Reset(&resources.command_allocator, &resources.pso) }.ok()?;
+        unsafe { command_list.Reset(&resources.command_allocator, &resources.pso)?; }
 
         // Set necessary state.
         unsafe {
@@ -519,7 +518,7 @@ mod d3d12_hello_triangle {
             );
         }
 
-        unsafe { command_list.Close() }.ok()
+        unsafe { command_list.Close() }
     }
 
     fn transition_barrier(
@@ -771,7 +770,7 @@ mod d3d12_hello_triangle {
         // Copy the triangle data to the vertex buffer.
         unsafe {
             let mut data = std::ptr::null_mut();
-            vertex_buffer.Map(0, std::ptr::null(), &mut data).ok()?;
+            vertex_buffer.Map(0, std::ptr::null(), &mut data)?;
             std::ptr::copy_nonoverlapping(
                 vertices.as_ptr(),
                 data as *mut Vertex,

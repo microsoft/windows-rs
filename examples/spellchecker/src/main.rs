@@ -1,5 +1,5 @@
 use bindings::Windows::Win32;
-use Win32::Foundation::{PWSTR, S_FALSE};
+use Win32::Foundation::PWSTR;
 use Win32::Globalization;
 use Win32::System::Com::CoTaskMemFree;
 
@@ -61,12 +61,10 @@ fn main() -> windows::Result<()> {
                 loop {
                     // Get the next suggestion breaking if the call to `Next` failed
                     let mut suggestion = PWSTR::NULL;
-                    let result =
-                        unsafe { suggestions.Next(1, &mut suggestion, std::ptr::null_mut()) };
-                    if result == S_FALSE {
+                    unsafe { let _ = suggestions.Next(1, &mut suggestion, std::ptr::null_mut()); }
+                    if suggestion.is_null() {
                         break;
                     }
-                    result.ok()?;
 
                     println!("Maybe replace: {} with {}", substring, unsafe {
                         read_to_string(suggestion)

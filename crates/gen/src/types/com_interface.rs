@@ -240,38 +240,44 @@ fn gen_method(
                 .from_abi::<#return_type_tokens>(result__ )
             }
         }
+    } else if signature.has_udt_return() {
+        let params = signature.gen_win32_params(&signature.params, gen);
+        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
+        let return_type = signature.return_type.unwrap().kind.gen_abi_type(gen);
+
+        quote! {
+            pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
+                let mut result__: #return_type = ::std::default::Default::default();
+                (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* &mut result__);
+                result__
+            }
+        }
+    } else if let Some(return_type) = &signature.return_type {
+        let params = signature.gen_win32_params(&signature.params, gen);
+        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
+
+        if return_type.kind == ElementType::HRESULT {
+            quote! {
+                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<()> {
+                    (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*).ok()
+                }
+            }
+        } else {
+            let return_type = return_type.gen_win32_abi(gen);
+
+            quote! {
+                pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
+                    (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*)
+                }
+            }
+        }
     } else {
         let params = signature.gen_win32_params(&signature.params, gen);
         let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
 
-        let (udt_return_type, udt_return_local, return_type, udt_return_expression) =
-            if let Some(t) = &signature.return_type {
-                if t.is_udt() {
-                    let tokens = t.kind.gen_abi_type(gen);
-                    (
-                        quote! { &mut result__ },
-                        quote! { let mut result__: #tokens = ::std::default::Default::default(); },
-                        quote! { -> #tokens },
-                        quote! { ;result__ },
-                    )
-                } else {
-                    let tokens = t.gen_win32_abi(gen);
-                    (quote! {}, quote! {}, quote! { -> #tokens }, quote! {})
-                }
-            } else {
-                (
-                    TokenStream::new(),
-                    TokenStream::new(),
-                    TokenStream::new(),
-                    quote! {},
-                )
-            };
-
         quote! {
-            pub unsafe fn #name<#constraints>(&self, #params) #return_type {
-                #udt_return_local
-                (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* #udt_return_type)
-                #udt_return_expression
+            pub unsafe fn #name<#constraints>(&self, #params) {
+                (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*)
             }
         }
     }

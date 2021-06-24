@@ -47,7 +47,6 @@ impl MethodSignature {
                 && self.params.last().map_or(false, |param| {
                     let flags = param.param.flags();
                     !flags.input() && flags.output() && param.signature.pointers == 1
-                    // param.signature.kind != ElementType::Void
                 })
             {
                 return self.params[..self.params.len() - 1].iter().all(|param| {
@@ -57,6 +56,12 @@ impl MethodSignature {
             }
 
             false
+        })
+    }
+
+    pub fn has_udt_return(&self) -> bool {
+        self.return_type.as_ref().map_or(false, |signature| {
+            signature.is_udt()
         })
     }
 
