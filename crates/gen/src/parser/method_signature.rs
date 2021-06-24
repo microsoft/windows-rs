@@ -47,9 +47,9 @@ impl MethodSignature {
                 && self.params.last().map_or(false, |param| {
                     let flags = param.param.flags();
                     if flags.input() || !flags.output() || param.signature.pointers != 1 {
-                        return false
+                        return false;
                     }
-                    
+
                     match &param.signature.kind {
                         ElementType::Void => false,
                         ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
@@ -68,9 +68,9 @@ impl MethodSignature {
     }
 
     pub fn has_udt_return(&self) -> bool {
-        self.return_type.as_ref().map_or(false, |signature| {
-            signature.is_udt()
-        })
+        self.return_type
+            .as_ref()
+            .map_or(false, |signature| signature.is_udt())
     }
 
     pub fn gen_winrt_constraint(&self, gen: &Gen) -> TokenStream {

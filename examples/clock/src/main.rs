@@ -79,8 +79,7 @@ impl Window {
         let variable = unsafe {
             let variable = manager.CreateAnimationVariable(0.0)?;
 
-            manager
-                .ScheduleTransition(&variable, transition, get_time(frequency)?)?;
+            manager.ScheduleTransition(&variable, transition, get_time(frequency)?)?;
 
             variable
         };
@@ -124,7 +123,9 @@ impl Window {
         unsafe { target.BeginDraw() };
         self.draw(target)?;
 
-        unsafe { target.EndDraw(std::ptr::null_mut(), std::ptr::null_mut())?; }
+        unsafe {
+            target.EndDraw(std::ptr::null_mut(), std::ptr::null_mut())?;
+        }
 
         if let Err(error) = self.present(1, 0) {
             if error.code() == DXGI_STATUS_OCCLUDED {
@@ -515,7 +516,7 @@ fn create_factory() -> Result<ID2D1Factory1> {
             &options,
             result.set_abi(),
         )
-        .and_some(result)
+        .map(|()| result.unwrap())
     }
 }
 
@@ -557,7 +558,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
             std::ptr::null_mut(),
             &mut None,
         )
-        .and_some(device)
+        .map(|()| device.unwrap())
     }
 }
 

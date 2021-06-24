@@ -3,12 +3,12 @@ use bindings::Windows::Win32::System::Com::*;
 
 /// Initializes COM for use by the calling thread for the multi-threaded apartment (MTA).
 pub fn initialize_mta() -> Result<()> {
-    unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED).ok() }
+    unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT_MULTITHREADED) }
 }
 
 /// Initializes COM for use by the calling thread for a single-threaded apartment (STA).
 pub fn initialize_sta() -> Result<()> {
-    unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT_APARTMENTTHREADED).ok() }
+    unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT_APARTMENTTHREADED) }
 }
 
 /// Creates a COM object with the given CLSID.

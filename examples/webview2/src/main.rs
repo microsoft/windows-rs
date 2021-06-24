@@ -551,7 +551,9 @@ impl WebView {
 }
 
 fn set_process_dpi_awareness() -> Result<()> {
-    unsafe { SetProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE).ok()? };
+    unsafe {
+        SetProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE)?;
+    }
     Ok(())
 }
 

@@ -12,13 +12,6 @@ impl Function {
         let constraints = signature.gen_constraints(&signature.params);
         let params = signature.gen_win32_params(&signature.params, gen);
 
-        let return_type = if let Some(t) = &signature.return_type {
-            let tokens = t.gen_win32(gen);
-            quote! { -> #tokens }
-        } else {
-            quote! {}
-        };
-
         let abi_params = signature.params.iter().map(|p| {
             let name = p.param.gen_name();
             let tokens = p.gen_win32_abi_param(gen);
@@ -89,14 +82,48 @@ impl Function {
                     unimplemented!("Unsupported target OS");
                 }
             }
+        } else if let Some(return_type) = &signature.return_type {
+            if return_type.kind == ElementType::HRESULT {
+                quote! {
+                    pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
+                        #[cfg(windows)]
+                        {
+                            #[link(name = #link)]
+                            extern "system" {
+                                fn #name(#(#abi_params),*) -> ::windows::HRESULT;
+                            }
+                            #name(#(#args),*).ok()
+                        }
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+            } else {
+                let return_type = return_type.gen_win32(gen);
+
+                quote! {
+                    pub unsafe fn #name<#constraints>(#params) -> #return_type {
+                        #[cfg(windows)]
+                        {
+                            #[link(name = #link)]
+                            extern "system" {
+                                fn #name(#(#abi_params),*) #abi_return_type;
+                            }
+                            #name(#(#args),*)
+                        }
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
+                    }
+                }
+            }
         } else {
             quote! {
-                pub unsafe fn #name<#constraints>(#params) #return_type {
+                pub unsafe fn #name<#constraints>(#params) {
                     #[cfg(windows)]
                     {
                         #[link(name = #link)]
                         extern "system" {
-                            fn #name(#(#abi_params),*) #abi_return_type;
+                            fn #name(#(#abi_params),*);
                         }
                         #name(#(#args),*)
                     }
@@ -105,7 +132,5 @@ impl Function {
                 }
             }
         }
-
-        // TODO: any remaining methods that return HRESULT should just return Result<()> instead.
     }
 }

@@ -3173,7 +3173,7 @@ pub mod Windows {
                 pub unsafe fn CoInitializeEx(
                     pvreserved: *mut ::std::ffi::c_void,
                     dwcoinit: COINIT,
-                ) -> ::windows::HRESULT {
+                ) -> ::windows::Result<()> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLE32")]
@@ -3187,6 +3187,7 @@ pub mod Windows {
                             ::std::mem::transmute(pvreserved),
                             ::std::mem::transmute(dwcoinit),
                         )
+                        .ok()
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3806,7 +3807,7 @@ pub mod Windows {
                 pub unsafe fn SetErrorInfo<'a>(
                     dwreserved: u32,
                     perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
-                ) -> ::windows::HRESULT {
+                ) -> ::windows::Result<()> {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLEAUT32")]
@@ -3820,6 +3821,7 @@ pub mod Windows {
                             ::std::mem::transmute(dwreserved),
                             perrinfo.into_param().abi(),
                         )
+                        .ok()
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -4105,11 +4107,12 @@ pub mod Windows {
                     pub unsafe fn CapturePropagationContext<'a>(
                         &self,
                         languageexception: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<()> {
                         (::windows::Interface::vtable(self).5)(
                             ::windows::Abi::abi(self),
                             languageexception.into_param().abi(),
                         )
+                        .ok()
                     }
                     pub unsafe fn GetPropagationContextHead(
                         &self,
@@ -4226,7 +4229,7 @@ pub mod Windows {
                         error: *mut ::windows::HRESULT,
                         restricteddescription: *mut super::super::Foundation::BSTR,
                         capabilitysid: *mut super::super::Foundation::BSTR,
-                    ) -> ::windows::HRESULT {
+                    ) -> ::windows::Result<()> {
                         (::windows::Interface::vtable(self).3)(
                             ::windows::Abi::abi(self),
                             ::std::mem::transmute(description),
@@ -4234,6 +4237,7 @@ pub mod Windows {
                             ::std::mem::transmute(restricteddescription),
                             ::std::mem::transmute(capabilitysid),
                         )
+                        .ok()
                     }
                     pub unsafe fn GetReference(
                         &self,

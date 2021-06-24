@@ -61,7 +61,9 @@ fn main() -> windows::Result<()> {
                 loop {
                     // Get the next suggestion breaking if the call to `Next` failed
                     let mut suggestion = PWSTR::NULL;
-                    unsafe { let _ = suggestions.Next(1, &mut suggestion, std::ptr::null_mut()); }
+                    unsafe {
+                        let _ = suggestions.Next(1, &mut suggestion, std::ptr::null_mut());
+                    }
                     if suggestion.is_null() {
                         break;
                     }

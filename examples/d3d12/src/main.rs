@@ -397,7 +397,9 @@ mod d3d12_hello_triangle {
                     &pso,
                 )
             }?;
-            unsafe { command_list.Close()?; };
+            unsafe {
+                command_list.Close()?;
+            };
 
             let aspect_ratio = width as f32 / height as f32;
 
@@ -464,14 +466,18 @@ mod d3d12_hello_triangle {
         // Command list allocators can only be reset when the associated
         // command lists have finished execution on the GPU; apps should use
         // fences to determine GPU execution progress.
-        unsafe { resources.command_allocator.Reset()?; }
+        unsafe {
+            resources.command_allocator.Reset()?;
+        }
 
         let command_list = &resources.command_list;
 
         // However, when ExecuteCommandList() is called on a particular
         // command list, that command list can then be reset at any time and
         // must be before re-recording.
-        unsafe { command_list.Reset(&resources.command_allocator, &resources.pso)?; }
+        unsafe {
+            command_list.Reset(&resources.command_allocator, &resources.pso)?;
+        }
 
         // Set necessary state.
         unsafe {
@@ -584,7 +590,7 @@ mod d3d12_hello_triangle {
                 std::ptr::null_mut(),
             )
         }
-        .and_some(signature)?;
+        .map(|()| signature.unwrap())?;
 
         unsafe {
             device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize())
@@ -620,7 +626,7 @@ mod d3d12_hello_triangle {
                 std::ptr::null_mut(),
             )
         }
-        .and_some(vertex_shader)?;
+        .map(|()| vertex_shader.unwrap())?;
 
         let mut pixel_shader = None;
         let pixel_shader = unsafe {
@@ -636,7 +642,7 @@ mod d3d12_hello_triangle {
                 std::ptr::null_mut(),
             )
         }
-        .and_some(pixel_shader)?;
+        .map(|()| pixel_shader.unwrap())?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
