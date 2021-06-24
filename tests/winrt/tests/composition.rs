@@ -16,11 +16,8 @@ fn create_dispatcher() -> DispatcherQueueController {
         apartmentType: DQTAT_COM_NONE,
     };
 
-    let mut interop = None;
-
     unsafe {
-        CreateDispatcherQueueController(options, &mut interop)
-            .and_some(interop)
+        CreateDispatcherQueueController(options)
             .unwrap()
     }
 }
