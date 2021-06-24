@@ -1,5 +1,5 @@
 use bindings::Windows::Win32;
-use Win32::Foundation::{BOOL, PWSTR, S_FALSE};
+use Win32::Foundation::{PWSTR, S_FALSE};
 use Win32::Globalization;
 use Win32::System::Com::CoTaskMemFree;
 
@@ -15,45 +15,30 @@ fn main() -> windows::Result<()> {
         windows::create_instance(&Globalization::SpellCheckerFactory)?;
 
     // Make sure that the "en-US" locale is supported
-    let mut supported: BOOL = false.into();
     let locale = "en-US";
-    unsafe { factory.IsSupported(locale, &mut supported).ok()? };
+    let supported = unsafe { factory.IsSupported(locale)? };
     supported.expect("en-US is supported");
 
     // Create a ISpellChecker
-    let mut checker = None;
-    let checker = unsafe { factory.CreateSpellChecker(locale, &mut checker) }.and_some(checker)?;
+    let checker = unsafe { factory.CreateSpellChecker(locale)? };
 
     // Get errors enumerator for the supplied string
     println!("Checking the text: '{}'", input);
-    let mut errors = None;
     let errors =
-        unsafe { checker.ComprehensiveCheck(input.clone(), &mut errors) }.and_some(errors)?;
+        unsafe { checker.ComprehensiveCheck(input.clone())? };
 
     // Loop through all the errors
-    loop {
-        // Get the next error in the enumerator
-        let mut error = None;
-        let result = unsafe { errors.Next(&mut error) };
-        if result == S_FALSE {
-            break;
-        }
-        let error = result.and_some(error)?;
-
+    while let Ok(error) = unsafe { errors.Next() } {
         // Get the start index and length of the error
-        let mut start_index = 0u32;
-        let mut length = 0u32;
-        unsafe {
-            error.get_StartIndex(&mut start_index).ok()?;
-            error.get_Length(&mut length).ok()?;
-        }
+        let start_index = unsafe { error.get_StartIndex()? };
+        let length = unsafe { error.get_Length()? };
 
         // Get the substring from the utf8 encoded string
         let substring = &input[start_index as usize..(start_index + length) as usize];
 
         // Get the corrective action
-        let mut action = Globalization::CORRECTIVE_ACTION_NONE;
-        unsafe { error.get_CorrectiveAction(&mut action).ok()? };
+        let action = 
+        unsafe { error.get_CorrectiveAction()? };
         println!("{:?}", action);
 
         match action {
@@ -62,8 +47,8 @@ fn main() -> windows::Result<()> {
             }
             Globalization::CORRECTIVE_ACTION_REPLACE => {
                 // Get the replacement as a widestring and convert to a Rust String
-                let mut replacement = PWSTR::NULL;
-                unsafe { error.get_Replacement(&mut replacement).ok()? };
+                let replacement = 
+                unsafe { error.get_Replacement()? };
 
                 println!("Replace: {} with {}", substring, unsafe {
                     read_to_string(replacement)
@@ -73,9 +58,7 @@ fn main() -> windows::Result<()> {
             }
             Globalization::CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
-                let mut suggestions = None;
-                let suggestions = unsafe { checker.Suggest(substring, &mut suggestions) }
-                    .and_some(suggestions)?;
+                let suggestions = unsafe { checker.Suggest(substring)? };
 
                 // Loop through the suggestions
                 loop {

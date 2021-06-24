@@ -11,11 +11,9 @@ use windows::{initialize_mta, Interface, Result};
 #[test]
 fn test() -> Result<()> {
     initialize_mta()?;
-    let mut instance = None;
 
     let instance = unsafe {
-        RoActivateInstance("Windows.Foundation.Collections.StringMap", &mut instance)
-            .and_some(instance)?
+        RoActivateInstance("Windows.Foundation.Collections.StringMap")?
     };
 
     let map = instance.cast::<StringMap>()?;
