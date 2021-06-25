@@ -1,6 +1,6 @@
 [![crates.io](https://img.shields.io/crates/v/windows.svg)](https://crates.io/crates/windows)
 [![docs.rs](https://docs.rs/windows/badge.svg)](https://docs.rs/windows)
-[![Build and Test](https://github.com/microsoft/windows-rs/workflows/Build%20and%20Test/badge.svg?event=push)](https://github.com/microsoft/windows-rs/actions)
+[![build](https://github.com/microsoft/windows-rs/workflows/build/badge.svg?event=push)](https://github.com/microsoft/windows-rs/actions)
 
 ## Rust for the Windows SDK
 
