@@ -30,13 +30,10 @@ fn main() -> Result<()> {
 
     let dwxs = DesktopWindowXamlSource::new()?;
     let dwxs_native: IDesktopWindowXamlSourceNative2 = dwxs.cast()?;
-    unsafe { dwxs_native.AttachToWindow(hwnd) }.ok()?;
+    unsafe { dwxs_native.AttachToWindow(hwnd) }?;
     dwxs.SetContent(TextBox::new()?)?;
 
-    let xaml_island_hwnd = {
-        let mut result = Default::default();
-        unsafe { dwxs_native.get_WindowHandle(&mut result) }.and_then(move || result)
-    }?;
+    let xaml_island_hwnd = unsafe { dwxs_native.get_WindowHandle() }?;
     let on_resize = move |host_inner_size: PhysicalSize<u32>| {
         let PhysicalSize { width, height } = host_inner_size;
         unsafe {
