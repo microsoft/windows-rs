@@ -1,9 +1,12 @@
 #![windows_subsystem = "windows"]
 
+use std::mem::MaybeUninit;
+
 use bindings::Windows::{
     Win32::Foundation::HWND,
+    Win32::Graphics::Gdi::{BeginPaint, EndPaint, FillRect, HBRUSH, HDC, PAINTSTRUCT},
     Win32::System::WinRT::IDesktopWindowXamlSourceNative2,
-    Win32::UI::WindowsAndMessaging::{SetWindowPos, SWP_SHOWWINDOW},
+    Win32::UI::WindowsAndMessaging::{SetWindowPos, COLOR_WINDOW, SWP_SHOWWINDOW},
     UI::Xaml::{Controls::TextBox, Hosting::DesktopWindowXamlSource},
 };
 use raw_window_handle::{HasRawWindowHandle, RawWindowHandle};
@@ -14,6 +17,18 @@ use winit::{
     event_loop::{ControlFlow, EventLoop},
     window::WindowBuilder,
 };
+
+fn redraw<T>(hwnd: HWND, f: impl FnOnce(HDC, &mut PAINTSTRUCT) -> T) -> T {
+    let (hdc, mut paint_struct) = unsafe {
+        let mut paint_struct = MaybeUninit::uninit();
+        let hdc = BeginPaint(hwnd, paint_struct.as_mut_ptr());
+        assert_ne!(hdc, HDC(0));
+        (hdc, paint_struct.assume_init())
+    };
+    let result = f(hdc, &mut paint_struct);
+    unsafe { EndPaint(hwnd, &paint_struct) };
+    result
+}
 
 fn main() -> Result<()> {
     // winit calls OleInitialize for its drag-n-drop support,
@@ -62,6 +77,19 @@ fn main() -> Result<()> {
                 ..
             } => {
                 on_resize(host_inner_size).unwrap();
+                ControlFlow::Wait
+            }
+            Event::RedrawRequested(_) => {
+                assert_ne!(
+                    0,
+                    redraw(hwnd, |hdc, paint_struct| unsafe {
+                        FillRect(
+                            hdc,
+                            &paint_struct.rcPaint,
+                            HBRUSH((COLOR_WINDOW.0 + 1u32) as isize),
+                        )
+                    })
+                );
                 ControlFlow::Wait
             }
             _ => ControlFlow::Wait,
