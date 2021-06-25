@@ -1,3 +1,7 @@
+# 0.13.0
+
+- Simpler COM function signatures. ([#909](https://github.com/microsoft/windows-rs/pull/909)) 
+
 # 0.12.0
 
 - Smarter dependency tracking. ([#896](https://github.com/microsoft/windows-rs/pull/896))
