@@ -10,7 +10,7 @@ use bindings::Windows::{
     UI::Xaml::{Controls::TextBox, Hosting::DesktopWindowXamlSource},
 };
 use raw_window_handle::{HasRawWindowHandle, RawWindowHandle};
-use windows::*;
+use windows::Interface;
 use winit::{
     dpi::PhysicalSize,
     event::{Event, WindowEvent},
@@ -30,7 +30,7 @@ fn redraw<T>(hwnd: HWND, f: impl FnOnce(HDC, &mut PAINTSTRUCT) -> T) -> T {
     result
 }
 
-fn main() -> Result<()> {
+fn main() -> windows::Result<()> {
     // winit calls OleInitialize for its drag-n-drop support,
     // so we don't have to call initialize_sta.
     let event_loop = EventLoop::new();
