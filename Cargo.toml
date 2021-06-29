@@ -21,7 +21,6 @@ gen = { package = "windows_gen", path = "crates/gen" }
 [workspace]
 members = [
     "crates/*",
-    "examples/*",
     "tests/*",
 ]
 
