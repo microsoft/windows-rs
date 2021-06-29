@@ -1,8 +1,0 @@
-[package]
-name = "message_box"
-version = "0.0.0"
-authors = ["Microsoft"]
-edition = "2018"
-
-[dependencies]
-bindings = { package = "message_box_bindings", path = "bindings" }

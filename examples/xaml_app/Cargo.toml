@@ -1,8 +1,0 @@
-[package]
-name = "xaml_app"
-version = "0.0.0"
-edition = "2018"
-
-[dependencies]
-bindings = { package = "xaml_app_bindings", path = "bindings" }
-windows = { path = "../.." }
