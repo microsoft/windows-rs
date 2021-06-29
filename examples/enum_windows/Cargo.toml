@@ -1,9 +1,0 @@
-[package]
-name = "enum_windows"
-version = "0.0.0"
-authors = ["Microsoft"]
-edition = "2018"
-
-[dependencies]
-bindings = { package = "enum_windows_bindings", path = "bindings" }
-windows = { path = "../.." }
