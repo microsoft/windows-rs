@@ -45,24 +45,6 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
 
     let tokens = RawString(build.into_tokens_string());
-    let workspace_windows_dir = gen::workspace_windows_dir();
-
-    let mut destination = workspace_windows_dir.clone();
-    destination.pop();
-    destination.push("target");
-    let destination = RawString(
-        destination
-            .to_str()
-            .expect("Invalid workspace target dir")
-            .to_string(),
-    );
-
-    let workspace_windows_dir = RawString(
-        workspace_windows_dir
-            .to_str()
-            .expect("Invalid workspace windows dir")
-            .to_string(),
-    );
 
     let tokens = quote! {
         {
@@ -118,9 +100,11 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 }
             }
 
-            if ::std::path::PathBuf::from(#workspace_windows_dir).exists() {
-                println!("cargo:rerun-if-changed={}", #workspace_windows_dir);
-                let mut source = ::std::path::PathBuf::from(#workspace_windows_dir);
+            let mut source : ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set").into();
+            source.push(".windows");
+
+            if source.exists() {
+                println!("cargo:rerun-if-changed={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
 
                 // The `target_arch` cfg is not set for build scripts so we need to sniff it out from the environment variable.
                 source.push(match ::std::env::var("CARGO_CFG_TARGET_ARCH").expect("No `CARGO_CFG_TARGET_ARCH` env variable set").as_str() {
@@ -131,7 +115,23 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                     unexpected => panic!("Unexpected `{}` architecture set by `CARGO_CFG_TARGET_ARCH`", unexpected),
                 });
 
-                let destination = ::std::path::PathBuf::from(#destination);
+                println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
+                let mut destination : ::std::path::PathBuf = ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set").into();
+
+                loop {
+                    destination.pop();
+                    destination.push("Cargo.toml");
+
+                    if destination.exists() {
+                        break;
+                    }
+
+                    destination.pop();
+                }
+
+                destination.pop();
+                destination.push("target");
+
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
             }
