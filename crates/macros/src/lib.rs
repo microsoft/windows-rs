@@ -46,16 +46,6 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
     let tokens = RawString(build.into_tokens_string());
 
-    let mut destination = gen::workspace_dir();
-    destination.push("target");
-
-    let destination = RawString(
-        destination
-            .to_str()
-            .expect("Invalid workspace target dir")
-            .to_string(),
-    );
-
     let tokens = quote! {
         {
             // The following must be injected into the token stream because the `OUT_DIR` and `PROFILE`
@@ -82,6 +72,12 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                                 let path = file.path();
                                 if let ::std::option::Option::Some(filename) = path.file_name() {
                                     destination.push(filename);
+
+                                    {
+                                        let mut file = std::fs::OpenOptions::new().append(true).create(true).open("C:\\git\\copy.txt").unwrap();
+                                        writeln!(file, "{:?} -> {:?}", path.to_str(), destination.to_str()).unwrap();
+                                    }
+
                                     let _ = ::std::fs::copy(path, &destination);
                                     destination.pop();
                                 }
@@ -127,7 +123,22 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
                 println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
 
-                let destination = ::std::path::PathBuf::from(#destination);
+                let mut destination : ::std::path::PathBuf = ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set").into();
+
+                loop {
+                    destination.pop();
+                    destination.push("Cargo.toml");
+            
+                    if destination.exists() {
+                        break;
+                    }
+            
+                    destination.pop();
+                }
+            
+                destination.pop();
+                destination.push("target");
+                
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
             }
