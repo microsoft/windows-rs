@@ -60,34 +60,31 @@ fn get_workspace_winmds() -> Vec<File> {
     windows_path.push(".windows");
     windows_path.push("winmd");
 
-    let mut result = vec![];
-
-    if let Ok(files) = std::fs::read_dir(windows_path) {
-        for file in files.filter_map(|file| file.ok()) {
-            if let Ok(file_type) = file.file_type() {
-                if file_type.is_file() {
-                    let path = file.path();
-                    if let Some("winmd") = path.extension().and_then(|extension| extension.to_str())
-                    {
-                        result.push(File::new(path));
+    fn push_dir(result: &mut Vec<File>, dir: &std::path::PathBuf) {
+        if let Ok(files) = std::fs::read_dir(&dir) {
+            for file in files.filter_map(|file| file.ok()) {
+                if let Ok(file_type) = file.file_type() {
+                    if file_type.is_file() {
+                        let path = file.path();
+                        if let Some("winmd") = path.extension().and_then(|extension| extension.to_str())
+                        {
+                            result.push(File::new(path));
+                        }
                     }
                 }
             }
         }
     }
 
-    // TODO: move these winmd files to .windows/winmd and include in crate rather than
-    // including as slices. Will need to move test dependencies to a separate workspace.
+    let mut result = vec![];
+    push_dir(&mut result, &windows_path);
 
     if !result.iter().any(|file| file.name.starts_with("Windows.")) {
-        result.push(File::from_bytes(
-            "Windows.Win32.winmd".to_string(),
-            include_bytes!("../default/Windows.Win32.winmd").to_vec(),
-        ));
-        result.push(File::from_bytes(
-            "Windows.WinRT.winmd".to_string(),
-            include_bytes!("../default/Windows.WinRT.winmd").to_vec(),
-        ));
+        let mut windows_path : std::path::PathBuf = env!("CARGO_MANIFEST_DIR").into();
+        windows_path.push(".windows");
+        windows_path.push("winmd");
+
+        push_dir(&mut result, &windows_path);
     }
 
     result
