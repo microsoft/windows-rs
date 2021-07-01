@@ -45,22 +45,14 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
 
     let tokens = RawString(build.into_tokens_string());
-    let workspace_windows_dir = gen::workspace_windows_dir();
 
-    let mut destination = workspace_windows_dir.clone();
-    destination.pop();
+    let mut destination = gen::workspace_dir();
     destination.push("target");
+
     let destination = RawString(
         destination
             .to_str()
             .expect("Invalid workspace target dir")
-            .to_string(),
-    );
-
-    let workspace_windows_dir = RawString(
-        workspace_windows_dir
-            .to_str()
-            .expect("Invalid workspace windows dir")
             .to_string(),
     );
 
@@ -118,9 +110,11 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 }
             }
 
-            if ::std::path::PathBuf::from(#workspace_windows_dir).exists() {
-                println!("cargo:rerun-if-changed={}", #workspace_windows_dir);
-                let mut source = ::std::path::PathBuf::from(#workspace_windows_dir);
+            let mut source : ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set").into();
+            source.push(".windows");
+
+            if source.exists() {
+                println!("cargo:rerun-if-changed={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
 
                 // The `target_arch` cfg is not set for build scripts so we need to sniff it out from the environment variable.
                 source.push(match ::std::env::var("CARGO_CFG_TARGET_ARCH").expect("No `CARGO_CFG_TARGET_ARCH` env variable set").as_str() {

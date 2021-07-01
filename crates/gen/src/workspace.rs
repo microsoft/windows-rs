@@ -1,12 +1,5 @@
 use super::*;
 
-/// Returns the build's `.windows` directory in the root of the workspace as a `PathBuf`.
-pub fn workspace_windows_dir() -> std::path::PathBuf {
-    let mut path = workspace_dir();
-    path.push(".windows");
-    path
-}
-
 pub fn workspace_winmds() -> &'static [File] {
     use std::{mem::MaybeUninit, sync::Once};
     static ONCE: Once = Once::new();
@@ -21,6 +14,8 @@ pub fn workspace_winmds() -> &'static [File] {
     unsafe { &*VALUE.as_ptr() }
 }
 
+// This find the workspace rather than simply the manifest dir to allow the cargo target
+// dir to be found.
 pub fn workspace_dir() -> std::path::PathBuf {
     use std::{mem::MaybeUninit, sync::Once};
     static ONCE: Once = Once::new();
@@ -61,7 +56,8 @@ pub fn workspace_dir() -> std::path::PathBuf {
 }
 
 fn get_workspace_winmds() -> Vec<File> {
-    let mut windows_path = workspace_windows_dir();
+    let mut windows_path : std::path::PathBuf = std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set").into();
+    windows_path.push(".windows");
     windows_path.push("winmd");
 
     let mut result = vec![];
@@ -80,8 +76,8 @@ fn get_workspace_winmds() -> Vec<File> {
         }
     }
 
-    // TODO: include_bytes is very slow - it takes an extra 60ms compared with memory mapped files.
-    // https://github.com/rust-lang/rust/issues/65818
+    // TODO: move these winmd files to .windows/winmd and include in crate rather than
+    // including as slices. Will need to move test dependencies to a separate workspace.
 
     if !result.iter().any(|file| file.name.starts_with("Windows.")) {
         result.push(File::from_bytes(
