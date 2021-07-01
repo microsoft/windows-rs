@@ -81,7 +81,7 @@ impl TypeReader {
     ///
     /// This function panics if the if the files where the windows metadata are stored cannot be read.
     fn new() -> Self {
-        let files = workspace_winmds();
+        let files = crate_winmds();
         let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
         let mut types = TypeTree::from_namespace("");
         types.include = true;

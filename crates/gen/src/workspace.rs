@@ -1,21 +1,19 @@
 use super::*;
 
-pub fn workspace_winmds() -> &'static [File] {
+pub fn crate_winmds() -> &'static [File] {
     use std::{mem::MaybeUninit, sync::Once};
     static ONCE: Once = Once::new();
     static mut VALUE: MaybeUninit<Vec<File>> = MaybeUninit::uninit();
 
     ONCE.call_once(|| {
         // This is safe because `Once` provides thread-safe one-time initialization
-        unsafe { VALUE = MaybeUninit::new(get_workspace_winmds()) }
+        unsafe { VALUE = MaybeUninit::new(get_crate_winmds()) }
     });
 
     // This is safe because `call_once` has already been called.
     unsafe { &*VALUE.as_ptr() }
 }
 
-// This find the workspace rather than simply the manifest dir to allow the cargo target
-// dir to be found.
 pub fn workspace_dir() -> std::path::PathBuf {
     use std::{mem::MaybeUninit, sync::Once};
     static ONCE: Once = Once::new();
@@ -55,10 +53,11 @@ pub fn workspace_dir() -> std::path::PathBuf {
     unsafe { (*VALUE.as_ptr()).clone() }
 }
 
-fn get_workspace_winmds() -> Vec<File> {
+fn get_crate_winmds() -> Vec<File> {
     let mut windows_path: std::path::PathBuf = std::env::var("CARGO_MANIFEST_DIR")
         .expect("No `CARGO_MANIFEST_DIR` env variable set")
         .into();
+
     windows_path.push(".windows");
     windows_path.push("winmd");
 

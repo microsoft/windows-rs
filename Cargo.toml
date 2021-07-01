@@ -8,7 +8,7 @@ description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 documentation = "https://docs.rs/windows"
 readme = "README.md"
-exclude = [".github", "docs", "examples"]
+exclude = [".github", "docs"]
 
 [dependencies]
 windows_macros = { path = "crates/macros",  version = "0.13.0", optional = true }

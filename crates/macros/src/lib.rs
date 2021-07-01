@@ -72,12 +72,6 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                                 let path = file.path();
                                 if let ::std::option::Option::Some(filename) = path.file_name() {
                                     destination.push(filename);
-
-                                    {
-                                        let mut file = std::fs::OpenOptions::new().append(true).create(true).open("C:\\git\\copy.txt").unwrap();
-                                        writeln!(file, "{:?} -> {:?}", path.to_str(), destination.to_str()).unwrap();
-                                    }
-
                                     let _ = ::std::fs::copy(path, &destination);
                                     destination.pop();
                                 }
@@ -122,7 +116,6 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 });
 
                 println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
-
                 let mut destination : ::std::path::PathBuf = ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set").into();
 
                 loop {
