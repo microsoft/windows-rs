@@ -125,6 +125,8 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                     unexpected => panic!("Unexpected `{}` architecture set by `CARGO_CFG_TARGET_ARCH`", unexpected),
                 });
 
+                println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
+
                 let destination = ::std::path::PathBuf::from(#destination);
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
