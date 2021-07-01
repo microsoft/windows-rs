@@ -56,7 +56,9 @@ pub fn workspace_dir() -> std::path::PathBuf {
 }
 
 fn get_workspace_winmds() -> Vec<File> {
-    let mut windows_path : std::path::PathBuf = std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set").into();
+    let mut windows_path: std::path::PathBuf = std::env::var("CARGO_MANIFEST_DIR")
+        .expect("No `CARGO_MANIFEST_DIR` env variable set")
+        .into();
     windows_path.push(".windows");
     windows_path.push("winmd");
 
@@ -66,7 +68,8 @@ fn get_workspace_winmds() -> Vec<File> {
                 if let Ok(file_type) = file.file_type() {
                     if file_type.is_file() {
                         let path = file.path();
-                        if let Some("winmd") = path.extension().and_then(|extension| extension.to_str())
+                        if let Some("winmd") =
+                            path.extension().and_then(|extension| extension.to_str())
                         {
                             result.push(File::new(path));
                         }
@@ -80,7 +83,7 @@ fn get_workspace_winmds() -> Vec<File> {
     push_dir(&mut result, &windows_path);
 
     if !result.iter().any(|file| file.name.starts_with("Windows.")) {
-        let mut windows_path : std::path::PathBuf = env!("CARGO_MANIFEST_DIR").into();
+        let mut windows_path: std::path::PathBuf = env!("CARGO_MANIFEST_DIR").into();
         windows_path.push(".windows");
         windows_path.push("winmd");
 

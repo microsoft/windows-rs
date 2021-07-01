@@ -128,17 +128,17 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 loop {
                     destination.pop();
                     destination.push("Cargo.toml");
-            
+
                     if destination.exists() {
                         break;
                     }
-            
+
                     destination.pop();
                 }
-            
+
                 destination.pop();
                 destination.push("target");
-                
+
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
             }
