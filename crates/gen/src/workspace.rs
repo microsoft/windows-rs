@@ -54,23 +54,7 @@ pub fn workspace_dir() -> std::path::PathBuf {
 }
 
 fn get_crate_winmds() -> Vec<File> {
-    // TODO: start in CARGO_MANIFEST_DIR and walk the fs looking for .windows/winmd folders and simply add everything
-    // Don't bother with conditionally including the two core winmd files because they can just be updated in windows-rs
-    // and using win32 winmd from anywhere else is unlikely to work anyway. Custom build environments like the OS can
-    // just replace the .windows/winmd folder that window-rs uses. 
-
     fn push_dir(result: &mut Vec<File>, dir: &std::path::PathBuf) {
-        {
-            use std::io::prelude::*;
-            let mut file = std::fs::OpenOptions::new()
-            .append(true)
-            .create(true)
-            .open("C:\\git\\vars.txt")
-            .unwrap();
-        
-            writeln!(file, "push_dir: {:?}", dir).unwrap();
-        }
-
         if let Ok(files) = std::fs::read_dir(&dir) {
             for file in files.filter_map(|file| file.ok()) {
                 if let Ok(file_type) = file.file_type() {

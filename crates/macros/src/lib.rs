@@ -63,33 +63,15 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             cmd.arg(&path);
             let _ = cmd.output();
 
-            // TODO: 
-            // 1. copy CARGO_MANIFEST_DIR/.windows to OUT_DIR/.windows for downstream crates to consume
-            // 2. walk and search for all .windows/<arch> folders and copy to OUT_DIR/..pop../target
-            // 3. this target to rustc-link-search
-
             fn copy(source: &::std::path::Path, destination: &mut ::std::path::PathBuf) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
                     for file in files.filter_map(|file| file.ok())  {
                         if let ::std::result::Result::Ok(file_type) = file.file_type() {
-                            // TODO: make this recursive?
                             if file_type.is_file() {
                                 let path = file.path();
                                 if let ::std::option::Option::Some(filename) = path.file_name() {
-                                    std::fs::create_dir_all(&destination);
+                                    let _ = std::fs::create_dir_all(&destination);
                                     destination.push(filename);
-
-                                    {
-                                        use std::io::prelude::*;
-                                        let mut file = std::fs::OpenOptions::new()
-                                        .append(true)
-                                        .create(true)
-                                        .open("C:\\git\\vars.txt")
-                                        .unwrap();
-                                    
-                                        writeln!(file, "build copy: {:?} = {:?}", path, destination).unwrap();
-                                    }
-
                                     let _ = ::std::fs::copy(path, &destination);
                                     destination.pop();
                                 }
@@ -152,7 +134,6 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
 
-                //destination.pop();
                 destination.push(".windows");
                 destination.push("winmd");
                 source.pop();
