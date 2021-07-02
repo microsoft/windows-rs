@@ -150,6 +150,8 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 writeln!(file, "CARGO_MANIFEST_DIR = {}", ::std::env::var("CARGO_MANIFEST_DIR").unwrap()).unwrap();
                 writeln!(file, "OUT_DIR = {}", ::std::env::var("OUT_DIR").unwrap()).unwrap();
 
+                panic!();
+
         }
     };
 
