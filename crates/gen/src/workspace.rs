@@ -54,16 +54,6 @@ pub fn workspace_dir() -> std::path::PathBuf {
 }
 
 fn get_crate_winmds() -> Vec<File> {
-    use std::io::prelude::*;
-    let mut file = std::fs::OpenOptions::new()
-    .append(true)
-    .create(true)
-    .open("C:\\git\\vars.txt")
-    .unwrap();
-    for (key, value) in std::env::vars() {
-        writeln!(file, "{} = {}", key, value).unwrap();
-    }
-
     fn push_dir(result: &mut Vec<File>, dir: &std::path::PathBuf) {
         if let Ok(files) = std::fs::read_dir(&dir) {
             for file in files.filter_map(|file| file.ok()) {
@@ -91,8 +81,11 @@ fn get_crate_winmds() -> Vec<File> {
     dir.push("winmd");
     push_dir(&mut result, &dir);
 
-    let mut dir = workspace_dir();
-    dir.push("target");
+    let dir = std::env::var("PATH").expect("No `PATH` env variable set");
+    let end = dir.find(';').expect("Path not ending in `;`");
+    let mut dir :std::path::PathBuf = dir[..end].into();
+    dir.pop();
+    dir.pop();
     dir.push(".windows");
     dir.push("winmd");
     push_dir(&mut result, &dir);
