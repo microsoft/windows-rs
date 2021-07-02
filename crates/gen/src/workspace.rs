@@ -90,5 +90,11 @@ fn get_crate_winmds() -> Vec<File> {
     dir.push("winmd");
     push_dir(&mut result, &dir);
 
+    let mut dir = workspace_dir();
+    dir.push("target");
+    dir.push(".windows");
+    dir.push("winmd");
+    push_dir(&mut result, &dir);
+
     result
 }
