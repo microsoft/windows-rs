@@ -83,7 +83,7 @@ fn get_crate_winmds() -> Vec<File> {
 
     let dir = std::env::var("PATH").expect("No `PATH` env variable set");
     let end = dir.find(';').expect("Path not ending in `;`");
-    let mut dir :std::path::PathBuf = dir[..end].into();
+    let mut dir: std::path::PathBuf = dir[..end].into();
     dir.pop();
     dir.pop();
     dir.push(".windows");
