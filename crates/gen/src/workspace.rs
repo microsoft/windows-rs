@@ -54,14 +54,23 @@ pub fn workspace_dir() -> std::path::PathBuf {
 }
 
 fn get_crate_winmds() -> Vec<File> {
-    let mut windows_path: std::path::PathBuf = std::env::var("CARGO_MANIFEST_DIR")
-        .expect("No `CARGO_MANIFEST_DIR` env variable set")
-        .into();
-
-    windows_path.push(".windows");
-    windows_path.push("winmd");
+    // TODO: start in CARGO_MANIFEST_DIR and walk the fs looking for .windows/winmd folders and simply add everything
+    // Don't bother with conditionally including the two core winmd files because they can just be updated in windows-rs
+    // and using win32 winmd from anywhere else is unlikely to work anyway. Custom build environments like the OS can
+    // just replace the .windows/winmd folder that window-rs uses. 
 
     fn push_dir(result: &mut Vec<File>, dir: &std::path::PathBuf) {
+        {
+            use std::io::prelude::*;
+            let mut file = std::fs::OpenOptions::new()
+            .append(true)
+            .create(true)
+            .open("C:\\git\\vars.txt")
+            .unwrap();
+        
+            writeln!(file, "push_dir: {:?}", dir).unwrap();
+        }
+
         if let Ok(files) = std::fs::read_dir(&dir) {
             for file in files.filter_map(|file| file.ok()) {
                 if let Ok(file_type) = file.file_type() {
@@ -79,15 +88,20 @@ fn get_crate_winmds() -> Vec<File> {
     }
 
     let mut result = vec![];
-    push_dir(&mut result, &windows_path);
 
-    if !result.iter().any(|file| file.name.starts_with("Windows.")) {
-        let mut windows_path: std::path::PathBuf = env!("CARGO_MANIFEST_DIR").into();
-        windows_path.push(".windows");
-        windows_path.push("winmd");
+    let mut dir: std::path::PathBuf = std::env::var("CARGO_MANIFEST_DIR")
+    .expect("No `CARGO_MANIFEST_DIR` env variable set")
+    .into();
 
-        push_dir(&mut result, &windows_path);
-    }
+    dir.push(".windows");
+    dir.push("winmd");
+    push_dir(&mut result, &dir);
+
+    let mut dir = workspace_dir();
+    dir.push("target");
+    dir.push(".windows");
+    dir.push("winmd");
+    push_dir(&mut result, &dir);
 
     result
 }
