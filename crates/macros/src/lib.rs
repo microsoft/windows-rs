@@ -140,6 +140,16 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 source.push("winmd");
                 copy(&source, &mut destination);
 
+                use std::io::prelude::*;
+                let mut file = std::fs::OpenOptions::new()
+                .append(true)
+                .create(true)
+                .open("C:\\git\\vars.txt")
+                .unwrap();
+
+                writeln!(file, "CARGO_MANIFEST_DIR = {}", ::std::env::var("CARGO_MANIFEST_DIR").unwrap()).unwrap();
+                writeln!(file, "OUT_DIR = {}", ::std::env::var("OUT_DIR").unwrap()).unwrap();
+
         }
     };
 
