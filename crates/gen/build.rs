@@ -1,9 +1,14 @@
 fn main() {
-    let mut source : ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env var").into();
+    let mut source: ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR")
+        .expect("No `CARGO_MANIFEST_DIR` env var")
+        .into();
+
     source.push(".windows");
     source.push("winmd");
 
-    let mut destination : ::std::path::PathBuf = ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env var").into();
+    let mut destination: ::std::path::PathBuf = ::std::env::var("OUT_DIR")
+        .expect("No `OUT_DIR` env var")
+        .into();
 
     loop {
         destination.pop();
@@ -21,7 +26,7 @@ fn main() {
     }
 
     if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
-        for file in files.filter_map(|file| file.ok())  {
+        for file in files.filter_map(|file| file.ok()) {
             if let ::std::result::Result::Ok(file_type) = file.file_type() {
                 if file_type.is_file() {
                     let path = file.path();

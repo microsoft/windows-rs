@@ -139,7 +139,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 source.pop();
                 source.push("winmd");
                 copy(&source, &mut destination);
-            
+
         }
     };
 
