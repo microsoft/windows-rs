@@ -43,7 +43,6 @@ impl ToTokens for RawString {
 #[proc_macro]
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
-
     let tokens = RawString(build.into_tokens_string());
 
     let tokens = quote! {
@@ -71,6 +70,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                             if file_type.is_file() {
                                 let path = file.path();
                                 if let ::std::option::Option::Some(filename) = path.file_name() {
+                                    let _ = std::fs::create_dir_all(&destination);
                                     destination.push(filename);
                                     let _ = ::std::fs::copy(path, &destination);
                                     destination.pop();
@@ -103,7 +103,6 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             let mut source : ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set").into();
             source.push(".windows");
 
-            if source.exists() {
                 println!("cargo:rerun-if-changed={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
 
                 // The `target_arch` cfg is not set for build scripts so we need to sniff it out from the environment variable.
@@ -134,7 +133,13 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
-            }
+
+                destination.push(".windows");
+                destination.push("winmd");
+                source.pop();
+                source.push("winmd");
+                copy(&source, &mut destination);
+            
         }
     };
 
