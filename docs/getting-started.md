@@ -4,7 +4,7 @@ This tutorial will show the basics of how to use the `windows` crate.
 
 This is *not* meant as a tutorial on Windows programming, and it assumes at least passing familiarity with the Windows API including Win32 and COM. Nor is this meant as an introduction to programming in Rust for Windows developers. You should also have a basic understanding of Rust and Cargo.
 
-The example used here is that of a simple spellchecker utility app. The app takes a string from stdin and returns back various spellchecking suggestions. You can find the complete code for this example [here](../examples/spellchecker).
+The example used here is that of a simple spellchecker utility app. The app takes a string from stdin and returns back various spellchecking suggestions. You can find the complete code for this example [here](https://github.com/microsoft/windows-samples-rs/tree/master/spellchecker).
 
 ## Bootstrapping the project
 
@@ -221,4 +221,4 @@ Looking at the [docs for `CORRECTIVE_ACTION`](https://docs.microsoft.com/en-us/w
 
 With what you've learned so far, finish the exercise of building a spellchecker that spellchecks the provided text. This will entail handling the various corrective actions and ensuring that the right thing is done for each of them.
 
-If you get stuck, you can always see the final code [here](../examples/spellchecker).
+If you get stuck, you can always see the final code [here](https://github.com/microsoft/windows-samples-rs/tree/master/spellchecker).
