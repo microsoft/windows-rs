@@ -4,19 +4,22 @@ use super::*;
 pub struct ComInterface(pub tables::TypeDef);
 
 impl ComInterface {
-    fn interfaces(&self) -> Vec<tables::TypeDef> {
+    fn interfaces(&self) -> (Vec<tables::TypeDef>, bool) {
         let mut result = Vec::new();
         let mut next = self.0.clone();
+        let mut inspectable = false;
 
         loop {
             let base = if let Some(next) = next
                 .interface_impls()
-                .filter_map(move |i| {
-                    if let ElementType::TypeDef(def) = i.generic_interface(&[]) {
-                        Some(def)
-                    } else {
+                .filter_map(|i| match i.generic_interface(&[]) {
+                    ElementType::TypeDef(def) => Some(def),
+                    ElementType::IUnknown => None,
+                    ElementType::IInspectable => {
+                        inspectable = true;
                         None
                     }
+                    _ => unexpected!(),
                 })
                 .next()
             {
@@ -29,7 +32,7 @@ impl ComInterface {
             result.push(base);
         }
 
-        result
+        (result, inspectable)
     }
 
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
@@ -39,7 +42,7 @@ impl ComInterface {
         if include == TypeInclude::Full {
             let abi_name = self.0.gen_abi_name(gen);
 
-            let bases = self.interfaces();
+            let (bases, inspectable) = self.interfaces();
 
             let abi_signatures = bases
                 .iter()
@@ -77,6 +80,8 @@ impl ComInterface {
 
             let mut method_names = BTreeMap::<String, u32>::new();
 
+            let base_offset = if inspectable { 3 } else { 0 };
+
             let methods = bases
                 .iter()
                 .rev()
@@ -85,7 +90,7 @@ impl ComInterface {
                 .flatten()
                 .enumerate()
                 .map(|(vtable_offset, method)| {
-                    gen_method(vtable_offset, &method, &mut method_names, gen)
+                    gen_method(base_offset + vtable_offset, &method, &mut method_names, gen)
                 });
 
             let mut conversions = TokenStream::new();
@@ -152,6 +157,16 @@ impl ComInterface {
                 quote! {}
             };
 
+            let inspectable_vfptrs = if inspectable {
+                quote! {
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::windows::Guid) -> ::windows::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut ::windows::RawPtr) -> ::windows::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut i32) -> ::windows::HRESULT,
+                }
+            } else {
+                quote! {}
+            };
+
             quote! {
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
@@ -171,6 +186,7 @@ impl ComInterface {
                     pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT,
                     pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                     pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                    #inspectable_vfptrs
                     #(pub unsafe extern "system" fn #abi_signatures,)*
                 );
             }
