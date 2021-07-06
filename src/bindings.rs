@@ -2610,19 +2610,14 @@ pub mod Windows {
                     if self.is_empty() {
                         return 0;
                     }
-                    unsafe { super::System::OleAutomation::SysStringLen(self) as usize }
+                    unsafe { SysStringLen(self) as usize }
                 }
                 #[doc = r" Create a `BSTR` from a slice of 16-bit characters."]
                 pub fn from_wide(value: &[u16]) -> Self {
                     if value.len() == 0 {
                         return Self(::std::ptr::null_mut());
                     }
-                    unsafe {
-                        super::System::OleAutomation::SysAllocStringLen(
-                            PWSTR(value.as_ptr() as _),
-                            value.len() as u32,
-                        )
-                    }
+                    unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as _), value.len() as u32) }
                 }
                 #[doc = r" Get the string as 16-bit characters."]
                 pub fn as_wide(&self) -> &[u16] {
@@ -2712,7 +2707,7 @@ pub mod Windows {
             impl ::std::ops::Drop for BSTR {
                 fn drop(&mut self) {
                     if !self.0.is_null() {
-                        unsafe { super::System::OleAutomation::SysFreeString(self as &Self) }
+                        unsafe { SysFreeString(self as &Self) }
                     }
                 }
             }
@@ -2920,6 +2915,45 @@ pub mod Windows {
                             .into_boxed_slice(),
                     ) as _))
                 }
+            }
+            pub unsafe fn SysAllocStringLen<'a>(
+                strin: impl ::windows::IntoParam<'a, PWSTR>,
+                ui: u32,
+            ) -> BSTR {
+                #[cfg(windows)]
+                {
+                    #[link(name = "OLEAUT32")]
+                    extern "system" {
+                        fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
+                    }
+                    SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
+                }
+                #[cfg(not(windows))]
+                unimplemented!("Unsupported target OS");
+            }
+            pub unsafe fn SysFreeString<'a>(bstrstring: impl ::windows::IntoParam<'a, BSTR>) {
+                #[cfg(windows)]
+                {
+                    #[link(name = "OLEAUT32")]
+                    extern "system" {
+                        fn SysFreeString(bstrstring: BSTR_abi);
+                    }
+                    SysFreeString(bstrstring.into_param().abi())
+                }
+                #[cfg(not(windows))]
+                unimplemented!("Unsupported target OS");
+            }
+            pub unsafe fn SysStringLen<'a>(pbstr: impl ::windows::IntoParam<'a, BSTR>) -> u32 {
+                #[cfg(windows)]
+                {
+                    #[link(name = "OLEAUT32")]
+                    extern "system" {
+                        fn SysStringLen(pbstr: BSTR_abi) -> u32;
+                    }
+                    SysStringLen(pbstr.into_param().abi())
+                }
+                #[cfg(not(windows))]
+                unimplemented!("Unsupported target OS");
             }
         }
         #[allow(
@@ -3822,52 +3856,6 @@ pub mod Windows {
                             perrinfo.into_param().abi(),
                         )
                         .ok()
-                    }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
-                }
-                pub unsafe fn SysAllocStringLen<'a>(
-                    strin: impl ::windows::IntoParam<'a, super::super::Foundation::PWSTR>,
-                    ui: u32,
-                ) -> super::super::Foundation::BSTR {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "OLEAUT32")]
-                        extern "system" {
-                            fn SysAllocStringLen(
-                                strin: super::super::Foundation::PWSTR,
-                                ui: u32,
-                            ) -> super::super::Foundation::BSTR;
-                        }
-                        SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
-                    }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
-                }
-                pub unsafe fn SysFreeString<'a>(
-                    bstrstring: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
-                ) {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "OLEAUT32")]
-                        extern "system" {
-                            fn SysFreeString(bstrstring: super::super::Foundation::BSTR_abi);
-                        }
-                        SysFreeString(bstrstring.into_param().abi())
-                    }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
-                }
-                pub unsafe fn SysStringLen<'a>(
-                    pbstr: impl ::windows::IntoParam<'a, super::super::Foundation::BSTR>,
-                ) -> u32 {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "OLEAUT32")]
-                        extern "system" {
-                            fn SysStringLen(pbstr: super::super::Foundation::BSTR_abi) -> u32;
-                        }
-                        SysStringLen(pbstr.into_param().abi())
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");

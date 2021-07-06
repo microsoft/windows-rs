@@ -293,21 +293,21 @@ impl TypeDef {
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
                             def: reader.resolve_type_row(
-                                "Windows.Win32.System.OleAutomation",
+                                "Windows.Win32.Foundation",
                                 "SysFreeString",
                             ),
                         });
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
                             def: reader.resolve_type_row(
-                                "Windows.Win32.System.OleAutomation",
+                                "Windows.Win32.Foundation",
                                 "SysAllocStringLen",
                             ),
                         });
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
                             def: reader.resolve_type_row(
-                                "Windows.Win32.System.OleAutomation",
+                                "Windows.Win32.Foundation",
                                 "SysStringLen",
                             ),
                         });
