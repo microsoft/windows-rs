@@ -5,7 +5,7 @@ use test_interfaces::Windows::Win32::System::WinRT::{
 #[test]
 fn test() {
     // Simple check to ensure that code gen picked up that ISystemMediaTransportControlsInterop derives from IInspectable.
-    // 3 for IUnknown, 3, for IInspectable, and 1 for ISystemMediaTransportControlsInterop.
+    // 3 for IUnknown, 3 for IInspectable, and 1 for ISystemMediaTransportControlsInterop.
     assert_eq!(
         std::mem::size_of::<ISystemMediaTransportControlsInterop_abi>(),
         7 * std::mem::size_of::<usize>()
