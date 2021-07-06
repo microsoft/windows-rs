@@ -1,3 +1,9 @@
+# 0.14.0
+
+- Packaging support.
+- Updated Win32 metadata.
+- Other improvements and fixes.
+
 # 0.13.0
 
 - Simpler COM function signatures. ([#909](https://github.com/microsoft/windows-rs/pull/909)) 
