@@ -292,24 +292,18 @@ impl TypeDef {
                     ("Windows.Win32.Foundation", "BSTR") => {
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
-                            def: reader.resolve_type_row(
-                                "Windows.Win32.Foundation",
-                                "SysFreeString",
-                            ),
+                            def: reader
+                                .resolve_type_row("Windows.Win32.Foundation", "SysFreeString"),
                         });
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
-                            def: reader.resolve_type_row(
-                                "Windows.Win32.Foundation",
-                                "SysAllocStringLen",
-                            ),
+                            def: reader
+                                .resolve_type_row("Windows.Win32.Foundation", "SysAllocStringLen"),
                         });
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
-                            def: reader.resolve_type_row(
-                                "Windows.Win32.Foundation",
-                                "SysStringLen",
-                            ),
+                            def: reader
+                                .resolve_type_row("Windows.Win32.Foundation", "SysStringLen"),
                         });
                     }
                     ("Windows.Foundation.Numerics", "Matrix3x2") => {
