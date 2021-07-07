@@ -1,3 +1,7 @@
+# 0.15.0
+
+- Minor fixes and improvements.
+
 # 0.14.0
 
 - Packaging support.
