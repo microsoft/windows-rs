@@ -110,5 +110,10 @@ fn get_crate_winmds() -> Vec<File> {
     dir.push("winmd");
     push_dir(&mut result, &dir);
 
+    let mut dir: std::path::PathBuf = target_dir().into();
+    dir.push(".windows");
+    dir.push("winmd");
+    push_dir(&mut result, &dir);
+
     result
 }
