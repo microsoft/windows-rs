@@ -1,3 +1,4 @@
+#[cfg(windows)]
 fn main() {
     let mut source: ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR")
         .expect("No `CARGO_MANIFEST_DIR` env var")
@@ -6,24 +7,13 @@ fn main() {
     source.push(".windows");
     source.push("winmd");
 
-    let mut destination: ::std::path::PathBuf = ::std::env::var("OUT_DIR")
-        .expect("No `OUT_DIR` env var")
-        .into();
-
-    loop {
-        destination.pop();
-        destination.push("Cargo.toml");
-
-        if destination.exists() {
-            destination.pop();
-            destination.push("target");
-            destination.push(".windows");
-            destination.push("winmd");
-            break;
-        }
-
-        destination.pop();
-    }
+    let destination = std::env::var("PATH").expect("No `PATH` env variable set");
+    let end = destination.find(';').expect("Path not ending in `;`");
+    let mut destination: std::path::PathBuf = destination[..end].into();
+    destination.pop();
+    destination.pop();
+    destination.push(".windows");
+    destination.push("winmd");
 
     if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
         for file in files.filter_map(|file| file.ok()) {
@@ -41,3 +31,6 @@ fn main() {
         }
     }
 }
+
+#[cfg(not(windows))]
+fn main() {}
