@@ -1,6 +1,6 @@
 [package]
 name = "windows_gen"
-version = "0.15.3"
+version = "0.15.4"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"

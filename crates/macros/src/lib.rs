@@ -44,7 +44,9 @@ impl ToTokens for RawString {
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
     let tokens = RawString(build.into_tokens_string());
-    let target_dir = RawString(gen::target_dir());
+    let target_dir = std::env::var("PATH").expect("No `PATH` env variable set");
+    let end = target_dir.find(';').expect("Path not ending in `;`");
+    let target_dir = RawString(target_dir[..end].to_string());
 
     let tokens = quote! {
         {
@@ -124,6 +126,8 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
             copy_to_profile(&source, &destination, &profile);
 
+            destination.pop();
+            destination.pop();
             destination.push(".windows");
             destination.push("winmd");
             source.pop();
