@@ -82,7 +82,7 @@ fn get_crate_winmds() -> Vec<File> {
                 .open("C:\\git\\test_target_dir.txt")
             {
                 use std::io::prelude::*;
-                let _ = writeln!(file, "looking in {}", target_dir());
+                let _ = writeln!(file, "looking in {:?}", dir);
             }
         }
         if let Ok(files) = std::fs::read_dir(&dir) {
