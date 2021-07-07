@@ -55,7 +55,7 @@ jobs:
       run: cargo fmt --all -- --check
 
   cargo_doc:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     name: check cargo docs
     steps:
     - uses: actions/checkout@v2
