@@ -64,17 +64,20 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             let _ = cmd.output();
 
             fn copy(source: &::std::path::Path, destination: &mut ::std::path::PathBuf) {
-                if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(source) {
-                    for file in files.filter_map(|file| file.ok())  {
-                        if let ::std::result::Result::Ok(file_type) = file.file_type() {
-                            if file_type.is_file() {
-                                let path = file.path();
-                                if let ::std::option::Option::Some(filename) = path.file_name() {
-                                    let _ = std::fs::create_dir_all(&destination);
-                                    destination.push(filename);
+                if let ::std::result::Result::Ok(entries) = ::std::fs::read_dir(source) {
+                    for entry in entries.filter_map(|entry| entry.ok()) {
+                        if let ::std::result::Result::Ok(entry_type) = entry.file_type() {
+                            let path = entry.path();
+                            if let ::std::option::Option::Some(last_path_component) = path.file_name() {
+                                let _ = ::std::fs::create_dir_all(&destination);
+                                destination.push(last_path_component);
+                                if entry_type.is_file() {
                                     let _ = ::std::fs::copy(path, &destination);
-                                    destination.pop();
+                                } else if entry_type.is_dir() {
+                                    let _ = ::std::fs::create_dir(&destination);
+                                    copy(&path, destination);
                                 }
+                                destination.pop();
                             }
                         }
                     }
