@@ -1,6 +1,6 @@
 fn main() {
     windows::build! {
-        Microsoft::Web::WebView2::Win32::*,
+        Microsoft::Web::WebView2::Win32::CompareBrowserVersions,
         Windows::Win32::Storage::FileSystem::{
             GetFileVersionInfoSizeW, GetFileVersionInfoW, VerQueryValueW,
         },
