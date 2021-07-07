@@ -65,7 +65,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
             fn copy(source: &::std::path::Path, destination: &mut ::std::path::PathBuf) {
                 if let ::std::result::Result::Ok(entries) = ::std::fs::read_dir(source) {
-                    for entry in entries.filter_map(|file| file.ok()) {
+                    for entry in entries.filter_map(|entry| entry.ok()) {
                         if let ::std::result::Result::Ok(entry_type) = entry.file_type() {
                             let path = entry.path();
                             if let ::std::option::Option::Some(last_path_component) = path.file_name() {
