@@ -47,16 +47,6 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let target_dir = std::env::var("PATH").expect("No `PATH` env variable set");
     let end = target_dir.find(';').expect("Path not ending in `;`");
     let target_dir = RawString(target_dir[..end].to_string());
-    {
-        if let Ok(mut file) = std::fs::OpenOptions::new()
-            .append(true)
-            .create(true)
-            .open("C:\\git\\test_target_dir.txt")
-        {
-            use std::io::prelude::*;
-            let _ = writeln!(file, "target_dir {:?}", target_dir.0);
-        }
-    }
 
     let tokens = quote! {
         {

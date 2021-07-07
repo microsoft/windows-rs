@@ -75,16 +75,6 @@ pub fn target_dir() -> String {
 
 fn get_crate_winmds() -> Vec<File> {
     fn push_dir(result: &mut Vec<File>, dir: &std::path::PathBuf) {
-        {
-            if let Ok(mut file) = std::fs::OpenOptions::new()
-                .append(true)
-                .create(true)
-                .open("C:\\git\\test_target_dir.txt")
-            {
-                use std::io::prelude::*;
-                let _ = writeln!(file, "looking in {:?}", dir);
-            }
-        }
         if let Ok(files) = std::fs::read_dir(&dir) {
             for file in files.filter_map(|file| file.ok()) {
                 if let Ok(file_type) = file.file_type() {
@@ -116,11 +106,6 @@ fn get_crate_winmds() -> Vec<File> {
     let mut dir: std::path::PathBuf = dir[..end].into();
     dir.pop();
     dir.pop();
-    dir.push(".windows");
-    dir.push("winmd");
-    push_dir(&mut result, &dir);
-
-    let mut dir: std::path::PathBuf = target_dir().into();
     dir.push(".windows");
     dir.push("winmd");
     push_dir(&mut result, &dir);
