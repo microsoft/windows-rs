@@ -74,7 +74,7 @@ fn walk_path(path: &Path) -> Result<()> {
 }
 
 fn main() -> Result<()> {
-    let dir = windows_gen::workspace_dir();
+    let dir: std::path::PathBuf = windows_gen::workspace_dir().into();
     walk_path(&dir)?;
 
     format_file(
