@@ -44,6 +44,7 @@ impl ToTokens for RawString {
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
     let tokens = RawString(build.into_tokens_string());
+    let target_dir = RawString(gen::target_dir());
 
     let tokens = quote! {
         {
@@ -118,22 +119,8 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             });
 
             println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
-            let mut destination : ::std::path::PathBuf = ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set").into();
 
-            loop {
-                destination.pop();
-                destination.push("Cargo.toml");
-
-                if destination.exists() {
-                    break;
-                }
-
-                destination.pop();
-            }
-
-            destination.pop();
-            destination.push("target");
-
+            let mut destination : ::std::path::PathBuf = #target_dir.into();
             let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
             copy_to_profile(&source, &destination, &profile);
 

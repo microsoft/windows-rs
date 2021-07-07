@@ -25,7 +25,7 @@ fn main() -> std::io::Result<()> {
         },
     };
 
-    let mut path = windows_gen::workspace_dir();
+    let mut path: std::path::PathBuf = windows_gen::workspace_dir().into();
     path.push("src");
     path.push("bindings.rs");
 
