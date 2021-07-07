@@ -24,10 +24,6 @@ members = [
     "tests/*",
 ]
 
-[package.metadata.docs.rs]
-default-target = "x86_64-pc-windows-msvc"
-targets = ["x86_64-pc-windows-msvc"]
-
 [features]
 default = ["macros"]
 macros = ["gen", "windows_macros"]
