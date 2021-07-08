@@ -53,7 +53,7 @@ impl From<&TypeRow> for ElementType {
 }
 
 impl TypeReader {
-    pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+    pub fn gen(&'static self) -> impl Iterator<Item = TokenStream> {
         self.types.gen()
     }
 
@@ -110,21 +110,17 @@ impl TypeReader {
 
                 let namespace = types.insert_namespace(namespace, 0);
 
-                if def.flags().windows_runtime() {
+                if def.flags().windows_runtime() || extends != ("System", "Object") {
                     namespace.insert_type(name, TypeRow::TypeDef(def));
                 } else {
-                    if extends != ("System", "Object") {
-                        namespace.insert_type(name, TypeRow::TypeDef(def));
-                    } else {
-                        for field in def.fields() {
-                            let name = field.name();
-                            namespace.insert_type(name, TypeRow::Field(field));
-                        }
+                    for field in def.fields() {
+                        let name = field.name();
+                        namespace.insert_type(name, TypeRow::Field(field));
+                    }
 
-                        for method in def.methods() {
-                            let name = method.name();
-                            namespace.insert_type(name, TypeRow::MethodDef(method));
-                        }
+                    for method in def.methods() {
+                        let name = method.name();
+                        namespace.insert_type(name, TypeRow::MethodDef(method));
                     }
                 }
             }
@@ -211,11 +207,9 @@ impl TypeReader {
                     entry.include = TypeInclude::Full;
                     self.import_type_dependencies(&copy, include);
                 }
-            } else {
-                if entry.include == TypeInclude::None {
-                    entry.include = TypeInclude::Minimal;
-                    self.import_type_dependencies(&copy, include);
-                }
+            } else if entry.include == TypeInclude::None {
+                entry.include = TypeInclude::Minimal;
+                self.import_type_dependencies(&copy, include);
             }
 
             true
@@ -357,7 +351,7 @@ impl TypeReader {
             ),
             0x13 => generics
                 .get(blob.read_unsigned() as usize)
-                .unwrap_or_else(|| &ElementType::Void)
+                .unwrap_or(&ElementType::Void)
                 .clone(),
             0x14 => {
                 let kind = self.signature_from_blob(blob, generics).unwrap();
@@ -401,7 +395,7 @@ fn is_well_known(namespace: &'static str, name: &'static str) -> bool {
     false
 }
 
-const WELL_KNOWN_TYPES: [(&'static str, &'static str, ElementType); 10] = [
+const WELL_KNOWN_TYPES: [(&str, &str, ElementType); 10] = [
     ("System", "Guid", ElementType::Guid),
     (
         "Windows.Win32.System.Com",

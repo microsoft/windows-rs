@@ -115,9 +115,9 @@ impl TypeTree {
                 .get_mut(&namespace[pos..next])
                 .and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
         } else {
-            self.namespaces.get_mut(&namespace[pos..]).and_then(|ns| {
+            self.namespaces.get_mut(&namespace[pos..]).map(|ns| {
                 ns.include = true;
-                Some(ns)
+                ns
             })
         }
     }

@@ -74,7 +74,7 @@ pub fn target_dir() -> String {
 }
 
 fn get_crate_winmds() -> Vec<File> {
-    fn push_dir(result: &mut Vec<File>, dir: &std::path::PathBuf) {
+    fn push_dir(result: &mut Vec<File>, dir: &std::path::Path) {
         if let Ok(files) = std::fs::read_dir(&dir) {
             for file in files.filter_map(|file| file.ok()) {
                 if let Ok(file_type) = file.file_type() {

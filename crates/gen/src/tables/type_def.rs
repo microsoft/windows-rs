@@ -220,7 +220,7 @@ impl TypeDef {
 
                 let interfaces = self.interfaces().map(|i| TypeEntry {
                     include: TypeInclude::Full,
-                    def: TypeRow::TypeDef(i.clone()),
+                    def: TypeRow::TypeDef(i),
                 });
                 let methods = self.methods().map(|m| m.dependencies()).flatten();
                 let mut dependencies: Vec<TypeEntry> = interfaces.chain(methods).collect();
@@ -265,7 +265,7 @@ impl TypeDef {
                                 if let parser::ConstantValue::TypeDef(def) = arg {
                                     return Some(TypeEntry {
                                         include: TypeInclude::Full,
-                                        def: TypeRow::TypeDef(def.clone()),
+                                        def: TypeRow::TypeDef(def),
                                     });
                                 }
                             }
