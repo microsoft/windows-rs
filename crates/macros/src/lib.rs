@@ -45,8 +45,12 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
     let tokens = RawString(build.into_tokens_string());
     let target_dir = std::env::var("PATH").expect("No `PATH` env variable set");
-    let end = target_dir.find(';').expect("Path not ending in `;`");
-    let target_dir = RawString(target_dir[..end].to_string());
+
+    let target_dir = if let Some(end) = target_dir.find(';') {
+        RawString(target_dir[..end].to_string())
+    } else {
+        RawString("".to_string())
+    };
 
     let tokens = quote! {
         {
@@ -123,17 +127,20 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
 
             let mut destination : ::std::path::PathBuf = #target_dir.into();
-            destination.pop();
-            destination.pop();
 
-            let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
-            copy_to_profile(&source, &destination, &profile);
+            if destination.exists() {
+                destination.pop();
+                destination.pop();
 
-            destination.push(".windows");
-            destination.push("winmd");
-            source.pop();
-            source.push("winmd");
-            copy(&source, &mut destination);
+                let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
+                copy_to_profile(&source, &destination, &profile);
+
+                destination.push(".windows");
+                destination.push("winmd");
+                source.pop();
+                source.push("winmd");
+                copy(&source, &mut destination);
+            }
         }
     };
 
