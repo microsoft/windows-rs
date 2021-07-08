@@ -25,7 +25,7 @@ pub use squote::*;
 pub use to_ident::*;
 pub use workspace::*;
 
-// Ideally this would be defined (and used by) the nested macros crate, but this isn't yet supported by Rust.
+// Ideally this would be defined (and used) by the nested macros crate, but this isn't yet supported by Rust.
 #[macro_export]
 macro_rules! unexpected {
     () => {{
