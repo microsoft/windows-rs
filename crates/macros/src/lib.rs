@@ -59,8 +59,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             );
 
             path.push("windows.rs");
-            let mut file = ::std::fs::File::create(&path).expect("Failed to create windows.rs");
-            file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
+            ::std::fs::write(&path, #tokens).expect("Could not write generated code to windows.rs");
 
             let mut cmd = ::std::process::Command::new("rustfmt");
             cmd.arg(&path);

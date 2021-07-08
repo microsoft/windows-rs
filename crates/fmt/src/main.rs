@@ -70,6 +70,7 @@ fn main() -> std::io::Result<()> {
         .nth(1)
         .unwrap_or_else(windows_gen::workspace_dir)
         .into();
+
     update_dir(&dir)?;
 
     let bindings = dir.join("crates/bindings/src/main.rs");
