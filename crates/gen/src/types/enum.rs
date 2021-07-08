@@ -54,11 +54,6 @@ impl Enum {
         // In such cases, the build script simply needs to import the type directly to generate all fields.
         let fields = if include == TypeInclude::Full || fields.len() < 100 {
             let fields = fields.iter().filter_map(|field| {
-                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/522
-                if field.name() == self.0.name() {
-                    return None;
-                }
-
                 if field.flags().literal() {
                     let field_name = to_ident(field.name());
 
