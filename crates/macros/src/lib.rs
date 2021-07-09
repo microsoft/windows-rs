@@ -44,6 +44,9 @@ impl ToTokens for RawString {
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
     let tokens = RawString(build.into_tokens_string());
+    let target_dir = std::env::var("PATH").expect("No `PATH` env variable set");
+    let end = target_dir.find(';').expect("Path not ending in `;`");
+    let target_dir = RawString(target_dir[..end].to_string());
 
     let tokens = quote! {
         {
@@ -56,8 +59,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             );
 
             path.push("windows.rs");
-            let mut file = ::std::fs::File::create(&path).expect("Failed to create windows.rs");
-            file.write_all(#tokens.as_bytes()).expect("Could not write generated code to output file");
+            ::std::fs::write(&path, #tokens).expect("Could not write generated code to windows.rs");
 
             let mut cmd = ::std::process::Command::new("rustfmt");
             cmd.arg(&path);
@@ -118,21 +120,10 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             });
 
             println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
-            let mut destination : ::std::path::PathBuf = ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set").into();
 
-            loop {
-                destination.pop();
-                destination.push("Cargo.toml");
-
-                if destination.exists() {
-                    break;
-                }
-
-                destination.pop();
-            }
-
+            let mut destination : ::std::path::PathBuf = #target_dir.into();
             destination.pop();
-            destination.push("target");
+            destination.pop();
 
             let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
             copy_to_profile(&source, &destination, &profile);
