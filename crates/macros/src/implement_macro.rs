@@ -210,7 +210,7 @@ pub struct UsePath2 {
 
 pub struct UseName2 {
     pub ident: Ident,
-    pub generics: Vec<UseTree2>,
+    pub generics: syn::punctuated::Punctuated<UseTree2, Token![,]>,
 }
 
 pub struct UseGroup2 {
@@ -241,7 +241,7 @@ impl Parse for UseTree2 {
                     input.parse::<Token![>]>()?;
                     items
                 } else {
-                    Vec::new()
+                    syn::punctuated::Punctuated::new()
                 };
 
                 Ok(UseTree2::Name(UseName2 { ident, generics }))
