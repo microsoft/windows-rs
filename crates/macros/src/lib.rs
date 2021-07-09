@@ -108,31 +108,35 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             let mut source : ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set").into();
             source.push(".windows");
 
-            println!("cargo:rerun-if-changed={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
+            if source.exists() {
+                println!("cargo:rerun-if-changed={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
 
-            // The `target_arch` cfg is not set for build scripts so we need to sniff it out from the environment variable.
-            source.push(match ::std::env::var("CARGO_CFG_TARGET_ARCH").expect("No `CARGO_CFG_TARGET_ARCH` env variable set").as_str() {
-                "x86_64" => "x64",
-                "x86" => "x86",
-                "arm" => "arm",
-                "aarch64" => "arm64",
-                unexpected => panic!("Unexpected `{}` architecture set by `CARGO_CFG_TARGET_ARCH`", unexpected),
-            });
+                // The `target_arch` cfg is not set for build scripts so we need to sniff it out from the environment variable.
+                source.push(match ::std::env::var("CARGO_CFG_TARGET_ARCH").expect("No `CARGO_CFG_TARGET_ARCH` env variable set").as_str() {
+                    "x86_64" => "x64",
+                    "x86" => "x86",
+                    "arm" => "arm",
+                    "aarch64" => "arm64",
+                    unexpected => panic!("Unexpected `{}` architecture set by `CARGO_CFG_TARGET_ARCH`", unexpected),
+                });
 
-            println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
+                if source.exists() {
+                    println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
+                }
 
-            let mut destination : ::std::path::PathBuf = #target_dir.into();
-            destination.pop();
-            destination.pop();
+                let mut destination : ::std::path::PathBuf = #target_dir.into();
+                destination.pop();
+                destination.pop();
 
-            let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
-            copy_to_profile(&source, &destination, &profile);
+                let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
+                copy_to_profile(&source, &destination, &profile);
 
-            destination.push(".windows");
-            destination.push("winmd");
-            source.pop();
-            source.push("winmd");
-            copy(&source, &mut destination);
+                destination.push(".windows");
+                destination.push("winmd");
+                source.pop();
+                source.push("winmd");
+                copy(&source, &mut destination);
+            }
         }
     };
 
