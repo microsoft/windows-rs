@@ -79,7 +79,7 @@ impl Struct {
             });
 
         let runtime_type = if is_winrt {
-            let signature = Literal::byte_string(&self.0.type_signature().as_bytes());
+            let signature = Literal::byte_string(self.0.type_signature().as_bytes());
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
