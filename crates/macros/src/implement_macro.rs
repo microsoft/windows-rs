@@ -9,7 +9,7 @@ custom_keyword!(extend);
 pub struct ImplementMacro {
     pub extend: Option<(&'static str, &'static str)>,
     pub overrides: BTreeSet<&'static str>,
-    pub implement: BTreeSet<(&'static str, &'static str)>,
+    pub implement: BTreeSet<(&'static str, &'static str, Vec<String>)>,
 }
 
 impl ImplementMacro {
@@ -18,7 +18,7 @@ impl ImplementMacro {
 
         let mut result = Vec::new();
 
-        for (namespace, name) in &self.implement {
+        for (namespace, name, generics) in &self.implement {
             result.push((reader.resolve_type_def(namespace, name), false));
         }
 
@@ -34,7 +34,7 @@ impl ImplementMacro {
     }
 
     fn parse_implement(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
-        if let Ok(tree) = cursor.parse::<UseTree>() {
+        if let Ok(tree) = cursor.parse::<UseTree2>() {
             self.walk_implement(reader, &tree, &mut String::new())?;
 
             if !cursor.is_empty() {
@@ -48,11 +48,11 @@ impl ImplementMacro {
     fn walk_implement(
         &mut self,
         reader: &'static TypeReader,
-        tree: &UseTree,
+        tree: &UseTree2,
         namespace: &mut String,
     ) -> Result<()> {
         match tree {
-            UseTree::Path(input) => {
+            UseTree2::Path(input) => {
                 if !namespace.is_empty() {
                     namespace.push('.');
                 }
@@ -60,38 +60,32 @@ impl ImplementMacro {
                 namespace.push_str(&input.ident.to_string());
                 self.walk_implement(reader, &*input.tree, namespace)?;
             }
-            UseTree::Name(input) => {
+            UseTree2::Name(input) => {
                 let name = input.ident.to_string();
 
                 if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
                     match reader.resolve_type_def(namespace, name).kind() {
                         TypeKind::Class | TypeKind::Interface => {
-                            self.implement.insert((namespace, name));
+                            self.implement.insert((namespace, name, Vec::new()));
                         }
                         _ => {
                             return Err(Error::new_spanned(
-                                input,
+                                &input.ident,
                                 format!("`{}.{}` not a class or interface", namespace, name),
                             ));
                         }
                     }
                 } else {
                     return Err(Error::new_spanned(
-                        input,
+                        &input.ident,
                         format!("`{}.{}` not found in metadata", namespace, name),
                     ));
                 }
             }
-            UseTree::Glob(input) => {
-                return Err(Error::new_spanned(input, "Glob syntax not supported"));
-            }
-            UseTree::Group(input) => {
+            UseTree2::Group(input) => {
                 for tree in &input.items {
                     self.walk_implement(reader, tree, namespace)?;
                 }
-            }
-            UseTree::Rename(input) => {
-                return Err(Error::new_spanned(input, "Rename syntax not supported"));
             }
         }
 
@@ -144,11 +138,11 @@ impl ImplementMacro {
     fn walk_extend(
         &mut self,
         reader: &'static TypeReader,
-        tree: &UseTree,
+        tree: &UseTree2,
         namespace: &mut String,
     ) -> Result<()> {
         match tree {
-            UseTree::Path(input) => {
+            UseTree2::Path(input) => {
                 if !namespace.is_empty() {
                     namespace.push('.');
                 }
@@ -156,7 +150,7 @@ impl ImplementMacro {
                 namespace.push_str(&input.ident.to_string());
                 self.walk_extend(reader, &*input.tree, namespace)?;
             }
-            UseTree::Name(input) => {
+            UseTree2::Name(input) => {
                 let name = input.ident.to_string();
 
                 if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
@@ -167,19 +161,19 @@ impl ImplementMacro {
                         self.extend.replace((namespace, name));
                     } else {
                         return Err(Error::new_spanned(
-                            input,
+                            &input.ident,
                             format!("`{}.{}` not extendable", namespace, name),
                         ));
                     }
                 } else {
                     return Err(Error::new_spanned(
-                        input,
+                        &input.ident,
                         format!("`{}.{}` not found in metadata", namespace, name),
                     ));
                 }
             }
-            _ => {
-                return Err(Error::new_spanned(tree, "Syntax not supported"));
+            UseTree2::Group(input) => {
+                return Err(Error::new(input.brace_token.span, "Syntax not supported"));
             }
         }
 
@@ -199,5 +193,67 @@ impl Parse for ImplementMacro {
         }
 
         Ok(input)
+    }
+}
+
+pub enum UseTree2 {
+    Path(UsePath2),
+    Name(UseName2),
+    Group(UseGroup2),
+}
+
+pub struct UsePath2 {
+    pub ident: Ident,
+    pub colon2_token: Token![::],
+    pub tree: Box<UseTree2>,
+}
+
+pub struct UseName2 {
+    pub ident: Ident,
+    pub generics: Vec<UseTree2>,
+}
+
+pub struct UseGroup2 {
+    pub brace_token: token::Brace,
+    pub items: syn::punctuated::Punctuated<UseTree2, Token![,]>,
+}
+
+impl Parse for UseTree2 {
+    fn parse(input: ParseStream) -> Result<UseTree2> {
+        let lookahead = input.lookahead1();
+        if lookahead.peek(Ident)
+            || lookahead.peek(Token![self])
+            || lookahead.peek(Token![super])
+            || lookahead.peek(Token![crate])
+        {
+            use syn::ext::IdentExt;
+            let ident = input.call(Ident::parse_any)?;
+            if input.peek(Token![::]) {
+                Ok(UseTree2::Path(UsePath2 {
+                    ident,
+                    colon2_token: input.parse()?,
+                    tree: Box::new(input.parse()?),
+                }))
+            } else {
+                let generics = if input.peek(Token![<]) {
+                    input.parse::<Token![<]>()?;
+                    let items = input.parse_terminated(UseTree2::parse)?;
+                    input.parse::<Token![>]>()?;
+                    items
+                } else {
+                    Vec::new()
+                };
+
+                Ok(UseTree2::Name(UseName2 { ident, generics }))
+            }
+        } else if lookahead.peek(token::Brace) {
+            let content;
+            Ok(UseTree2::Group(UseGroup2 {
+                brace_token: braced!(content in input),
+                items: content.parse_terminated(UseTree2::parse)?,
+            }))
+        } else {
+            Err(lookahead.error())
+        }
     }
 }
