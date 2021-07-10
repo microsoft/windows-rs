@@ -30,7 +30,6 @@ fn main() {
         },
 
         Windows::Win32::Foundation::{E_NOINTERFACE, E_POINTER},
-
         Windows::Win32::System::WinRT::CreateDispatcherQueueController,
         Windows::AI::MachineLearning::*,
         Windows::UI::Composition::{

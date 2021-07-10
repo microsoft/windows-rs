@@ -8,5 +8,8 @@ edition = "2018"
 windows = { path = "../.." }
 gen = { package = "windows_gen", path = "../../crates/gen" }
 
+[dev-dependencies]
+helpers = { package = "test_helpers", path = "../helpers" }
+
 [build-dependencies]
 windows = { path = "../.." }

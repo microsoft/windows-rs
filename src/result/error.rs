@@ -169,15 +169,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_message() {
-        let code = Error::fast_error(HRESULT::from_win32(0));
-        assert_eq!(code.message(), "The operation completed successfully.");
-
-        let code = Error::fast_error(HRESULT::from_win32(997));
-        assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
-    }
-
-    #[test]
     fn win32_error_conversion() {
         let code = Error::fast_error(HRESULT::from_win32(18));
         let win32_error = code.win32_code();

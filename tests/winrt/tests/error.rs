@@ -2,6 +2,8 @@ use test_winrt::Windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 
 #[test]
 fn from_hresult() {
+    assert!(helpers::set_thread_ui_language("en-US"));
+
     let error: windows::Error = windows::HRESULT(0x80004004).into();
 
     assert_eq!(error.code(), windows::HRESULT(0x80004004));
@@ -25,6 +27,8 @@ fn originate() {
 
 #[test]
 fn bad_uri() {
+    assert!(helpers::set_thread_ui_language("en-US"));
+
     let result = Uri::CreateUri("INVALID");
     let error: windows::Error = result.unwrap_err();
 
