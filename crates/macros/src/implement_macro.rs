@@ -221,11 +221,7 @@ pub struct UseGroup2 {
 impl Parse for UseTree2 {
     fn parse(input: ParseStream) -> Result<UseTree2> {
         let lookahead = input.lookahead1();
-        if lookahead.peek(Ident)
-            || lookahead.peek(Token![self])
-            || lookahead.peek(Token![super])
-            || lookahead.peek(Token![crate])
-        {
+        if lookahead.peek(Ident) {
             use syn::ext::IdentExt;
             let ident = input.call(Ident::parse_any)?;
             if input.peek(Token![::]) {
@@ -237,9 +233,9 @@ impl Parse for UseTree2 {
             } else {
                 let generics = if input.peek(Token![<]) {
                     input.parse::<Token![<]>()?;
-                    let items = input.parse_terminated(UseTree2::parse)?;
+                    let generics = input.parse_terminated(UseTree2::parse)?;
                     input.parse::<Token![>]>()?;
-                    items
+                    generics
                 } else {
                     syn::punctuated::Punctuated::new()
                 };
