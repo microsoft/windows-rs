@@ -314,11 +314,11 @@ impl Struct {
                             let index = Literal::usize_unsuffixed(index);
 
                             Some(quote! {
-                                .field(#field, &format_args!("{:?}", self.#index))
+                                .field(#field, &self.#index)
                             })
                         } else {
                             Some(quote! {
-                                .field(#field, &format_args!("{:?}", self.#name))
+                                .field(#field, &self.#name)
                             })
                         }
                     });
