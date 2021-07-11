@@ -32,7 +32,7 @@ pub mod Windows {
         impl ::std::fmt::Debug for DateTime {
             fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                 fmt.debug_struct("DateTime")
-                    .field("UniversalTime", &format_args!("{:?}", self.UniversalTime))
+                    .field("UniversalTime", &self.UniversalTime)
                     .finish()
             }
         }
@@ -1712,8 +1712,8 @@ pub mod Windows {
         impl ::std::fmt::Debug for Point {
             fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                 fmt.debug_struct("Point")
-                    .field("X", &format_args!("{:?}", self.X))
-                    .field("Y", &format_args!("{:?}", self.Y))
+                    .field("X", &self.X)
+                    .field("Y", &self.Y)
                     .finish()
             }
         }
@@ -2372,10 +2372,10 @@ pub mod Windows {
         impl ::std::fmt::Debug for Rect {
             fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                 fmt.debug_struct("Rect")
-                    .field("X", &format_args!("{:?}", self.X))
-                    .field("Y", &format_args!("{:?}", self.Y))
-                    .field("Width", &format_args!("{:?}", self.Width))
-                    .field("Height", &format_args!("{:?}", self.Height))
+                    .field("X", &self.X)
+                    .field("Y", &self.Y)
+                    .field("Width", &self.Width)
+                    .field("Height", &self.Height)
                     .finish()
             }
         }
@@ -2414,8 +2414,8 @@ pub mod Windows {
         impl ::std::fmt::Debug for Size {
             fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                 fmt.debug_struct("Size")
-                    .field("Width", &format_args!("{:?}", self.Width))
-                    .field("Height", &format_args!("{:?}", self.Height))
+                    .field("Width", &self.Width)
+                    .field("Height", &self.Height)
                     .finish()
             }
         }
@@ -2447,7 +2447,7 @@ pub mod Windows {
         impl ::std::fmt::Debug for TimeSpan {
             fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                 fmt.debug_struct("TimeSpan")
-                    .field("Duration", &format_args!("{:?}", self.Duration))
+                    .field("Duration", &self.Duration)
                     .finish()
             }
         }
@@ -2751,9 +2751,7 @@ pub mod Windows {
             }
             impl ::std::fmt::Debug for HANDLE {
                 fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    fmt.debug_struct("HANDLE")
-                        .field("Value", &format_args!("{:?}", self.0))
-                        .finish()
+                    fmt.debug_struct("HANDLE").field("Value", &self.0).finish()
                 }
             }
             impl ::std::cmp::PartialEq for HANDLE {
@@ -2789,7 +2787,7 @@ pub mod Windows {
             impl ::std::fmt::Debug for HINSTANCE {
                 fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                     fmt.debug_struct("HINSTANCE")
-                        .field("Value", &format_args!("{:?}", self.0))
+                        .field("Value", &self.0)
                         .finish()
                 }
             }
@@ -2984,12 +2982,9 @@ pub mod Windows {
             impl ::std::fmt::Debug for SECURITY_ATTRIBUTES {
                 fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                     fmt.debug_struct("SECURITY_ATTRIBUTES")
-                        .field("nLength", &format_args!("{:?}", self.nLength))
-                        .field(
-                            "lpSecurityDescriptor",
-                            &format_args!("{:?}", self.lpSecurityDescriptor),
-                        )
-                        .field("bInheritHandle", &format_args!("{:?}", self.bInheritHandle))
+                        .field("nLength", &self.nLength)
+                        .field("lpSecurityDescriptor", &self.lpSecurityDescriptor)
+                        .field("bInheritHandle", &self.bInheritHandle)
                         .finish()
                 }
             }
@@ -3670,7 +3665,7 @@ pub mod Windows {
                 impl ::std::fmt::Debug for HeapHandle {
                     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
                         fmt.debug_struct("HeapHandle")
-                            .field("Value", &format_args!("{:?}", self.0))
+                            .field("Value", &self.0)
                             .finish()
                     }
                 }
