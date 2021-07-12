@@ -9,7 +9,7 @@ custom_keyword!(extend);
 pub struct ImplementMacro {
     pub extend: Option<(&'static str, &'static str)>,
     pub overrides: BTreeSet<&'static str>,
-    pub implement: BTreeSet<(&'static str, &'static str, Vec<String>)>,
+    pub implement: BTreeSet<(&'static str, &'static str, String)>,
 }
 
 impl ImplementMacro {
@@ -65,7 +65,7 @@ impl ImplementMacro {
                 if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
                     match reader.resolve_type_def(namespace, name).kind() {
                         TypeKind::Class | TypeKind::Interface => {
-                            self.implement.insert((namespace, name, Vec::new()));
+                            self.implement.insert((namespace, name, input.generics.clone()));
                         }
                         _ => {
                             return Err(Error::new_spanned(
@@ -209,13 +209,56 @@ pub struct UsePath2 {
 
 pub struct UseName2 {
     pub ident: Ident,
-    pub generics: Vec<UseTree2>,
+    pub generics: String,
 }
 
 pub struct UseGroup2 {
     pub brace_token: token::Brace,
     pub items: syn::punctuated::Punctuated<UseTree2, Token![,]>,
 }
+
+impl UseTree2 {
+  fn to_string(&self) -> String {
+      match self {
+          Self::Path(path) => path.to_string(),
+          Self::Name(name) => name.to_string(),
+          Self::Group(group) => group.to_string(),
+      }
+  }
+}
+
+impl UsePath2 {
+    fn to_string(&self) -> String {
+        format!("{}::{}", self.ident.to_string(), self.tree.to_string())
+    }
+}
+
+impl UseName2 {
+    fn to_string(&self) -> String {
+        let mut result = self.ident.to_string();
+
+        if !self.generics.is_empty() {
+            result.push_str(&format!("<{}>", self.generics));
+        }
+
+        result
+    }
+}
+
+impl UseGroup2 {
+    fn to_string(&self) -> String {
+        let mut result = '{'.to_string();
+
+            for i in &self.items {
+                result.push_str(&i.to_string());
+                result.push(',');
+            }
+
+        result.push('}');
+        result
+    }
+}
+
 
 impl Parse for UseTree2 {
     fn parse(input: ParseStream) -> Result<UseTree2> {
@@ -232,18 +275,20 @@ impl Parse for UseTree2 {
             } else {
                 let generics = if input.peek(Token![<]) {
                     input.parse::<Token![<]>()?;
-                    let mut generics = Vec::new();
+                    let mut generics = String::new();
                     loop {
-                        generics.push(input.parse::<UseTree2>()?);
+                      generics.push_str(&input.parse::<UseTree2>()?.to_string());
 
-                        if input.parse::<Token![,]>().is_err() {
-                            break;
-                        }
+                      if input.parse::<Token![,]>().is_err() {
+                        break;
+                      }
+
+                      generics.push(',');
                     }
                     input.parse::<Token![>]>()?;
                     generics
                 } else {
-                    Vec::new()
+                    String::new()
                 };
 
                 Ok(UseTree2::Name(UseName2 { ident, generics }))
