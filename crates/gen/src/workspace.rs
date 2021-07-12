@@ -93,13 +93,12 @@ fn get_crate_winmds() -> Vec<File> {
 
     let mut result = vec![];
 
-    let mut dir: std::path::PathBuf = std::env::var("CARGO_MANIFEST_DIR")
-        .expect("No `CARGO_MANIFEST_DIR` env variable set")
-        .into();
-
-    dir.push(".windows");
-    dir.push("winmd");
-    push_dir(&mut result, &dir);
+    if let Ok(dir) = std::env::var("CARGO_MANIFEST_DIR") {
+        let mut dir :std::path::PathBuf = dir.into();
+        dir.push(".windows");
+        dir.push("winmd");
+        push_dir(&mut result, &dir);
+    }
 
     let dir = std::env::var("PATH").expect("No `PATH` env variable set");
     let end = dir.find(';').expect("Path not ending in `;`");
