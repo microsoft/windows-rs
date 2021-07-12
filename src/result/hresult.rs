@@ -108,7 +108,7 @@ impl HRESULT {
                     | FORMAT_MESSAGE_IGNORE_INSERTS,
                 std::ptr::null(),
                 self.0,
-                0x0000_0400, // MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)
+                0,
                 PWSTR(std::mem::transmute(&mut message.0)),
                 0,
                 std::ptr::null_mut(),
@@ -147,19 +147,5 @@ impl Drop for HeapString {
                 heap_free(self.0 as _);
             }
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_message() {
-        let code = HRESULT::from_win32(0);
-        assert_eq!(code.message(), "The operation completed successfully.");
-
-        let code = HRESULT::from_win32(997);
-        assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
     }
 }

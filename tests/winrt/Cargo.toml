@@ -10,6 +10,7 @@ gen = { package = "windows_gen", path = "../../crates/gen" }
 
 [dev-dependencies]
 futures = "0.3"
+helpers = { package = "test_helpers", path = "../helpers" }
 
 [build-dependencies]
 windows = { path = "../.." }
