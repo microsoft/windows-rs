@@ -34,12 +34,11 @@ impl ImplementMacro {
     }
 
     fn parse_implement(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
-        if let Ok(tree) = cursor.parse::<UseTree2>() {
-            self.walk_implement(reader, &tree, &mut String::new())?;
+        let tree = cursor.parse::<UseTree2>()?;
+        self.walk_implement(reader, &tree, &mut String::new())?;
 
-            if !cursor.is_empty() {
-                cursor.parse::<Token![,]>()?;
-            }
+        if !cursor.is_empty() {
+            cursor.parse::<Token![,]>()?;
         }
 
         Ok(())
@@ -210,7 +209,7 @@ pub struct UsePath2 {
 
 pub struct UseName2 {
     pub ident: Ident,
-    pub generics: syn::punctuated::Punctuated<UseTree2, Token![,]>,
+    pub generics: Vec<UseTree2>,
 }
 
 pub struct UseGroup2 {
@@ -233,11 +232,18 @@ impl Parse for UseTree2 {
             } else {
                 let generics = if input.peek(Token![<]) {
                     input.parse::<Token![<]>()?;
-                    let generics = input.parse_terminated(UseTree2::parse)?;
+                    let mut generics = Vec::new();
+                    loop {
+                        generics.push(input.parse::<UseTree2>()?);
+
+                        if input.parse::<Token![,]>().is_err() {
+                            break;
+                        }
+                    }
                     input.parse::<Token![>]>()?;
                     generics
                 } else {
-                    syn::punctuated::Punctuated::new()
+                    Vec::new()
                 };
 
                 Ok(UseTree2::Name(UseName2 { ident, generics }))

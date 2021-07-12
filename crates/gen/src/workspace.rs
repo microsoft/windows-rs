@@ -94,7 +94,7 @@ fn get_crate_winmds() -> Vec<File> {
     let mut result = vec![];
 
     if let Ok(dir) = std::env::var("CARGO_MANIFEST_DIR") {
-        let mut dir :std::path::PathBuf = dir.into();
+        let mut dir: std::path::PathBuf = dir.into();
         dir.push(".windows");
         dir.push("winmd");
         push_dir(&mut result, &dir);
