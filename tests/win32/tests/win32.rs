@@ -131,6 +131,7 @@ fn function() -> windows::Result<()> {
 #[test]
 fn bool_as_error() {
     unsafe {
+        assert!(helpers::set_thread_ui_language("en-US"));
         assert!(!SetEvent(HANDLE(0)).as_bool());
 
         let result: windows::Result<()> = SetEvent(HANDLE(0)).ok();

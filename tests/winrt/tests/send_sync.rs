@@ -86,6 +86,8 @@ fn send_async_no_class() {
 
 #[test]
 fn send_sync_err() {
+    assert!(helpers::set_thread_ui_language("en-US"));
+
     let err = Uri::CreateUri("BADURI").unwrap_err();
     let code = err.code();
 
