@@ -4,6 +4,7 @@ pub use std::iter::FromIterator;
 mod r#async;
 mod gen;
 mod guid;
+mod propertykey;
 mod import_limit;
 mod iterator;
 mod object;
@@ -16,6 +17,7 @@ mod workspace;
 
 pub use gen::*;
 pub use guid::*;
+pub use propertykey::*;
 pub use import_limit::*;
 pub use iterator::*;
 pub use object::*;

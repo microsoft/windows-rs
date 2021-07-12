@@ -8,9 +8,9 @@ impl Constant {
     pub fn gen(def: &tables::Field, gen: &Gen) -> TokenStream {
         let name = def.name();
         let name = to_ident(name);
+        let signature = def.signature();
 
         if let Some(constant) = def.constant() {
-            let signature = def.signature();
             if signature.kind == constant.value_type() {
                 let value = constant.value().gen();
 
@@ -25,20 +25,21 @@ impl Constant {
                     pub const #name: #kind = #kind(#value as _);
                 }
             }
-        } else {
-            match Guid::from_attributes(def.attributes()) {
-                Some(guid) => {
-                    let guid = guid.gen();
-
-                    quote! {
-                        pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid);
-                    }
-                }
-                None => {
-                    // TODO: add support for https://github.com/microsoft/win32metadata/issues/339
-                    quote! {}
-                }
+        } else if let Some(guid) = Guid::from_attributes(def.attributes()) {
+            let guid = guid.gen();
+            quote! { pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid); }
+        } else if let Some(pkey) = PropertyKey::from_attributes(def.attributes()) {
+            let kind = signature.gen_win32(gen);
+            let fmtid = pkey.fmtid.gen();
+            let pid = pkey.pid;
+            quote! {
+                pub const #name: #kind = #kind {
+                    fmtid: ::windows::Guid::from_values(#fmtid),
+                    pid: #pid,
+                };
             }
+        } else {
+            quote! {}
         }
     }
 }

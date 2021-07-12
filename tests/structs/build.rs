@@ -8,5 +8,9 @@ fn main() {
         // in generated struct Debug implementations.
         // https://github.com/microsoft/windows-rs/issues/439
         Windows::Win32::UI::WindowsAndMessaging::CWPSTRUCT,
+
+        // Test to verify property key constants are generated
+        // https://github.com/microsoft/win32metadata/issues/339
+        Windows::Win32::System::SystemServices::DEVPKEY_Device_BiosDeviceName,
     };
 }
