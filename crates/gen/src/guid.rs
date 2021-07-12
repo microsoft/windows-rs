@@ -21,7 +21,7 @@ impl Guid {
             args[10].1.unwrap_u8(),
         )
     }
-    
+
     pub fn from_attributes<I: IntoIterator<Item = tables::Attribute>>(
         attributes: I,
     ) -> Option<Self> {
