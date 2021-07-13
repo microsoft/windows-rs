@@ -21,7 +21,9 @@ pub fn gen(
     let reader = TypeReader::get();
     let gen = gen::Gen::Absolute;
 
-    for (interface_count, (t, overrides, generics)) in implements.interfaces(reader).iter().enumerate() {
+    for (interface_count, (t, overrides, generics)) in
+        implements.interfaces(reader).iter().enumerate()
+    {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
         let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
@@ -132,9 +134,16 @@ pub fn gen(
                 });
         }
 
+        let mut phantoms = TokenStream::new();
+
+        for _ in 0..t.generic_params().count() {
+            phantoms.combine(&quote! { std::marker::PhantomData, })
+        }
+
         vtable_ctors.combine(&quote! {
             #vtable_ident(
                 #vtable_ptrs
+                #phantoms
             ),
         });
 

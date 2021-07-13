@@ -19,7 +19,11 @@ impl ImplementMacro {
         let mut result = Vec::new();
 
         for (namespace, name, generics) in &self.implement {
-            result.push((reader.resolve_type_def(namespace, name), false, generics.clone()));
+            result.push((
+                reader.resolve_type_def(namespace, name),
+                false,
+                generics.clone(),
+            ));
         }
 
         if let Some((namespace, name)) = self.extend {
@@ -65,7 +69,8 @@ impl ImplementMacro {
                 if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
                     match reader.resolve_type_def(namespace, name).kind() {
                         TypeKind::Class | TypeKind::Interface => {
-                            self.implement.insert((namespace, name, input.generics.clone()));
+                            self.implement
+                                .insert((namespace, name, input.generics.clone()));
                         }
                         _ => {
                             return Err(Error::new_spanned(
@@ -94,7 +99,7 @@ impl ImplementMacro {
     fn parse_override(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
         // Any number of methods may be overridden but only if a class is being overridden.
         if let Some((namespace, name)) = self.extend {
-            if cursor.parse::<Token![override]>().is_ok() {
+            while cursor.parse::<Token![override]>().is_ok() {
                 let methods = reader
                     .resolve_type_def(namespace, name)
                     .overridable_methods();
@@ -184,10 +189,10 @@ impl Parse for ImplementMacro {
     fn parse(cursor: ParseStream) -> Result<Self> {
         let mut input = Self::default();
         let reader = TypeReader::get();
+        input.parse_extend(reader, cursor)?;
+        input.parse_override(reader, cursor)?;
 
         while !cursor.is_empty() {
-            input.parse_extend(reader, cursor)?;
-            input.parse_override(reader, cursor)?;
             input.parse_implement(reader, cursor)?;
         }
 
@@ -218,13 +223,13 @@ pub struct UseGroup2 {
 }
 
 impl UseTree2 {
-  fn to_string(&self) -> String {
-      match self {
-          Self::Path(path) => path.to_string(),
-          Self::Name(name) => name.to_string(),
-          Self::Group(group) => group.to_string(),
-      }
-  }
+    fn to_string(&self) -> String {
+        match self {
+            Self::Path(path) => path.to_string(),
+            Self::Name(name) => name.to_string(),
+            Self::Group(group) => group.to_string(),
+        }
+    }
 }
 
 impl UsePath2 {
@@ -249,16 +254,15 @@ impl UseGroup2 {
     fn to_string(&self) -> String {
         let mut result = '{'.to_string();
 
-            for i in &self.items {
-                result.push_str(&i.to_string());
-                result.push(',');
-            }
+        for i in &self.items {
+            result.push_str(&i.to_string());
+            result.push(',');
+        }
 
         result.push('}');
         result
     }
 }
-
 
 impl Parse for UseTree2 {
     fn parse(input: ParseStream) -> Result<UseTree2> {
@@ -277,13 +281,13 @@ impl Parse for UseTree2 {
                     input.parse::<Token![<]>()?;
                     let mut generics = String::new();
                     loop {
-                      generics.push_str(&input.parse::<UseTree2>()?.to_string());
+                        generics.push_str(&input.parse::<UseTree2>()?.to_string());
 
-                      if input.parse::<Token![,]>().is_err() {
-                        break;
-                      }
+                        if input.parse::<Token![,]>().is_err() {
+                            break;
+                        }
 
-                      generics.push(',');
+                        generics.push(',');
                     }
                     input.parse::<Token![>]>()?;
                     generics
