@@ -21,7 +21,7 @@ pub fn gen(
     let reader = TypeReader::get();
     let gen = gen::Gen::Absolute;
 
-    for (interface_count, (t, overrides, generics)) in
+    for (interface_count, (t, overrides)) in
         implements.interfaces(reader).iter().enumerate()
     {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
@@ -54,34 +54,8 @@ pub fn gen(
             }
         });
 
-        let namespace = gen.namespace(t.namespace());
-
-        let vtable_ident = if generics.is_empty() {
-            let name = format_ident!("{}_abi", t.name());
-            quote! { #namespace#name }
-        } else {
-            let name = t.name();
-            let name = format_ident!("{}_abi", &name[..name.len() - 2]);
-            let mut name = quote! { #namespace#name };
-            name.push_str("::<");
-            name.push_str(&generics);
-            name.push_str(">");
-            name
-        };
-
-        let interface_ident = if generics.is_empty() {
-            let name = format_ident!("{}", t.name());
-            quote! { #namespace#name }
-        } else {
-            let name = t.name();
-            let name = format_ident!("{}", &name[..name.len() - 2]);
-            let mut name = quote! { #namespace#name };
-            name.push_str("::<");
-            name.push_str(&generics);
-            name.push_str(">");
-            name
-        };
-
+        let vtable_ident = t.gen_abi_name(&gen);
+        let interface_ident = t.gen_name(&gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
 
         for (vtable_offset, method) in t.methods().enumerate() {
@@ -92,7 +66,7 @@ pub fn gen(
                 Self::#vcall_ident,
             });
 
-            let signature = method.signature(&[]);
+            let signature = method.signature(&t.generics);
             let abi_signature = signature.gen_winrt_abi(&gen);
             let upcall = if *overrides {
                 if implements.overrides.contains(method.name()) {
@@ -150,8 +124,7 @@ pub fn gen(
         vtable_idents.push(vtable_ident);
     }
 
-    let constructors = if let Some((namespace, name)) = implements.extend {
-        let extend = reader.resolve_type_def(namespace, name);
+    let constructors = if let Some(extend) = implements.extend {
         let mut factories = Vec::new();
 
         for attribute in extend.attributes() {

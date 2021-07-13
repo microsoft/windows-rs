@@ -94,6 +94,14 @@ impl ElementType {
         }
     }
 
+    pub fn from_string_lossy(name: &str) -> Option<ElementType> {
+        match name {
+            "bool" => Some(Self::Bool),
+            "u16" => Some(Self::Char),
+            _ => None,
+        }
+    }
+
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },

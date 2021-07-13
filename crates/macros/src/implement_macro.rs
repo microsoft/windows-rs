@@ -1,4 +1,4 @@
-use gen::{tables::TypeDef, TypeKind, TypeReader};
+use gen::{tables::TypeDef, TypeKind, TypeReader, ElementType};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;
@@ -7,30 +7,20 @@ custom_keyword!(extend);
 
 #[derive(Debug, Default)]
 pub struct ImplementMacro {
-    pub extend: Option<(&'static str, &'static str)>,
+    pub implement: BTreeSet<TypeDef>,
+    pub extend: Option<TypeDef>,
     pub overrides: BTreeSet<&'static str>,
-    pub implement: BTreeSet<(&'static str, &'static str, String)>,
 }
 
 impl ImplementMacro {
-    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(TypeDef, bool, String)> {
+    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(TypeDef, bool)> {
         // TODO: any one of `self.implement` could be a class in which case its interfaces should be enumerated
 
-        let mut result = Vec::new();
+        let mut result: Vec<(TypeDef, bool)> = self.implement.iter().map(|def|(def.clone(), false)).collect();
 
-        for (namespace, name, generics) in &self.implement {
-            result.push((
-                reader.resolve_type_def(namespace, name),
-                false,
-                generics.clone(),
-            ));
-        }
-
-        if let Some((namespace, name)) = self.extend {
-            let extend = reader.resolve_type_def(namespace, name);
-
+        if let Some(extend) = self.extend {
             for interface in extend.overridable_interfaces() {
-                result.push((interface, true, String::new()));
+                result.push((interface, true));
             }
         }
 
@@ -64,27 +54,7 @@ impl ImplementMacro {
                 self.walk_implement(reader, &*input.tree, namespace)?;
             }
             UseTree2::Name(input) => {
-                let name = input.ident.to_string();
-
-                if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
-                    match reader.resolve_type_def(namespace, name).kind() {
-                        TypeKind::Class | TypeKind::Interface => {
-                            self.implement
-                                .insert((namespace, name, input.generics.clone()));
-                        }
-                        _ => {
-                            return Err(Error::new_spanned(
-                                &input.ident,
-                                format!("`{}.{}` not a class or interface", namespace, name),
-                            ));
-                        }
-                    }
-                } else {
-                    return Err(Error::new_spanned(
-                        &input.ident,
-                        format!("`{}.{}` not found in metadata", namespace, name),
-                    ));
-                }
+                self.implement.insert(tree.to_element_type(reader, namespace));
             }
             UseTree2::Group(input) => {
                 for tree in &input.items {
@@ -98,10 +68,9 @@ impl ImplementMacro {
 
     fn parse_override(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
         // Any number of methods may be overridden but only if a class is being overridden.
-        if let Some((namespace, name)) = self.extend {
+        if let Some(extend) = self.extend {
             while cursor.parse::<Token![override]>().is_ok() {
-                let methods = reader
-                    .resolve_type_def(namespace, name)
+                let methods = extend
                     .overridable_methods();
 
                 while let Ok(input) = cursor.parse::<Ident>() {
@@ -157,24 +126,26 @@ impl ImplementMacro {
             UseTree2::Name(input) => {
                 let name = input.ident.to_string();
 
-                if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
-                    if reader
-                        .resolve_type_def(namespace, name)
+//                 TODO: we should make this return Option to return compiler error when not found
+                    let def = reader
+                        .resolve_type_def(namespace, &name);
+
+                        if def
                         .is_public_composable()
                     {
-                        self.extend.replace((namespace, name));
+                        self.extend.replace(def);
                     } else {
                         return Err(Error::new_spanned(
                             &input.ident,
                             format!("`{}.{}` not extendable", namespace, name),
                         ));
                     }
-                } else {
-                    return Err(Error::new_spanned(
-                        &input.ident,
-                        format!("`{}.{}` not found in metadata", namespace, name),
-                    ));
-                }
+                // } else {
+                //     return Err(Error::new_spanned(
+                //         &input.ident,
+                //         format!("`{}.{}` not found in metadata", namespace, name),
+                //     ));
+                // }
             }
             UseTree2::Group(input) => {
                 return Err(Error::new(input.brace_token.span, "Syntax not supported"));
@@ -214,7 +185,7 @@ pub struct UsePath2 {
 
 pub struct UseName2 {
     pub ident: Ident,
-    pub generics: String,
+    pub generics: Vec<UseTree2>,
 }
 
 pub struct UseGroup2 {
@@ -223,44 +194,56 @@ pub struct UseGroup2 {
 }
 
 impl UseTree2 {
-    fn to_string(&self) -> String {
+    fn to_element_type(&self, reader: &'static TypeReader, namespace: &mut String) -> Result<ElementType> {
         match self {
-            Self::Path(path) => path.to_string(),
-            Self::Name(name) => name.to_string(),
-            Self::Group(group) => group.to_string(),
+            UseTree2::Path(input) => {
+                if !namespace.is_empty() {
+                    namespace.push('.');
+                }
+
+                namespace.push_str(&input.ident.to_string());
+                input.tree.to_element_type(reader, namespace)
+            }
+            UseTree2::Name(input) => {
+                let name = input.ident.to_string();
+
+                if reader.types.get_namespace(namespace).is_some() {
+                    // TODO: error if not found
+                    let mut def = reader.resolve_type_def(namespace, &name);
+
+                    match def.kind() {
+                        TypeKind::Class | TypeKind::Interface => {}
+                        _ => {
+                            return Err(Error::new_spanned(
+                                &input.ident,
+                                format!("`{}.{}` not a class or interface", namespace, name),
+                            ));
+                        }
+                    }
+
+                    for g in input.generics {
+                        def.generics.push(g.to_element_type(reader, &mut String::new())?);
+                    }
+
+                    Ok(ElementType::TypeDef(def))
+                } else {
+                    if let Some(def) = ElementType::from_string_lossy(&name) {
+                        Ok(def)
+                    } else {
+                        return Err(Error::new_spanned(
+                            &input.ident,
+                            format!("`{}` not a recognized primitive", name),
+                        ));
+                    }
+                }
+            }
+            UseTree2::Group(input) => {
+                return Err(Error::new_spanned(
+                    &input.ident,
+                    format!("Unsupported syntax"),
+                ));
+            }
         }
-    }
-}
-
-impl UsePath2 {
-    fn to_string(&self) -> String {
-        format!("{}::{}", self.ident.to_string(), self.tree.to_string())
-    }
-}
-
-impl UseName2 {
-    fn to_string(&self) -> String {
-        let mut result = self.ident.to_string();
-
-        if !self.generics.is_empty() {
-            result.push_str(&format!("<{}>", self.generics));
-        }
-
-        result
-    }
-}
-
-impl UseGroup2 {
-    fn to_string(&self) -> String {
-        let mut result = '{'.to_string();
-
-        for i in &self.items {
-            result.push_str(&i.to_string());
-            result.push(',');
-        }
-
-        result.push('}');
-        result
     }
 }
 
@@ -279,20 +262,18 @@ impl Parse for UseTree2 {
             } else {
                 let generics = if input.peek(Token![<]) {
                     input.parse::<Token![<]>()?;
-                    let mut generics = String::new();
+                    let mut generics = Vec::new();
                     loop {
-                        generics.push_str(&input.parse::<UseTree2>()?.to_string());
+                        generics.push(&input.parse::<UseTree2>()?);
 
                         if input.parse::<Token![,]>().is_err() {
                             break;
                         }
-
-                        generics.push(',');
                     }
                     input.parse::<Token![>]>()?;
                     generics
                 } else {
-                    String::new()
+                    Vec::new()
                 };
 
                 Ok(UseTree2::Name(UseName2 { ident, generics }))
