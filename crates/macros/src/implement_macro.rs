@@ -13,20 +13,20 @@ pub struct ImplementMacro {
 }
 
 impl ImplementMacro {
-    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(TypeDef, bool)> {
+    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(TypeDef, bool, String)> {
         // TODO: any one of `self.implement` could be a class in which case its interfaces should be enumerated
 
         let mut result = Vec::new();
 
         for (namespace, name, generics) in &self.implement {
-            result.push((reader.resolve_type_def(namespace, name), false));
+            result.push((reader.resolve_type_def(namespace, name), false, generics.clone()));
         }
 
         if let Some((namespace, name)) = self.extend {
             let extend = reader.resolve_type_def(namespace, name);
 
             for interface in extend.overridable_interfaces() {
-                result.push((interface, true));
+                result.push((interface, true, String::new()));
             }
         }
 
