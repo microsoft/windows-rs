@@ -29,9 +29,14 @@ impl Function {
         let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
         let mut link = def.impl_map().expect("Function").scope().name();
 
-        // TODO: workaround for https://github.com/microsoft/windows-rs/issues/463
-        if link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli" {
-            link = "onecoreuap";
+        let raw_dylib = cfg!(feature = "raw_dylib");
+
+        // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
+        // will no longer be necessary.
+        if !raw_dylib {
+            if link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli" {
+                link = "onecoreuap";
+            }
         }
 
         let static_lib = def
@@ -41,9 +46,17 @@ impl Function {
                 _ => None,
             })
             .next();
+
         let link_attr = match static_lib {
             Some(link) => quote! { #[link(name = #link, kind = "static")] },
-            None => quote! { #[link(name = #link)] },
+            None => {
+                // TODO: switch to always using raw-dylib once it has stabilized
+                if raw_dylib {
+                    quote! { #[link(name = #link, kind="raw-dylib")] }
+                } else {
+                    quote! { #[link(name = #link)] }
+                }
+            }
         };
 
         if signature.has_query_interface() {
