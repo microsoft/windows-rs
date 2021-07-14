@@ -80,8 +80,8 @@ fn get_crate_winmds() -> Vec<File> {
                 if let Ok(file_type) = file.file_type() {
                     if file_type.is_file() {
                         let path = file.path();
-                        if let Some("winmd") =
-                            path.extension().and_then(|extension| extension.to_str())
+                        if path.extension().and_then(|extension| extension.to_str())
+                            == Some("winmd")
                         {
                             result.push(File::new(path));
                         }
@@ -93,26 +93,27 @@ fn get_crate_winmds() -> Vec<File> {
 
     let mut result = vec![];
 
+    // Manifest directory of the crate calling `build!`
     if let Ok(dir) = std::env::var("CARGO_MANIFEST_DIR") {
-        let mut dir: std::path::PathBuf = dir.into();
-        dir.push(".windows");
-        dir.push("winmd");
-        push_dir(&mut result, &dir);
+        push_dir(
+            &mut result,
+            &std::path::Path::new(&dir).join(".windows/winmd"),
+        );
     }
 
-    let dir = std::env::var("PATH").expect("No `PATH` env variable set");
-    let end = dir.find(';').expect("Path not ending in `;`");
-    let mut dir: std::path::PathBuf = dir[..end].into();
-    dir.pop();
-    dir.pop();
-    dir.push(".windows");
-    dir.push("winmd");
-    push_dir(&mut result, &dir);
-
-    let mut dir: std::path::PathBuf = target_dir().into();
-    dir.push(".windows");
-    dir.push("winmd");
-    push_dir(&mut result, &dir);
+    // Default manifests provided by windows_gen
+    // TODO: include_bytes is very slow - it takes an extra 60ms compared with memory mapped files.
+    // https://github.com/rust-lang/rust/issues/65818
+    if !result.iter().any(|file| file.name.starts_with("Windows.")) {
+        result.push(File::from_bytes(
+            "Windows.Win32.winmd".to_string(),
+            include_bytes!("../.windows/winmd/Windows.Win32.winmd").to_vec(),
+        ));
+        result.push(File::from_bytes(
+            "Windows.WinRT.winmd".to_string(),
+            include_bytes!("../.windows/winmd/Windows.WinRT.winmd").to_vec(),
+        ));
+    }
 
     result
 }

@@ -44,9 +44,6 @@ impl ToTokens for RawString {
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
     let tokens = RawString(build.to_tokens_string());
-    let target_dir = std::env::var("PATH").expect("No `PATH` env variable set");
-    let end = target_dir.find(';').expect("Path not ending in `;`");
-    let target_dir = RawString(target_dir[..end].to_string());
 
     let tokens = quote! {
         {
@@ -59,6 +56,8 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             );
 
             path.push("windows.rs");
+            println!("cargo:rerun-if-changed={}", path.to_str().expect("`OUT_DIR` not a UTF-8 string"));
+
             ::std::fs::write(&path, #tokens).expect("Could not write generated code to windows.rs");
 
             let mut cmd = ::std::process::Command::new("rustfmt");
@@ -68,38 +67,17 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
             fn copy(source: &::std::path::Path, destination: &mut ::std::path::PathBuf) {
                 if let ::std::result::Result::Ok(entries) = ::std::fs::read_dir(source) {
                     for entry in entries.filter_map(|entry| entry.ok()) {
-                        if let ::std::result::Result::Ok(entry_type) = entry.file_type() {
-                            let path = entry.path();
-                            if let ::std::option::Option::Some(last_path_component) = path.file_name() {
-                                let _ = ::std::fs::create_dir_all(&destination);
-                                destination.push(last_path_component);
-                                if entry_type.is_file() {
-                                    let _ = ::std::fs::copy(path, &destination);
-                                } else if entry_type.is_dir() {
-                                    let _ = ::std::fs::create_dir(&destination);
-                                    copy(&path, destination);
-                                }
-                                destination.pop();
+                        let path = entry.path();
+                        if let ::std::option::Option::Some(last_path_component) = path.file_name() {
+                            let _ = ::std::fs::create_dir_all(&destination);
+                            destination.push(last_path_component);
+                            if path.is_file() {
+                                let _ = ::std::fs::copy(path, &destination);
+                            } else if path.is_dir() {
+                                let _ = ::std::fs::create_dir(&destination);
+                                copy(&path, destination);
                             }
-                        }
-                    }
-                }
-            }
-
-            fn copy_to_profile(source: &::std::path::Path, destination: &::std::path::Path, profile: &str) {
-                if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(destination) {
-                    for file in files.filter_map(|file| file.ok())  {
-                        if let ::std::result::Result::Ok(file_type) = file.file_type() {
-                            if file_type.is_dir() {
-                                let mut path = file.path();
-                                if let ::std::option::Option::Some(filename) = path.file_name() {
-                                    if filename == profile {
-                                        copy(source, &mut path);
-                                    } else {
-                                        copy_to_profile(source, &path, profile);
-                                    }
-                                }
-                            }
+                            destination.pop();
                         }
                     }
                 }
@@ -107,10 +85,9 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
             let mut source : ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set").into();
             source.push(".windows");
+            println!("cargo:rerun-if-changed={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a UTF-8 string"));
 
             if source.exists() {
-                println!("cargo:rerun-if-changed={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
-
                 // The `target_arch` cfg is not set for build scripts so we need to sniff it out from the environment variable.
                 source.push(match ::std::env::var("CARGO_CFG_TARGET_ARCH").expect("No `CARGO_CFG_TARGET_ARCH` env variable set").as_str() {
                     "x86_64" => "x64",
@@ -124,17 +101,12 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                     println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
                 }
 
-                let mut destination : ::std::path::PathBuf = #target_dir.into();
+                let mut destination: ::std::path::PathBuf = ::std::env::var("OUT_DIR").expect("No `OUT_DIR` env variable set").into();
+                // Of `target/<profile>/build/<crate_name>/out`, pop the last 3 folders
+                destination.pop();
                 destination.pop();
                 destination.pop();
 
-                let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
-                copy_to_profile(&source, &destination, &profile);
-
-                destination.push(".windows");
-                destination.push("winmd");
-                source.pop();
-                source.push("winmd");
                 copy(&source, &mut destination);
             }
         }
