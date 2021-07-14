@@ -80,6 +80,29 @@ impl HRESULT {
     }
 
     /// Retrieves the error code stored on the calling thread.
+    ///
+    /// Example usage:
+    /// ```rust
+    /// # struct HWND(isize);
+    /// # impl HWND {
+    /// #     fn is_null(&self) -> bool { self.0 == 0 }
+    /// # }
+    /// #
+    /// # // Use dummy function as example
+    /// # #[allow(non_snake_case)]
+    /// # fn CreateWindowExA() -> HWND { HWND(1234) }
+    /// #
+    /// # use windows::HRESULT;
+    /// fn create_window() -> windows::Result<HWND> {
+    ///     let hwnd = CreateWindowExA(/* args */);
+    ///
+    ///     if hwnd.is_null() {
+    ///         return Err(HRESULT::from_thread().into());
+    ///     }
+    ///
+    ///     Ok(hwnd)
+    /// }
+    /// ```
     #[inline]
     pub fn from_thread() -> Self {
         Self::from_win32(unsafe { GetLastError().0 })
