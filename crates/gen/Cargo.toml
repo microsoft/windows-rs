@@ -7,3 +7,6 @@ license = "MIT OR Apache-2.0"
 description = "Code generation for the windows crate"
 
 [dependencies]
+
+[features]
+raw_dylib = []
