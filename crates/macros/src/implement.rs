@@ -18,12 +18,9 @@ pub fn gen(
     let mut vtable_ctors = TokenStream::new();
     let mut shims = TokenStream::new();
     let mut queries = TokenStream::new();
-    let reader = TypeReader::get();
     let gen = gen::Gen::Absolute;
 
-    for (interface_count, (t, overrides)) in
-        implements.interfaces(reader).iter().enumerate()
-    {
+    for (interface_count, (t, overrides)) in implements.interfaces().iter().enumerate() {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
         let query_interface = format_ident!("QueryInterface_abi{}", interface_count);

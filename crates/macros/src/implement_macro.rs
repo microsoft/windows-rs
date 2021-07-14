@@ -1,4 +1,4 @@
-use gen::{tables::TypeDef, TypeKind, TypeReader, ElementType};
+use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;
@@ -13,10 +13,14 @@ pub struct ImplementMacro {
 }
 
 impl ImplementMacro {
-    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(TypeDef, bool)> {
+    pub fn interfaces(&self) -> Vec<(TypeDef, bool)> {
         // TODO: any one of `self.implement` could be a class in which case its interfaces should be enumerated
 
-        let mut result: Vec<(TypeDef, bool)> = self.implement.iter().map(|def|(def.clone(), false)).collect();
+        let mut result: Vec<(TypeDef, bool)> = self
+            .implement
+            .iter()
+            .map(|def| (def.clone(), false))
+            .collect();
 
         if let Some(extend) = &self.extend {
             for interface in extend.overridable_interfaces() {
@@ -57,7 +61,14 @@ impl ImplementMacro {
                 if let ElementType::TypeDef(def) = tree.to_element_type(reader, namespace)? {
                     self.implement.insert(def);
                 } else {
-                    // TODO: report error for invalid type?
+                    return Err(Error::new_spanned(
+                        &input.ident,
+                        format!(
+                            "`{}.{}` is not a class or interface",
+                            namespace,
+                            input.ident.to_string()
+                        ),
+                    ));
                 }
             }
             UseTree2::Group(input) => {
@@ -70,12 +81,11 @@ impl ImplementMacro {
         Ok(())
     }
 
-    fn parse_override(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
+    fn parse_override(&mut self, cursor: ParseStream) -> Result<()> {
         // Any number of methods may be overridden but only if a class is being overridden.
         if let Some(extend) = &self.extend {
             while cursor.parse::<Token![override]>().is_ok() {
-                let methods = extend
-                    .overridable_methods();
+                let methods = extend.overridable_methods();
 
                 while let Ok(input) = cursor.parse::<Ident>() {
                     let name = input.to_string();
@@ -130,26 +140,17 @@ impl ImplementMacro {
             UseTree2::Name(input) => {
                 let name = input.ident.to_string();
 
-//                 TODO: we should make this return Option to return compiler error when not found
-                    let def = reader
-                        .resolve_type_def(namespace, &name);
+                // TODO: we should make this return Option to return compiler error when not found
+                let def = reader.resolve_type_def(namespace, &name);
 
-                        if def
-                        .is_public_composable()
-                    {
-                        self.extend.replace(def);
-                    } else {
-                        return Err(Error::new_spanned(
-                            &input.ident,
-                            format!("`{}.{}` not extendable", namespace, name),
-                        ));
-                    }
-                // } else {
-                //     return Err(Error::new_spanned(
-                //         &input.ident,
-                //         format!("`{}.{}` not found in metadata", namespace, name),
-                //     ));
-                // }
+                if def.is_public_composable() {
+                    self.extend.replace(def);
+                } else {
+                    return Err(Error::new_spanned(
+                        &input.ident,
+                        format!("`{}.{}` not extendable", namespace, name),
+                    ));
+                }
             }
             UseTree2::Group(input) => {
                 return Err(Error::new(input.brace_token.span, "Syntax not supported"));
@@ -165,7 +166,7 @@ impl Parse for ImplementMacro {
         let mut input = Self::default();
         let reader = TypeReader::get();
         input.parse_extend(reader, cursor)?;
-        input.parse_override(reader, cursor)?;
+        input.parse_override(cursor)?;
 
         while !cursor.is_empty() {
             input.parse_implement(reader, cursor)?;
@@ -198,7 +199,11 @@ pub struct UseGroup2 {
 }
 
 impl UseTree2 {
-    fn to_element_type(&self, reader: &'static TypeReader, namespace: &mut String) -> Result<ElementType> {
+    fn to_element_type(
+        &self,
+        reader: &'static TypeReader,
+        namespace: &mut String,
+    ) -> Result<ElementType> {
         match self {
             UseTree2::Path(input) => {
                 if !namespace.is_empty() {
@@ -226,7 +231,8 @@ impl UseTree2 {
                     }
 
                     for g in &input.generics {
-                        def.generics.push(g.to_element_type(reader, &mut String::new())?);
+                        def.generics
+                            .push(g.to_element_type(reader, &mut String::new())?);
                     }
 
                     Ok(ElementType::TypeDef(def))
