@@ -18,7 +18,7 @@ impl ImplementMacro {
 
         let mut result: Vec<(TypeDef, bool)> = self.implement.iter().map(|def|(def.clone(), false)).collect();
 
-        if let Some(extend) = self.extend {
+        if let Some(extend) = &self.extend {
             for interface in extend.overridable_interfaces() {
                 result.push((interface, true));
             }
@@ -54,7 +54,11 @@ impl ImplementMacro {
                 self.walk_implement(reader, &*input.tree, namespace)?;
             }
             UseTree2::Name(input) => {
-                self.implement.insert(tree.to_element_type(reader, namespace));
+                if let ElementType::TypeDef(def) = tree.to_element_type(reader, namespace)? {
+                    self.implement.insert(def);
+                } else {
+                    // TODO: report error for invalid type?
+                }
             }
             UseTree2::Group(input) => {
                 for tree in &input.items {
@@ -68,7 +72,7 @@ impl ImplementMacro {
 
     fn parse_override(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
         // Any number of methods may be overridden but only if a class is being overridden.
-        if let Some(extend) = self.extend {
+        if let Some(extend) = &self.extend {
             while cursor.parse::<Token![override]>().is_ok() {
                 let methods = extend
                     .overridable_methods();
@@ -221,7 +225,7 @@ impl UseTree2 {
                         }
                     }
 
-                    for g in input.generics {
+                    for g in &input.generics {
                         def.generics.push(g.to_element_type(reader, &mut String::new())?);
                     }
 
@@ -238,10 +242,7 @@ impl UseTree2 {
                 }
             }
             UseTree2::Group(input) => {
-                return Err(Error::new_spanned(
-                    &input.ident,
-                    format!("Unsupported syntax"),
-                ));
+                return Err(Error::new(input.brace_token.span, "Syntax not supported"));
             }
         }
     }
@@ -264,7 +265,7 @@ impl Parse for UseTree2 {
                     input.parse::<Token![<]>()?;
                     let mut generics = Vec::new();
                     loop {
-                        generics.push(&input.parse::<UseTree2>()?);
+                        generics.push(input.parse::<UseTree2>()?);
 
                         if input.parse::<Token![,]>().is_err() {
                             break;
