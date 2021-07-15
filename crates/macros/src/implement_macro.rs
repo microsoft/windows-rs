@@ -240,10 +240,7 @@ impl UseTree2 {
                     if let Some(def) = ElementType::from_string_lossy(&name) {
                         Ok(def)
                     } else {
-                        return Err(Error::new_spanned(
-                            &input.ident,
-                            format!("`{}` not a recognized primitive", name),
-                        ));
+                        Ok(ElementType::GenericParam(name))
                     }
                 }
             }

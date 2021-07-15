@@ -24,7 +24,7 @@ pub enum ElementType {
     HRESULT,
     Matrix3x2,
     TypeName,
-    GenericParam(tables::GenericParam),
+    GenericParam(String),
     Array((Box<Signature>, u32)),
     MethodDef(tables::MethodDef),
     Field(tables::Field),
@@ -155,7 +155,10 @@ impl ElementType {
                 let len = Literal::u32_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Self::GenericParam(generic) => generic.gen_name(),
+            Self::GenericParam(generic) => {
+                let name = format_ident!("{}", generic);
+                quote! { #name }
+            }
             Self::MethodDef(t) => t.gen_name(gen),
             Self::Field(t) => t.gen_name(),
             Self::TypeDef(t) => t.gen_name(gen),
@@ -205,7 +208,7 @@ impl ElementType {
                 quote! { [#name; #len] }
             }
             Self::GenericParam(generic) => {
-                let name = generic.gen_name();
+                let name = format_ident!("{}", generic);
                 quote! { <#name as ::windows::Abi>::Abi }
             }
             Self::TypeDef(def) => def.gen_abi_type(gen),
