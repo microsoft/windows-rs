@@ -9,8 +9,7 @@ pub fn gen(
     let implements = syn::parse_macro_input!(attribute as ImplementMacro);
     let impl_type = syn::parse_macro_input!(impl_type as syn::ItemStruct);
     let impl_name = impl_type.ident.to_string();
-    let impl_ident = format_ident!("{}", impl_name);
-    let box_ident = format_ident!("{}_box", impl_name);
+    let interfaces = implements.interfaces();
 
     let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
@@ -21,7 +20,33 @@ pub fn gen(
     let mut query_constants = TokenStream::new();
     let gen = gen::Gen::Absolute;
 
-    for (interface_count, (t, overrides)) in implements.interfaces().iter().enumerate() {
+    let mut generics = BTreeSet::new();
+
+    for (def, _) in &interfaces {
+        for generic in &def.generics {
+            if let ElementType::GenericParam(generic) = generic {
+                generics.insert(generic);
+            }
+        }
+    }
+
+    let generics: Vec<Ident> = generics.iter().map(|generic| format_ident!("{}", generic)).collect();
+
+    let impl_ident = format_ident!("{}", impl_name);
+    let box_ident = format_ident!("{}_box", impl_name);
+    let mut impl_ident = quote! { #impl_ident };
+    let mut box_ident = quote! { #box_ident };
+    let mut constraints = TokenStream::new();
+
+    if !generics.is_empty() {
+        impl_ident.combine(&quote! { <#(#generics,)*> });
+        box_ident.combine(&quote! { <#(#generics,)*> });
+        constraints = quote! {
+            <#(#generics: ::windows::RuntimeType + 'static,)*>
+        };
+    }
+
+    for (interface_count, (t, overrides)) in interfaces.iter().enumerate() {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
         let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
@@ -98,7 +123,7 @@ pub fn gen(
 
         if !t.is_exclusive() {
             tokens.combine(&quote! {
-                    impl ::std::convert::From<#impl_ident> for #interface_ident {
+                    impl #constraints ::std::convert::From<#impl_ident> for #interface_ident {
                         fn from(implementation: #impl_ident) -> Self {
                             let com = #box_ident::new(implementation);
 
@@ -149,10 +174,10 @@ pub fn gen(
     };
 
     tokens.combine(&quote! {
-        impl #impl_ident {
+        impl #constraints #impl_ident {
             #constructors
         }
-        impl ::std::convert::From<#impl_ident> for ::windows::IUnknown {
+        impl #constraints ::std::convert::From<#impl_ident> for ::windows::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::new(implementation);
 
@@ -162,7 +187,7 @@ pub fn gen(
                 }
             }
         }
-        impl ::std::convert::From<#impl_ident> for ::windows::IInspectable {
+        impl #constraints ::std::convert::From<#impl_ident> for ::windows::IInspectable {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::new(implementation);
 
@@ -172,7 +197,7 @@ pub fn gen(
                 }
             }
         }
-        impl ::windows::Compose for #impl_ident {
+        impl #constraints ::windows::Compose for #impl_ident {
             unsafe fn compose<'a>(implementation: Self) -> (::windows::IInspectable, &'a mut std::option::Option<::windows::IInspectable>) {
                 let inspectable: ::windows::IInspectable = implementation.into();
                 let this = (::windows::Abi::abi(&inspectable) as *mut ::windows::RawPtr).sub(1) as *mut #box_ident;
@@ -187,7 +212,7 @@ pub fn gen(
             implementation: #impl_ident,
             count: ::windows::WeakRefCount,
         }
-        impl #box_ident {
+        impl #constraints #box_ident {
             const VTABLES: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
