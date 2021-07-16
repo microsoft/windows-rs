@@ -18,6 +18,7 @@ pub fn gen(
     let mut vtable_ctors = TokenStream::new();
     let mut shims = TokenStream::new();
     let mut queries = TokenStream::new();
+    let mut query_constants = TokenStream::new();
     let gen = gen::Gen::Absolute;
 
     for (interface_count, (t, overrides)) in implements.interfaces().iter().enumerate() {
@@ -54,6 +55,17 @@ pub fn gen(
         let vtable_ident = t.gen_abi_name(&gen);
         let interface_ident = t.gen_name(&gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
+        let interface_constant = format_ident!("IID{}", interface_count);
+
+        queries.combine(&quote! {
+            &Self::#interface_constant => {
+                &mut self.vtables.#interface_literal as *mut _ as _
+            }
+        });
+
+        query_constants.combine(&quote! {
+            const #interface_constant: ::windows::Guid = <#interface_ident as ::windows::Interface>::IID;
+        });
 
         for (vtable_offset, method) in t.methods().enumerate() {
             let method_ident = gen::to_ident(&method.rust_name());
@@ -82,12 +94,6 @@ pub fn gen(
                         #upcall
                     }
                 });
-
-            queries.combine(&quote! {
-                &<#interface_ident as ::windows::Interface>::IID => {
-                    &mut self.vtables.#interface_literal as *mut _ as _
-                }
-            });
         }
 
         if !t.is_exclusive() {
@@ -193,6 +199,7 @@ pub fn gen(
                 Self::GetRuntimeClassName,
                 Self::GetTrustLevel,
             );
+            #query_constants
             fn new(implementation: #impl_ident) -> Self {
                 Self {
                     base: ::std::option::Option::None,
