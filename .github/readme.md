@@ -10,7 +10,7 @@ The Rust language projection follows in the tradition established by [C++/WinRT]
 
 Watch the [Getting Started](https://www.youtube.com/watch?v=-oZrsCPKsn4) video! Microsoft Docs also has content on [developing with Rust on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/rust/).
 
-Check out the [FAQ](./docs/FAQ.md) for answers to frequently asked questions.
+Check out the [FAQ](../docs/faq.md) for answers to frequently asked questions.
 
 ## Getting started
 
@@ -78,4 +78,4 @@ There is an experimental [documentation generator](https://github.com/microsoft/
 
 More examples [can be found here](https://github.com/microsoft/windows-samples-rs). Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs) is also a great example.
 
-A more in-depth getting started guide can also be found [here](docs/getting-started.md).
+A more in-depth getting started guide can also be found [here](../docs/getting-started.md).
