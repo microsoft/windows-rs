@@ -36,18 +36,12 @@ pub fn gen(
         .collect();
 
     let impl_ident = format_ident!("{}", impl_name);
+    let mut impl_ident = quote! { #impl_ident::<#(#generics,)*> };
     let box_ident = format_ident!("{}_box", impl_name);
-    let mut impl_ident = quote! { #impl_ident };
-    //let mut box_ident = quote! { #box_ident };
-    let mut constraints = TokenStream::new();
 
-    if !generics.is_empty() {
-        impl_ident.combine(&quote! { ::<#(#generics,)*> });
-        //box_ident.combine(&quote! { ::<#(#generics,)*> });
-        constraints = quote! {
-            #(#generics: ::windows::RuntimeType + 'static,)*
-        };
-    }
+    let constraints = quote! {
+        #(#generics: ::windows::RuntimeType + 'static,)*
+    };
 
     for (interface_count, (t, overrides)) in interfaces.iter().enumerate() {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
