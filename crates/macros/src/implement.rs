@@ -35,14 +35,14 @@ pub fn gen(
     let impl_ident = format_ident!("{}", impl_name);
     let box_ident = format_ident!("{}_box", impl_name);
     let mut impl_ident = quote! { #impl_ident };
-    let mut box_ident = quote! { #box_ident };
+    //let mut box_ident = quote! { #box_ident };
     let mut constraints = TokenStream::new();
 
     if !generics.is_empty() {
-        impl_ident.combine(&quote! { <#(#generics,)*> });
-        box_ident.combine(&quote! { <#(#generics,)*> });
+        impl_ident.combine(&quote! { ::<#(#generics,)*> });
+        //box_ident.combine(&quote! { ::<#(#generics,)*> });
         constraints = quote! {
-            <#(#generics: ::windows::RuntimeType + 'static,)*>
+            #(#generics: ::windows::RuntimeType + 'static,)*
         };
     }
 
@@ -83,7 +83,7 @@ pub fn gen(
         let interface_constant = format_ident!("IID{}", interface_count);
 
         queries.combine(&quote! {
-            &Self::#interface_constant => {
+            else if iid == &Self::#interface_constant {
                 &mut self.vtables.#interface_literal as *mut _ as _
             }
         });
@@ -123,9 +123,9 @@ pub fn gen(
 
         if !t.is_exclusive() {
             tokens.combine(&quote! {
-                    impl #constraints ::std::convert::From<#impl_ident> for #interface_ident {
+                    impl <#constraints> ::std::convert::From<#impl_ident> for #interface_ident {
                         fn from(implementation: #impl_ident) -> Self {
-                            let com = #box_ident::new(implementation);
+                            let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                             unsafe {
                                 let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
@@ -174,12 +174,12 @@ pub fn gen(
     };
 
     tokens.combine(&quote! {
-        impl #constraints #impl_ident {
+        impl <#constraints> #impl_ident {
             #constructors
         }
-        impl #constraints ::std::convert::From<#impl_ident> for ::windows::IUnknown {
+        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
-                let com = #box_ident::new(implementation);
+                let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
@@ -187,9 +187,9 @@ pub fn gen(
                 }
             }
         }
-        impl #constraints ::std::convert::From<#impl_ident> for ::windows::IInspectable {
+        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::IInspectable {
             fn from(implementation: #impl_ident) -> Self {
-                let com = #box_ident::new(implementation);
+                let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
@@ -197,22 +197,22 @@ pub fn gen(
                 }
             }
         }
-        impl #constraints ::windows::Compose for #impl_ident {
+        impl <#constraints> ::windows::Compose for #impl_ident {
             unsafe fn compose<'a>(implementation: Self) -> (::windows::IInspectable, &'a mut std::option::Option<::windows::IInspectable>) {
                 let inspectable: ::windows::IInspectable = implementation.into();
-                let this = (::windows::Abi::abi(&inspectable) as *mut ::windows::RawPtr).sub(1) as *mut #box_ident;
+                let this = (::windows::Abi::abi(&inspectable) as *mut ::windows::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
         }
         #[repr(C)]
-        struct #box_ident {
+        struct #box_ident<#(#generics,)*> where #constraints {
             base: ::std::option::Option<::windows::IInspectable>,
             identity_vtable: *const ::windows::IInspectable_abi,
             vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
             count: ::windows::WeakRefCount,
         }
-        impl #constraints #box_ident {
+        impl <#constraints> #box_ident::<#(#generics,)*> {
             const VTABLES: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
@@ -236,14 +236,12 @@ pub fn gen(
             }
             fn QueryInterface(&mut self, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
                 unsafe {
-                    *interface = match iid {
-                        #queries
-                        &<::windows::IUnknown as ::windows::Interface>::IID
-                        | &<::windows::IInspectable as ::windows::Interface>::IID
-                        | &<::windows::IAgileObject as ::windows::Interface>::IID => {
+                    *interface = if iid == &<::windows::IUnknown as ::windows::Interface>::IID
+                        || iid == &<::windows::IInspectable as ::windows::Interface>::IID
+                        || iid == &<::windows::IAgileObject as ::windows::Interface>::IID {
                             &mut self.identity_vtable as *mut _ as _
-                        }
-                        _ => ::std::ptr::null_mut(),
+                    } #queries else {
+                        ::std::ptr::null_mut()
                     };
 
                     if !(*interface).is_null() {
