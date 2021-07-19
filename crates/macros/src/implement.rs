@@ -36,7 +36,7 @@ pub fn gen(
         .collect();
 
     let impl_ident = format_ident!("{}", impl_name);
-    let mut impl_ident = quote! { #impl_ident::<#(#generics,)*> };
+    let impl_ident = quote! { #impl_ident::<#(#generics,)*> };
     let box_ident = format_ident!("{}_box", impl_name);
 
     let constraints = quote! {
