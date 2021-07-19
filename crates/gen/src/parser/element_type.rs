@@ -97,7 +97,6 @@ impl ElementType {
     pub fn from_string_lossy(name: &str) -> Option<ElementType> {
         match name {
             "bool" => Some(Self::Bool),
-            //"u16" => Some(Self::Char), // TODO: there's now way to know whether this is WinRT's Char or U16
             "i8" => Some(Self::I8),
             "u8" => Some(Self::U8),
             "i16" => Some(Self::I16),
@@ -110,6 +109,9 @@ impl ElementType {
             "f64" => Some(Self::F64),
             "isize" => Some(Self::ISize),
             "usize" => Some(Self::USize),
+            "HSTRING" => Some(Self::String),
+            "Guid" => Some(Self::Guid),
+            "IInspectable" => Some(Self::IInspectable),
             _ => None,
         }
     }
