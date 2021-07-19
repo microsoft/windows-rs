@@ -9,8 +9,7 @@ pub fn gen(
     let implements = syn::parse_macro_input!(attribute as ImplementMacro);
     let impl_type = syn::parse_macro_input!(impl_type as syn::ItemStruct);
     let impl_name = impl_type.ident.to_string();
-    let impl_ident = format_ident!("{}", impl_name);
-    let box_ident = format_ident!("{}_box", impl_name);
+    let interfaces = implements.interfaces();
 
     let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
@@ -18,10 +17,33 @@ pub fn gen(
     let mut vtable_ctors = TokenStream::new();
     let mut shims = TokenStream::new();
     let mut queries = TokenStream::new();
-    let reader = TypeReader::get();
+    let mut query_constants = TokenStream::new();
     let gen = gen::Gen::Absolute;
 
-    for (interface_count, (t, overrides)) in implements.interfaces(reader).iter().enumerate() {
+    let mut generics = BTreeSet::new();
+
+    for (def, _) in &interfaces {
+        for generic in &def.generics {
+            if let ElementType::GenericParam(generic) = generic {
+                generics.insert(generic);
+            }
+        }
+    }
+
+    let generics: Vec<Ident> = generics
+        .iter()
+        .map(|generic| format_ident!("{}", generic))
+        .collect();
+
+    let impl_ident = format_ident!("{}", impl_name);
+    let impl_ident = quote! { #impl_ident::<#(#generics,)*> };
+    let box_ident = format_ident!("{}_box", impl_name);
+
+    let constraints = quote! {
+        #(#generics: ::windows::RuntimeType + 'static,)*
+    };
+
+    for (interface_count, (t, overrides)) in interfaces.iter().enumerate() {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
         let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
@@ -55,6 +77,17 @@ pub fn gen(
         let vtable_ident = t.gen_abi_name(&gen);
         let interface_ident = t.gen_name(&gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
+        let interface_constant = format_ident!("IID{}", interface_count);
+
+        queries.combine(&quote! {
+            else if iid == &Self::#interface_constant {
+                &mut self.vtables.#interface_literal as *mut _ as _
+            }
+        });
+
+        query_constants.combine(&quote! {
+            const #interface_constant: ::windows::Guid = <#interface_ident as ::windows::Interface>::IID;
+        });
 
         for (vtable_offset, method) in t.methods().enumerate() {
             let method_ident = gen::to_ident(&method.rust_name());
@@ -64,7 +97,7 @@ pub fn gen(
                 Self::#vcall_ident,
             });
 
-            let signature = method.signature(&[]);
+            let signature = method.signature(&t.generics);
             let abi_signature = signature.gen_winrt_abi(&gen);
             let upcall = if *overrides {
                 if implements.overrides.contains(method.name()) {
@@ -83,19 +116,13 @@ pub fn gen(
                         #upcall
                     }
                 });
-
-            queries.combine(&quote! {
-                &<#interface_ident as ::windows::Interface>::IID => {
-                    &mut self.vtables.#interface_literal as *mut _ as _
-                }
-            });
         }
 
         if !t.is_exclusive() {
             tokens.combine(&quote! {
-                    impl ::std::convert::From<#impl_ident> for #interface_ident {
+                    impl <#constraints> ::std::convert::From<#impl_ident> for #interface_ident {
                         fn from(implementation: #impl_ident) -> Self {
-                            let com = #box_ident::new(implementation);
+                            let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                             unsafe {
                                 let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
@@ -106,17 +133,23 @@ pub fn gen(
                 });
         }
 
+        let mut phantoms = TokenStream::new();
+
+        for _ in 0..t.generic_params().count() {
+            phantoms.combine(&quote! { std::marker::PhantomData, })
+        }
+
         vtable_ctors.combine(&quote! {
             #vtable_ident(
                 #vtable_ptrs
+                #phantoms
             ),
         });
 
         vtable_idents.push(vtable_ident);
     }
 
-    let constructors = if let Some((namespace, name)) = implements.extend {
-        let extend = reader.resolve_type_def(namespace, name);
+    let constructors = if let Some(extend) = implements.extend {
         let mut factories = Vec::new();
 
         for attribute in extend.attributes() {
@@ -138,12 +171,12 @@ pub fn gen(
     };
 
     tokens.combine(&quote! {
-        impl #impl_ident {
+        impl <#constraints> #impl_ident {
             #constructors
         }
-        impl ::std::convert::From<#impl_ident> for ::windows::IUnknown {
+        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
-                let com = #box_ident::new(implementation);
+                let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
@@ -151,9 +184,9 @@ pub fn gen(
                 }
             }
         }
-        impl ::std::convert::From<#impl_ident> for ::windows::IInspectable {
+        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::IInspectable {
             fn from(implementation: #impl_ident) -> Self {
-                let com = #box_ident::new(implementation);
+                let com = #box_ident::<#(#generics,)*>::new(implementation);
 
                 unsafe {
                     let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
@@ -161,22 +194,22 @@ pub fn gen(
                 }
             }
         }
-        impl ::windows::Compose for #impl_ident {
+        impl <#constraints> ::windows::Compose for #impl_ident {
             unsafe fn compose<'a>(implementation: Self) -> (::windows::IInspectable, &'a mut std::option::Option<::windows::IInspectable>) {
                 let inspectable: ::windows::IInspectable = implementation.into();
-                let this = (::windows::Abi::abi(&inspectable) as *mut ::windows::RawPtr).sub(1) as *mut #box_ident;
+                let this = (::windows::Abi::abi(&inspectable) as *mut ::windows::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
         }
         #[repr(C)]
-        struct #box_ident {
+        struct #box_ident<#(#generics,)*> where #constraints {
             base: ::std::option::Option<::windows::IInspectable>,
             identity_vtable: *const ::windows::IInspectable_abi,
             vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
             count: ::windows::WeakRefCount,
         }
-        impl #box_ident {
+        impl <#constraints> #box_ident::<#(#generics,)*> {
             const VTABLES: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
@@ -188,6 +221,7 @@ pub fn gen(
                 Self::GetRuntimeClassName,
                 Self::GetTrustLevel,
             );
+            #query_constants
             fn new(implementation: #impl_ident) -> Self {
                 Self {
                     base: ::std::option::Option::None,
@@ -199,14 +233,12 @@ pub fn gen(
             }
             fn QueryInterface(&mut self, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
                 unsafe {
-                    *interface = match iid {
-                        #queries
-                        &<::windows::IUnknown as ::windows::Interface>::IID
-                        | &<::windows::IInspectable as ::windows::Interface>::IID
-                        | &<::windows::IAgileObject as ::windows::Interface>::IID => {
+                    *interface = if iid == &<::windows::IUnknown as ::windows::Interface>::IID
+                        || iid == &<::windows::IInspectable as ::windows::Interface>::IID
+                        || iid == &<::windows::IAgileObject as ::windows::Interface>::IID {
                             &mut self.identity_vtable as *mut _ as _
-                        }
-                        _ => ::std::ptr::null_mut(),
+                    } #queries else {
+                        ::std::ptr::null_mut()
                     };
 
                     if !(*interface).is_null() {
