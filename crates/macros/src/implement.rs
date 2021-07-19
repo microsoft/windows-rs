@@ -30,7 +30,10 @@ pub fn gen(
         }
     }
 
-    let generics: Vec<Ident> = generics.iter().map(|generic| format_ident!("{}", generic)).collect();
+    let generics: Vec<Ident> = generics
+        .iter()
+        .map(|generic| format_ident!("{}", generic))
+        .collect();
 
     let impl_ident = format_ident!("{}", impl_name);
     let box_ident = format_ident!("{}_box", impl_name);
