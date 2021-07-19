@@ -117,7 +117,7 @@ fn main() -> window::Result<()> {
 
 Next, we'll use the `ISpellCheckerFactory` to check that we can spell check U.S. English, and then we'll get a spellchecker instance.
 
-Let's take a look at the method signature of `ISpellCheckerFactor::IsSupported`:
+Let's take a look at the method signature of `ISpellCheckerFactory::IsSupported`:
 
 ```rust
 pub unsafe fn IsSupported<'a>(
