@@ -1,4 +1,4 @@
-use gen::{tables::TypeDef, TypeKind, TypeReader};
+use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;
@@ -7,24 +7,22 @@ custom_keyword!(extend);
 
 #[derive(Debug, Default)]
 pub struct ImplementMacro {
-    pub extend: Option<(&'static str, &'static str)>,
+    pub implement: BTreeSet<TypeDef>,
+    pub extend: Option<TypeDef>,
     pub overrides: BTreeSet<&'static str>,
-    pub implement: BTreeSet<(&'static str, &'static str)>,
 }
 
 impl ImplementMacro {
-    pub fn interfaces(&self, reader: &'static TypeReader) -> Vec<(TypeDef, bool)> {
+    pub fn interfaces(&self) -> Vec<(TypeDef, bool)> {
         // TODO: any one of `self.implement` could be a class in which case its interfaces should be enumerated
 
-        let mut result = Vec::new();
+        let mut result: Vec<(TypeDef, bool)> = self
+            .implement
+            .iter()
+            .map(|def| (def.clone(), false))
+            .collect();
 
-        for (namespace, name) in &self.implement {
-            result.push((reader.resolve_type_def(namespace, name), false));
-        }
-
-        if let Some((namespace, name)) = self.extend {
-            let extend = reader.resolve_type_def(namespace, name);
-
+        if let Some(extend) = &self.extend {
             for interface in extend.overridable_interfaces() {
                 result.push((interface, true));
             }
@@ -34,12 +32,11 @@ impl ImplementMacro {
     }
 
     fn parse_implement(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
-        if let Ok(tree) = cursor.parse::<UseTree>() {
-            self.walk_implement(reader, &tree, &mut String::new())?;
+        let tree = cursor.parse::<UseTree2>()?;
+        self.walk_implement(reader, &tree, &mut String::new())?;
 
-            if !cursor.is_empty() {
-                cursor.parse::<Token![,]>()?;
-            }
+        if !cursor.is_empty() {
+            cursor.parse::<Token![,]>()?;
         }
 
         Ok(())
@@ -48,11 +45,11 @@ impl ImplementMacro {
     fn walk_implement(
         &mut self,
         reader: &'static TypeReader,
-        tree: &UseTree,
+        tree: &UseTree2,
         namespace: &mut String,
     ) -> Result<()> {
         match tree {
-            UseTree::Path(input) => {
+            UseTree2::Path(input) => {
                 if !namespace.is_empty() {
                     namespace.push('.');
                 }
@@ -60,51 +57,35 @@ impl ImplementMacro {
                 namespace.push_str(&input.ident.to_string());
                 self.walk_implement(reader, &*input.tree, namespace)?;
             }
-            UseTree::Name(input) => {
-                let name = input.ident.to_string();
-
-                if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
-                    match reader.resolve_type_def(namespace, name).kind() {
-                        TypeKind::Class | TypeKind::Interface => {
-                            self.implement.insert((namespace, name));
-                        }
-                        _ => {
-                            return Err(Error::new_spanned(
-                                input,
-                                format!("`{}.{}` not a class or interface", namespace, name),
-                            ));
-                        }
-                    }
+            UseTree2::Name(input) => {
+                if let ElementType::TypeDef(def) = tree.to_element_type(reader, namespace)? {
+                    self.implement.insert(def);
                 } else {
                     return Err(Error::new_spanned(
-                        input,
-                        format!("`{}.{}` not found in metadata", namespace, name),
+                        &input.ident,
+                        format!(
+                            "`{}.{}` is not a class or interface",
+                            namespace,
+                            input.ident.to_string()
+                        ),
                     ));
                 }
             }
-            UseTree::Glob(input) => {
-                return Err(Error::new_spanned(input, "Glob syntax not supported"));
-            }
-            UseTree::Group(input) => {
+            UseTree2::Group(input) => {
                 for tree in &input.items {
                     self.walk_implement(reader, tree, namespace)?;
                 }
-            }
-            UseTree::Rename(input) => {
-                return Err(Error::new_spanned(input, "Rename syntax not supported"));
             }
         }
 
         Ok(())
     }
 
-    fn parse_override(&mut self, reader: &'static TypeReader, cursor: ParseStream) -> Result<()> {
+    fn parse_override(&mut self, cursor: ParseStream) -> Result<()> {
         // Any number of methods may be overridden but only if a class is being overridden.
-        if let Some((namespace, name)) = self.extend {
-            if cursor.parse::<Token![override]>().is_ok() {
-                let methods = reader
-                    .resolve_type_def(namespace, name)
-                    .overridable_methods();
+        if let Some(extend) = &self.extend {
+            while cursor.parse::<Token![override]>().is_ok() {
+                let methods = extend.overridable_methods();
 
                 while let Ok(input) = cursor.parse::<Ident>() {
                     let name = input.to_string();
@@ -144,11 +125,11 @@ impl ImplementMacro {
     fn walk_extend(
         &mut self,
         reader: &'static TypeReader,
-        tree: &UseTree,
+        tree: &UseTree2,
         namespace: &mut String,
     ) -> Result<()> {
         match tree {
-            UseTree::Path(input) => {
+            UseTree2::Path(input) => {
                 if !namespace.is_empty() {
                     namespace.push('.');
                 }
@@ -156,30 +137,23 @@ impl ImplementMacro {
                 namespace.push_str(&input.ident.to_string());
                 self.walk_extend(reader, &*input.tree, namespace)?;
             }
-            UseTree::Name(input) => {
+            UseTree2::Name(input) => {
                 let name = input.ident.to_string();
 
-                if let Some((namespace, name)) = reader.get_type_name(namespace, &name) {
-                    if reader
-                        .resolve_type_def(namespace, name)
-                        .is_public_composable()
-                    {
-                        self.extend.replace((namespace, name));
-                    } else {
-                        return Err(Error::new_spanned(
-                            input,
-                            format!("`{}.{}` not extendable", namespace, name),
-                        ));
-                    }
+                // TODO: we should make this return Option to return compiler error when not found
+                let def = reader.resolve_type_def(namespace, &name);
+
+                if def.is_public_composable() {
+                    self.extend.replace(def);
                 } else {
                     return Err(Error::new_spanned(
-                        input,
-                        format!("`{}.{}` not found in metadata", namespace, name),
+                        &input.ident,
+                        format!("`{}.{}` not extendable", namespace, name),
                     ));
                 }
             }
-            _ => {
-                return Err(Error::new_spanned(tree, "Syntax not supported"));
+            UseTree2::Group(input) => {
+                return Err(Error::new(input.brace_token.span, "Syntax not supported"));
             }
         }
 
@@ -191,13 +165,131 @@ impl Parse for ImplementMacro {
     fn parse(cursor: ParseStream) -> Result<Self> {
         let mut input = Self::default();
         let reader = TypeReader::get();
+        input.parse_extend(reader, cursor)?;
+        input.parse_override(cursor)?;
 
         while !cursor.is_empty() {
-            input.parse_extend(reader, cursor)?;
-            input.parse_override(reader, cursor)?;
             input.parse_implement(reader, cursor)?;
         }
 
         Ok(input)
+    }
+}
+
+pub enum UseTree2 {
+    Path(UsePath2),
+    Name(UseName2),
+    Group(UseGroup2),
+}
+
+pub struct UsePath2 {
+    pub ident: Ident,
+    pub colon2_token: Token![::],
+    pub tree: Box<UseTree2>,
+}
+
+pub struct UseName2 {
+    pub ident: Ident,
+    pub generics: Vec<UseTree2>,
+}
+
+pub struct UseGroup2 {
+    pub brace_token: token::Brace,
+    pub items: syn::punctuated::Punctuated<UseTree2, Token![,]>,
+}
+
+impl UseTree2 {
+    fn to_element_type(
+        &self,
+        reader: &'static TypeReader,
+        namespace: &mut String,
+    ) -> Result<ElementType> {
+        match self {
+            UseTree2::Path(input) => {
+                if !namespace.is_empty() {
+                    namespace.push('.');
+                }
+
+                namespace.push_str(&input.ident.to_string());
+                input.tree.to_element_type(reader, namespace)
+            }
+            UseTree2::Name(input) => {
+                let name = input.ident.to_string();
+
+                if reader.types.get_namespace(namespace).is_some() {
+                    // TODO: error if not found
+                    let mut def = reader.resolve_type_def(namespace, &name);
+
+                    match def.kind() {
+                        TypeKind::Class | TypeKind::Interface => {}
+                        _ => {
+                            return Err(Error::new_spanned(
+                                &input.ident,
+                                format!("`{}.{}` not a class or interface", namespace, name),
+                            ));
+                        }
+                    }
+
+                    for g in &input.generics {
+                        def.generics
+                            .push(g.to_element_type(reader, &mut String::new())?);
+                    }
+
+                    Ok(ElementType::TypeDef(def))
+                } else {
+                    if let Some(def) = ElementType::from_string_lossy(&name) {
+                        Ok(def)
+                    } else {
+                        Ok(ElementType::GenericParam(name))
+                    }
+                }
+            }
+            UseTree2::Group(input) => {
+                return Err(Error::new(input.brace_token.span, "Syntax not supported"));
+            }
+        }
+    }
+}
+
+impl Parse for UseTree2 {
+    fn parse(input: ParseStream) -> Result<UseTree2> {
+        let lookahead = input.lookahead1();
+        if lookahead.peek(Ident) {
+            use syn::ext::IdentExt;
+            let ident = input.call(Ident::parse_any)?;
+            if input.peek(Token![::]) {
+                Ok(UseTree2::Path(UsePath2 {
+                    ident,
+                    colon2_token: input.parse()?,
+                    tree: Box::new(input.parse()?),
+                }))
+            } else {
+                let generics = if input.peek(Token![<]) {
+                    input.parse::<Token![<]>()?;
+                    let mut generics = Vec::new();
+                    loop {
+                        generics.push(input.parse::<UseTree2>()?);
+
+                        if input.parse::<Token![,]>().is_err() {
+                            break;
+                        }
+                    }
+                    input.parse::<Token![>]>()?;
+                    generics
+                } else {
+                    Vec::new()
+                };
+
+                Ok(UseTree2::Name(UseName2 { ident, generics }))
+            }
+        } else if lookahead.peek(token::Brace) {
+            let content;
+            Ok(UseTree2::Group(UseGroup2 {
+                brace_token: braced!(content in input),
+                items: content.parse_terminated(UseTree2::parse)?,
+            }))
+        } else {
+            Err(lookahead.error())
+        }
     }
 }

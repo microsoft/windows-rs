@@ -590,6 +590,9 @@ fn collections() -> windows::Result<()> {
         assert_eq!(v.GetAt(0)?, 1);
         assert_eq!(v.GetAt(1)?, 2);
         assert_eq!(v.GetAt(2)?, 3);
+
+        v.SetAt(0, 10)?;
+        assert_eq!(v.GetAt(0)?, 10);
     }
 
     {
@@ -603,6 +606,9 @@ fn collections() -> windows::Result<()> {
         assert_eq!(v.GetAt(0)?, "one");
         assert_eq!(v.GetAt(1)?, "two");
         assert_eq!(v.GetAt(2)?, "three");
+
+        v.SetAt(0, "ONE")?;
+        assert_eq!(v.GetAt(0)?, "ONE");
     }
 
     {
@@ -620,6 +626,9 @@ fn collections() -> windows::Result<()> {
         assert_eq!(v.GetAt(0)?.ToString()?, "http://kennykerr.ca/one");
         assert_eq!(v.GetAt(1)?.ToString()?, "http://kennykerr.ca/two");
         assert_eq!(v.GetAt(2)?.ToString()?, "http://kennykerr.ca/three");
+
+        v.SetAt(0, Uri::CreateUri("http://kennykerr.ca/ONE")?)?;
+        assert_eq!(v.GetAt(0)?.ToString()?, "http://kennykerr.ca/ONE");
     }
 
     Ok(())

@@ -19,7 +19,7 @@ impl TypeDef {
     pub fn with_generics(mut self) -> Self {
         self.generics = self
             .generic_params()
-            .map(ElementType::GenericParam)
+            .map(|generic| ElementType::GenericParam(generic.name().to_string()))
             .collect();
         self
     }

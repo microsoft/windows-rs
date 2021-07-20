@@ -24,7 +24,7 @@ pub enum ElementType {
     HRESULT,
     Matrix3x2,
     TypeName,
-    GenericParam(tables::GenericParam),
+    GenericParam(String),
     Array((Box<Signature>, u32)),
     MethodDef(tables::MethodDef),
     Field(tables::Field),
@@ -94,6 +94,28 @@ impl ElementType {
         }
     }
 
+    pub fn from_string_lossy(name: &str) -> Option<ElementType> {
+        match name {
+            "bool" => Some(Self::Bool),
+            "i8" => Some(Self::I8),
+            "u8" => Some(Self::U8),
+            "i16" => Some(Self::I16),
+            "u16" => Some(Self::U16),
+            "i32" => Some(Self::I32),
+            "u32" => Some(Self::U32),
+            "i64" => Some(Self::I64),
+            "u64" => Some(Self::U64),
+            "f32" => Some(Self::F64),
+            "f64" => Some(Self::F64),
+            "isize" => Some(Self::ISize),
+            "usize" => Some(Self::USize),
+            "HSTRING" => Some(Self::String),
+            "Guid" => Some(Self::Guid),
+            "IInspectable" => Some(Self::IInspectable),
+            _ => None,
+        }
+    }
+
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },
@@ -135,7 +157,10 @@ impl ElementType {
                 let len = Literal::u32_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Self::GenericParam(generic) => generic.gen_name(),
+            Self::GenericParam(generic) => {
+                let name = format_ident!("{}", generic);
+                quote! { #name }
+            }
             Self::MethodDef(t) => t.gen_name(gen),
             Self::Field(t) => t.gen_name(),
             Self::TypeDef(t) => t.gen_name(gen),
@@ -185,7 +210,7 @@ impl ElementType {
                 quote! { [#name; #len] }
             }
             Self::GenericParam(generic) => {
-                let name = generic.gen_name();
+                let name = format_ident!("{}", generic);
                 quote! { <#name as ::windows::Abi>::Abi }
             }
             Self::TypeDef(def) => def.gen_abi_type(gen),
