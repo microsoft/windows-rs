@@ -81,16 +81,6 @@ impl Error {
 
         self.code.message()
     }
-
-    /// Returns the win32 error code if the underlying HRESULT's facility is win32
-    fn win32_code(&self) -> Option<u32> {
-        let hresult = self.code.0;
-        if ((hresult >> 16) & 0x7FF) == 7 {
-            Some(hresult & 0xFFFF)
-        } else {
-            None
-        }
-    }
 }
 
 impl std::convert::From<Error> for HRESULT {
@@ -143,7 +133,7 @@ impl std::fmt::Debug for Error {
         debug
             .field("code", &format_args!("{:#010X}", self.code.0))
             .field("message", &self.message());
-        if let Some(win32) = self.win32_code() {
+        if let Some(win32) = self.code.win32_code() {
             debug.field("win32_code", &format_args!("{}", win32));
         }
         debug.finish()
@@ -170,8 +160,29 @@ mod tests {
 
     #[test]
     fn win32_error_conversion() {
-        let code = Error::fast_error(HRESULT::from_win32(18));
-        let win32_error = code.win32_code();
-        assert_eq!(win32_error, Some(18))
+        let error = Error::fast_error(HRESULT::from_win32(18));
+        let win32 = error.code.win32_code();
+        assert_eq!(win32, Some(18))
+    }
+
+    #[test]
+    fn ntstatus_error_conversion() {
+        let error = Error::fast_error(HRESULT::from_ntstatus(0xC000A000));
+        let ntstatus = error.code.ntstatus_code();
+        assert_eq!(ntstatus, Some(0xC000A000))
+    }
+
+    #[test]
+    fn ntstatus_ntwin32_facility() {
+        // This test verifies that `NTSTATUS` codes with a `FACILITY_NTWIN32` aren't
+        // mistaken for system error codes.
+        const NTSTATUS_WITH_FACILITY_NTWIN32: u32 = 0x8007_1234;
+        let error = Error::fast_error(HRESULT::from_ntstatus(NTSTATUS_WITH_FACILITY_NTWIN32));
+
+        let win32 = error.code.win32_code();
+        assert_eq!(win32, None);
+
+        let ntstatus = error.code.ntstatus_code();
+        assert_eq!(ntstatus, Some(NTSTATUS_WITH_FACILITY_NTWIN32));
     }
 }
