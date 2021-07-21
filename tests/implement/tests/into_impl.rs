@@ -8,15 +8,15 @@ use Windows::Win32::Foundation::E_BOUNDS;
 )]
 struct Iterator<T>
 where
-    T: ::windows::RuntimeType + 'static,
+    T: RuntimeType + 'static,
 {
     owner: IIterable<T>,
     current: usize,
 }
 
 #[allow(non_snake_case)]
-impl<T: ::windows::RuntimeType + 'static> Iterator<T> {
-    fn Current(&self) -> ::windows::Result<T> {
+impl<T: RuntimeType + 'static> Iterator<T> {
+    fn Current(&self) -> Result<T> {
         let owner = Iterable::to_impl(&self.owner);
 
         if owner.0.len() > self.current {
@@ -25,19 +25,19 @@ impl<T: ::windows::RuntimeType + 'static> Iterator<T> {
             Err(Error::new(E_BOUNDS, ""))
         }
     }
-    fn HasCurrent(&self) -> ::windows::Result<bool> {
+
+    fn HasCurrent(&self) -> Result<bool> {
         let owner = Iterable::to_impl(&self.owner);
         Ok(owner.0.len() > self.current)
     }
-    fn MoveNext(&mut self) -> ::windows::Result<bool> {
+
+    fn MoveNext(&mut self) -> Result<bool> {
         let owner = Iterable::to_impl(&self.owner);
         self.current += 1;
         Ok(owner.0.len() > self.current)
     }
-    fn GetMany(
-        &self,
-        _items: &mut [<T as ::windows::RuntimeType>::DefaultType],
-    ) -> ::windows::Result<u32> {
+
+    fn GetMany(&self, _items: &mut [<T as RuntimeType>::DefaultType]) -> Result<u32> {
         panic!(); // TODO: arrays still need some work.
     }
 }
@@ -47,10 +47,10 @@ impl<T: ::windows::RuntimeType + 'static> Iterator<T> {
 )]
 struct Iterable<T>(Vec<T>)
 where
-    T: ::windows::RuntimeType + 'static;
+    T: RuntimeType + 'static;
 
 #[allow(non_snake_case)]
-impl<T: ::windows::RuntimeType + 'static> Iterable<T> {
+impl<T: RuntimeType + 'static> Iterable<T> {
     fn First(&mut self) -> Result<IIterator<T>> {
         Ok(Iterator::<T> {
             owner: self.into(),
