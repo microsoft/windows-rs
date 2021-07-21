@@ -132,7 +132,6 @@ pub fn gen(
                             }
                         }
                     }
-                    // TODO: These two should be on an unsafe trait instead.
                     impl <#constraints> ::std::convert::From<&mut #impl_ident> for #interface_ident {
                         fn from(implementation: &mut #impl_ident) -> Self {
                             unsafe {
