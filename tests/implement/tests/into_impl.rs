@@ -99,5 +99,19 @@ fn test_explicit() -> Result<()> {
     assert_eq!(it1.HasCurrent()?, false);
     assert_eq!(it1.MoveNext()?, false);
 
+    // The following just validates that iterators are independent and stable.
+
+    let it2 = iterable.First()?;
+
+    assert_eq!(it2.Current()?, 10);
+    assert_eq!(it2.HasCurrent()?, true);
+    assert_eq!(it1.Current().is_err(), true);
+    assert_eq!(it1.HasCurrent()?, false);
+
+    assert_eq!(it2.Current()?, 10);
+    assert_eq!(it2.HasCurrent()?, true);
+    assert_eq!(it1.Current().is_err(), true);
+    assert_eq!(it1.HasCurrent()?, false);
+
     Ok(())
 }
