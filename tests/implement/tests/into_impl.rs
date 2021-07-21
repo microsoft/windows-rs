@@ -61,7 +61,7 @@ impl<T: ::windows::RuntimeType + 'static> Iterable<T> {
 }
 
 #[test]
-fn test_impl() -> Result<()> {
+fn test_collect() -> Result<()> {
     let source: IIterable<i32> = Iterable(vec![10, 20, 30]).into();
 
     // TODO: not sure why this won't compile.
@@ -74,6 +74,30 @@ fn test_impl() -> Result<()> {
     }
 
     assert_eq!(values, &[10, 20, 30]);
+
+    Ok(())
+}
+
+#[test]
+fn test_explicit() -> Result<()> {
+    let iterable: IIterable<i32> = Iterable(vec![10, 20, 30]).into();
+    let it1 = iterable.First()?;
+
+    assert_eq!(it1.Current()?, 10);
+    assert_eq!(it1.HasCurrent()?, true);
+    assert_eq!(it1.MoveNext()?, true);
+
+    assert_eq!(it1.Current()?, 20);
+    assert_eq!(it1.HasCurrent()?, true);
+    assert_eq!(it1.MoveNext()?, true);
+
+    assert_eq!(it1.Current()?, 30);
+    assert_eq!(it1.HasCurrent()?, true);
+    assert_eq!(it1.MoveNext()?, false);
+
+    assert_eq!(it1.Current().is_err(), true);
+    assert_eq!(it1.HasCurrent()?, false);
+    assert_eq!(it1.MoveNext()?, false);
 
     Ok(())
 }
