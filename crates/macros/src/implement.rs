@@ -43,6 +43,8 @@ pub fn gen(
         #(#generics: ::windows::RuntimeType + 'static,)*
     };
 
+    let interfaces_len = Literal::usize_unsuffixed(interfaces.len());
+
     for (interface_count, (t, overrides)) in interfaces.iter().enumerate() {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
@@ -127,6 +129,24 @@ pub fn gen(
                             unsafe {
                                 let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
                                 ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            }
+                        }
+                    }
+                    // TODO: These two should be on an unsafe trait instead.
+                    impl <#constraints> ::std::convert::From<&mut #impl_ident> for #interface_ident {
+                        fn from(implementation: &mut #impl_ident) -> Self {
+                            unsafe {
+                                let mut ptr = (implementation as *mut _ as *mut ::windows::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
+                                (*ptr).count.add_ref();
+                                ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
+                            }
+                        }
+                    }
+                    impl<#constraints> ::std::convert::From<&#interface_ident> for &mut #impl_ident {
+                        fn from(interface: &#interface_ident) -> Self {
+                            unsafe {
+                                let this = (::windows::Abi::abi(interface) as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
+                                &mut (*this).implementation
                             }
                         }
                     }
