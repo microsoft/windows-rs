@@ -22,7 +22,6 @@ pub enum ElementType {
     IUnknown,
     IInspectable,
     HRESULT,
-    Matrix3x2,
     TypeName,
     GenericParam(String),
     Array((Box<Signature>, u32)),
@@ -148,10 +147,6 @@ impl ElementType {
             Self::HRESULT => {
                 quote! { ::windows::HRESULT }
             }
-            Self::Matrix3x2 => {
-                let numerics = gen.namespace("Windows.Foundation.Numerics");
-                quote! { #numerics Matrix3x2 }
-            }
             Self::Array((kind, len)) => {
                 let name = kind.gen_win32(gen);
                 let len = Literal::u32_unsuffixed(*len);
@@ -199,10 +194,6 @@ impl ElementType {
             }
             Self::HRESULT => {
                 quote! { ::windows::HRESULT }
-            }
-            Self::Matrix3x2 => {
-                let numerics = gen.namespace("Windows.Foundation.Numerics");
-                quote! { #numerics Matrix3x2 }
             }
             Self::Array((kind, len)) => {
                 let name = kind.gen_win32_abi(gen);
@@ -278,16 +269,6 @@ impl ElementType {
         match self {
             Self::TypeDef(t) => t.definition(include),
             Self::Array((signature, _)) => signature.definition(include),
-            // TODO: find a cleaner way to map this dependency
-            Self::Matrix3x2 => {
-                vec![TypeEntry {
-                    include,
-                    def: TypeRow::TypeDef(
-                        TypeReader::get()
-                            .resolve_type_def("Windows.Foundation.Numerics", "Matrix3x2"),
-                    ),
-                }]
-            }
             _ => Vec::new(),
         }
     }
@@ -316,7 +297,6 @@ impl ElementType {
             | Self::IInspectable
             | Self::Guid
             | Self::IUnknown
-            | Self::Matrix3x2
             | Self::GenericParam(_) => true,
             _ => false,
         }
@@ -354,7 +334,7 @@ impl ElementType {
     pub fn is_udt(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_udt(),
-            Self::Guid | Self::Matrix3x2 => true,
+            Self::Guid => true,
             _ => false,
         }
     }
