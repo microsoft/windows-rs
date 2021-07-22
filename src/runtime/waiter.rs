@@ -5,7 +5,7 @@ use bindings::{
     Windows::Win32::System::Threading::{CreateEventA, SetEvent, WaitForSingleObject},
 };
 
-/// A simple blocking waiter used by the generated bindings and should not be used directly.
+#[doc(hidden)]
 pub struct Waiter(HANDLE);
 pub struct WaiterSignaler(HANDLE);
 

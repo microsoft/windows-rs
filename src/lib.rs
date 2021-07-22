@@ -32,7 +32,7 @@ pub use runtime::{
     create_instance, factory, initialize_mta, initialize_sta, Array, FactoryCache, Guid, Param,
     RefCount, Waiter, Weak, WeakRefCount, HSTRING,
 };
-pub use traits::{Abi, Compose, Interface, IntoParam, RuntimeName, RuntimeType, ToImpl};
+pub use traits::*;
 
 #[cfg(feature = "macros")]
 pub use windows_macros::{build, implement};
