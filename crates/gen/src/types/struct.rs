@@ -389,6 +389,7 @@ impl Struct {
             ("Windows.Win32.Foundation", "PWSTR") => Some(gen_pwstr()),
             ("Windows.Win32.Foundation", "PSTR") => Some(gen_pstr()),
             ("Windows.Win32.Foundation", "BSTR") => Some(gen_bstr()),
+            ("Windows.Win32.Foundation", "NTSTATUS") => Some(gen_ntstatus()),
             _ => None,
         }
     }

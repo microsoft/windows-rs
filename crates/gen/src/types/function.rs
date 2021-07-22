@@ -108,36 +108,57 @@ impl Function {
                 }
             }
         } else if let Some(return_type) = &signature.return_type {
-            if return_type.kind == ElementType::HRESULT {
-                quote! {
-                    pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*) -> ::windows::HRESULT;
+            match &return_type.kind {
+                ElementType::HRESULT => {
+                    quote! {
+                        pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
+                            #[cfg(windows)]
+                            {
+                                #link_attr
+                                extern "system" {
+                                    fn #name(#(#abi_params),*) -> ::windows::HRESULT;
+                                }
+                                #name(#(#args),*).ok()
                             }
-                            #name(#(#args),*).ok()
+                            #[cfg(not(windows))]
+                            unimplemented!("Unsupported target OS");
                         }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
                     }
                 }
-            } else {
-                let return_type = return_type.gen_win32(gen);
-
-                quote! {
-                    pub unsafe fn #name<#constraints>(#params) -> #return_type {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*) #abi_return_type;
+                ElementType::TypeDef(def)
+                    if def.full_name() == ("Windows.Win32.Foundation", "NTSTATUS") =>
+                {
+                    quote! {
+                        pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
+                            #[cfg(windows)]
+                            {
+                                #link_attr
+                                extern "system" {
+                                    fn #name(#(#abi_params),*) #abi_return_type;
+                                }
+                                #name(#(#args),*).ok()
                             }
-                            #name(#(#args),*)
+                            #[cfg(not(windows))]
+                            unimplemented!("Unsupported target OS");
                         }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
+                    }
+                }
+                _ => {
+                    let return_type = return_type.gen_win32(gen);
+
+                    quote! {
+                        pub unsafe fn #name<#constraints>(#params) -> #return_type {
+                            #[cfg(windows)]
+                            {
+                                #link_attr
+                                extern "system" {
+                                    fn #name(#(#abi_params),*) #abi_return_type;
+                                }
+                                #name(#(#args),*)
+                            }
+                            #[cfg(not(windows))]
+                            unimplemented!("Unsupported target OS");
+                        }
                     }
                 }
             }
