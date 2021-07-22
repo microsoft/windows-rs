@@ -141,12 +141,10 @@ pub fn gen(
                             }
                         }
                     }
-                    unsafe impl<#constraints> ::windows::ToImpl<#interface_ident> for #impl_ident {
-                        fn to_impl(interface: &#interface_ident) -> &mut Self {
-                            unsafe {
-                                let this = (::windows::Abi::abi(interface) as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
-                                &mut (*this).implementation
-                            }
+                    impl<#constraints> ::windows::ToImpl<#interface_ident> for #impl_ident {
+                        unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
+                            let this = (::windows::Abi::abi(interface) as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
+                            &mut (*this).implementation
                         }
                     }
                 });

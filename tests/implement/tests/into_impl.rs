@@ -17,7 +17,7 @@ where
 #[allow(non_snake_case)]
 impl<T: RuntimeType + 'static> Iterator<T> {
     fn Current(&self) -> Result<T> {
-        let owner = Iterable::to_impl(&self.owner);
+        let owner = unsafe { Iterable::to_impl(&self.owner) };
 
         if owner.0.len() > self.current {
             Ok(owner.0[self.current].clone())
@@ -27,12 +27,12 @@ impl<T: RuntimeType + 'static> Iterator<T> {
     }
 
     fn HasCurrent(&self) -> Result<bool> {
-        let owner = Iterable::to_impl(&self.owner);
+        let owner = unsafe { Iterable::to_impl(&self.owner) };
         Ok(owner.0.len() > self.current)
     }
 
     fn MoveNext(&mut self) -> Result<bool> {
-        let owner = Iterable::to_impl(&self.owner);
+        let owner = unsafe { Iterable::to_impl(&self.owner) };
         self.current += 1;
         Ok(owner.0.len() > self.current)
     }
