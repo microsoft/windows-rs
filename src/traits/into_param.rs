@@ -1,5 +1,6 @@
 use super::*;
 
+#[doc(hidden)]
 pub trait IntoParam<'a, T: Abi> {
     fn into_param(self) -> Param<'a, T>;
 }

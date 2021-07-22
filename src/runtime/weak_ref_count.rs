@@ -15,7 +15,7 @@ use bindings::Windows::Win32::{
 };
 use std::sync::atomic::{AtomicIsize, Ordering};
 
-/// A thread-safe reference count for use with COM weak reference implementations.
+#[doc(hidden)]
 #[repr(transparent)]
 #[derive(Default)]
 pub struct WeakRefCount(AtomicIsize);
