@@ -1,6 +1,5 @@
 use test_ntstatus::{
-    Windows::Win32::Foundation::{NTSTATUS, STATUS_NOT_FOUND},
-    Windows::Win32::Security::Cryptography::Core::{BCryptGenRandom, BCryptOpenAlgorithmProvider},
+    Windows::Win32::Foundation::*, Windows::Win32::Security::Cryptography::Core::*,
 };
 
 use windows::{Guid, Result, HRESULT};
@@ -37,6 +36,36 @@ fn test() -> Result<()> {
 
         assert_ne!(random, Guid::zeroed());
     }
+
+    Ok(())
+}
+
+// A test version of BCryptVerifySignature to ensure that we can handle alternative status codes
+// in a reasonable manner with the help of to_hresult.
+
+#[allow(non_snake_case)]
+fn BCryptVerifySignature(status: NTSTATUS) -> Result<()> {
+    status.ok()
+}
+
+fn is_valid(status: NTSTATUS) -> Result<bool> {
+    match BCryptVerifySignature(status) {
+        Err(e) => {
+            if e.code() == STATUS_INVALID_SIGNATURE.to_hresult() {
+                Ok(false)
+            } else {
+                Err(e)
+            }
+        }
+        _ => Ok(true),
+    }
+}
+
+#[test]
+fn test_verify() -> Result<()> {
+    assert_eq!(is_valid(STATUS_SUCCESS)?, true);
+    assert_eq!(is_valid(STATUS_INVALID_SIGNATURE)?, false);
+    assert_eq!(is_valid(STATUS_NOT_FOUND).is_err(), true);
 
     Ok(())
 }
