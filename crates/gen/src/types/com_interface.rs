@@ -9,25 +9,19 @@ impl ComInterface {
         let mut next = self.0.clone();
         let mut inspectable = false;
 
-        loop {
-            let base = if let Some(next) = next
-                .interface_impls()
-                .filter_map(|i| match i.generic_interface(&[]) {
-                    ElementType::TypeDef(def) => Some(def),
-                    ElementType::IUnknown => None,
-                    ElementType::IInspectable => {
-                        inspectable = true;
-                        None
-                    }
-                    _ => unexpected!(),
-                })
-                .next()
-            {
-                next
-            } else {
-                break;
-            };
-
+        while let Some(base) = next
+            .interface_impls()
+            .filter_map(|i| match i.generic_interface(&[]) {
+                ElementType::TypeDef(def) => Some(def),
+                ElementType::IUnknown => None,
+                ElementType::IInspectable => {
+                    inspectable = true;
+                    None
+                }
+                _ => unexpected!(),
+            })
+            .next()
+        {
             next = base.clone();
             result.push(base);
         }

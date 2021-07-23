@@ -11,7 +11,7 @@ pub struct BuildMacro {
 
 impl BuildMacro {
     // TODO: doesn't need to be member of BuildMacro
-    pub fn into_tokens_string(&self) -> String {
+    pub fn to_tokens_string(&self) -> String {
         let reader = TypeReader::get();
 
         let ts = reader.gen().fold(TokenStream::new(), |mut accum, n| {

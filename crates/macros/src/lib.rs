@@ -43,7 +43,7 @@ impl ToTokens for RawString {
 #[proc_macro]
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
-    let tokens = RawString(build.into_tokens_string());
+    let tokens = RawString(build.to_tokens_string());
     let target_dir = std::env::var("PATH").expect("No `PATH` env variable set");
     let end = target_dir.find(';').expect("Path not ending in `;`");
     let target_dir = RawString(target_dir[..end].to_string());
@@ -149,7 +149,7 @@ pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
     let mut tokens = String::new();
     tokens.push_str("r#\"");
-    tokens.push_str(&build.into_tokens_string());
+    tokens.push_str(&build.to_tokens_string());
     tokens.push_str("\"#");
     tokens.parse().unwrap()
 }

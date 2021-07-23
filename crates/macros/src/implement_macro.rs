@@ -236,16 +236,14 @@ impl UseTree2 {
                     }
 
                     Ok(ElementType::TypeDef(def))
+                } else if let Some(def) = ElementType::from_string_lossy(&name) {
+                    Ok(def)
                 } else {
-                    if let Some(def) = ElementType::from_string_lossy(&name) {
-                        Ok(def)
-                    } else {
-                        Ok(ElementType::GenericParam(name))
-                    }
+                    Ok(ElementType::GenericParam(name))
                 }
             }
             UseTree2::Group(input) => {
-                return Err(Error::new(input.brace_token.span, "Syntax not supported"));
+                Err(Error::new(input.brace_token.span, "Syntax not supported"))
             }
         }
     }
@@ -284,10 +282,10 @@ impl Parse for UseTree2 {
             }
         } else if lookahead.peek(token::Brace) {
             let content;
-            Ok(UseTree2::Group(UseGroup2 {
-                brace_token: braced!(content in input),
-                items: content.parse_terminated(UseTree2::parse)?,
-            }))
+            let brace_token = braced!(content in input);
+            let items = content.parse_terminated(UseTree2::parse)?;
+
+            Ok(UseTree2::Group(UseGroup2 { brace_token, items }))
         } else {
             Err(lookahead.error())
         }
