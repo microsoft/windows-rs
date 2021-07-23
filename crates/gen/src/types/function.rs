@@ -33,10 +33,10 @@ impl Function {
 
         // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
         // will no longer be necessary.
-        if !raw_dylib {
-            if link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli" {
-                link = "onecoreuap";
-            }
+        if !raw_dylib
+            && (link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli")
+        {
+            link = "onecoreuap";
         }
 
         let static_lib = def

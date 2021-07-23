@@ -401,10 +401,10 @@ fn is_well_known(namespace: &'static str, name: &'static str) -> bool {
     false
 }
 
-const REMAP_TYPES: [((&str, &str), (&str, &str)); 1] = [((
+const REMAP_TYPES: [((&str, &str), (&str, &str)); 1] = [(
     ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F"),
     ("Windows.Foundation.Numerics", "Matrix3x2"),
-))];
+)];
 
 const WELL_KNOWN_TYPES: [(&str, &str, ElementType); 9] = [
     ("System", "Guid", ElementType::Guid),

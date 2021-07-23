@@ -44,18 +44,7 @@ impl MethodSignature {
     pub fn has_retval(&self) -> bool {
         self.return_type.as_ref().map_or(false, |signature| {
             if signature.kind == ElementType::HRESULT
-                && self.params.last().map_or(false, |param| {
-                    let flags = param.param.flags();
-                    if flags.input() || !flags.output() || param.signature.pointers != 1 {
-                        return false;
-                    }
-
-                    match &param.signature.kind {
-                        ElementType::Void => false,
-                        ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
-                        _ => true,
-                    }
-                })
+                && self.params.last().map_or(false, |param| param.is_retval())
             {
                 return self.params[..self.params.len() - 1].iter().all(|param| {
                     let flags = param.param.flags();
@@ -386,6 +375,19 @@ impl MethodSignature {
 }
 
 impl MethodParam {
+    fn is_retval(&self) -> bool {
+        let flags = self.param.flags();
+        if flags.input() || !flags.output() || self.signature.pointers != 1 {
+            return false;
+        }
+
+        match &self.signature.kind {
+            ElementType::Void => false,
+            ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
+            _ => true,
+        }
+    }
+
     fn is_convertible(&self) -> bool {
         self.param.is_input()
             && !self.signature.is_array
