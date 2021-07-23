@@ -9,7 +9,7 @@ pub fn gen_ntstatus() -> TokenStream {
         impl NTSTATUS {
             #[inline]
             pub const fn is_ok(self) -> bool {
-                self.0 == 0
+                self.0 & 0x8000_0000 == 0
             }
 
             #[inline]
@@ -18,11 +18,16 @@ pub fn gen_ntstatus() -> TokenStream {
             }
 
             #[inline]
+            pub const fn to_hresult(self) -> ::windows::HRESULT {
+                ::windows::HRESULT(self.0 | 0x1000_0000)
+            }
+
+            #[inline]
             pub fn ok(self) -> ::windows::Result<()> {
                 if self.is_ok() {
                     Ok(())
                 } else {
-                    Err(::windows::Error::fast_error(::windows::HRESULT(self.0 | 0x10000000)))
+                    Err(::windows::Error::fast_error(self.to_hresult()))
                 }
             }
         }
