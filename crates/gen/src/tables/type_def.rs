@@ -455,7 +455,7 @@ impl TypeDef {
         }
     }
 
-    pub fn gen_phantoms<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+    pub fn gen_phantoms(&self) -> impl Iterator<Item = TokenStream> + '_ {
         self.generics.iter().map(move |g| {
             let g = g.gen_name(&Gen::Absolute);
             quote! { ::std::marker::PhantomData::<#g> }

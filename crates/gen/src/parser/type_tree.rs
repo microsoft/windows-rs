@@ -122,7 +122,7 @@ impl TypeTree {
         }
     }
 
-    pub fn gen<'a>(&'a self) -> impl Iterator<Item = TokenStream> + 'a {
+    pub fn gen(&self) -> impl Iterator<Item = TokenStream> + '_ {
         let gen = Gen::Relative(self.namespace);
 
         self.types
