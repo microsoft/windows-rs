@@ -1,7 +1,7 @@
 #![allow(clippy::many_single_char_names)]
 
 use crate::*;
-use bindings::Windows::Win32::System::Com::{CLSIDFromProgID, CoCreateGuid};
+use bindings::Windows::Win32::System::Com::CoCreateGuid;
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
 /// used to identify COM and WinRT interfaces.
@@ -65,11 +65,6 @@ impl Guid {
                 fourth, bytes[9], bytes[10], bytes[11], bytes[12], bytes[13], bytes[14], bytes[15],
             ],
         )
-    }
-
-    /// Looks up a CLSID in the registry using the [CLSIDFromProgID](https://docs.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-clsidfromprogid) function.
-    pub fn from_progid(progid: &str) -> crate::Result<Guid> {
-        unsafe { CLSIDFromProgID(progid) }
     }
 }
 
