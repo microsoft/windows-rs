@@ -334,6 +334,12 @@ impl TypeReader {
             }
         }
 
+        for (from, to) in &REMAP_TYPES {
+            if full_name == *from {
+                return TypeReader::get().resolve_type_def(to.0, to.1).into();
+            }
+        }
+
         code.resolve().into()
     }
 
@@ -395,7 +401,12 @@ fn is_well_known(namespace: &'static str, name: &'static str) -> bool {
     false
 }
 
-const WELL_KNOWN_TYPES: [(&str, &str, ElementType); 10] = [
+const REMAP_TYPES: [((&str, &str), (&str, &str)); 1] = [((
+    ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F"),
+    ("Windows.Foundation.Numerics", "Matrix3x2"),
+))];
+
+const WELL_KNOWN_TYPES: [(&str, &str, ElementType); 9] = [
     ("System", "Guid", ElementType::Guid),
     (
         "Windows.Win32.System.Com",
@@ -419,11 +430,6 @@ const WELL_KNOWN_TYPES: [(&str, &str, ElementType); 10] = [
         "Windows.Win32.System.SystemServices",
         "ULARGE_INTEGER",
         ElementType::U64,
-    ),
-    (
-        "Windows.Win32.Graphics.Direct2D",
-        "D2D_MATRIX_3X2_F",
-        ElementType::Matrix3x2,
     ),
     ("System", "Type", ElementType::TypeName),
 ];
