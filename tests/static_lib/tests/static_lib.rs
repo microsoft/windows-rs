@@ -3,7 +3,7 @@ use test_static_lib::{
     Windows::Win32::System::Com::{CoInitializeEx, COINIT_APARTMENTTHREADED},
 };
 
-use windows::{ Result};
+use windows::Result;
 
 #[test]
 fn test_less_than() -> Result<()> {
