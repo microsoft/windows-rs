@@ -18,10 +18,10 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies]
-windows = "0.17.2"
+windows = "0.18.0"
 
 [build-dependencies]
-windows = "0.17.2"
+windows = "0.18.0"
 ```
 
 This will allow Cargo to download, build, and cache Windows support as a package. Next, specify which types you need inside of a `build.rs` build script and the `windows` crate will generate the necessary bindings:

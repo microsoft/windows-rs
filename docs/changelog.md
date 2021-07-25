@@ -1,3 +1,16 @@
+# 0.18.0
+
+- Fix debug formatting of structs
+- Support for binary packaging
+- Copy sub-directories within .windows
+- More flexible macro formatting
+- Support for static libs
+- Support for raw-dylib
+- Support for generic interface implementations
+- Transform NTSTATUS functions into Result<()>
+- Remove unecessary helper functions
+- Update WinRT metadata
+
 # 0.15.0
 
 - Minor fixes and improvements.
