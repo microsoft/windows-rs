@@ -145,7 +145,6 @@ impl TypeReader {
 
     /// Get all the namespace names that the [`TypeReader`] knows about
     pub fn namespaces(&'static self) -> Vec<&'static str> {
-        //self.types.keys().copied()
         self.types.namespaces()
     }
 

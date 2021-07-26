@@ -57,14 +57,7 @@ impl Field {
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
-        self.0
-            .file
-            .equal_range(
-                TableIndex::CustomAttribute,
-                0,
-                HasAttribute::Field(self.clone()).encode(),
-            )
-            .map(Attribute)
+        self.0.file.attributes(HasAttribute::Field(self.clone()))
     }
 
     pub fn signature(&self) -> Signature {

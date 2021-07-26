@@ -72,36 +72,10 @@ impl MethodDef {
         }
     }
 
-    pub fn kind(&self) -> MethodKind {
-        if self.flags().special() {
-            let name = self.name();
-
-            if name.starts_with("get") {
-                MethodKind::Get
-            } else if name.starts_with("put") {
-                MethodKind::Set
-            } else if name.starts_with("add") {
-                MethodKind::Add
-            } else if name.starts_with("remove") {
-                MethodKind::Remove
-            } else {
-                // A delegate's 'Invoke' method is "special" but lacks a preamble.
-                MethodKind::Normal
-            }
-        } else {
-            MethodKind::Normal
-        }
-    }
-
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
-            .equal_range(
-                TableIndex::CustomAttribute,
-                0,
-                HasAttribute::MethodDef(self.clone()).encode(),
-            )
-            .map(Attribute)
+            .attributes(HasAttribute::MethodDef(self.clone()))
     }
 
     pub fn has_attribute(&self, name: &str) -> bool {

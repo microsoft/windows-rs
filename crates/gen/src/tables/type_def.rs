@@ -553,12 +553,7 @@ impl TypeDef {
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.row
             .file
-            .equal_range(
-                TableIndex::CustomAttribute,
-                0,
-                HasAttribute::TypeDef(self.clone()).encode(),
-            )
-            .map(Attribute)
+            .attributes(HasAttribute::TypeDef(self.clone()))
     }
 
     pub fn has_attribute(&self, name: &str) -> bool {

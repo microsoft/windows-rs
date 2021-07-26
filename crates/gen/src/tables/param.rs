@@ -17,14 +17,7 @@ impl Param {
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
-        self.0
-            .file
-            .equal_range(
-                TableIndex::CustomAttribute,
-                0,
-                HasAttribute::Param(self.clone()).encode(),
-            )
-            .map(Attribute)
+        self.0.file.attributes(HasAttribute::Param(self.clone()))
     }
 
     pub fn has_attribute(&self, name: &str) -> bool {

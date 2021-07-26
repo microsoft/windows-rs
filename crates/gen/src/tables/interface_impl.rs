@@ -11,12 +11,7 @@ impl InterfaceImpl {
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
-            .equal_range(
-                TableIndex::CustomAttribute,
-                0,
-                HasAttribute::InterfaceImpl(self.clone()).encode(),
-            )
-            .map(Attribute)
+            .attributes(HasAttribute::InterfaceImpl(self.clone()))
     }
 
     pub fn has_attribute(&self, name: &str) -> bool {
