@@ -16,8 +16,8 @@ impl MethodDef {
         quote! { #namespace #name }
     }
 
-    pub fn flags(&self) -> MethodFlags {
-        MethodFlags(self.0.u32(2))
+    pub fn is_special(&self) -> bool {
+        self.0.u32(2) & 0b1000_0000_0000 != 0
     }
 
     pub fn params(&self) -> impl Iterator<Item = Param> {
@@ -44,7 +44,7 @@ impl MethodDef {
     pub fn rust_name(&self) -> String {
         let name = self.name();
 
-        if self.flags().special() {
+        if self.is_special() {
             if name.starts_with("get") {
                 name[4..].to_string()
             } else if name.starts_with("put") {
