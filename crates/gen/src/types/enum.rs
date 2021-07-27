@@ -54,7 +54,7 @@ impl Enum {
         // In such cases, the build script simply needs to import the type directly to generate all fields.
         let fields = if include == TypeInclude::Full || fields.len() < 100 {
             let fields = fields.iter().filter_map(|field| {
-                if field.flags().literal() {
+                if field.is_literal() {
                     let field_name = to_ident(field.name());
 
                     if let Some(constant) = field.constant() {

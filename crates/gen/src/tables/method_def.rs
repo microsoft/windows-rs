@@ -16,8 +16,8 @@ impl MethodDef {
         quote! { #namespace #name }
     }
 
-    pub fn flags(&self) -> MethodFlags {
-        MethodFlags(self.0.u32(2))
+    pub fn is_special(&self) -> bool {
+        self.0.u32(2) & 0b1000_0000_0000 != 0
     }
 
     pub fn params(&self) -> impl Iterator<Item = Param> {
@@ -44,7 +44,7 @@ impl MethodDef {
     pub fn rust_name(&self) -> String {
         let name = self.name();
 
-        if self.flags().special() {
+        if self.is_special() {
             if name.starts_with("get") {
                 name[4..].to_string()
             } else if name.starts_with("put") {
@@ -72,36 +72,10 @@ impl MethodDef {
         }
     }
 
-    pub fn kind(&self) -> MethodKind {
-        if self.flags().special() {
-            let name = self.name();
-
-            if name.starts_with("get") {
-                MethodKind::Get
-            } else if name.starts_with("put") {
-                MethodKind::Set
-            } else if name.starts_with("add") {
-                MethodKind::Add
-            } else if name.starts_with("remove") {
-                MethodKind::Remove
-            } else {
-                // A delegate's 'Invoke' method is "special" but lacks a preamble.
-                MethodKind::Normal
-            }
-        } else {
-            MethodKind::Normal
-        }
-    }
-
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
-            .equal_range(
-                TableIndex::CustomAttribute,
-                0,
-                HasAttribute::MethodDef(self.clone()).encode(),
-            )
-            .map(Attribute)
+            .attributes(HasAttribute::MethodDef(self.clone()))
     }
 
     pub fn has_attribute(&self, name: &str) -> bool {

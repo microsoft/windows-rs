@@ -26,8 +26,8 @@ impl Signature {
         self.pointers == 0 && self.kind.is_udt()
     }
 
-    pub fn is_explicit(&self) -> bool {
-        self.pointers == 0 && self.kind.is_explicit()
+    pub fn has_explicit(&self) -> bool {
+        self.pointers == 0 && self.kind.has_explicit()
     }
 
     pub fn is_packed(&self) -> bool {
