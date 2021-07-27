@@ -139,9 +139,7 @@ impl ComInterface {
                     });
             }
 
-            let send_sync = 
-                if self.0.type_name() == TypeName::IRestrictedErrorInfo
-            {
+            let send_sync = if self.0.type_name() == TypeName::IRestrictedErrorInfo {
                 quote! {
                     unsafe impl ::std::marker::Send for #name {}
                     unsafe impl ::std::marker::Sync for #name {}

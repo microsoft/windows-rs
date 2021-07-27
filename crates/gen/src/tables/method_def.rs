@@ -148,7 +148,8 @@ mod tests {
 
     #[test]
     fn test_method() {
-        let i = TypeReader::get().resolve_type_def("Windows.Foundation", "IStringable");
+        let i =
+            TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "IStringable"));
         let i = types::Interface(i);
         let m = get_method(&i, "ToString");
         assert_eq!(m.name(), "ToString");
@@ -166,7 +167,8 @@ mod tests {
 
     #[test]
     fn test_generic() {
-        let i = TypeReader::get().resolve_type_def("Windows.Foundation.Collections", "IMap`2");
+        let i = TypeReader::get()
+            .resolve_type_def(TypeName::new("Windows.Foundation.Collections", "IMap`2"));
         let i = types::Interface(i.with_generics());
         let m = get_method(&i, "Lookup");
 

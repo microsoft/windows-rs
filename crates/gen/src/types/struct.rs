@@ -384,7 +384,7 @@ impl Struct {
 
     fn gen_replacement(&self) -> Option<TokenStream> {
         match self.0.type_name() {
-           TypeName::BOOL => Some(gen_bool32()),
+            TypeName::BOOL => Some(gen_bool32()),
             TypeName::PWSTR => Some(gen_pwstr()),
             TypeName::PSTR => Some(gen_pstr()),
             TypeName::BSTR => Some(gen_bstr()),
@@ -432,14 +432,16 @@ mod tests {
 
     #[test]
     fn test_signature() {
-        let t = TypeReader::get().resolve_type_def("Windows.Foundation", "Point");
+        let t = TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "Point"));
         assert_eq!(t.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
     }
 
     #[test]
     fn test_fields() {
-        let t = TypeReader::get()
-            .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let t = TypeReader::get().resolve_type_def(TypeName::new(
+            "Windows.Win32.Graphics.Dxgi",
+            "DXGI_FRAME_STATISTICS_MEDIA",
+        ));
         let f: Vec<tables::Field> = t.fields().collect();
         assert_eq!(f.len(), 7);
 
@@ -464,13 +466,13 @@ mod tests {
     fn test_blittable() {
         assert_eq!(
             TypeReader::get()
-                .resolve_type_def("Windows.Foundation", "Point")
+                .resolve_type_def(TypeName::new("Windows.Foundation", "Point"))
                 .is_blittable(),
             true
         );
         assert_eq!(
             TypeReader::get()
-                .resolve_type_def("Windows.UI.Xaml.Interop", "TypeName")
+                .resolve_type_def(TypeName::new("Windows.UI.Xaml.Interop", "TypeName"))
                 .is_blittable(),
             false
         );

@@ -230,8 +230,7 @@ impl TypeDef {
                 if self.type_name() == TypeName::IIterable {
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Full,
-                        def: TypeReader::get()
-                            .resolve_type_row(TypeName::IIterator),
+                        def: TypeReader::get().resolve_type_row(TypeName::IIterator),
                     });
                 }
 
@@ -290,46 +289,39 @@ impl TypeDef {
 
                 // TODO: find better way to manage this
                 let type_name = self.type_name();
-                
-                if type_name == TypeName::BSTR {
-                        dependencies.push(TypeEntry {
-                            include: TypeInclude::Minimal,
-                            def: reader
-                                .resolve_type_row(TypeName::SysFreeString),
-                        });
-                        dependencies.push(TypeEntry {
-                            include: TypeInclude::Minimal,
-                            def: reader
-                                .resolve_type_row(TypeName::SysAllocStringLen),
-                        });
-                        dependencies.push(TypeEntry {
-                            include: TypeInclude::Minimal,
-                            def: reader
-                                .resolve_type_row(TypeName::SysStringLen),
-                        });
-                    }
-                    else if type_name == TypeName::Matrix3x2 {
-                        dependencies.push(TypeEntry {
-                            include: TypeInclude::Minimal,
-                            def: reader.resolve_type_row(TypeName::D2D1MakeRotateMatrix
-                            ),
-                        });
-                    }
-                   else {
-                        dependencies.extend(
-                            self.fields()
-                                .map(|f| f.definition(TypeInclude::Minimal))
-                                .flatten(),
-                        );
 
-                        if let Some(dependency) = self.is_convertible_to() {
-                            dependencies.push(TypeEntry {
-                                include: TypeInclude::Minimal,
-                                def: TypeRow::TypeDef(dependency),
-                            });
-                        }
+                if type_name == TypeName::BSTR {
+                    dependencies.push(TypeEntry {
+                        include: TypeInclude::Minimal,
+                        def: reader.resolve_type_row(TypeName::SysFreeString),
+                    });
+                    dependencies.push(TypeEntry {
+                        include: TypeInclude::Minimal,
+                        def: reader.resolve_type_row(TypeName::SysAllocStringLen),
+                    });
+                    dependencies.push(TypeEntry {
+                        include: TypeInclude::Minimal,
+                        def: reader.resolve_type_row(TypeName::SysStringLen),
+                    });
+                } else if type_name == TypeName::Matrix3x2 {
+                    dependencies.push(TypeEntry {
+                        include: TypeInclude::Minimal,
+                        def: reader.resolve_type_row(TypeName::D2D1MakeRotateMatrix),
+                    });
+                } else {
+                    dependencies.extend(
+                        self.fields()
+                            .map(|f| f.definition(TypeInclude::Minimal))
+                            .flatten(),
+                    );
+
+                    if let Some(dependency) = self.is_convertible_to() {
+                        dependencies.push(TypeEntry {
+                            include: TypeInclude::Minimal,
+                            def: TypeRow::TypeDef(dependency),
+                        });
                     }
-                
+                }
 
                 dependencies
             }

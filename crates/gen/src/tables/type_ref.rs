@@ -21,7 +21,10 @@ impl TypeRef {
     }
 
     pub fn type_name(&self) -> TypeName {
-        TypeName { namespace: self.0.str(2), name: self.0.str(1) }
+        TypeName {
+            namespace: self.0.str(2),
+            name: self.0.str(1),
+        }
     }
 
     pub fn resolve(&self) -> TypeDef {

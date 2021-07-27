@@ -136,7 +136,8 @@ mod tests {
 
     #[test]
     fn test_signature() {
-        let t = TypeReader::get().resolve_type_def("Windows.Foundation", "AsyncStatus");
+        let t =
+            TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "AsyncStatus"));
         assert_eq!(
             t.type_signature(),
             "enum(Windows.Foundation.AsyncStatus;i4)"
