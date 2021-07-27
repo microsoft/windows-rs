@@ -339,10 +339,10 @@ impl ElementType {
         }
     }
 
-    pub fn is_explicit(&self) -> bool {
+    pub fn has_explicit(&self) -> bool {
         match self {
-            Self::TypeDef(t) => t.is_explicit(),
-            Self::Array((kind, _)) => kind.is_explicit(),
+            Self::TypeDef(t) => t.has_explicit(),
+            Self::Array((kind, _)) => kind.has_explicit(),
             _ => false,
         }
     }

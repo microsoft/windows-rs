@@ -30,7 +30,7 @@ impl Struct {
             .0
             .fields()
             .filter_map(move |f| {
-                if f.flags().literal() {
+                if f.is_literal() {
                     None
                 } else {
                     let signature = f.signature();
@@ -50,7 +50,7 @@ impl Struct {
 
         let is_winrt = self.0.is_winrt();
         let is_handle = self.0.is_handle();
-        let is_union = self.0.flags().explicit();
+        let is_union = self.0.is_explicit();
         let layout = self.0.class_layout();
         let is_packed = self.0.is_packed();
 
@@ -66,9 +66,8 @@ impl Struct {
         // TODO: add test for Windows.Win32.Security.TRUSTEE_A
         let has_union = fields
             .iter()
-            .any(|(_, signature, _)| signature.is_explicit());
+            .any(|(_, signature, _)| signature.has_explicit());
 
-        // TODO: workaround for getting windows-docs building
         let has_complex_array = fields
             .iter()
             .any(|(_, signature, _)| match &signature.kind {
@@ -180,7 +179,7 @@ impl Struct {
         };
 
         let constants = self.0.fields().filter_map(|f| {
-            if f.flags().literal() {
+            if f.is_literal() {
                 if let Some(constant) = f.constant() {
                     let name = to_ident(f.name());
                     let value = constant.value().gen();

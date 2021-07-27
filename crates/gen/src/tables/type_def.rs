@@ -354,14 +354,18 @@ impl TypeDef {
     }
 
     pub fn is_explicit(&self) -> bool {
+        self.row.u32(0) & 0b1_0000 != 0
+    }
+
+    pub fn has_explicit(&self) -> bool {
         if self.kind() != TypeKind::Struct {
             return false;
         }
 
-        if self.flags().explicit() {
+        if self.is_explicit() {
             true
         } else {
-            self.fields().any(|f| f.signature().is_explicit())
+            self.fields().any(|f| f.signature().has_explicit())
         }
     }
 
@@ -490,8 +494,12 @@ impl TypeDef {
         }
     }
 
-    pub fn flags(&self) -> TypeFlags {
-        TypeFlags(self.row.u32(0))
+    pub fn is_winrt(&self) -> bool {
+        self.row.u32(0) & 0b100_0000_0000_0000 != 0
+    }
+
+    pub fn is_interface(&self) -> bool {
+        self.row.u32(0) & 0b10_0000 != 0
     }
 
     pub fn name(&self) -> &'static str {
@@ -560,10 +568,6 @@ impl TypeDef {
         self.attributes().any(|attribute| attribute.name() == name)
     }
 
-    pub fn is_winrt(&self) -> bool {
-        self.flags().windows_runtime()
-    }
-
     pub fn is_exclusive(&self) -> bool {
         self.has_attribute("ExclusiveToAttribute")
     }
@@ -623,7 +627,7 @@ impl TypeDef {
     }
 
     pub fn kind(&self) -> TypeKind {
-        if self.flags().interface() {
+        if self.is_interface() {
             TypeKind::Interface
         } else {
             match self.extends() {

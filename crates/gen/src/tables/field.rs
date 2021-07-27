@@ -19,8 +19,8 @@ impl Field {
         self.0.blob(2)
     }
 
-    pub fn flags(&self) -> FieldFlags {
-        FieldFlags(self.0.u32(0))
+    pub fn is_literal(&self) -> bool {
+        self.0.u32(0) & 0b100_0000 != 0
     }
 
     pub fn constant(&self) -> Option<Constant> {

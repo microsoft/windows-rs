@@ -110,7 +110,7 @@ impl TypeReader {
 
                 let namespace = types.insert_namespace(namespace, 0);
 
-                if def.flags().windows_runtime() || extends != ("System", "Object") {
+                if def.is_winrt() || extends != ("System", "Object") {
                     namespace.insert_type(name, TypeRow::TypeDef(def));
                 } else {
                     for field in def.fields() {
