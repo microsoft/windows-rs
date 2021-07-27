@@ -4,7 +4,7 @@ pub trait Decode {
     fn decode(file: &'static File, code: u32) -> Self;
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum TypeDefOrRef {
     TypeDef(tables::TypeDef),
     TypeRef(tables::TypeRef),
@@ -37,7 +37,7 @@ impl TypeDefOrRef {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum TypeOrMethodDef {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),
@@ -67,7 +67,7 @@ impl TypeOrMethodDef {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum HasAttribute {
     MethodDef(tables::MethodDef),
     Field(tables::Field),
@@ -134,7 +134,7 @@ impl HasAttribute {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum MemberRefParent {
     TypeDef(tables::TypeDef),
     TypeRef(tables::TypeRef),
@@ -174,7 +174,7 @@ impl MemberRefParent {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum HasConstant {
     Field(tables::Field),
     Param(tables::Param),
@@ -200,7 +200,7 @@ impl HasConstant {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum AttributeType {
     MethodDef(tables::MethodDef),
     MemberRef(tables::MemberRef),
@@ -234,7 +234,7 @@ impl AttributeType {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum MemberForwarded {
     Field(tables::Field),
     MethodDef(tables::MethodDef),
@@ -264,7 +264,7 @@ impl MemberForwarded {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum ResolutionScope {
     Module(tables::Module),
     ModuleRef(tables::ModuleRef),

@@ -24,10 +24,7 @@ fn named_arguments() {
                             assert_eq!(*value, true);
                             some_bool += 1;
                         }
-                        _ => panic!(
-                            "Unexpected named argument! Name: '{}'  Arg: {:?}",
-                            name, arg
-                        ),
+                        _ => panic!("Unexpected named argument! Name: '{}'", name),
                     }
                 }
             }

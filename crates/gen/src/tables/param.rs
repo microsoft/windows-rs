@@ -40,9 +40,3 @@ impl Param {
         to_ident(&format!("{}_array_size", self.name()))
     }
 }
-
-impl std::fmt::Debug for Param {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.name())
-    }
-}

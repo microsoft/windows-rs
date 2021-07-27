@@ -8,9 +8,3 @@ impl GenericParam {
         self.0.str(3)
     }
 }
-
-impl std::fmt::Debug for GenericParam {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.name())
-    }
-}

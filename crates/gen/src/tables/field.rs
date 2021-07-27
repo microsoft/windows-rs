@@ -83,12 +83,6 @@ impl Field {
     }
 }
 
-impl std::fmt::Debug for Field {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.name())
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -101,6 +95,6 @@ mod tests {
         assert_eq!(f.len(), 4);
 
         let s = f[0].signature();
-        assert_eq!(s.kind, ElementType::F32);
+        assert!(s.kind == ElementType::F32);
     }
 }

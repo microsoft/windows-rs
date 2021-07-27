@@ -1,6 +1,5 @@
 use super::*;
 
-#[derive(Debug)]
 pub enum ConstantValue {
     Bool(bool),
     U8(u8),

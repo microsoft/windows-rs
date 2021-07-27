@@ -12,12 +12,3 @@ impl NestedClass {
         Row::new(self.0.u32(1) - 1, TableIndex::TypeDef, self.0.file).into()
     }
 }
-
-impl std::fmt::Debug for NestedClass {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("NestedClass")
-            .field("nested_type", &self.nested_type())
-            .field("enclosing_type", &self.enclosing_type())
-            .finish()
-    }
-}

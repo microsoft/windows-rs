@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Clone, Eq, Ord, PartialEq, PartialOrd, Default)]
+#[derive(Clone, Eq, Ord, PartialEq, PartialOrd, Default)]
 pub struct Signature {
     pub kind: ElementType,
     pub pointers: usize,

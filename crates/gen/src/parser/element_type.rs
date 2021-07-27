@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Clone, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
 pub enum ElementType {
     Void,
     Bool,

@@ -138,12 +138,6 @@ impl MethodDef {
     }
 }
 
-impl std::fmt::Debug for MethodDef {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.name())
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -163,7 +157,7 @@ mod tests {
         assert_eq!(s.params.len(), 0);
 
         let s = s.return_type.unwrap();
-        assert_eq!(s.kind, ElementType::String);
+        assert!(s.kind == ElementType::String);
         assert_eq!(s.pointers, 0);
         assert_eq!(s.by_ref, false);
         assert_eq!(s.is_const, false);
