@@ -383,25 +383,25 @@ impl Struct {
     }
 
     fn gen_replacement(&self) -> Option<TokenStream> {
-        match self.0.full_name() {
-            ("Windows.Win32.Foundation", "BOOL") => Some(gen_bool32()),
-            ("Windows.Win32.Foundation", "PWSTR") => Some(gen_pwstr()),
-            ("Windows.Win32.Foundation", "PSTR") => Some(gen_pstr()),
-            ("Windows.Win32.Foundation", "BSTR") => Some(gen_bstr()),
-            ("Windows.Win32.Foundation", "NTSTATUS") => Some(gen_ntstatus()),
+        match self.0.type_name() {
+           TypeName::BOOL => Some(gen_bool32()),
+            TypeName::PWSTR => Some(gen_pwstr()),
+            TypeName::PSTR => Some(gen_pstr()),
+            TypeName::BSTR => Some(gen_bstr()),
+            TypeName::NTSTATUS => Some(gen_ntstatus()),
             _ => None,
         }
     }
 
     fn gen_extensions(&self) -> TokenStream {
-        match self.0.full_name() {
-            ("Windows.Foundation", "TimeSpan") => gen_timespan(),
-            ("Windows.Foundation.Numerics", "Vector2") => gen_vector2(),
-            ("Windows.Foundation.Numerics", "Vector3") => gen_vector3(),
-            ("Windows.Foundation.Numerics", "Vector4") => gen_vector4(),
-            ("Windows.Foundation.Numerics", "Matrix3x2") => gen_matrix3x2(),
-            ("Windows.Foundation.Numerics", "Matrix4x4") => gen_matrix4x4(),
-            ("Windows.Win32.Foundation", "HANDLE") => gen_handle(),
+        match self.0.type_name() {
+            TypeName::TimeSpan => gen_timespan(),
+            TypeName::Vector2 => gen_vector2(),
+            TypeName::Vector3 => gen_vector3(),
+            TypeName::Vector4 => gen_vector4(),
+            TypeName::Matrix3x2 => gen_matrix3x2(),
+            TypeName::Matrix4x4 => gen_matrix4x4(),
+            TypeName::HANDLE => gen_handle(),
             _ => TokenStream::new(),
         }
     }

@@ -22,7 +22,7 @@ impl InterfaceInfo {
                 return a.kind.cmp(&b.kind);
             }
 
-            a.def.full_name().cmp(&b.def.full_name())
+            a.def.type_name().cmp(&b.def.type_name())
         });
     }
 

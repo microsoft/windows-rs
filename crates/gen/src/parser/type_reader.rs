@@ -40,6 +40,8 @@ impl TypeRow {
             Self::Field(def) => def.parent().namespace(),
         }
     }
+
+    // type_name?
 }
 
 impl From<&TypeRow> for ElementType {
@@ -91,27 +93,26 @@ impl TypeReader {
 
             for row in 0..row_count {
                 let def: tables::TypeDef = Row::new(row, TableIndex::TypeDef, file).into();
-                let namespace = def.namespace();
-                let name = trim_tick(def.name());
+                let type_name = def.type_name();
 
-                if namespace.is_empty() {
+                if type_name.namespace.is_empty() {
                     continue;
                 }
 
-                if is_well_known(namespace, name) {
+                if is_well_known(type_name) {
                     continue;
                 }
 
                 let extends = def.extends();
 
-                if extends == ("System", "Attribute") {
+                if extends == TypeName::Attribute {
                     continue;
                 }
 
-                let namespace = types.insert_namespace(namespace, 0);
+                let namespace = types.insert_namespace(type_name.namespace, 0);
 
-                if def.is_winrt() || extends != ("System", "Object") {
-                    namespace.insert_type(name, TypeRow::TypeDef(def));
+                if def.is_winrt() || extends == TypeName::Object {
+                    namespace.insert_type(type_name.name, TypeRow::TypeDef(def));
                 } else {
                     for field in def.fields() {
                         let name = field.name();
@@ -160,6 +161,8 @@ impl TypeReader {
             false
         }
     }
+
+    //pub fn find(namespace: &str, name: &str) -> 
 
     pub fn get_type_name(
         &'static self,
@@ -224,42 +227,59 @@ impl TypeReader {
         self.nested.get(&enclosing.row)
     }
 
-    pub fn resolve_type(&'static self, namespace: &str, name: &str) -> ElementType {
+    // TODO: consolidate all these different resolve functions
+
+    pub fn resolve_type(&'static self, type_name: TypeName) -> ElementType {
         if let Some(def) = self
             .types
-            .get_namespace(namespace)
-            .and_then(|tree| tree.get_type(trim_tick(name)))
+            .get_namespace(type_name.namespace)
+            .and_then(|tree| tree.get_type(type_name.name))
         {
             return (&def.def).into();
         }
 
-        panic!("Could not find type `{}.{}`", namespace, name);
+        panic!("Could not find type `{}`", type_name);
     }
 
-    pub fn resolve_type_row(&'static self, namespace: &str, name: &str) -> TypeRow {
+    pub fn resolve_type_row(&'static self, type_name: TypeName) -> TypeRow {
         if let Some(def) = self
             .types
-            .get_namespace(namespace)
-            .and_then(|tree| tree.get_type(trim_tick(name)))
+            .get_namespace(type_name.namespace)
+            .and_then(|tree| tree.get_type(type_name.name))
         {
             return def.def.clone();
         }
 
-        panic!("Could not find type row `{}.{}`", namespace, name);
+        panic!("Could not find type `{}`", type_name);
     }
 
-    pub fn resolve_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
+    // TODO: remove
+    pub fn find_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
         if let Some(def) = self
             .types
             .get_namespace(namespace)
-            .and_then(|tree| tree.get_type(trim_tick(name)))
+            .and_then(|tree| tree.get_type(name))
         {
             if let TypeRow::TypeDef(row) = &def.def {
                 return row.clone();
             }
         }
 
-        panic!("Could not find type def `{}.{}`", namespace, name);
+        panic!("Could not find type `{}.{}`", namespace, name);
+    }
+
+    pub fn resolve_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
+        if let Some(def) = self
+            .types
+            .get_namespace(type_name.namespace)
+            .and_then(|tree| tree.get_type(type_name.name))
+        {
+            if let TypeRow::TypeDef(row) = &def.def {
+                return row.clone();
+            }
+        }
+
+        panic!("Could not find type `{}`", type_name);
     }
 
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
@@ -276,7 +296,7 @@ impl TypeReader {
                 })
                 .clone()
         } else {
-            self.resolve_type_def(type_ref.namespace(), type_ref.name())
+            self.resolve_type_def(type_ref.type_name())
         }
     }
 
@@ -288,7 +308,7 @@ impl TypeReader {
         let is_const = blob
             .read_modifiers()
             .iter()
-            .any(|def| def.full_name() == ("System.Runtime.CompilerServices", "IsConst"));
+            .any(|def| def.type_name() == TypeName::IsConst);
 
         let by_ref = blob.read_expected(0x10);
 
@@ -325,17 +345,17 @@ impl TypeReader {
             return self.type_from_blob(&mut blob, generics);
         }
 
-        let full_name = code.full_name();
+        let full_name = code.type_name();
 
-        for (namespace, name, kind) in &WELL_KNOWN_TYPES {
-            if full_name == (namespace, name) {
+        for (known_name, kind) in WELL_KNOWN_TYPES {
+            if full_name == known_name {
                 return kind.clone();
             }
         }
 
-        for (from, to) in &REMAP_TYPES {
-            if full_name == *from {
-                return TypeReader::get().resolve_type_def(to.0, to.1).into();
+        for (from, to) in REMAP_TYPES {
+            if full_name == from {
+                return TypeReader::get().resolve_type_def(to).into();
             }
         }
 
@@ -382,6 +402,7 @@ impl TypeReader {
     }
 }
 
+// TODO: remove
 fn trim_tick(name: &str) -> &str {
     let len = name.len() - 2;
     match name.as_bytes().get(len) {
@@ -390,9 +411,9 @@ fn trim_tick(name: &str) -> &str {
     }
 }
 
-fn is_well_known(namespace: &'static str, name: &'static str) -> bool {
-    for entry in &WELL_KNOWN_TYPES {
-        if name == entry.1 && namespace == entry.0 {
+fn is_well_known(type_name: TypeName) -> bool {
+    for (known_name, _) in WELL_KNOWN_TYPES {
+        if type_name == known_name {
             return true;
         }
     }
@@ -400,35 +421,31 @@ fn is_well_known(namespace: &'static str, name: &'static str) -> bool {
     false
 }
 
-const REMAP_TYPES: [((&str, &str), (&str, &str)); 1] = [(
-    ("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F"),
-    ("Windows.Foundation.Numerics", "Matrix3x2"),
+const REMAP_TYPES: [(TypeName, TypeName); 1] = [(
+    TypeName::D2D_MATRIX_3X2_F,
+    TypeName::Matrix3x2
 )];
 
-const WELL_KNOWN_TYPES: [(&str, &str, ElementType); 9] = [
-    ("System", "Guid", ElementType::Guid),
+const WELL_KNOWN_TYPES: [(TypeName, ElementType); 9] = [
+    (TypeName::Guid, ElementType::Guid),
     (
-        "Windows.Win32.System.Com",
-        "IUnknown",
+        TypeName::IUnknown,
         ElementType::IUnknown,
     ),
-    ("Windows.Foundation", "HResult", ElementType::HRESULT),
-    ("Windows.Win32.Foundation", "HRESULT", ElementType::HRESULT),
-    ("Windows.Win32.System.WinRT", "HSTRING", ElementType::String),
+    (TypeName::HResult, ElementType::HRESULT),
+    (TypeName::HRESULT, ElementType::HRESULT),
+    (TypeName::HSTRING, ElementType::String),
     (
-        "Windows.Win32.System.WinRT",
-        "IInspectable",
+        TypeName::IInspectable,
         ElementType::IInspectable,
     ),
     (
-        "Windows.Win32.System.SystemServices",
-        "LARGE_INTEGER",
+        TypeName::LARGE_INTEGER,
         ElementType::I64,
     ),
     (
-        "Windows.Win32.System.SystemServices",
-        "ULARGE_INTEGER",
+        TypeName::ULARGE_INTEGER,
         ElementType::U64,
     ),
-    ("System", "Type", ElementType::TypeName),
+    (TypeName::Type, ElementType::TypeName),
 ];

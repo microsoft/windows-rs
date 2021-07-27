@@ -227,11 +227,11 @@ impl TypeDef {
 
                 // TODO: IIterable needs IIterator's full definition in order to support iteration.
                 // Find a more natural way to express this dependency.
-                if self.full_name() == ("Windows.Foundation.Collections", "IIterable`1") {
+                if self.type_name() == TypeName::IIterable {
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Full,
                         def: TypeReader::get()
-                            .resolve_type_row("Windows.Foundation.Collections", "IIterator`1"),
+                            .resolve_type_row(TypeName::IIterator),
                     });
                 }
 
@@ -288,34 +288,34 @@ impl TypeDef {
                 let reader = TypeReader::get();
                 let mut dependencies = vec![];
 
-                match self.full_name() {
-                    ("Windows.Win32.Foundation", "BSTR") => {
+                // TODO: find better way to manage this
+                let type_name = self.type_name();
+                
+                if type_name == TypeName::BSTR {
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
                             def: reader
-                                .resolve_type_row("Windows.Win32.Foundation", "SysFreeString"),
+                                .resolve_type_row(TypeName::SysFreeString),
                         });
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
                             def: reader
-                                .resolve_type_row("Windows.Win32.Foundation", "SysAllocStringLen"),
+                                .resolve_type_row(TypeName::SysAllocStringLen),
                         });
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
                             def: reader
-                                .resolve_type_row("Windows.Win32.Foundation", "SysStringLen"),
+                                .resolve_type_row(TypeName::SysStringLen),
                         });
                     }
-                    ("Windows.Foundation.Numerics", "Matrix3x2") => {
+                    else if type_name == TypeName::Matrix3x2 {
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
-                            def: reader.resolve_type_row(
-                                "Windows.Win32.Graphics.Direct2D",
-                                "D2D1MakeRotateMatrix",
+                            def: reader.resolve_type_row(TypeName::D2D1MakeRotateMatrix
                             ),
                         });
                     }
-                    _ => {
+                   else {
                         dependencies.extend(
                             self.fields()
                                 .map(|f| f.definition(TypeInclude::Minimal))
@@ -329,7 +329,7 @@ impl TypeDef {
                             });
                         }
                     }
-                }
+                
 
                 dependencies
             }
@@ -510,17 +510,21 @@ impl TypeDef {
         self.row.str(2)
     }
 
-    pub fn full_name(&self) -> (&'static str, &'static str) {
-        (self.namespace(), self.name())
+    // pub fn full_name(&self) -> (&'static str, &'static str) {
+    //     (self.namespace(), self.name())
+    // }
+
+    pub fn type_name(&self) -> TypeName {
+        TypeName::new(self.namespace(), self.name())
     }
 
-    pub fn extends(&self) -> (&'static str, &'static str) {
+    pub fn extends(&self) -> TypeName {
         let extends = self.row.u32(3);
 
         if extends == 0 {
-            ("", "")
+            TypeName::None
         } else {
-            TypeDefOrRef::decode(self.row.file, extends).full_name()
+            TypeDefOrRef::decode(self.row.file, extends).type_name()
         }
     }
 
@@ -593,7 +597,7 @@ impl TypeDef {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
                     // TODO: https://github.com/microsoft/win32metadata/issues/389
-                    return Some(TypeReader::get().resolve_type_def(self.namespace(), name));
+                    return Some(TypeReader::get().find_type_def(self.namespace(), name));
                 }
             }
 
@@ -615,7 +619,7 @@ impl TypeDef {
         match self.kind() {
             TypeKind::Struct => {
                 // TODO: should be "if self.can_drop().is_some() {" once win32metadata bugs are fixed (423, 422, 421, 389)
-                if self.full_name() == ("Windows.Win32.Foundation", "BSTR") {
+                if self.type_name() == TypeName::BSTR {
                     false
                 } else {
                     self.fields().all(|f| f.is_blittable())
@@ -631,9 +635,9 @@ impl TypeDef {
             TypeKind::Interface
         } else {
             match self.extends() {
-                ("System", "Enum") => TypeKind::Enum,
-                ("System", "MulticastDelegate") => TypeKind::Delegate,
-                ("System", "ValueType") => TypeKind::Struct,
+                TypeName::Enum => TypeKind::Enum,
+                TypeName::Delegate => TypeKind::Delegate,
+                TypeName::Struct => TypeKind::Struct,
                 _ => TypeKind::Class,
             }
         }
@@ -722,7 +726,7 @@ impl TypeDef {
     // definition. This lets the TypeTree be built for a specific architecture
     // without accidentally pulling in the wrong definition.
     pub fn resolve(&self) -> Self {
-        TypeReader::get().resolve_type_def(self.namespace(), self.name())
+        TypeReader::get().resolve_type_def(self.type_name())
     }
 }
 
@@ -732,12 +736,12 @@ impl Iterator for Bases {
     type Item = TypeDef;
 
     fn next(&mut self) -> Option<Self::Item> {
-        let (namespace, name) = self.0.extends();
+        let extends = self.0.extends();
 
-        if (namespace, name) == ("System", "Object") {
+        if extends == TypeName::Object {
             None
         } else {
-            self.0 = TypeReader::get().resolve_type_def(namespace, name);
+            self.0 = TypeReader::get().resolve_type_def(extends);
             Some(self.0.clone())
         }
     }

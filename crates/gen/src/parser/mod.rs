@@ -16,6 +16,7 @@ mod traits;
 mod type_kind;
 mod type_reader;
 mod type_tree;
+mod type_name;
 
 pub use blob::*;
 pub use codes::*;
@@ -33,3 +34,4 @@ pub use traits::*;
 pub use type_kind::*;
 pub use type_reader::*;
 pub use type_tree::*;
+pub use type_name::*;

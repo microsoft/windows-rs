@@ -141,7 +141,7 @@ impl ImplementMacro {
                 let name = input.ident.to_string();
 
                 // TODO: we should make this return Option to return compiler error when not found
-                let def = reader.resolve_type_def(namespace, &name);
+                let def = reader.find_type_def(namespace, &name);
 
                 if def.is_public_composable() {
                     self.extend.replace(def);
@@ -218,7 +218,7 @@ impl UseTree2 {
 
                 if reader.types.get_namespace(namespace).is_some() {
                     // TODO: error if not found
-                    let mut def = reader.resolve_type_def(namespace, &name);
+                    let mut def = reader.find_type_def(namespace, &name);
 
                     match def.kind() {
                         TypeKind::Class | TypeKind::Interface => {}

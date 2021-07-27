@@ -70,6 +70,15 @@ impl ElementType {
         }
     }
 
+    // pub fn type_name(&self) -> TypeName {
+    //     match self {
+    //         Self::MethodDef(def) => TypeName { namespace: def.parent().namespace(),
+    //         Self::Field(def) => TypeName { namespace: def.parent().namespace(),
+    //         Self::TypeDef(def) => TypeName { namespace: def.namespace(),
+    //         _ => "",
+    //     }
+    // }
+
     pub fn from_code(code: u32) -> Option<Self> {
         match code {
             0x01 => Some(Self::Void),
@@ -255,6 +264,7 @@ impl ElementType {
         }
     }
 
+    // TODO: return Vec<TypeName> since they need to be re-resolved anyway?
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
             Self::MethodDef(t) => t.dependencies(),
@@ -265,6 +275,7 @@ impl ElementType {
         }
     }
 
+    // TODO: return Vec<TypeName> since they need to be re-resolved anyway?
     pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
             Self::TypeDef(t) => t.definition(include),

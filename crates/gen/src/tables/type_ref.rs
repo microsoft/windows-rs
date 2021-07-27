@@ -20,6 +20,10 @@ impl TypeRef {
         (self.namespace(), self.name())
     }
 
+    pub fn type_name(&self) -> TypeName {
+        TypeName { namespace: self.0.str(2), name: self.0.str(1) }
+    }
+
     pub fn resolve(&self) -> TypeDef {
         TypeReader::get().resolve_type_ref(self)
     }
