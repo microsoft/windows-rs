@@ -24,9 +24,3 @@ impl TypeRef {
         TypeReader::get().resolve_type_ref(self)
     }
 }
-
-impl std::fmt::Debug for TypeRef {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}.{}", self.namespace(), self.name())
-    }
-}

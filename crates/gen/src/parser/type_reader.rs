@@ -9,7 +9,7 @@ pub struct TypeReader {
     pub types: TypeTree,
 }
 
-#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
+#[derive(Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub enum TypeRow {
     TypeDef(tables::TypeDef),
     MethodDef(tables::MethodDef),

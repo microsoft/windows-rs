@@ -3,7 +3,7 @@ use super::*;
 // TODO: need to split win32 and winrt structs as their signatures are different and win32 structs also include unions and they are
 // radically different.
 
-#[derive(Debug, Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Struct(pub tables::TypeDef);
 
 impl Struct {
@@ -451,13 +451,13 @@ mod tests {
         assert_eq!(f[5].name(), "CompositionMode");
         assert_eq!(f[6].name(), "ApprovedPresentDuration");
 
-        assert_eq!(f[0].signature().kind, ElementType::U32);
-        assert_eq!(f[1].signature().kind, ElementType::U32);
-        assert_eq!(f[2].signature().kind, ElementType::U32);
-        assert_eq!(f[3].signature().kind, ElementType::I64);
-        assert_eq!(f[4].signature().kind, ElementType::I64);
+        assert!(f[0].signature().kind == ElementType::U32);
+        assert!(f[1].signature().kind == ElementType::U32);
+        assert!(f[2].signature().kind == ElementType::U32);
+        assert!(f[3].signature().kind == ElementType::I64);
+        assert!(f[4].signature().kind == ElementType::I64);
         assert_eq!(f[5].signature().kind.name(), "DXGI_FRAME_PRESENTATION_MODE");
-        assert_eq!(f[6].signature().kind, ElementType::U32);
+        assert!(f[6].signature().kind == ElementType::U32);
     }
 
     #[test]

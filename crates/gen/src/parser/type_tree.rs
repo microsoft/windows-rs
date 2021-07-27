@@ -1,13 +1,13 @@
 use super::*;
 
-#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
+#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub enum TypeInclude {
     Full,
     Minimal,
     None,
 }
 
-#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
+#[derive(Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub struct TypeEntry {
     pub def: TypeRow,
     pub include: TypeInclude,

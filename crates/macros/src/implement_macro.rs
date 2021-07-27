@@ -5,7 +5,7 @@ use syn::*;
 
 custom_keyword!(extend);
 
-#[derive(Debug, Default)]
+#[derive(Default)]
 pub struct ImplementMacro {
     pub implement: BTreeSet<TypeDef>,
     pub extend: Option<TypeDef>,

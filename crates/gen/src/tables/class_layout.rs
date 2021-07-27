@@ -12,9 +12,3 @@ impl ClassLayout {
         self.0.u32(1)
     }
 }
-
-impl std::fmt::Debug for ClassLayout {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("ClassLayout").field("row", &self.0).finish()
-    }
-}
