@@ -17,12 +17,20 @@ impl TypeName {
     pub const IsConst: Self = Self::from_const("System.Runtime.CompilerServices", "IsConst");
 
     pub const TimeSpan: Self = Self::from_const("Windows.Foundation", "TimeSpan");
+    pub const HResult: Self = Self::from_const("Windows.Foundation", "HResult");
+    pub const IAsyncAction: Self = Self::from_const("Windows.Foundation", "IAsyncAction");
+    pub const IAsyncActionWithProgress: Self =
+        Self::from_const("Windows.Foundation", "IAsyncActionWithProgress");
+    pub const IAsyncOperation: Self = Self::from_const("Windows.Foundation", "IAsyncOperation");
+    pub const IAsyncOperationWithProgress: Self =
+        Self::from_const("Windows.Foundation", "IAsyncOperationWithProgress");
+
     pub const Vector2: Self = Self::from_const("Windows.Foundation.Numerics", "Vector2");
     pub const Vector3: Self = Self::from_const("Windows.Foundation.Numerics", "Vector3");
     pub const Vector4: Self = Self::from_const("Windows.Foundation.Numerics", "Vector4");
     pub const Matrix3x2: Self = Self::from_const("Windows.Foundation.Numerics", "Matrix3x2");
     pub const Matrix4x4: Self = Self::from_const("Windows.Foundation.Numerics", "Matrix4x4");
-    pub const HResult: Self = Self::from_const("Windows.Foundation", "HResult");
+
     pub const IIterable: Self = Self::from_const("Windows.Foundation.Collections", "IIterable");
     pub const IIterator: Self = Self::from_const("Windows.Foundation.Collections", "IIterator");
     pub const IVectorView: Self = Self::from_const("Windows.Foundation.Collections", "IVectorView");

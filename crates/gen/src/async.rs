@@ -32,16 +32,11 @@ pub enum AsyncKind {
 }
 
 pub fn async_kind(def: &tables::TypeDef) -> AsyncKind {
-    // TODO: Use TypeName
-    if def.namespace() != "Windows.Foundation" {
-        return AsyncKind::None;
-    }
-
-    match def.name() {
-        "IAsyncAction" => AsyncKind::Action,
-        "IAsyncActionWithProgress`1" => AsyncKind::ActionWithProgress,
-        "IAsyncOperation`1" => AsyncKind::Operation,
-        "IAsyncOperationWithProgress`2" => AsyncKind::OperationWithProgress,
+    match def.type_name() {
+        TypeName::IAsyncAction => AsyncKind::Action,
+        TypeName::IAsyncActionWithProgress => AsyncKind::ActionWithProgress,
+        TypeName::IAsyncOperation => AsyncKind::Operation,
+        TypeName::IAsyncOperationWithProgress => AsyncKind::OperationWithProgress,
         _ => AsyncKind::None,
     }
 }
