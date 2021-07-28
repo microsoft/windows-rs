@@ -32,6 +32,7 @@ pub enum AsyncKind {
 }
 
 pub fn async_kind(def: &tables::TypeDef) -> AsyncKind {
+    // TODO: Use TypeName
     if def.namespace() != "Windows.Foundation" {
         return AsyncKind::None;
     }

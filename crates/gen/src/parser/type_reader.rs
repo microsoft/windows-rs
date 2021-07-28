@@ -111,7 +111,7 @@ impl TypeReader {
 
                 let namespace = types.insert_namespace(type_name.namespace, 0);
 
-                if def.is_winrt() || extends == TypeName::Object {
+                if def.is_winrt() || extends != TypeName::Object {
                     namespace.insert_type(type_name.name, TypeRow::TypeDef(def));
                 } else {
                     for field in def.fields() {
