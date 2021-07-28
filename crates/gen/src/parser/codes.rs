@@ -321,14 +321,6 @@ impl TypeDefOrRef {
         }
     }
 
-    // pub fn full_name(&self) -> (&'static str, &'static str) {
-    //     match self {
-    //         Self::TypeDef(value) => value.full_name(),
-    //         Self::TypeRef(value) => value.full_name(),
-    //         _ => unexpected!(),
-    //     }
-    // }
-
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::TypeDef(value) => value.type_name(),

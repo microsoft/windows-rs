@@ -502,10 +502,6 @@ impl TypeDef {
         self.row.str(2)
     }
 
-    // pub fn full_name(&self) -> (&'static str, &'static str) {
-    //     (self.namespace(), self.name())
-    // }
-
     pub fn type_name(&self) -> TypeName {
         TypeName::new(self.namespace(), self.name())
     }

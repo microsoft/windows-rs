@@ -16,10 +16,6 @@ impl TypeRef {
         self.0.str(2)
     }
 
-    pub fn full_name(&self) -> (&'static str, &'static str) {
-        (self.namespace(), self.name())
-    }
-
     pub fn type_name(&self) -> TypeName {
         TypeName::new(self.0.str(2), self.0.str(1))
     }
