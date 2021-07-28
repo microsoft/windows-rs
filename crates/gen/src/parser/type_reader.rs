@@ -25,24 +25,13 @@ impl TypeRow {
         }
     }
 
-    pub fn name(&self) -> &str {
+    pub fn type_name(&self) -> TypeName {
         match self {
-            Self::TypeDef(def) => def.name(),
-            Self::MethodDef(def) => def.name(),
-            Self::Field(def) => def.name(),
+            Self::TypeDef(def) => def.type_name(),
+            Self::MethodDef(def) => TypeName::new(def.parent().namespace(), def.name()),
+            Self::Field(def) => TypeName::new(def.parent().namespace(), def.name()),
         }
-    }
-
-    pub fn namespace(&self) -> &str {
-        match self {
-            Self::TypeDef(def) => def.namespace(),
-            Self::MethodDef(def) => def.parent().namespace(),
-            Self::Field(def) => def.parent().namespace(),
-        }
-    }
-
-    // type_name?
-}
+    }}
 
 impl From<&TypeRow> for ElementType {
     fn from(from: &TypeRow) -> Self {
@@ -184,13 +173,13 @@ impl TypeReader {
 
     fn import_type_dependencies(&mut self, def: &TypeRow, include: TypeInclude) {
         for entry in def.dependencies(include) {
-            let namespace = entry.def.namespace();
+            let type_name = entry.def.type_name();
 
             // If def.namespace is empty it means its a nested type and we need to find its dependencies to avoid type slicing.
-            if namespace.is_empty() {
+            if type_name.namespace.is_empty() {
                 self.import_type_dependencies(&entry.def, TypeInclude::Minimal);
             } else {
-                self.import_type_include(namespace, trim_tick(entry.def.name()), entry.include);
+                self.import_type_include(type_name.namespace, type_name.name, entry.include);
             }
         }
     }
@@ -399,15 +388,6 @@ impl TypeReader {
             }
             _ => unexpected!(),
         }
-    }
-}
-
-// TODO: remove
-fn trim_tick(name: &str) -> &str {
-    let len = name.len() - 2;
-    match name.as_bytes().get(len) {
-        Some(c) if *c == b'`' => &name[..len],
-        _ => name,
     }
 }
 
