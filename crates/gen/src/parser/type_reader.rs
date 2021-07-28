@@ -218,6 +218,7 @@ impl TypeReader {
         })
     }
 
+    // TODO: remove
     pub fn resolve_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
         if let Some(def) = self
             .types
@@ -232,6 +233,7 @@ impl TypeReader {
         panic!("Could not find type `{}`", type_name);
     }
 
+    // TODO: move to TypeRef?
     pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
             self.nested[&scope.resolve().row]
