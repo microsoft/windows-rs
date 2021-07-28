@@ -213,21 +213,6 @@ impl TypeReader {
         self.get_type(type_name).unwrap_or_else(||panic!("Expected type not found `{}.{}`", type_name.namespace(), type_name.name()))
     }
 
-    // TODO: remove
-    pub fn find_type_def(&'static self, namespace: &str, name: &str) -> tables::TypeDef {
-        if let Some(def) = self
-            .types
-            .get_namespace(namespace)
-            .and_then(|tree| tree.get_type(name))
-        {
-            if let TypeRow::TypeDef(row) = &def.def {
-                return row.clone();
-            }
-        }
-
-        panic!("Could not find type `{}.{}`", namespace, name);
-    }
-
     pub fn resolve_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
         if let Some(def) = self
             .types

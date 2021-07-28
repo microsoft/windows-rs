@@ -572,12 +572,14 @@ impl TypeDef {
         })
     }
 
+    // TODO: return TypERow?
     pub fn is_convertible_to(&self) -> Option<TypeDef> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
-                    // TODO: https://github.com/microsoft/win32metadata/issues/389
-                    return Some(TypeReader::get().find_type_def(self.namespace(), name));
+                    return TypeReader::get().get_type((self.namespace(), name.as_str())).and_then(|row| {
+                        if let TypeRow::TypeDef(def) = row { Some(def) } else { None }
+                    })
                 }
             }
 
