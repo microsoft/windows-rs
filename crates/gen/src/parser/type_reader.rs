@@ -205,7 +205,7 @@ impl TypeReader {
         self.types
             .get_namespace(type_name.namespace())
             .and_then(|tree| tree.get_type(type_name.name()))
-            .and_then(|entry| Some(entry.def.clone()))
+            .map(|entry| entry.def.clone())
     }
 
     pub fn expect_type<T: HasTypeName>(&'static self, type_name: T) -> TypeRow {
@@ -298,7 +298,7 @@ impl TypeReader {
 
         for (known_name, kind) in WELL_KNOWN_TYPES {
             if full_name == known_name {
-                return kind.clone();
+                return kind;
             }
         }
 
