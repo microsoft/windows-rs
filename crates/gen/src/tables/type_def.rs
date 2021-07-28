@@ -224,7 +224,7 @@ impl TypeDef {
                 if self.type_name() == TypeName::IIterable {
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Full,
-                        def: TypeReader::get().resolve_type_row(TypeName::IIterator),
+                        def: TypeReader::get().expect_type(TypeName::IIterator),
                     });
                 }
 
@@ -287,20 +287,20 @@ impl TypeDef {
                 if type_name == TypeName::BSTR {
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Minimal,
-                        def: reader.resolve_type_row(TypeName::SysFreeString),
+                        def: reader.expect_type(TypeName::SysFreeString),
                     });
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Minimal,
-                        def: reader.resolve_type_row(TypeName::SysAllocStringLen),
+                        def: reader.expect_type(TypeName::SysAllocStringLen),
                     });
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Minimal,
-                        def: reader.resolve_type_row(TypeName::SysStringLen),
+                        def: reader.expect_type(TypeName::SysStringLen),
                     });
                 } else if type_name == TypeName::Matrix3x2 {
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Minimal,
-                        def: reader.resolve_type_row(TypeName::D2D1MakeRotateMatrix),
+                        def: reader.expect_type(TypeName::D2D1MakeRotateMatrix),
                     });
                 } else {
                     dependencies.extend(

@@ -219,28 +219,16 @@ impl TypeReader {
 
     // TODO: consolidate all these different resolve functions
 
-    pub fn resolve_type(&'static self, type_name: TypeName) -> ElementType {
-        if let Some(def) = self
+    pub fn get_type(&'static self, type_name: TypeName) -> Option<TypeRow> {
+        self
             .types
             .get_namespace(type_name.namespace)
             .and_then(|tree| tree.get_type(type_name.name))
-        {
-            return (&def.def).into();
-        }
-
-        panic!("Could not find type `{}`", type_name);
+            .and_then(|entry|Some(entry.def.clone()))
     }
 
-    pub fn resolve_type_row(&'static self, type_name: TypeName) -> TypeRow {
-        if let Some(def) = self
-            .types
-            .get_namespace(type_name.namespace)
-            .and_then(|tree| tree.get_type(type_name.name))
-        {
-            return def.def.clone();
-        }
-
-        panic!("Could not find type `{}`", type_name);
+    pub fn expect_type(&'static self, type_name: TypeName) -> TypeRow {
+        self.get_type(type_name).unwrap_or_else(||panic!("Could not find type `{}`", type_name))
     }
 
     // TODO: remove
