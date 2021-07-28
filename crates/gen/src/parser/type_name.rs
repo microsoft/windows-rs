@@ -1,3 +1,28 @@
+pub trait HasTypeName: Copy {
+    fn namespace(&self) -> &str;
+    fn name(&self) -> &str;
+}
+
+impl HasTypeName for TypeName {
+    fn namespace(&self) -> &str {
+        self.namespace
+    }
+
+    fn name(&self) -> &str {
+        self.name
+    }
+}
+
+impl HasTypeName for (&str, &str) {
+    fn namespace(&self) -> &str {
+        self.0
+    }
+
+    fn name(&self) -> &str {
+        self.1
+    }
+}
+
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeName {
     pub namespace: &'static str,

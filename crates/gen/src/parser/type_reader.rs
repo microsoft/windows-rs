@@ -152,22 +152,6 @@ impl TypeReader {
         }
     }
 
-    //pub fn find(namespace: &str, name: &str) ->
-
-    pub fn get_type_name(
-        &'static self,
-        namespace: &str,
-        name: &str,
-    ) -> Option<(&'static str, &'static str)> {
-        if let Some(tree) = self.types.get_namespace(namespace) {
-            if let Some((key, _)) = tree.types.get_key_value(name) {
-                return Some((tree.namespace, key));
-            }
-        }
-
-        None
-    }
-
     pub fn import_type(&mut self, namespace: &str, name: &str) -> bool {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
@@ -217,18 +201,16 @@ impl TypeReader {
         self.nested.get(&enclosing.row)
     }
 
-    // TODO: consolidate all these different resolve functions
-
-    pub fn get_type(&'static self, type_name: TypeName) -> Option<TypeRow> {
+    pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<TypeRow> {
         self
             .types
-            .get_namespace(type_name.namespace)
-            .and_then(|tree| tree.get_type(type_name.name))
+            .get_namespace(type_name.namespace())
+            .and_then(|tree| tree.get_type(type_name.name()))
             .and_then(|entry|Some(entry.def.clone()))
     }
 
-    pub fn expect_type(&'static self, type_name: TypeName) -> TypeRow {
-        self.get_type(type_name).unwrap_or_else(||panic!("Could not find type `{}`", type_name))
+    pub fn expect_type<T: HasTypeName>(&'static self, type_name: T) -> TypeRow {
+        self.get_type(type_name).unwrap_or_else(||panic!("Expected type not found `{}.{}`", type_name.namespace(), type_name.name()))
     }
 
     // TODO: remove
