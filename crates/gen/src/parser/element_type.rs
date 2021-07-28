@@ -237,7 +237,6 @@ impl ElementType {
         }
     }
 
-    // TODO: return Vec<TypeName> since they need to be re-resolved anyway?
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
             Self::MethodDef(t) => t.dependencies(),
@@ -248,7 +247,6 @@ impl ElementType {
         }
     }
 
-    // TODO: return Vec<TypeName> since they need to be re-resolved anyway?
     pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
             Self::TypeDef(t) => t.definition(include),
