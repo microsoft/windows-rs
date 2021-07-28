@@ -63,17 +63,22 @@ mod tests {
         );
 
         assert_eq!(
-            Gen::Relative("Windows").namespace("Windows.Foundation").as_str(),
+            Gen::Relative("Windows")
+                .namespace("Windows.Foundation")
+                .as_str(),
             "Foundation::"
         );
 
         assert_eq!(
-            Gen::Relative("Windows.Foundation").namespace("Windows.Foundation").as_str(),
+            Gen::Relative("Windows.Foundation")
+                .namespace("Windows.Foundation")
+                .as_str(),
             ""
         );
 
         assert_eq!(
-            Gen::Relative("Windows.Foundation.Collections").namespace("Windows.Foundation")
+            Gen::Relative("Windows.Foundation.Collections")
+                .namespace("Windows.Foundation")
                 .as_str(),
             "super::"
         );

@@ -202,15 +202,20 @@ impl TypeReader {
     }
 
     pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<TypeRow> {
-        self
-            .types
+        self.types
             .get_namespace(type_name.namespace())
             .and_then(|tree| tree.get_type(type_name.name()))
-            .and_then(|entry|Some(entry.def.clone()))
+            .and_then(|entry| Some(entry.def.clone()))
     }
 
     pub fn expect_type<T: HasTypeName>(&'static self, type_name: T) -> TypeRow {
-        self.get_type(type_name).unwrap_or_else(||panic!("Expected type not found `{}.{}`", type_name.namespace(), type_name.name()))
+        self.get_type(type_name).unwrap_or_else(|| {
+            panic!(
+                "Expected type not found `{}.{}`",
+                type_name.namespace(),
+                type_name.name()
+            )
+        })
     }
 
     pub fn resolve_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {

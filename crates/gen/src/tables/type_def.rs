@@ -577,9 +577,15 @@ impl TypeDef {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
-                    return TypeReader::get().get_type((self.namespace(), name.as_str())).and_then(|row| {
-                        if let TypeRow::TypeDef(def) = row { Some(def) } else { None }
-                    })
+                    return TypeReader::get()
+                        .get_type((self.namespace(), name.as_str()))
+                        .and_then(|row| {
+                            if let TypeRow::TypeDef(def) = row {
+                                Some(def)
+                            } else {
+                                None
+                            }
+                        });
                 }
             }
 

@@ -158,7 +158,11 @@ impl ImplementMacro {
     }
 }
 
-fn get_public_composable(reader: &'static TypeReader, namespace: &str, name: &str) -> Option<TypeDef> {
+fn get_public_composable(
+    reader: &'static TypeReader,
+    namespace: &str,
+    name: &str,
+) -> Option<TypeDef> {
     if let Some(TypeRow::TypeDef(def)) = reader.get_type((namespace, name)) {
         if def.is_public_composable() {
             return Some(def);
@@ -240,14 +244,14 @@ impl UseTree2 {
                             def.generics
                                 .push(g.to_element_type(reader, &mut String::new())?);
                         }
-    
+
                         Ok(ElementType::TypeDef(def))
                     } else {
                         Err(Error::new_spanned(
-                                &input.ident,
-                                format!("`{}.{}` not a class or interface", namespace, name),
-                            ))
-                        }
+                            &input.ident,
+                            format!("`{}.{}` not a class or interface", namespace, name),
+                        ))
+                    }
                 } else if let Some(def) = ElementType::from_string_lossy(&name) {
                     Ok(def)
                 } else {
