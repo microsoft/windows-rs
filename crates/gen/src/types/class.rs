@@ -99,7 +99,7 @@ impl Class {
 
         if include == TypeInclude::Full {
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-            let runtime_name = format!("{}.{}", self.0.namespace(), self.0.name());
+            let runtime_name = format!("{}", self.0.type_name());
 
             let factories = interfaces.iter().filter_map(|interface| {
                 match interface.kind {

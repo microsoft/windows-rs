@@ -458,7 +458,6 @@ mod tests {
         assert!(f[2].signature().kind == ElementType::U32);
         assert!(f[3].signature().kind == ElementType::I64);
         assert!(f[4].signature().kind == ElementType::I64);
-        assert_eq!(f[5].signature().kind.name(), "DXGI_FRAME_PRESENTATION_MODE");
         assert!(f[6].signature().kind == ElementType::U32);
     }
 

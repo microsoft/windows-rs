@@ -74,11 +74,7 @@ impl TypeDef {
             }
         }
 
-        panic!(
-            "`{}.{}` does not have a default interface.",
-            self.namespace(),
-            self.name()
-        );
+        panic!("`{}` does not have a default interface.", self.type_name());
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
@@ -107,17 +103,16 @@ impl TypeDef {
     where
         F: FnOnce(&str) -> Ident,
     {
-        let namespace = self.namespace();
+        let type_name = self.type_name();
 
-        if namespace.is_empty() {
+        if type_name.namespace.is_empty() {
             let name = format_name(&self.scoped_name());
             quote! { #name }
         } else {
-            let name = self.name();
-            let namespace = gen.namespace(self.namespace());
+            let namespace = gen.namespace(type_name.namespace);
+            let name = format_name(type_name.name);
 
             if self.generics.is_empty() {
-                let name = format_name(name);
                 quote! { #namespace#name }
             } else {
                 let colon_separated = if turbo || !namespace.as_str().is_empty() {
@@ -126,7 +121,6 @@ impl TypeDef {
                     quote! {}
                 };
 
-                let name = format_name(&name[..name.len() - 2]);
                 let generics = self.generics.iter().map(|g| g.gen_name(gen));
                 quote! { #namespace#name#colon_separated<#(#generics),*> }
             }
@@ -365,19 +359,17 @@ impl TypeDef {
         match self.kind() {
             TypeKind::Interface => self.interface_signature(),
             TypeKind::Class => format!(
-                "rc({}.{};{})",
-                self.namespace(),
-                self.name(),
+                "rc({};{})",
+                self.type_name(),
                 self.default_interface().interface_signature()
             ),
             TypeKind::Enum => format!(
-                "enum({}.{};{})",
-                self.namespace(),
-                self.name(),
+                "enum({};{})",
+                self.type_name(),
                 self.underlying_type().type_signature()
             ),
             TypeKind::Struct => {
-                let mut result = format!("struct({}.{}", self.namespace(), self.name());
+                let mut result = format!("struct({}", self.type_name());
 
                 for field in self.fields() {
                     result.push(';');

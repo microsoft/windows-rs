@@ -305,22 +305,6 @@ impl ResolutionScope {
 }
 
 impl TypeDefOrRef {
-    pub fn namespace(&self) -> &'static str {
-        match self {
-            Self::TypeDef(value) => value.namespace(),
-            Self::TypeRef(value) => value.namespace(),
-            _ => unexpected!(),
-        }
-    }
-
-    pub fn name(&self) -> &'static str {
-        match self {
-            Self::TypeDef(value) => value.name(),
-            Self::TypeRef(value) => value.name(),
-            _ => unexpected!(),
-        }
-    }
-
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::TypeDef(value) => value.type_name(),

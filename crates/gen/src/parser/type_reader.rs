@@ -31,7 +31,8 @@ impl TypeRow {
             Self::MethodDef(def) => TypeName::new(def.parent().namespace(), def.name()),
             Self::Field(def) => TypeName::new(def.parent().namespace(), def.name()),
         }
-    }}
+    }
+}
 
 impl From<&TypeRow> for ElementType {
     fn from(from: &TypeRow) -> Self {
@@ -277,10 +278,9 @@ impl TypeReader {
                 .get(type_ref.name())
                 .unwrap_or_else(|| {
                     panic!(
-                        "Could not find nested type `{}` in `{}.{}`",
+                        "Could not find nested type `{}` in `{}`",
                         type_ref.name(),
-                        scope.namespace(),
-                        scope.name()
+                        scope.type_name()
                     )
                 })
                 .clone()
