@@ -9,6 +9,7 @@ pub struct TypeReader {
     pub types: TypeTree,
 }
 
+// TODO: replace with ElementType?
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub enum TypeRow {
     TypeDef(tables::TypeDef),
@@ -218,7 +219,7 @@ impl TypeReader {
         })
     }
 
-    // TODO: remove
+    // TODO: remove and use expect_type instead
     pub fn resolve_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
         if let Some(def) = self
             .types
