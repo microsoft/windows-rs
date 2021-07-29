@@ -103,8 +103,6 @@ impl TypeName {
             .expect("Expected full name separated with `.`");
         Self::new(&full_name[0..index], &full_name[index + 1..])
     }
-
-    // TODO: add find_definition() method here to replace all the resolve calls
 }
 
 fn trim_tick(name: &'static str) -> &'static str {
