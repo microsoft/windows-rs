@@ -19,7 +19,7 @@ jobs:
           rust: stable
           other: x86_64-pc-windows-msvc
         - os: windows-latest
-          rust: 1.51.0
+          rust: 1.53.0
           other: x86_64-pc-windows-msvc
         - os: windows-latest
           rust: nightly
