@@ -97,6 +97,15 @@ impl ElementType {
         }
     }
 
+    pub fn type_name(&self) -> TypeName {
+        match self {
+            Self::TypeDef(def) => def.type_name(),
+            Self::MethodDef(def) => TypeName::new(def.parent().namespace(), def.name()),
+            Self::Field(def) => TypeName::new(def.parent().namespace(), def.name()),
+            _ => unexpected!(),
+        }
+    }
+
     pub fn gen_name(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },

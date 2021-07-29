@@ -21,6 +21,6 @@ impl TypeRef {
     }
 
     pub fn resolve(&self) -> TypeDef {
-        TypeReader::get().resolve_type_ref(self)
+        TypeReader::get().expect_type_ref(self)
     }
 }

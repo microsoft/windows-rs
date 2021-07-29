@@ -46,7 +46,7 @@ impl Attribute {
                 ElementType::String => ConstantValue::String(values.read_str().to_string()),
                 ElementType::TypeName => {
                     let name = values.read_str();
-                    ConstantValue::TypeDef(reader.resolve_type_def(TypeName::parse(name)).clone())
+                    ConstantValue::TypeDef(reader.expect_type_def(TypeName::parse(name)).clone())
                 }
                 ElementType::TypeDef(def) => {
                     let underlying_type = def.underlying_type();
@@ -76,7 +76,7 @@ impl Attribute {
                 0x0E => ConstantValue::String(values.read_str().to_string()),
                 0x50 => {
                     let name = values.read_str();
-                    ConstantValue::TypeDef(reader.resolve_type_def(TypeName::parse(name)).clone())
+                    ConstantValue::TypeDef(reader.expect_type_def(TypeName::parse(name)).clone())
                 }
                 _ => unexpected!(),
             };

@@ -9,42 +9,6 @@ pub struct TypeReader {
     pub types: TypeTree,
 }
 
-// TODO: replace with ElementType?
-#[derive(Clone, Eq, PartialEq, Ord, PartialOrd)]
-pub enum TypeRow {
-    TypeDef(tables::TypeDef),
-    MethodDef(tables::MethodDef),
-    Field(tables::Field),
-}
-
-impl TypeRow {
-    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        match self {
-            Self::TypeDef(def) => def.dependencies(include),
-            Self::MethodDef(def) => def.dependencies(),
-            Self::Field(def) => def.dependencies(include),
-        }
-    }
-
-    pub fn type_name(&self) -> TypeName {
-        match self {
-            Self::TypeDef(def) => def.type_name(),
-            Self::MethodDef(def) => TypeName::new(def.parent().namespace(), def.name()),
-            Self::Field(def) => TypeName::new(def.parent().namespace(), def.name()),
-        }
-    }
-}
-
-impl From<&TypeRow> for ElementType {
-    fn from(from: &TypeRow) -> Self {
-        match from {
-            TypeRow::TypeDef(row) => row.clone().into(),
-            TypeRow::MethodDef(row) => Self::MethodDef(row.clone()),
-            TypeRow::Field(row) => Self::Field(row.clone()),
-        }
-    }
-}
-
 impl TypeReader {
     pub fn gen(&'static self) -> impl Iterator<Item = TokenStream> {
         self.types.gen()
@@ -103,16 +67,16 @@ impl TypeReader {
                 let namespace = types.insert_namespace(type_name.namespace, 0);
 
                 if def.is_winrt() || extends != TypeName::Object {
-                    namespace.insert_type(type_name.name, TypeRow::TypeDef(def));
+                    namespace.insert_type(type_name.name, ElementType::TypeDef(def));
                 } else {
                     for field in def.fields() {
                         let name = field.name();
-                        namespace.insert_type(name, TypeRow::Field(field));
+                        namespace.insert_type(name, ElementType::Field(field));
                     }
 
                     for method in def.methods() {
                         let name = method.name();
-                        namespace.insert_type(name, TypeRow::MethodDef(method));
+                        namespace.insert_type(name, ElementType::MethodDef(method));
                     }
                 }
             }
@@ -157,7 +121,7 @@ impl TypeReader {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
 
-    fn import_type_dependencies(&mut self, def: &TypeRow, include: TypeInclude) {
+    fn import_type_dependencies(&mut self, def: &ElementType, include: TypeInclude) {
         for entry in def.dependencies(include) {
             let type_name = entry.def.type_name();
 
@@ -202,14 +166,14 @@ impl TypeReader {
         self.nested.get(&enclosing.row)
     }
 
-    pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<TypeRow> {
+    pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<ElementType> {
         self.types
             .get_namespace(type_name.namespace())
             .and_then(|tree| tree.get_type(type_name.name()))
             .map(|entry| entry.def.clone())
     }
 
-    pub fn expect_type<T: HasTypeName>(&'static self, type_name: T) -> TypeRow {
+    pub fn expect_type<T: HasTypeName>(&'static self, type_name: T) -> ElementType {
         self.get_type(type_name).unwrap_or_else(|| {
             panic!(
                 "Expected type not found `{}.{}`",
@@ -219,23 +183,25 @@ impl TypeReader {
         })
     }
 
-    // TODO: remove and use expect_type instead
-    pub fn resolve_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
-        if let Some(def) = self
-            .types
-            .get_namespace(type_name.namespace)
-            .and_then(|tree| tree.get_type(type_name.name))
-        {
-            if let TypeRow::TypeDef(row) = &def.def {
-                return row.clone();
-            }
-        }
-
-        panic!("Could not find type `{}`", type_name);
+    pub fn expect_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
+        self.get_type(type_name)
+            .and_then(|def| {
+                if let ElementType::TypeDef(def) = def {
+                    Some(def)
+                } else {
+                    None
+                }
+            })
+            .unwrap_or_else(|| {
+                panic!(
+                    "Expected type not found `{}.{}`",
+                    type_name.namespace(),
+                    type_name.name()
+                )
+            })
     }
 
-    // TODO: move to TypeRef?
-    pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
+    pub fn expect_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
             self.nested[&scope.resolve().row]
                 .get(type_ref.name())
@@ -248,7 +214,7 @@ impl TypeReader {
                 })
                 .clone()
         } else {
-            self.resolve_type_def(type_ref.type_name())
+            self.expect_type_def(type_ref.type_name())
         }
     }
 
@@ -307,7 +273,7 @@ impl TypeReader {
 
         for (from, to) in REMAP_TYPES {
             if full_name == from {
-                return TypeReader::get().resolve_type_def(to).into();
+                return TypeReader::get().expect_type_def(to).into();
             }
         }
 
