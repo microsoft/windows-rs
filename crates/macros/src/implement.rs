@@ -45,7 +45,7 @@ pub fn gen(
 
     let interfaces_len = Literal::usize_unsuffixed(interfaces.len());
 
-    for (interface_count, (t, overrides)) in interfaces.iter().enumerate() {
+    for (interface_count, (def, overrides)) in interfaces.iter().enumerate() {
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
         let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
@@ -76,8 +76,8 @@ pub fn gen(
             }
         });
 
-        let vtable_ident = t.gen_abi_name(&gen);
-        let interface_ident = t.gen_name(&gen);
+        let vtable_ident = def.gen_abi_name(&gen);
+        let interface_ident = def.gen_name(&gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
         let interface_constant = format_ident!("IID{}", interface_count);
 
@@ -91,7 +91,7 @@ pub fn gen(
             const #interface_constant: ::windows::Guid = <#interface_ident as ::windows::Interface>::IID;
         });
 
-        for (vtable_offset, method) in t.methods().enumerate() {
+        for (vtable_offset, method) in def.methods().enumerate() {
             let method_ident = gen::to_ident(&method.rust_name());
             let vcall_ident = format_ident!("abi{}_{}", interface_count, vtable_offset + 6);
 
@@ -99,7 +99,7 @@ pub fn gen(
                 Self::#vcall_ident,
             });
 
-            let signature = method.signature(&t.generics);
+            let signature = method.signature(&def.generics);
             let abi_signature = signature.gen_winrt_abi(&gen);
             let upcall = if *overrides {
                 if implements.overrides.contains(method.name()) {
@@ -120,7 +120,7 @@ pub fn gen(
                 });
         }
 
-        if !t.is_exclusive() {
+        if !def.is_exclusive() {
             tokens.combine(&quote! {
                     impl <#constraints> ::std::convert::From<#impl_ident> for #interface_ident {
                         fn from(implementation: #impl_ident) -> Self {
@@ -152,7 +152,7 @@ pub fn gen(
 
         let mut phantoms = TokenStream::new();
 
-        for _ in 0..t.generic_params().count() {
+        for _ in 0..def.generic_params().count() {
             phantoms.combine(&quote! { std::marker::PhantomData, })
         }
 
