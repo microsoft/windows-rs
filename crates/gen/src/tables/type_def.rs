@@ -714,7 +714,7 @@ impl TypeDef {
     // definition. This lets the TypeTree be built for a specific architecture
     // without accidentally pulling in the wrong definition.
     pub fn resolve(&self) -> Self {
-        TypeReader::get().resolve_type_def(self.type_name())
+        TypeReader::get().expect_type_def(self.type_name())
     }
 }
 
@@ -729,7 +729,7 @@ impl Iterator for Bases {
         if extends == TypeName::Object {
             None
         } else {
-            self.0 = TypeReader::get().resolve_type_def(extends);
+            self.0 = TypeReader::get().expect_type_def(extends);
             Some(self.0.clone())
         }
     }

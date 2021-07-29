@@ -155,14 +155,14 @@ mod tests {
     #[test]
     fn test_bool() {
         let i =
-            TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "IStringable"));
+            TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "IStringable"));
         assert_eq!(i.type_signature(), "{96369f54-8eb6-48f0-abce-c1b211e627c3}")
     }
 
     #[test]
     fn test_interfaces() {
         let i = TypeReader::get()
-            .resolve_type_def(TypeName::new("Windows.Foundation", "IAsyncOperation`1"));
+            .expect_type_def(TypeName::new("Windows.Foundation", "IAsyncOperation`1"));
         let i = Interface(i.with_generics());
         let i = i.interfaces();
         assert_eq!(i.len(), 2);
@@ -181,7 +181,7 @@ mod tests {
     #[test]
     fn test_generic_interfaces() {
         let i = TypeReader::get()
-            .resolve_type_def(TypeName::new("Windows.Foundation.Collections", "IMap`2"));
+            .expect_type_def(TypeName::new("Windows.Foundation.Collections", "IMap`2"));
         let i = Interface(i.with_generics());
         let i = i.interfaces();
         assert_eq!(i.len(), 2);

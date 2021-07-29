@@ -432,13 +432,13 @@ mod tests {
 
     #[test]
     fn test_signature() {
-        let t = TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "Point"));
+        let t = TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "Point"));
         assert_eq!(t.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
     }
 
     #[test]
     fn test_fields() {
-        let t = TypeReader::get().resolve_type_def(TypeName::new(
+        let t = TypeReader::get().expect_type_def(TypeName::new(
             "Windows.Win32.Graphics.Dxgi",
             "DXGI_FRAME_STATISTICS_MEDIA",
         ));
@@ -465,13 +465,13 @@ mod tests {
     fn test_blittable() {
         assert_eq!(
             TypeReader::get()
-                .resolve_type_def(TypeName::new("Windows.Foundation", "Point"))
+                .expect_type_def(TypeName::new("Windows.Foundation", "Point"))
                 .is_blittable(),
             true
         );
         assert_eq!(
             TypeReader::get()
-                .resolve_type_def(TypeName::new("Windows.UI.Xaml.Interop", "TypeName"))
+                .expect_type_def(TypeName::new("Windows.UI.Xaml.Interop", "TypeName"))
                 .is_blittable(),
             false
         );

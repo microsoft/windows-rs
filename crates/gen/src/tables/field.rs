@@ -89,7 +89,7 @@ mod tests {
 
     #[test]
     fn test_generic() {
-        let r = TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "Rect"));
+        let r = TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "Rect"));
 
         let f: Vec<Field> = r.fields().collect();
         assert_eq!(f.len(), 4);

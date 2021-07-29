@@ -183,23 +183,25 @@ impl TypeReader {
         })
     }
 
-    // TODO: remove and use expect_type instead
-    pub fn resolve_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
-        if let Some(def) = self
-            .types
-            .get_namespace(type_name.namespace)
-            .and_then(|tree| tree.get_type(type_name.name))
-        {
-            if let ElementType::TypeDef(row) = &def.def {
-                return row.clone();
-            }
-        }
-
-        panic!("Could not find type `{}`", type_name);
+    pub fn expect_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
+        self.get_type(type_name)
+            .and_then(|def| {
+                if let ElementType::TypeDef(def) = def {
+                    Some(def)
+                } else {
+                    None
+                }
+            })
+            .unwrap_or_else(|| {
+                panic!(
+                    "Expected type not found `{}.{}`",
+                    type_name.namespace(),
+                    type_name.name()
+                )
+            })
     }
 
-    // TODO: move to TypeRef?
-    pub fn resolve_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
+    pub fn expect_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
             self.nested[&scope.resolve().row]
                 .get(type_ref.name())
@@ -212,7 +214,7 @@ impl TypeReader {
                 })
                 .clone()
         } else {
-            self.resolve_type_def(type_ref.type_name())
+            self.expect_type_def(type_ref.type_name())
         }
     }
 
@@ -271,7 +273,7 @@ impl TypeReader {
 
         for (from, to) in REMAP_TYPES {
             if full_name == from {
-                return TypeReader::get().resolve_type_def(to).into();
+                return TypeReader::get().expect_type_def(to).into();
             }
         }
 
