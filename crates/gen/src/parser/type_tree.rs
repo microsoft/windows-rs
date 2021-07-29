@@ -9,7 +9,7 @@ pub enum TypeInclude {
 
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub struct TypeEntry {
-    pub def: TypeRow,
+    pub def: ElementType,
     pub include: TypeInclude,
 }
 
@@ -20,9 +20,10 @@ impl TypeEntry {
         }
 
         match &self.def {
-            TypeRow::TypeDef(def) => def.clone().with_generics().gen(gen, self.include),
-            TypeRow::MethodDef(def) => def.gen(gen),
-            TypeRow::Field(def) => def.gen(gen),
+            ElementType::TypeDef(def) => def.clone().with_generics().gen(gen, self.include),
+            ElementType::MethodDef(def) => def.gen(gen),
+            ElementType::Field(def) => def.gen(gen),
+            _ => unexpected!(),
         }
     }
 }
@@ -58,7 +59,7 @@ impl TypeTree {
         }
     }
 
-    pub fn insert_type(&mut self, name: &'static str, def: TypeRow) {
+    pub fn insert_type(&mut self, name: &'static str, def: ElementType) {
         self.types.entry(name).or_insert_with(|| TypeEntry {
             def,
             include: TypeInclude::None,

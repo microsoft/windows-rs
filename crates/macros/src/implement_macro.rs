@@ -1,4 +1,4 @@
-use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader, TypeRow};
+use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;
@@ -163,7 +163,7 @@ fn get_public_composable(
     namespace: &str,
     name: &str,
 ) -> Option<TypeDef> {
-    if let Some(TypeRow::TypeDef(def)) = reader.get_type((namespace, name)) {
+    if let Some(ElementType::TypeDef(def)) = reader.get_type((namespace, name)) {
         if def.is_public_composable() {
             return Some(def);
         }
@@ -173,7 +173,7 @@ fn get_public_composable(
 }
 
 fn get_implementable(reader: &'static TypeReader, namespace: &str, name: &str) -> Option<TypeDef> {
-    if let Some(TypeRow::TypeDef(def)) = reader.get_type((namespace, name)) {
+    if let Some(ElementType::TypeDef(def)) = reader.get_type((namespace, name)) {
         match def.kind() {
             TypeKind::Class | TypeKind::Interface => return Some(def),
             _ => {}

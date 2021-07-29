@@ -55,7 +55,7 @@ impl TypeDef {
     pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
         let mut definition = vec![TypeEntry {
             include,
-            def: TypeRow::TypeDef(self.clone()),
+            def: ElementType::TypeDef(self.clone()),
         }];
 
         for generic in &self.generics {
@@ -214,7 +214,7 @@ impl TypeDef {
 
                 let interfaces = self.interfaces().map(|i| TypeEntry {
                     include: TypeInclude::Full,
-                    def: TypeRow::TypeDef(i),
+                    def: ElementType::TypeDef(i),
                 });
                 let methods = self.methods().map(|m| m.dependencies()).flatten();
                 let mut dependencies: Vec<TypeEntry> = interfaces.chain(methods).collect();
@@ -258,7 +258,7 @@ impl TypeDef {
                                 if let parser::ConstantValue::TypeDef(def) = arg {
                                     return Some(TypeEntry {
                                         include: TypeInclude::Full,
-                                        def: TypeRow::TypeDef(def),
+                                        def: ElementType::TypeDef(def),
                                     });
                                 }
                             }
@@ -312,7 +312,7 @@ impl TypeDef {
                     if let Some(dependency) = self.is_convertible_to() {
                         dependencies.push(TypeEntry {
                             include: TypeInclude::Minimal,
-                            def: TypeRow::TypeDef(dependency),
+                            def: ElementType::TypeDef(dependency),
                         });
                     }
                 }
@@ -572,7 +572,7 @@ impl TypeDef {
         })
     }
 
-    // TODO: return TypERow?
+    // TODO: return ElementType?
     pub fn is_convertible_to(&self) -> Option<TypeDef> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
@@ -580,7 +580,7 @@ impl TypeDef {
                     return TypeReader::get()
                         .get_type((self.namespace(), name.as_str()))
                         .and_then(|row| {
-                            if let TypeRow::TypeDef(def) = row {
+                            if let ElementType::TypeDef(def) = row {
                                 Some(def)
                             } else {
                                 None
