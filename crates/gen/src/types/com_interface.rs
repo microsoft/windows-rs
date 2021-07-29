@@ -45,31 +45,7 @@ impl ComInterface {
                 .map(|def| def.methods())
                 .flatten()
                 .map(|method| {
-                    let signature = method.signature(&[]);
-
-                    let params = signature.params.iter().map(|p| {
-                        let name = p.param.gen_name();
-                        let tokens = p.gen_win32_abi_param(gen);
-                        quote! { #name: #tokens }
-                    });
-
-                    let (udt_return_type, return_type) = if let Some(t) = &signature.return_type {
-                        if t.is_udt() {
-                            let mut t = t.clone();
-                            t.pointers += 1;
-                            let tokens = t.gen_win32_abi(gen);
-                            (quote! { result__: #tokens }, quote! {})
-                        } else {
-                            let tokens = t.gen_win32_abi(gen);
-                            (quote! {}, quote! { -> #tokens })
-                        }
-                    } else {
-                        (TokenStream::new(), TokenStream::new())
-                    };
-
-                    quote! {
-                        (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_type
-                    }
+                    method.signature(&[]).gen_win32_abi(gen)
                 });
 
             let mut method_names = BTreeMap::<String, u32>::new();

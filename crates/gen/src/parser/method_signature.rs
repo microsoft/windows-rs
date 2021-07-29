@@ -78,6 +78,32 @@ impl MethodSignature {
         quote! { F: FnMut(#(#params),*) -> ::windows::Result<#return_type> + 'static }
     }
 
+    pub fn gen_win32_abi(&self, gen: &Gen) -> TokenStream {
+        let params = self.params.iter().map(|p| {
+            let name = p.param.gen_name();
+            let tokens = p.gen_win32_abi_param(gen);
+            quote! { #name: #tokens }
+        });
+
+        let (udt_return_type, return_type) = if let Some(t) = &self.return_type {
+            if t.is_udt() {
+                let mut t = t.clone();
+                t.pointers += 1;
+                let tokens = t.gen_win32_abi(gen);
+                (quote! { result__: #tokens }, quote! {})
+            } else {
+                let tokens = t.gen_win32_abi(gen);
+                (quote! {}, quote! { -> #tokens })
+            }
+        } else {
+            (TokenStream::new(), TokenStream::new())
+        };
+
+        quote! {
+            (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_type
+        }
+    }
+
     // All WinRT ABI methods return an HRESULT while any return type is transformed into a trailing
     // out parameter. This is unlike Win32 methods that don't require this transformation.
     pub fn gen_winrt_abi(&self, gen: &Gen) -> TokenStream {
