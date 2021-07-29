@@ -99,7 +99,7 @@ impl Class {
 
         if include == TypeInclude::Full {
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-            let runtime_name = format!("{}.{}", self.0.namespace(), self.0.name());
+            let runtime_name = format!("{}", self.0.type_name());
 
             let factories = interfaces.iter().filter_map(|interface| {
                 match interface.kind {
@@ -275,7 +275,7 @@ mod tests {
 
     #[test]
     fn test_signature() {
-        let c = TypeReader::get().resolve_type_def("Windows.Foundation", "Uri");
+        let c = TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "Uri"));
         assert_eq!(
             c.type_signature(),
             "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
@@ -284,7 +284,8 @@ mod tests {
 
     #[test]
     fn test_class() {
-        let c = TypeReader::get().resolve_type_def("Windows.Foundation.Collections", "StringMap");
+        let c = TypeReader::get()
+            .resolve_type_def(TypeName::new("Windows.Foundation.Collections", "StringMap"));
         let c = Class(c);
         let i = c.interfaces();
         assert_eq!(i.len(), 3);
@@ -310,18 +311,21 @@ mod tests {
 
     #[test]
     fn test_bases() {
-        let c = TypeReader::get().resolve_type_def("Windows.Foundation", "Uri");
+        let c = TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "Uri"));
         assert_eq!(c.bases().count(), 0);
 
-        let c = TypeReader::get().resolve_type_def("Windows.UI.Composition", "CompositionObject");
+        let c = TypeReader::get()
+            .resolve_type_def(TypeName::new("Windows.UI.Composition", "CompositionObject"));
         assert_eq!(c.bases().count(), 0);
 
-        let c = TypeReader::get().resolve_type_def("Windows.UI.Composition", "Visual");
+        let c =
+            TypeReader::get().resolve_type_def(TypeName::new("Windows.UI.Composition", "Visual"));
         let bases: Vec<tables::TypeDef> = c.bases().collect();
         assert_eq!(bases.len(), 1);
         assert_eq!(bases[0].name(), "CompositionObject");
 
-        let c = TypeReader::get().resolve_type_def("Windows.UI.Composition", "SpriteVisual");
+        let c = TypeReader::get()
+            .resolve_type_def(TypeName::new("Windows.UI.Composition", "SpriteVisual"));
         let bases: Vec<tables::TypeDef> = c.bases().collect();
         assert_eq!(bases.len(), 3);
         assert_eq!(bases[0].name(), "ContainerVisual");
@@ -335,8 +339,10 @@ mod tests {
         // IMediaStreamDescriptor2 which also implements IMediaStreamDescriptor. This is unfortunately legal but rather unusual and
         // language projections need to be careful not to be confused by this.
 
-        let c = TypeReader::get()
-            .resolve_type_def("Windows.Media.Core", "TimedMetadataStreamDescriptor");
+        let c = TypeReader::get().resolve_type_def(TypeName::new(
+            "Windows.Media.Core",
+            "TimedMetadataStreamDescriptor",
+        ));
         let c = Class(c);
         let mut i = c.interfaces();
         assert_eq!(i.len(), 4);

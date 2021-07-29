@@ -305,26 +305,10 @@ impl ResolutionScope {
 }
 
 impl TypeDefOrRef {
-    pub fn namespace(&self) -> &'static str {
+    pub fn type_name(&self) -> TypeName {
         match self {
-            Self::TypeDef(value) => value.namespace(),
-            Self::TypeRef(value) => value.namespace(),
-            _ => unexpected!(),
-        }
-    }
-
-    pub fn name(&self) -> &'static str {
-        match self {
-            Self::TypeDef(value) => value.name(),
-            Self::TypeRef(value) => value.name(),
-            _ => unexpected!(),
-        }
-    }
-
-    pub fn full_name(&self) -> (&'static str, &'static str) {
-        match self {
-            Self::TypeDef(value) => value.full_name(),
-            Self::TypeRef(value) => value.full_name(),
+            Self::TypeDef(value) => value.type_name(),
+            Self::TypeRef(value) => value.type_name(),
             _ => unexpected!(),
         }
     }
@@ -347,10 +331,10 @@ impl MemberRefParent {
         }
     }
 
-    pub fn full_name(&self) -> (&'static str, &'static str) {
+    pub fn type_name(&self) -> TypeName {
         match self {
-            Self::TypeDef(value) => value.full_name(),
-            Self::TypeRef(value) => value.full_name(),
+            Self::TypeDef(value) => value.type_name(),
+            Self::TypeRef(value) => value.type_name(),
             _ => unexpected!(),
         }
     }

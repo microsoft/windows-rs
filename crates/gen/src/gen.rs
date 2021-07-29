@@ -57,28 +57,30 @@ mod tests {
 
     #[test]
     fn test_namespace() {
-        let reader = TypeReader::get();
-        let t = reader.resolve_type("Windows.Foundation", "IStringable");
-
         assert_eq!(
-            t.gen_name(&Gen::Absolute).as_str(),
-            "Windows :: Foundation :: IStringable"
+            Gen::Absolute.namespace("Windows.Foundation").as_str(),
+            "Windows :: Foundation ::"
         );
 
         assert_eq!(
-            t.gen_name(&Gen::Relative("Windows")).as_str(),
-            "Foundation:: IStringable"
-        );
-
-        assert_eq!(
-            t.gen_name(&Gen::Relative("Windows.Foundation")).as_str(),
-            "IStringable"
-        );
-
-        assert_eq!(
-            t.gen_name(&Gen::Relative("Windows.Foundation.Collections"))
+            Gen::Relative("Windows")
+                .namespace("Windows.Foundation")
                 .as_str(),
-            "super:: IStringable"
+            "Foundation::"
+        );
+
+        assert_eq!(
+            Gen::Relative("Windows.Foundation")
+                .namespace("Windows.Foundation")
+                .as_str(),
+            ""
+        );
+
+        assert_eq!(
+            Gen::Relative("Windows.Foundation.Collections")
+                .namespace("Windows.Foundation")
+                .as_str(),
+            "super::"
         );
     }
 }

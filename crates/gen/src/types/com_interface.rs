@@ -139,10 +139,7 @@ impl ComInterface {
                     });
             }
 
-            let send_sync = if matches!(
-                self.0.full_name(),
-                ("Windows.Win32.System.WinRT", "IRestrictedErrorInfo")
-            ) {
+            let send_sync = if self.0.type_name() == TypeName::IRestrictedErrorInfo {
                 quote! {
                     unsafe impl ::std::marker::Send for #name {}
                     unsafe impl ::std::marker::Sync for #name {}

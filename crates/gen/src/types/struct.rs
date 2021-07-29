@@ -383,25 +383,25 @@ impl Struct {
     }
 
     fn gen_replacement(&self) -> Option<TokenStream> {
-        match self.0.full_name() {
-            ("Windows.Win32.Foundation", "BOOL") => Some(gen_bool32()),
-            ("Windows.Win32.Foundation", "PWSTR") => Some(gen_pwstr()),
-            ("Windows.Win32.Foundation", "PSTR") => Some(gen_pstr()),
-            ("Windows.Win32.Foundation", "BSTR") => Some(gen_bstr()),
-            ("Windows.Win32.Foundation", "NTSTATUS") => Some(gen_ntstatus()),
+        match self.0.type_name() {
+            TypeName::BOOL => Some(gen_bool32()),
+            TypeName::PWSTR => Some(gen_pwstr()),
+            TypeName::PSTR => Some(gen_pstr()),
+            TypeName::BSTR => Some(gen_bstr()),
+            TypeName::NTSTATUS => Some(gen_ntstatus()),
             _ => None,
         }
     }
 
     fn gen_extensions(&self) -> TokenStream {
-        match self.0.full_name() {
-            ("Windows.Foundation", "TimeSpan") => gen_timespan(),
-            ("Windows.Foundation.Numerics", "Vector2") => gen_vector2(),
-            ("Windows.Foundation.Numerics", "Vector3") => gen_vector3(),
-            ("Windows.Foundation.Numerics", "Vector4") => gen_vector4(),
-            ("Windows.Foundation.Numerics", "Matrix3x2") => gen_matrix3x2(),
-            ("Windows.Foundation.Numerics", "Matrix4x4") => gen_matrix4x4(),
-            ("Windows.Win32.Foundation", "HANDLE") => gen_handle(),
+        match self.0.type_name() {
+            TypeName::TimeSpan => gen_timespan(),
+            TypeName::Vector2 => gen_vector2(),
+            TypeName::Vector3 => gen_vector3(),
+            TypeName::Vector4 => gen_vector4(),
+            TypeName::Matrix3x2 => gen_matrix3x2(),
+            TypeName::Matrix4x4 => gen_matrix4x4(),
+            TypeName::HANDLE => gen_handle(),
             _ => TokenStream::new(),
         }
     }
@@ -432,14 +432,16 @@ mod tests {
 
     #[test]
     fn test_signature() {
-        let t = TypeReader::get().resolve_type_def("Windows.Foundation", "Point");
+        let t = TypeReader::get().resolve_type_def(TypeName::new("Windows.Foundation", "Point"));
         assert_eq!(t.type_signature(), "struct(Windows.Foundation.Point;f4;f4)");
     }
 
     #[test]
     fn test_fields() {
-        let t = TypeReader::get()
-            .resolve_type_def("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
+        let t = TypeReader::get().resolve_type_def(TypeName::new(
+            "Windows.Win32.Graphics.Dxgi",
+            "DXGI_FRAME_STATISTICS_MEDIA",
+        ));
         let f: Vec<tables::Field> = t.fields().collect();
         assert_eq!(f.len(), 7);
 
@@ -456,7 +458,6 @@ mod tests {
         assert!(f[2].signature().kind == ElementType::U32);
         assert!(f[3].signature().kind == ElementType::I64);
         assert!(f[4].signature().kind == ElementType::I64);
-        assert_eq!(f[5].signature().kind.name(), "DXGI_FRAME_PRESENTATION_MODE");
         assert!(f[6].signature().kind == ElementType::U32);
     }
 
@@ -464,13 +465,13 @@ mod tests {
     fn test_blittable() {
         assert_eq!(
             TypeReader::get()
-                .resolve_type_def("Windows.Foundation", "Point")
+                .resolve_type_def(TypeName::new("Windows.Foundation", "Point"))
                 .is_blittable(),
             true
         );
         assert_eq!(
             TypeReader::get()
-                .resolve_type_def("Windows.UI.Xaml.Interop", "TypeName")
+                .resolve_type_def(TypeName::new("Windows.UI.Xaml.Interop", "TypeName"))
                 .is_blittable(),
             false
         );

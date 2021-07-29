@@ -52,24 +52,6 @@ impl ElementType {
         }
     }
 
-    pub fn namespace(&self) -> &'static str {
-        match self {
-            Self::MethodDef(def) => def.parent().namespace(),
-            Self::Field(def) => def.parent().namespace(),
-            Self::TypeDef(def) => def.namespace(),
-            _ => "",
-        }
-    }
-
-    pub fn name(&self) -> &'static str {
-        match self {
-            Self::MethodDef(def) => def.name(),
-            Self::Field(def) => def.name(),
-            Self::TypeDef(def) => def.name(),
-            _ => "",
-        }
-    }
-
     pub fn from_code(code: u32) -> Option<Self> {
         match code {
             0x01 => Some(Self::Void),

@@ -14,6 +14,7 @@ mod row;
 mod signature;
 mod traits;
 mod type_kind;
+mod type_name;
 mod type_reader;
 mod type_tree;
 
@@ -31,5 +32,6 @@ pub use row::*;
 pub use signature::*;
 pub use traits::*;
 pub use type_kind::*;
+pub use type_name::*;
 pub use type_reader::*;
 pub use type_tree::*;

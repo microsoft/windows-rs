@@ -1,7 +1,7 @@
 #[test]
 fn named_arguments() {
     let reader = gen::TypeReader::get();
-    let type_def = reader.resolve_type_def("TestComponent", "TestRunner");
+    let type_def = reader.resolve_type_def(gen::TypeName::new("TestComponent", "TestRunner"));
 
     // TestRunner should have a custom attribute on it
     let mut some_string = 0;

@@ -1,4 +1,4 @@
-use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader};
+use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader, TypeRow};
 use std::collections::*;
 use syn::parse::*;
 use syn::*;
@@ -140,10 +140,7 @@ impl ImplementMacro {
             UseTree2::Name(input) => {
                 let name = input.ident.to_string();
 
-                // TODO: we should make this return Option to return compiler error when not found
-                let def = reader.resolve_type_def(namespace, &name);
-
-                if def.is_public_composable() {
+                if let Some(def) = get_public_composable(reader, namespace, &name) {
                     self.extend.replace(def);
                 } else {
                     return Err(Error::new_spanned(
@@ -159,6 +156,31 @@ impl ImplementMacro {
 
         Ok(())
     }
+}
+
+fn get_public_composable(
+    reader: &'static TypeReader,
+    namespace: &str,
+    name: &str,
+) -> Option<TypeDef> {
+    if let Some(TypeRow::TypeDef(def)) = reader.get_type((namespace, name)) {
+        if def.is_public_composable() {
+            return Some(def);
+        }
+    }
+
+    None
+}
+
+fn get_implementable(reader: &'static TypeReader, namespace: &str, name: &str) -> Option<TypeDef> {
+    if let Some(TypeRow::TypeDef(def)) = reader.get_type((namespace, name)) {
+        match def.kind() {
+            TypeKind::Class | TypeKind::Interface => return Some(def),
+            _ => {}
+        }
+    }
+
+    None
 }
 
 impl Parse for ImplementMacro {
@@ -217,25 +239,19 @@ impl UseTree2 {
                 let name = input.ident.to_string();
 
                 if reader.types.get_namespace(namespace).is_some() {
-                    // TODO: error if not found
-                    let mut def = reader.resolve_type_def(namespace, &name);
-
-                    match def.kind() {
-                        TypeKind::Class | TypeKind::Interface => {}
-                        _ => {
-                            return Err(Error::new_spanned(
-                                &input.ident,
-                                format!("`{}.{}` not a class or interface", namespace, name),
-                            ));
+                    if let Some(mut def) = get_implementable(reader, namespace, &name) {
+                        for g in &input.generics {
+                            def.generics
+                                .push(g.to_element_type(reader, &mut String::new())?);
                         }
-                    }
 
-                    for g in &input.generics {
-                        def.generics
-                            .push(g.to_element_type(reader, &mut String::new())?);
+                        Ok(ElementType::TypeDef(def))
+                    } else {
+                        Err(Error::new_spanned(
+                            &input.ident,
+                            format!("`{}.{}` not a class or interface", namespace, name),
+                        ))
                     }
-
-                    Ok(ElementType::TypeDef(def))
                 } else if let Some(def) = ElementType::from_string_lossy(&name) {
                     Ok(def)
                 } else {

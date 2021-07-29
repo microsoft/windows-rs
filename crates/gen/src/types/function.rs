@@ -125,9 +125,7 @@ impl Function {
                         }
                     }
                 }
-                ElementType::TypeDef(def)
-                    if def.full_name() == ("Windows.Win32.Foundation", "NTSTATUS") =>
-                {
+                ElementType::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
                     quote! {
                         pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
                             #[cfg(windows)]
