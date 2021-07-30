@@ -132,9 +132,8 @@ pub fn gen(
                         .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
                 }
             } else {
-                quote! {
-                    panic!();
-                }
+                signature
+                        .gen_win32_upcall(quote! { (*this).implementation.#method_ident }, &gen)
             };
 
             shims.combine(&quote! {

@@ -82,7 +82,6 @@ impl Struct {
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
-                    type DefaultType = Self;
                     const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
                 }
             }
@@ -148,6 +147,7 @@ impl Struct {
             quote! {
                 unsafe impl ::windows::Abi for #name {
                     type Abi = Self;
+                    type DefaultType = Self;
                 }
             }
         } else {
@@ -174,6 +174,7 @@ impl Struct {
                 pub #struct_or_union #abi_name{ #fields }
                 unsafe impl ::windows::Abi for #name {
                     type Abi = #abi_name;
+                    type DefaultType = Self;
                 }
             }
         };

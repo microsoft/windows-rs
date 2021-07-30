@@ -42,8 +42,6 @@ unsafe impl Interface for IInspectable {
 }
 
 unsafe impl RuntimeType for IInspectable {
-    type DefaultType = Option<Self>;
-
     const SIGNATURE: crate::ConstBuffer =
         crate::ConstBuffer::from_slice(b"cinterface(IInspectable)");
 }

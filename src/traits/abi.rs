@@ -14,6 +14,8 @@ pub unsafe trait Abi: Sized {
     /// `Self` and `Abi` *must* have the same exact in-memory representation.
     type Abi;
 
+    type DefaultType;
+
     /// Casts the Rust object to its ABI type without copying the object.
     fn abi(&self) -> Self::Abi {
         // It is always safe to interpret an `Abi` type's binary representation (without moving
@@ -39,6 +41,7 @@ pub unsafe trait Abi: Sized {
 
 unsafe impl<T: Interface> Abi for T {
     type Abi = RawPtr;
+    type DefaultType = Option<T>;
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         panic!("set_abi should not be used with interfaces since it implies nullable.");
@@ -57,6 +60,7 @@ unsafe impl<T: Interface> Abi for T {
 
 unsafe impl<T: Interface> Abi for Option<T> {
     type Abi = RawPtr;
+    type DefaultType = Self;
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         debug_assert!(self.is_none());

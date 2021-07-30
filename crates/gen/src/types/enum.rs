@@ -103,7 +103,6 @@ impl Enum {
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
-                    type DefaultType = Self;
                     const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
                 }
             }
@@ -123,6 +122,7 @@ impl Enum {
             }
             unsafe impl ::windows::Abi for #name {
                 type Abi = Self;
+                type DefaultType = Self;
             }
             #runtime_type
             #bitwise

@@ -99,6 +99,7 @@ impl HSTRING {
 
 unsafe impl Abi for HSTRING {
     type Abi = RawPtr;
+    type DefaultType = Self;
 
     fn set_abi(&mut self) -> *mut RawPtr {
         debug_assert!(self.is_empty());
@@ -107,7 +108,6 @@ unsafe impl Abi for HSTRING {
 }
 
 unsafe impl RuntimeType for HSTRING {
-    type DefaultType = Self;
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"string");
 }
 

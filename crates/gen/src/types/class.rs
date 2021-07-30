@@ -178,7 +178,6 @@ impl Class {
                         #(#factories)*
                     }
                     unsafe impl ::windows::RuntimeType for #name {
-                        type DefaultType = ::std::option::Option<Self>;
                         const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
                     }
                     unsafe impl ::windows::Interface for #name {
@@ -226,7 +225,6 @@ impl Class {
                     const IID: ::windows::Guid = #guid;
                 }
                 unsafe impl ::windows::RuntimeType for #name {
-                    type DefaultType = ::std::option::Option<Self>;
                     const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
                 }
             }

@@ -304,11 +304,11 @@ impl MethodSignature {
 
                 if param.signature.is_array {
                     if param.param.is_input() {
-                        quote! { #name: &[<#tokens as ::windows::RuntimeType>::DefaultType], }
+                        quote! { #name: &[<#tokens as ::windows::Abi>::DefaultType], }
                     } else if param.signature.by_ref {
                         quote! { #name: &mut ::windows::Array<#tokens>, }
                     } else {
-                        quote! { #name: &mut [<#tokens as ::windows::RuntimeType>::DefaultType], }
+                        quote! { #name: &mut [<#tokens as ::windows::Abi>::DefaultType], }
                     }
                 } else if param.param.is_input() {
                     if param.is_convertible() {
@@ -331,7 +331,7 @@ impl MethodSignature {
                 } else if param.signature.kind.is_nullable() {
                     quote! { #name: &mut ::std::option::Option<#tokens>, }
                 } else if let ElementType::GenericParam(_) = param.signature.kind {
-                    quote! { &mut <#tokens as ::windows::RuntimeType>::DefaultType, }
+                    quote! { &mut <#tokens as ::windows::Abi>::DefaultType, }
                 } else if param.signature.pointers > 0 {
                     let tokens = param.signature.gen_winrt_abi(gen);
                     quote! { #name: #tokens, }
@@ -340,6 +340,41 @@ impl MethodSignature {
                 }
             })
             .collect()
+    }
+
+    pub fn gen_win32_upcall(&self, inner: TokenStream, gen: &Gen) -> TokenStream {
+        let invoke_args = self
+        .params
+        .iter()
+        .map(|param| param.gen_win32_invoke_arg(gen));
+
+        if self.has_query_interface() {
+            quote! {
+                panic!("one")
+            }
+        } else if self.has_retval() {
+            quote! {
+                panic!("two")
+            }
+        } else if self.has_udt_return() {
+            quote! {
+                panic!("three")
+            }
+        } else if let Some(return_type) = &self.return_type {
+            if return_type.kind == ElementType::HRESULT {
+                quote! {
+                    #inner(#(#invoke_args,)*).into()
+                }
+            } else {
+                quote! {
+                    panic!("five")
+                }
+            }
+        } else {
+            quote! {
+                panic!("six")
+            }
+        }
     }
 
     pub fn gen_winrt_upcall(&self, inner: TokenStream, gen: &Gen) -> TokenStream {
@@ -423,6 +458,21 @@ impl MethodParam {
         self.signature.is_const || self.param.is_const()
     }
 
+    fn gen_win32_invoke_arg(&self, gen: &Gen) -> TokenStream {
+        let name = self.param.gen_name();
+        let kind = self.signature.kind.gen_name(gen);
+
+        if self.param.is_input() {
+            if self.signature.kind.is_primitive() {
+                quote! { #name }
+            } else {
+                quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
+            }
+        } else {
+            quote! { ::std::mem::transmute_copy(&#name) }
+        }
+    }
+
     fn gen_winrt_invoke_arg(&self, gen: &Gen) -> TokenStream {
         let name = self.param.gen_name();
         let kind = self.signature.kind.gen_name(gen);
@@ -436,9 +486,9 @@ impl MethodParam {
             if self.signature.kind.is_primitive() {
                 quote! { #name }
             } else if self.is_const() {
-                quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
+                quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
             } else {
-                quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::RuntimeType>::DefaultType) }
+                quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
             }
         } else {
             quote! { ::std::mem::transmute_copy(&#name) }
@@ -558,7 +608,7 @@ impl MethodParam {
             }
         } else if self.param.is_input() {
             if let ElementType::GenericParam(_) = self.signature.kind {
-                quote! { &<#tokens as ::windows::RuntimeType>::DefaultType }
+                quote! { &<#tokens as ::windows::Abi>::DefaultType }
             } else if self.signature.kind.is_primitive() {
                 quote! { #tokens }
             } else if self.signature.kind.is_nullable() {

@@ -5,7 +5,6 @@ use crate::*;
 /// This trait is automatically used by the generated bindings and should not be
 /// used directly.
 pub unsafe trait RuntimeType: Abi + Clone {
-    type DefaultType; // TODO: move to Abi trait unless its only used for WinRT generics.
     const SIGNATURE: crate::ConstBuffer;
 }
 
@@ -13,11 +12,11 @@ macro_rules! primitive_runtime_types {
     ($(($t:ty, $s:literal)),+) => {
         $(
             unsafe impl RuntimeType for $t {
-                type DefaultType = Self;
                 const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice($s);
             }
             unsafe impl Abi for $t {
                 type Abi = Self;
+                type DefaultType = Self;
             }
         )*
     };
@@ -39,8 +38,10 @@ primitive_runtime_types! {
 
 unsafe impl Abi for isize {
     type Abi = Self;
+    type DefaultType = Self;
 }
 
 unsafe impl Abi for usize {
     type Abi = Self;
+    type DefaultType = Self;
 }

@@ -37,7 +37,7 @@ impl<T: RuntimeType + 'static> Iterator<T> {
         Ok(owner.0.len() > self.current)
     }
 
-    fn GetMany(&self, _items: &mut [<T as RuntimeType>::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _items: &mut [<T as Abi>::DefaultType]) -> Result<u32> {
         panic!(); // TODO: arrays still need some work.
     }
 }

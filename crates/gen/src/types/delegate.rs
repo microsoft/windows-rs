@@ -76,7 +76,6 @@ impl Delegate {
                 #invoke
             }
             unsafe impl<#constraints> ::windows::RuntimeType for #name {
-                type DefaultType = ::std::option::Option<Self>;
                 const SIGNATURE: ::windows::ConstBuffer = #type_signature;
             }
             unsafe impl<#constraints> ::windows::Interface for #name {

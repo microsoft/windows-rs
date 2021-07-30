@@ -44,9 +44,9 @@ pub mod Windows {
         impl ::std::cmp::Eq for DateTime {}
         unsafe impl ::windows::Abi for DateTime {
             type Abi = Self;
+            type DefaultType = Self;
         }
         unsafe impl ::windows::RuntimeType for DateTime {
-            type DefaultType = Self;
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
         }
@@ -543,7 +543,6 @@ pub mod Windows {
             }
         }
         unsafe impl ::windows::RuntimeType for IPropertyValue {
-            type DefaultType = ::std::option::Option<Self>;
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
         }
@@ -1521,7 +1520,6 @@ pub mod Windows {
             }
         }
         unsafe impl<T: ::windows::RuntimeType + 'static> ::windows::RuntimeType for IReference<T> {
-            type DefaultType = ::std::option::Option<Self>;
             const SIGNATURE: ::windows::ConstBuffer = {
                 ::windows::ConstBuffer::new()
                     .push_slice(b"pinterface(")
@@ -1645,7 +1643,6 @@ pub mod Windows {
             }
         }
         unsafe impl ::windows::RuntimeType for IStringable {
-            type DefaultType = ::std::option::Option<Self>;
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
         }
@@ -1725,9 +1722,9 @@ pub mod Windows {
         impl ::std::cmp::Eq for Point {}
         unsafe impl ::windows::Abi for Point {
             type Abi = Self;
+            type DefaultType = Self;
         }
         unsafe impl ::windows::RuntimeType for Point {
-            type DefaultType = Self;
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
         }
@@ -1791,9 +1788,9 @@ pub mod Windows {
         }
         unsafe impl ::windows::Abi for PropertyType {
             type Abi = Self;
+            type DefaultType = Self;
         }
         unsafe impl ::windows::RuntimeType for PropertyType {
-            type DefaultType = Self;
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
         }
@@ -2052,7 +2049,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateUInt8Array(
-                value: &[<u8 as ::windows::RuntimeType>::DefaultType],
+                value: &[<u8 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2067,7 +2064,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateInt16Array(
-                value: &[<i16 as ::windows::RuntimeType>::DefaultType],
+                value: &[<i16 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2082,7 +2079,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateUInt16Array(
-                value: &[<u16 as ::windows::RuntimeType>::DefaultType],
+                value: &[<u16 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2097,7 +2094,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateInt32Array(
-                value: &[<i32 as ::windows::RuntimeType>::DefaultType],
+                value: &[<i32 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2112,7 +2109,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateUInt32Array(
-                value: &[<u32 as ::windows::RuntimeType>::DefaultType],
+                value: &[<u32 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2127,7 +2124,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateInt64Array(
-                value: &[<i64 as ::windows::RuntimeType>::DefaultType],
+                value: &[<i64 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2142,7 +2139,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateUInt64Array(
-                value: &[<u64 as ::windows::RuntimeType>::DefaultType],
+                value: &[<u64 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2157,7 +2154,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateSingleArray(
-                value: &[<f32 as ::windows::RuntimeType>::DefaultType],
+                value: &[<f32 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2172,7 +2169,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateDoubleArray(
-                value: &[<f64 as ::windows::RuntimeType>::DefaultType],
+                value: &[<f64 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2187,7 +2184,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateChar16Array(
-                value: &[<u16 as ::windows::RuntimeType>::DefaultType],
+                value: &[<u16 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2202,7 +2199,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateBooleanArray(
-                value: &[<bool as ::windows::RuntimeType>::DefaultType],
+                value: &[<bool as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2217,7 +2214,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateStringArray(
-                value: &[<::windows::HSTRING as ::windows::RuntimeType>::DefaultType],
+                value: &[<::windows::HSTRING as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2232,7 +2229,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateInspectableArray(
-                value: &[<::windows::IInspectable as ::windows::RuntimeType>::DefaultType],
+                value: &[<::windows::IInspectable as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2247,7 +2244,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateGuidArray(
-                value: &[<::windows::Guid as ::windows::RuntimeType>::DefaultType],
+                value: &[<::windows::Guid as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2262,7 +2259,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateDateTimeArray(
-                value: &[<DateTime as ::windows::RuntimeType>::DefaultType],
+                value: &[<DateTime as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2277,7 +2274,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateTimeSpanArray(
-                value: &[<TimeSpan as ::windows::RuntimeType>::DefaultType],
+                value: &[<TimeSpan as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2292,7 +2289,7 @@ pub mod Windows {
                 })
             }
             pub fn CreatePointArray(
-                value: &[<Point as ::windows::RuntimeType>::DefaultType],
+                value: &[<Point as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2307,7 +2304,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateSizeArray(
-                value: &[<Size as ::windows::RuntimeType>::DefaultType],
+                value: &[<Size as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2322,7 +2319,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateRectArray(
-                value: &[<Rect as ::windows::RuntimeType>::DefaultType],
+                value: &[<Rect as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2390,9 +2387,9 @@ pub mod Windows {
         impl ::std::cmp::Eq for Rect {}
         unsafe impl ::windows::Abi for Rect {
             type Abi = Self;
+            type DefaultType = Self;
         }
         unsafe impl ::windows::RuntimeType for Rect {
-            type DefaultType = Self;
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
         }
@@ -2427,9 +2424,9 @@ pub mod Windows {
         impl ::std::cmp::Eq for Size {}
         unsafe impl ::windows::Abi for Size {
             type Abi = Self;
+            type DefaultType = Self;
         }
         unsafe impl ::windows::RuntimeType for Size {
-            type DefaultType = Self;
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
         }
@@ -2459,9 +2456,9 @@ pub mod Windows {
         impl ::std::cmp::Eq for TimeSpan {}
         unsafe impl ::windows::Abi for TimeSpan {
             type Abi = Self;
+            type DefaultType = Self;
         }
         unsafe impl ::windows::RuntimeType for TimeSpan {
-            type DefaultType = Self;
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
         }
@@ -2515,6 +2512,7 @@ pub mod Windows {
             pub struct BOOL(pub i32);
             unsafe impl ::windows::Abi for BOOL {
                 type Abi = Self;
+                type DefaultType = Self;
             }
             impl BOOL {
                 #[inline]
@@ -2711,6 +2709,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::Abi for BSTR {
                 type Abi = *mut u16;
+                type DefaultType = Self;
                 fn set_abi(&mut self) -> *mut *mut u16 {
                     debug_assert!(self.0.is_null());
                     &mut self.0 as *mut _ as _
@@ -2762,6 +2761,7 @@ pub mod Windows {
             impl ::std::cmp::Eq for HANDLE {}
             unsafe impl ::windows::Abi for HANDLE {
                 type Abi = Self;
+                type DefaultType = Self;
             }
             impl HANDLE {
                 pub const INVALID: Self = Self(-1);
@@ -2799,6 +2799,7 @@ pub mod Windows {
             impl ::std::cmp::Eq for HINSTANCE {}
             unsafe impl ::windows::Abi for HINSTANCE {
                 type Abi = Self;
+                type DefaultType = Self;
             }
             #[repr(transparent)]
             #[derive(
@@ -2826,6 +2827,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::Abi for PSTR {
                 type Abi = Self;
+                type DefaultType = Self;
                 fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
                         if !value.0.is_null() {
@@ -2882,6 +2884,7 @@ pub mod Windows {
             }
             unsafe impl ::windows::Abi for PWSTR {
                 type Abi = Self;
+                type DefaultType = Self;
                 fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
                         if !value.0.is_null() {
@@ -2998,6 +3001,7 @@ pub mod Windows {
             impl ::std::cmp::Eq for SECURITY_ATTRIBUTES {}
             unsafe impl ::windows::Abi for SECURITY_ATTRIBUTES {
                 type Abi = Self;
+                type DefaultType = Self;
             }
         }
         #[allow(
@@ -3161,6 +3165,7 @@ pub mod Windows {
                     }
                     unsafe impl ::windows::Abi for FORMAT_MESSAGE_OPTIONS {
                         type Abi = Self;
+                        type DefaultType = Self;
                     }
                     impl ::std::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
                         type Output = Self;
@@ -3249,6 +3254,7 @@ pub mod Windows {
                     }
                     unsafe impl ::windows::Abi for WIN32_ERROR {
                         type Abi = Self;
+                        type DefaultType = Self;
                     }
                     impl ::std::ops::BitOr for WIN32_ERROR {
                         type Output = Self;
@@ -3391,6 +3397,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::Abi for HEAP_FLAGS {
                     type Abi = Self;
+                    type DefaultType = Self;
                 }
                 impl ::std::ops::BitOr for HEAP_FLAGS {
                     type Output = Self;
@@ -3492,6 +3499,7 @@ pub mod Windows {
                 impl ::std::cmp::Eq for HeapHandle {}
                 unsafe impl ::windows::Abi for HeapHandle {
                     type Abi = Self;
+                    type DefaultType = Self;
                 }
             }
             #[allow(
@@ -3745,6 +3753,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::Abi for WAIT_RETURN_CAUSE {
                     type Abi = Self;
+                    type DefaultType = Self;
                 }
                 impl ::std::ops::BitOr for WAIT_RETURN_CAUSE {
                     type Output = Self;

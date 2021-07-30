@@ -95,7 +95,6 @@ impl Interface {
                         #async_get
                     }
                     unsafe impl<#constraints> ::windows::RuntimeType for #name {
-                        type DefaultType = ::std::option::Option<Self>;
                         const SIGNATURE: ::windows::ConstBuffer = #type_signature;
                     }
                     #future
@@ -140,7 +139,6 @@ impl Interface {
                     const IID: ::windows::Guid = #guid;
                 }
                 unsafe impl<#constraints> ::windows::RuntimeType for #name {
-                    type DefaultType = ::std::option::Option<Self>;
                     const SIGNATURE: ::windows::ConstBuffer = #type_signature;
                 }
             }

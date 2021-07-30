@@ -149,6 +149,7 @@ impl HRESULT {
 
 unsafe impl Abi for HRESULT {
     type Abi = Self;
+    type DefaultType = Self;
 }
 
 impl<T> std::convert::From<Result<T>> for HRESULT {
