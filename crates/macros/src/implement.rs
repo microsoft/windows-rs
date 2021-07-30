@@ -113,7 +113,7 @@ pub fn gen(
 
             let signature = method.signature(&def.generics);
 
-            let abi_signature = if is_winrt { 
+            let abi_signature = if is_winrt {
                 signature.gen_winrt_abi(&gen)
             } else {
                 signature.gen_win32_abi(&gen)
@@ -132,8 +132,7 @@ pub fn gen(
                         .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
                 }
             } else {
-                signature
-                        .gen_win32_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                signature.gen_win32_upcall(quote! { (*this).implementation.#method_ident }, &gen)
             };
 
             shims.combine(&quote! {

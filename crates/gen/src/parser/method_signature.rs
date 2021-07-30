@@ -344,9 +344,9 @@ impl MethodSignature {
 
     pub fn gen_win32_upcall(&self, inner: TokenStream, gen: &Gen) -> TokenStream {
         let invoke_args = self
-        .params
-        .iter()
-        .map(|param| param.gen_win32_invoke_arg(gen));
+            .params
+            .iter()
+            .map(|param| param.gen_win32_invoke_arg(gen));
 
         if self.has_query_interface() {
             quote! {

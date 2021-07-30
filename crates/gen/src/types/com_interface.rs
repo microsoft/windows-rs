@@ -44,9 +44,7 @@ impl ComInterface {
                 .chain(std::iter::once(&self.0))
                 .map(|def| def.methods())
                 .flatten()
-                .map(|method| {
-                    method.signature(&[]).gen_win32_abi(gen)
-                });
+                .map(|method| method.signature(&[]).gen_win32_abi(gen));
 
             let mut method_names = BTreeMap::<String, u32>::new();
 
