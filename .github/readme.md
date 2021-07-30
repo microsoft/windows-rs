@@ -26,7 +26,7 @@ windows = "0.18.0"
 
 This will allow Cargo to download, build, and cache Windows support as a package. Next, specify which types you need inside of a `build.rs` build script and the `windows` crate will generate the necessary bindings:
 
-```rust
+```ignore
 fn main() {
     windows::build! {
         Windows::Data::Xml::Dom::*,
@@ -39,7 +39,7 @@ fn main() {
 
 Finally, make use of any Windows APIs as needed.
 
-```rust
+```ignore
 mod bindings {
     windows::include_bindings!();
 }
