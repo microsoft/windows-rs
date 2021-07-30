@@ -70,10 +70,10 @@ impl Guid {
 
 unsafe impl Abi for Guid {
     type Abi = Self;
+    type DefaultType = Self;
 }
 
 unsafe impl RuntimeType for Guid {
-    type DefaultType = Self;
     const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"g16");
 }
 

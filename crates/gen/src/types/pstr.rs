@@ -25,6 +25,7 @@ pub fn gen_pstr() -> TokenStream {
         }
         unsafe impl ::windows::Abi for PSTR {
             type Abi = Self;
+            type DefaultType = Self;
 
             fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                 if let ::windows::Param::Boxed(value) = param {

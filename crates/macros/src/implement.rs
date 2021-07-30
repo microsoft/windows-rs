@@ -45,20 +45,29 @@ pub fn gen(
 
     let interfaces_len = Literal::usize_unsuffixed(interfaces.len());
 
-    for (interface_count, (t, overrides)) in interfaces.iter().enumerate() {
+    for (interface_count, (def, overrides)) in interfaces.iter().enumerate() {
+        let is_winrt = def.is_winrt();
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
         let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
         let add_ref = format_ident!("AddRef_abi{}", interface_count);
         let release = format_ident!("Release_abi{}", interface_count);
 
-        let mut vtable_ptrs = quote! {
-            Self::#query_interface,
-            Self::#add_ref,
-            Self::#release,
-            Self::GetIids,
-            Self::GetRuntimeClassName, // TODO: needs to be vtable specific unless implementing a class
-            Self::GetTrustLevel,
+        let mut vtable_ptrs = if is_winrt {
+            quote! {
+                Self::#query_interface,
+                Self::#add_ref,
+                Self::#release,
+                Self::GetIids,
+                Self::GetRuntimeClassName, // TODO: needs to be vtable specific unless implementing a class
+                Self::GetTrustLevel,
+            }
+        } else {
+            quote! {
+                Self::#query_interface,
+                Self::#add_ref,
+                Self::#release,
+            }
         };
 
         shims.combine(&quote! {
@@ -76,22 +85,25 @@ pub fn gen(
             }
         });
 
-        let vtable_ident = t.gen_abi_name(&gen);
-        let interface_ident = t.gen_name(&gen);
+        let vtable_ident = def.gen_abi_name(&gen);
+        let interface_ident = def.gen_name(&gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
         let interface_constant = format_ident!("IID{}", interface_count);
 
+        // TODO: also add IIDs for inherited interfaces
         queries.combine(&quote! {
             else if iid == &Self::#interface_constant {
                 &mut self.vtables.#interface_literal as *mut _ as _
             }
         });
 
+        // TODO: also add IIDs for inherited interfaces
         query_constants.combine(&quote! {
             const #interface_constant: ::windows::Guid = <#interface_ident as ::windows::Interface>::IID;
         });
 
-        for (vtable_offset, method) in t.methods().enumerate() {
+        // TODO: also add methods for inherited interfaces
+        for (vtable_offset, method) in def.methods().enumerate() {
             let method_ident = gen::to_ident(&method.rust_name());
             let vcall_ident = format_ident!("abi{}_{}", interface_count, vtable_offset + 6);
 
@@ -99,17 +111,28 @@ pub fn gen(
                 Self::#vcall_ident,
             });
 
-            let signature = method.signature(&t.generics);
-            let abi_signature = signature.gen_winrt_abi(&gen);
-            let upcall = if *overrides {
-                if implements.overrides.contains(method.name()) {
+            let signature = method.signature(&def.generics);
+
+            let abi_signature = if is_winrt {
+                signature.gen_winrt_abi(&gen)
+            } else {
+                signature.gen_win32_abi(&gen)
+            };
+
+            let upcall = if is_winrt {
+                if *overrides {
+                    if implements.overrides.contains(method.name()) {
+                        signature
+                            .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                    } else {
+                        quote! { ::windows::HRESULT(0) }
+                    }
+                } else {
                     signature
                         .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
-                } else {
-                    quote! { ::windows::HRESULT(0) }
                 }
             } else {
-                signature.gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                signature.gen_win32_upcall(quote! { (*this).implementation.#method_ident }, &gen)
             };
 
             shims.combine(&quote! {
@@ -120,7 +143,7 @@ pub fn gen(
                 });
         }
 
-        if !t.is_exclusive() {
+        if !def.is_exclusive() {
             tokens.combine(&quote! {
                     impl <#constraints> ::std::convert::From<#impl_ident> for #interface_ident {
                         fn from(implementation: #impl_ident) -> Self {
@@ -152,7 +175,7 @@ pub fn gen(
 
         let mut phantoms = TokenStream::new();
 
-        for _ in 0..t.generic_params().count() {
+        for _ in 0..def.generic_params().count() {
             phantoms.combine(&quote! { std::marker::PhantomData, })
         }
 

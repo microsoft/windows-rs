@@ -142,6 +142,7 @@ pub fn gen_bstr() -> TokenStream {
         }
         unsafe impl ::windows::Abi for BSTR {
             type Abi = *mut u16;
+            type DefaultType = Self;
 
             fn set_abi(&mut self) -> *mut *mut u16 {
                 debug_assert!(self.0.is_null());

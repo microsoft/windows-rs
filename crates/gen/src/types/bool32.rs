@@ -8,6 +8,7 @@ pub fn gen_bool32() -> TokenStream {
 
         unsafe impl ::windows::Abi for BOOL {
             type Abi = Self;
+            type DefaultType = Self;
         }
         impl BOOL {
             #[inline]
