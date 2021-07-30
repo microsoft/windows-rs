@@ -4,5 +4,6 @@ fn main() {
         Windows::Foundation::{IClosable, IStringable, Uri},
         Windows::Win32::Foundation::E_BOUNDS,
         Windows::UI::Xaml::{Application, Controls::Button},
+        Windows::Win32::System::WinRT::ISwapChainInterop,
     };
 }
