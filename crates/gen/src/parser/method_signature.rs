@@ -350,15 +350,15 @@ impl MethodSignature {
 
         if self.has_query_interface() {
             quote! {
-                panic!("one")
+                unimplemented!("one")
             }
         } else if self.has_retval() {
             quote! {
-                panic!("two")
+                unimplemented!("two")
             }
         } else if self.has_udt_return() {
             quote! {
-                panic!("three")
+                unimplemented!("three")
             }
         } else if let Some(return_type) = &self.return_type {
             if return_type.kind == ElementType::HRESULT {
@@ -367,12 +367,12 @@ impl MethodSignature {
                 }
             } else {
                 quote! {
-                    panic!("five")
+                    unimplemented!("five")
                 }
             }
         } else {
             quote! {
-                panic!("six")
+                unimplemented!("six")
             }
         }
     }
