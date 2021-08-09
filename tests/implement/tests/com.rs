@@ -1,11 +1,12 @@
 use test_implement::*;
 use windows::*;
 use Windows::Foundation::IStringable;
-use Windows::Win32::System::WinRT::ISwapChainInterop;
+use Windows::Win32::Foundation::HANDLE;
+use Windows::Win32::System::WinRT::{IDisplayPathInterop, ISwapChainInterop};
 
 #[implement(
     Windows::Foundation::IStringable,
-    Windows::Win32::System::WinRT::ISwapChainInterop
+    Windows::Win32::System::WinRT::{ISwapChainInterop, IDisplayPathInterop}
 )]
 struct Mix();
 
@@ -17,6 +18,14 @@ impl Mix {
 
     fn SetSwapChain(&self, _: &Option<IUnknown>) -> Result<()> {
         Ok(())
+    }
+
+    fn GetSourceId(&self) -> Result<u32> {
+        Ok(123)
+    }
+
+    fn CreateSourcePresentationHandle(&self) -> Result<HANDLE> {
+        Ok(HANDLE::NULL)
     }
 }
 
@@ -33,6 +42,10 @@ fn mix() -> Result<()> {
 
     let d: ISwapChainInterop = c.cast()?;
     unsafe { d.SetSwapChain(None)? };
+
+    let e: IDisplayPathInterop = d.cast()?;
+    unsafe { assert!(e.GetSourceId()? == 123) };
+    unsafe { assert!(e.CreateSourcePresentationHandle()? == HANDLE::NULL) };
 
     Ok(())
 }
