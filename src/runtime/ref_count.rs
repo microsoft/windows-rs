@@ -23,10 +23,10 @@ impl RefCount {
     pub fn release(&self) -> u32 {
         let remaining = self.0.fetch_sub(1, Ordering::Release) - 1;
 
-        if remaining == 0 {
-            fence(Ordering::Acquire);
-        } else if remaining < 0 {
-            panic!("Object has been over-released.");
+        match remaining.cmp(&0) {
+            std::cmp::Ordering::Equal => fence(Ordering::Acquire),
+            std::cmp::Ordering::Less => panic!("Object has been over-released."),
+            std::cmp::Ordering::Greater => {}
         }
 
         remaining as u32

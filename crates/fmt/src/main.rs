@@ -28,7 +28,7 @@ fn update_file(path: &std::path::Path, pattern: &str) -> std::io::Result<()> {
                 .take_while(|&c| c == ' ')
                 .count();
 
-            let indent = std::iter::repeat(' ').take(indent).collect::<String>();
+            let indent = " ".repeat(indent);
 
             // Replace `use` with macro call and insert curly braces around the UseTree
             let macro_ = format!(
