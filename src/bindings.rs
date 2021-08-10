@@ -546,6 +546,28 @@ pub mod Windows {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
         }
+        impl ::std::convert::From<IPropertyValue> for ::windows::IUnknown {
+            fn from(value: IPropertyValue) -> Self {
+                unsafe { ::std::mem::transmute(value) }
+            }
+        }
+        impl ::std::convert::From<&IPropertyValue> for ::windows::IUnknown {
+            fn from(value: &IPropertyValue) -> Self {
+                ::std::convert::From::from(::std::clone::Clone::clone(value))
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IPropertyValue {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IPropertyValue {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                    ::std::clone::Clone::clone(self),
+                ))
+            }
+        }
         impl ::std::convert::From<IPropertyValue> for ::windows::IInspectable {
             fn from(value: IPropertyValue) -> Self {
                 value.0
@@ -1530,6 +1552,36 @@ pub mod Windows {
             };
         }
         impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<IReference<T>>
+            for ::windows::IUnknown
+        {
+            fn from(value: IReference<T>) -> Self {
+                unsafe { ::std::mem::transmute(value) }
+            }
+        }
+        impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<&IReference<T>>
+            for ::windows::IUnknown
+        {
+            fn from(value: &IReference<T>) -> Self {
+                ::std::convert::From::from(::std::clone::Clone::clone(value))
+            }
+        }
+        impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, ::windows::IUnknown>
+            for IReference<T>
+        {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+            }
+        }
+        impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, ::windows::IUnknown>
+            for &'a IReference<T>
+        {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                    ::std::clone::Clone::clone(self),
+                ))
+            }
+        }
+        impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<IReference<T>>
             for ::windows::IInspectable
         {
             fn from(value: IReference<T>) -> Self {
@@ -1645,6 +1697,28 @@ pub mod Windows {
         unsafe impl ::windows::RuntimeType for IStringable {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
+        }
+        impl ::std::convert::From<IStringable> for ::windows::IUnknown {
+            fn from(value: IStringable) -> Self {
+                unsafe { ::std::mem::transmute(value) }
+            }
+        }
+        impl ::std::convert::From<&IStringable> for ::windows::IUnknown {
+            fn from(value: &IStringable) -> Self {
+                ::std::convert::From::from(::std::clone::Clone::clone(value))
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IStringable {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IStringable {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                    ::std::clone::Clone::clone(self),
+                ))
+            }
         }
         impl ::std::convert::From<IStringable> for ::windows::IInspectable {
             fn from(value: IStringable) -> Self {

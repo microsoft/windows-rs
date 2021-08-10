@@ -343,18 +343,26 @@ impl MethodSignature {
     }
 
     pub fn gen_win32_upcall(&self, inner: TokenStream, gen: &Gen) -> TokenStream {
-        let invoke_args = self
-            .params
-            .iter()
-            .map(|param| param.gen_win32_invoke_arg(gen));
-
         if self.has_query_interface() {
             quote! {
                 unimplemented!("one")
             }
         } else if self.has_retval() {
+            let invoke_args = self.params[..self.params.len() - 1]
+                .iter()
+                .map(|param| param.gen_win32_invoke_arg(gen));
+
+            let result = self.params[self.params.len() - 1].param.gen_name();
+
             quote! {
-                unimplemented!("two")
+                match #inner(#(#invoke_args,)*) {
+                    ::std::result::Result::Ok(ok__) => {
+                        *#result = ::std::mem::transmute_copy(&ok__);
+                        ::std::mem::forget(ok__);
+                        ::windows::HRESULT(0)
+                    }
+                    ::std::result::Result::Err(err) => err.into()
+                }
             }
         } else if self.has_udt_return() {
             quote! {
@@ -362,6 +370,11 @@ impl MethodSignature {
             }
         } else if let Some(return_type) = &self.return_type {
             if return_type.kind == ElementType::HRESULT {
+                let invoke_args = self
+                    .params
+                    .iter()
+                    .map(|param| param.gen_win32_invoke_arg(gen));
+
                 quote! {
                     #inner(#(#invoke_args,)*).into()
                 }
