@@ -94,7 +94,13 @@ impl Struct {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
         } else if is_union || has_union || is_packed {
-            quote! {}
+            quote! {
+                impl ::std::clone::Clone for #name {
+                    fn clone(&self) -> Self {
+                        unsafe { std::mem::transmute_copy(self) }
+                    }
+                }
+            }
         } else {
             quote! {
                 #[derive(::std::clone::Clone)]
@@ -366,8 +372,8 @@ impl Struct {
         };
 
         quote! {
-            #repr
             #clone_or_copy
+            #repr
             pub #struct_or_union #name #body
             impl #name {
                 #(#constants)*
