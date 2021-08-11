@@ -282,7 +282,7 @@ mod tests {
     fn hstring_works() {
         let empty = StringType::new();
         assert!(empty.is_empty());
-        assert!(empty.len() == 0);
+        assert!(empty.is_empty());
 
         let mut hello = StringType::from("Hello");
         assert!(!hello.is_empty());
@@ -294,9 +294,9 @@ mod tests {
 
         let hello2 = hello.clone();
         hello.clear();
-        assert!(hello.len() == 0);
+        assert!(hello.is_empty());
         hello.clear();
-        assert!(hello.len() == 0);
+        assert!(hello.is_empty());
         assert!(!hello2.is_empty());
         assert!(hello2.len() == 5);
 
@@ -344,7 +344,7 @@ mod tests {
     #[test]
     fn from_empty_string() {
         let h = StringType::from("");
-        assert!(format!("{}", h) == "");
+        assert!(format!("{}", h).is_empty());
     }
 
     #[test]

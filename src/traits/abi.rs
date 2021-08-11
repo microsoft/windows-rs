@@ -7,14 +7,22 @@ use bindings::Windows::Win32::Foundation::E_POINTER;
 ///
 /// This trait is automatically used by the generated bindings and should not be
 /// used directly.
-pub unsafe trait Abi: Sized {
+pub unsafe trait Abi: Sized + Clone {
     /// The abi representation of the implementing type.
     ///
     /// # Safety
     /// `Self` and `Abi` *must* have the same exact in-memory representation.
     type Abi;
 
-    type DefaultType;
+    type DefaultType: Sized + Clone + PartialEq;
+
+    /// Converts from `Self::DefaultType` to `Result<T>`.
+    fn ok(value: &Self::DefaultType) -> Result<Self> {
+        unsafe {
+            let value = value as *const _ as *const Self;
+            Ok((*value).clone())
+        }
+    }
 
     /// Casts the Rust object to its ABI type without copying the object.
     fn abi(&self) -> Self::Abi {
@@ -42,6 +50,18 @@ pub unsafe trait Abi: Sized {
 unsafe impl<T: Interface> Abi for T {
     type Abi = RawPtr;
     type DefaultType = Option<T>;
+
+    fn ok(value: &Self::DefaultType) -> Result<Self> {
+        unsafe {
+            // For some reason, Rust can't figure out that DefaultType is an Option here.
+            let value = value as *const _ as *const Option<Self>;
+
+            match &*value {
+                Some(value) => Ok(value.clone()),
+                None => Err(Error::fast_error(E_POINTER)),
+            }
+        }
+    }
 
     fn set_abi(&mut self) -> *mut Self::Abi {
         panic!("set_abi should not be used with interfaces since it implies nullable.");

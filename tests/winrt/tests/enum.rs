@@ -60,6 +60,6 @@ fn unsigned_enum() {
         | AppointmentDaysOfWeek::Friday;
 
     assert!(days == AppointmentDaysOfWeek::Monday | AppointmentDaysOfWeek::Wednesday);
-    days = days & AppointmentDaysOfWeek::Wednesday;
+    days &= AppointmentDaysOfWeek::Wednesday;
     assert!(days == AppointmentDaysOfWeek::Wednesday);
 }

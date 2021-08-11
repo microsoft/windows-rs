@@ -4,7 +4,7 @@ use super::*;
 // interfaces that implement any of these interfaces. It also favors high-speed iteration and
 // only falls back to IIterator<T> if nothing faster is available. VectorIterator and
 // VectorViewIterator are faster iterators than IIterator<T> because they only require a single
-// vcall per iteration wheras IIterator<T> requires two.
+// vcall per iteration whereas IIterator<T> requires two.
 pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> TokenStream {
     match def.type_name() {
         // If the type is IIterator<T> then simply implement the Iterator trait over top.

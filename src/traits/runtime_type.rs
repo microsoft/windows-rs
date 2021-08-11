@@ -4,7 +4,7 @@ use crate::*;
 ///
 /// This trait is automatically used by the generated bindings and should not be
 /// used directly.
-pub unsafe trait RuntimeType: Abi + Clone {
+pub unsafe trait RuntimeType: Abi + Clone + PartialEq {
     const SIGNATURE: crate::ConstBuffer;
 }
 

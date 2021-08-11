@@ -18,8 +18,8 @@ pub mod Windows {
         clippy::all
     )]
     pub mod Foundation {
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct DateTime {
             pub UniversalTime: i64,
         }
@@ -545,6 +545,28 @@ pub mod Windows {
         unsafe impl ::windows::RuntimeType for IPropertyValue {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
+        }
+        impl ::std::convert::From<IPropertyValue> for ::windows::IUnknown {
+            fn from(value: IPropertyValue) -> Self {
+                unsafe { ::std::mem::transmute(value) }
+            }
+        }
+        impl ::std::convert::From<&IPropertyValue> for ::windows::IUnknown {
+            fn from(value: &IPropertyValue) -> Self {
+                ::std::convert::From::from(::std::clone::Clone::clone(value))
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IPropertyValue {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IPropertyValue {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                    ::std::clone::Clone::clone(self),
+                ))
+            }
         }
         impl ::std::convert::From<IPropertyValue> for ::windows::IInspectable {
             fn from(value: IPropertyValue) -> Self {
@@ -1530,6 +1552,36 @@ pub mod Windows {
             };
         }
         impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<IReference<T>>
+            for ::windows::IUnknown
+        {
+            fn from(value: IReference<T>) -> Self {
+                unsafe { ::std::mem::transmute(value) }
+            }
+        }
+        impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<&IReference<T>>
+            for ::windows::IUnknown
+        {
+            fn from(value: &IReference<T>) -> Self {
+                ::std::convert::From::from(::std::clone::Clone::clone(value))
+            }
+        }
+        impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, ::windows::IUnknown>
+            for IReference<T>
+        {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+            }
+        }
+        impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, ::windows::IUnknown>
+            for &'a IReference<T>
+        {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                    ::std::clone::Clone::clone(self),
+                ))
+            }
+        }
+        impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<IReference<T>>
             for ::windows::IInspectable
         {
             fn from(value: IReference<T>) -> Self {
@@ -1646,6 +1698,28 @@ pub mod Windows {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
         }
+        impl ::std::convert::From<IStringable> for ::windows::IUnknown {
+            fn from(value: IStringable) -> Self {
+                unsafe { ::std::mem::transmute(value) }
+            }
+        }
+        impl ::std::convert::From<&IStringable> for ::windows::IUnknown {
+            fn from(value: &IStringable) -> Self {
+                ::std::convert::From::from(::std::clone::Clone::clone(value))
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for IStringable {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IStringable {
+            fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
+                ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
+                    ::std::clone::Clone::clone(self),
+                ))
+            }
+        }
         impl ::std::convert::From<IStringable> for ::windows::IInspectable {
             fn from(value: IStringable) -> Self {
                 value.0
@@ -1694,8 +1768,8 @@ pub mod Windows {
                 result__: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT,
         );
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct Point {
             pub X: f32,
             pub Y: f32,
@@ -2347,8 +2421,8 @@ pub mod Windows {
         impl ::windows::RuntimeName for PropertyValue {
             const NAME: &'static str = "Windows.Foundation.PropertyValue";
         }
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct Rect {
             pub X: f32,
             pub Y: f32,
@@ -2393,8 +2467,8 @@ pub mod Windows {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
         }
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct Size {
             pub Width: f32,
             pub Height: f32,
@@ -2430,8 +2504,8 @@ pub mod Windows {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
         }
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct TimeSpan {
             pub Duration: i64,
         }
@@ -2733,8 +2807,8 @@ pub mod Windows {
             pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
             pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
             pub type FARPROC = unsafe extern "system" fn() -> isize;
-            #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[repr(transparent)]
             pub struct HANDLE(pub isize);
             impl HANDLE {}
             impl ::std::default::Default for HANDLE {
@@ -2769,8 +2843,8 @@ pub mod Windows {
                     self.0 == -1
                 }
             }
-            #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
             impl HINSTANCE {}
             impl ::std::default::Default for HINSTANCE {
@@ -2965,8 +3039,8 @@ pub mod Windows {
             clippy::all
         )]
         pub mod Security {
-            #[repr(C)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[repr(C)]
             pub struct SECURITY_ATTRIBUTES {
                 pub nLength: u32,
                 pub lpSecurityDescriptor: *mut ::std::ffi::c_void,
@@ -3469,8 +3543,8 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                #[repr(transparent)]
                 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+                #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
                 impl HeapHandle {}
                 impl ::std::default::Default for HeapHandle {

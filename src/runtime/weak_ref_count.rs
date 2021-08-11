@@ -141,6 +141,7 @@ struct TearOff {
 }
 
 impl TearOff {
+    #[allow(clippy::new_ret_no_self)]
     unsafe fn new(object: RawPtr, strong_count: u32) -> IWeakReferenceSource {
         std::mem::transmute(Box::new(TearOff {
             strong_vtable: &Self::STRONG_VTABLE,
@@ -253,7 +254,7 @@ impl TearOff {
         let this = Self::from_strong_ptr(ptr);
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
-        // decrement its weak reference and allow the tear-off to be released as needd.
+        // decrement its weak reference and allow the tear-off to be released as needed.
         ((*(*(this.object as *mut *mut _) as *mut IUnknown_abi)).2)((*this).object)
     }
 
@@ -276,7 +277,7 @@ impl TearOff {
         let this = Self::from_strong_ptr(ptr);
 
         // The strong vtable hands out a reference to the weak vtable. This is always safe and
-        // straightforward since a strong refernece guarantees there is at lerast one weak
+        // straightforward since a strong reference guarantees there is at least one weak
         // reference.
         *interface = &mut this.weak_vtable as *mut _ as _;
         this.weak_count.add_ref();
@@ -308,7 +309,7 @@ impl TearOff {
             {
                 // Let the object respond to the upgrade query.
                 let result = this.query_interface(iid, interface);
-                // Decrement the temporary reference account used to stablize the object.
+                // Decrement the temporary reference account used to stabilize the object.
                 this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
                 // Return the result of the query.
                 return result;
