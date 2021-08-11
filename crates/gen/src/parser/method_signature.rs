@@ -5,6 +5,7 @@ pub struct MethodSignature {
     pub return_type: Option<Signature>,
 }
 
+#[derive(Clone)]
 pub struct MethodParam {
     pub param: tables::Param,
     pub signature: Signature,
@@ -449,7 +450,7 @@ impl MethodSignature {
 impl MethodParam {
     fn is_retval(&self) -> bool {
         let flags = self.param.flags();
-        if flags.input() || !flags.output() || self.signature.pointers != 1 {
+        if flags.input() || !flags.output() {
             return false;
         }
 

@@ -206,13 +206,14 @@ fn gen_method(
         let params = signature.gen_win32_params(leading_params, gen);
         let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
 
-        let return_type_tokens = signature
-            .params
-            .last()
-            .unwrap()
-            .signature
-            .kind
-            .gen_name(gen);
+        let mut return_param = signature.params[signature.params.len() - 1].clone();
+        
+        let return_type_tokens = if return_param.signature.pointers > 1 {
+            return_param.signature.pointers -= 1;
+             return_param.gen_win32(gen) 
+        } else {
+            return_param.signature.kind.gen_name(gen)
+        };
 
         quote! {
             pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
