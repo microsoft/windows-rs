@@ -89,7 +89,7 @@ fn explicit_boxing() -> windows::Result<()> {
     let pv: IPropertyValue = object.cast()?;
     let mut array = windows::Array::new();
     assert!(array.is_empty());
-    assert!(array.len() == 0);
+    assert!(array.is_empty());
 
     pv.GetUInt32Array(&mut array)?;
     assert!(array[..] == [1, 2, 3]);
@@ -101,7 +101,7 @@ fn explicit_boxing() -> windows::Result<()> {
     let pv: IPropertyValue = object.cast()?;
     let mut array = windows::Array::new();
     assert!(array.is_empty());
-    assert!(array.len() == 0);
+    assert!(array.is_empty());
 
     pv.GetStringArray(&mut array)?;
     assert!(array[..] == ["Hello", "Rust", "WinRT"]);
