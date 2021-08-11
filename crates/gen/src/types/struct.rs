@@ -94,7 +94,14 @@ impl Struct {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
         } else if is_union || has_union || is_packed {
-            quote! {}
+            quote! {
+                impl ::std::clone::Clone for #name {
+                    fn clone(&self) -> Self {
+                        // TODO: this can transmute for blittable but not non-blittable structs
+                        unimplemented!()
+                    }
+                }
+            }
         } else {
             quote! {
                 #[derive(::std::clone::Clone)]
@@ -195,7 +202,15 @@ impl Struct {
         });
 
         let compare = if is_union | has_union | has_complex_array | is_packed {
-            quote! {}
+            quote! {
+                impl ::std::cmp::PartialEq for #name {
+                    fn eq(&self, _other: &Self) -> bool {
+                        // TODO: figure out how to compare complex structs
+                        unimplemented!()
+                    }
+                }
+                impl ::std::cmp::Eq for #name {}
+            }
         } else {
             let compare = fields
                 .iter()
@@ -366,8 +381,8 @@ impl Struct {
         };
 
         quote! {
-            #repr
             #clone_or_copy
+            #repr
             pub #struct_or_union #name #body
             impl #name {
                 #(#constants)*
