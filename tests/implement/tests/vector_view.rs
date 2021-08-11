@@ -17,7 +17,7 @@ impl<T> TestView<T>
 where
     T: ::windows::RuntimeType + 'static,
 {
-    /// GetAt returns the value at the given index; errors with E_BOUNDS if the index is out of bounds 
+    /// GetAt returns the value at the given index; errors with E_BOUNDS if the index is out of bounds
     fn GetAt(&self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
             Some(value) => <T as Abi>::ok(value),
@@ -32,7 +32,7 @@ where
         }
     }
 
-    /// Size returns the length of the underlying vector 
+    /// Size returns the length of the underlying vector
     fn Size(&self) -> Result<u32> {
         Ok(self.0.len() as _)
     }
@@ -45,14 +45,12 @@ where
                 *result = index as _;
                 Ok(true)
             }
-            None => {
-                Ok(false)
-            }
+            None => Ok(false),
         }
     }
 
     /// GetMany creates a slice from the current iterator, storing the retrieved items in the given array parameter
-    /// Returns the amount of elements retrieved 
+    /// Returns the amount of elements retrieved
     fn GetMany(&self, start_index: u32, items: &mut [T]) -> Result<u32> {
         let vec_size: u32 = self.0.len() as u32;
 
@@ -158,7 +156,7 @@ mod tests {
 
     #[test]
     fn test_iter_three_vec() {
-        let three_vec: IVectorView<i32> = TestView(vec![5,6,7]).into();
+        let three_vec: IVectorView<i32> = TestView(vec![5, 6, 7]).into();
         let iter: IIterator<i32> = three_vec.First().unwrap();
         let mut i = 0;
 
