@@ -8,7 +8,7 @@ use Windows::Win32::Foundation::E_BOUNDS;
     Windows::Foundation::Collections::IVectorView<T>,
     Windows::Foundation::Collections::IIterable<T>,
 )]
-struct TestView<T>(Vec<T>)
+struct TestView<T>(Vec<T::DefaultType>)
 where
     T: ::windows::RuntimeType + 'static;
 
@@ -17,50 +17,42 @@ impl<T> TestView<T>
 where
     T: ::windows::RuntimeType + 'static,
 {
-    /* GetAt returns the value at the given index, returning error E_BOUNDS if the given index is out of bounds */
+    /// GetAt returns the value at the given index; errors with E_BOUNDS if the index is out of bounds 
     fn GetAt(&self, index: u32) -> Result<T> {
-        let vec_size = self.0.len() as u32;
-        if index < vec_size {
-            self.0
-                .get(index as usize)
-                .cloned()
-                .ok_or_else(|| Error::new(E_BOUNDS, ""))
-        } else {
-            Err(Error::new(
+        match self.0.get(index as usize) {
+            Some(value) => <T as Abi>::ok(value),
+            None => Err(Error::new(
                 E_BOUNDS,
                 format!(
-                    "Given index ({}) was out of bounds for the IVectorView (length {})",
-                    index, vec_size
+                    "GetAt: Given index ({}) was out of bounds for type TestView",
+                    index
                 )
                 .as_str(),
-            ))
+            )),
         }
     }
 
-    /* Size returns the length of the underlying vector */
+    /// Size returns the length of the underlying vector 
     fn Size(&self) -> Result<u32> {
         Ok(self.0.len() as _)
     }
 
-    /* IndexOf returns true if the given value is in the IVectorView, and false otherwise.
-    If the given value is found, then its index is written to the `index` parameter */
-    fn IndexOf(&self, _value: &T::DefaultType, index: &mut u32) -> Result<bool> {
-        // note: DefaultType covers nullable types; expand impl block to have constraints on when T is an Option and not
-        let vec_size = self.0.len();
-        for i in 0..vec_size {
-            let _vec_element = self.0.get(i).unwrap();
-
-            if false
-            /* *vec_element == *value */
-            {
-                *index = i as _;
-                return Ok(true);
+    /// IndexOf returns true if the given value is in the IVectorView, and false otherwise.
+    /// If the given value is found, then its index is written to the `index` parameter */
+    fn IndexOf(&self, _value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+        match self.0.iter().position(|element| element == _value) {
+            Some(index) => {
+                *result = index as _;
+                Ok(true)
+            }
+            None => {
+                Ok(false)
             }
         }
-        return Ok(false);
     }
 
-    /* GetMany retrieves multiple items, storing them in `items`, and returns the amount of items retrieved  */
+    /// GetMany creates a slice from the current iterator, storing the retrieved items in the given array parameter
+    /// Returns the amount of elements retrieved 
     fn GetMany(&self, start_index: u32, items: &mut [T]) -> Result<u32> {
         let vec_size: u32 = self.0.len() as u32;
 
@@ -70,7 +62,7 @@ where
             let mut get_many_size: u32 = 0;
             for n in start_index..vec_size {
                 let idx = n as usize;
-                items[idx] = self.0.get(idx).unwrap().clone();
+                items[idx] = self.GetAt(n).unwrap();
                 get_many_size += 1;
             }
             Ok(get_many_size)
@@ -86,7 +78,7 @@ where
         }
     }
 
-    /* Returns an IIterator<T> */
+    /// First returns an Iterator
     fn First(&mut self) -> Result<IIterator<T>> {
         Ok(Iterator::<T> {
             owner: self.into(),
@@ -112,7 +104,7 @@ impl<T> Iterator<T>
 where
     T: ::windows::RuntimeType + 'static,
 {
-    fn Current(&self) -> Result<T> {
+    fn Current(&self) -> Result<T::DefaultType> {
         let owner = unsafe { TestView::to_impl(&self.owner) };
 
         if owner.0.len() > self.current {
@@ -166,7 +158,7 @@ mod tests {
 
     #[test]
     fn test_iter_three_vec() {
-        let (three_vec, _) = setup();
+        let three_vec: IVectorView<i32> = TestView(vec![5,6,7]).into();
         let iter: IIterator<i32> = three_vec.First().unwrap();
         let mut i = 0;
 
@@ -194,7 +186,6 @@ mod tests {
     }
 
     #[test]
-    #[ignore = "Waiting on helper trait for DefaultType"]
     fn test_index_of_three_vec() {
         let (three_vec, _) = setup();
 
