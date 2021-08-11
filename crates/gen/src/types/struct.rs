@@ -97,7 +97,8 @@ impl Struct {
             quote! {
                 impl ::std::clone::Clone for #name {
                     fn clone(&self) -> Self {
-                        unsafe { std::mem::transmute_copy(self) }
+                        // TODO: this can transmute for blittable but not non-blittable structs
+                        unimplemented!()
                     }
                 }
             }
@@ -204,6 +205,7 @@ impl Struct {
             quote! {
                 impl ::std::cmp::PartialEq for #name {
                     fn eq(&self, _other: &Self) -> bool {
+                        // TODO: figure out how to compare complex structs
                         unimplemented!()
                     }
                 }
