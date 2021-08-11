@@ -18,8 +18,8 @@ pub mod Windows {
         clippy::all
     )]
     pub mod Foundation {
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct DateTime {
             pub UniversalTime: i64,
         }
@@ -1768,8 +1768,8 @@ pub mod Windows {
                 result__: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT,
         );
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct Point {
             pub X: f32,
             pub Y: f32,
@@ -2421,8 +2421,8 @@ pub mod Windows {
         impl ::windows::RuntimeName for PropertyValue {
             const NAME: &'static str = "Windows.Foundation.PropertyValue";
         }
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct Rect {
             pub X: f32,
             pub Y: f32,
@@ -2467,8 +2467,8 @@ pub mod Windows {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
         }
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct Size {
             pub Width: f32,
             pub Height: f32,
@@ -2504,8 +2504,8 @@ pub mod Windows {
             const SIGNATURE: ::windows::ConstBuffer =
                 ::windows::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
         }
-        #[repr(C)]
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+        #[repr(C)]
         pub struct TimeSpan {
             pub Duration: i64,
         }
@@ -2807,8 +2807,8 @@ pub mod Windows {
             pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
             pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
             pub type FARPROC = unsafe extern "system" fn() -> isize;
-            #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[repr(transparent)]
             pub struct HANDLE(pub isize);
             impl HANDLE {}
             impl ::std::default::Default for HANDLE {
@@ -2843,8 +2843,8 @@ pub mod Windows {
                     self.0 == -1
                 }
             }
-            #[repr(transparent)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
             impl HINSTANCE {}
             impl ::std::default::Default for HINSTANCE {
@@ -3039,8 +3039,8 @@ pub mod Windows {
             clippy::all
         )]
         pub mod Security {
-            #[repr(C)]
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[repr(C)]
             pub struct SECURITY_ATTRIBUTES {
                 pub nLength: u32,
                 pub lpSecurityDescriptor: *mut ::std::ffi::c_void,
@@ -3543,8 +3543,8 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                #[repr(transparent)]
                 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+                #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
                 impl HeapHandle {}
                 impl ::std::default::Default for HeapHandle {

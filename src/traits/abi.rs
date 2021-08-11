@@ -14,7 +14,7 @@ pub unsafe trait Abi: Sized + Clone {
     /// `Self` and `Abi` *must* have the same exact in-memory representation.
     type Abi;
 
-    type DefaultType;
+    type DefaultType: Sized + Clone + PartialEq;
 
     /// Converts from `Self::DefaultType` to `Result<T>`.
     fn ok(value: &Self::DefaultType) -> Result<Self> {

@@ -201,7 +201,14 @@ impl Struct {
         });
 
         let compare = if is_union | has_union | has_complex_array | is_packed {
-            quote! {}
+            quote! {
+                impl ::std::cmp::PartialEq for #name {
+                    fn eq(&self, _other: &Self) -> bool {
+                        unimplemented!()
+                    }
+                }
+                impl ::std::cmp::Eq for #name {}
+            }
         } else {
             let compare = fields
                 .iter()
