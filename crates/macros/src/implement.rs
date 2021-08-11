@@ -213,6 +213,18 @@ pub fn gen(
     tokens.combine(&quote! {
         impl <#constraints> #impl_ident {
             #constructors
+            fn cast<T: ::windows::Interface>(&self) -> ::windows::Result<T> {
+                unsafe {
+                    let boxed = (self as *const #impl_ident as *mut #impl_ident as *mut ::windows::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident;
+                    let mut result = None;
+
+                    (*boxed).QueryInterface(
+                        &T::IID,
+                        &mut result as *mut _ as _,
+                    )
+                    .and_some(result)
+                }
+            }
         }
         impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
