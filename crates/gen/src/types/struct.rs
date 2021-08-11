@@ -479,17 +479,11 @@ mod tests {
 
     #[test]
     fn test_blittable() {
-        assert_eq!(
-            TypeReader::get()
-                .expect_type_def(TypeName::new("Windows.Foundation", "Point"))
-                .is_blittable(),
-            true
-        );
-        assert_eq!(
-            TypeReader::get()
-                .expect_type_def(TypeName::new("Windows.UI.Xaml.Interop", "TypeName"))
-                .is_blittable(),
-            false
-        );
+        assert!(TypeReader::get()
+            .expect_type_def(TypeName::new("Windows.Foundation", "Point"))
+            .is_blittable(),);
+        assert!(!TypeReader::get()
+            .expect_type_def(TypeName::new("Windows.UI.Xaml.Interop", "TypeName"))
+            .is_blittable(),);
     }
 }

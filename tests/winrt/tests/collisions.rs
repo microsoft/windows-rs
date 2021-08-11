@@ -36,7 +36,7 @@ fn email() -> windows::Result<()> {
 
     // Default constructor via IActivationFactory
     let a = EmailAttachment::new()?;
-    assert!(a.FileName()? == "");
+    assert!(a.FileName()?.is_empty());
 
     // create from IEmailAttachmentFactory
     let b = EmailAttachment::Create("create.txt", &reference)?;

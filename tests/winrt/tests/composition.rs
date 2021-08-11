@@ -171,8 +171,8 @@ fn composition() -> windows::Result<()> {
             }
     );
 
-    assert!(iterator.MoveNext()? == false);
-    assert!(iterator.HasCurrent()? == false);
+    assert!(!(iterator.MoveNext()?));
+    assert!(!(iterator.HasCurrent()?));
 
     Ok(())
 }

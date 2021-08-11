@@ -153,7 +153,7 @@ mod tests {
     fn empty() {
         let empty = Array::<bool>::new();
         assert!(empty.is_empty());
-        assert!(empty.len() == 0);
+        assert!(empty.is_empty());
     }
 
     #[test]
