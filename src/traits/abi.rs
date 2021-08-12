@@ -47,6 +47,11 @@ pub unsafe trait Abi: Sized + Clone {
     fn drop_param(_: &mut Param<Self>) {}
 }
 
+unsafe impl<T> Abi for *mut T {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+
 unsafe impl<T: Interface> Abi for T {
     type Abi = RawPtr;
     type DefaultType = Option<T>;
