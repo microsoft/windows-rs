@@ -45,6 +45,8 @@ pub fn gen(
 
     let interfaces_len = Literal::usize_unsuffixed(interfaces.len());
 
+    let mut abi_count = 0;
+
     for (interface_count, (def, overrides)) in interfaces.iter().enumerate() {
         let is_winrt = def.is_winrt();
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
@@ -53,7 +55,13 @@ pub fn gen(
         let add_ref = format_ident!("AddRef_abi{}", interface_count);
         let release = format_ident!("Release_abi{}", interface_count);
 
-        let mut vtable_ptrs = if is_winrt {
+        let (base_interfaces, is_inspectable) = if is_winrt { 
+            (Vec::new(), true)
+        } else {
+            def.base_interfaces() 
+        };
+
+        let mut vtable_ptrs = if is_inspectable {
             quote! {
                 Self::#query_interface,
                 Self::#add_ref,
@@ -102,10 +110,17 @@ pub fn gen(
             const #interface_constant: ::windows::Guid = <#interface_ident as ::windows::Interface>::IID;
         });
 
-        // TODO: also add methods for inherited interfaces
-        for (vtable_offset, method) in def.methods().enumerate() {
+        for method in base_interfaces
+            .iter()
+            .rev()
+            .chain(std::iter::once(def))
+            .map(|def| def.methods())
+            .flatten()
+        {
             let method_ident = gen::to_ident(&method.rust_name());
-            let vcall_ident = format_ident!("abi{}_{}", interface_count, vtable_offset + 6);
+
+            abi_count += 1;
+            let vcall_ident = format_ident!("abi{}", abi_count);
 
             vtable_ptrs.combine(&quote! {
                 Self::#vcall_ident,
