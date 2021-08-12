@@ -508,8 +508,34 @@ impl TypeDef {
         }
     }
 
+    // TODO: rename base_classes
     pub fn bases(&self) -> impl Iterator<Item = TypeDef> {
         Bases(self.clone())
+    }
+
+    pub fn base_interfaces(&self) -> (Vec<Self>, bool) {
+        let mut result = Vec::new();
+        let mut next = self.clone();
+        let mut inspectable = false;
+
+        while let Some(base) = next
+            .interface_impls()
+            .filter_map(|i| match i.generic_interface(&[]) {
+                ElementType::TypeDef(def) => Some(def),
+                ElementType::IUnknown => None,
+                ElementType::IInspectable => {
+                    inspectable = true;
+                    None
+                }
+                _ => unexpected!(),
+            })
+            .next()
+        {
+            next = base.clone();
+            result.push(base);
+        }
+
+        (result, inspectable)
     }
 
     pub fn fields(&self) -> impl Iterator<Item = Field> {

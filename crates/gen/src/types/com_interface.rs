@@ -4,31 +4,6 @@ use super::*;
 pub struct ComInterface(pub tables::TypeDef);
 
 impl ComInterface {
-    fn interfaces(&self) -> (Vec<tables::TypeDef>, bool) {
-        let mut result = Vec::new();
-        let mut next = self.0.clone();
-        let mut inspectable = false;
-
-        while let Some(base) = next
-            .interface_impls()
-            .filter_map(|i| match i.generic_interface(&[]) {
-                ElementType::TypeDef(def) => Some(def),
-                ElementType::IUnknown => None,
-                ElementType::IInspectable => {
-                    inspectable = true;
-                    None
-                }
-                _ => unexpected!(),
-            })
-            .next()
-        {
-            next = base.clone();
-            result.push(base);
-        }
-
-        (result, inspectable)
-    }
-
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = self.0.gen_name(gen);
         let guid = self.0.gen_guid(gen);
@@ -36,7 +11,7 @@ impl ComInterface {
         if include == TypeInclude::Full {
             let abi_name = self.0.gen_abi_name(gen);
 
-            let (bases, inspectable) = self.interfaces();
+            let (bases, inspectable) = self.0.base_interfaces();
 
             let abi_signatures = bases
                 .iter()
