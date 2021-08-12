@@ -55,10 +55,10 @@ pub fn gen(
         let add_ref = format_ident!("AddRef_abi{}", interface_count);
         let release = format_ident!("Release_abi{}", interface_count);
 
-        let (base_interfaces, is_inspectable) = if is_winrt { 
+        let (base_interfaces, is_inspectable) = if is_winrt {
             (Vec::new(), true)
         } else {
-            def.base_interfaces() 
+            def.base_interfaces()
         };
 
         let mut vtable_ptrs = if is_inspectable {
@@ -106,7 +106,7 @@ pub fn gen(
 
         for base in &base_interfaces {
             let interface_ident = base.gen_name(&gen);
-            
+
             queries.combine(&quote! {
                 else if iid == &<#interface_ident as ::windows::Interface>::IID {
                     &mut self.vtables.#interface_literal as *mut _ as _

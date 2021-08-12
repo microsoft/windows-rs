@@ -1,8 +1,8 @@
 use test_implement::*;
 use windows::*;
-use Windows::Win32::System::Com::{IPersist, IPersistStream};
-use Windows::Win32::Storage::StructuredStorage::IStream;
 use Windows::Win32::Foundation::BOOL;
+use Windows::Win32::Storage::StructuredStorage::IStream;
+use Windows::Win32::System::Com::{IPersist, IPersistStream};
 
 #[implement(Windows::Win32::System::Com::IPersistStream)]
 struct Test();
@@ -34,17 +34,17 @@ impl Test {
 #[test]
 fn test() -> Result<()> {
     unsafe {
-    let stream: IPersistStream = Test().into();
-    stream.GetClassID()?; // IPersist
-    stream.IsDirty()?; // IPersistStream
-    stream.cast::<IPersistStream>()?;
-    stream.cast::<IPersist>()?;
+        let stream: IPersistStream = Test().into();
+        stream.GetClassID()?; // IPersist
+        stream.IsDirty()?; // IPersistStream
+        stream.cast::<IPersistStream>()?;
+        stream.cast::<IPersist>()?;
 
-    let persist: IPersist = stream.into();
-    persist.GetClassID()?;
-    persist.cast::<IPersistStream>()?;
-    persist.cast::<IPersist>()?;
+        let persist: IPersist = stream.into();
+        persist.GetClassID()?;
+        persist.cast::<IPersistStream>()?;
+        persist.cast::<IPersist>()?;
 
-    Ok(())
+        Ok(())
     }
 }
