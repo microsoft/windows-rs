@@ -207,10 +207,10 @@ fn gen_method(
         let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
 
         let mut return_param = signature.params[signature.params.len() - 1].clone();
-        
+
         let return_type_tokens = if return_param.signature.pointers > 1 {
             return_param.signature.pointers -= 1;
-             return_param.gen_win32(gen) 
+            return_param.gen_win32(gen)
         } else {
             return_param.signature.kind.gen_name(gen)
         };
