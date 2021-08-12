@@ -98,14 +98,23 @@ pub fn gen(
         let interface_literal = Literal::usize_unsuffixed(interface_count);
         let interface_constant = format_ident!("IID{}", interface_count);
 
-        // TODO: also add IIDs for inherited interfaces
         queries.combine(&quote! {
             else if iid == &Self::#interface_constant {
                 &mut self.vtables.#interface_literal as *mut _ as _
             }
         });
 
-        // TODO: also add IIDs for inherited interfaces
+        for base in &base_interfaces {
+            let interface_ident = base.gen_name(&gen);
+            
+            queries.combine(&quote! {
+                else if iid == &<#interface_ident as ::windows::Interface>::IID {
+                    &mut self.vtables.#interface_literal as *mut _ as _
+                }
+            });
+        }
+
+        // Constants are required for generic interfaces due to limitations in Rust.
         query_constants.combine(&quote! {
             const #interface_constant: ::windows::Guid = <#interface_ident as ::windows::Interface>::IID;
         });
