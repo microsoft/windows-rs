@@ -9,12 +9,8 @@ impl Constant {
         ElementType::from_code(code).unwrap_or_else(|| panic!("Unexpected ElementType: {:x}", code))
     }
 
-    pub fn value_blob(&self) -> Blob {
-        self.0.blob(2)
-    }
-
     pub fn value(&self) -> ConstantValue {
-        let mut value = self.value_blob();
+        let mut value = self.0.blob(2);
 
         match self.value_type() {
             ElementType::I8 => ConstantValue::I8(value.read_i8()),

@@ -4,12 +4,8 @@ use super::*;
 pub struct Attribute(pub Row);
 
 impl Attribute {
-    pub fn constructor(&self) -> AttributeType {
-        self.0.decode(1)
-    }
-
     pub fn name(&self) -> &'static str {
-        if let AttributeType::MemberRef(method) = self.constructor() {
+        if let AttributeType::MemberRef(method) = self.0.decode(1) {
             return method.parent().name();
         }
 
@@ -19,14 +15,12 @@ impl Attribute {
     pub fn args(&self) -> Vec<(String, ConstantValue)> {
         let reader = TypeReader::get();
 
-        let (mut sig, mut values) = match self.constructor() {
+        let (mut sig, mut values) = match self.0.decode(1) {
             AttributeType::MethodDef(method) => (method.0.blob(4), self.0.blob(2)),
             AttributeType::MemberRef(method) => (method.0.blob(2), self.0.blob(2)),
         };
 
-        let prolog = values.read_u16();
-        debug_assert!(prolog == 0x0001, "CustomAttribute Prolog must be 0x0001"); // Required by spec.
-
+        let _prolog = values.read_u16();
         let _this_and_gen_param_count = sig.read_unsigned();
         let fixed_arg_count = sig.read_unsigned();
         let _ret_type = sig.read_unsigned();
@@ -48,10 +42,17 @@ impl Attribute {
                     let name = values.read_str();
                     ConstantValue::TypeDef(reader.expect_type_def(TypeName::parse(name)).clone())
                 }
-                ElementType::TypeDef(def) => {
-                    let underlying_type = def.underlying_type();
-                    read_enum(&underlying_type, &mut values)
-                }
+                ElementType::TypeDef(def) => match def.underlying_type() {
+                    ElementType::I8 => ConstantValue::I8(values.read_i8()),
+                    ElementType::U8 => ConstantValue::U8(values.read_u8()),
+                    ElementType::I16 => ConstantValue::I16(values.read_i16()),
+                    ElementType::U16 => ConstantValue::U16(values.read_u16()),
+                    ElementType::I32 => ConstantValue::I32(values.read_i32()),
+                    ElementType::U32 => ConstantValue::U32(values.read_u32()),
+                    ElementType::I64 => ConstantValue::I64(values.read_i64()),
+                    ElementType::U64 => ConstantValue::U64(values.read_u64()),
+                    _ => unexpected!(),
+                },
                 _ => unexpected!(),
             };
 
@@ -62,11 +63,7 @@ impl Attribute {
         args.reserve(named_arg_count as usize);
 
         for _ in 0..named_arg_count {
-            let id = values.read_u8();
-            debug_assert!(
-                id == 0x53 || id == 0x54,
-                "A NamedArg must start with an id of 0x53 (Field) or 0x54 (Property)"
-            );
+            let _id = values.read_u8();
             let arg_type = values.read_u8();
             let name = values.read_str().to_string();
             let arg = match arg_type {
@@ -107,19 +104,5 @@ impl Attribute {
         } else {
             None
         }
-    }
-}
-
-fn read_enum(element_type: &ElementType, blob: &mut Blob) -> ConstantValue {
-    match element_type {
-        ElementType::I8 => ConstantValue::I8(blob.read_i8()),
-        ElementType::U8 => ConstantValue::U8(blob.read_u8()),
-        ElementType::I16 => ConstantValue::I16(blob.read_i16()),
-        ElementType::U16 => ConstantValue::U16(blob.read_u16()),
-        ElementType::I32 => ConstantValue::I32(blob.read_i32()),
-        ElementType::U32 => ConstantValue::U32(blob.read_u32()),
-        ElementType::I64 => ConstantValue::I64(blob.read_i64()),
-        ElementType::U64 => ConstantValue::U64(blob.read_u64()),
-        _ => unexpected!(),
     }
 }

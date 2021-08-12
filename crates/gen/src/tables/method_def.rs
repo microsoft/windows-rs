@@ -29,7 +29,6 @@ impl MethodDef {
     }
 
     pub fn parent(&self) -> TypeDef {
-        // TODO: stick this in TypeReader
         let row = self.0.file.upper_bound_of(
             TableIndex::TypeDef,
             0,
