@@ -450,7 +450,10 @@ impl MethodSignature {
 impl MethodParam {
     fn is_retval(&self) -> bool {
         let flags = self.param.flags();
-        if flags.input() || !flags.output() {
+
+        // TODO: NativeArrayInfo indicates and array parameter #479
+        if flags.input() || !flags.output() || self.param.has_attribute("NativeArrayInfoAttribute")
+        {
             return false;
         }
 
