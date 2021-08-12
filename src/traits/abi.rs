@@ -38,8 +38,9 @@ pub unsafe trait Abi: Sized + Clone {
         self as *mut _ as *mut _
     }
 
+    /// # Safety
     /// Casts the ABI representation to a Rust object by taking ownership of the bits.
-    // Note: This default implementation is correct for all but interfaces.
+    /// This default implementation is correct for all but interfaces.
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(std::mem::transmute_copy(&abi))
     }

@@ -84,6 +84,7 @@ impl WeakRefCount {
         }
     }
 
+    /// # Safety
     pub unsafe fn query(&self, iid: &::windows::Guid, object: RawPtr) -> RawPtr {
         if iid != &IWeakReferenceSource::IID {
             return std::ptr::null_mut();
