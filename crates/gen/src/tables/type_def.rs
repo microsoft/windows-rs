@@ -306,58 +306,6 @@ impl TypeDef {
         unimplemented!();
     }
 
-    pub fn gen_signature(&self, signature: &str) -> TokenStream {
-        let signature = Literal::byte_string(signature.as_bytes());
-
-        if self.generics.is_empty() {
-            return quote! { ::windows::ConstBuffer::from_slice(#signature) };
-        }
-
-        let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen_name(&Gen::Absolute);
-            let semi = if index != self.generics.len() - 1 {
-                Some(quote! {
-                    .push_slice(b";")
-                })
-            } else {
-                None
-            };
-
-            quote! {
-                .push_other(<#g as ::windows::RuntimeType>::SIGNATURE)
-                #semi
-            }
-        });
-
-        quote! {
-            {
-                ::windows::ConstBuffer::new()
-                .push_slice(b"pinterface(")
-                .push_slice(#signature)
-                .push_slice(b";")
-                #(#generics)*
-                .push_slice(b")")
-            }
-        }
-    }
-
-    pub fn gen_phantoms(&self) -> impl Iterator<Item = TokenStream> + '_ {
-        self.generics.iter().map(move |g| {
-            let g = g.gen_name(&Gen::Absolute);
-            quote! { ::std::marker::PhantomData::<#g> }
-        })
-    }
-
-    pub fn gen_constraints(&self) -> TokenStream {
-        self.generics
-            .iter()
-            .map(|g| {
-                let g = g.gen_name(&Gen::Absolute);
-                quote! { #g: ::windows::RuntimeType + 'static, }
-            })
-            .collect()
-    }
-
     pub fn interface_signature(&self) -> String {
         let guid = self.guid();
 

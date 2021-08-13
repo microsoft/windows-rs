@@ -41,14 +41,14 @@ impl Interface {
 
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = gen_type_name(&self.0, gen);
-        let struct_phantoms = self.0.gen_phantoms();
-        let constraints = self.0.gen_constraints();
-        let type_signature = self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
+        let struct_phantoms = gen_phantoms(&self.0);
+        let constraints = gen_constraints(&self.0);
+        let type_signature = gen_signature(&self.0, &format!("{{{:#?}}}", &self.0.guid()));
         let guid = gen_guid(&self.0, gen);
 
         if include == TypeInclude::Full {
             let abi_name = gen_abi_name(&self.0, gen);
-            let abi_phantoms = self.0.gen_phantoms();
+            let abi_phantoms = gen_phantoms(&self.0);
 
             let abi_signatures = self
                 .0

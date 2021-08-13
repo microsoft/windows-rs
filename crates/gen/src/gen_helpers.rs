@@ -340,3 +340,55 @@ pub fn gen_abi_type(def:&TypeDef, gen: &Gen) -> TokenStream {
         _ => quote! { ::windows::RawPtr },
     }
 }
+
+pub fn gen_signature(def:&TypeDef, signature: &str) -> TokenStream {
+    let signature = Literal::byte_string(signature.as_bytes());
+
+    if def.generics.is_empty() {
+        return quote! { ::windows::ConstBuffer::from_slice(#signature) };
+    }
+
+    let generics = def.generics.iter().enumerate().map(|(index, g)| {
+        let g = g.gen_name(&Gen::Absolute);
+        let semi = if index != def.generics.len() - 1 {
+            Some(quote! {
+                .push_slice(b";")
+            })
+        } else {
+            None
+        };
+
+        quote! {
+            .push_other(<#g as ::windows::RuntimeType>::SIGNATURE)
+            #semi
+        }
+    });
+
+    quote! {
+        {
+            ::windows::ConstBuffer::new()
+            .push_slice(b"pinterface(")
+            .push_slice(#signature)
+            .push_slice(b";")
+            #(#generics)*
+            .push_slice(b")")
+        }
+    }
+}
+
+pub fn gen_phantoms(def:&TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
+    def.generics.iter().map(move |g| {
+        let g = g.gen_name(&Gen::Absolute);
+        quote! { ::std::marker::PhantomData::<#g> }
+    })
+}
+
+pub fn gen_constraints(def:&TypeDef) -> TokenStream {
+    def.generics
+        .iter()
+        .map(|g| {
+            let g = g.gen_name(&Gen::Absolute);
+            quote! { #g: ::windows::RuntimeType + 'static, }
+        })
+        .collect()
+}

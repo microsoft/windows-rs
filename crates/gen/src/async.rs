@@ -61,7 +61,7 @@ fn gen_async_kind(
         _ => unimplemented!(),
     };
 
-    let constraints = self_name.gen_constraints();
+    let constraints = gen_constraints(self_name);
     let name = gen_type_name(self_name, gen);
     let namespace = gen.namespace("Windows.Foundation");
 

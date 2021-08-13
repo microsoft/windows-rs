@@ -12,10 +12,11 @@ impl Delegate {
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
         let guid = gen_guid(&self.0, gen);
-        let struct_phantoms = self.0.gen_phantoms();
-        let abi_phantoms = self.0.gen_phantoms();
-        let vtable_phantoms = self.0.gen_phantoms();
-        let constraints = self.0.gen_constraints();
+        // TODO: can we share these or at least copy the resulting strings instead? Maybe if they're not iterators the quote macro won't consume them?
+        let struct_phantoms = gen_phantoms(&self.0);
+        let abi_phantoms = gen_phantoms(&self.0);
+        let vtable_phantoms = gen_phantoms(&self.0);
+        let constraints = gen_constraints(&self.0);
 
         let method = MethodInfo {
             name: "Invoke".to_string(),
@@ -36,10 +37,10 @@ impl Delegate {
         // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
         // for compile-time const guid calculations.
         let type_signature = if self.0.generics.is_empty() {
-            self.0
-                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()))
+            
+                gen_signature(&self.0, &format!("delegate({{{:#?}}})", &self.0.guid()))
         } else {
-            self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()))
+            gen_signature(&self.0, &format!("{{{:#?}}}", &self.0.guid()))
         };
 
         let (box_name, box_definition) = if self.0.generics.is_empty() {
