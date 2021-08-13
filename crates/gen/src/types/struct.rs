@@ -190,7 +190,7 @@ impl Struct {
             if f.is_literal() {
                 if let Some(constant) = f.constant() {
                     let name = to_ident(f.name());
-                    let value = constant.value().gen();
+                    let value = gen_constant_value_with_type(&constant.value());
 
                     return Some(quote! {
                         pub const #name: #value;

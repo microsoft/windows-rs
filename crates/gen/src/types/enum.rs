@@ -59,14 +59,14 @@ impl Enum {
                     let field_name = to_ident(field.name());
 
                     if let Some(constant) = field.constant() {
-                        let value = constant.value().gen_value();
+                        let value = gen_constant_value(&constant.value());
 
                         Some(quote! {
                             pub const #field_name: #name = #name(#value);
                         })
                     } else if let Some(last_value) = &last {
                         let next = last_value.next();
-                        let value = next.gen_value();
+                        let value = gen_constant_value(&next);
                         last = Some(next);
 
                         Some(quote! {
