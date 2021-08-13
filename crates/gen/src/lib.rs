@@ -8,7 +8,6 @@ mod iterator;
 mod object;
 mod parser;
 mod propertykey;
-mod squote;
 pub mod tables;
 mod to_ident;
 pub mod types;
@@ -20,8 +19,8 @@ pub use iterator::*;
 pub use object::*;
 pub use parser::*;
 pub use propertykey::*;
+pub use quote::*;
 pub use r#async::*;
-pub use squote::*;
 pub use to_ident::*;
 pub use workspace::*;
 
