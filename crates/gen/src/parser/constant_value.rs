@@ -20,28 +20,28 @@ impl ConstantValue {
     pub fn unwrap_u32(&self) -> u32 {
         match self {
             Self::U32(value) => *value,
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
     pub fn unwrap_u16(&self) -> u16 {
         match self {
             Self::U16(value) => *value,
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
     pub fn unwrap_u8(&self) -> u8 {
         match self {
             Self::U8(value) => *value,
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
     pub fn unwrap_string(&self) -> &str {
         match self {
             Self::String(value) => value,
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -49,7 +49,7 @@ impl ConstantValue {
         match self {
             Self::U32(value) => Self::U32(value + 1),
             Self::I32(value) => Self::I32(value + 1),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -67,7 +67,7 @@ impl ConstantValue {
             ConstantValue::F32(value) => quote! { f32 = #value },
             ConstantValue::F64(value) => quote! { f64 = #value },
             ConstantValue::String(value) => quote! { &'static str = #value },
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -85,7 +85,7 @@ impl ConstantValue {
             ConstantValue::F32(value) => quote! { #value },
             ConstantValue::F64(value) => quote! { #value },
             ConstantValue::String(value) => quote! { #value },
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 }

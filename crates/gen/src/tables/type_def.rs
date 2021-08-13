@@ -405,7 +405,7 @@ impl TypeDef {
             }
         }
 
-        unexpected!();
+        unimplemented!();
     }
 
     pub fn gen_signature(&self, signature: &str) -> TokenStream {
@@ -527,7 +527,7 @@ impl TypeDef {
                     inspectable = true;
                     None
                 }
-                _ => unexpected!(),
+                _ => unimplemented!(),
             })
             .next()
         {

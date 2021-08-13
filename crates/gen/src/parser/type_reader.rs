@@ -315,7 +315,7 @@ impl TypeReader {
 
                 ElementType::TypeDef(def)
             }
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 }
