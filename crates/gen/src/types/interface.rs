@@ -40,14 +40,14 @@ impl Interface {
     }
 
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
-        let name = self.0.gen_name(gen);
+        let name = gen_type_name(&self.0, gen);
         let struct_phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
         let type_signature = self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
         let guid = self.0.gen_guid(gen);
 
         if include == TypeInclude::Full {
-            let abi_name = self.0.gen_abi_name(gen);
+            let abi_name = gen_abi_name(&self.0, gen);
             let abi_phantoms = self.0.gen_phantoms();
 
             let abi_signatures = self
@@ -166,12 +166,12 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            gen_type_name(&i[0].def, &Gen::Absolute).as_str(),
             "Windows::Foundation:: IAsyncOperation :: < TResult >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
+            gen_type_name(&i[1].def, &Gen::Absolute).as_str(),
             "Windows::Foundation:: IAsyncInfo"
         );
     }
@@ -185,12 +185,12 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            gen_type_name(&i[0].def, &Gen::Absolute).as_str(),
             "Windows::Foundation::Collections:: IMap :: < K , V >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
+            gen_type_name(&i[1].def, &Gen::Absolute).as_str(),
             "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < K , V > >"
         );
     }

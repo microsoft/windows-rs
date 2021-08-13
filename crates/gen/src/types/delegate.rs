@@ -5,9 +5,9 @@ pub struct Delegate(pub TypeDef);
 
 impl Delegate {
     pub fn gen(&self, gen: &Gen) -> TokenStream {
-        let name = self.0.gen_name(gen);
-        let abi_name = self.0.gen_abi_name(gen);
-        let turbo_abi_name = self.0.gen_turbo_abi_name(gen);
+        let name = gen_type_name(&self.0, gen);
+        let abi_name = gen_abi_name(&self.0, gen);
+        let turbo_abi_name = gen_turbo_abi_name(&self.0, gen);
         let signature = self.0.invoke_method().signature(&self.0.generics);
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);

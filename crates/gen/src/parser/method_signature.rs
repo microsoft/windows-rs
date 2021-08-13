@@ -170,7 +170,7 @@ impl MethodSignature {
         let constraints = self.gen_constraints(params);
         let args = params.iter().map(|p| p.gen_winrt_abi_arg());
         let params = self.gen_winrt_params(params, gen);
-        let interface_name = interface.def.gen_name(gen);
+        let interface_name = gen_type_name(&interface.def, gen);
 
         let return_type_tokens = if let Some(return_type) = &self.return_type {
             let tokens = return_type.kind.gen_name(gen);

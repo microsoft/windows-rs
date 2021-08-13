@@ -94,7 +94,7 @@ impl Class {
     }
 
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
-        let name = self.0.gen_name(gen);
+        let name = gen_type_name(&self.0, gen);
         let interfaces = self.interfaces();
 
         if include == TypeInclude::Full {
@@ -106,7 +106,7 @@ impl Class {
                     InterfaceKind::Static | InterfaceKind::Composable => {
                         if interface.def.methods().next().is_some() {
                             let interface_name = format_ident!("{}", interface.def.name());
-                            let interface_type = interface.def.gen_name(gen);
+                            let interface_type = gen_type_name(&interface.def, gen);
 
                             Some(quote! {
                                 pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
@@ -129,7 +129,7 @@ impl Class {
                 interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
             {
                 let guid = default_interface.def.gen_guid(gen);
-                let default_abi_name = default_interface.def.gen_abi_name(gen);
+                let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
                 let object = gen_object(&name, &TokenStream::new());
                 let (async_get, future) = gen_async(&self.0, &interfaces, gen);
@@ -237,7 +237,7 @@ impl Class {
         gen: &'a Gen,
     ) -> impl Iterator<Item = TokenStream> + 'a {
         self.0.bases().map(move |base| {
-            let into = base.gen_name(gen);
+            let into = gen_type_name(&base, gen);
 
             quote! {
                 impl ::std::convert::From<#from> for #into {
@@ -289,19 +289,19 @@ mod tests {
         assert_eq!(i.len(), 3);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
+            gen_type_name(&i[0].def, &Gen::Absolute).as_str(),
             "Windows::Foundation::Collections:: IMap :: < :: windows :: HSTRING , :: windows :: HSTRING >"
         );
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
+            gen_type_name(&i[1].def, &Gen::Absolute).as_str(),
             "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: HSTRING , :: windows :: HSTRING > >"
         );
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
         assert_eq!(
-            i[2].def.gen_name(&Gen::Absolute).as_str(),
+            gen_type_name(&i[2].def, &Gen::Absolute).as_str(),
             "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: HSTRING , :: windows :: HSTRING >"
         );
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);

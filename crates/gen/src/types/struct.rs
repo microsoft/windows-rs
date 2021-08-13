@@ -158,7 +158,7 @@ impl Struct {
                 }
             }
         } else {
-            let abi_name = self.0.gen_abi_name(gen);
+            let abi_name = gen_abi_name(&self.0, gen);
 
             let fields = if is_winrt {
                 let fields = fields.iter().map(|(_, signature, name)| {
@@ -367,7 +367,7 @@ impl Struct {
         let nested_types = gen_nested_types(struct_name, &self.0, gen);
 
         let convertible = if let Some(dependency) = self.0.is_convertible_to() {
-            let dependency = dependency.gen_name(gen);
+            let dependency = gen_type_name(&dependency, gen);
 
             quote! {
                 impl<'a> ::windows::IntoParam<'a, #dependency> for #name {

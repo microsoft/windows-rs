@@ -87,46 +87,6 @@ impl TypeDef {
         })
     }
 
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        self.format_name(gen, to_ident, false)
-    }
-
-    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
-        self.format_name(gen, to_abi_ident, false)
-    }
-
-    pub fn gen_turbo_abi_name(&self, gen: &Gen) -> TokenStream {
-        self.format_name(gen, to_abi_ident, true)
-    }
-
-    fn format_name<F>(&self, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
-    where
-        F: FnOnce(&str) -> Ident,
-    {
-        let type_name = self.type_name();
-
-        if type_name.namespace.is_empty() {
-            let name = format_name(&self.scoped_name());
-            quote! { #name }
-        } else {
-            let namespace = gen.namespace(type_name.namespace);
-            let name = format_name(type_name.name);
-
-            if self.generics.is_empty() {
-                quote! { #namespace#name }
-            } else {
-                let colon_separated = if turbo || !namespace.as_str().is_empty() {
-                    quote! { :: }
-                } else {
-                    quote! {}
-                };
-
-                let generics = self.generics.iter().map(|g| g.gen_name(gen));
-                quote! { #namespace#name#colon_separated<#(#generics),*> }
-            }
-        }
-    }
-
     pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
         if self.generics.is_empty() {
             match Guid::from_attributes(self.attributes()) {
@@ -144,7 +104,7 @@ impl TypeDef {
                 }
             }
         } else {
-            let tokens = self.gen_name(gen);
+            let tokens = gen_type_name(self, gen);
 
             quote! {
                 ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
@@ -177,12 +137,12 @@ impl TypeDef {
 
     pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
         match self.kind() {
-            TypeKind::Enum => self.gen_name(gen),
+            TypeKind::Enum => gen_type_name(self, gen),
             TypeKind::Struct => {
                 if self.is_blittable() {
-                    self.gen_name(gen)
+                    gen_type_name(self, gen)
                 } else {
-                    self.gen_abi_name(gen)
+                    gen_abi_name(self, gen)
                 }
             }
             _ => quote! { ::windows::RawPtr },
@@ -691,20 +651,6 @@ impl TypeDef {
             .map(NestedClass)
             .next()
             .map(|nested| nested.enclosing_type())
-    }
-
-    fn scoped_name(&self) -> String {
-        if let Some(enclosing_type) = self.enclosing_type() {
-            if let Some(nested_types) = enclosing_type.nested_types() {
-                for (index, (nested_type, _)) in nested_types.iter().enumerate() {
-                    if *nested_type == self.name() {
-                        return format!("{}_{}", enclosing_type.scoped_name(), index);
-                    }
-                }
-            }
-        }
-
-        self.name().to_string()
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {

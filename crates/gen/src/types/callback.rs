@@ -4,8 +4,9 @@ use super::*;
 pub struct Callback(pub TypeDef);
 
 impl Callback {
+    // TODO: make free gen_callback function
     pub fn gen(&self, gen: &Gen) -> TokenStream {
-        let name = self.0.gen_name(gen);
+        let name = gen_type_name(&self.0, gen);
         let signature = self.0.invoke_method().signature(&[]);
 
         // Note that callbacks are C-style function pointers so the code gen will only use ABI types

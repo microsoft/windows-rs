@@ -63,7 +63,7 @@ impl InterfaceInfo {
 
         match self.kind {
             InterfaceKind::Default => {
-                let into = self.def.gen_name(gen);
+                let into = gen_type_name(&self.def, gen);
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
@@ -89,7 +89,7 @@ impl InterfaceInfo {
                 }
             }
             InterfaceKind::NonDefault => {
-                let into = self.def.gen_name(gen);
+                let into = gen_type_name(&self.def, gen);
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {

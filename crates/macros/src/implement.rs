@@ -93,8 +93,8 @@ pub fn gen(
             }
         });
 
-        let vtable_ident = def.gen_abi_name(&gen);
-        let interface_ident = def.gen_name(&gen);
+        let vtable_ident = gen_abi_name(def, &gen);
+        let interface_ident = gen_type_name(def, &gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
         let interface_constant = format_ident!("IID{}", interface_count);
 
@@ -105,7 +105,7 @@ pub fn gen(
         });
 
         for base in &base_interfaces {
-            let interface_ident = base.gen_name(&gen);
+            let interface_ident = gen_type_name(base, &gen);
 
             queries.combine(&quote! {
                 else if iid == &<#interface_ident as ::windows::Interface>::IID {

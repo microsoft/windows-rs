@@ -5,11 +5,11 @@ pub struct ComInterface(pub TypeDef);
 
 impl ComInterface {
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
-        let name = self.0.gen_name(gen);
+        let name = gen_type_name(&self.0, gen);
         let guid = self.0.gen_guid(gen);
 
         if include == TypeInclude::Full {
-            let abi_name = self.0.gen_abi_name(gen);
+            let abi_name = gen_abi_name(&self.0, gen);
 
             let (bases, inspectable) = self.0.base_interfaces();
 
@@ -62,7 +62,7 @@ impl ComInterface {
                 });
 
             for base in &bases {
-                let into = base.gen_name(gen);
+                let into = gen_type_name(base, gen);
 
                 conversions.combine(&quote! {
                         impl ::std::convert::From<#name> for #into {

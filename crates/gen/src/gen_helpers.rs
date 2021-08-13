@@ -224,3 +224,57 @@ pub fn gen_method_name(def:&MethodDef, gen: &Gen) -> TokenStream {
     let name = format_ident!("{}", def.name());
     quote! { #namespace #name }
 }
+
+pub fn gen_type_name(def:&TypeDef, gen: &Gen) -> TokenStream {
+    format_name(def, gen, to_ident, false)
+}
+
+pub fn gen_abi_name(def:&TypeDef, gen: &Gen) -> TokenStream {
+    format_name(def, gen, to_abi_ident, false)
+}
+
+pub fn gen_turbo_abi_name(def:&TypeDef, gen: &Gen) -> TokenStream {
+    format_name(def, gen, to_abi_ident, true)
+}
+
+fn format_name<F>(def:&TypeDef, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
+where
+    F: FnOnce(&str) -> Ident,
+{
+    let type_name = def.type_name();
+
+    if type_name.namespace.is_empty() {
+        let name = format_name(&scoped_name(def));
+        quote! { #name }
+    } else {
+        let namespace = gen.namespace(type_name.namespace);
+        let name = format_name(type_name.name);
+
+        if def.generics.is_empty() {
+            quote! { #namespace#name }
+        } else {
+            let colon_separated = if turbo || !namespace.as_str().is_empty() {
+                quote! { :: }
+            } else {
+                quote! {}
+            };
+
+            let generics = def.generics.iter().map(|g| g.gen_name(gen));
+            quote! { #namespace#name#colon_separated<#(#generics),*> }
+        }
+    }
+}
+
+fn scoped_name(def:&TypeDef) -> String {
+    if let Some(enclosing_type) = def.enclosing_type() {
+        if let Some(nested_types) = enclosing_type.nested_types() {
+            for (index, (nested_type, _)) in nested_types.iter().enumerate() {
+                if *nested_type == def.name() {
+                    return format!("{}_{}", &scoped_name(&enclosing_type), index);
+                }
+            }
+        }
+    }
+
+    def.name().to_string()
+}

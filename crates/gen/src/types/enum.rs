@@ -4,8 +4,9 @@ use super::*;
 pub struct Enum(pub TypeDef);
 
 impl Enum {
+    // TODO: gen_enum function
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
-        let name = self.0.gen_name(gen);
+        let name = gen_type_name(&self.0, gen);
         let underlying_type = self.0.underlying_type();
 
         // WinRT enums don't have the flags attribute but are paritioned merely based
