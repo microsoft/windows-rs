@@ -12,9 +12,8 @@ impl Gen {
                 let mut tokens = TokenStream::new();
 
                 for namespace in namespace.split('.') {
-                    let namespace = to_ident(namespace);
-
-                    tokens.combine(&quote! { #namespace:: });
+                    tokens.push_str(namespace);
+                    tokens.push_str("::");
                 }
 
                 tokens
@@ -31,6 +30,7 @@ impl Gen {
                     if relative.next().is_none() {
                         break;
                     }
+
                     namespace.next();
                 }
 
@@ -59,7 +59,7 @@ mod tests {
     fn test_namespace() {
         assert_eq!(
             Gen::Absolute.namespace("Windows.Foundation").as_str(),
-            "Windows :: Foundation ::"
+            "Windows::Foundation::"
         );
 
         assert_eq!(
