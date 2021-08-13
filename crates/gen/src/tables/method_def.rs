@@ -10,12 +10,6 @@ impl From<Row> for MethodDef {
 }
 
 impl MethodDef {
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        let namespace = gen.namespace(self.parent().namespace());
-        let name = format_ident!("{}", self.name());
-        quote! { #namespace #name }
-    }
-
     pub fn is_special(&self) -> bool {
         self.0.u32(2) & 0b1000_0000_0000 != 0
     }
@@ -126,10 +120,6 @@ impl MethodDef {
             params,
             return_type,
         }
-    }
-
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
-        types::Function::gen(self, gen)
     }
 
     pub fn dependencies(&self) -> Vec<TypeEntry> {

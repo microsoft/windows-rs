@@ -71,11 +71,6 @@ impl Field {
     pub fn is_blittable(&self) -> bool {
         self.signature().is_blittable()
     }
-
-    pub fn gen_name(&self) -> TokenStream {
-        let name = format_ident!("{}", self.name());
-        quote! { #name }
-    }
 }
 
 #[cfg(test)]

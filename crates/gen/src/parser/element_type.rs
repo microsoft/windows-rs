@@ -147,8 +147,8 @@ impl ElementType {
                 let name = format_ident!("{}", generic);
                 quote! { #name }
             }
-            Self::MethodDef(t) => t.gen_name(gen),
-            Self::Field(t) => t.gen_name(),
+            Self::MethodDef(t) => gen_method_name(t, gen), // TODO: why is the gen-relative and the next is not?
+            Self::Field(t) => gen_field_name(t), // TODO: this could just stringify t.name()
             Self::TypeDef(t) => t.gen_name(gen),
             _ => unimplemented!(),
         }
