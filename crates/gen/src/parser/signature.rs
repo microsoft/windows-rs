@@ -128,7 +128,7 @@ impl Signature {
         if self.pointers > 0 {
             quote! { ::std::ptr::null_mut() }
         } else {
-            self.kind.gen_default()
+            gen_default(&self.kind)
         }
     }
 
@@ -136,7 +136,7 @@ impl Signature {
         if self.pointers > 0 {
             quote! { ::std::ptr::null_mut() }
         } else {
-            self.kind.gen_default()
+            gen_default(&self.kind)
         }
     }
 }

@@ -428,3 +428,27 @@ pub fn gen_constant_value(value:&ConstantValue) -> TokenStream {
         _ => unimplemented!(),
     }
 }
+
+pub fn gen_default(def: &ElementType) -> TokenStream {
+    match def {
+        ElementType::Bool => quote! { false },
+        ElementType::Char
+        | ElementType::I8
+        | ElementType::U8
+        | ElementType::I16
+        | ElementType::U16
+        | ElementType::I32
+        | ElementType::U32
+        | ElementType::I64
+        | ElementType::U64
+        | ElementType::ISize
+        | ElementType::USize => quote! { 0 },
+        ElementType::F32 | ElementType::F64 => quote! { 0.0 },
+        ElementType::Array((kind, len)) => {
+            let default = kind.gen_win32_default();
+            let len = Literal::u32_unsuffixed(*len);
+            quote! { [#default; #len] }
+        }
+        _ => quote! { ::std::default::Default::default() },
+    }
+}
