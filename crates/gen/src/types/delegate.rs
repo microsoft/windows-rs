@@ -11,7 +11,7 @@ impl Delegate {
         let signature = self.0.invoke_method().signature(&self.0.generics);
         let abi_signature = signature.gen_winrt_abi(gen);
         let fn_constraint = signature.gen_winrt_constraint(gen);
-        let guid = self.0.gen_guid(gen);
+        let guid = gen_guid(&self.0, gen);
         let struct_phantoms = self.0.gen_phantoms();
         let abi_phantoms = self.0.gen_phantoms();
         let vtable_phantoms = self.0.gen_phantoms();

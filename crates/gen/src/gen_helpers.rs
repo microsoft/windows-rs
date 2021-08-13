@@ -278,3 +278,65 @@ fn scoped_name(def:&TypeDef) -> String {
 
     def.name().to_string()
 }
+
+pub fn gen_guid(def:&TypeDef, gen: &Gen) -> TokenStream {
+    if def.generics.is_empty() {
+        match Guid::from_attributes(def.attributes()) {
+            Some(guid) => {
+                let guid = guid.gen();
+
+                quote! {
+                    ::windows::Guid::from_values(#guid)
+                }
+            }
+            None => {
+                quote! {
+                    ::windows::Guid::zeroed()
+                }
+            }
+        }
+    } else {
+        let tokens = gen_type_name(def, gen);
+
+        quote! {
+            ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
+        }
+    }
+}
+
+pub fn gen_type(def:&TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
+    // TODO: all the cloning here is ridiculous
+    match def.kind() {
+        TypeKind::Interface => {
+            if def.is_winrt() {
+                types::Interface(def.clone().with_generics()).gen(gen, include)
+            } else {
+                types::ComInterface(def.clone()).gen(gen, include)
+            }
+        }
+        TypeKind::Class => types::Class(def.clone().with_generics()).gen(gen, include),
+        TypeKind::Enum => types::Enum(def.clone()).gen(gen, include),
+        TypeKind::Struct => types::Struct(def.clone()).gen(gen),
+        TypeKind::Delegate => {
+            if def.is_winrt() {
+                types::Delegate(def.clone().with_generics()).gen(gen)
+            } else {
+                types::Callback(def.clone()).gen(gen)
+            }
+        }
+    }
+}
+
+pub fn gen_abi_type(def:&TypeDef, gen: &Gen) -> TokenStream {
+    match def.kind() {
+        TypeKind::Enum => gen_type_name(def, gen),
+        TypeKind::Struct => {
+            if def.is_blittable() {
+                gen_type_name(def, gen)
+            } else {
+                gen_abi_name(def, gen)
+            }
+        }
+        _ => quote! { ::windows::RawPtr },
+    }
+}

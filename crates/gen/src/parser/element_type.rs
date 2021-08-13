@@ -195,7 +195,7 @@ impl ElementType {
                 let name = format_ident!("{}", generic);
                 quote! { <#name as ::windows::Abi>::Abi }
             }
-            Self::TypeDef(def) => def.gen_abi_type(gen),
+            Self::TypeDef(def) => gen_abi_type(def, gen),
             _ => unimplemented!(),
         }
     }

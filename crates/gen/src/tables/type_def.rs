@@ -87,68 +87,6 @@ impl TypeDef {
         })
     }
 
-    pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
-        if self.generics.is_empty() {
-            match Guid::from_attributes(self.attributes()) {
-                Some(guid) => {
-                    let guid = guid.gen();
-
-                    quote! {
-                        ::windows::Guid::from_values(#guid)
-                    }
-                }
-                None => {
-                    quote! {
-                        ::windows::Guid::zeroed()
-                    }
-                }
-            }
-        } else {
-            let tokens = gen_type_name(self, gen);
-
-            quote! {
-                ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
-            }
-        }
-    }
-
-    pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
-        // TODO: all the cloning here is ridiculous
-        match self.kind() {
-            TypeKind::Interface => {
-                if self.is_winrt() {
-                    types::Interface(self.clone().with_generics()).gen(gen, include)
-                } else {
-                    types::ComInterface(self.clone()).gen(gen, include)
-                }
-            }
-            TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen, include),
-            TypeKind::Enum => types::Enum(self.clone()).gen(gen, include),
-            TypeKind::Struct => types::Struct(self.clone()).gen(gen),
-            TypeKind::Delegate => {
-                if self.is_winrt() {
-                    types::Delegate(self.clone().with_generics()).gen(gen)
-                } else {
-                    types::Callback(self.clone()).gen(gen)
-                }
-            }
-        }
-    }
-
-    pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
-        match self.kind() {
-            TypeKind::Enum => gen_type_name(self, gen),
-            TypeKind::Struct => {
-                if self.is_blittable() {
-                    gen_type_name(self, gen)
-                } else {
-                    gen_abi_name(self, gen)
-                }
-            }
-            _ => quote! { ::windows::RawPtr },
-        }
-    }
-
     pub fn is_packed(&self) -> bool {
         if self.kind() != TypeKind::Struct {
             return false;

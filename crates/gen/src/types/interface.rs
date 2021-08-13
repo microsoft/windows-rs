@@ -44,7 +44,7 @@ impl Interface {
         let struct_phantoms = self.0.gen_phantoms();
         let constraints = self.0.gen_constraints();
         let type_signature = self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
-        let guid = self.0.gen_guid(gen);
+        let guid = gen_guid(&self.0, gen);
 
         if include == TypeInclude::Full {
             let abi_name = gen_abi_name(&self.0, gen);
