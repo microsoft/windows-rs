@@ -8,12 +8,13 @@ mod iterator;
 mod object;
 mod parser;
 mod propertykey;
-pub mod tables;
+mod tables;
 mod to_ident;
 pub mod types;
 mod workspace;
 mod gen_helpers;
 
+pub use tables::*;
 pub use gen::*;
 pub use guid::*;
 pub use iterator::*;
