@@ -46,7 +46,7 @@ impl TypeDef {
         false
     }
 
-    pub fn invoke_method(&self) -> tables::MethodDef {
+    pub fn invoke_method(&self) -> MethodDef {
         self.methods()
             .find(|m| m.name() == "Invoke")
             .expect("`Invoke` method not found")
@@ -564,7 +564,7 @@ impl TypeDef {
             .map(InterfaceImpl)
     }
 
-    pub fn nested_types(&self) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
+    pub fn nested_types(&self) -> Option<&BTreeMap<&'static str, TypeDef>> {
         TypeReader::get().nested_types(self)
     }
 

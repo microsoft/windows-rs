@@ -22,7 +22,7 @@ impl Guid {
         )
     }
 
-    pub fn from_attributes<I: IntoIterator<Item = tables::Attribute>>(
+    pub fn from_attributes<I: IntoIterator<Item = Attribute>>(
         attributes: I,
     ) -> Option<Self> {
         for attribute in attributes {

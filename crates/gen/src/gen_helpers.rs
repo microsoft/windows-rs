@@ -2,7 +2,7 @@
 
 use crate::*;
 
-pub fn gen_field(def: &tables::Field, gen: &Gen) -> TokenStream {
+pub fn gen_field(def: &Field, gen: &Gen) -> TokenStream {
     let name = def.name();
     let name = to_ident(name);
     let signature = def.signature();

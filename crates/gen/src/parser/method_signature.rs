@@ -7,7 +7,7 @@ pub struct MethodSignature {
 
 #[derive(Clone)]
 pub struct MethodParam {
-    pub param: tables::Param,
+    pub param: Param,
     pub signature: Signature,
 }
 

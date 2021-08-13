@@ -4,7 +4,7 @@ use super::*;
 // radically different.
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Struct(pub tables::TypeDef);
+pub struct Struct(pub TypeDef);
 
 impl Struct {
     pub fn gen(&self, gen: &Gen) -> TokenStream {
@@ -26,7 +26,7 @@ impl Struct {
             };
         }
 
-        let fields: Vec<(tables::Field, Signature, Ident)> = self
+        let fields: Vec<(Field, Signature, Ident)> = self
             .0
             .fields()
             .filter_map(move |f| {
@@ -425,7 +425,7 @@ impl Struct {
 
 fn gen_nested_types<'a>(
     enclosing_name: &'a str,
-    enclosing_type: &'a tables::TypeDef,
+    enclosing_type: &'a TypeDef,
     gen: &Gen,
 ) -> TokenStream {
     if let Some(nested_types) = enclosing_type.nested_types() {
@@ -458,7 +458,7 @@ mod tests {
             "Windows.Win32.Graphics.Dxgi",
             "DXGI_FRAME_STATISTICS_MEDIA",
         ));
-        let f: Vec<tables::Field> = t.fields().collect();
+        let f: Vec<Field> = t.fields().collect();
         assert_eq!(f.len(), 7);
 
         assert_eq!(f[0].name(), "PresentCount");

@@ -1,7 +1,7 @@
 use crate::*;
 
 pub fn gen_async(
-    def: &tables::TypeDef,
+    def: &TypeDef,
     interfaces: &[InterfaceInfo],
     gen: &Gen,
 ) -> (TokenStream, TokenStream) {
@@ -32,7 +32,7 @@ pub enum AsyncKind {
 }
 
 // TODO: make is_async method on TypeDef
-pub fn async_kind(def: &tables::TypeDef) -> AsyncKind {
+pub fn async_kind(def: &TypeDef) -> AsyncKind {
     match def.type_name() {
         TypeName::IAsyncAction => AsyncKind::Action,
         TypeName::IAsyncActionWithProgress => AsyncKind::ActionWithProgress,
@@ -44,8 +44,8 @@ pub fn async_kind(def: &tables::TypeDef) -> AsyncKind {
 
 fn gen_async_kind(
     kind: AsyncKind,
-    name: &tables::TypeDef,
-    self_name: &tables::TypeDef,
+    name: &TypeDef,
+    self_name: &TypeDef,
     gen: &Gen,
 ) -> (TokenStream, TokenStream) {
     let return_type = match kind {

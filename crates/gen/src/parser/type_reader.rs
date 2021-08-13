@@ -4,7 +4,7 @@ use std::collections::*;
 pub struct TypeReader {
     // Nested types are stored in a BTreeMap to ensure a stable order. This impacts
     // the derived nested type names.
-    nested: HashMap<Row, BTreeMap<&'static str, tables::TypeDef>>,
+    nested: HashMap<Row, BTreeMap<&'static str, TypeDef>>,
 
     pub types: TypeTree,
 }
@@ -39,7 +39,7 @@ impl TypeReader {
     /// This function panics if the if the files where the windows metadata are stored cannot be read.
     fn new() -> Self {
         let files = crate_winmds();
-        let mut nested = HashMap::<Row, BTreeMap<&'static str, tables::TypeDef>>::new();
+        let mut nested = HashMap::<Row, BTreeMap<&'static str, TypeDef>>::new();
         let mut types = TypeTree::from_namespace("");
         types.include = true;
 
@@ -47,7 +47,7 @@ impl TypeReader {
             let row_count = file.type_def_table().row_count;
 
             for row in 0..row_count {
-                let def: tables::TypeDef = Row::new(row, TableIndex::TypeDef, file).into();
+                let def: TypeDef = Row::new(row, TableIndex::TypeDef, file).into();
                 let type_name = def.type_name();
 
                 if type_name.namespace.is_empty() {
@@ -84,7 +84,7 @@ impl TypeReader {
             let row_count = file.nested_class_table().row_count;
 
             for row in 0..row_count {
-                let row = tables::NestedClass(Row::new(row, TableIndex::NestedClass, file));
+                let row = NestedClass(Row::new(row, TableIndex::NestedClass, file));
                 let enclosed = row.nested_type();
                 let enclosing = row.enclosing_type();
                 let name = enclosed.name();
@@ -161,8 +161,8 @@ impl TypeReader {
 
     pub fn nested_types(
         &'static self,
-        enclosing: &tables::TypeDef,
-    ) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
+        enclosing: &TypeDef,
+    ) -> Option<&BTreeMap<&'static str, TypeDef>> {
         self.nested.get(&enclosing.row)
     }
 
@@ -183,7 +183,7 @@ impl TypeReader {
         })
     }
 
-    pub fn expect_type_def(&'static self, type_name: TypeName) -> tables::TypeDef {
+    pub fn expect_type_def(&'static self, type_name: TypeName) -> TypeDef {
         self.get_type(type_name)
             .and_then(|def| {
                 if let ElementType::TypeDef(def) = def {
@@ -201,7 +201,7 @@ impl TypeReader {
             })
     }
 
-    pub fn expect_type_ref(&'static self, type_ref: &tables::TypeRef) -> tables::TypeDef {
+    pub fn expect_type_ref(&'static self, type_ref: &TypeRef) -> TypeDef {
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
             self.nested[&scope.resolve().row]
                 .get(type_ref.name())

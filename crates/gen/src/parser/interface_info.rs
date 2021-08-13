@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct InterfaceInfo {
-    pub def: tables::TypeDef,
+    pub def: TypeDef,
     pub kind: InterfaceKind,
     pub is_base: bool,
     pub version: (u16, u16),

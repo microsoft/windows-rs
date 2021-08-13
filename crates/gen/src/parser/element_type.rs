@@ -25,9 +25,9 @@ pub enum ElementType {
     TypeName,
     GenericParam(String),
     Array((Box<Signature>, u32)),
-    MethodDef(tables::MethodDef),
-    Field(tables::Field),
-    TypeDef(tables::TypeDef),
+    MethodDef(MethodDef),
+    Field(Field),
+    TypeDef(TypeDef),
 }
 
 impl Default for ElementType {
@@ -36,8 +36,8 @@ impl Default for ElementType {
     }
 }
 
-impl From<tables::TypeDef> for ElementType {
-    fn from(def: tables::TypeDef) -> Self {
+impl From<TypeDef> for ElementType {
+    fn from(def: TypeDef) -> Self {
         Self::TypeDef(def.with_generics())
     }
 }

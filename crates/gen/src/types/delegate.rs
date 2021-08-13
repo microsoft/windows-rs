@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Delegate(pub tables::TypeDef);
+pub struct Delegate(pub TypeDef);
 
 impl Delegate {
     pub fn gen(&self, gen: &Gen) -> TokenStream {

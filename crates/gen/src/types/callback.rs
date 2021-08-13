@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Callback(pub tables::TypeDef);
+pub struct Callback(pub TypeDef);
 
 impl Callback {
     pub fn gen(&self, gen: &Gen) -> TokenStream {

@@ -1,13 +1,13 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Interface(pub tables::TypeDef);
+pub struct Interface(pub TypeDef);
 
 impl Interface {
     fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(
             result: &mut Vec<InterfaceInfo>,
-            parent: &tables::TypeDef,
+            parent: &TypeDef,
             is_base: bool,
         ) {
             for child in parent.interface_impls() {

@@ -1,13 +1,13 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Class(pub tables::TypeDef);
+pub struct Class(pub TypeDef);
 
 impl Class {
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
         fn add_interfaces(
             result: &mut Vec<InterfaceInfo>,
-            parent: &tables::TypeDef,
+            parent: &TypeDef,
             is_base: bool,
         ) {
             for child in parent.interface_impls() {
@@ -318,13 +318,13 @@ mod tests {
 
         let c =
             TypeReader::get().expect_type_def(TypeName::new("Windows.UI.Composition", "Visual"));
-        let bases: Vec<tables::TypeDef> = c.bases().collect();
+        let bases: Vec<TypeDef> = c.bases().collect();
         assert_eq!(bases.len(), 1);
         assert_eq!(bases[0].name(), "CompositionObject");
 
         let c = TypeReader::get()
             .expect_type_def(TypeName::new("Windows.UI.Composition", "SpriteVisual"));
-        let bases: Vec<tables::TypeDef> = c.bases().collect();
+        let bases: Vec<TypeDef> = c.bases().collect();
         assert_eq!(bases.len(), 3);
         assert_eq!(bases[0].name(), "ContainerVisual");
         assert_eq!(bases[1].name(), "Visual");

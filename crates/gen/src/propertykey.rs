@@ -7,7 +7,7 @@ pub struct PropertyKey {
 }
 
 impl PropertyKey {
-    pub fn from_attributes<I: IntoIterator<Item = tables::Attribute>>(
+    pub fn from_attributes<I: IntoIterator<Item = Attribute>>(
         attributes: I,
     ) -> Option<Self> {
         attributes

@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct ComInterface(pub tables::TypeDef);
+pub struct ComInterface(pub TypeDef);
 
 impl ComInterface {
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
@@ -147,7 +147,7 @@ impl ComInterface {
 
 fn gen_method(
     vtable_offset: usize,
-    method: &tables::MethodDef,
+    method: &MethodDef,
     method_names: &mut BTreeMap<String, u32>,
     gen: &Gen,
 ) -> TokenStream {
