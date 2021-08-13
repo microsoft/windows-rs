@@ -21,8 +21,7 @@ impl Test {
         Ok(())
     }
 
-    // TODO: should be able to declare BOOL without a reference.
-    fn Save(&self, _: &Option<IStream>, _: &BOOL) -> Result<()> {
+    fn Save(&self, _: &Option<IStream>, _: BOOL) -> Result<()> {
         Ok(())
     }
 
