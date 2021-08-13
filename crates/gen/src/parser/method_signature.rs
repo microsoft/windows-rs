@@ -480,7 +480,7 @@ impl MethodParam {
         let kind = self.signature.kind.gen_name(gen);
 
         if self.param.is_input() {
-            if self.signature.kind.is_primitive() {
+            if self.signature.kind.is_blittable() {
                 quote! { #name }
             } else {
                 quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
