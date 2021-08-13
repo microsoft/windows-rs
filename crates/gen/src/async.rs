@@ -31,6 +31,7 @@ pub enum AsyncKind {
     OperationWithProgress,
 }
 
+// TODO: make is_async method on TypeDef
 pub fn async_kind(def: &tables::TypeDef) -> AsyncKind {
     match def.type_name() {
         TypeName::IAsyncAction => AsyncKind::Action,
