@@ -22,7 +22,7 @@ impl Decode for TypeDefOrRef {
                 TableIndex::TypeSpec,
                 file,
             ))),
-            _ => panic!("type_code"),
+            _ => unimplemented!(),
         }
     }
 }
@@ -53,7 +53,7 @@ impl Decode for TypeOrMethodDef {
                 TableIndex::MethodDef,
                 file,
             ))),
-            _ => panic!("type_code"),
+            _ => unimplemented!(),
         }
     }
 }
@@ -113,7 +113,7 @@ impl Decode for HasAttribute {
                 TableIndex::GenericParam,
                 file,
             ))),
-            _ => panic!("type_code"),
+            _ => unimplemented!(),
         }
     }
 }
@@ -158,7 +158,7 @@ impl Decode for MemberRefParent {
                 TableIndex::TypeSpec,
                 file,
             ))),
-            _ => panic!("type_code"),
+            _ => unimplemented!(),
         }
     }
 }
@@ -186,7 +186,7 @@ impl Decode for HasConstant {
         match code.0 {
             0 => Self::Field(tables::Field(Row::new(code.1, TableIndex::Field, file))),
             1 => Self::Param(tables::Param(Row::new(code.1, TableIndex::Param, file))),
-            _ => panic!("type_code"),
+            _ => unimplemented!(),
         }
     }
 }
@@ -220,7 +220,7 @@ impl Decode for AttributeType {
                 TableIndex::MemberRef,
                 file,
             ))),
-            _ => panic!("type_code"),
+            _ => unimplemented!(),
         }
     }
 }
@@ -250,7 +250,7 @@ impl Decode for MemberForwarded {
                 TableIndex::MethodDef,
                 file,
             ))),
-            _ => panic!("type_code"),
+            _ => unimplemented!(),
         }
     }
 }
@@ -288,7 +288,7 @@ impl Decode for ResolutionScope {
                 file,
             ))),
             3 => Self::TypeRef(tables::TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
-            _ => panic!("type_code"),
+            _ => unimplemented!(),
         }
     }
 }
@@ -309,7 +309,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(value) => value.type_name(),
             Self::TypeRef(value) => value.type_name(),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -317,7 +317,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(value) => value.resolve(),
             Self::TypeRef(value) => value.resolve(),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 }
@@ -327,7 +327,7 @@ impl MemberRefParent {
         match self {
             Self::TypeDef(value) => value.name(),
             Self::TypeRef(value) => value.name(),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -335,7 +335,7 @@ impl MemberRefParent {
         match self {
             Self::TypeDef(value) => value.type_name(),
             Self::TypeRef(value) => value.type_name(),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 }

@@ -48,7 +48,7 @@ impl ElementType {
             Self::MethodDef(def) => &def.0,
             Self::Field(def) => &def.0,
             Self::TypeDef(def) => &def.row,
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -102,7 +102,7 @@ impl ElementType {
             Self::TypeDef(def) => def.type_name(),
             Self::MethodDef(def) => TypeName::new(def.parent().namespace(), def.name()),
             Self::Field(def) => TypeName::new(def.parent().namespace(), def.name()),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -150,7 +150,7 @@ impl ElementType {
             Self::MethodDef(t) => t.gen_name(gen),
             Self::Field(t) => t.gen_name(),
             Self::TypeDef(t) => t.gen_name(gen),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -196,7 +196,7 @@ impl ElementType {
                 quote! { <#name as ::windows::Abi>::Abi }
             }
             Self::TypeDef(def) => def.gen_abi_type(gen),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 
@@ -242,7 +242,7 @@ impl ElementType {
             Self::IInspectable => "cinterface(IInspectable)".to_owned(),
             Self::Guid => "g16".to_owned(),
             Self::TypeDef(t) => t.type_signature(),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 

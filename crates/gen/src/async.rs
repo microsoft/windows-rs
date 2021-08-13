@@ -57,7 +57,7 @@ fn gen_async_kind(
         AsyncKind::ActionWithProgress => quote! { AsyncActionWithProgressCompletedHandler },
         AsyncKind::Operation => quote! { AsyncOperationCompletedHandler },
         AsyncKind::OperationWithProgress => quote! { AsyncOperationWithProgressCompletedHandler },
-        _ => panic!("Unexpected AsyncKind"),
+        _ => unimplemented!(),
     };
 
     let constraints = self_name.gen_constraints();

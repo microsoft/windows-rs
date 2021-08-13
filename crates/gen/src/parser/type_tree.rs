@@ -23,7 +23,7 @@ impl TypeEntry {
             ElementType::TypeDef(def) => def.clone().with_generics().gen(gen, self.include),
             ElementType::MethodDef(def) => def.gen(gen),
             ElementType::Field(def) => def.gen(gen),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 }

@@ -6,7 +6,7 @@ pub struct Constant(pub Row);
 impl Constant {
     pub fn value_type(&self) -> ElementType {
         let code = self.0.u32(0);
-        ElementType::from_code(code).unwrap_or_else(|| panic!("Unexpected ElementType: {:x}", code))
+        ElementType::from_code(code).unwrap_or_else(|| unimplemented!())
     }
 
     pub fn value(&self) -> ConstantValue {
@@ -24,7 +24,7 @@ impl Constant {
             ElementType::F32 => ConstantValue::F32(value.read_f32()),
             ElementType::F64 => ConstantValue::F64(value.read_f64()),
             ElementType::String => ConstantValue::String(value.read_utf16()),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         }
     }
 }

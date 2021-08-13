@@ -23,16 +23,3 @@ pub use quote::*;
 pub use r#async::*;
 pub use to_ident::*;
 pub use workspace::*;
-
-// Ideally this would be defined (and used) by the nested macros crate, but this isn't yet supported by Rust.
-#[macro_export]
-macro_rules! unexpected {
-    () => {{
-        fn f() {}
-        fn type_name_of<T>(_: T) -> &'static str {
-            std::any::type_name::<T>()
-        }
-        let name = type_name_of(f);
-        panic!("{}", &name[..name.len() - 3]);
-    }};
-}

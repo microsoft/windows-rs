@@ -149,7 +149,7 @@ impl File {
             0..=3 => (initial_byte & 0x7f, 1),
             4..=5 => (initial_byte & 0x3f, 2),
             6 => (initial_byte & 0x1f, 4),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         };
         let mut blob_size = blob_size as usize;
         for byte in &self.bytes[offset + 1..offset + blob_size_bytes] {
@@ -300,7 +300,7 @@ impl File {
                     pe.file_header.number_of_sections as u32,
                 ),
             ),
-            _ => unexpected!(),
+            _ => unimplemented!(),
         };
 
         let cli = file.bytes.view_as::<ImageCorHeader>(offset_from_rva(
@@ -309,7 +309,7 @@ impl File {
         ));
 
         if cli.cb != sizeof::<ImageCorHeader>() {
-            unexpected!();
+            unimplemented!();
         }
 
         let cli_offset = offset_from_rva(
@@ -318,7 +318,7 @@ impl File {
         );
 
         if file.bytes.copy_as::<u32>(cli_offset) != STORAGE_MAGIC_SIG {
-            unexpected!();
+            unimplemented!();
         }
 
         let version_length = file.bytes.copy_as::<u32>(cli_offset + 12);
@@ -335,7 +335,7 @@ impl File {
                 b"#~" => tables_data = (cli_offset + stream_offset, stream_size),
                 b"#GUID" => {}
                 b"#US" => {}
-                _ => unexpected!(),
+                _ => unimplemented!(),
             }
             let mut padding = 4 - stream_name.len() % 4;
             if padding == 0 {

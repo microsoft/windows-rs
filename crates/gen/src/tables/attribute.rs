@@ -9,7 +9,7 @@ impl Attribute {
             return method.parent().name();
         }
 
-        unexpected!();
+        unimplemented!();
     }
 
     pub fn args(&self) -> Vec<(String, ConstantValue)> {
@@ -51,9 +51,9 @@ impl Attribute {
                     ElementType::U32 => ConstantValue::U32(values.read_u32()),
                     ElementType::I64 => ConstantValue::I64(values.read_i64()),
                     ElementType::U64 => ConstantValue::U64(values.read_u64()),
-                    _ => unexpected!(),
+                    _ => unimplemented!(),
                 },
-                _ => unexpected!(),
+                _ => unimplemented!(),
             };
 
             args.push((String::new(), arg));
@@ -75,7 +75,7 @@ impl Attribute {
                     let name = values.read_str();
                     ConstantValue::TypeDef(reader.expect_type_def(TypeName::parse(name)).clone())
                 }
-                _ => unexpected!(),
+                _ => unimplemented!(),
             };
             args.push((name, arg));
         }
