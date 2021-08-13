@@ -12,6 +12,7 @@ pub mod tables;
 mod to_ident;
 pub mod types;
 mod workspace;
+mod gen_helpers;
 
 pub use gen::*;
 pub use guid::*;
@@ -23,3 +24,4 @@ pub use quote::*;
 pub use r#async::*;
 pub use to_ident::*;
 pub use workspace::*;
+pub use gen_helpers::*;
