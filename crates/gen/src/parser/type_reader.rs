@@ -10,10 +10,6 @@ pub struct TypeReader {
 }
 
 impl TypeReader {
-    pub fn gen(&'static self) -> impl Iterator<Item = TokenStream> {
-        gen_tree(&self.types)
-    }
-
     pub fn get_mut() -> &'static mut Self {
         use std::{mem::MaybeUninit, sync::Once};
         static ONCE: Once = Once::new();
