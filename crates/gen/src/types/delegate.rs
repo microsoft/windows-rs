@@ -32,7 +32,7 @@ impl Delegate {
             version: (0, 0),
         };
 
-        let invoke = signature.gen_winrt_method(&method, &interface, gen);
+        let invoke = gen_winrt_method(&signature, &method, &interface, gen);
 
         // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
         // for compile-time const guid calculations.
