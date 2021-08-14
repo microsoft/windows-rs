@@ -65,16 +65,16 @@ impl TypeDef {
         definition
     }
 
-    pub fn default_interface(&self) -> Self {
+    pub fn default_interface(&self) -> Option<Self> {
         for interface in self.interface_impls() {
             if interface.is_default() {
                 if let ElementType::TypeDef(def) = interface.generic_interface(&self.generics) {
-                    return def;
+                    return Some(def);
                 }
             }
         }
 
-        panic!("`{}` does not have a default interface.", self.type_name());
+        None
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
@@ -129,14 +129,11 @@ impl TypeDef {
                 dependencies
             }
             TypeKind::Class => {
-                let class = types::Class(self.clone());
                 if include == TypeInclude::Minimal {
-                    if let Some(default_interface) = class
-                        .interfaces()
-                        .iter()
-                        .find(|i| i.kind == InterfaceKind::Default)
+                    if let Some(default_interface) = self
+                        .default_interface()
                     {
-                        return default_interface.def.definition(TypeInclude::Minimal);
+                        return default_interface.definition(TypeInclude::Minimal);
                     } else {
                         return Vec::new();
                     }
@@ -259,7 +256,7 @@ impl TypeDef {
             TypeKind::Class => format!(
                 "rc({};{})",
                 self.type_name(),
-                self.default_interface().interface_signature()
+                self.default_interface().unwrap_or_else(||panic!("`{}` does not have a default interface.", self.type_name())).interface_signature()
             ),
             TypeKind::Enum => format!(
                 "enum({};{})",
