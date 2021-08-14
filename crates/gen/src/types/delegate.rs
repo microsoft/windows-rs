@@ -49,7 +49,7 @@ impl Delegate {
         } else {
             let name = self.0.name();
             let name = format_ident!("{}_box", &name[..name.len() - 2]);
-            let generics = self.0.generics.iter().map(|g| g.gen_name(gen));
+            let generics = self.0.generics.iter().map(|g| gen_name(g, gen));
             let generics = quote! { #(#generics,)* };
             (
                 quote! { #name::<#generics F> },

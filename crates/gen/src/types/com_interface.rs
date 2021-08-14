@@ -187,7 +187,7 @@ fn gen_method(
             return_param.signature.pointers -= 1;
             return_param.gen_win32(gen)
         } else {
-            return_param.signature.kind.gen_name(gen)
+            gen_name(&return_param.signature.kind, gen)
         };
 
         quote! {

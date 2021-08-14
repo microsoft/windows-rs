@@ -106,54 +106,6 @@ impl ElementType {
         }
     }
 
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        match self {
-            Self::Void => quote! { ::std::ffi::c_void },
-            Self::Bool => quote! { bool },
-            Self::Char => quote! { u16 },
-            Self::I8 => quote! { i8 },
-            Self::U8 => quote! { u8 },
-            Self::I16 => quote! { i16 },
-            Self::U16 => quote! { u16 },
-            Self::I32 => quote! { i32 },
-            Self::U32 => quote! { u32 },
-            Self::I64 => quote! { i64 },
-            Self::U64 => quote! { u64 },
-            Self::F32 => quote! { f32 },
-            Self::F64 => quote! { f64 },
-            Self::ISize => quote! { isize },
-            Self::USize => quote! { usize },
-            Self::String => {
-                quote! { ::windows::HSTRING }
-            }
-            Self::IInspectable => {
-                quote! { ::windows::IInspectable }
-            }
-            Self::Guid => {
-                quote! { ::windows::Guid }
-            }
-            Self::IUnknown => {
-                quote! { ::windows::IUnknown }
-            }
-            Self::HRESULT => {
-                quote! { ::windows::HRESULT }
-            }
-            Self::Array((kind, len)) => {
-                let name = kind.gen_win32(gen);
-                let len = Literal::u32_unsuffixed(*len);
-                quote! { [#name; #len] }
-            }
-            Self::GenericParam(generic) => {
-                let name = format_ident!("{}", generic);
-                quote! { #name }
-            }
-            Self::MethodDef(t) => gen_method_name(t, gen), // TODO: why is the gen-relative and the next is not?
-            Self::Field(t) => gen_field_name(t), // TODO: this could just stringify t.name()
-            Self::TypeDef(t) => gen_type_name(t, gen),
-            _ => unimplemented!(),
-        }
-    }
-
     pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
         match self {
             Self::Void => quote! { ::std::ffi::c_void },

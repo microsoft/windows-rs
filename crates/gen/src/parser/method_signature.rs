@@ -65,7 +65,7 @@ impl MethodSignature {
         let params = self.params.iter().map(|p| p.gen_winrt_produce_type(gen));
 
         let return_type = if let Some(return_type) = &self.return_type {
-            let tokens = return_type.kind.gen_name(gen);
+            let tokens = gen_name(&return_type.kind, gen);
 
             if return_type.is_array {
                 quote! { ::windows::Array<#tokens> }
@@ -173,7 +173,7 @@ impl MethodSignature {
         let interface_name = gen_type_name(&interface.def, gen);
 
         let return_type_tokens = if let Some(return_type) = &self.return_type {
-            let tokens = return_type.kind.gen_name(gen);
+            let tokens = gen_name(&return_type.kind, gen);
 
             if return_type.is_array {
                 quote! { ::windows::Array<#tokens> }
@@ -186,7 +186,7 @@ impl MethodSignature {
 
         let return_arg = if let Some(return_type) = &self.return_type {
             if return_type.is_array {
-                let return_type = return_type.kind.gen_name(gen);
+                let return_type = gen_name(&return_type.kind, gen);
                 quote! { ::windows::Array::<#return_type>::set_abi_len(&mut result__), ::windows::Array::<#return_type>::set_abi(&mut result__) }
             } else {
                 quote! { &mut result__ }
@@ -301,7 +301,7 @@ impl MethodSignature {
             .iter()
             .map(|param| {
                 let name = param.param.gen_name();
-                let tokens = param.signature.kind.gen_name(gen);
+                let tokens = gen_name(&param.signature.kind, gen);
 
                 if param.signature.is_array {
                     if param.param.is_input() {
@@ -313,7 +313,7 @@ impl MethodSignature {
                     }
                 } else if param.param.is_input() {
                     if param.is_convertible() {
-                        let into = param.signature.kind.gen_name(gen);
+                        let into = gen_name(&param.signature.kind, gen);
                         quote! { #name: impl ::windows::IntoParam<'a, #into>, }
                     } else {
                         let mut signature = quote! {};
@@ -436,7 +436,7 @@ impl MethodSignature {
                 let name = param.param.gen_name();
 
                 if param.is_convertible() {
-                    let into = param.signature.kind.gen_name(gen);
+                    let into = gen_name(&param.signature.kind, gen);
                     quote! { #name: impl ::windows::IntoParam<'a, #into>, }
                 } else {
                     let tokens = param.gen_win32(gen);
@@ -477,7 +477,7 @@ impl MethodParam {
 
     fn gen_win32_invoke_arg(&self, gen: &Gen) -> TokenStream {
         let name = self.param.gen_name();
-        let kind = self.signature.kind.gen_name(gen);
+        let kind = gen_name(&self.signature.kind, gen);
 
         if self.param.is_input() {
             if self.signature.kind.is_blittable() {
@@ -492,7 +492,7 @@ impl MethodParam {
 
     fn gen_winrt_invoke_arg(&self, gen: &Gen) -> TokenStream {
         let name = self.param.gen_name();
-        let kind = self.signature.kind.gen_name(gen);
+        let kind = gen_name(&self.signature.kind, gen);
 
         // TODO: This compiles but doesn't property handle delegates with array parameters.
         // https://github.com/microsoft/windows-rs/issues/212
@@ -558,7 +558,7 @@ impl MethodParam {
             }
         }
 
-        let kind = self.signature.kind.gen_name(gen);
+        let kind = gen_name(&self.signature.kind, gen);
 
         if self.signature.kind.is_nullable() {
             tokens.combine(&quote! {
@@ -613,7 +613,7 @@ impl MethodParam {
     }
 
     pub fn gen_winrt_produce_type(&self, gen: &Gen) -> TokenStream {
-        let tokens = self.signature.kind.gen_name(gen);
+        let tokens = gen_name(&self.signature.kind, gen);
 
         if self.signature.is_array {
             if self.param.is_input() {

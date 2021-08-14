@@ -119,13 +119,12 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
         let params = signature.gen_win32_params(leading_params, gen);
 
-        let return_type_tokens = signature
+        let return_type_tokens = gen_name(&signature
             .params
             .last()
             .unwrap()
             .signature
-            .kind
-            .gen_name(gen);
+            .kind, gen);
 
         quote! {
             pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
@@ -259,7 +258,7 @@ where
                 quote! {}
             };
 
-            let generics = def.generics.iter().map(|g| g.gen_name(gen));
+            let generics = def.generics.iter().map(|g| gen_name(g, gen));
             quote! { #namespace#name#colon_separated<#(#generics),*> }
         }
     }
@@ -349,7 +348,7 @@ pub fn gen_signature(def:&TypeDef, signature: &str) -> TokenStream {
     }
 
     let generics = def.generics.iter().enumerate().map(|(index, g)| {
-        let g = g.gen_name(&Gen::Absolute);
+        let g = gen_name(g, &Gen::Absolute);
         let semi = if index != def.generics.len() - 1 {
             Some(quote! {
                 .push_slice(b";")
@@ -378,7 +377,7 @@ pub fn gen_signature(def:&TypeDef, signature: &str) -> TokenStream {
 
 pub fn gen_phantoms(def:&TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
     def.generics.iter().map(move |g| {
-        let g = g.gen_name(&Gen::Absolute);
+        let g = gen_name(&g, &Gen::Absolute);
         quote! { ::std::marker::PhantomData::<#g> }
     })
 }
@@ -387,7 +386,7 @@ pub fn gen_constraints(def:&TypeDef) -> TokenStream {
     def.generics
         .iter()
         .map(|g| {
-            let g = g.gen_name(&Gen::Absolute);
+            let g = gen_name(&g, &Gen::Absolute);
             quote! { #g: ::windows::RuntimeType + 'static, }
         })
         .collect()
@@ -450,5 +449,53 @@ pub fn gen_default(def: &ElementType) -> TokenStream {
             quote! { [#default; #len] }
         }
         _ => quote! { ::std::default::Default::default() },
+    }
+}
+
+pub fn gen_name(def:&ElementType, gen: &Gen) -> TokenStream {
+    match def {
+        ElementType::Void => quote! { ::std::ffi::c_void },
+        ElementType::Bool => quote! { bool },
+        ElementType::Char => quote! { u16 },
+        ElementType::I8 => quote! { i8 },
+        ElementType::U8 => quote! { u8 },
+        ElementType::I16 => quote! { i16 },
+        ElementType::U16 => quote! { u16 },
+        ElementType::I32 => quote! { i32 },
+        ElementType::U32 => quote! { u32 },
+        ElementType::I64 => quote! { i64 },
+        ElementType::U64 => quote! { u64 },
+        ElementType::F32 => quote! { f32 },
+        ElementType::F64 => quote! { f64 },
+        ElementType::ISize => quote! { isize },
+        ElementType::USize => quote! { usize },
+        ElementType::String => {
+            quote! { ::windows::HSTRING }
+        }
+        ElementType::IInspectable => {
+            quote! { ::windows::IInspectable }
+        }
+        ElementType::Guid => {
+            quote! { ::windows::Guid }
+        }
+        ElementType::IUnknown => {
+            quote! { ::windows::IUnknown }
+        }
+        ElementType::HRESULT => {
+            quote! { ::windows::HRESULT }
+        }
+        ElementType::Array((kind, len)) => {
+            let name = kind.gen_win32(gen);
+            let len = Literal::u32_unsuffixed(*len);
+            quote! { [#name; #len] }
+        }
+        ElementType::GenericParam(generic) => {
+            let name = format_ident!("{}", generic);
+            quote! { #name }
+        }
+        ElementType::MethodDef(t) => gen_method_name(t, gen), // TODO: why is the gen-relative and the next is not?
+        ElementType::Field(t) => gen_field_name(t), // TODO: this could just stringify t.name()
+        ElementType::TypeDef(t) => gen_type_name(t, gen),
+        _ => unimplemented!(),
     }
 }

@@ -54,7 +54,7 @@ impl Signature {
             }
         }
 
-        let kind = self.kind.gen_name(gen);
+        let kind = gen_name(&self.kind, gen);
 
         if self.kind.is_nullable() {
             tokens.combine(&quote! {
@@ -79,7 +79,7 @@ impl Signature {
             }
         }
 
-        let kind = self.kind.gen_name(gen);
+        let kind = gen_name(&self.kind, gen);
 
         if self.kind.is_nullable() {
             tokens.combine(&quote! {

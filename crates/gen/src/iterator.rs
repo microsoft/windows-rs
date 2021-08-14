@@ -154,7 +154,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         match interface.def.type_name() {
             TypeName::IVectorView => {
                 let constraints = gen_constraints(def);
-                let item = interface.def.generics[0].gen_name(gen);
+                let item = gen_name(&interface.def.generics[0], gen);
                 let name = gen_type_name(def, gen);
 
                 return quote! {
@@ -178,7 +178,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
             }
             TypeName::IVector => {
                 let constraints = gen_constraints(def);
-                let item = interface.def.generics[0].gen_name(gen);
+                let item = gen_name(&interface.def.generics[0], gen);
                 let name = gen_type_name(def, gen);
 
                 return quote! {
@@ -211,7 +211,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         None => TokenStream::new(),
         Some(interface) => {
             let constraints = gen_constraints(def);
-            let item = interface.def.generics[0].gen_name(gen);
+            let item = gen_name(&interface.def.generics[0], gen);
             let name = gen_type_name(def, gen);
 
             quote! {

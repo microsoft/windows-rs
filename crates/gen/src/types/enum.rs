@@ -46,7 +46,7 @@ impl Enum {
             quote! {}
         };
 
-        let underlying_type = underlying_type.gen_name(gen);
+        let underlying_type = gen_name(&underlying_type, gen);
         let mut last: Option<ConstantValue> = None;
 
         let fields: Vec<Field> = self.0.fields().collect();
