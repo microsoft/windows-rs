@@ -11,7 +11,7 @@ impl Delegate {
         let signature = self.0.invoke_method().signature(&self.0.generics);
         let abi_signature = gen_winrt_abi(&signature, gen);
         let fn_constraint = gen_winrt_constraint(&signature, gen);
-        let guid = gen_guid(&self.0, gen);
+        let guid =  gen_type_guid(&self.0, gen);
         // TODO: can we share these or at least copy the resulting strings instead? Maybe if they're not iterators the quote macro won't consume them?
         let struct_phantoms = gen_phantoms(&self.0);
         let abi_phantoms = gen_phantoms(&self.0);

@@ -23,11 +23,11 @@ pub fn gen_field(def: &Field, gen: &Gen) -> TokenStream {
             }
         }
     } else if let Some(guid) = Guid::from_attributes(def.attributes()) {
-        let guid = guid.gen();
+        let guid = gen_guid(&guid);
         quote! { pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid); }
     } else if let Some(pkey) = PropertyKey::from_attributes(def.attributes()) {
         let kind = gen_win32_sig(&signature, gen);
-        let fmtid = pkey.fmtid.gen();
+        let fmtid = gen_guid(&pkey.fmtid);
         let pid = pkey.pid;
         quote! {
             pub const #name: #kind = #kind {
@@ -278,11 +278,11 @@ fn scoped_name(def:&TypeDef) -> String {
     def.name().to_string()
 }
 
-pub fn gen_guid(def:&TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_type_guid(def:&TypeDef, gen: &Gen) -> TokenStream {
     if def.generics.is_empty() {
         match Guid::from_attributes(def.attributes()) {
             Some(guid) => {
-                let guid = guid.gen();
+                let guid = gen_guid(&guid);
 
                 quote! {
                     ::windows::Guid::from_values(#guid)
@@ -1228,4 +1228,22 @@ pub fn gen_param_name(param:&Param) -> Ident {
 
 pub fn gen_param_abi_size_name(param:&Param) -> Ident {
     to_ident(&format!("{}_array_size", param.name()))
+}
+
+pub fn gen_guid(guid:&Guid) -> TokenStream {
+    let a = Literal::u32_unsuffixed(guid.0);
+    let b = Literal::u16_unsuffixed(guid.1);
+    let c = Literal::u16_unsuffixed(guid.2);
+    let d = Literal::u8_unsuffixed(guid.3);
+    let e = Literal::u8_unsuffixed(guid.4);
+    let f = Literal::u8_unsuffixed(guid.5);
+    let g = Literal::u8_unsuffixed(guid.6);
+    let h = Literal::u8_unsuffixed(guid.7);
+    let i = Literal::u8_unsuffixed(guid.8);
+    let j = Literal::u8_unsuffixed(guid.9);
+    let k = Literal::u8_unsuffixed(guid.10);
+
+    quote! {
+        #a, #b, #c, [#d, #e, #f, #g, #h, #i, #j, #k],
+    }
 }

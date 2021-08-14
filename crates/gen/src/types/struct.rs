@@ -19,7 +19,7 @@ impl Struct {
         let name = to_ident(struct_name);
 
         if let Some(guid) = Guid::from_attributes(self.0.attributes()) {
-            let guid = guid.gen();
+            let guid = gen_guid(&guid);
 
             return quote! {
                 pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid);

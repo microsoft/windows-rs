@@ -128,7 +128,7 @@ impl Class {
             if let Some(default_interface) =
                 interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
             {
-                let guid = gen_guid(&default_interface.def, gen);
+                let guid =  gen_type_guid(&default_interface.def, gen);
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
                 let object = gen_object(&name, &TokenStream::new());
@@ -212,7 +212,7 @@ impl Class {
                 .find(|i| i.kind == InterfaceKind::Default)
                 .unwrap();
 
-            let guid = gen_guid(&default_interface.def, gen);
+            let guid =  gen_type_guid(&default_interface.def, gen);
             let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
 
             quote! {
