@@ -138,9 +138,9 @@ pub fn gen(
             let signature = method.signature(&def.generics);
 
             let abi_signature = if is_winrt {
-                signature.gen_winrt_abi(&gen)
+                gen_winrt_abi(&signature, &gen)
             } else {
-                signature.gen_win32_abi(&gen)
+                gen_win32_abi(&signature, &gen)
             };
 
             let upcall = if is_winrt {

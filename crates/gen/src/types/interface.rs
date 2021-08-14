@@ -53,7 +53,7 @@ impl Interface {
             let abi_signatures = self
                 .0
                 .methods()
-                .map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
+                .map(|m| gen_winrt_abi(&m.signature(&self.0.generics), gen));
 
             let is_exclusive = self.0.is_exclusive();
 

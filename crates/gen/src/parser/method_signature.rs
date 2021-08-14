@@ -63,94 +63,11 @@ impl MethodSignature {
             .map_or(false, |signature| signature.is_udt())
     }
 
-    pub fn gen_winrt_constraint(&self, gen: &Gen) -> TokenStream {
-        let params = self.params.iter().map(|p| p.gen_winrt_produce_type(gen));
 
-        let return_type = if let Some(return_type) = &self.return_type {
-            let tokens = gen_name(&return_type.kind, gen);
 
-            if return_type.is_array {
-                quote! { ::windows::Array<#tokens> }
-            } else {
-                tokens
-            }
-        } else {
-            quote! { () }
-        };
 
-        quote! { F: FnMut(#(#params),*) -> ::windows::Result<#return_type> + 'static }
-    }
 
-    pub fn gen_win32_abi(&self, gen: &Gen) -> TokenStream {
-        let params = self.params.iter().map(|p| {
-            let name = p.param.gen_name();
-            let tokens = p.gen_win32_abi_param(gen);
-            quote! { #name: #tokens }
-        });
 
-        let (udt_return_type, return_type) = if let Some(t) = &self.return_type {
-            if t.is_udt() {
-                let mut t = t.clone();
-                t.pointers += 1;
-                let tokens = gen_win32_abi_sig(&t, gen);
-                (quote! { result__: #tokens }, quote! {})
-            } else {
-                let tokens = gen_win32_abi_sig(&t, gen);
-                (quote! {}, quote! { -> #tokens })
-            }
-        } else {
-            (TokenStream::new(), TokenStream::new())
-        };
-
-        quote! {
-            (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_type
-        }
-    }
-
-    // All WinRT ABI methods return an HRESULT while any return type is transformed into a trailing
-    // out parameter. This is unlike Win32 methods that don't require this transformation.
-    pub fn gen_winrt_abi(&self, gen: &Gen) -> TokenStream {
-        let params = self
-            .params
-            .iter()
-            .map(|p| {
-                let name = p.param.gen_name();
-                let abi = gen_winrt_abi_sig(&p.signature, gen);
-
-                if p.signature.is_array {
-                    let abi_size_name = p.param.gen_abi_size_name();
-                    if p.param.is_input() {
-                        quote! { #abi_size_name: u32, #name: *const #abi }
-                    } else if p.signature.by_ref {
-                        quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi }
-                    } else {
-                        quote! { #abi_size_name: u32, #name: *mut #abi }
-                    }
-                } else if p.param.is_input() {
-                    // WinRT only uses const to mean that structs are passed by reference.
-                    if p.is_const() {
-                        quote! { #name: &#abi }
-                    } else {
-                        quote! { #name: #abi }
-                    }
-                } else {
-                    quote! { #name: *mut #abi }
-                }
-            })
-            .chain(self.return_type.iter().map(|signature| {
-                let abi = gen_winrt_abi_sig(signature, gen);
-
-                if signature.is_array {
-                    quote! { result_size__: *mut u32, result__: *mut *mut #abi }
-                } else {
-                    quote! { result__: *mut #abi }
-                }
-            }));
-
-        quote! {
-            (this: ::windows::RawPtr, #(#params),*) -> ::windows::HRESULT
-        }
-    }
 
     pub fn gen_winrt_method(
         &self,
@@ -473,7 +390,7 @@ impl MethodParam {
             && self.signature.kind.is_convertible()
     }
 
-    fn is_const(&self) -> bool {
+    pub fn is_const(&self) -> bool {
         self.signature.is_const || self.param.is_const()
     }
 

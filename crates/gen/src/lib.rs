@@ -14,7 +14,6 @@ pub mod types;
 mod workspace;
 mod gen_helpers;
 mod interface_info;
-mod method_signature;
 
 pub use tables::*;
 pub use gen::*;
@@ -29,4 +28,3 @@ pub use to_ident::*;
 pub use workspace::*;
 pub use gen_helpers::*;
 pub use interface_info::*;
-pub use method_signature::*;
