@@ -152,7 +152,7 @@ fn gen_method(
     gen: &Gen,
 ) -> TokenStream {
     let signature = method.signature(&[]);
-    let constraints = signature.gen_constraints(&signature.params);
+    let constraints = gen_method_constraints(&signature.params);
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
 
     let name = method.name();
@@ -185,7 +185,7 @@ fn gen_method(
 
         let return_type_tokens = if return_param.signature.pointers > 1 {
             return_param.signature.pointers -= 1;
-            return_param.gen_win32(gen)
+            gen_win32_param(&return_param, gen)
         } else {
             gen_name(&return_param.signature.kind, gen)
         };

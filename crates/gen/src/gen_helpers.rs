@@ -44,7 +44,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let name = gen_method_name(def, gen); // TODO: this probably doesn't need gen
     let signature = def.signature(&[]);
 
-    let constraints = signature.gen_constraints(&signature.params);
+    let constraints = gen_method_constraints(&signature.params);
     let params = signature.gen_win32_params(&signature.params, gen);
 
     let abi_params = signature.params.iter().map(|p| {
@@ -831,8 +831,8 @@ pub fn gen_winrt_method(
     let name = gen_method_info_name(sig, method, interface);
 
     let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
-    let constraints = sig.gen_constraints(params);
-    let args = params.iter().map(|p| p.gen_winrt_abi_arg());
+    let constraints = gen_method_constraints(params);
+    let args = params.iter().map(|p| gen_winrt_abi_arg(p));
     let params = sig.gen_winrt_params(params, gen);
     let interface_name = gen_type_name(&interface.def, gen);
 
@@ -950,4 +950,72 @@ fn gen_method_info_name(sig: &MethodSignature, method: &MethodInfo, interface: &
     } else {
         to_ident(&method.name)
     }
+}
+
+
+pub fn gen_method_constraints(params: &[MethodParam]) -> TokenStream {
+    if params.iter().any(|param| param.is_convertible()) {
+        quote! { 'a, }
+    } else {
+        quote! {}
+    }
+}
+
+pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
+    let name = param.param.gen_name();
+
+    if param.signature.is_array {
+        if param.param.is_input() {
+            quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()) }
+        } else if param.signature.by_ref {
+            quote! { #name.set_abi_len(), #name.set_abi() }
+        } else {
+            quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name) }
+        }
+    } else if param.param.is_input() {
+        if param.is_convertible() {
+            if param.is_const() {
+                quote! { &#name.into_param().abi() }
+            } else {
+                quote! { #name.into_param().abi() }
+            }
+        } else if param.signature.kind.is_blittable() {
+            quote! { #name }
+        } else if param.signature.pointers == 0 {
+            quote! { ::windows::Abi::abi(#name) }
+        } else {
+            quote! { ::std::mem::transmute(#name) }
+        }
+    } else if param.signature.kind.is_blittable()
+        || (param.signature.pointers > 0 && !param.signature.kind.is_nullable())
+    {
+        quote! { #name }
+    } else {
+        quote! { ::windows::Abi::set_abi(#name) }
+    }
+}
+
+pub fn gen_win32_param(param: &MethodParam, gen: &Gen) -> TokenStream {
+    let mut tokens = TokenStream::new();
+    let is_const = param.is_const();
+
+    for _ in 0..param.signature.pointers {
+        if is_const {
+            tokens.combine(&quote! { *const });
+        } else {
+            tokens.combine(&quote! { *mut });
+        }
+    }
+
+    let kind = gen_name(&param.signature.kind, gen);
+
+    if param.signature.kind.is_nullable() {
+        tokens.combine(&quote! {
+            ::std::option::Option<#kind>
+        });
+    } else {
+        tokens.combine(&kind)
+    }
+
+    tokens
 }
