@@ -1247,3 +1247,65 @@ pub fn gen_guid(guid:&Guid) -> TokenStream {
         #a, #b, #c, [#d, #e, #f, #g, #h, #i, #j, #k],
     }
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_bool() {
+        assert_eq!(gen_name(&ElementType::Bool, &Gen::Absolute).as_str(), "bool");
+    }
+
+    fn get_method(interface: &types::Interface, method: &str) -> MethodDef {
+        interface.0.methods().find(|m| m.name() == method).unwrap()
+    }
+
+    #[test]
+    fn test_method() {
+        let i =
+            TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "IStringable"));
+        let i = types::Interface(i);
+        let m = get_method(&i, "ToString");
+        assert_eq!(m.name(), "ToString");
+
+        let s = m.signature(&[]);
+        assert_eq!(s.params.len(), 0);
+
+        let s = s.return_type.unwrap();
+        assert!(s.kind == ElementType::String);
+        assert_eq!(s.pointers, 0);
+        assert!(!s.by_ref);
+        assert!(!s.is_const);
+        assert!(!s.is_array);
+    }
+
+    #[test]
+    fn test_generic() {
+        let i = TypeReader::get()
+            .expect_type_def(TypeName::new("Windows.Foundation.Collections", "IMap`2"));
+        let i = types::Interface(i.with_generics());
+        let m = get_method(&i, "Lookup");
+
+        let s = m.signature(&i.0.generics);
+        assert_eq!(s.params.len(), 1);
+
+        let r = s.return_type.unwrap();
+        assert_eq!(gen_name(&r.kind, &Gen::Absolute).as_str(), "V");
+        assert_eq!(r.pointers, 0);
+        assert!(!r.by_ref);
+        assert!(!r.is_const);
+        assert!(!r.is_array);
+
+        let p = &s.params[0];
+        assert_eq!(p.param.name(), "key");
+        assert_eq!(gen_name(&p.signature.kind, &Gen::Absolute).as_str(), "K");
+        assert_eq!(p.signature.pointers, 0);
+        assert!(!p.signature.by_ref);
+        assert!(!p.signature.is_const);
+        assert!(!p.signature.is_array);
+    }
+}
+
+

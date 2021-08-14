@@ -220,13 +220,3 @@ impl ElementType {
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_bool() {
-        assert_eq!(gen_name(&ElementType::Bool, &Gen::Absolute).as_str(), "bool");
-    }
-}
