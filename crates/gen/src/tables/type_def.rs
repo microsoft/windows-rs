@@ -34,7 +34,7 @@ impl TypeDef {
                 if attribute
                     .args()
                     .iter()
-                    .any(|arg| matches!(arg.1, parser::ConstantValue::TypeDef(_)))
+                    .any(|arg| matches!(arg.1, ConstantValue::TypeDef(_)))
                 {
                     continue;
                 } else {
@@ -150,7 +150,7 @@ impl TypeDef {
                     match attribute.name() {
                         "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                             for (_, arg) in attribute.args() {
-                                if let parser::ConstantValue::TypeDef(def) = arg {
+                                if let ConstantValue::TypeDef(def) = arg {
                                     return Some(TypeEntry {
                                         include: TypeInclude::Full,
                                         def: ElementType::TypeDef(def),

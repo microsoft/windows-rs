@@ -92,10 +92,10 @@ impl MethodSignature {
             if t.is_udt() {
                 let mut t = t.clone();
                 t.pointers += 1;
-                let tokens = t.gen_win32_abi(gen);
+                let tokens = gen_win32_abi_sig(&t, gen);
                 (quote! { result__: #tokens }, quote! {})
             } else {
-                let tokens = t.gen_win32_abi(gen);
+                let tokens = gen_win32_abi_sig(&t, gen);
                 (quote! {}, quote! { -> #tokens })
             }
         } else {
@@ -115,7 +115,7 @@ impl MethodSignature {
             .iter()
             .map(|p| {
                 let name = p.param.gen_name();
-                let abi = p.signature.gen_winrt_abi(gen);
+                let abi = gen_winrt_abi_sig(&p.signature, gen);
 
                 if p.signature.is_array {
                     let abi_size_name = p.param.gen_abi_size_name();
@@ -138,7 +138,7 @@ impl MethodSignature {
                 }
             })
             .chain(self.return_type.iter().map(|signature| {
-                let abi = signature.gen_winrt_abi(gen);
+                let abi = gen_winrt_abi_sig(signature, gen);
 
                 if signature.is_array {
                     quote! { result_size__: *mut u32, result__: *mut *mut #abi }
@@ -336,7 +336,7 @@ impl MethodSignature {
                 } else if let ElementType::GenericParam(_) = param.signature.kind {
                     quote! { &mut <#tokens as ::windows::Abi>::DefaultType, }
                 } else if param.signature.pointers > 0 {
-                    let tokens = param.signature.gen_winrt_abi(gen);
+                    let tokens = gen_winrt_abi_sig(&param.signature, gen);
                     quote! { #name: #tokens, }
                 } else {
                     quote! { #name: &mut #tokens, }

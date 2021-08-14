@@ -59,7 +59,7 @@ impl Class {
             match attribute.name() {
                 "StaticAttribute" | "ActivatableAttribute" => {
                     for (_, arg) in attribute.args() {
-                        if let parser::ConstantValue::TypeDef(def) = arg {
+                        if let ConstantValue::TypeDef(def) = arg {
                             let version = def.version();
 
                             result.push(InterfaceInfo {

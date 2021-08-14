@@ -220,7 +220,7 @@ fn gen_method(
                 }
             }
         } else {
-            let return_type = return_type.gen_win32_abi(gen);
+            let return_type = gen_win32_abi_sig(return_type, gen);
 
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {

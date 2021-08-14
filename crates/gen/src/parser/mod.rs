@@ -1,4 +1,6 @@
-pub use super::*;
+pub use crate::*;
+
+pub use super::tables::*;
 
 mod blob;
 mod codes;
@@ -14,6 +16,7 @@ mod type_kind;
 mod type_name;
 mod type_reader;
 mod type_tree;
+mod signature;
 
 pub use blob::*;
 pub use codes::*;
@@ -29,3 +32,4 @@ pub use type_kind::*;
 pub use type_name::*;
 pub use type_reader::*;
 pub use type_tree::*;
+pub use signature::*;

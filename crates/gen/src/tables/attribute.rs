@@ -93,8 +93,8 @@ impl Attribute {
 
         for (_, arg) in self.args() {
             match arg {
-                parser::ConstantValue::I32(2) => public = true,
-                parser::ConstantValue::TypeDef(value) => def = Some(value),
+                ConstantValue::I32(2) => public = true,
+                ConstantValue::TypeDef(value) => def = Some(value),
                 _ => {}
             }
         }

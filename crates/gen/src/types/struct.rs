@@ -111,9 +111,9 @@ impl Struct {
         let body = if is_handle {
             let fields = fields.iter().map(|(_, signature, _)| {
                 let kind = if is_winrt {
-                    signature.gen_winrt(gen)
+                    gen_winrt_sig(signature, gen)
                 } else {
-                    signature.gen_win32(gen)
+                    gen_win32_sig(signature, gen)
                 };
 
                 quote! {
@@ -127,11 +127,11 @@ impl Struct {
         } else {
             let fields = fields.iter().map(|(_, signature, name)| {
                 let kind = if is_winrt {
-                    signature.gen_winrt(gen)
+                    gen_winrt_sig(signature, gen)
                 } else if is_union {
-                    signature.gen_win32_abi(gen)
+                    gen_win32_abi_sig(signature, gen)
                 } else {
-                    signature.gen_win32(gen)
+                    gen_win32_sig(signature, gen)
                 };
 
                 quote! {
@@ -162,13 +162,13 @@ impl Struct {
 
             let fields = if is_winrt {
                 let fields = fields.iter().map(|(_, signature, name)| {
-                    let kind = signature.gen_winrt_abi(gen);
+                    let kind = gen_winrt_abi_sig(signature, gen);
                     quote! { pub #name: #kind }
                 });
                 quote! { #(#fields),* }
             } else {
                 let fields = fields.iter().map(|(_, signature, name)| {
-                    let kind = signature.gen_win32_abi(gen);
+                    let kind = gen_win32_abi_sig(signature, gen);
                     quote! { pub #name: #kind }
                 });
                 quote! { #(#fields),* }
@@ -261,9 +261,9 @@ impl Struct {
         } else {
             let defaults = fields.iter().map(|(_, signature, name)| {
                 let value = if is_winrt {
-                    signature.gen_winrt_default()
+                    gen_winrt_default(signature)
                 } else {
-                    signature.gen_win32_default()
+                    gen_win32_default(signature)
                 };
 
                 if is_handle {

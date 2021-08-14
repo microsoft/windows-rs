@@ -24,7 +24,7 @@ pub enum ElementType {
     HRESULT,
     TypeName,
     GenericParam(String),
-    Array((Box<Signature>, u32)),
+    Array((Box<Signature>, u32)), // TODO: store Blob rather than Signature or rip gen stuff out of Signature and use that?
     MethodDef(MethodDef),
     Field(Field),
     TypeDef(TypeDef),
