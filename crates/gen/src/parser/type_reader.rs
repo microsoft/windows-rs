@@ -11,7 +11,7 @@ pub struct TypeReader {
 
 impl TypeReader {
     pub fn gen(&'static self) -> impl Iterator<Item = TokenStream> {
-        self.types.gen()
+        gen_tree(&self.types)
     }
 
     pub fn get_mut() -> &'static mut Self {
