@@ -11,7 +11,6 @@ mod propertykey;
 mod tables;
 mod to_ident;
 pub mod types;
-mod workspace;
 mod gen_helpers;
 mod interface_info;
 
@@ -25,6 +24,5 @@ pub use propertykey::*;
 pub use quote::*;
 pub use r#async::*;
 pub use to_ident::*;
-pub use workspace::*;
 pub use gen_helpers::*;
 pub use interface_info::*;

@@ -14,7 +14,7 @@ impl Callback {
         // over the ABI but in this case that is not practical.
 
         let params = signature.params.iter().map(|p| {
-            let name = p.param.gen_name();
+            let name = gen_param_name(&p.param);
             let tokens = gen_win32_abi_param(p, gen);
             quote! { #name: #tokens }
         });

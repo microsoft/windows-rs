@@ -56,7 +56,7 @@ pub fn workspace_dir() -> String {
     json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
 }
 
-pub fn target_dir() -> String {
+fn target_dir() -> String {
     const JSON_KEY: &str = r#""target_directory":"#;
     let json = cargo_metadata();
 

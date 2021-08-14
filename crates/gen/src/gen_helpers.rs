@@ -48,7 +48,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let params = gen_win32_params(&signature.params, gen);
 
     let abi_params = signature.params.iter().map(|p| {
-        let name = p.param.gen_name();
+        let name = gen_param_name(&p.param);
         let tokens = gen_win32_abi_param(p, gen);
         quote! { #name: #tokens }
     });
@@ -711,7 +711,7 @@ pub fn gen_winrt_constraint(sig: &MethodSignature, gen: &Gen) -> TokenStream {
 pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     // TODO: param insead of p consistency
     let params = sig.params.iter().map(|p| {
-        let name = p.param.gen_name();
+        let name = gen_param_name(&p.param);
         let tokens = gen_win32_abi_param(p, gen);
         quote! { #name: #tokens }
     });
@@ -740,11 +740,11 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         .params
         .iter()
         .map(|p| {
-            let name = p.param.gen_name();
+            let name = gen_param_name(&p.param);
             let abi = gen_winrt_abi_sig(&p.signature, gen);
 
             if p.signature.is_array {
-                let abi_size_name = p.param.gen_abi_size_name();
+                let abi_size_name = gen_param_abi_size_name(&p.param);
                 if p.param.is_input() {
                     quote! { #abi_size_name: u32, #name: *const #abi }
                 } else if p.signature.by_ref {
@@ -779,7 +779,7 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
-    let name = param.param.gen_name();
+    let name = gen_param_name(&param.param);
     let kind = gen_name(&param.signature.kind, gen);
 
     if param.param.is_input() {
@@ -794,7 +794,7 @@ pub fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
-    let name = param.param.gen_name();
+    let name = gen_param_name(&param.param);
     let kind = gen_name(&param.signature.kind, gen);
 
     // TODO: This compiles but doesn't property handle delegates with array parameters.
@@ -819,7 +819,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     params
         .iter()
         .map(|param| {
-            let name = param.param.gen_name();
+            let name = gen_param_name(&param.param);
             let tokens = gen_name(&param.signature.kind, gen);
 
             if param.signature.is_array {
@@ -1010,7 +1010,7 @@ pub fn gen_method_constraints(params: &[MethodParam]) -> TokenStream {
 }
 
 pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
-    let name = param.param.gen_name();
+    let name = gen_param_name(&param.param);
 
     if param.signature.is_array {
         if param.param.is_input() {
@@ -1072,7 +1072,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     params
         .iter()
         .map(|param| {
-            let name = param.param.gen_name();
+            let name = gen_param_name(&param.param);
 
             if param.is_convertible() {
                 let into = gen_name(&param.signature.kind, gen);
@@ -1101,7 +1101,7 @@ pub fn gen_win32_abi_param(param: &MethodParam, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
-    let name = param.param.gen_name();
+    let name = gen_param_name(&param.param);
 
     if param.is_convertible() {
         quote! { #name.into_param().abi() }
@@ -1146,7 +1146,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
             .iter()
             .map(|param| gen_win32_invoke_arg(param, gen));
 
-        let result = sig.params[sig.params.len() - 1].param.gen_name();
+        let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
 
         quote! {
             match #inner(#(#invoke_args,)*) {
@@ -1220,4 +1220,12 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
             #inner(#(#invoke_args,)*).into()
         },
     }
+}
+
+pub fn gen_param_name(param:&Param) -> Ident {
+    to_ident(&param.name().to_lowercase())
+}
+
+pub fn gen_param_abi_size_name(param:&Param) -> Ident {
+    to_ident(&format!("{}_array_size", param.name()))
 }
