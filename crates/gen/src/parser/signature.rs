@@ -104,7 +104,7 @@ impl Signature {
             }
         }
 
-        tokens.combine(&self.kind.gen_abi_type(gen));
+        tokens.combine(&gen_abi_type_name(&self.kind, gen));
         tokens
     }
 
@@ -120,7 +120,7 @@ impl Signature {
             }
         }
 
-        tokens.combine(&self.kind.gen_abi_type(gen));
+        tokens.combine(&gen_abi_type_name(&self.kind, gen));
         tokens
     }
 

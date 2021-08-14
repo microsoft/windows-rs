@@ -200,7 +200,7 @@ fn gen_method(
     } else if signature.has_udt_return() {
         let params = signature.gen_win32_params(&signature.params, gen);
         let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
-        let return_type = signature.return_type.unwrap().kind.gen_abi_type(gen);
+        let return_type = gen_abi_type_name(&signature.return_type.unwrap().kind, gen);
 
         quote! {
             pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {

@@ -583,7 +583,7 @@ impl MethodParam {
             }
         }
 
-        tokens.combine(&self.signature.kind.gen_abi_type(gen));
+        tokens.combine(&gen_abi_type_name(&self.signature.kind, gen));
         tokens
     }
 
@@ -598,7 +598,7 @@ impl MethodParam {
             }
         }
 
-        tokens.combine(&self.signature.kind.gen_abi_type(gen));
+        tokens.combine(&gen_abi_type_name(&self.signature.kind, gen));
         tokens
     }
 

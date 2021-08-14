@@ -106,52 +106,6 @@ impl ElementType {
         }
     }
 
-    pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
-        match self {
-            Self::Void => quote! { ::std::ffi::c_void },
-            Self::Bool => quote! { bool },
-            Self::Char => quote! { u16 },
-            Self::I8 => quote! { i8 },
-            Self::U8 => quote! { u8 },
-            Self::I16 => quote! { i16 },
-            Self::U16 => quote! { u16 },
-            Self::I32 => quote! { i32 },
-            Self::U32 => quote! { u32 },
-            Self::I64 => quote! { i64 },
-            Self::U64 => quote! { u64 },
-            Self::F32 => quote! { f32 },
-            Self::F64 => quote! { f64 },
-            Self::ISize => quote! { isize },
-            Self::USize => quote! { usize },
-            Self::String => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::IInspectable => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::Guid => {
-                quote! { ::windows::Guid }
-            }
-            Self::IUnknown => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::HRESULT => {
-                quote! { ::windows::HRESULT }
-            }
-            Self::Array((kind, len)) => {
-                let name = kind.gen_win32_abi(gen);
-                let len = Literal::u32_unsuffixed(*len);
-                quote! { [#name; #len] }
-            }
-            Self::GenericParam(generic) => {
-                let name = format_ident!("{}", generic);
-                quote! { <#name as ::windows::Abi>::Abi }
-            }
-            Self::TypeDef(def) => gen_abi_type(def, gen),
-            _ => unimplemented!(),
-        }
-    }
-
     pub fn type_signature(&self) -> String {
         match self {
             Self::Bool => "b1".to_owned(),
