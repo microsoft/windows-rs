@@ -1,4 +1,4 @@
-pub use super::parser::*;
+pub use super::*;
 
 mod assembly_ref;
 mod attribute;
