@@ -45,11 +45,11 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let signature = def.signature(&[]);
 
     let constraints = gen_method_constraints(&signature.params);
-    let params = signature.gen_win32_params(&signature.params, gen);
+    let params = gen_win32_params(&signature.params, gen);
 
     let abi_params = signature.params.iter().map(|p| {
         let name = p.param.gen_name();
-        let tokens = p.gen_win32_abi_param(gen);
+        let tokens = gen_win32_abi_param(p, gen);
         quote! { #name: #tokens }
     });
 
@@ -61,7 +61,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         TokenStream::new()
     };
 
-    let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
+    let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
     let mut link = def.impl_map().expect("Function").scope().name();
 
     let raw_dylib = cfg!(feature = "raw_dylib");
@@ -96,8 +96,8 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
 
     if signature.has_query_interface() {
         let leading_params = &signature.params[..signature.params.len() - 2];
-        let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
-        let params = signature.gen_win32_params(leading_params, gen);
+        let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
+        let params = gen_win32_params(leading_params, gen);
 
         quote! {
             pub unsafe fn #name<#constraints T: ::windows::Interface>(#params) -> ::windows::Result<T> {
@@ -116,8 +116,8 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
     } else if signature.has_retval() {
         let leading_params = &signature.params[..signature.params.len() - 1];
-        let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
-        let params = signature.gen_win32_params(leading_params, gen);
+        let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
+        let params = gen_win32_params(leading_params, gen);
 
         let return_type_tokens = gen_name(&signature
             .params
@@ -691,7 +691,7 @@ pub fn gen_winrt_default(sig: &Signature) -> TokenStream {
 }
 
 pub fn gen_winrt_constraint(sig: &MethodSignature, gen: &Gen) -> TokenStream {
-    let params = sig.params.iter().map(|p| p.gen_winrt_produce_type(gen));
+    let params = sig.params.iter().map(|p| gen_winrt_produce_type(p, gen));
 
     let return_type = if let Some(return_type) = &sig.return_type {
         let tokens = gen_name(&return_type.kind, gen);
@@ -709,9 +709,10 @@ pub fn gen_winrt_constraint(sig: &MethodSignature, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
+    // TODO: param insead of p consistency
     let params = sig.params.iter().map(|p| {
         let name = p.param.gen_name();
-        let tokens = p.gen_win32_abi_param(gen);
+        let tokens = gen_win32_abi_param(p, gen);
         quote! { #name: #tokens }
     });
 
@@ -814,6 +815,53 @@ pub fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     }
 }
 
+pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
+    params
+        .iter()
+        .map(|param| {
+            let name = param.param.gen_name();
+            let tokens = gen_name(&param.signature.kind, gen);
+
+            if param.signature.is_array {
+                if param.param.is_input() {
+                    quote! { #name: &[<#tokens as ::windows::Abi>::DefaultType], }
+                } else if param.signature.by_ref {
+                    quote! { #name: &mut ::windows::Array<#tokens>, }
+                } else {
+                    quote! { #name: &mut [<#tokens as ::windows::Abi>::DefaultType], }
+                }
+            } else if param.param.is_input() {
+                if param.is_convertible() {
+                    let into = gen_name(&param.signature.kind, gen);
+                    quote! { #name: impl ::windows::IntoParam<'a, #into>, }
+                } else {
+                    let mut signature = quote! {};
+
+                    for _ in 0..param.signature.pointers {
+                        if param.is_const() {
+                            signature.combine(&quote! { *const });
+                        } else {
+                            signature.combine(&quote! { *mut });
+                        }
+                    }
+
+                    signature.combine(&tokens);
+                    quote! { #name: #signature, }
+                }
+            } else if param.signature.kind.is_nullable() {
+                quote! { #name: &mut ::std::option::Option<#tokens>, }
+            } else if let ElementType::GenericParam(_) = param.signature.kind {
+                quote! { &mut <#tokens as ::windows::Abi>::DefaultType, }
+            } else if param.signature.pointers > 0 {
+                let tokens = gen_winrt_abi_sig(&param.signature, gen);
+                quote! { #name: #tokens, }
+            } else {
+                quote! { #name: &mut #tokens, }
+            }
+        })
+        .collect()
+}
+
 pub fn gen_winrt_method(
     sig: &MethodSignature,
     method: &MethodInfo,
@@ -833,7 +881,7 @@ pub fn gen_winrt_method(
     let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
     let constraints = gen_method_constraints(params);
     let args = params.iter().map(|p| gen_winrt_abi_arg(p));
-    let params = sig.gen_winrt_params(params, gen);
+    let params = gen_winrt_params(params, gen);
     let interface_name = gen_type_name(&interface.def, gen);
 
     let return_type_tokens = if let Some(return_type) = &sig.return_type {
@@ -1018,4 +1066,158 @@ pub fn gen_win32_param(param: &MethodParam, gen: &Gen) -> TokenStream {
     }
 
     tokens
+}
+
+pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
+    params
+        .iter()
+        .map(|param| {
+            let name = param.param.gen_name();
+
+            if param.is_convertible() {
+                let into = gen_name(&param.signature.kind, gen);
+                quote! { #name: impl ::windows::IntoParam<'a, #into>, }
+            } else {
+                let tokens = gen_win32_param(param, gen);
+                quote! { #name: #tokens, }
+            }
+        })
+        .collect()
+}
+
+pub fn gen_win32_abi_param(param: &MethodParam, gen: &Gen) -> TokenStream {
+    let mut tokens = TokenStream::new();
+
+    for _ in 0..param.signature.pointers {
+        if param.is_const() {
+            tokens.combine(&quote! { *const });
+        } else {
+            tokens.combine(&quote! { *mut });
+        }
+    }
+
+    tokens.combine(&gen_abi_type_name(&param.signature.kind, gen));
+    tokens
+}
+
+pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
+    let name = param.param.gen_name();
+
+    if param.is_convertible() {
+        quote! { #name.into_param().abi() }
+    } else {
+        quote! { ::std::mem::transmute(#name) }
+    }
+}
+
+pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
+    let tokens = gen_name(&param.signature.kind, gen);
+
+    if param.signature.is_array {
+        if param.param.is_input() {
+            quote! { &[#tokens] }
+        } else if param.signature.by_ref {
+            quote! { &mut ::windows::Array<#tokens> }
+        } else {
+            quote! { &mut [#tokens] }
+        }
+    } else if param.param.is_input() {
+        if let ElementType::GenericParam(_) = param.signature.kind {
+            quote! { &<#tokens as ::windows::Abi>::DefaultType }
+        } else if param.signature.kind.is_primitive() {
+            quote! { #tokens }
+        } else if param.signature.kind.is_nullable() {
+            quote! { &::std::option::Option<#tokens> }
+        } else {
+            quote! { &#tokens }
+        }
+    } else {
+        quote! { &mut #tokens }
+    }
+}
+
+pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
+    if sig.has_query_interface() {
+        quote! {
+            unimplemented!("one")
+        }
+    } else if sig.has_retval() {
+        let invoke_args = sig.params[..sig.params.len() - 1]
+            .iter()
+            .map(|param| gen_win32_invoke_arg(param, gen));
+
+        let result = sig.params[sig.params.len() - 1].param.gen_name();
+
+        quote! {
+            match #inner(#(#invoke_args,)*) {
+                ::std::result::Result::Ok(ok__) => {
+                    *#result = ::std::mem::transmute_copy(&ok__);
+                    ::std::mem::forget(ok__);
+                    ::windows::HRESULT(0)
+                }
+                ::std::result::Result::Err(err) => err.into()
+            }
+        }
+    } else if sig.has_udt_return() {
+        quote! {
+            unimplemented!("three")
+        }
+    } else if let Some(return_type) = &sig.return_type {
+        if return_type.kind == ElementType::HRESULT {
+            let invoke_args = sig
+                .params
+                .iter()
+                .map(|param| gen_win32_invoke_arg(param, gen));
+
+            quote! {
+                #inner(#(#invoke_args,)*).into()
+            }
+        } else {
+            quote! {
+                unimplemented!("five")
+            }
+        }
+    } else {
+        quote! {
+            unimplemented!("six")
+        }
+    }
+}
+
+pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
+    let invoke_args = sig
+        .params
+        .iter()
+        .map(|param| gen_winrt_invoke_arg(param, gen));
+
+    match &sig.return_type {
+        Some(return_type) if return_type.is_array => {
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::std::result::Result::Ok(ok__) => {
+                        let (ok_data__, ok_data_len__) = ok__.into_abi();
+                        *result__ = ok_data__;
+                        *result_size__ = ok_data_len__;
+                        ::windows::HRESULT(0)
+                    }
+                    ::std::result::Result::Err(err) => err.into()
+                }
+            }
+        }
+        Some(_) => {
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::std::result::Result::Ok(ok__) => {
+                        *result__ = ::std::mem::transmute_copy(&ok__);
+                        ::std::mem::forget(ok__);
+                        ::windows::HRESULT(0)
+                    }
+                    ::std::result::Result::Err(err) => err.into()
+                }
+            }
+        }
+        None => quote! {
+            #inner(#(#invoke_args,)*).into()
+        },
+    }
 }

@@ -146,17 +146,17 @@ pub fn gen(
             let upcall = if is_winrt {
                 if *overrides {
                     if implements.overrides.contains(method.name()) {
-                        signature
-                            .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                        
+                            gen_winrt_upcall(&signature, quote! { (*this).implementation.#method_ident }, &gen)
                     } else {
                         quote! { ::windows::HRESULT(0) }
                     }
                 } else {
-                    signature
-                        .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                    
+                        gen_winrt_upcall(&signature, quote! { (*this).implementation.#method_ident }, &gen)
                 }
             } else {
-                signature.gen_win32_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                gen_win32_upcall(&signature, quote! { (*this).implementation.#method_ident }, &gen)
             };
 
             shims.combine(&quote! {
@@ -393,3 +393,4 @@ pub fn gen(
     tokens.extend(std::iter::once(original_type));
     tokens
 }
+

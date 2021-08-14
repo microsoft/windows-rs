@@ -57,7 +57,7 @@ impl Delegate {
             )
         };
 
-        let invoke_upcall = signature.gen_winrt_upcall(quote! { ((*this).invoke) }, gen);
+        let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
 
         quote! {
             #[repr(transparent)]

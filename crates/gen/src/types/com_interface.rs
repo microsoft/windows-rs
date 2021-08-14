@@ -167,8 +167,8 @@ fn gen_method(
 
     if signature.has_query_interface() {
         let leading_params = &signature.params[..signature.params.len() - 2];
-        let params = signature.gen_win32_params(leading_params, gen);
-        let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(leading_params, gen);
+        let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
 
         quote! {
             pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params) -> ::windows::Result<T> {
@@ -178,8 +178,8 @@ fn gen_method(
         }
     } else if signature.has_retval() {
         let leading_params = &signature.params[..signature.params.len() - 1];
-        let params = signature.gen_win32_params(leading_params, gen);
-        let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(leading_params, gen);
+        let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
 
         let mut return_param = signature.params[signature.params.len() - 1].clone();
 
@@ -198,8 +198,8 @@ fn gen_method(
             }
         }
     } else if signature.has_udt_return() {
-        let params = signature.gen_win32_params(&signature.params, gen);
-        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(&signature.params, gen);
+        let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
         let return_type = gen_abi_type_name(&signature.return_type.unwrap().kind, gen);
 
         quote! {
@@ -210,8 +210,8 @@ fn gen_method(
             }
         }
     } else if let Some(return_type) = &signature.return_type {
-        let params = signature.gen_win32_params(&signature.params, gen);
-        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(&signature.params, gen);
+        let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
 
         if return_type.kind == ElementType::HRESULT {
             quote! {
@@ -229,8 +229,8 @@ fn gen_method(
             }
         }
     } else {
-        let params = signature.gen_win32_params(&signature.params, gen);
-        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(&signature.params, gen);
+        let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
 
         quote! {
             pub unsafe fn #name<#constraints>(&self, #params) {
