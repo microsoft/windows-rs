@@ -3,7 +3,6 @@ pub use std::iter::FromIterator;
 
 mod r#async;
 mod gen;
-mod guid;
 mod iterator;
 mod object;
 mod parser;
@@ -16,7 +15,6 @@ mod interface_info;
 
 pub use tables::*;
 pub use gen::*;
-pub use guid::*;
 pub use iterator::*;
 pub use object::*;
 pub use parser::*;

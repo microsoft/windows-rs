@@ -1,4 +1,4 @@
-pub use crate::*;
+//pub use crate::*;
 
 pub use super::tables::*;
 
@@ -19,6 +19,7 @@ mod type_tree;
 mod signature;
 mod method_signature;
 mod workspace;
+mod guid;
 
 pub use blob::*;
 pub use codes::*;
@@ -37,3 +38,4 @@ pub use type_tree::*;
 pub use signature::*;
 pub use method_signature::*;
 pub use workspace::*;
+pub use guid::*;
