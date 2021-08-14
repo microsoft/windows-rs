@@ -165,7 +165,7 @@ mod tests {
         assert_eq!(s.params.len(), 1);
 
         let r = s.return_type.unwrap();
-        assert_eq!(r.kind.gen_name(&Gen::Absolute).as_str(), "V");
+        assert_eq!(gen_name(&r.kind, &Gen::Absolute).as_str(), "V");
         assert_eq!(r.pointers, 0);
         assert!(!r.by_ref);
         assert!(!r.is_const);
@@ -173,7 +173,7 @@ mod tests {
 
         let p = &s.params[0];
         assert_eq!(p.param.name(), "key");
-        assert_eq!(p.signature.kind.gen_name(&Gen::Absolute).as_str(), "K");
+        assert_eq!(gen_name(&p.signature.kind, &Gen::Absolute).as_str(), "K");
         assert_eq!(p.signature.pointers, 0);
         assert!(!p.signature.by_ref);
         assert!(!p.signature.is_const);
