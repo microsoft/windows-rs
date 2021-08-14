@@ -5,22 +5,19 @@ mod r#async;
 mod gen;
 mod iterator;
 mod object;
-mod parser;
 mod propertykey;
-mod tables;
 mod to_ident;
 pub mod types;
 mod gen_helpers;
 mod interface_info;
 
-pub use tables::*;
 pub use gen::*;
 pub use iterator::*;
 pub use object::*;
-pub use parser::*;
 pub use propertykey::*;
 pub use quote::*;
 pub use r#async::*;
 pub use to_ident::*;
 pub use gen_helpers::*;
 pub use interface_info::*;
+pub use winmd_reader::*; // TODO: why public
