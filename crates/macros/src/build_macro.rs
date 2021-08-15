@@ -1,6 +1,5 @@
 use super::*;
 
-use gen::TypeReader;
 use syn::parse::*;
 use syn::*;
 

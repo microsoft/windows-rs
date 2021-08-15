@@ -1,6 +1,3 @@
-pub use std::collections::{BTreeMap, BTreeSet};
-pub use std::iter::FromIterator;
-
 mod r#async;
 mod gen;
 mod iterator;
@@ -20,4 +17,4 @@ pub use r#async::*;
 pub use to_ident::*;
 pub use gen_helpers::*;
 pub use interface_info::*;
-pub use winmd_reader::*; // TODO: why public
+use winmd_reader::*;
