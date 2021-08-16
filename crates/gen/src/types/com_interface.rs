@@ -162,7 +162,7 @@ fn gen_method(
     let name: TokenStream = if *overload > 1 {
         format_token!("{}{}", name, overload)
     } else {
-        name.into()
+        to_ident(name)
     };
 
     if signature.has_query_interface() {
