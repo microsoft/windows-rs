@@ -43,7 +43,7 @@ pub fn gen_field(def: &Field, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let name = format_token!("{}", def.name());
+    let name = to_ident(def.name());
     let signature = def.signature(&[]);
 
     let constraints = gen_method_constraints(&signature.params);
@@ -981,7 +981,7 @@ fn gen_method_info_name(
     {
         "new".into()
     } else if method.overload > 1 {
-        format!("{}{}", &method.name, method.overload).into()
+        format_token!("{}{}", &method.name, method.overload)
     } else {
         method.name.clone().into()
     }

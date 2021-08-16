@@ -160,7 +160,7 @@ fn gen_method(
     *overload += 1;
 
     let name: TokenStream = if *overload > 1 {
-        format!("{}{}", name, overload).into()
+        format_token!("{}{}", name, overload)
     } else {
         name.into()
     };

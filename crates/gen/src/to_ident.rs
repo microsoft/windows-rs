@@ -8,13 +8,13 @@ pub fn to_ident(name: &str) -> TokenStream {
         | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv"
         | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type"
         | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
-        | "try" | "async" | "await" | "dyn" => format!("r#{}", name).into(),
-        "Self" | "self" => format!("{}_", name).into(),
+        | "try" | "async" | "await" | "dyn" => format_token!("r#{}", name),
+        "Self" | "self" => format_token!("{}_", name),
         "_" => "unused".into(),
         _ => name.into(),
     }
 }
 
 pub fn to_abi_ident(name: &str) -> TokenStream {
-    format!("{}_abi", name).into()
+    format_token!("{}_abi", name)
 }
