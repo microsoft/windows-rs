@@ -1,4 +1,4 @@
-use super::{File, TypeDefOrRef, Decode};
+use super::{Decode, File, TypeDefOrRef};
 use std::convert::TryInto;
 
 pub struct Blob {

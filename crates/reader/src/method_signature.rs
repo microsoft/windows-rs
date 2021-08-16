@@ -62,23 +62,6 @@ impl MethodSignature {
             .as_ref()
             .map_or(false, |signature| signature.is_udt())
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 impl MethodParam {
@@ -108,8 +91,4 @@ impl MethodParam {
     pub fn is_const(&self) -> bool {
         self.signature.is_const || self.param.is_const()
     }
-
-
-
-
 }

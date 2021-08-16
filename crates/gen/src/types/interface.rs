@@ -5,11 +5,7 @@ pub struct Interface(pub TypeDef);
 
 impl Interface {
     fn interfaces(&self) -> Vec<InterfaceInfo> {
-        fn add_interfaces(
-            result: &mut Vec<InterfaceInfo>,
-            parent: &TypeDef,
-            is_base: bool,
-        ) {
+        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &TypeDef, is_base: bool) {
             for child in parent.interface_impls() {
                 if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
                     if !result.iter().any(|info| info.def == def) {
@@ -44,7 +40,7 @@ impl Interface {
         let struct_phantoms = gen_phantoms(&self.0);
         let constraints = gen_constraints(&self.0);
         let type_signature = gen_signature(&self.0, &format!("{{{:#?}}}", &self.0.guid()));
-        let guid =  gen_type_guid(&self.0, gen);
+        let guid = gen_type_guid(&self.0, gen);
 
         if include == TypeInclude::Full {
             let abi_name = gen_abi_name(&self.0, gen);

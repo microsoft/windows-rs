@@ -17,11 +17,7 @@ impl Decode for TypeDefOrRef {
         match code.0 {
             0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
             1 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
-            2 => Self::TypeSpec(TypeSpec(Row::new(
-                code.1,
-                TableIndex::TypeSpec,
-                file,
-            ))),
+            2 => Self::TypeSpec(TypeSpec(Row::new(code.1, TableIndex::TypeSpec, file))),
             _ => unimplemented!(),
         }
     }
@@ -48,11 +44,7 @@ impl Decode for TypeOrMethodDef {
         let code = (code & ((1 << 1) - 1), (code >> 1) - 1);
         match code.0 {
             0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
-            1 => Self::MethodDef(MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
+            1 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
             _ => unimplemented!(),
         }
     }
@@ -84,11 +76,7 @@ impl Decode for HasAttribute {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 5) - 1), (code >> 5) - 1);
         match code.0 {
-            0 => Self::MethodDef(MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
+            0 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
             1 => Self::Field(Field(Row::new(code.1, TableIndex::Field, file))),
             2 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
             3 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
@@ -98,16 +86,8 @@ impl Decode for HasAttribute {
                 TableIndex::InterfaceImpl,
                 file,
             ))),
-            6 => Self::MemberRef(MemberRef(Row::new(
-                code.1,
-                TableIndex::MemberRef,
-                file,
-            ))),
-            13 => Self::TypeSpec(TypeSpec(Row::new(
-                code.1,
-                TableIndex::TypeSpec,
-                file,
-            ))),
+            6 => Self::MemberRef(MemberRef(Row::new(code.1, TableIndex::MemberRef, file))),
+            13 => Self::TypeSpec(TypeSpec(Row::new(code.1, TableIndex::TypeSpec, file))),
             19 => Self::GenericParam(GenericParam(Row::new(
                 code.1,
                 TableIndex::GenericParam,
@@ -148,16 +128,8 @@ impl Decode for MemberRefParent {
         match code.0 {
             0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
             1 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
-            3 => Self::MethodDef(MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
-            4 => Self::TypeSpec(TypeSpec(Row::new(
-                code.1,
-                TableIndex::TypeSpec,
-                file,
-            ))),
+            3 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
+            4 => Self::TypeSpec(TypeSpec(Row::new(code.1, TableIndex::TypeSpec, file))),
             _ => unimplemented!(),
         }
     }
@@ -210,16 +182,8 @@ impl Decode for AttributeType {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match code.0 {
-            2 => Self::MethodDef(MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
-            3 => Self::MemberRef(MemberRef(Row::new(
-                code.1,
-                TableIndex::MemberRef,
-                file,
-            ))),
+            2 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
+            3 => Self::MemberRef(MemberRef(Row::new(code.1, TableIndex::MemberRef, file))),
             _ => unimplemented!(),
         }
     }
@@ -245,11 +209,7 @@ impl Decode for MemberForwarded {
         let code = (code & ((1 << 1) - 1), (code >> 1) - 1);
         match code.0 {
             0 => Self::Field(Field(Row::new(code.1, TableIndex::Field, file))),
-            1 => Self::MethodDef(MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
+            1 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
             _ => unimplemented!(),
         }
     }
@@ -277,16 +237,8 @@ impl Decode for ResolutionScope {
         let code = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match code.0 {
             0 => Self::Module(Module(Row::new(code.1, TableIndex::Module, file))),
-            1 => Self::ModuleRef(ModuleRef(Row::new(
-                code.1,
-                TableIndex::ModuleRef,
-                file,
-            ))),
-            2 => Self::AssemblyRef(AssemblyRef(Row::new(
-                code.1,
-                TableIndex::AssemblyRef,
-                file,
-            ))),
+            1 => Self::ModuleRef(ModuleRef(Row::new(code.1, TableIndex::ModuleRef, file))),
+            2 => Self::AssemblyRef(AssemblyRef(Row::new(code.1, TableIndex::AssemblyRef, file))),
             3 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
             _ => unimplemented!(),
         }

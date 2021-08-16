@@ -68,9 +68,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
 
     // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
     // will no longer be necessary.
-    if !raw_dylib
-        && (link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli")
-    {
+    if !raw_dylib && (link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli") {
         link = "onecoreuap";
     }
 
@@ -119,12 +117,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
         let params = gen_win32_params(leading_params, gen);
 
-        let return_type_tokens = gen_name(&signature
-            .params
-            .last()
-            .unwrap()
-            .signature
-            .kind, gen);
+        let return_type_tokens = gen_name(&signature.params.last().unwrap().signature.kind, gen);
 
         quote! {
             pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
@@ -212,31 +205,31 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_field_name(def:&Field) -> TokenStream {
+pub fn gen_field_name(def: &Field) -> TokenStream {
     // TODO: This should simply return: def.name().to_string()
     let name = format_ident!("{}", def.name());
     quote! { #name }
 }
 
-pub fn gen_method_name(def:&MethodDef, gen: &Gen) -> TokenStream {
+pub fn gen_method_name(def: &MethodDef, gen: &Gen) -> TokenStream {
     let namespace = gen.namespace(def.parent().namespace());
     let name = format_ident!("{}", def.name());
     quote! { #namespace #name }
 }
 
-pub fn gen_type_name(def:&TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_ident, false)
 }
 
-pub fn gen_abi_name(def:&TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_abi_ident, false)
 }
 
-pub fn gen_turbo_abi_name(def:&TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_turbo_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_abi_ident, true)
 }
 
-fn format_name<F>(def:&TypeDef, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
+fn format_name<F>(def: &TypeDef, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
 where
     F: FnOnce(&str) -> Ident,
 {
@@ -264,7 +257,7 @@ where
     }
 }
 
-fn scoped_name(def:&TypeDef) -> String {
+fn scoped_name(def: &TypeDef) -> String {
     if let Some(enclosing_type) = def.enclosing_type() {
         if let Some(nested_types) = enclosing_type.nested_types() {
             for (index, (nested_type, _)) in nested_types.iter().enumerate() {
@@ -278,7 +271,7 @@ fn scoped_name(def:&TypeDef) -> String {
     def.name().to_string()
 }
 
-pub fn gen_type_guid(def:&TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.generics.is_empty() {
         match Guid::from_attributes(def.attributes()) {
             Some(guid) => {
@@ -303,7 +296,7 @@ pub fn gen_type_guid(def:&TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_type(def:&TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
+pub fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     // TODO: all the cloning here is ridiculous
     match def.kind() {
         TypeKind::Interface => {
@@ -326,7 +319,7 @@ pub fn gen_type(def:&TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     }
 }
 
-pub fn gen_abi_type(def:&TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_abi_type(def: &TypeDef, gen: &Gen) -> TokenStream {
     match def.kind() {
         TypeKind::Enum => gen_type_name(def, gen),
         TypeKind::Struct => {
@@ -340,7 +333,7 @@ pub fn gen_abi_type(def:&TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_signature(def:&TypeDef, signature: &str) -> TokenStream {
+pub fn gen_signature(def: &TypeDef, signature: &str) -> TokenStream {
     let signature = Literal::byte_string(signature.as_bytes());
 
     if def.generics.is_empty() {
@@ -375,14 +368,14 @@ pub fn gen_signature(def:&TypeDef, signature: &str) -> TokenStream {
     }
 }
 
-pub fn gen_phantoms(def:&TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
+pub fn gen_phantoms(def: &TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
     def.generics.iter().map(move |g| {
         let g = gen_name(&g, &Gen::Absolute);
         quote! { ::std::marker::PhantomData::<#g> }
     })
 }
 
-pub fn gen_constraints(def:&TypeDef) -> TokenStream {
+pub fn gen_constraints(def: &TypeDef) -> TokenStream {
     def.generics
         .iter()
         .map(|g| {
@@ -392,7 +385,7 @@ pub fn gen_constraints(def:&TypeDef) -> TokenStream {
         .collect()
 }
 
-pub fn gen_constant_value_with_type(value:&ConstantValue) -> TokenStream {
+pub fn gen_constant_value_with_type(value: &ConstantValue) -> TokenStream {
     match value {
         ConstantValue::Bool(value) => quote! { bool = #value },
         ConstantValue::U8(value) => quote! { u8 = #value },
@@ -410,7 +403,7 @@ pub fn gen_constant_value_with_type(value:&ConstantValue) -> TokenStream {
     }
 }
 
-pub fn gen_constant_value(value:&ConstantValue) -> TokenStream {
+pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
     match value {
         ConstantValue::Bool(value) => quote! { #value },
         ConstantValue::U8(value) => quote! { #value },
@@ -452,7 +445,7 @@ pub fn gen_default(def: &ElementType) -> TokenStream {
     }
 }
 
-pub fn gen_name(def:&ElementType, gen: &Gen) -> TokenStream {
+pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::Void => quote! { ::std::ffi::c_void },
         ElementType::Bool => quote! { bool },
@@ -501,7 +494,7 @@ pub fn gen_name(def:&ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_abi_type_name(def:&ElementType, gen: &Gen) -> TokenStream {
+pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::Void => quote! { ::std::ffi::c_void },
         ElementType::Bool => quote! { bool },
@@ -570,7 +563,7 @@ fn gen_namespaces<'a>(
     })
 }
 
-pub fn gen_tree(tree:&TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
+pub fn gen_tree(tree: &TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
     let gen = Gen::Relative(tree.namespace);
 
     tree.types
@@ -579,7 +572,7 @@ pub fn gen_tree(tree:&TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
         .chain(gen_namespaces(&tree.namespaces))
 }
 
-pub fn gen_type_entry(entry:&TypeEntry, gen: &Gen) -> TokenStream {
+pub fn gen_type_entry(entry: &TypeEntry, gen: &Gen) -> TokenStream {
     if entry.include == TypeInclude::None {
         return TokenStream::new();
     }
@@ -868,13 +861,12 @@ pub fn gen_winrt_method(
     interface: &InterfaceInfo,
     gen: &Gen,
 ) -> TokenStream {
-    let params = if interface.kind == InterfaceKind::Composable
-        || interface.kind == InterfaceKind::Extend
-    {
-        &sig.params[..sig.params.len() - 2]
-    } else {
-        &sig.params
-    };
+    let params =
+        if interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend {
+            &sig.params[..sig.params.len() - 2]
+        } else {
+            &sig.params
+        };
 
     let name = gen_method_info_name(sig, method, interface);
 
@@ -988,7 +980,11 @@ pub fn gen_winrt_method(
     }
 }
 
-fn gen_method_info_name(sig: &MethodSignature, method: &MethodInfo, interface: &InterfaceInfo) -> Ident {
+fn gen_method_info_name(
+    sig: &MethodSignature,
+    method: &MethodInfo,
+    interface: &InterfaceInfo,
+) -> Ident {
     if (interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend)
         && sig.params.len() == 2
     {
@@ -999,7 +995,6 @@ fn gen_method_info_name(sig: &MethodSignature, method: &MethodInfo, interface: &
         to_ident(&method.name)
     }
 }
-
 
 pub fn gen_method_constraints(params: &[MethodParam]) -> TokenStream {
     if params.iter().any(|param| param.is_convertible()) {
@@ -1222,15 +1217,15 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
     }
 }
 
-pub fn gen_param_name(param:&Param) -> Ident {
+pub fn gen_param_name(param: &Param) -> Ident {
     to_ident(&param.name().to_lowercase())
 }
 
-pub fn gen_param_abi_size_name(param:&Param) -> Ident {
+pub fn gen_param_abi_size_name(param: &Param) -> Ident {
     to_ident(&format!("{}_array_size", param.name()))
 }
 
-pub fn gen_guid(guid:&Guid) -> TokenStream {
+pub fn gen_guid(guid: &Guid) -> TokenStream {
     let a = Literal::u32_unsuffixed(guid.0);
     let b = Literal::u16_unsuffixed(guid.1);
     let c = Literal::u16_unsuffixed(guid.2);
@@ -1248,14 +1243,16 @@ pub fn gen_guid(guid:&Guid) -> TokenStream {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test_bool() {
-        assert_eq!(gen_name(&ElementType::Bool, &Gen::Absolute).as_str(), "bool");
+        assert_eq!(
+            gen_name(&ElementType::Bool, &Gen::Absolute).as_str(),
+            "bool"
+        );
     }
 
     fn get_method(interface: &types::Interface, method: &str) -> MethodDef {
@@ -1307,5 +1304,3 @@ mod tests {
         assert!(!p.signature.is_array);
     }
 }
-
-

@@ -1,20 +1,20 @@
 mod r#async;
 mod gen;
+mod gen_helpers;
+mod interface_info;
 mod iterator;
 mod object;
 mod propertykey;
 mod to_ident;
 pub mod types;
-mod gen_helpers;
-mod interface_info;
 
 pub use gen::*;
+pub use gen_helpers::*;
+pub use interface_info::*;
 pub use iterator::*;
 pub use object::*;
 pub use propertykey::*;
 pub use quote::*;
 pub use r#async::*;
-pub use to_ident::*;
-pub use gen_helpers::*;
-pub use interface_info::*;
 use reader::*;
+pub use to_ident::*;

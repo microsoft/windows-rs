@@ -5,8 +5,8 @@ mod implement_macro;
 use build_macro::*;
 use gen::*;
 use implement_macro::*;
-use syn::parse_macro_input;
 use reader::*;
+use syn::parse_macro_input;
 
 struct RawString(String);
 

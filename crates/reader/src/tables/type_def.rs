@@ -131,9 +131,7 @@ impl TypeDef {
             }
             TypeKind::Class => {
                 if include == TypeInclude::Minimal {
-                    if let Some(default_interface) = self
-                        .default_interface()
-                    {
+                    if let Some(default_interface) = self.default_interface() {
                         return default_interface.definition(TypeInclude::Minimal);
                     } else {
                         return Vec::new();
@@ -257,7 +255,12 @@ impl TypeDef {
             TypeKind::Class => format!(
                 "rc({};{})",
                 self.type_name(),
-                self.default_interface().unwrap_or_else(||panic!("`{}` does not have a default interface.", self.type_name())).interface_signature()
+                self.default_interface()
+                    .unwrap_or_else(|| panic!(
+                        "`{}` does not have a default interface.",
+                        self.type_name()
+                    ))
+                    .interface_signature()
             ),
             TypeKind::Enum => format!(
                 "enum({};{})",

@@ -5,11 +5,7 @@ pub struct Class(pub TypeDef);
 
 impl Class {
     pub fn interfaces(&self) -> Vec<InterfaceInfo> {
-        fn add_interfaces(
-            result: &mut Vec<InterfaceInfo>,
-            parent: &TypeDef,
-            is_base: bool,
-        ) {
+        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &TypeDef, is_base: bool) {
             for child in parent.interface_impls() {
                 if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
                     let kind = if !is_base && child.is_default() {
@@ -128,7 +124,7 @@ impl Class {
             if let Some(default_interface) =
                 interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
             {
-                let guid =  gen_type_guid(&default_interface.def, gen);
+                let guid = gen_type_guid(&default_interface.def, gen);
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
                 let object = gen_object(&name, &TokenStream::new());
@@ -212,7 +208,7 @@ impl Class {
                 .find(|i| i.kind == InterfaceKind::Default)
                 .unwrap();
 
-            let guid =  gen_type_guid(&default_interface.def, gen);
+            let guid = gen_type_guid(&default_interface.def, gen);
             let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
 
             quote! {

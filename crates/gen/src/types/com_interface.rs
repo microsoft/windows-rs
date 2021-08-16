@@ -6,7 +6,7 @@ pub struct ComInterface(pub TypeDef);
 impl ComInterface {
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = gen_type_name(&self.0, gen);
-        let guid =  gen_type_guid(&self.0, gen);
+        let guid = gen_type_guid(&self.0, gen);
 
         if include == TypeInclude::Full {
             let abi_name = gen_abi_name(&self.0, gen);

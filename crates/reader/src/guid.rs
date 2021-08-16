@@ -3,7 +3,19 @@
 use super::*;
 
 #[derive(Clone, PartialEq, Default)]
-pub struct Guid(pub u32, pub u16,pub  u16,pub  u8,pub  u8,pub  u8,pub  u8,pub  u8,pub  u8,pub  u8,pub  u8);
+pub struct Guid(
+    pub u32,
+    pub u16,
+    pub u16,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+);
 
 impl Guid {
     pub fn from_args(args: &[(String, ConstantValue)]) -> Self {
@@ -22,9 +34,7 @@ impl Guid {
         )
     }
 
-    pub fn from_attributes<I: IntoIterator<Item = Attribute>>(
-        attributes: I,
-    ) -> Option<Self> {
+    pub fn from_attributes<I: IntoIterator<Item = Attribute>>(attributes: I) -> Option<Self> {
         for attribute in attributes {
             if attribute.name() == "GuidAttribute" {
                 return Some(Self::from_args(&attribute.args()));

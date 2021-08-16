@@ -1,8 +1,8 @@
 use super::*;
 use std::collections::*;
 use syn::parse::*;
-use syn::*;
 use syn::Ident;
+use syn::*;
 
 custom_keyword!(extend);
 
