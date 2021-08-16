@@ -17,4 +17,4 @@ pub use r#async::*;
 pub use to_ident::*;
 pub use gen_helpers::*;
 pub use interface_info::*;
-use winmd_reader::*;
+use reader::*;

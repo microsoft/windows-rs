@@ -1,5 +1,5 @@
 [package]
-name = "windows_winmd_writer"
+name = "windows_reader"
 version = "0.18.0"
 authors = ["Microsoft"]
 edition = "2018"

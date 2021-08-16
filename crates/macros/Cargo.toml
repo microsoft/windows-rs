@@ -11,6 +11,6 @@ proc-macro = true
 
 [dependencies]
 gen = { package = "windows_gen", path = "../gen", version = "0.18.0" }
-winmd_reader = { package = "windows_winmd_reader", path = "../winmd_reader", version = "0.18.0" }
+reader = { package = "windows_reader", path = "../reader", version = "0.18.0" }
 syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full"] }
 quote = { package = "windows_quote", path = "../quote", version = "0.18.0" }

@@ -5,4 +5,4 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-winmd_reader = { package = "windows_winmd_reader", path = "../../crates/winmd_reader" }
+reader = { package = "windows_reader", path = "../../crates/reader" }

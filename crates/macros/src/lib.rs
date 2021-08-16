@@ -6,7 +6,7 @@ use build_macro::*;
 use gen::*;
 use implement_macro::*;
 use syn::parse_macro_input;
-use winmd_reader::*;
+use reader::*;
 
 struct RawString(String);
 
