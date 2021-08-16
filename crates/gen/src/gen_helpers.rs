@@ -207,10 +207,6 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_field_name(def: &Field) -> TokenStream {
-    def.name().into()
-}
-
 pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_ident, false)
 }
