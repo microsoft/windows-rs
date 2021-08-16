@@ -59,7 +59,7 @@ macro_rules! quote {
 #[macro_export]
 macro_rules! format_ident {
     ($($fmt:tt)*) => {
-        $crate::Ident::new(format!($($fmt)*))
+        $crate::TokenStream::from(format!($($fmt)*))
     };
 }
 

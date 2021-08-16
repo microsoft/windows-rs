@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn to_ident(name: &str) -> Ident {
+pub fn to_ident(name: &str) -> TokenStream {
     // keywords list based on https://doc.rust-lang.org/reference/keywords.html
     match name {
         "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do"
@@ -15,6 +15,6 @@ pub fn to_ident(name: &str) -> Ident {
     }
 }
 
-pub fn to_abi_ident(name: &str) -> Ident {
+pub fn to_abi_ident(name: &str) -> TokenStream {
     format_ident!("{}_abi", name)
 }

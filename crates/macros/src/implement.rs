@@ -30,7 +30,7 @@ pub fn gen(
         }
     }
 
-    let generics: Vec<Ident> = generics
+    let generics: Vec<TokenStream> = generics
         .iter()
         .map(|generic| format_ident!("{}", generic))
         .collect();

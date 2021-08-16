@@ -8,6 +8,12 @@ pub struct TokenStream {
     inner: String,
 }
 
+impl From<String> for TokenStream {
+    fn from(inner: String) -> Self {
+        Self { inner }
+    }
+}
+
 impl TokenStream {
     /// Create a new `TokenStream`
     pub fn new() -> Self {

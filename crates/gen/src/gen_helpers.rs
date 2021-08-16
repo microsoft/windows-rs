@@ -233,7 +233,7 @@ pub fn gen_turbo_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn format_name<F>(def: &TypeDef, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
 where
-    F: FnOnce(&str) -> Ident,
+    F: FnOnce(&str) -> TokenStream,
 {
     let type_name = def.type_name();
 
@@ -986,7 +986,7 @@ fn gen_method_info_name(
     sig: &MethodSignature,
     method: &MethodInfo,
     interface: &InterfaceInfo,
-) -> Ident {
+) -> TokenStream {
     if (interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend)
         && sig.params.len() == 2
     {
@@ -1219,11 +1219,11 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
     }
 }
 
-pub fn gen_param_name(param: &Param) -> Ident {
+pub fn gen_param_name(param: &Param) -> TokenStream {
     to_ident(&param.name().to_lowercase())
 }
 
-pub fn gen_param_abi_size_name(param: &Param) -> Ident {
+pub fn gen_param_abi_size_name(param: &Param) -> TokenStream {
     to_ident(&format!("{}_array_size", param.name()))
 }
 

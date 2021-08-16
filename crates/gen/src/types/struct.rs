@@ -26,7 +26,7 @@ impl Struct {
             };
         }
 
-        let fields: Vec<(Field, Signature, Ident)> = self
+        let fields: Vec<(Field, Signature, TokenStream)> = self
             .0
             .fields()
             .filter_map(move |f| {
