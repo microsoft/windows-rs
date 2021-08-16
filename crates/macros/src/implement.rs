@@ -93,8 +93,8 @@ pub fn gen(
             }
         });
 
-        let vtable_ident = def.gen_abi_name(&gen);
-        let interface_ident = def.gen_name(&gen);
+        let vtable_ident = gen_abi_name(def, &gen);
+        let interface_ident = gen_type_name(def, &gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
         let interface_constant = format_ident!("IID{}", interface_count);
 
@@ -105,7 +105,7 @@ pub fn gen(
         });
 
         for base in &base_interfaces {
-            let interface_ident = base.gen_name(&gen);
+            let interface_ident = gen_type_name(base, &gen);
 
             queries.combine(&quote! {
                 else if iid == &<#interface_ident as ::windows::Interface>::IID {
@@ -138,25 +138,35 @@ pub fn gen(
             let signature = method.signature(&def.generics);
 
             let abi_signature = if is_winrt {
-                signature.gen_winrt_abi(&gen)
+                gen_winrt_abi(&signature, &gen)
             } else {
-                signature.gen_win32_abi(&gen)
+                gen_win32_abi(&signature, &gen)
             };
 
             let upcall = if is_winrt {
                 if *overrides {
                     if implements.overrides.contains(method.name()) {
-                        signature
-                            .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                        gen_winrt_upcall(
+                            &signature,
+                            quote! { (*this).implementation.#method_ident },
+                            &gen,
+                        )
                     } else {
                         quote! { ::windows::HRESULT(0) }
                     }
                 } else {
-                    signature
-                        .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                    gen_winrt_upcall(
+                        &signature,
+                        quote! { (*this).implementation.#method_ident },
+                        &gen,
+                    )
                 }
             } else {
-                signature.gen_win32_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                gen_win32_upcall(
+                    &signature,
+                    quote! { (*this).implementation.#method_ident },
+                    &gen,
+                )
             };
 
             shims.combine(&quote! {

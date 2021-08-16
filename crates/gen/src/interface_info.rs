@@ -1,7 +1,7 @@
 use super::*;
 
 pub struct InterfaceInfo {
-    pub def: tables::TypeDef,
+    pub def: TypeDef,
     pub kind: InterfaceKind,
     pub is_base: bool,
     pub version: (u16, u16),
@@ -44,7 +44,7 @@ impl InterfaceInfo {
                 };
 
                 let signature = method.signature(&interface.def.generics);
-                tokens.combine(&signature.gen_winrt_method(&info, interface, gen));
+                tokens.combine(&gen_winrt_method(&signature, &info, interface, gen));
             }
         }
 
@@ -63,7 +63,7 @@ impl InterfaceInfo {
 
         match self.kind {
             InterfaceKind::Default => {
-                let into = self.def.gen_name(gen);
+                let into = gen_type_name(&self.def, gen);
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
@@ -89,7 +89,7 @@ impl InterfaceInfo {
                 }
             }
             InterfaceKind::NonDefault => {
-                let into = self.def.gen_name(gen);
+                let into = gen_type_name(&self.def, gen);
                 quote! {
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {

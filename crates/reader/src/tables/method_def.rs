@@ -10,12 +10,6 @@ impl From<Row> for MethodDef {
 }
 
 impl MethodDef {
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        let namespace = gen.namespace(self.parent().namespace());
-        let name = format_ident!("{}", self.name());
-        quote! { #namespace #name }
-    }
-
     pub fn is_special(&self) -> bool {
         self.0.u32(2) & 0b1000_0000_0000 != 0
     }
@@ -128,65 +122,7 @@ impl MethodDef {
         }
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
-        types::Function::gen(self, gen)
-    }
-
     pub fn dependencies(&self) -> Vec<TypeEntry> {
         self.signature(&[]).dependencies(TypeInclude::Minimal)
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    fn get_method(interface: &types::Interface, method: &str) -> MethodDef {
-        interface.0.methods().find(|m| m.name() == method).unwrap()
-    }
-
-    #[test]
-    fn test_method() {
-        let i =
-            TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "IStringable"));
-        let i = types::Interface(i);
-        let m = get_method(&i, "ToString");
-        assert_eq!(m.name(), "ToString");
-
-        let s = m.signature(&[]);
-        assert_eq!(s.params.len(), 0);
-
-        let s = s.return_type.unwrap();
-        assert!(s.kind == ElementType::String);
-        assert_eq!(s.pointers, 0);
-        assert!(!s.by_ref);
-        assert!(!s.is_const);
-        assert!(!s.is_array);
-    }
-
-    #[test]
-    fn test_generic() {
-        let i = TypeReader::get()
-            .expect_type_def(TypeName::new("Windows.Foundation.Collections", "IMap`2"));
-        let i = types::Interface(i.with_generics());
-        let m = get_method(&i, "Lookup");
-
-        let s = m.signature(&i.0.generics);
-        assert_eq!(s.params.len(), 1);
-
-        let r = s.return_type.unwrap();
-        assert_eq!(r.kind.gen_name(&Gen::Absolute).as_str(), "V");
-        assert_eq!(r.pointers, 0);
-        assert!(!r.by_ref);
-        assert!(!r.is_const);
-        assert!(!r.is_array);
-
-        let p = &s.params[0];
-        assert_eq!(p.param.name(), "key");
-        assert_eq!(p.signature.kind.gen_name(&Gen::Absolute).as_str(), "K");
-        assert_eq!(p.signature.pointers, 0);
-        assert!(!p.signature.by_ref);
-        assert!(!p.signature.is_const);
-        assert!(!p.signature.is_array);
     }
 }

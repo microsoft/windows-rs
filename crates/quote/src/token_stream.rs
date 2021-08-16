@@ -1,5 +1,7 @@
 use std::borrow::Cow;
 
+// TODO: maybe just remove TokenStream type and use String directly.
+
 /// A stream of tokens
 #[derive(Debug, Clone)]
 pub struct TokenStream {
@@ -84,6 +86,8 @@ impl std::iter::FromIterator<TokenStream> for TokenStream {
             .unwrap_or_else(TokenStream::new)
     }
 }
+
+// TODO: need this?
 
 /// An identifier
 #[derive(Clone, Debug)]

@@ -162,9 +162,9 @@ impl File {
         }
     }
 
-    pub fn attributes(&'static self, has: HasAttribute) -> impl Iterator<Item = tables::Attribute> {
+    pub fn attributes(&'static self, has: HasAttribute) -> impl Iterator<Item = Attribute> {
         self.equal_range(TableIndex::CustomAttribute, 0, has.encode())
-            .map(tables::Attribute)
+            .map(Attribute)
     }
 
     pub(crate) fn equal_range(

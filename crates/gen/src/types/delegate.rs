@@ -1,21 +1,22 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Delegate(pub tables::TypeDef);
+pub struct Delegate(pub TypeDef);
 
 impl Delegate {
     pub fn gen(&self, gen: &Gen) -> TokenStream {
-        let name = self.0.gen_name(gen);
-        let abi_name = self.0.gen_abi_name(gen);
-        let turbo_abi_name = self.0.gen_turbo_abi_name(gen);
+        let name = gen_type_name(&self.0, gen);
+        let abi_name = gen_abi_name(&self.0, gen);
+        let turbo_abi_name = gen_turbo_abi_name(&self.0, gen);
         let signature = self.0.invoke_method().signature(&self.0.generics);
-        let abi_signature = signature.gen_winrt_abi(gen);
-        let fn_constraint = signature.gen_winrt_constraint(gen);
-        let guid = self.0.gen_guid(gen);
-        let struct_phantoms = self.0.gen_phantoms();
-        let abi_phantoms = self.0.gen_phantoms();
-        let vtable_phantoms = self.0.gen_phantoms();
-        let constraints = self.0.gen_constraints();
+        let abi_signature = gen_winrt_abi(&signature, gen);
+        let fn_constraint = gen_winrt_constraint(&signature, gen);
+        let guid = gen_type_guid(&self.0, gen);
+        // TODO: can we share these or at least copy the resulting strings instead? Maybe if they're not iterators the quote macro won't consume them?
+        let struct_phantoms = gen_phantoms(&self.0);
+        let abi_phantoms = gen_phantoms(&self.0);
+        let vtable_phantoms = gen_phantoms(&self.0);
+        let constraints = gen_constraints(&self.0);
 
         let method = MethodInfo {
             name: "Invoke".to_string(),
@@ -31,15 +32,14 @@ impl Delegate {
             version: (0, 0),
         };
 
-        let invoke = signature.gen_winrt_method(&method, &interface, gen);
+        let invoke = gen_winrt_method(&signature, &method, &interface, gen);
 
         // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
         // for compile-time const guid calculations.
         let type_signature = if self.0.generics.is_empty() {
-            self.0
-                .gen_signature(&format!("delegate({{{:#?}}})", &self.0.guid()))
+            gen_signature(&self.0, &format!("delegate({{{:#?}}})", &self.0.guid()))
         } else {
-            self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()))
+            gen_signature(&self.0, &format!("{{{:#?}}}", &self.0.guid()))
         };
 
         let (box_name, box_definition) = if self.0.generics.is_empty() {
@@ -48,7 +48,7 @@ impl Delegate {
         } else {
             let name = self.0.name();
             let name = format_ident!("{}_box", &name[..name.len() - 2]);
-            let generics = self.0.generics.iter().map(|g| g.gen_name(gen));
+            let generics = self.0.generics.iter().map(|g| gen_name(g, gen));
             let generics = quote! { #(#generics,)* };
             (
                 quote! { #name::<#generics F> },
@@ -56,7 +56,7 @@ impl Delegate {
             )
         };
 
-        let invoke_upcall = signature.gen_winrt_upcall(quote! { ((*this).invoke) }, gen);
+        let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
 
         quote! {
             #[repr(transparent)]

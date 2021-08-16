@@ -24,10 +24,10 @@ pub enum ElementType {
     HRESULT,
     TypeName,
     GenericParam(String),
-    Array((Box<Signature>, u32)),
-    MethodDef(tables::MethodDef),
-    Field(tables::Field),
-    TypeDef(tables::TypeDef),
+    Array((Box<Signature>, u32)), // TODO: store Blob rather than Signature or rip gen stuff out of Signature and use that?
+    MethodDef(MethodDef),
+    Field(Field),
+    TypeDef(TypeDef),
 }
 
 impl Default for ElementType {
@@ -36,8 +36,8 @@ impl Default for ElementType {
     }
 }
 
-impl From<tables::TypeDef> for ElementType {
-    fn from(def: tables::TypeDef) -> Self {
+impl From<TypeDef> for ElementType {
+    fn from(def: TypeDef) -> Self {
         Self::TypeDef(def.with_generics())
     }
 }
@@ -103,124 +103,6 @@ impl ElementType {
             Self::MethodDef(def) => TypeName::new(def.parent().namespace(), def.name()),
             Self::Field(def) => TypeName::new(def.parent().namespace(), def.name()),
             _ => unimplemented!(),
-        }
-    }
-
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        match self {
-            Self::Void => quote! { ::std::ffi::c_void },
-            Self::Bool => quote! { bool },
-            Self::Char => quote! { u16 },
-            Self::I8 => quote! { i8 },
-            Self::U8 => quote! { u8 },
-            Self::I16 => quote! { i16 },
-            Self::U16 => quote! { u16 },
-            Self::I32 => quote! { i32 },
-            Self::U32 => quote! { u32 },
-            Self::I64 => quote! { i64 },
-            Self::U64 => quote! { u64 },
-            Self::F32 => quote! { f32 },
-            Self::F64 => quote! { f64 },
-            Self::ISize => quote! { isize },
-            Self::USize => quote! { usize },
-            Self::String => {
-                quote! { ::windows::HSTRING }
-            }
-            Self::IInspectable => {
-                quote! { ::windows::IInspectable }
-            }
-            Self::Guid => {
-                quote! { ::windows::Guid }
-            }
-            Self::IUnknown => {
-                quote! { ::windows::IUnknown }
-            }
-            Self::HRESULT => {
-                quote! { ::windows::HRESULT }
-            }
-            Self::Array((kind, len)) => {
-                let name = kind.gen_win32(gen);
-                let len = Literal::u32_unsuffixed(*len);
-                quote! { [#name; #len] }
-            }
-            Self::GenericParam(generic) => {
-                let name = format_ident!("{}", generic);
-                quote! { #name }
-            }
-            Self::MethodDef(t) => t.gen_name(gen),
-            Self::Field(t) => t.gen_name(),
-            Self::TypeDef(t) => t.gen_name(gen),
-            _ => unimplemented!(),
-        }
-    }
-
-    pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
-        match self {
-            Self::Void => quote! { ::std::ffi::c_void },
-            Self::Bool => quote! { bool },
-            Self::Char => quote! { u16 },
-            Self::I8 => quote! { i8 },
-            Self::U8 => quote! { u8 },
-            Self::I16 => quote! { i16 },
-            Self::U16 => quote! { u16 },
-            Self::I32 => quote! { i32 },
-            Self::U32 => quote! { u32 },
-            Self::I64 => quote! { i64 },
-            Self::U64 => quote! { u64 },
-            Self::F32 => quote! { f32 },
-            Self::F64 => quote! { f64 },
-            Self::ISize => quote! { isize },
-            Self::USize => quote! { usize },
-            Self::String => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::IInspectable => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::Guid => {
-                quote! { ::windows::Guid }
-            }
-            Self::IUnknown => {
-                quote! { ::windows::RawPtr }
-            }
-            Self::HRESULT => {
-                quote! { ::windows::HRESULT }
-            }
-            Self::Array((kind, len)) => {
-                let name = kind.gen_win32_abi(gen);
-                let len = Literal::u32_unsuffixed(*len);
-                quote! { [#name; #len] }
-            }
-            Self::GenericParam(generic) => {
-                let name = format_ident!("{}", generic);
-                quote! { <#name as ::windows::Abi>::Abi }
-            }
-            Self::TypeDef(def) => def.gen_abi_type(gen),
-            _ => unimplemented!(),
-        }
-    }
-
-    pub fn gen_default(&self) -> TokenStream {
-        match self {
-            Self::Bool => quote! { false },
-            Self::Char
-            | Self::I8
-            | Self::U8
-            | Self::I16
-            | Self::U16
-            | Self::I32
-            | Self::U32
-            | Self::I64
-            | Self::U64
-            | Self::ISize
-            | Self::USize => quote! { 0 },
-            Self::F32 | Self::F64 => quote! { 0.0 },
-            Self::Array((kind, len)) => {
-                let default = kind.gen_win32_default();
-                let len = Literal::u32_unsuffixed(*len);
-                quote! { [#default; #len] }
-            }
-            _ => quote! { ::std::default::Default::default() },
         }
     }
 
@@ -336,15 +218,5 @@ impl ElementType {
             Self::Array((kind, _)) => kind.has_explicit(),
             _ => false,
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_bool() {
-        assert_eq!(ElementType::Bool.gen_name(&Gen::Absolute).as_str(), "bool");
     }
 }

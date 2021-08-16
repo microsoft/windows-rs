@@ -1,4 +1,5 @@
 use super::*;
+pub use std::collections::BTreeSet;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeDef {
@@ -34,7 +35,7 @@ impl TypeDef {
                 if attribute
                     .args()
                     .iter()
-                    .any(|arg| matches!(arg.1, parser::ConstantValue::TypeDef(_)))
+                    .any(|arg| matches!(arg.1, ConstantValue::TypeDef(_)))
                 {
                     continue;
                 } else {
@@ -46,7 +47,7 @@ impl TypeDef {
         false
     }
 
-    pub fn invoke_method(&self) -> tables::MethodDef {
+    pub fn invoke_method(&self) -> MethodDef {
         self.methods()
             .find(|m| m.name() == "Invoke")
             .expect("`Invoke` method not found")
@@ -65,16 +66,16 @@ impl TypeDef {
         definition
     }
 
-    pub fn default_interface(&self) -> Self {
+    pub fn default_interface(&self) -> Option<Self> {
         for interface in self.interface_impls() {
             if interface.is_default() {
                 if let ElementType::TypeDef(def) = interface.generic_interface(&self.generics) {
-                    return def;
+                    return Some(def);
                 }
             }
         }
 
-        panic!("`{}` does not have a default interface.", self.type_name());
+        None
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
@@ -85,108 +86,6 @@ impl TypeDef {
                 None
             }
         })
-    }
-
-    pub fn gen_name(&self, gen: &Gen) -> TokenStream {
-        self.format_name(gen, to_ident, false)
-    }
-
-    pub fn gen_abi_name(&self, gen: &Gen) -> TokenStream {
-        self.format_name(gen, to_abi_ident, false)
-    }
-
-    pub fn gen_turbo_abi_name(&self, gen: &Gen) -> TokenStream {
-        self.format_name(gen, to_abi_ident, true)
-    }
-
-    fn format_name<F>(&self, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
-    where
-        F: FnOnce(&str) -> Ident,
-    {
-        let type_name = self.type_name();
-
-        if type_name.namespace.is_empty() {
-            let name = format_name(&self.scoped_name());
-            quote! { #name }
-        } else {
-            let namespace = gen.namespace(type_name.namespace);
-            let name = format_name(type_name.name);
-
-            if self.generics.is_empty() {
-                quote! { #namespace#name }
-            } else {
-                let colon_separated = if turbo || !namespace.as_str().is_empty() {
-                    quote! { :: }
-                } else {
-                    quote! {}
-                };
-
-                let generics = self.generics.iter().map(|g| g.gen_name(gen));
-                quote! { #namespace#name#colon_separated<#(#generics),*> }
-            }
-        }
-    }
-
-    pub fn gen_guid(&self, gen: &Gen) -> TokenStream {
-        if self.generics.is_empty() {
-            match Guid::from_attributes(self.attributes()) {
-                Some(guid) => {
-                    let guid = guid.gen();
-
-                    quote! {
-                        ::windows::Guid::from_values(#guid)
-                    }
-                }
-                None => {
-                    quote! {
-                        ::windows::Guid::zeroed()
-                    }
-                }
-            }
-        } else {
-            let tokens = self.gen_name(gen);
-
-            quote! {
-                ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
-            }
-        }
-    }
-
-    pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
-        // TODO: all the cloning here is ridiculous
-        match self.kind() {
-            TypeKind::Interface => {
-                if self.is_winrt() {
-                    types::Interface(self.clone().with_generics()).gen(gen, include)
-                } else {
-                    types::ComInterface(self.clone()).gen(gen, include)
-                }
-            }
-            TypeKind::Class => types::Class(self.clone().with_generics()).gen(gen, include),
-            TypeKind::Enum => types::Enum(self.clone()).gen(gen, include),
-            TypeKind::Struct => types::Struct(self.clone()).gen(gen),
-            TypeKind::Delegate => {
-                if self.is_winrt() {
-                    types::Delegate(self.clone().with_generics()).gen(gen)
-                } else {
-                    types::Callback(self.clone()).gen(gen)
-                }
-            }
-        }
-    }
-
-    pub fn gen_abi_type(&self, gen: &Gen) -> TokenStream {
-        match self.kind() {
-            TypeKind::Enum => self.gen_name(gen),
-            TypeKind::Struct => {
-                if self.is_blittable() {
-                    self.gen_name(gen)
-                } else {
-                    self.gen_abi_name(gen)
-                }
-            }
-            _ => quote! { ::windows::RawPtr },
-        }
     }
 
     pub fn is_packed(&self) -> bool {
@@ -231,14 +130,9 @@ impl TypeDef {
                 dependencies
             }
             TypeKind::Class => {
-                let class = types::Class(self.clone());
                 if include == TypeInclude::Minimal {
-                    if let Some(default_interface) = class
-                        .interfaces()
-                        .iter()
-                        .find(|i| i.kind == InterfaceKind::Default)
-                    {
-                        return default_interface.def.definition(TypeInclude::Minimal);
+                    if let Some(default_interface) = self.default_interface() {
+                        return default_interface.definition(TypeInclude::Minimal);
                     } else {
                         return Vec::new();
                     }
@@ -255,7 +149,7 @@ impl TypeDef {
                     match attribute.name() {
                         "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                             for (_, arg) in attribute.args() {
-                                if let parser::ConstantValue::TypeDef(def) = arg {
+                                if let ConstantValue::TypeDef(def) = arg {
                                     return Some(TypeEntry {
                                         include: TypeInclude::Full,
                                         def: ElementType::TypeDef(def),
@@ -361,7 +255,12 @@ impl TypeDef {
             TypeKind::Class => format!(
                 "rc({};{})",
                 self.type_name(),
-                self.default_interface().interface_signature()
+                self.default_interface()
+                    .unwrap_or_else(|| panic!(
+                        "`{}` does not have a default interface.",
+                        self.type_name()
+                    ))
+                    .interface_signature()
             ),
             TypeKind::Enum => format!(
                 "enum({};{})",
@@ -406,58 +305,6 @@ impl TypeDef {
         }
 
         unimplemented!();
-    }
-
-    pub fn gen_signature(&self, signature: &str) -> TokenStream {
-        let signature = Literal::byte_string(signature.as_bytes());
-
-        if self.generics.is_empty() {
-            return quote! { ::windows::ConstBuffer::from_slice(#signature) };
-        }
-
-        let generics = self.generics.iter().enumerate().map(|(index, g)| {
-            let g = g.gen_name(&Gen::Absolute);
-            let semi = if index != self.generics.len() - 1 {
-                Some(quote! {
-                    .push_slice(b";")
-                })
-            } else {
-                None
-            };
-
-            quote! {
-                .push_other(<#g as ::windows::RuntimeType>::SIGNATURE)
-                #semi
-            }
-        });
-
-        quote! {
-            {
-                ::windows::ConstBuffer::new()
-                .push_slice(b"pinterface(")
-                .push_slice(#signature)
-                .push_slice(b";")
-                #(#generics)*
-                .push_slice(b")")
-            }
-        }
-    }
-
-    pub fn gen_phantoms(&self) -> impl Iterator<Item = TokenStream> + '_ {
-        self.generics.iter().map(move |g| {
-            let g = g.gen_name(&Gen::Absolute);
-            quote! { ::std::marker::PhantomData::<#g> }
-        })
-    }
-
-    pub fn gen_constraints(&self) -> TokenStream {
-        self.generics
-            .iter()
-            .map(|g| {
-                let g = g.gen_name(&Gen::Absolute);
-                quote! { #g: ::windows::RuntimeType + 'static, }
-            })
-            .collect()
     }
 
     pub fn interface_signature(&self) -> String {
@@ -564,7 +411,7 @@ impl TypeDef {
             .map(InterfaceImpl)
     }
 
-    pub fn nested_types(&self) -> Option<&BTreeMap<&'static str, tables::TypeDef>> {
+    pub fn nested_types(&self) -> Option<&BTreeMap<&'static str, TypeDef>> {
         TypeReader::get().nested_types(self)
     }
 
@@ -691,20 +538,6 @@ impl TypeDef {
             .map(NestedClass)
             .next()
             .map(|nested| nested.enclosing_type())
-    }
-
-    fn scoped_name(&self) -> String {
-        if let Some(enclosing_type) = self.enclosing_type() {
-            if let Some(nested_types) = enclosing_type.nested_types() {
-                for (index, (nested_type, _)) in nested_types.iter().enumerate() {
-                    if *nested_type == self.name() {
-                        return format!("{}_{}", enclosing_type.scoped_name(), index);
-                    }
-                }
-            }
-        }
-
-        self.name().to_string()
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {

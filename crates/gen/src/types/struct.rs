@@ -4,7 +4,7 @@ use super::*;
 // radically different.
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Struct(pub tables::TypeDef);
+pub struct Struct(pub TypeDef);
 
 impl Struct {
     pub fn gen(&self, gen: &Gen) -> TokenStream {
@@ -19,14 +19,14 @@ impl Struct {
         let name = to_ident(struct_name);
 
         if let Some(guid) = Guid::from_attributes(self.0.attributes()) {
-            let guid = guid.gen();
+            let guid = gen_guid(&guid);
 
             return quote! {
                 pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid);
             };
         }
 
-        let fields: Vec<(tables::Field, Signature, Ident)> = self
+        let fields: Vec<(Field, Signature, Ident)> = self
             .0
             .fields()
             .filter_map(move |f| {
@@ -111,9 +111,9 @@ impl Struct {
         let body = if is_handle {
             let fields = fields.iter().map(|(_, signature, _)| {
                 let kind = if is_winrt {
-                    signature.gen_winrt(gen)
+                    gen_winrt_sig(signature, gen)
                 } else {
-                    signature.gen_win32(gen)
+                    gen_win32_sig(signature, gen)
                 };
 
                 quote! {
@@ -127,11 +127,11 @@ impl Struct {
         } else {
             let fields = fields.iter().map(|(_, signature, name)| {
                 let kind = if is_winrt {
-                    signature.gen_winrt(gen)
+                    gen_winrt_sig(signature, gen)
                 } else if is_union {
-                    signature.gen_win32_abi(gen)
+                    gen_win32_abi_sig(signature, gen)
                 } else {
-                    signature.gen_win32(gen)
+                    gen_win32_sig(signature, gen)
                 };
 
                 quote! {
@@ -158,17 +158,17 @@ impl Struct {
                 }
             }
         } else {
-            let abi_name = self.0.gen_abi_name(gen);
+            let abi_name = gen_abi_name(&self.0, gen);
 
             let fields = if is_winrt {
                 let fields = fields.iter().map(|(_, signature, name)| {
-                    let kind = signature.gen_winrt_abi(gen);
+                    let kind = gen_winrt_abi_sig(signature, gen);
                     quote! { pub #name: #kind }
                 });
                 quote! { #(#fields),* }
             } else {
                 let fields = fields.iter().map(|(_, signature, name)| {
-                    let kind = signature.gen_win32_abi(gen);
+                    let kind = gen_win32_abi_sig(signature, gen);
                     quote! { pub #name: #kind }
                 });
                 quote! { #(#fields),* }
@@ -190,7 +190,7 @@ impl Struct {
             if f.is_literal() {
                 if let Some(constant) = f.constant() {
                     let name = to_ident(f.name());
-                    let value = constant.value().gen();
+                    let value = gen_constant_value_with_type(&constant.value());
 
                     return Some(quote! {
                         pub const #name: #value;
@@ -261,9 +261,9 @@ impl Struct {
         } else {
             let defaults = fields.iter().map(|(_, signature, name)| {
                 let value = if is_winrt {
-                    signature.gen_winrt_default()
+                    gen_winrt_default(signature)
                 } else {
-                    signature.gen_win32_default()
+                    gen_win32_default(signature)
                 };
 
                 if is_handle {
@@ -367,7 +367,7 @@ impl Struct {
         let nested_types = gen_nested_types(struct_name, &self.0, gen);
 
         let convertible = if let Some(dependency) = self.0.is_convertible_to() {
-            let dependency = dependency.gen_name(gen);
+            let dependency = gen_type_name(&dependency, gen);
 
             quote! {
                 impl<'a> ::windows::IntoParam<'a, #dependency> for #name {
@@ -425,7 +425,7 @@ impl Struct {
 
 fn gen_nested_types<'a>(
     enclosing_name: &'a str,
-    enclosing_type: &'a tables::TypeDef,
+    enclosing_type: &'a TypeDef,
     gen: &Gen,
 ) -> TokenStream {
     if let Some(nested_types) = enclosing_type.nested_types() {
@@ -458,7 +458,7 @@ mod tests {
             "Windows.Win32.Graphics.Dxgi",
             "DXGI_FRAME_STATISTICS_MEDIA",
         ));
-        let f: Vec<tables::Field> = t.fields().collect();
+        let f: Vec<Field> = t.fields().collect();
         assert_eq!(f.len(), 7);
 
         assert_eq!(f[0].name(), "PresentCount");

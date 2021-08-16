@@ -1,4 +1,5 @@
 use super::*;
+pub use std::collections::BTreeMap;
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub enum TypeInclude {
@@ -11,21 +12,6 @@ pub enum TypeInclude {
 pub struct TypeEntry {
     pub def: ElementType,
     pub include: TypeInclude,
-}
-
-impl TypeEntry {
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
-        if self.include == TypeInclude::None {
-            return TokenStream::new();
-        }
-
-        match &self.def {
-            ElementType::TypeDef(def) => def.clone().with_generics().gen(gen, self.include),
-            ElementType::MethodDef(def) => def.gen(gen),
-            ElementType::Field(def) => def.gen(gen),
-            _ => unimplemented!(),
-        }
-    }
 }
 
 pub struct TypeTree {
@@ -122,36 +108,4 @@ impl TypeTree {
             })
         }
     }
-
-    pub fn gen(&self) -> impl Iterator<Item = TokenStream> + '_ {
-        let gen = Gen::Relative(self.namespace);
-
-        self.types
-            .iter()
-            .map(move |t| t.1.gen(&gen))
-            .chain(gen_namespaces(&self.namespaces))
-    }
-}
-
-fn gen_namespaces<'a>(
-    namespaces: &'a BTreeMap<&'static str, TypeTree>,
-) -> impl Iterator<Item = TokenStream> + 'a {
-    namespaces.iter().map(move |(name, tree)| {
-        if tree.include {
-            let name = to_ident(name);
-
-            let tokens = tree.gen();
-
-            quote! {
-                // TODO: https://github.com/microsoft/windows-rs/issues/212
-                // TODO: https://github.com/microsoft/win32metadata/issues/380
-                #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-                pub mod #name {
-                    #(#tokens)*
-                }
-            }
-         } else {
-             TokenStream::new()
-         }
-    })
 }

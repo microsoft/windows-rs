@@ -6,9 +6,9 @@ pub trait Decode {
 
 #[derive(Clone)]
 pub enum TypeDefOrRef {
-    TypeDef(tables::TypeDef),
-    TypeRef(tables::TypeRef),
-    TypeSpec(tables::TypeSpec),
+    TypeDef(TypeDef),
+    TypeRef(TypeRef),
+    TypeSpec(TypeSpec),
 }
 
 impl Decode for TypeDefOrRef {
@@ -16,12 +16,8 @@ impl Decode for TypeDefOrRef {
         let code = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match code.0 {
             0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
-            1 => Self::TypeRef(tables::TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
-            2 => Self::TypeSpec(tables::TypeSpec(Row::new(
-                code.1,
-                TableIndex::TypeSpec,
-                file,
-            ))),
+            1 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
+            2 => Self::TypeSpec(TypeSpec(Row::new(code.1, TableIndex::TypeSpec, file))),
             _ => unimplemented!(),
         }
     }
@@ -39,8 +35,8 @@ impl TypeDefOrRef {
 
 #[derive(Clone)]
 pub enum TypeOrMethodDef {
-    TypeDef(tables::TypeDef),
-    MethodDef(tables::MethodDef),
+    TypeDef(TypeDef),
+    MethodDef(MethodDef),
 }
 
 impl Decode for TypeOrMethodDef {
@@ -48,11 +44,7 @@ impl Decode for TypeOrMethodDef {
         let code = (code & ((1 << 1) - 1), (code >> 1) - 1);
         match code.0 {
             0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
-            1 => Self::MethodDef(tables::MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
+            1 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
             _ => unimplemented!(),
         }
     }
@@ -69,46 +61,34 @@ impl TypeOrMethodDef {
 
 #[derive(Clone)]
 pub enum HasAttribute {
-    MethodDef(tables::MethodDef),
-    Field(tables::Field),
-    TypeRef(tables::TypeRef),
-    TypeDef(tables::TypeDef),
-    Param(tables::Param),
-    InterfaceImpl(tables::InterfaceImpl),
-    MemberRef(tables::MemberRef),
-    TypeSpec(tables::TypeSpec),
-    GenericParam(tables::GenericParam),
+    MethodDef(MethodDef),
+    Field(Field),
+    TypeRef(TypeRef),
+    TypeDef(TypeDef),
+    Param(Param),
+    InterfaceImpl(InterfaceImpl),
+    MemberRef(MemberRef),
+    TypeSpec(TypeSpec),
+    GenericParam(GenericParam),
 }
 
 impl Decode for HasAttribute {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 5) - 1), (code >> 5) - 1);
         match code.0 {
-            0 => Self::MethodDef(tables::MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
-            1 => Self::Field(tables::Field(Row::new(code.1, TableIndex::Field, file))),
-            2 => Self::TypeRef(tables::TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
+            0 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
+            1 => Self::Field(Field(Row::new(code.1, TableIndex::Field, file))),
+            2 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
             3 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
-            4 => Self::Param(tables::Param(Row::new(code.1, TableIndex::Param, file))),
-            5 => Self::InterfaceImpl(tables::InterfaceImpl(Row::new(
+            4 => Self::Param(Param(Row::new(code.1, TableIndex::Param, file))),
+            5 => Self::InterfaceImpl(InterfaceImpl(Row::new(
                 code.1,
                 TableIndex::InterfaceImpl,
                 file,
             ))),
-            6 => Self::MemberRef(tables::MemberRef(Row::new(
-                code.1,
-                TableIndex::MemberRef,
-                file,
-            ))),
-            13 => Self::TypeSpec(tables::TypeSpec(Row::new(
-                code.1,
-                TableIndex::TypeSpec,
-                file,
-            ))),
-            19 => Self::GenericParam(tables::GenericParam(Row::new(
+            6 => Self::MemberRef(MemberRef(Row::new(code.1, TableIndex::MemberRef, file))),
+            13 => Self::TypeSpec(TypeSpec(Row::new(code.1, TableIndex::TypeSpec, file))),
+            19 => Self::GenericParam(GenericParam(Row::new(
                 code.1,
                 TableIndex::GenericParam,
                 file,
@@ -136,10 +116,10 @@ impl HasAttribute {
 
 #[derive(Clone)]
 pub enum MemberRefParent {
-    TypeDef(tables::TypeDef),
-    TypeRef(tables::TypeRef),
-    MethodDef(tables::MethodDef),
-    TypeSpec(tables::TypeSpec),
+    TypeDef(TypeDef),
+    TypeRef(TypeRef),
+    MethodDef(MethodDef),
+    TypeSpec(TypeSpec),
 }
 
 impl Decode for MemberRefParent {
@@ -147,17 +127,9 @@ impl Decode for MemberRefParent {
         let code = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match code.0 {
             0 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
-            1 => Self::TypeRef(tables::TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
-            3 => Self::MethodDef(tables::MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
-            4 => Self::TypeSpec(tables::TypeSpec(Row::new(
-                code.1,
-                TableIndex::TypeSpec,
-                file,
-            ))),
+            1 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
+            3 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
+            4 => Self::TypeSpec(TypeSpec(Row::new(code.1, TableIndex::TypeSpec, file))),
             _ => unimplemented!(),
         }
     }
@@ -176,16 +148,16 @@ impl MemberRefParent {
 
 #[derive(Clone)]
 pub enum HasConstant {
-    Field(tables::Field),
-    Param(tables::Param),
+    Field(Field),
+    Param(Param),
 }
 
 impl Decode for HasConstant {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match code.0 {
-            0 => Self::Field(tables::Field(Row::new(code.1, TableIndex::Field, file))),
-            1 => Self::Param(tables::Param(Row::new(code.1, TableIndex::Param, file))),
+            0 => Self::Field(Field(Row::new(code.1, TableIndex::Field, file))),
+            1 => Self::Param(Param(Row::new(code.1, TableIndex::Param, file))),
             _ => unimplemented!(),
         }
     }
@@ -202,24 +174,16 @@ impl HasConstant {
 
 #[derive(Clone)]
 pub enum AttributeType {
-    MethodDef(tables::MethodDef),
-    MemberRef(tables::MemberRef),
+    MethodDef(MethodDef),
+    MemberRef(MemberRef),
 }
 
 impl Decode for AttributeType {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match code.0 {
-            2 => Self::MethodDef(tables::MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
-            3 => Self::MemberRef(tables::MemberRef(Row::new(
-                code.1,
-                TableIndex::MemberRef,
-                file,
-            ))),
+            2 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
+            3 => Self::MemberRef(MemberRef(Row::new(code.1, TableIndex::MemberRef, file))),
             _ => unimplemented!(),
         }
     }
@@ -236,20 +200,16 @@ impl AttributeType {
 
 #[derive(Clone)]
 pub enum MemberForwarded {
-    Field(tables::Field),
-    MethodDef(tables::MethodDef),
+    Field(Field),
+    MethodDef(MethodDef),
 }
 
 impl Decode for MemberForwarded {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 1) - 1), (code >> 1) - 1);
         match code.0 {
-            0 => Self::Field(tables::Field(Row::new(code.1, TableIndex::Field, file))),
-            1 => Self::MethodDef(tables::MethodDef(Row::new(
-                code.1,
-                TableIndex::MethodDef,
-                file,
-            ))),
+            0 => Self::Field(Field(Row::new(code.1, TableIndex::Field, file))),
+            1 => Self::MethodDef(MethodDef(Row::new(code.1, TableIndex::MethodDef, file))),
             _ => unimplemented!(),
         }
     }
@@ -266,28 +226,20 @@ impl MemberForwarded {
 
 #[derive(Clone)]
 pub enum ResolutionScope {
-    Module(tables::Module),
-    ModuleRef(tables::ModuleRef),
-    AssemblyRef(tables::AssemblyRef),
-    TypeRef(tables::TypeRef),
+    Module(Module),
+    ModuleRef(ModuleRef),
+    AssemblyRef(AssemblyRef),
+    TypeRef(TypeRef),
 }
 
 impl Decode for ResolutionScope {
     fn decode(file: &'static File, code: u32) -> Self {
         let code = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match code.0 {
-            0 => Self::Module(tables::Module(Row::new(code.1, TableIndex::Module, file))),
-            1 => Self::ModuleRef(tables::ModuleRef(Row::new(
-                code.1,
-                TableIndex::ModuleRef,
-                file,
-            ))),
-            2 => Self::AssemblyRef(tables::AssemblyRef(Row::new(
-                code.1,
-                TableIndex::AssemblyRef,
-                file,
-            ))),
-            3 => Self::TypeRef(tables::TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
+            0 => Self::Module(Module(Row::new(code.1, TableIndex::Module, file))),
+            1 => Self::ModuleRef(ModuleRef(Row::new(code.1, TableIndex::ModuleRef, file))),
+            2 => Self::AssemblyRef(AssemblyRef(Row::new(code.1, TableIndex::AssemblyRef, file))),
+            3 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
             _ => unimplemented!(),
         }
     }
@@ -313,7 +265,7 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn resolve(&self) -> tables::TypeDef {
+    pub fn resolve(&self) -> TypeDef {
         match self {
             Self::TypeDef(value) => value.resolve(),
             Self::TypeRef(value) => value.resolve(),

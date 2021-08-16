@@ -47,10 +47,6 @@ impl Field {
         Row::new(row, TableIndex::TypeDef, self.0.file).into()
     }
 
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
-        types::Constant::gen(self, gen)
-    }
-
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         self.signature().kind.definition(include)
     }
@@ -74,11 +70,6 @@ impl Field {
 
     pub fn is_blittable(&self) -> bool {
         self.signature().is_blittable()
-    }
-
-    pub fn gen_name(&self) -> TokenStream {
-        let name = format_ident!("{}", self.name());
-        quote! { #name }
     }
 }
 

@@ -8,6 +8,7 @@ description = "Code gen support for the windows crate"
 
 [dependencies]
 quote = { package = "windows_quote", path = "../quote", version = "0.18.0" }
+reader = { package = "windows_reader", path = "../reader", version = "0.18.0" }
 
 
 [features]

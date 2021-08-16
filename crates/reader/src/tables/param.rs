@@ -31,12 +31,4 @@ impl Param {
     pub fn is_const(&self) -> bool {
         self.has_attribute("ConstAttribute")
     }
-
-    pub fn gen_name(&self) -> Ident {
-        to_ident(&self.name().to_lowercase())
-    }
-
-    pub fn gen_abi_size_name(&self) -> Ident {
-        to_ident(&format!("{}_array_size", self.name()))
-    }
 }

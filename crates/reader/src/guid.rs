@@ -3,7 +3,19 @@
 use super::*;
 
 #[derive(Clone, PartialEq, Default)]
-pub struct Guid(u32, u16, u16, u8, u8, u8, u8, u8, u8, u8, u8);
+pub struct Guid(
+    pub u32,
+    pub u16,
+    pub u16,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+);
 
 impl Guid {
     pub fn from_args(args: &[(String, ConstantValue)]) -> Self {
@@ -22,9 +34,7 @@ impl Guid {
         )
     }
 
-    pub fn from_attributes<I: IntoIterator<Item = tables::Attribute>>(
-        attributes: I,
-    ) -> Option<Self> {
+    pub fn from_attributes<I: IntoIterator<Item = Attribute>>(attributes: I) -> Option<Self> {
         for attribute in attributes {
             if attribute.name() == "GuidAttribute" {
                 return Some(Self::from_args(&attribute.args()));
@@ -32,24 +42,6 @@ impl Guid {
         }
 
         None
-    }
-
-    pub fn gen(&self) -> TokenStream {
-        let a = Literal::u32_unsuffixed(self.0);
-        let b = Literal::u16_unsuffixed(self.1);
-        let c = Literal::u16_unsuffixed(self.2);
-        let d = Literal::u8_unsuffixed(self.3);
-        let e = Literal::u8_unsuffixed(self.4);
-        let f = Literal::u8_unsuffixed(self.5);
-        let g = Literal::u8_unsuffixed(self.6);
-        let h = Literal::u8_unsuffixed(self.7);
-        let i = Literal::u8_unsuffixed(self.8);
-        let j = Literal::u8_unsuffixed(self.9);
-        let k = Literal::u8_unsuffixed(self.10);
-
-        quote! {
-            #a, #b, #c, [#d, #e, #f, #g, #h, #i, #j, #k],
-        }
     }
 }
 

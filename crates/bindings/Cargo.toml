@@ -5,4 +5,4 @@ edition = "2018"
 
 [dependencies]
 windows_macros = { path = "../macros" }
-windows_gen = { path = "../gen" }
+windows_reader = { path = "../reader" }

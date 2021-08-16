@@ -1,15 +1,11 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Interface(pub tables::TypeDef);
+pub struct Interface(pub TypeDef);
 
 impl Interface {
     fn interfaces(&self) -> Vec<InterfaceInfo> {
-        fn add_interfaces(
-            result: &mut Vec<InterfaceInfo>,
-            parent: &tables::TypeDef,
-            is_base: bool,
-        ) {
+        fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &TypeDef, is_base: bool) {
             for child in parent.interface_impls() {
                 if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
                     if !result.iter().any(|info| info.def == def) {
@@ -40,20 +36,20 @@ impl Interface {
     }
 
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
-        let name = self.0.gen_name(gen);
-        let struct_phantoms = self.0.gen_phantoms();
-        let constraints = self.0.gen_constraints();
-        let type_signature = self.0.gen_signature(&format!("{{{:#?}}}", &self.0.guid()));
-        let guid = self.0.gen_guid(gen);
+        let name = gen_type_name(&self.0, gen);
+        let struct_phantoms = gen_phantoms(&self.0);
+        let constraints = gen_constraints(&self.0);
+        let type_signature = gen_signature(&self.0, &format!("{{{:#?}}}", &self.0.guid()));
+        let guid = gen_type_guid(&self.0, gen);
 
         if include == TypeInclude::Full {
-            let abi_name = self.0.gen_abi_name(gen);
-            let abi_phantoms = self.0.gen_phantoms();
+            let abi_name = gen_abi_name(&self.0, gen);
+            let abi_phantoms = gen_phantoms(&self.0);
 
             let abi_signatures = self
                 .0
                 .methods()
-                .map(|m| m.signature(&self.0.generics).gen_winrt_abi(gen));
+                .map(|m| gen_winrt_abi(&m.signature(&self.0.generics), gen));
 
             let is_exclusive = self.0.is_exclusive();
 
@@ -166,13 +162,13 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
-            "Windows :: Foundation :: IAsyncOperation :: < TResult >"
+            gen_type_name(&i[0].def, &Gen::Absolute).as_str(),
+            "Windows::Foundation:: IAsyncOperation :: < TResult >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
-            "Windows :: Foundation :: IAsyncInfo"
+            gen_type_name(&i[1].def, &Gen::Absolute).as_str(),
+            "Windows::Foundation:: IAsyncInfo"
         );
     }
 
@@ -185,13 +181,13 @@ mod tests {
         assert_eq!(i.len(), 2);
 
         assert_eq!(
-            i[0].def.gen_name(&Gen::Absolute).as_str(),
-            "Windows :: Foundation :: Collections :: IMap :: < K , V >"
+            gen_type_name(&i[0].def, &Gen::Absolute).as_str(),
+            "Windows::Foundation::Collections:: IMap :: < K , V >"
         );
 
         assert_eq!(
-            i[1].def.gen_name(&Gen::Absolute).as_str(),
-            "Windows :: Foundation :: Collections :: IIterable :: < Windows :: Foundation :: Collections :: IKeyValuePair :: < K , V > >"
+            gen_type_name(&i[1].def, &Gen::Absolute).as_str(),
+            "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < K , V > >"
         );
     }
 }
