@@ -43,7 +43,7 @@ pub fn gen_field(def: &Field, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let name =  format_token!("{}", def.name());
+    let name = format_token!("{}", def.name());
     let signature = def.signature(&[]);
 
     let constraints = gen_method_constraints(&signature.params);
@@ -210,7 +210,6 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
 pub fn gen_field_name(def: &Field) -> TokenStream {
     def.name().into()
 }
-
 
 pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_ident, false)
@@ -524,7 +523,7 @@ pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
             quote! { [#name; #len] }
         }
         ElementType::GenericParam(generic) => {
-            let name =  format_token!("{}", generic);
+            let name = format_token!("{}", generic);
             quote! { <#name as ::windows::Abi>::Abi }
         }
         ElementType::TypeDef(def) => gen_abi_type(def, gen),

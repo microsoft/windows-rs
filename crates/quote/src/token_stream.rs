@@ -12,13 +12,17 @@ impl From<String> for TokenStream {
 
 impl From<&String> for TokenStream {
     fn from(inner: &String) -> Self {
-        Self { inner: inner.to_string() }
+        Self {
+            inner: inner.to_string(),
+        }
     }
 }
 
 impl From<&str> for TokenStream {
     fn from(inner: &str) -> Self {
-        Self { inner: inner.to_string() }
+        Self {
+            inner: inner.to_string(),
+        }
     }
 }
 
@@ -92,7 +96,6 @@ impl std::iter::FromIterator<TokenStream> for TokenStream {
             .unwrap_or_else(TokenStream::new)
     }
 }
-
 
 /// A delimiter around a block of code
 #[derive(Copy, Clone)]

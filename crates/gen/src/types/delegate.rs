@@ -43,11 +43,11 @@ impl Delegate {
         };
 
         let (box_name, box_definition) = if self.0.generics.is_empty() {
-            let name =  format_token!("{}_box", self.0.name());
+            let name = format_token!("{}_box", self.0.name());
             (quote! { #name::<F> }, quote! { #name<#fn_constraint> })
         } else {
             let name = self.0.name();
-            let name =  format_token!("{}_box", &name[..name.len() - 2]);
+            let name = format_token!("{}_box", &name[..name.len() - 2]);
             let generics = self.0.generics.iter().map(|g| gen_name(g, gen));
             let generics = quote! { #(#generics,)* };
             (

@@ -5,6 +5,7 @@ mod implement_macro;
 use build_macro::*;
 use gen::*;
 use implement_macro::*;
+use quote::*;
 use reader::*;
 use syn::parse_macro_input;
 
