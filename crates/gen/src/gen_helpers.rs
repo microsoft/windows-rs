@@ -43,7 +43,7 @@ pub fn gen_field(def: &Field, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let name = gen_method_name(def, gen); // TODO: this probably doesn't need gen
+    let name =  format_token!("{}", def.name());
     let signature = def.signature(&[]);
 
     let constraints = gen_method_constraints(&signature.params);
@@ -211,11 +211,6 @@ pub fn gen_field_name(def: &Field) -> TokenStream {
     def.name().into()
 }
 
-pub fn gen_method_name(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let namespace = gen.namespace(def.parent().namespace());
-    let name =  format_token!("{}", def.name());
-    quote! { #namespace #name }
-}
 
 pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_ident, false)
@@ -484,7 +479,7 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
             quote! { [#name; #len] }
         }
         ElementType::GenericParam(generic) => generic.into(),
-        ElementType::MethodDef(t) => gen_method_name(t, gen), // TODO: why is the gen-relative and the next is not?
+        ElementType::MethodDef(def) => def.name().into(),
         ElementType::Field(field) => field.name().into(),
         ElementType::TypeDef(t) => gen_type_name(t, gen),
         _ => unimplemented!(),
