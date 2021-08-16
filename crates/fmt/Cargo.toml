@@ -4,4 +4,4 @@ version = "0.0.0"
 edition = "2018"
 
 [dependencies]
-windows_gen = { path = "../gen" }
+winmd_reader = { package = "windows_winmd_reader", path = "../winmd_reader", version = "0.18.0" }

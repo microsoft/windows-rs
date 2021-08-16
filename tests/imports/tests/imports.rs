@@ -1,4 +1,4 @@
-use windows_gen::*;
+use winmd_reader::*;
 
 fn get_imports(namespace: &'static str, name: &'static str) -> BTreeMap<&'static str, TypeInclude> {
     let reader = TypeReader::get_mut();

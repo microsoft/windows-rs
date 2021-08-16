@@ -7,6 +7,7 @@ edition = "2018"
 [dependencies]
 windows = { path = "../.." }
 gen = { package = "windows_gen", path = "../../crates/gen" }
+winmd_reader = { package = "windows_winmd_reader", path = "../../crates/winmd_reader" }
 
 [dev-dependencies]
 futures = "0.3"

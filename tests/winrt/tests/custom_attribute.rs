@@ -1,7 +1,7 @@
 #[test]
 fn named_arguments() {
-    let reader = gen::TypeReader::get();
-    let type_def = reader.expect_type_def(gen::TypeName::new("TestComponent", "TestRunner"));
+    let reader = winmd_reader::TypeReader::get();
+    let type_def = reader.expect_type_def(winmd_reader::TypeName::new("TestComponent", "TestRunner"));
 
     // TestRunner should have a custom attribute on it
     let mut some_string = 0;
@@ -12,15 +12,15 @@ fn named_arguments() {
             "CustomTestAttribute" => {
                 for (name, arg) in attribute.args() {
                     match (&name as &str, &arg) {
-                        ("SomeString", gen::ConstantValue::String(value)) => {
+                        ("SomeString", winmd_reader::ConstantValue::String(value)) => {
                             assert_eq!(value, "Hello, World!");
                             some_string += 1;
                         }
-                        ("SomeInt", gen::ConstantValue::I32(value)) => {
+                        ("SomeInt", winmd_reader::ConstantValue::I32(value)) => {
                             assert_eq!(*value, 1975);
                             some_int += 1;
                         }
-                        ("SomeBool", gen::ConstantValue::Bool(value)) => {
+                        ("SomeBool", winmd_reader::ConstantValue::Bool(value)) => {
                             assert_eq!(*value, true);
                             some_bool += 1;
                         }
