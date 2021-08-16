@@ -35,9 +35,9 @@ pub fn gen(
         .map(|generic| (*generic).into())
         .collect();
 
-    let impl_ident = format_ident!("{}", impl_name);
+    let impl_ident =  format_token!("{}", impl_name);
     let impl_ident = quote! { #impl_ident::<#(#generics,)*> };
-    let box_ident = format_ident!("{}_box", impl_name);
+    let box_ident =  format_token!("{}_box", impl_name);
 
     let constraints = quote! {
         #(#generics: ::windows::RuntimeType + 'static,)*
@@ -51,9 +51,9 @@ pub fn gen(
         let is_winrt = def.is_winrt();
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
-        let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
-        let add_ref = format_ident!("AddRef_abi{}", interface_count);
-        let release = format_ident!("Release_abi{}", interface_count);
+        let query_interface =  format_token!("QueryInterface_abi{}", interface_count);
+        let add_ref =  format_token!("AddRef_abi{}", interface_count);
+        let release =  format_token!("Release_abi{}", interface_count);
 
         let (base_interfaces, is_inspectable) = if is_winrt {
             (Vec::new(), true)
@@ -96,7 +96,7 @@ pub fn gen(
         let vtable_ident = gen_abi_name(def, &gen);
         let interface_ident = gen_type_name(def, &gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
-        let interface_constant = format_ident!("IID{}", interface_count);
+        let interface_constant =  format_token!("IID{}", interface_count);
 
         queries.combine(&quote! {
             else if iid == &Self::#interface_constant {
@@ -129,7 +129,7 @@ pub fn gen(
             let method_ident = gen::to_ident(&method.rust_name());
 
             abi_count += 1;
-            let vcall_ident = format_ident!("abi{}", abi_count);
+            let vcall_ident =  format_token!("abi{}", abi_count);
 
             vtable_ptrs.combine(&quote! {
                 Self::#vcall_ident,

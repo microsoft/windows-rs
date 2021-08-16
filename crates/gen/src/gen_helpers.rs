@@ -213,7 +213,7 @@ pub fn gen_field_name(def: &Field) -> TokenStream {
 
 pub fn gen_method_name(def: &MethodDef, gen: &Gen) -> TokenStream {
     let namespace = gen.namespace(def.parent().namespace());
-    let name = format_ident!("{}", def.name());
+    let name =  format_token!("{}", def.name());
     quote! { #namespace #name }
 }
 
@@ -529,7 +529,7 @@ pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
             quote! { [#name; #len] }
         }
         ElementType::GenericParam(generic) => {
-            let name = format_ident!("{}", generic);
+            let name =  format_token!("{}", generic);
             quote! { <#name as ::windows::Abi>::Abi }
         }
         ElementType::TypeDef(def) => gen_abi_type(def, gen),

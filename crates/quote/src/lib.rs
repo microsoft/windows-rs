@@ -48,7 +48,7 @@ macro_rules! quote {
     }};
 }
 
-/// Formatting macro for constructing `Ident`s.
+/// Formatting macro for constructing a `TokenStream`.
 ///
 /// <br>
 ///
@@ -57,7 +57,7 @@ macro_rules! quote {
 /// Syntax is copied from the [`format!`] macro, supporting both positional and
 /// named arguments.
 #[macro_export]
-macro_rules! format_ident {
+macro_rules!  format_token {
     ($($fmt:tt)*) => {
         $crate::TokenStream::from(format!($($fmt)*))
     };
