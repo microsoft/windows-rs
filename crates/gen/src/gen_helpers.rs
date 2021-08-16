@@ -1,3 +1,5 @@
+#![allow(clippy::many_single_char_names)]
+
 // TODO: sort these out
 
 use crate::*;
@@ -370,7 +372,7 @@ pub fn gen_signature(def: &TypeDef, signature: &str) -> TokenStream {
 
 pub fn gen_phantoms(def: &TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
     def.generics.iter().map(move |g| {
-        let g = gen_name(&g, &Gen::Absolute);
+        let g = gen_name(g, &Gen::Absolute);
         quote! { ::std::marker::PhantomData::<#g> }
     })
 }
@@ -379,7 +381,7 @@ pub fn gen_constraints(def: &TypeDef) -> TokenStream {
     def.generics
         .iter()
         .map(|g| {
-            let g = gen_name(&g, &Gen::Absolute);
+            let g = gen_name(g, &Gen::Absolute);
             quote! { #g: ::windows::RuntimeType + 'static, }
         })
         .collect()
@@ -568,7 +570,7 @@ pub fn gen_tree(tree: &TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
 
     tree.types
         .iter()
-        .map(move |t| gen_type_entry(&t.1, &gen))
+        .map(move |t| gen_type_entry(t.1, &gen))
         .chain(gen_namespaces(&tree.namespaces))
 }
 
@@ -716,7 +718,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
             let tokens = gen_win32_abi_sig(&t, gen);
             (quote! { result__: #tokens }, quote! {})
         } else {
-            let tokens = gen_win32_abi_sig(&t, gen);
+            let tokens = gen_win32_abi_sig(t, gen);
             (quote! {}, quote! { -> #tokens })
         }
     } else {
