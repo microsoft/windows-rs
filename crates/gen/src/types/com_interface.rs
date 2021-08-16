@@ -159,10 +159,10 @@ fn gen_method(
     let overload = method_names.entry(name.to_string()).or_insert(0);
     *overload += 1;
 
-    let name = if *overload > 1 {
-        format_ident!("{}{}", name, overload)
+    let name: TokenStream = if *overload > 1 {
+        format!("{}{}", name, overload).into()
     } else {
-        to_ident(name)
+        name.into()
     };
 
     if signature.has_query_interface() {

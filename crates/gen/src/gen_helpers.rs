@@ -208,9 +208,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_field_name(def: &Field) -> TokenStream {
-    // TODO: This should simply return: def.name().to_string()
-    let name = format_ident!("{}", def.name());
-    quote! { #name }
+    def.name().into()
 }
 
 pub fn gen_method_name(def: &MethodDef, gen: &Gen) -> TokenStream {
@@ -485,12 +483,9 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        ElementType::GenericParam(generic) => {
-            let name = format_ident!("{}", generic);
-            quote! { #name }
-        }
+        ElementType::GenericParam(generic) => generic.into(),
         ElementType::MethodDef(t) => gen_method_name(t, gen), // TODO: why is the gen-relative and the next is not?
-        ElementType::Field(t) => gen_field_name(t), // TODO: this could just stringify t.name()
+        ElementType::Field(field) => field.name().into(),
         ElementType::TypeDef(t) => gen_type_name(t, gen),
         _ => unimplemented!(),
     }
@@ -990,11 +985,11 @@ fn gen_method_info_name(
     if (interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend)
         && sig.params.len() == 2
     {
-        format_ident!("new")
+        "new".into()
     } else if method.overload > 1 {
-        format_ident!("{}{}", &method.name, method.overload)
+        format!("{}{}", &method.name, method.overload).into()
     } else {
-        to_ident(&method.name)
+        method.name.clone().into()
     }
 }
 

@@ -14,6 +14,18 @@ impl From<String> for TokenStream {
     }
 }
 
+impl From<&String> for TokenStream {
+    fn from(inner: &String) -> Self {
+        Self { inner: inner.to_string() }
+    }
+}
+
+impl From<&str> for TokenStream {
+    fn from(inner: &str) -> Self {
+        Self { inner: inner.to_string() }
+    }
+}
+
 impl TokenStream {
     /// Create a new `TokenStream`
     pub fn new() -> Self {
