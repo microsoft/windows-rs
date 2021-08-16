@@ -1,11 +1,29 @@
-use std::borrow::Cow;
-
-// TODO: maybe just remove TokenStream type and use String directly.
-
 /// A stream of tokens
 #[derive(Debug, Clone)]
 pub struct TokenStream {
     inner: String,
+}
+
+impl From<String> for TokenStream {
+    fn from(inner: String) -> Self {
+        Self { inner }
+    }
+}
+
+impl From<&String> for TokenStream {
+    fn from(inner: &String) -> Self {
+        Self {
+            inner: inner.to_string(),
+        }
+    }
+}
+
+impl From<&str> for TokenStream {
+    fn from(inner: &str) -> Self {
+        Self {
+            inner: inner.to_string(),
+        }
+    }
 }
 
 impl TokenStream {
@@ -14,14 +32,6 @@ impl TokenStream {
         Self {
             inner: String::new(),
         }
-    }
-
-    /// Appends an identifier to the stream
-    ///
-    /// note: a space will be inserted before the identifier
-    pub fn append(&mut self, ident: Ident) {
-        self.push_space();
-        self.inner.push_str(ident.as_str())
     }
 
     /// Appends another stream to the stream
@@ -84,37 +94,6 @@ impl std::iter::FromIterator<TokenStream> for TokenStream {
                 Some(ts)
             })
             .unwrap_or_else(TokenStream::new)
-    }
-}
-
-// TODO: need this?
-
-/// An identifier
-#[derive(Clone, Debug)]
-pub struct Ident {
-    inner: Cow<'static, str>,
-}
-
-impl Ident {
-    /// Create a new `Identifier`
-    pub fn new<T: Into<Cow<'static, str>>>(str: T) -> Self {
-        Self { inner: str.into() }
-    }
-
-    /// View the identifier as a string
-    pub fn as_str(&self) -> &str {
-        &*self.inner
-    }
-}
-
-impl std::fmt::Display for Ident {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.as_str())
-    }
-}
-impl PartialEq<&str> for Ident {
-    fn eq(&self, other: &&str) -> bool {
-        self.as_str() == *other
     }
 }
 
@@ -181,18 +160,6 @@ impl Literal {
 
     pub fn as_str(&self) -> &str {
         &self.inner
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn accept_owned_and_borrowed() {
-        assert_eq!(
-            Ident::new("hello").as_str(),
-            Ident::new(String::from("hello")).as_str()
-        );
     }
 }
 

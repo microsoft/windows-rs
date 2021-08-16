@@ -101,7 +101,7 @@ impl Class {
                 match interface.kind {
                     InterfaceKind::Static | InterfaceKind::Composable => {
                         if interface.def.methods().next().is_some() {
-                            let interface_name = format_ident!("{}", interface.def.name());
+                            let interface_name =  format_token!("{}", interface.def.name());
                             let interface_type = gen_type_name(&interface.def, gen);
 
                             Some(quote! {

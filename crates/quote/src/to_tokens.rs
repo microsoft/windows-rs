@@ -1,7 +1,7 @@
 use std::borrow::Cow;
 use std::rc::Rc;
 
-use crate::{Ident, Literal, TokenStream};
+use crate::{Literal, TokenStream};
 
 /// Types that can be interpolated inside a `quote!` invocation.
 ///
@@ -129,13 +129,6 @@ impl ToTokens for bool {
         let word = if *self { "true" } else { "false" };
         tokens.push_space();
         tokens.push_str(word);
-    }
-}
-
-impl ToTokens for Ident {
-    fn to_tokens(&self, tokens: &mut TokenStream) {
-        tokens.push_space();
-        tokens.push_str(self.as_str());
     }
 }
 

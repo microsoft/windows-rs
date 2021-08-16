@@ -43,7 +43,7 @@ pub fn gen_field(def: &Field, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let name = gen_method_name(def, gen); // TODO: this probably doesn't need gen
+    let name = to_ident(def.name());
     let signature = def.signature(&[]);
 
     let constraints = gen_method_constraints(&signature.params);
@@ -207,18 +207,6 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_field_name(def: &Field) -> TokenStream {
-    // TODO: This should simply return: def.name().to_string()
-    let name = format_ident!("{}", def.name());
-    quote! { #name }
-}
-
-pub fn gen_method_name(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let namespace = gen.namespace(def.parent().namespace());
-    let name = format_ident!("{}", def.name());
-    quote! { #namespace #name }
-}
-
 pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_ident, false)
 }
@@ -233,7 +221,7 @@ pub fn gen_turbo_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn format_name<F>(def: &TypeDef, gen: &Gen, format_name: F, turbo: bool) -> TokenStream
 where
-    F: FnOnce(&str) -> Ident,
+    F: FnOnce(&str) -> TokenStream,
 {
     let type_name = def.type_name();
 
@@ -485,12 +473,9 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        ElementType::GenericParam(generic) => {
-            let name = format_ident!("{}", generic);
-            quote! { #name }
-        }
-        ElementType::MethodDef(t) => gen_method_name(t, gen), // TODO: why is the gen-relative and the next is not?
-        ElementType::Field(t) => gen_field_name(t), // TODO: this could just stringify t.name()
+        ElementType::GenericParam(generic) => generic.into(),
+        ElementType::MethodDef(def) => def.name().into(),
+        ElementType::Field(field) => field.name().into(),
         ElementType::TypeDef(t) => gen_type_name(t, gen),
         _ => unimplemented!(),
     }
@@ -534,7 +519,7 @@ pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
             quote! { [#name; #len] }
         }
         ElementType::GenericParam(generic) => {
-            let name = format_ident!("{}", generic);
+            let name = format_token!("{}", generic);
             quote! { <#name as ::windows::Abi>::Abi }
         }
         ElementType::TypeDef(def) => gen_abi_type(def, gen),
@@ -986,15 +971,15 @@ fn gen_method_info_name(
     sig: &MethodSignature,
     method: &MethodInfo,
     interface: &InterfaceInfo,
-) -> Ident {
+) -> TokenStream {
     if (interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend)
         && sig.params.len() == 2
     {
-        format_ident!("new")
+        "new".into()
     } else if method.overload > 1 {
-        format_ident!("{}{}", &method.name, method.overload)
+        format_token!("{}{}", &method.name, method.overload)
     } else {
-        to_ident(&method.name)
+        method.name.clone().into()
     }
 }
 
@@ -1219,11 +1204,11 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
     }
 }
 
-pub fn gen_param_name(param: &Param) -> Ident {
+pub fn gen_param_name(param: &Param) -> TokenStream {
     to_ident(&param.name().to_lowercase())
 }
 
-pub fn gen_param_abi_size_name(param: &Param) -> Ident {
+pub fn gen_param_abi_size_name(param: &Param) -> TokenStream {
     to_ident(&format!("{}_array_size", param.name()))
 }
 
