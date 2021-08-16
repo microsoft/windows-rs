@@ -4,4 +4,4 @@ version = "0.0.0"
 edition = "2018"
 
 [dependencies]
-reader = { package = "windows_reader", path = "../reader", version = "0.18.0" }
+windows_reader = { path = "../reader" }

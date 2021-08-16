@@ -68,7 +68,7 @@ fn update_dir(dir: &std::path::Path) -> std::io::Result<()> {
 fn main() -> std::io::Result<()> {
     let dir: std::path::PathBuf = std::env::args()
         .nth(1)
-        .unwrap_or_else(reader::workspace_dir)
+        .unwrap_or_else(windows_reader::workspace_dir)
         .into();
 
     update_dir(&dir)?;
