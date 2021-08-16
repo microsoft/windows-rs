@@ -6,7 +6,7 @@ mod iterator;
 mod object;
 mod propertykey;
 mod to_ident;
-pub mod types;
+mod types;
 
 pub use gen::*;
 pub use gen_helpers::*;
@@ -18,3 +18,4 @@ pub use quote::*;
 pub use r#async::*;
 use reader::*;
 pub use to_ident::*;
+pub use types::*;

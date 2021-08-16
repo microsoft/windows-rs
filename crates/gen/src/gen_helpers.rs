@@ -301,19 +301,19 @@ pub fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     match def.kind() {
         TypeKind::Interface => {
             if def.is_winrt() {
-                types::Interface(def.clone().with_generics()).gen(gen, include)
+                Interface(def.clone().with_generics()).gen(gen, include)
             } else {
-                types::ComInterface(def.clone()).gen(gen, include)
+                ComInterface(def.clone()).gen(gen, include)
             }
         }
-        TypeKind::Class => types::Class(def.clone().with_generics()).gen(gen, include),
-        TypeKind::Enum => types::Enum(def.clone()).gen(gen, include),
-        TypeKind::Struct => types::Struct(def.clone()).gen(gen),
+        TypeKind::Class => Class(def.clone().with_generics()).gen(gen, include),
+        TypeKind::Enum => Enum(def.clone()).gen(gen, include),
+        TypeKind::Struct => Struct(def.clone()).gen(gen),
         TypeKind::Delegate => {
             if def.is_winrt() {
-                types::Delegate(def.clone().with_generics()).gen(gen)
+                Delegate(def.clone().with_generics()).gen(gen)
             } else {
-                types::Callback(def.clone()).gen(gen)
+                Callback(def.clone()).gen(gen)
             }
         }
     }
@@ -1263,7 +1263,7 @@ mod tests {
     fn test_method() {
         let i =
             TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "IStringable"));
-        let i = types::Interface(i);
+        let i = Interface(i);
         let m = get_method(&i, "ToString");
         assert_eq!(m.name(), "ToString");
 
@@ -1282,7 +1282,7 @@ mod tests {
     fn test_generic() {
         let i = TypeReader::get()
             .expect_type_def(TypeName::new("Windows.Foundation.Collections", "IMap`2"));
-        let i = types::Interface(i.with_generics());
+        let i = Interface(i.with_generics());
         let m = get_method(&i, "Lookup");
 
         let s = m.signature(&i.0.generics);
