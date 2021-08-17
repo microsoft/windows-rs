@@ -84,7 +84,6 @@ pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
-    // TODO: all the cloning here is ridiculous
     match def.kind() {
         TypeKind::Interface => {
             if def.is_winrt() {
