@@ -16,24 +16,24 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
                 type Output = Self;
 
                 fn bitor(self, rhs: Self) -> Self {
-                    Self(def | rhs.0)
+                    Self(self.0 | rhs.0)
                 }
             }
             impl ::std::ops::BitAnd for #name {
                 type Output = Self;
 
                 fn bitand(self, rhs: Self) -> Self {
-                    Self(def & rhs.0)
+                    Self(self.0 & rhs.0)
                 }
             }
             impl ::std::ops::BitOrAssign for #name {
                 fn bitor_assign(&mut self, rhs: Self) {
-                    def.bitor_assign(rhs.0)
+                    self.0.bitor_assign(rhs.0)
                 }
             }
             impl ::std::ops::BitAndAssign for #name {
                 fn bitand_assign(&mut self, rhs: Self) {
-                    def.bitand_assign(rhs.0)
+                    self.0.bitand_assign(rhs.0)
                 }
             }
         }
