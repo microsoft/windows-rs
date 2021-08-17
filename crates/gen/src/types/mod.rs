@@ -2,8 +2,10 @@ pub use super::*;
 
 mod bool32;
 mod bstr;
+mod callback;
 mod class;
 mod com_interface;
+mod delegate;
 mod r#enum;
 mod handle;
 mod interface;
@@ -20,8 +22,10 @@ mod vector4;
 
 pub use bool32::*;
 pub use bstr::*;
+pub use callback::*;
 pub use class::*;
 pub use com_interface::*;
+pub use delegate::*;
 pub use handle::*;
 pub use interface::*;
 pub use matrix3x2::*;
