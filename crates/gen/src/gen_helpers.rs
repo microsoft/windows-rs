@@ -298,7 +298,7 @@ pub fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
         }
         TypeKind::Class => Class(def.clone().with_generics()).gen(gen, include),
         TypeKind::Enum => gen_enum(def, gen, include),
-        TypeKind::Struct => Struct(def.clone()).gen(gen),
+        TypeKind::Struct => gen_struct(def, gen),
         TypeKind::Delegate => {
             if def.is_winrt() {
                 gen_delegate(def, gen)

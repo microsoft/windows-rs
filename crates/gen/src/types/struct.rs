@@ -3,22 +3,18 @@ use super::*;
 // TODO: need to split win32 and winrt structs as their signatures are different and win32 structs also include unions and they are
 // radically different.
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Struct(pub TypeDef);
-
-impl Struct {
-    pub fn gen(&self, gen: &Gen) -> TokenStream {
-        self.gen_struct(self.0.name(), gen)
+    pub fn gen_struct(def:&TypeDef, gen: &Gen) -> TokenStream {
+        gen_struct_with_name(def, def.name(), gen)
     }
 
-    fn gen_struct(&self, struct_name: &str, gen: &Gen) -> TokenStream {
-        if let Some(replacement) = self.gen_replacement() {
+    fn gen_struct_with_name(def:&TypeDef, struct_name: &str, gen: &Gen) -> TokenStream {
+        if let Some(replacement) = gen_replacement(def) {
             return replacement;
         }
 
         let name = to_ident(struct_name);
 
-        if let Some(guid) = Guid::from_attributes(self.0.attributes()) {
+        if let Some(guid) = Guid::from_attributes(def.attributes()) {
             let guid = gen_guid(&guid);
 
             return quote! {
@@ -26,8 +22,7 @@ impl Struct {
             };
         }
 
-        let fields: Vec<(Field, Signature, TokenStream)> = self
-            .0
+        let fields: Vec<(Field, Signature, TokenStream)> = def
             .fields()
             .filter_map(move |f| {
                 if f.is_literal() {
@@ -48,11 +43,11 @@ impl Struct {
             };
         }
 
-        let is_winrt = self.0.is_winrt();
-        let is_handle = self.0.is_handle();
-        let is_union = self.0.is_explicit();
-        let layout = self.0.class_layout();
-        let is_packed = self.0.is_packed();
+        let is_winrt = def.is_winrt();
+        let is_handle = def.is_handle();
+        let is_union = def.is_explicit();
+        let layout = def.class_layout();
+        let is_packed = def.is_packed();
 
         let repr = if let Some(layout) = &layout {
             let packing = Literal::u32_unsuffixed(layout.packing_size());
@@ -78,7 +73,7 @@ impl Struct {
             });
 
         let runtime_type = if is_winrt {
-            let signature = Literal::byte_string(self.0.type_signature().as_bytes());
+            let signature = Literal::byte_string(def.type_signature().as_bytes());
 
             quote! {
                 unsafe impl ::windows::RuntimeType for #name {
@@ -89,7 +84,7 @@ impl Struct {
             quote! {}
         };
 
-        let clone_or_copy = if self.0.is_blittable() {
+        let clone_or_copy = if def.is_blittable() {
             quote! {
                 #[derive(::std::clone::Clone, ::std::marker::Copy)]
             }
@@ -150,7 +145,7 @@ impl Struct {
             quote! { struct }
         };
 
-        let abi = if self.0.is_blittable() {
+        let abi = if def.is_blittable() {
             quote! {
                 unsafe impl ::windows::Abi for #name {
                     type Abi = Self;
@@ -158,7 +153,7 @@ impl Struct {
                 }
             }
         } else {
-            let abi_name = gen_abi_name(&self.0, gen);
+            let abi_name = gen_abi_name(&def, gen);
 
             let fields = if is_winrt {
                 let fields = fields.iter().map(|(_, signature, name)| {
@@ -186,7 +181,7 @@ impl Struct {
             }
         };
 
-        let constants = self.0.fields().filter_map(|f| {
+        let constants = def.fields().filter_map(|f| {
             if f.is_literal() {
                 if let Some(constant) = f.constant() {
                     let name = to_ident(f.name());
@@ -305,7 +300,7 @@ impl Struct {
         let debug = if is_union || has_union || has_complex_array || is_packed {
             quote! {}
         } else {
-            let debug_name = self.0.name();
+            let debug_name = def.name();
 
             let debug_fields =
                 fields
@@ -363,10 +358,10 @@ impl Struct {
             }
         };
 
-        let extensions = self.gen_extensions();
-        let nested_types = gen_nested_types(struct_name, &self.0, gen);
+        let extensions = gen_extensions(def);
+        let nested_types = gen_nested_types(struct_name, &def, gen);
 
-        let convertible = if let Some(dependency) = self.0.is_convertible_to() {
+        let convertible = if let Some(dependency) = def.is_convertible_to() {
             let dependency = gen_type_name(&dependency, gen);
 
             quote! {
@@ -398,8 +393,8 @@ impl Struct {
         }
     }
 
-    fn gen_replacement(&self) -> Option<TokenStream> {
-        match self.0.type_name() {
+    fn gen_replacement(def:&TypeDef) -> Option<TokenStream> {
+        match def.type_name() {
             TypeName::BOOL => Some(gen_bool32()),
             TypeName::PWSTR => Some(gen_pwstr()),
             TypeName::PSTR => Some(gen_pstr()),
@@ -409,8 +404,8 @@ impl Struct {
         }
     }
 
-    fn gen_extensions(&self) -> TokenStream {
-        match self.0.type_name() {
+    fn gen_extensions(def:&TypeDef) -> TokenStream {
+        match def.type_name() {
             TypeName::TimeSpan => gen_timespan(),
             TypeName::Vector2 => gen_vector2(),
             TypeName::Vector3 => gen_vector3(),
@@ -421,7 +416,7 @@ impl Struct {
             _ => TokenStream::new(),
         }
     }
-}
+
 
 fn gen_nested_types<'a>(
     enclosing_name: &'a str,
@@ -434,7 +429,7 @@ fn gen_nested_types<'a>(
             .enumerate()
             .map(|(index, (_, nested_type))| {
                 let nested_name = format!("{}_{}", enclosing_name, index);
-                Struct(nested_type.clone()).gen_struct(&nested_name, gen)
+                gen_struct_with_name(nested_type, &nested_name, gen)
             })
             .collect()
     } else {

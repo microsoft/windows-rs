@@ -1,34 +1,4 @@
 use super::*;
-fn interfaces(def: &TypeDef) -> Vec<InterfaceInfo> {
-    fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &TypeDef, is_base: bool) {
-        for child in parent.interface_impls() {
-            if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
-                if !result.iter().any(|info| info.def == def) {
-                    add_interfaces(result, &def, is_base);
-                    let version = def.version();
-
-                    result.push(InterfaceInfo {
-                        def,
-                        kind: InterfaceKind::NonDefault,
-                        is_base: false,
-                        version,
-                    });
-                }
-            }
-        }
-    }
-
-    let mut result = vec![InterfaceInfo {
-        def: def.clone(),
-        kind: InterfaceKind::Default,
-        is_base: false,
-        version: def.version(),
-    }];
-
-    add_interfaces(&mut result, &def, false);
-    InterfaceInfo::sort(&mut result);
-    result
-}
 
 pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     let name = gen_type_name(&def, gen);
@@ -133,4 +103,35 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             }
         }
     }
+}
+
+fn interfaces(def: &TypeDef) -> Vec<InterfaceInfo> {
+    fn add_interfaces(result: &mut Vec<InterfaceInfo>, parent: &TypeDef, is_base: bool) {
+        for child in parent.interface_impls() {
+            if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
+                if !result.iter().any(|info| info.def == def) {
+                    add_interfaces(result, &def, is_base);
+                    let version = def.version();
+
+                    result.push(InterfaceInfo {
+                        def,
+                        kind: InterfaceKind::NonDefault,
+                        is_base: false,
+                        version,
+                    });
+                }
+            }
+        }
+    }
+
+    let mut result = vec![InterfaceInfo {
+        def: def.clone(),
+        kind: InterfaceKind::Default,
+        is_base: false,
+        version: def.version(),
+    }];
+
+    add_interfaces(&mut result, &def, false);
+    InterfaceInfo::sort(&mut result);
+    result
 }
