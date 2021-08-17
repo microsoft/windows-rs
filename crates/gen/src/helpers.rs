@@ -4,209 +4,6 @@
 
 use crate::*;
 
-pub fn gen_field(def: &Field, gen: &Gen) -> TokenStream {
-    let name = def.name();
-    let name = to_ident(name);
-    let signature = def.signature();
-
-    if let Some(constant) = def.constant() {
-        if signature.kind == constant.value_type() {
-            let value = gen_constant_value_with_type(&constant.value());
-
-            quote! {
-                pub const #name: #value;
-            }
-        } else {
-            let kind = gen_win32_sig(&signature, gen);
-            let value = gen_constant_value(&constant.value());
-
-            quote! {
-                pub const #name: #kind = #kind(#value as _);
-            }
-        }
-    } else if let Some(guid) = Guid::from_attributes(def.attributes()) {
-        let guid = gen_guid(&guid);
-        quote! { pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid); }
-    } else if let Some(pkey) = PropertyKey::from_attributes(def.attributes()) {
-        let kind = gen_win32_sig(&signature, gen);
-        let fmtid = gen_guid(&pkey.fmtid);
-        let pid = pkey.pid;
-        quote! {
-            pub const #name: #kind = #kind {
-                fmtid: ::windows::Guid::from_values(#fmtid),
-                pid: #pid,
-            };
-        }
-    } else {
-        quote! {}
-    }
-}
-
-pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
-    let name = to_ident(def.name());
-    let signature = def.signature(&[]);
-
-    let constraints = gen_method_constraints(&signature.params);
-    let params = gen_win32_params(&signature.params, gen);
-
-    let abi_params = signature.params.iter().map(|p| {
-        let name = gen_param_name(&p.param);
-        let tokens = gen_win32_abi_param(p, gen);
-        quote! { #name: #tokens }
-    });
-
-    let abi_return_type = if let Some(t) = &signature.return_type {
-        // TODO: This should be gen_win32_abi?
-        let tokens = gen_win32_sig(t, gen);
-        quote! { -> #tokens }
-    } else {
-        TokenStream::new()
-    };
-
-    let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
-    let mut link = def.impl_map().expect("Function").scope().name();
-
-    let raw_dylib = cfg!(feature = "raw_dylib");
-
-    // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
-    // will no longer be necessary.
-    if !raw_dylib && (link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli") {
-        link = "onecoreuap";
-    }
-
-    let static_lib = def
-        .attributes()
-        .filter_map(|attribute| match attribute.name() {
-            "StaticLibraryAttribute" => Some(gen_constant_value(&attribute.args()[0].1)),
-            _ => None,
-        })
-        .next();
-
-    let link_attr = match static_lib {
-        Some(link) => quote! { #[link(name = #link, kind = "static")] },
-        None => {
-            // TODO: switch to always using raw-dylib once it has stabilized
-            if raw_dylib {
-                quote! { #[link(name = #link, kind="raw-dylib")] }
-            } else {
-                quote! { #[link(name = #link)] }
-            }
-        }
-    };
-
-    if signature.has_query_interface() {
-        let leading_params = &signature.params[..signature.params.len() - 2];
-        let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
-        let params = gen_win32_params(leading_params, gen);
-
-        quote! {
-            pub unsafe fn #name<#constraints T: ::windows::Interface>(#params) -> ::windows::Result<T> {
-                #[cfg(windows)]
-                {
-                    #link_attr
-                    extern "system" {
-                        fn #name(#(#abi_params),*) #abi_return_type;
-                    }
-                    let mut result__ = ::std::option::Option::None;
-                    #name(#(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
-                }
-                #[cfg(not(windows))]
-                unimplemented!("Unsupported target OS");
-            }
-        }
-    } else if signature.has_retval() {
-        let leading_params = &signature.params[..signature.params.len() - 1];
-        let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
-        let params = gen_win32_params(leading_params, gen);
-
-        let return_type_tokens = gen_name(&signature.params.last().unwrap().signature.kind, gen);
-
-        quote! {
-            pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
-                #[cfg(windows)]
-                {
-                    #link_attr
-                    extern "system" {
-                        fn #name(#(#abi_params),*) #abi_return_type;
-                    }
-                    let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
-                    #name(#(#args,)* &mut result__).from_abi::<#return_type_tokens>(result__)
-                }
-                #[cfg(not(windows))]
-                unimplemented!("Unsupported target OS");
-            }
-        }
-    } else if let Some(return_type) = &signature.return_type {
-        match &return_type.kind {
-            ElementType::HRESULT => {
-                quote! {
-                    pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*) -> ::windows::HRESULT;
-                            }
-                            #name(#(#args),*).ok()
-                        }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
-            }
-            ElementType::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
-                quote! {
-                    pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*) #abi_return_type;
-                            }
-                            #name(#(#args),*).ok()
-                        }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
-            }
-            _ => {
-                let return_type = gen_win32_sig(return_type, gen);
-
-                quote! {
-                    pub unsafe fn #name<#constraints>(#params) -> #return_type {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*) #abi_return_type;
-                            }
-                            #name(#(#args),*)
-                        }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
-            }
-        }
-    } else {
-        quote! {
-            pub unsafe fn #name<#constraints>(#params) {
-                #[cfg(windows)]
-                {
-                    #link_attr
-                    extern "system" {
-                        fn #name(#(#abi_params),*);
-                    }
-                    #name(#(#args),*)
-                }
-                #[cfg(not(windows))]
-                unimplemented!("Unsupported target OS");
-            }
-        }
-    }
-}
-
 pub fn gen_type_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_ident, false)
 }
@@ -287,23 +84,22 @@ pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
-    // TODO: all the cloning here is ridiculous
     match def.kind() {
         TypeKind::Interface => {
             if def.is_winrt() {
-                Interface(def.clone().with_generics()).gen(gen, include)
+                gen_interface(&def.clone().with_generics(), gen, include)
             } else {
-                ComInterface(def.clone()).gen(gen, include)
+                gen_com_interface(def, gen, include)
             }
         }
         TypeKind::Class => Class(def.clone().with_generics()).gen(gen, include),
-        TypeKind::Enum => Enum(def.clone()).gen(gen, include),
-        TypeKind::Struct => Struct(def.clone()).gen(gen),
+        TypeKind::Enum => gen_enum(def, gen, include),
+        TypeKind::Struct => gen_struct(def, gen),
         TypeKind::Delegate => {
             if def.is_winrt() {
-                Delegate(def.clone().with_generics()).gen(gen)
+                gen_delegate(def, gen)
             } else {
-                Callback(def.clone()).gen(gen)
+                gen_callback(def, gen)
             }
         }
     }
@@ -567,7 +363,7 @@ pub fn gen_type_entry(entry: &TypeEntry, gen: &Gen) -> TokenStream {
     match &entry.def {
         ElementType::TypeDef(def) => gen_type(&def.clone().with_generics(), gen, entry.include),
         ElementType::MethodDef(def) => gen_function(def, gen),
-        ElementType::Field(def) => gen_field(def, gen),
+        ElementType::Field(def) => gen_constant(def, gen),
         _ => unimplemented!(),
     }
 }
@@ -1227,67 +1023,5 @@ pub fn gen_guid(guid: &Guid) -> TokenStream {
 
     quote! {
         #a, #b, #c, [#d, #e, #f, #g, #h, #i, #j, #k],
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_bool() {
-        assert_eq!(
-            gen_name(&ElementType::Bool, &Gen::Absolute).as_str(),
-            "bool"
-        );
-    }
-
-    fn get_method(interface: &types::Interface, method: &str) -> MethodDef {
-        interface.0.methods().find(|m| m.name() == method).unwrap()
-    }
-
-    #[test]
-    fn test_method() {
-        let i =
-            TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "IStringable"));
-        let i = Interface(i);
-        let m = get_method(&i, "ToString");
-        assert_eq!(m.name(), "ToString");
-
-        let s = m.signature(&[]);
-        assert_eq!(s.params.len(), 0);
-
-        let s = s.return_type.unwrap();
-        assert!(s.kind == ElementType::String);
-        assert_eq!(s.pointers, 0);
-        assert!(!s.by_ref);
-        assert!(!s.is_const);
-        assert!(!s.is_array);
-    }
-
-    #[test]
-    fn test_generic() {
-        let i = TypeReader::get()
-            .expect_type_def(TypeName::new("Windows.Foundation.Collections", "IMap`2"));
-        let i = Interface(i.with_generics());
-        let m = get_method(&i, "Lookup");
-
-        let s = m.signature(&i.0.generics);
-        assert_eq!(s.params.len(), 1);
-
-        let r = s.return_type.unwrap();
-        assert_eq!(gen_name(&r.kind, &Gen::Absolute).as_str(), "V");
-        assert_eq!(r.pointers, 0);
-        assert!(!r.by_ref);
-        assert!(!r.is_const);
-        assert!(!r.is_array);
-
-        let p = &s.params[0];
-        assert_eq!(p.param.name(), "key");
-        assert_eq!(gen_name(&p.signature.kind, &Gen::Absolute).as_str(), "K");
-        assert_eq!(p.signature.pointers, 0);
-        assert!(!p.signature.by_ref);
-        assert!(!p.signature.is_const);
-        assert!(!p.signature.is_array);
     }
 }

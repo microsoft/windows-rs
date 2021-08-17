@@ -203,7 +203,7 @@ fn generic_guids() -> windows::Result<()> {
         windows::Guid::from("FD416DFB-2A07-52EB-AAE3-DFCE14116C05")
     );
 
-    // TODO: etc.
+    // TODO: structs and enums
 
     Ok(())
 }
