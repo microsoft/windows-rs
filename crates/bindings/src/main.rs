@@ -3,7 +3,7 @@ fn main() -> std::io::Result<()> {
         Windows::{
             Foundation::{IReference, IStringable, PropertyValue},
             Win32::{
-                Foundation::{CloseHandle, CO_E_NOTINITIALIZED, E_NOINTERFACE, E_POINTER},
+                Foundation::{S_OK, CloseHandle, CO_E_NOTINITIALIZED, E_NOINTERFACE},
                 System::{
                     Com::{CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, IAgileObject},
                     Diagnostics::Debug::{FormatMessageW, GetLastError},

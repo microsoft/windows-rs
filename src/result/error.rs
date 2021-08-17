@@ -2,7 +2,7 @@ use crate::*;
 use std::convert::TryInto;
 
 use bindings::{
-    Windows::Win32::Foundation::BSTR,
+    Windows::Win32::Foundation::{S_OK, BSTR},
     Windows::Win32::System::OleAutomation::{GetErrorInfo, SetErrorInfo},
     Windows::Win32::System::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
@@ -15,6 +15,8 @@ pub struct Error {
 }
 
 impl Error {
+    pub const OK: Self = Self { code: S_OK, info: None };
+
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.
     pub fn new(code: HRESULT, message: &str) -> Self {
@@ -35,10 +37,6 @@ impl Error {
     }
 
     #[doc(hidden)]
-    /// Used internally to create an Error object without error info. Typically used with [`Interface::query`]
-    /// (`E_NOINTERFACE`) or the absence of an object to return (`E_POINTER`) to avoid the
-    /// code gen overhead for casts that should be cheap (few instructions). Think of it as a way to create
-    /// recoverable errors that don't need the overhead of debugging origination info.
     pub const fn fast_error(code: HRESULT) -> Self {
         Self { code, info: None }
     }

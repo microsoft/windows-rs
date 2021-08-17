@@ -1,7 +1,7 @@
 use crate::*;
 
 use bindings::{
-    Windows::Win32::Foundation::{E_POINTER, PWSTR},
+    Windows::Win32::Foundation::{ PWSTR},
     Windows::Win32::System::Diagnostics::Debug::*,
 };
 
@@ -52,7 +52,7 @@ impl HRESULT {
             if let Some(result) = some {
                 Ok(result)
             } else {
-                Err(Error::fast_error(E_POINTER))
+                Err(Error::OK)
             }
         } else {
             Err(Error::from(self))
