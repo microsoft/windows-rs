@@ -14,11 +14,6 @@ impl Field {
         self.0.str(1)
     }
 
-    // TODO: find uses of Field::blob and replace with Field::signature?
-    pub fn blob(&self) -> Blob {
-        self.0.blob(2)
-    }
-
     pub fn is_literal(&self) -> bool {
         self.0.u32(0) & 0b100_0000 != 0
     }
@@ -56,7 +51,7 @@ impl Field {
     }
 
     pub fn signature(&self) -> Signature {
-        let mut blob = self.blob();
+        let mut blob = self.0.blob(2);
         blob.read_unsigned();
         blob.read_modifiers();
         TypeReader::get()

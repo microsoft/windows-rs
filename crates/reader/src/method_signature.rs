@@ -69,8 +69,7 @@ impl MethodParam {
         let flags = self.param.flags();
 
         // TODO: NativeArrayInfo indicates and array parameter #479
-        if flags.input() || !flags.output() || self.param.has_attribute("NativeArrayInfoAttribute")
-        {
+        if flags.input() || !flags.output() || self.param.array_info() {
             return false;
         }
 

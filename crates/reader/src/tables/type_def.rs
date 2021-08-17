@@ -293,14 +293,7 @@ impl TypeDef {
             if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
-                let blob = &mut field.blob();
-                blob.read_unsigned();
-                blob.read_modifiers();
-
-                blob.read_expected(0x1D);
-                blob.read_modifiers();
-
-                return TypeReader::get().type_from_blob(blob, &[]);
+                return field.signature().kind;
             }
         }
 
@@ -421,8 +414,12 @@ impl TypeDef {
             .attributes(HasAttribute::TypeDef(self.clone()))
     }
 
-    pub fn has_attribute(&self, name: &str) -> bool {
+    fn has_attribute(&self, name: &str) -> bool {
         self.attributes().any(|attribute| attribute.name() == name)
+    }
+
+    pub fn has_flags(&self) -> bool {
+        self.has_attribute("FlagsAttribute")
     }
 
     pub fn is_exclusive(&self) -> bool {
