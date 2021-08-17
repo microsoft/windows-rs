@@ -291,9 +291,9 @@ pub fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     match def.kind() {
         TypeKind::Interface => {
             if def.is_winrt() {
-                Interface(def.clone().with_generics()).gen(gen, include)
+                gen_interface(&def.clone().with_generics(), gen, include)
             } else {
-                ComInterface(def.clone()).gen(gen, include)
+                gen_com_interface(def, gen, include)
             }
         }
         TypeKind::Class => Class(def.clone().with_generics()).gen(gen, include),
