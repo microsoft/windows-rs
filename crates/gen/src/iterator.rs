@@ -5,7 +5,7 @@ use super::*;
 // only falls back to IIterator<T> if nothing faster is available. VectorIterator and
 // VectorViewIterator are faster iterators than IIterator<T> because they only require a single
 // vcall per iteration whereas IIterator<T> requires two.
-pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> TokenStream {
+pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> TokenStream {
     match def.type_name() {
         // If the type is IIterator<T> then simply implement the Iterator trait over top.
         TypeName::IIterator => {
@@ -153,9 +153,9 @@ pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &G
     for interface in interfaces {
         match interface.def.type_name() {
             TypeName::IVectorView => {
-                let constraints = def.gen_constraints();
-                let item = interface.def.generics[0].gen_name(gen);
-                let name = def.gen_name(gen);
+                let constraints = gen_constraints(def);
+                let item = gen_name(&interface.def.generics[0], gen);
+                let name = gen_type_name(def, gen);
 
                 return quote! {
                     impl<#constraints> ::std::iter::IntoIterator for #name {
@@ -177,9 +177,9 @@ pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &G
                 };
             }
             TypeName::IVector => {
-                let constraints = def.gen_constraints();
-                let item = interface.def.generics[0].gen_name(gen);
-                let name = def.gen_name(gen);
+                let constraints = gen_constraints(def);
+                let item = gen_name(&interface.def.generics[0], gen);
+                let name = gen_type_name(def, gen);
 
                 return quote! {
                     impl<#constraints> ::std::iter::IntoIterator for #name {
@@ -210,9 +210,9 @@ pub fn gen_iterator(def: &tables::TypeDef, interfaces: &[InterfaceInfo], gen: &G
     match iterable {
         None => TokenStream::new(),
         Some(interface) => {
-            let constraints = def.gen_constraints();
-            let item = interface.def.generics[0].gen_name(gen);
-            let name = def.gen_name(gen);
+            let constraints = gen_constraints(def);
+            let item = gen_name(&interface.def.generics[0], gen);
+            let name = gen_type_name(def, gen);
 
             quote! {
                impl<#constraints> ::std::iter::IntoIterator for #name {

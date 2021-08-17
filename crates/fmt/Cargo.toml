@@ -4,4 +4,4 @@ version = "0.0.0"
 edition = "2018"
 
 [dependencies]
-windows_gen = { path = "../gen" }
+windows_reader = { path = "../reader" }

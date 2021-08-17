@@ -54,6 +54,15 @@ jobs:
     - name: run cargo fmt
       run: cargo fmt --all -- --check
 
+  cargo_clippy:
+    runs-on: windows-latest
+    name: check cargo clippy
+    steps:
+    - uses: actions/checkout@v2
+    - name: run cargo clippy
+      # TODO: Add  --all-targets when the tests adhere to clippy lints
+      run: cargo clippy --all -- -D warnings
+
   cargo_doc:
     runs-on: ubuntu-latest
     name: check cargo docs

@@ -1,42 +1,17 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct ComInterface(pub tables::TypeDef);
+pub struct ComInterface(pub TypeDef);
 
 impl ComInterface {
-    fn interfaces(&self) -> (Vec<tables::TypeDef>, bool) {
-        let mut result = Vec::new();
-        let mut next = self.0.clone();
-        let mut inspectable = false;
-
-        while let Some(base) = next
-            .interface_impls()
-            .filter_map(|i| match i.generic_interface(&[]) {
-                ElementType::TypeDef(def) => Some(def),
-                ElementType::IUnknown => None,
-                ElementType::IInspectable => {
-                    inspectable = true;
-                    None
-                }
-                _ => unexpected!(),
-            })
-            .next()
-        {
-            next = base.clone();
-            result.push(base);
-        }
-
-        (result, inspectable)
-    }
-
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
-        let name = self.0.gen_name(gen);
-        let guid = self.0.gen_guid(gen);
+        let name = gen_type_name(&self.0, gen);
+        let guid = gen_type_guid(&self.0, gen);
 
         if include == TypeInclude::Full {
-            let abi_name = self.0.gen_abi_name(gen);
+            let abi_name = gen_abi_name(&self.0, gen);
 
-            let (bases, inspectable) = self.interfaces();
+            let (bases, inspectable) = self.0.base_interfaces();
 
             let abi_signatures = bases
                 .iter()
@@ -44,7 +19,7 @@ impl ComInterface {
                 .chain(std::iter::once(&self.0))
                 .map(|def| def.methods())
                 .flatten()
-                .map(|method| method.signature(&[]).gen_win32_abi(gen));
+                .map(|method| gen_win32_abi(&method.signature(&[]), gen));
 
             let mut method_names = BTreeMap::<String, u32>::new();
 
@@ -87,7 +62,7 @@ impl ComInterface {
                 });
 
             for base in &bases {
-                let into = base.gen_name(gen);
+                let into = gen_type_name(base, gen);
 
                 conversions.combine(&quote! {
                         impl ::std::convert::From<#name> for #into {
@@ -172,28 +147,28 @@ impl ComInterface {
 
 fn gen_method(
     vtable_offset: usize,
-    method: &tables::MethodDef,
+    method: &MethodDef,
     method_names: &mut BTreeMap<String, u32>,
     gen: &Gen,
 ) -> TokenStream {
     let signature = method.signature(&[]);
-    let constraints = signature.gen_constraints(&signature.params);
+    let constraints = gen_method_constraints(&signature.params);
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
 
     let name = method.name();
     let overload = method_names.entry(name.to_string()).or_insert(0);
     *overload += 1;
 
-    let name = if *overload > 1 {
-        format_ident!("{}{}", name, overload)
+    let name: TokenStream = if *overload > 1 {
+        format_token!("{}{}", name, overload)
     } else {
         to_ident(name)
     };
 
     if signature.has_query_interface() {
         let leading_params = &signature.params[..signature.params.len() - 2];
-        let params = signature.gen_win32_params(leading_params, gen);
-        let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(leading_params, gen);
+        let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
 
         quote! {
             pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params) -> ::windows::Result<T> {
@@ -203,16 +178,17 @@ fn gen_method(
         }
     } else if signature.has_retval() {
         let leading_params = &signature.params[..signature.params.len() - 1];
-        let params = signature.gen_win32_params(leading_params, gen);
-        let args = leading_params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(leading_params, gen);
+        let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
 
-        let return_type_tokens = signature
-            .params
-            .last()
-            .unwrap()
-            .signature
-            .kind
-            .gen_name(gen);
+        let mut return_param = signature.params[signature.params.len() - 1].clone();
+
+        let return_type_tokens = if return_param.signature.pointers > 1 {
+            return_param.signature.pointers -= 1;
+            gen_win32_param(&return_param, gen)
+        } else {
+            gen_name(&return_param.signature.kind, gen)
+        };
 
         quote! {
             pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
@@ -222,9 +198,9 @@ fn gen_method(
             }
         }
     } else if signature.has_udt_return() {
-        let params = signature.gen_win32_params(&signature.params, gen);
-        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
-        let return_type = signature.return_type.unwrap().kind.gen_abi_type(gen);
+        let params = gen_win32_params(&signature.params, gen);
+        let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
+        let return_type = gen_abi_type_name(&signature.return_type.unwrap().kind, gen);
 
         quote! {
             pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
@@ -234,8 +210,8 @@ fn gen_method(
             }
         }
     } else if let Some(return_type) = &signature.return_type {
-        let params = signature.gen_win32_params(&signature.params, gen);
-        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(&signature.params, gen);
+        let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
 
         if return_type.kind == ElementType::HRESULT {
             quote! {
@@ -244,7 +220,7 @@ fn gen_method(
                 }
             }
         } else {
-            let return_type = return_type.gen_win32_abi(gen);
+            let return_type = gen_win32_abi_sig(return_type, gen);
 
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
@@ -253,8 +229,8 @@ fn gen_method(
             }
         }
     } else {
-        let params = signature.gen_win32_params(&signature.params, gen);
-        let args = signature.params.iter().map(|p| p.gen_win32_abi_arg());
+        let params = gen_win32_params(&signature.params, gen);
+        let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
 
         quote! {
             pub unsafe fn #name<#constraints>(&self, #params) {

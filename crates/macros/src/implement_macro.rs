@@ -1,6 +1,7 @@
-use gen::{tables::TypeDef, ElementType, TypeKind, TypeReader};
+use super::*;
 use std::collections::*;
 use syn::parse::*;
+use syn::Ident;
 use syn::*;
 
 custom_keyword!(extend);

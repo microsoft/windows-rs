@@ -30,14 +30,11 @@ pub fn gen(
         }
     }
 
-    let generics: Vec<Ident> = generics
-        .iter()
-        .map(|generic| format_ident!("{}", generic))
-        .collect();
+    let generics: Vec<TokenStream> = generics.iter().map(|generic| (*generic).into()).collect();
 
-    let impl_ident = format_ident!("{}", impl_name);
+    let impl_ident = format_token!("{}", impl_name);
     let impl_ident = quote! { #impl_ident::<#(#generics,)*> };
-    let box_ident = format_ident!("{}_box", impl_name);
+    let box_ident = format_token!("{}_box", impl_name);
 
     let constraints = quote! {
         #(#generics: ::windows::RuntimeType + 'static,)*
@@ -45,15 +42,23 @@ pub fn gen(
 
     let interfaces_len = Literal::usize_unsuffixed(interfaces.len());
 
+    let mut abi_count = 0;
+
     for (interface_count, (def, overrides)) in interfaces.iter().enumerate() {
         let is_winrt = def.is_winrt();
         vtable_ordinals.push(Literal::usize_unsuffixed(interface_count));
 
-        let query_interface = format_ident!("QueryInterface_abi{}", interface_count);
-        let add_ref = format_ident!("AddRef_abi{}", interface_count);
-        let release = format_ident!("Release_abi{}", interface_count);
+        let query_interface = format_token!("QueryInterface_abi{}", interface_count);
+        let add_ref = format_token!("AddRef_abi{}", interface_count);
+        let release = format_token!("Release_abi{}", interface_count);
 
-        let mut vtable_ptrs = if is_winrt {
+        let (base_interfaces, is_inspectable) = if is_winrt {
+            (Vec::new(), true)
+        } else {
+            def.base_interfaces()
+        };
+
+        let mut vtable_ptrs = if is_inspectable {
             quote! {
                 Self::#query_interface,
                 Self::#add_ref,
@@ -85,27 +90,43 @@ pub fn gen(
             }
         });
 
-        let vtable_ident = def.gen_abi_name(&gen);
-        let interface_ident = def.gen_name(&gen);
+        let vtable_ident = gen_abi_name(def, &gen);
+        let interface_ident = gen_type_name(def, &gen);
         let interface_literal = Literal::usize_unsuffixed(interface_count);
-        let interface_constant = format_ident!("IID{}", interface_count);
+        let interface_constant = format_token!("IID{}", interface_count);
 
-        // TODO: also add IIDs for inherited interfaces
         queries.combine(&quote! {
             else if iid == &Self::#interface_constant {
                 &mut self.vtables.#interface_literal as *mut _ as _
             }
         });
 
-        // TODO: also add IIDs for inherited interfaces
+        for base in &base_interfaces {
+            let interface_ident = gen_type_name(base, &gen);
+
+            queries.combine(&quote! {
+                else if iid == &<#interface_ident as ::windows::Interface>::IID {
+                    &mut self.vtables.#interface_literal as *mut _ as _
+                }
+            });
+        }
+
+        // Constants are required for generic interfaces due to limitations in Rust.
         query_constants.combine(&quote! {
             const #interface_constant: ::windows::Guid = <#interface_ident as ::windows::Interface>::IID;
         });
 
-        // TODO: also add methods for inherited interfaces
-        for (vtable_offset, method) in def.methods().enumerate() {
+        for method in base_interfaces
+            .iter()
+            .rev()
+            .chain(std::iter::once(def))
+            .map(|def| def.methods())
+            .flatten()
+        {
             let method_ident = gen::to_ident(&method.rust_name());
-            let vcall_ident = format_ident!("abi{}_{}", interface_count, vtable_offset + 6);
+
+            abi_count += 1;
+            let vcall_ident = format_token!("abi{}", abi_count);
 
             vtable_ptrs.combine(&quote! {
                 Self::#vcall_ident,
@@ -114,25 +135,35 @@ pub fn gen(
             let signature = method.signature(&def.generics);
 
             let abi_signature = if is_winrt {
-                signature.gen_winrt_abi(&gen)
+                gen_winrt_abi(&signature, &gen)
             } else {
-                signature.gen_win32_abi(&gen)
+                gen_win32_abi(&signature, &gen)
             };
 
             let upcall = if is_winrt {
                 if *overrides {
                     if implements.overrides.contains(method.name()) {
-                        signature
-                            .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                        gen_winrt_upcall(
+                            &signature,
+                            quote! { (*this).implementation.#method_ident },
+                            &gen,
+                        )
                     } else {
                         quote! { ::windows::HRESULT(0) }
                     }
                 } else {
-                    signature
-                        .gen_winrt_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                    gen_winrt_upcall(
+                        &signature,
+                        quote! { (*this).implementation.#method_ident },
+                        &gen,
+                    )
                 }
             } else {
-                signature.gen_win32_upcall(quote! { (*this).implementation.#method_ident }, &gen)
+                gen_win32_upcall(
+                    &signature,
+                    quote! { (*this).implementation.#method_ident },
+                    &gen,
+                )
             };
 
             shims.combine(&quote! {
@@ -213,6 +244,13 @@ pub fn gen(
     tokens.combine(&quote! {
         impl <#constraints> #impl_ident {
             #constructors
+            fn cast<ResultType: ::windows::Interface>(&self) -> ::windows::Result<ResultType> {
+                unsafe {
+                    let boxed = (self as *const #impl_ident as *mut #impl_ident as *mut ::windows::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
+                    let mut result = None;
+                    (*boxed).QueryInterface(&ResultType::IID, &mut result as *mut _ as _).and_some(result)
+                }
+            }
         }
         impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::IUnknown {
             fn from(implementation: #impl_ident) -> Self {

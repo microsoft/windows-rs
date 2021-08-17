@@ -6,6 +6,7 @@ use super::*;
 /// is considered unsafe since different implementations of the `from` interface
 // may exist.
 pub trait ToImpl<T: Interface> {
+    /// # Safety
     #[allow(clippy::mut_from_ref)]
     unsafe fn to_impl(from: &T) -> &mut Self;
 }

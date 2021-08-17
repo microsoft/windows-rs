@@ -1,6 +1,5 @@
 use super::*;
 
-use gen::TypeReader;
 use syn::parse::*;
 use syn::*;
 
@@ -14,7 +13,7 @@ impl BuildMacro {
     pub fn to_tokens_string(&self) -> String {
         let reader = TypeReader::get();
 
-        let ts = reader.gen().fold(TokenStream::new(), |mut accum, n| {
+        let ts = gen_tree(&reader.types).fold(TokenStream::new(), |mut accum, n| {
             accum.combine(&n);
             accum
         });

@@ -4,9 +4,12 @@ version = "0.18.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
-description = "Code generation for the windows crate"
+description = "Code gen support for the windows crate"
 
 [dependencies]
+quote = { package = "windows_quote", path = "../quote", version = "0.18.0" }
+reader = { package = "windows_reader", path = "../reader", version = "0.18.0" }
+
 
 [features]
 raw_dylib = []

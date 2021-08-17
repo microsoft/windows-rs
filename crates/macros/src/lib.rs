@@ -5,6 +5,8 @@ mod implement_macro;
 use build_macro::*;
 use gen::*;
 use implement_macro::*;
+use quote::*;
+use reader::*;
 use syn::parse_macro_input;
 
 struct RawString(String);
@@ -117,7 +119,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                     "x86" => "x86",
                     "arm" => "arm",
                     "aarch64" => "arm64",
-                    unexpected => panic!("Unexpected `{}` architecture set by `CARGO_CFG_TARGET_ARCH`", unexpected),
+                    unimplemented => unimplemented!("`{}` architecture set by `CARGO_CFG_TARGET_ARCH`", unimplemented),
                 });
 
                 if source.exists() {
