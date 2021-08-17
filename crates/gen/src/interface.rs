@@ -1,15 +1,15 @@
 use super::*;
 
 pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
-    let name = gen_type_name(&def, gen);
-    let struct_phantoms = gen_phantoms(&def);
-    let constraints = gen_constraints(&def);
-    let type_signature = gen_signature(&def, &format!("{{{:#?}}}", &def.guid()));
-    let guid = gen_type_guid(&def, gen);
+    let name = gen_type_name(def, gen);
+    let struct_phantoms = gen_phantoms(def);
+    let constraints = gen_constraints(def);
+    let type_signature = gen_signature(def, &format!("{{{:#?}}}", def.guid()));
+    let guid = gen_type_guid(def, gen);
 
     if include == TypeInclude::Full {
-        let abi_name = gen_abi_name(&def, gen);
-        let abi_phantoms = gen_phantoms(&def);
+        let abi_name = gen_abi_name(def, gen);
+        let abi_phantoms = gen_phantoms(def);
 
         let abi_signatures = def
             .methods()
@@ -31,11 +31,11 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
         } else {
             let interfaces = interfaces(def);
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-            let (async_get, future) = gen_async(&def, &interfaces, gen);
+            let (async_get, future) = gen_async(def, &interfaces, gen);
             let object = gen_object(&name, &constraints);
-            let iterator = gen_iterator(&def, &interfaces, gen);
+            let iterator = gen_iterator(def, &interfaces, gen);
 
-            let send_sync = if async_kind(&def) == AsyncKind::None {
+            let send_sync = if async_kind(def) == AsyncKind::None {
                 quote! {}
             } else {
                 quote! {
@@ -131,7 +131,7 @@ fn interfaces(def: &TypeDef) -> Vec<InterfaceInfo> {
         version: def.version(),
     }];
 
-    add_interfaces(&mut result, &def, false);
+    add_interfaces(&mut result, def, false);
     InterfaceInfo::sort(&mut result);
     result
 }

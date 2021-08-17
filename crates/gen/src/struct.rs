@@ -153,7 +153,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             }
         }
     } else {
-        let abi_name = gen_abi_name(&def, gen);
+        let abi_name = gen_abi_name(def, gen);
 
         let fields = if is_winrt {
             let fields = fields.iter().map(|(_, signature, name)| {
@@ -358,7 +358,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     };
 
     let extensions = gen_extensions(def);
-    let nested_types = gen_nested_types(struct_name, &def, gen);
+    let nested_types = gen_nested_types(struct_name, def, gen);
 
     let convertible = if let Some(dependency) = def.is_convertible_to() {
         let dependency = gen_type_name(&dependency, gen);

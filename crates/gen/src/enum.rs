@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
-    let name = gen_type_name(&def, gen);
+    let name = gen_type_name(def, gen);
     let underlying_type = def.underlying_type();
 
     // WinRT enums don't have the flags attribute but are paritioned merely based

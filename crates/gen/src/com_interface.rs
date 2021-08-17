@@ -1,11 +1,11 @@
 use super::*;
 
 pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
-    let name = gen_type_name(&def, gen);
-    let guid = gen_type_guid(&def, gen);
+    let name = gen_type_name(def, gen);
+    let guid = gen_type_guid(def, gen);
 
     if include == TypeInclude::Full {
-        let abi_name = gen_abi_name(&def, gen);
+        let abi_name = gen_abi_name(def, gen);
 
         let (bases, inspectable) = def.base_interfaces();
 

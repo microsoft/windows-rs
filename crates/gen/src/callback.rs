@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_name(&def, gen);
+    let name = gen_type_name(def, gen);
     let signature = def.invoke_method().signature(&[]);
 
     // Note that callbacks are C-style function pointers so the code gen will only use ABI types

@@ -1,18 +1,18 @@
 use super::*;
 
 pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_name(&def, gen);
-    let abi_name = gen_abi_name(&def, gen);
-    let turbo_abi_name = gen_turbo_abi_name(&def, gen);
+    let name = gen_type_name(def, gen);
+    let abi_name = gen_abi_name(def, gen);
+    let turbo_abi_name = gen_turbo_abi_name(def, gen);
     let signature = def.invoke_method().signature(&def.generics);
     let abi_signature = gen_winrt_abi(&signature, gen);
     let fn_constraint = gen_winrt_constraint(&signature, gen);
-    let guid = gen_type_guid(&def, gen);
+    let guid = gen_type_guid(def, gen);
     // TODO: can we share these or at least copy the resulting strings instead? Maybe if they're not iterators the quote macro won't consume them?
-    let struct_phantoms = gen_phantoms(&def);
-    let abi_phantoms = gen_phantoms(&def);
-    let vtable_phantoms = gen_phantoms(&def);
-    let constraints = gen_constraints(&def);
+    let struct_phantoms = gen_phantoms(def);
+    let abi_phantoms = gen_phantoms(def);
+    let vtable_phantoms = gen_phantoms(def);
+    let constraints = gen_constraints(def);
 
     let method = MethodInfo {
         name: "Invoke".to_string(),
@@ -33,9 +33,9 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
     // for compile-time const guid calculations.
     let type_signature = if def.generics.is_empty() {
-        gen_signature(&def, &format!("delegate({{{:#?}}})", &def.guid()))
+        gen_signature(def, &format!("delegate({{{:#?}}})", def.guid()))
     } else {
-        gen_signature(&def, &format!("{{{:#?}}}", &def.guid()))
+        gen_signature(def, &format!("{{{:#?}}}", def.guid()))
     };
 
     let (box_name, box_definition) = if def.generics.is_empty() {
