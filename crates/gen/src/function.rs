@@ -32,15 +32,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         link = "onecoreuap";
     }
 
-    let static_lib = def
-        .attributes()
-        .filter_map(|attribute| match attribute.name() {
-            "StaticLibraryAttribute" => Some(gen_constant_value(&attribute.args()[0].1)),
-            _ => None,
-        })
-        .next();
-
-    let link_attr = match static_lib {
+    let link_attr = match def.static_lib() {
         Some(link) => quote! { #[link(name = #link, kind = "static")] },
         None => {
             // TODO: switch to always using raw-dylib once it has stabilized

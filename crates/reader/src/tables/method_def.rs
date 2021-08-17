@@ -65,18 +65,33 @@ impl MethodDef {
         }
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
+    fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0
             .file
             .attributes(HasAttribute::MethodDef(self.clone()))
     }
 
-    pub fn has_attribute(&self, name: &str) -> bool {
+    fn has_attribute(&self, name: &str) -> bool {
         self.attributes().any(|attribute| attribute.name() == name)
     }
 
     pub fn is_deprecated(&self) -> bool {
         self.has_attribute("DeprecatedAttribute")
+    }
+
+    pub fn static_lib(&self) -> Option<String> {
+        self.attributes()
+            .filter_map(|attribute| match attribute.name() {
+                "StaticLibraryAttribute" => {
+                    let args = attribute.args();
+                    match &args[0].1 {
+                        ConstantValue::String(value) => Some(value.clone()),
+                        _ => None,
+                    }
+                }
+                _ => None,
+            })
+            .next()
     }
 
     pub fn impl_map(&self) -> Option<ImplMap> {
