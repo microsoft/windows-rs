@@ -414,8 +414,12 @@ impl TypeDef {
             .attributes(HasAttribute::TypeDef(self.clone()))
     }
 
-    pub fn has_attribute(&self, name: &str) -> bool {
+    fn has_attribute(&self, name: &str) -> bool {
         self.attributes().any(|attribute| attribute.name() == name)
+    }
+
+    pub fn has_flags(&self) -> bool {
+        self.has_attribute("FlagsAttribute")
     }
 
     pub fn is_exclusive(&self) -> bool {

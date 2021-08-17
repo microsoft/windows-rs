@@ -10,7 +10,7 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
 
     // Win32 enums sadly don't use unsigned values uniformly so we need to rely
     // on the flags attribute.
-    let bitwise = if bitwise || def.has_attribute("FlagsAttribute") {
+    let bitwise = if bitwise || def.has_flags() {
         quote! {
             impl ::std::ops::BitOr for #name {
                 type Output = Self;

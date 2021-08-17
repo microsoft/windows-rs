@@ -16,11 +16,11 @@ impl Param {
         self.0.str(2)
     }
 
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
+    fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0.file.attributes(HasAttribute::Param(self.clone()))
     }
 
-    pub fn has_attribute(&self, name: &str) -> bool {
+    fn has_attribute(&self, name: &str) -> bool {
         self.attributes().any(|attribute| attribute.name() == name)
     }
 
@@ -30,5 +30,10 @@ impl Param {
 
     pub fn is_const(&self) -> bool {
         self.has_attribute("ConstAttribute")
+    }
+
+    pub fn array_info(&self) -> bool {
+        // TODO: replace bool return with actual array info from attribute
+        self.has_attribute("NativeArrayInfoAttribute")
     }
 }
