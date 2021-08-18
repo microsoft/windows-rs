@@ -44,3 +44,25 @@ fn gen_type_entry(entry: &TypeEntry, gen: &Gen) -> TokenStream {
         _ => unimplemented!(),
     }
 }
+
+fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
+    match def.kind() {
+        TypeKind::Interface => {
+            if def.is_winrt() {
+                gen_interface(&def.clone().with_generics(), gen, include)
+            } else {
+                gen_com_interface(def, gen, include)
+            }
+        }
+        TypeKind::Class => Class(def.clone().with_generics()).gen(gen, include),
+        TypeKind::Enum => gen_enum(def, gen, include),
+        TypeKind::Struct => gen_struct(def, gen),
+        TypeKind::Delegate => {
+            if def.is_winrt() {
+                gen_delegate(def, gen)
+            } else {
+                gen_callback(def, gen)
+            }
+        }
+    }
+}

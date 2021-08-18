@@ -1,30 +1,4 @@
-#![allow(clippy::many_single_char_names)]
-
-// TODO: sort these out
-
 use crate::*;
-
-pub fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
-    match def.kind() {
-        TypeKind::Interface => {
-            if def.is_winrt() {
-                gen_interface(&def.clone().with_generics(), gen, include)
-            } else {
-                gen_com_interface(def, gen, include)
-            }
-        }
-        TypeKind::Class => Class(def.clone().with_generics()).gen(gen, include),
-        TypeKind::Enum => gen_enum(def, gen, include),
-        TypeKind::Struct => gen_struct(def, gen),
-        TypeKind::Delegate => {
-            if def.is_winrt() {
-                gen_delegate(def, gen)
-            } else {
-                gen_callback(def, gen)
-            }
-        }
-    }
-}
 
 pub fn gen_phantoms(def: &TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
     def.generics.iter().map(move |g| {
@@ -48,30 +22,6 @@ pub fn gen_method_constraints(params: &[MethodParam]) -> TokenStream {
         quote! { 'a, }
     } else {
         quote! {}
-    }
-}
-
-pub fn gen_default(def: &ElementType) -> TokenStream {
-    match def {
-        ElementType::Bool => quote! { false },
-        ElementType::Char
-        | ElementType::I8
-        | ElementType::U8
-        | ElementType::I16
-        | ElementType::U16
-        | ElementType::I32
-        | ElementType::U32
-        | ElementType::I64
-        | ElementType::U64
-        | ElementType::ISize
-        | ElementType::USize => quote! { 0 },
-        ElementType::F32 | ElementType::F64 => quote! { 0.0 },
-        ElementType::Array((kind, len)) => {
-            let default = gen_sig_default(kind);
-            let len = Literal::u32_unsuffixed(*len);
-            quote! { [#default; #len] }
-        }
-        _ => quote! { ::std::default::Default::default() },
     }
 }
 
@@ -121,5 +71,29 @@ pub fn gen_sig_default(sig: &Signature) -> TokenStream {
         quote! { ::std::ptr::null_mut() }
     } else {
         gen_default(&sig.kind)
+    }
+}
+
+fn gen_default(def: &ElementType) -> TokenStream {
+    match def {
+        ElementType::Bool => quote! { false },
+        ElementType::Char
+        | ElementType::I8
+        | ElementType::U8
+        | ElementType::I16
+        | ElementType::U16
+        | ElementType::I32
+        | ElementType::U32
+        | ElementType::I64
+        | ElementType::U64
+        | ElementType::ISize
+        | ElementType::USize => quote! { 0 },
+        ElementType::F32 | ElementType::F64 => quote! { 0.0 },
+        ElementType::Array((kind, len)) => {
+            let default = gen_sig_default(kind);
+            let len = Literal::u32_unsuffixed(*len);
+            quote! { [#default; #len] }
+        }
+        _ => quote! { ::std::default::Default::default() },
     }
 }
