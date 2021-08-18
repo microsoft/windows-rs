@@ -142,3 +142,21 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     }
 }
+
+fn gen_winrt_constraint(sig: &MethodSignature, gen: &Gen) -> TokenStream {
+    let params = sig.params.iter().map(|p| gen_winrt_produce_type(p, gen));
+
+    let return_type = if let Some(return_type) = &sig.return_type {
+        let tokens = gen_name(&return_type.kind, gen);
+
+        if return_type.is_array {
+            quote! { ::windows::Array<#tokens> }
+        } else {
+            tokens
+        }
+    } else {
+        quote! { () }
+    };
+
+    quote! { F: FnMut(#(#params),*) -> ::windows::Result<#return_type> + 'static }
+}

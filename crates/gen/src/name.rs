@@ -104,7 +104,6 @@ pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
-
 pub fn gen_param_name(param: &Param) -> TokenStream {
     to_ident(&param.name().to_lowercase())
 }
