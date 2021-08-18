@@ -170,7 +170,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         if f.is_literal() {
             if let Some(constant) = f.constant() {
                 let name = to_ident(f.name());
-                let value = gen_constant_value_with_type(&constant.value());
+                let value = gen_constant_type_value(&constant.value());
 
                 return Some(quote! {
                     pub const #name: #value;
