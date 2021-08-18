@@ -13,7 +13,7 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
                 pub const #name: #value;
             }
         } else {
-            let kind = gen_win32_sig(&signature, gen);
+            let kind = gen_sig(&signature, gen);
             let value = gen_constant_value(&constant.value());
 
             quote! {
@@ -24,7 +24,7 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
         let guid = gen_guid(&guid);
         quote! { pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid); }
     } else if let Some(pkey) = PropertyKey::from_attributes(def.attributes()) {
-        let kind = gen_win32_sig(&signature, gen);
+        let kind = gen_sig(&signature, gen);
         let fmtid = gen_guid(&pkey.fmtid);
         let pid = pkey.pid;
         quote! {

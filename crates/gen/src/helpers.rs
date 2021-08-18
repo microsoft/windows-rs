@@ -223,7 +223,7 @@ pub fn gen_default(def: &ElementType) -> TokenStream {
         | ElementType::USize => quote! { 0 },
         ElementType::F32 | ElementType::F64 => quote! { 0.0 },
         ElementType::Array((kind, len)) => {
-            let default = gen_win32_default(kind);
+            let default = gen_sig_default(kind);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#default; #len] }
         }
@@ -265,7 +265,7 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
         }
         ElementType::Array((kind, len)) => {
             // TODO: rename all Signature vars to "sig"
-            let name = gen_win32_sig(kind, gen);
+            let name = gen_sig(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
@@ -310,7 +310,7 @@ pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
             quote! { ::windows::HRESULT }
         }
         ElementType::Array((kind, len)) => {
-            let name = gen_win32_abi_sig(kind, gen);
+            let name = gen_abi_sig(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
@@ -368,7 +368,7 @@ pub fn gen_type_entry(entry: &TypeEntry, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_win32_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
@@ -393,32 +393,7 @@ pub fn gen_win32_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens
 }
 
-pub fn gen_winrt_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
-
-    // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
-    for _ in 0..sig.pointers {
-        if sig.is_const {
-            tokens.combine(&quote! { *const });
-        } else {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    let kind = gen_name(&sig.kind, gen);
-
-    if sig.kind.is_nullable() {
-        tokens.combine(&quote! {
-            ::std::option::Option<#kind>
-        });
-    } else {
-        tokens.combine(&kind)
-    }
-
-    tokens
-}
-
-pub fn gen_win32_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
@@ -434,31 +409,7 @@ pub fn gen_win32_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens
 }
 
-pub fn gen_winrt_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
-
-    // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
-    for _ in 0..sig.pointers {
-        if sig.is_const {
-            tokens.combine(&quote! { *const });
-        } else {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    tokens.combine(&gen_abi_type_name(&sig.kind, gen));
-    tokens
-}
-
-pub fn gen_win32_default(sig: &Signature) -> TokenStream {
-    if sig.pointers > 0 {
-        quote! { ::std::ptr::null_mut() }
-    } else {
-        gen_default(&sig.kind)
-    }
-}
-
-pub fn gen_winrt_default(sig: &Signature) -> TokenStream {
+pub fn gen_sig_default(sig: &Signature) -> TokenStream {
     if sig.pointers > 0 {
         quote! { ::std::ptr::null_mut() }
     } else {
@@ -496,10 +447,10 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         if t.is_udt() {
             let mut t = t.clone();
             t.pointers += 1;
-            let tokens = gen_win32_abi_sig(&t, gen);
+            let tokens = gen_abi_sig(&t, gen);
             (quote! { result__: #tokens }, quote! {})
         } else {
-            let tokens = gen_win32_abi_sig(t, gen);
+            let tokens = gen_abi_sig(t, gen);
             (quote! {}, quote! { -> #tokens })
         }
     } else {
@@ -517,7 +468,7 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         .iter()
         .map(|p| {
             let name = gen_param_name(&p.param);
-            let abi = gen_winrt_abi_sig(&p.signature, gen);
+            let abi = gen_abi_sig(&p.signature, gen);
 
             if p.signature.is_array {
                 let abi_size_name = gen_param_abi_size_name(&p.param);
@@ -540,7 +491,7 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
             }
         })
         .chain(sig.return_type.iter().map(|signature| {
-            let abi = gen_winrt_abi_sig(signature, gen);
+            let abi = gen_abi_sig(signature, gen);
 
             if signature.is_array {
                 quote! { result_size__: *mut u32, result__: *mut *mut #abi }
@@ -629,7 +580,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             } else if let ElementType::GenericParam(_) = param.signature.kind {
                 quote! { &mut <#tokens as ::windows::Abi>::DefaultType, }
             } else if param.signature.pointers > 0 {
-                let tokens = gen_winrt_abi_sig(&param.signature, gen);
+                let tokens = gen_abi_sig(&param.signature, gen);
                 quote! { #name: #tokens, }
             } else {
                 quote! { #name: &mut #tokens, }

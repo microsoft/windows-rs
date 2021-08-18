@@ -105,11 +105,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
     let body = if is_handle {
         let fields = fields.iter().map(|(_, signature, _)| {
-            let kind = if is_winrt {
-                gen_winrt_sig(signature, gen)
-            } else {
-                gen_win32_sig(signature, gen)
-            };
+            let kind = gen_sig(signature, gen);
 
             quote! {
                 pub #kind
@@ -121,12 +117,10 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         }
     } else {
         let fields = fields.iter().map(|(_, signature, name)| {
-            let kind = if is_winrt {
-                gen_winrt_sig(signature, gen)
-            } else if is_union {
-                gen_win32_abi_sig(signature, gen)
+            let kind = if is_union {
+                gen_abi_sig(signature, gen)
             } else {
-                gen_win32_sig(signature, gen)
+                gen_sig(signature, gen)
             };
 
             quote! {
@@ -155,25 +149,16 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     } else {
         let abi_name = gen_abi_name(def, gen);
 
-        let fields = if is_winrt {
-            let fields = fields.iter().map(|(_, signature, name)| {
-                let kind = gen_winrt_abi_sig(signature, gen);
-                quote! { pub #name: #kind }
-            });
-            quote! { #(#fields),* }
-        } else {
-            let fields = fields.iter().map(|(_, signature, name)| {
-                let kind = gen_win32_abi_sig(signature, gen);
-                quote! { pub #name: #kind }
-            });
-            quote! { #(#fields),* }
-        };
+        let fields = fields.iter().map(|(_, signature, name)| {
+            let kind = gen_abi_sig(signature, gen);
+            quote! { pub #name: #kind }
+        });
 
         quote! {
             #repr
             #[doc(hidden)]
             #[derive(::std::clone::Clone, ::std::marker::Copy)]
-            pub #struct_or_union #abi_name{ #fields }
+            pub #struct_or_union #abi_name{ #(#fields),* }
             unsafe impl ::windows::Abi for #name {
                 type Abi = #abi_name;
                 type DefaultType = Self;
@@ -255,11 +240,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         quote! {}
     } else {
         let defaults = fields.iter().map(|(_, signature, name)| {
-            let value = if is_winrt {
-                gen_winrt_default(signature)
-            } else {
-                gen_win32_default(signature)
-            };
+            let value = gen_sig_default(signature);
 
             if is_handle {
                 value
