@@ -24,7 +24,7 @@ where
             None => Err(Error::new(
                 E_BOUNDS,
                 format!(
-                    "GetAt: Given index ({}) was out of bounds for type TestView",
+                    "IVectorView.GetAt: Given index ({}) was out of bounds for type TestView",
                     index
                 )
                 .as_str(),
@@ -59,8 +59,7 @@ where
         if start_index < vec_size {
             let mut get_many_size: u32 = 0;
             for n in start_index..vec_size {
-                let idx = n as usize;
-                items[idx] = self.GetAt(n).unwrap();
+                items[get_many_size as usize] = self.GetAt(n).unwrap();
                 get_many_size += 1;
             }
             Ok(get_many_size)
