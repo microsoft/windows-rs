@@ -2,7 +2,7 @@ use crate::*;
 use std::convert::TryInto;
 
 use bindings::{
-    Windows::Win32::Foundation::{S_OK, BSTR},
+    Windows::Win32::Foundation::{BSTR, S_OK},
     Windows::Win32::System::OleAutomation::{GetErrorInfo, SetErrorInfo},
     Windows::Win32::System::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
@@ -15,7 +15,11 @@ pub struct Error {
 }
 
 impl Error {
-    pub const OK: Self = Self { code: S_OK, info: None };
+    /// An error object without any failure information.
+    pub const OK: Self = Self {
+        code: S_OK,
+        info: None,
+    };
 
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.

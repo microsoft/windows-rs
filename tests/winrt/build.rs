@@ -29,7 +29,7 @@ fn main() {
             InMemoryRandomAccessStream, RandomAccessStreamReference,
         },
 
-        Windows::Win32::Foundation::{E_NOINTERFACE, E_POINTER},
+        Windows::Win32::Foundation::E_NOINTERFACE,
         Windows::Win32::System::WinRT::CreateDispatcherQueueController,
         Windows::AI::MachineLearning::*,
         Windows::UI::Composition::{
