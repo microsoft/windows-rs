@@ -33,9 +33,9 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
     // for compile-time const guid calculations.
     let type_signature = if def.generics.is_empty() {
-        gen_signature(def, &format!("delegate({{{:#?}}})", def.guid()))
+        gen_guid_signature(def, &format!("delegate({{{:#?}}})", def.guid()))
     } else {
-        gen_signature(def, &format!("{{{:#?}}}", def.guid()))
+        gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()))
     };
 
     let (box_name, box_definition) = if def.generics.is_empty() {
@@ -141,4 +141,22 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         }
     }
+}
+
+fn gen_winrt_constraint(sig: &MethodSignature, gen: &Gen) -> TokenStream {
+    let params = sig.params.iter().map(|p| gen_winrt_produce_type(p, gen));
+
+    let return_type = if let Some(return_type) = &sig.return_type {
+        let tokens = gen_name(&return_type.kind, gen);
+
+        if return_type.is_array {
+            quote! { ::windows::Array<#tokens> }
+        } else {
+            tokens
+        }
+    } else {
+        quote! { () }
+    };
+
+    quote! { F: FnMut(#(#params),*) -> ::windows::Result<#return_type> + 'static }
 }

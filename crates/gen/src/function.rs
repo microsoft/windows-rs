@@ -15,7 +15,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
 
     let abi_return_type = if let Some(t) = &signature.return_type {
         // TODO: This should be gen_win32_abi?
-        let tokens = gen_win32_sig(t, gen);
+        let tokens = gen_sig(t, gen);
         quote! { -> #tokens }
     } else {
         TokenStream::new()
@@ -121,7 +121,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                 }
             }
             _ => {
-                let return_type = gen_win32_sig(return_type, gen);
+                let return_type = gen_sig(return_type, gen);
 
                 quote! {
                     pub unsafe fn #name<#constraints>(#params) -> #return_type {

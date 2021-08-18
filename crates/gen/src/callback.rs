@@ -15,7 +15,7 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
     });
 
     let return_type = if let Some(t) = &signature.return_type {
-        let tokens = gen_win32_abi_sig(t, gen);
+        let tokens = gen_abi_sig(t, gen);
         quote! { -> #tokens }
     } else {
         quote! {}

@@ -7,13 +7,13 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
 
     if let Some(constant) = def.constant() {
         if signature.kind == constant.value_type() {
-            let value = gen_constant_value_with_type(&constant.value());
+            let value = gen_constant_type_value(&constant.value());
 
             quote! {
                 pub const #name: #value;
             }
         } else {
-            let kind = gen_win32_sig(&signature, gen);
+            let kind = gen_sig(&signature, gen);
             let value = gen_constant_value(&constant.value());
 
             quote! {
@@ -24,7 +24,7 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
         let guid = gen_guid(&guid);
         quote! { pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid); }
     } else if let Some(pkey) = PropertyKey::from_attributes(def.attributes()) {
-        let kind = gen_win32_sig(&signature, gen);
+        let kind = gen_sig(&signature, gen);
         let fmtid = gen_guid(&pkey.fmtid);
         let pid = pkey.pid;
         quote! {
@@ -35,5 +35,41 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
         }
     } else {
         quote! {}
+    }
+}
+
+pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
+    match value {
+        ConstantValue::Bool(value) => quote! { bool = #value },
+        ConstantValue::U8(value) => quote! { u8 = #value },
+        ConstantValue::I8(value) => quote! { i8 = #value },
+        ConstantValue::U16(value) => quote! { u16 = #value },
+        ConstantValue::I16(value) => quote! { i16 = #value },
+        ConstantValue::U32(value) => quote! { u32 = #value },
+        ConstantValue::I32(value) => quote! { i32 = #value },
+        ConstantValue::U64(value) => quote! { u64 = #value },
+        ConstantValue::I64(value) => quote! { i64 = #value },
+        ConstantValue::F32(value) => quote! { f32 = #value },
+        ConstantValue::F64(value) => quote! { f64 = #value },
+        ConstantValue::String(value) => quote! { &'static str = #value },
+        _ => unimplemented!(),
+    }
+}
+
+pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
+    match value {
+        ConstantValue::Bool(value) => quote! { #value },
+        ConstantValue::U8(value) => quote! { #value },
+        ConstantValue::I8(value) => quote! { #value },
+        ConstantValue::U16(value) => quote! { #value },
+        ConstantValue::I16(value) => quote! { #value },
+        ConstantValue::U32(value) => quote! { #value },
+        ConstantValue::I32(value) => quote! { #value },
+        ConstantValue::U64(value) => quote! { #value },
+        ConstantValue::I64(value) => quote! { #value },
+        ConstantValue::F32(value) => quote! { #value },
+        ConstantValue::F64(value) => quote! { #value },
+        ConstantValue::String(value) => quote! { #value },
+        _ => unimplemented!(),
     }
 }
