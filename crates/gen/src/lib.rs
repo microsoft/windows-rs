@@ -28,6 +28,8 @@ mod vector2;
 mod vector3;
 mod vector4;
 mod guid;
+mod name;
+mod tree;
 
 pub use gen::*;
 pub use helpers::*;
@@ -62,3 +64,5 @@ use vector2::*;
 use vector3::*;
 use vector4::*;
 use guid::*;
+pub use name::*;
+pub use tree::*;
