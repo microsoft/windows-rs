@@ -2805,7 +2805,6 @@ pub mod Windows {
                 unimplemented!("Unsupported target OS");
             }
             pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
-            pub const E_POINTER: ::windows::HRESULT = ::windows::HRESULT(-2147467261i32 as _);
             pub type FARPROC = unsafe extern "system" fn() -> isize;
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             #[repr(transparent)]
@@ -2989,6 +2988,7 @@ pub mod Windows {
                     ) as _))
                 }
             }
+            pub const S_OK: ::windows::HRESULT = ::windows::HRESULT(0i32 as _);
             pub unsafe fn SysAllocStringLen<'a>(
                 strin: impl ::windows::IntoParam<'a, PWSTR>,
                 ui: u32,

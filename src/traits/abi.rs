@@ -1,7 +1,5 @@
 use crate::*;
 
-use bindings::Windows::Win32::Foundation::E_POINTER;
-
 /// Provides a generic way of referring to and converting between a Rust object
 /// and its ABI equivalent.
 ///
@@ -64,7 +62,7 @@ unsafe impl<T: Interface> Abi for T {
 
             match &*value {
                 Some(value) => Ok(value.clone()),
-                None => Err(Error::fast_error(E_POINTER)),
+                None => Err(Error::OK),
             }
         }
     }
@@ -77,7 +75,7 @@ unsafe impl<T: Interface> Abi for T {
         let abi: RawPtr = std::mem::transmute_copy(&abi);
 
         if abi.is_null() {
-            Err(Error::fast_error(E_POINTER))
+            Err(Error::OK)
         } else {
             Ok(std::mem::transmute_copy(&abi))
         }

@@ -4,7 +4,6 @@ use test_winrt::{
         WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
     },
     Windows::Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
-    Windows::Win32::Foundation::E_POINTER,
 };
 
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test
@@ -16,7 +15,7 @@ fn wifi() -> windows::Result<()> {
     assert!(!a.is_empty());
 
     // from_id_async from IWiFiDirectDeviceStatics
-    assert!(WiFiDirectDevice::FromIdAsync(a)?.get() == Err(windows::Error::fast_error(E_POINTER)));
+    assert!(WiFiDirectDevice::FromIdAsync(a)?.get() == Err(windows::Error::OK));
 
     // get_device_selector overload from IWiFiDirectDeviceStatics2 is renamed to get_device_selector2
     let c = WiFiDirectDevice::GetDeviceSelector2(WiFiDirectDeviceSelectorType::DeviceInterface)?;
