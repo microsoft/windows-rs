@@ -4,7 +4,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
     let name = gen_type_name(def, gen);
     let struct_phantoms = gen_phantoms(def);
     let constraints = gen_constraints(def);
-    let type_signature = gen_signature(def, &format!("{{{:#?}}}", def.guid()));
+    let type_signature = gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()));
     let guid = gen_type_guid(def, gen);
 
     if include == TypeInclude::Full {

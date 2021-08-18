@@ -33,9 +33,9 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
     // for compile-time const guid calculations.
     let type_signature = if def.generics.is_empty() {
-        gen_signature(def, &format!("delegate({{{:#?}}})", def.guid()))
+        gen_guid_signature(def, &format!("delegate({{{:#?}}})", def.guid()))
     } else {
-        gen_signature(def, &format!("{{{:#?}}}", def.guid()))
+        gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()))
     };
 
     let (box_name, box_definition) = if def.generics.is_empty() {
