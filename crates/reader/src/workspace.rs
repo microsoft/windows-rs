@@ -1,17 +1,47 @@
 use super::*;
 
-pub fn crate_winmds() -> &'static [File] {
+pub fn workspace_winmds() -> &'static [File] {
     use std::{mem::MaybeUninit, sync::Once};
     static ONCE: Once = Once::new();
     static mut VALUE: MaybeUninit<Vec<File>> = MaybeUninit::uninit();
 
-    ONCE.call_once(|| {
-        // This is safe because `Once` provides thread-safe one-time initialization
-        unsafe { VALUE = MaybeUninit::new(get_crate_winmds()) }
-    });
+    ONCE.call_once(|| unsafe { VALUE = MaybeUninit::new(get_workspace_winmds()) });
 
-    // This is safe because `call_once` has already been called.
     unsafe { &*VALUE.as_ptr() }
+}
+
+pub fn workspace_dir() -> String {
+    const JSON_KEY: &str = r#""workspace_root":"#;
+    let json = cargo_metadata();
+
+    let beginning_index = json
+        .rfind(JSON_KEY)
+        .expect("Cargo metadata did not contain `workspace_root` key.")
+        + JSON_KEY.len()
+        + 1;
+
+    let ending_index = json[beginning_index..]
+        .find('"')
+        .expect("Cargo metadata ended before closing '\"' in `workspace_root` value");
+
+    json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
+}
+
+pub fn target_dir() -> String {
+    const JSON_KEY: &str = r#""target_directory":"#;
+    let json = cargo_metadata();
+
+    let beginning_index = json
+        .rfind(JSON_KEY)
+        .expect("Cargo metadata did not contain `target_directory` key.")
+        + JSON_KEY.len()
+        + 1;
+
+    let ending_index = json[beginning_index..]
+        .find('"')
+        .expect("Cargo metadata ended before closing '\"' in `target_directory` value");
+
+    json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
 }
 
 fn cargo_metadata() -> &'static str {
@@ -39,41 +69,7 @@ fn cargo_metadata() -> &'static str {
     unsafe { &*VALUE.as_ptr() }
 }
 
-pub fn workspace_dir() -> String {
-    const JSON_KEY: &str = r#""workspace_root":"#;
-    let json = cargo_metadata();
-
-    let beginning_index = json
-        .rfind(JSON_KEY)
-        .expect("Cargo metadata did not contain `workspace_root` key.")
-        + JSON_KEY.len()
-        + 1;
-
-    let ending_index = json[beginning_index..]
-        .find('"')
-        .expect("Cargo metadata ended before closing '\"' in `workspace_root` value");
-
-    json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
-}
-
-fn target_dir() -> String {
-    const JSON_KEY: &str = r#""target_directory":"#;
-    let json = cargo_metadata();
-
-    let beginning_index = json
-        .rfind(JSON_KEY)
-        .expect("Cargo metadata did not contain `target_directory` key.")
-        + JSON_KEY.len()
-        + 1;
-
-    let ending_index = json[beginning_index..]
-        .find('"')
-        .expect("Cargo metadata ended before closing '\"' in `target_directory` value");
-
-    json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
-}
-
-fn get_crate_winmds() -> Vec<File> {
+fn get_workspace_winmds() -> Vec<File> {
     fn push_dir(result: &mut Vec<File>, dir: &std::path::Path) {
         if let Ok(files) = std::fs::read_dir(&dir) {
             for file in files.filter_map(|file| file.ok()) {
@@ -93,26 +89,21 @@ fn get_crate_winmds() -> Vec<File> {
 
     let mut result = vec![];
 
-    if let Ok(dir) = std::env::var("CARGO_MANIFEST_DIR") {
-        let mut dir: std::path::PathBuf = dir.into();
-        dir.push(".windows");
-        dir.push("winmd");
-        push_dir(&mut result, &dir);
+    let mut dir: std::path::PathBuf = workspace_dir().into();
+    dir.push(".windows");
+    dir.push("winmd");
+    push_dir(&mut result, &dir);
+
+    if !result.iter().any(|file| file.name.starts_with("Windows.")) {
+        result.push(File::from_bytes(
+            "Windows.Win32.winmd".to_string(),
+            include_bytes!("../default/Windows.Win32.winmd").to_vec(),
+        ));
+        result.push(File::from_bytes(
+            "Windows.WinRT.winmd".to_string(),
+            include_bytes!("../default/Windows.WinRT.winmd").to_vec(),
+        ));
     }
-
-    let dir = std::env::var("PATH").expect("No `PATH` env variable set");
-    let end = dir.find(';').expect("Path not ending in `;`");
-    let mut dir: std::path::PathBuf = dir[..end].into();
-    dir.pop();
-    dir.pop();
-    dir.push(".windows");
-    dir.push("winmd");
-    push_dir(&mut result, &dir);
-
-    let mut dir: std::path::PathBuf = target_dir().into();
-    dir.push(".windows");
-    dir.push("winmd");
-    push_dir(&mut result, &dir);
 
     result
 }
