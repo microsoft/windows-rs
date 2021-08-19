@@ -1,6 +1,15 @@
 use super::*;
 
-pub fn gen_tree(tree: &TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
+pub fn gen_source_tree() -> TokenStream {
+    let reader = TypeReader::get();
+
+    namespace_iter(&reader.types).fold(TokenStream::new(), |mut accum, n| {
+        accum.combine(&n);
+        accum
+    })
+}
+
+pub fn namespace_iter(tree: &TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
     let gen = Gen::Relative(tree.namespace);
 
     tree.types
@@ -16,7 +25,7 @@ fn gen_namespaces<'a>(
         if tree.include {
             let name = to_ident(name);
 
-            let tokens = gen_tree(tree);
+            let tokens = namespace_iter(tree);
 
             quote! {
                 // TODO: https://github.com/microsoft/windows-rs/issues/212

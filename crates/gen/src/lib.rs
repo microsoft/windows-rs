@@ -1,6 +1,7 @@
 mod r#async;
 mod bool32;
 mod bstr;
+mod build;
 mod callback;
 mod class;
 mod com_interface;
@@ -35,12 +36,15 @@ mod winrt;
 
 // TODO: These public things are mostly/all used by the implement macro
 // move that logic into here so the macro crate is just forwarding to the gen crate
+pub use build::*;
 pub use gen::*;
 pub use helpers::*;
 pub use interface_info::*;
 pub use name::*;
 pub use to_ident::*;
 pub use tree::*;
+pub use win32::*;
+pub use winrt::*;
 
 use bool32::*;
 use bstr::*;
@@ -70,5 +74,3 @@ use timespan::*;
 use vector2::*;
 use vector3::*;
 use vector4::*;
-pub use win32::*;
-pub use winrt::*;

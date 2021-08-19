@@ -3,33 +3,16 @@ use super::*;
 use syn::parse::*;
 use syn::*;
 
-#[derive(Debug, Default)]
-pub struct BuildMacro {
-    // TODO: add exports
-}
-
-impl BuildMacro {
-    // TODO: doesn't need to be member of BuildMacro
-    pub fn to_tokens_string(&self) -> String {
-        let reader = TypeReader::get();
-
-        let ts = gen_tree(&reader.types).fold(TokenStream::new(), |mut accum, n| {
-            accum.combine(&n);
-            accum
-        });
-
-        ts.into_string()
-    }
-}
+// TODO: can we do this without requiring a type to "parse" while preserving compiler error reporting,
+// since the parsing code below simplify updates the static TypeReader directly?
+pub struct BuildMacro();
 
 impl Parse for BuildMacro {
     fn parse(input: ParseStream) -> Result<Self> {
-        let mut build = Self::default();
-
         while !input.is_empty() {
             let tree: UseTree = input.parse()?;
 
-            fn walk(tree: &UseTree, mut namespace: String, build: &mut BuildMacro) -> Result<()> {
+            fn walk(tree: &UseTree, mut namespace: String) -> Result<()> {
                 fn render_namespace(namespace: &str) -> &str {
                     if namespace.is_empty() {
                         "(global namespace)"
@@ -45,7 +28,7 @@ impl Parse for BuildMacro {
                         }
 
                         namespace.push_str(&input.ident.to_string());
-                        walk(&*input.tree, namespace, build)?;
+                        walk(&*input.tree, namespace)?;
                     }
                     UseTree::Name(input) => {
                         let reader = TypeReader::get_mut();
@@ -74,7 +57,7 @@ impl Parse for BuildMacro {
                     }
                     UseTree::Group(input) => {
                         for tree in &input.items {
-                            walk(tree, namespace.clone(), build)?;
+                            walk(tree, namespace.clone())?;
                         }
                     }
                     UseTree::Rename(input) => {
@@ -85,13 +68,13 @@ impl Parse for BuildMacro {
                 Ok(())
             }
 
-            walk(&tree, String::new(), &mut build)?;
+            walk(&tree, String::new())?;
 
             if !input.is_empty() {
                 input.parse::<Token![,]>()?;
             }
         }
 
-        Ok(build)
+        Ok(BuildMacro())
     }
 }
