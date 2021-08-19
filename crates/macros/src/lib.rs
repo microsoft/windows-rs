@@ -44,8 +44,8 @@ impl ToTokens for RawString {
 /// ```
 #[proc_macro]
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let build = parse_macro_input!(stream as BuildMacro);
-    let tokens = RawString(build.to_tokens_string());
+    parse_macro_input!(stream as BuildMacro);
+    let tokens = RawString(gen_source_tree().into_string());
     let target_dir = RawString(target_dir());
     let workspace_dir = RawString(workspace_dir());
 
@@ -138,11 +138,11 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
 #[proc_macro]
 pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let build = parse_macro_input!(stream as BuildMacro);
+    parse_macro_input!(stream as BuildMacro);
 
     let mut tokens = String::new();
     tokens.push_str("r#\"");
-    tokens.push_str(&build.to_tokens_string());
+    tokens.push_str(&gen_source_tree().into_string());
     tokens.push_str("\"#");
     tokens.parse().unwrap()
 }

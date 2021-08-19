@@ -113,6 +113,7 @@ impl TypeReader {
         }
     }
 
+    // TODO: use TypeName?
     pub fn import_type(&mut self, namespace: &str, name: &str) -> bool {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
