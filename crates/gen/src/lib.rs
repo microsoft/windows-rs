@@ -32,7 +32,7 @@ mod vector3;
 mod vector4;
 mod win32;
 mod winrt;
-//mod build;
+mod build;
 
 // TODO: These public things are mostly/all used by the implement macro
 // move that logic into here so the macro crate is just forwarding to the gen crate
@@ -44,7 +44,7 @@ pub use to_ident::*;
 pub use tree::*;
 pub use win32::*;
 pub use winrt::*;
-//pub use build::*;
+pub use build::*;
 
 use bool32::*;
 use bstr::*;
