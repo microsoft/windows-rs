@@ -125,9 +125,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                     println!("cargo:rustc-link-search=native={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
                 }
 
-                let mut destination : ::std::path::PathBuf = #target_dir.into();
-                destination.pop();
-                destination.pop();
+                let mut destination: ::std::path::PathBuf = #target_dir.into();
 
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
