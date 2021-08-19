@@ -25,36 +25,31 @@ pub fn gen_build() -> TokenStream {
             fn copy(source: &::std::path::Path, destination: &mut ::std::path::PathBuf) {
                 if let ::std::result::Result::Ok(entries) = ::std::fs::read_dir(source) {
                     for entry in entries.filter_map(|entry| entry.ok()) {
-                        if let ::std::result::Result::Ok(entry_type) = entry.file_type() {
-                            let path = entry.path();
-                            if let ::std::option::Option::Some(last_path_component) = path.file_name() {
-                                let _ = ::std::fs::create_dir_all(&destination);
-                                destination.push(last_path_component);
-                                if entry_type.is_file() {
-                                    let _ = ::std::fs::copy(path, &destination);
-                                } else if entry_type.is_dir() {
-                                    let _ = ::std::fs::create_dir(&destination);
-                                    copy(&path, destination);
-                                }
-                                destination.pop();
+                        let path = entry.path();
+                        if let ::std::option::Option::Some(last_path_component) = path.file_name() {
+                            let _ = ::std::fs::create_dir_all(&destination);
+                            destination.push(last_path_component);
+                            if path.is_file() {
+                                let _ = ::std::fs::copy(path, &destination);
+                            } else if path.is_dir() {
+                                let _ = ::std::fs::create_dir(&destination);
+                                copy(&path, destination);
                             }
+                            destination.pop();
                         }
                     }
                 }
             }
-
             fn copy_to_profile(source: &::std::path::Path, destination: &::std::path::Path, profile: &str) {
                 if let ::std::result::Result::Ok(files) = ::std::fs::read_dir(destination) {
                     for file in files.filter_map(|file| file.ok())  {
-                        if let ::std::result::Result::Ok(file_type) = file.file_type() {
-                            if file_type.is_dir() {
-                                let mut path = file.path();
-                                if let ::std::option::Option::Some(filename) = path.file_name() {
-                                    if filename == profile {
-                                        copy(source, &mut path);
-                                    } else {
-                                        copy_to_profile(source, &path, profile);
-                                    }
+                        let mut path = file.path();
+                        if path.is_dir() {
+                            if let ::std::option::Option::Some(filename) = path.file_name() {
+                                if filename == profile {
+                                    copy(source, &mut path);
+                                } else {
+                                    copy_to_profile(source, &path, profile);
                                 }
                             }
                         }
@@ -62,11 +57,11 @@ pub fn gen_build() -> TokenStream {
                 }
             }
 
-            let mut source : ::std::path::PathBuf = #workspace_dir.into();
+            let mut source: ::std::path::PathBuf = #workspace_dir.into();
             source.push(".windows");
 
             if source.exists() {
-                println!("cargo:rerun-if-changed={}", source.to_str().expect("`CARGO_MANIFEST_DIR` not a valid path"));
+                println!("cargo:rerun-if-changed={}", source.to_str().expect("`workspace_dir` not a UTF-8 string"));
 
                 // The `target_arch` cfg is not set for build scripts so we need to sniff it out from the environment variable.
                 source.push(match ::std::env::var("CARGO_CFG_TARGET_ARCH").expect("No `CARGO_CFG_TARGET_ARCH` env variable set").as_str() {
