@@ -46,9 +46,8 @@ impl ToTokens for RawString {
 pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let build = parse_macro_input!(stream as BuildMacro);
     let tokens = RawString(build.to_tokens_string());
-    let target_dir = std::env::var("PATH").expect("No `PATH` env variable set");
-    let end = target_dir.find(';').expect("Path not ending in `;`");
-    let target_dir = RawString(target_dir[..end].to_string());
+    let target_dir = RawString(target_dir());
+    let workspace_dir = RawString(workspace_dir());
 
     let tokens = quote! {
         {
@@ -107,7 +106,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
                 }
             }
 
-            let mut source : ::std::path::PathBuf = ::std::env::var("CARGO_MANIFEST_DIR").expect("No `CARGO_MANIFEST_DIR` env variable set").into();
+            let mut source : ::std::path::PathBuf = #workspace_dir.into();
             source.push(".windows");
 
             if source.exists() {
@@ -132,12 +131,6 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
                 let profile = ::std::env::var("PROFILE").expect("No `PROFILE` env variable set");
                 copy_to_profile(&source, &destination, &profile);
-
-                destination.push(".windows");
-                destination.push("winmd");
-                source.pop();
-                source.push("winmd");
-                copy(&source, &mut destination);
             }
         }
     };
