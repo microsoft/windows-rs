@@ -95,7 +95,7 @@ pub fn gen_win32_abi_param(param: &MethodParam, gen: &Gen) -> TokenStream {
         }
     }
 
-    if param.signature.pointers > 0 && param.signature.kind.is_udt() {
+    if param.signature.pointers > 1 && param.signature.kind.is_udt() {
         tokens.combine(&gen_name(&param.signature.kind, gen));
     } else {
         tokens.combine(&gen_abi_type_name(&param.signature.kind, gen));

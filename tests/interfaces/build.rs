@@ -8,5 +8,6 @@ fn main() {
 
         // Test for https://github.com/microsoft/windows-rs/issues/1055
         Windows::Win32::AI::MachineLearning::WinML::IWinMLEvaluationContext,
+        Windows::Win32::Data::Xml::MsXml::IMXWriter,
     };
 }
