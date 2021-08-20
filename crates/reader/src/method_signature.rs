@@ -66,6 +66,10 @@ impl MethodSignature {
 
 impl MethodParam {
     fn is_retval(&self) -> bool {
+        if self.signature.pointers == 0 {
+            return false;
+        }
+
         let flags = self.param.flags();
 
         // TODO: NativeArrayInfo indicates and array parameter #479

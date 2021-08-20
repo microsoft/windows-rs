@@ -51,6 +51,11 @@ unsafe impl<T> Abi for *mut T {
     type DefaultType = Self;
 }
 
+unsafe impl<T> Abi for *const T {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+
 unsafe impl<T: Interface> Abi for T {
     type Abi = RawPtr;
     type DefaultType = Option<T>;

@@ -65,11 +65,19 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             }
         }
     } else if signature.has_retval() {
+        // TODO: this code is duplicated in com_interfaces.rs
         let leading_params = &signature.params[..signature.params.len() - 1];
         let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
         let params = gen_win32_params(leading_params, gen);
 
-        let return_type_tokens = gen_name(&signature.params.last().unwrap().signature.kind, gen);
+        let mut return_param = signature.params[signature.params.len() - 1].clone();
+
+        let return_type_tokens = if return_param.signature.pointers > 1 {
+            return_param.signature.pointers -= 1;
+            gen_win32_param(&return_param, gen)
+        } else {
+            gen_name(&return_param.signature.kind, gen)
+        };
 
         quote! {
             pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
