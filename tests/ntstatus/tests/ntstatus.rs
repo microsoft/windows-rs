@@ -22,7 +22,7 @@ fn test() -> Result<()> {
     assert_eq!(error.code(), HRESULT(0xD000_0225));
 
     unsafe {
-        let mut provider = std::ptr::null_mut();
+        let mut provider = BCRYPT_ALG_HANDLE::default();
         BCryptOpenAlgorithmProvider(&mut provider, "RNG", None, Default::default())?;
 
         let mut random = Guid::zeroed();
