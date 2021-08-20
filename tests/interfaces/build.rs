@@ -1,5 +1,14 @@
 fn main() {
     windows::build! {
+        // Test for https://github.com/microsoft/windows-rs/issues/1055
+        Windows::Win32::Data::Xml::MsXml::IMXWriter,
+
+        // Test for https://github.com/microsoft/windows-rs/issues/1055
+        Windows::Win32::Devices::DeviceQuery::DevCreateObjectQuery,
+
+        // Test for https://github.com/microsoft/windows-rs/issues/1055
+        Windows::Win32::Media::Speech::ISpPhoneConverter,
+
         // Test for https://github.com/microsoft/win32metadata/issues/449
         Windows::Win32::System::ComponentServices::ITransactionImport,
 
@@ -8,7 +17,5 @@ fn main() {
 
         // Test for https://github.com/microsoft/windows-rs/issues/1055
         Windows::Win32::AI::MachineLearning::WinML::IWinMLEvaluationContext,
-        Windows::Win32::Data::Xml::MsXml::IMXWriter,
-        Windows::Win32::Devices::DeviceQuery::DevCreateObjectQuery,
     };
 }
