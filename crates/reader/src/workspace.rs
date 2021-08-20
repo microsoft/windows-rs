@@ -10,38 +10,31 @@ pub fn workspace_winmds() -> &'static [File] {
     unsafe { &*VALUE.as_ptr() }
 }
 
-pub fn workspace_dir() -> String {
-    const JSON_KEY: &str = r#""workspace_root":"#;
+fn json_value(key: &str) -> String {
     let json = cargo_metadata();
+    let json_key = format!(r#""{}":""#, key);
 
     let beginning_index = json
-        .rfind(JSON_KEY)
-        .expect("Cargo metadata did not contain `workspace_root` key.")
-        + JSON_KEY.len()
-        + 1;
+        .rfind(&json_key)
+        .unwrap_or_else(|| panic!("Cargo metadata did not contain `{}` key.", key))
+        + json_key.len();
 
-    let ending_index = json[beginning_index..]
-        .find('"')
-        .expect("Cargo metadata ended before closing '\"' in `workspace_root` value");
+    let ending_index = json[beginning_index..].find('"').unwrap_or_else(|| {
+        panic!(
+            "Cargo metadata ended before closing `\"` in `{}` value",
+            key
+        )
+    });
 
     json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
 }
 
+pub fn workspace_dir() -> String {
+    json_value("workspace_root")
+}
+
 pub fn target_dir() -> String {
-    const JSON_KEY: &str = r#""target_directory":"#;
-    let json = cargo_metadata();
-
-    let beginning_index = json
-        .rfind(JSON_KEY)
-        .expect("Cargo metadata did not contain `target_directory` key.")
-        + JSON_KEY.len()
-        + 1;
-
-    let ending_index = json[beginning_index..]
-        .find('"')
-        .expect("Cargo metadata ended before closing '\"' in `target_directory` value");
-
-    json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
+    json_value("target_directory")
 }
 
 fn cargo_metadata() -> &'static str {
@@ -76,8 +69,8 @@ fn get_workspace_winmds() -> Vec<File> {
                 if let Ok(file_type) = file.file_type() {
                     if file_type.is_file() {
                         let path = file.path();
-                        if let Some("winmd") =
-                            path.extension().and_then(|extension| extension.to_str())
+                        if path.extension().and_then(|extension| extension.to_str())
+                            == Some("winmd")
                         {
                             result.push(File::new(path));
                         }
