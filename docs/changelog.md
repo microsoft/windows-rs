@@ -1,3 +1,10 @@
+# 0.19.0
+
+- Support for COM interface implementations
+- Many improvements to implementation support 
+- Remove binary packaging support
+- Minor fixes and improvements
+
 # 0.18.0
 
 - Fix debug formatting of structs
