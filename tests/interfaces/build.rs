@@ -5,5 +5,8 @@ fn main() {
 
         // Test for https://github.com/microsoft/windows-rs/issues/924
         Windows::Win32::System::WinRT::{ICompositorInterop, ISystemMediaTransportControlsInterop},
+
+        // Test for https://github.com/microsoft/windows-rs/issues/1055
+        Windows::Win32::AI::MachineLearning::WinML::IWinMLEvaluationContext,
     };
 }
