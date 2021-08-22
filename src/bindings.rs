@@ -2988,6 +2988,28 @@ pub mod Windows {
                     ) as _))
                 }
             }
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for &'a ::std::ffi::OsStr {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                    use std::os::windows::ffi::OsStrExt;
+                    ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
+                        self.encode_wide()
+                            .chain(::std::iter::once(0))
+                            .collect::<std::vec::Vec<u16>>()
+                            .into_boxed_slice(),
+                    ) as _))
+                }
+            }
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                    use std::os::windows::ffi::OsStrExt;
+                    ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
+                        self.encode_wide()
+                            .chain(::std::iter::once(0))
+                            .collect::<std::vec::Vec<u16>>()
+                            .into_boxed_slice(),
+                    ) as _))
+                }
+            }
             pub const S_OK: ::windows::HRESULT = ::windows::HRESULT(0i32 as _);
             pub unsafe fn SysAllocStringLen<'a>(
                 strin: impl ::windows::IntoParam<'a, PWSTR>,
