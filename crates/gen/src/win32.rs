@@ -29,12 +29,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
 
 fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.param);
-
-    if param.signature.kind.is_blittable() {
-        quote! { #name }
-    } else {
-        quote! { ::std::mem::transmute_copy(&#name) }
-    }
+    quote! { ::std::mem::transmute_copy(&#name) }
 }
 
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
@@ -112,10 +107,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
         }
     } else if let Some(return_type) = &sig.return_type {
         if return_type.kind == ElementType::HRESULT {
-            let invoke_args = sig
-                .params
-                .iter()
-                .map(|param| gen_win32_invoke_arg(param));
+            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
 
             quote! {
                 #inner(#(#invoke_args,)*).into()

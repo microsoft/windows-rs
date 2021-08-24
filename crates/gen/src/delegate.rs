@@ -52,7 +52,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         )
     };
 
-    let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
+    let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) });
 
     quote! {
         #[repr(transparent)]
