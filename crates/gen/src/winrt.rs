@@ -1,5 +1,22 @@
 use super::*;
 
+pub fn gen_phantoms(def: &TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
+    def.generics.iter().map(move |g| {
+        let g = gen_name(g, &Gen::Absolute);
+        quote! { ::std::marker::PhantomData::<#g> }
+    })
+}
+
+pub fn gen_constraints(def: &TypeDef) -> TokenStream {
+    def.generics
+        .iter()
+        .map(|g| {
+            let g = gen_name(g, &Gen::Absolute);
+            quote! { #g: ::windows::RuntimeType + 'static, }
+        })
+        .collect()
+}
+
 pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
     let invoke_args = sig
         .params
