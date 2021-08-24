@@ -8,6 +8,7 @@ pub fn gen_method_constraints(params: &[MethodParam]) -> TokenStream {
     }
 }
 
+// TODO: mostly the same as gen_win32_param
 pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
@@ -33,6 +34,7 @@ pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens
 }
 
+// TODO: mostly the same as gen_win32_abi_param
 pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
