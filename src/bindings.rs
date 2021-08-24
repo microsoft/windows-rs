@@ -2988,6 +2988,7 @@ pub mod Windows {
                     ) as _))
                 }
             }
+            #[cfg(windows)]
             impl ::windows::IntoParam<'static, PWSTR> for &::std::ffi::OsStr {
                 fn into_param(self) -> ::windows::Param<'static, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;
@@ -2999,6 +3000,7 @@ pub mod Windows {
                     ) as _))
                 }
             }
+            #[cfg(windows)]
             impl ::windows::IntoParam<'static, PWSTR> for ::std::ffi::OsString {
                 fn into_param(self) -> ::windows::Param<'static, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;
