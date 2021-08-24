@@ -1,5 +1,3 @@
-// TODO: split the parsing code from teh gen code
-
 use super::*;
 
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd, Default)]
@@ -7,7 +5,7 @@ pub struct Signature {
     pub kind: ElementType,
     pub pointers: usize,
     pub by_ref: bool,
-    pub is_const: bool,
+    pub is_const: bool, // TODO: remove this
     pub is_array: bool,
 }
 
