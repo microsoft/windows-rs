@@ -75,7 +75,7 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
                 }
             } else if p.param.is_input() {
                 // WinRT only uses const to mean that structs are passed by reference.
-                if p.param.is_const() {
+                if p.param.is_const_ref() {
                     quote! { #name: &#abi }
                 } else {
                     quote! { #name: #abi }
@@ -111,7 +111,7 @@ pub fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {
             quote! { #name }
-        } else if param.param.is_const() {
+        } else if param.param.is_const_ref() {
             quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
         } else {
             quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
@@ -304,7 +304,7 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
         }
     } else if param.param.is_input() {
         if param.is_convertible() {
-            if param.param.is_const() {
+            if param.param.is_const_ref() {
                 quote! { &#name.into_param().abi() }
             } else {
                 quote! { #name.into_param().abi() }

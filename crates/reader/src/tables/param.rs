@@ -28,7 +28,7 @@ impl Param {
         self.flags().input()
     }
 
-    pub fn is_const(&self) -> bool {
+    pub fn is_const_ref(&self) -> bool {
         self.has_attribute("ConstAttribute")
     }
 
