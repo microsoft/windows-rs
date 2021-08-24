@@ -48,4 +48,3 @@ pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens.combine(&gen_abi_type_name(&sig.kind, gen));
     tokens
 }
-
