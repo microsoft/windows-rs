@@ -27,16 +27,11 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
+fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.param);
-    let kind = gen_name(&param.signature.kind, gen);
 
-    if param.param.is_input() {
-        if param.signature.kind.is_blittable() {
-            quote! { #name }
-        } else {
-            quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
-        }
+    if param.signature.kind.is_blittable() {
+        quote! { #name }
     } else {
         quote! { ::std::mem::transmute_copy(&#name) }
     }
@@ -89,7 +84,7 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
     }
 }
 
-pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
+pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
     if sig.has_query_interface() {
         quote! {
             unimplemented!("one")
@@ -97,7 +92,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
     } else if sig.has_retval() {
         let invoke_args = sig.params[..sig.params.len() - 1]
             .iter()
-            .map(|param| gen_win32_invoke_arg(param, gen));
+            .map(|param| gen_win32_invoke_arg(param));
 
         let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
 
@@ -120,7 +115,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
             let invoke_args = sig
                 .params
                 .iter()
-                .map(|param| gen_win32_invoke_arg(param, gen));
+                .map(|param| gen_win32_invoke_arg(param));
 
             quote! {
                 #inner(#(#invoke_args,)*).into()

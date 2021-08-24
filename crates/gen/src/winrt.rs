@@ -99,7 +99,7 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
+fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_name(&param.signature.kind, gen);
 
