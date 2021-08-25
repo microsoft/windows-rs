@@ -3124,12 +3124,12 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                pub unsafe fn CoTaskMemFree(pv: *mut ::std::ffi::c_void) {
+                pub unsafe fn CoTaskMemFree(pv: *const ::std::ffi::c_void) {
                     #[cfg(windows)]
                     {
                         #[link(name = "OLE32")]
                         extern "system" {
-                            fn CoTaskMemFree(pv: *mut ::std::ffi::c_void);
+                            fn CoTaskMemFree(pv: *const ::std::ffi::c_void);
                         }
                         CoTaskMemFree(::std::mem::transmute(pv))
                     }
@@ -3270,7 +3270,7 @@ pub mod Windows {
                         dwlanguageid: u32,
                         lpbuffer: super::super::super::Foundation::PWSTR,
                         nsize: u32,
-                        arguments: *mut *mut i8,
+                        arguments: *const *const i8,
                     ) -> u32 {
                         #[cfg(windows)]
                         {
@@ -3283,7 +3283,7 @@ pub mod Windows {
                                     dwlanguageid: u32,
                                     lpbuffer: super::super::super::Foundation::PWSTR,
                                     nsize: u32,
-                                    arguments: *mut *mut i8,
+                                    arguments: *const *const i8,
                                 ) -> u32;
                             }
                             FormatMessageW(
@@ -3522,7 +3522,7 @@ pub mod Windows {
                 pub unsafe fn HeapFree<'a>(
                     hheap: impl ::windows::IntoParam<'a, HeapHandle>,
                     dwflags: HEAP_FLAGS,
-                    lpmem: *mut ::std::ffi::c_void,
+                    lpmem: *const ::std::ffi::c_void,
                 ) -> super::super::Foundation::BOOL {
                     #[cfg(windows)]
                     {
@@ -3531,7 +3531,7 @@ pub mod Windows {
                             fn HeapFree(
                                 hheap: HeapHandle,
                                 dwflags: HEAP_FLAGS,
-                                lpmem: *mut ::std::ffi::c_void,
+                                lpmem: *const ::std::ffi::c_void,
                             ) -> super::super::Foundation::BOOL;
                         }
                         HeapFree(
@@ -3762,7 +3762,7 @@ pub mod Windows {
             )]
             pub mod Threading {
                 pub unsafe fn CreateEventA<'a>(
-                    lpeventattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+                    lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
                     bmanualreset: impl ::windows::IntoParam<'a, super::super::Foundation::BOOL>,
                     binitialstate: impl ::windows::IntoParam<'a, super::super::Foundation::BOOL>,
                     lpname: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3772,7 +3772,7 @@ pub mod Windows {
                         #[link(name = "KERNEL32")]
                         extern "system" {
                             fn CreateEventA(
-                                lpeventattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+                                lpeventattributes : * const super::super::Security:: SECURITY_ATTRIBUTES,
                                 bmanualreset: super::super::Foundation::BOOL,
                                 binitialstate: super::super::Foundation::BOOL,
                                 lpname: super::super::Foundation::PSTR,

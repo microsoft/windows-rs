@@ -32,6 +32,10 @@ impl Param {
         self.has_attribute("ConstAttribute")
     }
 
+    pub fn is_com_out_ptr(&self) -> bool {
+        self.has_attribute("ComOutPtrAttribute")
+    }
+
     pub fn array_info(&self) -> bool {
         // TODO: replace bool return with actual array info from attribute
         self.has_attribute("NativeArrayInfoAttribute")
