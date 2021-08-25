@@ -17,8 +17,11 @@ pub fn gen_constraints(def: &TypeDef) -> TokenStream {
         .collect()
 }
 
-pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
-    let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(param));
+pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
+    let invoke_args = sig
+        .params
+        .iter()
+        .map(|param| gen_winrt_invoke_arg(param, gen));
 
     match &sig.return_type {
         Some(return_type) if return_type.is_array => {
@@ -96,16 +99,19 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_winrt_invoke_arg(param: &MethodParam) -> TokenStream {
+fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
+    let kind = gen_name(&param.signature.kind, gen);
 
     if param.signature.is_array {
         quote! { ::std::mem::transmute_copy(&#name) }
     } else if param.param.is_input() {
-        if param.signature.kind.is_primitive() || param.param.is_const_ref() {
-            quote! { ::std::mem::transmute_copy(&#name) }
+        if param.signature.kind.is_primitive() {
+            quote! { #name }
+        } else if param.param.is_const_ref() {
+            quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
         } else {
-            quote! { ::std::mem::transmute(&#name) }
+            quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
         }
     } else {
         quote! { ::std::mem::transmute_copy(&#name) }

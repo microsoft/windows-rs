@@ -146,12 +146,17 @@ pub fn gen(
                         gen_winrt_upcall(
                             &signature,
                             quote! { (*this).implementation.#method_ident },
+                            &gen,
                         )
                     } else {
                         quote! { ::windows::HRESULT(0) }
                     }
                 } else {
-                    gen_winrt_upcall(&signature, quote! { (*this).implementation.#method_ident })
+                    gen_winrt_upcall(
+                        &signature,
+                        quote! { (*this).implementation.#method_ident },
+                        &gen,
+                    )
                 }
             } else {
                 gen_win32_upcall(&signature, quote! { (*this).implementation.#method_ident })
