@@ -30,7 +30,7 @@ impl MethodSignature {
                 let object = &self.params[self.params.len() - 1];
 
                 if guid.signature.kind == ElementType::Guid
-                    && guid.is_const()
+                    && !guid.param.flags().output()
                     && object.signature.kind == ElementType::Void
                     && object.signature.pointers == 2
                 {
@@ -89,9 +89,5 @@ impl MethodParam {
             && !self.signature.is_array
             && self.signature.pointers == 0
             && self.signature.kind.is_convertible()
-    }
-
-    pub fn is_const(&self) -> bool {
-        self.signature.is_const || self.param.is_const()
     }
 }

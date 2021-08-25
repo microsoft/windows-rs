@@ -44,7 +44,7 @@ pub fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
 
 pub fn gen_win32_param(param: &MethodParam, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
-    let is_const = param.is_const();
+    let is_const = !param.param.flags().output();
 
     for _ in 0..param.signature.pointers {
         if is_const {
@@ -86,9 +86,10 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
 pub fn gen_win32_abi_param(param: &MethodParam, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
+    let is_const = !param.param.flags().output();
 
     for _ in 0..param.signature.pointers {
-        if param.is_const() {
+        if is_const {
             tokens.combine(&quote! { *const });
         } else {
             tokens.combine(&quote! { *mut });

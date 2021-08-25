@@ -57,8 +57,7 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
                     quote! { #abi_size_name: u32, #name: *mut #abi }
                 }
             } else if p.param.is_input() {
-                // WinRT only uses const to mean that structs are passed by reference.
-                if p.is_const() {
+                if p.param.is_const() {
                     quote! { #name: &#abi }
                 } else {
                     quote! { #name: #abi }
@@ -94,7 +93,7 @@ pub fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {
             quote! { #name }
-        } else if param.is_const() {
+        } else if param.param.is_const() {
             quote! { &*(#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
         } else {
             quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
@@ -124,18 +123,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
                     let into = gen_name(&param.signature.kind, gen);
                     quote! { #name: impl ::windows::IntoParam<'a, #into>, }
                 } else {
-                    let mut signature = quote! {};
-
-                    for _ in 0..param.signature.pointers {
-                        if param.is_const() {
-                            signature.combine(&quote! { *const });
-                        } else {
-                            signature.combine(&quote! { *mut });
-                        }
-                    }
-
-                    signature.combine(&tokens);
-                    quote! { #name: #signature, }
+                    quote! { #name: #tokens, }
                 }
             } else if param.signature.kind.is_nullable() {
                 quote! { #name: &mut ::std::option::Option<#tokens>, }
@@ -298,7 +286,7 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
         }
     } else if param.param.is_input() {
         if param.is_convertible() {
-            if param.is_const() {
+            if param.param.is_const() {
                 quote! { &#name.into_param().abi() }
             } else {
                 quote! { #name.into_param().abi() }

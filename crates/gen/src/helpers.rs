@@ -11,7 +11,6 @@ pub fn gen_method_constraints(params: &[MethodParam]) -> TokenStream {
 pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
-    // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
     for _ in 0..sig.pointers {
         if sig.is_const {
             tokens.combine(&quote! { *const });
@@ -36,7 +35,6 @@ pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
 pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
-    // TODO: this isn't correct since the signature alone isn't enough to tell whether its const - the param might be const as well
     for _ in 0..sig.pointers {
         if sig.is_const {
             tokens.combine(&quote! { *const });
