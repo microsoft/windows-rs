@@ -27,19 +27,9 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
+fn gen_win32_invoke_arg(param: &MethodParam, _gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
-    let kind = gen_name(&param.signature.kind, gen);
-
-    if param.param.is_input() {
-        if param.signature.kind.is_blittable() {
-            quote! { #name }
-        } else {
-            quote! { &*(&#name as *const <#kind as ::windows::Abi>::Abi as *const <#kind as ::windows::Abi>::DefaultType) }
-        }
-    } else {
-        quote! { ::std::mem::transmute_copy(&#name) }
-    }
+    quote! { ::std::mem::transmute_copy(&#name) }
 }
 
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
