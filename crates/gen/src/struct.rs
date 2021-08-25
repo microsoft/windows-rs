@@ -448,7 +448,6 @@ fn gen_default(def: &ElementType) -> TokenStream {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;

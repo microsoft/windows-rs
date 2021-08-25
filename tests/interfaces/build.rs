@@ -6,6 +6,9 @@ fn main() {
         // Test for https://github.com/microsoft/windows-rs/issues/1055
         Windows::Win32::Devices::DeviceQuery::DevCreateObjectQuery,
 
+        // Test for GetRepresentation which has a false-positive for query pattern
+        Windows::Win32::Media::MediaFoundation::IMFMediaType,
+
         // Test for https://github.com/microsoft/windows-rs/issues/1055
         Windows::Win32::Media::Speech::ISpPhoneConverter,
 
@@ -17,8 +20,5 @@ fn main() {
 
         // Test for https://github.com/microsoft/windows-rs/issues/1055
         Windows::Win32::AI::MachineLearning::WinML::IWinMLEvaluationContext,
-
-        // Test for GetRepresentation which has a false-positive for query pattern
-        Windows::Win32::Media::MediaFoundation::IMFMediaType,
     };
 }
