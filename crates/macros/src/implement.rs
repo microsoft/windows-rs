@@ -159,11 +159,7 @@ pub fn gen(
                     )
                 }
             } else {
-                gen_win32_upcall(
-                    &signature,
-                    quote! { (*this).implementation.#method_ident },
-                    &gen,
-                )
+                gen_win32_upcall(&signature, quote! { (*this).implementation.#method_ident })
             };
 
             shims.combine(&quote! {
