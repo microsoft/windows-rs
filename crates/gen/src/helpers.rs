@@ -8,11 +8,19 @@ pub fn gen_method_constraints(params: &[MethodParam]) -> TokenStream {
     }
 }
 
+pub fn gen_win32_param(param: &MethodParam, gen: &Gen) -> TokenStream {
+    gen_sig_with_const(&param.signature, gen, !param.param.flags().output())
+}
+
 pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+    gen_sig_with_const(sig, gen, sig.is_const)
+}
+
+pub fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
-        if sig.is_const {
+        if is_const {
             tokens.combine(&quote! { *const });
         } else {
             tokens.combine(&quote! { *mut });

@@ -42,31 +42,6 @@ pub fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_win32_param(param: &MethodParam, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
-    let is_const = !param.param.flags().output();
-
-    for _ in 0..param.signature.pointers {
-        if is_const {
-            tokens.combine(&quote! { *const });
-        } else {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    let kind = gen_name(&param.signature.kind, gen);
-
-    if param.signature.kind.is_nullable() {
-        tokens.combine(&quote! {
-            ::std::option::Option<#kind>
-        });
-    } else {
-        tokens.combine(&kind)
-    }
-
-    tokens
-}
-
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     params
         .iter()
