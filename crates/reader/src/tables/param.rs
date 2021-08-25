@@ -28,10 +28,6 @@ impl Param {
         self.flags().input()
     }
 
-    pub fn is_const(&self) -> bool {
-        self.has_attribute("ConstAttribute")
-    }
-
     pub fn is_com_out_ptr(&self) -> bool {
         self.has_attribute("ComOutPtrAttribute")
     }
