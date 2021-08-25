@@ -1,10 +1,9 @@
-use test_pwstr::Windows::Win32::Foundation::PWSTR;
 use std::ffi::{OsStr, OsString};
+use test_pwstr::Windows::Win32::Foundation::PWSTR;
 use windows::IntoParam;
 
 #[test]
 fn test() {
-
     let expected = "hello\0";
     let len = expected.chars().count();
 
