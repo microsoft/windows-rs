@@ -2968,8 +2968,8 @@ pub mod Windows {
                     }
                 }
             }
-            impl ::windows::IntoParam<'static, PWSTR> for &str {
-                fn into_param(self) -> ::windows::Param<'static, PWSTR> {
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for &str {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
                     ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
                         self.encode_utf16()
                             .chain(::std::iter::once(0))
@@ -2978,8 +2978,8 @@ pub mod Windows {
                     ) as _))
                 }
             }
-            impl ::windows::IntoParam<'static, PWSTR> for String {
-                fn into_param(self) -> ::windows::Param<'static, PWSTR> {
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for String {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
                     ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
                         self.encode_utf16()
                             .chain(::std::iter::once(0))
@@ -2989,8 +2989,8 @@ pub mod Windows {
                 }
             }
             #[cfg(windows)]
-            impl ::windows::IntoParam<'static, PWSTR> for &::std::ffi::OsStr {
-                fn into_param(self) -> ::windows::Param<'static, PWSTR> {
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;
                     ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
                         self.encode_wide()
@@ -3001,8 +3001,8 @@ pub mod Windows {
                 }
             }
             #[cfg(windows)]
-            impl ::windows::IntoParam<'static, PWSTR> for ::std::ffi::OsString {
-                fn into_param(self) -> ::windows::Param<'static, PWSTR> {
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
                     use std::os::windows::ffi::OsStrExt;
                     ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
                         self.encode_wide()
