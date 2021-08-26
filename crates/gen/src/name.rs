@@ -162,7 +162,7 @@ fn gen_abi_type(def: &TypeDef, gen: &Gen) -> TokenStream {
             if def.is_blittable() {
                 tokens
             } else {
-                quote! { <#tokens as ::windows::Abi>::Abi }
+                quote! { ::std::mem::ManuallyDrop<#tokens> }
             }
         }
         _ => quote! { ::windows::RawPtr },

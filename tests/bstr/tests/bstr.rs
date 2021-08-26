@@ -13,7 +13,7 @@ fn clone() {
     let b = a.clone();
     assert_eq!(a, "hello");
     assert_eq!(b, "hello");
-    assert_ne!(a.abi(), b.abi());
+    assert_ne!(a.abi().0, b.abi().0);
 
     let a = BSTR::default();
     let b = a.clone();

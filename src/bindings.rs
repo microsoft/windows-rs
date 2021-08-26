@@ -2663,7 +2663,7 @@ pub mod Windows {
             }
             #[repr(transparent)]
             #[derive(:: std :: cmp :: Eq)]
-            pub struct BSTR(*mut u16);
+            pub struct BSTR(pub *mut u16);
             impl BSTR {
                 #[doc = r" Create an empty `BSTR`."]
                 #[doc = r""]
@@ -2782,9 +2782,9 @@ pub mod Windows {
                 }
             }
             unsafe impl ::windows::Abi for BSTR {
-                type Abi = *mut u16;
+                type Abi = ::std::mem::ManuallyDrop<Self>;
                 type DefaultType = Self;
-                fn set_abi(&mut self) -> *mut *mut u16 {
+                fn set_abi(&mut self) -> *mut Self::Abi {
                     debug_assert!(self.0.is_null());
                     &mut self.0 as *mut _ as _
                 }
@@ -3009,7 +3009,7 @@ pub mod Windows {
                 {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        fn SysFreeString(bstrstring: <BSTR as ::windows::Abi>::Abi);
+                        fn SysFreeString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
                     }
                     SysFreeString(bstrstring.into_param().abi())
                 }
@@ -3021,7 +3021,7 @@ pub mod Windows {
                 {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        fn SysStringLen(pbstr: <BSTR as ::windows::Abi>::Abi) -> u32;
+                        fn SysStringLen(pbstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
                     }
                     SysStringLen(pbstr.into_param().abi())
                 }
@@ -3699,7 +3699,37 @@ pub mod Windows {
                 }
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct IErrorInfo_abi ( pub unsafe extern "system" fn ( this : :: windows :: RawPtr , iid : & :: windows :: Guid , interface : * mut :: windows :: RawPtr ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pguid : * mut :: windows :: Guid , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pbstrsource : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pbstrdescription : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pbstrhelpfile : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pdwhelpcontext : * mut u32 , ) -> :: windows :: HRESULT , ) ;
+                pub struct IErrorInfo_abi(
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        iid: &::windows::Guid,
+                        interface: *mut ::windows::RawPtr,
+                    ) -> ::windows::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        pguid: *mut ::windows::Guid,
+                    ) -> ::windows::HRESULT,
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        pbstrsource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
+                    ) -> ::windows::HRESULT,
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        pbstrdescription: *mut ::std::mem::ManuallyDrop<
+                            super::super::Foundation::BSTR,
+                        >,
+                    ) -> ::windows::HRESULT,
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        pbstrhelpfile: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
+                    ) -> ::windows::HRESULT,
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        pdwhelpcontext: *mut u32,
+                    ) -> ::windows::HRESULT,
+                );
                 pub unsafe fn SetErrorInfo<'a>(
                     dwreserved: u32,
                     perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
@@ -4139,7 +4169,28 @@ pub mod Windows {
                 unsafe impl ::std::marker::Sync for IRestrictedErrorInfo {}
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct IRestrictedErrorInfo_abi ( pub unsafe extern "system" fn ( this : :: windows :: RawPtr , iid : & :: windows :: Guid , interface : * mut :: windows :: RawPtr ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , description : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , error : * mut :: windows :: HRESULT , restricteddescription : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , capabilitysid : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , reference : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , ) ;
+                pub struct IRestrictedErrorInfo_abi(
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        iid: &::windows::Guid,
+                        interface: *mut ::windows::RawPtr,
+                    ) -> ::windows::HRESULT,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        description: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
+                        error: *mut ::windows::HRESULT,
+                        restricteddescription: *mut ::std::mem::ManuallyDrop<
+                            super::super::Foundation::BSTR,
+                        >,
+                        capabilitysid: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
+                    ) -> ::windows::HRESULT,
+                    pub  unsafe extern "system" fn(
+                        this: ::windows::RawPtr,
+                        reference: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
+                    ) -> ::windows::HRESULT,
+                );
                 #[repr(transparent)]
                 #[derive(
                     :: std :: cmp :: PartialEq,

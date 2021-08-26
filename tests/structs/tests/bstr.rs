@@ -11,5 +11,5 @@ fn test() {
     assert_eq!(a, b);
     assert_eq!(a.m_bstrName, "Name");
     assert_eq!(b.m_bstrName, "Name");
-    assert_ne!(a.m_bstrName.abi(), b.m_bstrName.abi());
+    assert_ne!(a.m_bstrName.abi().0, b.m_bstrName.abi().0);
 }
