@@ -14,7 +14,3 @@ pub fn to_ident(name: &str) -> TokenStream {
         _ => name.into(),
     }
 }
-
-pub fn to_abi_ident(name: &str) -> TokenStream {
-    format_token!("{}_abi", name)
-}

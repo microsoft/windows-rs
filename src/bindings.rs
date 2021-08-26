@@ -3009,7 +3009,7 @@ pub mod Windows {
                 {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        fn SysFreeString(bstrstring: BSTR_abi);
+                        fn SysFreeString(bstrstring: <BSTR as ::windows::Abi>::Abi);
                     }
                     SysFreeString(bstrstring.into_param().abi())
                 }
@@ -3021,7 +3021,7 @@ pub mod Windows {
                 {
                     #[link(name = "OLEAUT32")]
                     extern "system" {
-                        fn SysStringLen(pbstr: BSTR_abi) -> u32;
+                        fn SysStringLen(pbstr: <BSTR as ::windows::Abi>::Abi) -> u32;
                     }
                     SysStringLen(pbstr.into_param().abi())
                 }
@@ -3699,35 +3699,7 @@ pub mod Windows {
                 }
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct IErrorInfo_abi(
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        iid: &::windows::Guid,
-                        interface: *mut ::windows::RawPtr,
-                    ) -> ::windows::HRESULT,
-                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        pguid: *mut ::windows::Guid,
-                    ) -> ::windows::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        pbstrsource: *mut super::super::Foundation::BSTR_abi,
-                    ) -> ::windows::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        pbstrdescription: *mut super::super::Foundation::BSTR_abi,
-                    ) -> ::windows::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        pbstrhelpfile: *mut super::super::Foundation::BSTR_abi,
-                    ) -> ::windows::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        pdwhelpcontext: *mut u32,
-                    ) -> ::windows::HRESULT,
-                );
+                pub struct IErrorInfo_abi ( pub unsafe extern "system" fn ( this : :: windows :: RawPtr , iid : & :: windows :: Guid , interface : * mut :: windows :: RawPtr ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pguid : * mut :: windows :: Guid , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pbstrsource : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pbstrdescription : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pbstrhelpfile : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , pdwhelpcontext : * mut u32 , ) -> :: windows :: HRESULT , ) ;
                 pub unsafe fn SetErrorInfo<'a>(
                     dwreserved: u32,
                     perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
@@ -4167,26 +4139,7 @@ pub mod Windows {
                 unsafe impl ::std::marker::Sync for IRestrictedErrorInfo {}
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct IRestrictedErrorInfo_abi(
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        iid: &::windows::Guid,
-                        interface: *mut ::windows::RawPtr,
-                    ) -> ::windows::HRESULT,
-                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        description: *mut super::super::Foundation::BSTR_abi,
-                        error: *mut ::windows::HRESULT,
-                        restricteddescription: *mut super::super::Foundation::BSTR_abi,
-                        capabilitysid: *mut super::super::Foundation::BSTR_abi,
-                    ) -> ::windows::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::RawPtr,
-                        reference: *mut super::super::Foundation::BSTR_abi,
-                    ) -> ::windows::HRESULT,
-                );
+                pub struct IRestrictedErrorInfo_abi ( pub unsafe extern "system" fn ( this : :: windows :: RawPtr , iid : & :: windows :: Guid , interface : * mut :: windows :: RawPtr ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , description : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , error : * mut :: windows :: HRESULT , restricteddescription : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , capabilitysid : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: RawPtr , reference : * mut < super::super::Foundation:: BSTR as :: windows :: Abi > :: Abi , ) -> :: windows :: HRESULT , ) ;
                 #[repr(transparent)]
                 #[derive(
                     :: std :: cmp :: PartialEq,
