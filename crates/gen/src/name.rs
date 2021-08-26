@@ -12,6 +12,10 @@ pub fn gen_turbo_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
     format_name(def, gen, to_abi_ident, true)
 }
 
+fn to_abi_ident(name: &str) -> TokenStream {
+    format_token!("{}_abi", name)
+}
+
 pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::Void => quote! { ::std::ffi::c_void },
@@ -154,10 +158,11 @@ fn gen_abi_type(def: &TypeDef, gen: &Gen) -> TokenStream {
     match def.kind() {
         TypeKind::Enum => gen_type_name(def, gen),
         TypeKind::Struct => {
+            let tokens = gen_type_name(def, gen);
             if def.is_blittable() {
-                gen_type_name(def, gen)
+                tokens
             } else {
-                gen_abi_name(def, gen)
+                quote! { ::std::mem::ManuallyDrop<#tokens> }
             }
         }
         _ => quote! { ::windows::RawPtr },

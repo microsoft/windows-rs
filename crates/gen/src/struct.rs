@@ -147,20 +147,9 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             }
         }
     } else {
-        let abi_name = gen_abi_name(def, gen);
-
-        let fields = fields.iter().map(|(_, signature, name)| {
-            let kind = gen_abi_sig(signature, gen);
-            quote! { pub #name: #kind }
-        });
-
         quote! {
-            #repr
-            #[doc(hidden)]
-            #[derive(::std::clone::Clone, ::std::marker::Copy)]
-            pub #struct_or_union #abi_name{ #(#fields),* }
             unsafe impl ::windows::Abi for #name {
-                type Abi = #abi_name;
+                type Abi = ::std::mem::ManuallyDrop<Self>;
                 type DefaultType = Self;
             }
         }

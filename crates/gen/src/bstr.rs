@@ -4,7 +4,7 @@ pub fn gen_bstr() -> TokenStream {
     quote! {
         #[repr(transparent)]
         #[derive(::std::cmp::Eq)]
-        pub struct BSTR(*mut u16);
+        pub struct BSTR(pub *mut u16);
         impl BSTR {
             /// Create an empty `BSTR`.
             ///
@@ -141,10 +141,10 @@ pub fn gen_bstr() -> TokenStream {
             }
         }
         unsafe impl ::windows::Abi for BSTR {
-            type Abi = *mut u16;
+            type Abi = ::std::mem::ManuallyDrop<Self>;
             type DefaultType = Self;
 
-            fn set_abi(&mut self) -> *mut *mut u16 {
+            fn set_abi(&mut self) -> *mut Self::Abi {
                 debug_assert!(self.0.is_null());
                 &mut self.0 as *mut _ as _
             }
