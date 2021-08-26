@@ -2968,7 +2968,7 @@ pub mod Windows {
                     }
                 }
             }
-            impl<'a> ::windows::IntoParam<'a, PWSTR> for &'a str {
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for &str {
                 fn into_param(self) -> ::windows::Param<'a, PWSTR> {
                     ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
                         self.encode_utf16()
@@ -2982,6 +2982,30 @@ pub mod Windows {
                 fn into_param(self) -> ::windows::Param<'a, PWSTR> {
                     ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
                         self.encode_utf16()
+                            .chain(::std::iter::once(0))
+                            .collect::<std::vec::Vec<u16>>()
+                            .into_boxed_slice(),
+                    ) as _))
+                }
+            }
+            #[cfg(windows)]
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for &::std::ffi::OsStr {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                    use std::os::windows::ffi::OsStrExt;
+                    ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
+                        self.encode_wide()
+                            .chain(::std::iter::once(0))
+                            .collect::<std::vec::Vec<u16>>()
+                            .into_boxed_slice(),
+                    ) as _))
+                }
+            }
+            #[cfg(windows)]
+            impl<'a> ::windows::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
+                fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                    use std::os::windows::ffi::OsStrExt;
+                    ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(
+                        self.encode_wide()
                             .chain(::std::iter::once(0))
                             .collect::<std::vec::Vec<u16>>()
                             .into_boxed_slice(),
