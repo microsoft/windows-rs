@@ -44,6 +44,16 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
     };
 
+    // match signature.kind() {
+    //     SignatureKind::QueryInterface => {
+
+    //     }
+    //     SignatureKind::ReturnValue => {
+
+    //     }
+        
+    // }
+
     if signature.has_query_interface() {
         let leading_params = &signature.params[..signature.params.len() - 2];
         let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));

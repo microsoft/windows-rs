@@ -1,8 +1,9 @@
 #[derive(PartialEq)]
 pub enum SignatureKind {
     QueryInterface,
-    ReturnValue,
-    ReturnUdt,
+    ResultValue, // -> Result<T>
+    ResultVoid, // -> Result<()>
+    StructFixup,
     PreserveSig,
     ReturnVoid,
 }

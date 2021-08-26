@@ -30,7 +30,8 @@ impl MethodSignature {
         }
 
         if let Some(return_sig) = &self.return_sig {
-            if return_sig.kind == ElementType::HRESULT {
+            match &return_sig.kind {
+                ElementType::HRESULT => {
                 if self.params.len() >= 2 {
                     let guid = &self.params[self.params.len() - 2];
                     let object = &self.params[self.params.len() - 1];
@@ -50,17 +51,22 @@ impl MethodSignature {
                         let flags = param.param.flags();
                         flags.input() && !flags.output()
                     }) {
-                        return SignatureKind::ReturnValue;
+                        return SignatureKind::ResultValue;
                     }
-                }                
-            }
+                }
 
-            if return_sig.is_udt() {
-                return SignatureKind::ReturnUdt;
+                return SignatureKind::ResultVoid;
             }
-
-            return SignatureKind::PreserveSig;
+            // TODO: collapse the next two (they're both TypeDef)
+            ElementType::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
+                return SignatureKind::ResultVoid;
+            }
+            _ if return_sig.is_udt() => {
+                return SignatureKind::StructFixup;
+            }
+            _ => return SignatureKind::PreserveSig,
         }
+    }
 
         SignatureKind::ReturnVoid
     }
@@ -70,11 +76,11 @@ impl MethodSignature {
     }
 
     pub fn has_retval(&self) -> bool {
-        self.kind() == SignatureKind::ReturnValue
+        self.kind() == SignatureKind::ResultValue
     }
 
     pub fn has_udt_return(&self) -> bool {
-        self.kind() == SignatureKind::ReturnUdt
+        self.kind() == SignatureKind::StructFixup
     }
 }
 
