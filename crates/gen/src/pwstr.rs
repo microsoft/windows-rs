@@ -46,5 +46,21 @@ pub fn gen_pwstr() -> TokenStream {
                 ::windows::Param::Boxed(PWSTR(::std::boxed::Box::<[u16]>::into_raw(self.encode_utf16().chain(::std::iter::once(0)).collect::<std::vec::Vec<u16>>().into_boxed_slice()) as _))
             }
         }
+        impl<'a> ::windows::IntoParam<'a, PWSTR> for Option<&'a str> {
+            fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                match self {
+                    Some(s) => s.into_param(),
+                    None => windows::Param::None,
+                }
+            }
+        }
+        impl<'a> ::windows::IntoParam<'a, PWSTR> for Option<String> {
+            fn into_param(self) -> ::windows::Param<'a, PWSTR> {
+                match self {
+                    Some(s) => s.into_param(),
+                    None => windows::Param::None,
+                }
+            }
+        }
     }
 }

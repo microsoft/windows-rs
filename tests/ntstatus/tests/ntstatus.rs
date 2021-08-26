@@ -1,5 +1,5 @@
 use test_ntstatus::{
-    Windows::Win32::Foundation::*, Windows::Win32::Security::Cryptography::Core::*,
+    Windows::Win32::Foundation::*, Windows::Win32::Security::Cryptography::Core::*, Windows::Win32::Foundation::PWSTR,
 };
 
 use windows::{Guid, Result, HRESULT};
@@ -23,7 +23,7 @@ fn test() -> Result<()> {
 
     unsafe {
         let mut provider = BCRYPT_ALG_HANDLE::default();
-        BCryptOpenAlgorithmProvider(&mut provider, "RNG", None, Default::default())?;
+        BCryptOpenAlgorithmProvider(&mut provider, "RNG", Option::<PWSTR>::None, Default::default())?;
 
         let mut random = Guid::zeroed();
 
