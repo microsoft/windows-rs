@@ -68,7 +68,7 @@ impl MethodSignature {
         }
     }
 
-        SignatureKind::ReturnVoid
+        SignatureKind::PreserveSig
     }
 
     pub fn has_query_interface(&self) -> bool {

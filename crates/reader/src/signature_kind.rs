@@ -5,5 +5,4 @@ pub enum SignatureKind {
     ResultVoid, // -> Result<()>
     StructFixup,
     PreserveSig,
-    ReturnVoid,
 }
