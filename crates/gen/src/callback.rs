@@ -14,7 +14,7 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    let return_type = if let Some(t) = &signature.return_type {
+    let return_sig = if let Some(t) = &signature.return_sig {
         let tokens = gen_abi_sig(t, gen);
         quote! { -> #tokens }
     } else {
@@ -22,6 +22,6 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
     };
 
     quote! {
-        pub type #name = unsafe extern "system" fn(#(#params),*) #return_type;
+        pub type #name = unsafe extern "system" fn(#(#params),*) #return_sig;
     }
 }

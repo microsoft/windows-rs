@@ -48,7 +48,7 @@ fn gen_async_kind(
     self_name: &TypeDef,
     gen: &Gen,
 ) -> (TokenStream, TokenStream) {
-    let return_type = match kind {
+    let return_sig = match kind {
         AsyncKind::Operation | AsyncKind::OperationWithProgress => gen_name(&name.generics[0], gen),
         _ => quote! { () },
     };
@@ -67,7 +67,7 @@ fn gen_async_kind(
 
     (
         quote! {
-            pub fn get(&self) -> ::windows::Result<#return_type> {
+            pub fn get(&self) -> ::windows::Result<#return_sig> {
                 if self.Status()? == #namespace AsyncStatus::Started {
                     let (waiter, signaler) = ::windows::Waiter::new();
                     self.SetCompleted(#namespace  #handler::new(move |_sender, _args| {
@@ -81,7 +81,7 @@ fn gen_async_kind(
         },
         quote! {
             impl<#constraints> ::std::future::Future for #name {
-                type Output = ::windows::Result<#return_type>;
+                type Output = ::windows::Result<#return_sig>;
 
                 fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
                     if self.Status()? == #namespace AsyncStatus::Started {

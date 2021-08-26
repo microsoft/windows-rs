@@ -8,7 +8,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    let (udt_return_type, return_type) = if let Some(t) = &sig.return_type {
+    let (udt_return_type, return_sig) = if let Some(t) = &sig.return_sig {
         if t.is_udt() {
             let mut t = t.clone();
             t.pointers += 1;
@@ -23,7 +23,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     };
 
     quote! {
-        (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_type
+        (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_sig
     }
 }
 
@@ -106,8 +106,8 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
         quote! {
             unimplemented!("three")
         }
-    } else if let Some(return_type) = &sig.return_type {
-        if return_type.kind == ElementType::HRESULT {
+    } else if let Some(return_sig) = &sig.return_sig {
+        if return_sig.kind == ElementType::HRESULT {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
 
             quote! {

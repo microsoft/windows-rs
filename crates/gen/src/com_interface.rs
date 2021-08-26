@@ -195,30 +195,30 @@ fn gen_method(
     } else if signature.has_udt_return() {
         let params = gen_win32_params(&signature.params, gen);
         let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
-        let return_type = gen_abi_type_name(&signature.return_type.unwrap().kind, gen);
+        let return_sig = gen_abi_type_name(&signature.return_sig.unwrap().kind, gen);
 
         quote! {
-            pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
-                let mut result__: #return_type = ::std::default::Default::default();
+            pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
+                let mut result__: #return_sig = ::std::default::Default::default();
                 (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* &mut result__);
                 result__
             }
         }
-    } else if let Some(return_type) = &signature.return_type {
+    } else if let Some(return_sig) = &signature.return_sig {
         let params = gen_win32_params(&signature.params, gen);
         let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
 
-        if return_type.kind == ElementType::HRESULT {
+        if return_sig.kind == ElementType::HRESULT {
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<()> {
                     (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*).ok()
                 }
             }
         } else {
-            let return_type = gen_abi_sig(return_type, gen);
+            let return_sig = gen_abi_sig(return_sig, gen);
 
             quote! {
-                pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
+                pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*)
                 }
             }

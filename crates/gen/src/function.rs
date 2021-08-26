@@ -13,7 +13,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    let abi_return_type = if let Some(t) = &signature.return_type {
+    let abi_return_type = if let Some(t) = &signature.return_sig {
         // TODO: This should be gen_win32_abi?
         let tokens = gen_sig(t, gen);
         quote! { -> #tokens }
@@ -94,8 +94,8 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                 unimplemented!("Unsupported target OS");
             }
         }
-    } else if let Some(return_type) = &signature.return_type {
-        match &return_type.kind {
+    } else if let Some(return_sig) = &signature.return_sig {
+        match &return_sig.kind {
             ElementType::HRESULT => {
                 quote! {
                     pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
@@ -129,10 +129,10 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                 }
             }
             _ => {
-                let return_type = gen_sig(return_type, gen);
+                let return_sig = gen_sig(return_sig, gen);
 
                 quote! {
-                    pub unsafe fn #name<#constraints>(#params) -> #return_type {
+                    pub unsafe fn #name<#constraints>(#params) -> #return_sig {
                         #[cfg(windows)]
                         {
                             #link_attr

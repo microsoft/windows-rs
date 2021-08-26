@@ -17,6 +17,7 @@ mod type_name;
 mod type_reader;
 mod type_tree;
 mod workspace;
+mod signature_kind;
 
 pub use blob::*;
 pub use codes::*;
@@ -37,3 +38,4 @@ pub use type_name::*;
 pub use type_reader::*;
 pub use type_tree::*;
 pub use workspace::*;
+pub use signature_kind::*;

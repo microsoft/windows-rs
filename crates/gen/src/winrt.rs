@@ -6,8 +6,8 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
         .iter()
         .map(|param| gen_winrt_invoke_arg(param, gen));
 
-    match &sig.return_type {
-        Some(return_type) if return_type.is_array => {
+    match &sig.return_sig {
+        Some(return_sig) if return_sig.is_array => {
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::std::result::Result::Ok(ok__) => {
@@ -66,7 +66,7 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
                 quote! { #name: *mut #abi }
             }
         })
-        .chain(sig.return_type.iter().map(|signature| {
+        .chain(sig.return_sig.iter().map(|signature| {
             let abi = gen_abi_sig(signature, gen);
 
             if signature.is_array {
@@ -169,10 +169,10 @@ pub fn gen_winrt_method(
     let params = gen_winrt_params(params, gen);
     let interface_name = gen_type_name(&interface.def, gen);
 
-    let return_type_tokens = if let Some(return_type) = &sig.return_type {
-        let tokens = gen_name(&return_type.kind, gen);
+    let return_type_tokens = if let Some(return_sig) = &sig.return_sig {
+        let tokens = gen_name(&return_sig.kind, gen);
 
-        if return_type.is_array {
+        if return_sig.is_array {
             quote! { ::windows::Array<#tokens> }
         } else {
             tokens
@@ -181,10 +181,10 @@ pub fn gen_winrt_method(
         quote! { () }
     };
 
-    let return_arg = if let Some(return_type) = &sig.return_type {
-        if return_type.is_array {
-            let return_type = gen_name(&return_type.kind, gen);
-            quote! { ::windows::Array::<#return_type>::set_abi_len(&mut result__), ::windows::Array::<#return_type>::set_abi(&mut result__) }
+    let return_arg = if let Some(return_sig) = &sig.return_sig {
+        if return_sig.is_array {
+            let return_sig = gen_name(&return_sig.kind, gen);
+            quote! { ::windows::Array::<#return_sig>::set_abi_len(&mut result__), ::windows::Array::<#return_sig>::set_abi(&mut result__) }
         } else {
             quote! { &mut result__ }
         }
@@ -204,8 +204,8 @@ pub fn gen_winrt_method(
         _ => quote! {},
     };
 
-    let vcall = if let Some(return_type) = &sig.return_type {
-        if return_type.is_array {
+    let vcall = if let Some(return_sig) = &sig.return_sig {
+        if return_sig.is_array {
             quote! {
                 let mut result__: #return_type_tokens = ::std::mem::zeroed();
                 (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args,)* #composable_args #return_arg)
