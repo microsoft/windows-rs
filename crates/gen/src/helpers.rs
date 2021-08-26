@@ -16,7 +16,7 @@ pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     gen_sig_with_const(sig, gen, sig.is_const)
 }
 
-pub fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
+fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
