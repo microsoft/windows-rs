@@ -50,7 +50,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
                             ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
                         }
                     }
-                    impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a #name {
+                    impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &#name {
                         fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                             ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(::std::clone::Clone::clone(self)))
                         }
@@ -76,7 +76,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
                                 ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                             }
                         }
-                        impl<'a> ::windows::IntoParam<'a, #into> for &'a #name {
+                        impl<'a> ::windows::IntoParam<'a, #into> for &#name {
                             fn into_param(self) -> ::windows::Param<'a, #into> {
                                 ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                             }

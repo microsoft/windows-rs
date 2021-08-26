@@ -35,7 +35,7 @@ pub fn gen_pstr() -> TokenStream {
                 }
             }
         }
-        impl<'a> ::windows::IntoParam<'a, PSTR> for &'a str {
+        impl<'a> ::windows::IntoParam<'a, PSTR> for &str {
             fn into_param(self) -> ::windows::Param<'a, PSTR> {
                 ::windows::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::std::iter::once(0)).collect::<std::vec::Vec<u8>>().into_boxed_slice()) as _))
             }

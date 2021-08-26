@@ -561,7 +561,7 @@ pub mod Windows {
                 ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
             }
         }
-        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IPropertyValue {
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &IPropertyValue {
             fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                 ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                     ::std::clone::Clone::clone(self),
@@ -1573,7 +1573,7 @@ pub mod Windows {
             }
         }
         impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, ::windows::IUnknown>
-            for &'a IReference<T>
+            for &IReference<T>
         {
             fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                 ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
@@ -1627,7 +1627,7 @@ pub mod Windows {
             }
         }
         impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, IPropertyValue>
-            for &'a IReference<T>
+            for &IReference<T>
         {
             fn into_param(self) -> ::windows::Param<'a, IPropertyValue> {
                 ::windows::Param::Owned(::std::convert::Into::<IPropertyValue>::into(
@@ -1713,7 +1713,7 @@ pub mod Windows {
                 ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
             }
         }
-        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IStringable {
+        impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &IStringable {
             fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                 ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                     ::std::clone::Clone::clone(self),
@@ -2911,7 +2911,7 @@ pub mod Windows {
                     }
                 }
             }
-            impl<'a> ::windows::IntoParam<'a, PSTR> for &'a str {
+            impl<'a> ::windows::IntoParam<'a, PSTR> for &str {
                 fn into_param(self) -> ::windows::Param<'a, PSTR> {
                     ::windows::Param::Boxed(PSTR(::std::boxed::Box::<[u8]>::into_raw(
                         self.bytes()
@@ -3195,7 +3195,7 @@ pub mod Windows {
                         ))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IAgileObject {
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &IAgileObject {
                     fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                         ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                             ::std::clone::Clone::clone(self),
@@ -3714,7 +3714,7 @@ pub mod Windows {
                         ))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IErrorInfo {
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &IErrorInfo {
                     fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                         ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                             ::std::clone::Clone::clone(self),
@@ -3956,7 +3956,7 @@ pub mod Windows {
                         ))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a ILanguageExceptionErrorInfo {
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &ILanguageExceptionErrorInfo {
                     fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                         ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                             ::std::clone::Clone::clone(self),
@@ -4057,7 +4057,7 @@ pub mod Windows {
                         ))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a ILanguageExceptionErrorInfo2 {
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &ILanguageExceptionErrorInfo2 {
                     fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                         ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                             ::std::clone::Clone::clone(self),
@@ -4081,9 +4081,7 @@ pub mod Windows {
                         )
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, ILanguageExceptionErrorInfo>
-                    for &'a ILanguageExceptionErrorInfo2
-                {
+                impl<'a> ::windows::IntoParam<'a, ILanguageExceptionErrorInfo> for &ILanguageExceptionErrorInfo2 {
                     fn into_param(self) -> ::windows::Param<'a, ILanguageExceptionErrorInfo> {
                         ::windows::Param::Owned(
                             ::std::convert::Into::<ILanguageExceptionErrorInfo>::into(
@@ -4182,7 +4180,7 @@ pub mod Windows {
                         ))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IRestrictedErrorInfo {
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &IRestrictedErrorInfo {
                     fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                         ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                             ::std::clone::Clone::clone(self),
@@ -4256,7 +4254,7 @@ pub mod Windows {
                         ))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IWeakReference {
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &IWeakReference {
                     fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                         ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                             ::std::clone::Clone::clone(self),
@@ -4320,7 +4318,7 @@ pub mod Windows {
                         ))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a IWeakReferenceSource {
+                impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &IWeakReferenceSource {
                     fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                         ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(
                             ::std::clone::Clone::clone(self),

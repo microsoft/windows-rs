@@ -17,7 +17,7 @@ pub fn gen_object(name: &TokenStream, constraints: &TokenStream) -> TokenStream 
                 ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
             }
         }
-        impl<'a, #constraints> ::windows::IntoParam<'a, ::windows::IUnknown> for &'a #name {
+        impl<'a, #constraints> ::windows::IntoParam<'a, ::windows::IUnknown> for &#name {
             fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
                 ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(::std::clone::Clone::clone(self)))
             }
