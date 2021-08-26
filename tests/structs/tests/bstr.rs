@@ -1,5 +1,4 @@
 use test_structs::Windows::Win32::System::Diagnostics::Debug::DebugPropertyInfo;
-use windows::Abi;
 
 #[test]
 fn test() {
@@ -11,5 +10,5 @@ fn test() {
     assert_eq!(a, b);
     assert_eq!(a.m_bstrName, "Name");
     assert_eq!(b.m_bstrName, "Name");
-    assert_ne!(a.m_bstrName.abi().0, b.m_bstrName.abi().0);
+    assert_ne!(a.m_bstrName.0, b.m_bstrName.0);
 }
