@@ -35,7 +35,7 @@ impl<'a, T: Abi> IntoParam<'a, T> for &'a Option<T> {
     }
 }
 
-impl<'a> IntoParam<'a, HSTRING> for &'a str {
+impl<'a> IntoParam<'a, HSTRING> for &str {
     fn into_param(self) -> Param<'a, HSTRING> {
         Param::Owned(self.into())
     }

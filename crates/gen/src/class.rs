@@ -251,7 +251,7 @@ impl Class {
                         ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, #into> for &'a #from {
+                impl<'a> ::windows::IntoParam<'a, #into> for &#from {
                     fn into_param(self) -> ::windows::Param<'a, #into> {
                         ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                     }
