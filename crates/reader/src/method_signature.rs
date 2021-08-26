@@ -31,6 +31,7 @@ impl MethodSignature {
 
                 if guid.signature.kind == ElementType::Guid
                     && !guid.param.flags().output()
+                    && object.signature.kind == ElementType::Void
                     && object.param.is_com_out_ptr()
                 {
                     return true;
