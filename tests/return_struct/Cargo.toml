@@ -1,5 +1,5 @@
 [package]
-name = "test_free_function_return_struct"
+name = "test_return_struct"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
