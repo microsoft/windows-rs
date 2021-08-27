@@ -81,46 +81,44 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
 }
 
 pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
-    if sig.has_query_interface() {
-        quote! {
-            unimplemented!("one")
+    match sig.kind() {
+        SignatureKind::QueryInterface => {
+            unimplemented!("QueryInterface")
         }
-    } else if sig.has_retval() {
-        let invoke_args = sig.params[..sig.params.len() - 1]
+        SignatureKind::ResultValue => {
+            let invoke_args = sig.params[..sig.params.len() - 1]
             .iter()
             .map(|param| gen_win32_invoke_arg(param));
 
-        let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
+            let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
 
-        quote! {
-            match #inner(#(#invoke_args,)*) {
-                ::std::result::Result::Ok(ok__) => {
-                    *#result = ::std::mem::transmute_copy(&ok__);
-                    ::std::mem::forget(ok__);
-                    ::windows::HRESULT(0)
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::std::result::Result::Ok(ok__) => {
+                        *#result = ::std::mem::transmute_copy(&ok__);
+                        ::std::mem::forget(ok__);
+                        ::windows::HRESULT(0)
+                    }
+                    ::std::result::Result::Err(err) => err.into()
                 }
-                ::std::result::Result::Err(err) => err.into()
             }
         }
-    } else if sig.has_udt_return() {
-        quote! {
-            unimplemented!("three")
-        }
-    } else if let Some(return_sig) = &sig.return_sig {
-        if return_sig.kind == ElementType::HRESULT {
+        SignatureKind::ResultVoid => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
-
+        
             quote! {
                 #inner(#(#invoke_args,)*).into()
             }
-        } else {
-            quote! {
-                unimplemented!("five")
-            }
         }
-    } else {
-        quote! {
-            unimplemented!("six")
+        SignatureKind::ReturnStruct => {
+            unimplemented!("ReturnStruct")
+        }
+        SignatureKind::PreserveSig => {
+            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+        
+            quote! {
+                #inner(#(#invoke_args,)*)
+            }
         }
     }
 }

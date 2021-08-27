@@ -73,18 +73,6 @@ impl MethodSignature {
 
         SignatureKind::PreserveSig
     }
-
-    pub fn has_query_interface(&self) -> bool {
-        self.kind() == SignatureKind::QueryInterface
-    }
-
-    pub fn has_retval(&self) -> bool {
-        self.kind() == SignatureKind::ResultValue
-    }
-
-    pub fn has_udt_return(&self) -> bool {
-        self.kind() == SignatureKind::ReturnStruct
-    }
 }
 
 impl MethodParam {
