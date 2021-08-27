@@ -108,12 +108,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             panic!("method: {}", name) // TODO: D2D1ConvertColorSpace and functions returning LARGE_INTEGER
         }
         SignatureKind::PreserveSig => {
-            let return_sig = if let Some(return_sig) = &signature.return_sig {
-                 let tokens = gen_sig(return_sig, gen);
-                 quote! { -> #tokens }
-            } else {
-                TokenStream::new()
-            };
+            let return_sig = gen_win32_return_sig(&signature, gen);
 
             quote! {
                 pub unsafe fn #name<#constraints>(#params) #return_sig {

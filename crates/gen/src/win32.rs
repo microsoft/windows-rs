@@ -135,3 +135,12 @@ pub fn gen_win32_result_type(signature: &MethodSignature, gen: &Gen) -> TokenStr
         gen_name(&return_param.signature.kind, gen)
     }
 }
+
+pub fn gen_win32_return_sig(signature: &MethodSignature, gen:&Gen) -> TokenStream {
+    if let Some(return_sig) = &signature.return_sig {
+        let tokens = gen_sig(return_sig, gen);
+        quote! { -> #tokens }
+   } else {
+       TokenStream::new()
+   }
+}
