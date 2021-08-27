@@ -8,7 +8,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    let (udt_return_type, return_type) = if let Some(t) = &sig.return_type {
+    let (udt_return_type, return_sig) = if let Some(t) = &sig.return_sig {
         if t.is_udt() {
             let mut t = t.clone();
             t.pointers += 1;
@@ -23,7 +23,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     };
 
     quote! {
-        (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_type
+        (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_sig
     }
 }
 
@@ -81,46 +81,64 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
 }
 
 pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
-    if sig.has_query_interface() {
-        quote! {
-            unimplemented!("one")
+    match sig.kind() {
+        SignatureKind::QueryInterface => {
+            unimplemented!("QueryInterface")
         }
-    } else if sig.has_retval() {
-        let invoke_args = sig.params[..sig.params.len() - 1]
-            .iter()
-            .map(|param| gen_win32_invoke_arg(param));
+        SignatureKind::ResultValue => {
+            let invoke_args = sig.params[..sig.params.len() - 1]
+                .iter()
+                .map(|param| gen_win32_invoke_arg(param));
 
-        let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
+            let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
 
-        quote! {
-            match #inner(#(#invoke_args,)*) {
-                ::std::result::Result::Ok(ok__) => {
-                    *#result = ::std::mem::transmute_copy(&ok__);
-                    ::std::mem::forget(ok__);
-                    ::windows::HRESULT(0)
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::std::result::Result::Ok(ok__) => {
+                        *#result = ::std::mem::transmute_copy(&ok__);
+                        ::std::mem::forget(ok__);
+                        ::windows::HRESULT(0)
+                    }
+                    ::std::result::Result::Err(err) => err.into()
                 }
-                ::std::result::Result::Err(err) => err.into()
             }
         }
-    } else if sig.has_udt_return() {
-        quote! {
-            unimplemented!("three")
-        }
-    } else if let Some(return_type) = &sig.return_type {
-        if return_type.kind == ElementType::HRESULT {
+        SignatureKind::ResultVoid => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
 
             quote! {
                 #inner(#(#invoke_args,)*).into()
             }
-        } else {
+        }
+        SignatureKind::ReturnStruct => {
+            unimplemented!("ReturnStruct")
+        }
+        SignatureKind::PreserveSig => {
+            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+
             quote! {
-                unimplemented!("five")
+                #inner(#(#invoke_args,)*)
             }
         }
+    }
+}
+
+pub fn gen_win32_result_type(signature: &MethodSignature, gen: &Gen) -> TokenStream {
+    let mut return_param = signature.params[signature.params.len() - 1].clone();
+
+    if return_param.signature.pointers > 1 {
+        return_param.signature.pointers -= 1;
+        gen_win32_param(&return_param, gen)
     } else {
-        quote! {
-            unimplemented!("six")
-        }
+        gen_name(&return_param.signature.kind, gen)
+    }
+}
+
+pub fn gen_win32_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
+    if let Some(return_sig) = &signature.return_sig {
+        let tokens = gen_sig(return_sig, gen);
+        quote! { -> #tokens }
+    } else {
+        TokenStream::new()
     }
 }

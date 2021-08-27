@@ -218,6 +218,7 @@ impl TypeDef {
     }
 
     pub fn is_udt(&self) -> bool {
+        // TODO: should this just check whether the struct has > 1 fields rather than is_handle?
         self.kind() == TypeKind::Struct && !self.is_handle()
     }
 

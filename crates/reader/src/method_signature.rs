@@ -4,7 +4,8 @@ use super::*;
 
 pub struct MethodSignature {
     pub params: Vec<MethodParam>,
-    pub return_type: Option<Signature>,
+    pub return_sig: Option<Signature>,
+    pub return_param: Option<Param>,
 }
 
 #[derive(Clone)]
@@ -15,7 +16,7 @@ pub struct MethodParam {
 
 impl MethodSignature {
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        self.return_type
+        self.return_sig
             .iter()
             .map(|s| s.definition(include))
             .chain(self.params.iter().map(|p| p.signature.definition(include)))
@@ -23,44 +24,54 @@ impl MethodSignature {
             .collect()
     }
 
-    pub fn has_query_interface(&self) -> bool {
-        self.return_type.as_ref().map_or(false, |signature| {
-            if signature.kind == ElementType::HRESULT && self.params.len() >= 2 {
-                let guid = &self.params[self.params.len() - 2];
-                let object = &self.params[self.params.len() - 1];
-
-                if guid.signature.kind == ElementType::Guid
-                    && !guid.param.flags().output()
-                    && object.signature.kind == ElementType::Void
-                    && object.param.is_com_out_ptr()
-                {
-                    return true;
-                }
-            }
-
-            false
-        })
-    }
-
-    pub fn has_retval(&self) -> bool {
-        self.return_type.as_ref().map_or(false, |signature| {
-            if signature.kind == ElementType::HRESULT
-                && self.params.last().map_or(false, |param| param.is_retval())
-            {
-                return self.params[..self.params.len() - 1].iter().all(|param| {
-                    let flags = param.param.flags();
-                    flags.input() && !flags.output()
-                });
-            }
-
-            false
-        })
-    }
-
-    pub fn has_udt_return(&self) -> bool {
-        self.return_type
+    pub fn kind(&self) -> SignatureKind {
+        if self
+            .return_param
             .as_ref()
-            .map_or(false, |signature| signature.is_udt())
+            .map_or(false, |param| param.has_alternate_success_code())
+        {
+            return SignatureKind::PreserveSig;
+        }
+
+        if let Some(return_sig) = &self.return_sig {
+            match &return_sig.kind {
+                ElementType::HRESULT => {
+                    if self.params.len() >= 2 {
+                        let guid = &self.params[self.params.len() - 2];
+                        let object = &self.params[self.params.len() - 1];
+
+                        if guid.signature.kind == ElementType::Guid
+                            && !guid.param.flags().output()
+                            && object.signature.kind == ElementType::Void
+                            && object.param.is_com_out_ptr()
+                        {
+                            return SignatureKind::QueryInterface;
+                        }
+                    }
+
+                    if self.params.last().map_or(false, |param| param.is_retval())
+                        && self.params[..self.params.len() - 1].iter().all(|param| {
+                            let flags = param.param.flags();
+                            flags.input() && !flags.output()
+                        })
+                    {
+                        return SignatureKind::ResultValue;
+                    }
+
+                    return SignatureKind::ResultVoid;
+                }
+                // TODO: collapse the next two (they're both TypeDef)
+                ElementType::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
+                    return SignatureKind::ResultVoid;
+                }
+                _ if return_sig.is_udt() => {
+                    return SignatureKind::ReturnStruct;
+                }
+                _ => return SignatureKind::PreserveSig,
+            }
+        }
+
+        SignatureKind::PreserveSig
     }
 }
 

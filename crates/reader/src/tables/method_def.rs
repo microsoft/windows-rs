@@ -114,11 +114,13 @@ impl MethodDef {
         blob.read_unsigned();
         blob.read_unsigned(); // parameter count
 
-        let return_type = reader.signature_from_blob(&mut blob, generics);
+        let return_sig = reader.signature_from_blob(&mut blob, generics);
+        let mut return_param = None;
 
         let params = params
             .filter_map(|param| {
                 if param.sequence() == 0 {
+                    return_param = Some(param);
                     None
                 } else {
                     Some(MethodParam {
@@ -133,7 +135,8 @@ impl MethodDef {
 
         MethodSignature {
             params,
-            return_type,
+            return_sig,
+            return_param,
         }
     }
 
