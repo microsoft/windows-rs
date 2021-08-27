@@ -11,14 +11,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    let abi_return_type = if let Some(t) = &signature.return_sig {
-        // TODO: This should be gen_win32_abi?
-        let tokens = gen_sig(t, gen);
-        quote! { -> #tokens }
-    } else {
-        TokenStream::new()
-    };
-
+    let abi_return_type = gen_win32_return_sig(&signature, gen);
     let mut link = def.impl_map().expect("Function").scope().name();
     let raw_dylib = cfg!(feature = "raw_dylib");
 
@@ -106,10 +99,9 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         SignatureKind::ReturnStruct | SignatureKind::PreserveSig => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
-            let return_sig = gen_win32_return_sig(&signature, gen);
 
             quote! {
-                pub unsafe fn #name<#constraints>(#params) #return_sig {
+                pub unsafe fn #name<#constraints>(#params) #abi_return_type {
                     #[cfg(windows)]
                     {
                         #link_attr
