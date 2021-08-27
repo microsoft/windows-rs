@@ -14,12 +14,7 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-    let return_sig = if let Some(t) = &signature.return_sig {
-        let tokens = gen_abi_sig(t, gen);
-        quote! { -> #tokens }
-    } else {
-        quote! {}
-    };
+    let return_sig = gen_win32_return_sig(&signature, gen);
 
     quote! {
         pub type #name = unsafe extern "system" fn(#(#params),*) #return_sig;
