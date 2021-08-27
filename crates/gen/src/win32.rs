@@ -124,3 +124,14 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
         }
     }
 }
+
+pub fn gen_win32_result_type(signature: &MethodSignature, gen: &Gen) -> TokenStream {
+    let mut return_param = signature.params[signature.params.len() - 1].clone();
+    
+    if return_param.signature.pointers > 1 {
+        return_param.signature.pointers -= 1;
+        gen_win32_param(&return_param, gen)
+    } else {
+        gen_name(&return_param.signature.kind, gen)
+    }
+}
