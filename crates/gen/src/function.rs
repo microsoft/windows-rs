@@ -49,7 +49,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let leading_params = &signature.params[..signature.params.len() - 2];
             let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
             let params = gen_win32_params(leading_params, gen);
-    
+
             quote! {
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(#params) -> ::windows::Result<T> {
                     #[cfg(windows)]
@@ -71,7 +71,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
             let params = gen_win32_params(leading_params, gen);
             let return_type_tokens = gen_win32_result_type(&signature, gen);
-    
+
             quote! {
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
                     #[cfg(windows)]
@@ -104,10 +104,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                 }
             }
         }
-        SignatureKind::StructFixup => {
-            panic!("method: {}", name) // TODO: D2D1ConvertColorSpace and functions returning LARGE_INTEGER
-        }
-        SignatureKind::PreserveSig => {
+        SignatureKind::ReturnStruct | SignatureKind::PreserveSig => {
             let return_sig = gen_win32_return_sig(&signature, gen);
 
             quote! {
@@ -124,6 +121,6 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                     unimplemented!("Unsupported target OS");
                 }
             }
-        }        
+        }
     }
 }

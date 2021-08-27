@@ -3,6 +3,6 @@ pub enum SignatureKind {
     QueryInterface,
     ResultValue,
     ResultVoid,
-    StructFixup,
+    ReturnStruct,
     PreserveSig,
 }

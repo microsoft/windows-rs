@@ -127,7 +127,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
 
 pub fn gen_win32_result_type(signature: &MethodSignature, gen: &Gen) -> TokenStream {
     let mut return_param = signature.params[signature.params.len() - 1].clone();
-    
+
     if return_param.signature.pointers > 1 {
         return_param.signature.pointers -= 1;
         gen_win32_param(&return_param, gen)
@@ -136,11 +136,11 @@ pub fn gen_win32_result_type(signature: &MethodSignature, gen: &Gen) -> TokenStr
     }
 }
 
-pub fn gen_win32_return_sig(signature: &MethodSignature, gen:&Gen) -> TokenStream {
+pub fn gen_win32_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
     if let Some(return_sig) = &signature.return_sig {
         let tokens = gen_sig(return_sig, gen);
         quote! { -> #tokens }
-   } else {
-       TokenStream::new()
-   }
+    } else {
+        TokenStream::new()
+    }
 }
