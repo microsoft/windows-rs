@@ -113,40 +113,28 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             }
         }
         SignatureKind::StructFixup => {
-            panic!() // only used with COM?
+            panic!("method: {}", name) // TODO: D2D1ConvertColorSpace and functions returning LARGE_INTEGER
         }
         SignatureKind::PreserveSig => {
-            if let Some(return_sig) = &signature.return_sig {
-                let return_sig = gen_sig(return_sig, gen);
-
-                quote! {
-                    pub unsafe fn #name<#constraints>(#params) -> #return_sig {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*) #abi_return_type;
-                            }
-                            #name(#(#args),*)
-                        }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
-                    }
-                }
+            let return_sig = if let Some(return_sig) = &signature.return_sig {
+                 let tokens = gen_sig(return_sig, gen);
+                 quote! { -> #tokens }
             } else {
-                quote! {
-                    pub unsafe fn #name<#constraints>(#params) {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*);
-                            }
-                            #name(#(#args),*)
+                TokenStream::new()
+            };
+
+            quote! {
+                pub unsafe fn #name<#constraints>(#params) #return_sig {
+                    #[cfg(windows)]
+                    {
+                        #link_attr
+                        extern "system" {
+                            fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
+                        #name(#(#args),*)
                     }
+                    #[cfg(not(windows))]
+                    unimplemented!("Unsupported target OS");
                 }
             }
         }        
