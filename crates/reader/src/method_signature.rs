@@ -49,13 +49,13 @@ impl MethodSignature {
                         }
                     }
 
-                    if self.params.last().map_or(false, |param| param.is_retval()) {
-                        if self.params[..self.params.len() - 1].iter().all(|param| {
+                    if self.params.last().map_or(false, |param| param.is_retval())
+                        && self.params[..self.params.len() - 1].iter().all(|param| {
                             let flags = param.param.flags();
                             flags.input() && !flags.output()
-                        }) {
-                            return SignatureKind::ResultValue;
-                        }
+                        })
+                    {
+                        return SignatureKind::ResultValue;
                     }
 
                     return SignatureKind::ResultVoid;

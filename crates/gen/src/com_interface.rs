@@ -190,7 +190,7 @@ fn gen_method(
         SignatureKind::ResultVoid => {
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
-    
+
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<()> {
                     (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*).ok()
@@ -201,7 +201,7 @@ fn gen_method(
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
             let return_sig = gen_abi_type_name(&signature.return_sig.unwrap().kind, gen);
-    
+
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = ::std::default::Default::default();

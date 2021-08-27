@@ -87,8 +87,8 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
         }
         SignatureKind::ResultValue => {
             let invoke_args = sig.params[..sig.params.len() - 1]
-            .iter()
-            .map(|param| gen_win32_invoke_arg(param));
+                .iter()
+                .map(|param| gen_win32_invoke_arg(param));
 
             let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
 
@@ -105,7 +105,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
         }
         SignatureKind::ResultVoid => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
-        
+
             quote! {
                 #inner(#(#invoke_args,)*).into()
             }
@@ -115,7 +115,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
         }
         SignatureKind::PreserveSig => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
-        
+
             quote! {
                 #inner(#(#invoke_args,)*)
             }
