@@ -19,10 +19,8 @@ const-sha1 = "0.2"
 gen = { package = "windows_gen", path = "crates/gen", version = "0.19.0" }
 
 [workspace]
-members = [
-    "crates/*",
-    "tests/*",
-]
+members = ["crates/*", "tests/*"]
+exclude = ["tests/component"]
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"

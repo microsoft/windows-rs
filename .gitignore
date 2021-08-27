@@ -1,4 +1,7 @@
-target
-Cargo.lock
 .vscode
 .vs
+target
+packages
+Cargo.lock
+*.user
+
