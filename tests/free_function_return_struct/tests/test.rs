@@ -1,10 +1,13 @@
-use test_free_function_return_struct::*;
-use Windows::Win32::Graphics::Direct2D::*;
-
 // This test validates that free functions are not affected by the Visual C++ quirk affecting member functions
 // returning structs where the return value is effectively a trailing out parameter.
+//
+// TODO: D2D1ConvertColorSpace is exported by ordinal rather than by name and Rust doesn't appear to support
+// this at the moment. It happens to work on x64 but not on x64, hence the cfg check below.
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn test() {
+    use test_free_function_return_struct::Windows::Win32::Graphics::Direct2D::*;
+
     let before = D2D1_COLOR_F {
         r: 1.0,
         g: 2.0,
