@@ -2799,7 +2799,7 @@ pub mod Windows {
                     extern "system" {
                         fn CloseHandle(hobject: HANDLE) -> BOOL;
                     }
-                    CloseHandle(hobject.into_param().abi())
+                    ::std::mem::transmute(CloseHandle(hobject.into_param().abi()))
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
@@ -3023,7 +3023,10 @@ pub mod Windows {
                     extern "system" {
                         fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
                     }
-                    SysAllocStringLen(strin.into_param().abi(), ::std::mem::transmute(ui))
+                    ::std::mem::transmute(SysAllocStringLen(
+                        strin.into_param().abi(),
+                        ::std::mem::transmute(ui),
+                    ))
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
@@ -3035,7 +3038,7 @@ pub mod Windows {
                     extern "system" {
                         fn SysFreeString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
                     }
-                    SysFreeString(bstrstring.into_param().abi())
+                    ::std::mem::transmute(SysFreeString(bstrstring.into_param().abi()))
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
@@ -3047,7 +3050,7 @@ pub mod Windows {
                     extern "system" {
                         fn SysStringLen(pbstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
                     }
-                    SysStringLen(pbstr.into_param().abi())
+                    ::std::mem::transmute(SysStringLen(pbstr.into_param().abi()))
                 }
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
@@ -3143,7 +3146,7 @@ pub mod Windows {
                         extern "system" {
                             fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void;
                         }
-                        CoTaskMemAlloc(::std::mem::transmute(cb))
+                        ::std::mem::transmute(CoTaskMemAlloc(::std::mem::transmute(cb)))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3155,7 +3158,7 @@ pub mod Windows {
                         extern "system" {
                             fn CoTaskMemFree(pv: *const ::std::ffi::c_void);
                         }
-                        CoTaskMemFree(::std::mem::transmute(pv))
+                        ::std::mem::transmute(CoTaskMemFree(::std::mem::transmute(pv)))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3310,7 +3313,7 @@ pub mod Windows {
                                     arguments: *const *const i8,
                                 ) -> u32;
                             }
-                            FormatMessageW(
+                            ::std::mem::transmute(FormatMessageW(
                                 ::std::mem::transmute(dwflags),
                                 ::std::mem::transmute(lpsource),
                                 ::std::mem::transmute(dwmessageid),
@@ -3318,7 +3321,7 @@ pub mod Windows {
                                 ::std::mem::transmute(lpbuffer),
                                 ::std::mem::transmute(nsize),
                                 ::std::mem::transmute(arguments),
-                            )
+                            ))
                         }
                         #[cfg(not(windows))]
                         unimplemented!("Unsupported target OS");
@@ -3330,7 +3333,7 @@ pub mod Windows {
                             extern "system" {
                                 fn GetLastError() -> WIN32_ERROR;
                             }
-                            GetLastError()
+                            ::std::mem::transmute(GetLastError())
                         }
                         #[cfg(not(windows))]
                         unimplemented!("Unsupported target OS");
@@ -3399,7 +3402,7 @@ pub mod Windows {
                                 hlibmodule: super::super::Foundation::HINSTANCE,
                             ) -> super::super::Foundation::BOOL;
                         }
-                        FreeLibrary(hlibmodule.into_param().abi())
+                        ::std::mem::transmute(FreeLibrary(hlibmodule.into_param().abi()))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3417,7 +3420,10 @@ pub mod Windows {
                                 lpprocname: super::super::Foundation::PSTR,
                             ) -> ::std::option::Option<super::super::Foundation::FARPROC>;
                         }
-                        GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi())
+                        ::std::mem::transmute(GetProcAddress(
+                            hmodule.into_param().abi(),
+                            lpprocname.into_param().abi(),
+                        ))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3433,7 +3439,7 @@ pub mod Windows {
                                 lplibfilename: super::super::Foundation::PSTR,
                             ) -> super::super::Foundation::HINSTANCE;
                         }
-                        LoadLibraryA(lplibfilename.into_param().abi())
+                        ::std::mem::transmute(LoadLibraryA(lplibfilename.into_param().abi()))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3456,7 +3462,7 @@ pub mod Windows {
                         extern "system" {
                             fn GetProcessHeap() -> HeapHandle;
                         }
-                        GetProcessHeap()
+                        ::std::mem::transmute(GetProcessHeap())
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3534,11 +3540,11 @@ pub mod Windows {
                                 dwbytes: usize,
                             ) -> *mut ::std::ffi::c_void;
                         }
-                        HeapAlloc(
+                        ::std::mem::transmute(HeapAlloc(
                             hheap.into_param().abi(),
                             ::std::mem::transmute(dwflags),
                             ::std::mem::transmute(dwbytes),
-                        )
+                        ))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3558,11 +3564,11 @@ pub mod Windows {
                                 lpmem: *const ::std::ffi::c_void,
                             ) -> super::super::Foundation::BOOL;
                         }
-                        HeapFree(
+                        ::std::mem::transmute(HeapFree(
                             hheap.into_param().abi(),
                             ::std::mem::transmute(dwflags),
                             ::std::mem::transmute(lpmem),
-                        )
+                        ))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3804,12 +3810,12 @@ pub mod Windows {
                                 lpname: super::super::Foundation::PSTR,
                             ) -> super::super::Foundation::HANDLE;
                         }
-                        CreateEventA(
+                        ::std::mem::transmute(CreateEventA(
                             ::std::mem::transmute(lpeventattributes),
                             bmanualreset.into_param().abi(),
                             binitialstate.into_param().abi(),
                             lpname.into_param().abi(),
-                        )
+                        ))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3825,7 +3831,7 @@ pub mod Windows {
                                 hevent: super::super::Foundation::HANDLE,
                             ) -> super::super::Foundation::BOOL;
                         }
-                        SetEvent(hevent.into_param().abi())
+                        ::std::mem::transmute(SetEvent(hevent.into_param().abi()))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3890,10 +3896,10 @@ pub mod Windows {
                                 dwmilliseconds: u32,
                             ) -> WAIT_RETURN_CAUSE;
                         }
-                        WaitForSingleObject(
+                        ::std::mem::transmute(WaitForSingleObject(
                             hhandle.into_param().abi(),
                             ::std::mem::transmute(dwmilliseconds),
-                        )
+                        ))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");

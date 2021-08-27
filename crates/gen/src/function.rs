@@ -116,7 +116,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        #name(#(#args),*)
+                        ::std::mem::transmute(#name(#(#args),*))
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");

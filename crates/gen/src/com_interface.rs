@@ -217,7 +217,7 @@ fn gen_method(
 
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
-                    (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*)
+                    ::std::mem::transmute((::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*))
                 }
             }
         }
