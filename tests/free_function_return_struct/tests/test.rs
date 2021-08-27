@@ -1,5 +1,4 @@
 use test_free_function_return_struct::*;
-use windows::*;
 use Windows::Win32::Graphics::Direct2D::*;
 
 // This test validates that free functions are not affected by the Visual C++ quirk affecting member functions
