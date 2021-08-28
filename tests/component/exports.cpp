@@ -1,5 +1,5 @@
 #include "pch.h"
 #include "exports.h"
 
-void __stdcall SimpleFunction() {
+void __stdcall SimpleFunction() noexcept {
 }

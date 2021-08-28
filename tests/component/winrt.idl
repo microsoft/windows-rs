@@ -1,3 +1,19 @@
 namespace component {
+    namespace Simple {
+        delegate void SimpleDelegate();
 
+        struct SimpleStruct {
+            Int32 X;
+            Int32 Y;
+        };
+
+        interface ISimpleInterface {
+            void Method();
+        };
+
+        runtimeclass SimpleClass {
+            SimpleClass();
+            void Method();
+        }
+    }
 }

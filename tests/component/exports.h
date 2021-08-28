@@ -1,3 +1,3 @@
 #pragma once
 
-void __stdcall SimpleFunction();
+void __stdcall SimpleFunction() noexcept;
