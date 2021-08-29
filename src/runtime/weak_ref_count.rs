@@ -30,7 +30,7 @@ impl WeakRefCount {
             .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |count_or_pointer| {
                 (!is_weak_ref(count_or_pointer)).then(|| count_or_pointer + 1)
             })
-            .map(|u| u as u32)
+            .map(|u| u as u32 + 1)
             .unwrap_or_else(|pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() })
     }
 
@@ -39,7 +39,7 @@ impl WeakRefCount {
             .fetch_update(Ordering::Release, Ordering::Relaxed, |count_or_pointer| {
                 (!is_weak_ref(count_or_pointer)).then(|| count_or_pointer - 1)
             })
-            .map(|u| u as u32)
+            .map(|u| u as u32 - 1)
             .unwrap_or_else(|pointer| unsafe {
                 let tear_off = TearOff::decode(pointer);
                 let remaining = tear_off.strong_count.release();
