@@ -1,5 +1,5 @@
 fn main() {
-    use format_build_macro::{
+    windows::build! {
         Windows::Foundation::Uri,
         Windows::Win32::{
             Foundation::E_NOINTERFACE,
