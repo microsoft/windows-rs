@@ -27,4 +27,22 @@ namespace Component
             Second,
         };
     }
+
+    namespace Enum
+    {
+        enum Signed
+        {
+            Three = 3,
+            Two = 2,
+            One = 1,
+        };
+
+        [flags]
+        enum Unsigned
+        {
+            Three = 0x100,
+            Two   = 0x010,
+            One   = 0x001
+        };
+    }
 }
