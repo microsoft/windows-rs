@@ -1,6 +1,6 @@
 fn main() {
+    // TODO: replace with Component::Win32::*,
     windows::build! {
-        // TODO: replace with Component::Win32::*,
         Component::*,
     };
 }
