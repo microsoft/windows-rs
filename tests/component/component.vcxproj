@@ -102,6 +102,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -109,6 +110,12 @@
       <EnableUAC>false</EnableUAC>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>build.cmd $(Configuration) $(Platform) x86</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy to Rust</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -122,6 +129,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -131,6 +139,10 @@
       <EnableUAC>false</EnableUAC>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Message>Copy to Rust</Message>
+      <Command>build.cmd $(Configuration) $(Platform) x86</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -142,6 +154,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -149,6 +162,12 @@
       <EnableUAC>false</EnableUAC>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Command>build.cmd $(Configuration) $(Platform) x64</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy to Rust</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -162,6 +181,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -171,14 +191,20 @@
       <EnableUAC>false</EnableUAC>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
+    <PostBuildEvent>
+      <Message>Copy to Rust</Message>
+      <Command>build.cmd $(Configuration) $(Platform) x64</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="build.cmd" />
     <None Include="exports.def" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exports.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Simple.SimpleClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="exports.cpp" />

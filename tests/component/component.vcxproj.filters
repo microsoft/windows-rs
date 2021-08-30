@@ -3,10 +3,12 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="exports.def" />
+    <None Include="build.cmd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exports.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Simple.SimpleClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
