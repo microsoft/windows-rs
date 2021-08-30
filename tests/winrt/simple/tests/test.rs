@@ -1,6 +1,6 @@
 use test_winrt_simple::*;
-use Component::*;
 use windows::*;
+use Component::*;
 
 #[implement(Component::Simple::IInterface)]
 struct Interface();
@@ -23,7 +23,11 @@ fn test() -> Result<()> {
     let delegate = Simple::Delegate::new(|| Ok(()));
     delegate.Invoke()?;
 
-    let _struct = Simple::Struct { First: 1, Second: 2};
+    let _struct = Simple::Struct {
+        First: 1,
+        Second: 2,
+    };
+
     let _enum = Simple::Enum::First;
 
     Ok(())
