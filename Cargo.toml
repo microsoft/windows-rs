@@ -19,7 +19,7 @@ const-sha1 = "0.2"
 gen = { package = "windows_gen", path = "crates/gen", version = "0.19.0" }
 
 [workspace]
-members = ["crates/*", "tests/*"]
+members = ["crates/*", "tests/legacy/*", "tests/winrt/*", "tests/win32/*"]
 exclude = ["tests/component"]
 
 [package.metadata.docs.rs]

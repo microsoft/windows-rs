@@ -1,0 +1,17 @@
+[package]
+name = "test_winrt"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+windows = { path = "../../.." }
+gen = { package = "windows_gen", path = "../../../crates/gen" }
+reader = { package = "windows_reader", path = "../../../crates/reader" }
+
+[dev-dependencies]
+futures = "0.3"
+helpers = { package = "test_helpers", path = "../helpers" }
+
+[build-dependencies]
+windows = { path = "../../.." }

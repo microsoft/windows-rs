@@ -23,7 +23,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{8e99b9dd-ddab-4a1e-93b5-1c90c85adc3b}</ProjectGuid>
-    <RootNamespace>component</RootNamespace>
+    <RootNamespace>Component</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <CppWinRTNamespaceMergeDepth>1</CppWinRTNamespaceMergeDepth>
   </PropertyGroup>
@@ -204,7 +204,7 @@
   <ItemGroup>
     <ClInclude Include="exports.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Simple.SimpleClass.h" />
+    <ClInclude Include="Simple.Class.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="exports.cpp" />
