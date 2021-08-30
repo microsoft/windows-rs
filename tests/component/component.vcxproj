@@ -209,6 +209,7 @@
     <ClInclude Include="exports.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Simple.Class.h" />
+    <ClInclude Include="Struct.Test.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="exports.cpp" />

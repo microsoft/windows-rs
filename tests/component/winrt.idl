@@ -45,4 +45,42 @@ namespace Component
             One   = 0x001
         };
     }
+
+    namespace Struct
+    {
+        struct Blittable
+        {
+            Boolean Bool;
+            Char Char;
+            UInt8 UInt8;
+            UInt16 UInt16;
+            UInt32 UInt32;
+            UInt64 UInt64;
+            Int16 Int16;
+            Int32 Int32;
+            Int64 Int64;
+            Single Single;
+            Double Double;
+            Guid Guid;
+        };
+
+        struct NonBlittable
+        {
+            String String;
+            Windows.Foundation.IReference<Int64> RefInt64;
+        };
+
+        struct Nested
+        {
+            Blittable Blittable;
+            NonBlittable NonBlittable;
+        };
+
+        runtimeclass Test
+        {
+            static UInt32 SizeOfBlittable { get; };
+            static Blittable ZeroBlittable{ get; };
+            static Blittable NonZeroBlittable { get; };
+        }
+    }
 }
