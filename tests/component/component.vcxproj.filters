@@ -26,6 +26,9 @@
     <ClInclude Include="Classes.Activatable.h">
       <Filter>winrt</Filter>
     </ClInclude>
+    <ClInclude Include="Classes.NoWeakRef.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />

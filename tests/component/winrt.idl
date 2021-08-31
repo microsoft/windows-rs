@@ -54,6 +54,12 @@ namespace Component
         {
             Required();
         }
+
+        runtimeclass NoWeakRef
+        {
+            NoWeakRef();
+            void Method();
+        }
     }
 
     namespace Interfaces
