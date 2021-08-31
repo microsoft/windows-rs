@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="exports.def" />
+    <None Include="build.cmd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="exports.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Structs.Test.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Simple.Class.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes.Static.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes.Required.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes.Creator.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes.Activatable.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="exports.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="winrt.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="winrt">
+      <UniqueIdentifier>{d7cd0694-5ea2-4baa-910c-3fb9293d9df7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

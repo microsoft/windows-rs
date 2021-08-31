@@ -8,7 +8,7 @@ description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 documentation = "https://docs.rs/windows"
 readme = ".github/readme.md"
-exclude = [".github", ".windows", "docs"]
+exclude = [".github", ".windows", "docs", "tests"]
 
 [dependencies]
 windows_macros = { path = "crates/macros",  version = "0.19.0", optional = true }
@@ -19,10 +19,8 @@ const-sha1 = "0.2"
 gen = { package = "windows_gen", path = "crates/gen", version = "0.19.0" }
 
 [workspace]
-members = [
-    "crates/*",
-    "tests/*",
-]
+members = ["crates/*", "tests/legacy/*", "tests/winrt/*", "tests/win32/*"]
+exclude = ["tests/component"]
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
