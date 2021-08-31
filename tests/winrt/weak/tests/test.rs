@@ -1,7 +1,36 @@
-use test_weak::*;
+use test_winrt_weak::*;
 use windows::*;
+use Component::Classes::{Activatable, NoWeakRef};
 use Windows::Foundation::IStringable;
+use Windows::Win32::Foundation::E_NOINTERFACE;
 use Windows::Win32::System::WinRT::{IWeakReference, IWeakReferenceSource};
+
+// The C++ Activatable class supports weak references, so it is used to test a successful downgrade and upgrade.
+#[test]
+fn test_cpp_success() -> Result<()> {
+    let strong = Activatable::new()?;
+    let weak = strong.downgrade()?;
+
+    assert_eq!(weak.upgrade().unwrap(), strong);
+    drop(strong);
+    assert_eq!(weak.upgrade(), None);
+
+    Ok(())
+}
+
+// The C++ NoWeakRef class does not support weak references, so it is used to test an unsuccessful downgrade.
+#[test]
+fn test_cpp_failure() -> Result<()> {
+    let strong = NoWeakRef::new()?;
+    let result = strong.downgrade();
+
+    assert_eq!(result.is_err(), true);
+
+    // E_NOINTERFACE is returned because IWeakReferenceSource is not implemented.
+    assert_eq!(result.unwrap_err().code(), E_NOINTERFACE);
+
+    Ok(())
+}
 
 #[test]
 fn test_implement() -> Result<()> {

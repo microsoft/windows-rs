@@ -208,6 +208,7 @@
   <ItemGroup>
     <ClInclude Include="Classes.Activatable.h" />
     <ClInclude Include="Classes.Creator.h" />
+    <ClInclude Include="Classes.NoWeakRef.h" />
     <ClInclude Include="Classes.Required.h" />
     <ClInclude Include="Classes.Static.h" />
     <ClInclude Include="exports.h" />
