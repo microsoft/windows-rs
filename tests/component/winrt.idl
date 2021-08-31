@@ -1,0 +1,147 @@
+namespace Component
+{
+    namespace Simple
+    {
+        runtimeclass Class
+        {
+            Class();
+            void Method();
+        }
+
+        interface IInterface
+        {
+            void Method();
+        };
+
+        delegate void Delegate();
+
+        struct Struct
+        {
+            Int32 First;
+            Int32 Second;
+        };
+
+        enum Enum
+        {
+            First,
+            Second,
+        };
+    }
+
+    namespace Classes
+    {
+        runtimeclass Static
+        {
+            static Int32 Method();
+            static Int32 Property;
+            static Int32 ReadOnly{ get; };
+        }
+
+        runtimeclass Activatable
+        {
+            Activatable();
+            Activatable(Int32 val); // midl doesn't allow "value" for some reason...
+            Int32 Property{ get; };
+        }
+
+        runtimeclass Creator
+        {
+            static Creator Create(Int32 value);
+            Int32 Property{ get; };
+        }
+
+        runtimeclass Required : [default] Component.Interfaces.IProperty
+        {
+            Required();
+        }
+
+        runtimeclass NoWeakRef
+        {
+            NoWeakRef();
+            void Method();
+        }
+    }
+
+    namespace Interfaces
+    {
+        interface IProperty
+        {
+            Int32 Property;
+        };
+    }
+
+    namespace Delegates
+    {
+
+    }
+
+    namespace Structs
+    {
+        struct Blittable
+        {
+            Boolean Bool;
+            Char Char;
+            UInt8 UInt8;
+            UInt16 UInt16;
+            UInt32 UInt32;
+            UInt64 UInt64;
+            Int16 Int16;
+            Int32 Int32;
+            Int64 Int64;
+            Single Single;
+            Double Double;
+            Guid Guid;
+        };
+
+        struct NonBlittable
+        {
+            String String;
+            Windows.Foundation.IReference<Int64> RefInt64;
+        };
+
+        struct Nested
+        {
+            Blittable Blittable;
+            NonBlittable NonBlittable;
+        };
+
+        runtimeclass Test
+        {
+            static UInt32 SizeOfBlittable { get; };
+            static Blittable ZeroBlittable{ get; };
+            static Blittable NonZeroBlittable { get; };
+        }
+    }
+
+    namespace Enums
+    {
+        enum Signed
+        {
+            Three = 3,
+            Two = 2,
+            One = 1,
+        };
+
+        [flags]
+        enum Unsigned
+        {
+            Three = 0x100,
+            Two   = 0x010,
+            One   = 0x001
+        };
+    }
+
+    namespace Signatures
+    {
+
+    }
+
+    namespace Collections
+    {
+    }
+
+    namespace Async
+    {
+
+    }
+}
