@@ -12,7 +12,7 @@ fn blittable() -> Result<()> {
 
     let mut b = Blittable::default();
     b.Bool = true;
-    b.Char =  0x42; // L'B'
+    b.Char =  0x42; // 'B'
     b.UInt8 = 8;
     b.UInt16 = 16;
     b.UInt32 = 32;
@@ -24,7 +24,7 @@ fn blittable() -> Result<()> {
     b.Double = 4.56;
     b.Guid = "97FCC68A-30DE-42C0-AD91-0ADB63F4E934".into();
     
-    assert_eq!(Test::NonZeroBlittable()?, b);
+    assert!(Test::NonZeroBlittable() == b);
 
     Ok(())
 }
