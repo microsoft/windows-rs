@@ -1,5 +1,5 @@
 [package]
-name = "test_winrt_struct"
+name = "test_winrt_classes"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"

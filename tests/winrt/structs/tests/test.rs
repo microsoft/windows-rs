@@ -1,6 +1,6 @@
-use test_winrt_struct::*;
+use test_winrt_structs::*;
 use windows::*;
-use Component::Struct::*;
+use Component::Structs::*;
 
 #[test]
 fn blittable() -> Result<()> {

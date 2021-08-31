@@ -1,7 +1,7 @@
 #pragma once
-#include "Struct.Test.g.h"
+#include "Structs.Test.g.h"
 
-namespace winrt::Component::Struct::implementation
+namespace winrt::Component::Structs::implementation
 {
     struct Test
     {
@@ -36,7 +36,7 @@ namespace winrt::Component::Struct::implementation
         }
     };
 }
-namespace winrt::Component::Struct::factory_implementation
+namespace winrt::Component::Structs::factory_implementation
 {
     struct Test : TestT<Test, implementation::Test>
     {

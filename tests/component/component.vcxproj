@@ -206,10 +206,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes.Activatable.h" />
+    <ClInclude Include="Classes.Creator.h" />
+    <ClInclude Include="Classes.Required.h" />
+    <ClInclude Include="Classes.Static.h" />
     <ClInclude Include="exports.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Simple.Class.h" />
-    <ClInclude Include="Struct.Test.h" />
+    <ClInclude Include="Structs.Test.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="exports.cpp" />

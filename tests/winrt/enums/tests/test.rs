@@ -1,5 +1,5 @@
-use test_winrt_enum::*;
-use Component::Enum::*;
+use test_winrt_enums::*;
+use Component::Enums::*;
 
 #[test]
 fn signed() {

@@ -28,25 +28,48 @@ namespace Component
         };
     }
 
-    namespace Enum
+    namespace Classes
     {
-        enum Signed
+        runtimeclass Static
         {
-            Three = 3,
-            Two = 2,
-            One = 1,
-        };
+            static Int32 Method();
+            static Int32 Property;
+            static Int32 ReadOnly{ get; };
+        }
 
-        [flags]
-        enum Unsigned
+        runtimeclass Activatable
         {
-            Three = 0x100,
-            Two   = 0x010,
-            One   = 0x001
+            Activatable();
+            Activatable(Int32 val); // midl doesn't allow "value" for some reason...
+            Int32 Property{ get; };
+        }
+
+        runtimeclass Creator
+        {
+            static Creator Create(Int32 value);
+            Int32 Property{ get; };
+        }
+
+        runtimeclass Required : [default] Component.Interfaces.IProperty
+        {
+            Required();
+        }
+    }
+
+    namespace Interfaces
+    {
+        interface IProperty
+        {
+            Int32 Property;
         };
     }
 
-    namespace Struct
+    namespace Delegates
+    {
+
+    }
+
+    namespace Structs
     {
         struct Blittable
         {
@@ -82,5 +105,37 @@ namespace Component
             static Blittable ZeroBlittable{ get; };
             static Blittable NonZeroBlittable { get; };
         }
+    }
+
+    namespace Enums
+    {
+        enum Signed
+        {
+            Three = 3,
+            Two = 2,
+            One = 1,
+        };
+
+        [flags]
+        enum Unsigned
+        {
+            Three = 0x100,
+            Two   = 0x010,
+            One   = 0x001
+        };
+    }
+
+    namespace Signatures
+    {
+
+    }
+
+    namespace Collections
+    {
+    }
+
+    namespace Async
+    {
+
     }
 }

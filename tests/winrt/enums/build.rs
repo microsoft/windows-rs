@@ -1,5 +1,5 @@
 fn main() {
     windows::build! {
-        Component::Struct::*,
+        Component::Enums::*,
     };
 }

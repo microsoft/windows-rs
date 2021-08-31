@@ -8,8 +8,24 @@
   <ItemGroup>
     <ClInclude Include="exports.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Simple.Class.h" />
-    <ClInclude Include="Struct.Test.h" />
+    <ClInclude Include="Structs.Test.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Simple.Class.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes.Static.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes.Required.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes.Creator.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes.Activatable.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -18,5 +34,10 @@
   </ItemGroup>
   <ItemGroup>
     <Midl Include="winrt.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="winrt">
+      <UniqueIdentifier>{d7cd0694-5ea2-4baa-910c-3fb9293d9df7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
