@@ -66,11 +66,11 @@ impl WeakRefCount {
             return TearOff::from_encoding(count_or_pointer);
         }
 
-        loop {
-            let tear_off = TearOff::new(object, count_or_pointer as _);
-            let encoding: usize =
-                ((tear_off.abi() as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
+        let tear_off = TearOff::new(object, count_or_pointer as _);
+        let encoding: usize =
+            ((tear_off.abi() as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
 
+        loop {
             match self.0.compare_exchange_weak(
                 count_or_pointer,
                 encoding as _,
