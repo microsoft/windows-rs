@@ -2,8 +2,8 @@ use std::sync::atomic::{AtomicU32, Ordering};
 use std::sync::Arc;
 use windows::*;
 
-const TARGET: u32 = 1_000_000;
-const CONCURRENCY: usize = 16;
+const TARGET: u32 = 100_000;
+const CONCURRENCY: usize = 8;
 const ATOMIC_U32_ZERO: AtomicU32 = AtomicU32::new(0);
 static PROGRESS: [AtomicU32; CONCURRENCY] = [ATOMIC_U32_ZERO; CONCURRENCY];
 
