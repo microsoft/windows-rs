@@ -11,14 +11,13 @@ pub enum Param<'a, T: Abi> {
 }
 
 impl<'a, T: Abi> Param<'a, T> {
-    pub fn abi(&mut self) -> T::Abi {
+    /// # Safety
+    pub unsafe fn abi(&self) -> T::Abi {
         match self {
             Param::Borrowed(value) => value.abi(),
             Param::Owned(value) => value.abi(),
             Param::Boxed(value) => value.abi(),
-            // It is always safe to form an `Abi` type's binary representation from an all-zero
-            // byte-pattern as this represents the null or default state for every type.
-            Param::None => unsafe { std::mem::zeroed() },
+            Param::None => std::mem::zeroed(),
         }
     }
 }
