@@ -26,62 +26,32 @@ impl WeakRefCount {
     }
 
     pub fn add_ref(&self) -> u32 {
-        let count_or_pointer = self.0.load(Ordering::Relaxed);
-
-        loop {
-            if is_weak_ref(count_or_pointer) {
-                unsafe {
-                    return TearOff::decode(count_or_pointer).strong_count.add_ref();
-                }
-            }
-
-            if self
-                .0
-                .compare_exchange_weak(
-                    count_or_pointer,
-                    count_or_pointer + 1,
-                    Ordering::Relaxed,
-                    Ordering::Relaxed,
-                )
-                .is_ok()
-            {
-                return count_or_pointer as u32 + 1;
-            }
-        }
+        self.0
+            .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |count_or_pointer| {
+                (!is_weak_ref(count_or_pointer)).then(|| count_or_pointer + 1)
+            })
+            .map(|u| u as u32 + 1)
+            .unwrap_or_else(|pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() })
     }
 
     pub fn release(&self) -> u32 {
-        let count_or_pointer = self.0.load(Ordering::Relaxed);
+        self.0
+            .fetch_update(Ordering::Release, Ordering::Relaxed, |count_or_pointer| {
+                (!is_weak_ref(count_or_pointer)).then(|| count_or_pointer - 1)
+            })
+            .map(|u| u as u32 - 1)
+            .unwrap_or_else(|pointer| unsafe {
+                let tear_off = TearOff::decode(pointer);
+                let remaining = tear_off.strong_count.release();
 
-        loop {
-            if is_weak_ref(count_or_pointer) {
-                unsafe {
-                    let tear_off = TearOff::decode(count_or_pointer);
-                    let remaining = tear_off.strong_count.release();
-
-                    // If this is the last strong reference, we can release the weak reference implied by the strong reference.
-                    // There may still be weak references, so the WeakRelease is called to handle such possibilities.
-                    if remaining == 0 {
-                        TearOff::WeakRelease(&mut tear_off.weak_vtable as *mut _ as _);
-                    }
-
-                    return remaining;
+                // If this is the last strong reference, we can release the weak reference implied by the strong reference.
+                // There may still be weak references, so the WeakRelease is called to handle such possibilities.
+                if remaining == 0 {
+                    TearOff::WeakRelease(&mut tear_off.weak_vtable as *mut _ as _);
                 }
-            }
 
-            if self
-                .0
-                .compare_exchange_weak(
-                    count_or_pointer,
-                    count_or_pointer - 1,
-                    Ordering::Release,
-                    Ordering::Relaxed,
-                )
-                .is_ok()
-            {
-                return count_or_pointer as u32 - 1;
-            }
-        }
+                remaining
+            })
     }
 
     /// # Safety
@@ -90,7 +60,7 @@ impl WeakRefCount {
             return std::ptr::null_mut();
         }
 
-        let count_or_pointer = self.0.load(Ordering::Relaxed);
+        let mut count_or_pointer = self.0.load(Ordering::Relaxed);
 
         if is_weak_ref(count_or_pointer) {
             return TearOff::from_encoding(count_or_pointer);
@@ -101,19 +71,18 @@ impl WeakRefCount {
             ((tear_off.abi() as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
 
         loop {
-            if self
-                .0
-                .compare_exchange_weak(
-                    count_or_pointer,
-                    encoding as _,
-                    Ordering::AcqRel,
-                    Ordering::Relaxed,
-                )
-                .is_ok()
-            {
-                let result: RawPtr = std::mem::transmute(tear_off);
-                TearOff::from_strong_ptr(result).strong_count.add_ref();
-                return result;
+            match self.0.compare_exchange_weak(
+                count_or_pointer,
+                encoding as _,
+                Ordering::AcqRel,
+                Ordering::Relaxed,
+            ) {
+                Ok(_) => {
+                    let result: RawPtr = std::mem::transmute(tear_off);
+                    TearOff::from_strong_ptr(result).strong_count.add_ref();
+                    return result;
+                }
+                Err(pointer) => count_or_pointer = pointer,
             }
 
             if is_weak_ref(count_or_pointer) {
@@ -292,29 +261,24 @@ impl TearOff {
     ) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
-        let count = this.strong_count.0.load(Ordering::Relaxed);
-
-        loop {
-            if count == 0 {
-                *interface = std::ptr::null_mut();
-                return HRESULT(0);
-            }
-
-            // Attempt to acquire a strong reference count to stabilize the object for the duration
-            // of the `QueryInterface` call.
-            if this
-                .strong_count
-                .0
-                .compare_exchange_weak(count, count + 1, Ordering::Acquire, Ordering::Relaxed)
-                .is_ok()
-            {
+        this.strong_count
+            .0
+            .fetch_update(Ordering::Acquire, Ordering::Relaxed, |count| {
+                // Attempt to acquire a strong reference count to stabilize the object for the duration
+                // of the `QueryInterface` call.
+                (count != 0).then(|| count + 1)
+            })
+            .map(|_| {
                 // Let the object respond to the upgrade query.
                 let result = this.query_interface(iid, interface);
                 // Decrement the temporary reference account used to stabilize the object.
                 this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
                 // Return the result of the query.
-                return result;
-            }
-        }
+                result
+            })
+            .unwrap_or_else(|_| {
+                *interface = std::ptr::null_mut();
+                HRESULT(0)
+            })
     }
 }
