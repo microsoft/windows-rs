@@ -131,11 +131,6 @@ namespace Component
         };
     }
 
-    namespace Signatures
-    {
-
-    }
-
     namespace Collections
     {
     }
@@ -143,5 +138,23 @@ namespace Component
     namespace Async
     {
 
+    }
+
+    namespace Signatures
+    {
+        delegate Boolean Signature1(Boolean a, out Boolean b);
+
+        delegate Boolean[] ArraySignature1(Boolean[] a, ref Boolean[] b, out Boolean[] c);
+
+        runtimeclass Test
+        {
+            static Boolean Signature1(Boolean a, out Boolean b);
+
+            static Boolean[] ArraySignature1(Boolean[] a, ref Boolean[] b, out Boolean[] c);
+
+            static void CallSignature1(Signature1 handler);
+
+            static void CallArraySignature1(ArraySignature1 handler);
+        }
     }
 }

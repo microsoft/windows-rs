@@ -29,6 +29,9 @@
     <ClInclude Include="Classes.NoWeakRef.h">
       <Filter>winrt</Filter>
     </ClInclude>
+    <ClInclude Include="Signatures.Test.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
