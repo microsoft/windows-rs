@@ -8,7 +8,7 @@ The `windows` crate lets you call any Windows API past, present, and future usin
 
 Watch the [Getting Started](https://www.youtube.com/watch?v=-oZrsCPKsn4) video! Microsoft Docs also has content on [developing with Rust on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/rust/). Check out the [FAQ](../docs/faq.md) for answers to frequently asked questions.
 
-Looking for specific APIs? The default set of [APIs are documented here](https://microsoft.github.io/windows-docs-rs/). 
+Looking for specific APIs? The default set of [APIs are searchable and documented here](https://microsoft.github.io/windows-docs-rs/). 
 
 ## Getting started
 
