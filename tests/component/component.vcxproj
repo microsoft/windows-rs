@@ -213,6 +213,7 @@
     <ClInclude Include="Classes.Static.h" />
     <ClInclude Include="exports.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Signatures.Test.h" />
     <ClInclude Include="Simple.Class.h" />
     <ClInclude Include="Structs.Test.h" />
   </ItemGroup>

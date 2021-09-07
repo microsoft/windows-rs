@@ -1,6 +1,7 @@
 use test_winrt_classes::*;
 use windows::*;
 use Component::Classes::*;
+use Component::Interfaces::*;
 
 #[test]
 fn static_class() -> Result<()> {
@@ -40,6 +41,14 @@ fn required() -> Result<()> {
     assert!(c.Property()? == 0);
     c.SetProperty(123)?;
     assert!(c.Property()? == 123);
+
+    let r: IProperty = c.cast()?;
+    assert!(r.Property()? == 123);
+    r.SetProperty(456)?;
+    assert!(c.Property()? == 456);
+
+    let r: IProperty = c.into();
+    assert!(r.Property()? == 456);
 
     Ok(())
 }

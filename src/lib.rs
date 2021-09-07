@@ -29,7 +29,8 @@ pub use interfaces::{IActivationFactory, IInspectable_abi};
 pub use interfaces::{IInspectable, IUnknown};
 pub use result::{Error, Result, HRESULT};
 pub use runtime::{
-    factory, Array, FactoryCache, Guid, Param, RefCount, Waiter, Weak, WeakRefCount, HSTRING,
+    factory, Array, ArrayProxy, FactoryCache, Guid, Param, RefCount, Waiter, Weak, WeakRefCount,
+    HSTRING,
 };
 pub use traits::*;
 

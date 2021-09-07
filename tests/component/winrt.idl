@@ -131,11 +131,6 @@ namespace Component
         };
     }
 
-    namespace Signatures
-    {
-
-    }
-
     namespace Collections
     {
     }
@@ -143,5 +138,107 @@ namespace Component
     namespace Async
     {
 
+    }
+
+    namespace Signatures
+    {
+        delegate Boolean SignatureBoolean(Boolean a, out Boolean b);
+        delegate Boolean[] ArraySignatureBoolean(Boolean[] a, ref Boolean[] b, out Boolean[] c);
+    
+        delegate UInt8 SignatureUInt8(UInt8 a, out UInt8 b);
+        delegate UInt8[] ArraySignatureUInt8(UInt8[] a, ref UInt8[] b, out UInt8[] c);
+
+        delegate UInt16 SignatureUInt16(UInt16 a, out UInt16 b);
+        delegate UInt16[] ArraySignatureUInt16(UInt16[] a, ref UInt16[] b, out UInt16[] c);
+
+        delegate UInt32 SignatureUInt32(UInt32 a, out UInt32 b);
+        delegate UInt32[] ArraySignatureUInt32(UInt32[] a, ref UInt32[] b, out UInt32[] c);
+
+        delegate UInt64 SignatureUInt64(UInt64 a, out UInt64 b);
+        delegate UInt64[] ArraySignatureUInt64(UInt64[] a, ref UInt64[] b, out UInt64[] c);
+
+        delegate Int16 SignatureInt16(Int16 a, out Int16 b);
+        delegate Int16[] ArraySignatureInt16(Int16[] a, ref Int16[] b, out Int16[] c);
+
+        delegate Int32 SignatureInt32(Int32 a, out Int32 b);
+        delegate Int32[] ArraySignatureInt32(Int32[] a, ref Int32[] b, out Int32[] c);
+
+        delegate Int64 SignatureInt64(Int64 a, out Int64 b);
+        delegate Int64[] ArraySignatureInt64(Int64[] a, ref Int64[] b, out Int64[] c);
+
+        delegate Single SignatureSingle(Single a, out Single b);
+        delegate Single[] ArraySignatureSingle(Single[] a, ref Single[] b, out Single[] c);
+
+        delegate Double SignatureDouble(Double a, out Double b);
+        delegate Double[] ArraySignatureDouble(Double[] a, ref Double[] b, out Double[] c);
+
+        delegate Char SignatureChar(Char a, out Char b);
+        delegate Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
+
+        delegate String SignatureString(String a, out String b);
+        delegate String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
+
+        runtimeclass Test
+        {
+            static Boolean SignatureBoolean(Boolean a, out Boolean b);
+            static Boolean[] ArraySignatureBoolean(Boolean[] a, ref Boolean[] b, out Boolean[] c);
+            static void CallSignatureBoolean(SignatureBoolean handler);
+            static void CallArraySignatureBoolean(ArraySignatureBoolean handler);
+
+            static UInt8 SignatureUInt8(UInt8 a, out UInt8 b);
+            static UInt8[] ArraySignatureUInt8(UInt8[] a, ref UInt8[] b, out UInt8[] c);
+            static void CallSignatureUInt8(SignatureUInt8 handler);
+            static void CallArraySignatureUInt8(ArraySignatureUInt8 handler);
+
+            static UInt16 SignatureUInt16(UInt16 a, out UInt16 b);
+            static UInt16[] ArraySignatureUInt16(UInt16[] a, ref UInt16[] b, out UInt16[] c);
+            static void CallSignatureUInt16(SignatureUInt16 handler);
+            static void CallArraySignatureUInt16(ArraySignatureUInt16 handler);
+
+            static UInt32 SignatureUInt32(UInt32 a, out UInt32 b);
+            static UInt32[] ArraySignatureUInt32(UInt32[] a, ref UInt32[] b, out UInt32[] c);
+            static void CallSignatureUInt32(SignatureUInt32 handler);
+            static void CallArraySignatureUInt32(ArraySignatureUInt32 handler);
+
+            static UInt64 SignatureUInt64(UInt64 a, out UInt64 b);
+            static UInt64[] ArraySignatureUInt64(UInt64[] a, ref UInt64[] b, out UInt64[] c);
+            static void CallSignatureUInt64(SignatureUInt64 handler);
+            static void CallArraySignatureUInt64(ArraySignatureUInt64 handler);
+
+            static Int16 SignatureInt16(Int16 a, out Int16 b);
+            static Int16[] ArraySignatureInt16(Int16[] a, ref Int16[] b, out Int16[] c);
+            static void CallSignatureInt16(SignatureInt16 handler);
+            static void CallArraySignatureInt16(ArraySignatureInt16 handler);
+
+            static Int32 SignatureInt32(Int32 a, out Int32 b);
+            static Int32[] ArraySignatureInt32(Int32[] a, ref Int32[] b, out Int32[] c);
+            static void CallSignatureInt32(SignatureInt32 handler);
+            static void CallArraySignatureInt32(ArraySignatureInt32 handler);
+
+            static Int64 SignatureInt64(Int64 a, out Int64 b);
+            static Int64[] ArraySignatureInt64(Int64[] a, ref Int64[] b, out Int64[] c);
+            static void CallSignatureInt64(SignatureInt64 handler);
+            static void CallArraySignatureInt64(ArraySignatureInt64 handler);
+
+            static Single SignatureSingle(Single a, out Single b);
+            static Single[] ArraySignatureSingle(Single[] a, ref Single[] b, out Single[] c);
+            static void CallSignatureSingle(SignatureSingle handler);
+            static void CallArraySignatureSingle(ArraySignatureSingle handler);
+
+            static Double SignatureDouble(Double a, out Double b);
+            static Double[] ArraySignatureDouble(Double[] a, ref Double[] b, out Double[] c);
+            static void CallSignatureDouble(SignatureDouble handler);
+            static void CallArraySignatureDouble(ArraySignatureDouble handler);
+
+            static Char SignatureChar(Char a, out Char b);
+            static Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
+            static void CallSignatureChar(SignatureChar handler);
+            static void CallArraySignatureChar(ArraySignatureChar handler);
+
+            static String SignatureString(String a, out String b);
+            static String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
+            static void CallSignatureString(SignatureString handler);
+            static void CallArraySignatureString(ArraySignatureString handler);
+        }
     }
 }

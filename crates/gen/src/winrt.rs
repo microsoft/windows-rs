@@ -85,11 +85,16 @@ pub fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_name(&param.signature.kind, gen);
 
-    // TODO: This compiles but doesn't property handle delegates with array parameters.
-    // https://github.com/microsoft/windows-rs/issues/212
-
     if param.signature.is_array {
-        quote! { ::std::mem::transmute_copy(&#name) }
+        let abi_size_name = to_ident(&format!("{}_array_size", param.param.name()));
+
+        if param.param.is_input() {
+            quote! { ::std::slice::from_raw_parts(::std::mem::transmute_copy(&#name), #abi_size_name as _) }
+        } else if param.signature.by_ref {
+            quote! { ::windows::ArrayProxy::from_raw_parts(::std::mem::transmute_copy(&#name), #abi_size_name).as_array() }
+        } else {
+            quote! { ::std::slice::from_raw_parts_mut(::std::mem::transmute_copy(&#name), #abi_size_name as _) }
+        }
     } else if param.param.is_input() {
         if param.signature.kind.is_primitive() {
             quote! { #name }

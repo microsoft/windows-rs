@@ -145,6 +145,36 @@ impl<T: RuntimeType> Drop for Array<T> {
     }
 }
 
+#[doc(hidden)]
+pub struct ArrayProxy<T: RuntimeType> {
+    data: *mut *mut T::DefaultType,
+    len: *mut u32,
+    temp: std::mem::ManuallyDrop<Array<T>>,
+}
+
+impl<T: RuntimeType> ArrayProxy<T> {
+    pub fn from_raw_parts(data: *mut *mut T::DefaultType, len: *mut u32) -> Self {
+        Self {
+            data,
+            len,
+            temp: std::mem::ManuallyDrop::new(Array::new()),
+        }
+    }
+
+    pub fn as_array(&mut self) -> &mut Array<T> {
+        &mut self.temp
+    }
+}
+
+impl<T: RuntimeType> Drop for ArrayProxy<T> {
+    fn drop(&mut self) {
+        unsafe {
+            *self.data = self.temp.data;
+            *self.len = self.temp.len;
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
