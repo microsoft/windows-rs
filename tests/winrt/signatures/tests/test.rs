@@ -1,17 +1,19 @@
+#![allow(non_snake_case)]
+
 use test_winrt_signatures::*;
 use windows::*;
 use Component::Signatures::*;
 
 #[test]
-fn signature1() -> Result<()> {
+fn SignatureBoolean() -> Result<()> {
     let a = true;
     let mut b = false;
-    let c = Test::Signature1(a, &mut b)?;
+    let c = Test::SignatureBoolean(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignature1(Signature1::new(|a, b| {
+    Test::CallSignatureBoolean(SignatureBoolean::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -20,18 +22,18 @@ fn signature1() -> Result<()> {
 }
 
 #[test]
-fn array_signature1() -> Result<()> {
+fn ArraySignatureBoolean() -> Result<()> {
     let a = [true, false, true];
     let mut b = [false; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignature1(&a, &mut b, &mut c)?;
+    let d = Test::ArraySignatureBoolean(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignature1(ArraySignature1::new(|a, b, c| {
+    Test::CallArraySignatureBoolean(ArraySignatureBoolean::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -47,15 +49,15 @@ fn array_signature1() -> Result<()> {
 }
 
 #[test]
-fn signature2() -> Result<()> {
+fn SignatureUInt8() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::Signature2(a, &mut b)?;
+    let c = Test::SignatureUInt8(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignature2(Signature2::new(|a, b| {
+    Test::CallSignatureUInt8(SignatureUInt8::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -64,18 +66,18 @@ fn signature2() -> Result<()> {
 }
 
 #[test]
-fn array_signature2() -> Result<()> {
+fn ArraySignatureUInt8() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignature2(&a, &mut b, &mut c)?;
+    let d = Test::ArraySignatureUInt8(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignature2(ArraySignature2::new(|a, b, c| {
+    Test::CallArraySignatureUInt8(ArraySignatureUInt8::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -91,15 +93,15 @@ fn array_signature2() -> Result<()> {
 }
 
 #[test]
-fn signature3() -> Result<()> {
+fn SignatureUInt16() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::Signature3(a, &mut b)?;
+    let c = Test::SignatureUInt16(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignature3(Signature3::new(|a, b| {
+    Test::CallSignatureUInt16(SignatureUInt16::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -108,18 +110,18 @@ fn signature3() -> Result<()> {
 }
 
 #[test]
-fn array_signature3() -> Result<()> {
+fn ArraySignatureUInt16() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignature3(&a, &mut b, &mut c)?;
+    let d = Test::ArraySignatureUInt16(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignature3(ArraySignature3::new(|a, b, c| {
+    Test::CallArraySignatureUInt16(ArraySignatureUInt16::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -135,15 +137,15 @@ fn array_signature3() -> Result<()> {
 }
 
 #[test]
-fn signature4() -> Result<()> {
+fn SignatureUInt32() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::Signature4(a, &mut b)?;
+    let c = Test::SignatureUInt32(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignature4(Signature4::new(|a, b| {
+    Test::CallSignatureUInt32(SignatureUInt32::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -152,18 +154,18 @@ fn signature4() -> Result<()> {
 }
 
 #[test]
-fn array_signature4() -> Result<()> {
+fn ArraySignatureUInt32() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignature4(&a, &mut b, &mut c)?;
+    let d = Test::ArraySignatureUInt32(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignature4(ArraySignature4::new(|a, b, c| {
+    Test::CallArraySignatureUInt32(ArraySignatureUInt32::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -179,15 +181,15 @@ fn array_signature4() -> Result<()> {
 }
 
 #[test]
-fn signature5() -> Result<()> {
+fn SignatureUInt64() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::Signature5(a, &mut b)?;
+    let c = Test::SignatureUInt64(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignature5(Signature5::new(|a, b| {
+    Test::CallSignatureUInt64(SignatureUInt64::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -196,18 +198,18 @@ fn signature5() -> Result<()> {
 }
 
 #[test]
-fn array_signature5() -> Result<()> {
+fn ArraySignatureUInt64() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignature5(&a, &mut b, &mut c)?;
+    let d = Test::ArraySignatureUInt64(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignature5(ArraySignature5::new(|a, b, c| {
+    Test::CallArraySignatureUInt64(ArraySignatureUInt64::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -223,15 +225,15 @@ fn array_signature5() -> Result<()> {
 }
 
 #[test]
-fn signature6() -> Result<()> {
+fn SignatureInt16() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::Signature6(a, &mut b)?;
+    let c = Test::SignatureInt16(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignature6(Signature6::new(|a, b| {
+    Test::CallSignatureInt16(SignatureInt16::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -240,18 +242,18 @@ fn signature6() -> Result<()> {
 }
 
 #[test]
-fn array_signature6() -> Result<()> {
+fn ArraySignatureInt16() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignature6(&a, &mut b, &mut c)?;
+    let d = Test::ArraySignatureInt16(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignature6(ArraySignature6::new(|a, b, c| {
+    Test::CallArraySignatureInt16(ArraySignatureInt16::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -267,15 +269,15 @@ fn array_signature6() -> Result<()> {
 }
 
 #[test]
-fn signature7() -> Result<()> {
+fn SignatureInt32() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::Signature7(a, &mut b)?;
+    let c = Test::SignatureInt32(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignature7(Signature7::new(|a, b| {
+    Test::CallSignatureInt32(SignatureInt32::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -284,18 +286,18 @@ fn signature7() -> Result<()> {
 }
 
 #[test]
-fn array_signature7() -> Result<()> {
+fn ArraySignatureInt32() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignature7(&a, &mut b, &mut c)?;
+    let d = Test::ArraySignatureInt32(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignature7(ArraySignature7::new(|a, b, c| {
+    Test::CallArraySignatureInt32(ArraySignatureInt32::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -311,15 +313,15 @@ fn array_signature7() -> Result<()> {
 }
 
 #[test]
-fn signature8() -> Result<()> {
+fn SignatureInt64() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::Signature8(a, &mut b)?;
+    let c = Test::SignatureInt64(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignature8(Signature8::new(|a, b| {
+    Test::CallSignatureInt64(SignatureInt64::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -328,18 +330,18 @@ fn signature8() -> Result<()> {
 }
 
 #[test]
-fn array_signature8() -> Result<()> {
+fn ArraySignatureInt64() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignature8(&a, &mut b, &mut c)?;
+    let d = Test::ArraySignatureInt64(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignature8(ArraySignature8::new(|a, b, c| {
+    Test::CallArraySignatureInt64(ArraySignatureInt64::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
