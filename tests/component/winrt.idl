@@ -151,6 +151,12 @@ namespace Component
         delegate UInt16 Signature3(UInt16 a, out UInt16 b);
         delegate UInt16[] ArraySignature3(UInt16[] a, ref UInt16[] b, out UInt16[] c);
 
+        delegate UInt32 Signature4(UInt32 a, out UInt32 b);
+        delegate UInt32[] ArraySignature4(UInt32[] a, ref UInt32[] b, out UInt32[] c);
+
+        delegate UInt64 Signature5(UInt64 a, out UInt64 b);
+        delegate UInt64[] ArraySignature5(UInt64[] a, ref UInt64[] b, out UInt64[] c);
+
         runtimeclass Test
         {
             static Boolean Signature1(Boolean a, out Boolean b);
@@ -167,6 +173,16 @@ namespace Component
             static UInt16[] ArraySignature3(UInt16[] a, ref UInt16[] b, out UInt16[] c);
             static void CallSignature3(Signature3 handler);
             static void CallArraySignature3(ArraySignature3 handler);
+
+            static UInt32 Signature4(UInt32 a, out UInt32 b);
+            static UInt32[] ArraySignature4(UInt32[] a, ref UInt32[] b, out UInt32[] c);
+            static void CallSignature4(Signature4 handler);
+            static void CallArraySignature4(ArraySignature4 handler);
+
+            static UInt64 Signature5(UInt64 a, out UInt64 b);
+            static UInt64[] ArraySignature5(UInt64[] a, ref UInt64[] b, out UInt64[] c);
+            static void CallSignature5(Signature5 handler);
+            static void CallArraySignature5(ArraySignature5 handler);
         }
     }
 }

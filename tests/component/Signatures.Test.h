@@ -110,6 +110,70 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
+
+        static uint32_t Signature4(uint32_t a, uint32_t& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<uint32_t> ArraySignature4(array_view<uint32_t const> a, array_view<uint32_t> b, com_array<uint32_t>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<uint32_t>(a.begin(), a.end());
+            return com_array<uint32_t>(a.begin(), a.end());
+        }
+        static void CallSignature4(winrt::Component::Signatures::Signature4 const& handler)
+        {
+            uint32_t a = 123;
+            uint32_t b = 0;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignature4(winrt::Component::Signatures::ArraySignature4 const& handler)
+        {
+            std::array<uint32_t, 3> a{ 1, 2, 3 };
+            std::array<uint32_t, 3> b;
+            com_array<uint32_t> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static uint64_t Signature5(uint64_t a, uint64_t& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<uint64_t> ArraySignature5(array_view<uint64_t const> a, array_view<uint64_t> b, com_array<uint64_t>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<uint64_t>(a.begin(), a.end());
+            return com_array<uint64_t>(a.begin(), a.end());
+        }
+        static void CallSignature5(winrt::Component::Signatures::Signature5 const& handler)
+        {
+            uint64_t a = 123;
+            uint64_t b = 0;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignature5(winrt::Component::Signatures::ArraySignature5 const& handler)
+        {
+            std::array<uint64_t, 3> a{ 1, 2, 3 };
+            std::array<uint64_t, 3> b;
+            com_array<uint64_t> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
     };
 }
 namespace winrt::Component::Signatures::factory_implementation
