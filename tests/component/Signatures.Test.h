@@ -270,6 +270,102 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
+
+        static float SignatureSingle(float a, float& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<float> ArraySignatureSingle(array_view<float const> a, array_view<float> b, com_array<float>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<float>(a.begin(), a.end());
+            return com_array<float>(a.begin(), a.end());
+        }
+        static void CallSignatureSingle(winrt::Component::Signatures::SignatureSingle const& handler)
+        {
+            float a = 123.0f;
+            float b = 0.0f;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureSingle(winrt::Component::Signatures::ArraySignatureSingle const& handler)
+        {
+            std::array<float, 3> a{ 1.0f, 2.0f, 3.0f };
+            std::array<float, 3> b;
+            com_array<float> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static double SignatureDouble(double a, double& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<double> ArraySignatureDouble(array_view<double const> a, array_view<double> b, com_array<double>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<double>(a.begin(), a.end());
+            return com_array<double>(a.begin(), a.end());
+        }
+        static void CallSignatureDouble(winrt::Component::Signatures::SignatureDouble const& handler)
+        {
+            double a = 123.0;
+            double b = 0.0;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureDouble(winrt::Component::Signatures::ArraySignatureDouble const& handler)
+        {
+            std::array<double, 3> a{ 1.0, 2.0, 3.0 };
+            std::array<double, 3> b;
+            com_array<double> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static char16_t SignatureChar(char16_t a, char16_t& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<char16_t> ArraySignatureChar(array_view<char16_t const> a, array_view<char16_t> b, com_array<char16_t>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<char16_t>(a.begin(), a.end());
+            return com_array<char16_t>(a.begin(), a.end());
+        }
+        static void CallSignatureChar(winrt::Component::Signatures::SignatureChar const& handler)
+        {
+            char16_t a = L'A';
+            char16_t b = L' ';
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureChar(winrt::Component::Signatures::ArraySignatureChar const& handler)
+        {
+            std::array<char16_t, 3> a{ L'A', 'b', 'c'};
+            std::array<char16_t, 3> b;
+            com_array<char16_t> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
     };
 }
 namespace winrt::Component::Signatures::factory_implementation

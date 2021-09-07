@@ -166,6 +166,15 @@ namespace Component
         delegate Int64 SignatureInt64(Int64 a, out Int64 b);
         delegate Int64[] ArraySignatureInt64(Int64[] a, ref Int64[] b, out Int64[] c);
 
+        delegate Single SignatureSingle(Single a, out Single b);
+        delegate Single[] ArraySignatureSingle(Single[] a, ref Single[] b, out Single[] c);
+
+        delegate Double SignatureDouble(Double a, out Double b);
+        delegate Double[] ArraySignatureDouble(Double[] a, ref Double[] b, out Double[] c);
+
+        delegate Char SignatureChar(Char a, out Char b);
+        delegate Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
+
         runtimeclass Test
         {
             static Boolean SignatureBoolean(Boolean a, out Boolean b);
@@ -207,6 +216,21 @@ namespace Component
             static Int64[] ArraySignatureInt64(Int64[] a, ref Int64[] b, out Int64[] c);
             static void CallSignatureInt64(SignatureInt64 handler);
             static void CallArraySignatureInt64(ArraySignatureInt64 handler);
+
+            static Single SignatureSingle(Single a, out Single b);
+            static Single[] ArraySignatureSingle(Single[] a, ref Single[] b, out Single[] c);
+            static void CallSignatureSingle(SignatureSingle handler);
+            static void CallArraySignatureSingle(ArraySignatureSingle handler);
+
+            static Double SignatureDouble(Double a, out Double b);
+            static Double[] ArraySignatureDouble(Double[] a, ref Double[] b, out Double[] c);
+            static void CallSignatureDouble(SignatureDouble handler);
+            static void CallArraySignatureDouble(ArraySignatureDouble handler);
+
+            static Char SignatureChar(Char a, out Char b);
+            static Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
+            static void CallSignatureChar(SignatureChar handler);
+            static void CallArraySignatureChar(ArraySignatureChar handler);
         }
     }
 }

@@ -355,3 +355,135 @@ fn ArraySignatureInt64() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn SignatureSingle() -> Result<()> {
+    let a = 123.0;
+    let mut b = 0.0;
+    let c = Test::SignatureSingle(a, &mut b)?;
+
+    assert!(a == b);
+    assert!(a == c);
+
+    Test::CallSignatureSingle(SignatureSingle::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn ArraySignatureSingle() -> Result<()> {
+    let a = [1.0, 2.0, 3.0];
+    let mut b = [0.0; 3];
+    let mut c = Array::new();
+    let d = Test::ArraySignatureSingle(&a, &mut b, &mut c)?;
+
+    assert!(a == b);
+    // TODO: should `a == c` be sufficient? Does that work for Vec?
+    assert!(a == c[..]);
+    assert!(a == d[..]);
+
+    Test::CallArraySignatureSingle(ArraySignatureSingle::new(|a, b, c| {
+        assert!(a.len() == b.len());
+        assert!(c.is_empty());
+        b.copy_from_slice(a);
+        // TODO: need a more convenient/idiomatic way to create arrays?
+        *c = Array::with_len(a.len());
+        c.copy_from_slice(a);
+        let mut d = Array::with_len(a.len());
+        d.copy_from_slice(a);
+        Ok(d)
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn SignatureDouble() -> Result<()> {
+    let a = 123.0;
+    let mut b = 0.0;
+    let c = Test::SignatureDouble(a, &mut b)?;
+
+    assert!(a == b);
+    assert!(a == c);
+
+    Test::CallSignatureDouble(SignatureDouble::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn ArraySignatureDouble() -> Result<()> {
+    let a = [1.0, 2.0, 3.0];
+    let mut b = [0.0; 3];
+    let mut c = Array::new();
+    let d = Test::ArraySignatureDouble(&a, &mut b, &mut c)?;
+
+    assert!(a == b);
+    // TODO: should `a == c` be sufficient? Does that work for Vec?
+    assert!(a == c[..]);
+    assert!(a == d[..]);
+
+    Test::CallArraySignatureDouble(ArraySignatureDouble::new(|a, b, c| {
+        assert!(a.len() == b.len());
+        assert!(c.is_empty());
+        b.copy_from_slice(a);
+        // TODO: need a more convenient/idiomatic way to create arrays?
+        *c = Array::with_len(a.len());
+        c.copy_from_slice(a);
+        let mut d = Array::with_len(a.len());
+        d.copy_from_slice(a);
+        Ok(d)
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn SignatureChar() -> Result<()> {
+    let a = 123;
+    let mut b = 0;
+    let c = Test::SignatureChar(a, &mut b)?;
+
+    assert!(a == b);
+    assert!(a == c);
+
+    Test::CallSignatureChar(SignatureChar::new(|a, b| {
+        *b = a;
+        Ok(a)
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn ArraySignatureChar() -> Result<()> {
+    let a = [1, 2, 3];
+    let mut b = [0; 3];
+    let mut c = Array::new();
+    let d = Test::ArraySignatureChar(&a, &mut b, &mut c)?;
+
+    assert!(a == b);
+    // TODO: should `a == c` be sufficient? Does that work for Vec?
+    assert!(a == c[..]);
+    assert!(a == d[..]);
+
+    Test::CallArraySignatureChar(ArraySignatureChar::new(|a, b, c| {
+        assert!(a.len() == b.len());
+        assert!(c.is_empty());
+        b.copy_from_slice(a);
+        // TODO: need a more convenient/idiomatic way to create arrays?
+        *c = Array::with_len(a.len());
+        c.copy_from_slice(a);
+        let mut d = Array::with_len(a.len());
+        d.copy_from_slice(a);
+        Ok(d)
+    }))?;
+
+    Ok(())
+}
