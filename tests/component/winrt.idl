@@ -148,6 +148,9 @@ namespace Component
         delegate UInt8 Signature2(UInt8 a, out UInt8 b);
         delegate UInt8[] ArraySignature2(UInt8[] a, ref UInt8[] b, out UInt8[] c);
 
+        delegate UInt16 Signature3(UInt16 a, out UInt16 b);
+        delegate UInt16[] ArraySignature3(UInt16[] a, ref UInt16[] b, out UInt16[] c);
+
         runtimeclass Test
         {
             static Boolean Signature1(Boolean a, out Boolean b);
@@ -159,6 +162,11 @@ namespace Component
             static UInt8[] ArraySignature2(UInt8[] a, ref UInt8[] b, out UInt8[] c);
             static void CallSignature2(Signature2 handler);
             static void CallArraySignature2(ArraySignature2 handler);
+
+            static UInt16 Signature3(UInt16 a, out UInt16 b);
+            static UInt16[] ArraySignature3(UInt16[] a, ref UInt16[] b, out UInt16[] c);
+            static void CallSignature3(Signature3 handler);
+            static void CallArraySignature3(ArraySignature3 handler);
         }
     }
 }
