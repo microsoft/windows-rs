@@ -181,6 +181,9 @@ namespace Component
         delegate Guid SignatureGuid(Guid a, out Guid b);
         delegate Guid[] ArraySignatureGuid(Guid[] a, ref Guid[] b, out Guid[] c);
 
+        delegate HRESULT SignatureHResult(HRESULT a, out HRESULT b);
+        delegate HRESULT[] ArraySignatureHResult(HRESULT[] a, ref HRESULT[] b, out HRESULT[] c);
+
         runtimeclass Test
         {
             static Boolean SignatureBoolean(Boolean a, out Boolean b);
@@ -247,6 +250,11 @@ namespace Component
             static Guid[] ArraySignatureGuid(Guid[] a, ref Guid[] b, out Guid[] c);
             static void CallSignatureGuid(SignatureGuid handler);
             static void CallArraySignatureGuid(ArraySignatureGuid handler);
+
+            static HRESULT SignatureHResult(HRESULT a, out HRESULT b);
+            static HRESULT[] ArraySignatureHResult(HRESULT[] a, ref HRESULT[] b, out HRESULT[] c);
+            static void CallSignatureHResult(SignatureHResult handler);
+            static void CallArraySignatureHResult(ArraySignatureHResult handler);
         }
     }
 }

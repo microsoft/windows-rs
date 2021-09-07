@@ -430,6 +430,38 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
+
+        static hresult SignatureHResult(hresult const& a, hresult& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<hresult> ArraySignatureHResult(array_view<hresult const> a, array_view<hresult> b, com_array<hresult>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<hresult>(a.begin(), a.end());
+            return com_array<hresult>(a.begin(), a.end());
+        }
+        static void CallSignatureHResult(winrt::Component::Signatures::SignatureHResult const& handler)
+        {
+            hresult a = E_INVALIDARG;
+            hresult b;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureHResult(winrt::Component::Signatures::ArraySignatureHResult const& handler)
+        {
+            std::array<hresult, 3> a{ E_NOINTERFACE, E_INVALIDARG, S_OK };
+            std::array<hresult, 3> b;
+            com_array<hresult> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
     };
 }
 namespace winrt::Component::Signatures::factory_implementation

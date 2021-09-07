@@ -3,6 +3,7 @@
 use test_winrt_signatures::*;
 use windows::*;
 use Component::Signatures::*;
+use Windows::Win32::Foundation::*;
 
 #[test]
 fn SignatureBoolean() -> Result<()> {
@@ -562,6 +563,50 @@ fn ArraySignatureGuid() -> Result<()> {
     assert!(a == d[..]);
 
     Test::CallArraySignatureGuid(ArraySignatureGuid::new(|a, b, c| {
+        assert!(a.len() == b.len());
+        assert!(c.is_empty());
+        b.clone_from_slice(a);
+        // TODO: need a more convenient/idiomatic way to create arrays?
+        *c = Array::with_len(a.len());
+        c.clone_from_slice(a);
+        let mut d = Array::with_len(a.len());
+        d.clone_from_slice(a);
+        Ok(d)
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn SignatureHResult() -> Result<()> {
+    let a = E_NOINTERFACE;
+    let mut b = S_FALSE;
+    let c = Test::SignatureHResult(a, &mut b)?;
+
+    assert!(a == b);
+    assert!(a == c);
+
+    Test::CallSignatureHResult(SignatureHResult::new(|a, b| {
+        *b = a.clone();
+        Ok(a.clone())
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn ArraySignatureHResult() -> Result<()> {
+    let a = [E_NOINTERFACE, S_OK, E_POINTER];
+    let mut b = [S_FALSE, S_FALSE, S_FALSE];
+    let mut c = Array::new();
+    let d = Test::ArraySignatureHResult(&a, &mut b, &mut c)?;
+
+    assert!(a == b);
+    // TODO: should `a == c` be sufficient? Does that work for Vec?
+    assert!(a == c[..]);
+    assert!(a == d[..]);
+
+    Test::CallArraySignatureHResult(ArraySignatureHResult::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
