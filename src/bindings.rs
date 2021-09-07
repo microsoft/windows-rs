@@ -1,5 +1,4 @@
 #[allow(
-    unused_variables,
     non_upper_case_globals,
     non_snake_case,
     unused_unsafe,
@@ -9,7 +8,6 @@
 )]
 pub mod Windows {
     #[allow(
-        unused_variables,
         non_upper_case_globals,
         non_snake_case,
         unused_unsafe,
@@ -2555,7 +2553,6 @@ pub mod Windows {
         }
     }
     #[allow(
-        unused_variables,
         non_upper_case_globals,
         non_snake_case,
         unused_unsafe,
@@ -2565,7 +2562,6 @@ pub mod Windows {
     )]
     pub mod Win32 {
         #[allow(
-            unused_variables,
             non_upper_case_globals,
             non_snake_case,
             unused_unsafe,
@@ -3057,7 +3053,6 @@ pub mod Windows {
             }
         }
         #[allow(
-            unused_variables,
             non_upper_case_globals,
             non_snake_case,
             unused_unsafe,
@@ -3106,7 +3101,6 @@ pub mod Windows {
             }
         }
         #[allow(
-            unused_variables,
             non_upper_case_globals,
             non_snake_case,
             unused_unsafe,
@@ -3116,7 +3110,6 @@ pub mod Windows {
         )]
         pub mod System {
             #[allow(
-                unused_variables,
                 non_upper_case_globals,
                 non_snake_case,
                 unused_unsafe,
@@ -3218,7 +3211,6 @@ pub mod Windows {
                 );
             }
             #[allow(
-                unused_variables,
                 non_upper_case_globals,
                 non_snake_case,
                 unused_unsafe,
@@ -3228,7 +3220,6 @@ pub mod Windows {
             )]
             pub mod Diagnostics {
                 #[allow(
-                    unused_variables,
                     non_upper_case_globals,
                     non_snake_case,
                     unused_unsafe,
@@ -3382,7 +3373,6 @@ pub mod Windows {
                 }
             }
             #[allow(
-                unused_variables,
                 non_upper_case_globals,
                 non_snake_case,
                 unused_unsafe,
@@ -3446,7 +3436,6 @@ pub mod Windows {
                 }
             }
             #[allow(
-                unused_variables,
                 non_upper_case_globals,
                 non_snake_case,
                 unused_unsafe,
@@ -3607,7 +3596,6 @@ pub mod Windows {
                 }
             }
             #[allow(
-                unused_variables,
                 non_upper_case_globals,
                 non_snake_case,
                 unused_unsafe,
@@ -3784,7 +3772,6 @@ pub mod Windows {
                 }
             }
             #[allow(
-                unused_variables,
                 non_upper_case_globals,
                 non_snake_case,
                 unused_unsafe,
@@ -3906,7 +3893,6 @@ pub mod Windows {
                 }
             }
             #[allow(
-                unused_variables,
                 non_upper_case_globals,
                 non_snake_case,
                 unused_unsafe,

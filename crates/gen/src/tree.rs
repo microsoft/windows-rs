@@ -28,9 +28,8 @@ fn gen_namespaces<'a>(
             let tokens = namespace_iter(tree);
 
             quote! {
-                // TODO: https://github.com/microsoft/windows-rs/issues/212
                 // TODO: https://github.com/microsoft/win32metadata/issues/380
-                #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+                #[allow(non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
                 pub mod #name {
                     #(#tokens)*
                 }
