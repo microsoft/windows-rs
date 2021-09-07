@@ -153,7 +153,7 @@ pub struct ArrayProxy<T: RuntimeType> {
 }
 
 impl<T: RuntimeType> ArrayProxy<T> {
-    pub unsafe fn from_raw_parts(data: *mut *mut T::DefaultType, len: *mut u32) -> Self {
+    pub fn from_raw_parts(data: *mut *mut T::DefaultType, len: *mut u32) -> Self {
         Self {
             data,
             len,

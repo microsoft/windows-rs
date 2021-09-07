@@ -20,7 +20,6 @@ namespace winrt::Component::Signatures::implementation
             b = a;
             return a;
         }
-
         static com_array<bool> ArraySignature1(array_view<bool const> a, array_view<bool> b, com_array<bool>& c)
         {
             check(a.size() == b.size());
@@ -29,7 +28,6 @@ namespace winrt::Component::Signatures::implementation
             c = com_array<bool>(a.begin(), a.end());
             return com_array<bool>(a.begin(), a.end());
         }
-
         static void CallSignature1(winrt::Component::Signatures::Signature1 const& handler)
         {
             auto a = true;
@@ -38,12 +36,43 @@ namespace winrt::Component::Signatures::implementation
             check(a == b);
             check(a == c);
         }
-
         static void CallArraySignature1(winrt::Component::Signatures::ArraySignature1 const& handler)
         {
             std::array a{ true, false, true };
             std::array<bool, 3> b;
             com_array<bool> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static uint8_t Signature2(uint8_t a, uint8_t& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<uint8_t> ArraySignature2(array_view<uint8_t const> a, array_view<uint8_t> b, com_array<uint8_t>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<uint8_t>(a.begin(), a.end());
+            return com_array<uint8_t>(a.begin(), a.end());
+        }
+        static void CallSignature2(winrt::Component::Signatures::Signature2 const& handler)
+        {
+            uint8_t a = 123;
+            uint8_t b = 0;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignature2(winrt::Component::Signatures::ArraySignature2 const& handler)
+        {
+            std::array<uint8_t, 3> a{ 1, 2, 3 };
+            std::array<uint8_t, 3> b;
+            com_array<uint8_t> c;
             com_array d = handler(a, b, c);
             check(a == b);
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));

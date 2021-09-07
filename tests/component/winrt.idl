@@ -143,18 +143,22 @@ namespace Component
     namespace Signatures
     {
         delegate Boolean Signature1(Boolean a, out Boolean b);
-
         delegate Boolean[] ArraySignature1(Boolean[] a, ref Boolean[] b, out Boolean[] c);
+    
+        delegate UInt8 Signature2(UInt8 a, out UInt8 b);
+        delegate UInt8[] ArraySignature2(UInt8[] a, ref UInt8[] b, out UInt8[] c);
 
         runtimeclass Test
         {
             static Boolean Signature1(Boolean a, out Boolean b);
-
             static Boolean[] ArraySignature1(Boolean[] a, ref Boolean[] b, out Boolean[] c);
-
             static void CallSignature1(Signature1 handler);
-
             static void CallArraySignature1(ArraySignature1 handler);
+
+            static UInt8 Signature2(UInt8 a, out UInt8 b);
+            static UInt8[] ArraySignature2(UInt8[] a, ref UInt8[] b, out UInt8[] c);
+            static void CallSignature2(Signature2 handler);
+            static void CallArraySignature2(ArraySignature2 handler);
         }
     }
 }
