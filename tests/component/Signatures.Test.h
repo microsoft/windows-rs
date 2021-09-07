@@ -174,6 +174,102 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
+
+        static int16_t Signature6(int16_t a, int16_t& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<int16_t> ArraySignature6(array_view<int16_t const> a, array_view<int16_t> b, com_array<int16_t>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<int16_t>(a.begin(), a.end());
+            return com_array<int16_t>(a.begin(), a.end());
+        }
+        static void CallSignature6(winrt::Component::Signatures::Signature6 const& handler)
+        {
+            int16_t a = 123;
+            int16_t b = 0;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignature6(winrt::Component::Signatures::ArraySignature6 const& handler)
+        {
+            std::array<int16_t, 3> a{ 1, 2, 3 };
+            std::array<int16_t, 3> b;
+            com_array<int16_t> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static int32_t Signature7(int32_t a, int32_t& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<int32_t> ArraySignature7(array_view<int32_t const> a, array_view<int32_t> b, com_array<int32_t>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<int32_t>(a.begin(), a.end());
+            return com_array<int32_t>(a.begin(), a.end());
+        }
+        static void CallSignature7(winrt::Component::Signatures::Signature7 const& handler)
+        {
+            int32_t a = 123;
+            int32_t b = 0;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignature7(winrt::Component::Signatures::ArraySignature7 const& handler)
+        {
+            std::array<int32_t, 3> a{ 1, 2, 3 };
+            std::array<int32_t, 3> b;
+            com_array<int32_t> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static int64_t Signature8(int64_t a, int64_t& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<int64_t> ArraySignature8(array_view<int64_t const> a, array_view<int64_t> b, com_array<int64_t>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<int64_t>(a.begin(), a.end());
+            return com_array<int64_t>(a.begin(), a.end());
+        }
+        static void CallSignature8(winrt::Component::Signatures::Signature8 const& handler)
+        {
+            int64_t a = 123;
+            int64_t b = 0;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignature8(winrt::Component::Signatures::ArraySignature8 const& handler)
+        {
+            std::array<int64_t, 3> a{ 1, 2, 3 };
+            std::array<int64_t, 3> b;
+            com_array<int64_t> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
     };
 }
 namespace winrt::Component::Signatures::factory_implementation
