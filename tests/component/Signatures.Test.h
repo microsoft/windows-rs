@@ -366,6 +366,38 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
+
+        static hstring SignatureString(hstring const& a, hstring& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<hstring> ArraySignatureString(array_view<hstring const> a, array_view<hstring> b, com_array<hstring>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<hstring>(a.begin(), a.end());
+            return com_array<hstring>(a.begin(), a.end());
+        }
+        static void CallSignatureString(winrt::Component::Signatures::SignatureString const& handler)
+        {
+            hstring a = L"string";
+            hstring b;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureString(winrt::Component::Signatures::ArraySignatureString const& handler)
+        {
+            std::array<hstring, 3> a{ L"first", L"second", L"third" };
+            std::array<hstring, 3> b;
+            com_array<hstring> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
     };
 }
 namespace winrt::Component::Signatures::factory_implementation

@@ -175,6 +175,9 @@ namespace Component
         delegate Char SignatureChar(Char a, out Char b);
         delegate Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
 
+        delegate String SignatureString(String a, out String b);
+        delegate String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
+
         runtimeclass Test
         {
             static Boolean SignatureBoolean(Boolean a, out Boolean b);
@@ -231,6 +234,11 @@ namespace Component
             static Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
             static void CallSignatureChar(SignatureChar handler);
             static void CallArraySignatureChar(ArraySignatureChar handler);
+
+            static String SignatureString(String a, out String b);
+            static String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
+            static void CallSignatureString(SignatureString handler);
+            static void CallArraySignatureString(ArraySignatureString handler);
         }
     }
 }

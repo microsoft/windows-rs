@@ -487,3 +487,47 @@ fn ArraySignatureChar() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn SignatureString() -> Result<()> {
+    let a: HSTRING = "string".into();
+    let mut b = HSTRING::new();
+    let c = Test::SignatureString(&a, &mut b)?;
+
+    assert!(a == b);
+    assert!(a == c);
+
+    Test::CallSignatureString(SignatureString::new(|a, b| {
+        *b = a.clone();
+        Ok(a.clone())
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn ArraySignatureString() -> Result<()> {
+    let a: [HSTRING; 3] = ["first".into(), "second".into(), "third".into()];
+    let mut b = [HSTRING::new(), HSTRING::new(), HSTRING::new()];
+    let mut c = Array::new();
+    let d = Test::ArraySignatureString(&a, &mut b, &mut c)?;
+
+    assert!(a == b);
+    // TODO: should `a == c` be sufficient? Does that work for Vec?
+    assert!(a == c[..]);
+    assert!(a == d[..]);
+
+    Test::CallArraySignatureString(ArraySignatureString::new(|a, b, c| {
+        assert!(a.len() == b.len());
+        assert!(c.is_empty());
+        b.clone_from_slice(a);
+        // TODO: need a more convenient/idiomatic way to create arrays?
+        *c = Array::with_len(a.len());
+        c.clone_from_slice(a);
+        let mut d = Array::with_len(a.len());
+        d.clone_from_slice(a);
+        Ok(d)
+    }))?;
+
+    Ok(())
+}
