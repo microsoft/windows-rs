@@ -398,6 +398,38 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
+
+        static guid SignatureGuid(guid const& a, guid& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<guid> ArraySignatureGuid(array_view<guid const> a, array_view<guid> b, com_array<guid>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<guid>(a.begin(), a.end());
+            return com_array<guid>(a.begin(), a.end());
+        }
+        static void CallSignatureGuid(winrt::Component::Signatures::SignatureGuid const& handler)
+        {
+            guid a("006A8569-0BC8-446B-9D1F-240FED17250D");
+            guid b;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureGuid(winrt::Component::Signatures::ArraySignatureGuid const& handler)
+        {
+            std::array<guid, 3> a{ guid("B0180C8C-8FEB-448A-A915-AC92E05135FE"), guid("9E234A6E-DF89-4891-AAD5-632692BBB1DC"), guid("286F8B75-2DF4-49CF-841C-52438E2D5326") };
+            std::array<guid, 3> b;
+            com_array<guid> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
     };
 }
 namespace winrt::Component::Signatures::factory_implementation

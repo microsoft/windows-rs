@@ -178,6 +178,9 @@ namespace Component
         delegate String SignatureString(String a, out String b);
         delegate String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
 
+        delegate Guid SignatureGuid(Guid a, out Guid b);
+        delegate Guid[] ArraySignatureGuid(Guid[] a, ref Guid[] b, out Guid[] c);
+
         runtimeclass Test
         {
             static Boolean SignatureBoolean(Boolean a, out Boolean b);
@@ -239,6 +242,11 @@ namespace Component
             static String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
             static void CallSignatureString(SignatureString handler);
             static void CallArraySignatureString(ArraySignatureString handler);
+
+            static Guid SignatureGuid(Guid a, out Guid b);
+            static Guid[] ArraySignatureGuid(Guid[] a, ref Guid[] b, out Guid[] c);
+            static void CallSignatureGuid(SignatureGuid handler);
+            static void CallArraySignatureGuid(ArraySignatureGuid handler);
         }
     }
 }

@@ -531,3 +531,47 @@ fn ArraySignatureString() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn SignatureGuid() -> Result<()> {
+    let a = Guid::new()?;
+    let mut b = Guid::zeroed();
+    let c = Test::SignatureGuid(&a, &mut b)?;
+
+    assert!(a == b);
+    assert!(a == c);
+
+    Test::CallSignatureGuid(SignatureGuid::new(|a, b| {
+        *b = a.clone();
+        Ok(a.clone())
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn ArraySignatureGuid() -> Result<()> {
+    let a: [Guid; 3] = [Guid::new()?, Guid::new()?, Guid::new()?];
+    let mut b = [Guid::zeroed(), Guid::zeroed(), Guid::zeroed()];
+    let mut c = Array::new();
+    let d = Test::ArraySignatureGuid(&a, &mut b, &mut c)?;
+
+    assert!(a == b);
+    // TODO: should `a == c` be sufficient? Does that work for Vec?
+    assert!(a == c[..]);
+    assert!(a == d[..]);
+
+    Test::CallArraySignatureGuid(ArraySignatureGuid::new(|a, b, c| {
+        assert!(a.len() == b.len());
+        assert!(c.is_empty());
+        b.clone_from_slice(a);
+        // TODO: need a more convenient/idiomatic way to create arrays?
+        *c = Array::with_len(a.len());
+        c.clone_from_slice(a);
+        let mut d = Array::with_len(a.len());
+        d.clone_from_slice(a);
+        Ok(d)
+    }))?;
+
+    Ok(())
+}
