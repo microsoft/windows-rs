@@ -196,6 +196,9 @@ namespace Component
         delegate Component.Structs.NonBlittable SignatureNonBlittable(Component.Structs.NonBlittable a, ref const Component.Structs.NonBlittable b, out Component.Structs.NonBlittable c);
         delegate Component.Structs.NonBlittable[] ArraySignatureNonBlittable(Component.Structs.NonBlittable[] a, ref Component.Structs.NonBlittable[] b, out Component.Structs.NonBlittable[] c);
 
+        delegate Component.Structs.Nested SignatureNested(Component.Structs.Nested a, ref const Component.Structs.Nested b, out Component.Structs.Nested c);
+        delegate Component.Structs.Nested[] ArraySignatureNested(Component.Structs.Nested[] a, ref Component.Structs.Nested[] b, out Component.Structs.Nested[] c);
+
         runtimeclass Test
         {
             static Boolean SignatureBoolean(Boolean a, out Boolean b);
@@ -287,6 +290,11 @@ namespace Component
             static Component.Structs.NonBlittable[] ArraySignatureNonBlittable(Component.Structs.NonBlittable[] a, ref Component.Structs.NonBlittable[] b, out Component.Structs.NonBlittable[] c);
             static void CallSignatureNonBlittable(SignatureNonBlittable handler);
             static void CallArraySignatureNonBlittable(ArraySignatureNonBlittable handler);
+
+            static Component.Structs.Nested SignatureNested(Component.Structs.Nested a, ref const Component.Structs.Nested b, out Component.Structs.Nested c);
+            static Component.Structs.Nested[] ArraySignatureNested(Component.Structs.Nested[] a, ref Component.Structs.Nested[] b, out Component.Structs.Nested[] c);
+            static void CallSignatureNested(SignatureNested handler);
+            static void CallArraySignatureNested(ArraySignatureNested handler);
         }
     }
 }
