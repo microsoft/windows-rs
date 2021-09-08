@@ -12,27 +12,14 @@ namespace winrt::Component::Structs::implementation
             return sizeof(Blittable);
         }
 
-        static Blittable ZeroBlittable()
+        static uint32_t SizeOfNonBlittable()
         {
-            return {};
+            return sizeof(NonBlittable);
         }
 
-        static Blittable NonZeroBlittable()
+        static uint32_t SizeOfNested()
         {
-            Blittable b{};
-            b.Bool = true;
-            b.Char = L'B';
-            b.UInt8 = 8;
-            b.UInt16 = 16;
-            b.UInt32 = 32;
-            b.UInt64 = 64;
-            b.Int16 = -16;
-            b.Int32 = -32;
-            b.Int64 = -64;
-            b.Single = 1.23f;
-            b.Double = 4.56;
-            b.Guid = guid("97FCC68A-30DE-42C0-AD91-0ADB63F4E934");
-            return b;
+            return sizeof(Nested);
         }
     };
 }
