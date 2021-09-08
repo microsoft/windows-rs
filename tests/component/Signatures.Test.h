@@ -1,5 +1,6 @@
 #pragma once
 #include "Signatures.Test.g.h"
+#include "winrt/Component.Simple.h"
 
 inline void check(bool expression)
 {
@@ -457,6 +458,70 @@ namespace winrt::Component::Signatures::implementation
             std::array<hresult, 3> a{ E_NOINTERFACE, E_INVALIDARG, S_OK };
             std::array<hresult, 3> b;
             com_array<hresult> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static Windows::Foundation::IInspectable SignatureObject(Windows::Foundation::IInspectable const& a, Windows::Foundation::IInspectable& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<Windows::Foundation::IInspectable> ArraySignatureObject(array_view<Windows::Foundation::IInspectable const> a, array_view<Windows::Foundation::IInspectable> b, com_array<Windows::Foundation::IInspectable>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<Windows::Foundation::IInspectable>(a.begin(), a.end());
+            return com_array<Windows::Foundation::IInspectable>(a.begin(), a.end());
+        }
+        static void CallSignatureObject(winrt::Component::Signatures::SignatureObject const& handler)
+        {
+            Windows::Foundation::IInspectable a = Simple::Class();
+            Windows::Foundation::IInspectable b;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureObject(winrt::Component::Signatures::ArraySignatureObject const& handler)
+        {
+            std::array<Windows::Foundation::IInspectable, 3> a{ Simple::Class(), Simple::Class(), Simple::Class() };
+            std::array<Windows::Foundation::IInspectable, 3> b;
+            com_array<Windows::Foundation::IInspectable> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static Simple::Class SignatureClass(Simple::Class const& a, Simple::Class& b)
+        {
+            b = a;
+            return a;
+        }
+        static com_array<Simple::Class> ArraySignatureClass(array_view<Simple::Class const> a, array_view<Simple::Class> b, com_array<Simple::Class>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array<Simple::Class>(a.begin(), a.end());
+            return com_array<Simple::Class>(a.begin(), a.end());
+        }
+        static void CallSignatureClass(winrt::Component::Signatures::SignatureClass const& handler)
+        {
+            Simple::Class a = Simple::Class();
+            Simple::Class b;
+            auto c = handler(a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureClass(winrt::Component::Signatures::ArraySignatureClass const& handler)
+        {
+            std::array a{ Simple::Class(), Simple::Class(), Simple::Class() };
+            std::array<Simple::Class, 3> b;
+            com_array<Simple::Class> c;
             com_array d = handler(a, b, c);
             check(a == b);
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));

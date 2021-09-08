@@ -184,6 +184,12 @@ namespace Component
         delegate HRESULT SignatureHResult(HRESULT a, out HRESULT b);
         delegate HRESULT[] ArraySignatureHResult(HRESULT[] a, ref HRESULT[] b, out HRESULT[] c);
 
+        delegate Object SignatureObject(Object a, out Object b);
+        delegate Object[] ArraySignatureObject(Object[] a, ref Object[] b, out Object[] c);
+
+        delegate Component.Simple.Class SignatureClass(Component.Simple.Class a, out Component.Simple.Class b);
+        delegate Component.Simple.Class[] ArraySignatureClass(Component.Simple.Class[] a, ref Component.Simple.Class[] b, out Component.Simple.Class[] c);
+
         runtimeclass Test
         {
             static Boolean SignatureBoolean(Boolean a, out Boolean b);
@@ -255,6 +261,16 @@ namespace Component
             static HRESULT[] ArraySignatureHResult(HRESULT[] a, ref HRESULT[] b, out HRESULT[] c);
             static void CallSignatureHResult(SignatureHResult handler);
             static void CallArraySignatureHResult(ArraySignatureHResult handler);
+
+            static Object SignatureObject(Object a, out Object b);
+            static Object[] ArraySignatureObject(Object[] a, ref Object[] b, out Object[] c);
+            static void CallSignatureObject(SignatureObject handler);
+            static void CallArraySignatureObject(ArraySignatureObject handler);
+
+            static Component.Simple.Class SignatureClass(Component.Simple.Class a, out Component.Simple.Class b);
+            static Component.Simple.Class[] ArraySignatureClass(Component.Simple.Class[] a, ref Component.Simple.Class[] b, out Component.Simple.Class[] c);
+            static void CallSignatureClass(SignatureClass handler);
+            static void CallArraySignatureClass(ArraySignatureClass handler);
         }
     }
 }

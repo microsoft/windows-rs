@@ -317,11 +317,11 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 
     if param.signature.is_array {
         if param.param.is_input() {
-            quote! { &[#tokens] }
+            quote! { &[<#tokens as ::windows::Abi>::DefaultType] }
         } else if param.signature.by_ref {
             quote! { &mut ::windows::Array<#tokens> }
         } else {
-            quote! { &mut [#tokens] }
+            quote! { &mut [<#tokens as ::windows::Abi>::DefaultType] }
         }
     } else if param.param.is_input() {
         if let ElementType::GenericParam(_) = param.signature.kind {
@@ -333,6 +333,8 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
         } else {
             quote! { &#tokens }
         }
+    } else if param.signature.kind.is_nullable() {
+        quote! { &mut ::std::option::Option<#tokens> }
     } else {
         quote! { &mut #tokens }
     }
