@@ -566,6 +566,43 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
 
+        static Structs::NonBlittable SignatureNonBlittable(Structs::NonBlittable const& a, Structs::NonBlittable const& b, Structs::NonBlittable& c)
+        {
+            check(a == b);
+            c = a;
+            return a;
+        }
+        static com_array<Structs::NonBlittable> ArraySignatureNonBlittable(array_view<Structs::NonBlittable const> a, array_view<Structs::NonBlittable> b, com_array<Structs::NonBlittable>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array(a.begin(), a.end());
+            return com_array(a.begin(), a.end());
+        }
+        static void CallSignatureNonBlittable(winrt::Component::Signatures::SignatureNonBlittable const& handler)
+        {
+            Structs::NonBlittable a{ L"string", 1234 };
+            Structs::NonBlittable b;
+            auto c = handler(a, a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureNonBlittable(winrt::Component::Signatures::ArraySignatureNonBlittable const& handler)
+        {
+            std::array a{
+                Structs::NonBlittable{ L"first", 1, },
+                Structs::NonBlittable{ L"second", 2, },
+                Structs::NonBlittable{ L"third", 3, },
+            };
+
+            std::array<Structs::NonBlittable, 3> b;
+            com_array<Structs::NonBlittable> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
     };
 }
 namespace winrt::Component::Signatures::factory_implementation

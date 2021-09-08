@@ -193,6 +193,9 @@ namespace Component
         delegate Component.Structs.Blittable SignatureBlittable(Component.Structs.Blittable a, ref const Component.Structs.Blittable b, out Component.Structs.Blittable c);
         delegate Component.Structs.Blittable[] ArraySignatureBlittable(Component.Structs.Blittable[] a, ref Component.Structs.Blittable[] b, out Component.Structs.Blittable[] c);
 
+        delegate Component.Structs.NonBlittable SignatureNonBlittable(Component.Structs.NonBlittable a, ref const Component.Structs.NonBlittable b, out Component.Structs.NonBlittable c);
+        delegate Component.Structs.NonBlittable[] ArraySignatureNonBlittable(Component.Structs.NonBlittable[] a, ref Component.Structs.NonBlittable[] b, out Component.Structs.NonBlittable[] c);
+
         runtimeclass Test
         {
             static Boolean SignatureBoolean(Boolean a, out Boolean b);
@@ -279,6 +282,11 @@ namespace Component
             static Component.Structs.Blittable[] ArraySignatureBlittable(Component.Structs.Blittable[] a, ref Component.Structs.Blittable[] b, out Component.Structs.Blittable[] c);
             static void CallSignatureBlittable(SignatureBlittable handler);
             static void CallArraySignatureBlittable(ArraySignatureBlittable handler);
+
+            static Component.Structs.NonBlittable SignatureNonBlittable(Component.Structs.NonBlittable a, ref const Component.Structs.NonBlittable b, out Component.Structs.NonBlittable c);
+            static Component.Structs.NonBlittable[] ArraySignatureNonBlittable(Component.Structs.NonBlittable[] a, ref Component.Structs.NonBlittable[] b, out Component.Structs.NonBlittable[] c);
+            static void CallSignatureNonBlittable(SignatureNonBlittable handler);
+            static void CallArraySignatureNonBlittable(ArraySignatureNonBlittable handler);
         }
     }
 }

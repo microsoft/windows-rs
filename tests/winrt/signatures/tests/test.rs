@@ -4,8 +4,9 @@ use test_winrt_signatures::*;
 use windows::*;
 use Component::Signatures::*;
 use Component::Simple::Class;
-use Component::Structs::Blittable;
+use Component::Structs::*;
 use Windows::Win32::Foundation::*;
+use Windows::Foundation::PropertyValue;
 
 #[test]
 fn SignatureBoolean() -> Result<()> {
@@ -815,6 +816,78 @@ fn ArraySignatureBlittable() -> Result<()> {
     assert!(a == d[..]);
 
     Test::CallArraySignatureBlittable(ArraySignatureBlittable::new(|a, b, c| {
+        assert!(a.len() == b.len());
+        assert!(c.is_empty());
+        b.clone_from_slice(a);
+        // TODO: need a more convenient/idiomatic way to create arrays?
+        *c = Array::with_len(a.len());
+        c.clone_from_slice(a);
+        let mut d = Array::with_len(a.len());
+        d.clone_from_slice(a);
+        Ok(d)
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn SignatureNonBlittable() -> Result<()> {
+    let a = NonBlittable {
+        String: "string".into(),
+        // TODO: better boxing support is needed
+        RefInt64: Some(PropertyValue::CreateInt64(123)?.cast()?),
+    };
+
+    let mut b = NonBlittable::default();
+    let c = Test::SignatureNonBlittable(&a, &a, &mut b)?;
+
+    assert!(a == b);
+    assert!(a == c);
+
+    Test::CallSignatureNonBlittable(SignatureNonBlittable::new(|a, b, c| {
+        assert!(a == b);
+        *c = a.clone();
+        Ok(a.clone())
+    }))?;
+
+    Ok(())
+}
+
+#[test]
+fn ArraySignatureNonBlittable() -> Result<()> {
+    let a = [
+        NonBlittable {
+            String: "first".into(),
+            // TODO: better boxing support is needed
+            RefInt64: Some(PropertyValue::CreateInt64(1)?.cast()?),
+        },
+        NonBlittable {
+            String: "second".into(),
+            // TODO: better boxing support is needed
+            RefInt64: Some(PropertyValue::CreateInt64(2)?.cast()?),
+        },
+        NonBlittable {
+            String: "third".into(),
+            // TODO: better boxing support is needed
+            RefInt64: Some(PropertyValue::CreateInt64(3)?.cast()?),
+        },
+    ];
+
+    let mut b = [
+        NonBlittable::default(),
+        NonBlittable::default(),
+        NonBlittable::default(),
+    ];
+
+    let mut c = Array::new();
+    let d = Test::ArraySignatureNonBlittable(&a, &mut b, &mut c)?;
+
+    assert!(a == b);
+    // TODO: should `a == c` be sufficient? Does that work for Vec?
+    assert!(a == c[..]);
+    assert!(a == d[..]);
+
+    Test::CallArraySignatureNonBlittable(ArraySignatureNonBlittable::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
