@@ -150,6 +150,11 @@ unsafe impl Abi for HRESULT {
     type DefaultType = Self;
 }
 
+unsafe impl RuntimeType for HRESULT {
+    const SIGNATURE: ConstBuffer =
+        ConstBuffer::from_slice(b"struct(Windows.Foundation.HResult;i32)");
+}
+
 impl<T> std::convert::From<Result<T>> for HRESULT {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
