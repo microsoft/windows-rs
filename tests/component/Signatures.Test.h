@@ -527,6 +527,121 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
+
+        static Structs::Blittable SignatureBlittable(Structs::Blittable const& a, Structs::Blittable const& b, Structs::Blittable& c)
+        {
+            check(a == b);
+            c = a;
+            return a;
+        }
+        static com_array<Structs::Blittable> ArraySignatureBlittable(array_view<Structs::Blittable const> a, array_view<Structs::Blittable> b, com_array<Structs::Blittable>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array(a.begin(), a.end());
+            return com_array(a.begin(), a.end());
+        }
+        static void CallSignatureBlittable(winrt::Component::Signatures::SignatureBlittable const& handler)
+        {
+            Structs::Blittable a{ true, L'A', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("B0180C8C-8FEB-448A-A915-AC92E05135FE") };
+            Structs::Blittable b;
+            auto c = handler(a, a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureBlittable(winrt::Component::Signatures::ArraySignatureBlittable const& handler)
+        {
+            std::array a{
+                Structs::Blittable{ true, L'A', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("B0180C8C-8FEB-448A-A915-AC92E05135FE") },
+                Structs::Blittable{ false, L'B', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("9E234A6E-DF89-4891-AAD5-632692BBB1DC") },
+                Structs::Blittable{ true, L'C', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("286F8B75-2DF4-49CF-841C-52438E2D5326") },
+            };
+
+            std::array<Structs::Blittable, 3> b;
+            com_array<Structs::Blittable> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static Structs::NonBlittable SignatureNonBlittable(Structs::NonBlittable const& a, Structs::NonBlittable const& b, Structs::NonBlittable& c)
+        {
+            check(a == b);
+            c = a;
+            return a;
+        }
+        static com_array<Structs::NonBlittable> ArraySignatureNonBlittable(array_view<Structs::NonBlittable const> a, array_view<Structs::NonBlittable> b, com_array<Structs::NonBlittable>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array(a.begin(), a.end());
+            return com_array(a.begin(), a.end());
+        }
+        static void CallSignatureNonBlittable(winrt::Component::Signatures::SignatureNonBlittable const& handler)
+        {
+            Structs::NonBlittable a{ L"string", 1234 };
+            Structs::NonBlittable b;
+            auto c = handler(a, a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureNonBlittable(winrt::Component::Signatures::ArraySignatureNonBlittable const& handler)
+        {
+            std::array a{
+                Structs::NonBlittable{ L"first", 1, },
+                Structs::NonBlittable{ L"second", 2, },
+                Structs::NonBlittable{ L"third", 3, },
+            };
+
+            std::array<Structs::NonBlittable, 3> b;
+            com_array<Structs::NonBlittable> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
+        static Structs::Nested SignatureNested(Structs::Nested const& a, Structs::Nested const& b, Structs::Nested& c)
+        {
+            check(a == b);
+            c = a;
+            return a;
+        }
+        static com_array<Structs::Nested> ArraySignatureNested(array_view<Structs::Nested const> a, array_view<Structs::Nested> b, com_array<Structs::Nested>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array(a.begin(), a.end());
+            return com_array(a.begin(), a.end());
+        }
+        static void CallSignatureNested(winrt::Component::Signatures::SignatureNested const& handler)
+        {
+            Structs::Nested a{ { true, L'A', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("B0180C8C-8FEB-448A-A915-AC92E05135FE") }, { L"string", 1234 } };
+            Structs::Nested b;
+            auto c = handler(a, a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureNested(winrt::Component::Signatures::ArraySignatureNested const& handler)
+        {
+            std::array a{
+                Structs::Nested{ { true, L'A', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("B0180C8C-8FEB-448A-A915-AC92E05135FE") }, { L"string", 123 } },
+                Structs::Nested{ { false, L'B', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("9E234A6E-DF89-4891-AAD5-632692BBB1DC") }, { L"string", 456 } },
+                Structs::Nested{ { true, L'C', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("286F8B75-2DF4-49CF-841C-52438E2D5326") }, { L"string", 789 } }
+            };
+
+            std::array<Structs::Nested, 3> b;
+            com_array<Structs::Nested> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
     };
 }
 namespace winrt::Component::Signatures::factory_implementation
