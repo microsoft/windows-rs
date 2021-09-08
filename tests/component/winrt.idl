@@ -190,6 +190,9 @@ namespace Component
         delegate Component.Simple.Class SignatureClass(Component.Simple.Class a, out Component.Simple.Class b);
         delegate Component.Simple.Class[] ArraySignatureClass(Component.Simple.Class[] a, ref Component.Simple.Class[] b, out Component.Simple.Class[] c);
 
+        delegate Component.Structs.Blittable SignatureBlittable(Component.Structs.Blittable a, ref const Component.Structs.Blittable b, out Component.Structs.Blittable c);
+        delegate Component.Structs.Blittable[] ArraySignatureBlittable(Component.Structs.Blittable[] a, ref Component.Structs.Blittable[] b, out Component.Structs.Blittable[] c);
+
         runtimeclass Test
         {
             static Boolean SignatureBoolean(Boolean a, out Boolean b);
@@ -271,6 +274,11 @@ namespace Component
             static Component.Simple.Class[] ArraySignatureClass(Component.Simple.Class[] a, ref Component.Simple.Class[] b, out Component.Simple.Class[] c);
             static void CallSignatureClass(SignatureClass handler);
             static void CallArraySignatureClass(ArraySignatureClass handler);
+
+            static Component.Structs.Blittable SignatureBlittable(Component.Structs.Blittable a, ref const Component.Structs.Blittable b, out Component.Structs.Blittable c);
+            static Component.Structs.Blittable[] ArraySignatureBlittable(Component.Structs.Blittable[] a, ref Component.Structs.Blittable[] b, out Component.Structs.Blittable[] c);
+            static void CallSignatureBlittable(SignatureBlittable handler);
+            static void CallArraySignatureBlittable(ArraySignatureBlittable handler);
         }
     }
 }

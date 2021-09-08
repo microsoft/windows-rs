@@ -527,6 +527,45 @@ namespace winrt::Component::Signatures::implementation
             check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
             check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
         }
+
+        static Structs::Blittable SignatureBlittable(Structs::Blittable const& a, Structs::Blittable const& b, Structs::Blittable& c)
+        {
+            check(a == b);
+            c = a;
+            return a;
+        }
+        static com_array<Structs::Blittable> ArraySignatureBlittable(array_view<Structs::Blittable const> a, array_view<Structs::Blittable> b, com_array<Structs::Blittable>& c)
+        {
+            check(a.size() == b.size());
+            check(c.size() == 0);
+            std::copy(a.begin(), a.end(), b.begin());
+            c = com_array(a.begin(), a.end());
+            return com_array(a.begin(), a.end());
+        }
+        static void CallSignatureBlittable(winrt::Component::Signatures::SignatureBlittable const& handler)
+        {
+            Structs::Blittable a{ true, L'A', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("B0180C8C-8FEB-448A-A915-AC92E05135FE") };
+            Structs::Blittable b;
+            auto c = handler(a, a, b);
+            check(a == b);
+            check(a == c);
+        }
+        static void CallArraySignatureBlittable(winrt::Component::Signatures::ArraySignatureBlittable const& handler)
+        {
+            std::array a{
+                Structs::Blittable{ true, L'A', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("B0180C8C-8FEB-448A-A915-AC92E05135FE") },
+                Structs::Blittable{ false, L'B', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("9E234A6E-DF89-4891-AAD5-632692BBB1DC") },
+                Structs::Blittable{ true, L'C', 1,2,3,4, -1, -2, -3, 1.0f, 0.1, guid("286F8B75-2DF4-49CF-841C-52438E2D5326") },
+            };
+
+            std::array<Structs::Blittable, 3> b;
+            com_array<Structs::Blittable> c;
+            com_array d = handler(a, b, c);
+            check(a == b);
+            check(std::equal(a.begin(), a.end(), c.begin(), c.end()));
+            check(std::equal(a.begin(), a.end(), d.begin(), d.end()));
+        }
+
     };
 }
 namespace winrt::Component::Signatures::factory_implementation
