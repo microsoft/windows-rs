@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.2.163-preview">
+
+  <PropertyGroup Label="Globals">
+    <OutputWinmd>$(OutputWinmd)</OutputWinmd>
+    <WinmdVersion>0.0.0.0</WinmdVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ImportLibs Include="..\target\$(Platform)\$(Configuration)\*.lib" />
+    <Partition Include="helper.cpp">
+      <TraverseFiles>..\exports.h</TraverseFiles>
+      <Namespace>Component.Win32</Namespace>
+    </Partition>
+  </ItemGroup>
+
+</Project>
