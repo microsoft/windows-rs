@@ -2,7 +2,9 @@ use test_win32_simple::Component::Win32::*;
 
 #[test]
 fn void() {
-    unsafe { Void(); }
+    unsafe {
+        Void();
+    }
 }
 
 #[test]
