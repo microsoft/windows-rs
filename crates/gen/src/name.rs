@@ -80,7 +80,7 @@ pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::ISize => quote! { isize },
         ElementType::USize => quote! { usize },
         ElementType::String => {
-            quote! { ::windows::RawPtr }
+            quote! { ::std::mem::ManuallyDrop<::windows::HSTRING> }
         }
         ElementType::IInspectable => {
             quote! { ::windows::RawPtr }

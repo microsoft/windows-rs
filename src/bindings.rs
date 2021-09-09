@@ -665,7 +665,7 @@ pub mod Windows {
             ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
-                result__: *mut ::windows::RawPtr,
+                result__: *mut ::std::mem::ManuallyDrop<::windows::HSTRING>,
             ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
@@ -749,7 +749,7 @@ pub mod Windows {
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: *mut u32,
-                value: *mut *mut ::windows::RawPtr,
+                value: *mut *mut ::std::mem::ManuallyDrop<::windows::HSTRING>,
             ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
@@ -889,7 +889,7 @@ pub mod Windows {
             ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
-                value: ::windows::RawPtr,
+                value: ::std::mem::ManuallyDrop<::windows::HSTRING>,
                 result__: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
@@ -996,7 +996,7 @@ pub mod Windows {
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
                 value_array_size: u32,
-                value: *const ::windows::RawPtr,
+                value: *const ::std::mem::ManuallyDrop<::windows::HSTRING>,
                 result__: *mut ::windows::RawPtr,
             ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
@@ -1765,7 +1765,7 @@ pub mod Windows {
             ) -> ::windows::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::RawPtr,
-                result__: *mut ::windows::RawPtr,
+                result__: *mut ::std::mem::ManuallyDrop<::windows::HSTRING>,
             ) -> ::windows::HRESULT,
         );
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

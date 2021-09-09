@@ -3,7 +3,7 @@ use bindings::Windows::Win32::Foundation::CO_E_NOTINITIALIZED;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-type DllGetActivationFactory = extern "system" fn(name: RawPtr, factory: *mut RawPtr) -> HRESULT;
+type DllGetActivationFactory = extern "system" fn(name: std::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
@@ -130,6 +130,6 @@ demand_load! {
         fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
     }
     "combase.dll" {
-        fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> HRESULT;
+        fn RoGetActivationFactory(hstring: std::mem::ManuallyDrop<HSTRING>, interface: &Guid, result: *mut RawPtr) -> HRESULT;
     }
 }
