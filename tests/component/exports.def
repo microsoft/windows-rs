@@ -1,3 +1,4 @@
 EXPORTS
 DllGetActivationFactory = WINRT_GetActivationFactory
-SimpleFunction
+Void
+ReturnFortyTwo
