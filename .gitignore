@@ -4,5 +4,5 @@ target
 packages
 Cargo.lock
 *.user
-.metadata/obj
-.metadata/bin
+tests/component/.metadata/obj
+tests/component/.metadata/bin

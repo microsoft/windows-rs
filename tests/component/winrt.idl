@@ -70,11 +70,6 @@ namespace Component
         };
     }
 
-    namespace Delegates
-    {
-
-    }
-
     namespace Structs
     {
         struct Blittable
@@ -107,9 +102,9 @@ namespace Component
 
         runtimeclass Test
         {
-            static UInt32 SizeOfBlittable { get; };
-            static Blittable ZeroBlittable{ get; };
-            static Blittable NonZeroBlittable { get; };
+            static UInt32 SizeOfBlittable{ get; };
+            static UInt32 SizeOfNonBlittable{ get; };
+            static UInt32 SizeOfNested{ get; };
         }
     }
 

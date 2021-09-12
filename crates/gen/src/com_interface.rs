@@ -169,7 +169,7 @@ fn gen_method(
             quote! {
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params) -> ::windows::Result<T> {
                     let mut result__ = ::std::option::Option::None;
-                    (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
+                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                 }
             }
         }
@@ -182,7 +182,7 @@ fn gen_method(
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                     let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
-                    (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* &mut result__)
+                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__)
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -193,7 +193,7 @@ fn gen_method(
 
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<()> {
-                    (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*).ok()
+                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*).ok()
                 }
             }
         }
@@ -205,7 +205,7 @@ fn gen_method(
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = ::std::default::Default::default();
-                    (::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)* &mut result__);
+                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__);
                     result__
                 }
             }
@@ -217,7 +217,7 @@ fn gen_method(
 
             quote! {
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
-                    ::std::mem::transmute((::windows::Interface::vtable(self).#vtable_offset)(::windows::Abi::abi(self), #(#args,)*))
+                    ::std::mem::transmute((::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*))
                 }
             }
         }

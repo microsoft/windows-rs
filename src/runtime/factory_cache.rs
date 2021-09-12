@@ -3,7 +3,8 @@ use bindings::Windows::Win32::Foundation::CO_E_NOTINITIALIZED;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-type DllGetActivationFactory = extern "system" fn(name: RawPtr, factory: *mut RawPtr) -> HRESULT;
+type DllGetActivationFactory =
+    extern "system" fn(name: std::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
@@ -66,7 +67,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(name.abi(), &I::IID, factory.set_abi());
+        let code = RoGetActivationFactory(name.abi(), &I::IID, &mut factory as *mut _ as *mut _);
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -82,7 +83,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(name.abi(), &I::IID, factory.set_abi())
+            code = RoGetActivationFactory(name.abi(), &I::IID, &mut factory as *mut _ as *mut _)
                 .unwrap_or_else(|code| code);
         }
 
@@ -130,6 +131,6 @@ demand_load! {
         fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
     }
     "combase.dll" {
-        fn RoGetActivationFactory(hstring: RawPtr, interface: &Guid, result: *mut RawPtr) -> HRESULT;
+        fn RoGetActivationFactory(hstring: std::mem::ManuallyDrop<HSTRING>, interface: &Guid, result: *mut RawPtr) -> HRESULT;
     }
 }

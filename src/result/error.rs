@@ -162,7 +162,7 @@ impl std::error::Error for Error {}
 
 demand_load! {
     "combase.dll" {
-        fn RoOriginateError(code: HRESULT, message: RawPtr) -> i32;
+        fn RoOriginateError(code: HRESULT, message: std::mem::ManuallyDrop<HSTRING>) -> i32;
     }
 }
 

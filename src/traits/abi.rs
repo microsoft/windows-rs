@@ -10,6 +10,8 @@ pub unsafe trait Abi: Sized + Clone {
     ///
     /// # Safety
     /// `Self` and `Abi` *must* have the same exact in-memory representation.
+
+    // TODO: this type should not exist - the Windows crate should just use ManuallyDrop<Self> in all cases
     type Abi;
 
     type DefaultType: Sized + Clone + PartialEq;

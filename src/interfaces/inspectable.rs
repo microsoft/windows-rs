@@ -14,7 +14,7 @@ impl IInspectable {
     pub fn type_name(&self) -> Result<HSTRING> {
         unsafe {
             let mut abi = std::ptr::null_mut();
-            (self.vtable().4)(self.abi(), &mut abi).ok()?;
+            (self.vtable().4)(std::mem::transmute_copy(self), &mut abi).ok()?;
             Ok(std::mem::transmute(abi))
         }
     }

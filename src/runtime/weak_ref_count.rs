@@ -89,7 +89,7 @@ impl WeakRefCount {
                 return TearOff::from_encoding(count_or_pointer);
             }
 
-            TearOff::from_strong_ptr(tear_off.abi())
+            TearOff::from_strong_ptr(std::mem::transmute_copy(&tear_off))
                 .strong_count
                 .0
                 .store(count_or_pointer as _, Ordering::SeqCst);
