@@ -48,7 +48,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
                         let mut result__ = ::std::option::Option::None;
-                        #name(#(#args,)* &<T as ::windows::Interface>::IID, ::windows::Abi::set_abi(&mut result__)).and_some(result__)
+                        #name(#(#args,)* &<T as ::windows::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");

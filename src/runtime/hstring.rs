@@ -101,6 +101,7 @@ unsafe impl Abi for HSTRING {
     type Abi = std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 
+    // TODO: this should just be implemented by the Abi trait for all types
     fn set_abi(&mut self) -> *mut Self::Abi {
         debug_assert!(self.is_empty());
         &mut self.0 as *mut _ as _

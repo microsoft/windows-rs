@@ -213,19 +213,19 @@ pub fn gen_winrt_method(
         if return_sig.is_array {
             quote! {
                 let mut result__: #return_type_tokens = ::std::mem::zeroed();
-                (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args,)* #composable_args #return_arg)
+                (::windows::Interface::vtable(this).#vtable_offset)(::std::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
                     .and_then(|| result__ )
             }
         } else {
             quote! {
                 let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
-                    (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args,)* #composable_args #return_arg)
+                    (::windows::Interface::vtable(this).#vtable_offset)(::std::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
                         .from_abi::<#return_type_tokens>(result__ )
             }
         }
     } else {
         quote! {
-            (::windows::Interface::vtable(this).#vtable_offset)(::windows::Abi::abi(this), #(#args,)* #composable_args).ok()
+            (::windows::Interface::vtable(this).#vtable_offset)(::std::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
         }
     };
 

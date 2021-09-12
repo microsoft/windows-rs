@@ -17,7 +17,7 @@ impl<I: Interface> Weak<I> {
         self.0.as_ref().and_then(|inner| unsafe {
             // Calls IWeakReference's Resolve ABI directly as the metadata incorrectly types it as returning IInspectable.
             let mut result = None;
-            let _ = (inner.vtable().3)(inner.abi(), &I::IID, &mut result as *mut _ as _);
+            let _ = (inner.vtable().3)(std::mem::transmute_copy(inner), &I::IID, &mut result as *mut _ as _);
             result
         })
     }
