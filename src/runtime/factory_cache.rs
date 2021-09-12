@@ -3,7 +3,8 @@ use bindings::Windows::Win32::Foundation::CO_E_NOTINITIALIZED;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-type DllGetActivationFactory = extern "system" fn(name: std::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
+type DllGetActivationFactory =
+    extern "system" fn(name: std::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
