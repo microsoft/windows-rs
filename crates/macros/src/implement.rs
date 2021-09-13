@@ -193,7 +193,8 @@ pub fn gen(
                     }
                     impl<#constraints> ::windows::ToImpl<#interface_ident> for #impl_ident {
                         unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
-                            let this = (::windows::Abi::abi(interface) as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
+                            let this: ::windows::RawPtr = std::mem::transmute_copy(interface);
+                            let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
                             &mut (*this).implementation
                         }
                     }
@@ -271,7 +272,7 @@ pub fn gen(
         impl <#constraints> ::windows::Compose for #impl_ident {
             unsafe fn compose<'a>(implementation: Self) -> (::windows::IInspectable, &'a mut std::option::Option<::windows::IInspectable>) {
                 let inspectable: ::windows::IInspectable = implementation.into();
-                let this = (::windows::Abi::abi(&inspectable) as *mut ::windows::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
+                let this = (&inspectable as *const _ as *mut ::windows::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
         }

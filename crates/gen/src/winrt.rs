@@ -189,7 +189,7 @@ pub fn gen_winrt_method(
     let return_arg = if let Some(return_sig) = &sig.return_sig {
         if return_sig.is_array {
             let return_sig = gen_name(&return_sig.kind, gen);
-            quote! { ::windows::Array::<#return_sig>::set_abi_len(&mut result__), ::windows::Array::<#return_sig>::set_abi(&mut result__) }
+            quote! { ::windows::Array::<#return_sig>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
         } else {
             quote! { &mut result__ }
         }
@@ -201,10 +201,10 @@ pub fn gen_winrt_method(
     // arguments to ensure the call succeeds in the non-aggregating case.
     let composable_args = match interface.kind {
         InterfaceKind::Composable => quote! {
-            ::std::ptr::null_mut(), ::windows::Abi::set_abi(&mut ::std::option::Option::<::windows::IInspectable>::None),
+            ::std::ptr::null_mut(), &mut ::std::option::Option::<::windows::IInspectable>::None as *mut _ as _,
         },
         InterfaceKind::Extend => quote! {
-            ::windows::Abi::abi(&derived__), ::windows::Abi::set_abi(base__),
+            ::std::mem::transmute_copy(&derived__), base__ as *mut _ as _,
         },
         _ => quote! {},
     };
@@ -285,7 +285,7 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
         if param.param.is_input() {
             quote! { #name.len() as u32, ::std::mem::transmute(#name.as_ptr()) }
         } else if param.signature.by_ref {
-            quote! { #name.set_abi_len(), #name.set_abi() }
+            quote! { #name.set_abi_len(), #name as *mut _ as _ }
         } else {
             quote! { #name.len() as u32, ::std::mem::transmute_copy(&#name) }
         }
@@ -299,7 +299,7 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
         } else if param.signature.kind.is_blittable() {
             quote! { #name }
         } else if param.signature.pointers == 0 {
-            quote! { ::windows::Abi::abi(#name) }
+            quote! { ::std::mem::transmute_copy(#name) }
         } else {
             quote! { ::std::mem::transmute(#name) }
         }
@@ -308,7 +308,7 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
     {
         quote! { #name }
     } else {
-        quote! { ::windows::Abi::set_abi(#name) }
+        quote! { #name as *mut _ as _ }
     }
 }
 

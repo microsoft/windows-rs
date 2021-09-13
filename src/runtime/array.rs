@@ -92,18 +92,8 @@ impl<T: RuntimeType> Array<T> {
     ///
     /// This function is safe but writing to the pointer is not. Calling this without
     /// a subsequent call to `set_abi` is likely to either leak memory or cause UB
-    pub fn set_abi_len(&mut self) -> *mut u32 {
+    pub unsafe fn set_abi_len(&mut self) -> *mut u32 {
         &mut self.len
-    }
-
-    #[doc(hidden)]
-    /// Get a mutable pointer to the array's data
-    ///
-    /// This function is safe but writing to the pointer is not. Calling this without
-    /// a subsequent call to `set_abi_len` is likely to either leak memory or cause UB
-    pub fn set_abi(&mut self) -> *mut *mut T::Abi {
-        self.clear();
-        &mut self.data as *mut _ as *mut _
     }
 
     #[doc(hidden)]

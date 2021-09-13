@@ -14,9 +14,9 @@ impl<'a, T: Abi> Param<'a, T> {
     /// # Safety
     pub unsafe fn abi(&self) -> T::Abi {
         match self {
-            Param::Borrowed(value) => value.abi(),
-            Param::Owned(value) => value.abi(),
-            Param::Boxed(value) => value.abi(),
+            Param::Borrowed(value) => std::mem::transmute_copy(*value),
+            Param::Owned(value) => std::mem::transmute_copy(value),
+            Param::Boxed(value) => std::mem::transmute_copy(value),
             Param::None => std::mem::zeroed(),
         }
     }
@@ -24,6 +24,6 @@ impl<'a, T: Abi> Param<'a, T> {
 
 impl<'a, T: Abi> Drop for Param<'a, T> {
     fn drop(&mut self) {
-        T::drop_param(self);
+        unsafe { T::drop_param(self) }
     }
 }

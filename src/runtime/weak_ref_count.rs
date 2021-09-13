@@ -67,8 +67,9 @@ impl WeakRefCount {
         }
 
         let tear_off = TearOff::new(object, count_or_pointer as _);
+        let tear_off_ptr: RawPtr = std::mem::transmute_copy(&tear_off);
         let encoding: usize =
-            ((tear_off.abi() as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
+            ((tear_off_ptr as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
 
         loop {
             match self.0.compare_exchange_weak(
@@ -89,7 +90,7 @@ impl WeakRefCount {
                 return TearOff::from_encoding(count_or_pointer);
             }
 
-            TearOff::from_strong_ptr(std::mem::transmute_copy(&tear_off))
+            TearOff::from_strong_ptr(tear_off_ptr)
                 .strong_count
                 .0
                 .store(count_or_pointer as _, Ordering::SeqCst);

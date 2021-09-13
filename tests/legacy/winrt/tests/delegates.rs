@@ -7,7 +7,7 @@ use test_winrt::{
     Windows::Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
 };
 
-use windows::{Abi, Interface};
+use windows::Interface;
 
 #[test]
 fn non_generic() -> windows::Result<()> {
@@ -48,10 +48,8 @@ fn generic() -> windows::Result<()> {
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
     let (tx, rx) = std::sync::mpsc::channel();
 
-    let uri_clone = uri.clone();
-    let d = Handler::new(move |sender, port| {
+    let d = Handler::new(move |_, port| {
         tx.send(true).unwrap();
-        assert!(uri_clone.abi() == sender.abi());
 
         // TODO: ideally primitives would be passed by value
         assert!(*port == 80);
@@ -77,12 +75,11 @@ fn event() -> windows::Result<()> {
     set.MapChanged(MapChangedEventHandler::<
         windows::HSTRING,
         windows::IInspectable,
-    >::new(move |sender, args| {
+    >::new(move |_, args| {
         let args = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
-        let map: IObservableMap<windows::HSTRING, windows::IInspectable> = set.into();
-        assert!(map.abi() == sender.abi());
+        let _: IObservableMap<windows::HSTRING, windows::IInspectable> = set.into();
         assert!(args.Key()? == "A");
         assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
         Ok(())

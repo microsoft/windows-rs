@@ -100,12 +100,6 @@ impl HSTRING {
 unsafe impl Abi for HSTRING {
     type Abi = std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
-
-    // TODO: this should just be implemented by the Abi trait for all types
-    fn set_abi(&mut self) -> *mut Self::Abi {
-        debug_assert!(self.is_empty());
-        &mut self.0 as *mut _ as _
-    }
 }
 
 unsafe impl RuntimeType for HSTRING {
@@ -322,24 +316,6 @@ mod tests {
     fn debug_format() {
         let value = StringType::from("Hello world");
         assert!(format!("{:?}", value) == "Hello world");
-    }
-
-    #[test]
-    fn abi_transfer() {
-        fn perform_transfer(from: StringType, to: &mut StringType) {
-            let from = std::mem::ManuallyDrop::new(from);
-            unsafe {
-                let to = to.set_abi();
-                let from = from.abi();
-                *to = from
-            };
-        }
-
-        let from = StringType::from("Hello");
-        let mut to = StringType::new();
-        perform_transfer(from, &mut to);
-
-        assert!(format!("{}", to) == "Hello");
     }
 
     #[test]
