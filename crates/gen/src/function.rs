@@ -12,13 +12,13 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     });
 
     let abi_return_type = gen_win32_return_sig(&signature, gen);
-    let mut link = def.impl_map().expect("Function").scope().name();
+    let mut link = def.impl_map().expect("Function").scope().name().to_lowercase();
     let raw_dylib = cfg!(feature = "raw_dylib");
 
     // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
     // will no longer be necessary.
-    if !raw_dylib && (link.contains("-ms-win-") || link == "D3DCOMPILER_47" || link == "SspiCli") {
-        link = "onecoreuap";
+    if !raw_dylib && (link.contains("-ms-win-") || link == "d3dcompiler_47" || link == "sspicli") {
+        link = "onecoreuap".to_string();
     }
 
     let link_attr = match def.static_lib() {
