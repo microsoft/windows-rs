@@ -12,7 +12,14 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     });
 
     let abi_return_type = gen_win32_return_sig(&signature, gen);
-    let mut link = def.impl_map().expect("Function").scope().name().to_lowercase();
+
+    let mut link = def
+        .impl_map()
+        .expect("Function")
+        .scope()
+        .name()
+        .to_lowercase();
+
     let raw_dylib = cfg!(feature = "raw_dylib");
 
     // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
