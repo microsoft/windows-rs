@@ -296,7 +296,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).26)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -310,7 +310,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).27)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -324,7 +324,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).28)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -338,7 +338,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).29)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -352,7 +352,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).30)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -366,7 +366,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).31)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -380,7 +380,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).32)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -394,7 +394,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).33)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -408,7 +408,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).34)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -422,7 +422,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).35)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -436,7 +436,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).36)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -450,7 +450,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).37)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -464,7 +464,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).38)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -478,7 +478,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).39)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -492,7 +492,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).40)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -506,7 +506,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).41)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -520,7 +520,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).42)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -534,7 +534,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).43)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -548,7 +548,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).44)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1310,7 +1310,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).26)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1324,7 +1324,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).27)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1338,7 +1338,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).28)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1352,7 +1352,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).29)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1366,7 +1366,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).30)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1380,7 +1380,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).31)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1394,7 +1394,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).32)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1408,7 +1408,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).33)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1422,7 +1422,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).34)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1436,7 +1436,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).35)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1450,7 +1450,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).36)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1464,7 +1464,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).37)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1478,7 +1478,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).38)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1492,7 +1492,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).39)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1506,7 +1506,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).40)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1520,7 +1520,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).41)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1534,7 +1534,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).42)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1548,7 +1548,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).43)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -1562,7 +1562,7 @@ pub mod Windows {
                     (::windows::Interface::vtable(this).44)(
                         ::std::mem::transmute_copy(this),
                         value.set_abi_len(),
-                        value.set_abi(),
+                        value as *mut _ as _,
                     )
                     .ok()
                 }
@@ -2817,10 +2817,6 @@ pub mod Windows {
             unsafe impl ::windows::Abi for BSTR {
                 type Abi = ::std::mem::ManuallyDrop<Self>;
                 type DefaultType = Self;
-                fn set_abi(&mut self) -> *mut Self::Abi {
-                    debug_assert!(self.0.is_null());
-                    &mut self.0 as *mut _ as _
-                }
             }
             pub type BSTR_abi = *mut u16;
             pub const CO_E_NOTINITIALIZED: ::windows::HRESULT =
@@ -2934,7 +2930,7 @@ pub mod Windows {
             unsafe impl ::windows::Abi for PSTR {
                 type Abi = Self;
                 type DefaultType = Self;
-                fn drop_param(param: &mut ::windows::Param<'_, Self>) {
+                unsafe fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
                         if !value.0.is_null() {
                             unsafe {
@@ -2991,7 +2987,7 @@ pub mod Windows {
             unsafe impl ::windows::Abi for PWSTR {
                 type Abi = Self;
                 type DefaultType = Self;
-                fn drop_param(param: &mut ::windows::Param<'_, Self>) {
+                unsafe fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
                         if !value.0.is_null() {
                             unsafe {

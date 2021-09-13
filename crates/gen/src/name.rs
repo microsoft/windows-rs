@@ -64,35 +64,11 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
 
 pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
-        ElementType::Void => quote! { ::std::ffi::c_void },
-        ElementType::Bool => quote! { bool },
-        ElementType::Char => quote! { u16 },
-        ElementType::I8 => quote! { i8 },
-        ElementType::U8 => quote! { u8 },
-        ElementType::I16 => quote! { i16 },
-        ElementType::U16 => quote! { u16 },
-        ElementType::I32 => quote! { i32 },
-        ElementType::U32 => quote! { u32 },
-        ElementType::I64 => quote! { i64 },
-        ElementType::U64 => quote! { u64 },
-        ElementType::F32 => quote! { f32 },
-        ElementType::F64 => quote! { f64 },
-        ElementType::ISize => quote! { isize },
-        ElementType::USize => quote! { usize },
         ElementType::String => {
             quote! { ::std::mem::ManuallyDrop<::windows::HSTRING> }
         }
-        ElementType::IInspectable => {
+        ElementType::IUnknown | ElementType::IInspectable => {
             quote! { ::windows::RawPtr }
-        }
-        ElementType::Guid => {
-            quote! { ::windows::Guid }
-        }
-        ElementType::IUnknown => {
-            quote! { ::windows::RawPtr }
-        }
-        ElementType::HRESULT => {
-            quote! { ::windows::HRESULT }
         }
         ElementType::Array((kind, len)) => {
             let name = gen_abi_sig(kind, gen);
@@ -104,7 +80,7 @@ pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
             quote! { <#name as ::windows::Abi>::Abi }
         }
         ElementType::TypeDef(def) => gen_abi_type(def, gen),
-        _ => unimplemented!(),
+        _ => gen_name(def, gen),
     }
 }
 

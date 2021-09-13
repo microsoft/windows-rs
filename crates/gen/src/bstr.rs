@@ -143,11 +143,6 @@ pub fn gen_bstr() -> TokenStream {
         unsafe impl ::windows::Abi for BSTR {
             type Abi = ::std::mem::ManuallyDrop<Self>;
             type DefaultType = Self;
-
-            fn set_abi(&mut self) -> *mut Self::Abi {
-                debug_assert!(self.0.is_null());
-                &mut self.0 as *mut _ as _
-            }
         }
         pub type BSTR_abi = *mut u16;
     }

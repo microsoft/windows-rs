@@ -1,5 +1,4 @@
 use test_bstr::Windows::Win32::Foundation::BSTR;
-use windows::Abi;
 
 #[test]
 fn test() {
@@ -19,7 +18,6 @@ fn clone() {
     let b = a.clone();
     assert_eq!(a, "");
     assert_eq!(b, "");
-    assert_eq!(a.abi(), b.abi());
 
     let a = BSTR::new();
     assert_eq!(a.is_empty(), true);

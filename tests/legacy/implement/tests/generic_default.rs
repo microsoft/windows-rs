@@ -15,7 +15,7 @@ where
 impl<T: ::windows::RuntimeType + 'static> Thing<T> {
     fn GetAt(&self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
-            Some(value) => <T as Abi>::ok(value),
+            Some(value) => unsafe { <T as Abi>::from_default(value) },
             None => Err(Error::new(E_BOUNDS, "")),
         }
     }
