@@ -211,14 +211,14 @@
     <ClInclude Include="Classes.NoWeakRef.h" />
     <ClInclude Include="Classes.Required.h" />
     <ClInclude Include="Classes.Static.h" />
-    <ClInclude Include="exports.h" />
+    <ClInclude Include="simple.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Signatures.Test.h" />
     <ClInclude Include="Simple.Class.h" />
     <ClInclude Include="Structs.Test.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="exports.cpp" />
+    <ClCompile Include="simple.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

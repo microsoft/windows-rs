@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Unknwn.h>
+#include <stdint.h>
 
 extern "C"
 {

@@ -31,14 +31,14 @@
     <ClInclude Include="Signatures.Test.h">
       <Filter>winrt</Filter>
     </ClInclude>
-    <ClInclude Include="exports.h">
+    <ClInclude Include="simple.h">
       <Filter>win32</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-    <ClCompile Include="exports.cpp">
+    <ClCompile Include="simple.cpp">
       <Filter>win32</Filter>
     </ClCompile>
   </ItemGroup>
