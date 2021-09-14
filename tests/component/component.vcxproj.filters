@@ -46,6 +46,12 @@
     <ClInclude Include="Collections.Test.h">
       <Filter>winrt</Filter>
     </ClInclude>
+    <ClInclude Include="Async.Test.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Attributes.Test.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />

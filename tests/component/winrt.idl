@@ -169,7 +169,13 @@ namespace Component
 
     namespace Async
     {
-
+        runtimeclass Test
+        {
+            static Windows.Foundation.IAsyncAction CreateAsyncAction(Windows.Foundation.TimeSpan delay, Boolean fail);
+            static Windows.Foundation.IAsyncActionWithProgress<Int32> CreateAsyncActionWithProgress(Windows.Foundation.TimeSpan delay, Boolean fail);
+            static Windows.Foundation.IAsyncOperation<Int32> CreateAsyncOperation(Windows.Foundation.TimeSpan delay, Boolean fail, Int32 result);
+            static Windows.Foundation.IAsyncOperationWithProgress<Int32, Int32> CreateAsyncOperationWithProgress(Windows.Foundation.TimeSpan delay, Boolean fail, Int32 result);
+        }
     }
 
     namespace Conversion
@@ -178,6 +184,24 @@ namespace Component
         {
             static UInt32 ExpectTimeSpan(Windows.Foundation.TimeSpan value);
             static String ExpectObject(Object value);
+        }
+    }
+
+    namespace Attributes
+    {
+        [attributeusage(target_runtimeclass)]
+        attribute CustomTestAttribute
+        {
+            String SomeString;
+            Int32 SomeInt;
+            Boolean SomeBool;
+        }
+
+        [CustomTest("Hello, World!", 1975, TRUE)]
+        runtimeclass Test
+        {
+            Test();
+            void Method();
         }
     }
 

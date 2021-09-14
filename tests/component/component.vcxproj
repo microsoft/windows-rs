@@ -206,6 +206,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Async.Test.h" />
+    <ClInclude Include="Attributes.Test.h" />
     <ClInclude Include="Classes.Activatable.h" />
     <ClInclude Include="Collections.Test.h" />
     <ClInclude Include="Composable.Base.h" />
