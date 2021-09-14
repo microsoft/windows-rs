@@ -1,12 +1,12 @@
 #[test]
 fn named_arguments() {
     let reader = reader::TypeReader::get();
-    let type_def = reader.expect_type_def(reader::TypeName::new("TestComponent", "TestRunner"));
+    let type_def = reader.expect_type_def(reader::TypeName::new("Component.Attributes", "Test"));
 
-    // TestRunner should have a custom attribute on it
     let mut some_string = 0;
     let mut some_int = 0;
     let mut some_bool = 0;
+
     for attribute in type_def.attributes() {
         match attribute.name() {
             "CustomTestAttribute" => {
@@ -31,6 +31,7 @@ fn named_arguments() {
             _ => {}
         }
     }
+
     assert_eq!(some_string, 1);
     assert_eq!(some_int, 1);
     assert_eq!(some_bool, 1);
