@@ -12,7 +12,19 @@ pub fn gen_handle() -> TokenStream {
                 self.0 == -1
             }
         }
-        unsafe impl ::windows::Handle for HANDLE {}
+        unsafe impl ::windows::Handle for HANDLE {
+            fn is_null(&self) -> bool {
+                *self == unsafe { ::std::mem::zeroed() }
+            }
+        
+            fn ok(self) -> ::windows::Result<Self> {
+                if self != Self::NULL && self != Self::INVALID {
+                    Ok(self)
+                } else {
+                    Err(::windows::HRESULT::from_thread().into())
+                }
+            }
+        }
         unsafe impl ::windows::Abi for HANDLE {
             type Abi = Self;
             type DefaultType = Self;
