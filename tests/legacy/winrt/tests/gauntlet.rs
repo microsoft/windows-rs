@@ -1,63 +1,6 @@
 use test_winrt::TestComponent::*;
 use test_winrt::Windows::Foundation::{IStringable, Uri};
 
-#[test]
-fn collections() -> windows::Result<()> {
-    {
-        let v = TestRunner::CreateInt32Vector()?;
-        assert_eq!(v.Size()?, 0);
-        v.Append(1)?;
-        assert_eq!(v.Size()?, 1);
-        assert_eq!(v.GetAt(0)?, 1);
-        v.ReplaceAll(&[1, 2, 3])?;
-        assert_eq!(v.Size()?, 3);
-        assert_eq!(v.GetAt(0)?, 1);
-        assert_eq!(v.GetAt(1)?, 2);
-        assert_eq!(v.GetAt(2)?, 3);
-
-        v.SetAt(0, 10)?;
-        assert_eq!(v.GetAt(0)?, 10);
-    }
-
-    {
-        let v = TestRunner::CreateStringVector()?;
-        assert_eq!(v.Size()?, 0);
-        v.Append("one")?;
-        assert_eq!(v.Size()?, 1);
-        assert_eq!(v.GetAt(0)?, "one");
-        v.ReplaceAll(&["one".into(), "two".into(), "three".into()])?;
-        assert_eq!(v.Size()?, 3);
-        assert_eq!(v.GetAt(0)?, "one");
-        assert_eq!(v.GetAt(1)?, "two");
-        assert_eq!(v.GetAt(2)?, "three");
-
-        v.SetAt(0, "ONE")?;
-        assert_eq!(v.GetAt(0)?, "ONE");
-    }
-
-    {
-        let one: IStringable = Uri::CreateUri("http://kennykerr.ca/one")?.into();
-        let two: IStringable = Uri::CreateUri("http://kennykerr.ca/two")?.into();
-        let three: IStringable = Uri::CreateUri("http://kennykerr.ca/three")?.into();
-
-        let v = TestRunner::CreateStringableVector()?;
-        assert_eq!(v.Size()?, 0);
-        v.Append(&one)?;
-        assert_eq!(v.Size()?, 1);
-        assert_eq!(v.GetAt(0)?.ToString()?, "http://kennykerr.ca/one");
-        v.ReplaceAll(&[Some(one), Some(two), Some(three)])?;
-        assert_eq!(v.Size()?, 3);
-        assert_eq!(v.GetAt(0)?.ToString()?, "http://kennykerr.ca/one");
-        assert_eq!(v.GetAt(1)?.ToString()?, "http://kennykerr.ca/two");
-        assert_eq!(v.GetAt(2)?.ToString()?, "http://kennykerr.ca/three");
-
-        v.SetAt(0, Uri::CreateUri("http://kennykerr.ca/ONE")?)?;
-        assert_eq!(v.GetAt(0)?.ToString()?, "http://kennykerr.ca/ONE");
-    }
-
-    Ok(())
-}
-
 async fn async_await() -> windows::Result<()> {
     let tests = TestRunner::MakeTests()?;
 

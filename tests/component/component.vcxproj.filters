@@ -43,6 +43,9 @@
     <ClInclude Include="Composable.Base.h">
       <Filter>winrt</Filter>
     </ClInclude>
+    <ClInclude Include="Collections.Test.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />

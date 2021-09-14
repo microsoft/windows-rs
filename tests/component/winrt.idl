@@ -159,6 +159,12 @@ namespace Component
 
     namespace Collections
     {
+        runtimeclass Test
+        {
+            static Windows.Foundation.Collections.IVector<Int32> CreateInt32Vector();
+            static Windows.Foundation.Collections.IVector<String> CreateStringVector();
+            static Windows.Foundation.Collections.IVector<Windows.Foundation.IStringable> CreateStringableVector();
+        }
     }
 
     namespace Async
