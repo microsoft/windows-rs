@@ -34,6 +34,15 @@
     <ClInclude Include="simple.h">
       <Filter>win32</Filter>
     </ClInclude>
+    <ClInclude Include="Conversion.Test.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Composable.Derived.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Composable.Base.h">
+      <Filter>winrt</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />

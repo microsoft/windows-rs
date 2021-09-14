@@ -14,8 +14,6 @@ namespace winrt::Component::Signatures::implementation
 {
     struct Test
     {
-        Test() = default;
-
         static bool SignatureBoolean(bool a, bool& b)
         {
             b = a;

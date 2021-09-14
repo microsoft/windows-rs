@@ -40,7 +40,7 @@ namespace Component
         runtimeclass Activatable
         {
             Activatable();
-            Activatable(Int32 val); // midl doesn't allow "value" for some reason...
+            Activatable(Int32 v);
             Int32 Property{ get; };
         }
 
@@ -60,6 +60,37 @@ namespace Component
             NoWeakRef();
             void Method();
         }
+    }
+
+    namespace Composable
+    {
+        unsealed runtimeclass Base : IBaseRequired
+        {
+            Base();
+
+            [method_name("CreateWithValue")]
+            Base(Int32 v);
+
+            Int32 Value{ get; set; };
+        }
+
+        unsealed runtimeclass Derived : Base, IDerivedRequired
+        {
+            Derived();
+
+            [method_name("CreateWithValue")]
+            Derived(Int32 v);
+        }
+
+        interface IBaseRequired
+        {
+            String BaseRequired();
+        };
+
+        interface IDerivedRequired
+        {
+            String DerivedRequired();
+        };
     }
 
     namespace Interfaces
@@ -133,6 +164,15 @@ namespace Component
     namespace Async
     {
 
+    }
+
+    namespace Conversion
+    {
+        runtimeclass Test
+        {
+            static UInt32 ExpectTimeSpan(Windows.Foundation.TimeSpan value);
+            static String ExpectObject(Object value);
+        }
     }
 
     namespace Signatures
