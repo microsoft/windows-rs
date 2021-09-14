@@ -10,7 +10,7 @@
   <ItemGroup>
     <ImportLibs Include="..\target\$(Platform)\$(Configuration)\*.lib" />
     <Partition Include="simple.cpp">
-      <TraverseFiles>..\simple.h</TraverseFiles>
+      <TraverseFiles>..\win32\simple.h</TraverseFiles>
       <Namespace>Component.Win32.Simple</Namespace>
     </Partition>
   </ItemGroup>
