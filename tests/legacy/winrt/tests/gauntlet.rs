@@ -1,6 +1,5 @@
 use test_winrt::TestComponent::*;
-use test_winrt::Windows::Foundation::{IReference, IStringable, PropertyValue, Uri};
-use windows::Interface;
+use test_winrt::Windows::Foundation::{IStringable, Uri};
 
 #[test]
 fn collections() -> windows::Result<()> {

@@ -1,5 +1,6 @@
 fn main() {
     windows::build! {
+        TestComponent::*,
         Windows::ApplicationModel::Activation::{
             BackgroundActivatedEventArgs, CachedFileUpdaterActivatedEventArgs,
             FileActivatedEventArgs, FileOpenPickerActivatedEventArgs,
