@@ -3,9 +3,9 @@
 
 use test_win32_simple::*;
 use windows::*;
-use Component::Win32::*;
+use Component::Win32::Simple::*;
 
-#[implement(Component::Win32::ISimpleInterface)]
+#[implement(Component::Win32::Simple::ISimpleInterface)]
 struct Interface();
 
 #[allow(non_snake_case)]
