@@ -32,4 +32,7 @@ fn unsigned() {
 
     let value = Unsigned::One | Unsigned::Three;
     assert!(value.0 == 0x101u32);
+
+    let value = Unsigned::One;
+    assert_eq!(!value, Unsigned(0xFFFFFFFEu32))
 }

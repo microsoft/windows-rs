@@ -36,6 +36,13 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
                     self.0.bitand_assign(rhs.0)
                 }
             }
+            impl ::std::ops::Not for #name {
+                type Output = Self;
+
+                fn not(self) -> Self {
+                    Self(self.0.not())
+                }
+            }
         }
     } else {
         quote! {}
