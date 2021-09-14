@@ -3319,6 +3319,12 @@ pub mod Windows {
                             self.0.bitand_assign(rhs.0)
                         }
                     }
+                    impl ::std::ops::Not for FORMAT_MESSAGE_OPTIONS {
+                        type Output = Self;
+                        fn not(self) -> Self {
+                            Self(self.0.not())
+                        }
+                    }
                     pub unsafe fn FormatMessageW(
                         dwflags: FORMAT_MESSAGE_OPTIONS,
                         lpsource: *const ::std::ffi::c_void,
@@ -3406,6 +3412,12 @@ pub mod Windows {
                     impl ::std::ops::BitAndAssign for WIN32_ERROR {
                         fn bitand_assign(&mut self, rhs: Self) {
                             self.0.bitand_assign(rhs.0)
+                        }
+                    }
+                    impl ::std::ops::Not for WIN32_ERROR {
+                        type Output = Self;
+                        fn not(self) -> Self {
+                            Self(self.0.not())
                         }
                     }
                 }
@@ -3552,6 +3564,12 @@ pub mod Windows {
                 impl ::std::ops::BitAndAssign for HEAP_FLAGS {
                     fn bitand_assign(&mut self, rhs: Self) {
                         self.0.bitand_assign(rhs.0)
+                    }
+                }
+                impl ::std::ops::Not for HEAP_FLAGS {
+                    type Output = Self;
+                    fn not(self) -> Self {
+                        Self(self.0.not())
                     }
                 }
                 pub unsafe fn HeapAlloc<'a>(
@@ -3910,6 +3928,12 @@ pub mod Windows {
                 impl ::std::ops::BitAndAssign for WAIT_RETURN_CAUSE {
                     fn bitand_assign(&mut self, rhs: Self) {
                         self.0.bitand_assign(rhs.0)
+                    }
+                }
+                impl ::std::ops::Not for WAIT_RETURN_CAUSE {
+                    type Output = Self;
+                    fn not(self) -> Self {
+                        Self(self.0.not())
                     }
                 }
                 pub unsafe fn WaitForSingleObject<'a>(
