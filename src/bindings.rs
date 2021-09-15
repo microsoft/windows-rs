@@ -1083,7 +1083,7 @@ pub mod Windows {
                 }
             }
             pub fn Type(&self) -> ::windows::Result<PropertyType> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <PropertyType as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(
@@ -1094,7 +1094,7 @@ pub mod Windows {
                 }
             }
             pub fn IsNumericScalar(&self) -> ::windows::Result<bool> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <bool as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).7)(
@@ -1105,7 +1105,7 @@ pub mod Windows {
                 }
             }
             pub fn GetUInt8(&self) -> ::windows::Result<u8> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <u8 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).8)(
@@ -1116,7 +1116,7 @@ pub mod Windows {
                 }
             }
             pub fn GetInt16(&self) -> ::windows::Result<i16> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <i16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).9)(
@@ -1127,7 +1127,7 @@ pub mod Windows {
                 }
             }
             pub fn GetUInt16(&self) -> ::windows::Result<u16> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <u16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).10)(
@@ -1138,7 +1138,7 @@ pub mod Windows {
                 }
             }
             pub fn GetInt32(&self) -> ::windows::Result<i32> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <i32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).11)(
@@ -1149,7 +1149,7 @@ pub mod Windows {
                 }
             }
             pub fn GetUInt32(&self) -> ::windows::Result<u32> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <u32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).12)(
@@ -1160,7 +1160,7 @@ pub mod Windows {
                 }
             }
             pub fn GetInt64(&self) -> ::windows::Result<i64> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <i64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).13)(
@@ -1171,7 +1171,7 @@ pub mod Windows {
                 }
             }
             pub fn GetUInt64(&self) -> ::windows::Result<u64> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <u64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).14)(
@@ -1182,7 +1182,7 @@ pub mod Windows {
                 }
             }
             pub fn GetSingle(&self) -> ::windows::Result<f32> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <f32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).15)(
@@ -1193,7 +1193,7 @@ pub mod Windows {
                 }
             }
             pub fn GetDouble(&self) -> ::windows::Result<f64> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <f64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).16)(
@@ -1204,7 +1204,7 @@ pub mod Windows {
                 }
             }
             pub fn GetChar16(&self) -> ::windows::Result<u16> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <u16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).17)(
@@ -1215,7 +1215,7 @@ pub mod Windows {
                 }
             }
             pub fn GetBoolean(&self) -> ::windows::Result<bool> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <bool as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).18)(
@@ -1226,7 +1226,7 @@ pub mod Windows {
                 }
             }
             pub fn GetString(&self) -> ::windows::Result<::windows::HSTRING> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
@@ -1238,7 +1238,7 @@ pub mod Windows {
                 }
             }
             pub fn GetGuid(&self) -> ::windows::Result<::windows::Guid> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
                         ::std::mem::zeroed();
@@ -1250,7 +1250,7 @@ pub mod Windows {
                 }
             }
             pub fn GetDateTime(&self) -> ::windows::Result<DateTime> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <DateTime as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).21)(
@@ -1261,7 +1261,7 @@ pub mod Windows {
                 }
             }
             pub fn GetTimeSpan(&self) -> ::windows::Result<TimeSpan> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <TimeSpan as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).22)(
@@ -1272,7 +1272,7 @@ pub mod Windows {
                 }
             }
             pub fn GetPoint(&self) -> ::windows::Result<Point> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <Point as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).23)(
@@ -1283,7 +1283,7 @@ pub mod Windows {
                 }
             }
             pub fn GetSize(&self) -> ::windows::Result<Size> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <Size as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).24)(
@@ -1294,7 +1294,7 @@ pub mod Windows {
                 }
             }
             pub fn GetRect(&self) -> ::windows::Result<Rect> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     let mut result__: <Rect as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).25)(
@@ -1305,7 +1305,7 @@ pub mod Windows {
                 }
             }
             pub fn GetUInt8Array(&self, value: &mut ::windows::Array<u8>) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).26)(
                         ::std::mem::transmute_copy(this),
@@ -1319,7 +1319,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<i16>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).27)(
                         ::std::mem::transmute_copy(this),
@@ -1333,7 +1333,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<u16>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).28)(
                         ::std::mem::transmute_copy(this),
@@ -1347,7 +1347,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<i32>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).29)(
                         ::std::mem::transmute_copy(this),
@@ -1361,7 +1361,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<u32>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).30)(
                         ::std::mem::transmute_copy(this),
@@ -1375,7 +1375,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<i64>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).31)(
                         ::std::mem::transmute_copy(this),
@@ -1389,7 +1389,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<u64>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).32)(
                         ::std::mem::transmute_copy(this),
@@ -1403,7 +1403,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<f32>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).33)(
                         ::std::mem::transmute_copy(this),
@@ -1417,7 +1417,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<f64>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).34)(
                         ::std::mem::transmute_copy(this),
@@ -1431,7 +1431,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<u16>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).35)(
                         ::std::mem::transmute_copy(this),
@@ -1445,7 +1445,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<bool>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).36)(
                         ::std::mem::transmute_copy(this),
@@ -1459,7 +1459,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<::windows::HSTRING>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).37)(
                         ::std::mem::transmute_copy(this),
@@ -1473,7 +1473,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<::windows::IInspectable>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).38)(
                         ::std::mem::transmute_copy(this),
@@ -1487,7 +1487,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<::windows::Guid>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).39)(
                         ::std::mem::transmute_copy(this),
@@ -1501,7 +1501,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<DateTime>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).40)(
                         ::std::mem::transmute_copy(this),
@@ -1515,7 +1515,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<TimeSpan>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).41)(
                         ::std::mem::transmute_copy(this),
@@ -1529,7 +1529,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<Point>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).42)(
                         ::std::mem::transmute_copy(this),
@@ -1543,7 +1543,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<Size>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).43)(
                         ::std::mem::transmute_copy(this),
@@ -1557,7 +1557,7 @@ pub mod Windows {
                 &self,
                 value: &mut ::windows::Array<Rect>,
             ) -> ::windows::Result<()> {
-                let this = &::windows::Interface::cast::<IPropertyValue>(self).unwrap();
+                let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
                     (::windows::Interface::vtable(this).44)(
                         ::std::mem::transmute_copy(this),
@@ -1636,30 +1636,36 @@ pub mod Windows {
                 ::windows::Param::Borrowed(&self.0)
             }
         }
-        impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<IReference<T>> for IPropertyValue {
-            fn from(value: IReference<T>) -> Self {
-                ::std::convert::From::from(&value)
+        impl<T: ::windows::RuntimeType + 'static> ::std::convert::TryFrom<IReference<T>>
+            for IPropertyValue
+        {
+            type Error = ::windows::Error;
+            fn try_from(value: IReference<T>) -> ::windows::Result<Self> {
+                ::std::convert::TryFrom::try_from(&value)
             }
         }
-        impl<T: ::windows::RuntimeType + 'static> ::std::convert::From<&IReference<T>> for IPropertyValue {
-            fn from(value: &IReference<T>) -> Self {
-                ::windows::Interface::cast(value).unwrap()
+        impl<T: ::windows::RuntimeType + 'static> ::std::convert::TryFrom<&IReference<T>>
+            for IPropertyValue
+        {
+            type Error = ::windows::Error;
+            fn try_from(value: &IReference<T>) -> ::windows::Result<Self> {
+                ::windows::Interface::cast(value)
             }
         }
         impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, IPropertyValue>
             for IReference<T>
         {
             fn into_param(self) -> ::windows::Param<'a, IPropertyValue> {
-                ::windows::Param::Owned(::std::convert::Into::<IPropertyValue>::into(self))
+                ::windows::IntoParam::into_param(&self)
             }
         }
         impl<'a, T: ::windows::RuntimeType + 'static> ::windows::IntoParam<'a, IPropertyValue>
             for &IReference<T>
         {
             fn into_param(self) -> ::windows::Param<'a, IPropertyValue> {
-                ::windows::Param::Owned(::std::convert::Into::<IPropertyValue>::into(
-                    ::std::clone::Clone::clone(self),
-                ))
+                ::std::convert::TryInto::<IPropertyValue>::try_into(self)
+                    .map(::windows::Param::Owned)
+                    .unwrap_or(::windows::Param::None)
             }
         }
         #[repr(C)]

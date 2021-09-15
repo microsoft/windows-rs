@@ -249,7 +249,7 @@ pub fn gen_winrt_method(
             quote! {
                 #deprecated
                 pub fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
-                    let this = &::windows::Interface::cast::<#interface_name>(self).unwrap();
+                    let this = &::windows::Interface::cast::<#interface_name>(self)?;
                     unsafe {
                         #vcall
                     }

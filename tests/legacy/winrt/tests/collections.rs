@@ -36,7 +36,7 @@ fn uri() -> windows::Result<()> {
     // This tests the ability to treat the WwwFormUrlDecoder as an IIterable<T> and use
     // the slower IIterator<T> iterator.
 
-    let iterable: IIterable<IWwwFormUrlDecoderEntry> = uri.QueryParsed()?.into();
+    let iterable: IIterable<IWwwFormUrlDecoderEntry> = uri.QueryParsed()?.try_into().unwrap();
 
     let mut result = String::new();
 
@@ -49,7 +49,7 @@ fn uri() -> windows::Result<()> {
     // This tests the ability to treat the WwwFormUrlDecoder as an IVectorView<T> and use
     // the fast IVectorView iterator directly.
 
-    let iterable: IVectorView<IWwwFormUrlDecoderEntry> = uri.QueryParsed()?.into();
+    let iterable: IVectorView<IWwwFormUrlDecoderEntry> = uri.QueryParsed()?.try_into().unwrap();
 
     let mut result = String::new();
 

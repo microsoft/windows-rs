@@ -243,6 +243,8 @@ impl Class {
                 }
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
+                        // This unwrap is legitimate because conversion to base can never fail because 
+                        // the base can never change across versions.
                         ::windows::Interface::cast(value).unwrap()
                     }
                 }

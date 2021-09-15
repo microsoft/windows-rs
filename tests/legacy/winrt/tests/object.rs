@@ -1,3 +1,4 @@
+use std::convert::TryInto;
 use test_winrt::Windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]
@@ -15,7 +16,7 @@ fn class() -> windows::Result<()> {
 #[test]
 fn interface() -> windows::Result<()> {
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
-    let stringable: IStringable = uri.into();
+    let stringable: IStringable = uri.try_into().unwrap();
 
     // All WinRT interfaces are convertible to windows::IInspectable.
     let object: windows::IInspectable = stringable.into();

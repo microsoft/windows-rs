@@ -1,6 +1,7 @@
 use test_winrt_collections::*;
 use windows::*;
 use Component::Collections::*;
+use Windows::Foundation::Collections::*;
 use Windows::Foundation::IStringable;
 
 #[implement(Windows::Foundation::IStringable)]
@@ -71,6 +72,43 @@ fn stringable() -> Result<()> {
     let one: IStringable = TestStringable("ONE".into()).into();
     v.SetAt(0, one)?;
     assert_eq!(v.GetAt(0)?.ToString()?, "ONE");
+
+    Ok(())
+}
+
+#[test]
+fn vector_iter() -> Result<()> {
+    let vector = Test::CreateInt32Vector()?;
+    vector.ReplaceAll(&[1, 2, 3])?;
+
+    let values: Vec<i32> = vector.into_iter().collect();
+    assert!(values == [1, 2, 3]);
+
+    Ok(())
+}
+
+#[test]
+fn vector_view_iter() -> Result<()> {
+    let vector = Test::CreateInt32Vector()?;
+    vector.ReplaceAll(&[1, 2, 3])?;
+
+    let view = vector.GetView()?;
+
+    let values: Vec<i32> = view.into_iter().collect();
+    assert!(values == [1, 2, 3]);
+
+    Ok(())
+}
+
+#[test]
+fn iterable_iter() -> Result<()> {
+    let vector = Test::CreateInt32Vector()?;
+    vector.ReplaceAll(&[1, 2, 3])?;
+
+    let view: IIterable<i32> = vector.cast()?;
+
+    let values: Vec<i32> = view.into_iter().collect();
+    assert!(values == [1, 2, 3]);
 
     Ok(())
 }
