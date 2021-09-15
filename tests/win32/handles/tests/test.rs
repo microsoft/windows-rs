@@ -1,6 +1,6 @@
 use test_win32_handles::*;
 use windows::*;
-use Windows::Win32::Foundation::{HANDLE, HWND};
+use Windows::Win32::Foundation::*;
 use Windows::Win32::System::Diagnostics::Debug::*;
 
 #[test]
@@ -20,6 +20,8 @@ fn hwnd() {
     assert!(
         HWND::NULL.ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
     );
+
+    assert!(std::mem::size_of::<HWND>() == std::mem::size_of::<usize>());
 }
 
 #[test]
@@ -49,4 +51,13 @@ fn handle() {
     assert!(
         HANDLE::INVALID.ok().unwrap_err().code() == HRESULT::from_win32(ERROR_FILE_NOT_FOUND.0)
     );
+
+    assert!(std::mem::size_of::<HANDLE>() == std::mem::size_of::<usize>());
+}
+
+#[test]
+fn boolean() {
+    // Although BOOLEAN is considered a Win32 handle type, it is not pointer-sized like most handle types.
+    // This test just validates that such types have the correct layout.
+    assert!(std::mem::size_of::<BOOLEAN>() == 1);
 }
