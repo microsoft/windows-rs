@@ -76,22 +76,25 @@ fn stringable() -> Result<()> {
 }
 
 #[test]
+fn vector_iter() -> Result<()> {
+    let vector = Test::CreateInt32Vector()?;
+    vector.ReplaceAll(&[1, 2, 3])?;
+
+     let values: Vec<i32> = vector.into_iter().collect();
+     assert!(values == [1,2,3]);
+
+    Ok(())
+}
+
+#[test]
 fn vector_view_iter() -> Result<()> {
     let vector = Test::CreateInt32Vector()?;
     vector.ReplaceAll(&[1, 2, 3])?;
 
     let view = vector.GetView()?;
 
-    // TODO: should this work?
-    // let values = view.collect();
-
-    let mut values = Vec::new();
-
-    for value in view {
-        values.push(value);
-    }
-
-    assert!(values == [1,2,3]);
+     let values: Vec<i32> = view.into_iter().collect();
+     assert!(values == [1,2,3]);
 
     Ok(())
 }

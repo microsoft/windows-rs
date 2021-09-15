@@ -34,7 +34,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     type IntoIter = IIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        self.First().unwrap()
+                        ::std::iter::IntoIterator::into_iter(&self)
                     }
                 }
                 impl<T: ::windows::RuntimeType> ::std::iter::IntoIterator for &IIterable<T> {
@@ -42,6 +42,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     type IntoIter = IIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
+                        // TODO: not sure how to avoid this unwrap, although it should always succeed in practice.
                         self.First().unwrap()
                     }
                 }
@@ -98,15 +99,13 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
         TypeName::IVector => {
             return quote! {
                 pub struct VectorIterator<T: ::windows::RuntimeType + 'static> {
-                    vector: IVector<T>,
+                    vector: ::std::option::Option<IVector<T>>,
                     current: u32,
-                    size: u32,
                 }
 
                 impl<T: ::windows::RuntimeType> VectorIterator<T> {
-                    pub fn new(vector: IVector<T>) -> Self {
-                        let size = vector.Size().unwrap();
-                        Self { vector, current: 0, size }
+                    pub fn new(vector: ::std::option::Option<IVector<T>>) -> Self {
+                        Self { vector, current: 0 }
                     }
                 }
 
@@ -114,13 +113,14 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     type Item = T;
 
                     fn next(&mut self) -> ::std::option::Option<Self::Item> {
-                        if self.current >= self.size {
-                            return None;
-                        }
-
-                        let result = self.vector.GetAt(self.current);
-                        self.current += 1;
-                        result.ok()
+                        self.vector.as_ref()
+                            .and_then(|vector| {
+                                vector.GetAt(self.current).ok()
+                            })
+                            .and_then(|result| {
+                                self.current += 1;
+                                Some(result)
+                            })
                     }
                 }
 
@@ -129,7 +129,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     type IntoIter = VectorIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        VectorIterator::new(self)
+                        ::std::iter::IntoIterator::into_iter(&self)
                     }
                 }
                 impl<T: ::windows::RuntimeType> ::std::iter::IntoIterator for &IVector<T> {
@@ -137,7 +137,8 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     type IntoIter = VectorIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        VectorIterator::new(::std::clone::Clone::clone(self))
+                        // TODO: shouldn't need to clone - VectorIterator should hold a reference
+                        VectorIterator::new(::std::option::Option::Some(::std::clone::Clone::clone(self)))
                     }
                 }
             };
@@ -220,7 +221,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     type IntoIter = #wfc IIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
-                        self.First().unwrap()
+                        ::std::iter::IntoIterator::into_iter(&self)
                     }
                 }
                 impl<#constraints> ::std::iter::IntoIterator for &#name {
@@ -228,6 +229,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     type IntoIter = #wfc IIterator<Self::Item>;
 
                     fn into_iter(self) -> Self::IntoIter {
+                        // TODO: not sure how to avoid this unwrap, although it should always succeed in practice.
                         self.First().unwrap()
                     }
                 }
