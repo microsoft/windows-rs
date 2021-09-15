@@ -2835,70 +2835,53 @@ pub mod Windows {
             }
             pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
             pub type FARPROC = unsafe extern "system" fn() -> isize;
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            #[derive(
+                :: std :: clone :: Clone,
+                :: std :: marker :: Copy,
+                :: std :: default :: Default,
+                :: std :: fmt :: Debug,
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+            )]
             #[repr(transparent)]
             pub struct HANDLE(pub isize);
-            impl HANDLE {}
-            impl ::std::default::Default for HANDLE {
-                fn default() -> Self {
-                    Self(0)
-                }
-            }
             impl HANDLE {
                 pub const NULL: Self = Self(0);
-                pub fn is_null(&self) -> bool {
-                    self.0 == 0
-                }
-            }
-            impl ::std::fmt::Debug for HANDLE {
-                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    fmt.debug_struct("HANDLE").field("Value", &self.0).finish()
-                }
-            }
-            impl ::std::cmp::PartialEq for HANDLE {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-                }
-            }
-            impl ::std::cmp::Eq for HANDLE {}
-            unsafe impl ::windows::Abi for HANDLE {
-                type Abi = Self;
-                type DefaultType = Self;
-            }
-            impl HANDLE {
                 pub const INVALID: Self = Self(-1);
                 pub fn is_invalid(&self) -> bool {
                     self.0 == -1
                 }
             }
-            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+            unsafe impl ::windows::Handle for HANDLE {
+                fn is_null(&self) -> bool {
+                    *self == unsafe { ::std::mem::zeroed() }
+                }
+                fn ok(self) -> ::windows::Result<Self> {
+                    if self != Self::NULL && self != Self::INVALID {
+                        Ok(self)
+                    } else {
+                        Err(::windows::HRESULT::from_thread().into())
+                    }
+                }
+            }
+            unsafe impl ::windows::Abi for HANDLE {
+                type Abi = Self;
+                type DefaultType = Self;
+            }
+            #[derive(
+                :: std :: clone :: Clone,
+                :: std :: marker :: Copy,
+                :: std :: default :: Default,
+                :: std :: fmt :: Debug,
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+            )]
             #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
-            impl HINSTANCE {}
-            impl ::std::default::Default for HINSTANCE {
-                fn default() -> Self {
-                    Self(0)
-                }
-            }
             impl HINSTANCE {
                 pub const NULL: Self = Self(0);
-                pub fn is_null(&self) -> bool {
-                    self.0 == 0
-                }
             }
-            impl ::std::fmt::Debug for HINSTANCE {
-                fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                    fmt.debug_struct("HINSTANCE")
-                        .field("Value", &self.0)
-                        .finish()
-                }
-            }
-            impl ::std::cmp::PartialEq for HINSTANCE {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-                }
-            }
-            impl ::std::cmp::Eq for HINSTANCE {}
+            unsafe impl ::windows::Handle for HINSTANCE {}
             unsafe impl ::windows::Abi for HINSTANCE {
                 type Abi = Self;
                 type DefaultType = Self;
@@ -3620,34 +3603,20 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+                #[derive(
+                    :: std :: clone :: Clone,
+                    :: std :: marker :: Copy,
+                    :: std :: default :: Default,
+                    :: std :: fmt :: Debug,
+                    :: std :: cmp :: PartialEq,
+                    :: std :: cmp :: Eq,
+                )]
                 #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
-                impl HeapHandle {}
-                impl ::std::default::Default for HeapHandle {
-                    fn default() -> Self {
-                        Self(0)
-                    }
-                }
                 impl HeapHandle {
                     pub const NULL: Self = Self(0);
-                    pub fn is_null(&self) -> bool {
-                        self.0 == 0
-                    }
                 }
-                impl ::std::fmt::Debug for HeapHandle {
-                    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-                        fmt.debug_struct("HeapHandle")
-                            .field("Value", &self.0)
-                            .finish()
-                    }
-                }
-                impl ::std::cmp::PartialEq for HeapHandle {
-                    fn eq(&self, other: &Self) -> bool {
-                        self.0 == other.0
-                    }
-                }
-                impl ::std::cmp::Eq for HeapHandle {}
+                unsafe impl ::windows::Handle for HeapHandle {}
                 unsafe impl ::windows::Abi for HeapHandle {
                     type Abi = Self;
                     type DefaultType = Self;

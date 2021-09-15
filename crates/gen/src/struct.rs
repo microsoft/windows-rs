@@ -14,6 +14,23 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
     let name = to_ident(struct_name);
 
+    if def.is_handle() {
+        return quote! {
+            #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
+            #[repr(transparent)]
+            pub struct #name(pub isize);
+            impl #name {
+                pub const NULL: Self = Self(0);
+            }
+            unsafe impl ::windows::Handle for #name {}
+            // TODO: can't seem to impl this trait for all Handle types
+            unsafe impl ::windows::Abi for #name {
+                type Abi = Self;
+                type DefaultType = Self;
+            }
+        };
+    }
+
     if let Some(guid) = Guid::from_attributes(def.attributes()) {
         let guid = gen_guid(&guid);
 
@@ -44,7 +61,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     }
 
     let is_winrt = def.is_winrt();
-    let is_handle = def.is_handle();
     let is_union = def.is_explicit();
     let layout = def.class_layout();
     let is_packed = def.is_packed();
@@ -52,8 +68,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     let repr = if let Some(layout) = &layout {
         let packing = Literal::u32_unsuffixed(layout.packing_size());
         quote! { #[repr(C, packed(#packing))] }
-    } else if is_handle {
-        quote! { #[repr(transparent)] }
     } else {
         quote! { #[repr(C)] }
     };
@@ -103,19 +117,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         }
     };
 
-    let body = if is_handle {
-        let fields = fields.iter().map(|(_, signature, _)| {
-            let kind = gen_sig(signature, gen);
-
-            quote! {
-                pub #kind
-            }
-        });
-
-        quote! {
-            ( #(#fields),* );
-        }
-    } else {
+    let body = {
         let fields = fields.iter().map(|(_, signature, name)| {
             let kind = if is_union {
                 gen_abi_sig(signature, gen)
@@ -181,28 +183,19 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             impl ::std::cmp::Eq for #name {}
         }
     } else {
-        let compare = fields
-            .iter()
-            .enumerate()
-            .map(|(index, (_, signature, name))| {
-                let is_callback = signature.kind.is_callback();
+        let compare = fields.iter().map(|(_, signature, name)| {
+            let is_callback = signature.kind.is_callback();
 
-                if is_callback && signature.pointers == 0 {
-                    quote! {
-                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
-                    }
-                } else if is_handle {
-                    let index = Literal::usize_unsuffixed(index);
-
-                    quote! {
-                        self.#index == other.#index
-                    }
-                } else {
-                    quote! {
-                        self.#name == other.#name
-                    }
+            if is_callback && signature.pointers == 0 {
+                quote! {
+                    self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                 }
-            });
+            } else {
+                quote! {
+                    self.#name == other.#name
+                }
+            }
+        });
 
         if layout.is_some() {
             quote! {
@@ -231,37 +224,17 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         let defaults = fields.iter().map(|(_, signature, name)| {
             let value = gen_sig_default(signature);
 
-            if is_handle {
-                value
-            } else {
-                quote! {
-                    #name: #value
-                }
+            quote! {
+                #name: #value
             }
         });
 
         let defaults = quote! { #(#defaults),* };
 
-        if is_handle {
-            quote! {
-                impl ::std::default::Default for #name {
-                    fn default() -> Self {
-                        Self(#defaults)
-                    }
-                }
-                impl #name {
-                    pub const NULL: Self = Self(#defaults);
-                    pub fn is_null(&self) -> bool {
-                        self.0 == #defaults
-                    }
-                }
-            }
-        } else {
-            quote! {
-                impl ::std::default::Default for #name {
-                    fn default() -> Self {
-                        Self{ #defaults }
-                    }
+        quote! {
+            impl ::std::default::Default for #name {
+                fn default() -> Self {
+                    Self{ #defaults }
                 }
             }
         }
@@ -272,35 +245,24 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     } else {
         let debug_name = def.name();
 
-        let debug_fields = fields
-            .iter()
-            .enumerate()
-            .filter_map(|(index, (_, signature, name))| {
-                // TODO: there must be a simpler way to implement Debug just to exclude this type.
-                if signature.kind.is_callback() {
+        let debug_fields = fields.iter().filter_map(|(_, signature, name)| {
+            // TODO: there must be a simpler way to implement Debug just to exclude this type.
+            if signature.kind.is_callback() {
+                return None;
+            }
+
+            if let ElementType::Array((kind, _)) = &signature.kind {
+                if kind.kind.is_callback() {
                     return None;
                 }
+            }
 
-                if let ElementType::Array((kind, _)) = &signature.kind {
-                    if kind.kind.is_callback() {
-                        return None;
-                    }
-                }
+            let field = name.as_str();
 
-                let field = name.as_str();
-
-                if is_handle {
-                    let index = Literal::usize_unsuffixed(index);
-
-                    Some(quote! {
-                        .field(#field, &self.#index)
-                    })
-                } else {
-                    Some(quote! {
-                        .field(#field, &self.#name)
-                    })
-                }
-            });
+            Some(quote! {
+                .field(#field, &self.#name)
+            })
+        });
 
         if layout.is_some() {
             quote! {
@@ -369,6 +331,7 @@ fn gen_replacement(def: &TypeDef) -> Option<TokenStream> {
         TypeName::PSTR => Some(gen_pstr()),
         TypeName::BSTR => Some(gen_bstr()),
         TypeName::NTSTATUS => Some(gen_ntstatus()),
+        TypeName::HANDLE => Some(gen_handle()),
         _ => None,
     }
 }
@@ -381,7 +344,6 @@ fn gen_extensions(def: &TypeDef) -> TokenStream {
         TypeName::Vector4 => gen_vector4(),
         TypeName::Matrix3x2 => gen_matrix3x2(),
         TypeName::Matrix4x4 => gen_matrix4x4(),
-        TypeName::HANDLE => gen_handle(),
         _ => TokenStream::new(),
     }
 }
