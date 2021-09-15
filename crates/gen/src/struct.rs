@@ -15,15 +15,18 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     let name = to_ident(struct_name);
 
     if def.is_handle() {
+        let signature = def.fields().next().map(|field| field.signature()).unwrap();
+        let default = gen_sig_default(&signature);
+        let signature = gen_sig(&signature, gen);
+
         return quote! {
             #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
             #[repr(transparent)]
-            pub struct #name(pub isize);
+            pub struct #name(pub #signature);
             impl #name {
-                pub const NULL: Self = Self(0);
+                pub const NULL: Self = Self(#default);
             }
             unsafe impl ::windows::Handle for #name {}
-            // TODO: can't seem to impl this trait for all Handle types
             unsafe impl ::windows::Abi for #name {
                 type Abi = Self;
                 type DefaultType = Self;
