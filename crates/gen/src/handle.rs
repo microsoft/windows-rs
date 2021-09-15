@@ -16,7 +16,7 @@ pub fn gen_handle() -> TokenStream {
             fn is_null(&self) -> bool {
                 *self == unsafe { ::std::mem::zeroed() }
             }
-        
+
             fn ok(self) -> ::windows::Result<Self> {
                 if self != Self::NULL && self != Self::INVALID {
                     Ok(self)

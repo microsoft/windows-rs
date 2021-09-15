@@ -16,5 +16,8 @@ fn hwnd() {
     assert!(HWND(1).ok().is_ok());
 
     unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
-    assert!(HWND::NULL.ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0));
+
+    assert!(
+        HWND::NULL.ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
+    );
 }

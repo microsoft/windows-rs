@@ -28,7 +28,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
                 type Abi = Self;
                 type DefaultType = Self;
             }
-        }
+        };
     }
 
     if let Some(guid) = Guid::from_attributes(def.attributes()) {
@@ -183,21 +183,19 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             impl ::std::cmp::Eq for #name {}
         }
     } else {
-        let compare = fields
-            .iter()
-            .map(| (_, signature, name)| {
-                let is_callback = signature.kind.is_callback();
+        let compare = fields.iter().map(|(_, signature, name)| {
+            let is_callback = signature.kind.is_callback();
 
-                if is_callback && signature.pointers == 0 {
-                    quote! {
-                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
-                    }
-                } else {
-                    quote! {
-                        self.#name == other.#name
-                    }
+            if is_callback && signature.pointers == 0 {
+                quote! {
+                    self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                 }
-            });
+            } else {
+                quote! {
+                    self.#name == other.#name
+                }
+            }
+        });
 
         if layout.is_some() {
             quote! {
@@ -247,26 +245,24 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     } else {
         let debug_name = def.name();
 
-        let debug_fields = fields
-            .iter()
-            .filter_map(| (_, signature, name)| {
-                // TODO: there must be a simpler way to implement Debug just to exclude this type.
-                if signature.kind.is_callback() {
+        let debug_fields = fields.iter().filter_map(|(_, signature, name)| {
+            // TODO: there must be a simpler way to implement Debug just to exclude this type.
+            if signature.kind.is_callback() {
+                return None;
+            }
+
+            if let ElementType::Array((kind, _)) = &signature.kind {
+                if kind.kind.is_callback() {
                     return None;
                 }
+            }
 
-                if let ElementType::Array((kind, _)) = &signature.kind {
-                    if kind.kind.is_callback() {
-                        return None;
-                    }
-                }
+            let field = name.as_str();
 
-                let field = name.as_str();
-
-                Some(quote! {
-                    .field(#field, &self.#name)
-                })
-            });
+            Some(quote! {
+                .field(#field, &self.#name)
+            })
+        });
 
         if layout.is_some() {
             quote! {
