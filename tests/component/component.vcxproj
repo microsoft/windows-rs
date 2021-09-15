@@ -206,6 +206,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="winrt\Interfaces.Test.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>

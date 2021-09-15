@@ -99,6 +99,22 @@ namespace Component
         {
             Int32 Property;
         };
+
+        interface IRequired
+        {
+            void Required();
+        };
+
+        interface IRequires requires IRequired
+        {
+            void Requires();
+        };
+
+        runtimeclass Test
+        {
+            static IRequires GoodRequires();
+            static IRequires BadRequires();
+        }
     }
 
     namespace Structs
