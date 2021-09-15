@@ -65,18 +65,14 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                     type Item = T;
 
                     fn next(&mut self) -> ::std::option::Option<Self::Item> {
-                        match &self.vector {
-                            ::std::option::Option::Some(vector) => {
-                                let result = vector.GetAt(self.current).ok();
-
-                                if result.is_some() {
-                                    self.current += 1;
-                                }
-                                
-                                result
-                            }
-                            _ => ::std::option::Option::None,
-                        }
+                        self.vector.as_ref()
+                            .and_then(|vector| {
+                                vector.GetAt(self.current).ok()
+                            })
+                            .and_then(|result| {
+                                self.current += 1;
+                                Some(result)
+                            })
                     }
                 }
 
