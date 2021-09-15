@@ -1,6 +1,6 @@
+use std::convert::TryInto;
 use test_winrt::Windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::{IAgileObject, Interface, RuntimeName};
-use std::convert::TryInto;
 
 #[test]
 fn uri() -> windows::Result<()> {

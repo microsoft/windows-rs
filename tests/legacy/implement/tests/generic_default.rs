@@ -1,9 +1,9 @@
+use std::convert::TryInto;
 use test_implement::*;
 use windows::*;
 use Windows::Foundation::Collections::*;
 use Windows::Foundation::*;
 use Windows::Win32::Foundation::E_BOUNDS;
-use std::convert::TryInto;
 
 #[implement(
     Windows::Foundation::Collections::IVectorView<T>,

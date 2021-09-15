@@ -1,5 +1,5 @@
-use test_winrt::Windows::Foundation::{IStringable, PropertyValue, Uri};
 use std::convert::TryInto;
+use test_winrt::Windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]
 fn class() -> windows::Result<()> {
