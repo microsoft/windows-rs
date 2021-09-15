@@ -1,6 +1,7 @@
 use test_winrt_collections::*;
 use windows::*;
 use Component::Collections::*;
+use Windows::Foundation::Collections::*;
 use Windows::Foundation::IStringable;
 
 #[implement(Windows::Foundation::IStringable)]
@@ -80,8 +81,8 @@ fn vector_iter() -> Result<()> {
     let vector = Test::CreateInt32Vector()?;
     vector.ReplaceAll(&[1, 2, 3])?;
 
-     let values: Vec<i32> = vector.into_iter().collect();
-     assert!(values == [1,2,3]);
+    let values: Vec<i32> = vector.into_iter().collect();
+    assert!(values == [1, 2, 3]);
 
     Ok(())
 }
@@ -93,8 +94,21 @@ fn vector_view_iter() -> Result<()> {
 
     let view = vector.GetView()?;
 
-     let values: Vec<i32> = view.into_iter().collect();
-     assert!(values == [1,2,3]);
+    let values: Vec<i32> = view.into_iter().collect();
+    assert!(values == [1, 2, 3]);
+
+    Ok(())
+}
+
+#[test]
+fn iterable_iter() -> Result<()> {
+    let vector = Test::CreateInt32Vector()?;
+    vector.ReplaceAll(&[1, 2, 3])?;
+
+    let view: IIterable<i32> = vector.cast()?;
+
+    let values: Vec<i32> = view.into_iter().collect();
+    assert!(values == [1, 2, 3]);
 
     Ok(())
 }
