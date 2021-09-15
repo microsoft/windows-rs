@@ -2,6 +2,7 @@ use test_implement::*;
 use windows::*;
 use Windows::Foundation::Collections::*;
 use Windows::Foundation::*;
+use std::convert::TryInto;
 
 #[implement(
     Windows::Foundation::Collections::IVectorView<T>,
@@ -42,9 +43,9 @@ fn test_implement() -> Result<()> {
     assert_eq!("30", v.GetAt(2)?);
 
     let v: IVectorView<IStringable> = Thing(vec![
-        Uri::CreateUri("http://one/")?.into(),
-        Uri::CreateUri("http://two/")?.into(),
-        Uri::CreateUri("http://three/")?.into(),
+        Uri::CreateUri("http://one/")?.try_into().unwrap(),
+        Uri::CreateUri("http://two/")?.try_into().unwrap(),
+        Uri::CreateUri("http://three/")?.try_into().unwrap(),
     ])
     .into();
 

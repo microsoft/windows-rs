@@ -3,6 +3,7 @@ use windows::*;
 use Windows::Foundation::Collections::*;
 use Windows::Foundation::*;
 use Windows::Win32::Foundation::E_BOUNDS;
+use std::convert::TryInto;
 
 #[implement(
     Windows::Foundation::Collections::IVectorView<T>,
@@ -68,9 +69,9 @@ fn test_implement() -> Result<()> {
     assert_eq!(false, v.IndexOf("123", &mut index)?);
 
     let v: IVectorView<IStringable> = Thing(vec![
-        Some(Uri::CreateUri("http://one/")?.into()),
-        Some(Uri::CreateUri("http://two/")?.into()),
-        Some(Uri::CreateUri("http://three/")?.into()),
+        Some(Uri::CreateUri("http://one/")?.try_into().unwrap()),
+        Some(Uri::CreateUri("http://two/")?.try_into().unwrap()),
+        Some(Uri::CreateUri("http://three/")?.try_into().unwrap()),
     ])
     .into();
 

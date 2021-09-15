@@ -79,7 +79,7 @@ fn event() -> windows::Result<()> {
         let args = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
-        let _: IObservableMap<windows::HSTRING, windows::IInspectable> = set.into();
+        let _: IObservableMap<windows::HSTRING, windows::IInspectable> = set.try_into().unwrap();
         assert!(args.Key()? == "A");
         assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
         Ok(())
