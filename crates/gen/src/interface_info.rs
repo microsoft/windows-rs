@@ -91,25 +91,28 @@ impl InterfaceInfo {
             InterfaceKind::NonDefault => {
                 let into = gen_type_name(&self.def, gen);
                 quote! {
-                    impl<#constraints> ::std::convert::From<#from> for #into {
-                        fn from(value: #from) -> Self {
-                            ::std::convert::From::from(&value)
+                    impl<#constraints> ::std::convert::TryFrom<#from> for #into {
+                        type Error = ::windows::Error;
+                        fn try_from(value: #from) -> ::windows::Result<Self> {
+                            ::std::convert::TryFrom::try_from(&value)
                         }
                     }
-                    impl<#constraints> ::std::convert::From<&#from> for #into {
-                        fn from(value: &#from) -> Self {
-                            // TODO: why is this different to `Default` case?
-                            ::windows::Interface::cast(value).unwrap()
+                    impl<#constraints> ::std::convert::TryFrom<&#from> for #into {
+                        type Error = ::windows::Error;
+                        fn try_from(value: &#from) -> ::windows::Result<Self> {
+                            ::windows::Interface::cast(value)
                         }
                     }
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
-                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                            ::windows::IntoParam::into_param(&self)
                         }
                     }
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
-                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                            ::std::convert::TryInto::<#into>::try_into(self)
+                                .map(::windows::Param::Owned)
+                                .unwrap_or(::windows::Param::None)
                         }
                     }
                 }
