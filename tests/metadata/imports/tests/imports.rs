@@ -113,4 +113,24 @@ fn test_dependencies() {
     assert_eq!(imports.len(), 3);
     assert!(imports["Test"] == TypeInclude::Full);
     assert!(imports["IRequires"] == TypeInclude::Minimal);
+
+    let imports = get_imports("Component.Dependencies", "ISimple");
+    assert_eq!(imports.len(), 1);
+    assert!(imports["ISimple"] == TypeInclude::Full);
+
+    let imports = get_imports("Component.Dependencies", "IRequiredDependencies");
+    assert_eq!(imports.len(), 5);
+    assert!(imports["IRequiredDependencies"] == TypeInclude::Full);
+    assert!(imports["ISimple"] == TypeInclude::Full);
+    assert!(imports["IStringable"] == TypeInclude::Full);
+    assert!(imports["IIterable"] == TypeInclude::Full);
+    assert!(imports["IIterator"] == TypeInclude::Full);
+
+    let imports = get_imports("Component.Dependencies", "IMethodDependencies");
+    assert_eq!(imports.len(), 5);
+    assert!(imports["IMethodDependencies"] == TypeInclude::Full);
+    assert!(imports["ISimple"] == TypeInclude::Minimal);
+    assert!(imports["IStringable"] == TypeInclude::Full);
+    assert!(imports["IIterable"] == TypeInclude::Full);
+    assert!(imports["IIterator"] == TypeInclude::Full);
 }
