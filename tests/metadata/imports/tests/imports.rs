@@ -66,37 +66,33 @@ fn test_dependencies() {
     assert_eq!(imports.len(), 1);
     assert!(imports["DXGI_FRAME_PRESENTATION_MODE"] == TypeInclude::Full);
 
-    let imports = get_imports("Windows.Foundation", "IUriRuntimeClassFactory");
-    assert_eq!(imports.len(), 3);
-    assert!(imports["IUriRuntimeClassFactory"] == TypeInclude::Full);
-    assert!(imports["Uri"] == TypeInclude::Minimal);
-    assert!(imports["IUriRuntimeClass"] == TypeInclude::Minimal);
-
     let imports = get_imports("Windows.Foundation", "IAsyncAction");
     assert_eq!(imports.len(), 4);
     assert!(imports["IAsyncAction"] == TypeInclude::Full);
     assert!(imports["IAsyncInfo"] == TypeInclude::Full);
-    assert!(imports["AsyncActionCompletedHandler"] == TypeInclude::Minimal);
-    assert!(imports["AsyncStatus"] == TypeInclude::Minimal);
+    assert!(imports["AsyncActionCompletedHandler"] == TypeInclude::Full);
+    assert!(imports["AsyncStatus"] == TypeInclude::Full);
 
     let imports = get_imports("Windows.Foundation", "AsyncActionCompletedHandler");
-    assert_eq!(imports.len(), 3);
+    assert_eq!(imports.len(), 4);
     assert!(imports["AsyncActionCompletedHandler"] == TypeInclude::Full);
-    assert!(imports["IAsyncAction"] == TypeInclude::Minimal);
-    assert!(imports["AsyncStatus"] == TypeInclude::Minimal);
+    assert!(imports["IAsyncAction"] == TypeInclude::Full);
+    assert!(imports["AsyncStatus"] == TypeInclude::Full);
+    assert!(imports["IAsyncInfo"] == TypeInclude::Full);
 
     let imports = get_imports("Windows.Foundation.Collections", "StringMap");
-    assert_eq!(imports.len(), 10);
+    assert_eq!(imports.len(), 11);
     assert!(imports["StringMap"] == TypeInclude::Full);
     assert!(imports["IMap"] == TypeInclude::Full);
     assert!(imports["IIterable"] == TypeInclude::Full);
     assert!(imports["IIterator"] == TypeInclude::Full);
     assert!(imports["IKeyValuePair"] == TypeInclude::Full);
     assert!(imports["IObservableMap"] == TypeInclude::Full);
-    assert!(imports["EventRegistrationToken"] == TypeInclude::Minimal);
-    assert!(imports["IMapChangedEventArgs"] == TypeInclude::Minimal);
-    assert!(imports["IMapView"] == TypeInclude::Minimal);
-    assert!(imports["MapChangedEventHandler"] == TypeInclude::Minimal);
+    assert!(imports["EventRegistrationToken"] == TypeInclude::Full);
+    assert!(imports["IMapChangedEventArgs"] == TypeInclude::Full);
+    assert!(imports["IMapView"] == TypeInclude::Full);
+    assert!(imports["MapChangedEventHandler"] == TypeInclude::Full);
+    assert!(imports["CollectionChange"] == TypeInclude::Full);
 
     let imports = get_imports(
         "Windows.Win32.Graphics.Direct3D11",
@@ -113,5 +109,8 @@ fn test_dependencies() {
     assert!(imports["D3D11_TEX2DMS_DSV"] == TypeInclude::Minimal);
     assert!(imports["D3D11_TEX2DMS_ARRAY_DSV"] == TypeInclude::Minimal);
 
-    // TODO: add a composable class test (like Composition/Xaml)
+    let imports = get_imports("Component.Interfaces", "Test");
+    assert_eq!(imports.len(), 3);
+    assert!(imports["Test"] == TypeInclude::Full);
+    assert!(imports["IRequires"] == TypeInclude::Minimal);
 }

@@ -1,8 +1,8 @@
 [package]
-name = "test_winrt_attributes"
+name = "test_metadata_imports"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
 
-[dev-dependencies]
+[dependencies]
 reader = { package = "windows_reader", path = "../../../crates/reader" }
