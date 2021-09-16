@@ -53,7 +53,14 @@ impl TypeDef {
             .expect("`Invoke` method not found")
     }
 
-    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
+    pub fn definition(&self, mut include: TypeInclude) -> Vec<TypeEntry> {
+        // The `Windows.Foundation` namespace includes supporting types that should
+        // always be fully-defined when included because their methods are almost
+        // always needed.
+        if include != TypeInclude::Full && self.namespace().starts_with("Windows.Foundation") {
+            include = TypeInclude::Full;
+        }
+
         let mut definition = vec![TypeEntry {
             include,
             def: ElementType::TypeDef(self.clone()),
@@ -111,23 +118,9 @@ impl TypeDef {
                     return Vec::new();
                 }
 
-                let interfaces = self.interfaces().map(|i| TypeEntry {
-                    include: TypeInclude::Full,
-                    def: ElementType::TypeDef(i),
-                });
-                let methods = self.methods().map(|m| m.dependencies()).flatten();
-                let mut dependencies: Vec<TypeEntry> = interfaces.chain(methods).collect();
-
-                // TODO: IIterable needs IIterator's full definition in order to support iteration.
-                // Find a more natural way to express this dependency.
-                if self.type_name() == TypeName::IIterable {
-                    dependencies.push(TypeEntry {
-                        include: TypeInclude::Full,
-                        def: TypeReader::get().expect_type(TypeName::IIterator),
-                    });
-                }
-
-                dependencies
+                let interfaces = self.interfaces().map(|i| i.definition(include));
+                let methods = self.methods().map(|m| m.dependencies());
+                interfaces.chain(methods).flatten().collect()
             }
             TypeKind::Class => {
                 if include == TypeInclude::Minimal {

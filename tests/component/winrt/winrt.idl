@@ -117,6 +117,27 @@ namespace Component
         }
     }
 
+    namespace Dependencies
+    {
+        interface ISimple
+        {
+            void Method();
+        };
+
+        interface IRequiredDependencies
+            requires ISimple, Windows.Foundation.IStringable, Windows.Foundation.Collections.IIterable<Int32>
+        {
+            void Method();
+        }
+
+        interface IMethodDependencies
+        {
+            ISimple Simple();
+            Windows.Foundation.IStringable Stringable();
+            Windows.Foundation.Collections.IIterable<Int32> Iterable();
+        }
+    }
+
     namespace Structs
     {
         struct Blittable
