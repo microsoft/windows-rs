@@ -179,7 +179,7 @@ impl TypeReader {
         })
     }
 
-    pub fn expect_type_def(&'static self, type_name: TypeName) -> TypeDef {
+    pub fn expect_type_def<T: HasTypeName>(&'static self, type_name: T) -> TypeDef {
         self.get_type(type_name)
             .and_then(|def| {
                 if let ElementType::TypeDef(def) = def {
