@@ -221,28 +221,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         }
     };
 
-    let default = if is_union || has_union || has_complex_array || is_packed {
-        quote! {}
-    } else {
-        let defaults = fields.iter().map(|(_, signature, name)| {
-            let value = gen_sig_default(signature);
-
-            quote! {
-                #name: #value
-            }
-        });
-
-        let defaults = quote! { #(#defaults),* };
-
-        quote! {
-            impl ::std::default::Default for #name {
-                fn default() -> Self {
-                    Self{ #defaults }
-                }
-            }
-        }
-    };
-
     let debug = if is_union || has_union || has_complex_array || is_packed {
         quote! {}
     } else {
@@ -316,7 +294,11 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         impl #name {
             #(#constants)*
         }
-        #default
+        impl ::std::default::Default for #name {
+            fn default() -> Self {
+                unsafe { ::std::mem::zeroed() }
+            }
+        }
         #debug
         #compare
         #abi
