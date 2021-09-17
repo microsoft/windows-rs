@@ -19,9 +19,14 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         let signature = gen_sig(&signature, gen);
 
         return quote! {
-            #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
+            #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
             #[repr(transparent)]
             pub struct #name(pub #signature);
+            impl ::std::default::Default for #name {
+                fn default() -> Self {
+                    unsafe { ::std::mem::zeroed() }
+                }
+            }
             unsafe impl ::windows::Handle for #name {}
             unsafe impl ::windows::Abi for #name {
                 type Abi = Self;

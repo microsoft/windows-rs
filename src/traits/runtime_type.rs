@@ -1,9 +1,6 @@
 use crate::*;
 
-/// RuntimeType is used to constrain WinRT generic types to WinRT types.
-///
-/// This trait is automatically used by the generated bindings and should not be
-/// used directly.
+#[doc(hidden)]
 pub unsafe trait RuntimeType: Abi + Clone + PartialEq {
     const SIGNATURE: crate::ConstBuffer;
 }

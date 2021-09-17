@@ -2,6 +2,7 @@ use test_win32_handles::*;
 use windows::*;
 use Windows::Win32::Foundation::*;
 use Windows::Win32::System::Diagnostics::Debug::*;
+use Windows::Win32::System::Threading::LPPROC_THREAD_ATTRIBUTE_LIST;
 
 #[test]
 fn hwnd() {
@@ -67,4 +68,35 @@ fn pwstr() {
     let _copy: PWSTR = handle;
     assert!(PWSTR::default() == unsafe { std::mem::zeroed() });
     assert_eq!(format!("{:?}", PWSTR::default()), "PWSTR(0x0)");
+}
+
+#[test]
+fn lpproc_thread_attribute_list() {
+    // This is an interesting test because this handle type has a pointer field unlike most others.
+    let handle = LPPROC_THREAD_ATTRIBUTE_LIST(std::ptr::null_mut());
+    let _clone = handle.clone();
+    let _copy: LPPROC_THREAD_ATTRIBUTE_LIST = handle;
+    assert!(
+        LPPROC_THREAD_ATTRIBUTE_LIST::default()
+            == LPPROC_THREAD_ATTRIBUTE_LIST(std::ptr::null_mut())
+    );
+    assert!(LPPROC_THREAD_ATTRIBUTE_LIST::default().is_invalid());
+    assert_eq!(
+        format!("{:?}", LPPROC_THREAD_ATTRIBUTE_LIST::default()),
+        "LPPROC_THREAD_ATTRIBUTE_LIST(0x0)"
+    );
+
+    assert!(LPPROC_THREAD_ATTRIBUTE_LIST(1 as _).ok().is_ok());
+
+    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
+
+    assert!(
+        LPPROC_THREAD_ATTRIBUTE_LIST::default()
+            .ok()
+            .unwrap_err()
+            .code()
+            == ERROR_INVALID_WINDOW_HANDLE.into()
+    );
+
+    assert!(std::mem::size_of::<LPPROC_THREAD_ATTRIBUTE_LIST>() == std::mem::size_of::<usize>());
 }

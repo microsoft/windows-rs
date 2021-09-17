@@ -6,24 +6,24 @@ use bindings::Windows::Win32::System::WinRT::IWeakReferenceSource;
 /// This trait is automatically used by the generated bindings and should not be
 /// used directly.
 pub unsafe trait Interface: Sized + Abi + PartialEq {
+    #[doc(hidden)]
     type Vtable;
+
+    /// A unique identifier representing this interface.
     const IID: Guid;
 
-    /// # Safety
-    /// Returns the vtable for the current interface.
+    #[doc(hidden)]
     unsafe fn vtable(&self) -> &Self::Vtable {
         self.assume_vtable::<Self>()
     }
 
-    /// # Safety
-    /// Returns the vtable for an assumed interface. The name comes from [`Box::assume_init()`] as
-    /// it assumes the vtable is implemented by the current interface's vtable (e.g. a parent interface).
+    #[doc(hidden)]
     unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
         let this: RawPtr = std::mem::transmute_copy(self);
         &(*(*(this as *mut *mut _) as *mut _))
     }
 
-    /// # Safety
+    #[doc(hidden)]
     unsafe fn query(&self, iid: *const Guid, interface: *mut RawPtr) -> HRESULT {
         (self.assume_vtable::<IUnknown>().0)(std::mem::transmute_copy(self), iid, interface)
     }

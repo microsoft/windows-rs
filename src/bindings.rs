@@ -2862,13 +2862,17 @@ pub mod Windows {
             #[derive(
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
-                :: std :: default :: Default,
                 :: std :: fmt :: Debug,
                 :: std :: cmp :: PartialEq,
                 :: std :: cmp :: Eq,
             )]
             #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
+            impl ::std::default::Default for HINSTANCE {
+                fn default() -> Self {
+                    unsafe { ::std::mem::zeroed() }
+                }
+            }
             unsafe impl ::windows::Handle for HINSTANCE {}
             unsafe impl ::windows::Abi for HINSTANCE {
                 type Abi = Self;
@@ -3579,13 +3583,17 @@ pub mod Windows {
                 #[derive(
                     :: std :: clone :: Clone,
                     :: std :: marker :: Copy,
-                    :: std :: default :: Default,
                     :: std :: fmt :: Debug,
                     :: std :: cmp :: PartialEq,
                     :: std :: cmp :: Eq,
                 )]
                 #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
+                impl ::std::default::Default for HeapHandle {
+                    fn default() -> Self {
+                        unsafe { ::std::mem::zeroed() }
+                    }
+                }
                 unsafe impl ::windows::Handle for HeapHandle {}
                 unsafe impl ::windows::Abi for HeapHandle {
                     type Abi = Self;
