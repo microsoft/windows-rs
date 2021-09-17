@@ -26,7 +26,7 @@ pub mod Windows {
         impl DateTime {}
         impl ::std::default::Default for DateTime {
             fn default() -> Self {
-                Self { UniversalTime: 0 }
+                unsafe { ::std::mem::zeroed() }
             }
         }
         impl ::std::fmt::Debug for DateTime {
@@ -1813,7 +1813,7 @@ pub mod Windows {
         impl Point {}
         impl ::std::default::Default for Point {
             fn default() -> Self {
-                Self { X: 0.0, Y: 0.0 }
+                unsafe { ::std::mem::zeroed() }
             }
         }
         impl ::std::fmt::Debug for Point {
@@ -2471,12 +2471,7 @@ pub mod Windows {
         impl Rect {}
         impl ::std::default::Default for Rect {
             fn default() -> Self {
-                Self {
-                    X: 0.0,
-                    Y: 0.0,
-                    Width: 0.0,
-                    Height: 0.0,
-                }
+                unsafe { ::std::mem::zeroed() }
             }
         }
         impl ::std::fmt::Debug for Rect {
@@ -2515,10 +2510,7 @@ pub mod Windows {
         impl Size {}
         impl ::std::default::Default for Size {
             fn default() -> Self {
-                Self {
-                    Width: 0.0,
-                    Height: 0.0,
-                }
+                unsafe { ::std::mem::zeroed() }
             }
         }
         impl ::std::fmt::Debug for Size {
@@ -2551,7 +2543,7 @@ pub mod Windows {
         impl TimeSpan {}
         impl ::std::default::Default for TimeSpan {
             fn default() -> Self {
-                Self { Duration: 0 }
+                unsafe { ::std::mem::zeroed() }
             }
         }
         impl ::std::fmt::Debug for TimeSpan {
@@ -3094,11 +3086,7 @@ pub mod Windows {
             impl SECURITY_ATTRIBUTES {}
             impl ::std::default::Default for SECURITY_ATTRIBUTES {
                 fn default() -> Self {
-                    Self {
-                        nLength: 0,
-                        lpSecurityDescriptor: ::std::ptr::null_mut(),
-                        bInheritHandle: ::std::default::Default::default(),
-                    }
+                    unsafe { ::std::mem::zeroed() }
                 }
             }
             impl ::std::fmt::Debug for SECURITY_ATTRIBUTES {
