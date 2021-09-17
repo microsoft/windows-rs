@@ -3,6 +3,7 @@ use std::convert::TryInto;
 
 use bindings::{
     Windows::Win32::Foundation::{BSTR, S_OK},
+    Windows::Win32::System::Diagnostics::Debug::GetLastError,
     Windows::Win32::System::OleAutomation::{GetErrorInfo, SetErrorInfo},
     Windows::Win32::System::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
 };
@@ -43,6 +44,10 @@ impl Error {
     #[doc(hidden)]
     pub const fn fast_error(code: HRESULT) -> Self {
         Self { code, info: None }
+    }
+
+    pub fn from_win32() -> Self {
+        unsafe { Self::fast_error(GetLastError().into()) }
     }
 
     /// The error code describing the error.
@@ -163,17 +168,5 @@ impl std::error::Error for Error {}
 demand_load! {
     "combase.dll" {
         fn RoOriginateError(code: HRESULT, message: std::mem::ManuallyDrop<HSTRING>) -> i32;
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn win32_error_conversion() {
-        let code = Error::fast_error(HRESULT::from_win32(18));
-        let win32_error = code.win32_code();
-        assert_eq!(win32_error, Some(18))
     }
 }

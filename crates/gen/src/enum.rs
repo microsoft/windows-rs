@@ -113,6 +113,8 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
         quote! {}
     };
 
+    let extensions = gen_extensions(def);
+
     quote! {
         #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy, ::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug)]
         #[repr(transparent)]
@@ -129,6 +131,14 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
         }
         #runtime_type
         #bitwise
+        #extensions
+    }
+}
+
+fn gen_extensions(def: &TypeDef) -> TokenStream {
+    match def.type_name() {
+        TypeName::WIN32_ERROR => gen_win32_error(),
+        _ => TokenStream::new(),
     }
 }
 

@@ -5,23 +5,16 @@ pub fn gen_handle() -> TokenStream {
         #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
         #[repr(transparent)]
         pub struct HANDLE(pub isize);
-        impl HANDLE {
-            pub const NULL: Self = Self(0);
-            pub const INVALID: Self = Self(-1);
-            pub fn is_invalid(&self) -> bool {
-                self.0 == -1
-            }
-        }
         unsafe impl ::windows::Handle for HANDLE {
-            fn is_null(&self) -> bool {
-                *self == unsafe { ::std::mem::zeroed() }
+            fn is_invalid(&self) -> bool {
+                self.0 == 0 || self.0 == -1
             }
 
             fn ok(self) -> ::windows::Result<Self> {
-                if self != Self::NULL && self != Self::INVALID {
-                    Ok(self)
+                if self.is_invalid() {
+                    Err(::windows::Error::from_win32())
                 } else {
-                    Err(::windows::HRESULT::from_thread().into())
+                    Ok(self)
                 }
             }
         }

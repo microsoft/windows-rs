@@ -21,7 +21,7 @@ pub fn gen_bool32() -> TokenStream {
                 if self.as_bool() {
                     Ok(())
                 } else {
-                    Err(::windows::HRESULT::from_thread().into())
+                    Err(::windows::Error::from_win32())
                 }
             }
 

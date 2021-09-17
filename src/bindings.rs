@@ -2629,7 +2629,7 @@ pub mod Windows {
                     if self.as_bool() {
                         Ok(())
                     } else {
-                        Err(::windows::HRESULT::from_thread().into())
+                        Err(::windows::Error::from_win32())
                     }
                 }
                 #[inline]
@@ -2843,22 +2843,15 @@ pub mod Windows {
             )]
             #[repr(transparent)]
             pub struct HANDLE(pub isize);
-            impl HANDLE {
-                pub const NULL: Self = Self(0);
-                pub const INVALID: Self = Self(-1);
-                pub fn is_invalid(&self) -> bool {
-                    self.0 == -1
-                }
-            }
             unsafe impl ::windows::Handle for HANDLE {
-                fn is_null(&self) -> bool {
-                    *self == unsafe { ::std::mem::zeroed() }
+                fn is_invalid(&self) -> bool {
+                    self.0 == 0 || self.0 == -1
                 }
                 fn ok(self) -> ::windows::Result<Self> {
-                    if self != Self::NULL && self != Self::INVALID {
-                        Ok(self)
+                    if self.is_invalid() {
+                        Err(::windows::Error::from_win32())
                     } else {
-                        Err(::windows::HRESULT::from_thread().into())
+                        Ok(self)
                     }
                 }
             }
@@ -2876,36 +2869,23 @@ pub mod Windows {
             )]
             #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
-            impl HINSTANCE {
-                pub const NULL: Self = Self(0);
-            }
             unsafe impl ::windows::Handle for HINSTANCE {}
             unsafe impl ::windows::Abi for HINSTANCE {
                 type Abi = Self;
                 type DefaultType = Self;
             }
-            #[repr(transparent)]
             #[derive(
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
-                :: std :: cmp :: Eq,
                 :: std :: fmt :: Debug,
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
             )]
+            #[repr(transparent)]
             pub struct PSTR(pub *mut u8);
-            impl PSTR {
-                pub const NULL: Self = Self(::std::ptr::null_mut());
-                pub fn is_null(&self) -> bool {
-                    self.0.is_null()
-                }
-            }
             impl ::std::default::Default for PSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
-                }
-            }
-            impl ::std::cmp::PartialEq for PSTR {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
                 }
             }
             unsafe impl ::windows::Abi for PSTR {
@@ -2941,28 +2921,18 @@ pub mod Windows {
                     ) as _))
                 }
             }
-            #[repr(transparent)]
             #[derive(
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
-                :: std :: cmp :: Eq,
                 :: std :: fmt :: Debug,
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
             )]
+            #[repr(transparent)]
             pub struct PWSTR(pub *mut u16);
-            impl PWSTR {
-                pub const NULL: Self = Self(::std::ptr::null_mut());
-                pub fn is_null(&self) -> bool {
-                    self.0.is_null()
-                }
-            }
             impl ::std::default::Default for PWSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
-                }
-            }
-            impl ::std::cmp::PartialEq for PWSTR {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
                 }
             }
             unsafe impl ::windows::Abi for PWSTR {
@@ -3397,6 +3367,15 @@ pub mod Windows {
                             Self(self.0.not())
                         }
                     }
+                    impl ::std::convert::From<WIN32_ERROR> for ::windows::HRESULT {
+                        fn from(value: WIN32_ERROR) -> Self {
+                            Self(if value.0 as i32 <= 0 {
+                                value.0
+                            } else {
+                                (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
+                            })
+                        }
+                    }
                 }
             }
             #[allow(
@@ -3607,9 +3586,6 @@ pub mod Windows {
                 )]
                 #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
-                impl HeapHandle {
-                    pub const NULL: Self = Self(0);
-                }
                 unsafe impl ::windows::Handle for HeapHandle {}
                 unsafe impl ::windows::Abi for HeapHandle {
                     type Abi = Self;

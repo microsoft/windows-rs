@@ -2,25 +2,12 @@ use super::*;
 
 pub fn gen_pwstr() -> TokenStream {
     quote! {
+        #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
         #[repr(transparent)]
-        #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::cmp::Eq, ::std::fmt::Debug)]
         pub struct PWSTR(pub *mut u16);
-        impl PWSTR {
-            pub const NULL: Self = Self(::std::ptr::null_mut());
-            pub fn is_null(&self) -> bool {
-                self.0.is_null()
-            }
-        }
         impl ::std::default::Default for PWSTR {
             fn default() -> Self {
                 Self(::std::ptr::null_mut())
-            }
-        }
-        // TODO: impl Debug and Display to display value and PartialEq etc
-        impl ::std::cmp::PartialEq for PWSTR {
-            fn eq(&self, other: &Self) -> bool {
-                // TODO: do value compare
-                self.0 == other.0
             }
         }
         unsafe impl ::windows::Abi for PWSTR {

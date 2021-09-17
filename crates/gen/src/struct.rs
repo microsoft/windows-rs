@@ -16,16 +16,12 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
     if def.is_handle() {
         let signature = def.fields().next().map(|field| field.signature()).unwrap();
-        let default = gen_sig_default(&signature);
         let signature = gen_sig(&signature, gen);
 
         return quote! {
             #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
             #[repr(transparent)]
             pub struct #name(pub #signature);
-            impl #name {
-                pub const NULL: Self = Self(#default);
-            }
             unsafe impl ::windows::Handle for #name {}
             unsafe impl ::windows::Abi for #name {
                 type Abi = Self;
@@ -349,38 +345,6 @@ fn gen_nested_types<'a>(
             .collect()
     } else {
         TokenStream::new()
-    }
-}
-
-fn gen_sig_default(sig: &Signature) -> TokenStream {
-    if sig.pointers > 0 {
-        quote! { ::std::ptr::null_mut() }
-    } else {
-        gen_default(&sig.kind)
-    }
-}
-
-fn gen_default(def: &ElementType) -> TokenStream {
-    match def {
-        ElementType::Bool => quote! { false },
-        ElementType::Char
-        | ElementType::I8
-        | ElementType::U8
-        | ElementType::I16
-        | ElementType::U16
-        | ElementType::I32
-        | ElementType::U32
-        | ElementType::I64
-        | ElementType::U64
-        | ElementType::ISize
-        | ElementType::USize => quote! { 0 },
-        ElementType::F32 | ElementType::F64 => quote! { 0.0 },
-        ElementType::Array((kind, len)) => {
-            let default = gen_sig_default(kind);
-            let len = Literal::u32_unsuffixed(*len);
-            quote! { [#default; #len] }
-        }
-        _ => quote! { ::std::default::Default::default() },
     }
 }
 
