@@ -1,3 +1,11 @@
+# 0.20.0
+
+- Improved support for Win32 handle types
+- Improved build macro dependency tracking
+- Considerably better test coverage
+- Many other small improvements and fixes
+- Update Win32 metadata
+
 # 0.19.0
 
 - Support for COM interface implementations
