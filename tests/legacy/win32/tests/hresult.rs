@@ -1,12 +1,14 @@
+use test_win32::*;
 use windows::HRESULT;
+use Windows::Win32::System::Diagnostics::Debug::*;
 
 #[test]
 fn test_message() {
     assert!(helpers::set_thread_ui_language("en-US"));
 
-    let code = HRESULT::from_win32(0);
+    let code: HRESULT = ERROR_SUCCESS.into();
     assert_eq!(code.message(), "The operation completed successfully.");
 
-    let code = HRESULT::from_win32(997);
+    let code: HRESULT = ERROR_IO_PENDING.into();
     assert_eq!(code.message(), "Overlapped I/O operation is in progress.");
 }

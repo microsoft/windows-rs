@@ -9,7 +9,7 @@ pub unsafe trait Handle: Sized + PartialEq {
         if !self.is_invalid() {
             Ok(self)
         } else {
-            Err(HRESULT::from_thread().into())
+            Err(Error::from_win32())
         }
     }
 }

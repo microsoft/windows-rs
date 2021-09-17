@@ -2629,7 +2629,7 @@ pub mod Windows {
                     if self.as_bool() {
                         Ok(())
                     } else {
-                        Err(::windows::HRESULT::from_thread().into())
+                        Err(::windows::Error::from_win32())
                     }
                 }
                 #[inline]
@@ -2849,7 +2849,7 @@ pub mod Windows {
                 }
                 fn ok(self) -> ::windows::Result<Self> {
                     if self.is_invalid() {
-                        Err(::windows::HRESULT::from_thread().into())
+                        Err(::windows::Error::from_win32())
                     } else {
                         Ok(self)
                     }
@@ -3365,6 +3365,15 @@ pub mod Windows {
                         type Output = Self;
                         fn not(self) -> Self {
                             Self(self.0.not())
+                        }
+                    }
+                    impl ::std::convert::From<WIN32_ERROR> for ::windows::HRESULT {
+                        fn from(value: WIN32_ERROR) -> Self {
+                            Self(if value.0 as i32 <= 0 {
+                                value.0
+                            } else {
+                                (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
+                            })
                         }
                     }
                 }

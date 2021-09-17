@@ -16,7 +16,7 @@ fn hwnd() {
 
     unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
 
-    assert!(HWND(0).ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0));
+    assert!(HWND(0).ok().unwrap_err().code() == ERROR_INVALID_WINDOW_HANDLE.into());
 
     assert!(std::mem::size_of::<HWND>() == std::mem::size_of::<usize>());
 }
@@ -35,13 +35,11 @@ fn handle() {
 
     unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
 
-    assert!(
-        HANDLE(0).ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
-    );
+    assert!(HANDLE(0).ok().unwrap_err().code() == ERROR_INVALID_WINDOW_HANDLE.into());
 
     unsafe { SetLastError(ERROR_FILE_NOT_FOUND.0) };
 
-    assert!(HANDLE(-1).ok().unwrap_err().code() == HRESULT::from_win32(ERROR_FILE_NOT_FOUND.0));
+    assert!(HANDLE(-1).ok().unwrap_err().code() == ERROR_FILE_NOT_FOUND.into());
 
     assert!(std::mem::size_of::<HANDLE>() == std::mem::size_of::<usize>());
 }

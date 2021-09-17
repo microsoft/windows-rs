@@ -14,7 +14,9 @@ fn main() {
         Windows::Win32::Security::Authorization::ACCESS_MODE,
         Windows::Win32::Storage::StructuredStorage::{CreateStreamOnHGlobal, IStream, STREAM_SEEK},
         Windows::Win32::System::Com::{CreateUri, IUri},
-        Windows::Win32::System::Diagnostics::Debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
+        Windows::Win32::System::Diagnostics::Debug::{
+            GetLastError, MiniDumpWriteDump, MINIDUMP_TYPE, WIN32_ERROR,
+        },
         Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
         Windows::Win32::System::UpdateAgent::IAutomaticUpdates,
         Windows::Win32::UI::Accessibility::UIA_ScrollPatternNoScroll,

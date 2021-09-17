@@ -12,7 +12,7 @@ pub fn gen_handle() -> TokenStream {
 
             fn ok(self) -> ::windows::Result<Self> {
                 if self.is_invalid() {
-                    Err(::windows::HRESULT::from_thread().into())
+                    Err(::windows::Error::from_win32())
                 } else {
                     Ok(self)
                 }
