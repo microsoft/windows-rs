@@ -63,18 +63,7 @@ fn pstr() {
     let _clone = handle.clone();
     let _copy: PSTR = handle;
     assert!(PSTR::default() == unsafe { std::mem::zeroed() });
-    assert!(PSTR::default().is_invalid());
     assert_eq!(format!("{:?}", PSTR::default()), "PSTR(0x0)");
-
-    assert!(PSTR([1].as_mut_ptr()).ok().is_ok());
-
-    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
-
-    assert!(
-        PSTR::default().ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
-    );
-
-    assert!(std::mem::size_of::<PSTR>() == std::mem::size_of::<usize>());
 }
 
 #[test]
@@ -83,16 +72,5 @@ fn pwstr() {
     let _clone = handle.clone();
     let _copy: PWSTR = handle;
     assert!(PWSTR::default() == unsafe { std::mem::zeroed() });
-    assert!(PWSTR::default().is_invalid());
     assert_eq!(format!("{:?}", PWSTR::default()), "PWSTR(0x0)");
-
-    assert!(PWSTR([1].as_mut_ptr()).ok().is_ok());
-
-    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
-
-    assert!(
-        PWSTR::default().ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
-    );
-
-    assert!(std::mem::size_of::<PWSTR>() == std::mem::size_of::<usize>());
 }

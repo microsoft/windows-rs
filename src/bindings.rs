@@ -2874,23 +2874,18 @@ pub mod Windows {
                 type Abi = Self;
                 type DefaultType = Self;
             }
-            #[repr(transparent)]
             #[derive(
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
-                :: std :: cmp :: Eq,
                 :: std :: fmt :: Debug,
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
             )]
+            #[repr(transparent)]
             pub struct PSTR(pub *mut u8);
-            unsafe impl ::windows::Handle for PSTR {}
             impl ::std::default::Default for PSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
-                }
-            }
-            impl ::std::cmp::PartialEq for PSTR {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
                 }
             }
             unsafe impl ::windows::Abi for PSTR {
@@ -2926,23 +2921,18 @@ pub mod Windows {
                     ) as _))
                 }
             }
-            #[repr(transparent)]
             #[derive(
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
-                :: std :: cmp :: Eq,
                 :: std :: fmt :: Debug,
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
             )]
+            #[repr(transparent)]
             pub struct PWSTR(pub *mut u16);
-            unsafe impl ::windows::Handle for PWSTR {}
             impl ::std::default::Default for PWSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
-                }
-            }
-            impl ::std::cmp::PartialEq for PWSTR {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
                 }
             }
             unsafe impl ::windows::Abi for PWSTR {

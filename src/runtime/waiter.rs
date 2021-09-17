@@ -1,7 +1,7 @@
 use crate::*;
 
 use bindings::{
-    Windows::Win32::Foundation::{CloseHandle, HANDLE, PSTR},
+    Windows::Win32::Foundation::{CloseHandle, HANDLE},
     Windows::Win32::System::Threading::{CreateEventA, SetEvent, WaitForSingleObject},
 };
 
@@ -12,7 +12,7 @@ pub struct WaiterSignaler(HANDLE);
 impl Waiter {
     pub fn new() -> (Waiter, WaiterSignaler) {
         unsafe {
-            let handle = CreateEventA(std::ptr::null_mut(), true, false, PSTR::NULL);
+            let handle = CreateEventA(std::ptr::null_mut(), true, false, None);
             (Waiter(handle), WaiterSignaler(handle))
         }
     }
