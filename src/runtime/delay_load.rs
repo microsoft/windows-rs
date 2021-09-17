@@ -6,7 +6,7 @@ pub fn delay_load(library: &str, function: &str) -> std::result::Result<RawPtr, 
     unsafe {
         let library = LoadLibraryA(library);
 
-        if library.is_null() {
+        if library.is_invalid() {
             return Err(HRESULT::from_thread());
         }
 

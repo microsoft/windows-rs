@@ -5,12 +5,7 @@ pub fn gen_pwstr() -> TokenStream {
         #[repr(transparent)]
         #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::cmp::Eq, ::std::fmt::Debug)]
         pub struct PWSTR(pub *mut u16);
-        impl PWSTR {
-            pub const NULL: Self = Self(::std::ptr::null_mut());
-            pub fn is_null(&self) -> bool {
-                self.0.is_null()
-            }
-        }
+        unsafe impl ::windows::Handle for PWSTR{}
         impl ::std::default::Default for PWSTR {
             fn default() -> Self {
                 Self(::std::ptr::null_mut())

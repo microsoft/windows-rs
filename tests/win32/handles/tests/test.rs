@@ -5,20 +5,19 @@ use Windows::Win32::System::Diagnostics::Debug::*;
 
 #[test]
 fn hwnd() {
-    let handle = HWND::NULL;
+    let handle = HWND(0);
     let _clone = handle.clone();
     let _copy: HWND = handle;
-    assert!(HWND::default() == HWND::NULL);
-    assert!(HWND(0) == HWND::NULL);
-    assert_eq!(format!("{:?}", HWND::NULL), "HWND(0)");
-    assert!(HWND::NULL.is_null());
+    assert!(HWND::default() == HWND(0));
+    assert!(HWND(0).is_invalid());
+    assert_eq!(format!("{:?}", HWND::default()), "HWND(0)");
 
     assert!(HWND(1).ok().is_ok());
 
     unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
 
     assert!(
-        HWND::NULL.ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
+        HWND(0).ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
     );
 
     assert!(std::mem::size_of::<HWND>() == std::mem::size_of::<usize>());
@@ -26,30 +25,26 @@ fn hwnd() {
 
 #[test]
 fn handle() {
-    let handle = HANDLE::NULL;
+    let handle = HANDLE(0);
     let _clone = handle.clone();
     let _copy: HANDLE = handle;
-    assert!(HANDLE::default() == HANDLE::NULL);
-    assert!(HANDLE(0) == HANDLE::NULL);
-    assert!(HANDLE(-1) == HANDLE::INVALID);
-    assert_eq!(format!("{:?}", HANDLE::NULL), "HANDLE(0)");
-    assert!(HANDLE::NULL.is_null());
-    assert!(!HANDLE::INVALID.is_null());
-    assert!(!HANDLE::NULL.is_invalid());
-    assert!(HANDLE::INVALID.is_invalid());
+    assert!(HANDLE::default() == HANDLE(0));
+    assert!(HANDLE(0).is_invalid());
+    assert!(HANDLE(-1).is_invalid());
+    assert_eq!(format!("{:?}", HANDLE::default()), "HANDLE(0)");
 
     assert!(HANDLE(1).ok().is_ok());
 
     unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
 
     assert!(
-        HANDLE::NULL.ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
+        HANDLE(0).ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
     );
 
     unsafe { SetLastError(ERROR_FILE_NOT_FOUND.0) };
 
     assert!(
-        HANDLE::INVALID.ok().unwrap_err().code() == HRESULT::from_win32(ERROR_FILE_NOT_FOUND.0)
+        HANDLE(-1).ok().unwrap_err().code() == HRESULT::from_win32(ERROR_FILE_NOT_FOUND.0)
     );
 
     assert!(std::mem::size_of::<HANDLE>() == std::mem::size_of::<usize>());
@@ -60,4 +55,44 @@ fn boolean() {
     // Although BOOLEAN is considered a Win32 handle type, it is not pointer-sized like most handle types.
     // This test just validates that such types have the correct layout.
     assert!(std::mem::size_of::<BOOLEAN>() == 1);
+}
+
+#[test]
+fn pstr() {
+    let handle = PSTR(std::ptr::null_mut());
+    let _clone = handle.clone();
+    let _copy: PSTR = handle;
+    assert!(PSTR::default() == unsafe { std::mem::zeroed() });
+    assert!(PSTR::default().is_invalid());
+    assert_eq!(format!("{:?}", PSTR::default()), "PSTR(0x0)");
+
+    assert!(PSTR([1].as_mut_ptr()).ok().is_ok());
+
+    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
+
+    assert!(
+        PSTR::default().ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
+    );
+
+    assert!(std::mem::size_of::<PSTR>() == std::mem::size_of::<usize>());
+}
+
+#[test]
+fn pwstr() {
+    let handle = PWSTR(std::ptr::null_mut());
+    let _clone = handle.clone();
+    let _copy: PWSTR = handle;
+    assert!(PWSTR::default() == unsafe { std::mem::zeroed() });
+    assert!(PWSTR::default().is_invalid());
+    assert_eq!(format!("{:?}", PWSTR::default()), "PWSTR(0x0)");
+
+    assert!(PWSTR([1].as_mut_ptr()).ok().is_ok());
+
+    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
+
+    assert!(
+        PWSTR::default().ok().unwrap_err().code() == HRESULT::from_win32(ERROR_INVALID_WINDOW_HANDLE.0)
+    );
+
+    assert!(std::mem::size_of::<PWSTR>() == std::mem::size_of::<usize>());
 }

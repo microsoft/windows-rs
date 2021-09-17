@@ -11,7 +11,7 @@ fn test() {
         Anonymous: OVERLAPPED_0 {
             Pointer: std::ptr::null_mut(),
         },
-        hEvent: HANDLE::NULL,
+        hEvent: Default::default(),
     };
 
     assert_eq!(o.Internal, 1);

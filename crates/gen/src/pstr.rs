@@ -5,12 +5,7 @@ pub fn gen_pstr() -> TokenStream {
         #[repr(transparent)]
         #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::cmp::Eq, ::std::fmt::Debug)]
         pub struct PSTR(pub *mut u8);
-        impl PSTR {
-            pub const NULL: Self = Self(::std::ptr::null_mut());
-            pub fn is_null(&self) -> bool {
-                self.0.is_null()
-            }
-        }
+        unsafe impl ::windows::Handle for PSTR{}
         impl ::std::default::Default for PSTR {
             fn default() -> Self {
                 Self(::std::ptr::null_mut())

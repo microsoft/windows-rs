@@ -2843,22 +2843,15 @@ pub mod Windows {
             )]
             #[repr(transparent)]
             pub struct HANDLE(pub isize);
-            impl HANDLE {
-                pub const NULL: Self = Self(0);
-                pub const INVALID: Self = Self(-1);
-                pub fn is_invalid(&self) -> bool {
-                    self.0 == -1
-                }
-            }
             unsafe impl ::windows::Handle for HANDLE {
-                fn is_null(&self) -> bool {
-                    *self == unsafe { ::std::mem::zeroed() }
+                fn is_invalid(&self) -> bool {
+                    self.0 == 0 || self.0 == -1
                 }
                 fn ok(self) -> ::windows::Result<Self> {
-                    if self != Self::NULL && self != Self::INVALID {
-                        Ok(self)
-                    } else {
+                    if self.is_invalid() {
                         Err(::windows::HRESULT::from_thread().into())
+                    } else {
+                        Ok(self)
                     }
                 }
             }
@@ -2876,9 +2869,6 @@ pub mod Windows {
             )]
             #[repr(transparent)]
             pub struct HINSTANCE(pub isize);
-            impl HINSTANCE {
-                pub const NULL: Self = Self(0);
-            }
             unsafe impl ::windows::Handle for HINSTANCE {}
             unsafe impl ::windows::Abi for HINSTANCE {
                 type Abi = Self;
@@ -2892,12 +2882,7 @@ pub mod Windows {
                 :: std :: fmt :: Debug,
             )]
             pub struct PSTR(pub *mut u8);
-            impl PSTR {
-                pub const NULL: Self = Self(::std::ptr::null_mut());
-                pub fn is_null(&self) -> bool {
-                    self.0.is_null()
-                }
-            }
+            unsafe impl ::windows::Handle for PSTR {}
             impl ::std::default::Default for PSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
@@ -2949,12 +2934,7 @@ pub mod Windows {
                 :: std :: fmt :: Debug,
             )]
             pub struct PWSTR(pub *mut u16);
-            impl PWSTR {
-                pub const NULL: Self = Self(::std::ptr::null_mut());
-                pub fn is_null(&self) -> bool {
-                    self.0.is_null()
-                }
-            }
+            unsafe impl ::windows::Handle for PWSTR {}
             impl ::std::default::Default for PWSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
@@ -3607,9 +3587,6 @@ pub mod Windows {
                 )]
                 #[repr(transparent)]
                 pub struct HeapHandle(pub isize);
-                impl HeapHandle {
-                    pub const NULL: Self = Self(0);
-                }
                 unsafe impl ::windows::Handle for HeapHandle {}
                 unsafe impl ::windows::Abi for HeapHandle {
                     type Abi = Self;
