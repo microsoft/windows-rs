@@ -18,6 +18,20 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         let signature = def.fields().next().map(|field| field.signature()).unwrap();
         let signature = gen_sig(&signature, gen);
 
+        let convertible = if let Some(dependency) = def.is_convertible_to() {
+            let dependency = gen_type_name(&dependency, gen);
+
+            quote! {
+                impl<'a> ::windows::IntoParam<'a, #dependency> for #name {
+                    fn into_param(self) -> ::windows::Param<'a, #dependency> {
+                        ::windows::Param::Owned(#dependency(self.0))
+                    }
+                }
+            }
+        } else {
+            quote! {}
+        };
+
         return quote! {
             #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
             #[repr(transparent)]
@@ -32,6 +46,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
                 type Abi = Self;
                 type DefaultType = Self;
             }
+            #convertible
         };
     }
 
@@ -274,20 +289,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     let extensions = gen_extensions(def);
     let nested_types = gen_nested_types(struct_name, def, gen);
 
-    let convertible = if let Some(dependency) = def.is_convertible_to() {
-        let dependency = gen_type_name(&dependency, gen);
-
-        quote! {
-            impl<'a> ::windows::IntoParam<'a, #dependency> for #name {
-                fn into_param(self) -> ::windows::Param<'a, #dependency> {
-                    ::windows::Param::Owned(#dependency(self.0))
-                }
-            }
-        }
-    } else {
-        quote! {}
-    };
-
     quote! {
         #clone_or_copy
         #repr
@@ -306,7 +307,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         #runtime_type
         #extensions
         #nested_types
-        #convertible
     }
 }
 
