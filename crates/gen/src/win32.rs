@@ -82,9 +82,6 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
 
 pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
     match sig.kind() {
-        SignatureKind::QueryInterface => {
-            unimplemented!("QueryInterface")
-        }
         SignatureKind::ResultValue => {
             let invoke_args = sig.params[..sig.params.len() - 1]
                 .iter()
@@ -113,7 +110,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
         SignatureKind::ReturnStruct => {
             unimplemented!("ReturnStruct")
         }
-        SignatureKind::PreserveSig => {
+        _ => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
 
             quote! {
