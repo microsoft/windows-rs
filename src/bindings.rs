@@ -2887,6 +2887,11 @@ pub mod Windows {
             )]
             #[repr(transparent)]
             pub struct PSTR(pub *mut u8);
+            impl PSTR {
+                pub fn is_null(&self) -> bool {
+                    self.0.is_null()
+                }
+            }
             impl ::std::default::Default for PSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
@@ -2897,7 +2902,7 @@ pub mod Windows {
                 type DefaultType = Self;
                 unsafe fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
-                        if !value.0.is_null() {
+                        if !value.is_null() {
                             unsafe {
                                 ::std::boxed::Box::from_raw(value.0);
                             }
@@ -2934,6 +2939,11 @@ pub mod Windows {
             )]
             #[repr(transparent)]
             pub struct PWSTR(pub *mut u16);
+            impl PWSTR {
+                pub fn is_null(&self) -> bool {
+                    self.0.is_null()
+                }
+            }
             impl ::std::default::Default for PWSTR {
                 fn default() -> Self {
                     Self(::std::ptr::null_mut())
@@ -2944,7 +2954,7 @@ pub mod Windows {
                 type DefaultType = Self;
                 unsafe fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                     if let ::windows::Param::Boxed(value) = param {
-                        if !value.0.is_null() {
+                        if !value.is_null() {
                             unsafe {
                                 ::std::boxed::Box::from_raw(value.0);
                             }
