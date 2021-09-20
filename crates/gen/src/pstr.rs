@@ -5,6 +5,11 @@ pub fn gen_pstr() -> TokenStream {
         #[derive(::std::clone::Clone, ::std::marker::Copy, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq)]
         #[repr(transparent)]
         pub struct PSTR(pub *mut u8);
+        impl PSTR {
+            pub fn is_null(&self) -> bool {
+                self.0.is_null()
+            }
+        }
         impl ::std::default::Default for PSTR {
             fn default() -> Self {
                 Self(::std::ptr::null_mut())
@@ -16,7 +21,7 @@ pub fn gen_pstr() -> TokenStream {
 
             unsafe fn drop_param(param: &mut ::windows::Param<'_, Self>) {
                 if let ::windows::Param::Boxed(value) = param {
-                    if !value.0.is_null() {
+                    if !value.is_null() {
                         unsafe { ::std::boxed::Box::from_raw(value.0); }
                     }
                 }
