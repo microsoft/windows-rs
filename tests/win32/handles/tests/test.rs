@@ -3,6 +3,7 @@ use windows::*;
 use Windows::Win32::Foundation::*;
 use Windows::Win32::Graphics::Gdi::*;
 use Windows::Win32::System::Diagnostics::Debug::*;
+use Windows::Win32::System::Registry::*;
 use Windows::Win32::System::Threading::LPPROC_THREAD_ATTRIBUTE_LIST;
 
 #[test]
@@ -114,4 +115,20 @@ fn hbitmap() {
 
     expect_object(HBITMAP(123));
     expect_object(HGDIOBJ(123));
+}
+
+#[test]
+fn hkey() {
+    // This test validates that handle constants can be used in match constant expressions.
+    // This requires PartialEq and Eq to be derived.
+    fn to_string(key: HKEY) -> &'static str {
+        match key {
+            HKEY_CURRENT_USER => "HKCU",
+            HKEY_LOCAL_MACHINE => "HKLM",
+            _ => "",
+        }
+    }
+
+    assert!(to_string(HKEY_CURRENT_USER) == "HKCU");
+    assert!(to_string(HKEY_LOCAL_MACHINE) == "HKLM");
 }
