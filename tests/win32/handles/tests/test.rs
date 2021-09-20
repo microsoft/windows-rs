@@ -1,6 +1,7 @@
 use test_win32_handles::*;
 use windows::*;
 use Windows::Win32::Foundation::*;
+use Windows::Win32::Graphics::Gdi::*;
 use Windows::Win32::System::Diagnostics::Debug::*;
 use Windows::Win32::System::Threading::LPPROC_THREAD_ATTRIBUTE_LIST;
 
@@ -101,4 +102,16 @@ fn lpproc_thread_attribute_list() {
     );
 
     assert!(std::mem::size_of::<LPPROC_THREAD_ATTRIBUTE_LIST>() == std::mem::size_of::<usize>());
+}
+
+#[test]
+fn hbitmap() {
+    fn expect_object<'a>(value: impl IntoParam<'a, HGDIOBJ>) {
+        unsafe {
+            assert!(value.into_param().abi().0 == 123);
+        }
+    }
+
+    expect_object(HBITMAP(123));
+    expect_object(HGDIOBJ(123));
 }
