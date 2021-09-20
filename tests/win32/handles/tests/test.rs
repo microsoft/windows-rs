@@ -57,6 +57,7 @@ fn pstr() {
     let handle = PSTR(std::ptr::null_mut());
     let _clone = handle.clone();
     let _copy: PSTR = handle;
+    assert!(handle.is_null());
     assert!(PSTR::default() == unsafe { std::mem::zeroed() });
     assert_eq!(format!("{:?}", PSTR::default()), "PSTR(0x0)");
 }
@@ -66,6 +67,7 @@ fn pwstr() {
     let handle = PWSTR(std::ptr::null_mut());
     let _clone = handle.clone();
     let _copy: PWSTR = handle;
+    assert!(handle.is_null());
     assert!(PWSTR::default() == unsafe { std::mem::zeroed() });
     assert_eq!(format!("{:?}", PWSTR::default()), "PWSTR(0x0)");
 }
