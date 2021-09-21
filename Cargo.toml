@@ -1,6 +1,6 @@
 [package]
 name = "windows"
-version = "0.20.0"
+version = "0.20.1"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -11,12 +11,12 @@ readme = ".github/readme.md"
 exclude = [".github", ".windows", "docs", "tests"]
 
 [dependencies]
-windows_macros = { path = "crates/macros",  version = "0.20.0", optional = true }
-gen = { package = "windows_gen", path = "crates/gen",  version = "0.20.0", optional = true }
+windows_macros = { path = "crates/macros",  version = "0.20.1", optional = true }
+gen = { package = "windows_gen", path = "crates/gen",  version = "0.20.1", optional = true }
 const-sha1 = "0.2"
 
 [dev-dependencies]
-gen = { package = "windows_gen", path = "crates/gen", version = "0.20.0" }
+gen = { package = "windows_gen", path = "crates/gen", version = "0.20.1" }
 
 [workspace]
 members = ["crates/*", "tests/legacy/*", "tests/metadata/*", "tests/winrt/*", "tests/win32/*"]

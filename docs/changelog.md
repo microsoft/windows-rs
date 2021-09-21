@@ -1,8 +1,9 @@
-# 0.20.0
+# 0.20
 
 - Improved support for Win32 handle types
 - Improved build macro dependency tracking
 - Considerably better test coverage
+- Support implementing query-like functions
 - Many other small improvements and fixes
 - Update Win32 metadata
 
