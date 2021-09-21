@@ -161,7 +161,7 @@ fn gen_method(
     };
 
     match signature.kind() {
-        SignatureKind::QueryInterface => {
+        SignatureKind::Query => {
             let leading_params = &signature.params[..signature.params.len() - 2];
             let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
             let params = gen_win32_params(leading_params, gen);
@@ -170,6 +170,17 @@ fn gen_method(
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params) -> ::windows::Result<T> {
                     let mut result__ = ::std::option::Option::None;
                     (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                }
+            }
+        }
+        SignatureKind::QueryOptional => {
+            let leading_params = &signature.params[..signature.params.len() - 2];
+            let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
+            let params = gen_win32_params(leading_params, gen);
+
+            quote! {
+                pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params result__: *mut ::std::option::Option<T>) -> ::windows::Result<()> {
+                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
             }
         }

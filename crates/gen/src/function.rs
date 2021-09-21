@@ -41,7 +41,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     };
 
     match signature.kind() {
-        SignatureKind::QueryInterface => {
+        SignatureKind::Query => {
             let leading_params = &signature.params[..signature.params.len() - 2];
             let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
             let params = gen_win32_params(leading_params, gen);
@@ -56,6 +56,26 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
                         }
                         let mut result__ = ::std::option::Option::None;
                         #name(#(#args,)* &<T as ::windows::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                    }
+                    #[cfg(not(windows))]
+                    unimplemented!("Unsupported target OS");
+                }
+            }
+        }
+        SignatureKind::QueryOptional => {
+            let leading_params = &signature.params[..signature.params.len() - 2];
+            let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
+            let params = gen_win32_params(leading_params, gen);
+
+            quote! {
+                pub unsafe fn #name<#constraints T: ::windows::Interface>(#params result__: *mut ::std::option::Option<T>) -> ::windows::Result<()> {
+                    #[cfg(windows)]
+                    {
+                        #link_attr
+                        extern "system" {
+                            fn #name(#(#abi_params),*) #abi_return_type;
+                        }
+                        #name(#(#args,)* &<T as ::windows::Interface>::IID, result__ as *mut _ as *mut _).ok()
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
