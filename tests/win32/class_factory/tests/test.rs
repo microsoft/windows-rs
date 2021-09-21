@@ -25,8 +25,8 @@ struct Factory();
 impl Factory {
     pub fn CreateInstance(
         &self,
-        outer: Option<&IUnknown>,
-        iid: &Guid,
+        outer: &Option<IUnknown>,
+        iid: *const Guid,
         object: *mut RawPtr,
     ) -> HRESULT {
         assert!(outer.is_none());

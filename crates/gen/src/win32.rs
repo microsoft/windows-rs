@@ -27,9 +27,15 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
+fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
-    quote! { ::std::mem::transmute_copy(&#name) }
+    let kind = gen_win32_param(param, gen);
+
+    if param.signature.pointers == 0 && param.signature.kind.is_nullable() {
+        quote! { ::std::mem::transmute::<_, &#kind>(&#name) }
+    } else {
+        quote! { ::std::mem::transmute_copy::<_, #kind>(&#name) }
+    }
 }
 
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
@@ -80,12 +86,12 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
     }
 }
 
-pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStream {
+pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
     match sig.kind() {
         SignatureKind::ResultValue => {
             let invoke_args = sig.params[..sig.params.len() - 1]
                 .iter()
-                .map(|param| gen_win32_invoke_arg(param));
+                .map(|param| gen_win32_invoke_arg(param, gen));
 
             let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
 
@@ -101,7 +107,10 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
             }
         }
         SignatureKind::ResultVoid => {
-            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+            let invoke_args = sig
+                .params
+                .iter()
+                .map(|param| gen_win32_invoke_arg(param, gen));
 
             quote! {
                 #inner(#(#invoke_args,)*).into()
@@ -111,7 +120,10 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
             unimplemented!("ReturnStruct")
         }
         _ => {
-            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param));
+            let invoke_args = sig
+                .params
+                .iter()
+                .map(|param| gen_win32_invoke_arg(param, gen));
 
             quote! {
                 #inner(#(#invoke_args,)*)
