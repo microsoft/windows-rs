@@ -13,7 +13,7 @@ extern "C"
     struct DECLSPEC_UUID("D42F6D29-1773-47DD-AA08-7EBCBDA907B1") DECLSPEC_NOVTABLE
     ISimpleInterface : IUnknown
     {
-        virtual HRESULT __stdcall Method() = 0;
+        virtual HRESULT __stdcall Method() noexcept = 0;
     };
 
     struct SimpleStruct

@@ -1,3 +1,5 @@
 EXPORTS
 DllGetActivationFactory = WINRT_GetActivationFactory
 SimpleFunction
+QueryInterface
+QueryWithValue

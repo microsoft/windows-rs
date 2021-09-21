@@ -13,6 +13,10 @@
       <TraverseFiles>..\win32\simple.h</TraverseFiles>
       <Namespace>Component.Win32.Simple</Namespace>
     </Partition>
+    <Partition Include="query.cpp">
+      <TraverseFiles>..\win32\query.h</TraverseFiles>
+      <Namespace>Component.Win32.Query</Namespace>
+    </Partition>
   </ItemGroup>
 
 </Project>
