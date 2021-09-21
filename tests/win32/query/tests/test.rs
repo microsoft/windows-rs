@@ -70,18 +70,23 @@ fn query_member_with_value() -> Result<()> {
 fn query_function_optional() -> Result<()> {
     unsafe {
         let mut query: Option<IQueryInt32> = None;
-        QueryOptional(&mut query)?;
+        QueryOptionalWithValue(123, &mut query)?;
         assert!(query.unwrap().GetInt32() == 123);
 
         let mut query = None;
-        QueryOptional::<IQueryInt32>(&mut query)?;
+        QueryOptionalWithValue::<IQueryInt32>(123, &mut query)?;
         assert!(query.unwrap().GetInt32() == 123);
 
         // Query test success without returning an object.
-        QueryOptional::<IQueryInt32>(std::ptr::null_mut())?;
+        QueryOptionalWithValue::<IQueryInt32>(123, std::ptr::null_mut())?;
 
         // Query test failure without returning an object.
-        assert!(QueryOptional::<IInspectable>(std::ptr::null_mut()).unwrap_err().code() == E_NOINTERFACE);
+        assert!(
+            QueryOptionalWithValue::<IInspectable>(123, std::ptr::null_mut())
+                .unwrap_err()
+                .code()
+                == E_NOINTERFACE
+        );
 
         Ok(())
     }
@@ -93,18 +98,79 @@ fn query_member_optional() -> Result<()> {
         let object: IQueryInt32 = Query()?;
 
         let mut query: Option<IQueryInt32> = None;
-        object.QueryOptional(&mut query)?;
+        object.QueryOptionalWithValue(123, &mut query)?;
         assert!(query.unwrap().GetInt32() == 123);
 
         let mut query = None;
-        object.QueryOptional::<IQueryInt32>(&mut query)?;
+        object.QueryOptionalWithValue::<IQueryInt32>(123, &mut query)?;
         assert!(query.unwrap().GetInt32() == 123);
 
         // Query test success without returning an object.
-        object.QueryOptional::<IQueryInt32>(std::ptr::null_mut())?;
+        object.QueryOptionalWithValue::<IQueryInt32>(123, std::ptr::null_mut())?;
 
         // Query test failure without returning an object.
-        assert!(object.QueryOptional::<IInspectable>(std::ptr::null_mut()).unwrap_err().code() == E_NOINTERFACE);
+        assert!(
+            object
+                .QueryOptionalWithValue::<IInspectable>(123, std::ptr::null_mut())
+                .unwrap_err()
+                .code()
+                == E_NOINTERFACE
+        );
+
+        Ok(())
+    }
+}
+
+#[test]
+fn query_function_optional_convertible() -> Result<()> {
+    unsafe {
+        let mut query: Option<IQueryInt32> = None;
+        QueryOptionalWithConvertible(None, &mut query)?;
+        assert!(query.unwrap().GetInt32() == 123);
+
+        let mut query = None;
+        QueryOptionalWithConvertible::<IQueryInt32>(None, &mut query)?;
+        assert!(query.unwrap().GetInt32() == 123);
+
+        // Query test success without returning an object.
+        QueryOptionalWithConvertible::<IQueryInt32>(None, std::ptr::null_mut())?;
+
+        // Query test failure without returning an object.
+        assert!(
+            QueryOptionalWithConvertible::<IInspectable>(None, std::ptr::null_mut())
+                .unwrap_err()
+                .code()
+                == E_NOINTERFACE
+        );
+
+        Ok(())
+    }
+}
+
+#[test]
+fn query_member_optional_convertible() -> Result<()> {
+    unsafe {
+        let object: IQueryInt32 = Query()?;
+
+        let mut query: Option<IQueryInt32> = None;
+        object.QueryOptionalWithConvertible(None, &mut query)?;
+        assert!(query.unwrap().GetInt32() == 123);
+
+        let mut query = None;
+        object.QueryOptionalWithConvertible::<IQueryInt32>(None, &mut query)?;
+        assert!(query.unwrap().GetInt32() == 123);
+
+        // Query test success without returning an object.
+        object.QueryOptionalWithConvertible::<IQueryInt32>(None, std::ptr::null_mut())?;
+
+        // Query test failure without returning an object.
+        assert!(
+            object
+                .QueryOptionalWithConvertible::<IInspectable>(None, std::ptr::null_mut())
+                .unwrap_err()
+                .code()
+                == E_NOINTERFACE
+        );
 
         Ok(())
     }

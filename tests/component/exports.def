@@ -3,4 +3,6 @@ DllGetActivationFactory = WINRT_GetActivationFactory
 SimpleFunction
 Query
 QueryWithValue
-QueryOptional
+QueryOptionalWithValue
+QueryOptionalWithConvertible
+
