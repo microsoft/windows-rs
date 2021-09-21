@@ -4,5 +4,5 @@ version = "0.0.0"
 edition = "2018"
 
 [dependencies]
-windows_macros = { path = "../macros", version = "0.20.0" }
-windows_reader = { path = "../reader", version = "0.20.0" }
+windows_macros = { path = "../macros", version = "0.20.1" }
+windows_reader = { path = "../reader", version = "0.20.1" }
