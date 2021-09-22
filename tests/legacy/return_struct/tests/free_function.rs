@@ -2,7 +2,7 @@
 // returning structs where the return value is effectively a trailing out parameter.
 //
 // TODO: D2D1ConvertColorSpace is exported by ordinal rather than by name and Rust doesn't appear to support
-// this at the moment. It happens to work on x64 but not on x64, hence the cfg check below.
+// this at the moment. It happens to work on x64 but not on x86, hence the cfg check below.
 #[test]
 #[cfg(target_pointer_width = "64")]
 fn test() {
