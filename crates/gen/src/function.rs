@@ -3,7 +3,7 @@ use super::*;
 pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let name = to_ident(def.name());
     let signature = def.signature(&[]);
-    let constraints = gen_method_constraints(&signature.params);
+    let constraints = gen_method_constraints(&signature.params, gen);
 
     let abi_params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);

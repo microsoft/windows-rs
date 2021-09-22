@@ -147,7 +147,7 @@ fn gen_method(
     gen: &Gen,
 ) -> TokenStream {
     let signature = method.signature(&[]);
-    let constraints = gen_method_constraints(&signature.params);
+    let constraints = gen_method_constraints(&signature.params, gen);
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
 
     let name = method.name();

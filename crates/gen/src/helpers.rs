@@ -1,10 +1,20 @@
 use crate::*;
 
-pub fn gen_method_constraints(params: &[MethodParam]) -> TokenStream {
-    if params.iter().any(|param| param.is_convertible()) {
-        quote! { 'a, }
+pub fn gen_method_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
+    let mut tokens = TokenStream::new();
+
+    for (position, param) in params.iter().enumerate() {
+        if param.is_convertible() {
+            let name = format_token!("Param{}", position);
+            let into = gen_name(&param.signature.kind, gen);
+            tokens.combine(&quote! { #name: ::windows::IntoParam<'a, #into>, });
+        }
+    }
+
+    if !tokens.is_empty() {
+        quote! { 'a, #tokens }
     } else {
-        quote! {}
+        TokenStream::new()
     }
 }
 

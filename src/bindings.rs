@@ -2049,8 +2049,8 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateString<'a>(
-                value: impl ::windows::IntoParam<'a, ::windows::HSTRING>,
+            pub fn CreateString<'a, Param0: ::windows::IntoParam<'a, ::windows::HSTRING>>(
+                value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2063,8 +2063,11 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateInspectable<'a>(
-                value: impl ::windows::IntoParam<'a, ::windows::IInspectable>,
+            pub fn CreateInspectable<
+                'a,
+                Param0: ::windows::IntoParam<'a, ::windows::IInspectable>,
+            >(
+                value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2077,8 +2080,8 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateGuid<'a>(
-                value: impl ::windows::IntoParam<'a, ::windows::Guid>,
+            pub fn CreateGuid<'a, Param0: ::windows::IntoParam<'a, ::windows::Guid>>(
+                value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2091,8 +2094,8 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateDateTime<'a>(
-                value: impl ::windows::IntoParam<'a, DateTime>,
+            pub fn CreateDateTime<'a, Param0: ::windows::IntoParam<'a, DateTime>>(
+                value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2105,8 +2108,8 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateTimeSpan<'a>(
-                value: impl ::windows::IntoParam<'a, TimeSpan>,
+            pub fn CreateTimeSpan<'a, Param0: ::windows::IntoParam<'a, TimeSpan>>(
+                value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2119,8 +2122,8 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreatePoint<'a>(
-                value: impl ::windows::IntoParam<'a, Point>,
+            pub fn CreatePoint<'a, Param0: ::windows::IntoParam<'a, Point>>(
+                value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2133,8 +2136,8 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateSize<'a>(
-                value: impl ::windows::IntoParam<'a, Size>,
+            pub fn CreateSize<'a, Param0: ::windows::IntoParam<'a, Size>>(
+                value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2147,8 +2150,8 @@ pub mod Windows {
                     .from_abi::<::windows::IInspectable>(result__)
                 })
             }
-            pub fn CreateRect<'a>(
-                value: impl ::windows::IntoParam<'a, Rect>,
+            pub fn CreateRect<'a, Param0: ::windows::IntoParam<'a, Rect>>(
+                value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
@@ -2819,7 +2822,9 @@ pub mod Windows {
             pub type BSTR_abi = *mut u16;
             pub const CO_E_NOTINITIALIZED: ::windows::HRESULT =
                 ::windows::HRESULT(-2147221008i32 as _);
-            pub unsafe fn CloseHandle<'a>(hobject: impl ::windows::IntoParam<'a, HANDLE>) -> BOOL {
+            pub unsafe fn CloseHandle<'a, Param0: ::windows::IntoParam<'a, HANDLE>>(
+                hobject: Param0,
+            ) -> BOOL {
                 #[cfg(windows)]
                 {
                     #[link(name = "kernel32")]
@@ -3007,8 +3012,8 @@ pub mod Windows {
                 }
             }
             pub const S_OK: ::windows::HRESULT = ::windows::HRESULT(0i32 as _);
-            pub unsafe fn SysAllocStringLen<'a>(
-                strin: impl ::windows::IntoParam<'a, PWSTR>,
+            pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::IntoParam<'a, PWSTR>>(
+                strin: Param0,
                 ui: u32,
             ) -> BSTR {
                 #[cfg(windows)]
@@ -3025,7 +3030,9 @@ pub mod Windows {
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
-            pub unsafe fn SysFreeString<'a>(bstrstring: impl ::windows::IntoParam<'a, BSTR>) {
+            pub unsafe fn SysFreeString<'a, Param0: ::windows::IntoParam<'a, BSTR>>(
+                bstrstring: Param0,
+            ) {
                 #[cfg(windows)]
                 {
                     #[link(name = "oleaut32")]
@@ -3037,7 +3044,9 @@ pub mod Windows {
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
-            pub unsafe fn SysStringLen<'a>(pbstr: impl ::windows::IntoParam<'a, BSTR>) -> u32 {
+            pub unsafe fn SysStringLen<'a, Param0: ::windows::IntoParam<'a, BSTR>>(
+                pbstr: Param0,
+            ) -> u32 {
                 #[cfg(windows)]
                 {
                     #[link(name = "oleaut32")]
@@ -3402,8 +3411,11 @@ pub mod Windows {
                 clippy::all
             )]
             pub mod LibraryLoader {
-                pub unsafe fn FreeLibrary<'a>(
-                    hlibmodule: impl ::windows::IntoParam<'a, super::super::Foundation::HINSTANCE>,
+                pub unsafe fn FreeLibrary<
+                    'a,
+                    Param0: ::windows::IntoParam<'a, super::super::Foundation::HINSTANCE>,
+                >(
+                    hlibmodule: Param0,
                 ) -> super::super::Foundation::BOOL {
                     #[cfg(windows)]
                     {
@@ -3418,9 +3430,13 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                pub unsafe fn GetProcAddress<'a>(
-                    hmodule: impl ::windows::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-                    lpprocname: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
+                pub unsafe fn GetProcAddress<
+                    'a,
+                    Param0: ::windows::IntoParam<'a, super::super::Foundation::HINSTANCE>,
+                    Param1: ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
+                >(
+                    hmodule: Param0,
+                    lpprocname: Param1,
                 ) -> ::std::option::Option<super::super::Foundation::FARPROC> {
                     #[cfg(windows)]
                     {
@@ -3439,8 +3455,11 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                pub unsafe fn LoadLibraryA<'a>(
-                    lplibfilename: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
+                pub unsafe fn LoadLibraryA<
+                    'a,
+                    Param0: ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
+                >(
+                    lplibfilename: Param0,
                 ) -> super::super::Foundation::HINSTANCE {
                     #[cfg(windows)]
                     {
@@ -3542,8 +3561,8 @@ pub mod Windows {
                         Self(self.0.not())
                     }
                 }
-                pub unsafe fn HeapAlloc<'a>(
-                    hheap: impl ::windows::IntoParam<'a, HeapHandle>,
+                pub unsafe fn HeapAlloc<'a, Param0: ::windows::IntoParam<'a, HeapHandle>>(
+                    hheap: Param0,
                     dwflags: HEAP_FLAGS,
                     dwbytes: usize,
                 ) -> *mut ::std::ffi::c_void {
@@ -3566,8 +3585,8 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                pub unsafe fn HeapFree<'a>(
-                    hheap: impl ::windows::IntoParam<'a, HeapHandle>,
+                pub unsafe fn HeapFree<'a, Param0: ::windows::IntoParam<'a, HeapHandle>>(
+                    hheap: Param0,
                     dwflags: HEAP_FLAGS,
                     lpmem: *const ::std::ffi::c_void,
                 ) -> super::super::Foundation::BOOL {
@@ -3764,9 +3783,9 @@ pub mod Windows {
                         pdwhelpcontext: *mut u32,
                     ) -> ::windows::HRESULT,
                 );
-                pub unsafe fn SetErrorInfo<'a>(
+                pub unsafe fn SetErrorInfo<'a, Param1: ::windows::IntoParam<'a, IErrorInfo>>(
                     dwreserved: u32,
-                    perrinfo: impl ::windows::IntoParam<'a, IErrorInfo>,
+                    perrinfo: Param1,
                 ) -> ::windows::Result<()> {
                     #[cfg(windows)]
                     {
@@ -3797,11 +3816,16 @@ pub mod Windows {
                 clippy::all
             )]
             pub mod Threading {
-                pub unsafe fn CreateEventA<'a>(
+                pub unsafe fn CreateEventA<
+                    'a,
+                    Param1: ::windows::IntoParam<'a, super::super::Foundation::BOOL>,
+                    Param2: ::windows::IntoParam<'a, super::super::Foundation::BOOL>,
+                    Param3: ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
+                >(
                     lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                    bmanualreset: impl ::windows::IntoParam<'a, super::super::Foundation::BOOL>,
-                    binitialstate: impl ::windows::IntoParam<'a, super::super::Foundation::BOOL>,
-                    lpname: impl ::windows::IntoParam<'a, super::super::Foundation::PSTR>,
+                    bmanualreset: Param1,
+                    binitialstate: Param2,
+                    lpname: Param3,
                 ) -> super::super::Foundation::HANDLE {
                     #[cfg(windows)]
                     {
@@ -3824,8 +3848,11 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                pub unsafe fn SetEvent<'a>(
-                    hevent: impl ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
+                pub unsafe fn SetEvent<
+                    'a,
+                    Param0: ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
+                >(
+                    hevent: Param0,
                 ) -> super::super::Foundation::BOOL {
                     #[cfg(windows)]
                     {
@@ -3893,8 +3920,11 @@ pub mod Windows {
                         Self(self.0.not())
                     }
                 }
-                pub unsafe fn WaitForSingleObject<'a>(
-                    hhandle: impl ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
+                pub unsafe fn WaitForSingleObject<
+                    'a,
+                    Param0: ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
+                >(
+                    hhandle: Param0,
                     dwmilliseconds: u32,
                 ) -> WAIT_RETURN_CAUSE {
                     #[cfg(windows)]
@@ -4025,9 +4055,12 @@ pub mod Windows {
                         )
                         .from_abi::<ILanguageExceptionErrorInfo2>(result__)
                     }
-                    pub unsafe fn CapturePropagationContext<'a>(
+                    pub unsafe fn CapturePropagationContext<
+                        'a,
+                        Param0: ::windows::IntoParam<'a, ::windows::IUnknown>,
+                    >(
                         &self,
-                        languageexception: impl ::windows::IntoParam<'a, ::windows::IUnknown>,
+                        languageexception: Param0,
                     ) -> ::windows::Result<()> {
                         (::windows::Interface::vtable(self).5)(
                             ::std::mem::transmute_copy(self),

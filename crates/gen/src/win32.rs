@@ -41,12 +41,13 @@ fn gen_win32_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
 pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     params
         .iter()
-        .map(|param| {
+        .enumerate()
+        .map(|(position, param)| {
             let name = gen_param_name(&param.param);
 
             if param.is_convertible() {
-                let into = gen_name(&param.signature.kind, gen);
-                quote! { #name: impl ::windows::IntoParam<'a, #into>, }
+                let into = format_token!("Param{}", position);
+                quote! { #name: #into, }
             } else {
                 let tokens = gen_win32_param(param, gen);
                 quote! { #name: #tokens, }

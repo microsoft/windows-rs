@@ -42,6 +42,10 @@ impl TokenStream {
         self.inner.push_str(&other.inner)
     }
 
+    pub fn is_empty(&self) -> bool {
+        self.inner.is_empty()
+    }
+
     /// View the stream as a string
     pub fn as_str(&self) -> &str {
         &self.inner
