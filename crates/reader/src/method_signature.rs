@@ -45,7 +45,11 @@ impl MethodSignature {
                             && object.signature.kind == ElementType::Void
                             && object.param.is_com_out_ptr()
                         {
-                            return SignatureKind::QueryInterface;
+                            if object.param.is_optional() {
+                                return SignatureKind::QueryOptional;
+                            } else {
+                                return SignatureKind::Query;
+                            }
                         }
                     }
 

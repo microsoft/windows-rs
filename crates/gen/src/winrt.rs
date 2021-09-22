@@ -111,7 +111,8 @@ fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
 pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     params
         .iter()
-        .map(|param| {
+        .enumerate()
+        .map(|(position, param)| {
             let name = gen_param_name(&param.param);
             let tokens = gen_name(&param.signature.kind, gen);
 
@@ -125,8 +126,8 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
                 }
             } else if param.param.is_input() {
                 if param.is_convertible() {
-                    let into = gen_name(&param.signature.kind, gen);
-                    quote! { #name: impl ::windows::IntoParam<'a, #into>, }
+                    let into = format_token!("Param{}", position);
+                    quote! { #name: #into, }
                 } else {
                     quote! { #name: #tokens, }
                 }
@@ -169,7 +170,7 @@ pub fn gen_winrt_method(
     };
 
     let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
-    let constraints = gen_method_constraints(params);
+    let constraints = gen_method_constraints(params, gen);
     let args = params.iter().map(|p| gen_winrt_abi_arg(p));
     let params = gen_winrt_params(params, gen);
     let interface_name = gen_type_name(&interface.def, gen);
