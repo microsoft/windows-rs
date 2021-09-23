@@ -8,3 +8,7 @@ QueryOptionalWithConvertible
 ReturnValue
 ReturnStruct
 CreateReturn
+ReturnVoid
+ReturnHresult
+ReturnNtstatus
+ReturnOutValue

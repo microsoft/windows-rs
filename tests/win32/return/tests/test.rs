@@ -4,9 +4,10 @@
 use test_win32_return::*;
 use windows::*;
 use Component::Win32::Return::*;
+use Windows::Win32::Foundation::*;
 
 #[test]
-fn functions() {
+fn functions() -> Result<()> {
     unsafe {
         assert!(ReturnValue() == 123);
 
@@ -18,6 +19,33 @@ fn functions() {
                     c: 789
                 }
         );
+
+        let mut check = 0;
+        ReturnVoid(&mut check);
+        assert!(check == 123);
+
+        // Sanity check against well-known values.
+        assert!(S_OK.0 == 0);
+        assert!(STATUS_SUCCESS.0 == 0);
+        assert!(E_APPLICATION_EXITING.0 == 0x8000001A);
+        assert!(STATUS_NOT_FOUND.0 == 0xC0000225);
+
+        let result: Result<()> = ReturnHresult(S_OK.0);
+        assert!(result.is_ok());
+
+        let result: Result<()> = ReturnNtstatus(STATUS_SUCCESS.0);
+        assert!(result.is_ok());
+
+        assert!(
+            ReturnHresult(E_APPLICATION_EXITING.0).unwrap_err().code() == E_APPLICATION_EXITING
+        );
+        assert!(
+            ReturnNtstatus(STATUS_NOT_FOUND.0).unwrap_err().code() == STATUS_NOT_FOUND.to_hresult()
+        );
+
+        assert!(ReturnOutValue()? == 123);
+
+        Ok(())
     }
 }
 
@@ -36,6 +64,33 @@ fn members() -> Result<()> {
                     c: 789
                 }
         );
+
+        let mut check = 0;
+        object.ReturnVoid(&mut check);
+        assert!(check == 123);
+
+        let result: Result<()> = object.ReturnHresult(S_OK.0);
+        assert!(result.is_ok());
+
+        let result: Result<()> = object.ReturnNtstatus(STATUS_SUCCESS.0);
+        assert!(result.is_ok());
+
+        assert!(
+            object
+                .ReturnHresult(E_APPLICATION_EXITING.0)
+                .unwrap_err()
+                .code()
+                == E_APPLICATION_EXITING
+        );
+        assert!(
+            object
+                .ReturnNtstatus(STATUS_NOT_FOUND.0)
+                .unwrap_err()
+                .code()
+                == STATUS_NOT_FOUND.to_hresult()
+        );
+
+        assert!(object.ReturnOutValue()? == 123);
 
         Ok(())
     }

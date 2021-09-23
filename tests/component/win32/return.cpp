@@ -19,6 +19,27 @@ namespace
                 789
             };
         }
+
+        void __stdcall ReturnVoid(int64_t* check) noexcept
+        {
+            *check = 123;
+        }
+
+        HRESULT __stdcall ReturnHresult(uint32_t code) noexcept
+        {
+            return code;
+        }
+
+        NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept
+        {
+            return code;
+        }
+
+        HRESULT __stdcall ReturnOutValue(_Outptr_ int64_t* value) noexcept
+        {
+            *value = 123;
+            return S_OK;
+        }
     };
 }
 
@@ -40,5 +61,26 @@ ReturnType __stdcall ReturnStruct() noexcept
 HRESULT __stdcall CreateReturn(IReturn** object) noexcept
 {
     *object = winrt::make<Class>().detach();
+    return S_OK;
+}
+
+void __stdcall ReturnVoid(int64_t* check) noexcept
+{
+    *check = 123;
+}
+
+HRESULT __stdcall ReturnHresult(uint32_t code) noexcept
+{
+    return code;
+}
+
+NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept
+{
+    return code;
+}
+
+HRESULT __stdcall ReturnOutValue(_Outptr_ int64_t* value) noexcept
+{
+    *value = 123;
     return S_OK;
 }
