@@ -5,25 +5,21 @@
   <PropertyGroup Label="Globals">
     <OutputWinmd>$(OutputWinmd)</OutputWinmd>
     <WinmdVersion>0.0.0.0</WinmdVersion>
-    <StaticNamespaceComponent Condition=" '$(LibraryForm)'=='static' ">Static.</StaticNamespaceComponent>
-    <StaticLibMapping Condition=" '$(LibraryForm)'=='static' ">component=component.static</StaticLibMapping>
   </PropertyGroup>
 
   <ItemGroup>
-    <ImportLibs Include="..\target\$(Platform)\$(Configuration)\Component.lib">
-        <StaticLibs>$(StaticLibMapping)</StaticLibs>
-    </ImportLibs>
+    <ImportLibs Include="..\..\target\$(Platform)\$(Configuration)\component.lib" />
     <Partition Include="simple.cpp">
       <TraverseFiles>..\win32\simple.h</TraverseFiles>
-      <Namespace>Component.Win32.$(StaticNamespaceComponent)Simple</Namespace>
+      <Namespace>Component.Win32.Simple</Namespace>
     </Partition>
     <Partition Include="query.cpp">
       <TraverseFiles>..\win32\query.h</TraverseFiles>
-      <Namespace>Component.Win32.$(StaticNamespaceComponent)Query</Namespace>
+      <Namespace>Component.Win32.Query</Namespace>
     </Partition>
     <Partition Include="return.cpp">
       <TraverseFiles>..\win32\return.h</TraverseFiles>
-      <Namespace>Component.Win32.$(StaticNamespaceComponent)Return</Namespace>
+      <Namespace>Component.Win32.Return</Namespace>
     </Partition>
   </ItemGroup>
 

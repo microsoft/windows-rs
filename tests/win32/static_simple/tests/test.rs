@@ -3,7 +3,7 @@
 
 use test_win32_static_simple::*;
 use windows::*;
-use Component::Win32::Static::Simple::*;
+use StaticComponent::Win32::Simple::*;
 
 #[test]
 fn test() -> Result<()> {

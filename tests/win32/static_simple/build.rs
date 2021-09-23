@@ -1,5 +1,5 @@
 fn main() {
     windows::build! {
-        Component::Win32::Static::Simple::*,
+        StaticComponent::Win32::Simple::*,
     };
 }

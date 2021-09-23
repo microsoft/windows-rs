@@ -79,22 +79,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)target\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)target\temp\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)target\temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)target\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)target\temp\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)target\temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)target\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)target\temp\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)target\temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)target\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)target\temp\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)target\temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -201,14 +201,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include=".metadata\nuget.config" />
     <None Include="build.cmd" />
     <None Include="exports.def" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="win32\simple.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
@@ -229,9 +227,6 @@
   <ImportGroup Label="ExtensionTargets">
     <Import Project="packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.targets')" />
   </ImportGroup>
-  <Target Name="Component_CreateStaticLib" AfterTargets="ComputeCLGeneratedLinkInputs" Condition="'$(Platform)'=='x64'">
-    <LIB TargetMachine="MachineX64" OutputFile="$(OutDir)$(TargetName).static.lib" Sources="@(Link)" SuppressStartupBanner="true" />
-  </Target>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>

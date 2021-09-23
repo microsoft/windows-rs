@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.3.2-preview">
+
+  <PropertyGroup Label="Globals">
+    <OutputWinmd>$(OutputWinmd)</OutputWinmd>
+    <WinmdVersion>0.0.0.0</WinmdVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ImportLibs Include="..\..\target\$(Platform)\$(Configuration)\component.lib">
+      <StaticLibs>component=static_component</StaticLibs>
+    </ImportLibs>
+    <Partition Include="..\..\component\.metadata\simple.cpp">
+      <TraverseFiles>..\..\component\win32\simple.h</TraverseFiles>
+      <Namespace>StaticComponent.Win32.Simple</Namespace>
+    </Partition>
+    <Partition Include="..\..\component\.metadata\query.cpp">
+      <TraverseFiles>..\..\component\win32\query.h</TraverseFiles>
+      <Namespace>StaticComponent.Win32.Query</Namespace>
+    </Partition>
+    <Partition Include="..\..\component\.metadata\return.cpp">
+      <TraverseFiles>..\..\component\win32\return.h</TraverseFiles>
+      <Namespace>StaticComponent.Win32.Return</Namespace>
+    </Partition>
+  </ItemGroup>
+
+</Project>
