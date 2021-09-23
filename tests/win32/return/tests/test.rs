@@ -1,3 +1,6 @@
+// TODO: test_win32_return only works on x64 due to a Rust x86 linker bug
+#![cfg(target_pointer_width = "64")]
+
 use test_win32_return::*;
 use windows::*;
 use Component::Win32::Return::*;
@@ -19,7 +22,7 @@ fn functions() {
 }
 
 #[test]
-fn query_member() -> Result<()> {
+fn members() -> Result<()> {
     unsafe {
         let object: IReturn = CreateReturn()?;
 
