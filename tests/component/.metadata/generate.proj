@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Project Sdk="Microsoft.Windows.WinmdGenerator/0.2.163-preview">
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.3.2-preview">
 
   <PropertyGroup Label="Globals">
     <OutputWinmd>$(OutputWinmd)</OutputWinmd>
     <WinmdVersion>0.0.0.0</WinmdVersion>
+    <StaticNamespaceComponent Condition=" '$(LibraryForm)'=='static' ">Static.</StaticNamespaceComponent>
+    <StaticLibMapping Condition=" '$(LibraryForm)'=='static' ">component=component.static</StaticLibMapping>
   </PropertyGroup>
 
   <ItemGroup>
-    <ImportLibs Include="..\target\$(Platform)\$(Configuration)\*.lib" />
+    <ImportLibs Include="..\target\$(Platform)\$(Configuration)\Component.lib">
+        <StaticLibs>$(StaticLibMapping)</StaticLibs>
+    </ImportLibs>
     <Partition Include="simple.cpp">
       <TraverseFiles>..\win32\simple.h</TraverseFiles>
-      <Namespace>Component.Win32.Simple</Namespace>
+      <Namespace>Component.Win32.$(StaticNamespaceComponent)Simple</Namespace>
     </Partition>
     <Partition Include="query.cpp">
       <TraverseFiles>..\win32\query.h</TraverseFiles>
-      <Namespace>Component.Win32.Query</Namespace>
+      <Namespace>Component.Win32.$(StaticNamespaceComponent)Query</Namespace>
     </Partition>
     <Partition Include="return.cpp">
       <TraverseFiles>..\win32\return.h</TraverseFiles>
-      <Namespace>Component.Win32.Return</Namespace>
+      <Namespace>Component.Win32.$(StaticNamespaceComponent)Return</Namespace>
     </Partition>
   </ItemGroup>
 

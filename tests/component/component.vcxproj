@@ -201,12 +201,14 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include=".metadata\nuget.config" />
     <None Include="build.cmd" />
     <None Include="exports.def" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="win32\simple.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
@@ -228,7 +230,7 @@
     <Import Project="packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.targets')" />
   </ImportGroup>
   <Target Name="Component_CreateStaticLib" AfterTargets="ComputeCLGeneratedLinkInputs" Condition="'$(Platform)'=='x64'">
-    <LIB TargetMachine="MachineX64" OutputFile="component.lib" Sources="@(Link)" SuppressStartupBanner="true" />
+    <LIB TargetMachine="MachineX64" OutputFile="$(OutDir)$(TargetName).static.lib" Sources="@(Link)" SuppressStartupBanner="true" />
   </Target>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
