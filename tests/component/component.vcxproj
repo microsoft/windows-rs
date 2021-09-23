@@ -217,6 +217,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="win32\query.cpp" />
+    <ClCompile Include="win32\return.cpp" />
     <ClCompile Include="win32\simple.cpp" />
   </ItemGroup>
   <ItemGroup>
