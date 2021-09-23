@@ -2,6 +2,7 @@
 
 #include <Unknwn.h>
 #include <stdint.h>
+#include <bcrypt.h>
 
 extern "C"
 {
@@ -17,9 +18,15 @@ extern "C"
     {
         virtual int64_t __stdcall ReturnValue() noexcept = 0;
         virtual ReturnType __stdcall ReturnStruct() noexcept = 0;
+        virtual void __stdcall ReturnVoid(int64_t* check) noexcept = 0;
+        virtual HRESULT __stdcall ReturnHresult(uint32_t code) noexcept = 0;
+        virtual NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept = 0;
     };
 
     int64_t __stdcall ReturnValue() noexcept;
     ReturnType __stdcall ReturnStruct() noexcept;
     HRESULT __stdcall CreateReturn(IReturn** object) noexcept;
+    void __stdcall ReturnVoid(int64_t* check) noexcept;
+    HRESULT __stdcall ReturnHresult(uint32_t code) noexcept;
+    NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept;
 }
