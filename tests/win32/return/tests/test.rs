@@ -7,7 +7,7 @@ use Component::Win32::Return::*;
 use Windows::Win32::Foundation::*;
 
 #[test]
-fn functions() {
+fn functions() -> Result<()> {
     unsafe {
         assert!(ReturnValue() == 123);
 
@@ -36,8 +36,16 @@ fn functions() {
         let result: Result<()> = ReturnNtstatus(STATUS_SUCCESS.0);
         assert!(result.is_ok());
 
-        assert!(ReturnHresult(E_APPLICATION_EXITING.0).unwrap_err().code() == E_APPLICATION_EXITING);
-        assert!(ReturnNtstatus(STATUS_NOT_FOUND.0).unwrap_err().code() == STATUS_NOT_FOUND.to_hresult());
+        assert!(
+            ReturnHresult(E_APPLICATION_EXITING.0).unwrap_err().code() == E_APPLICATION_EXITING
+        );
+        assert!(
+            ReturnNtstatus(STATUS_NOT_FOUND.0).unwrap_err().code() == STATUS_NOT_FOUND.to_hresult()
+        );
+
+        assert!(ReturnOutValue()? == 123);
+
+        Ok(())
     }
 }
 
@@ -66,9 +74,23 @@ fn members() -> Result<()> {
 
         let result: Result<()> = object.ReturnNtstatus(STATUS_SUCCESS.0);
         assert!(result.is_ok());
-        
-        assert!(object.ReturnHresult(E_APPLICATION_EXITING.0).unwrap_err().code() == E_APPLICATION_EXITING);
-        assert!(object.ReturnNtstatus(STATUS_NOT_FOUND.0).unwrap_err().code() == STATUS_NOT_FOUND.to_hresult());
+
+        assert!(
+            object
+                .ReturnHresult(E_APPLICATION_EXITING.0)
+                .unwrap_err()
+                .code()
+                == E_APPLICATION_EXITING
+        );
+        assert!(
+            object
+                .ReturnNtstatus(STATUS_NOT_FOUND.0)
+                .unwrap_err()
+                .code()
+                == STATUS_NOT_FOUND.to_hresult()
+        );
+
+        assert!(object.ReturnOutValue()? == 123);
 
         Ok(())
     }

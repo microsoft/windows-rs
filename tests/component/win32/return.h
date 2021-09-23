@@ -21,6 +21,7 @@ extern "C"
         virtual void __stdcall ReturnVoid(int64_t* check) noexcept = 0;
         virtual HRESULT __stdcall ReturnHresult(uint32_t code) noexcept = 0;
         virtual NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept = 0;
+        virtual HRESULT __stdcall ReturnOutValue(_Outptr_ int64_t* value) noexcept = 0;
     };
 
     int64_t __stdcall ReturnValue() noexcept;
@@ -29,4 +30,5 @@ extern "C"
     void __stdcall ReturnVoid(int64_t* check) noexcept;
     HRESULT __stdcall ReturnHresult(uint32_t code) noexcept;
     NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept;
+    HRESULT __stdcall ReturnOutValue(_Outptr_ int64_t* value) noexcept;
 }

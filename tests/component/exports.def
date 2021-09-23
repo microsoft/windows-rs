@@ -11,3 +11,4 @@ CreateReturn
 ReturnVoid
 ReturnHresult
 ReturnNtstatus
+ReturnOutValue

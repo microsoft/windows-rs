@@ -34,6 +34,12 @@ namespace
         {
             return code;
         }
+
+        HRESULT __stdcall ReturnOutValue(_Outptr_ int64_t* value) noexcept
+        {
+            *value = 123;
+            return S_OK;
+        }
     };
 }
 
@@ -71,4 +77,10 @@ HRESULT __stdcall ReturnHresult(uint32_t code) noexcept
 NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept
 {
     return code;
+}
+
+HRESULT __stdcall ReturnOutValue(_Outptr_ int64_t* value) noexcept
+{
+    *value = 123;
+    return S_OK;
 }
