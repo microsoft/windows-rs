@@ -38,6 +38,7 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     gen_build().as_str().parse().unwrap()
 }
 
+/// A macro for generating WinRT modules ahead of time.
 #[proc_macro]
 pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     parse_macro_input!(stream as BuildMacro);

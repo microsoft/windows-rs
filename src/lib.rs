@@ -35,7 +35,10 @@ pub use runtime::{
 pub use traits::*;
 
 #[cfg(feature = "macros")]
-pub use windows_macros::{build, implement};
+pub use windows_macros::{build, generate, implement};
+
+#[cfg(feature = "macros")]
+pub use windows_reader::workspace_dir;
 
 extern crate self as windows;
 
