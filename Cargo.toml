@@ -12,6 +12,7 @@ exclude = [".github", ".windows", "docs", "tests"]
 
 [dependencies]
 windows_macros = { path = "crates/macros",  version = "0.20.1", optional = true }
+windows_reader = { path = "crates/reader", version = "0.20.1", optional = true }
 gen = { package = "windows_gen", path = "crates/gen",  version = "0.20.1", optional = true }
 const-sha1 = "0.2"
 
@@ -28,5 +29,5 @@ targets = ["x86_64-pc-windows-msvc"]
 
 [features]
 default = ["macros"]
-macros = ["gen", "windows_macros"]
+macros = ["gen", "windows_macros", "windows_reader"]
 raw_dylib = ["gen/raw_dylib"] # TODO: remove feature once raw-dylib has stablized

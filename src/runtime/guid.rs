@@ -8,10 +8,10 @@ use bindings::Windows::Win32::System::Com::CoCreateGuid;
 #[repr(C)]
 #[derive(Clone, Copy, Default, PartialEq, Eq)]
 pub struct Guid {
-    data1: u32,
-    data2: u16,
-    data3: u16,
-    data4: [u8; 8],
+    pub data1: u32,
+    pub data2: u16,
+    pub data3: u16,
+    pub data4: [u8; 8],
 }
 
 impl Guid {
