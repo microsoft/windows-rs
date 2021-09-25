@@ -7,21 +7,17 @@
     <WinmdVersion>0.0.0.0</WinmdVersion>
   </PropertyGroup>
 
+  <!--
+    Work is currently underway to improve the handling of static libraries
+    https://github.com/microsoft/win32metadata/issues/679
+  -->
   <ItemGroup>
-    <ImportLibs Include="..\..\target\$(Platform)\$(Configuration)\component.lib">
-      <StaticLibs>component=static_component</StaticLibs>
+    <ImportLibs Include="..\..\target\$(Platform)\$(Configuration)\static_component.import.lib">
+      <StaticLibs>static_component=static_component</StaticLibs>
     </ImportLibs>
-    <Partition Include="..\..\component\.metadata\simple.cpp">
-      <TraverseFiles>..\..\component\win32\simple.h</TraverseFiles>
+    <Partition Include="simple.cpp">
+      <TraverseFiles>..\win32\simple.h</TraverseFiles>
       <Namespace>StaticComponent.Win32.Simple</Namespace>
-    </Partition>
-    <Partition Include="..\..\component\.metadata\query.cpp">
-      <TraverseFiles>..\..\component\win32\query.h</TraverseFiles>
-      <Namespace>StaticComponent.Win32.Query</Namespace>
-    </Partition>
-    <Partition Include="..\..\component\.metadata\return.cpp">
-      <TraverseFiles>..\..\component\win32\return.h</TraverseFiles>
-      <Namespace>StaticComponent.Win32.Return</Namespace>
     </Partition>
   </ItemGroup>
 

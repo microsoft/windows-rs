@@ -2,7 +2,6 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.props')" />
   <Import Project="packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.props')" />
-  
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -10,7 +9,6 @@
     <RootNamespace>StaticComponent</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <CppWinRTNamespaceMergeDepth>1</CppWinRTNamespaceMergeDepth>
-    <ReadOnlyProject>true</ReadOnlyProject>
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '16.0'">v142</PlatformToolset>
@@ -18,18 +16,15 @@
     <OutDir>$(SolutionDir)target\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)target\temp\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <UseDebugLibraries>true</UseDebugLibraries>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -40,27 +35,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  
   <ItemGroup Label="Sources">
-    <ClCompile Include="..\component\win32\**\*.cpp" />
-    <ClCompile Include="..\component\pch.cpp">
+    <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClInclude Include="..\component\pch.h" />
+    <ClCompile Include="win32\simple.cpp" />
+    <ClInclude Include="pch.h" />
   </ItemGroup>
-
   <ItemGroup Label="Misc">
     <None Include="build.cmd" />
     <None Include="packages.config" />
   </ItemGroup>
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  
   <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -77,7 +67,6 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
       <Command>build.cmd $(Configuration) $(Platform) x64</Command>
@@ -105,7 +94,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
       <Message>Copy to Rust</Message>
@@ -123,5 +111,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.210913.7\build\native\Microsoft.Windows.CppWinRT.targets'))" />
+  </Target>
+  <Target Name="StaticComponent_GenerateImportLib" AfterTargets="Lib">
+    <LIB TargetMachine="MachineX64" Sources="@(Obj)" ModuleDefinitionFile="exports.def" OutputFile="$(OutputPath)\$(TargetName).import.lib" />
   </Target>
 </Project>

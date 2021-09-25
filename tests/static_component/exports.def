@@ -1,0 +1,3 @@
+LIBRARY static_component
+EXPORTS
+SimpleFunction
