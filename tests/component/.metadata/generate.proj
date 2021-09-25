@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Project Sdk="Microsoft.Windows.WinmdGenerator/0.3.2-preview">
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.3.16-preview">
 
   <PropertyGroup Label="Globals">
     <OutputWinmd>$(OutputWinmd)</OutputWinmd>
