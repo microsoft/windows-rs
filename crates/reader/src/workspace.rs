@@ -29,6 +29,7 @@ fn json_value(key: &str) -> String {
     json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
 }
 
+#[doc(hidden)]
 pub fn workspace_dir() -> String {
     json_value("workspace_root")
 }
