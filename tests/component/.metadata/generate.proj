@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Project Sdk="Microsoft.Windows.WinmdGenerator/0.2.163-preview">
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.3.16-preview">
 
   <PropertyGroup Label="Globals">
     <OutputWinmd>$(OutputWinmd)</OutputWinmd>
@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ImportLibs Include="..\target\$(Platform)\$(Configuration)\*.lib" />
+    <ImportLibs Include="..\..\target\$(Platform)\$(Configuration)\component.lib" />
     <Partition Include="simple.cpp">
       <TraverseFiles>..\win32\simple.h</TraverseFiles>
       <Namespace>Component.Win32.Simple</Namespace>

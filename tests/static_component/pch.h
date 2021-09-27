@@ -12,9 +12,7 @@
 #define _RESTORE_DEBUG
 #endif
 
-#include <Unknwn.h>
 #include <windows.h>
-#include <winrt/windows.foundation.collections.h>
 
 #if defined(_RESTORE_DEBUG)
 #define _DEBUG
