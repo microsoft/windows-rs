@@ -90,7 +90,7 @@ impl Error {
     }
 
     /// Returns the win32 error code if the underlying HRESULT's facility is win32
-    fn win32_code(&self) -> Option<u32> {
+    pub fn win32_error(&self) -> Option<u32> {
         let hresult = self.code.0;
         if ((hresult >> 16) & 0x7FF) == 7 {
             Some(hresult & 0xFFFF)
@@ -110,6 +110,12 @@ impl std::convert::From<Error> for HRESULT {
         }
 
         code
+    }
+}
+
+impl std::convert::From<Error> for std::io::Error {
+    fn from(from: Error) -> Self {
+        Self::from_raw_os_error((from.code.0 & 0xFFFF) as _)
     }
 }
 
@@ -150,8 +156,8 @@ impl std::fmt::Debug for Error {
         debug
             .field("code", &format_args!("{:#010X}", self.code.0))
             .field("message", &self.message());
-        if let Some(win32) = self.win32_code() {
-            debug.field("win32_code", &format_args!("{}", win32));
+        if let Some(win32) = self.win32_error() {
+            debug.field("win32_error", &format_args!("{}", win32));
         }
         debug.finish()
     }
