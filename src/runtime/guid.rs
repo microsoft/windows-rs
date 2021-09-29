@@ -6,7 +6,7 @@ use bindings::Windows::Win32::System::Com::CoCreateGuid;
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
 /// used to identify COM and WinRT interfaces.
 #[repr(C)]
-#[derive(Clone, Copy, Default, PartialEq, Eq)]
+#[derive(Clone, Copy, Default, PartialEq, Eq, Hash)]
 pub struct Guid {
     pub data1: u32,
     pub data2: u16,
