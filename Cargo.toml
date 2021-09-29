@@ -15,9 +15,6 @@ windows_macros = { path = "crates/macros",  version = "0.21.1", optional = true 
 windows_reader = { path = "crates/reader", version = "0.21.1", optional = true }
 gen = { package = "windows_gen", path = "crates/gen",  version = "0.21.1", optional = true }
 
-[dev-dependencies]
-gen = { package = "windows_gen", path = "crates/gen", version = "0.21.1" }
-
 [workspace]
 members = ["crates/*", "tests/legacy/*", "tests/metadata/*", "tests/winrt/*", "tests/win32/*"]
 exclude = ["tests/component"]
