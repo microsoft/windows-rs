@@ -242,6 +242,16 @@ namespace Component
         }
     }
 
+    namespace MethodNames
+    {
+        interface IMethodNames
+        {
+            void Method();
+            Int64 Property;
+            event Windows.Foundation.EventHandler<Int64> Event;
+        };
+    }
+
     namespace Signatures
     {
         delegate Boolean SignatureBoolean(Boolean a, out Boolean b);
