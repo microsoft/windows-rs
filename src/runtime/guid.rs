@@ -49,7 +49,7 @@ impl Guid {
 
         let data = data.push_other(signature);
 
-        let bytes = const_sha1::sha1(&data).bytes();
+        let bytes = sha1(&data).bytes();
         let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
 
         let second = u16::from_be_bytes([bytes[4], bytes[5]]);
