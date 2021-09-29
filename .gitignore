@@ -2,10 +2,8 @@
 .vs
 target
 packages
-Cargo.lock
+obj
+bin
+*.lock
 *.user
 *.filters
-tests/component/.metadata/obj
-tests/component/.metadata/bin
-tests/static_component/.metadata/obj
-tests/static_component/.metadata/bin
