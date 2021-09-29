@@ -150,14 +150,14 @@ fn gen_method(
     let constraints = gen_method_constraints(&signature.params, gen);
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
 
-    let name = method.name();
+    let name = method.rust_name();
     let overload = method_names.entry(name.to_string()).or_insert(0);
     *overload += 1;
 
     let name: TokenStream = if *overload > 1 {
         format_token!("{}{}", name, overload)
     } else {
-        to_ident(name)
+        to_ident(&name)
     };
 
     match signature.kind() {

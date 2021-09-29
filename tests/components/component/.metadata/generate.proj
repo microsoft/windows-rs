@@ -21,6 +21,10 @@
       <TraverseFiles>..\win32\return.h</TraverseFiles>
       <Namespace>Component.Win32.Return</Namespace>
     </Partition>
+    <Partition Include="method_names.cpp">
+        <TraverseFiles>..\win32\method_names.h</TraverseFiles>
+        <Namespace>Component.Win32.MethodNames</Namespace>
+    </Partition>
   </ItemGroup>
 
 </Project>
