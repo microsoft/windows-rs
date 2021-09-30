@@ -218,8 +218,10 @@ pub fn gen_winrt_method(
                     .and_then(|| result__ )
             }
         } else {
+            let abi_type_name = gen_abi_type_name(&return_sig.kind, gen);
+
             quote! {
-                let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                let mut result__: #abi_type_name = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).#vtable_offset)(::std::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
                         .from_abi::<#return_type_tokens>(result__ )
             }
