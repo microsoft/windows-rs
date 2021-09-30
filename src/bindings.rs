@@ -71,7 +71,7 @@ pub mod Windows {
             pub fn Type(&self) -> ::windows::Result<PropertyType> {
                 let this = self;
                 unsafe {
-                    let mut result__: <PropertyType as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: PropertyType = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -82,7 +82,7 @@ pub mod Windows {
             pub fn IsNumericScalar(&self) -> ::windows::Result<bool> {
                 let this = self;
                 unsafe {
-                    let mut result__: <bool as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: bool = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).7)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -93,7 +93,7 @@ pub mod Windows {
             pub fn GetUInt8(&self) -> ::windows::Result<u8> {
                 let this = self;
                 unsafe {
-                    let mut result__: <u8 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u8 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).8)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -104,7 +104,7 @@ pub mod Windows {
             pub fn GetInt16(&self) -> ::windows::Result<i16> {
                 let this = self;
                 unsafe {
-                    let mut result__: <i16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: i16 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).9)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -115,7 +115,7 @@ pub mod Windows {
             pub fn GetUInt16(&self) -> ::windows::Result<u16> {
                 let this = self;
                 unsafe {
-                    let mut result__: <u16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u16 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).10)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -126,7 +126,7 @@ pub mod Windows {
             pub fn GetInt32(&self) -> ::windows::Result<i32> {
                 let this = self;
                 unsafe {
-                    let mut result__: <i32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: i32 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).11)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -137,7 +137,7 @@ pub mod Windows {
             pub fn GetUInt32(&self) -> ::windows::Result<u32> {
                 let this = self;
                 unsafe {
-                    let mut result__: <u32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u32 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).12)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -148,7 +148,7 @@ pub mod Windows {
             pub fn GetInt64(&self) -> ::windows::Result<i64> {
                 let this = self;
                 unsafe {
-                    let mut result__: <i64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: i64 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).13)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -159,7 +159,7 @@ pub mod Windows {
             pub fn GetUInt64(&self) -> ::windows::Result<u64> {
                 let this = self;
                 unsafe {
-                    let mut result__: <u64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u64 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).14)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -170,7 +170,7 @@ pub mod Windows {
             pub fn GetSingle(&self) -> ::windows::Result<f32> {
                 let this = self;
                 unsafe {
-                    let mut result__: <f32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: f32 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).15)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -181,7 +181,7 @@ pub mod Windows {
             pub fn GetDouble(&self) -> ::windows::Result<f64> {
                 let this = self;
                 unsafe {
-                    let mut result__: <f64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: f64 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).16)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -192,7 +192,7 @@ pub mod Windows {
             pub fn GetChar16(&self) -> ::windows::Result<u16> {
                 let this = self;
                 unsafe {
-                    let mut result__: <u16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u16 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).17)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -203,7 +203,7 @@ pub mod Windows {
             pub fn GetBoolean(&self) -> ::windows::Result<bool> {
                 let this = self;
                 unsafe {
-                    let mut result__: <bool as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: bool = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).18)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -214,7 +214,7 @@ pub mod Windows {
             pub fn GetString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = self;
                 unsafe {
-                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
+                    let mut result__: ::std::mem::ManuallyDrop<::windows::HSTRING> =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).19)(
                         ::std::mem::transmute_copy(this),
@@ -226,8 +226,7 @@ pub mod Windows {
             pub fn GetGuid(&self) -> ::windows::Result<::windows::Guid> {
                 let this = self;
                 unsafe {
-                    let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::Guid = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).20)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -238,7 +237,7 @@ pub mod Windows {
             pub fn GetDateTime(&self) -> ::windows::Result<DateTime> {
                 let this = self;
                 unsafe {
-                    let mut result__: <DateTime as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: DateTime = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).21)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -249,7 +248,7 @@ pub mod Windows {
             pub fn GetTimeSpan(&self) -> ::windows::Result<TimeSpan> {
                 let this = self;
                 unsafe {
-                    let mut result__: <TimeSpan as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: TimeSpan = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).22)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -260,7 +259,7 @@ pub mod Windows {
             pub fn GetPoint(&self) -> ::windows::Result<Point> {
                 let this = self;
                 unsafe {
-                    let mut result__: <Point as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: Point = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).23)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -271,7 +270,7 @@ pub mod Windows {
             pub fn GetSize(&self) -> ::windows::Result<Size> {
                 let this = self;
                 unsafe {
-                    let mut result__: <Size as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: Size = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).24)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -282,7 +281,7 @@ pub mod Windows {
             pub fn GetRect(&self) -> ::windows::Result<Rect> {
                 let this = self;
                 unsafe {
-                    let mut result__: <Rect as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: Rect = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).25)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1085,7 +1084,7 @@ pub mod Windows {
             pub fn Type(&self) -> ::windows::Result<PropertyType> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <PropertyType as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: PropertyType = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1096,7 +1095,7 @@ pub mod Windows {
             pub fn IsNumericScalar(&self) -> ::windows::Result<bool> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <bool as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: bool = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).7)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1107,7 +1106,7 @@ pub mod Windows {
             pub fn GetUInt8(&self) -> ::windows::Result<u8> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <u8 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u8 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).8)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1118,7 +1117,7 @@ pub mod Windows {
             pub fn GetInt16(&self) -> ::windows::Result<i16> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <i16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: i16 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).9)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1129,7 +1128,7 @@ pub mod Windows {
             pub fn GetUInt16(&self) -> ::windows::Result<u16> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <u16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u16 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).10)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1140,7 +1139,7 @@ pub mod Windows {
             pub fn GetInt32(&self) -> ::windows::Result<i32> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <i32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: i32 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).11)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1151,7 +1150,7 @@ pub mod Windows {
             pub fn GetUInt32(&self) -> ::windows::Result<u32> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <u32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u32 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).12)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1162,7 +1161,7 @@ pub mod Windows {
             pub fn GetInt64(&self) -> ::windows::Result<i64> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <i64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: i64 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).13)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1173,7 +1172,7 @@ pub mod Windows {
             pub fn GetUInt64(&self) -> ::windows::Result<u64> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <u64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u64 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).14)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1184,7 +1183,7 @@ pub mod Windows {
             pub fn GetSingle(&self) -> ::windows::Result<f32> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <f32 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: f32 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).15)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1195,7 +1194,7 @@ pub mod Windows {
             pub fn GetDouble(&self) -> ::windows::Result<f64> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <f64 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: f64 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).16)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1206,7 +1205,7 @@ pub mod Windows {
             pub fn GetChar16(&self) -> ::windows::Result<u16> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <u16 as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: u16 = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).17)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1217,7 +1216,7 @@ pub mod Windows {
             pub fn GetBoolean(&self) -> ::windows::Result<bool> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <bool as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: bool = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).18)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1228,7 +1227,7 @@ pub mod Windows {
             pub fn GetString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
+                    let mut result__: ::std::mem::ManuallyDrop<::windows::HSTRING> =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).19)(
                         ::std::mem::transmute_copy(this),
@@ -1240,8 +1239,7 @@ pub mod Windows {
             pub fn GetGuid(&self) -> ::windows::Result<::windows::Guid> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <::windows::Guid as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::Guid = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).20)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1252,7 +1250,7 @@ pub mod Windows {
             pub fn GetDateTime(&self) -> ::windows::Result<DateTime> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <DateTime as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: DateTime = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).21)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1263,7 +1261,7 @@ pub mod Windows {
             pub fn GetTimeSpan(&self) -> ::windows::Result<TimeSpan> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <TimeSpan as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: TimeSpan = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).22)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1274,7 +1272,7 @@ pub mod Windows {
             pub fn GetPoint(&self) -> ::windows::Result<Point> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <Point as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: Point = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).23)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1285,7 +1283,7 @@ pub mod Windows {
             pub fn GetSize(&self) -> ::windows::Result<Size> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <Size as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: Size = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).24)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1296,7 +1294,7 @@ pub mod Windows {
             pub fn GetRect(&self) -> ::windows::Result<Rect> {
                 let this = &::windows::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: <Rect as ::windows::Abi>::Abi = ::std::mem::zeroed();
+                    let mut result__: Rect = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).25)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1720,7 +1718,7 @@ pub mod Windows {
             pub fn ToString(&self) -> ::windows::Result<::windows::HSTRING> {
                 let this = self;
                 unsafe {
-                    let mut result__: <::windows::HSTRING as ::windows::Abi>::Abi =
+                    let mut result__: ::std::mem::ManuallyDrop<::windows::HSTRING> =
                         ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(
                         ::std::mem::transmute_copy(this),
@@ -1908,8 +1906,7 @@ pub mod Windows {
         impl PropertyValue {
             pub fn CreateEmpty() -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).6)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
@@ -1919,8 +1916,7 @@ pub mod Windows {
             }
             pub fn CreateUInt8(value: u8) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).7)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -1931,8 +1927,7 @@ pub mod Windows {
             }
             pub fn CreateInt16(value: i16) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).8)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -1943,8 +1938,7 @@ pub mod Windows {
             }
             pub fn CreateUInt16(value: u16) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).9)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -1955,8 +1949,7 @@ pub mod Windows {
             }
             pub fn CreateInt32(value: i32) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).10)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -1967,8 +1960,7 @@ pub mod Windows {
             }
             pub fn CreateUInt32(value: u32) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).11)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -1979,8 +1971,7 @@ pub mod Windows {
             }
             pub fn CreateInt64(value: i64) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).12)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -1991,8 +1982,7 @@ pub mod Windows {
             }
             pub fn CreateUInt64(value: u64) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).13)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -2003,8 +1993,7 @@ pub mod Windows {
             }
             pub fn CreateSingle(value: f32) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).14)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -2015,8 +2004,7 @@ pub mod Windows {
             }
             pub fn CreateDouble(value: f64) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).15)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -2027,8 +2015,7 @@ pub mod Windows {
             }
             pub fn CreateChar16(value: u16) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).16)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -2039,8 +2026,7 @@ pub mod Windows {
             }
             pub fn CreateBoolean(value: bool) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).17)(
                         ::std::mem::transmute_copy(this),
                         value,
@@ -2053,8 +2039,7 @@ pub mod Windows {
                 value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).18)(
                         ::std::mem::transmute_copy(this),
                         value.into_param().abi(),
@@ -2070,8 +2055,7 @@ pub mod Windows {
                 value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).19)(
                         ::std::mem::transmute_copy(this),
                         value.into_param().abi(),
@@ -2084,8 +2068,7 @@ pub mod Windows {
                 value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).20)(
                         ::std::mem::transmute_copy(this),
                         value.into_param().abi(),
@@ -2098,8 +2081,7 @@ pub mod Windows {
                 value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).21)(
                         ::std::mem::transmute_copy(this),
                         value.into_param().abi(),
@@ -2112,8 +2094,7 @@ pub mod Windows {
                 value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).22)(
                         ::std::mem::transmute_copy(this),
                         value.into_param().abi(),
@@ -2126,8 +2107,7 @@ pub mod Windows {
                 value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).23)(
                         ::std::mem::transmute_copy(this),
                         value.into_param().abi(),
@@ -2140,8 +2120,7 @@ pub mod Windows {
                 value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).24)(
                         ::std::mem::transmute_copy(this),
                         value.into_param().abi(),
@@ -2154,8 +2133,7 @@ pub mod Windows {
                 value: Param0,
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).25)(
                         ::std::mem::transmute_copy(this),
                         value.into_param().abi(),
@@ -2168,8 +2146,7 @@ pub mod Windows {
                 value: &[<u8 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).26)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2183,8 +2160,7 @@ pub mod Windows {
                 value: &[<i16 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).27)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2198,8 +2174,7 @@ pub mod Windows {
                 value: &[<u16 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).28)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2213,8 +2188,7 @@ pub mod Windows {
                 value: &[<i32 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).29)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2228,8 +2202,7 @@ pub mod Windows {
                 value: &[<u32 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).30)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2243,8 +2216,7 @@ pub mod Windows {
                 value: &[<i64 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).31)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2258,8 +2230,7 @@ pub mod Windows {
                 value: &[<u64 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).32)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2273,8 +2244,7 @@ pub mod Windows {
                 value: &[<f32 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).33)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2288,8 +2258,7 @@ pub mod Windows {
                 value: &[<f64 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).34)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2303,8 +2272,7 @@ pub mod Windows {
                 value: &[<u16 as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).35)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2318,8 +2286,7 @@ pub mod Windows {
                 value: &[<bool as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).36)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2333,8 +2300,7 @@ pub mod Windows {
                 value: &[<::windows::HSTRING as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).37)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2348,8 +2314,7 @@ pub mod Windows {
                 value: &[<::windows::IInspectable as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).38)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2363,8 +2328,7 @@ pub mod Windows {
                 value: &[<::windows::Guid as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).39)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2378,8 +2342,7 @@ pub mod Windows {
                 value: &[<DateTime as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).40)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2393,8 +2356,7 @@ pub mod Windows {
                 value: &[<TimeSpan as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).41)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2408,8 +2370,7 @@ pub mod Windows {
                 value: &[<Point as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).42)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2423,8 +2384,7 @@ pub mod Windows {
                 value: &[<Size as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).43)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
@@ -2438,8 +2398,7 @@ pub mod Windows {
                 value: &[<Rect as ::windows::Abi>::DefaultType],
             ) -> ::windows::Result<::windows::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
-                    let mut result__: <::windows::IInspectable as ::windows::Abi>::Abi =
-                        ::std::mem::zeroed();
+                    let mut result__: ::windows::RawPtr = ::std::mem::zeroed();
                     (::windows::Interface::vtable(this).44)(
                         ::std::mem::transmute_copy(this),
                         value.len() as u32,
