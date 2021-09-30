@@ -1,3 +1,5 @@
+#![allow(clippy::many_single_char_names)]
+
 pub const fn sha1(data: &ConstBuffer) -> Digest {
     let state: [u32; 5] = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0];
     let len: u64 = 0;
@@ -9,7 +11,7 @@ pub const fn sha1(data: &ConstBuffer) -> Digest {
     digest(state, len, blocks)
 }
 
-pub const BUFFER_SIZE: usize = 1024;
+const BUFFER_SIZE: usize = 1024;
 
 pub struct ConstBuffer {
     data: [u8; BUFFER_SIZE],
@@ -33,15 +35,15 @@ impl ConstBuffer {
         self.push_amount(slice, slice.len())
     }
 
-    pub const fn get(&self, index: usize) -> u8 {
+    const fn get(&self, index: usize) -> u8 {
         self.data[index]
     }
 
-    pub const fn len(&self) -> usize {
+    const fn len(&self) -> usize {
         self.head
     }
 
-    pub const fn as_slice(&self) -> &[u8] {
+    const fn as_slice(&self) -> &[u8] {
         &self.data
     }
 
@@ -260,7 +262,7 @@ const fn digest(mut state: [u32; 5], len: u64, blocks: Blocks) -> Digest {
         (bits >> 24) as u8,
         (bits >> 16) as u8,
         (bits >> 8) as u8,
-        (bits >> 0) as u8,
+        bits as u8,
     ];
     let mut last = [0; 128];
     let blocklen = blocks.len as usize;
@@ -336,7 +338,7 @@ const fn r2(
     block[i] = blk(&block, i);
     let n = (w ^ x ^ y)
         .wrapping_add(block[i])
-        .wrapping_add(0x6ed_9eba1)
+        .wrapping_add(0x6ed9_eba1)
         .wrapping_add(rol(v, 5));
     z = z.wrapping_add(n);
     w = rol(w, 30);
@@ -391,23 +393,23 @@ impl Digest {
             (self.data[0] >> 24) as u8,
             (self.data[0] >> 16) as u8,
             (self.data[0] >> 8) as u8,
-            (self.data[0] >> 0) as u8,
+            self.data[0] as u8,
             (self.data[1] >> 24) as u8,
             (self.data[1] >> 16) as u8,
             (self.data[1] >> 8) as u8,
-            (self.data[1] >> 0) as u8,
+            self.data[1] as u8,
             (self.data[2] >> 24) as u8,
             (self.data[2] >> 16) as u8,
             (self.data[2] >> 8) as u8,
-            (self.data[2] >> 0) as u8,
+            self.data[2] as u8,
             (self.data[3] >> 24) as u8,
             (self.data[3] >> 16) as u8,
             (self.data[3] >> 8) as u8,
-            (self.data[3] >> 0) as u8,
+            self.data[3] as u8,
             (self.data[4] >> 24) as u8,
             (self.data[4] >> 16) as u8,
             (self.data[4] >> 8) as u8,
-            (self.data[4] >> 0) as u8,
+            self.data[4] as u8,
         ]
     }
 }
