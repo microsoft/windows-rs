@@ -311,102 +311,107 @@ namespace Component
         delegate Component.Structs.Nested SignatureNested(Component.Structs.Nested a, ref const Component.Structs.Nested b, out Component.Structs.Nested c);
         delegate Component.Structs.Nested[] ArraySignatureNested(Component.Structs.Nested[] a, ref Component.Structs.Nested[] b, out Component.Structs.Nested[] c);
 
-        runtimeclass Test
+        interface ITest
         {
-            static Boolean SignatureBoolean(Boolean a, out Boolean b);
-            static Boolean[] ArraySignatureBoolean(Boolean[] a, ref Boolean[] b, out Boolean[] c);
-            static void CallSignatureBoolean(SignatureBoolean handler);
-            static void CallArraySignatureBoolean(ArraySignatureBoolean handler);
+            Boolean SignatureBoolean(Boolean a, out Boolean b);
+            Boolean[] ArraySignatureBoolean(Boolean[] a, ref Boolean[] b, out Boolean[] c);
+            void CallSignatureBoolean(SignatureBoolean handler);
+            void CallArraySignatureBoolean(ArraySignatureBoolean handler);
 
-            static UInt8 SignatureUInt8(UInt8 a, out UInt8 b);
-            static UInt8[] ArraySignatureUInt8(UInt8[] a, ref UInt8[] b, out UInt8[] c);
-            static void CallSignatureUInt8(SignatureUInt8 handler);
-            static void CallArraySignatureUInt8(ArraySignatureUInt8 handler);
+            UInt8 SignatureUInt8(UInt8 a, out UInt8 b);
+            UInt8[] ArraySignatureUInt8(UInt8[] a, ref UInt8[] b, out UInt8[] c);
+            void CallSignatureUInt8(SignatureUInt8 handler);
+            void CallArraySignatureUInt8(ArraySignatureUInt8 handler);
 
-            static UInt16 SignatureUInt16(UInt16 a, out UInt16 b);
-            static UInt16[] ArraySignatureUInt16(UInt16[] a, ref UInt16[] b, out UInt16[] c);
-            static void CallSignatureUInt16(SignatureUInt16 handler);
-            static void CallArraySignatureUInt16(ArraySignatureUInt16 handler);
+            UInt16 SignatureUInt16(UInt16 a, out UInt16 b);
+            UInt16[] ArraySignatureUInt16(UInt16[] a, ref UInt16[] b, out UInt16[] c);
+            void CallSignatureUInt16(SignatureUInt16 handler);
+            void CallArraySignatureUInt16(ArraySignatureUInt16 handler);
 
-            static UInt32 SignatureUInt32(UInt32 a, out UInt32 b);
-            static UInt32[] ArraySignatureUInt32(UInt32[] a, ref UInt32[] b, out UInt32[] c);
-            static void CallSignatureUInt32(SignatureUInt32 handler);
-            static void CallArraySignatureUInt32(ArraySignatureUInt32 handler);
+            UInt32 SignatureUInt32(UInt32 a, out UInt32 b);
+            UInt32[] ArraySignatureUInt32(UInt32[] a, ref UInt32[] b, out UInt32[] c);
+            void CallSignatureUInt32(SignatureUInt32 handler);
+            void CallArraySignatureUInt32(ArraySignatureUInt32 handler);
 
-            static UInt64 SignatureUInt64(UInt64 a, out UInt64 b);
-            static UInt64[] ArraySignatureUInt64(UInt64[] a, ref UInt64[] b, out UInt64[] c);
-            static void CallSignatureUInt64(SignatureUInt64 handler);
-            static void CallArraySignatureUInt64(ArraySignatureUInt64 handler);
+            UInt64 SignatureUInt64(UInt64 a, out UInt64 b);
+            UInt64[] ArraySignatureUInt64(UInt64[] a, ref UInt64[] b, out UInt64[] c);
+            void CallSignatureUInt64(SignatureUInt64 handler);
+            void CallArraySignatureUInt64(ArraySignatureUInt64 handler);
 
-            static Int16 SignatureInt16(Int16 a, out Int16 b);
-            static Int16[] ArraySignatureInt16(Int16[] a, ref Int16[] b, out Int16[] c);
-            static void CallSignatureInt16(SignatureInt16 handler);
-            static void CallArraySignatureInt16(ArraySignatureInt16 handler);
+            Int16 SignatureInt16(Int16 a, out Int16 b);
+            Int16[] ArraySignatureInt16(Int16[] a, ref Int16[] b, out Int16[] c);
+            void CallSignatureInt16(SignatureInt16 handler);
+            void CallArraySignatureInt16(ArraySignatureInt16 handler);
 
-            static Int32 SignatureInt32(Int32 a, out Int32 b);
-            static Int32[] ArraySignatureInt32(Int32[] a, ref Int32[] b, out Int32[] c);
-            static void CallSignatureInt32(SignatureInt32 handler);
-            static void CallArraySignatureInt32(ArraySignatureInt32 handler);
+            Int32 SignatureInt32(Int32 a, out Int32 b);
+            Int32[] ArraySignatureInt32(Int32[] a, ref Int32[] b, out Int32[] c);
+            void CallSignatureInt32(SignatureInt32 handler);
+            void CallArraySignatureInt32(ArraySignatureInt32 handler);
 
-            static Int64 SignatureInt64(Int64 a, out Int64 b);
-            static Int64[] ArraySignatureInt64(Int64[] a, ref Int64[] b, out Int64[] c);
-            static void CallSignatureInt64(SignatureInt64 handler);
-            static void CallArraySignatureInt64(ArraySignatureInt64 handler);
+            Int64 SignatureInt64(Int64 a, out Int64 b);
+            Int64[] ArraySignatureInt64(Int64[] a, ref Int64[] b, out Int64[] c);
+            void CallSignatureInt64(SignatureInt64 handler);
+            void CallArraySignatureInt64(ArraySignatureInt64 handler);
 
-            static Single SignatureSingle(Single a, out Single b);
-            static Single[] ArraySignatureSingle(Single[] a, ref Single[] b, out Single[] c);
-            static void CallSignatureSingle(SignatureSingle handler);
-            static void CallArraySignatureSingle(ArraySignatureSingle handler);
+            Single SignatureSingle(Single a, out Single b);
+            Single[] ArraySignatureSingle(Single[] a, ref Single[] b, out Single[] c);
+            void CallSignatureSingle(SignatureSingle handler);
+            void CallArraySignatureSingle(ArraySignatureSingle handler);
 
-            static Double SignatureDouble(Double a, out Double b);
-            static Double[] ArraySignatureDouble(Double[] a, ref Double[] b, out Double[] c);
-            static void CallSignatureDouble(SignatureDouble handler);
-            static void CallArraySignatureDouble(ArraySignatureDouble handler);
+            Double SignatureDouble(Double a, out Double b);
+            Double[] ArraySignatureDouble(Double[] a, ref Double[] b, out Double[] c);
+            void CallSignatureDouble(SignatureDouble handler);
+            void CallArraySignatureDouble(ArraySignatureDouble handler);
 
-            static Char SignatureChar(Char a, out Char b);
-            static Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
-            static void CallSignatureChar(SignatureChar handler);
-            static void CallArraySignatureChar(ArraySignatureChar handler);
+            Char SignatureChar(Char a, out Char b);
+            Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
+            void CallSignatureChar(SignatureChar handler);
+            void CallArraySignatureChar(ArraySignatureChar handler);
 
-            static String SignatureString(String a, out String b);
-            static String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
-            static void CallSignatureString(SignatureString handler);
-            static void CallArraySignatureString(ArraySignatureString handler);
+            String SignatureString(String a, out String b);
+            String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
+            void CallSignatureString(SignatureString handler);
+            void CallArraySignatureString(ArraySignatureString handler);
 
-            static Guid SignatureGuid(Guid a, out Guid b);
-            static Guid[] ArraySignatureGuid(Guid[] a, ref Guid[] b, out Guid[] c);
-            static void CallSignatureGuid(SignatureGuid handler);
-            static void CallArraySignatureGuid(ArraySignatureGuid handler);
+            Guid SignatureGuid(Guid a, out Guid b);
+            Guid[] ArraySignatureGuid(Guid[] a, ref Guid[] b, out Guid[] c);
+            void CallSignatureGuid(SignatureGuid handler);
+            void CallArraySignatureGuid(ArraySignatureGuid handler);
 
-            static HRESULT SignatureHResult(HRESULT a, out HRESULT b);
-            static HRESULT[] ArraySignatureHResult(HRESULT[] a, ref HRESULT[] b, out HRESULT[] c);
-            static void CallSignatureHResult(SignatureHResult handler);
-            static void CallArraySignatureHResult(ArraySignatureHResult handler);
+            HRESULT SignatureHResult(HRESULT a, out HRESULT b);
+            HRESULT[] ArraySignatureHResult(HRESULT[] a, ref HRESULT[] b, out HRESULT[] c);
+            void CallSignatureHResult(SignatureHResult handler);
+            void CallArraySignatureHResult(ArraySignatureHResult handler);
 
-            static Object SignatureObject(Object a, out Object b);
-            static Object[] ArraySignatureObject(Object[] a, ref Object[] b, out Object[] c);
-            static void CallSignatureObject(SignatureObject handler);
-            static void CallArraySignatureObject(ArraySignatureObject handler);
+            Object SignatureObject(Object a, out Object b);
+            Object[] ArraySignatureObject(Object[] a, ref Object[] b, out Object[] c);
+            void CallSignatureObject(SignatureObject handler);
+            void CallArraySignatureObject(ArraySignatureObject handler);
 
-            static Component.Simple.Class SignatureClass(Component.Simple.Class a, out Component.Simple.Class b);
-            static Component.Simple.Class[] ArraySignatureClass(Component.Simple.Class[] a, ref Component.Simple.Class[] b, out Component.Simple.Class[] c);
-            static void CallSignatureClass(SignatureClass handler);
-            static void CallArraySignatureClass(ArraySignatureClass handler);
+            Component.Simple.Class SignatureClass(Component.Simple.Class a, out Component.Simple.Class b);
+            Component.Simple.Class[] ArraySignatureClass(Component.Simple.Class[] a, ref Component.Simple.Class[] b, out Component.Simple.Class[] c);
+            void CallSignatureClass(SignatureClass handler);
+            void CallArraySignatureClass(ArraySignatureClass handler);
 
-            static Component.Structs.Blittable SignatureBlittable(Component.Structs.Blittable a, ref const Component.Structs.Blittable b, out Component.Structs.Blittable c);
-            static Component.Structs.Blittable[] ArraySignatureBlittable(Component.Structs.Blittable[] a, ref Component.Structs.Blittable[] b, out Component.Structs.Blittable[] c);
-            static void CallSignatureBlittable(SignatureBlittable handler);
-            static void CallArraySignatureBlittable(ArraySignatureBlittable handler);
+            Component.Structs.Blittable SignatureBlittable(Component.Structs.Blittable a, ref const Component.Structs.Blittable b, out Component.Structs.Blittable c);
+            Component.Structs.Blittable[] ArraySignatureBlittable(Component.Structs.Blittable[] a, ref Component.Structs.Blittable[] b, out Component.Structs.Blittable[] c);
+            void CallSignatureBlittable(SignatureBlittable handler);
+            void CallArraySignatureBlittable(ArraySignatureBlittable handler);
 
-            static Component.Structs.NonBlittable SignatureNonBlittable(Component.Structs.NonBlittable a, ref const Component.Structs.NonBlittable b, out Component.Structs.NonBlittable c);
-            static Component.Structs.NonBlittable[] ArraySignatureNonBlittable(Component.Structs.NonBlittable[] a, ref Component.Structs.NonBlittable[] b, out Component.Structs.NonBlittable[] c);
-            static void CallSignatureNonBlittable(SignatureNonBlittable handler);
-            static void CallArraySignatureNonBlittable(ArraySignatureNonBlittable handler);
+            Component.Structs.NonBlittable SignatureNonBlittable(Component.Structs.NonBlittable a, ref const Component.Structs.NonBlittable b, out Component.Structs.NonBlittable c);
+            Component.Structs.NonBlittable[] ArraySignatureNonBlittable(Component.Structs.NonBlittable[] a, ref Component.Structs.NonBlittable[] b, out Component.Structs.NonBlittable[] c);
+            void CallSignatureNonBlittable(SignatureNonBlittable handler);
+            void CallArraySignatureNonBlittable(ArraySignatureNonBlittable handler);
 
-            static Component.Structs.Nested SignatureNested(Component.Structs.Nested a, ref const Component.Structs.Nested b, out Component.Structs.Nested c);
-            static Component.Structs.Nested[] ArraySignatureNested(Component.Structs.Nested[] a, ref Component.Structs.Nested[] b, out Component.Structs.Nested[] c);
-            static void CallSignatureNested(SignatureNested handler);
-            static void CallArraySignatureNested(ArraySignatureNested handler);
+            Component.Structs.Nested SignatureNested(Component.Structs.Nested a, ref const Component.Structs.Nested b, out Component.Structs.Nested c);
+            Component.Structs.Nested[] ArraySignatureNested(Component.Structs.Nested[] a, ref Component.Structs.Nested[] b, out Component.Structs.Nested[] c);
+            void CallSignatureNested(SignatureNested handler);
+            void CallArraySignatureNested(ArraySignatureNested handler);
+        };
+
+        runtimeclass Test : [default] ITest
+        {
+            Test();
         }
     }
 }

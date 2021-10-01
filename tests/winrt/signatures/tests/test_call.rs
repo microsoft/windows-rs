@@ -12,12 +12,12 @@ use Windows::Win32::Foundation::*;
 fn SignatureBoolean() -> Result<()> {
     let a = true;
     let mut b = false;
-    let c = Test::SignatureBoolean(a, &mut b)?;
+    let c = Test::new()?.SignatureBoolean(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureBoolean(SignatureBoolean::new(|a, b| {
+    Test::new()?.CallSignatureBoolean(SignatureBoolean::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -30,14 +30,14 @@ fn ArraySignatureBoolean() -> Result<()> {
     let a = [true, false, true];
     let mut b = [false; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureBoolean(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureBoolean(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureBoolean(ArraySignatureBoolean::new(|a, b, c| {
+    Test::new()?.CallArraySignatureBoolean(ArraySignatureBoolean::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -56,12 +56,12 @@ fn ArraySignatureBoolean() -> Result<()> {
 fn SignatureUInt8() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::SignatureUInt8(a, &mut b)?;
+    let c = Test::new()?.SignatureUInt8(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureUInt8(SignatureUInt8::new(|a, b| {
+    Test::new()?.CallSignatureUInt8(SignatureUInt8::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -74,14 +74,14 @@ fn ArraySignatureUInt8() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureUInt8(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureUInt8(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureUInt8(ArraySignatureUInt8::new(|a, b, c| {
+    Test::new()?.CallArraySignatureUInt8(ArraySignatureUInt8::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -100,12 +100,12 @@ fn ArraySignatureUInt8() -> Result<()> {
 fn SignatureUInt16() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::SignatureUInt16(a, &mut b)?;
+    let c = Test::new()?.SignatureUInt16(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureUInt16(SignatureUInt16::new(|a, b| {
+    Test::new()?.CallSignatureUInt16(SignatureUInt16::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -118,14 +118,14 @@ fn ArraySignatureUInt16() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureUInt16(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureUInt16(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureUInt16(ArraySignatureUInt16::new(|a, b, c| {
+    Test::new()?.CallArraySignatureUInt16(ArraySignatureUInt16::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -144,12 +144,12 @@ fn ArraySignatureUInt16() -> Result<()> {
 fn SignatureUInt32() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::SignatureUInt32(a, &mut b)?;
+    let c = Test::new()?.SignatureUInt32(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureUInt32(SignatureUInt32::new(|a, b| {
+    Test::new()?.CallSignatureUInt32(SignatureUInt32::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -162,14 +162,14 @@ fn ArraySignatureUInt32() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureUInt32(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureUInt32(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureUInt32(ArraySignatureUInt32::new(|a, b, c| {
+    Test::new()?.CallArraySignatureUInt32(ArraySignatureUInt32::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -188,12 +188,12 @@ fn ArraySignatureUInt32() -> Result<()> {
 fn SignatureUInt64() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::SignatureUInt64(a, &mut b)?;
+    let c = Test::new()?.SignatureUInt64(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureUInt64(SignatureUInt64::new(|a, b| {
+    Test::new()?.CallSignatureUInt64(SignatureUInt64::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -206,14 +206,14 @@ fn ArraySignatureUInt64() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureUInt64(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureUInt64(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureUInt64(ArraySignatureUInt64::new(|a, b, c| {
+    Test::new()?.CallArraySignatureUInt64(ArraySignatureUInt64::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -232,12 +232,12 @@ fn ArraySignatureUInt64() -> Result<()> {
 fn SignatureInt16() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::SignatureInt16(a, &mut b)?;
+    let c = Test::new()?.SignatureInt16(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureInt16(SignatureInt16::new(|a, b| {
+    Test::new()?.CallSignatureInt16(SignatureInt16::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -250,14 +250,14 @@ fn ArraySignatureInt16() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureInt16(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureInt16(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureInt16(ArraySignatureInt16::new(|a, b, c| {
+    Test::new()?.CallArraySignatureInt16(ArraySignatureInt16::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -276,12 +276,12 @@ fn ArraySignatureInt16() -> Result<()> {
 fn SignatureInt32() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::SignatureInt32(a, &mut b)?;
+    let c = Test::new()?.SignatureInt32(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureInt32(SignatureInt32::new(|a, b| {
+    Test::new()?.CallSignatureInt32(SignatureInt32::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -294,14 +294,14 @@ fn ArraySignatureInt32() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureInt32(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureInt32(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureInt32(ArraySignatureInt32::new(|a, b, c| {
+    Test::new()?.CallArraySignatureInt32(ArraySignatureInt32::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -320,12 +320,12 @@ fn ArraySignatureInt32() -> Result<()> {
 fn SignatureInt64() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::SignatureInt64(a, &mut b)?;
+    let c = Test::new()?.SignatureInt64(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureInt64(SignatureInt64::new(|a, b| {
+    Test::new()?.CallSignatureInt64(SignatureInt64::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -338,14 +338,14 @@ fn ArraySignatureInt64() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureInt64(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureInt64(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureInt64(ArraySignatureInt64::new(|a, b, c| {
+    Test::new()?.CallArraySignatureInt64(ArraySignatureInt64::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -364,12 +364,12 @@ fn ArraySignatureInt64() -> Result<()> {
 fn SignatureSingle() -> Result<()> {
     let a = 123.0;
     let mut b = 0.0;
-    let c = Test::SignatureSingle(a, &mut b)?;
+    let c = Test::new()?.SignatureSingle(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureSingle(SignatureSingle::new(|a, b| {
+    Test::new()?.CallSignatureSingle(SignatureSingle::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -382,14 +382,14 @@ fn ArraySignatureSingle() -> Result<()> {
     let a = [1.0, 2.0, 3.0];
     let mut b = [0.0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureSingle(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureSingle(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureSingle(ArraySignatureSingle::new(|a, b, c| {
+    Test::new()?.CallArraySignatureSingle(ArraySignatureSingle::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -408,12 +408,12 @@ fn ArraySignatureSingle() -> Result<()> {
 fn SignatureDouble() -> Result<()> {
     let a = 123.0;
     let mut b = 0.0;
-    let c = Test::SignatureDouble(a, &mut b)?;
+    let c = Test::new()?.SignatureDouble(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureDouble(SignatureDouble::new(|a, b| {
+    Test::new()?.CallSignatureDouble(SignatureDouble::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -426,14 +426,14 @@ fn ArraySignatureDouble() -> Result<()> {
     let a = [1.0, 2.0, 3.0];
     let mut b = [0.0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureDouble(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureDouble(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureDouble(ArraySignatureDouble::new(|a, b, c| {
+    Test::new()?.CallArraySignatureDouble(ArraySignatureDouble::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -452,12 +452,12 @@ fn ArraySignatureDouble() -> Result<()> {
 fn SignatureChar() -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = Test::SignatureChar(a, &mut b)?;
+    let c = Test::new()?.SignatureChar(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureChar(SignatureChar::new(|a, b| {
+    Test::new()?.CallSignatureChar(SignatureChar::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -470,14 +470,14 @@ fn ArraySignatureChar() -> Result<()> {
     let a = [1, 2, 3];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = Test::ArraySignatureChar(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureChar(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureChar(ArraySignatureChar::new(|a, b, c| {
+    Test::new()?.CallArraySignatureChar(ArraySignatureChar::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -496,12 +496,12 @@ fn ArraySignatureChar() -> Result<()> {
 fn SignatureString() -> Result<()> {
     let a: HSTRING = "string".into();
     let mut b = HSTRING::new();
-    let c = Test::SignatureString(&a, &mut b)?;
+    let c = Test::new()?.SignatureString(&a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureString(SignatureString::new(|a, b| {
+    Test::new()?.CallSignatureString(SignatureString::new(|a, b| {
         *b = a.clone();
         Ok(a.clone())
     }))?;
@@ -514,14 +514,14 @@ fn ArraySignatureString() -> Result<()> {
     let a: [HSTRING; 3] = ["first".into(), "second".into(), "third".into()];
     let mut b = [HSTRING::new(), HSTRING::new(), HSTRING::new()];
     let mut c = Array::new();
-    let d = Test::ArraySignatureString(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureString(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureString(ArraySignatureString::new(|a, b, c| {
+    Test::new()?.CallArraySignatureString(ArraySignatureString::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -540,12 +540,12 @@ fn ArraySignatureString() -> Result<()> {
 fn SignatureGuid() -> Result<()> {
     let a = Guid::new()?;
     let mut b = Guid::zeroed();
-    let c = Test::SignatureGuid(&a, &mut b)?;
+    let c = Test::new()?.SignatureGuid(&a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureGuid(SignatureGuid::new(|a, b| {
+    Test::new()?.CallSignatureGuid(SignatureGuid::new(|a, b| {
         *b = a.clone();
         Ok(a.clone())
     }))?;
@@ -558,14 +558,14 @@ fn ArraySignatureGuid() -> Result<()> {
     let a: [Guid; 3] = [Guid::new()?, Guid::new()?, Guid::new()?];
     let mut b = [Guid::zeroed(), Guid::zeroed(), Guid::zeroed()];
     let mut c = Array::new();
-    let d = Test::ArraySignatureGuid(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureGuid(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureGuid(ArraySignatureGuid::new(|a, b, c| {
+    Test::new()?.CallArraySignatureGuid(ArraySignatureGuid::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -584,12 +584,12 @@ fn ArraySignatureGuid() -> Result<()> {
 fn SignatureHResult() -> Result<()> {
     let a = E_NOINTERFACE;
     let mut b = S_FALSE;
-    let c = Test::SignatureHResult(a, &mut b)?;
+    let c = Test::new()?.SignatureHResult(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureHResult(SignatureHResult::new(|a, b| {
+    Test::new()?.CallSignatureHResult(SignatureHResult::new(|a, b| {
         *b = a.clone();
         Ok(a.clone())
     }))?;
@@ -602,14 +602,14 @@ fn ArraySignatureHResult() -> Result<()> {
     let a = [E_NOINTERFACE, S_OK, E_POINTER];
     let mut b = [S_FALSE, S_FALSE, S_FALSE];
     let mut c = Array::new();
-    let d = Test::ArraySignatureHResult(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureHResult(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureHResult(ArraySignatureHResult::new(|a, b, c| {
+    Test::new()?.CallArraySignatureHResult(ArraySignatureHResult::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -628,12 +628,12 @@ fn ArraySignatureHResult() -> Result<()> {
 fn SignatureObject() -> Result<()> {
     let a: Option<IInspectable> = Some(Class::new()?.into());
     let mut b = None;
-    let c = Test::SignatureObject(&a, &mut b)?;
+    let c = Test::new()?.SignatureObject(&a, &mut b)?;
 
     assert!(a == b);
     assert!(a == Some(c));
 
-    Test::CallSignatureObject(SignatureObject::new(|a, b| {
+    Test::new()?.CallSignatureObject(SignatureObject::new(|a, b| {
         *b = a.clone();
         // TODO: Since `a` is an Option<IInspectable>, this is a bit messy...
         Ok(a.as_ref().unwrap().clone())
@@ -651,14 +651,14 @@ fn ArraySignatureObject() -> Result<()> {
     ];
     let mut b = [None, None, None];
     let mut c = Array::new();
-    let d = Test::ArraySignatureObject(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureObject(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureObject(ArraySignatureObject::new(|a, b, c| {
+    Test::new()?.CallArraySignatureObject(ArraySignatureObject::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -677,12 +677,12 @@ fn ArraySignatureObject() -> Result<()> {
 fn SignatureClass() -> Result<()> {
     let a: Option<Class> = Some(Class::new()?.into());
     let mut b = None;
-    let c = Test::SignatureClass(&a, &mut b)?;
+    let c = Test::new()?.SignatureClass(&a, &mut b)?;
 
     assert!(a == b);
     assert!(a == Some(c));
 
-    Test::CallSignatureClass(SignatureClass::new(|a, b| {
+    Test::new()?.CallSignatureClass(SignatureClass::new(|a, b| {
         *b = a.clone();
         // TODO: Since `a` is an Option<Class>, this is a bit messy...
         Ok(a.as_ref().unwrap().clone())
@@ -700,14 +700,14 @@ fn ArraySignatureClass() -> Result<()> {
     ];
     let mut b = [None, None, None];
     let mut c = Array::new();
-    let d = Test::ArraySignatureClass(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureClass(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureClass(ArraySignatureClass::new(|a, b, c| {
+    Test::new()?.CallArraySignatureClass(ArraySignatureClass::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -740,12 +740,12 @@ fn SignatureBlittable() -> Result<()> {
     };
 
     let mut b = Blittable::default();
-    let c = Test::SignatureBlittable(&a, &a, &mut b)?;
+    let c = Test::new()?.SignatureBlittable(&a, &a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureBlittable(SignatureBlittable::new(|a, b, c| {
+    Test::new()?.CallSignatureBlittable(SignatureBlittable::new(|a, b, c| {
         assert!(a == b);
         *c = a.clone();
         Ok(a.clone())
@@ -808,14 +808,14 @@ fn ArraySignatureBlittable() -> Result<()> {
     ];
 
     let mut c = Array::new();
-    let d = Test::ArraySignatureBlittable(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureBlittable(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureBlittable(ArraySignatureBlittable::new(|a, b, c| {
+    Test::new()?.CallArraySignatureBlittable(ArraySignatureBlittable::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -839,12 +839,12 @@ fn SignatureNonBlittable() -> Result<()> {
     };
 
     let mut b = NonBlittable::default();
-    let c = Test::SignatureNonBlittable(&a, &a, &mut b)?;
+    let c = Test::new()?.SignatureNonBlittable(&a, &a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureNonBlittable(SignatureNonBlittable::new(|a, b, c| {
+    Test::new()?.CallSignatureNonBlittable(SignatureNonBlittable::new(|a, b, c| {
         assert!(a == b);
         *c = a.clone();
         Ok(a.clone())
@@ -880,14 +880,14 @@ fn ArraySignatureNonBlittable() -> Result<()> {
     ];
 
     let mut c = Array::new();
-    let d = Test::ArraySignatureNonBlittable(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureNonBlittable(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureNonBlittable(ArraySignatureNonBlittable::new(|a, b, c| {
+    Test::new()?.CallArraySignatureNonBlittable(ArraySignatureNonBlittable::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -927,12 +927,12 @@ fn SignatureNested() -> Result<()> {
     };
 
     let mut b = Nested::default();
-    let c = Test::SignatureNested(&a, &a, &mut b)?;
+    let c = Test::new()?.SignatureNested(&a, &a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    Test::CallSignatureNested(SignatureNested::new(|a, b, c| {
+    Test::new()?.CallSignatureNested(SignatureNested::new(|a, b, c| {
         assert!(a == b);
         *c = a.clone();
         Ok(a.clone())
@@ -1012,14 +1012,14 @@ fn ArraySignatureNested() -> Result<()> {
     let mut b = [Nested::default(), Nested::default(), Nested::default()];
 
     let mut c = Array::new();
-    let d = Test::ArraySignatureNested(&a, &mut b, &mut c)?;
+    let d = Test::new()?.ArraySignatureNested(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     // TODO: should `a == c` be sufficient? Does that work for Vec?
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    Test::CallArraySignatureNested(ArraySignatureNested::new(|a, b, c| {
+    Test::new()?.CallArraySignatureNested(ArraySignatureNested::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
