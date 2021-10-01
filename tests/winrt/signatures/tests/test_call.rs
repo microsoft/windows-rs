@@ -9,50 +9,6 @@ use Windows::Foundation::PropertyValue;
 use Windows::Win32::Foundation::*;
 
 #[test]
-fn SignatureBoolean() -> Result<()> {
-    let a = true;
-    let mut b = false;
-    let c = Test::new()?.SignatureBoolean(a, &mut b)?;
-
-    assert!(a == b);
-    assert!(a == c);
-
-    Test::new()?.CallSignatureBoolean(SignatureBoolean::new(|a, b| {
-        *b = a;
-        Ok(a)
-    }))?;
-
-    Ok(())
-}
-
-#[test]
-fn ArraySignatureBoolean() -> Result<()> {
-    let a = [true, false, true];
-    let mut b = [false; 3];
-    let mut c = Array::new();
-    let d = Test::new()?.ArraySignatureBoolean(&a, &mut b, &mut c)?;
-
-    assert!(a == b);
-    // TODO: should `a == c` be sufficient? Does that work for Vec?
-    assert!(a == c[..]);
-    assert!(a == d[..]);
-
-    Test::new()?.CallArraySignatureBoolean(ArraySignatureBoolean::new(|a, b, c| {
-        assert!(a.len() == b.len());
-        assert!(c.is_empty());
-        b.copy_from_slice(a);
-        // TODO: need a more convenient/idiomatic way to create arrays?
-        *c = Array::with_len(a.len());
-        c.copy_from_slice(a);
-        let mut d = Array::with_len(a.len());
-        d.copy_from_slice(a);
-        Ok(d)
-    }))?;
-
-    Ok(())
-}
-
-#[test]
 fn SignatureUInt8() -> Result<()> {
     let a = 123;
     let mut b = 0;

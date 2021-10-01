@@ -311,18 +311,24 @@ namespace Component
         delegate Component.Structs.Nested SignatureNested(Component.Structs.Nested a, ref const Component.Structs.Nested b, out Component.Structs.Nested c);
         delegate Component.Structs.Nested[] ArraySignatureNested(Component.Structs.Nested[] a, ref Component.Structs.Nested[] b, out Component.Structs.Nested[] c);
 
-        interface ITest
+        interface ITestBoolean
         {
             Boolean SignatureBoolean(Boolean a, out Boolean b);
             Boolean[] ArraySignatureBoolean(Boolean[] a, ref Boolean[] b, out Boolean[] c);
             void CallSignatureBoolean(SignatureBoolean handler);
             void CallArraySignatureBoolean(ArraySignatureBoolean handler);
+        }
 
+        interface ITestUInt8
+        {
             UInt8 SignatureUInt8(UInt8 a, out UInt8 b);
             UInt8[] ArraySignatureUInt8(UInt8[] a, ref UInt8[] b, out UInt8[] c);
             void CallSignatureUInt8(SignatureUInt8 handler);
             void CallArraySignatureUInt8(ArraySignatureUInt8 handler);
+        }
 
+        interface ITest
+        {
             UInt16 SignatureUInt16(UInt16 a, out UInt16 b);
             UInt16[] ArraySignatureUInt16(UInt16[] a, ref UInt16[] b, out UInt16[] c);
             void CallSignatureUInt16(SignatureUInt16 handler);
@@ -409,7 +415,7 @@ namespace Component
             void CallArraySignatureNested(ArraySignatureNested handler);
         };
 
-        runtimeclass Test : [default] ITest
+        runtimeclass Test : [default] ITest, ITestBoolean, ITestUInt8
         {
             Test();
         }

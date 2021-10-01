@@ -52,6 +52,13 @@ impl<T: RuntimeType> Array<T> {
         Self { data, len }
     }
 
+    /// Creates an array by copying the elements from the slice.
+    pub fn from_slice(values: &[T::DefaultType]) -> Self {
+        let mut array = Self::with_len(values.len());
+        array.clone_from_slice(values);
+        array
+    }
+
     /// Returns `true` if the array is empty.
     pub fn is_empty(&self) -> bool {
         self.len == 0

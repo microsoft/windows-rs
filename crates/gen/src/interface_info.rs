@@ -89,6 +89,7 @@ impl InterfaceInfo {
                 }
             }
             InterfaceKind::NonDefault => {
+                // TODO: why are we using TryFrom here?
                 let into = gen_type_name(&self.def, gen);
                 quote! {
                     impl<#constraints> ::std::convert::TryFrom<#from> for #into {
