@@ -327,95 +327,150 @@ namespace Component
             void CallArraySignatureUInt8(ArraySignatureUInt8 handler);
         }
 
-        interface ITest
+        interface ITestUInt16
         {
             UInt16 SignatureUInt16(UInt16 a, out UInt16 b);
             UInt16[] ArraySignatureUInt16(UInt16[] a, ref UInt16[] b, out UInt16[] c);
             void CallSignatureUInt16(SignatureUInt16 handler);
             void CallArraySignatureUInt16(ArraySignatureUInt16 handler);
+        }
 
+        interface ITestUInt32
+        {
             UInt32 SignatureUInt32(UInt32 a, out UInt32 b);
             UInt32[] ArraySignatureUInt32(UInt32[] a, ref UInt32[] b, out UInt32[] c);
             void CallSignatureUInt32(SignatureUInt32 handler);
             void CallArraySignatureUInt32(ArraySignatureUInt32 handler);
+        }
 
+        interface ITestUInt64
+        {
             UInt64 SignatureUInt64(UInt64 a, out UInt64 b);
             UInt64[] ArraySignatureUInt64(UInt64[] a, ref UInt64[] b, out UInt64[] c);
             void CallSignatureUInt64(SignatureUInt64 handler);
             void CallArraySignatureUInt64(ArraySignatureUInt64 handler);
+        }
 
+        interface ITestInt16
+        {
             Int16 SignatureInt16(Int16 a, out Int16 b);
             Int16[] ArraySignatureInt16(Int16[] a, ref Int16[] b, out Int16[] c);
             void CallSignatureInt16(SignatureInt16 handler);
             void CallArraySignatureInt16(ArraySignatureInt16 handler);
+        }
 
+        interface ITestInt32
+        {
             Int32 SignatureInt32(Int32 a, out Int32 b);
             Int32[] ArraySignatureInt32(Int32[] a, ref Int32[] b, out Int32[] c);
             void CallSignatureInt32(SignatureInt32 handler);
             void CallArraySignatureInt32(ArraySignatureInt32 handler);
+        }
 
+        interface ITestInt64
+        {
             Int64 SignatureInt64(Int64 a, out Int64 b);
             Int64[] ArraySignatureInt64(Int64[] a, ref Int64[] b, out Int64[] c);
             void CallSignatureInt64(SignatureInt64 handler);
             void CallArraySignatureInt64(ArraySignatureInt64 handler);
+        }
 
+        interface ITestSingle
+        {
             Single SignatureSingle(Single a, out Single b);
             Single[] ArraySignatureSingle(Single[] a, ref Single[] b, out Single[] c);
             void CallSignatureSingle(SignatureSingle handler);
             void CallArraySignatureSingle(ArraySignatureSingle handler);
+        }
 
+        interface ITestDouble
+        {
             Double SignatureDouble(Double a, out Double b);
             Double[] ArraySignatureDouble(Double[] a, ref Double[] b, out Double[] c);
             void CallSignatureDouble(SignatureDouble handler);
             void CallArraySignatureDouble(ArraySignatureDouble handler);
+        }
 
+        interface ITestChar
+        {
             Char SignatureChar(Char a, out Char b);
             Char[] ArraySignatureChar(Char[] a, ref Char[] b, out Char[] c);
             void CallSignatureChar(SignatureChar handler);
             void CallArraySignatureChar(ArraySignatureChar handler);
+        }
 
+        interface ITestString
+        {
             String SignatureString(String a, out String b);
             String[] ArraySignatureString(String[] a, ref String[] b, out String[] c);
             void CallSignatureString(SignatureString handler);
             void CallArraySignatureString(ArraySignatureString handler);
+        }
 
+        interface ITestGuid
+        {
             Guid SignatureGuid(Guid a, out Guid b);
             Guid[] ArraySignatureGuid(Guid[] a, ref Guid[] b, out Guid[] c);
             void CallSignatureGuid(SignatureGuid handler);
             void CallArraySignatureGuid(ArraySignatureGuid handler);
+        }
 
+        interface ITestHResult
+        {
             HRESULT SignatureHResult(HRESULT a, out HRESULT b);
             HRESULT[] ArraySignatureHResult(HRESULT[] a, ref HRESULT[] b, out HRESULT[] c);
             void CallSignatureHResult(SignatureHResult handler);
             void CallArraySignatureHResult(ArraySignatureHResult handler);
+        }
 
+        interface ITestObject
+        {
             Object SignatureObject(Object a, out Object b);
             Object[] ArraySignatureObject(Object[] a, ref Object[] b, out Object[] c);
             void CallSignatureObject(SignatureObject handler);
             void CallArraySignatureObject(ArraySignatureObject handler);
+        }
 
+        interface ITestClass
+        {
             Component.Simple.Class SignatureClass(Component.Simple.Class a, out Component.Simple.Class b);
             Component.Simple.Class[] ArraySignatureClass(Component.Simple.Class[] a, ref Component.Simple.Class[] b, out Component.Simple.Class[] c);
             void CallSignatureClass(SignatureClass handler);
             void CallArraySignatureClass(ArraySignatureClass handler);
+        }
 
+        interface ITestBlittable
+        {
             Component.Structs.Blittable SignatureBlittable(Component.Structs.Blittable a, ref const Component.Structs.Blittable b, out Component.Structs.Blittable c);
             Component.Structs.Blittable[] ArraySignatureBlittable(Component.Structs.Blittable[] a, ref Component.Structs.Blittable[] b, out Component.Structs.Blittable[] c);
             void CallSignatureBlittable(SignatureBlittable handler);
             void CallArraySignatureBlittable(ArraySignatureBlittable handler);
+        }
 
+        interface ITestNonBlittable
+        {
             Component.Structs.NonBlittable SignatureNonBlittable(Component.Structs.NonBlittable a, ref const Component.Structs.NonBlittable b, out Component.Structs.NonBlittable c);
             Component.Structs.NonBlittable[] ArraySignatureNonBlittable(Component.Structs.NonBlittable[] a, ref Component.Structs.NonBlittable[] b, out Component.Structs.NonBlittable[] c);
             void CallSignatureNonBlittable(SignatureNonBlittable handler);
             void CallArraySignatureNonBlittable(ArraySignatureNonBlittable handler);
+        }
 
+        interface ITestNested
+        {
             Component.Structs.Nested SignatureNested(Component.Structs.Nested a, ref const Component.Structs.Nested b, out Component.Structs.Nested c);
             Component.Structs.Nested[] ArraySignatureNested(Component.Structs.Nested[] a, ref Component.Structs.Nested[] b, out Component.Structs.Nested[] c);
             void CallSignatureNested(SignatureNested handler);
             void CallArraySignatureNested(ArraySignatureNested handler);
         };
 
-        runtimeclass Test : [default] ITest, ITestBoolean, ITestUInt8
+        runtimeclass Test : [default] ITestBoolean,
+            ITestUInt8, ITestUInt16, ITestUInt32, ITestUInt64,
+            ITestInt16, ITestInt32, ITestInt64,
+            ITestSingle, ITestDouble,
+            ITestChar, ITestString,
+            ITestGuid, ITestHResult,
+            ITestObject, ITestClass,
+            ITestBlittable, ITestNonBlittable, ITestNested
         {
             Test();
         }

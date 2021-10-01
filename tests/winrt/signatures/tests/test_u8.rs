@@ -3,39 +3,40 @@
 use test_winrt_signatures::*;
 use windows::*;
 use Component::Signatures::*;
+use std::convert::TryInto;
 
-#[implement(Component::Signatures::ITestBoolean)]
+#[implement(Component::Signatures::ITestUInt8)]
 struct RustTest();
 
 impl RustTest {
-    fn SignatureBoolean(&self, a: bool, b: &mut bool) -> Result<bool> {
+    fn SignatureUInt8(&self, a: u8, b: &mut u8) -> Result<u8> {
         *b = a;
         Ok(a)
     }
-    fn ArraySignatureBoolean(
+    fn ArraySignatureUInt8(
         &self,
-        a: &[bool],
-        b: &mut [bool],
-        c: &mut Array<bool>,
-    ) -> Result<Array<bool>> {
+        a: &[u8],
+        b: &mut [u8],
+        c: &mut Array<u8>,
+    ) -> Result<Array<u8>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
         *c = Array::from_slice(a);
         Ok(Array::from_slice(a))
     }
-    fn CallSignatureBoolean(&self, handler: &Option<SignatureBoolean>) -> Result<()> {
-        let a = true;
-        let mut b = false;
+    fn CallSignatureUInt8(&self, handler: &Option<SignatureUInt8>) -> Result<()> {
+        let a = 123;
+        let mut b = 0;
         // TODO: this seems rather verbose...
         let c = handler.as_ref().unwrap().Invoke(a, &mut b)?;
         assert!(a == b);
         assert!(a == c);
         Ok(())
     }
-    fn CallArraySignatureBoolean(&self, handler: &Option<ArraySignatureBoolean>) -> Result<()> {
-        let a = [true, false, true];
-        let mut b = [false; 3];
+    fn CallArraySignatureUInt8(&self, handler: &Option<ArraySignatureUInt8>) -> Result<()> {
+        let a = [1,2,3];
+        let mut b = [0; 3];
         let mut c = Array::new();
         let d = handler.as_ref().unwrap().Invoke(&a, &mut b, &mut c)?;
     
@@ -48,29 +49,29 @@ impl RustTest {
     }
 }
 
-fn test_interface(test: &ITestBoolean) -> Result<()> {
-    let a = true;
-    let mut b = false;
-    let c = test.SignatureBoolean(a, &mut b)?;
+fn test_interface(test: &ITestUInt8) -> Result<()> {
+    let a = 123;
+    let mut b = 0;
+    let c = test.SignatureUInt8(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    test.CallSignatureBoolean(SignatureBoolean::new(|a, b| {
+    test.CallSignatureUInt8(SignatureUInt8::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
 
-    let a = [true, false, true];
-    let mut b = [false; 3];
+    let a = [4,5,6];
+    let mut b = [0; 3];
     let mut c = Array::new();
-    let d = test.ArraySignatureBoolean(&a, &mut b, &mut c)?;
+    let d = test.ArraySignatureUInt8(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    test.CallArraySignatureBoolean(ArraySignatureBoolean::new(|a, b, c| {
+    test.CallArraySignatureUInt8(ArraySignatureUInt8::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -83,7 +84,7 @@ fn test_interface(test: &ITestBoolean) -> Result<()> {
 
 #[test]
 fn test() -> Result<()> {
-    test_interface(&Test::new()?.into())?;
+    test_interface(&Test::new()?.try_into()?)?;
     test_interface(&RustTest().into())?;
     Ok(())    
 }
