@@ -1,9 +1,9 @@
 #![allow(non_snake_case)]
 
+use std::convert::TryInto;
 use test_winrt_signatures::*;
 use windows::*;
 use Component::Signatures::*;
-use std::convert::TryInto;
 
 #[implement(Component::Signatures::ITestUInt8)]
 struct RustTest();
@@ -13,12 +13,7 @@ impl RustTest {
         *b = a;
         Ok(a)
     }
-    fn ArraySignatureUInt8(
-        &self,
-        a: &[u8],
-        b: &mut [u8],
-        c: &mut Array<u8>,
-    ) -> Result<Array<u8>> {
+    fn ArraySignatureUInt8(&self, a: &[u8], b: &mut [u8], c: &mut Array<u8>) -> Result<Array<u8>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -35,11 +30,11 @@ impl RustTest {
         Ok(())
     }
     fn CallArraySignatureUInt8(&self, handler: &Option<ArraySignatureUInt8>) -> Result<()> {
-        let a = [1,2,3];
+        let a = [1, 2, 3];
         let mut b = [0; 3];
         let mut c = Array::new();
         let d = handler.as_ref().unwrap().Invoke(&a, &mut b, &mut c)?;
-    
+
         assert!(a == b);
         // TODO: should `a == c` be sufficient? Does that work for Vec?
         assert!(a == c[..]);
@@ -62,7 +57,7 @@ fn test_interface(test: &ITestUInt8) -> Result<()> {
         Ok(a)
     }))?;
 
-    let a = [4,5,6];
+    let a = [4, 5, 6];
     let mut b = [0; 3];
     let mut c = Array::new();
     let d = test.ArraySignatureUInt8(&a, &mut b, &mut c)?;
@@ -86,5 +81,5 @@ fn test_interface(test: &ITestUInt8) -> Result<()> {
 fn test() -> Result<()> {
     test_interface(&Test::new()?.try_into()?)?;
     test_interface(&RustTest().into())?;
-    Ok(())    
+    Ok(())
 }

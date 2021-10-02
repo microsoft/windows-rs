@@ -38,7 +38,7 @@ impl RustTest {
         let mut b = [false; 3];
         let mut c = Array::new();
         let d = handler.as_ref().unwrap().Invoke(&a, &mut b, &mut c)?;
-    
+
         assert!(a == b);
         // TODO: should `a == c` be sufficient? Does that work for Vec?
         assert!(a == c[..]);
@@ -85,5 +85,5 @@ fn test_interface(test: &ITestBoolean) -> Result<()> {
 fn test() -> Result<()> {
     test_interface(&Test::new()?.into())?;
     test_interface(&RustTest().into())?;
-    Ok(())    
+    Ok(())
 }

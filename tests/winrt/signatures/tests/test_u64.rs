@@ -5,27 +5,27 @@ use test_winrt_signatures::*;
 use windows::*;
 use Component::Signatures::*;
 
-#[implement(Component::Signatures::ITestUInt16)]
+#[implement(Component::Signatures::ITestUInt64)]
 struct RustTest();
 
 impl RustTest {
-    fn SignatureUInt16(&self, a: u16, b: &mut u16) -> Result<u16> {
+    fn SignatureUInt64(&self, a: u64, b: &mut u64) -> Result<u64> {
         *b = a;
         Ok(a)
     }
-    fn ArraySignatureUInt16(
+    fn ArraySignatureUInt64(
         &self,
-        a: &[u16],
-        b: &mut [u16],
-        c: &mut Array<u16>,
-    ) -> Result<Array<u16>> {
+        a: &[u64],
+        b: &mut [u64],
+        c: &mut Array<u64>,
+    ) -> Result<Array<u64>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
         *c = Array::from_slice(a);
         Ok(Array::from_slice(a))
     }
-    fn CallSignatureUInt16(&self, handler: &Option<SignatureUInt16>) -> Result<()> {
+    fn CallSignatureUInt64(&self, handler: &Option<SignatureUInt64>) -> Result<()> {
         let a = 123;
         let mut b = 0;
         // TODO: this seems rather verbose...
@@ -34,7 +34,7 @@ impl RustTest {
         assert!(a == c);
         Ok(())
     }
-    fn CallArraySignatureUInt16(&self, handler: &Option<ArraySignatureUInt16>) -> Result<()> {
+    fn CallArraySignatureUInt64(&self, handler: &Option<ArraySignatureUInt64>) -> Result<()> {
         let a = [1, 2, 3];
         let mut b = [0; 3];
         let mut c = Array::new();
@@ -49,15 +49,15 @@ impl RustTest {
     }
 }
 
-fn test_interface(test: &ITestUInt16) -> Result<()> {
+fn test_interface(test: &ITestUInt64) -> Result<()> {
     let a = 123;
     let mut b = 0;
-    let c = test.SignatureUInt16(a, &mut b)?;
+    let c = test.SignatureUInt64(a, &mut b)?;
 
     assert!(a == b);
     assert!(a == c);
 
-    test.CallSignatureUInt16(SignatureUInt16::new(|a, b| {
+    test.CallSignatureUInt64(SignatureUInt64::new(|a, b| {
         *b = a;
         Ok(a)
     }))?;
@@ -65,13 +65,13 @@ fn test_interface(test: &ITestUInt16) -> Result<()> {
     let a = [4, 5, 6];
     let mut b = [0; 3];
     let mut c = Array::new();
-    let d = test.ArraySignatureUInt16(&a, &mut b, &mut c)?;
+    let d = test.ArraySignatureUInt64(&a, &mut b, &mut c)?;
 
     assert!(a == b);
     assert!(a == c[..]);
     assert!(a == d[..]);
 
-    test.CallArraySignatureUInt16(ArraySignatureUInt16::new(|a, b, c| {
+    test.CallArraySignatureUInt64(ArraySignatureUInt64::new(|a, b, c| {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
