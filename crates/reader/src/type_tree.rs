@@ -1,5 +1,5 @@
 use super::*;
-pub use std::collections::BTreeMap;
+pub use std::collections::HashMap;
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub enum TypeInclude {
@@ -16,8 +16,8 @@ pub struct TypeEntry {
 
 pub struct TypeTree {
     pub namespace: &'static str,
-    pub types: BTreeMap<&'static str, TypeEntry>,
-    pub namespaces: BTreeMap<&'static str, TypeTree>,
+    pub types: HashMap<&'static str, TypeEntry>,
+    pub namespaces: HashMap<&'static str, TypeTree>,
     pub include: bool,
 }
 
@@ -25,8 +25,8 @@ impl TypeTree {
     pub fn from_namespace(namespace: &'static str) -> Self {
         Self {
             namespace,
-            types: BTreeMap::new(),
-            namespaces: BTreeMap::new(),
+            types: HashMap::new(),
+            namespaces: HashMap::new(),
             include: false,
         }
     }

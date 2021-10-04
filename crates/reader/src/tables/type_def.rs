@@ -1,5 +1,5 @@
 use super::*;
-pub use std::collections::BTreeSet;
+pub use std::collections::{BTreeMap, BTreeSet};
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeDef {

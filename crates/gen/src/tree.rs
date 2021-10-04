@@ -19,7 +19,7 @@ pub fn namespace_iter(tree: &TypeTree) -> impl Iterator<Item = TokenStream> + '_
 }
 
 fn gen_namespaces<'a>(
-    namespaces: &'a BTreeMap<&'static str, TypeTree>,
+    namespaces: &'a HashMap<&'static str, TypeTree>,
 ) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
         if tree.include {
