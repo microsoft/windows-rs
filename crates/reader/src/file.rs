@@ -274,7 +274,10 @@ impl File {
 
         let dos = file.bytes.view_as::<ImageDosHeader>(0);
 
-        assert!(!dos.signature != IMAGE_DOS_SIGNATURE, "Invalid PE signature: file does not appear to be a winmd file");
+        assert!(
+            !dos.signature != IMAGE_DOS_SIGNATURE,
+            "Invalid PE signature: file does not appear to be a winmd file"
+        );
 
         let pe = file.bytes.view_as::<ImageNtHeader>(dos.lfanew as u32);
 

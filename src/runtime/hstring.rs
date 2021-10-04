@@ -237,7 +237,10 @@ impl Header {
 
         let header = heap_alloc(alloc_size) as *mut Header;
 
-        assert!(!header.is_null(), "Could not successfully allocate for HSTRING");
+        assert!(
+            !header.is_null(),
+            "Could not successfully allocate for HSTRING"
+        );
 
         unsafe {
             (*header).flags = 0;
