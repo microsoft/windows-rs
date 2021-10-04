@@ -36,9 +36,7 @@ impl<T: RuntimeType> Array<T> {
         // We ensured we alloc enough space by multiplying len * size_of::<T>
         let data = unsafe { CoTaskMemAlloc(bytes_amount) as *mut T::DefaultType };
 
-        if data.is_null() {
-            panic!("Could not successfully allocate for Array");
-        }
+        assert!(!data.is_null(), "Could not successfully allocate for Array");
 
         // SAFETY: It is by definition safe to zero-initialize WinRT types.
         // `write_bytes` will write 0 to (len * size_of::<T>())

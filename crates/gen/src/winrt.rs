@@ -172,7 +172,7 @@ pub fn gen_winrt_method(
 
     let vtable_offset = Literal::u32_unsuffixed(method.vtable_offset);
     let constraints = gen_method_constraints(params, gen);
-    let args = params.iter().map(|p| gen_winrt_abi_arg(p));
+    let args = params.iter().map(gen_winrt_abi_arg);
     let params = gen_winrt_params(params, gen);
     let interface_name = gen_type_name(&interface.def, gen);
 
