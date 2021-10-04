@@ -50,7 +50,7 @@ impl RustTest {
                 RefInt64: Some(PropertyValue::CreateInt64(123)?.cast()?),
             },
         };
-    
+
         let mut b = Nested::default();
 
         // TODO: this seems rather verbose...
@@ -125,7 +125,7 @@ impl RustTest {
                 },
             },
         ];
-    
+
         let mut b = [Nested::default(), Nested::default(), Nested::default()];
         let mut c = Array::new();
         let d = handler.as_ref().unwrap().Invoke(&a, &mut b, &mut c)?;

@@ -11,7 +11,12 @@ use Windows::Foundation::PropertyValue;
 struct RustTest();
 
 impl RustTest {
-    fn SignatureNonBlittable(&self, a: &NonBlittable, b: &NonBlittable, c: &mut NonBlittable) -> Result<NonBlittable> {
+    fn SignatureNonBlittable(
+        &self,
+        a: &NonBlittable,
+        b: &NonBlittable,
+        c: &mut NonBlittable,
+    ) -> Result<NonBlittable> {
         assert!(a == b);
         *c = a.clone();
         Ok(a.clone())
@@ -34,7 +39,7 @@ impl RustTest {
             // TODO: better boxing support is needed
             RefInt64: Some(PropertyValue::CreateInt64(123)?.cast()?),
         };
-    
+
         let mut b = NonBlittable::default();
 
         // TODO: this seems rather verbose...
@@ -43,7 +48,10 @@ impl RustTest {
         assert!(&a == &c);
         Ok(())
     }
-    fn CallArraySignatureNonBlittable(&self, handler: &Option<ArraySignatureNonBlittable>) -> Result<()> {
+    fn CallArraySignatureNonBlittable(
+        &self,
+        handler: &Option<ArraySignatureNonBlittable>,
+    ) -> Result<()> {
         let a = [
             NonBlittable {
                 String: "first".into(),
@@ -61,7 +69,7 @@ impl RustTest {
                 RefInt64: Some(PropertyValue::CreateInt64(3)?.cast()?),
             },
         ];
-    
+
         let mut b = [
             NonBlittable::default(),
             NonBlittable::default(),

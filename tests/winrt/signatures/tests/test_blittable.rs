@@ -6,12 +6,16 @@ use windows::*;
 use Component::Signatures::*;
 use Component::Structs::*;
 
-
 #[implement(Component::Signatures::ITestBlittable)]
 struct RustTest();
 
 impl RustTest {
-    fn SignatureBlittable(&self, a: &Blittable, b: &Blittable, c: &mut Blittable) -> Result<Blittable> {
+    fn SignatureBlittable(
+        &self,
+        a: &Blittable,
+        b: &Blittable,
+        c: &mut Blittable,
+    ) -> Result<Blittable> {
         assert!(a == b);
         *c = a.clone();
         Ok(a.clone())
@@ -43,7 +47,7 @@ impl RustTest {
             Double: 0.1,
             Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
         };
-    
+
         let mut b = Blittable::default();
 
         // TODO: this seems rather verbose...
@@ -97,7 +101,7 @@ impl RustTest {
                 Guid: "286F8B75-2DF4-49CF-841C-52438E2D5326".into(),
             },
         ];
-    
+
         let mut b = [
             Blittable::default(),
             Blittable::default(),

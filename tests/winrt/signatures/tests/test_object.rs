@@ -10,7 +10,11 @@ use Component::Simple::Class;
 struct RustTest();
 
 impl RustTest {
-    fn SignatureObject(&self, a: &Option<IInspectable>, b: &mut Option<IInspectable>) -> Result<IInspectable> {
+    fn SignatureObject(
+        &self,
+        a: &Option<IInspectable>,
+        b: &mut Option<IInspectable>,
+    ) -> Result<IInspectable> {
         *b = a.clone();
         // TODO: Since `a` is an Option<IInspectable>, this is a bit messy...
         Ok(a.as_ref().unwrap().clone())
