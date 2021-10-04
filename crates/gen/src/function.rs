@@ -43,7 +43,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     match signature.kind() {
         SignatureKind::Query => {
             let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
+            let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
@@ -64,7 +64,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
         SignatureKind::QueryOptional => {
             let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
+            let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
@@ -84,7 +84,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
         SignatureKind::ResultValue => {
             let leading_params = &signature.params[..signature.params.len() - 1];
-            let args = leading_params.iter().map(|p| gen_win32_abi_arg(p));
+            let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
             let return_type_tokens = gen_win32_result_type(&signature, gen);
 
@@ -106,7 +106,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
         SignatureKind::ResultVoid => {
             let params = gen_win32_params(&signature.params, gen);
-            let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
+            let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
@@ -125,7 +125,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
         SignatureKind::ReturnStruct | SignatureKind::PreserveSig => {
             let params = gen_win32_params(&signature.params, gen);
-            let args = signature.params.iter().map(|p| gen_win32_abi_arg(p));
+            let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
                 pub unsafe fn #name<#constraints>(#params) #abi_return_type {

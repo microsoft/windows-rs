@@ -89,6 +89,8 @@ impl InterfaceInfo {
                 }
             }
             InterfaceKind::NonDefault => {
+                // Note: these implement `TryFrom` instead of `From` as they are fallible since new non-default interfaces
+                // may be added in subsequent versions of a class.
                 let into = gen_type_name(&self.def, gen);
                 quote! {
                     impl<#constraints> ::std::convert::TryFrom<#from> for #into {

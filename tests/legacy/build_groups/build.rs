@@ -1,8 +1,7 @@
 fn main() {
     windows::build! {
-        // TODO: IKeyValuePair should not need to be needed here https://github.com/microsoft/windows-rs/issues/772
         Windows::Foundation::{
-            Collections::{IKeyValuePair, IMap, IVector},
+            Collections::{IMap, IVector},
             IStringable,
         },
 
