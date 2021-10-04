@@ -84,7 +84,6 @@ pub fn gen_winrt_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
 fn gen_winrt_invoke_arg(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.param);
     let kind = gen_name(&param.signature.kind, gen);
-    // let kind = gen_sig(&param.signature, gen);
 
     if param.signature.is_array {
         let abi_size_name = to_ident(&format!("{}_array_size", param.param.name()));
