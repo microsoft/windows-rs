@@ -28,7 +28,7 @@ impl InterfaceInfo {
 
     pub fn gen_methods(interfaces: &[Self], gen: &Gen) -> TokenStream {
         let mut method_names = BTreeMap::<String, u32>::new();
-        let mut tokens = TokenStream::new();
+        let mut tokens = TokenStream::with_capacity();
 
         for interface in interfaces {
             for (vtable_offset, method) in interface.def.methods().enumerate() {

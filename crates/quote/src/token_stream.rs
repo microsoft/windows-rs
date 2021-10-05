@@ -27,10 +27,15 @@ impl From<&str> for TokenStream {
 }
 
 impl TokenStream {
-    /// Create a new `TokenStream`
     pub fn new() -> Self {
         Self {
             inner: String::new(),
+        }
+    }
+
+    pub fn with_capacity() -> Self {
+        Self {
+            inner: String::with_capacity(1000),
         }
     }
 

@@ -32,7 +32,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
                 gen_method(base_offset + vtable_offset, &method, &mut method_names, gen)
             });
 
-        let mut conversions = TokenStream::new();
+        let mut conversions = TokenStream::with_capacity();
 
         conversions.combine(&quote! {
                     impl ::std::convert::From<#name> for ::windows::IUnknown {

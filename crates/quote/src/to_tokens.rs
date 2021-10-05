@@ -15,7 +15,7 @@ pub trait ToTokens {
     /// This method is implicitly implemented using `to_tokens`, and acts as a
     /// convenience method for consumers of the `ToTokens` trait.
     fn to_token_stream(&self) -> TokenStream {
-        let mut tokens = TokenStream::new();
+        let mut tokens = TokenStream::with_capacity();
         self.to_tokens(&mut tokens);
         tokens
     }
