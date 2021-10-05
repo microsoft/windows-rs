@@ -2670,17 +2670,25 @@ pub mod Windows {
                 }
                 #[doc = r" Returns the length of the string."]
                 pub fn len(&self) -> usize {
+                    #[link(name = "oleaut32")]
+                    extern "system" {
+                        fn SysStringLen(string: *mut u16) -> u32;
+                    }
                     if self.is_empty() {
                         return 0;
                     }
-                    unsafe { SysStringLen(self) as usize }
+                    unsafe { SysStringLen(self.0) as usize }
                 }
                 #[doc = r" Create a `BSTR` from a slice of 16-bit characters."]
                 pub fn from_wide(value: &[u16]) -> Self {
+                    #[link(name = "oleaut32")]
+                    extern "system" {
+                        fn SysAllocStringLen(string: *const u16, len: u32) -> *mut u16;
+                    }
                     if value.len() == 0 {
                         return Self(::std::ptr::null_mut());
                     }
-                    unsafe { SysAllocStringLen(PWSTR(value.as_ptr() as _), value.len() as u32) }
+                    unsafe { Self(SysAllocStringLen(value.as_ptr(), value.len() as u32)) }
                 }
                 #[doc = r" Get the string as 16-bit characters."]
                 pub fn as_wide(&self) -> &[u16] {
@@ -2769,8 +2777,12 @@ pub mod Windows {
             }
             impl ::std::ops::Drop for BSTR {
                 fn drop(&mut self) {
+                    #[link(name = "oleaut32")]
+                    extern "system" {
+                        fn SysFreeString(string: *mut u16);
+                    }
                     if !self.0.is_null() {
-                        unsafe { SysFreeString(self as &Self) }
+                        unsafe { SysFreeString(self.0) }
                     }
                 }
             }
@@ -2971,52 +2983,6 @@ pub mod Windows {
                 }
             }
             pub const S_OK: ::windows::HRESULT = ::windows::HRESULT(0i32 as _);
-            pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::IntoParam<'a, PWSTR>>(
-                strin: Param0,
-                ui: u32,
-            ) -> BSTR {
-                #[cfg(windows)]
-                {
-                    #[link(name = "oleaut32")]
-                    extern "system" {
-                        fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
-                    }
-                    ::std::mem::transmute(SysAllocStringLen(
-                        strin.into_param().abi(),
-                        ::std::mem::transmute(ui),
-                    ))
-                }
-                #[cfg(not(windows))]
-                unimplemented!("Unsupported target OS");
-            }
-            pub unsafe fn SysFreeString<'a, Param0: ::windows::IntoParam<'a, BSTR>>(
-                bstrstring: Param0,
-            ) {
-                #[cfg(windows)]
-                {
-                    #[link(name = "oleaut32")]
-                    extern "system" {
-                        fn SysFreeString(bstrstring: ::std::mem::ManuallyDrop<BSTR>);
-                    }
-                    ::std::mem::transmute(SysFreeString(bstrstring.into_param().abi()))
-                }
-                #[cfg(not(windows))]
-                unimplemented!("Unsupported target OS");
-            }
-            pub unsafe fn SysStringLen<'a, Param0: ::windows::IntoParam<'a, BSTR>>(
-                pbstr: Param0,
-            ) -> u32 {
-                #[cfg(windows)]
-                {
-                    #[link(name = "oleaut32")]
-                    extern "system" {
-                        fn SysStringLen(pbstr: ::std::mem::ManuallyDrop<BSTR>) -> u32;
-                    }
-                    ::std::mem::transmute(SysStringLen(pbstr.into_param().abi()))
-                }
-                #[cfg(not(windows))]
-                unimplemented!("Unsupported target OS");
-            }
         }
         #[allow(
             unused_variables,

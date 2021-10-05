@@ -20,24 +20,34 @@ pub fn gen_bstr() -> TokenStream {
 
             /// Returns the length of the string.
             pub fn len(&self) -> usize {
+                #[link(name = "oleaut32")]
+                extern "system" {
+                    fn SysStringLen(string: *mut u16) -> u32;
+                }
+
                 if self.is_empty() {
                     return 0;
                 }
 
-                unsafe { SysStringLen(self) as usize }
+                unsafe { SysStringLen(self.0) as usize }
             }
 
             /// Create a `BSTR` from a slice of 16-bit characters.
             pub fn from_wide(value: &[u16]) -> Self {
+                #[link(name = "oleaut32")]
+                extern "system" {
+                    fn SysAllocStringLen(string: *const u16, len: u32) -> *mut u16;
+                }
+
                 if value.len() == 0 {
                     return Self(::std::ptr::null_mut());
                 }
 
                 unsafe {
-                    SysAllocStringLen(
-                        PWSTR(value.as_ptr() as _),
+                    Self(SysAllocStringLen(
+                        value.as_ptr(),
                         value.len() as u32,
-                    )
+                    ))
                 }
             }
 
@@ -135,8 +145,13 @@ pub fn gen_bstr() -> TokenStream {
         }
         impl ::std::ops::Drop for BSTR {
             fn drop(&mut self) {
+                #[link(name = "oleaut32")]
+                extern "system" {
+                    fn SysFreeString(string: *mut u16);
+                }
+
                 if !self.0.is_null() {
-                    unsafe { SysFreeString(self as &Self) }
+                    unsafe { SysFreeString(self.0) }
                 }
             }
         }
