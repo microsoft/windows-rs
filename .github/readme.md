@@ -67,5 +67,5 @@ fn main() -> windows::Result<()> {
 ```
 
 To reduce build time, use a dedicated `bindings` crate. This will allow Cargo to cache the results and build your project far more quickly. More examples [can be found here](https://github.com/microsoft/windows-samples-rs). Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs) is also a great example.
-
+ 
 A more in-depth getting started guide can also be found [here](../docs/getting-started.md).
