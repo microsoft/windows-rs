@@ -1,16 +1,39 @@
-name: build
+name: CI
 
 on:
   pull_request:
   push:
     branches:
       - master
-
 env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
+  build_components:
+    name: Build test components
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        platform: [x86, x64]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure MSBuild
+      uses: microsoft/setup-msbuild@v1.0.3
+
+    - name: Install CLangSharpPInvokeGenerator
+      run: dotnet tool install -g ClangSharpPInvokeGenerator --version 11.0.0-beta3
+
+    - name: Restore NuGet Packages (${{ matrix.platform }})
+      run: msbuild tests\components\components.sln /t:Restore /p:Platform=${{ matrix.platform }} /p:RestorePackagesConfig=true /m
+
+    - name: Build components (${{ matrix.platform }})
+      run: msbuild tests\components\components.sln /t:Build /p:Platform=${{ matrix.platform }} /p:Configuration=Release /m
+
   test:
+    name: Build and test crate
+    needs: build_components
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -18,74 +41,96 @@ jobs:
         - os: windows-latest
           rust: stable
           other: x86_64-pc-windows-msvc
+          platform: x64
         - os: windows-latest
           rust: nightly
           other: x86_64-pc-windows-msvc
+          platform: x64
         - os: windows-latest
           rust: stable
           other: i686-pc-windows-msvc
+          platform: x86
         - os: windows-latest
           rust: nightly
           other: i686-pc-windows-msvc
+          platform: x86
         - os: ubuntu-latest
           rust: stable
           other: i686-unknown-linux-gnu
+          platform: x86
     steps:
-    - uses: actions/checkout@v2
-    - run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
-    - run: rustup target add ${{ matrix.other }}
+    - name: Checkout
+      uses: actions/checkout@v2
 
-    - name: linux build
+    - name: Update toolchain
+      run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+
+    - name: Add toolchain target
+      run: rustup target add ${{ matrix.other }}
+
+    - name: Build (${{ matrix.os }})
       run: cargo build
       if: matrix.os == 'ubuntu-latest'
 
-    - name: windows build
+    - name: Build (${{ matrix.os }})
       run: cargo test --all --target ${{ matrix.other }}
       if: matrix.os == 'windows-latest'
 
   cargo_fmt:
+    name: Check cargo formatting
     runs-on: windows-latest
-    name: check cargo formatting
     steps:
-    - uses: actions/checkout@v2
-    - name: run cargo fmt
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Run cargo fmt
       run: cargo fmt --all -- --check
 
   cargo_clippy:
+    name: Check cargo clippy
     runs-on: windows-latest
-    name: check cargo clippy
     steps:
-    - uses: actions/checkout@v2
-    - name: run cargo clippy
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Run cargo clippy
       # TODO: Add  --all-targets when the tests adhere to clippy lints
       run: cargo clippy --all -- -D warnings
 
   cargo_doc:
+    name: Check cargo docs
     runs-on: ubuntu-latest
-    name: check cargo docs
     steps:
-    - uses: actions/checkout@v2
-    - name: run cargo doc
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Run cargo doc
       run: cargo doc --no-deps
 
   windows_fmt:
+    name: Check macro formatting
     runs-on: windows-latest
-    name: check macro formatting
     steps:
-    - uses: actions/checkout@v2
-    - name: run windows_fmt
+    - name: Checkout
+      uses: actions/checkout@v2
+  
+    - name: Run windows_fmt
       run: cargo run -p windows_fmt
-    - name: diff results
+
+    - name: Compare
       shell: bash
       run: git diff --exit-code || (echo '::error::Some `build!` macros were improperly formatted. Please run `cargo run -p windows_fmt` and push again'; exit 1)
 
   windows_bindings:
+    name: Check bindings
     runs-on: windows-latest
-    name: check bindings
     steps:
-    - uses: actions/checkout@v2
-    - name: run windows_bindings
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Run windows_bindings
       run: cargo run -p windows_bindings
-    - name: diff results
+
+    - name: Compare
       shell: bash
       run: git diff --exit-code || (echo '::error::Generated bindings are out-of-date. Please run `cargo run -p windows_bindings`'; exit 1)
