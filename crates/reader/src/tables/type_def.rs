@@ -165,30 +165,17 @@ impl TypeDef {
             }
             TypeKind::Enum => Vec::new(),
             TypeKind::Struct => {
-                let reader = TypeReader::get();
-                let mut dependencies = vec![];
+                let mut dependencies: Vec<TypeEntry> = self
+                    .fields()
+                    .map(|f| f.definition(TypeInclude::Minimal))
+                    .flatten()
+                    .collect();
 
-                // TODO: find better way to manage this
-                let type_name = self.type_name();
-
-                if type_name == TypeName::Matrix3x2 {
+                if let Some(dependency) = self.is_convertible_to() {
                     dependencies.push(TypeEntry {
                         include: TypeInclude::Minimal,
-                        def: reader.expect_type(TypeName::D2D1MakeRotateMatrix),
+                        def: ElementType::TypeDef(dependency),
                     });
-                } else {
-                    dependencies.extend(
-                        self.fields()
-                            .map(|f| f.definition(TypeInclude::Minimal))
-                            .flatten(),
-                    );
-
-                    if let Some(dependency) = self.is_convertible_to() {
-                        dependencies.push(TypeEntry {
-                            include: TypeInclude::Minimal,
-                            def: ElementType::TypeDef(dependency),
-                        });
-                    }
                 }
 
                 dependencies

@@ -79,12 +79,6 @@ impl TypeName {
         Self::from_const("Windows.Win32.System.SystemServices", "LARGE_INTEGER");
     pub const ULARGE_INTEGER: Self =
         Self::from_const("Windows.Win32.System.SystemServices", "ULARGE_INTEGER");
-    pub const SysFreeString: Self = Self::from_const("Windows.Win32.Foundation", "SysFreeString");
-    pub const SysAllocStringLen: Self =
-        Self::from_const("Windows.Win32.Foundation", "SysAllocStringLen");
-    pub const SysStringLen: Self = Self::from_const("Windows.Win32.Foundation", "SysStringLen");
-    pub const D2D1MakeRotateMatrix: Self =
-        Self::from_const("Windows.Win32.Graphics.Direct2D", "D2D1MakeRotateMatrix");
     pub const IRestrictedErrorInfo: Self =
         Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
 

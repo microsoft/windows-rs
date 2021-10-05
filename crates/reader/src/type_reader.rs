@@ -169,16 +169,6 @@ impl TypeReader {
             .map(|entry| entry.def.clone())
     }
 
-    pub fn expect_type<T: HasTypeName>(&'static self, type_name: T) -> ElementType {
-        self.get_type(type_name).unwrap_or_else(|| {
-            panic!(
-                "Expected type not found `{}.{}`",
-                type_name.namespace(),
-                type_name.name()
-            )
-        })
-    }
-
     pub fn expect_type_def<T: HasTypeName>(&'static self, type_name: T) -> TypeDef {
         self.get_type(type_name)
             .and_then(|def| {
