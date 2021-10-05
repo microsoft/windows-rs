@@ -95,14 +95,14 @@ where
     let type_name = def.type_name();
 
     if type_name.namespace.is_empty() {
-        let name = format_name(&scoped_name(def));
-        quote! { #name }
+        format_name(&scoped_name(def))
     } else {
-        let namespace = gen.namespace(type_name.namespace);
+        let mut namespace = gen.namespace(type_name.namespace);
         let name = format_name(type_name.name);
 
         if def.generics.is_empty() {
-            quote! { #namespace#name }
+            namespace.combine(&name);
+            namespace
         } else {
             let colon_separated = if turbo || !namespace.as_str().is_empty() {
                 quote! { :: }

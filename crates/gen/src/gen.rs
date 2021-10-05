@@ -9,7 +9,7 @@ impl Gen {
     pub fn namespace(&self, namespace: &str) -> TokenStream {
         match self {
             Self::Absolute => {
-                let mut tokens = TokenStream::new();
+                let mut tokens = TokenStream::with_capacity();
 
                 for namespace in namespace.split('.') {
                     tokens.push_str(namespace);
@@ -34,7 +34,7 @@ impl Gen {
                     namespace.next();
                 }
 
-                let mut tokens = TokenStream::new();
+                let mut tokens = TokenStream::with_capacity();
 
                 for _ in 0..relative.count() {
                     tokens.push_str("super::");

@@ -1,7 +1,7 @@
 use crate::*;
 
 pub fn gen_method_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
+    let mut tokens = TokenStream::with_capacity();
 
     for (position, param) in params.iter().enumerate() {
         if param.is_convertible() {
@@ -27,7 +27,7 @@ pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
 }
 
 fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
-    let mut tokens = TokenStream::new();
+    let mut tokens = TokenStream::with_capacity();
 
     for _ in 0..sig.pointers {
         if is_const {
@@ -51,7 +51,7 @@ fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream
 }
 
 pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
+    let mut tokens = TokenStream::with_capacity();
 
     for _ in 0..sig.pointers {
         if sig.is_const {

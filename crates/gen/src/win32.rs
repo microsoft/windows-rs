@@ -57,7 +57,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_win32_abi_param(param: &MethodParam, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
+    let mut tokens = TokenStream::with_capacity();
     let is_const = !param.param.flags().output();
 
     for _ in 0..param.signature.pointers {

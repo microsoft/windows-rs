@@ -11,13 +11,13 @@ pub fn gen(
     let impl_name = impl_type.ident.to_string();
     let interfaces = implements.interfaces();
 
-    let mut tokens = TokenStream::new();
+    let mut tokens = TokenStream::with_capacity();
     let mut vtable_idents = vec![];
     let mut vtable_ordinals = vec![];
-    let mut vtable_ctors = TokenStream::new();
-    let mut shims = TokenStream::new();
-    let mut queries = TokenStream::new();
-    let mut query_constants = TokenStream::new();
+    let mut vtable_ctors = TokenStream::with_capacity();
+    let mut shims = TokenStream::with_capacity();
+    let mut queries = TokenStream::with_capacity();
+    let mut query_constants = TokenStream::with_capacity();
     let gen = gen::Gen::Absolute;
 
     let mut generics = BTreeSet::new();
@@ -205,7 +205,7 @@ pub fn gen(
                 });
         }
 
-        let mut phantoms = TokenStream::new();
+        let mut phantoms = TokenStream::with_capacity();
 
         for _ in 0..def.generic_params().count() {
             phantoms.combine(&quote! { std::marker::PhantomData, })
