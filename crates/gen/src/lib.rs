@@ -18,6 +18,7 @@ mod interface_info;
 mod iterator;
 mod matrix3x2;
 mod matrix4x4;
+mod method_info;
 mod name;
 mod ntstatus;
 mod object;
@@ -34,7 +35,6 @@ mod vector4;
 mod win32;
 mod win32_error;
 mod winrt;
-mod method_info;
 
 // TODO: These public things are mostly/all used by the implement macro
 // move that logic into here so the macro crate is just forwarding to the gen crate
@@ -62,6 +62,7 @@ use interface::*;
 use iterator::*;
 use matrix3x2::*;
 use matrix4x4::*;
+use method_info::*;
 use ntstatus::*;
 use object::*;
 use propertykey::*;
@@ -77,4 +78,3 @@ use vector2::*;
 use vector3::*;
 use vector4::*;
 use win32_error::*;
-use method_info::*;
