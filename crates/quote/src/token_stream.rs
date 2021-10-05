@@ -64,10 +64,7 @@ impl TokenStream {
     }
 
     pub(crate) fn push_space(&mut self) {
-        match self.last_char() {
-            None | Some(' ') => {}
-            _ => self.inner.push(' '),
-        }
+        self.inner.push(' ')
     }
 
     pub fn push(&mut self, c: char) {
@@ -76,10 +73,6 @@ impl TokenStream {
 
     pub fn push_str(&mut self, str: &str) {
         self.inner.push_str(str)
-    }
-
-    fn last_char(&self) -> Option<char> {
-        self.inner.chars().last()
     }
 }
 

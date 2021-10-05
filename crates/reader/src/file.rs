@@ -92,6 +92,10 @@ impl std::fmt::Debug for File {
     }
 }
 
+extern "C" {
+    fn strlen(cs: *const u8) -> usize;
+}
+
 impl File {
     pub fn u32(&self, row: u32, table: TableIndex, column: u32) -> u32 {
         let table = &self.tables[table as usize];
@@ -107,17 +111,9 @@ impl File {
     pub fn str(&'static self, row: u32, table: TableIndex, column: u32) -> &'static str {
         let offset = (self.strings + self.u32(row, table, column)) as usize;
 
-        // Idealy this would use clib's strlen as its a lot faster, but that dependency adds over a second to the overall build.
         unsafe {
-            let mut last = 0;
-            for c in &self.bytes[offset..] {
-                if *c == b'\0' {
-                    break;
-                }
-                last += 1;
-            }
-
-            std::str::from_utf8_unchecked(&self.bytes[offset..offset + last])
+            let len = strlen(self.bytes.as_ptr().add(offset));
+            std::str::from_utf8_unchecked(&self.bytes[offset..offset + len])
         }
     }
 
