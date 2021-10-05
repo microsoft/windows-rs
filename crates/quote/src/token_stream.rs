@@ -32,7 +32,7 @@ impl TokenStream {
             inner: String::new(),
         }
     }
-    
+
     pub fn with_capacity() -> Self {
         Self {
             inner: String::with_capacity(1000),
