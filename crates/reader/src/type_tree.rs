@@ -14,6 +14,8 @@ pub struct TypeEntry {
     pub include: TypeInclude,
 }
 
+// The TypeTree needs to use a BTreeMap rather than the fast HashMap because it affects code gen and we need
+// the code gen to be stable.
 pub struct TypeTree {
     pub namespace: &'static str,
     pub types: BTreeMap<&'static str, TypeEntry>,
