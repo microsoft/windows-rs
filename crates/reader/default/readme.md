@@ -6,17 +6,12 @@ dependent crate or workspace has an empty or non-existent `.windows/winmd` direc
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/
 - Version: 10.2.163-preview
 
-## Windows.WinRT.winmd
-- Source: https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewSDK
-- Version: 10.0.22000.0
+## Windows.winmd
+- Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts
+- Version: 10.0.22000.194
 
-The Windows.WinRT.winmd was created from the Windows SDK as follows:
+The Windows.winmd was created by merging the .winmd files from the second nuget package as follows
 
 ```
-C:\temp>for /r "C:\Program Files (x86)\Windows Kits\10\References\10.0.22000.0" %f in (*.winmd) do @copy "%f"
-
-C:\temp>mdmerge -o out -i . -n 1
+mdmerge -o out -i . -n 1
 ```
-
-The first step collects all of the winmd files into a single folder. The second step merges them into a single .winmd file. 
-This isn't strictly necessary but simplifies distribution and samples.
