@@ -73,6 +73,21 @@ impl TypeDef {
         definition
     }
 
+    pub fn include_definition(&self, reader: &mut TypeReader, mut include: TypeInclude) {
+        // The `Windows.Foundation` namespace includes supporting types that should
+        // always be fully-defined when included because their methods are almost
+        // always needed.
+        if include != TypeInclude::Full && self.namespace().starts_with("Windows.Foundation") {
+            include = TypeInclude::Full;
+        }
+
+        reader.include_type_name(self.type_name(), include);
+
+        for generic in &self.generics {
+            generic.include_definition(reader, include);
+        }
+    }
+
     pub fn default_interface(&self) -> Option<Self> {
         for interface in self.interface_impls() {
             if interface.is_default() {

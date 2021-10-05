@@ -146,6 +146,13 @@ impl ElementType {
         }
     }
 
+    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
+        match self {
+            Self::TypeDef(t) => t.include_definition(reader, include),
+            Self::Array((signature, _)) => signature.include_definition(reader, include),
+            _ => {}
+        }
+    }
     pub fn is_nullable(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_nullable(),

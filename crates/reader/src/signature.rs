@@ -16,6 +16,10 @@ impl Signature {
         self.kind.definition(include)
     }
 
+    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
+        self.kind.include_definition(reader, include)
+    }
+
     pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
         self.kind.dependencies(include)
     }

@@ -130,6 +130,10 @@ impl TypeReader {
         }
     }
 
+    pub fn include_type_name<T: HasTypeName>(&mut self, type_name: T, include: TypeInclude) -> bool {
+        self.import_type_include(type_name.namespace(), type_name.name(), include)
+    }
+
     fn import_type_include(&mut self, namespace: &str, name: &str, include: TypeInclude) -> bool {
         assert!(!namespace.is_empty());
         if let Some(entry) = self
@@ -139,6 +143,7 @@ impl TypeReader {
         {
             let copy = entry.def.clone();
 
+            // TODO: call import_type_dependencies here or let the type do that for its own dependencies?
             if include == TypeInclude::Full {
                 if entry.include != TypeInclude::Full {
                     entry.include = TypeInclude::Full;

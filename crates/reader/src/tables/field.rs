@@ -63,6 +63,10 @@ impl Field {
         self.signature().definition(include)
     }
 
+    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
+        self.signature().include_definition(reader, include)
+    }
+
     pub fn is_blittable(&self) -> bool {
         self.signature().is_blittable()
     }
