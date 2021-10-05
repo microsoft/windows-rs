@@ -94,8 +94,8 @@ fn get_workspace_winmds() -> Vec<File> {
             include_bytes!("../default/Windows.Win32.winmd").to_vec(),
         ));
         result.push(File::from_bytes(
-            "Windows.WinRT.winmd".to_string(),
-            include_bytes!("../default/Windows.WinRT.winmd").to_vec(),
+            "Windows.winmd".to_string(),
+            include_bytes!("../default/Windows.winmd").to_vec(),
         ));
     }
 
