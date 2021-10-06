@@ -153,6 +153,7 @@ impl ElementType {
             _ => {}
         }
     }
+
     pub fn is_nullable(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_nullable(),

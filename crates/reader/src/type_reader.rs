@@ -134,7 +134,14 @@ impl TypeReader {
         self.import_type_include(type_name.namespace(), type_name.name(), include)
     }
 
-    fn import_type_include(&mut self, namespace: &str, name: &str, include: TypeInclude) -> bool {
+    fn import_type_include(&mut self, namespace: &str, name: &str, mut include: TypeInclude) -> bool {
+        // The `Windows.Foundation` namespace includes supporting types that should
+        // always be fully-defined when included because their methods are almost
+        // always needed.
+        if include != TypeInclude::Full && namespace.starts_with("Windows.Foundation") {
+            include = TypeInclude::Full;
+        }
+
         assert!(!namespace.is_empty());
         if let Some(entry) = self
             .types

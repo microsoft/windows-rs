@@ -53,14 +53,7 @@ impl TypeDef {
             .expect("`Invoke` method not found")
     }
 
-    pub fn definition(&self, mut include: TypeInclude) -> Vec<TypeEntry> {
-        // The `Windows.Foundation` namespace includes supporting types that should
-        // always be fully-defined when included because their methods are almost
-        // always needed.
-        if include != TypeInclude::Full && self.namespace().starts_with("Windows.Foundation") {
-            include = TypeInclude::Full;
-        }
-
+    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
         let mut definition = vec![TypeEntry {
             include,
             def: ElementType::TypeDef(self.clone()),
@@ -73,14 +66,7 @@ impl TypeDef {
         definition
     }
 
-    pub fn include_definition(&self, reader: &mut TypeReader, mut include: TypeInclude) {
-        // The `Windows.Foundation` namespace includes supporting types that should
-        // always be fully-defined when included because their methods are almost
-        // always needed.
-        if include != TypeInclude::Full && self.namespace().starts_with("Windows.Foundation") {
-            include = TypeInclude::Full;
-        }
-
+    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
         reader.include_type_name(self.type_name(), include);
 
         for generic in &self.generics {
