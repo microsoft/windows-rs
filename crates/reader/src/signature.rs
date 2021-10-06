@@ -24,6 +24,10 @@ impl Signature {
         self.kind.dependencies(include)
     }
 
+    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
+        self.kind.include_dependencies(reader, include)
+    }
+
     pub fn is_blittable(&self) -> bool {
         self.pointers > 0 || self.kind.is_blittable()
     }

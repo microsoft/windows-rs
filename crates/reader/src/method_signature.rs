@@ -24,6 +24,16 @@ impl MethodSignature {
             .collect()
     }
 
+    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
+        if let Some(return_sig) = &self.return_sig {
+            return_sig.include_definition(reader, include);
+        }
+
+        for param in &self.params {
+            param.signature.include_definition(reader, include);
+        }
+    }
+
     pub fn kind(&self) -> SignatureKind {
         if self
             .return_param

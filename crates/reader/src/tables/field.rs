@@ -46,6 +46,10 @@ impl Field {
         self.signature().kind.definition(include)
     }
 
+    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
+        self.signature().kind.include_definition(reader, include)
+    }
+
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0.file.attributes(HasAttribute::Field(self.clone()))
     }

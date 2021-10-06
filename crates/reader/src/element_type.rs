@@ -138,6 +138,16 @@ impl ElementType {
         }
     }
 
+    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
+        match self {
+            Self::MethodDef(t) => t.include_dependencies(reader),
+            Self::TypeDef(t) => t.include_dependencies(reader, include),
+            Self::Field(t) => t.include_dependencies(reader, include),
+            Self::Array((signature, _)) => signature.include_dependencies(reader, include),
+            _ => {}
+        }
+    }
+
     pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
         match self {
             Self::TypeDef(t) => t.definition(include),
