@@ -117,10 +117,6 @@ impl TypeReader {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
 
-    fn import_type_dependencies(&mut self, def: &ElementType, include: TypeInclude) {
-        def.include_dependencies(self, include);
-    }
-
     pub fn include_type_name<T: HasTypeName>(
         &mut self,
         type_name: T,
@@ -142,23 +138,19 @@ impl TypeReader {
             include = TypeInclude::Full;
         }
 
-        assert!(!namespace.is_empty());
         if let Some(entry) = self
             .types
             .get_namespace_mut(namespace)
             .and_then(|tree| tree.get_type_mut(name))
         {
-            let copy = entry.def.clone();
-
-            // TODO: call import_type_dependencies here or let the type do that for its own dependencies?
             if include == TypeInclude::Full {
                 if entry.include != TypeInclude::Full {
                     entry.include = TypeInclude::Full;
-                    self.import_type_dependencies(&copy, include);
+                    entry.def.clone().include_dependencies(self, include);
                 }
             } else if entry.include == TypeInclude::None {
                 entry.include = TypeInclude::Minimal;
-                self.import_type_dependencies(&copy, include);
+                entry.def.clone().include_dependencies(self, include);
             }
 
             true
