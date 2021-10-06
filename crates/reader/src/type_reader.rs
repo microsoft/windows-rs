@@ -121,11 +121,20 @@ impl TypeReader {
         def.include_dependencies(self, include);
     }
 
-    pub fn include_type_name<T: HasTypeName>(&mut self, type_name: T, include: TypeInclude) -> bool {
+    pub fn include_type_name<T: HasTypeName>(
+        &mut self,
+        type_name: T,
+        include: TypeInclude,
+    ) -> bool {
         self.import_type_include(type_name.namespace(), type_name.name(), include)
     }
 
-    fn import_type_include(&mut self, namespace: &str, name: &str, mut include: TypeInclude) -> bool {
+    fn import_type_include(
+        &mut self,
+        namespace: &str,
+        name: &str,
+        mut include: TypeInclude,
+    ) -> bool {
         // The `Windows.Foundation` namespace includes supporting types that should
         // always be fully-defined when included because their methods are almost
         // always needed.

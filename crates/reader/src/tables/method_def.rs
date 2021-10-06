@@ -141,6 +141,7 @@ impl MethodDef {
     }
 
     pub fn include_dependencies(&self, reader: &mut TypeReader) {
-        self.signature(&[]).include_dependencies(reader, TypeInclude::Minimal)
+        self.signature(&[])
+            .include_dependencies(reader, TypeInclude::Minimal)
     }
 }

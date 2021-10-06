@@ -112,7 +112,8 @@ impl TypeDef {
                     return;
                 }
 
-                self.interfaces().for_each(|i| i.include_definition(reader, include));
+                self.interfaces()
+                    .for_each(|i| i.include_definition(reader, include));
                 self.methods().for_each(|m| m.include_dependencies(reader));
             }
             TypeKind::Class => {
@@ -124,16 +125,17 @@ impl TypeDef {
                     return;
                 }
 
-                self
-                    .generics
+                self.generics
                     .iter()
                     .for_each(|g| g.include_definition(reader, TypeInclude::Minimal));
 
-                self.interfaces().for_each(|i| i.include_definition(reader, TypeInclude::Full));
-                self.bases().for_each(|b| b.include_definition(reader, TypeInclude::Full));
+                self.interfaces()
+                    .for_each(|i| i.include_definition(reader, TypeInclude::Full));
+                self.bases()
+                    .for_each(|b| b.include_definition(reader, TypeInclude::Full));
 
-                self.attributes().for_each(|attribute| {
-                    match attribute.name() {
+                self.attributes()
+                    .for_each(|attribute| match attribute.name() {
                         "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                             for (_, arg) in attribute.args() {
                                 if let ConstantValue::TypeDef(def) = arg {
@@ -142,12 +144,10 @@ impl TypeDef {
                             }
                         }
                         _ => {}
-                    }
-                });
+                    });
             }
             TypeKind::Struct => {
-                self
-                    .fields()
+                self.fields()
                     .for_each(|f| f.include_definition(reader, TypeInclude::Minimal));
 
                 if let Some(dependency) = self.is_convertible_to() {
