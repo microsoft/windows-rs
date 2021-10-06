@@ -24,9 +24,22 @@ pub fn gen_matrix3x2() -> TokenStream {
                 }
             }
             pub fn rotation(angle: f32, x: f32, y: f32) -> Self {
+                #[repr(C)]
+                pub struct D2D_POINT_2F {
+                    pub x: f32,
+                    pub y: f32,
+                }
+                #[link(name = "d2d1")]
+                extern "system" {
+                    fn D2D1MakeRotateMatrix(
+                        angle: f32,
+                        center: D2D_POINT_2F,
+                        matrix: *mut Matrix3x2,
+                    );
+                }
                 let mut matrix = Self::default();
                 unsafe {
-                    super::super::Win32::Graphics::Direct2D::D2D1MakeRotateMatrix(angle, super::super::Win32::Graphics::Direct2D::D2D_POINT_2F{x, y}, &mut matrix);
+                    D2D1MakeRotateMatrix(angle, D2D_POINT_2F{x, y}, &mut matrix);
                 }
                 matrix
             }

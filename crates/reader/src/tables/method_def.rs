@@ -140,7 +140,8 @@ impl MethodDef {
         }
     }
 
-    pub fn dependencies(&self) -> Vec<TypeEntry> {
-        self.signature(&[]).dependencies(TypeInclude::Minimal)
+    pub fn include_dependencies(&self, reader: &mut TypeReader) {
+        self.signature(&[])
+            .include_dependencies(reader, TypeInclude::Minimal)
     }
 }

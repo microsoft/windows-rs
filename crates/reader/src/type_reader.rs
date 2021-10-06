@@ -117,36 +117,40 @@ impl TypeReader {
         self.import_type_include(namespace, name, TypeInclude::Full)
     }
 
-    fn import_type_dependencies(&mut self, def: &ElementType, include: TypeInclude) {
-        for entry in def.dependencies(include) {
-            let type_name = entry.def.type_name();
-
-            // If def.namespace is empty it means its a nested type and we need to find its dependencies to avoid type slicing.
-            if type_name.namespace.is_empty() {
-                self.import_type_dependencies(&entry.def, TypeInclude::Minimal);
-            } else {
-                self.import_type_include(type_name.namespace, type_name.name, entry.include);
-            }
-        }
+    pub fn include_type_name<T: HasTypeName>(
+        &mut self,
+        type_name: T,
+        include: TypeInclude,
+    ) -> bool {
+        self.import_type_include(type_name.namespace(), type_name.name(), include)
     }
 
-    fn import_type_include(&mut self, namespace: &str, name: &str, include: TypeInclude) -> bool {
-        assert!(!namespace.is_empty());
+    fn import_type_include(
+        &mut self,
+        namespace: &str,
+        name: &str,
+        mut include: TypeInclude,
+    ) -> bool {
+        // The `Windows.Foundation` namespace includes supporting types that should
+        // always be fully-defined when included because their methods are almost
+        // always needed.
+        if include != TypeInclude::Full && namespace.starts_with("Windows.Foundation") {
+            include = TypeInclude::Full;
+        }
+
         if let Some(entry) = self
             .types
             .get_namespace_mut(namespace)
             .and_then(|tree| tree.get_type_mut(name))
         {
-            let copy = entry.def.clone();
-
             if include == TypeInclude::Full {
                 if entry.include != TypeInclude::Full {
                     entry.include = TypeInclude::Full;
-                    self.import_type_dependencies(&copy, include);
+                    entry.def.clone().include_dependencies(self, include);
                 }
             } else if entry.include == TypeInclude::None {
                 entry.include = TypeInclude::Minimal;
-                self.import_type_dependencies(&copy, include);
+                entry.def.clone().include_dependencies(self, include);
             }
 
             true
@@ -167,16 +171,6 @@ impl TypeReader {
             .get_namespace(type_name.namespace())
             .and_then(|tree| tree.get_type(type_name.name()))
             .map(|entry| entry.def.clone())
-    }
-
-    pub fn expect_type<T: HasTypeName>(&'static self, type_name: T) -> ElementType {
-        self.get_type(type_name).unwrap_or_else(|| {
-            panic!(
-                "Expected type not found `{}.{}`",
-                type_name.namespace(),
-                type_name.name()
-            )
-        })
     }
 
     pub fn expect_type_def<T: HasTypeName>(&'static self, type_name: T) -> TypeDef {
