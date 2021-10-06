@@ -186,7 +186,57 @@ impl TypeDef {
     }
 
     pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
+        match self.kind() {
+            TypeKind::Interface => {
+                if include == TypeInclude::Minimal {
+                    return;
+                }
 
+                self.interfaces().for_each(|i| i.include_definition(reader, include));
+                self.methods().for_each(|m| m.include_dependencies(reader));
+            }
+            TypeKind::Class => {
+                if include == TypeInclude::Minimal {
+                    if let Some(default_interface) = self.default_interface() {
+                        default_interface.include_definition(reader, TypeInclude::Minimal);
+                    }
+
+                    return;
+                }
+
+                self
+                    .generics
+                    .iter()
+                    .for_each(|g| g.include_definition(reader, TypeInclude::Minimal));
+
+                self.interfaces().for_each(|i| i.include_definition(reader, TypeInclude::Full));
+                self.bases().for_each(|b| b.include_definition(reader, TypeInclude::Full));
+
+                self.attributes().for_each(|attribute| {
+                    match attribute.name() {
+                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
+                            for (_, arg) in attribute.args() {
+                                if let ConstantValue::TypeDef(def) = arg {
+                                    def.include_definition(reader, TypeInclude::Full);
+                                }
+                            }
+                        }
+                        _ => {}
+                    }
+                });
+            }
+            TypeKind::Struct => {
+                self
+                    .fields()
+                    .for_each(|f| f.include_definition(reader, TypeInclude::Minimal));
+
+                if let Some(dependency) = self.is_convertible_to() {
+                    dependency.include_definition(reader, TypeInclude::Minimal);
+                }
+            }
+            TypeKind::Delegate => self.invoke_method().include_dependencies(reader),
+            TypeKind::Enum => {}
+        }
     }
 
     pub fn is_udt(&self) -> bool {
