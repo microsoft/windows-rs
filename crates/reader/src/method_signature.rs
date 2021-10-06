@@ -15,15 +15,6 @@ pub struct MethodParam {
 }
 
 impl MethodSignature {
-    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        self.return_sig
-            .iter()
-            .map(|s| s.definition(include))
-            .chain(self.params.iter().map(|p| p.signature.definition(include)))
-            .flatten()
-            .collect()
-    }
-
     pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
         if let Some(return_sig) = &self.return_sig {
             return_sig.include_definition(reader, include);

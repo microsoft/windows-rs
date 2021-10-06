@@ -53,27 +53,6 @@ impl TypeDef {
             .expect("`Invoke` method not found")
     }
 
-    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        let mut definition = vec![TypeEntry {
-            include,
-            def: ElementType::TypeDef(self.clone()),
-        }];
-
-        for generic in &self.generics {
-            definition.append(&mut generic.definition(include));
-        }
-
-        definition
-    }
-
-    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
-        reader.include_type_name(self.type_name(), include);
-
-        for generic in &self.generics {
-            generic.include_definition(reader, include);
-        }
-    }
-
     pub fn default_interface(&self) -> Option<Self> {
         for interface in self.interface_impls() {
             if interface.is_default() {
@@ -112,76 +91,17 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        match self.kind() {
-            TypeKind::Interface => {
-                if include == TypeInclude::Minimal {
-                    return Vec::new();
-                }
+    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
+        let type_name = self.type_name();
 
-                let interfaces = self.interfaces().map(|i| i.definition(include));
-                let methods = self.methods().map(|m| m.dependencies());
-                interfaces.chain(methods).flatten().collect()
+        if type_name.namespace().is_empty() {
+            self.include_dependencies(reader, TypeInclude::Minimal);
+        } else {
+            reader.include_type_name(type_name, include);
+
+            for generic in &self.generics {
+                generic.include_definition(reader, include);
             }
-            TypeKind::Class => {
-                if include == TypeInclude::Minimal {
-                    if let Some(default_interface) = self.default_interface() {
-                        return default_interface.definition(TypeInclude::Minimal);
-                    } else {
-                        return Vec::new();
-                    }
-                }
-
-                let generics = self
-                    .generics
-                    .iter()
-                    .map(|g| g.definition(TypeInclude::Minimal));
-                let interfaces = self.interfaces().map(|i| i.definition(TypeInclude::Full));
-                let bases = self.bases().map(|b| b.definition(TypeInclude::Full));
-
-                let factories = self.attributes().filter_map(|attribute| {
-                    match attribute.name() {
-                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
-                            for (_, arg) in attribute.args() {
-                                if let ConstantValue::TypeDef(def) = arg {
-                                    return Some(TypeEntry {
-                                        include: TypeInclude::Full,
-                                        def: ElementType::TypeDef(def),
-                                    });
-                                }
-                            }
-                        }
-                        _ => {}
-                    }
-
-                    None
-                });
-
-                generics
-                    .chain(interfaces)
-                    .chain(bases)
-                    .flatten()
-                    .chain(factories)
-                    .collect()
-            }
-            TypeKind::Enum => Vec::new(),
-            TypeKind::Struct => {
-                let mut dependencies: Vec<TypeEntry> = self
-                    .fields()
-                    .map(|f| f.definition(TypeInclude::Minimal))
-                    .flatten()
-                    .collect();
-
-                if let Some(dependency) = self.is_convertible_to() {
-                    dependencies.push(TypeEntry {
-                        include: TypeInclude::Minimal,
-                        def: ElementType::TypeDef(dependency),
-                    });
-                }
-
-                dependencies
-            }
-            TypeKind::Delegate => self.invoke_method().dependencies(),
         }
     }
 

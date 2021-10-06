@@ -118,16 +118,7 @@ impl TypeReader {
     }
 
     fn import_type_dependencies(&mut self, def: &ElementType, include: TypeInclude) {
-        for entry in def.dependencies(include) {
-            let type_name = entry.def.type_name();
-
-            // If def.namespace is empty it means its a nested type and we need to find its dependencies to avoid type slicing.
-            if type_name.namespace.is_empty() {
-                self.import_type_dependencies(&entry.def, TypeInclude::Minimal);
-            } else {
-                self.import_type_include(type_name.namespace, type_name.name, entry.include);
-            }
-        }
+        def.include_dependencies(self, include);
     }
 
     pub fn include_type_name<T: HasTypeName>(&mut self, type_name: T, include: TypeInclude) -> bool {

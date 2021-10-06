@@ -42,10 +42,6 @@ impl Field {
         Row::new(row, TableIndex::TypeDef, self.0.file).into()
     }
 
-    pub fn dependencies(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        self.signature().kind.definition(include)
-    }
-
     pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
         self.signature().kind.include_definition(reader, include)
     }
@@ -61,10 +57,6 @@ impl Field {
         TypeReader::get()
             .signature_from_blob(&mut blob, &[])
             .expect("Field")
-    }
-
-    pub fn definition(&self, include: TypeInclude) -> Vec<TypeEntry> {
-        self.signature().definition(include)
     }
 
     pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
