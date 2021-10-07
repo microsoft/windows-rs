@@ -46,12 +46,18 @@ fn gen_type_entry(entry: &TypeEntry, gen: &Gen) -> TokenStream {
         return TokenStream::new();
     }
 
-    match &entry.def {
+    let mut tokens = TokenStream::new();
+
+    for def in &entry.def {
+    tokens.combine(&match def {
         ElementType::TypeDef(def) => gen_type(&def.clone().with_generics(), gen, entry.include),
         ElementType::MethodDef(def) => gen_function(def, gen),
         ElementType::Field(def) => gen_constant(def, gen),
         _ => unimplemented!(),
-    }
+    });
+}
+
+    tokens
 }
 
 fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {

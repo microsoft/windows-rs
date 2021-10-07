@@ -267,7 +267,7 @@ impl TypeDefOrRef {
 
     pub fn resolve(&self) -> TypeDef {
         match self {
-            Self::TypeDef(value) => value.resolve(),
+            Self::TypeDef(value) => value.clone(),
             Self::TypeRef(value) => value.resolve(),
             _ => unimplemented!(),
         }
