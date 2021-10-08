@@ -19,7 +19,9 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         let signature = gen_sig(&signature, gen);
 
         let convertible = if let Some(dependency) = def.is_convertible_to() {
-            let dependency = gen_type_name(&dependency, gen);
+            let type_name = dependency.type_name();
+            let mut dependency = gen.namespace(type_name.namespace());
+            dependency.push_str(type_name.name());
 
             quote! {
                 impl<'a> ::windows::IntoParam<'a, #dependency> for #name {

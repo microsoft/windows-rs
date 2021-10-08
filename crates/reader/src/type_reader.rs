@@ -141,16 +141,26 @@ impl TypeReader {
         if let Some(entry) = self
             .types
             .get_namespace_mut(namespace)
-            .and_then(|tree| tree.get_type_mut(name))
+            .and_then(|tree| tree.get_type(name))
         {
-            if include == TypeInclude::Full {
-                if entry.include != TypeInclude::Full {
-                    entry.include = TypeInclude::Full;
-                    entry.def.clone().include_dependencies(self, include);
+            let entry = entry as *const _ as *mut TypeEntry;
+
+            unsafe {
+                if include == TypeInclude::Full {
+                    if (*entry).include != TypeInclude::Full {
+                        (*entry).include = TypeInclude::Full;
+                        (*entry)
+                            .def
+                            .iter()
+                            .for_each(|def| def.include_dependencies(self, include));
+                    }
+                } else if (*entry).include == TypeInclude::None {
+                    (*entry).include = TypeInclude::Minimal;
+                    (*entry)
+                        .def
+                        .iter()
+                        .for_each(|def| def.include_dependencies(self, include));
                 }
-            } else if entry.include == TypeInclude::None {
-                entry.include = TypeInclude::Minimal;
-                entry.def.clone().include_dependencies(self, include);
             }
 
             true
@@ -166,18 +176,18 @@ impl TypeReader {
         self.nested.get(&enclosing.row)
     }
 
-    pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<ElementType> {
+    pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<&ElementType> {
         self.types
             .get_namespace(type_name.namespace())
             .and_then(|tree| tree.get_type(type_name.name()))
-            .map(|entry| entry.def.clone())
+            .and_then(|entry| entry.def.first())
     }
 
     pub fn expect_type_def<T: HasTypeName>(&'static self, type_name: T) -> TypeDef {
         self.get_type(type_name)
             .and_then(|def| {
                 if let ElementType::TypeDef(def) = def {
-                    Some(def)
+                    Some(def.clone())
                 } else {
                     None
                 }

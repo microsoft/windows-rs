@@ -46,12 +46,20 @@ fn gen_type_entry(entry: &TypeEntry, gen: &Gen) -> TokenStream {
         return TokenStream::new();
     }
 
-    match &entry.def {
-        ElementType::TypeDef(def) => gen_type(&def.clone().with_generics(), gen, entry.include),
-        ElementType::MethodDef(def) => gen_function(def, gen),
-        ElementType::Field(def) => gen_constant(def, gen),
-        _ => unimplemented!(),
+    let mut tokens = TokenStream::new();
+
+    // TODO: replace with regular for loop once multi-arch struct work is complete.
+    for def in entry.def.first().iter() {
+        // for def in &entry.def {
+        tokens.combine(&match def {
+            ElementType::TypeDef(def) => gen_type(&def.clone().with_generics(), gen, entry.include),
+            ElementType::MethodDef(def) => gen_function(def, gen),
+            ElementType::Field(def) => gen_constant(def, gen),
+            _ => unimplemented!(),
+        });
     }
+
+    tokens
 }
 
 fn gen_type(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {

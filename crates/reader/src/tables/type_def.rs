@@ -243,7 +243,7 @@ impl TypeDef {
         unimplemented!();
     }
 
-    pub fn interface_signature(&self) -> String {
+    fn interface_signature(&self) -> String {
         let guid = self.guid();
 
         if self.generics.is_empty() {
@@ -385,19 +385,11 @@ impl TypeDef {
         })
     }
 
-    pub fn is_convertible_to(&self) -> Option<TypeDef> {
+    pub fn is_convertible_to(&self) -> Option<&ElementType> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
-                    return TypeReader::get()
-                        .get_type((self.namespace(), name.as_str()))
-                        .and_then(|row| {
-                            if let ElementType::TypeDef(def) = row {
-                                Some(def)
-                            } else {
-                                None
-                            }
-                        });
+                    return TypeReader::get().get_type((self.namespace(), name.as_str()));
                 }
             }
 
@@ -506,13 +498,6 @@ impl TypeDef {
             .iter()
             .flat_map(|interface| interface.methods().map(|method| method.name()))
             .collect()
-    }
-
-    // May need to "re-resolve" the TypeDef as it may point to an arch-specific
-    // definition. This lets the TypeTree be built for a specific architecture
-    // without accidentally pulling in the wrong definition.
-    pub fn resolve(&self) -> Self {
-        TypeReader::get().expect_type_def(self.type_name())
     }
 }
 

@@ -166,7 +166,7 @@ fn get_public_composable(
 ) -> Option<TypeDef> {
     if let Some(ElementType::TypeDef(def)) = reader.get_type((namespace, name)) {
         if def.is_public_composable() {
-            return Some(def);
+            return Some(def.clone());
         }
     }
 
@@ -176,7 +176,7 @@ fn get_public_composable(
 fn get_implementable(reader: &'static TypeReader, namespace: &str, name: &str) -> Option<TypeDef> {
     if let Some(ElementType::TypeDef(def)) = reader.get_type((namespace, name)) {
         match def.kind() {
-            TypeKind::Class | TypeKind::Interface => return Some(def),
+            TypeKind::Class | TypeKind::Interface => return Some(def.clone()),
             _ => {}
         }
     }

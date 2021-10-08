@@ -8,9 +8,15 @@ pub enum TypeInclude {
     None,
 }
 
-#[derive(Clone, Eq, PartialEq, Ord, PartialOrd)]
+impl Default for TypeInclude {
+    fn default() -> Self {
+        Self::None
+    }
+}
+
+#[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Default)]
 pub struct TypeEntry {
-    pub def: ElementType,
+    pub def: Vec<ElementType>,
     pub include: TypeInclude,
 }
 
@@ -48,10 +54,7 @@ impl TypeTree {
     }
 
     pub fn insert_type(&mut self, name: &'static str, def: ElementType) {
-        self.types.entry(name).or_insert_with(|| TypeEntry {
-            def,
-            include: TypeInclude::None,
-        });
+        self.types.entry(name).or_default().def.push(def);
     }
 
     // TODO: slow method - remove or make this an iterator somehow?
@@ -71,10 +74,6 @@ impl TypeTree {
 
     pub fn get_type(&self, name: &str) -> Option<&TypeEntry> {
         self.types.get(name)
-    }
-
-    pub fn get_type_mut(&mut self, name: &str) -> Option<&mut TypeEntry> {
-        self.types.get_mut(name)
     }
 
     pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
