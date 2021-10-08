@@ -1,6 +1,7 @@
 use crate::*;
 
 /// Win32 handle types implement this trait to simplify error handling.
+/// # Safety
 pub unsafe trait Handle: Sized + PartialEq {
     fn is_invalid(&self) -> bool {
         *self == unsafe { std::mem::zeroed() }

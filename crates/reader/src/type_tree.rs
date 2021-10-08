@@ -54,9 +54,7 @@ impl TypeTree {
     }
 
     pub fn insert_type(&mut self, name: &'static str, def: ElementType) {
-        self.types.entry(name).or_default().def.push(
-            def,
-        );
+        self.types.entry(name).or_default().def.push(def);
     }
 
     // TODO: slow method - remove or make this an iterator somehow?

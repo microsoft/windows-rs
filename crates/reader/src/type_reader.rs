@@ -149,11 +149,17 @@ impl TypeReader {
                 if include == TypeInclude::Full {
                     if (*entry).include != TypeInclude::Full {
                         (*entry).include = TypeInclude::Full;
-                        (*entry).def.iter().for_each(|def|def.include_dependencies(self, include));
+                        (*entry)
+                            .def
+                            .iter()
+                            .for_each(|def| def.include_dependencies(self, include));
                     }
                 } else if (*entry).include == TypeInclude::None {
                     (*entry).include = TypeInclude::Minimal;
-                    (*entry).def.iter().for_each(|def|def.include_dependencies(self, include));
+                    (*entry)
+                        .def
+                        .iter()
+                        .for_each(|def| def.include_dependencies(self, include));
                 }
             }
 

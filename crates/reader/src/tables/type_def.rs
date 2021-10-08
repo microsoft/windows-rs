@@ -389,8 +389,7 @@ impl TypeDef {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
-                    return TypeReader::get()
-                        .get_type((self.namespace(), name.as_str()));
+                    return TypeReader::get().get_type((self.namespace(), name.as_str()));
                 }
             }
 

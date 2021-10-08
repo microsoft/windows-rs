@@ -5,6 +5,7 @@ use bindings::Windows::Win32::System::WinRT::IWeakReferenceSource;
 ///
 /// This trait is automatically used by the generated bindings and should not be
 /// used directly.
+/// # Safety
 pub unsafe trait Interface: Sized + Abi + PartialEq {
     #[doc(hidden)]
     type Vtable;

@@ -1,5 +1,7 @@
+/// # Safety
 pub unsafe trait Pod {}
 
+/// # Safety
 pub unsafe trait CopyPod: Copy {}
 
 unsafe impl CopyPod for u8 {}
