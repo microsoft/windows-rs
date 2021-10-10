@@ -60,13 +60,13 @@ impl HSTRING {
         }
 
         unsafe {
-            // This flag indicates a "fast pass" string created by some languages where the
+            // This flag indicates a "fast pass" string created by some APIs where the
             // header is allocated on the stack. Such strings must never be freed.
             let header = self.0;
-            debug_assert!((*header).flags & REFERENCE_FLAG == 0);
-
-            if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
-                heap_free(self.0 as RawPtr);
+            if (*header).flags & REFERENCE_FLAG == 0 {
+                if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
+                    heap_free(self.0 as RawPtr);
+                }
             }
         }
 
