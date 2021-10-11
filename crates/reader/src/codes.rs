@@ -224,38 +224,6 @@ impl MemberForwarded {
     }
 }
 
-#[derive(Clone)]
-pub enum ResolutionScope {
-    Module(Module),
-    ModuleRef(ModuleRef),
-    AssemblyRef(AssemblyRef),
-    TypeRef(TypeRef),
-}
-
-impl Decode for ResolutionScope {
-    fn decode(file: &'static File, code: u32) -> Self {
-        let code = (code & ((1 << 2) - 1), (code >> 2) - 1);
-        match code.0 {
-            0 => Self::Module(Module(Row::new(code.1, TableIndex::Module, file))),
-            1 => Self::ModuleRef(ModuleRef(Row::new(code.1, TableIndex::ModuleRef, file))),
-            2 => Self::AssemblyRef(AssemblyRef(Row::new(code.1, TableIndex::AssemblyRef, file))),
-            3 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
-            _ => unimplemented!(),
-        }
-    }
-}
-
-impl ResolutionScope {
-    pub fn encode(&self) -> u32 {
-        match self {
-            Self::Module(value) => ((value.0.row + 1) << 2),
-            Self::ModuleRef(value) => ((value.0.row + 1) << 2) | 1,
-            Self::AssemblyRef(value) => ((value.0.row + 1) << 2) | 2,
-            Self::TypeRef(value) => ((value.0.row + 1) << 2) | 3,
-        }
-    }
-}
-
 impl TypeDefOrRef {
     pub fn type_name(&self) -> TypeName {
         match self {
@@ -265,10 +233,10 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn resolve(&self) -> TypeDef {
+    pub fn resolve(&self, enclosing: Option<&TypeDef>) -> TypeDef {
         match self {
             Self::TypeDef(value) => value.clone(),
-            Self::TypeRef(value) => value.resolve(),
+            Self::TypeRef(value) => TypeReader::get().expect_type_ref(enclosing, value),
             _ => unimplemented!(),
         }
     }

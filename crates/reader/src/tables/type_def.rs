@@ -84,28 +84,29 @@ impl TypeDef {
             return true;
         }
 
-        self.fields().any(|field| field.signature().is_packed())
+        self.fields()
+            .any(|field| field.signature(Some(self)).is_packed())
     }
 
     pub fn is_handle(&self) -> bool {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
+    pub fn include_definition(&self, include: TypeInclude) {
         let type_name = self.type_name();
 
         if type_name.namespace().is_empty() {
-            self.include_dependencies(reader, TypeInclude::Minimal);
+            self.include_dependencies(TypeInclude::Minimal);
         } else {
-            reader.include_type_name(type_name, include);
+            TypeReader::get_mut().include_type_name(type_name, include);
 
             for generic in &self.generics {
-                generic.include_definition(reader, include);
+                generic.include_definition(include);
             }
         }
     }
 
-    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
+    pub fn include_dependencies(&self, include: TypeInclude) {
         match self.kind() {
             TypeKind::Interface => {
                 if include == TypeInclude::Minimal {
@@ -113,13 +114,13 @@ impl TypeDef {
                 }
 
                 self.interfaces()
-                    .for_each(|i| i.include_definition(reader, include));
-                self.methods().for_each(|m| m.include_dependencies(reader));
+                    .for_each(|i| i.include_definition(include));
+                self.methods().for_each(|m| m.include_dependencies());
             }
             TypeKind::Class => {
                 if include == TypeInclude::Minimal {
                     if let Some(default_interface) = self.default_interface() {
-                        default_interface.include_definition(reader, TypeInclude::Minimal);
+                        default_interface.include_definition(TypeInclude::Minimal);
                     }
 
                     return;
@@ -127,19 +128,19 @@ impl TypeDef {
 
                 self.generics
                     .iter()
-                    .for_each(|g| g.include_definition(reader, TypeInclude::Minimal));
+                    .for_each(|g| g.include_definition(TypeInclude::Minimal));
 
                 self.interfaces()
-                    .for_each(|i| i.include_definition(reader, TypeInclude::Full));
+                    .for_each(|i| i.include_definition(TypeInclude::Full));
                 self.bases()
-                    .for_each(|b| b.include_definition(reader, TypeInclude::Full));
+                    .for_each(|b| b.include_definition(TypeInclude::Full));
 
                 self.attributes()
                     .for_each(|attribute| match attribute.name() {
                         "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                             for (_, arg) in attribute.args() {
                                 if let ConstantValue::TypeDef(def) = arg {
-                                    def.include_definition(reader, TypeInclude::Full);
+                                    def.include_definition(TypeInclude::Full);
                                 }
                             }
                         }
@@ -148,13 +149,13 @@ impl TypeDef {
             }
             TypeKind::Struct => {
                 self.fields()
-                    .for_each(|f| f.include_definition(reader, TypeInclude::Minimal));
+                    .for_each(|f| f.include_definition(Some(self), TypeInclude::Minimal));
 
                 if let Some(dependency) = self.is_convertible_to() {
-                    dependency.include_definition(reader, TypeInclude::Minimal);
+                    dependency.include_definition(TypeInclude::Minimal);
                 }
             }
-            TypeKind::Delegate => self.invoke_method().include_dependencies(reader),
+            TypeKind::Delegate => self.invoke_method().include_dependencies(),
             TypeKind::Enum => {}
         }
     }
@@ -188,7 +189,8 @@ impl TypeDef {
         if self.is_explicit() {
             true
         } else {
-            self.fields().any(|f| f.signature().has_explicit())
+            self.fields()
+                .any(|f| f.signature(Some(self)).has_explicit())
         }
     }
 
@@ -215,7 +217,7 @@ impl TypeDef {
 
                 for field in self.fields() {
                     result.push(';');
-                    result.push_str(&field.signature().kind.type_signature());
+                    result.push_str(&field.signature(Some(self)).kind.type_signature());
                 }
 
                 result.push(')');
@@ -236,7 +238,7 @@ impl TypeDef {
             if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
-                return field.signature().kind;
+                return field.signature(Some(self)).kind;
             }
         }
 
@@ -414,7 +416,7 @@ impl TypeDef {
                 if self.type_name() == TypeName::BSTR {
                     false
                 } else {
-                    self.fields().all(|f| f.is_blittable())
+                    self.fields().all(|f| f.is_blittable(Some(self)))
                 }
             }
             TypeKind::Enum => true,
@@ -483,7 +485,7 @@ impl TypeDef {
     pub fn overridable_interfaces(&self) -> Vec<TypeDef> {
         self.interface_impls()
             .filter(|interface| interface.is_overridable())
-            .map(|interface| interface.interface().resolve())
+            .map(|interface| interface.interface().resolve(None))
             .chain(
                 self.bases()
                     .next()

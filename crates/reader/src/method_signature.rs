@@ -15,13 +15,13 @@ pub struct MethodParam {
 }
 
 impl MethodSignature {
-    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
+    pub fn include_dependencies(&self, include: TypeInclude) {
         if let Some(return_sig) = &self.return_sig {
-            return_sig.include_definition(reader, include);
+            return_sig.include_definition(include);
         }
 
         for param in &self.params {
-            param.signature.include_definition(reader, include);
+            param.signature.include_definition(include);
         }
     }
 

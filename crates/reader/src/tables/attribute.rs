@@ -28,7 +28,7 @@ impl Attribute {
         let mut args: Vec<(String, ConstantValue)> = Vec::with_capacity(fixed_arg_count as usize);
 
         for _ in 0..fixed_arg_count {
-            let arg = match reader.type_from_blob(&mut sig, &[]) {
+            let arg = match reader.type_from_blob(&mut sig, None, &[]) {
                 ElementType::I8 => ConstantValue::I8(values.read_i8()),
                 ElementType::U8 => ConstantValue::U8(values.read_u8()),
                 ElementType::I16 => ConstantValue::I16(values.read_i16()),

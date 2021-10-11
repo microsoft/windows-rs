@@ -141,26 +141,22 @@ impl TypeReader {
         if let Some(entry) = self
             .types
             .get_namespace_mut(namespace)
-            .and_then(|tree| tree.get_type(name))
+            .and_then(|tree| tree.get_type_mut(name))
         {
-            let entry = entry as *const _ as *mut TypeEntry;
-
-            unsafe {
-                if include == TypeInclude::Full {
-                    if (*entry).include != TypeInclude::Full {
-                        (*entry).include = TypeInclude::Full;
-                        (*entry)
-                            .def
-                            .iter()
-                            .for_each(|def| def.include_dependencies(self, include));
-                    }
-                } else if (*entry).include == TypeInclude::None {
-                    (*entry).include = TypeInclude::Minimal;
-                    (*entry)
+            if include == TypeInclude::Full {
+                if entry.include != TypeInclude::Full {
+                    entry.include = TypeInclude::Full;
+                    entry
                         .def
                         .iter()
-                        .for_each(|def| def.include_dependencies(self, include));
+                        .for_each(|def| def.include_dependencies(include));
                 }
+            } else if entry.include == TypeInclude::None {
+                entry.include = TypeInclude::Minimal;
+                entry
+                    .def
+                    .iter()
+                    .for_each(|def| def.include_dependencies(include));
             }
 
             true
@@ -201,26 +197,35 @@ impl TypeReader {
             })
     }
 
-    pub fn expect_type_ref(&'static self, type_ref: &TypeRef) -> TypeDef {
-        if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
-            self.nested[&scope.resolve().row]
-                .get(type_ref.name())
-                .unwrap_or_else(|| {
-                    panic!(
-                        "Could not find nested type `{}` in `{}`",
-                        type_ref.name(),
-                        scope.type_name()
-                    )
-                })
-                .clone()
-        } else {
-            self.expect_type_def(type_ref.type_name())
+    pub fn expect_type_ref(
+        &'static self,
+        enclosing: Option<&TypeDef>,
+        type_ref: &TypeRef,
+    ) -> TypeDef {
+        let type_name = type_ref.type_name();
+
+        if let Some(enclosing) = enclosing {
+            if type_name.namespace.is_empty() {
+                return self.nested[&enclosing.row]
+                    .get(type_name.name)
+                    .unwrap_or_else(|| {
+                        panic!(
+                            "Could not find nested type `{}` in `{}`",
+                            type_name.name,
+                            enclosing.type_name(),
+                        )
+                    })
+                    .clone();
+            }
         }
+
+        self.expect_type_def(type_name)
     }
 
     pub fn signature_from_blob(
         &'static self,
         blob: &mut Blob,
+        enclosing: Option<&TypeDef>,
         generics: &[ElementType],
     ) -> Option<Signature> {
         let is_const = blob
@@ -242,7 +247,7 @@ impl TypeReader {
             pointers += 1;
         }
 
-        let kind = self.type_from_blob(blob, generics);
+        let kind = self.type_from_blob(blob, enclosing, generics);
 
         Some(Signature {
             kind,
@@ -256,11 +261,12 @@ impl TypeReader {
     pub fn type_from_code(
         &'static self,
         code: &TypeDefOrRef,
+        enclosing: Option<&TypeDef>,
         generics: &[ElementType],
     ) -> ElementType {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob();
-            return self.type_from_blob(&mut blob, generics);
+            return self.type_from_blob(&mut blob, enclosing, generics);
         }
 
         let full_name = code.type_name();
@@ -277,10 +283,15 @@ impl TypeReader {
             }
         }
 
-        code.resolve().into()
+        code.resolve(enclosing).into()
     }
 
-    pub fn type_from_blob(&'static self, blob: &mut Blob, generics: &[ElementType]) -> ElementType {
+    pub fn type_from_blob(
+        &'static self,
+        blob: &mut Blob,
+        enclosing: Option<&TypeDef>,
+        generics: &[ElementType],
+    ) -> ElementType {
         let code = blob.read_unsigned();
 
         if let Some(code) = ElementType::from_code(code) {
@@ -290,6 +301,7 @@ impl TypeReader {
         match code {
             0x11 | 0x12 => self.type_from_code(
                 &TypeDefOrRef::decode(blob.file, blob.read_unsigned()),
+                enclosing,
                 generics,
             ),
             0x13 => generics
@@ -297,7 +309,7 @@ impl TypeReader {
                 .unwrap_or(&ElementType::Void)
                 .clone(),
             0x14 => {
-                let kind = self.signature_from_blob(blob, generics).unwrap();
+                let kind = self.signature_from_blob(blob, enclosing, generics).unwrap();
                 let _rank = blob.read_unsigned();
                 let _bounds_count = blob.read_unsigned();
                 let bounds = blob.read_unsigned();
@@ -306,11 +318,13 @@ impl TypeReader {
             0x15 => {
                 blob.read_unsigned();
 
-                let mut def = TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve();
+                let mut def =
+                    TypeDefOrRef::decode(blob.file, blob.read_unsigned()).resolve(enclosing);
                 let args = blob.read_unsigned();
 
                 for _ in 0..args {
-                    def.generics.push(self.type_from_blob(blob, generics));
+                    def.generics
+                        .push(self.type_from_blob(blob, enclosing, generics));
                 }
 
                 ElementType::TypeDef(def)

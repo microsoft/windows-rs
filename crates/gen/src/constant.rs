@@ -3,7 +3,7 @@ use super::*;
 pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
     let name = def.name();
     let name = to_ident(name);
-    let signature = def.signature();
+    let signature = def.signature(None);
 
     if let Some(constant) = def.constant() {
         if signature.kind == constant.value_type() {

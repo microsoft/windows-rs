@@ -1,5 +1,3 @@
-// TODO: split the parsing code from teh gen code
-
 use super::*;
 
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd, Default)]
@@ -12,12 +10,12 @@ pub struct Signature {
 }
 
 impl Signature {
-    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
-        self.kind.include_definition(reader, include)
+    pub fn include_definition(&self, include: TypeInclude) {
+        self.kind.include_definition(include)
     }
 
-    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
-        self.kind.include_dependencies(reader, include)
+    pub fn include_dependencies(&self, include: TypeInclude) {
+        self.kind.include_dependencies(include)
     }
 
     pub fn is_blittable(&self) -> bool {
