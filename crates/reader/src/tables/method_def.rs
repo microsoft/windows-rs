@@ -22,18 +22,6 @@ impl MethodDef {
         self.0.str(3)
     }
 
-    pub fn parent(&self) -> TypeDef {
-        let row = self.0.file.upper_bound_of(
-            TableIndex::TypeDef,
-            0,
-            self.0.file.tables[TableIndex::TypeDef as usize].row_count,
-            5,
-            self.0.row + 1,
-        ) - 1;
-
-        Row::new(row, TableIndex::TypeDef, self.0.file).into()
-    }
-
     pub fn rust_name(&self) -> String {
         let name = self.name();
 
@@ -114,7 +102,7 @@ impl MethodDef {
         blob.read_unsigned();
         blob.read_unsigned(); // parameter count
 
-        let return_sig = reader.signature_from_blob(&mut blob, generics);
+        let return_sig = reader.signature_from_blob(&mut blob, None, generics);
         let mut return_param = None;
 
         let params = params
@@ -126,7 +114,7 @@ impl MethodDef {
                     Some(MethodParam {
                         param,
                         signature: reader
-                            .signature_from_blob(&mut blob, generics)
+                            .signature_from_blob(&mut blob, None, generics)
                             .expect("MethodDef"),
                     })
                 }
@@ -140,8 +128,8 @@ impl MethodDef {
         }
     }
 
-    pub fn include_dependencies(&self, reader: &mut TypeReader) {
+    pub fn include_dependencies(&self) {
         self.signature(&[])
-            .include_dependencies(reader, TypeInclude::Minimal)
+            .include_dependencies(TypeInclude::Minimal)
     }
 }

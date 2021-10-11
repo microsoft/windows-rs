@@ -30,41 +30,29 @@ impl Field {
             .next()
     }
 
-    pub fn parent(&self) -> TypeDef {
-        let row = self.0.file.upper_bound_of(
-            TableIndex::TypeDef,
-            0,
-            self.0.file.tables[TableIndex::TypeDef as usize].row_count,
-            4,
-            self.0.row + 1,
-        ) - 1;
-
-        Row::new(row, TableIndex::TypeDef, self.0.file).into()
+    pub fn include_definition(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
+        self.signature(enclosing).include_definition(include)
     }
 
-    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
-        self.signature().kind.include_definition(reader, include)
+    pub fn include_dependencies(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
+        self.signature(enclosing).kind.include_definition(include)
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0.file.attributes(HasAttribute::Field(self.clone()))
     }
 
-    pub fn signature(&self) -> Signature {
+    pub fn signature(&self, enclosing: Option<&TypeDef>) -> Signature {
         let mut blob = self.0.blob(2);
         blob.read_unsigned();
         blob.read_modifiers();
         TypeReader::get()
-            .signature_from_blob(&mut blob, &[])
+            .signature_from_blob(&mut blob, enclosing, &[])
             .expect("Field")
     }
 
-    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
-        self.signature().include_definition(reader, include)
-    }
-
-    pub fn is_blittable(&self) -> bool {
-        self.signature().is_blittable()
+    pub fn is_blittable(&self, enclosing: Option<&TypeDef>) -> bool {
+        self.signature(enclosing).is_blittable()
     }
 }
 
@@ -79,7 +67,7 @@ mod tests {
         let f: Vec<Field> = r.fields().collect();
         assert_eq!(f.len(), 4);
 
-        let s = f[0].signature();
+        let s = f[0].signature(None);
         assert!(s.kind == ElementType::F32);
     }
 }

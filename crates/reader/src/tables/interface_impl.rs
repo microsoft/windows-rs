@@ -27,6 +27,6 @@ impl InterfaceImpl {
     }
 
     pub fn generic_interface(&self, generics: &[ElementType]) -> ElementType {
-        TypeReader::get().type_from_code(&self.interface(), generics)
+        TypeReader::get().type_from_code(&self.interface(), None, generics)
     }
 }

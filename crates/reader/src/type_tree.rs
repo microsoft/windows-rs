@@ -76,6 +76,10 @@ impl TypeTree {
         self.types.get(name)
     }
 
+    pub fn get_type_mut(&mut self, name: &str) -> Option<&mut TypeEntry> {
+        self.types.get_mut(name)
+    }
+
     pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
         self.get_namespace_pos(namespace, 0)
     }

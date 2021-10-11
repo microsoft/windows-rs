@@ -265,10 +265,10 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn resolve(&self) -> TypeDef {
+    pub fn resolve(&self, enclosing: Option<&TypeDef>) -> TypeDef {
         match self {
             Self::TypeDef(value) => value.clone(),
-            Self::TypeRef(value) => value.resolve(),
+            Self::TypeRef(value) => TypeReader::get().expect_type_ref(enclosing, value),
             _ => unimplemented!(),
         }
     }

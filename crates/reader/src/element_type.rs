@@ -24,7 +24,7 @@ pub enum ElementType {
     HRESULT,
     TypeName,
     GenericParam(String),
-    Array((Box<Signature>, u32)), // TODO: store Blob rather than Signature or rip gen stuff out of Signature and use that?
+    Array((Box<Signature>, u32)),
     MethodDef(MethodDef),
     Field(Field),
     TypeDef(TypeDef),
@@ -100,8 +100,6 @@ impl ElementType {
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::TypeDef(def) => def.type_name(),
-            Self::MethodDef(def) => TypeName::new(def.parent().namespace(), def.name()),
-            Self::Field(def) => TypeName::new(def.parent().namespace(), def.name()),
             _ => unimplemented!(),
         }
     }
@@ -128,20 +126,20 @@ impl ElementType {
         }
     }
 
-    pub fn include_dependencies(&self, reader: &mut TypeReader, include: TypeInclude) {
+    pub fn include_dependencies(&self, include: TypeInclude) {
         match self {
-            Self::MethodDef(t) => t.include_dependencies(reader),
-            Self::TypeDef(t) => t.include_dependencies(reader, include),
-            Self::Field(t) => t.include_dependencies(reader, include),
-            Self::Array((signature, _)) => signature.include_dependencies(reader, include),
+            Self::MethodDef(t) => t.include_dependencies(),
+            Self::TypeDef(t) => t.include_dependencies(include),
+            Self::Field(t) => t.include_dependencies(None, include),
+            Self::Array((signature, _)) => signature.include_dependencies(include),
             _ => {}
         }
     }
 
-    pub fn include_definition(&self, reader: &mut TypeReader, include: TypeInclude) {
+    pub fn include_definition(&self, include: TypeInclude) {
         match self {
-            Self::TypeDef(t) => t.include_definition(reader, include),
-            Self::Array((signature, _)) => signature.include_definition(reader, include),
+            Self::TypeDef(t) => t.include_definition(include),
+            Self::Array((signature, _)) => signature.include_definition(include),
             _ => {}
         }
     }

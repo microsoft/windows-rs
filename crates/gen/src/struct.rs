@@ -15,7 +15,11 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     let name = to_ident(struct_name);
 
     if def.is_handle() {
-        let signature = def.fields().next().map(|field| field.signature()).unwrap();
+        let signature = def
+            .fields()
+            .next()
+            .map(|field| field.signature(Some(def)))
+            .unwrap();
         let signature = gen_sig(&signature, gen);
 
         let convertible = if let Some(dependency) = def.is_convertible_to() {
@@ -66,7 +70,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             if f.is_literal() {
                 None
             } else {
-                let signature = f.signature();
+                let signature = f.signature(Some(def));
                 let name = f.name();
                 Some((f, signature, to_ident(name)))
             }
@@ -382,12 +386,12 @@ mod tests {
         assert_eq!(f[5].name(), "CompositionMode");
         assert_eq!(f[6].name(), "ApprovedPresentDuration");
 
-        assert!(f[0].signature().kind == ElementType::U32);
-        assert!(f[1].signature().kind == ElementType::U32);
-        assert!(f[2].signature().kind == ElementType::U32);
-        assert!(f[3].signature().kind == ElementType::I64);
-        assert!(f[4].signature().kind == ElementType::I64);
-        assert!(f[6].signature().kind == ElementType::U32);
+        assert!(f[0].signature(None).kind == ElementType::U32);
+        assert!(f[1].signature(None).kind == ElementType::U32);
+        assert!(f[2].signature(None).kind == ElementType::U32);
+        assert!(f[3].signature(None).kind == ElementType::I64);
+        assert!(f[4].signature(None).kind == ElementType::I64);
+        assert!(f[6].signature(None).kind == ElementType::U32);
     }
 
     #[test]
