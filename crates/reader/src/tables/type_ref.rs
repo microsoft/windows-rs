@@ -4,10 +4,6 @@ use super::*;
 pub struct TypeRef(pub Row);
 
 impl TypeRef {
-    pub fn scope(&self) -> ResolutionScope {
-        self.0.decode(0)
-    }
-
     pub fn name(&self) -> &'static str {
         self.0.str(1)
     }
