@@ -11,6 +11,7 @@ pub fn gen_source_file(tree: &TypeTree) -> TokenStream {
     });
 
     quote! {
+        #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
         #(#namespaces)*
         #(#types)*
     }
