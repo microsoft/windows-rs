@@ -1,5 +1,21 @@
 use super::*;
 
+pub fn gen_source_file(tree: &TypeTree) -> TokenStream {
+    let gen = Gen::Relative(tree.namespace);
+
+    let types = tree.types.values().map(move |t| gen_type_entry(t, &gen));
+
+    let namespaces = tree.namespaces.keys().map(move |name| {
+        let name = to_ident(name);
+        quote! { pub mod #name; }
+    });
+
+    quote! {
+        #(#namespaces)*
+        #(#types)*
+    }
+}
+
 pub fn gen_source_tree() -> TokenStream {
     let reader = TypeReader::get();
 
