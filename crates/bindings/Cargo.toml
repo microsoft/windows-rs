@@ -2,6 +2,7 @@
 name = "windows_bindings"
 version = "0.0.0"
 edition = "2018"
+publish = false
 
 [dependencies]
 windows_macros = { path = "../macros", version = "0.21.1" }
