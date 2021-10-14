@@ -87,13 +87,16 @@ pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         return TokenStream::new(); 
     }
 
-    let mut tokens = TokenStream::with_capacity();
+    let mut dependencies = "#[cfg(all(".to_string();
 
-    // TODO: build cfg feature macro 
+    for feature in features {
+        let feature = &feature[gen.feature.len() + 1 ..];
+        dependencies.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
+    }
 
-    // TODO: code should be shared with toml builder
+    dependencies.truncate(dependencies.len() - 2);
+    dependencies.push_str("))]");
 
 
-
-    tokens
+    dependencies.into()
 }
