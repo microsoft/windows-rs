@@ -8,25 +8,25 @@ fn main() {
 
     let mut output = std::path::PathBuf::from(&output);
 
-    //let _ = std::fs::remove_dir_all(&output);
+    let _ = std::fs::remove_dir_all(&output);
     let reader = reader::TypeReader::get_mut();
     include_all(&mut reader.types);
 
     let root = reader.types.get_namespace("Windows").unwrap();
 
-    //gen_tree(&output, root.namespace, root);
+    gen_tree(&output, root.namespace, root);
 
     output.pop();
     output.push("Cargo.toml");
 
     write_toml(&output, root);
 
-    // println!("Formatting...");
-    // let mut cmd = std::process::Command::new("cargo");
-    // cmd.arg("fmt");
-    // cmd.arg("--manifest-path");
-    // cmd.arg(output);
-    // cmd.output().unwrap();
+    println!("Formatting...");
+    let mut cmd = std::process::Command::new("cargo");
+    cmd.arg("fmt");
+    cmd.arg("--manifest-path");
+    cmd.arg(output);
+    cmd.output().unwrap();
 }
 
 fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
