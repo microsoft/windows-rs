@@ -3,6 +3,7 @@ use super::*;
 pub struct Gen {
     pub relative: &'static str,
     pub features: bool,
+    // TODO features should be a feature field of string type (not bool) to hold the root feature to check against
 }
 
 impl Gen {

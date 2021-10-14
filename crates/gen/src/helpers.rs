@@ -69,10 +69,31 @@ pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     if !gen.features {
         return TokenStream::new();
     }
-    
-    let mut tokens = TokenStream::with_capacity();
-    let features = sig.method_features();
 
+    let mut features = sig.method_features();
+
+    let mut relative = gen.relative;
+
+    while !relative.is_empty() {
+        features.remove(relative);
+        if let Some(pos) = relative.rfind('.') {
+            relative = &relative[..pos];
+        } else {
+            relative = "";
+        }
+    }
+
+    if features.is_empty() {
+        return TokenStream::new(); 
+    }
+
+    let mut tokens = TokenStream::with_capacity();
+
+    // TODO: build cfg feature macro 
+
+    // TODO: code should be shared with toml builder
+
+    
 
     tokens
 }
