@@ -73,12 +73,12 @@ fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::Ty
         features.insert(&tree.namespace[..pos]);
     }
 
-   // tree.module_features(features);
+    tree.module_features(&mut features);
 
     let mut dependencies = String::new();
 
     for feature in features {
-        if feature.len() > root.len() {
+        if feature.len() > root.len() && feature != tree.namespace {
             let feature = &feature[root.len() + 1 ..];
             dependencies.push_str(&format!("\"{}\", ", feature.replace('.', "_")));
         }
