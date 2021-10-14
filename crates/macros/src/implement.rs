@@ -18,7 +18,7 @@ pub fn gen(
     let mut shims = TokenStream::with_capacity();
     let mut queries = TokenStream::with_capacity();
     let mut query_constants = TokenStream::with_capacity();
-    let gen = gen::Gen::Absolute;
+    let gen = gen::Gen::absolute();
 
     let mut generics = BTreeSet::new();
 

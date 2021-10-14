@@ -287,19 +287,19 @@ mod tests {
         assert_eq!(i.len(), 3);
 
         assert_eq!(
-            gen_type_name(&i[0].def, &Gen::Absolute).as_str(),
+            gen_type_name(&i[0].def, &Gen::absolute()).as_str(),
             "Windows::Foundation::Collections:: IMap :: < :: windows :: HSTRING , :: windows :: HSTRING >"
         );
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
         assert_eq!(
-            gen_type_name(&i[1].def, &Gen::Absolute).as_str(),
+            gen_type_name(&i[1].def, &Gen::absolute()).as_str(),
             "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: HSTRING , :: windows :: HSTRING > >"
         );
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
         assert_eq!(
-            gen_type_name(&i[2].def, &Gen::Absolute).as_str(),
+            gen_type_name(&i[2].def, &Gen::absolute()).as_str(),
             "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: HSTRING , :: windows :: HSTRING >"
         );
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);

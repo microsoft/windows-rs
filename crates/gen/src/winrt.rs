@@ -232,6 +232,8 @@ pub fn gen_winrt_method(
         }
     };
 
+    // TODO: need to consolidate this cfg generation so we 
+
     let deprecated = if method.is_deprecated {
         quote! { #[cfg(feature = "deprecated")] }
     } else {
@@ -345,7 +347,7 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 
 pub fn gen_phantoms(def: &TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
     def.generics.iter().map(move |g| {
-        let g = gen_name(g, &Gen::Absolute);
+        let g = gen_name(g, &Gen::absolute());
         quote! { ::std::marker::PhantomData::<#g> }
     })
 }
@@ -354,7 +356,7 @@ pub fn gen_constraints(def: &TypeDef) -> TokenStream {
     def.generics
         .iter()
         .map(|g| {
-            let g = gen_name(g, &Gen::Absolute);
+            let g = gen_name(g, &Gen::absolute());
             quote! { #g: ::windows::RuntimeType + 'static, }
         })
         .collect()

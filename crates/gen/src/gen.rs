@@ -1,14 +1,21 @@
 use super::*;
 
-pub enum Gen {
-    Absolute,
-    Relative(&'static str),
+pub struct Gen {
+    pub relative: &'static str,
+    pub features: bool,
 }
 
 impl Gen {
+    pub fn absolute() -> Self {
+        Gen{ relative : "", features: false }
+    }
+
+    pub fn relative(namespace: &'static str) -> Self {
+        Gen{ relative : namespace, features: false }
+    }
+
     pub fn namespace(&self, namespace: &str) -> TokenStream {
-        match self {
-            Self::Absolute => {
+        if self.relative.is_empty() {
                 let mut tokens = TokenStream::with_capacity();
 
                 for namespace in namespace.split('.') {
@@ -17,13 +24,12 @@ impl Gen {
                 }
 
                 tokens
-            }
-            Self::Relative(relative) => {
-                if namespace == *relative {
+            } else {
+                if namespace == self.relative {
                     return TokenStream::new();
                 }
 
-                let mut relative = relative.split('.').peekable();
+                let mut relative = self.relative.split('.').peekable();
                 let mut namespace = namespace.split('.').peekable();
 
                 while relative.peek() == namespace.peek() {
@@ -48,7 +54,6 @@ impl Gen {
                 tokens
             }
         }
-    }
 }
 
 #[cfg(test)]
@@ -58,26 +63,26 @@ mod tests {
     #[test]
     fn test_namespace() {
         assert_eq!(
-            Gen::Absolute.namespace("Windows.Foundation").as_str(),
+            Gen::absolute().namespace("Windows.Foundation").as_str(),
             "Windows::Foundation::"
         );
 
         assert_eq!(
-            Gen::Relative("Windows")
+            Gen::relative("Windows")
                 .namespace("Windows.Foundation")
                 .as_str(),
             "Foundation::"
         );
 
         assert_eq!(
-            Gen::Relative("Windows.Foundation")
+            Gen::relative("Windows.Foundation")
                 .namespace("Windows.Foundation")
                 .as_str(),
             ""
         );
 
         assert_eq!(
-            Gen::Relative("Windows.Foundation.Collections")
+            Gen::relative("Windows.Foundation.Collections")
                 .namespace("Windows.Foundation")
                 .as_str(),
             "super::"

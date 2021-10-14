@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn gen_source_file(tree: &TypeTree) -> TokenStream {
-    let gen = Gen::Relative(tree.namespace);
+    let gen = Gen{ relative: tree.namespace, features: true };
 
     let types = tree.types.values().map(move |t| gen_type_entry(t, &gen));
 
@@ -30,7 +30,7 @@ pub fn gen_source_tree() -> TokenStream {
 }
 
 pub fn namespace_iter(tree: &TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
-    let gen = Gen::Relative(tree.namespace);
+    let gen = Gen::relative(tree.namespace);
 
     tree.types
         .iter()
