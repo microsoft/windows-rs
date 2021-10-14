@@ -10,14 +10,6 @@ pub struct Signature {
 }
 
 impl Signature {
-    pub fn include_definition(&self, include: TypeInclude) {
-        self.kind.include_definition(include)
-    }
-
-    pub fn include_dependencies(&self, include: TypeInclude) {
-        self.kind.include_dependencies(include)
-    }
-
     pub fn is_blittable(&self) -> bool {
         self.pointers > 0 || self.kind.is_blittable()
     }

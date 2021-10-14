@@ -8,25 +8,25 @@ fn main() {
 
     let mut output = std::path::PathBuf::from(&output);
 
-    let _ = std::fs::remove_dir_all(&output);
+    //let _ = std::fs::remove_dir_all(&output);
     let reader = reader::TypeReader::get_mut();
     include_all(&mut reader.types);
 
     let root = reader.types.get_namespace("Windows").unwrap();
 
-    gen_tree(&output, root.namespace, root);
+    //gen_tree(&output, root.namespace, root);
 
     output.pop();
     output.push("Cargo.toml");
 
     write_toml(&output, root);
 
-    println!("Formatting...");
-    let mut cmd = std::process::Command::new("cargo");
-    cmd.arg("fmt");
-    cmd.arg("--manifest-path");
-    cmd.arg(output);
-    cmd.output().unwrap();
+    // println!("Formatting...");
+    // let mut cmd = std::process::Command::new("cargo");
+    // cmd.arg("fmt");
+    // cmd.arg("--manifest-path");
+    // cmd.arg(output);
+    // cmd.output().unwrap();
 }
 
 fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
@@ -56,26 +56,41 @@ windows = {{ version = "0.21", default-features = false }}
     )
     .unwrap();
 
-    write_features(&mut file, tree);
+    write_features(&mut file, tree.namespace, tree);
 }
 
-fn write_features(file: &mut std::fs::File, tree: &reader::TypeTree) {
+fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
     for tree in tree.namespaces.values() {
-        write_feature(file, tree.namespace);
-        write_features(file, tree);
+        write_feature(file, root, tree);
+        write_features(file, root, tree);
     }
 }
 
-fn write_feature(file: &mut std::fs::File, namespace: &str) {
-    let namespace = namespace[namespace.find('.').unwrap() + 1..].replace('.', "_");
+fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
+    let mut features = std::collections::BTreeSet::new();
 
-    let parent = if let Some(pos) = namespace.rfind('_') {
-        format!("\"{}\"", &namespace[0..pos])
-    } else {
-        "".to_string()
-    };
+    if let Some(pos) = tree.namespace.rfind('.') {
+        features.insert(&tree.namespace[..pos]);
+    }
 
-    file.write_all(format!("{} = [{}]\n", namespace, parent).as_bytes())
+   // tree.module_features(features);
+
+    let mut dependencies = String::new();
+
+    for feature in features {
+        if feature.len() > root.len() {
+            let feature = &feature[root.len() + 1 ..];
+            dependencies.push_str(&format!("\"{}\", ", feature.replace('.', "_")));
+        }
+    }
+
+    if !dependencies.is_empty() {
+        dependencies.truncate(dependencies.len() - 2);
+    }
+
+    let feature = tree.namespace[root.len() + 1 ..].replace('.', "_");
+
+    file.write_all(format!("{} = [{}]\n", feature, dependencies).as_bytes())
         .unwrap();
 }
 

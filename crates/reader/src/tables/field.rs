@@ -30,13 +30,21 @@ impl Field {
             .next()
     }
 
-    pub fn include_definition(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
-        self.signature(enclosing).include_definition(include)
-    }
-
     pub fn include_dependencies(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
         self.signature(enclosing).kind.include_definition(include)
     }
+    
+    pub fn include_definition(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
+        self.signature(enclosing).kind.include_definition(include)
+    }
+
+    pub fn module_features(&self, enclosing: Option<&TypeDef>, features: &mut BTreeSet<&'static str>) {
+        self.signature(enclosing).kind.module_features(features)
+    }
+
+    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
+
+    } 
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0.file.attributes(HasAttribute::Field(self.clone()))

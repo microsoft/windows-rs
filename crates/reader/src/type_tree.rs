@@ -39,6 +39,10 @@ impl TypeTree {
         }
     }
 
+    pub fn module_features(&self, features: &mut BTreeSet<&'static str>) {
+        self.types.values().map(|entry|entry.def.iter()).flatten().for_each(|def|def.module_features(features));
+    }
+
     pub fn insert_namespace(&mut self, namespace: &'static str, pos: usize) -> &mut Self {
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;

@@ -17,12 +17,16 @@ pub struct MethodParam {
 impl MethodSignature {
     pub fn include_dependencies(&self, include: TypeInclude) {
         if let Some(return_sig) = &self.return_sig {
-            return_sig.include_definition(include);
+            return_sig.kind.include_definition(include);
         }
 
         for param in &self.params {
-            param.signature.include_definition(include);
+            param.signature.kind.include_definition(include);
         }
+    }
+
+    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
+
     }
 
     pub fn kind(&self) -> SignatureKind {
