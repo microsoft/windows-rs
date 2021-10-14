@@ -66,7 +66,7 @@ pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
 }
 
 pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
-    if !gen.features {
+    if gen.feature.is_empty() {
         return TokenStream::new();
     }
 
@@ -93,7 +93,7 @@ pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
 
     // TODO: code should be shared with toml builder
 
-    
+
 
     tokens
 }

@@ -107,7 +107,7 @@ fn include_all(tree: &mut reader::TypeTree) {
         .for_each(|tree| include_all(tree));
 }
 
-fn gen_tree(output: &std::path::Path, root: &str, tree: &reader::TypeTree) {
+fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTree) {
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 
@@ -121,7 +121,7 @@ fn gen_tree(output: &std::path::Path, root: &str, tree: &reader::TypeTree) {
     }
 
     let mut file = std::fs::File::create(&path).unwrap();
-    let tokens = gen::gen_source_file(tree);
+    let tokens = gen::gen_source_file(root, tree);
     file.write_all(tokens.into_string().as_bytes()).unwrap();
 
     tree.namespaces
