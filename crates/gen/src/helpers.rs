@@ -64,3 +64,15 @@ pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens.combine(&gen_abi_type_name(&sig.kind, gen));
     tokens
 }
+
+pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
+    if !gen.features {
+        return TokenStream::new();
+    }
+    
+    let mut tokens = TokenStream::with_capacity();
+    let features = sig.method_features();
+
+
+    tokens
+}
