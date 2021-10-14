@@ -14,11 +14,7 @@ fn main() {
 
     let root = reader.types.get_namespace("Windows").unwrap();
 
-    gen_tree(
-        &output,
-        root.namespace,
-        root,
-    );
+    gen_tree(&output, root.namespace, root);
 
     output.pop();
     output.push("Cargo.toml");
@@ -38,10 +34,10 @@ fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
     let version = env!("CARGO_PKG_VERSION");
 
     // TODO: pin the windows crate dependency to the same "version" so everything is versioned in lockstep.
-// Currently its "0.21" to ease development.
-file.write_all(
-    format!(
-        r#"[package]
+    // Currently its "0.21" to ease development.
+    file.write_all(
+        format!(
+            r#"[package]
 name = "windows-api"
 version = "{}"
 authors = ["Microsoft"]
@@ -54,10 +50,11 @@ windows = {{ version = "0.21", default-features = false }}
 
 [features]
 "#,
-        version
+            version
+        )
+        .as_bytes(),
     )
-    .as_bytes(),
-).unwrap();
+    .unwrap();
 
     write_features(&mut file, tree);
 }
@@ -77,8 +74,9 @@ fn write_feature(file: &mut std::fs::File, namespace: &str) {
     } else {
         "".to_string()
     };
-        
-    file.write_all(format!("{} = [{}]\n", namespace, parent).as_bytes());
+
+    file.write_all(format!("{} = [{}]\n", namespace, parent).as_bytes())
+        .unwrap();
 }
 
 fn include_all(tree: &mut reader::TypeTree) {
