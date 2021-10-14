@@ -7,7 +7,7 @@ pub fn gen_source_file(tree: &TypeTree) -> TokenStream {
 
     let namespaces = tree.namespaces.iter().map(move |(name, tree)| {
         let name = to_ident(name);
-        let namespace = &tree.namespace[tree.namespace.find('.').unwrap() + 1..];
+        let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
         quote! {
             #[cfg(feature = #namespace)] pub mod #name;
         }

@@ -12,14 +12,18 @@ fn main() {
     let reader = reader::TypeReader::get_mut();
     include_all(&mut reader.types);
 
+    let root = reader.types.get_namespace("Windows").unwrap();
+
     gen_tree(
         &output,
-        "Windows",
-        reader.types.get_namespace("Windows").unwrap(),
+        root.namespace,
+        root,
     );
 
     output.pop();
     output.push("Cargo.toml");
+
+    write_toml(&output, root);
 
     println!("Formatting...");
     let mut cmd = std::process::Command::new("cargo");
@@ -27,6 +31,54 @@ fn main() {
     cmd.arg("--manifest-path");
     cmd.arg(output);
     cmd.output().unwrap();
+}
+
+fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
+    let mut file = std::fs::File::create(&output).unwrap();
+    let version = env!("CARGO_PKG_VERSION");
+
+    // TODO: pin the windows crate dependency to the same "version" so everything is versioned in lockstep.
+// Currently its "0.21" to ease development.
+file.write_all(
+    format!(
+        r#"[package]
+name = "windows-api"
+version = "{}"
+authors = ["Microsoft"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "Windows API"
+
+[dependencies]
+windows = {{ version = "0.21", default-features = false }}
+
+[features]
+"#,
+        version
+    )
+    .as_bytes(),
+).unwrap();
+
+    write_features(&mut file, tree);
+}
+
+fn write_features(file: &mut std::fs::File, tree: &reader::TypeTree) {
+    for tree in tree.namespaces.values() {
+        write_feature(file, tree.namespace);
+        write_features(file, tree);
+    }
+}
+
+fn write_feature(file: &mut std::fs::File, namespace: &str) {
+    let namespace = namespace[namespace.find('.').unwrap() + 1..].replace('.', "_");
+
+    let parent = if let Some(pos) = namespace.rfind('_') {
+        format!("\"{}\"", &namespace[0..pos])
+    } else {
+        "".to_string()
+    };
+        
+    file.write_all(format!("{} = [{}]\n", namespace, parent).as_bytes());
 }
 
 fn include_all(tree: &mut reader::TypeTree) {
