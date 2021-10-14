@@ -42,10 +42,6 @@ impl Field {
         self.signature(enclosing).kind.module_features(features)
     }
 
-    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
-
-    } 
-
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0.file.attributes(HasAttribute::Field(self.clone()))
     }

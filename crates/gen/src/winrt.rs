@@ -234,6 +234,8 @@ pub fn gen_winrt_method(
 
     // TODO: need to consolidate this cfg generation so we 
 
+    let features = sig.method_features();
+
     let deprecated = if method.is_deprecated {
         quote! { #[cfg(feature = "deprecated")] }
     } else {

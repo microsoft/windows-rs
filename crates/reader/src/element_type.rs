@@ -154,7 +154,11 @@ impl ElementType {
     }
 
     pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
-
+        match self {
+            Self::TypeDef(t) => t.method_features(features),
+            Self::Array((signature, _)) => signature.kind.method_features(features),
+            _ => {}
+        }
     }
 
     pub fn is_nullable(&self) -> bool {

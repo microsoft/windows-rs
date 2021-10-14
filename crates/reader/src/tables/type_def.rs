@@ -202,7 +202,7 @@ impl TypeDef {
     }
 
     pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
-
+        features.insert(self.namespace());
     }
 
     pub fn is_udt(&self) -> bool {

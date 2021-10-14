@@ -132,8 +132,4 @@ impl MethodDef {
         self.signature(&[])
             .include_dependencies(TypeInclude::Minimal)
     }
-
-    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
-
-    }
 }

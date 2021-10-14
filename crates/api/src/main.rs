@@ -75,6 +75,7 @@ fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::Ty
 
     tree.module_features(&mut features);
 
+    // TODO: this code to format features as a string list should be shared with method feature code
     let mut dependencies = String::new();
 
     for feature in features {
