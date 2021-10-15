@@ -20,7 +20,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         .name()
         .to_lowercase();
 
-    let raw_dylib = cfg!(feature = "raw_dylib");
+    let raw_dylib = !gen.feature.is_empty();
 
     // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
     // will no longer be necessary.
