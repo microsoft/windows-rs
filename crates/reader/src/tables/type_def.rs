@@ -161,7 +161,11 @@ impl TypeDef {
         }
     }
 
-    pub fn module_features(&self, features: &mut BTreeSet<&'static str>) {
+    pub fn module_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+        if !keys.insert(self.row.clone()) {
+            return;
+        }
+
         features.insert(self.namespace());
 
         match self.kind() {
@@ -191,7 +195,7 @@ impl TypeDef {
             }
             TypeKind::Struct => {
                 self.fields()
-                .for_each(|def| def.module_features(Some(self), features));
+                .for_each(|def| def.module_features(Some(self), features, keys));
 
                 if let Some(def) = self.is_convertible_to() {
                     // TODO: wonky

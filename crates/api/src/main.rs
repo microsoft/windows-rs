@@ -68,12 +68,13 @@ fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::T
 
 fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
     let mut features = std::collections::BTreeSet::new();
+    let mut keys = std::collections::HashSet::new();
 
     if let Some(pos) = tree.namespace.rfind('.') {
         features.insert(&tree.namespace[..pos]);
     }
 
-    tree.module_features(&mut features);
+    tree.module_features(&mut features, &mut keys);
 
     // TODO: this code to format features as a string list should be shared with method feature code
     let mut dependencies = String::new();
