@@ -168,6 +168,8 @@ impl TypeDef {
 
         features.insert(self.namespace());
 
+        // TODO: anything in here that's not absolutely essentially should be dropped as it adds significant time to the build.
+
         match self.kind() {
             TypeKind::Interface => {
                 // TODO: only for WinRT
@@ -209,6 +211,10 @@ impl TypeDef {
 
     pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
         features.insert(self.namespace());
+
+        for generic in &self.generics {
+            generic.method_features(features);
+        }
     }
 
     pub fn is_udt(&self) -> bool {
