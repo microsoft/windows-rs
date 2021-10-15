@@ -168,14 +168,7 @@ impl TypeDef {
 
         features.insert(self.namespace());
 
-        // TODO: anything in here that's not absolutely essentially should be dropped as it adds significant time to the build.
-
         match self.kind() {
-            TypeKind::Interface => {
-                // TODO: only for WinRT
-                self.interfaces().for_each(|def|{features.insert(def.namespace());});
-                // TODO: add base interface for COM 
-            }
             TypeKind::Class => {
                 self.interfaces().for_each(|def|{features.insert(def.namespace());});
 

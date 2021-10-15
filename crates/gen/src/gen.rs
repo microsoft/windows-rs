@@ -3,6 +3,7 @@ use super::*;
 pub struct Gen {
     pub relative: &'static str,
     pub feature: &'static str,
+    // TODO: add module features here so method_features can remove any that are already module features
 }
 
 impl Gen {

@@ -46,7 +46,7 @@ license = "MIT OR Apache-2.0"
 description = "Windows API"
 
 [dependencies]
-windows = {{ version = "{}", default-features = false, path = "/git/windows-rs" }}
+windows = {{ version = "{}", default-features = false }}
 
 [workspace]
 members = ["examples/*"]
