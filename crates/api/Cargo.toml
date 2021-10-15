@@ -6,4 +6,4 @@ publish = false
 
 [dependencies]
 reader = { package = "windows_reader", path = "../reader", version = "0.21.1" }
-gen = { package = "windows_gen", path = "../gen", version = "0.21.1" }
+gen = { package = "windows_gen", path = "../gen", version = "0.21.1", features = ["raw_dylib"] }
