@@ -14,7 +14,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
         let abi_signatures = def
             .methods()
             .map(|method| {
-                let signature = method.signature(&[]);
+                let signature = method.signature(&def.generics);
                 let features = method_features(&signature, gen);
                 let not_features = not_method_features(&signature, gen);
                 let signature = gen_winrt_abi(&signature, gen);

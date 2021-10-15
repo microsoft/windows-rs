@@ -126,6 +126,14 @@ fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTre
 
     let mut file = std::fs::File::create(&path).unwrap();
     let tokens = gen::gen_source_file(root, tree);
+
+    if root == tree.namespace {
+        file.write_all(r#"
+#![feature(raw_dylib)]
+#![allow(incomplete_features)]
+"#.as_bytes()).unwrap();
+    }
+
     file.write_all(tokens.into_string().as_bytes()).unwrap();
 
     tree.namespaces
