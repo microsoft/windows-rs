@@ -70,33 +70,48 @@ pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         return TokenStream::new();
     }
 
-    let mut features = sig.method_features();
+    gen_cfg( sig.method_features(), gen)
+}
 
-    let mut relative = gen.relative;
+pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
+    if gen.feature.is_empty() {
+        return TokenStream::new();
+    }
 
-    while !relative.is_empty() {
-        features.remove(relative);
-        if let Some(pos) = relative.rfind('.') {
-            relative = &relative[..pos];
-        } else {
-            relative = "";
+    let mut features = std::collections::BTreeSet::new();
+    sig.kind.method_features(&mut features);
+
+    gen_cfg( features, gen)
+}
+
+fn gen_cfg(mut features: BTreeSet<&'static str>, gen: &Gen) -> TokenStream {
+        // TODO: remove any features that are already module features dependencies as these are redundant
+
+        let mut relative = gen.relative;
+
+        while !relative.is_empty() {
+            features.remove(relative);
+            if let Some(pos) = relative.rfind('.') {
+                relative = &relative[..pos];
+            } else {
+                relative = "";
+            }
         }
-    }
-
-    if features.is_empty() {
-        return TokenStream::new(); 
-    }
-
-    let mut dependencies = "#[cfg(all(".to_string();
-
-    for feature in features {
-        let feature = &feature[gen.feature.len() + 1 ..];
-        dependencies.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
-    }
-
-    dependencies.truncate(dependencies.len() - 2);
-    dependencies.push_str("))]");
-
-
-    dependencies.into()
+    
+        if features.is_empty() {
+            return TokenStream::new(); 
+        }
+    
+        let mut dependencies = "#[cfg(all(".to_string();
+    
+        for feature in features {
+            let feature = &feature[gen.feature.len() + 1 ..];
+            dependencies.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
+        }
+    
+        dependencies.truncate(dependencies.len() - 2);
+        dependencies.push_str("))]");
+    
+    
+        dependencies.into()
 }

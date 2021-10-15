@@ -46,7 +46,7 @@ license = "MIT OR Apache-2.0"
 description = "Windows API"
 
 [dependencies]
-windows = {{ version = "0.21", default-features = false }}
+windows = {{ version = "0.21", default-features = false, path = "/git/windows-rs" }}
 
 [features]
 "#,

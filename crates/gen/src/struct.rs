@@ -5,6 +5,8 @@ use super::*;
 
 // TODO: need to rely more heavily on derived traits to reduce the overall size of the windows-api package.
 
+// TODO: api contracts are being generated
+
 pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
     gen_struct_with_name(def, def.name(), gen)
 }

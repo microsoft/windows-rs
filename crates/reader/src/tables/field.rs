@@ -39,7 +39,21 @@ impl Field {
     }
 
     pub fn module_features(&self, enclosing: Option<&TypeDef>, features: &mut BTreeSet<&'static str>) {
-        self.signature(enclosing).kind.module_features(features)
+        match self.signature(enclosing).kind {
+            ElementType::TypeDef(def) => {
+                features.insert(def.namespace());
+            }
+            ElementType::Array((signature, _)) => {
+                // TODO: total hack - we need to make this recursive
+                match signature.kind {
+                    ElementType::TypeDef(def) => {
+                        features.insert(def.namespace());
+                    }
+                    _ => {}
+                }
+            }
+            _ => {}
+        }
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {

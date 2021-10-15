@@ -5,11 +5,14 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
     let name = to_ident(name);
     let signature = def.signature(None);
 
+    let features = signature_features(&signature, gen);
+
     if let Some(constant) = def.constant() {
         if signature.kind == constant.value_type() {
             let value = gen_constant_type_value(&constant.value());
 
             quote! {
+                #features
                 pub const #name: #value;
             }
         } else {
@@ -17,6 +20,7 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
             let value = gen_constant_value(&constant.value());
 
             quote! {
+                #features
                 pub const #name: #kind = #kind(#value as _);
             }
         }
@@ -28,6 +32,7 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
         let fmtid = gen_guid(&pkey.fmtid);
         let pid = pkey.pid;
         quote! {
+            #features
             pub const #name: #kind = #kind {
                 fmtid: ::windows::Guid::from_values(#fmtid),
                 pid: #pid,

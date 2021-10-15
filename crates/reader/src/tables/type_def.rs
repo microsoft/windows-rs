@@ -162,19 +162,19 @@ impl TypeDef {
     }
 
     pub fn module_features(&self, features: &mut BTreeSet<&'static str>) {
-        if !features.insert(self.namespace()) {
-            return;
-        }
+        features.insert(self.namespace());
 
         match self.kind() {
             TypeKind::Interface => {
-                self.interfaces().for_each(|def|def.module_features(features));
+                // TODO: only for WinRT
+                self.interfaces().for_each(|def|{features.insert(def.namespace());});
+                // TODO: add base interface for COM 
             }
             TypeKind::Class => {
-                self.interfaces().for_each(|def|def.module_features(features));
+                self.interfaces().for_each(|def|{features.insert(def.namespace());});
 
                 if let Some(def) = self.bases().next() {
-                    def.module_features(features);
+                    features.insert(def.namespace());
                 }
 
                 self.attributes()
@@ -182,7 +182,7 @@ impl TypeDef {
                     "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                         for (_, arg) in attribute.args() {
                             if let ConstantValue::TypeDef(def) = arg {
-                                def.module_features(features);
+                                features.insert(def.namespace());
                             }
                         }
                     }
@@ -191,10 +191,11 @@ impl TypeDef {
             }
             TypeKind::Struct => {
                 self.fields()
-                .for_each(|f| f.module_features(Some(self), features));
+                .for_each(|def| def.module_features(Some(self), features));
 
                 if let Some(def) = self.is_convertible_to() {
-                    def.module_features(features);
+                    // TODO: wonky
+                    features.insert(def.type_name().namespace);
                 }
             }
             _ => {}
