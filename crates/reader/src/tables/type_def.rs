@@ -202,6 +202,7 @@ impl TypeDef {
                     features.insert(def.type_name().namespace);
                 }
             }
+            TypeKind::Delegate => self.invoke_method().signature(&[]).module_features(features, keys),
             _ => {}
         }
     }

@@ -32,6 +32,11 @@ impl MethodSignature {
         features
     }
 
+    pub fn module_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+        self.return_sig.iter().for_each(|def|def.kind.module_features(features, keys));
+        self.params.iter().for_each(|def|def.signature.kind.module_features(features, keys));
+    }
+
     pub fn kind(&self) -> SignatureKind {
         if self
             .return_param

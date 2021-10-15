@@ -145,12 +145,11 @@ impl ElementType {
     }
 
     pub fn module_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        // Only types count against module feature dependencies to ensure all types are present.
-        // Other namespace elements (constants and functions) are evaluated at compile time
-        // base on feature presence. 
-        if let Self::TypeDef(def) = self { 
-            def.module_features(features, keys);
-         }
+         match self {
+            Self::TypeDef(def) => def.module_features(features, keys),
+            Self::Array((signature, _)) => signature.kind.module_features(features, keys),
+            _ => {}
+        }
     }
 
     pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
