@@ -13,7 +13,26 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
 
         let abi_signatures = def
             .methods()
-            .map(|m| gen_winrt_abi(&m.signature(&def.generics), gen));
+            .map(|method| {
+                let signature = method.signature(&[]);
+                let features = method_features(&signature, gen);
+                let not_features = not_method_features(&signature, gen);
+                let signature = gen_winrt_abi(&signature, gen);
+
+                if features.is_empty() {
+                    quote! {
+                        pub unsafe extern "system" fn #signature,
+                    }
+                } else {
+                    quote! {
+                        #features
+                        pub unsafe extern "system" fn #signature,
+                        #not_features
+                        usize,
+
+                    }
+                }
+            });
 
         let is_exclusive = def.is_exclusive();
 
@@ -84,7 +103,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
                 pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::windows::Guid) -> ::windows::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut ::windows::RawPtr) -> ::windows::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut i32) -> ::windows::HRESULT,
-                #(pub unsafe extern "system" fn #abi_signatures,)*
+                #(#abi_signatures)*
                 #(pub #abi_phantoms,)*
             ) where #constraints;
         }

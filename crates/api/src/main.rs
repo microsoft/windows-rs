@@ -46,11 +46,14 @@ license = "MIT OR Apache-2.0"
 description = "Windows API"
 
 [dependencies]
-windows = {{ version = "0.21", default-features = false, path = "/git/windows-rs" }}
+windows = {{ version = "{}", default-features = false, path = "/git/windows-rs" }}
+
+[workspace]
+members = ["examples/*"]
 
 [features]
 "#,
-            version
+            version, version
         )
         .as_bytes(),
     )
