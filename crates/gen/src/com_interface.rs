@@ -15,7 +15,26 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             .chain(std::iter::once(def))
             .map(|def| def.methods())
             .flatten()
-            .map(|method| gen_win32_abi(&method.signature(&[]), gen));
+            .map(|method| {
+                let signature = method.signature(&[]);
+                let features = method_features(&signature, gen);
+                let not_features = not_method_features(&signature, gen);
+                let signature = gen_win32_abi(&signature, gen);
+
+                if features.is_empty() {
+                    quote! {
+                        pub unsafe extern "system" fn #signature,
+                    }
+                } else {
+                    quote! {
+                        #features
+                        pub unsafe extern "system" fn #signature,
+                        #not_features
+                        usize,
+
+                    }
+                }
+            });
 
         let mut method_names = BTreeMap::<String, u32>::new();
 
@@ -123,7 +142,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 #inspectable_vfptrs
-                #(pub unsafe extern "system" fn #abi_signatures,)*
+                #(#abi_signatures)*
             );
         }
     } else {

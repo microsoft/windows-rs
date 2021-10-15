@@ -65,12 +65,22 @@ pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens
 }
 
+// TODO: should have option to return "not" version to avoid calculating method_features multiple times
 pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     if gen.feature.is_empty() {
         return TokenStream::new();
     }
 
-    gen_cfg( sig.method_features(), gen)
+    gen_cfg( sig.method_features(), false, gen)
+}
+
+// TODO: wasteful - don't do this
+pub fn not_method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
+    if gen.feature.is_empty() {
+        return TokenStream::new();
+    }
+
+    gen_cfg( sig.method_features(), true, gen)
 }
 
 pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
@@ -81,10 +91,10 @@ pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut features = std::collections::BTreeSet::new();
     sig.kind.method_features(&mut features);
 
-    gen_cfg( features, gen)
+    gen_cfg( features, false, gen)
 }
 
-fn gen_cfg(mut features: BTreeSet<&'static str>, gen: &Gen) -> TokenStream {
+fn gen_cfg(mut features: BTreeSet<&'static str>, not:bool, gen: &Gen) -> TokenStream {
         // TODO: remove any features that are already module features dependencies as these are redundant
 
         let mut relative = gen.relative;
@@ -102,7 +112,9 @@ fn gen_cfg(mut features: BTreeSet<&'static str>, gen: &Gen) -> TokenStream {
             return TokenStream::new(); 
         }
     
-        let mut dependencies = "#[cfg(all(".to_string();
+        let mut dependencies = if not {
+            "#[cfg(not(all(".to_string()
+        } else { "#[cfg(all(".to_string() };
     
         for feature in features {
             let feature = &feature[gen.feature.len() + 1 ..];
@@ -110,6 +122,7 @@ fn gen_cfg(mut features: BTreeSet<&'static str>, gen: &Gen) -> TokenStream {
         }
     
         dependencies.truncate(dependencies.len() - 2);
+        if not { dependencies.push_str(")"); }
         dependencies.push_str("))]");
     
     
