@@ -13,7 +13,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
 
     let abi_return_type = gen_win32_return_sig(&signature, gen);
 
-    let mut link = def
+    let link = def
         .impl_map()
         .expect("Function")
         .scope()
