@@ -9,6 +9,3 @@ description = "Code gen support for the windows crate"
 [dependencies]
 quote = { package = "windows_quote", path = "../quote", version = "0.21.1" }
 reader = { package = "windows_reader", path = "../reader", version = "0.21.1" }
-
-[features]
-raw_dylib = []

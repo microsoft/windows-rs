@@ -232,6 +232,10 @@ pub fn gen_winrt_method(
         }
     };
 
+    // TODO: need to consolidate this cfg generation so we
+
+    let features = method_features(sig, gen);
+
     let deprecated = if method.is_deprecated {
         quote! { #[cfg(feature = "deprecated")] }
     } else {
@@ -241,6 +245,7 @@ pub fn gen_winrt_method(
     match interface.kind {
         InterfaceKind::Default => quote! {
             #deprecated
+            #features
             pub fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                 let this = self;
                 unsafe {
@@ -251,6 +256,7 @@ pub fn gen_winrt_method(
         InterfaceKind::NonDefault | InterfaceKind::Overridable => {
             quote! {
                 #deprecated
+                #features
                 pub fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                     let this = &::windows::Interface::cast::<#interface_name>(self)?;
                     unsafe {
@@ -262,6 +268,7 @@ pub fn gen_winrt_method(
         InterfaceKind::Static | InterfaceKind::Composable => {
             quote! {
                 #deprecated
+                #features
                 pub fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
                     Self::#interface_name(|this| unsafe { #vcall })
                 }
@@ -270,6 +277,8 @@ pub fn gen_winrt_method(
         InterfaceKind::Extend => {
             let interface_name = to_ident(interface.def.name());
             quote! {
+                // TODO: why no deprecated?
+                #features
                 pub fn #name<#constraints>(self, #params) -> ::windows::Result<#return_type_tokens> {
                     unsafe {
                         let (derived__, base__) = ::windows::Compose::compose(self);
@@ -345,7 +354,7 @@ pub fn gen_winrt_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 
 pub fn gen_phantoms(def: &TypeDef) -> impl Iterator<Item = TokenStream> + '_ {
     def.generics.iter().map(move |g| {
-        let g = gen_name(g, &Gen::Absolute);
+        let g = gen_name(g, &Gen::absolute());
         quote! { ::std::marker::PhantomData::<#g> }
     })
 }
@@ -354,7 +363,7 @@ pub fn gen_constraints(def: &TypeDef) -> TokenStream {
     def.generics
         .iter()
         .map(|g| {
-            let g = gen_name(g, &Gen::Absolute);
+            let g = gen_name(g, &Gen::absolute());
             quote! { #g: ::windows::RuntimeType + 'static, }
         })
         .collect()

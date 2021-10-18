@@ -1,5 +1,28 @@
 use super::*;
 
+pub fn gen_source_file(root: &'static str, tree: &TypeTree) -> TokenStream {
+    let gen = Gen {
+        relative: tree.namespace,
+        feature: root,
+    };
+
+    let types = tree.types.values().map(move |t| gen_type_entry(t, &gen));
+
+    let namespaces = tree.namespaces.iter().map(move |(name, tree)| {
+        let name = to_ident(name);
+        let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
+        quote! {
+            #[cfg(feature = #namespace)] pub mod #name;
+        }
+    });
+
+    quote! {
+        #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+        #(#namespaces)*
+        #(#types)*
+    }
+}
+
 pub fn gen_source_tree() -> TokenStream {
     let reader = TypeReader::get();
 
@@ -10,7 +33,7 @@ pub fn gen_source_tree() -> TokenStream {
 }
 
 pub fn namespace_iter(tree: &TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
-    let gen = Gen::Relative(tree.namespace);
+    let gen = Gen::relative(tree.namespace);
 
     tree.types
         .iter()

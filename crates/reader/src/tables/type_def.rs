@@ -92,20 +92,6 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn include_definition(&self, include: TypeInclude) {
-        let type_name = self.type_name();
-
-        if type_name.namespace().is_empty() {
-            self.include_dependencies(TypeInclude::Minimal);
-        } else {
-            TypeReader::get_mut().include_type_name(type_name, include);
-
-            for generic in &self.generics {
-                generic.include_definition(include);
-            }
-        }
-    }
-
     pub fn include_dependencies(&self, include: TypeInclude) {
         match self.kind() {
             TypeKind::Interface => {
@@ -126,6 +112,7 @@ impl TypeDef {
                     return;
                 }
 
+                // TODO: test for this?
                 self.generics
                     .iter()
                     .for_each(|g| g.include_definition(TypeInclude::Minimal));
@@ -157,6 +144,78 @@ impl TypeDef {
             }
             TypeKind::Delegate => self.invoke_method().include_dependencies(),
             TypeKind::Enum => {}
+        }
+    }
+
+    pub fn include_definition(&self, include: TypeInclude) {
+        let type_name = self.type_name();
+
+        if type_name.namespace().is_empty() {
+            self.include_dependencies(TypeInclude::Minimal);
+        } else {
+            TypeReader::get_mut().include_type_name(type_name, include);
+
+            for generic in &self.generics {
+                generic.include_definition(include);
+            }
+        }
+    }
+
+    pub fn module_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
+        if !keys.insert(self.row.clone()) {
+            return;
+        }
+
+        features.insert(self.namespace());
+
+        match self.kind() {
+            TypeKind::Class => {
+                self.interfaces().for_each(|def| {
+                    features.insert(def.namespace());
+                });
+
+                if let Some(def) = self.bases().next() {
+                    features.insert(def.namespace());
+                }
+
+                self.attributes()
+                    .for_each(|attribute| match attribute.name() {
+                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
+                            for (_, arg) in attribute.args() {
+                                if let ConstantValue::TypeDef(def) = arg {
+                                    features.insert(def.namespace());
+                                }
+                            }
+                        }
+                        _ => {}
+                    });
+            }
+            TypeKind::Struct => {
+                self.fields()
+                    .for_each(|def| def.module_features(Some(self), features, keys));
+
+                if let Some(def) = self.is_convertible_to() {
+                    // TODO: wonky
+                    features.insert(def.type_name().namespace);
+                }
+            }
+            TypeKind::Delegate => self
+                .invoke_method()
+                .signature(&[])
+                .module_features(features, keys),
+            _ => {}
+        }
+    }
+
+    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
+        features.insert(self.namespace());
+
+        for generic in &self.generics {
+            generic.method_features(features);
         }
     }
 

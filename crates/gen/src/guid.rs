@@ -53,7 +53,7 @@ pub fn gen_guid_signature(def: &TypeDef, signature: &str) -> TokenStream {
     }
 
     let generics = def.generics.iter().enumerate().map(|(index, g)| {
-        let g = gen_name(g, &Gen::Absolute);
+        let g = gen_name(g, &Gen::absolute());
         let semi = if index != def.generics.len() - 1 {
             Some(quote! {
                 .push_slice(b";")

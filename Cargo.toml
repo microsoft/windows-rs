@@ -26,4 +26,3 @@ targets = ["x86_64-pc-windows-msvc"]
 [features]
 default = ["macros"]
 macros = ["windows_gen", "windows_macros", "windows_reader"]
-raw_dylib = ["windows_gen/raw_dylib"] # TODO: remove feature once raw-dylib has stablized

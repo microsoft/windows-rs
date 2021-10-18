@@ -131,7 +131,7 @@ impl ElementType {
             Self::MethodDef(t) => t.include_dependencies(),
             Self::TypeDef(t) => t.include_dependencies(include),
             Self::Field(t) => t.include_dependencies(None, include),
-            Self::Array((signature, _)) => signature.include_dependencies(include),
+            Self::Array((signature, _)) => signature.kind.include_dependencies(include),
             _ => {}
         }
     }
@@ -139,7 +139,27 @@ impl ElementType {
     pub fn include_definition(&self, include: TypeInclude) {
         match self {
             Self::TypeDef(t) => t.include_definition(include),
-            Self::Array((signature, _)) => signature.include_definition(include),
+            Self::Array((signature, _)) => signature.kind.include_definition(include),
+            _ => {}
+        }
+    }
+
+    pub fn module_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
+        match self {
+            Self::TypeDef(def) => def.module_features(features, keys),
+            Self::Array((signature, _)) => signature.kind.module_features(features, keys),
+            _ => {}
+        }
+    }
+
+    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
+        match self {
+            Self::TypeDef(def) => def.method_features(features),
+            Self::Array((signature, _)) => signature.kind.method_features(features),
             _ => {}
         }
     }

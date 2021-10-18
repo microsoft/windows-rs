@@ -15,7 +15,30 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             .chain(std::iter::once(def))
             .map(|def| def.methods())
             .flatten()
-            .map(|method| gen_win32_abi(&method.signature(&[]), gen));
+            .map(|method| {
+                let signature = method.signature(&[]);
+                let abi = gen_win32_abi(&signature, gen);
+                if gen.feature.is_empty() {
+                    quote! {
+                        pub unsafe extern "system" fn #abi,
+                    }
+                } else {
+                    let features = method_features(&signature, gen);
+                    let not_features = not_method_features(&signature, gen);
+                    if features.is_empty() {
+                        quote! {
+                            pub unsafe extern "system" fn #abi,
+                        }
+                    } else {
+                        quote! {
+                            #features
+                            pub unsafe extern "system" fn #abi,
+                            #not_features
+                            usize,
+                        }
+                    }
+                }
+            });
 
         let mut method_names = BTreeMap::<String, u32>::new();
 
@@ -123,7 +146,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
                 #inspectable_vfptrs
-                #(pub unsafe extern "system" fn #abi_signatures,)*
+                #(#abi_signatures)*
             );
         }
     } else {
@@ -160,6 +183,8 @@ fn gen_method(
         to_ident(&name)
     };
 
+    let features = method_features(&signature, gen);
+
     match signature.kind() {
         SignatureKind::Query => {
             let leading_params = &signature.params[..signature.params.len() - 2];
@@ -167,6 +192,7 @@ fn gen_method(
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params) -> ::windows::Result<T> {
                     let mut result__ = ::std::option::Option::None;
                     (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -179,6 +205,7 @@ fn gen_method(
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params result__: *mut ::std::option::Option<T>) -> ::windows::Result<()> {
                     (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
@@ -191,6 +218,7 @@ fn gen_method(
             let return_type_tokens = gen_win32_result_type(&signature, gen);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
                     let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
                     (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__)
@@ -203,6 +231,7 @@ fn gen_method(
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<()> {
                     (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*).ok()
                 }
@@ -214,6 +243,7 @@ fn gen_method(
             let return_sig = gen_abi_type_name(&signature.return_sig.unwrap().kind, gen);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = ::std::default::Default::default();
                     (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__);
@@ -227,6 +257,7 @@ fn gen_method(
             let return_sig = gen_win32_return_sig(&signature, gen);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
                     ::std::mem::transmute((::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*))
                 }

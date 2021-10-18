@@ -3,6 +3,10 @@ use super::*;
 // TODO: need to split win32 and winrt structs as their signatures are different and win32 structs also include unions and they are
 // radically different.
 
+// TODO: need to rely more heavily on derived traits to reduce the overall size of the windows-api package.
+
+// TODO: api contracts are being generated
+
 pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
     gen_struct_with_name(def, def.name(), gen)
 }

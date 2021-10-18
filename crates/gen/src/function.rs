@@ -20,7 +20,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         .name()
         .to_lowercase();
 
-    let raw_dylib = cfg!(feature = "raw_dylib");
+    let raw_dylib = !gen.feature.is_empty();
 
     // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
     // will no longer be necessary.
@@ -40,6 +40,8 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
     };
 
+    let features = method_features(&signature, gen);
+
     match signature.kind() {
         SignatureKind::Query => {
             let leading_params = &signature.params[..signature.params.len() - 2];
@@ -47,6 +49,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(#params) -> ::windows::Result<T> {
                     #[cfg(windows)]
                     {
@@ -68,6 +71,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints T: ::windows::Interface>(#params result__: *mut ::std::option::Option<T>) -> ::windows::Result<()> {
                     #[cfg(windows)]
                     {
@@ -89,6 +93,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let return_type_tokens = gen_win32_result_type(&signature, gen);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<#return_type_tokens> {
                     #[cfg(windows)]
                     {
@@ -109,6 +114,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::Result<()> {
                     #[cfg(windows)]
                     {
@@ -128,6 +134,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
+                #features
                 pub unsafe fn #name<#constraints>(#params) #abi_return_type {
                     #[cfg(windows)]
                     {
