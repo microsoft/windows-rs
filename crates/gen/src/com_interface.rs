@@ -17,21 +17,25 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             .flatten()
             .map(|method| {
                 let signature = method.signature(&[]);
-                let features = method_features(&signature, gen);
-                let not_features = not_method_features(&signature, gen);
-                let signature = gen_win32_abi(&signature, gen);
-
-                if features.is_empty() {
+                let abi = gen_win32_abi(&signature, gen);
+                if gen.feature.is_empty() {
                     quote! {
-                        pub unsafe extern "system" fn #signature,
+                        pub unsafe extern "system" fn #abi,
                     }
                 } else {
-                    quote! {
-                        #features
-                        pub unsafe extern "system" fn #signature,
-                        #not_features
-                        usize,
-
+                    let features = method_features(&signature, gen);
+                    let not_features = not_method_features(&signature, gen);
+                    if features.is_empty() {
+                        quote! {
+                            pub unsafe extern "system" fn #abi,
+                        }
+                    } else {
+                        quote! {
+                            #features
+                            pub unsafe extern "system" fn #abi,
+                            #not_features
+                            usize,
+                        }
                     }
                 }
             });
