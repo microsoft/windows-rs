@@ -125,7 +125,7 @@ fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenS
 
     dependencies.truncate(dependencies.len() - 2);
     if not {
-        dependencies.push_str(")");
+        dependencies.push(')');
     }
     dependencies.push_str("))]");
 

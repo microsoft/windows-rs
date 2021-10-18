@@ -92,9 +92,7 @@ fn include_all(tree: &mut reader::TypeTree) {
         .values_mut()
         .for_each(|entry| entry.include = reader::TypeInclude::Full);
 
-    tree.namespaces
-        .values_mut()
-        .for_each(|tree| include_all(tree));
+    tree.namespaces.values_mut().for_each(include_all);
 }
 
 fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTree) {
