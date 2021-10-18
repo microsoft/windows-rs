@@ -1,0 +1,8 @@
+[package]
+name = "windows_libs"
+version = "0.21.1"
+edition = "2018"
+publish = false
+
+[dependencies]
+reader = { package = "windows_reader", path = "../reader", version = "0.21.1" }
