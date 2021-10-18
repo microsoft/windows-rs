@@ -33,13 +33,20 @@ impl Field {
     pub fn include_dependencies(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
         self.signature(enclosing).kind.include_definition(include)
     }
-    
+
     pub fn include_definition(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
         self.signature(enclosing).kind.include_definition(include)
     }
 
-    pub fn module_features(&self, enclosing: Option<&TypeDef>, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        self.signature(enclosing).kind.module_features(features, keys);
+    pub fn module_features(
+        &self,
+        enclosing: Option<&TypeDef>,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
+        self.signature(enclosing)
+            .kind
+            .module_features(features, keys);
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {

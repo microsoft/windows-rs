@@ -8,53 +8,59 @@ pub struct Gen {
 
 impl Gen {
     pub fn absolute() -> Self {
-        Gen{ relative : "", feature: "" }
+        Gen {
+            relative: "",
+            feature: "",
+        }
     }
 
     pub fn relative(namespace: &'static str) -> Self {
-        Gen{ relative : namespace, feature: "" }
+        Gen {
+            relative: namespace,
+            feature: "",
+        }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
         if self.relative.is_empty() {
-                let mut tokens = TokenStream::with_capacity();
+            let mut tokens = TokenStream::with_capacity();
 
-                for namespace in namespace.split('.') {
-                    tokens.push_str(namespace);
-                    tokens.push_str("::");
-                }
-
-                tokens
-            } else {
-                if namespace == self.relative {
-                    return TokenStream::new();
-                }
-
-                let mut relative = self.relative.split('.').peekable();
-                let mut namespace = namespace.split('.').peekable();
-
-                while relative.peek() == namespace.peek() {
-                    if relative.next().is_none() {
-                        break;
-                    }
-
-                    namespace.next();
-                }
-
-                let mut tokens = TokenStream::with_capacity();
-
-                for _ in 0..relative.count() {
-                    tokens.push_str("super::");
-                }
-
-                for namespace in namespace {
-                    tokens.push_str(namespace);
-                    tokens.push_str("::");
-                }
-
-                tokens
+            for namespace in namespace.split('.') {
+                tokens.push_str(namespace);
+                tokens.push_str("::");
             }
+
+            tokens
+        } else {
+            if namespace == self.relative {
+                return TokenStream::new();
+            }
+
+            let mut relative = self.relative.split('.').peekable();
+            let mut namespace = namespace.split('.').peekable();
+
+            while relative.peek() == namespace.peek() {
+                if relative.next().is_none() {
+                    break;
+                }
+
+                namespace.next();
+            }
+
+            let mut tokens = TokenStream::with_capacity();
+
+            for _ in 0..relative.count() {
+                tokens.push_str("super::");
+            }
+
+            for namespace in namespace {
+                tokens.push_str(namespace);
+                tokens.push_str("::");
+            }
+
+            tokens
         }
+    }
 }
 
 #[cfg(test)]

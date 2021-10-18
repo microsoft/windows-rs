@@ -232,7 +232,7 @@ pub fn gen_winrt_method(
         }
     };
 
-    // TODO: need to consolidate this cfg generation so we 
+    // TODO: need to consolidate this cfg generation so we
 
     let features = method_features(&sig, gen);
 

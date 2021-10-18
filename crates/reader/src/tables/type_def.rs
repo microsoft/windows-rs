@@ -161,7 +161,11 @@ impl TypeDef {
         }
     }
 
-    pub fn module_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+    pub fn module_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
         if !keys.insert(self.row.clone()) {
             return;
         }
@@ -170,34 +174,39 @@ impl TypeDef {
 
         match self.kind() {
             TypeKind::Class => {
-                self.interfaces().for_each(|def|{features.insert(def.namespace());});
+                self.interfaces().for_each(|def| {
+                    features.insert(def.namespace());
+                });
 
                 if let Some(def) = self.bases().next() {
                     features.insert(def.namespace());
                 }
 
                 self.attributes()
-                .for_each(|attribute| match attribute.name() {
-                    "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
-                        for (_, arg) in attribute.args() {
-                            if let ConstantValue::TypeDef(def) = arg {
-                                features.insert(def.namespace());
+                    .for_each(|attribute| match attribute.name() {
+                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
+                            for (_, arg) in attribute.args() {
+                                if let ConstantValue::TypeDef(def) = arg {
+                                    features.insert(def.namespace());
+                                }
                             }
                         }
-                    }
-                    _ => {}
-                });
+                        _ => {}
+                    });
             }
             TypeKind::Struct => {
                 self.fields()
-                .for_each(|def| def.module_features(Some(self), features, keys));
+                    .for_each(|def| def.module_features(Some(self), features, keys));
 
                 if let Some(def) = self.is_convertible_to() {
                     // TODO: wonky
                     features.insert(def.type_name().namespace);
                 }
             }
-            TypeKind::Delegate => self.invoke_method().signature(&[]).module_features(features, keys),
+            TypeKind::Delegate => self
+                .invoke_method()
+                .signature(&[])
+                .module_features(features, keys),
             _ => {}
         }
     }

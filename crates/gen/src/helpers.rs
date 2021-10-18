@@ -71,7 +71,7 @@ pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         return TokenStream::new();
     }
 
-    gen_cfg( sig.method_features(), false, gen)
+    gen_cfg(sig.method_features(), false, gen)
 }
 
 // TODO: wasteful - don't do this
@@ -80,7 +80,7 @@ pub fn not_method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
         return TokenStream::new();
     }
 
-    gen_cfg( sig.method_features(), true, gen)
+    gen_cfg(sig.method_features(), true, gen)
 }
 
 pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
@@ -91,40 +91,43 @@ pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut features = std::collections::BTreeSet::new();
     sig.kind.method_features(&mut features);
 
-    gen_cfg( features, false, gen)
+    gen_cfg(features, false, gen)
 }
 
-fn gen_cfg(mut features: BTreeSet<&'static str>, not:bool, gen: &Gen) -> TokenStream {
-        // TODO: remove any features that are already module features dependencies as these are redundant
+fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenStream {
+    // TODO: remove any features that are already module features dependencies as these are redundant
 
-        let mut relative = gen.relative;
+    let mut relative = gen.relative;
 
-        while !relative.is_empty() {
-            features.remove(relative);
-            if let Some(pos) = relative.rfind('.') {
-                relative = &relative[..pos];
-            } else {
-                relative = "";
-            }
+    while !relative.is_empty() {
+        features.remove(relative);
+        if let Some(pos) = relative.rfind('.') {
+            relative = &relative[..pos];
+        } else {
+            relative = "";
         }
-    
-        if features.is_empty() {
-            return TokenStream::new(); 
-        }
-    
-        let mut dependencies = if not {
-            "#[cfg(not(all(".to_string()
-        } else { "#[cfg(all(".to_string() };
-    
-        for feature in features {
-            let feature = &feature[gen.feature.len() + 1 ..];
-            dependencies.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
-        }
-    
-        dependencies.truncate(dependencies.len() - 2);
-        if not { dependencies.push_str(")"); }
-        dependencies.push_str("))]");
-    
-    
-        dependencies.into()
+    }
+
+    if features.is_empty() {
+        return TokenStream::new();
+    }
+
+    let mut dependencies = if not {
+        "#[cfg(not(all(".to_string()
+    } else {
+        "#[cfg(all(".to_string()
+    };
+
+    for feature in features {
+        let feature = &feature[gen.feature.len() + 1..];
+        dependencies.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
+    }
+
+    dependencies.truncate(dependencies.len() - 2);
+    if not {
+        dependencies.push_str(")");
+    }
+    dependencies.push_str("))]");
+
+    dependencies.into()
 }

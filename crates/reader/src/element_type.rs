@@ -144,8 +144,12 @@ impl ElementType {
         }
     }
 
-    pub fn module_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-         match self {
+    pub fn module_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
+        match self {
             Self::TypeDef(def) => def.module_features(features, keys),
             Self::Array((signature, _)) => signature.kind.module_features(features, keys),
             _ => {}

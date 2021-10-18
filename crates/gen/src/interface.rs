@@ -11,28 +11,26 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
         let abi_name = gen_abi_name(def, gen);
         let abi_phantoms = gen_phantoms(def);
 
-        let abi_signatures = def
-            .methods()
-            .map(|method| {
-                let signature = method.signature(&def.generics);
-                let features = method_features(&signature, gen);
-                let not_features = not_method_features(&signature, gen);
-                let signature = gen_winrt_abi(&signature, gen);
+        let abi_signatures = def.methods().map(|method| {
+            let signature = method.signature(&def.generics);
+            let features = method_features(&signature, gen);
+            let not_features = not_method_features(&signature, gen);
+            let signature = gen_winrt_abi(&signature, gen);
 
-                if features.is_empty() {
-                    quote! {
-                        pub unsafe extern "system" fn #signature,
-                    }
-                } else {
-                    quote! {
-                        #features
-                        pub unsafe extern "system" fn #signature,
-                        #not_features
-                        usize,
-
-                    }
+            if features.is_empty() {
+                quote! {
+                    pub unsafe extern "system" fn #signature,
                 }
-            });
+            } else {
+                quote! {
+                    #features
+                    pub unsafe extern "system" fn #signature,
+                    #not_features
+                    usize,
+
+                }
+            }
+        });
 
         let is_exclusive = def.is_exclusive();
 

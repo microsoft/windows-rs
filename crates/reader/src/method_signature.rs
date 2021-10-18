@@ -25,16 +25,28 @@ impl MethodSignature {
         }
     }
 
-    pub fn method_features(&self) -> BTreeSet<&'static str>{
+    pub fn method_features(&self) -> BTreeSet<&'static str> {
         let mut features = std::collections::BTreeSet::new();
-        self.return_sig.iter().for_each(|def|def.kind.method_features(&mut features));
-        self.params.iter().for_each(|def|def.signature.kind.method_features(&mut features));
+        self.return_sig
+            .iter()
+            .for_each(|def| def.kind.method_features(&mut features));
+        self.params
+            .iter()
+            .for_each(|def| def.signature.kind.method_features(&mut features));
         features
     }
 
-    pub fn module_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        self.return_sig.iter().for_each(|def|def.kind.module_features(features, keys));
-        self.params.iter().for_each(|def|def.signature.kind.module_features(features, keys));
+    pub fn module_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
+        self.return_sig
+            .iter()
+            .for_each(|def| def.kind.module_features(features, keys));
+        self.params
+            .iter()
+            .for_each(|def| def.signature.kind.module_features(features, keys));
     }
 
     pub fn kind(&self) -> SignatureKind {
