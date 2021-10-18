@@ -10,11 +10,6 @@ documentation = "https://docs.rs/windows"
 readme = ".github/readme.md"
 exclude = [".github", ".windows", "docs", "tests"]
 
-[dependencies]
-windows_macros = { path = "crates/macros",  version = "0.21.1", optional = true }
-windows_reader = { path = "crates/reader", version = "0.21.1", optional = true }
-windows_gen = { path = "crates/gen",  version = "0.21.1", optional = true }
-
 [workspace]
 members = ["crates/*", "tests/legacy/*", "tests/metadata/*", "tests/winrt/*", "tests/win32/*"]
 exclude = ["tests/component"]
@@ -22,6 +17,17 @@ exclude = ["tests/component"]
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = ["x86_64-pc-windows-msvc"]
+
+[dependencies]
+windows_macros = { path = "crates/macros",  version = "0.21.1", optional = true }
+windows_reader = { path = "crates/reader", version = "0.21.1", optional = true }
+windows_gen = { path = "crates/gen",  version = "0.21.1", optional = true }
+
+[target.i686-pc-windows-msvc.dependencies]
+windows_x86 = { path = "crates/x86", version = "0.21.1", optional = true }
+
+[target.x86_64-pc-windows-msvc.dependencies]
+windows_x64 = { path = "crates/x64", version = "0.21.1", optional = true }
 
 [features]
 default = ["macros"]

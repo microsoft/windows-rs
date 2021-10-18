@@ -20,23 +20,10 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         .name()
         .to_lowercase();
 
-    let raw_dylib = !gen.feature.is_empty();
-
-    // TODO: remove this whole block once raw-dylib has stabilized as the workarounds
-    // will no longer be necessary.
-    if !raw_dylib && (link.contains("-ms-win-") || link == "d3dcompiler_47" || link == "sspicli") {
-        link = "onecoreuap".to_string();
-    }
-
     let link_attr = match def.static_lib() {
         Some(link) => quote! { #[link(name = #link, kind = "static")] },
         None => {
-            // TODO: switch to always using raw-dylib once it has stabilized
-            if raw_dylib {
-                quote! { #[link(name = #link, kind="raw-dylib")] }
-            } else {
-                quote! { #[link(name = #link)] }
-            }
+            quote! { #[link(name = #link)] }
         }
     };
 
