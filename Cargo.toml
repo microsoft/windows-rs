@@ -24,10 +24,10 @@ windows_reader = { path = "crates/reader", version = "0.21.1", optional = true }
 windows_gen = { path = "crates/gen",  version = "0.21.1", optional = true }
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_x86 = { path = "crates/x86", version = "0.21.1", optional = true }
+windows_x86 = { path = "crates/x86", version = "0.21.1" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x64 = { path = "crates/x64", version = "0.21.1", optional = true }
+windows_x64 = { path = "crates/x64", version = "0.21.1" }
 
 [features]
 default = ["macros"]
