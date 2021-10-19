@@ -3,6 +3,13 @@ use std::collections::BTreeMap;
 use std::io::prelude::*;
 
 fn main() {
+    let platform = if let Some(platform) = option_env!("Platform") {
+        platform
+    } else {
+        println!("Please run this tool from a Visual Studio command prompt");
+        return;
+    };
+
     let reader = TypeReader::get_mut();
 
     let mut libraries = BTreeMap::<String, BTreeMap<&'static str, usize>>::new();
@@ -11,7 +18,7 @@ fn main() {
 
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
     output.push("crates");
-    output.push(env!("Platform"));
+    output.push(platform);
     output.push("lib");
     let _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
