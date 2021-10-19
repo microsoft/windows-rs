@@ -165,10 +165,22 @@ impl ElementType {
         }
     }
 
-    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
+    pub fn struct_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
         match self {
-            Self::TypeDef(def) => def.method_features(features),
-            Self::Array((signature, _)) => signature.kind.method_features(features),
+            Self::TypeDef(def) => def.struct_features(features, keys),
+            Self::Array((signature, _)) => signature.kind.struct_features(features, keys),
+            _ => {}
+        }
+    }
+
+    pub fn method_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+        match self {
+            Self::TypeDef(def) => def.method_features(features, keys),
+            Self::Array((signature, _)) => signature.kind.method_features(features, keys),
             _ => {}
         }
     }

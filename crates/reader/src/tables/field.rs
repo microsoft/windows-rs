@@ -49,6 +49,17 @@ impl Field {
             .module_features(features, keys);
     }
 
+    pub fn struct_features(
+        &self,
+        enclosing: Option<&TypeDef>,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
+        self.signature(enclosing)
+            .kind
+            .struct_features(features, keys);
+    }
+
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
         self.0.file.attributes(HasAttribute::Field(self.clone()))
     }

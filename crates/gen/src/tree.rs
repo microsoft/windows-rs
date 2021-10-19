@@ -65,6 +65,10 @@ fn gen_namespaces<'a>(
 }
 
 fn gen_type_entry(entry: &TypeEntry, gen: &Gen) -> TokenStream {
+    if !gen.relative.starts_with("Windows.Win32.") {
+        return TokenStream::new();
+    }
+
     if entry.include == TypeInclude::None {
         return TokenStream::new();
     }

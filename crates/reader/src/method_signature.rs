@@ -27,12 +27,13 @@ impl MethodSignature {
 
     pub fn method_features(&self) -> BTreeSet<&'static str> {
         let mut features = std::collections::BTreeSet::new();
+        let mut keys =  std::collections::HashSet::new();
         self.return_sig
             .iter()
-            .for_each(|def| def.kind.method_features(&mut features));
+            .for_each(|def| def.kind.method_features(&mut features, &mut keys));
         self.params
             .iter()
-            .for_each(|def| def.signature.kind.method_features(&mut features));
+            .for_each(|def| def.signature.kind.method_features(&mut features, &mut keys));
         features
     }
 
@@ -47,6 +48,19 @@ impl MethodSignature {
         self.params
             .iter()
             .for_each(|def| def.signature.kind.module_features(features, keys));
+    }
+
+    pub fn struct_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
+        self.return_sig
+            .iter()
+            .for_each(|def| def.kind.struct_features(features, keys));
+        self.params
+            .iter()
+            .for_each(|def| def.signature.kind.struct_features(features, keys));
     }
 
     pub fn kind(&self) -> SignatureKind {

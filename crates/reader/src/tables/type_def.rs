@@ -203,9 +203,33 @@ impl TypeDef {
                         _ => {}
                     });
             }
+            TypeKind::Delegate => self
+                .invoke_method()
+                .signature(&[])
+                .module_features(features, keys),
+            _ => {}
+        }
+    }
+
+    pub fn struct_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
+        if !keys.insert(self.row.clone()) {
+            return;
+        }
+
+        let namespace = self.namespace();
+
+        if !namespace.is_empty() {
+            features.insert(self.namespace());
+        }
+
+        match self.kind() {
             TypeKind::Struct => {
                 self.fields()
-                    .for_each(|def| def.module_features(Some(self), features, keys));
+                    .for_each(|def| def.struct_features(Some(self), features, keys));
 
                 if let Some(def) = self.is_convertible_to() {
                     // TODO: wonky
@@ -215,17 +239,19 @@ impl TypeDef {
             TypeKind::Delegate => self
                 .invoke_method()
                 .signature(&[])
-                .module_features(features, keys),
+                .struct_features(features, keys),
             _ => {}
         }
     }
 
-    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
+    pub fn method_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         features.insert(self.namespace());
 
         for generic in &self.generics {
-            generic.method_features(features);
+            generic.method_features(features, keys);
         }
+
+        self.struct_features(features, keys);
     }
 
     pub fn is_udt(&self) -> bool {
