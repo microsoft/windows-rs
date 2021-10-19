@@ -65,7 +65,7 @@ fn load_function(
 }
 
 fn build_library(
-    output: &std::path::PathBuf,
+    output: &std::path::Path,
     library: &str,
     functions: &BTreeMap<&'static str, usize>,
 ) {
@@ -138,7 +138,7 @@ EXPORTS
 
     path.pop();
     path.push(format!("{}.exp", library));
-    std::fs::remove_file(&path).expect(&format!("{:?}", path));
+    std::fs::remove_file(&path).unwrap_or_else(|_| panic!("{:?}", path));
 
     path.pop();
     path.push(format!("{}.obj", library));
