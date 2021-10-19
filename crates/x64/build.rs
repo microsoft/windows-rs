@@ -1,7 +1,12 @@
 fn main() {
-    let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
+    if std::env::var("TARGET").unwrap() != "x86_64-pc-windows-msvc" {
+        return;
+    }
+
+    let dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
+
     println!(
         "cargo:rustc-link-search=native={}",
-        path.join("lib").display()
+        std::path::Path::new(&dir).join("lib").display()
     );
 }
