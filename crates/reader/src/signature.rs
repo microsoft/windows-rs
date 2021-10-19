@@ -33,4 +33,12 @@ impl Signature {
             _ => false,
         }
     }
+
+    pub fn size(&self) -> usize {
+        if self.pointers > 0 {
+            1
+        } else {
+            self.kind.size()
+        }
+    }
 }

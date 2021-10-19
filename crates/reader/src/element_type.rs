@@ -43,6 +43,15 @@ impl From<TypeDef> for ElementType {
 }
 
 impl ElementType {
+    pub fn size(&self) -> usize {
+        match self {
+            Self::I64 | Self::U64 | Self::F64 => 2,
+            Self::Guid => 4,
+            Self::TypeDef(def) => def.size(),
+            _ => 1,
+        }
+    }
+
     pub fn row(&self) -> &Row {
         match self {
             Self::MethodDef(def) => &def.0,

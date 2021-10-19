@@ -48,7 +48,7 @@ fn load_function(
             .name()
             .to_lowercase();
 
-        let params = def.signature(&[]).params.len();
+        let params = def.signature(&[]).size();
 
         libraries
             .entry(library)

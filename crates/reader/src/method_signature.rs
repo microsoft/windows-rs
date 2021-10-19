@@ -102,6 +102,12 @@ impl MethodSignature {
 
         SignatureKind::PreserveSig
     }
+
+    pub fn size(&self) -> usize {
+        self.params
+            .iter()
+            .fold(0, |sum, param| sum + param.signature.size())
+    }
 }
 
 impl MethodParam {

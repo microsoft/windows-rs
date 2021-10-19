@@ -88,6 +88,15 @@ impl TypeDef {
             .any(|field| field.signature(Some(self)).is_packed())
     }
 
+    pub fn size(&self) -> usize {
+        if self.kind() == TypeKind::Struct {
+            self.fields()
+                .fold(0, |sum, field| sum + field.signature(Some(self)).size())
+        } else {
+            1
+        }
+    }
+
     pub fn is_handle(&self) -> bool {
         self.has_attribute("NativeTypedefAttribute")
     }
