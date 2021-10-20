@@ -143,7 +143,9 @@ pub fn class_features(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
 fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenStream {
-    // TODO: remove any features that are already module features dependencies as these are redundant
+    if features.is_empty() {
+        return TokenStream::new();
+    }
 
     let mut relative = gen.relative;
 
@@ -174,9 +176,11 @@ fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenS
     }
 
     dependencies.truncate(dependencies.len() - 2);
+
     if not {
         dependencies.push(')');
     }
+    
     dependencies.push_str("))]");
 
     dependencies.into()
