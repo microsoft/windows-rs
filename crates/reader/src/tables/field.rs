@@ -38,7 +38,7 @@ impl Field {
         self.signature(enclosing).kind.include_definition(include)
     }
 
-    pub fn module_features(
+    pub fn struct_features(
         &self,
         enclosing: Option<&TypeDef>,
         features: &mut BTreeSet<&'static str>,
@@ -46,7 +46,7 @@ impl Field {
     ) {
         self.signature(enclosing)
             .kind
-            .module_features(features, keys);
+            .struct_features(features, keys);
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {

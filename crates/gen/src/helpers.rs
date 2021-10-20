@@ -65,6 +65,16 @@ pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens
 }
 
+pub fn interface_method_features(def: &TypeDef, sig: &MethodSignature, gen: &Gen) -> TokenStream {
+    if gen.feature.is_empty() {
+        return TokenStream::new();
+    }
+
+    let mut features = sig.method_features();
+    features.insert(def.namespace());
+    gen_cfg(features, false, gen)
+}
+
 // TODO: should have option to return "not" version to avoid calculating method_features multiple times
 pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     if gen.feature.is_empty() {
@@ -89,13 +99,53 @@ pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
     }
 
     let mut features = std::collections::BTreeSet::new();
-    sig.kind.method_features(&mut features);
+    let mut keys = std::collections::HashSet::new();
+    sig.kind.method_features(&mut features, &mut keys);
+
+    gen_cfg(features, false, gen)
+}
+
+pub fn struct_features(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if gen.feature.is_empty() {
+        return TokenStream::new();
+    }
+
+    let mut features = std::collections::BTreeSet::new();
+    let mut keys = std::collections::HashSet::new();
+    def.struct_features(&mut features, &mut keys);
+
+    gen_cfg(features, false, gen)
+}
+
+pub fn convert_features(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if gen.feature.is_empty() {
+        return TokenStream::new();
+    }
+
+    let mut features = std::collections::BTreeSet::new();
+    features.insert(def.namespace());
+
+    gen_cfg(features, false, gen)
+}
+
+pub fn class_features(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if gen.feature.is_empty() {
+        return TokenStream::new();
+    }
+
+    let mut features = std::collections::BTreeSet::new();
+
+    if let Some(def) = def.default_interface() {
+        features.insert(def.namespace());
+    }
 
     gen_cfg(features, false, gen)
 }
 
 fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenStream {
-    // TODO: remove any features that are already module features dependencies as these are redundant
+    if features.is_empty() {
+        return TokenStream::new();
+    }
 
     let mut relative = gen.relative;
 
@@ -112,6 +162,8 @@ fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenS
         return TokenStream::new();
     }
 
+    // TODO: don't use all(...) if there's only a single feature (as is often the case)
+
     let mut dependencies = if not {
         "#[cfg(not(all(".to_string()
     } else {
@@ -124,9 +176,11 @@ fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenS
     }
 
     dependencies.truncate(dependencies.len() - 2);
+
     if not {
         dependencies.push(')');
     }
+
     dependencies.push_str("))]");
 
     dependencies.into()

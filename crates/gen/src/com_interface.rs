@@ -82,23 +82,28 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         for base in &bases {
             let into = gen_type_name(base, gen);
+            let features = convert_features(base, gen);
 
             conversions.combine(&quote! {
+                        #features
                         impl ::std::convert::From<#name> for #into {
                             fn from(value: #name) -> Self {
                                 unsafe { ::std::mem::transmute(value) }
                             }
                         }
+                        #features
                         impl ::std::convert::From<&#name> for #into {
                             fn from(value: &#name) -> Self {
                                 ::std::convert::From::from(::std::clone::Clone::clone(value))
                             }
                         }
+                        #features
                         impl<'a> ::windows::IntoParam<'a, #into> for #name {
                             fn into_param(self) -> ::windows::Param<'a, #into> {
                                 ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                             }
                         }
+                        #features
                         impl<'a> ::windows::IntoParam<'a, #into> for &#name {
                             fn into_param(self) -> ::windows::Param<'a, #into> {
                                 ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))

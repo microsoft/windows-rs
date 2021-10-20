@@ -39,7 +39,7 @@ impl TypeTree {
         }
     }
 
-    pub fn module_features(
+    pub fn struct_features(
         &self,
         features: &mut BTreeSet<&'static str>,
         keys: &mut std::collections::HashSet<Row>,
@@ -48,7 +48,7 @@ impl TypeTree {
             .values()
             .map(|entry| entry.def.iter())
             .flatten()
-            .for_each(|def| def.module_features(features, keys));
+            .for_each(|def| def.struct_features(features, keys));
     }
 
     pub fn insert_namespace(&mut self, namespace: &'static str, pos: usize) -> &mut Self {

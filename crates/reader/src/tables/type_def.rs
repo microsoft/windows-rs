@@ -170,7 +170,7 @@ impl TypeDef {
         }
     }
 
-    pub fn module_features(
+    pub fn struct_features(
         &self,
         features: &mut BTreeSet<&'static str>,
         keys: &mut std::collections::HashSet<Row>,
@@ -179,33 +179,21 @@ impl TypeDef {
             return;
         }
 
-        features.insert(self.namespace());
+        let namespace = self.namespace();
+
+        if !namespace.is_empty() {
+            features.insert(self.namespace());
+        }
 
         match self.kind() {
             TypeKind::Class => {
-                self.interfaces().for_each(|def| {
-                    features.insert(def.namespace());
-                });
-
-                if let Some(def) = self.bases().next() {
+                if let Some(def) = self.default_interface() {
                     features.insert(def.namespace());
                 }
-
-                self.attributes()
-                    .for_each(|attribute| match attribute.name() {
-                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
-                            for (_, arg) in attribute.args() {
-                                if let ConstantValue::TypeDef(def) = arg {
-                                    features.insert(def.namespace());
-                                }
-                            }
-                        }
-                        _ => {}
-                    });
             }
             TypeKind::Struct => {
                 self.fields()
-                    .for_each(|def| def.module_features(Some(self), features, keys));
+                    .for_each(|def| def.struct_features(Some(self), features, keys));
 
                 if let Some(def) = self.is_convertible_to() {
                     // TODO: wonky
@@ -215,17 +203,23 @@ impl TypeDef {
             TypeKind::Delegate => self
                 .invoke_method()
                 .signature(&[])
-                .module_features(features, keys),
+                .struct_features(features, keys),
             _ => {}
         }
     }
 
-    pub fn method_features(&self, features: &mut BTreeSet<&'static str>) {
+    pub fn method_features(
+        &self,
+        features: &mut BTreeSet<&'static str>,
+        keys: &mut std::collections::HashSet<Row>,
+    ) {
         features.insert(self.namespace());
 
         for generic in &self.generics {
-            generic.method_features(features);
+            generic.method_features(features, keys);
         }
+
+        self.struct_features(features, keys);
     }
 
     pub fn is_udt(&self) -> bool {

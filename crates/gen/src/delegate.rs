@@ -14,6 +14,8 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let vtable_phantoms = gen_phantoms(def);
     let constraints = gen_constraints(def);
 
+    let features = method_features(&signature, gen);
+
     let method = MethodInfo {
         name: "Invoke".to_string(),
         vtable_offset: 3,
@@ -55,9 +57,11 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
 
     quote! {
+        #features
         #[repr(transparent)]
         #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
         pub struct #name(::windows::IUnknown, #(#struct_phantoms,)*) where #constraints;
+        #features
         impl<#constraints> #name {
             pub fn new<#fn_constraint>(invoke: F) -> Self {
                 let com = #box_name {
@@ -71,13 +75,16 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
             #invoke
         }
+        #features
         unsafe impl<#constraints> ::windows::RuntimeType for #name {
             const SIGNATURE: ::windows::ConstBuffer = #type_signature;
         }
+        #features
         unsafe impl<#constraints> ::windows::Interface for #name {
             type Vtable = #abi_name;
             const IID: ::windows::Guid = #guid;
         }
+        #features
         #[repr(C)]
         #[doc(hidden)]
         pub struct #abi_name(
@@ -87,12 +94,14 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
             pub unsafe extern "system" fn #abi_signature,
             #(pub #abi_phantoms,)*
         ) where #constraints;
+        #features
         #[repr(C)]
         struct #box_definition where #constraints {
             vtable: *const #abi_name,
             invoke: F,
             count: ::windows::RefCount,
         }
+        #features
         impl<#constraints #fn_constraint> #box_name {
             const VTABLE: #abi_name = #turbo_abi_name(
                 Self::QueryInterface,

@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: need to gate all types
+
 pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     let name = gen_type_name(def, gen);
     let struct_phantoms = gen_phantoms(def);
@@ -49,7 +51,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             let interfaces = interfaces(def);
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
             let (async_get, future) = gen_async(def, &interfaces, gen);
-            let object = gen_object(&name, &constraints);
+            let object = gen_object(&name, &constraints, &TokenStream::new());
             let iterator = gen_iterator(def, &interfaces, gen);
 
             let send_sync = if async_kind(def) == AsyncKind::None {
@@ -64,7 +66,9 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             let conversions = interfaces
                 .iter()
                 .filter(|interface| interface.kind != InterfaceKind::Default)
-                .map(|interface| interface.gen_conversion(&name, &constraints, gen));
+                .map(|interface| {
+                    interface.gen_conversion(&name, &constraints, &TokenStream::new(), gen)
+                });
 
             quote! {
                 impl<#constraints> #name {
