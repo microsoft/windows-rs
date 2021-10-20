@@ -68,7 +68,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         };
     }
 
-    let features = struct_features(&def, gen);
+    let features = struct_features(def, gen);
 
     let fields: Vec<(Field, Signature, TokenStream)> = def
         .fields()
