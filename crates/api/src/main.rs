@@ -82,6 +82,11 @@ fn include_all(tree: &mut reader::TypeTree) {
 }
 
 fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTree) {
+    // TODO: temporary
+    if tree.namespace.starts_with("Windows.UI.Xaml") || tree.namespace.starts_with("Windows.Win32") {
+        return;
+    }
+
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 

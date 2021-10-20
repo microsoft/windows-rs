@@ -92,6 +92,7 @@ impl Class {
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = gen_type_name(&self.0, gen);
         let interfaces = self.interfaces();
+        let features = class_features(&self.0, gen);
 
         if include == TypeInclude::Full {
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
@@ -153,7 +154,9 @@ impl Class {
 
                 let send_sync = if self.0.is_agile() {
                     quote! {
+                        #features
                         unsafe impl ::std::marker::Send for #name {}
+                        #features
                         unsafe impl ::std::marker::Sync for #name {}
                     }
                 } else {
@@ -164,22 +167,27 @@ impl Class {
                 let iterator = gen_iterator(&self.0, &interfaces, gen);
 
                 quote! {
+                    #features
                     #[repr(transparent)]
                     #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                     pub struct #name(::windows::IInspectable);
+                    #features
                     impl #name {
                         #new
                         #methods
                         #async_get
                         #(#factories)*
                     }
+                    #features
                     unsafe impl ::windows::RuntimeType for #name {
                         const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
                     }
+                    #features
                     unsafe impl ::windows::Interface for #name {
                         type Vtable = #default_abi_name;
                         const IID: ::windows::Guid = #guid;
                     }
+                    #features
                     impl ::windows::RuntimeName for #name {
                         const NAME: &'static str = #runtime_name;
                     }
@@ -212,14 +220,17 @@ impl Class {
             let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
 
             quote! {
+                #features
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                 #[doc(hidden)]
                 pub struct #name(::windows::IInspectable);
+                #features
                 unsafe impl ::windows::Interface for #name {
                     type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
                     const IID: ::windows::Guid = #guid;
                 }
+                #features
                 unsafe impl ::windows::RuntimeType for #name {
                     const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
                 }

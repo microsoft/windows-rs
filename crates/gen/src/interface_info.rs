@@ -61,25 +61,31 @@ impl InterfaceInfo {
             return TokenStream::new();
         }
 
+        let into = gen_type_name(&self.def, gen);
+        let features = convert_features(&self.def, gen);
+
         match self.kind {
             InterfaceKind::Default => {
-                let into = gen_type_name(&self.def, gen);
                 quote! {
+                    #features
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
                             unsafe { ::std::mem::transmute(value) }
                         }
                     }
+                    #features
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
                             ::std::convert::From::from(::std::clone::Clone::clone(value))
                         }
                     }
+                    #features
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                         }
                     }
+                    #features
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
                             // TODO: The various conversions are adding ref counting bumps unnecessarily
@@ -91,25 +97,28 @@ impl InterfaceInfo {
             InterfaceKind::NonDefault => {
                 // Note: these implement `TryFrom` instead of `From` as they are fallible since new non-default interfaces
                 // may be added in subsequent versions of a class.
-                let into = gen_type_name(&self.def, gen);
                 quote! {
+                    #features
                     impl<#constraints> ::std::convert::TryFrom<#from> for #into {
                         type Error = ::windows::Error;
                         fn try_from(value: #from) -> ::windows::Result<Self> {
                             ::std::convert::TryFrom::try_from(&value)
                         }
                     }
+                    #features
                     impl<#constraints> ::std::convert::TryFrom<&#from> for #into {
                         type Error = ::windows::Error;
                         fn try_from(value: &#from) -> ::windows::Result<Self> {
                             ::windows::Interface::cast(value)
                         }
                     }
+                    #features
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::windows::IntoParam::into_param(&self)
                         }
                     }
+                    #features
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::std::convert::TryInto::<#into>::try_into(self)
