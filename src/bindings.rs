@@ -2791,8 +2791,6 @@ pub mod Windows {
                 type DefaultType = Self;
             }
             pub type BSTR_abi = *mut u16;
-            pub const CO_E_NOTINITIALIZED: ::windows::HRESULT =
-                ::windows::HRESULT(-2147221008i32 as _);
             pub unsafe fn CloseHandle<'a, Param0: ::windows::IntoParam<'a, HANDLE>>(
                 hobject: Param0,
             ) -> BOOL {
@@ -2809,6 +2807,18 @@ pub mod Windows {
             }
             pub const E_NOINTERFACE: ::windows::HRESULT = ::windows::HRESULT(-2147467262i32 as _);
             pub type FARPROC = unsafe extern "system" fn() -> isize;
+            pub unsafe fn GetLastError() -> WIN32_ERROR {
+                #[cfg(windows)]
+                {
+                    #[link(name = "kernel32")]
+                    extern "system" {
+                        fn GetLastError() -> WIN32_ERROR;
+                    }
+                    ::std::mem::transmute(GetLastError())
+                }
+                #[cfg(not(windows))]
+                unimplemented!("Unsupported target OS");
+            }
             #[derive(
                 :: std :: clone :: Clone,
                 :: std :: marker :: Copy,
@@ -2983,6 +2993,85 @@ pub mod Windows {
                 }
             }
             pub const S_OK: ::windows::HRESULT = ::windows::HRESULT(0i32 as _);
+            #[derive(
+                :: std :: cmp :: PartialEq,
+                :: std :: cmp :: Eq,
+                :: std :: marker :: Copy,
+                :: std :: clone :: Clone,
+                :: std :: default :: Default,
+                :: std :: fmt :: Debug,
+            )]
+            #[repr(transparent)]
+            pub struct WIN32_ERROR(pub u32);
+            impl ::std::convert::From<u32> for WIN32_ERROR {
+                fn from(value: u32) -> Self {
+                    Self(value)
+                }
+            }
+            unsafe impl ::windows::Abi for WIN32_ERROR {
+                type Abi = Self;
+                type DefaultType = Self;
+            }
+            impl ::std::ops::BitOr for WIN32_ERROR {
+                type Output = Self;
+                fn bitor(self, rhs: Self) -> Self {
+                    Self(self.0 | rhs.0)
+                }
+            }
+            impl ::std::ops::BitAnd for WIN32_ERROR {
+                type Output = Self;
+                fn bitand(self, rhs: Self) -> Self {
+                    Self(self.0 & rhs.0)
+                }
+            }
+            impl ::std::ops::BitOrAssign for WIN32_ERROR {
+                fn bitor_assign(&mut self, rhs: Self) {
+                    self.0.bitor_assign(rhs.0)
+                }
+            }
+            impl ::std::ops::BitAndAssign for WIN32_ERROR {
+                fn bitand_assign(&mut self, rhs: Self) {
+                    self.0.bitand_assign(rhs.0)
+                }
+            }
+            impl ::std::ops::Not for WIN32_ERROR {
+                type Output = Self;
+                fn not(self) -> Self {
+                    Self(self.0.not())
+                }
+            }
+            impl ::std::convert::From<WIN32_ERROR> for ::windows::HRESULT {
+                fn from(value: WIN32_ERROR) -> Self {
+                    Self(if value.0 as i32 <= 0 {
+                        value.0
+                    } else {
+                        (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
+                    })
+                }
+            }
+        }
+        #[allow(
+            unused_variables,
+            non_upper_case_globals,
+            non_snake_case,
+            unused_unsafe,
+            non_camel_case_types,
+            dead_code,
+            clippy::all
+        )]
+        pub mod Graphics {
+            #[allow(
+                unused_variables,
+                non_upper_case_globals,
+                non_snake_case,
+                unused_unsafe,
+                non_camel_case_types,
+                dead_code,
+                clippy::all
+            )]
+            pub mod DirectDraw {
+                pub const CO_E_NOTINITIALIZED: i32 = -2147221008i32;
+            }
         }
         #[allow(
             unused_variables,
@@ -3255,74 +3344,6 @@ pub mod Windows {
                         }
                         #[cfg(not(windows))]
                         unimplemented!("Unsupported target OS");
-                    }
-                    pub unsafe fn GetLastError() -> WIN32_ERROR {
-                        #[cfg(windows)]
-                        {
-                            #[link(name = "kernel32")]
-                            extern "system" {
-                                fn GetLastError() -> WIN32_ERROR;
-                            }
-                            ::std::mem::transmute(GetLastError())
-                        }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
-                    }
-                    #[derive(
-                        :: std :: cmp :: PartialEq,
-                        :: std :: cmp :: Eq,
-                        :: std :: marker :: Copy,
-                        :: std :: clone :: Clone,
-                        :: std :: default :: Default,
-                        :: std :: fmt :: Debug,
-                    )]
-                    #[repr(transparent)]
-                    pub struct WIN32_ERROR(pub u32);
-                    impl ::std::convert::From<u32> for WIN32_ERROR {
-                        fn from(value: u32) -> Self {
-                            Self(value)
-                        }
-                    }
-                    unsafe impl ::windows::Abi for WIN32_ERROR {
-                        type Abi = Self;
-                        type DefaultType = Self;
-                    }
-                    impl ::std::ops::BitOr for WIN32_ERROR {
-                        type Output = Self;
-                        fn bitor(self, rhs: Self) -> Self {
-                            Self(self.0 | rhs.0)
-                        }
-                    }
-                    impl ::std::ops::BitAnd for WIN32_ERROR {
-                        type Output = Self;
-                        fn bitand(self, rhs: Self) -> Self {
-                            Self(self.0 & rhs.0)
-                        }
-                    }
-                    impl ::std::ops::BitOrAssign for WIN32_ERROR {
-                        fn bitor_assign(&mut self, rhs: Self) {
-                            self.0.bitor_assign(rhs.0)
-                        }
-                    }
-                    impl ::std::ops::BitAndAssign for WIN32_ERROR {
-                        fn bitand_assign(&mut self, rhs: Self) {
-                            self.0.bitand_assign(rhs.0)
-                        }
-                    }
-                    impl ::std::ops::Not for WIN32_ERROR {
-                        type Output = Self;
-                        fn not(self) -> Self {
-                            Self(self.0.not())
-                        }
-                    }
-                    impl ::std::convert::From<WIN32_ERROR> for ::windows::HRESULT {
-                        fn from(value: WIN32_ERROR) -> Self {
-                            Self(if value.0 as i32 <= 0 {
-                                value.0
-                            } else {
-                                (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
-                            })
-                        }
                     }
                 }
             }
@@ -3792,66 +3813,13 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
-                #[derive(
-                    :: std :: cmp :: PartialEq,
-                    :: std :: cmp :: Eq,
-                    :: std :: marker :: Copy,
-                    :: std :: clone :: Clone,
-                    :: std :: default :: Default,
-                    :: std :: fmt :: Debug,
-                )]
-                #[repr(transparent)]
-                pub struct WAIT_RETURN_CAUSE(pub u32);
-                pub const WAIT_OBJECT_0: WAIT_RETURN_CAUSE = WAIT_RETURN_CAUSE(0u32);
-                pub const WAIT_ABANDONED: WAIT_RETURN_CAUSE = WAIT_RETURN_CAUSE(128u32);
-                pub const WAIT_ABANDONED_0: WAIT_RETURN_CAUSE = WAIT_RETURN_CAUSE(128u32);
-                pub const WAIT_IO_COMPLETION: WAIT_RETURN_CAUSE = WAIT_RETURN_CAUSE(192u32);
-                pub const WAIT_TIMEOUT: WAIT_RETURN_CAUSE = WAIT_RETURN_CAUSE(258u32);
-                pub const WAIT_FAILED: WAIT_RETURN_CAUSE = WAIT_RETURN_CAUSE(4294967295u32);
-                impl ::std::convert::From<u32> for WAIT_RETURN_CAUSE {
-                    fn from(value: u32) -> Self {
-                        Self(value)
-                    }
-                }
-                unsafe impl ::windows::Abi for WAIT_RETURN_CAUSE {
-                    type Abi = Self;
-                    type DefaultType = Self;
-                }
-                impl ::std::ops::BitOr for WAIT_RETURN_CAUSE {
-                    type Output = Self;
-                    fn bitor(self, rhs: Self) -> Self {
-                        Self(self.0 | rhs.0)
-                    }
-                }
-                impl ::std::ops::BitAnd for WAIT_RETURN_CAUSE {
-                    type Output = Self;
-                    fn bitand(self, rhs: Self) -> Self {
-                        Self(self.0 & rhs.0)
-                    }
-                }
-                impl ::std::ops::BitOrAssign for WAIT_RETURN_CAUSE {
-                    fn bitor_assign(&mut self, rhs: Self) {
-                        self.0.bitor_assign(rhs.0)
-                    }
-                }
-                impl ::std::ops::BitAndAssign for WAIT_RETURN_CAUSE {
-                    fn bitand_assign(&mut self, rhs: Self) {
-                        self.0.bitand_assign(rhs.0)
-                    }
-                }
-                impl ::std::ops::Not for WAIT_RETURN_CAUSE {
-                    type Output = Self;
-                    fn not(self) -> Self {
-                        Self(self.0.not())
-                    }
-                }
                 pub unsafe fn WaitForSingleObject<
                     'a,
                     Param0: ::windows::IntoParam<'a, super::super::Foundation::HANDLE>,
                 >(
                     hhandle: Param0,
                     dwmilliseconds: u32,
-                ) -> WAIT_RETURN_CAUSE {
+                ) -> u32 {
                     #[cfg(windows)]
                     {
                         #[link(name = "kernel32")]
@@ -3859,7 +3827,7 @@ pub mod Windows {
                             fn WaitForSingleObject(
                                 hhandle: super::super::Foundation::HANDLE,
                                 dwmilliseconds: u32,
-                            ) -> WAIT_RETURN_CAUSE;
+                            ) -> u32;
                         }
                         ::std::mem::transmute(WaitForSingleObject(
                             hhandle.into_param().abi(),

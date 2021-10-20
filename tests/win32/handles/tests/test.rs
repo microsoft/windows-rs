@@ -2,7 +2,6 @@ use test_win32_handles::*;
 use windows::*;
 use Windows::Win32::Foundation::*;
 use Windows::Win32::Graphics::Gdi::*;
-use Windows::Win32::System::Diagnostics::Debug::*;
 use Windows::Win32::System::Registry::*;
 use Windows::Win32::System::Threading::LPPROC_THREAD_ATTRIBUTE_LIST;
 
@@ -17,7 +16,7 @@ fn hwnd() {
 
     assert!(HWND(1).ok().is_ok());
 
-    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
+    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE) };
 
     assert!(HWND(0).ok().unwrap_err().code() == ERROR_INVALID_WINDOW_HANDLE.into());
 
@@ -36,11 +35,11 @@ fn handle() {
 
     assert!(HANDLE(1).ok().is_ok());
 
-    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
+    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE) };
 
     assert!(HANDLE(0).ok().unwrap_err().code() == ERROR_INVALID_WINDOW_HANDLE.into());
 
-    unsafe { SetLastError(ERROR_FILE_NOT_FOUND.0) };
+    unsafe { SetLastError(ERROR_FILE_NOT_FOUND) };
 
     assert!(HANDLE(-1).ok().unwrap_err().code() == ERROR_FILE_NOT_FOUND.into());
 
@@ -92,7 +91,7 @@ fn lpproc_thread_attribute_list() {
 
     assert!(LPPROC_THREAD_ATTRIBUTE_LIST(1 as _).ok().is_ok());
 
-    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE.0) };
+    unsafe { SetLastError(ERROR_INVALID_WINDOW_HANDLE) };
 
     assert!(
         LPPROC_THREAD_ATTRIBUTE_LIST::default()

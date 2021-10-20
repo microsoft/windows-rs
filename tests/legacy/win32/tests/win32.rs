@@ -12,7 +12,6 @@ use test_win32::Windows::Win32::{
     UI::{
         Accessibility::UIA_ScrollPatternNoScroll,
         Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
-        ColorSystem::WhitePoint,
         WindowsAndMessaging::{CHOOSECOLORW, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
     },
 };
@@ -336,11 +335,4 @@ fn empty_struct() {
     assert!(std::mem::size_of::<ldapsearch>() == 1);
 
     assert!(UIAnimationManager == Guid::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
-}
-
-#[test]
-fn struct_constants() {
-    assert_eq!(WhitePoint::CHROMATICITY, 0);
-    assert_eq!(WhitePoint::TEMPERATURE, 1);
-    assert_eq!(WhitePoint::D65, 2);
 }
