@@ -92,7 +92,8 @@ impl Class {
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = gen_type_name(&self.0, gen);
         let interfaces = self.interfaces();
-        let features = class_features(&self.0, gen);
+        let features = gen.class_features(&self.0);
+        let cfg = gen.gen_cfg(&features);
 
         if include == TypeInclude::Full {
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
@@ -128,7 +129,7 @@ impl Class {
                 let guid = gen_type_guid(&default_interface.def, gen);
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
-                let object = gen_object(&name, &TokenStream::new(), &features);
+                let object = gen_object(&name, &TokenStream::new(), &cfg);
                 let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
                 let new = if self.0.has_default_constructor() {
@@ -154,9 +155,9 @@ impl Class {
 
                 let send_sync = if self.0.is_agile() {
                     quote! {
-                        #features
+                        #cfg
                         unsafe impl ::std::marker::Send for #name {}
-                        #features
+                        #cfg
                         unsafe impl ::std::marker::Sync for #name {}
                     }
                 } else {
@@ -167,27 +168,27 @@ impl Class {
                 let iterator = gen_iterator(&self.0, &interfaces, gen);
 
                 quote! {
-                    #features
+                    #cfg
                     #[repr(transparent)]
                     #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                     pub struct #name(::windows::IInspectable);
-                    #features
+                    #cfg
                     impl #name {
                         #new
                         #methods
                         #async_get
                         #(#factories)*
                     }
-                    #features
+                    #cfg
                     unsafe impl ::windows::RuntimeType for #name {
                         const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
                     }
-                    #features
+                    #cfg
                     unsafe impl ::windows::Interface for #name {
                         type Vtable = #default_abi_name;
                         const IID: ::windows::Guid = #guid;
                     }
-                    #features
+                    #cfg
                     impl ::windows::RuntimeName for #name {
                         const NAME: &'static str = #runtime_name;
                     }
@@ -220,17 +221,17 @@ impl Class {
             let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
 
             quote! {
-                #features
+                #cfg
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                 #[doc(hidden)]
                 pub struct #name(::windows::IInspectable);
-                #features
+                #cfg
                 unsafe impl ::windows::Interface for #name {
                     type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
                     const IID: ::windows::Guid = #guid;
                 }
-                #features
+                #cfg
                 unsafe impl ::windows::RuntimeType for #name {
                     const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
                 }

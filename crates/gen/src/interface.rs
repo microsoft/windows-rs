@@ -67,7 +67,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
                 .iter()
                 .filter(|interface| interface.kind != InterfaceKind::Default)
                 .map(|interface| {
-                    interface.gen_conversion(&name, &constraints, &TokenStream::new(), gen)
+                    interface.gen_conversion(&name, &constraints, &BTreeSet::new(), gen)
                 });
 
             quote! {

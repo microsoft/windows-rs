@@ -2,7 +2,7 @@ use super::*;
 
 pub struct Gen {
     pub relative: &'static str,
-    pub feature: &'static str,
+    pub root: &'static str,
     // TODO: add module features here so method_features can remove any that are already module features
 
     // TODO: add features TokenStream so different impls don't have to pass it around or regenerate?
@@ -12,14 +12,14 @@ impl Gen {
     pub fn absolute() -> Self {
         Gen {
             relative: "",
-            feature: "",
+            root: "",
         }
     }
 
     pub fn relative(namespace: &'static str) -> Self {
         Gen {
             relative: namespace,
-            feature: "",
+            root: "",
         }
     }
 
@@ -62,6 +62,80 @@ impl Gen {
 
             tokens
         }
+    }
+
+    pub fn class_features(&self, def: &TypeDef) -> BTreeSet<&'static str> {
+        if self.root.is_empty() {
+            return BTreeSet::new();
+        }
+
+        let mut features = BTreeSet::new();
+
+        if let Some(def) = def.default_interface() {
+            features.insert(def.namespace());
+        }
+    
+        features
+    }
+
+    pub fn gen_cfg(&self, features: &BTreeSet<&'static str>) -> TokenStream {
+        self.gen_cfg_impl(features, false)
+    }
+
+    pub fn gen_cfg_not(&self, features: &BTreeSet<&'static str>) -> TokenStream {
+        self.gen_cfg_impl(features, true)
+    }
+
+    fn gen_cfg_impl(&self, features: &BTreeSet<&'static str>, not: bool) -> TokenStream {
+        if features.is_empty() {
+            return TokenStream::new();
+        }
+
+        let mut tokens = String::new();
+        let mut count = 0;
+
+        for feature in features {
+            if self.relative == *feature {
+                continue;
+            }
+
+            if self.relative.len() > feature.len() && self.relative.starts_with(feature) && self.relative[feature.len()..].starts_with('.') {
+                continue;
+            }
+
+            let feature = &feature[self.root.len() + 1..];
+            tokens.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
+            count += 1;
+        }
+
+        if count == 0 {
+            return TokenStream::new();
+        }
+
+        let all = count > 1;
+        let mut cfg = "#[cfg(".to_string();
+
+        if not { 
+            cfg.push_str("not(")
+        }
+
+        if all {
+            cfg.push_str("all(")
+        }
+    
+        tokens.truncate(tokens.len() - 2);
+        cfg.push_str(&tokens);
+
+        if not {
+            cfg.push(')');
+        }
+
+        if all {
+            cfg.push(')');
+        }
+
+        cfg.push_str(")]");
+        cfg.into()
     }
 }
 

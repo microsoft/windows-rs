@@ -149,7 +149,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
     let mut iterable = None;
     let wfc = gen.namespace("Windows.Foundation.Collections");
 
-    let features = if gen.feature.is_empty() {
+    let features = if gen.root.is_empty() {
         TokenStream::new()
     } else {
         quote! { #[cfg(all(feature = "Foundation_Collections"))] }

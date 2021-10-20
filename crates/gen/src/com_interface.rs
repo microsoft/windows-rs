@@ -18,7 +18,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             .map(|method| {
                 let signature = method.signature(&[]);
                 let abi = gen_win32_abi(&signature, gen);
-                if gen.feature.is_empty() {
+                if gen.root.is_empty() {
                     quote! {
                         pub unsafe extern "system" fn #abi,
                     }
@@ -82,28 +82,30 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         for base in &bases {
             let into = gen_type_name(base, gen);
-            let features = convert_features(base, gen);
+            let mut features = BTreeSet::new();
+            features.insert(base.namespace());
+            let cfg = gen.gen_cfg(&features);
 
             conversions.combine(&quote! {
-                        #features
+                        #cfg
                         impl ::std::convert::From<#name> for #into {
                             fn from(value: #name) -> Self {
                                 unsafe { ::std::mem::transmute(value) }
                             }
                         }
-                        #features
+                        #cfg
                         impl ::std::convert::From<&#name> for #into {
                             fn from(value: &#name) -> Self {
                                 ::std::convert::From::from(::std::clone::Clone::clone(value))
                             }
                         }
-                        #features
+                        #cfg
                         impl<'a> ::windows::IntoParam<'a, #into> for #name {
                             fn into_param(self) -> ::windows::Param<'a, #into> {
                                 ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                             }
                         }
-                        #features
+                        #cfg
                         impl<'a> ::windows::IntoParam<'a, #into> for &#name {
                             fn into_param(self) -> ::windows::Param<'a, #into> {
                                 ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
