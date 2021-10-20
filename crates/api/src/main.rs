@@ -64,10 +64,10 @@ fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::Ty
         let dependency = &feature[..pos];
 
         file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes())
-        .unwrap();
+            .unwrap();
     } else {
         file.write_all(format!("{} = []\n", feature).as_bytes())
-        .unwrap();
+            .unwrap();
     }
 }
 

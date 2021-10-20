@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: need to gate all types
+
 pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
     let name = gen_type_name(def, gen);
     let struct_phantoms = gen_phantoms(def);

@@ -89,7 +89,7 @@ pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
     }
 
     let mut features = std::collections::BTreeSet::new();
-    let mut keys = std::collections::HashSet::new();    
+    let mut keys = std::collections::HashSet::new();
     sig.kind.method_features(&mut features, &mut keys);
 
     gen_cfg(features, false, gen)
@@ -101,7 +101,7 @@ pub fn struct_features(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     let mut features = std::collections::BTreeSet::new();
-    let mut keys = std::collections::HashSet::new();    
+    let mut keys = std::collections::HashSet::new();
     def.struct_features(&mut features, &mut keys);
 
     gen_cfg(features, false, gen)
