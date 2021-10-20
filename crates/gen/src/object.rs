@@ -1,6 +1,10 @@
 use super::*;
 
-pub fn gen_object(name: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+pub fn gen_object(
+    name: &TokenStream,
+    constraints: &TokenStream,
+    features: &TokenStream,
+) -> TokenStream {
     quote! {
         #features
         impl<#constraints> ::std::convert::From<#name> for ::windows::IUnknown {

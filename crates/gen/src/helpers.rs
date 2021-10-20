@@ -129,18 +129,18 @@ pub fn convert_features(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 pub fn class_features(def: &TypeDef, gen: &Gen) -> TokenStream {
-        if gen.feature.is_empty() {
-            return TokenStream::new();
-        }
-    
-        let mut features = std::collections::BTreeSet::new();
-        
-        if let Some(def)  = def.default_interface() {
-            features.insert(def.namespace());
-        }
-    
-        gen_cfg(features, false, gen)
+    if gen.feature.is_empty() {
+        return TokenStream::new();
     }
+
+    let mut features = std::collections::BTreeSet::new();
+
+    if let Some(def) = def.default_interface() {
+        features.insert(def.namespace());
+    }
+
+    gen_cfg(features, false, gen)
+}
 
 fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenStream {
     if features.is_empty() {
@@ -180,7 +180,7 @@ fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenS
     if not {
         dependencies.push(')');
     }
-    
+
     dependencies.push_str("))]");
 
     dependencies.into()

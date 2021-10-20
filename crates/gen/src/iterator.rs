@@ -152,7 +152,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
     let features = if gen.feature.is_empty() {
         TokenStream::new()
     } else {
-        quote!{ #[cfg(all(feature = "Foundation_Collections"))] }
+        quote! { #[cfg(all(feature = "Foundation_Collections"))] }
     };
 
     // If the class or interface is not one of the well-known collection interfaces, we then see whether it

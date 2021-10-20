@@ -66,7 +66,9 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             let conversions = interfaces
                 .iter()
                 .filter(|interface| interface.kind != InterfaceKind::Default)
-                .map(|interface| interface.gen_conversion(&name, &constraints, &TokenStream::new(), gen));
+                .map(|interface| {
+                    interface.gen_conversion(&name, &constraints, &TokenStream::new(), gen)
+                });
 
             quote! {
                 impl<#constraints> #name {
