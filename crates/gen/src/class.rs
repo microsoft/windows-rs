@@ -150,7 +150,7 @@ impl Class {
 
                 let conversions = interfaces
                     .iter()
-                    .map(|interface| interface.gen_conversion(&name, &TokenStream::new(), gen));
+                    .map(|interface| interface.gen_conversion(&name, &TokenStream::new(), &features, gen));
 
                 let send_sync = if self.0.is_agile() {
                     quote! {

@@ -186,6 +186,11 @@ impl TypeDef {
         }
 
         match self.kind() {
+            TypeKind::Class => {
+                if let Some(def)  = self.default_interface() {
+                    features.insert(def.namespace());
+                }
+            }
             TypeKind::Struct => {
                 self.fields()
                     .for_each(|def| def.struct_features(Some(self), features, keys));

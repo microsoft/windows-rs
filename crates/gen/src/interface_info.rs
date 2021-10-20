@@ -55,6 +55,7 @@ impl InterfaceInfo {
         &self,
         from: &TokenStream,
         constraints: &TokenStream,
+        outer_features: &TokenStream,
         gen: &Gen,
     ) -> TokenStream {
         if self.def.is_exclusive() {
@@ -68,24 +69,28 @@ impl InterfaceInfo {
             InterfaceKind::Default => {
                 quote! {
                     #features
+                    #outer_features
                     impl<#constraints> ::std::convert::From<#from> for #into {
                         fn from(value: #from) -> Self {
                             unsafe { ::std::mem::transmute(value) }
                         }
                     }
                     #features
+                    #outer_features
                     impl<#constraints> ::std::convert::From<&#from> for #into {
                         fn from(value: &#from) -> Self {
                             ::std::convert::From::from(::std::clone::Clone::clone(value))
                         }
                     }
                     #features
+                    #outer_features
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
                         }
                     }
                     #features
+                    #outer_features
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
                             // TODO: The various conversions are adding ref counting bumps unnecessarily
@@ -99,6 +104,7 @@ impl InterfaceInfo {
                 // may be added in subsequent versions of a class.
                 quote! {
                     #features
+                    #outer_features
                     impl<#constraints> ::std::convert::TryFrom<#from> for #into {
                         type Error = ::windows::Error;
                         fn try_from(value: #from) -> ::windows::Result<Self> {
@@ -106,6 +112,7 @@ impl InterfaceInfo {
                         }
                     }
                     #features
+                    #outer_features
                     impl<#constraints> ::std::convert::TryFrom<&#from> for #into {
                         type Error = ::windows::Error;
                         fn try_from(value: &#from) -> ::windows::Result<Self> {
@@ -113,12 +120,14 @@ impl InterfaceInfo {
                         }
                     }
                     #features
+                    #outer_features
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::windows::IntoParam::into_param(&self)
                         }
                     }
                     #features
+                    #outer_features
                     impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::Param<'a, #into> {
                             ::std::convert::TryInto::<#into>::try_into(self)
