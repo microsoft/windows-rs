@@ -61,8 +61,7 @@ impl TypeName {
     pub const IVectorView: Self = Self::from_const("Windows.Foundation.Collections", "IVectorView");
     pub const IVector: Self = Self::from_const("Windows.Foundation.Collections", "IVector");
 
-    pub const WIN32_ERROR: Self =
-        Self::from_const("Windows.Win32.System.Diagnostics.Debug", "WIN32_ERROR");
+    pub const WIN32_ERROR: Self = Self::from_const("Windows.Win32.Foundation", "WIN32_ERROR");
     pub const NTSTATUS: Self = Self::from_const("Windows.Win32.Foundation", "NTSTATUS");
     pub const BOOL: Self = Self::from_const("Windows.Win32.Foundation", "BOOL");
     pub const PWSTR: Self = Self::from_const("Windows.Win32.Foundation", "PWSTR");
