@@ -128,7 +128,7 @@ impl Class {
                 let guid = gen_type_guid(&default_interface.def, gen);
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
-                let object = gen_object(&name, &TokenStream::new());
+                let object = gen_object(&name, &TokenStream::new(), &features);
                 let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
                 let new = if self.0.has_default_constructor() {

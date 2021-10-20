@@ -149,6 +149,12 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
     let mut iterable = None;
     let wfc = gen.namespace("Windows.Foundation.Collections");
 
+    let features = if gen.feature.is_empty() {
+        TokenStream::new()
+    } else {
+        quote!{ #[cfg(all(feature = "Foundation_Collections"))] }
+    };
+
     // If the class or interface is not one of the well-known collection interfaces, we then see whether it
     // implements any one of them. Here is where we favor IVectorView/IVector over IIterable.
     for interface in interfaces {
@@ -159,6 +165,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                 let name = gen_type_name(def, gen);
 
                 return quote! {
+                    #features
                     impl<#constraints> ::std::iter::IntoIterator for #name {
                         type Item = #item;
                         type IntoIter = #wfc VectorViewIterator<Self::Item>;
@@ -167,6 +174,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                             ::std::iter::IntoIterator::into_iter(&self)
                         }
                     }
+                    #features
                     impl<#constraints> ::std::iter::IntoIterator for &#name {
                         type Item = #item;
                         type IntoIter = #wfc VectorViewIterator<Self::Item>;
@@ -183,6 +191,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                 let name = gen_type_name(def, gen);
 
                 return quote! {
+                    #features
                     impl<#constraints> ::std::iter::IntoIterator for #name {
                         type Item = #item;
                         type IntoIter = #wfc VectorIterator<Self::Item>;
@@ -191,6 +200,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                             ::std::iter::IntoIterator::into_iter(&self)
                         }
                     }
+                    #features
                     impl<#constraints> ::std::iter::IntoIterator for &#name {
                         type Item = #item;
                         type IntoIter = #wfc VectorIterator<Self::Item>;
@@ -216,6 +226,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
             let name = gen_type_name(def, gen);
 
             quote! {
+                #features
                impl<#constraints> ::std::iter::IntoIterator for #name {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;
@@ -224,6 +235,7 @@ pub fn gen_iterator(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> T
                         ::std::iter::IntoIterator::into_iter(&self)
                     }
                 }
+                #features
                 impl<#constraints> ::std::iter::IntoIterator for &#name {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;

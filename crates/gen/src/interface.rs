@@ -51,7 +51,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             let interfaces = interfaces(def);
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
             let (async_get, future) = gen_async(def, &interfaces, gen);
-            let object = gen_object(&name, &constraints);
+            let object = gen_object(&name, &constraints, &TokenStream::new());
             let iterator = gen_iterator(def, &interfaces, gen);
 
             let send_sync = if async_kind(def) == AsyncKind::None {
