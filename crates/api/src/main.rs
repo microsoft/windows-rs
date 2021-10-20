@@ -60,8 +60,8 @@ fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::T
 fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
     let feature = tree.namespace[root.len() + 1..].replace('.', "_");
 
-    if let Some(pos) = tree.namespace.rfind('.') {
-        let dependency = &tree.namespace[..pos];
+    if let Some(pos) = feature.rfind('_') {
+        let dependency = &feature[..pos];
 
         file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes())
         .unwrap();
