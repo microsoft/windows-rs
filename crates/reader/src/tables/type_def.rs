@@ -170,47 +170,6 @@ impl TypeDef {
         }
     }
 
-    pub fn module_features(
-        &self,
-        features: &mut BTreeSet<&'static str>,
-        keys: &mut std::collections::HashSet<Row>,
-    ) {
-        if !keys.insert(self.row.clone()) {
-            return;
-        }
-
-        features.insert(self.namespace());
-
-        match self.kind() {
-            TypeKind::Class => {
-                self.interfaces().for_each(|def| {
-                    features.insert(def.namespace());
-                });
-
-                if let Some(def) = self.bases().next() {
-                    features.insert(def.namespace());
-                }
-
-                self.attributes()
-                    .for_each(|attribute| match attribute.name() {
-                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
-                            for (_, arg) in attribute.args() {
-                                if let ConstantValue::TypeDef(def) = arg {
-                                    features.insert(def.namespace());
-                                }
-                            }
-                        }
-                        _ => {}
-                    });
-            }
-            TypeKind::Delegate => self
-                .invoke_method()
-                .signature(&[])
-                .module_features(features, keys),
-            _ => {}
-        }
-    }
-
     pub fn struct_features(
         &self,
         features: &mut BTreeSet<&'static str>,

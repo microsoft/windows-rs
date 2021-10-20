@@ -58,31 +58,17 @@ fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::T
 }
 
 fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
-    let mut features = std::collections::BTreeSet::new();
-    let mut keys = std::collections::HashSet::new();
-
-    if let Some(pos) = tree.namespace.rfind('.') {
-        features.insert(&tree.namespace[..pos]);
-    }
-
-    tree.module_features(&mut features, &mut keys);
-    let mut dependencies = String::new();
-
-    for feature in features {
-        if feature.len() > root.len() && feature != tree.namespace {
-            let feature = &feature[root.len() + 1..];
-            dependencies.push_str(&format!("\"{}\", ", feature.replace('.', "_")));
-        }
-    }
-
-    if !dependencies.is_empty() {
-        dependencies.truncate(dependencies.len() - 2);
-    }
-
     let feature = tree.namespace[root.len() + 1..].replace('.', "_");
 
-    file.write_all(format!("{} = [{}]\n", feature, dependencies).as_bytes())
+    if let Some(pos) = tree.namespace.rfind('.') {
+        let dependency = &tree.namespace[..pos];
+
+        file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes())
         .unwrap();
+    } else {
+        file.write_all(format!("{} = []\n", feature).as_bytes())
+        .unwrap();
+    }
 }
 
 fn include_all(tree: &mut reader::TypeTree) {
