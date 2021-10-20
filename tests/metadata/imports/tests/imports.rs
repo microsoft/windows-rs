@@ -49,11 +49,6 @@ fn test_dependencies() {
     assert!(imports["D3D12_INDIRECT_ARGUMENT_DESC"] == TypeInclude::Full);
     assert!(imports["D3D12_INDIRECT_ARGUMENT_TYPE"] == TypeInclude::Minimal);
 
-    let imports = get_imports("Windows.Win32.UI.ColorSystem", "WhitePoint");
-    assert_eq!(imports.len(), 2);
-    assert!(imports["WhitePoint"] == TypeInclude::Full);
-    assert!(imports["XYYPoint"] == TypeInclude::Minimal);
-
     let imports = get_imports("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA");
     assert_eq!(imports.len(), 2);
     assert!(imports["DXGI_FRAME_STATISTICS_MEDIA"] == TypeInclude::Full);

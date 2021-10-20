@@ -13,7 +13,7 @@ fn main() {
         Windows::Win32::Media::Speech::ISpPhoneConverter,
 
         // Test for https://github.com/microsoft/win32metadata/issues/449
-        Windows::Win32::System::ComponentServices::ITransactionImport,
+        Windows::Win32::System::DistributedTransactionCoordinator::ITransactionImport,
 
         // Test for https://github.com/microsoft/windows-rs/issues/924
         Windows::Win32::System::WinRT::{ICompositorInterop, ISystemMediaTransportControlsInterop},

@@ -1,6 +1,6 @@
 use test_win32::*;
 use windows::HRESULT;
-use Windows::Win32::System::Diagnostics::Debug::*;
+use Windows::Win32::Foundation::*;
 
 #[test]
 fn test_message() {

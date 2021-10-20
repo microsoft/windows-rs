@@ -4,10 +4,7 @@ fn main() {
             Collections::{IMap, IVector},
             IStringable,
         },
-
-        // Test for https://github.com/microsoft/windows-rs/issues/699
-        Windows::Win32::System::Diagnostics::{
-            Debug::GetLastError, ProcessSnapshotting::PssCaptureSnapshot,
-        },
+        Windows::Win32::Foundation::GetLastError,
+        Windows::Win32::System::Diagnostics::ProcessSnapshotting::PssCaptureSnapshot,
     };
 }
