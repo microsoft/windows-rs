@@ -21,12 +21,13 @@ fn main() {
     output.push("Cargo.toml");
 
     write_toml(&output, root);
-
-    output.pop();
+    println!("Elapsed: {} ms", start.elapsed().as_millis());
+    let start = std::time::Instant::now();
 
     // rustfmt doesn't work reliably in parallel so have to run cargo fmt at the end, very slowly...
-    println!("cargo fmt...");
+    println!("\ncargo fmt...");
     let mut cmd = ::std::process::Command::new("cargo");
+    output.pop();
     cmd.current_dir(output);
     cmd.arg("fmt");
     cmd.output().unwrap();
