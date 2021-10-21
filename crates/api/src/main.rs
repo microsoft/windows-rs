@@ -1,6 +1,8 @@
 use std::io::prelude::*;
+use rayon::prelude::*;
 
 fn main() {
+    let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
     output.pop();
     output.push("windows-api-rs\\src");
@@ -11,12 +13,25 @@ fn main() {
 
     let root = reader.types.get_namespace("Windows").unwrap();
 
-    gen_tree(&output, root.namespace, root);
+    let mut trees = Vec::new();
+    collect_trees(&output, root.namespace, &root, &mut trees);
+    trees.par_iter().for_each(|tree|gen_tree(&output, root.namespace, tree));
 
     output.pop();
     output.push("Cargo.toml");
 
     write_toml(&output, root);
+
+    output.pop();
+
+    // rustfmt doesn't work reliably in parallel so have to run cargo fmt at the end, very slowly...
+    println!("cargo fmt...");
+    let mut cmd = ::std::process::Command::new("cargo");
+    cmd.current_dir(output);
+    cmd.arg("fmt");
+    cmd.output().unwrap();
+
+    println!("Elapsed: {} ms", start.elapsed().as_millis());
 }
 
 fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
@@ -81,27 +96,34 @@ fn include_all(tree: &mut reader::TypeTree) {
     tree.namespaces.values_mut().for_each(include_all);
 }
 
+fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
+    trees.push(tree);
+    
+    tree.namespaces
+    .values()
+    .for_each(|tree| collect_trees(output, root, tree, trees));
+
+    let mut path = std::path::PathBuf::from(output);
+
+    if root == tree.namespace {
+        std::fs::create_dir_all(&path).unwrap();
+    } else {
+        path.push(tree.namespace[root.len() + 1..].replace('.', "\\"));
+        std::fs::create_dir_all(&path).unwrap();
+    }
+}
+
 fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTree) {
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 
     if root == tree.namespace {
-        std::fs::create_dir_all(&path).unwrap();
         path.push("lib.rs");
     } else {
         path.push(tree.namespace[root.len() + 1..].replace('.', "\\"));
-        std::fs::create_dir_all(&path).unwrap();
         path.push("mod.rs");
     }
 
     let tokens = gen::gen_source_file(root, tree);
     std::fs::write(&path, tokens.into_string().as_bytes()).unwrap();
-
-    tree.namespaces
-        .values()
-        .for_each(|tree| gen_tree(output, root, tree));
-
-    let mut cmd = ::std::process::Command::new("rustfmt");
-    cmd.arg(&path);
-    cmd.output().unwrap();
 }
