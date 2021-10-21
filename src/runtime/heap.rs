@@ -1,5 +1,4 @@
-use crate::*;
-
+use super::*;
 use bindings::Windows::Win32::System::Memory::*;
 
 pub fn heap_alloc(bytes: usize) -> RawPtr {

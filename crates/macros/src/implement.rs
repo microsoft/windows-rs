@@ -37,7 +37,7 @@ pub fn gen(
     let box_ident = format_token!("{}_box", impl_name);
 
     let constraints = quote! {
-        #(#generics: ::windows::RuntimeType + 'static,)*
+        #(#generics: ::windows::runtime::RuntimeType + 'static,)*
     };
 
     let interfaces_len = Literal::usize_unsuffixed(interfaces.len());
@@ -76,16 +76,16 @@ pub fn gen(
         };
 
         shims.combine(&quote! {
-            unsafe extern "system" fn #query_interface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
-                let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
+            unsafe extern "system" fn #query_interface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
+                let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
                 (*this).QueryInterface(iid, interface)
             }
-            unsafe extern "system" fn #add_ref(this: ::windows::RawPtr) -> u32 {
-                let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
+            unsafe extern "system" fn #add_ref(this: ::windows::runtime::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
                 (*this).AddRef()
             }
-            unsafe extern "system" fn #release(this: ::windows::RawPtr) -> u32 {
-                let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
+            unsafe extern "system" fn #release(this: ::windows::runtime::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
                 (*this).Release()
             }
         });
@@ -105,7 +105,7 @@ pub fn gen(
             let interface_ident = gen_type_name(base, &gen);
 
             queries.combine(&quote! {
-                else if iid == &<#interface_ident as ::windows::Interface>::IID {
+                else if iid == &<#interface_ident as ::windows::runtime::Interface>::IID {
                     &mut self.vtables.#interface_literal as *mut _ as _
                 }
             });
@@ -113,7 +113,7 @@ pub fn gen(
 
         // Constants are required for generic interfaces due to limitations in Rust.
         query_constants.combine(&quote! {
-            const #interface_constant: ::windows::Guid = <#interface_ident as ::windows::Interface>::IID;
+            const #interface_constant: ::windows::runtime::Guid = <#interface_ident as ::windows::runtime::Interface>::IID;
         });
 
         for method in base_interfaces
@@ -149,7 +149,7 @@ pub fn gen(
                             &gen,
                         )
                     } else {
-                        quote! { ::windows::HRESULT(0) }
+                        quote! { ::windows::runtime::HRESULT(0) }
                     }
                 } else {
                     gen_winrt_upcall(
@@ -168,7 +168,7 @@ pub fn gen(
 
             shims.combine(&quote! {
                     unsafe extern "system" fn #vcall_ident #abi_signature {
-                        let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut Self;
+                        let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
                         #upcall
                     }
                 });
@@ -189,16 +189,16 @@ pub fn gen(
                     impl <#constraints> ::std::convert::From<&mut #impl_ident> for #interface_ident {
                         fn from(implementation: &mut #impl_ident) -> Self {
                             unsafe {
-                                let mut ptr = (implementation as *mut _ as *mut ::windows::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
+                                let mut ptr = (implementation as *mut _ as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
                                 (*ptr).count.add_ref();
                                 ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                             }
                         }
                     }
-                    impl<#constraints> ::windows::ToImpl<#interface_ident> for #impl_ident {
+                    impl<#constraints> ::windows::runtime::ToImpl<#interface_ident> for #impl_ident {
                         unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
-                            let this: ::windows::RawPtr = std::mem::transmute_copy(interface);
-                            let this = (this as *mut ::windows::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
+                            let this: ::windows::runtime::RawPtr = std::mem::transmute_copy(interface);
+                            let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
                             &mut (*this).implementation
                         }
                     }
@@ -245,15 +245,15 @@ pub fn gen(
     tokens.combine(&quote! {
         impl <#constraints> #impl_ident {
             #constructors
-            fn cast<ResultType: ::windows::Interface>(&self) -> ::windows::Result<ResultType> {
+            fn cast<ResultType: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<ResultType> {
                 unsafe {
-                    let boxed = (self as *const #impl_ident as *mut #impl_ident as *mut ::windows::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
+                    let boxed = (self as *const #impl_ident as *mut #impl_ident as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
                     let mut result = None;
                     (*boxed).QueryInterface(&ResultType::IID, &mut result as *mut _ as _).and_some(result)
                 }
             }
         }
-        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::IUnknown {
+        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::runtime::IUnknown {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::<#(#generics,)*>::new(implementation);
 
@@ -263,7 +263,7 @@ pub fn gen(
                 }
             }
         }
-        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::IInspectable {
+        impl <#constraints> ::std::convert::From<#impl_ident> for ::windows::runtime::IInspectable {
             fn from(implementation: #impl_ident) -> Self {
                 let com = #box_ident::<#(#generics,)*>::new(implementation);
 
@@ -273,26 +273,26 @@ pub fn gen(
                 }
             }
         }
-        impl <#constraints> ::windows::Compose for #impl_ident {
-            unsafe fn compose<'a>(implementation: Self) -> (::windows::IInspectable, &'a mut std::option::Option<::windows::IInspectable>) {
-                let inspectable: ::windows::IInspectable = implementation.into();
-                let this = (&inspectable as *const _ as *mut ::windows::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
+        impl <#constraints> ::windows::runtime::Compose for #impl_ident {
+            unsafe fn compose<'a>(implementation: Self) -> (::windows::runtime::IInspectable, &'a mut std::option::Option<::windows::runtime::IInspectable>) {
+                let inspectable: ::windows::runtime::IInspectable = implementation.into();
+                let this = (&inspectable as *const _ as *mut ::windows::runtime::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
         }
         #[repr(C)]
         struct #box_ident<#(#generics,)*> where #constraints {
-            base: ::std::option::Option<::windows::IInspectable>,
-            identity_vtable: *const ::windows::IInspectable_abi,
+            base: ::std::option::Option<::windows::runtime::IInspectable>,
+            identity_vtable: *const ::windows::runtime::IInspectable_abi,
             vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
-            count: ::windows::WeakRefCount,
+            count: ::windows::runtime::WeakRefCount,
         }
         impl <#constraints> #box_ident::<#(#generics,)*> {
             const VTABLES: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
-            const IDENTITY_VTABLE: ::windows::IInspectable_abi = ::windows::IInspectable_abi(
+            const IDENTITY_VTABLE: ::windows::runtime::IInspectable_abi = ::windows::runtime::IInspectable_abi(
                 Self::identity_query_interface,
                 Self::identity_add_ref,
                 Self::identity_release,
@@ -307,14 +307,14 @@ pub fn gen(
                     identity_vtable: &Self::IDENTITY_VTABLE,
                     vtables: (#(&Self::VTABLES.#vtable_ordinals,)*),
                     implementation,
-                    count: ::windows::WeakRefCount::new(),
+                    count: ::windows::runtime::WeakRefCount::new(),
                 }
             }
-            fn QueryInterface(&mut self, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
+            fn QueryInterface(&mut self, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
                 unsafe {
-                    *interface = if iid == &<::windows::IUnknown as ::windows::Interface>::IID
-                        || iid == &<::windows::IInspectable as ::windows::Interface>::IID
-                        || iid == &<::windows::IAgileObject as ::windows::Interface>::IID {
+                    *interface = if iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID
+                        || iid == &<::windows::runtime::IInspectable as ::windows::runtime::Interface>::IID
+                        || iid == &<::windows::runtime::IAgileObject as ::windows::runtime::Interface>::IID {
                             &mut self.identity_vtable as *mut _ as _
                     } #queries else {
                         ::std::ptr::null_mut()
@@ -322,19 +322,19 @@ pub fn gen(
 
                     if !(*interface).is_null() {
                         self.count.add_ref();
-                        return ::windows::HRESULT(0);
+                        return ::windows::runtime::HRESULT(0);
                     }
 
                     *interface = self.count.query(iid, &mut self.identity_vtable as *mut _ as _);
 
                     if (*interface).is_null() {
                         if let Some(base) = &self.base {
-                            ::windows::Interface::query(base, iid, interface)
+                            ::windows::runtime::Interface::query(base, iid, interface)
                         } else {
-                            ::windows::HRESULT(0x8000_4002) // E_NOINTERFACE
+                            ::windows::runtime::HRESULT(0x8000_4002) // E_NOINTERFACE
                         }
                     } else {
-                        ::windows::HRESULT(0)
+                        ::windows::runtime::HRESULT(0)
                     }
                 }
             }
@@ -351,46 +351,46 @@ pub fn gen(
                 remaining
             }
             unsafe extern "system" fn GetIids(
-                _: ::windows::RawPtr,
+                _: ::windows::runtime::RawPtr,
                 count: *mut u32,
-                values: *mut *mut ::windows::Guid,
-            ) -> ::windows::HRESULT {
+                values: *mut *mut ::windows::runtime::Guid,
+            ) -> ::windows::runtime::HRESULT {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all
                 // interfaces.
                 *count = 0;
                 *values = ::std::ptr::null_mut();
-                ::windows::HRESULT(0)
+                ::windows::runtime::HRESULT(0)
             }
             unsafe extern "system" fn GetRuntimeClassName(
-                _: ::windows::RawPtr,
-                value: *mut ::windows::RawPtr,
-            ) -> ::windows::HRESULT {
+                _: ::windows::runtime::RawPtr,
+                value: *mut ::windows::runtime::RawPtr,
+            ) -> ::windows::runtime::HRESULT {
                 // TODO: if a class is being implemented then the class name should be returned in all cases.
                 // Otherwise, the interface name should be returned on a per-interface basis and the identity
                 // implementation should return an empty string.
 
-                let h = ::windows::HSTRING::new();
+                let h = ::windows::runtime::HSTRING::new();
                 *value = ::std::mem::transmute(h);
-                ::windows::HRESULT(0)
+                ::windows::runtime::HRESULT(0)
             }
-            unsafe extern "system" fn GetTrustLevel(_: ::windows::RawPtr, value: *mut i32) -> ::windows::HRESULT {
+            unsafe extern "system" fn GetTrustLevel(_: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all
                 // interfaces.
                 *value = 0;
-                ::windows::HRESULT(0)
+                ::windows::runtime::HRESULT(0)
             }
-            unsafe extern "system" fn identity_query_interface(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT {
-                let this = (this as *mut ::windows::RawPtr).sub(1) as *mut Self;
+            unsafe extern "system" fn identity_query_interface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
+                let this = (this as *mut ::windows::runtime::RawPtr).sub(1) as *mut Self;
                 (*this).QueryInterface(iid, interface)
             }
-            unsafe extern "system" fn identity_add_ref(this: ::windows::RawPtr) -> u32 {
-                let this = (this as *mut ::windows::RawPtr).sub(1) as *mut Self;
+            unsafe extern "system" fn identity_add_ref(this: ::windows::runtime::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::runtime::RawPtr).sub(1) as *mut Self;
                 (*this).AddRef()
             }
-            unsafe extern "system" fn identity_release(this: ::windows::RawPtr) -> u32 {
-                let this = (this as *mut ::windows::RawPtr).sub(1) as *mut Self;
+            unsafe extern "system" fn identity_release(this: ::windows::runtime::RawPtr) -> u32 {
+                let this = (this as *mut ::windows::runtime::RawPtr).sub(1) as *mut Self;
                 (*this).Release()
             }
             #shims

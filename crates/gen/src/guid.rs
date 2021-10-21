@@ -27,12 +27,12 @@ pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let guid = gen_guid(&guid);
 
                 quote! {
-                    ::windows::Guid::from_values(#guid)
+                    ::windows::runtime::Guid::from_values(#guid)
                 }
             }
             None => {
                 quote! {
-                    ::windows::Guid::zeroed()
+                    ::windows::runtime::Guid::zeroed()
                 }
             }
         }
@@ -40,7 +40,7 @@ pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
         let tokens = gen_type_name(def, gen);
 
         quote! {
-            ::windows::Guid::from_signature(<#tokens as ::windows::RuntimeType>::SIGNATURE)
+            ::windows::runtime::Guid::from_signature(<#tokens as ::windows::runtime::RuntimeType>::SIGNATURE)
         }
     }
 }
@@ -49,7 +49,7 @@ pub fn gen_guid_signature(def: &TypeDef, signature: &str) -> TokenStream {
     let signature = Literal::byte_string(signature.as_bytes());
 
     if def.generics.is_empty() {
-        return quote! { ::windows::ConstBuffer::from_slice(#signature) };
+        return quote! { ::windows::runtime::ConstBuffer::from_slice(#signature) };
     }
 
     let generics = def.generics.iter().enumerate().map(|(index, g)| {
@@ -63,14 +63,14 @@ pub fn gen_guid_signature(def: &TypeDef, signature: &str) -> TokenStream {
         };
 
         quote! {
-            .push_other(<#g as ::windows::RuntimeType>::SIGNATURE)
+            .push_other(<#g as ::windows::runtime::RuntimeType>::SIGNATURE)
             #semi
         }
     });
 
     quote! {
         {
-            ::windows::ConstBuffer::new()
+            ::windows::runtime::ConstBuffer::new()
             .push_slice(b"pinterface(")
             .push_slice(#signature)
             .push_slice(b";")

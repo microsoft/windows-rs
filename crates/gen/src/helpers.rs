@@ -7,7 +7,7 @@ pub fn gen_method_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream 
         if param.is_convertible() {
             let name = format_token!("Param{}", position);
             let into = gen_name(&param.signature.kind, gen);
-            tokens.combine(&quote! { #name: ::windows::IntoParam<'a, #into>, });
+            tokens.combine(&quote! { #name: ::windows::runtime::IntoParam<'a, #into>, });
         }
     }
 

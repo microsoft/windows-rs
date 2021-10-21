@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use std::convert::TryFrom;
 use std::result::Result as StdResult;
 
@@ -103,7 +103,7 @@ unsafe impl Abi for HSTRING {
 }
 
 unsafe impl RuntimeType for HSTRING {
-    const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"string");
+    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"string");
 }
 
 impl Default for HSTRING {

@@ -32,9 +32,9 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             dependency.push_str(type_name.name());
 
             quote! {
-                impl<'a> ::windows::IntoParam<'a, #dependency> for #name {
-                    fn into_param(self) -> ::windows::Param<'a, #dependency> {
-                        ::windows::Param::Owned(#dependency(self.0))
+                impl<'a> ::windows::runtime::IntoParam<'a, #dependency> for #name {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, #dependency> {
+                        ::windows::runtime::Param::Owned(#dependency(self.0))
                     }
                 }
             }
@@ -51,8 +51,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
                     unsafe { ::std::mem::zeroed() }
                 }
             }
-            unsafe impl ::windows::Handle for #name {}
-            unsafe impl ::windows::Abi for #name {
+            unsafe impl ::windows::runtime::Handle for #name {}
+            unsafe impl ::windows::runtime::Abi for #name {
                 type Abi = Self;
                 type DefaultType = Self;
             }
@@ -64,7 +64,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         let guid = gen_guid(&guid);
 
         return quote! {
-            pub const #name: ::windows::Guid = ::windows::Guid::from_values(#guid);
+            pub const #name: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(#guid);
         };
     }
 
@@ -122,8 +122,8 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
         quote! {
             #features
-            unsafe impl ::windows::RuntimeType for #name {
-                const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
+            unsafe impl ::windows::runtime::RuntimeType for #name {
+                const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#signature);
             }
         }
     } else {
@@ -177,7 +177,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     let abi = if def.is_blittable() {
         quote! {
             #features
-            unsafe impl ::windows::Abi for #name {
+            unsafe impl ::windows::runtime::Abi for #name {
                 type Abi = Self;
                 type DefaultType = Self;
             }
@@ -185,7 +185,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     } else {
         quote! {
             #features
-            unsafe impl ::windows::Abi for #name {
+            unsafe impl ::windows::runtime::Abi for #name {
                 type Abi = ::std::mem::ManuallyDrop<Self>;
                 type DefaultType = Self;
             }

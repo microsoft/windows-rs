@@ -155,7 +155,7 @@ pub fn gen_bstr() -> TokenStream {
                 }
             }
         }
-        unsafe impl ::windows::Abi for BSTR {
+        unsafe impl ::windows::runtime::Abi for BSTR {
             type Abi = ::std::mem::ManuallyDrop<Self>;
             type DefaultType = Self;
         }

@@ -1,4 +1,4 @@
-use ::windows::Result;
+use ::windows::runtime::Result;
 use test_winrt::*;
 
 #[::windows::implement(Windows::UI::Xaml::{IApplicationOverrides, IApplicationOverrides2})]

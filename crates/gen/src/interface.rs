@@ -75,8 +75,8 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
                     #methods
                     #async_get
                 }
-                unsafe impl<#constraints> ::windows::RuntimeType for #name {
-                    const SIGNATURE: ::windows::ConstBuffer = #type_signature;
+                unsafe impl<#constraints> ::windows::runtime::RuntimeType for #name {
+                    const SIGNATURE: ::windows::runtime::ConstBuffer = #type_signature;
                 }
                 #future
                 #object
@@ -90,21 +90,21 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             #hidden
-            pub struct #name(::windows::IInspectable, #(#struct_phantoms,)*) where #constraints;
-            unsafe impl<#constraints> ::windows::Interface for #name {
+            pub struct #name(::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
+            unsafe impl<#constraints> ::windows::runtime::Interface for #name {
                 type Vtable = #abi_name;
-                const IID: ::windows::Guid = #guid;
+                const IID: ::windows::runtime::Guid = #guid;
             }
             #public_type
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::windows::Guid) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut ::windows::RawPtr) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut i32) -> ::windows::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::Guid) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
                 #(#abi_signatures)*
                 #(pub #abi_phantoms,)*
             ) where #constraints;
@@ -114,13 +114,13 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             #[doc(hidden)]
-            pub struct #name(::windows::IInspectable, #(#struct_phantoms,)*) where #constraints;
-            unsafe impl<#constraints> ::windows::Interface for #name {
-                type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
-                const IID: ::windows::Guid = #guid;
+            pub struct #name(::windows::runtime::IInspectable, #(#struct_phantoms,)*) where #constraints;
+            unsafe impl<#constraints> ::windows::runtime::Interface for #name {
+                type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
+                const IID: ::windows::runtime::Guid = #guid;
             }
-            unsafe impl<#constraints> ::windows::RuntimeType for #name {
-                const SIGNATURE: ::windows::ConstBuffer = #type_signature;
+            unsafe impl<#constraints> ::windows::runtime::RuntimeType for #name {
+                const SIGNATURE: ::windows::runtime::ConstBuffer = #type_signature;
             }
         }
     }

@@ -1,8 +1,8 @@
-use ::windows::Interface;
+use ::windows::runtime::Interface;
 use test_winrt::Windows;
 
 #[test]
-fn implement() -> ::windows::Result<()> {
+fn implement() -> ::windows::runtime::Result<()> {
     let (sender, receiver) = std::sync::mpsc::channel();
     {
         let t = Thing {
@@ -47,7 +47,7 @@ fn implement() -> ::windows::Result<()> {
 
         // Confirms that the conversion to `IInspectable` properly handles
         // reference counting.
-        let _: ::windows::IInspectable = s.into();
+        let _: ::windows::runtime::IInspectable = s.into();
     }
     assert!(receiver.recv().unwrap() == "drop: object");
 
@@ -68,11 +68,11 @@ impl Drop for Thing {
 
 #[allow(non_snake_case)]
 impl Thing {
-    fn ToString(&self) -> ::windows::Result<::windows::HSTRING> {
-        Ok(::windows::HSTRING::from(&self.value))
+    fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+        Ok(::windows::runtime::HSTRING::from(&self.value))
     }
 
-    fn Close(&self) -> ::windows::Result<()> {
+    fn Close(&self) -> ::windows::runtime::Result<()> {
         self.sender.send(format!("close: {}", self.value)).unwrap();
         Ok(())
     }

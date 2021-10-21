@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use bindings::Windows::Win32::System::WinRT::{IWeakReference, IWeakReferenceSource};
 use std::marker::PhantomData;
 

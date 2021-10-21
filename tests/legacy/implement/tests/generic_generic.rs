@@ -9,10 +9,10 @@ use Windows::Foundation::*;
 )]
 struct Thing<T>(Vec<T>)
 where
-    T: ::windows::RuntimeType + 'static;
+    T: ::windows::runtime::RuntimeType + 'static;
 
 #[allow(non_snake_case)]
-impl<T: ::windows::RuntimeType + 'static> Thing<T> {
+impl<T: ::windows::runtime::RuntimeType + 'static> Thing<T> {
     fn GetAt(&self, index: u32) -> Result<T> {
         self.0.get(index as usize).cloned().ok_or_else(|| panic!())
     }

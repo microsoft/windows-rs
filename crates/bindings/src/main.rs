@@ -1,5 +1,5 @@
 fn main() -> std::io::Result<()> {
-    let tokens = windows::generate! {
+    let tokens = macros::generate! {
         Windows::Foundation::{IReference, IStringable, PropertyValue},
         Windows::Win32::Foundation::{CloseHandle, GetLastError, E_NOINTERFACE, S_OK},
         Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED,
@@ -15,9 +15,8 @@ fn main() -> std::io::Result<()> {
         },
     };
 
-    let mut path: std::path::PathBuf = windows::workspace_dir().into();
-    path.push("src");
-    path.push("bindings.rs");
+    let mut path: std::path::PathBuf = reader::workspace_dir().into();
+    path.push("src\\runtime\\bindings.rs");
 
     std::fs::write(&path, tokens)?;
 

@@ -4,8 +4,7 @@ use rayon::prelude::*;
 fn main() {
     let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
-    output.pop();
-    output.push("windows-api-rs\\src");
+    output.push("src");
 
     let _ = std::fs::remove_dir_all(&output);
     let reader = reader::TypeReader::get_mut();

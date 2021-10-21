@@ -83,16 +83,16 @@ impl InterfaceInfo {
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
-                        fn into_param(self) -> ::windows::Param<'a, #into> {
-                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                    impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for #from {
+                        fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                            ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &#from {
-                        fn into_param(self) -> ::windows::Param<'a, #into> {
+                    impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for &#from {
+                        fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
                             // TODO: The various conversions are adding ref counting bumps unnecessarily
-                            ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                            ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                         }
                     }
                 }
@@ -103,30 +103,30 @@ impl InterfaceInfo {
                 quote! {
                     #cfg
                     impl<#constraints> ::std::convert::TryFrom<#from> for #into {
-                        type Error = ::windows::Error;
-                        fn try_from(value: #from) -> ::windows::Result<Self> {
+                        type Error = ::windows::runtime::Error;
+                        fn try_from(value: #from) -> ::windows::runtime::Result<Self> {
                             ::std::convert::TryFrom::try_from(&value)
                         }
                     }
                     #cfg
                     impl<#constraints> ::std::convert::TryFrom<&#from> for #into {
-                        type Error = ::windows::Error;
-                        fn try_from(value: &#from) -> ::windows::Result<Self> {
-                            ::windows::Interface::cast(value)
+                        type Error = ::windows::runtime::Error;
+                        fn try_from(value: &#from) -> ::windows::runtime::Result<Self> {
+                            ::windows::runtime::Interface::cast(value)
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::windows::IntoParam<'a, #into> for #from {
-                        fn into_param(self) -> ::windows::Param<'a, #into> {
-                            ::windows::IntoParam::into_param(&self)
+                    impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for #from {
+                        fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                            ::windows::runtime::IntoParam::into_param(&self)
                         }
                     }
                     #cfg
-                    impl<'a, #constraints> ::windows::IntoParam<'a, #into> for &#from {
-                        fn into_param(self) -> ::windows::Param<'a, #into> {
+                    impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for &#from {
+                        fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
                             ::std::convert::TryInto::<#into>::try_into(self)
-                                .map(::windows::Param::Owned)
-                                .unwrap_or(::windows::Param::None)
+                                .map(::windows::runtime::Param::Owned)
+                                .unwrap_or(::windows::runtime::Param::None)
                         }
                     }
                 }

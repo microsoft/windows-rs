@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Win32 handle types implement this trait to simplify error handling.
 /// # Safety

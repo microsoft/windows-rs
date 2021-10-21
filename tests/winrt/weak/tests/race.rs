@@ -1,6 +1,6 @@
 use std::sync::atomic::{AtomicU32, Ordering};
 use std::sync::Arc;
-use windows::*;
+use windows::runtime::*;
 
 const TARGET: u32 = 100_000;
 const CONCURRENCY: usize = 8;

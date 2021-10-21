@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use bindings::Windows::Win32::System::WinRT::IWeakReferenceSource;
 
 /// Provides low-level access to a COM interface.

@@ -1,5 +1,5 @@
 use test_winrt_weak::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Win32::System::WinRT::IWeakReferenceSource;
 
 #[test]

@@ -105,8 +105,8 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
         let signature = Literal::byte_string(def.type_signature().as_bytes());
 
         quote! {
-            unsafe impl ::windows::RuntimeType for #name {
-                const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#signature);
+            unsafe impl ::windows::runtime::RuntimeType for #name {
+                const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#signature);
             }
         }
     } else {
@@ -125,7 +125,7 @@ pub fn gen_enum(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStream {
                 Self(value)
             }
         }
-        unsafe impl ::windows::Abi for #name {
+        unsafe impl ::windows::runtime::Abi for #name {
             type Abi = Self;
             type DefaultType = Self;
         }
