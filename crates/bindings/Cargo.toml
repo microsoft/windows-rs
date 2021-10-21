@@ -5,5 +5,4 @@ edition = "2018"
 publish = false
 
 [dependencies]
-windows_macros = { path = "../macros", version = "0.21.1" }
-windows_reader = { path = "../reader", version = "0.21.1" }
+windows = { path = "../..", version = "0.21.1" }
