@@ -132,7 +132,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
     let clone_or_copy = if def.is_blittable() {
         quote! {
-            #[derive(::std::clone::Clone, ::std::marker::Copy, ::windows::runtime::StructDerive)]
+            #[derive(::std::clone::Clone, ::std::marker::Copy)]
         }
     } else if is_union || has_union || is_packed {
         quote! {
@@ -143,11 +143,10 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
                     unimplemented!()
                 }
             }
-            #[derive(::windows::runtime::StructDerive)]
         }
     } else {
         quote! {
-            #[derive(::std::clone::Clone, ::windows::runtime::StructDerive)]
+            #[derive(::std::clone::Clone)]
         }
     };
 

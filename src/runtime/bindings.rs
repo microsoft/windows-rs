@@ -9,11 +9,7 @@
 )]
 pub mod Windows {
     pub mod Foundation {
-        #[derive(
-            :: std :: clone :: Clone,
-            :: std :: marker :: Copy,
-            :: windows :: runtime :: StructDerive,
-        )]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
         #[repr(C)]
         pub struct DateTime {
             pub UniversalTime: i64,
@@ -1825,11 +1821,7 @@ pub mod Windows {
                 result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
             ) -> ::windows::runtime::HRESULT,
         );
-        #[derive(
-            :: std :: clone :: Clone,
-            :: std :: marker :: Copy,
-            :: windows :: runtime :: StructDerive,
-        )]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
         #[repr(C)]
         pub struct Point {
             pub X: f32,
@@ -2477,11 +2469,7 @@ pub mod Windows {
         impl ::windows::runtime::RuntimeName for PropertyValue {
             const NAME: &'static str = "Windows.Foundation.PropertyValue";
         }
-        #[derive(
-            :: std :: clone :: Clone,
-            :: std :: marker :: Copy,
-            :: windows :: runtime :: StructDerive,
-        )]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
         #[repr(C)]
         pub struct Rect {
             pub X: f32,
@@ -2515,11 +2503,7 @@ pub mod Windows {
                     b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)",
                 );
         }
-        #[derive(
-            :: std :: clone :: Clone,
-            :: std :: marker :: Copy,
-            :: windows :: runtime :: StructDerive,
-        )]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
         #[repr(C)]
         pub struct Size {
             pub Width: f32,
@@ -2549,11 +2533,7 @@ pub mod Windows {
                     b"struct(Windows.Foundation.Size;f4;f4)",
                 );
         }
-        #[derive(
-            :: std :: clone :: Clone,
-            :: std :: marker :: Copy,
-            :: windows :: runtime :: StructDerive,
-        )]
+        #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
         #[repr(C)]
         pub struct TimeSpan {
             pub Duration: i64,
@@ -3091,11 +3071,7 @@ pub mod Windows {
             }
         }
         pub mod Security {
-            #[derive(
-                :: std :: clone :: Clone,
-                :: std :: marker :: Copy,
-                :: windows :: runtime :: StructDerive,
-            )]
+            #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             #[repr(C)]
             pub struct SECURITY_ATTRIBUTES {
                 pub nLength: u32,
