@@ -8,15 +8,6 @@
     clippy::all
 )]
 pub mod Windows {
-    #[allow(
-        unused_variables,
-        non_upper_case_globals,
-        non_snake_case,
-        unused_unsafe,
-        non_camel_case_types,
-        dead_code,
-        clippy::all
-    )]
     pub mod Foundation {
         #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
         #[repr(C)]
@@ -2621,25 +2612,7 @@ pub mod Windows {
             }
         }
     }
-    #[allow(
-        unused_variables,
-        non_upper_case_globals,
-        non_snake_case,
-        unused_unsafe,
-        non_camel_case_types,
-        dead_code,
-        clippy::all
-    )]
     pub mod Win32 {
-        #[allow(
-            unused_variables,
-            non_upper_case_globals,
-            non_snake_case,
-            unused_unsafe,
-            non_camel_case_types,
-            dead_code,
-            clippy::all
-        )]
         pub mod Foundation {
             #[repr(transparent)]
             #[derive(
@@ -3125,38 +3098,11 @@ pub mod Windows {
                 }
             }
         }
-        #[allow(
-            unused_variables,
-            non_upper_case_globals,
-            non_snake_case,
-            unused_unsafe,
-            non_camel_case_types,
-            dead_code,
-            clippy::all
-        )]
         pub mod Graphics {
-            #[allow(
-                unused_variables,
-                non_upper_case_globals,
-                non_snake_case,
-                unused_unsafe,
-                non_camel_case_types,
-                dead_code,
-                clippy::all
-            )]
             pub mod DirectDraw {
                 pub const CO_E_NOTINITIALIZED: i32 = -2147221008i32;
             }
         }
-        #[allow(
-            unused_variables,
-            non_upper_case_globals,
-            non_snake_case,
-            unused_unsafe,
-            non_camel_case_types,
-            dead_code,
-            clippy::all
-        )]
         pub mod Security {
             #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
             #[repr(C)]
@@ -3193,25 +3139,7 @@ pub mod Windows {
                 type DefaultType = Self;
             }
         }
-        #[allow(
-            unused_variables,
-            non_upper_case_globals,
-            non_snake_case,
-            unused_unsafe,
-            non_camel_case_types,
-            dead_code,
-            clippy::all
-        )]
         pub mod System {
-            #[allow(
-                unused_variables,
-                non_upper_case_globals,
-                non_snake_case,
-                unused_unsafe,
-                non_camel_case_types,
-                dead_code,
-                clippy::all
-            )]
             pub mod Com {
                 pub unsafe fn CoCreateGuid() -> ::windows::runtime::Result<::windows::runtime::GUID>
                 {
@@ -3316,25 +3244,7 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                 );
             }
-            #[allow(
-                unused_variables,
-                non_upper_case_globals,
-                non_snake_case,
-                unused_unsafe,
-                non_camel_case_types,
-                dead_code,
-                clippy::all
-            )]
             pub mod Diagnostics {
-                #[allow(
-                    unused_variables,
-                    non_upper_case_globals,
-                    non_snake_case,
-                    unused_unsafe,
-                    non_camel_case_types,
-                    dead_code,
-                    clippy::all
-                )]
                 pub mod Debug {
                     #[derive(
                         :: std :: cmp :: PartialEq,
@@ -3433,15 +3343,6 @@ pub mod Windows {
                     }
                 }
             }
-            #[allow(
-                unused_variables,
-                non_upper_case_globals,
-                non_snake_case,
-                unused_unsafe,
-                non_camel_case_types,
-                dead_code,
-                clippy::all
-            )]
             pub mod LibraryLoader {
                 pub unsafe fn FreeLibrary<
                     'a,
@@ -3507,15 +3408,6 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
             }
-            #[allow(
-                unused_variables,
-                non_upper_case_globals,
-                non_snake_case,
-                unused_unsafe,
-                non_camel_case_types,
-                dead_code,
-                clippy::all
-            )]
             pub mod Memory {
                 pub unsafe fn GetProcessHeap() -> HeapHandle {
                     #[cfg(windows)]
@@ -3667,15 +3559,6 @@ pub mod Windows {
                     type DefaultType = Self;
                 }
             }
-            #[allow(
-                unused_variables,
-                non_upper_case_globals,
-                non_snake_case,
-                unused_unsafe,
-                non_camel_case_types,
-                dead_code,
-                clippy::all
-            )]
             pub mod OleAutomation {
                 pub unsafe fn GetErrorInfo(
                     dwreserved: u32,
@@ -3865,15 +3748,6 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
             }
-            #[allow(
-                unused_variables,
-                non_upper_case_globals,
-                non_snake_case,
-                unused_unsafe,
-                non_camel_case_types,
-                dead_code,
-                clippy::all
-            )]
             pub mod Threading {
                 pub unsafe fn CreateEventA<
                     'a,
@@ -3951,15 +3825,6 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
             }
-            #[allow(
-                unused_variables,
-                non_upper_case_globals,
-                non_snake_case,
-                unused_unsafe,
-                non_camel_case_types,
-                dead_code,
-                clippy::all
-            )]
             pub mod WinRT {
                 #[repr(transparent)]
                 #[derive(
