@@ -1899,7 +1899,7 @@ pub mod Windows {
             pub const Inspectable: PropertyType = PropertyType(13i32);
             pub const DateTime: PropertyType = PropertyType(14i32);
             pub const TimeSpan: PropertyType = PropertyType(15i32);
-            pub const GUID: PropertyType = PropertyType(16i32);
+            pub const Guid: PropertyType = PropertyType(16i32);
             pub const Point: PropertyType = PropertyType(17i32);
             pub const Size: PropertyType = PropertyType(18i32);
             pub const Rect: PropertyType = PropertyType(19i32);
