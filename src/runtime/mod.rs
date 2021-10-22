@@ -17,7 +17,7 @@ mod hresult;
 mod activation_factory;
 mod inspectable;
 mod unknown;
-pub mod bindings;
+pub(crate) mod bindings;
 mod abi;
 mod compose;
 mod handle;
@@ -64,9 +64,8 @@ pub use bindings::Windows::Win32::System::Com::IAgileObject;
 pub type RawPtr = *mut std::ffi::c_void;
 
 #[cfg(feature = "macros")]
-pub use windows_macros::{build, generate, implement};
+pub use windows_macros::{build, generate, implement, include_bindings};
 
 // TODO: remove this
 #[cfg(feature = "macros")]
 pub use windows_reader::workspace_dir;
-

@@ -63,3 +63,10 @@ pub fn implement(
 ) -> proc_macro::TokenStream {
     implement::gen(attribute, input)
 }
+
+/// Includes the generated bindings into the current context.
+#[proc_macro]
+pub fn include_bindings(_: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    // TODO: check that input stream is empty
+    r#"::std::include!(::std::concat!(::std::env!("OUT_DIR"), "/windows.rs"));"#.parse().unwrap()
+}
