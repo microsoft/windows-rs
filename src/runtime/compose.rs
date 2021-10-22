@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[doc(hidden)]
 pub trait Compose {

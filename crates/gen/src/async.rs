@@ -67,9 +67,9 @@ fn gen_async_kind(
 
     (
         quote! {
-            pub fn get(&self) -> ::windows::Result<#return_sig> {
+            pub fn get(&self) -> ::windows::runtime::Result<#return_sig> {
                 if self.Status()? == #namespace AsyncStatus::Started {
-                    let (waiter, signaler) = ::windows::Waiter::new();
+                    let (waiter, signaler) = ::windows::runtime::Waiter::new();
                     self.SetCompleted(#namespace  #handler::new(move |_sender, _args| {
                         // Safe because the waiter will only be dropped after being signaled.
                         unsafe { signaler.signal(); }
@@ -81,7 +81,7 @@ fn gen_async_kind(
         },
         quote! {
             impl<#constraints> ::std::future::Future for #name {
-                type Output = ::windows::Result<#return_sig>;
+                type Output = ::windows::runtime::Result<#return_sig>;
 
                 fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
                     if self.Status()? == #namespace AsyncStatus::Started {

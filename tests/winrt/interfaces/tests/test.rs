@@ -1,5 +1,5 @@
 use test_winrt_interfaces::*;
-use windows::*;
+use windows::runtime::*;
 use Component::Interfaces::*;
 use Windows::Win32::Foundation::E_NOINTERFACE;
 

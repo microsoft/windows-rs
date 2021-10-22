@@ -1,1 +1,1 @@
-windows::include_bindings!();
+windows::runtime::include_bindings!();

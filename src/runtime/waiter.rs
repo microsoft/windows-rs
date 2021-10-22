@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 use bindings::{
     Windows::Win32::Foundation::{CloseHandle, HANDLE},
@@ -19,6 +19,7 @@ impl Waiter {
 }
 
 impl WaiterSignaler {
+    /// # Safety
     /// Signals the `Waiter`. This is unsafe because the lifetime of `WaiterSignaler` is not tied
     /// to the lifetime of the `Waiter`. This is not possible in this case because the `Waiter`
     /// is used to signal a WinRT async completion and the compiler doesn't know that the lifetime

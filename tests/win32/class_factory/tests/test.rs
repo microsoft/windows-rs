@@ -1,5 +1,5 @@
 use test_win32_class_factory::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Foundation::*;
 use Windows::Win32::Foundation::BOOL;
 use Windows::Win32::System::Com::IClassFactory;

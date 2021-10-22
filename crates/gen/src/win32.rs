@@ -23,7 +23,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     };
 
     quote! {
-        (this: ::windows::RawPtr, #(#params,)* #udt_return_type) #return_sig
+        (this: ::windows::runtime::RawPtr, #(#params,)* #udt_return_type) #return_sig
     }
 }
 
@@ -101,7 +101,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
                     ::std::result::Result::Ok(ok__) => {
                         *#result = ::std::mem::transmute_copy(&ok__);
                         ::std::mem::forget(ok__);
-                        ::windows::HRESULT(0)
+                        ::windows::runtime::HRESULT(0)
                     }
                     ::std::result::Result::Err(err) => err.into()
                 }

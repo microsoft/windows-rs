@@ -1,14 +1,14 @@
 use std::convert::TryInto;
 use test_winrt::Windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
-use windows::{IAgileObject, Interface, RuntimeName};
+use windows::runtime::{IAgileObject, Interface, RuntimeName};
 
 #[test]
-fn uri() -> windows::Result<()> {
+fn uri() -> windows::runtime::Result<()> {
     assert_eq!(Uri::NAME, "Windows.Foundation.Uri");
 
     assert_eq!(
         Uri::IID,
-        windows::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
+        windows::runtime::Guid::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 
     let uri = &Uri::CreateUri("http://kennykerr.ca")?;
@@ -27,7 +27,7 @@ fn uri() -> windows::Result<()> {
 }
 
 #[test]
-fn interface_conversion() -> windows::Result<()> {
+fn interface_conversion() -> windows::runtime::Result<()> {
     // TODO: Find an example where the default constructor is not exclusive.
 
     // TODO: Convert from ??? class to (non-exclusive) default interface by value (dropping the class).

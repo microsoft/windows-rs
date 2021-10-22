@@ -1,5 +1,5 @@
 fn main() {
-    windows::build! {
+    windows::runtime::build! {
         Windows::Win32::System::Com::IDataObject,
     };
 }

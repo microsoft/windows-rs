@@ -1,6 +1,6 @@
 use std::convert::TryInto;
 use test_implement::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Foundation::Collections::*;
 use Windows::Foundation::*;
 use Windows::Win32::Foundation::E_BOUNDS;
@@ -10,10 +10,10 @@ use Windows::Win32::Foundation::E_BOUNDS;
 )]
 struct Thing<T>(Vec<T::DefaultType>)
 where
-    T: ::windows::RuntimeType + 'static;
+    T: ::windows::runtime::RuntimeType + 'static;
 
 #[allow(non_snake_case)]
-impl<T: ::windows::RuntimeType + 'static> Thing<T> {
+impl<T: ::windows::runtime::RuntimeType + 'static> Thing<T> {
     fn GetAt(&self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
             Some(value) => unsafe { <T as Abi>::from_default(value) },

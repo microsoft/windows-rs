@@ -1,11 +1,3 @@
-/// Includes the generated bindings into the current context.
-#[macro_export]
-macro_rules! include_bindings {
-    () => {
-        ::std::include!(::std::concat!(::std::env!("OUT_DIR"), "/windows.rs"));
-    };
-}
-
 #[doc(hidden)]
 #[macro_export]
 macro_rules! demand_load {
@@ -14,21 +6,21 @@ macro_rules! demand_load {
     } )* ) => {
         $($(
             #[allow(non_snake_case)]
-            unsafe fn $sym( $( $param: $pty ),* ) -> ::std::result::Result<$rt, $crate::HRESULT> {
+            unsafe fn $sym( $( $param: $pty ),* ) -> ::std::result::Result<$rt, ::windows::runtime::HRESULT> {
                 static ONCE: ::std::sync::Once = ::std::sync::Once::new();
-                static mut VALUE: ::std::mem::MaybeUninit<::std::result::Result<$crate::RawPtr, $crate::HRESULT>> =
+                static mut VALUE: ::std::mem::MaybeUninit<::std::result::Result<::windows::runtime::RawPtr, ::windows::runtime::HRESULT>> =
                     ::std::mem::MaybeUninit::uninit();
 
                 ONCE.call_once(|| {
                     VALUE = ::std::mem::MaybeUninit::new(
-                        $crate::delay_load($library, ::std::stringify!($sym))
+                        ::windows::runtime::delay_load($library, ::std::stringify!($sym))
                     )
                 });
 
                 // transmute() doesn't work on generic types, as you can't constrain to a
                 // function pointer, so it must be done here outside load_proc().
                 type FnPtr = extern "system" fn ( $( $param: $pty ),* ) -> $rt;
-                let f = ::std::mem::transmute::<$crate::RawPtr, FnPtr>(VALUE.assume_init()?);
+                let f = ::std::mem::transmute::<::windows::runtime::RawPtr, FnPtr>(VALUE.assume_init()?);
                 ::std::result::Result::Ok( (f)( $( $param ),* ) )
             }
         )*)*

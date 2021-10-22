@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// All COM interfaces (and thus WinRT classes and interfaces) implement
 /// [IUnknown](https://docs.microsoft.com/en-us/windows/win32/api/unknwn/nn-unknwn-iunknown)

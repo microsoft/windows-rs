@@ -1,5 +1,5 @@
 use test_winrt::Windows::Foundation::Uri;
-use windows::Array;
+use windows::runtime::Array;
 
 #[test]
 fn array() {

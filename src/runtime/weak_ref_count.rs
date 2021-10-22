@@ -6,7 +6,7 @@
     unused_variables
 )]
 
-use crate::*;
+use super::*;
 use bindings::Windows::Win32::{
     Foundation::E_NOINTERFACE,
     System::WinRT::{
@@ -55,7 +55,7 @@ impl WeakRefCount {
     }
 
     /// # Safety
-    pub unsafe fn query(&self, iid: &::windows::Guid, object: RawPtr) -> RawPtr {
+    pub unsafe fn query(&self, iid: &::windows::runtime::Guid, object: RawPtr) -> RawPtr {
         if iid != &IWeakReferenceSource::IID {
             return std::ptr::null_mut();
         }
@@ -207,21 +207,21 @@ impl TearOff {
         }
     }
 
-    unsafe extern "system" fn StrongAddRef(ptr: ::windows::RawPtr) -> u32 {
+    unsafe extern "system" fn StrongAddRef(ptr: ::windows::runtime::RawPtr) -> u32 {
         let this = Self::from_strong_ptr(ptr);
 
         // Implement `AddRef` directly as we own the strong reference.
         this.strong_count.add_ref()
     }
 
-    unsafe extern "system" fn WeakAddRef(ptr: ::windows::RawPtr) -> u32 {
+    unsafe extern "system" fn WeakAddRef(ptr: ::windows::runtime::RawPtr) -> u32 {
         let this = Self::from_weak_ptr(ptr);
 
         // Implement `AddRef` directly as we own the weak reference.
         this.weak_count.add_ref()
     }
 
-    unsafe extern "system" fn StrongRelease(ptr: ::windows::RawPtr) -> u32 {
+    unsafe extern "system" fn StrongRelease(ptr: ::windows::runtime::RawPtr) -> u32 {
         let this = Self::from_strong_ptr(ptr);
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
@@ -229,7 +229,7 @@ impl TearOff {
         ((*(*(this.object as *mut *mut _) as *mut IUnknown_abi)).2)((*this).object)
     }
 
-    unsafe extern "system" fn WeakRelease(ptr: ::windows::RawPtr) -> u32 {
+    unsafe extern "system" fn WeakRelease(ptr: ::windows::runtime::RawPtr) -> u32 {
         let this = Self::from_weak_ptr(ptr);
 
         // Implement `Release` directly as we own the weak reference.

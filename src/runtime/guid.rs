@@ -1,6 +1,6 @@
 #![allow(clippy::many_single_char_names)]
 
-use crate::*;
+use super::*;
 use bindings::Windows::Win32::System::Com::CoCreateGuid;
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
@@ -41,8 +41,8 @@ impl Guid {
     }
 
     /// Creates a `Guid` for a "generic" WinRT type.
-    pub const fn from_signature(signature: crate::ConstBuffer) -> Guid {
-        let data = crate::ConstBuffer::from_slice(&[
+    pub const fn from_signature(signature: ConstBuffer) -> Guid {
+        let data = ConstBuffer::from_slice(&[
             0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
             0xad, 0xee,
         ]);
@@ -74,7 +74,7 @@ unsafe impl Abi for Guid {
 }
 
 unsafe impl RuntimeType for Guid {
-    const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice(b"g16");
+    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"g16");
 }
 
 impl std::fmt::Debug for Guid {

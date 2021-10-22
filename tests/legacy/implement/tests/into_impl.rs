@@ -1,5 +1,5 @@
 use test_implement::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Foundation::Collections::*;
 use Windows::Win32::Foundation::E_BOUNDS;
 

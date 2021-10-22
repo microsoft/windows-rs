@@ -1,5 +1,5 @@
 fn main() {
-    windows::build! {
+    windows::runtime::build! {
         Windows::Win32::Globalization::{
             SetThreadPreferredUILanguages, MUI_LANGUAGE_NAME,
         },

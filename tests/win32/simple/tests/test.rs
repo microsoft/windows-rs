@@ -1,5 +1,5 @@
 use test_win32_simple::*;
-use windows::*;
+use windows::runtime::*;
 use Component::Win32::Simple::*;
 
 #[implement(Component::Win32::Simple::ISimpleInterface)]

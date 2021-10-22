@@ -35,7 +35,7 @@ windows = "0.8" # Check https://crates.io/crates/windows for the latest version
 windows = "0.8"
 ```
 
-Now that the `bindings` crate depends on the `windows` crate, we can generate our bindings inside of a build script. In case you're not familiar with build scripts, they're simply Rust files that get run automatically by cargo when building a Rust crate. To add one, we simply put a "build.rs" file in the `bindings` crate's directory. We'll add the `windows::build!` macro which is where we declare which Windows APIs we want to generate bindings for.
+Now that the `bindings` crate depends on the `windows` crate, we can generate our bindings inside of a build script. In case you're not familiar with build scripts, they're simply Rust files that get run automatically by cargo when building a Rust crate. To add one, we simply put a "build.rs" file in the `bindings` crate's directory. We'll add the `windows::runtime::build!` macro which is where we declare which Windows APIs we want to generate bindings for.
 
 The question now is: which APIs do we import? Knowing exactly which API you want to use requires familiarity with the Windows API. Let's assume you've explored [the documentation](https://docs.microsoft.com/en-us/windows/apps/) and are sure that you want to use the [internationalization](https://docs.microsoft.com/en-us/windows/win32/api/_intl/) APIs and in particular the `ISpellChecker` (and the related `ISpellCheckerFactory`) located in the [spellcheck](https://docs.microsoft.com/en-us/windows/win32/api/spellcheck/) functionality for this app. To know how this API is translated into Rust, go to the [Rust for Windows](https://microsoft.github.io/windows-docs-rs/doc/bindings/Windows/) and search for what you need.
 
@@ -52,7 +52,7 @@ In the build.rs file add the following:
 
 ```rust
 fn main() {
-    windows::build! {
+    windows::runtime::build! {
         // Note that we're using the `Intl` namespace which is nested inside the `Win32` namespace
         // which itself is inside the `Windows` namespace.
         Windows::Win32::Globalization::{ISpellChecker, SpellCheckerFactory, ISpellCheckerFactory, CORRECTIVE_ACTION, IEnumSpellingError, ISpellingError},
@@ -65,7 +65,7 @@ fn main() {
 We're not done! This generates the bindings, but it just puts them into the target folder of our crate where they'll go unused. We want to actually *use* this generated code not just generate and forget about it. In order for the generated code to be exported from the `bindings` crate, we need to include it in the crate itself. Change the lib.rs file of the bindings crate to the following:
 
 ```rust
-windows::include_bindings!();
+windows::runtime::include_bindings!();
 ```
 
 This effectively copy/pastes the generated code into the `lib.rs` file. The `bindings` crate now exports all the bindings we've generated. Next, we need to make sure our `spellchecker` crate depends on the `bindings` crate. In the `spellchecker` crate's Cargo.toml file, add the `bindings` crate as a dependency. We'll also add the `windows` crate as a dependency since we'll be using that as well in our `spellchecker` crate.
@@ -81,10 +81,10 @@ And we're done bootstrapping the project. Now we'll move on to the code of the `
 
 ## Initialization Code
 
-Inside of the main.rs file for the `spellchecker` crate, we'll start by adding the set up code. We'll initialize the COM runtime on the main thread. We'll make the `main` function return a `windows::Result` which is simply a standard `Result` type with the error hardcoded as a `windows::Error`.
+Inside of the main.rs file for the `spellchecker` crate, we'll start by adding the set up code. We'll initialize the COM runtime on the main thread. We'll make the `main` function return a `windows::runtime::Result` which is simply a standard `Result` type with the error hardcoded as a `windows::runtime::Error`.
 
 ```rust
-fn main() -> windows::Result<()> {
+fn main() -> windows::runtime::Result<()> {
     // initialize the main thread as a multithreaded apartment
     windows::initialize_mta()?;
     // The rest of the code will go here!
@@ -181,7 +181,7 @@ fn main() -> window::Result<()> {
         let mut error = None;
         let result = unsafe { errors.Next(&mut error) };
         // Getting S_FALSE means there are no more errors
-        if result == windows::HRESULT::S_FALSE {
+        if result == windows::runtime::HRESULT::S_FALSE {
             break;
         }
         // We still need to check that `Next` didn't return an unexpected error

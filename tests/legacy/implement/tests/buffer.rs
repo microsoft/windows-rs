@@ -1,5 +1,5 @@
 use test_implement::*;
-use windows::*;
+use windows::runtime::*;
 
 use Windows::Storage::Streams::Buffer;
 use Windows::Win32::System::WinRT::IBufferByteAccess;

@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// WinRT classes have a supporting factory object that implements `IActivationFactory` to create a new
 /// instance of the WinRT class with some default state. `IActivationFactory` represents the

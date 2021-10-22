@@ -7,7 +7,7 @@ pub fn gen_method_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream 
         if param.is_convertible() {
             let name = format_token!("Param{}", position);
             let into = gen_name(&param.signature.kind, gen);
-            tokens.combine(&quote! { #name: ::windows::IntoParam<'a, #into>, });
+            tokens.combine(&quote! { #name: ::windows::runtime::IntoParam<'a, #into>, });
         }
     }
 
@@ -66,35 +66,35 @@ pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
 }
 
 pub fn interface_method_features(def: &TypeDef, sig: &MethodSignature, gen: &Gen) -> TokenStream {
-    if gen.feature.is_empty() {
+    if gen.root.is_empty() {
         return TokenStream::new();
     }
 
     let mut features = sig.method_features();
     features.insert(def.namespace());
-    gen_cfg(features, false, gen)
+    gen.gen_cfg(&features)
 }
 
 // TODO: should have option to return "not" version to avoid calculating method_features multiple times
 pub fn method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
-    if gen.feature.is_empty() {
+    if gen.root.is_empty() {
         return TokenStream::new();
     }
 
-    gen_cfg(sig.method_features(), false, gen)
+    gen.gen_cfg(&sig.method_features())
 }
 
 // TODO: wasteful - don't do this
 pub fn not_method_features(sig: &MethodSignature, gen: &Gen) -> TokenStream {
-    if gen.feature.is_empty() {
+    if gen.root.is_empty() {
         return TokenStream::new();
     }
 
-    gen_cfg(sig.method_features(), true, gen)
+    gen.gen_cfg_not(&sig.method_features())
 }
 
 pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
-    if gen.feature.is_empty() {
+    if gen.root.is_empty() {
         return TokenStream::new();
     }
 
@@ -102,11 +102,11 @@ pub fn signature_features(sig: &Signature, gen: &Gen) -> TokenStream {
     let mut keys = std::collections::HashSet::new();
     sig.kind.method_features(&mut features, &mut keys);
 
-    gen_cfg(features, false, gen)
+    gen.gen_cfg(&features)
 }
 
 pub fn struct_features(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if gen.feature.is_empty() {
+    if gen.root.is_empty() {
         return TokenStream::new();
     }
 
@@ -114,74 +114,5 @@ pub fn struct_features(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut keys = std::collections::HashSet::new();
     def.struct_features(&mut features, &mut keys);
 
-    gen_cfg(features, false, gen)
-}
-
-pub fn convert_features(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if gen.feature.is_empty() {
-        return TokenStream::new();
-    }
-
-    let mut features = std::collections::BTreeSet::new();
-    features.insert(def.namespace());
-
-    gen_cfg(features, false, gen)
-}
-
-pub fn class_features(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if gen.feature.is_empty() {
-        return TokenStream::new();
-    }
-
-    let mut features = std::collections::BTreeSet::new();
-
-    if let Some(def) = def.default_interface() {
-        features.insert(def.namespace());
-    }
-
-    gen_cfg(features, false, gen)
-}
-
-fn gen_cfg(mut features: BTreeSet<&'static str>, not: bool, gen: &Gen) -> TokenStream {
-    if features.is_empty() {
-        return TokenStream::new();
-    }
-
-    let mut relative = gen.relative;
-
-    while !relative.is_empty() {
-        features.remove(relative);
-        if let Some(pos) = relative.rfind('.') {
-            relative = &relative[..pos];
-        } else {
-            relative = "";
-        }
-    }
-
-    if features.is_empty() {
-        return TokenStream::new();
-    }
-
-    // TODO: don't use all(...) if there's only a single feature (as is often the case)
-
-    let mut dependencies = if not {
-        "#[cfg(not(all(".to_string()
-    } else {
-        "#[cfg(all(".to_string()
-    };
-
-    for feature in features {
-        let feature = &feature[gen.feature.len() + 1..];
-        dependencies.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
-    }
-
-    dependencies.truncate(dependencies.len() - 2);
-
-    if not {
-        dependencies.push(')');
-    }
-
-    dependencies.push_str("))]");
-
-    dependencies.into()
+    gen.gen_cfg(&features)
 }

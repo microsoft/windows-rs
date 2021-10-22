@@ -1,5 +1,5 @@
 use test_winrt_structs::*;
-use windows::*;
+use windows::runtime::*;
 use Component::Structs::*;
 
 #[test]

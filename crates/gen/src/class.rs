@@ -92,7 +92,8 @@ impl Class {
     pub fn gen(&self, gen: &Gen, include: TypeInclude) -> TokenStream {
         let name = gen_type_name(&self.0, gen);
         let interfaces = self.interfaces();
-        let features = class_features(&self.0, gen);
+        let features = gen.class_features(&self.0);
+        let cfg = gen.gen_cfg(&features);
 
         if include == TypeInclude::Full {
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
@@ -106,11 +107,11 @@ impl Class {
                             let interface_type = gen_type_name(&interface.def, gen);
 
                             Some(quote! {
-                                pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::Result<R>>(
+                                pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::runtime::Result<R>>(
                                     callback: F,
-                                ) -> ::windows::Result<R> {
-                                    static mut SHARED: ::windows::FactoryCache<#name, #interface_type> =
-                                        ::windows::FactoryCache::new();
+                                ) -> ::windows::runtime::Result<R> {
+                                    static mut SHARED: ::windows::runtime::FactoryCache<#name, #interface_type> =
+                                        ::windows::runtime::FactoryCache::new();
                                     unsafe { SHARED.call(callback) }
                                 }
                             })
@@ -128,19 +129,19 @@ impl Class {
                 let guid = gen_type_guid(&default_interface.def, gen);
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
-                let object = gen_object(&name, &TokenStream::new(), &features);
+                let object = gen_object(&name, &TokenStream::new(), &cfg);
                 let (async_get, future) = gen_async(&self.0, &interfaces, gen);
 
                 let new = if self.0.has_default_constructor() {
                     quote! {
-                        pub fn new() -> ::windows::Result<Self> {
+                        pub fn new() -> ::windows::runtime::Result<Self> {
                             Self::IActivationFactory(|f| f.activate_instance::<Self>())
                         }
-                        fn IActivationFactory<R, F: FnOnce(&::windows::IActivationFactory) -> ::windows::Result<R>>(
+                        fn IActivationFactory<R, F: FnOnce(&::windows::runtime::IActivationFactory) -> ::windows::runtime::Result<R>>(
                             callback: F,
-                        ) -> ::windows::Result<R> {
-                            static mut SHARED: ::windows::FactoryCache<#name, ::windows::IActivationFactory> =
-                                ::windows::FactoryCache::new();
+                        ) -> ::windows::runtime::Result<R> {
+                            static mut SHARED: ::windows::runtime::FactoryCache<#name, ::windows::runtime::IActivationFactory> =
+                                ::windows::runtime::FactoryCache::new();
                             unsafe { SHARED.call(callback) }
                         }
                     }
@@ -154,9 +155,9 @@ impl Class {
 
                 let send_sync = if self.0.is_agile() {
                     quote! {
-                        #features
+                        #cfg
                         unsafe impl ::std::marker::Send for #name {}
-                        #features
+                        #cfg
                         unsafe impl ::std::marker::Sync for #name {}
                     }
                 } else {
@@ -167,28 +168,28 @@ impl Class {
                 let iterator = gen_iterator(&self.0, &interfaces, gen);
 
                 quote! {
-                    #features
+                    #cfg
                     #[repr(transparent)]
                     #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-                    pub struct #name(::windows::IInspectable);
-                    #features
+                    pub struct #name(::windows::runtime::IInspectable);
+                    #cfg
                     impl #name {
                         #new
                         #methods
                         #async_get
                         #(#factories)*
                     }
-                    #features
-                    unsafe impl ::windows::RuntimeType for #name {
-                        const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
+                    #cfg
+                    unsafe impl ::windows::runtime::RuntimeType for #name {
+                        const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#type_signature);
                     }
-                    #features
-                    unsafe impl ::windows::Interface for #name {
+                    #cfg
+                    unsafe impl ::windows::runtime::Interface for #name {
                         type Vtable = #default_abi_name;
-                        const IID: ::windows::Guid = #guid;
+                        const IID: ::windows::runtime::Guid = #guid;
                     }
-                    #features
-                    impl ::windows::RuntimeName for #name {
+                    #cfg
+                    impl ::windows::runtime::RuntimeName for #name {
                         const NAME: &'static str = #runtime_name;
                     }
                     #future
@@ -205,7 +206,7 @@ impl Class {
                         #methods
                         #(#factories)*
                     }
-                    impl ::windows::RuntimeName for #name {
+                    impl ::windows::runtime::RuntimeName for #name {
                         const NAME: &'static str = #runtime_name;
                     }
                 }
@@ -220,19 +221,19 @@ impl Class {
             let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
 
             quote! {
-                #features
+                #cfg
                 #[repr(transparent)]
                 #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
                 #[doc(hidden)]
-                pub struct #name(::windows::IInspectable);
-                #features
-                unsafe impl ::windows::Interface for #name {
-                    type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
-                    const IID: ::windows::Guid = #guid;
+                pub struct #name(::windows::runtime::IInspectable);
+                #cfg
+                unsafe impl ::windows::runtime::Interface for #name {
+                    type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
+                    const IID: ::windows::runtime::Guid = #guid;
                 }
-                #features
-                unsafe impl ::windows::RuntimeType for #name {
-                    const SIGNATURE: ::windows::ConstBuffer = ::windows::ConstBuffer::from_slice(#type_signature);
+                #cfg
+                unsafe impl ::windows::runtime::RuntimeType for #name {
+                    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(#type_signature);
                 }
             }
         }
@@ -256,17 +257,17 @@ impl Class {
                     fn from(value: &#from) -> Self {
                         // This unwrap is legitimate because conversion to base can never fail because 
                         // the base can never change across versions.
-                        ::windows::Interface::cast(value).unwrap()
+                        ::windows::runtime::Interface::cast(value).unwrap()
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, #into> for #from {
-                    fn into_param(self) -> ::windows::Param<'a, #into> {
-                        ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                impl<'a> ::windows::runtime::IntoParam<'a, #into> for #from {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
                     }
                 }
-                impl<'a> ::windows::IntoParam<'a, #into> for &#from {
-                    fn into_param(self) -> ::windows::Param<'a, #into> {
-                        ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#from {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                     }
                 }
             }
@@ -299,19 +300,19 @@ mod tests {
 
         assert_eq!(
             gen_type_name(&i[0].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IMap :: < :: windows :: HSTRING , :: windows :: HSTRING >"
+            "Windows::Foundation::Collections:: IMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >"
         );
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
         assert_eq!(
             gen_type_name(&i[1].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: HSTRING , :: windows :: HSTRING > >"
+            "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING > >"
         );
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
         assert_eq!(
             gen_type_name(&i[2].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: HSTRING , :: windows :: HSTRING >"
+            "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >"
         );
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);
     }

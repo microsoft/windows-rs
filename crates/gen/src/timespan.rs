@@ -14,9 +14,9 @@ pub fn gen_timespan() -> TokenStream {
                 ::std::time::Duration::from_nanos((value.Duration * 100) as u64)
             }
         }
-        impl<'a> ::windows::IntoParam<'a, TimeSpan> for ::std::time::Duration {
-            fn into_param(self) -> ::windows::Param<'a, TimeSpan> {
-                ::windows::Param::Owned(self.into())
+        impl<'a> ::windows::runtime::IntoParam<'a, TimeSpan> for ::std::time::Duration {
+            fn into_param(self) -> ::windows::runtime::Param<'a, TimeSpan> {
+                ::windows::runtime::Param::Owned(self.into())
             }
         }
     }

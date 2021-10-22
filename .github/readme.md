@@ -26,7 +26,7 @@ This will allow Cargo to download, build, and cache Windows support as a package
 
 ```rust
 fn main() {
-    windows::build! {
+    windows::runtime::build! {
         Windows::Data::Xml::Dom::*,
         Windows::Win32::Foundation::CloseHandle,
         Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
@@ -38,14 +38,14 @@ fn main() {
 Finally, make use of any Windows APIs as needed.
 
 ```rust
-windows::include_bindings!();
+windows::runtime::include_bindings!();
 
 use Windows::Data::Xml::Dom::*;
 use Windows::Win32::Foundation::*;
 use Windows::Win32::System::Threading::*;
 use Windows::Win32::UI::WindowsAndMessaging::*;
 
-fn main() -> windows::Result<()> {
+fn main() -> windows::runtime::Result<()> {
     let doc = XmlDocument::new()?;
     doc.LoadXml("<html>hello world</html>")?;
 

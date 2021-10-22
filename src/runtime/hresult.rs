@@ -1,5 +1,4 @@
-use crate::*;
-
+use super::*;
 use bindings::{Windows::Win32::Foundation::PWSTR, Windows::Win32::System::Diagnostics::Debug::*};
 
 /// A primitive error code value returned by most COM functions.

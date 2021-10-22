@@ -1,3 +1,3 @@
 fn main() {
-    windows::build! {Component::Interfaces::*, Windows::Win32::Foundation::E_NOINTERFACE};
+    windows::runtime::build! {Component::Interfaces::*, Windows::Win32::Foundation::E_NOINTERFACE};
 }

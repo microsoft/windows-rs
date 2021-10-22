@@ -1,5 +1,5 @@
 use test_winrt_collections::*;
-use windows::*;
+use windows::runtime::*;
 use Component::Collections::*;
 use Windows::Foundation::Collections::*;
 use Windows::Foundation::IStringable;

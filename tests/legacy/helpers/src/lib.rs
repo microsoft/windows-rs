@@ -1,4 +1,4 @@
-windows::include_bindings!();
+windows::runtime::include_bindings!();
 
 use crate::Windows::Win32::Globalization::{SetThreadPreferredUILanguages, MUI_LANGUAGE_NAME};
 

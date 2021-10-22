@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 // A WinRT method parameter used to accept either a reference or value. `Param` is used by the
 // generated bindings and should not generally be used directly.

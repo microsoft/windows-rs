@@ -7,15 +7,15 @@ use test_winrt::{
     Windows::Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
 };
 
-use windows::Interface;
+use windows::runtime::Interface;
 
 #[test]
-fn non_generic() -> windows::Result<()> {
+fn non_generic() -> windows::runtime::Result<()> {
     type Handler = AsyncActionCompletedHandler;
 
     assert_eq!(
         Handler::IID,
-        windows::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
+        windows::runtime::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
     );
 
     let (tx, rx) = std::sync::mpsc::channel();
@@ -37,12 +37,12 @@ fn non_generic() -> windows::Result<()> {
 }
 
 #[test]
-fn generic() -> windows::Result<()> {
+fn generic() -> windows::runtime::Result<()> {
     type Handler = TypedEventHandler<Uri, i32>;
 
     assert_eq!(
         Handler::IID,
-        windows::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
+        windows::runtime::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
     );
 
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
@@ -65,7 +65,7 @@ fn generic() -> windows::Result<()> {
 }
 
 #[test]
-fn event() -> windows::Result<()> {
+fn event() -> windows::runtime::Result<()> {
     let set = PropertySet::new()?;
     let (tx, rx) = std::sync::mpsc::channel();
 
@@ -73,19 +73,20 @@ fn event() -> windows::Result<()> {
     // TODO: Should be able to elide the delegate construction and simply say:
     // set.MapChanged(|sender, args| {...})?;
     set.MapChanged(MapChangedEventHandler::<
-        windows::HSTRING,
-        windows::IInspectable,
+        windows::runtime::HSTRING,
+        windows::runtime::IInspectable,
     >::new(move |_, args| {
         let args = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
-        let _: IObservableMap<windows::HSTRING, windows::IInspectable> = set.try_into().unwrap();
+        let _: IObservableMap<windows::runtime::HSTRING, windows::runtime::IInspectable> =
+            set.try_into().unwrap();
         assert!(args.Key()? == "A");
         assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
         Ok(())
     }))?;
 
-    set.Insert("A", windows::IInspectable::try_from(1_u32)?)?;
+    set.Insert("A", windows::runtime::IInspectable::try_from(1_u32)?)?;
 
     assert!(rx.recv().unwrap());
 

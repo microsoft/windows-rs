@@ -18,7 +18,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             .map(|method| {
                 let signature = method.signature(&[]);
                 let abi = gen_win32_abi(&signature, gen);
-                if gen.feature.is_empty() {
+                if gen.root.is_empty() {
                     quote! {
                         pub unsafe extern "system" fn #abi,
                     }
@@ -58,55 +58,57 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
         let mut conversions = TokenStream::with_capacity();
 
         conversions.combine(&quote! {
-                    impl ::std::convert::From<#name> for ::windows::IUnknown {
+                    impl ::std::convert::From<#name> for ::windows::runtime::IUnknown {
                         fn from(value: #name) -> Self {
                             unsafe { ::std::mem::transmute(value) }
                         }
                     }
-                    impl ::std::convert::From<&#name> for ::windows::IUnknown {
+                    impl ::std::convert::From<&#name> for ::windows::runtime::IUnknown {
                         fn from(value: &#name) -> Self {
                             ::std::convert::From::from(::std::clone::Clone::clone(value))
                         }
                     }
-                    impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for #name {
-                        fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
-                            ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(self))
+                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for #name {
+                        fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                            ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
                         }
                     }
-                    impl<'a> ::windows::IntoParam<'a, ::windows::IUnknown> for &#name {
-                        fn into_param(self) -> ::windows::Param<'a, ::windows::IUnknown> {
-                            ::windows::Param::Owned(::std::convert::Into::<::windows::IUnknown>::into(::std::clone::Clone::clone(self)))
+                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &#name {
+                        fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                            ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
                         }
                     }
                 });
 
         for base in &bases {
             let into = gen_type_name(base, gen);
-            let features = convert_features(base, gen);
+            let mut features = BTreeSet::new();
+            features.insert(base.namespace());
+            let cfg = gen.gen_cfg(&features);
 
             conversions.combine(&quote! {
-                        #features
+                        #cfg
                         impl ::std::convert::From<#name> for #into {
                             fn from(value: #name) -> Self {
                                 unsafe { ::std::mem::transmute(value) }
                             }
                         }
-                        #features
+                        #cfg
                         impl ::std::convert::From<&#name> for #into {
                             fn from(value: &#name) -> Self {
                                 ::std::convert::From::from(::std::clone::Clone::clone(value))
                             }
                         }
-                        #features
-                        impl<'a> ::windows::IntoParam<'a, #into> for #name {
-                            fn into_param(self) -> ::windows::Param<'a, #into> {
-                                ::windows::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        #cfg
+                        impl<'a> ::windows::runtime::IntoParam<'a, #into> for #name {
+                            fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                                ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
                             }
                         }
-                        #features
-                        impl<'a> ::windows::IntoParam<'a, #into> for &#name {
-                            fn into_param(self) -> ::windows::Param<'a, #into> {
-                                ::windows::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                        #cfg
+                        impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#name {
+                            fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                                ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
                             }
                         }
                     });
@@ -123,9 +125,9 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let inspectable_vfptrs = if inspectable {
             quote! {
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, count: *mut u32, values: *mut *mut ::windows::Guid) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut ::windows::RawPtr) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, value: *mut i32) -> ::windows::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::Guid) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
             }
         } else {
             quote! {}
@@ -134,22 +136,22 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
         quote! {
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
-            pub struct #name(::windows::IUnknown);
+            pub struct #name(::windows::runtime::IUnknown);
             impl #name {
                 #(#methods)*
             }
-            unsafe impl ::windows::Interface for #name {
+            unsafe impl ::windows::runtime::Interface for #name {
                 type Vtable = #abi_name;
-                const IID: ::windows::Guid = #guid;
+                const IID: ::windows::runtime::Guid = #guid;
             }
             #conversions
             #send_sync
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::windows::RawPtr, iid: &::windows::Guid, interface: *mut ::windows::RawPtr) -> ::windows::HRESULT,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
-                pub unsafe extern "system" fn(this: ::windows::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                 #inspectable_vfptrs
                 #(#abi_signatures)*
             );
@@ -159,10 +161,10 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             #[doc(hidden)]
-            pub struct #name(::windows::IUnknown);
-            unsafe impl ::windows::Interface for #name {
-                type Vtable = <::windows::IUnknown as ::windows::Interface>::Vtable;
-                const IID: ::windows::Guid = #guid;
+            pub struct #name(::windows::runtime::IUnknown);
+            unsafe impl ::windows::runtime::Interface for #name {
+                type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
+                const IID: ::windows::runtime::Guid = #guid;
             }
         }
     }
@@ -198,9 +200,9 @@ fn gen_method(
 
             quote! {
                 #features
-                pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params) -> ::windows::Result<T> {
+                pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params) -> ::windows::runtime::Result<T> {
                     let mut result__ = ::std::option::Option::None;
-                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                 }
             }
         }
@@ -211,8 +213,8 @@ fn gen_method(
 
             quote! {
                 #features
-                pub unsafe fn #name<#constraints T: ::windows::Interface>(&self, #params result__: *mut ::std::option::Option<T>) -> ::windows::Result<()> {
-                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::Interface>::IID, result__ as *mut _ as *mut _).ok()
+                pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(&self, #params result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
             }
         }
@@ -224,9 +226,9 @@ fn gen_method(
 
             quote! {
                 #features
-                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<#return_type_tokens> {
-                    let mut result__: <#return_type_tokens as ::windows::Abi>::Abi = ::std::mem::zeroed();
-                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__)
+                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<#return_type_tokens> {
+                    let mut result__: <#return_type_tokens as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__)
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -237,8 +239,8 @@ fn gen_method(
 
             quote! {
                 #features
-                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::Result<()> {
-                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*).ok()
+                pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::runtime::Result<()> {
+                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*).ok()
                 }
             }
         }
@@ -251,7 +253,7 @@ fn gen_method(
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = ::std::default::Default::default();
-                    (::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__);
+                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__);
                     result__
                 }
             }
@@ -264,7 +266,7 @@ fn gen_method(
             quote! {
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
-                    ::std::mem::transmute((::windows::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*))
+                    ::std::mem::transmute((::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)*))
                 }
             }
         }

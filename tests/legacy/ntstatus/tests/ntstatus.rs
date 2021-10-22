@@ -2,7 +2,7 @@ use test_ntstatus::{
     Windows::Win32::Foundation::*, Windows::Win32::Security::Cryptography::Core::*,
 };
 
-use windows::{Guid, Result, HRESULT};
+use windows::runtime::{Guid, Result, HRESULT};
 
 #[test]
 fn test() -> Result<()> {

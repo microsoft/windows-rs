@@ -1,15 +1,15 @@
-use crate::*;
+use super::*;
 
 #[doc(hidden)]
 pub unsafe trait RuntimeType: Abi + Clone + PartialEq {
-    const SIGNATURE: crate::ConstBuffer;
+    const SIGNATURE: ConstBuffer;
 }
 
 macro_rules! primitive_runtime_types {
     ($(($t:ty, $s:literal)),+) => {
         $(
             unsafe impl RuntimeType for $t {
-                const SIGNATURE: crate::ConstBuffer = crate::ConstBuffer::from_slice($s);
+                const SIGNATURE: ConstBuffer = ConstBuffer::from_slice($s);
             }
             unsafe impl Abi for $t {
                 type Abi = Self;

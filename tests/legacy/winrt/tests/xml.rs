@@ -2,7 +2,7 @@ use test_winrt::Windows::Data::Xml::Dom::XmlDocument;
 
 // Simple test to validate that default constructors are projected as static `new` methods.
 #[test]
-fn xml() -> windows::Result<()> {
+fn xml() -> windows::runtime::Result<()> {
     let doc = XmlDocument::new()?;
 
     doc.LoadXml("<html>hello world</html>")?;

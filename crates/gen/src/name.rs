@@ -34,19 +34,19 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::ISize => quote! { isize },
         ElementType::USize => quote! { usize },
         ElementType::String => {
-            quote! { ::windows::HSTRING }
+            quote! { ::windows::runtime::HSTRING }
         }
         ElementType::IInspectable => {
-            quote! { ::windows::IInspectable }
+            quote! { ::windows::runtime::IInspectable }
         }
         ElementType::Guid => {
-            quote! { ::windows::Guid }
+            quote! { ::windows::runtime::Guid }
         }
         ElementType::IUnknown => {
-            quote! { ::windows::IUnknown }
+            quote! { ::windows::runtime::IUnknown }
         }
         ElementType::HRESULT => {
-            quote! { ::windows::HRESULT }
+            quote! { ::windows::runtime::HRESULT }
         }
         ElementType::Array((kind, len)) => {
             // TODO: rename all Signature vars to "sig"
@@ -65,10 +65,10 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
 pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
     match def {
         ElementType::String => {
-            quote! { ::std::mem::ManuallyDrop<::windows::HSTRING> }
+            quote! { ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> }
         }
         ElementType::IUnknown | ElementType::IInspectable => {
-            quote! { ::windows::RawPtr }
+            quote! { ::windows::runtime::RawPtr }
         }
         ElementType::Array((kind, len)) => {
             let name = gen_abi_sig(kind, gen);
@@ -77,7 +77,7 @@ pub fn gen_abi_type_name(def: &ElementType, gen: &Gen) -> TokenStream {
         }
         ElementType::GenericParam(generic) => {
             let name = format_token!("{}", generic);
-            quote! { <#name as ::windows::Abi>::Abi }
+            quote! { <#name as ::windows::runtime::Abi>::Abi }
         }
         ElementType::TypeDef(def) => gen_abi_type(def, gen),
         _ => gen_name(def, gen),
@@ -141,6 +141,6 @@ fn gen_abi_type(def: &TypeDef, gen: &Gen) -> TokenStream {
                 quote! { ::std::mem::ManuallyDrop<#tokens> }
             }
         }
-        _ => quote! { ::windows::RawPtr },
+        _ => quote! { ::windows::runtime::RawPtr },
     }
 }

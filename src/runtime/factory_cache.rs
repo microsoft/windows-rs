@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use bindings::Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
