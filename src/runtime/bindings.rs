@@ -27,6 +27,12 @@ pub mod Windows {
                     .finish()
             }
         }
+        impl ::std::cmp::PartialEq for DateTime {
+            fn eq(&self, other: &Self) -> bool {
+                self.UniversalTime == other.UniversalTime
+            }
+        }
+        impl ::std::cmp::Eq for DateTime {}
         unsafe impl ::windows::runtime::Abi for DateTime {
             type Abi = Self;
             type DefaultType = Self;
@@ -1841,6 +1847,12 @@ pub mod Windows {
                     .finish()
             }
         }
+        impl ::std::cmp::PartialEq for Point {
+            fn eq(&self, other: &Self) -> bool {
+                self.X == other.X && self.Y == other.Y
+            }
+        }
+        impl ::std::cmp::Eq for Point {}
         unsafe impl ::windows::runtime::Abi for Point {
             type Abi = Self;
             type DefaultType = Self;
@@ -2493,6 +2505,15 @@ pub mod Windows {
                     .finish()
             }
         }
+        impl ::std::cmp::PartialEq for Rect {
+            fn eq(&self, other: &Self) -> bool {
+                self.X == other.X
+                    && self.Y == other.Y
+                    && self.Width == other.Width
+                    && self.Height == other.Height
+            }
+        }
+        impl ::std::cmp::Eq for Rect {}
         unsafe impl ::windows::runtime::Abi for Rect {
             type Abi = Self;
             type DefaultType = Self;
@@ -2523,6 +2544,12 @@ pub mod Windows {
                     .finish()
             }
         }
+        impl ::std::cmp::PartialEq for Size {
+            fn eq(&self, other: &Self) -> bool {
+                self.Width == other.Width && self.Height == other.Height
+            }
+        }
+        impl ::std::cmp::Eq for Size {}
         unsafe impl ::windows::runtime::Abi for Size {
             type Abi = Self;
             type DefaultType = Self;
@@ -2551,6 +2578,12 @@ pub mod Windows {
                     .finish()
             }
         }
+        impl ::std::cmp::PartialEq for TimeSpan {
+            fn eq(&self, other: &Self) -> bool {
+                self.Duration == other.Duration
+            }
+        }
+        impl ::std::cmp::Eq for TimeSpan {}
         unsafe impl ::windows::runtime::Abi for TimeSpan {
             type Abi = Self;
             type DefaultType = Self;
@@ -3093,6 +3126,14 @@ pub mod Windows {
                         .finish()
                 }
             }
+            impl ::std::cmp::PartialEq for SECURITY_ATTRIBUTES {
+                fn eq(&self, other: &Self) -> bool {
+                    self.nLength == other.nLength
+                        && self.lpSecurityDescriptor == other.lpSecurityDescriptor
+                        && self.bInheritHandle == other.bInheritHandle
+                }
+            }
+            impl ::std::cmp::Eq for SECURITY_ATTRIBUTES {}
             unsafe impl ::windows::runtime::Abi for SECURITY_ATTRIBUTES {
                 type Abi = Self;
                 type DefaultType = Self;
