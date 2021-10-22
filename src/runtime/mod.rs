@@ -72,3 +72,7 @@ pub use windows_macros::{StructDerive};
 // TODO: remove this
 #[cfg(feature = "macros")]
 pub use windows_reader::workspace_dir;
+
+extern "C" {
+    pub fn memcmp(left: *const std::ffi::c_void, right: *const std::ffi::c_void, len: usize) -> i32;
+}
