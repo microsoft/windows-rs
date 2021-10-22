@@ -12,7 +12,8 @@ fn from_hresult() {
 
 #[test]
 fn originate() {
-    let error = windows::runtime::Error::new(windows::runtime::HRESULT(0x80004004), "test originate");
+    let error =
+        windows::runtime::Error::new(windows::runtime::HRESULT(0x80004004), "test originate");
 
     assert_eq!(error.code(), windows::runtime::HRESULT(0x80004004));
     assert_eq!(error.message(), "test originate");

@@ -274,7 +274,11 @@ fn callback() {
             BOOL(789)
                 == a(
                     HWND(123),
-                    PWSTR(windows::runtime::HSTRING::from("hello w\0").as_wide().as_ptr() as _),
+                    PWSTR(
+                        windows::runtime::HSTRING::from("hello w\0")
+                            .as_wide()
+                            .as_ptr() as _
+                    ),
                     HANDLE(456)
                 )
         );

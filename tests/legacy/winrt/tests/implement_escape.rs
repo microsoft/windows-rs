@@ -27,7 +27,9 @@ impl BookShu {
         panic!();
     }
 
-    pub fn GetStringRepresentation(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn GetStringRepresentation(
+        &self,
+    ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         panic!();
     }
 }

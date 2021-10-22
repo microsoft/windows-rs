@@ -74,7 +74,7 @@ impl Gen {
         if let Some(def) = def.default_interface() {
             features.insert(def.namespace());
         }
-    
+
         features
     }
 
@@ -88,7 +88,7 @@ impl Gen {
 
     fn gen_cfg_impl(&self, features: &BTreeSet<&'static str>, not: bool) -> TokenStream {
         if self.root.is_empty() {
-            return TokenStream::new(); 
+            return TokenStream::new();
         }
 
         if features.is_empty() {
@@ -103,7 +103,10 @@ impl Gen {
                 continue;
             }
 
-            if self.relative.len() > feature.len() && self.relative.starts_with(feature) && self.relative[feature.len()..].starts_with('.') {
+            if self.relative.len() > feature.len()
+                && self.relative.starts_with(feature)
+                && self.relative[feature.len()..].starts_with('.')
+            {
                 continue;
             }
 
@@ -119,14 +122,14 @@ impl Gen {
         let all = count > 1;
         let mut cfg = "#[cfg(".to_string();
 
-        if not { 
+        if not {
             cfg.push_str("not(")
         }
 
         if all {
             cfg.push_str("all(")
         }
-    
+
         tokens.truncate(tokens.len() - 2);
         cfg.push_str(&tokens);
 

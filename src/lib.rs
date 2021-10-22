@@ -10,4 +10,3 @@ Learn more here: <https://github.com/microsoft/windows-rs>
 
 extern crate self as windows;
 pub mod runtime;
-

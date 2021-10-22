@@ -1,5 +1,5 @@
-use std::io::prelude::*;
 use rayon::prelude::*;
+use std::io::prelude::*;
 
 fn main() {
     let start = std::time::Instant::now();
@@ -14,7 +14,9 @@ fn main() {
 
     let mut trees = Vec::new();
     collect_trees(&output, root.namespace, &root, &mut trees);
-    trees.par_iter().for_each(|tree|gen_tree(&output, root.namespace, tree));
+    trees
+        .par_iter()
+        .for_each(|tree| gen_tree(&output, root.namespace, tree));
 
     output.pop();
     output.push("Cargo.toml");
@@ -96,12 +98,17 @@ fn include_all(tree: &mut reader::TypeTree) {
     tree.namespaces.values_mut().for_each(include_all);
 }
 
-fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
+fn collect_trees<'a>(
+    output: &std::path::Path,
+    root: &'static str,
+    tree: &'a reader::TypeTree,
+    trees: &mut Vec<&'a reader::TypeTree>,
+) {
     trees.push(tree);
-    
+
     tree.namespaces
-    .values()
-    .for_each(|tree| collect_trees(output, root, tree, trees));
+        .values()
+        .for_each(|tree| collect_trees(output, root, tree, trees));
 
     let mut path = std::path::PathBuf::from(output);
 
