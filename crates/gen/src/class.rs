@@ -300,7 +300,7 @@ mod tests {
 
         assert_eq!(
             gen_type_name(&i[0].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IMap :: < :: windows :: HSTRING , :: windows :: HSTRING >"
+            "Windows::Foundation::Collections:: IMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >"
         );
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
