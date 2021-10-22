@@ -8,7 +8,7 @@ edition = "2018"
 windows = { path = "../../.." }
 
 [build-dependencies]
-windows = { path = "../../.." }
+windows = { path = "../../..", features = ["build"] }
 
 [dev-dependencies]
 futures = "0.3"

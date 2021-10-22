@@ -14,4 +14,4 @@ futures = "0.3"
 helpers = { package = "test_helpers", path = "../helpers" }
 
 [build-dependencies]
-windows = { path = "../../.." }
+windows = { path = "../../..", features = ["build"] }

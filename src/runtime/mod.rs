@@ -64,9 +64,17 @@ pub use bindings::Windows::Win32::System::Com::IAgileObject;
 #[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;
 
-#[cfg(feature = "macros")]
+#[cfg(feature = "build")]
 pub use windows_macros::{build, generate, implement, include_bindings};
 
+// TODO: this will need to be in a separate derive crate and not the macros crate
+//pub use windows_macros::StructDerive;
+
 // TODO: remove this
-#[cfg(feature = "macros")]
+#[cfg(feature = "build")]
 pub use windows_reader::workspace_dir;
+
+extern "C" {
+    pub fn memcmp(left: *const std::ffi::c_void, right: *const std::ffi::c_void, len: usize)
+        -> i32;
+}

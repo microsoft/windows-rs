@@ -26,7 +26,7 @@ pub fn gen_source_file(root: &'static str, tree: &TypeTree) -> TokenStream {
 pub fn gen_source_tree() -> TokenStream {
     let reader = TypeReader::get();
 
-    namespace_iter(&reader.types).fold(TokenStream::new(), |mut accum, n| {
+    namespace_iter(&reader.types).fold(TokenStream::with_capacity(), |mut accum, n| {
         accum.combine(&n);
         accum
     })
@@ -46,14 +46,20 @@ fn gen_namespaces<'a>(
 ) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
         if tree.include {
-            let name = to_ident(name);
+            // TODO: https://github.com/microsoft/windows-rs/issues/212
+            // TODO: https://github.com/microsoft/win32metadata/issues/380
 
+            let allow = if name == &tree.namespace {
+                quote! { #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)] }
+            } else {
+                quote! {}
+            };
+
+            let name = to_ident(name);
             let tokens = namespace_iter(tree);
 
             quote! {
-                // TODO: https://github.com/microsoft/windows-rs/issues/212
-                // TODO: https://github.com/microsoft/win32metadata/issues/380
-                #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+                #allow
                 pub mod #name {
                     #(#tokens)*
                 }

@@ -8,4 +8,4 @@ publish = false
 windows = { path = "../../.." }
 
 [build-dependencies]
-windows = { path = "../../.." }
+windows = { path = "../../..", features = ["build"] }

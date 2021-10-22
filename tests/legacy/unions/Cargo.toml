@@ -9,4 +9,4 @@ windows = { path = "../../.." }
 gen = { package = "windows_gen", path = "../../../crates/gen" }
 
 [build-dependencies]
-windows = { path = "../../.." }
+windows = { path = "../../..", features = ["build"] }
