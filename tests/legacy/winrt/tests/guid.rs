@@ -1,5 +1,5 @@
 use test_winrt::Windows::Foundation::GuidHelper;
-use windows::runtime::Guid;
+use windows::runtime::GUID;
 
 #[test]
 fn guid_helper() -> windows::runtime::Result<()> {
@@ -14,9 +14,9 @@ fn guid_helper() -> windows::runtime::Result<()> {
 
 #[test]
 fn guid_from_string() {
-    let a = Guid::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
+    let a = GUID::from("CFF52E04-CCA6-4614-A17E-754910C84A99");
 
-    let b = Guid::from_values(
+    let b = GUID::from_values(
         0xCFF52E04,
         0xCCA6,
         0x4614,

@@ -3,7 +3,7 @@
 use super::*;
 
 #[derive(Clone, PartialEq, Default)]
-pub struct Guid(
+pub struct GUID(
     pub u32,
     pub u16,
     pub u16,
@@ -17,7 +17,7 @@ pub struct Guid(
     pub u8,
 );
 
-impl Guid {
+impl GUID {
     pub fn from_args(args: &[(String, ConstantValue)]) -> Self {
         Self(
             args[0].1.unwrap_u32(),
@@ -45,7 +45,7 @@ impl Guid {
     }
 }
 
-impl std::fmt::Debug for Guid {
+impl std::fmt::Debug for GUID {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,

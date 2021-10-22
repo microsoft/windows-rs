@@ -125,7 +125,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let inspectable_vfptrs = if inspectable {
             quote! {
-                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::Guid) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
             }
@@ -142,14 +142,14 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             }
             unsafe impl ::windows::runtime::Interface for #name {
                 type Vtable = #abi_name;
-                const IID: ::windows::runtime::Guid = #guid;
+                const IID: ::windows::runtime::GUID = #guid;
             }
             #conversions
             #send_sync
             #[repr(C)]
             #[doc(hidden)]
             pub struct #abi_name(
-                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+                pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                 pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                 pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                 #inspectable_vfptrs
@@ -164,7 +164,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             pub struct #name(::windows::runtime::IUnknown);
             unsafe impl ::windows::runtime::Interface for #name {
                 type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
-                const IID: ::windows::runtime::Guid = #guid;
+                const IID: ::windows::runtime::GUID = #guid;
             }
         }
     }

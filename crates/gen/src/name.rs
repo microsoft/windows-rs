@@ -39,8 +39,8 @@ pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::IInspectable => {
             quote! { ::windows::runtime::IInspectable }
         }
-        ElementType::Guid => {
-            quote! { ::windows::runtime::Guid }
+        ElementType::GUID => {
+            quote! { ::windows::runtime::GUID }
         }
         ElementType::IUnknown => {
             quote! { ::windows::runtime::IUnknown }

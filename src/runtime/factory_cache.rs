@@ -139,6 +139,6 @@ demand_load! {
         fn CoIncrementMTAUsage(cookie: *mut RawPtr) -> HRESULT;
     }
     "combase.dll" {
-        fn RoGetActivationFactory(hstring: std::mem::ManuallyDrop<HSTRING>, interface: &Guid, result: *mut RawPtr) -> HRESULT;
+        fn RoGetActivationFactory(hstring: std::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
     }
 }

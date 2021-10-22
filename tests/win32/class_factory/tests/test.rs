@@ -26,7 +26,7 @@ impl Factory {
     pub fn CreateInstance(
         &self,
         outer: &Option<IUnknown>,
-        iid: *const Guid,
+        iid: *const GUID,
         object: *mut RawPtr,
     ) -> HRESULT {
         assert!(outer.is_none());

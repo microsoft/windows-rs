@@ -27,10 +27,10 @@ impl IActivationFactory {
 
 #[repr(C)]
 pub struct IActivationFactory_abi(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> HRESULT,
+    pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr, object: &mut Option<IInspectable>) -> HRESULT, // ActivateInstance
@@ -39,7 +39,7 @@ pub struct IActivationFactory_abi(
 unsafe impl Interface for IActivationFactory {
     type Vtable = IActivationFactory_abi;
 
-    const IID: Guid = Guid::from_values(
+    const IID: GUID = GUID::from_values(
         0x0000_0035,
         0x0000,
         0x0000,

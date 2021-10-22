@@ -62,7 +62,7 @@ pub mod Windows {
         pub struct IPropertyValue(::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValue {
             type Vtable = IPropertyValue_abi;
-            const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                 1272349405,
                 30036,
                 16617,
@@ -225,15 +225,15 @@ pub mod Windows {
                     .from_abi::<::windows::runtime::HSTRING>(result__)
                 }
             }
-            pub fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::Guid> {
+            pub fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
                 let this = self;
                 unsafe {
-                    let mut result__: ::windows::runtime::Guid = ::std::mem::zeroed();
+                    let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
                     (::windows::runtime::Interface::vtable(this).20)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
                     )
-                    .from_abi::<::windows::runtime::Guid>(result__)
+                    .from_abi::<::windows::runtime::GUID>(result__)
                 }
             }
             pub fn GetDateTime(&self) -> ::windows::runtime::Result<DateTime> {
@@ -475,7 +475,7 @@ pub mod Windows {
             }
             pub fn GetGuidArray(
                 &self,
-                value: &mut ::windows::runtime::Array<::windows::runtime::Guid>,
+                value: &mut ::windows::runtime::Array<::windows::runtime::GUID>,
             ) -> ::windows::runtime::Result<()> {
                 let this = self;
                 unsafe {
@@ -617,7 +617,7 @@ pub mod Windows {
         pub struct IPropertyValue_abi(
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
-                iid: &::windows::runtime::Guid,
+                iid: &::windows::runtime::GUID,
                 interface: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
@@ -625,7 +625,7 @@ pub mod Windows {
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
                 count: *mut u32,
-                values: *mut *mut ::windows::runtime::Guid,
+                values: *mut *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
@@ -693,7 +693,7 @@ pub mod Windows {
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
-                result__: *mut ::windows::runtime::Guid,
+                result__: *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
@@ -783,7 +783,7 @@ pub mod Windows {
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
                 value_array_size: *mut u32,
-                value: *mut *mut ::windows::runtime::Guid,
+                value: *mut *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
@@ -822,7 +822,7 @@ pub mod Windows {
         pub struct IPropertyValueStatics(::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValueStatics {
             type Vtable = IPropertyValueStatics_abi;
-            const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                 1654381512,
                 55602,
                 20468,
@@ -834,7 +834,7 @@ pub mod Windows {
         pub struct IPropertyValueStatics_abi(
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
-                iid: &::windows::runtime::Guid,
+                iid: &::windows::runtime::GUID,
                 interface: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
@@ -842,7 +842,7 @@ pub mod Windows {
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
                 count: *mut u32,
-                values: *mut *mut ::windows::runtime::Guid,
+                values: *mut *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
@@ -923,7 +923,7 @@ pub mod Windows {
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
-                value: ::windows::runtime::Guid,
+                value: ::windows::runtime::GUID,
                 result__: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
@@ -1032,7 +1032,7 @@ pub mod Windows {
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
                 value_array_size: u32,
-                value: *const ::windows::runtime::Guid,
+                value: *const ::windows::runtime::GUID,
                 result__: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
@@ -1083,7 +1083,7 @@ pub mod Windows {
             for IReference<T>
         {
             type Vtable = IReference_abi<T>;
-            const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_signature(
+            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_signature(
                 <IReference<T> as ::windows::runtime::RuntimeType>::SIGNATURE,
             );
         }
@@ -1254,15 +1254,15 @@ pub mod Windows {
                     .from_abi::<::windows::runtime::HSTRING>(result__)
                 }
             }
-            pub fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::Guid> {
+            pub fn GetGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
-                    let mut result__: ::windows::runtime::Guid = ::std::mem::zeroed();
+                    let mut result__: ::windows::runtime::GUID = ::std::mem::zeroed();
                     (::windows::runtime::Interface::vtable(this).20)(
                         ::std::mem::transmute_copy(this),
                         &mut result__,
                     )
-                    .from_abi::<::windows::runtime::Guid>(result__)
+                    .from_abi::<::windows::runtime::GUID>(result__)
                 }
             }
             pub fn GetDateTime(&self) -> ::windows::runtime::Result<DateTime> {
@@ -1504,7 +1504,7 @@ pub mod Windows {
             }
             pub fn GetGuidArray(
                 &self,
-                value: &mut ::windows::runtime::Array<::windows::runtime::Guid>,
+                value: &mut ::windows::runtime::Array<::windows::runtime::GUID>,
             ) -> ::windows::runtime::Result<()> {
                 let this = &::windows::runtime::Interface::cast::<IPropertyValue>(self)?;
                 unsafe {
@@ -1699,7 +1699,7 @@ pub mod Windows {
         pub struct IReference_abi<T>(
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
-                iid: &::windows::runtime::Guid,
+                iid: &::windows::runtime::GUID,
                 interface: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
@@ -1707,7 +1707,7 @@ pub mod Windows {
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
                 count: *mut u32,
-                values: *mut *mut ::windows::runtime::Guid,
+                values: *mut *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
@@ -1735,7 +1735,7 @@ pub mod Windows {
         pub struct IStringable(::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IStringable {
             type Vtable = IStringable_abi;
-            const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+            const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                 2520162132,
                 36534,
                 18672,
@@ -1813,7 +1813,7 @@ pub mod Windows {
         pub struct IStringable_abi(
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
-                iid: &::windows::runtime::Guid,
+                iid: &::windows::runtime::GUID,
                 interface: *mut ::windows::runtime::RawPtr,
             ) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
@@ -1821,7 +1821,7 @@ pub mod Windows {
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
                 count: *mut u32,
-                values: *mut *mut ::windows::runtime::Guid,
+                values: *mut *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT,
             pub  unsafe extern "system" fn(
                 this: ::windows::runtime::RawPtr,
@@ -1899,7 +1899,7 @@ pub mod Windows {
             pub const Inspectable: PropertyType = PropertyType(13i32);
             pub const DateTime: PropertyType = PropertyType(14i32);
             pub const TimeSpan: PropertyType = PropertyType(15i32);
-            pub const Guid: PropertyType = PropertyType(16i32);
+            pub const GUID: PropertyType = PropertyType(16i32);
             pub const Point: PropertyType = PropertyType(17i32);
             pub const Size: PropertyType = PropertyType(18i32);
             pub const Rect: PropertyType = PropertyType(19i32);
@@ -2129,7 +2129,7 @@ pub mod Windows {
             }
             pub fn CreateGuid<
                 'a,
-                Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::Guid>,
+                Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
             >(
                 value: Param0,
             ) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
@@ -2391,7 +2391,7 @@ pub mod Windows {
                 })
             }
             pub fn CreateGuidArray(
-                value: &[<::windows::runtime::Guid as ::windows::runtime::Abi>::DefaultType],
+                value: &[<::windows::runtime::GUID as ::windows::runtime::Abi>::DefaultType],
             ) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
                 Self::IPropertyValueStatics(|this| unsafe {
                     let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3213,18 +3213,18 @@ pub mod Windows {
                 clippy::all
             )]
             pub mod Com {
-                pub unsafe fn CoCreateGuid() -> ::windows::runtime::Result<::windows::runtime::Guid>
+                pub unsafe fn CoCreateGuid() -> ::windows::runtime::Result<::windows::runtime::GUID>
                 {
                     #[cfg(windows)]
                     {
                         #[link(name = "ole32")]
                         extern "system" {
                             fn CoCreateGuid(
-                                pguid: *mut ::windows::runtime::Guid,
+                                pguid: *mut ::windows::runtime::GUID,
                             ) -> ::windows::runtime::HRESULT;
                         }
-                        let mut result__ : < :: windows :: runtime :: Guid as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-                        CoCreateGuid(&mut result__).from_abi::<::windows::runtime::Guid>(result__)
+                        let mut result__ : < :: windows :: runtime :: GUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+                        CoCreateGuid(&mut result__).from_abi::<::windows::runtime::GUID>(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -3264,7 +3264,7 @@ pub mod Windows {
                 impl IAgileObject {}
                 unsafe impl ::windows::runtime::Interface for IAgileObject {
                     type Vtable = IAgileObject_abi;
-                    const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                         2498374548,
                         59852,
                         18912,
@@ -3308,7 +3308,7 @@ pub mod Windows {
                 pub struct IAgileObject_abi(
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        iid: &::windows::runtime::Guid,
+                        iid: &::windows::runtime::GUID,
                         interface: *mut ::windows::runtime::RawPtr,
                     )
                         -> ::windows::runtime::HRESULT,
@@ -3708,13 +3708,13 @@ pub mod Windows {
                 impl IErrorInfo {
                     pub unsafe fn GetGUID(
                         &self,
-                    ) -> ::windows::runtime::Result<::windows::runtime::Guid> {
-                        let mut result__ : < :: windows :: runtime :: Guid as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+                    ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+                        let mut result__ : < :: windows :: runtime :: GUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
                         (::windows::runtime::Interface::vtable(self).3)(
                             ::std::mem::transmute_copy(self),
                             &mut result__,
                         )
-                        .from_abi::<::windows::runtime::Guid>(result__)
+                        .from_abi::<::windows::runtime::GUID>(result__)
                     }
                     pub unsafe fn GetSource(
                         &self,
@@ -3761,7 +3761,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for IErrorInfo {
                     type Vtable = IErrorInfo_abi;
-                    const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                         485667104,
                         21629,
                         4123,
@@ -3805,7 +3805,7 @@ pub mod Windows {
                 pub struct IErrorInfo_abi(
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        iid: &::windows::runtime::Guid,
+                        iid: &::windows::runtime::GUID,
                         interface: *mut ::windows::runtime::RawPtr,
                     )
                         -> ::windows::runtime::HRESULT,
@@ -3813,7 +3813,7 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        pguid: *mut ::windows::runtime::Guid,
+                        pguid: *mut ::windows::runtime::GUID,
                     )
                         -> ::windows::runtime::HRESULT,
                     pub  unsafe extern "system" fn(
@@ -3984,7 +3984,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for ILanguageExceptionErrorInfo {
                     type Vtable = ILanguageExceptionErrorInfo_abi;
-                    const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                         77782003,
                         57219,
                         4460,
@@ -4032,7 +4032,7 @@ pub mod Windows {
                 pub struct ILanguageExceptionErrorInfo_abi(
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        iid: &::windows::runtime::Guid,
+                        iid: &::windows::runtime::GUID,
                         interface: *mut ::windows::runtime::RawPtr,
                     )
                         -> ::windows::runtime::HRESULT,
@@ -4102,7 +4102,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for ILanguageExceptionErrorInfo2 {
                     type Vtable = ILanguageExceptionErrorInfo2_abi;
-                    const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                         1464264132,
                         23447,
                         16972,
@@ -4186,7 +4186,7 @@ pub mod Windows {
                 pub struct ILanguageExceptionErrorInfo2_abi(
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        iid: &::windows::runtime::Guid,
+                        iid: &::windows::runtime::GUID,
                         interface: *mut ::windows::runtime::RawPtr,
                     )
                         -> ::windows::runtime::HRESULT,
@@ -4252,7 +4252,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for IRestrictedErrorInfo {
                     type Vtable = IRestrictedErrorInfo_abi;
-                    const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                         2193256594,
                         19592,
                         17021,
@@ -4298,7 +4298,7 @@ pub mod Windows {
                 pub struct IRestrictedErrorInfo_abi(
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        iid: &::windows::runtime::Guid,
+                        iid: &::windows::runtime::GUID,
                         interface: *mut ::windows::runtime::RawPtr,
                     )
                         -> ::windows::runtime::HRESULT,
@@ -4343,7 +4343,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for IWeakReference {
                     type Vtable = IWeakReference_abi;
-                    const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                         55,
                         0,
                         0,
@@ -4387,7 +4387,7 @@ pub mod Windows {
                 pub struct IWeakReference_abi(
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        iid: &::windows::runtime::Guid,
+                        iid: &::windows::runtime::GUID,
                         interface: *mut ::windows::runtime::RawPtr,
                     )
                         -> ::windows::runtime::HRESULT,
@@ -4395,7 +4395,7 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        riid: *const ::windows::runtime::Guid,
+                        riid: *const ::windows::runtime::GUID,
                         objectreference: *mut *mut ::std::ffi::c_void,
                     )
                         -> ::windows::runtime::HRESULT,
@@ -4423,7 +4423,7 @@ pub mod Windows {
                 }
                 unsafe impl ::windows::runtime::Interface for IWeakReferenceSource {
                     type Vtable = IWeakReferenceSource_abi;
-                    const IID: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(
+                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
                         56,
                         0,
                         0,
@@ -4467,7 +4467,7 @@ pub mod Windows {
                 pub struct IWeakReferenceSource_abi(
                     pub  unsafe extern "system" fn(
                         this: ::windows::runtime::RawPtr,
-                        iid: &::windows::runtime::Guid,
+                        iid: &::windows::runtime::GUID,
                         interface: *mut ::windows::runtime::RawPtr,
                     )
                         -> ::windows::runtime::HRESULT,

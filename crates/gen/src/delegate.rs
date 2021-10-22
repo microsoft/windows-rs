@@ -82,13 +82,13 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         #features
         unsafe impl<#constraints> ::windows::runtime::Interface for #name {
             type Vtable = #abi_name;
-            const IID: ::windows::runtime::Guid = #guid;
+            const IID: ::windows::runtime::GUID = #guid;
         }
         #features
         #[repr(C)]
         #[doc(hidden)]
         pub struct #abi_name(
-            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+            pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
             pub unsafe extern "system" fn #abi_signature,
@@ -110,7 +110,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                 Self::Invoke,
                 #(#vtable_phantoms,)*
             );
-            unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
+            unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
                 let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
 
                 *interface = if iid == &<#name as ::windows::runtime::Interface>::IID ||

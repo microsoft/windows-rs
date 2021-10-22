@@ -347,7 +347,7 @@ fn is_well_known(type_name: TypeName) -> bool {
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
 
 const WELL_KNOWN_TYPES: [(TypeName, ElementType); 9] = [
-    (TypeName::Guid, ElementType::Guid),
+    (TypeName::GUID, ElementType::GUID),
     (TypeName::IUnknown, ElementType::IUnknown),
     (TypeName::HResult, ElementType::HRESULT),
     (TypeName::HRESULT, ElementType::HRESULT),

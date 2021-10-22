@@ -24,9 +24,9 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
                 pub const #name: #kind = #kind(#value as _);
             }
         }
-    } else if let Some(guid) = Guid::from_attributes(def.attributes()) {
+    } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
         let guid = gen_guid(&guid);
-        quote! { pub const #name: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(#guid); }
+        quote! { pub const #name: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(#guid); }
     } else if let Some(pkey) = PropertyKey::from_attributes(def.attributes()) {
         let kind = gen_sig(&signature, gen);
         let fmtid = gen_guid(&pkey.fmtid);
@@ -34,7 +34,7 @@ pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
         quote! {
             #features
             pub const #name: #kind = #kind {
-                fmtid: ::windows::runtime::Guid::from_values(#fmtid),
+                fmtid: ::windows::runtime::GUID::from_values(#fmtid),
                 pid: #pid,
             };
         }

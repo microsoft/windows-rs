@@ -186,7 +186,7 @@ impl Class {
                     #cfg
                     unsafe impl ::windows::runtime::Interface for #name {
                         type Vtable = #default_abi_name;
-                        const IID: ::windows::runtime::Guid = #guid;
+                        const IID: ::windows::runtime::GUID = #guid;
                     }
                     #cfg
                     impl ::windows::runtime::RuntimeName for #name {
@@ -229,7 +229,7 @@ impl Class {
                 #cfg
                 unsafe impl ::windows::runtime::Interface for #name {
                     type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
-                    const IID: ::windows::runtime::Guid = #guid;
+                    const IID: ::windows::runtime::GUID = #guid;
                 }
                 #cfg
                 unsafe impl ::windows::runtime::RuntimeType for #name {

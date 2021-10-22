@@ -36,7 +36,7 @@ impl TypeName {
     pub const Delegate: Self = Self::from_const("System", "MulticastDelegate");
     pub const Struct: Self = Self::from_const("System", "ValueType");
     pub const Object: Self = Self::from_const("System", "Object");
-    pub const Guid: Self = Self::from_const("System", "Guid");
+    pub const GUID: Self = Self::from_const("System", "Guid");
     pub const Type: Self = Self::from_const("System", "Type");
     pub const Attribute: Self = Self::from_const("System", "Attribute");
     pub const IsConst: Self = Self::from_const("System.Runtime.CompilerServices", "IsConst");

@@ -11,7 +11,7 @@ pub unsafe trait Interface: Sized + Abi + PartialEq {
     type Vtable;
 
     /// A unique identifier representing this interface.
-    const IID: Guid;
+    const IID: GUID;
 
     #[doc(hidden)]
     unsafe fn vtable(&self) -> &Self::Vtable {
@@ -25,7 +25,7 @@ pub unsafe trait Interface: Sized + Abi + PartialEq {
     }
 
     #[doc(hidden)]
-    unsafe fn query(&self, iid: *const Guid, interface: *mut RawPtr) -> HRESULT {
+    unsafe fn query(&self, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
         (self.assume_vtable::<IUnknown>().0)(std::mem::transmute_copy(self), iid, interface)
     }
 

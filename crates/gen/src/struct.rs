@@ -60,11 +60,11 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         };
     }
 
-    if let Some(guid) = Guid::from_attributes(def.attributes()) {
+    if let Some(guid) = GUID::from_attributes(def.attributes()) {
         let guid = gen_guid(&guid);
 
         return quote! {
-            pub const #name: ::windows::runtime::Guid = ::windows::runtime::Guid::from_values(#guid);
+            pub const #name: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(#guid);
         };
     }
 

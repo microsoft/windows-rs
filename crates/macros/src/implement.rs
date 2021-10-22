@@ -76,7 +76,7 @@ pub fn gen(
         };
 
         shims.combine(&quote! {
-            unsafe extern "system" fn #query_interface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
+            unsafe extern "system" fn #query_interface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
                 let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
                 (*this).QueryInterface(iid, interface)
             }
@@ -113,7 +113,7 @@ pub fn gen(
 
         // Constants are required for generic interfaces due to limitations in Rust.
         query_constants.combine(&quote! {
-            const #interface_constant: ::windows::runtime::Guid = <#interface_ident as ::windows::runtime::Interface>::IID;
+            const #interface_constant: ::windows::runtime::GUID = <#interface_ident as ::windows::runtime::Interface>::IID;
         });
 
         for method in base_interfaces
@@ -310,7 +310,7 @@ pub fn gen(
                     count: ::windows::runtime::WeakRefCount::new(),
                 }
             }
-            fn QueryInterface(&mut self, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
+            fn QueryInterface(&mut self, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
                 unsafe {
                     *interface = if iid == &<::windows::runtime::IUnknown as ::windows::runtime::Interface>::IID
                         || iid == &<::windows::runtime::IInspectable as ::windows::runtime::Interface>::IID
@@ -353,7 +353,7 @@ pub fn gen(
             unsafe extern "system" fn GetIids(
                 _: ::windows::runtime::RawPtr,
                 count: *mut u32,
-                values: *mut *mut ::windows::runtime::Guid,
+                values: *mut *mut ::windows::runtime::GUID,
             ) -> ::windows::runtime::HRESULT {
                 // Note: even if we end up implementing this in future, it still doesn't need a this pointer
                 // since the data to be returned is type- not instance-specific so can be shared for all
@@ -381,7 +381,7 @@ pub fn gen(
                 *value = 0;
                 ::windows::runtime::HRESULT(0)
             }
-            unsafe extern "system" fn identity_query_interface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::Guid, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
+            unsafe extern "system" fn identity_query_interface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
                 let this = (this as *mut ::windows::runtime::RawPtr).sub(1) as *mut Self;
                 (*this).QueryInterface(iid, interface)
             }
