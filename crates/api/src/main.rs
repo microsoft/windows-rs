@@ -4,8 +4,7 @@ use std::io::prelude::*;
 fn main() {
     let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
-    output.pop();
-    output.push("windows-api-rs\\src");
+    output.push("src");
 
     let _ = std::fs::remove_dir_all(&output);
     let reader = reader::TypeReader::get_mut();
@@ -19,6 +18,7 @@ fn main() {
         .par_iter()
         .for_each(|tree| gen_tree(&output, root.namespace, tree));
 
+    output.pop();
     output.pop();
     output.push("Cargo.toml");
 
@@ -39,28 +39,43 @@ fn main() {
 
 fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
     let mut file = std::fs::File::create(&output).unwrap();
-    let version = env!("CARGO_PKG_VERSION");
 
     file.write_all(
-        format!(
-            r#"[package]
-name = "windows-api"
-version = "{}"
+        r#"[package]
+name = "windows"
+version = "0.21.1"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
-description = "Windows API"
-
-[dependencies]
-windows = {{ version = "{}", default-features = false, path = "/git/windows-rs" }}
+description = "Rust for Windows"
+repository = "https://github.com/microsoft/windows-rs"
+documentation = "https://docs.rs/windows"
+readme = ".github/readme.md"
+exclude = [".github", ".windows", "docs", "tests"]
 
 [workspace]
-members = ["examples/*"]
+members = ["crates/*", "tests/legacy/*", "tests/metadata/*", "tests/winrt/*", "tests/win32/*"]
+exclude = ["tests/component"]
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = ["x86_64-pc-windows-msvc"]
+
+[dependencies]
+windows_macros = { path = "crates/macros",  version = "0.21.1", optional = true }
+windows_reader = { path = "crates/reader", version = "0.21.1", optional = true }
+windows_gen = { path = "crates/gen",  version = "0.21.1", optional = true }
+
+[target.i686-pc-windows-msvc.dependencies]
+windows_x86 = { path = "crates/x86", version = "0.21.1" }
+
+[target.x86_64-pc-windows-msvc.dependencies]
+windows_x64 = { path = "crates/x64", version = "0.21.1" }
 
 [features]
-"#,
-            version, version
-        )
+default = ["macros"]
+macros = ["windows_gen", "windows_macros", "windows_reader"]
+"#
         .as_bytes(),
     )
     .unwrap();
@@ -112,11 +127,7 @@ fn collect_trees<'a>(
         .for_each(|tree| collect_trees(output, root, tree, trees));
 
     let mut path = std::path::PathBuf::from(output);
-
-    if root != tree.namespace {
-        path.push(tree.namespace[root.len() + 1..].replace('.', "\\"));
-    }
-
+    path.push(tree.namespace.replace('.', "\\"));
     std::fs::create_dir_all(&path).unwrap();
 }
 
@@ -124,12 +135,8 @@ fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTre
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 
-    if root == tree.namespace {
-        path.push("lib.rs");
-    } else {
-        path.push(tree.namespace[root.len() + 1..].replace('.', "\\"));
-        path.push("mod.rs");
-    }
+    path.push(tree.namespace.replace('.', "\\"));
+    path.push("mod.rs");
 
     let tokens = gen::gen_source_file(root, tree);
     std::fs::write(&path, tokens.into_string().as_bytes()).unwrap();
