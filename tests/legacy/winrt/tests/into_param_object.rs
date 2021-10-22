@@ -1,5 +1,5 @@
 use test_winrt::Windows::Foundation::{PropertyValue, Uri};
-use windows::Interface;
+use windows::runtime::Interface;
 
 #[test]
 fn into() -> windows::runtime::Result<()> {

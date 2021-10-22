@@ -5,8 +5,8 @@ use test_winrt::Windows::Foundation::{IStringable, PropertyValue, Uri};
 fn class() -> windows::runtime::Result<()> {
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
 
-    // All WinRT classes are convertible to windows::IInspectable.
-    let object: windows::IInspectable = uri.into();
+    // All WinRT classes are convertible to windows::runtime::IInspectable.
+    let object: windows::runtime::IInspectable = uri.into();
 
     assert!(object.type_name()? == "Windows.Foundation.Uri");
 
@@ -18,8 +18,8 @@ fn interface() -> windows::runtime::Result<()> {
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
     let stringable: IStringable = uri.try_into().unwrap();
 
-    // All WinRT interfaces are convertible to windows::IInspectable.
-    let object: windows::IInspectable = stringable.into();
+    // All WinRT interfaces are convertible to windows::runtime::IInspectable.
+    let object: windows::runtime::IInspectable = stringable.into();
 
     assert!(object.type_name()? == "Windows.Foundation.Uri");
 

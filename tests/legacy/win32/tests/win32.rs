@@ -224,7 +224,7 @@ fn onecore_imports() -> windows::runtime::Result<()> {
 
         let uri = CreateUri(
             PWSTR(
-                windows::HSTRING::from("http://kennykerr.ca")
+                windows::runtime::HSTRING::from("http://kennykerr.ca")
                     .as_wide()
                     .as_ptr() as _,
             ),
@@ -274,7 +274,7 @@ fn callback() {
             BOOL(789)
                 == a(
                     HWND(123),
-                    PWSTR(windows::HSTRING::from("hello w\0").as_wide().as_ptr() as _),
+                    PWSTR(windows::runtime::HSTRING::from("hello w\0").as_wide().as_ptr() as _),
                     HANDLE(456)
                 )
         );

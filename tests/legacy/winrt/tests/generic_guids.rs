@@ -2,10 +2,10 @@ use test_winrt::{Windows::Foundation::Collections::*, Windows::Foundation::*};
 
 #[test]
 fn generic_guids() -> windows::runtime::Result<()> {
-    use windows::Interface;
+    use windows::runtime::Interface;
 
     type A = IIterable<IStringable>;
-    type B = IKeyValuePair<windows::HSTRING, IAsyncOperationWithProgress<A, f32>>;
+    type B = IKeyValuePair<windows::runtime::HSTRING, IAsyncOperationWithProgress<A, f32>>;
 
     //
     // Generated Windows.Foundation GUIDs
@@ -199,7 +199,7 @@ fn generic_guids() -> windows::runtime::Result<()> {
     );
 
     assert_eq!(
-        IReference::<windows::HSTRING>::IID,
+        IReference::<windows::runtime::HSTRING>::IID,
         windows::runtime::Guid::from("FD416DFB-2A07-52EB-AAE3-DFCE14116C05")
     );
 

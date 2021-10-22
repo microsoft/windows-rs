@@ -1,7 +1,7 @@
 use std::thread;
 use test_winrt::Windows::Foundation::*;
 use test_winrt::Windows::Storage::Streams::*;
-use windows::{Interface, HRESULT};
+use windows::runtime::{Interface, HRESULT};
 
 // Simple test to validate that types with MarshalingType.Agile are marked Send and Sync
 // (if this compiles it worked)

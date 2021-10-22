@@ -15,7 +15,7 @@ fn wifi() -> windows::runtime::Result<()> {
     assert!(!a.is_empty());
 
     // from_id_async from IWiFiDirectDeviceStatics
-    assert!(WiFiDirectDevice::FromIdAsync(a)?.get() == Err(windows::Error::OK));
+    assert!(WiFiDirectDevice::FromIdAsync(a)?.get() == Err(windows::runtime::Error::OK));
 
     // get_device_selector overload from IWiFiDirectDeviceStatics2 is renamed to get_device_selector2
     let c = WiFiDirectDevice::GetDeviceSelector2(WiFiDirectDeviceSelectorType::DeviceInterface)?;

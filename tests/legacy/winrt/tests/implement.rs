@@ -54,7 +54,7 @@ fn implement() -> ::windows::runtime::Result<()> {
     Ok(())
 }
 
-#[::windows::implement(Windows::Foundation::{IStringable, IClosable})]
+#[::windows::runtime::implement(Windows::Foundation::{IStringable, IClosable})]
 struct Thing {
     value: String,
     sender: std::sync::mpsc::Sender<String>,

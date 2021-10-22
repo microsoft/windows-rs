@@ -4,24 +4,24 @@ use test_winrt::Windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 fn from_hresult() {
     assert!(helpers::set_thread_ui_language("en-US"));
 
-    let error: windows::Error = windows::HRESULT(0x80004004).into();
+    let error: windows::runtime::Error = windows::runtime::HRESULT(0x80004004).into();
 
-    assert_eq!(error.code(), windows::HRESULT(0x80004004));
+    assert_eq!(error.code(), windows::runtime::HRESULT(0x80004004));
     assert_eq!(error.message(), "Operation aborted");
 }
 
 #[test]
 fn originate() {
-    let error = windows::Error::new(windows::HRESULT(0x80004004), "test originate");
+    let error = windows::runtime::Error::new(windows::runtime::HRESULT(0x80004004), "test originate");
 
-    assert_eq!(error.code(), windows::HRESULT(0x80004004));
+    assert_eq!(error.code(), windows::runtime::HRESULT(0x80004004));
     assert_eq!(error.message(), "test originate");
 
-    let code: windows::HRESULT = error.into(); // SetErrorInfo is called before dropping the Error object.
+    let code: windows::runtime::HRESULT = error.into(); // SetErrorInfo is called before dropping the Error object.
 
-    let error: windows::Error = code.into(); // GetErrorInfo is called to retrieve the original error info.
+    let error: windows::runtime::Error = code.into(); // GetErrorInfo is called to retrieve the original error info.
 
-    assert_eq!(error.code(), windows::HRESULT(0x80004004));
+    assert_eq!(error.code(), windows::runtime::HRESULT(0x80004004));
     assert_eq!(error.message(), "test originate");
 }
 
@@ -30,16 +30,16 @@ fn bad_uri() {
     assert!(helpers::set_thread_ui_language("en-US"));
 
     let result = Uri::CreateUri("INVALID");
-    let error: windows::Error = result.unwrap_err();
+    let error: windows::runtime::Error = result.unwrap_err();
 
-    assert_eq!(error.code(), windows::HRESULT(0x80070057));
+    assert_eq!(error.code(), windows::runtime::HRESULT(0x80070057));
     assert_eq!(error.message(), "INVALID is not a valid absolute URI.");
 }
 
 #[test]
 fn convertible() {
     fn windows_error() -> windows::runtime::Result<()> {
-        Err(windows::Error::new(E_NOINTERFACE, "test message"))
+        Err(windows::runtime::Error::new(E_NOINTERFACE, "test message"))
     }
 
     fn convertible_error() -> std::result::Result<(), Box<dyn std::error::Error>> {

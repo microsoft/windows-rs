@@ -8,5 +8,5 @@ use Windows::Win32::System::Com::DoDragDrop;
 fn test() {
     let mut effect = 0;
     let hr = unsafe { DoDragDrop(None, None, 1, &mut effect) };
-    assert!(hr == windows::HRESULT(CO_E_NOTINITIALIZED as _));
+    assert!(hr == windows::runtime::HRESULT(CO_E_NOTINITIALIZED as _));
 }

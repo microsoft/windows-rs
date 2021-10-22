@@ -69,9 +69,9 @@ fn property_set() -> windows::runtime::Result<()> {
 
     let set = PropertySet::new()?;
 
-    set.Insert("A", windows::IInspectable::try_from(1)?)?;
-    set.Insert("B", windows::IInspectable::try_from(2)?)?;
-    set.Insert("C", windows::IInspectable::try_from(3)?)?;
+    set.Insert("A", windows::runtime::IInspectable::try_from(1)?)?;
+    set.Insert("B", windows::runtime::IInspectable::try_from(2)?)?;
+    set.Insert("C", windows::runtime::IInspectable::try_from(3)?)?;
 
     assert!(set.Size()? == 3);
 

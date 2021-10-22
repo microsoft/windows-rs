@@ -1,6 +1,6 @@
 use std::convert::{TryFrom, TryInto};
 use test_winrt::Windows::Foundation::{IPropertyValue, PropertyValue};
-use windows::{IInspectable, Interface, HSTRING};
+use windows::runtime::{IInspectable, Interface, HSTRING};
 
 macro_rules! primitive_try_into_test {
     ($(($t:ty, $v:literal)),+) => {
@@ -87,7 +87,7 @@ fn explicit_boxing() -> windows::runtime::Result<()> {
 
     let object = PropertyValue::CreateUInt32Array(&[1, 2, 3])?;
     let pv: IPropertyValue = object.cast()?;
-    let mut array = windows::Array::new();
+    let mut array = windows::runtime::Array::new();
     assert!(array.is_empty());
     assert!(array.is_empty());
 
@@ -99,7 +99,7 @@ fn explicit_boxing() -> windows::runtime::Result<()> {
     let object =
         PropertyValue::CreateStringArray(&["Hello".into(), "Rust".into(), "WinRT".into()])?;
     let pv: IPropertyValue = object.cast()?;
-    let mut array = windows::Array::new();
+    let mut array = windows::runtime::Array::new();
     assert!(array.is_empty());
     assert!(array.is_empty());
 

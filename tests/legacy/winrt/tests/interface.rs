@@ -1,5 +1,5 @@
 use test_winrt::Windows::Foundation::IStringable;
-use windows::Interface;
+use windows::runtime::Interface;
 
 #[test]
 fn interface() -> windows::runtime::Result<()> {

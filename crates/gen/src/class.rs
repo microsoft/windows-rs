@@ -306,13 +306,13 @@ mod tests {
 
         assert_eq!(
             gen_type_name(&i[1].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: HSTRING , :: windows :: HSTRING > >"
+            "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING > >"
         );
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
         assert_eq!(
             gen_type_name(&i[2].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: HSTRING , :: windows :: HSTRING >"
+            "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >"
         );
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);
     }

@@ -3,7 +3,7 @@ use test_winrt::*;
 #[test]
 fn implement_escape() {}
 
-#[::windows::implement(Windows::UI::Xaml::Data::ICustomPropertyProvider)]
+#[::windows::runtime::implement(Windows::UI::Xaml::Data::ICustomPropertyProvider)]
 struct BookShu {}
 
 #[allow(non_snake_case)]

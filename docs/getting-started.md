@@ -65,7 +65,7 @@ fn main() {
 We're not done! This generates the bindings, but it just puts them into the target folder of our crate where they'll go unused. We want to actually *use* this generated code not just generate and forget about it. In order for the generated code to be exported from the `bindings` crate, we need to include it in the crate itself. Change the lib.rs file of the bindings crate to the following:
 
 ```rust
-windows::include_bindings!();
+windows::runtime::include_bindings!();
 ```
 
 This effectively copy/pastes the generated code into the `lib.rs` file. The `bindings` crate now exports all the bindings we've generated. Next, we need to make sure our `spellchecker` crate depends on the `bindings` crate. In the `spellchecker` crate's Cargo.toml file, add the `bindings` crate as a dependency. We'll also add the `windows` crate as a dependency since we'll be using that as well in our `spellchecker` crate.
@@ -81,7 +81,7 @@ And we're done bootstrapping the project. Now we'll move on to the code of the `
 
 ## Initialization Code
 
-Inside of the main.rs file for the `spellchecker` crate, we'll start by adding the set up code. We'll initialize the COM runtime on the main thread. We'll make the `main` function return a `windows::runtime::Result` which is simply a standard `Result` type with the error hardcoded as a `windows::Error`.
+Inside of the main.rs file for the `spellchecker` crate, we'll start by adding the set up code. We'll initialize the COM runtime on the main thread. We'll make the `main` function return a `windows::runtime::Result` which is simply a standard `Result` type with the error hardcoded as a `windows::runtime::Error`.
 
 ```rust
 fn main() -> windows::runtime::Result<()> {
@@ -181,7 +181,7 @@ fn main() -> window::Result<()> {
         let mut error = None;
         let result = unsafe { errors.Next(&mut error) };
         // Getting S_FALSE means there are no more errors
-        if result == windows::HRESULT::S_FALSE {
+        if result == windows::runtime::HRESULT::S_FALSE {
             break;
         }
         // We still need to check that `Next` didn't return an unexpected error

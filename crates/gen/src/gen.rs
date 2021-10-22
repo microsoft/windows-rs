@@ -87,6 +87,10 @@ impl Gen {
     }
 
     fn gen_cfg_impl(&self, features: &BTreeSet<&'static str>, not: bool) -> TokenStream {
+        if self.root.is_empty() {
+            return TokenStream::new(); 
+        }
+
         if features.is_empty() {
             return TokenStream::new();
         }

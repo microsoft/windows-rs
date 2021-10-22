@@ -38,7 +38,7 @@ fn main() {
 Finally, make use of any Windows APIs as needed.
 
 ```rust
-windows::include_bindings!();
+windows::runtime::include_bindings!();
 
 use Windows::Data::Xml::Dom::*;
 use Windows::Win32::Foundation::*;

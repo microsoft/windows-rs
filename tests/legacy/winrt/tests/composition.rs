@@ -64,7 +64,7 @@ fn composition() -> windows::runtime::Result<()> {
     use test_winrt::Windows::Foundation::Numerics::Vector3;
     use test_winrt::Windows::UI::Composition::{CompositionColorBrush, Compositor};
     use test_winrt::Windows::UI::{Color, Colors};
-    use windows::Interface;
+    use windows::runtime::Interface;
 
     let _dispatcher = create_dispatcher();
     let compositor = Compositor::new()?;
