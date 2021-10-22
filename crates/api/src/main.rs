@@ -72,9 +72,10 @@ windows_x86 = { path = "crates/x86", version = "0.21.1" }
 [target.x86_64-pc-windows-msvc.dependencies]
 windows_x64 = { path = "crates/x64", version = "0.21.1" }
 
+# TODO: add deprecated feature
 [features]
-default = ["macros"]
-macros = ["windows_gen", "windows_macros", "windows_reader"]
+default = []
+build = ["windows_gen", "windows_macros", "windows_reader"]
 "#
         .as_bytes(),
     )
