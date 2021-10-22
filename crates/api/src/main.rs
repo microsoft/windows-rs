@@ -112,12 +112,11 @@ fn collect_trees<'a>(
 
     let mut path = std::path::PathBuf::from(output);
 
-    if root == tree.namespace {
-        std::fs::create_dir_all(&path).unwrap();
-    } else {
+    if root != tree.namespace {
         path.push(tree.namespace[root.len() + 1..].replace('.', "\\"));
-        std::fs::create_dir_all(&path).unwrap();
     }
+
+    std::fs::create_dir_all(&path).unwrap();
 }
 
 fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTree) {
