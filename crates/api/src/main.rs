@@ -20,7 +20,6 @@ fn main() {
         .for_each(|tree| gen_tree(&output, root.namespace, tree));
 
     output.pop();
-    output.pop();
     output.push("Cargo.toml");
 
     write_toml(&output, root);
