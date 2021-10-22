@@ -13,7 +13,7 @@ fn main() {
     let root = reader.types.get_namespace("Windows").unwrap();
 
     let mut trees = Vec::new();
-    collect_trees(&output, root.namespace, &root, &mut trees);
+    collect_trees(&output, root.namespace, root, &mut trees);
     trees
         .par_iter()
         .for_each(|tree| gen_tree(&output, root.namespace, tree));
