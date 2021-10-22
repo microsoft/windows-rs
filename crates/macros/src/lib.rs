@@ -72,3 +72,22 @@ pub fn include_bindings(_: proc_macro::TokenStream) -> proc_macro::TokenStream {
         .parse()
         .unwrap()
 }
+
+// TODO: only use for blittable structs and unions? Anything else requires deep comparison?
+#[proc_macro_derive(StructDerive)]
+pub fn derive_struct_traits(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let name = format_token!("{}", syn::parse_macro_input!(input as syn::DeriveInput).ident.to_string());
+    
+    let tokens = quote! {
+        impl ::std::cmp::PartialEq for #name {
+            fn eq(&self, other: &Self) -> bool {
+                unsafe {
+                    ::windows::runtime::memcmp(self as *const _ as _, other as *const _ as _, std::mem::size_of::<#name>()) == 0
+                }
+            }
+        }
+        impl ::std::cmp::Eq for #name {}
+    };
+
+    tokens.as_str().parse().unwrap()
+}

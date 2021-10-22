@@ -132,7 +132,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
     let clone_or_copy = if def.is_blittable() {
         quote! {
-            #[derive(::std::clone::Clone, ::std::marker::Copy)]
+            #[derive(::std::clone::Clone, ::std::marker::Copy, ::windows::runtime::StructDerive)]
         }
     } else if is_union || has_union || is_packed {
         quote! {
@@ -143,10 +143,11 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
                     unimplemented!()
                 }
             }
+            #[derive(::windows::runtime::StructDerive)]
         }
     } else {
         quote! {
-            #[derive(::std::clone::Clone)]
+            #[derive(::std::clone::Clone, ::windows::runtime::StructDerive)]
         }
     };
 
@@ -207,57 +208,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         None
     });
 
-    let compare = if is_union | has_union | has_complex_array | is_packed {
-        quote! {
-            #features
-            impl ::std::cmp::PartialEq for #name {
-                fn eq(&self, _other: &Self) -> bool {
-                    // TODO: figure out how to compare complex structs
-                    unimplemented!()
-                }
-            }
-            #features
-            impl ::std::cmp::Eq for #name {}
-        }
-    } else {
-        let compare = fields.iter().map(|(_, signature, name)| {
-            let is_callback = signature.kind.is_callback();
-
-            if is_callback && signature.pointers == 0 {
-                quote! {
-                    self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
-                }
-            } else {
-                quote! {
-                    self.#name == other.#name
-                }
-            }
-        });
-
-        if layout.is_some() {
-            quote! {
-                #features
-                impl ::std::cmp::PartialEq for #name {
-                    fn eq(&self, other: &Self) -> bool {
-                        unsafe { #(#compare)&&* }
-                    }
-                }
-                #features
-                impl ::std::cmp::Eq for #name {}
-            }
-        } else {
-            quote! {
-                #features
-                impl ::std::cmp::PartialEq for #name {
-                    fn eq(&self, other: &Self) -> bool {
-                        #(#compare)&&*
-                    }
-                }
-                #features
-                impl ::std::cmp::Eq for #name {}
-            }
-        }
-    };
 
     let debug = if is_union || has_union || has_complex_array || is_packed {
         quote! {}
@@ -329,7 +279,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
             }
         }
         #debug
-        #compare
         #abi
         #runtime_type
         #extensions
