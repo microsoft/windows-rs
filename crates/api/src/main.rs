@@ -4,9 +4,10 @@ use std::io::prelude::*;
 fn main() {
     let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
-    output.push("src");
-
+    output.push("src\\Windows");
     let _ = std::fs::remove_dir_all(&output);
+    output.pop();
+
     let reader = reader::TypeReader::get_mut();
     include_all(&mut reader.types);
 
