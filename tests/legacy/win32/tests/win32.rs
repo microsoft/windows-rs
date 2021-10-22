@@ -16,7 +16,7 @@ use test_win32::Windows::Win32::{
     },
 };
 
-use windows::runtime::Guid;
+use windows::runtime::GUID;
 
 #[test]
 fn signed_enum32() {
@@ -101,7 +101,7 @@ fn constant() {
     assert!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA == 1f32);
     assert!(UIA_ScrollPatternNoScroll == -1f64);
     assert!(D3DCOMPILER_DLL == "d3dcompiler_47.dll");
-    assert!(CLSID_D2D1Shadow == Guid::from("C67EA361-1863-4e69-89DB-695D3E9A5B6B"));
+    assert!(CLSID_D2D1Shadow == GUID::from("C67EA361-1863-4e69-89DB-695D3E9A5B6B"));
 }
 
 #[test]
@@ -154,10 +154,10 @@ fn com() -> windows::runtime::Result<()> {
 
         let copied = stream.Write(
             &UIAnimationTransitionLibrary as *const _ as _,
-            std::mem::size_of::<windows::runtime::Guid>() as u32,
+            std::mem::size_of::<windows::runtime::GUID>() as u32,
         )?;
 
-        assert!(copied == std::mem::size_of::<windows::runtime::Guid>() as u32);
+        assert!(copied == std::mem::size_of::<windows::runtime::GUID>() as u32);
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
 
         assert!(position == 0);
@@ -172,16 +172,16 @@ fn com() -> windows::runtime::Result<()> {
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
-        let mut value: windows::runtime::Guid = windows::runtime::Guid::default();
+        let mut value: windows::runtime::GUID = windows::runtime::GUID::default();
         let mut copied = 0;
 
         stream.Read(
             &mut value as *mut _ as _,
-            std::mem::size_of::<windows::runtime::Guid>() as u32,
+            std::mem::size_of::<windows::runtime::GUID>() as u32,
             &mut copied,
         )?;
 
-        assert!(copied == std::mem::size_of::<windows::runtime::Guid>() as u32);
+        assert!(copied == std::mem::size_of::<windows::runtime::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
 
@@ -338,5 +338,5 @@ fn empty_struct() {
     assert!(ldap.0 == 123);
     assert!(std::mem::size_of::<ldapsearch>() == 1);
 
-    assert!(UIAnimationManager == Guid::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
+    assert!(UIAnimationManager == GUID::from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8"));
 }

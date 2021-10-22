@@ -2,7 +2,7 @@ use test_ntstatus::{
     Windows::Win32::Foundation::*, Windows::Win32::Security::Cryptography::Core::*,
 };
 
-use windows::runtime::{Guid, Result, HRESULT};
+use windows::runtime::{Result, GUID, HRESULT};
 
 #[test]
 fn test() -> Result<()> {
@@ -25,16 +25,16 @@ fn test() -> Result<()> {
         let mut provider = BCRYPT_ALG_HANDLE::default();
         BCryptOpenAlgorithmProvider(&mut provider, "RNG", None, Default::default())?;
 
-        let mut random = Guid::zeroed();
+        let mut random = GUID::zeroed();
 
         BCryptGenRandom(
             provider,
             &mut random as *mut _ as _,
-            std::mem::size_of::<Guid>() as _,
+            std::mem::size_of::<GUID>() as _,
             0,
         )?;
 
-        assert_ne!(random, Guid::zeroed());
+        assert_ne!(random, GUID::zeroed());
     }
 
     Ok(())

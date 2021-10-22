@@ -18,7 +18,7 @@ pub enum ElementType {
     ISize,
     USize,
     String,
-    Guid,
+    GUID,
     IUnknown,
     IInspectable,
     HRESULT,
@@ -46,7 +46,7 @@ impl ElementType {
     pub fn size(&self) -> usize {
         match self {
             Self::I64 | Self::U64 | Self::F64 => 2,
-            Self::Guid => 4,
+            Self::GUID => 4,
             Self::TypeDef(def) => def.size(),
             _ => 1,
         }
@@ -100,7 +100,7 @@ impl ElementType {
             "isize" => Some(Self::ISize),
             "usize" => Some(Self::USize),
             "HSTRING" => Some(Self::String),
-            "Guid" => Some(Self::Guid),
+            "GUID" => Some(Self::GUID),
             "IInspectable" => Some(Self::IInspectable),
             _ => None,
         }
@@ -129,7 +129,7 @@ impl ElementType {
             Self::F64 => "f8".to_owned(),
             Self::String => "string".to_owned(),
             Self::IInspectable => "cinterface(IInspectable)".to_owned(),
-            Self::Guid => "g16".to_owned(),
+            Self::GUID => "g16".to_owned(),
             Self::TypeDef(t) => t.type_signature(),
             _ => unimplemented!(),
         }
@@ -199,7 +199,7 @@ impl ElementType {
             Self::TypeDef(t) => t.is_convertible(),
             Self::String
             | Self::IInspectable
-            | Self::Guid
+            | Self::GUID
             | Self::IUnknown
             | Self::GenericParam(_) => true,
             _ => false,
@@ -238,7 +238,7 @@ impl ElementType {
     pub fn is_udt(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_udt(),
-            Self::Guid => true,
+            Self::GUID => true,
             _ => false,
         }
     }

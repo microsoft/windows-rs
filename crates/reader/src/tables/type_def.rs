@@ -516,8 +516,8 @@ impl TypeDef {
         (0, 0)
     }
 
-    pub fn guid(&self) -> Guid {
-        Guid::from_attributes(self.attributes()).expect("TypeDef::guid")
+    pub fn guid(&self) -> GUID {
+        GUID::from_attributes(self.attributes()).expect("TypeDef::guid")
     }
 
     pub fn is_nullable(&self) -> bool {

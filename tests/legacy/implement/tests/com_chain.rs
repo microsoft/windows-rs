@@ -9,8 +9,8 @@ struct Test();
 
 #[allow(non_snake_case)]
 impl Test {
-    fn GetClassID(&self) -> Result<Guid> {
-        Ok(Guid::zeroed())
+    fn GetClassID(&self) -> Result<GUID> {
+        Ok(GUID::zeroed())
     }
 
     fn IsDirty(&self) -> Result<()> {

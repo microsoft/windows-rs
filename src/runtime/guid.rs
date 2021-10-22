@@ -7,22 +7,22 @@ use bindings::Windows::Win32::System::Com::CoCreateGuid;
 /// used to identify COM and WinRT interfaces.
 #[repr(C)]
 #[derive(Clone, Copy, Default, PartialEq, Eq, Hash)]
-pub struct Guid {
+pub struct GUID {
     pub data1: u32,
     pub data2: u16,
     pub data3: u16,
     pub data4: [u8; 8],
 }
 
-impl Guid {
-    /// Creates a unique `Guid` value.
+impl GUID {
+    /// Creates a unique `GUID` value.
     pub fn new() -> Result<Self> {
         unsafe { CoCreateGuid() }
     }
 
-    /// Creates a `Guid` represented by the all-zero byte-pattern.
-    pub const fn zeroed() -> Guid {
-        Guid {
+    /// Creates a `GUID` represented by the all-zero byte-pattern.
+    pub const fn zeroed() -> GUID {
+        GUID {
             data1: 0,
             data2: 0,
             data3: 0,
@@ -30,9 +30,9 @@ impl Guid {
         }
     }
 
-    /// Creates a `Guid` with the given constant values.
-    pub const fn from_values(data1: u32, data2: u16, data3: u16, data4: [u8; 8]) -> Guid {
-        Guid {
+    /// Creates a `GUID` with the given constant values.
+    pub const fn from_values(data1: u32, data2: u16, data3: u16, data4: [u8; 8]) -> GUID {
+        GUID {
             data1,
             data2,
             data3,
@@ -40,8 +40,8 @@ impl Guid {
         }
     }
 
-    /// Creates a `Guid` for a "generic" WinRT type.
-    pub const fn from_signature(signature: ConstBuffer) -> Guid {
+    /// Creates a `GUID` for a "generic" WinRT type.
+    pub const fn from_signature(signature: ConstBuffer) -> GUID {
         let data = ConstBuffer::from_slice(&[
             0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16,
             0xad, 0xee,
@@ -68,16 +68,16 @@ impl Guid {
     }
 }
 
-unsafe impl Abi for Guid {
+unsafe impl Abi for GUID {
     type Abi = Self;
     type DefaultType = Self;
 }
 
-unsafe impl RuntimeType for Guid {
+unsafe impl RuntimeType for GUID {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"g16");
 }
 
-impl std::fmt::Debug for Guid {
+impl std::fmt::Debug for GUID {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
@@ -97,8 +97,8 @@ impl std::fmt::Debug for Guid {
     }
 }
 
-impl From<&str> for Guid {
-    fn from(value: &str) -> Guid {
+impl From<&str> for GUID {
+    fn from(value: &str) -> GUID {
         assert!(value.len() == 36, "Invalid GUID string");
         let mut bytes = value.bytes();
 
@@ -127,7 +127,7 @@ impl From<&str> for Guid {
         let j = bytes.next_u8() * 16 + bytes.next_u8();
         let k = bytes.next_u8() * 16 + bytes.next_u8();
 
-        Guid::from_values(a, b, c, [d, e, f, g, h, i, j, k])
+        GUID::from_values(a, b, c, [d, e, f, g, h, i, j, k])
     }
 }
 
@@ -163,8 +163,8 @@ mod tests {
 
     #[test]
     fn test_new() {
-        let zeroed = Guid::zeroed();
-        let unique = Guid::new().unwrap();
+        let zeroed = GUID::zeroed();
+        let unique = GUID::new().unwrap();
         assert_ne!(zeroed, unique);
     }
 }

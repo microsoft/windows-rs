@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Clone, PartialEq, Default)]
 pub struct PropertyKey {
-    pub fmtid: Guid,
+    pub fmtid: GUID,
     pub pid: u32,
 }
 
@@ -14,7 +14,7 @@ impl PropertyKey {
             .map(|attribute| {
                 let args = attribute.args();
                 Self {
-                    fmtid: Guid::from_args(&args),
+                    fmtid: GUID::from_args(&args),
                     pid: args[11].1.unwrap_u32(),
                 }
             })

@@ -22,10 +22,10 @@ impl IInspectable {
 
 #[repr(C)]
 pub struct IInspectable_abi(
-    pub unsafe extern "system" fn(this: RawPtr, iid: &Guid, interface: *mut RawPtr) -> HRESULT,
+    pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
     pub unsafe extern "system" fn(this: RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut Guid) -> HRESULT,
+    pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
     pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
 );
@@ -33,7 +33,7 @@ pub struct IInspectable_abi(
 unsafe impl Interface for IInspectable {
     type Vtable = IInspectable_abi;
 
-    const IID: Guid = Guid::from_values(
+    const IID: GUID = GUID::from_values(
         0xAF86_E2E0,
         0xB12D,
         0x4C6A,

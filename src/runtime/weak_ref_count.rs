@@ -55,7 +55,7 @@ impl WeakRefCount {
     }
 
     /// # Safety
-    pub unsafe fn query(&self, iid: &::windows::runtime::Guid, object: RawPtr) -> RawPtr {
+    pub unsafe fn query(&self, iid: &::windows::runtime::GUID, object: RawPtr) -> RawPtr {
         if iid != &IWeakReferenceSource::IID {
             return std::ptr::null_mut();
         }
@@ -155,13 +155,13 @@ impl TearOff {
         std::mem::transmute(value << 1)
     }
 
-    unsafe fn query_interface(&self, iid: *const Guid, interface: *mut RawPtr) -> HRESULT {
+    unsafe fn query_interface(&self, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
         ((*(*(self.object as *mut *mut _) as *mut IUnknown_abi)).0)(self.object, iid, interface)
     }
 
     unsafe extern "system" fn StrongQueryInterface(
         ptr: RawPtr,
-        iid: &Guid,
+        iid: &GUID,
         interface: *mut RawPtr,
     ) -> HRESULT {
         let this = Self::from_strong_ptr(ptr);
@@ -181,7 +181,7 @@ impl TearOff {
 
     unsafe extern "system" fn WeakQueryInterface(
         ptr: RawPtr,
-        iid: &Guid,
+        iid: &GUID,
         interface: *mut RawPtr,
     ) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
@@ -257,7 +257,7 @@ impl TearOff {
 
     unsafe extern "system" fn WeakUpgrade(
         ptr: RawPtr,
-        iid: *const Guid,
+        iid: *const GUID,
         interface: *mut RawPtr,
     ) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);

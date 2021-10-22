@@ -2,7 +2,7 @@
 
 use super::*;
 
-pub fn gen_guid(guid: &Guid) -> TokenStream {
+pub fn gen_guid(guid: &GUID) -> TokenStream {
     let a = Literal::u32_unsuffixed(guid.0);
     let b = Literal::u16_unsuffixed(guid.1);
     let c = Literal::u16_unsuffixed(guid.2);
@@ -22,17 +22,17 @@ pub fn gen_guid(guid: &Guid) -> TokenStream {
 
 pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.generics.is_empty() {
-        match Guid::from_attributes(def.attributes()) {
+        match GUID::from_attributes(def.attributes()) {
             Some(guid) => {
                 let guid = gen_guid(&guid);
 
                 quote! {
-                    ::windows::runtime::Guid::from_values(#guid)
+                    ::windows::runtime::GUID::from_values(#guid)
                 }
             }
             None => {
                 quote! {
-                    ::windows::runtime::Guid::zeroed()
+                    ::windows::runtime::GUID::zeroed()
                 }
             }
         }
@@ -40,7 +40,7 @@ pub fn gen_type_guid(def: &TypeDef, gen: &Gen) -> TokenStream {
         let tokens = gen_type_name(def, gen);
 
         quote! {
-            ::windows::runtime::Guid::from_signature(<#tokens as ::windows::runtime::RuntimeType>::SIGNATURE)
+            ::windows::runtime::GUID::from_signature(<#tokens as ::windows::runtime::RuntimeType>::SIGNATURE)
         }
     }
 }

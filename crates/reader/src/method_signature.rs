@@ -66,7 +66,7 @@ impl MethodSignature {
                         let guid = &self.params[self.params.len() - 2];
                         let object = &self.params[self.params.len() - 1];
 
-                        if guid.signature.kind == ElementType::Guid
+                        if guid.signature.kind == ElementType::GUID
                             && !guid.param.flags().output()
                             && object.signature.kind == ElementType::Void
                             && object.param.is_com_out_ptr()

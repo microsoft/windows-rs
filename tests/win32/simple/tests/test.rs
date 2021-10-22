@@ -17,7 +17,7 @@ extern "system" fn callback() {}
 #[test]
 fn test() -> Result<()> {
     unsafe {
-        let constant: Guid = SimpleConstant;
+        let constant: GUID = SimpleConstant;
         assert!(constant == "7FE2C3B5-4EF1-4B35-889D-03BA46CDD1EF".into());
 
         SimpleFunction();
