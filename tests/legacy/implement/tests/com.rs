@@ -1,5 +1,5 @@
 use test_implement::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Foundation::IStringable;
 use Windows::Win32::Foundation::HANDLE;
 use Windows::Win32::System::WinRT::{IDisplayPathInterop, ISwapChainInterop};

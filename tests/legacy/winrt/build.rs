@@ -1,5 +1,5 @@
 fn main() {
-    windows::build! {
+    windows::runtime::build! {
         Windows::ApplicationModel::Activation::{
             BackgroundActivatedEventArgs, CachedFileUpdaterActivatedEventArgs,
             FileActivatedEventArgs, FileOpenPickerActivatedEventArgs,

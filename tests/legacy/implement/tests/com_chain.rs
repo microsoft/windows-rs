@@ -1,5 +1,5 @@
 use test_implement::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Win32::Foundation::BOOL;
 use Windows::Win32::Storage::StructuredStorage::IStream;
 use Windows::Win32::System::Com::{IPersist, IPersistStream};

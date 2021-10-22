@@ -9,7 +9,7 @@ use test_winrt::{
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test
 // ensures that both overloads are visible and callable.
 #[test]
-fn wifi() -> windows::Result<()> {
+fn wifi() -> windows::runtime::Result<()> {
     // get_device_selector from IWiFiDirectDeviceStatics
     let a = WiFiDirectDevice::GetDeviceSelector()?;
     assert!(!a.is_empty());
@@ -29,7 +29,7 @@ fn wifi() -> windows::Result<()> {
 // EmailAttachment has a pair of activation (constructor) factory interfaces with overloads. This
 // test ensures that the overloads are visible and callable.
 #[test]
-fn email() -> windows::Result<()> {
+fn email() -> windows::runtime::Result<()> {
     let stream = InMemoryRandomAccessStream::new()?;
     let reference = RandomAccessStreamReference::CreateFromStream(stream)?;
 

@@ -1,5 +1,5 @@
 fn main() {
-    windows::build! {
+    windows::runtime::build! {
         Component::Classes::{Activatable, NoWeakRef},
         Windows::Foundation::IStringable,
         Windows::Win32::Foundation::E_NOINTERFACE,

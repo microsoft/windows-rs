@@ -4,7 +4,7 @@ use test_build_groups::Windows::Foundation::{
 };
 
 #[test]
-fn test() -> windows::Result<()> {
+fn test() -> windows::runtime::Result<()> {
     let _ = Option::<IStringable>::None;
     let _ = Option::<IVector<i32>>::None;
     let _ = Option::<IMap<i32, i32>>::None;

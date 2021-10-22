@@ -25,7 +25,7 @@ macro_rules! primitive_try_from_test {
 }
 
 #[test]
-fn boxing_into() -> windows::Result<()> {
+fn boxing_into() -> windows::runtime::Result<()> {
     primitive_try_into_test! {
         (bool, true),
         (bool, false),
@@ -80,7 +80,7 @@ fn boxing_into() -> windows::Result<()> {
 }
 
 #[test]
-fn explicit_boxing() -> windows::Result<()> {
+fn explicit_boxing() -> windows::runtime::Result<()> {
     let object = PropertyValue::CreateString("hello")?;
     let pv: IPropertyValue = object.cast()?;
     assert!(pv.GetString()? == "hello");

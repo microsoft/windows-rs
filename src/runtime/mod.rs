@@ -62,3 +62,11 @@ pub use bindings::Windows::Win32::System::Com::IAgileObject;
 // TODO: rather than hiding, consider just removing
 #[doc(hidden)]
 pub type RawPtr = *mut std::ffi::c_void;
+
+#[cfg(feature = "macros")]
+pub use windows_macros::{build, generate, implement};
+
+// TODO: remove this
+#[cfg(feature = "macros")]
+pub use windows_reader::workspace_dir;
+

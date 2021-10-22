@@ -10,12 +10,12 @@ use test_winrt::{
 use windows::Interface;
 
 #[test]
-fn non_generic() -> windows::Result<()> {
+fn non_generic() -> windows::runtime::Result<()> {
     type Handler = AsyncActionCompletedHandler;
 
     assert_eq!(
         Handler::IID,
-        windows::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
+        windows::runtime::Guid::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
     );
 
     let (tx, rx) = std::sync::mpsc::channel();
@@ -37,12 +37,12 @@ fn non_generic() -> windows::Result<()> {
 }
 
 #[test]
-fn generic() -> windows::Result<()> {
+fn generic() -> windows::runtime::Result<()> {
     type Handler = TypedEventHandler<Uri, i32>;
 
     assert_eq!(
         Handler::IID,
-        windows::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
+        windows::runtime::Guid::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
     );
 
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
@@ -65,7 +65,7 @@ fn generic() -> windows::Result<()> {
 }
 
 #[test]
-fn event() -> windows::Result<()> {
+fn event() -> windows::runtime::Result<()> {
     let set = PropertySet::new()?;
     let (tx, rx) = std::sync::mpsc::channel();
 

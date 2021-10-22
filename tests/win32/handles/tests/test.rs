@@ -1,5 +1,5 @@
 use test_win32_handles::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Win32::Foundation::*;
 use Windows::Win32::Graphics::Gdi::*;
 use Windows::Win32::System::Registry::*;

@@ -1,6 +1,6 @@
 use std::convert::TryInto;
 use test_implement::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Foundation::Collections::*;
 use Windows::Foundation::*;
 use Windows::Win32::Foundation::E_BOUNDS;

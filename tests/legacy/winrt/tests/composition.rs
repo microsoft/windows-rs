@@ -20,7 +20,7 @@ fn create_dispatcher() -> DispatcherQueueController {
 }
 
 #[test]
-fn class_hierarchy_conversion() -> windows::Result<()> {
+fn class_hierarchy_conversion() -> windows::runtime::Result<()> {
     use test_winrt::Windows::UI::Composition::{Compositor, SpriteVisual, Visual};
 
     let _dispatcher = create_dispatcher();
@@ -60,7 +60,7 @@ fn class_hierarchy_conversion() -> windows::Result<()> {
 }
 
 #[test]
-fn composition() -> windows::Result<()> {
+fn composition() -> windows::runtime::Result<()> {
     use test_winrt::Windows::Foundation::Numerics::Vector3;
     use test_winrt::Windows::UI::Composition::{CompositionColorBrush, Compositor};
     use test_winrt::Windows::UI::{Color, Colors};

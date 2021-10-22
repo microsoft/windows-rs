@@ -10,11 +10,4 @@ Learn more here: <https://github.com/microsoft/windows-rs>
 
 extern crate self as windows;
 pub mod runtime;
-#[macro_use] mod macros;
 
-#[cfg(feature = "macros")]
-pub use windows_macros::{build, generate, implement};
-
-// TODO: remove this
-#[cfg(feature = "macros")]
-pub use windows_reader::workspace_dir;

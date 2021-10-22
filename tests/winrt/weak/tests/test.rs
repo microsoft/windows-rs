@@ -1,5 +1,5 @@
 use test_winrt_weak::*;
-use windows::*;
+use windows::runtime::*;
 use Component::Classes::{Activatable, NoWeakRef};
 use Windows::Foundation::IStringable;
 use Windows::Win32::Foundation::E_NOINTERFACE;

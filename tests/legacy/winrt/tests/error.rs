@@ -38,7 +38,7 @@ fn bad_uri() {
 
 #[test]
 fn convertible() {
-    fn windows_error() -> windows::Result<()> {
+    fn windows_error() -> windows::runtime::Result<()> {
         Err(windows::Error::new(E_NOINTERFACE, "test message"))
     }
 

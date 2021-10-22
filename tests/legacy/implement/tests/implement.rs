@@ -1,5 +1,5 @@
 use test_implement::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Foundation::IClosable;
 
 // TODO: this just tests the syntax until #81 is further along.

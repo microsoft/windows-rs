@@ -1,5 +1,5 @@
 use test_win32_method_names::*;
-use windows::*;
+use windows::runtime::*;
 use Component::Win32::MethodNames::*;
 
 #[implement(Component::Win32::MethodNames::IMethodNames)]

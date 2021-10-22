@@ -1,6 +1,6 @@
 use std::ffi::{OsStr, OsString};
 use test_pwstr::Windows::Win32::Foundation::PWSTR;
-use windows::*;
+use windows::runtime::*;
 
 #[test]
 fn test() {

@@ -1,5 +1,5 @@
 use test_data_object::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Win32::Foundation::*;
 use Windows::Win32::System::Com::*;
 

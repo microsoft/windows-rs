@@ -1,5 +1,5 @@
 use test_winrt_composable::*;
-use windows::*;
+use windows::runtime::*;
 use Component::Composable::*;
 
 #[test]

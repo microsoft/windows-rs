@@ -1,5 +1,5 @@
 use test_win32::*;
-use windows::HRESULT;
+use windows::runtime::HRESULT;
 use Windows::Win32::Foundation::*;
 
 #[test]

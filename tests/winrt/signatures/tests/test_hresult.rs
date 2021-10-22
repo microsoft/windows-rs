@@ -2,7 +2,7 @@
 
 use std::convert::TryInto;
 use test_winrt_signatures::*;
-use windows::*;
+use windows::runtime::*;
 use Component::Signatures::*;
 use Windows::Win32::Foundation::*;
 

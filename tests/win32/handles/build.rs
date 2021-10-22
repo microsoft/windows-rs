@@ -1,5 +1,5 @@
 fn main() {
-    windows::build! {
+    windows::runtime::build! {
         Windows::Win32::Foundation::{
             SetLastError, BOOLEAN, HANDLE, HWND, PSTR, PWSTR, WIN32_ERROR,
         },

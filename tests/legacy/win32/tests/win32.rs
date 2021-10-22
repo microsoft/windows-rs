@@ -16,7 +16,7 @@ use test_win32::Windows::Win32::{
     },
 };
 
-use windows::Guid;
+use windows::runtime::Guid;
 
 #[test]
 fn signed_enum32() {
@@ -105,7 +105,7 @@ fn constant() {
 }
 
 #[test]
-fn function() -> windows::Result<()> {
+fn function() -> windows::runtime::Result<()> {
     unsafe {
         let event = CreateEventW(
             std::ptr::null_mut(),
@@ -131,17 +131,17 @@ fn bool_as_error() {
         assert!(helpers::set_thread_ui_language("en-US"));
         assert!(!SetEvent(HANDLE(0)).as_bool());
 
-        let result: windows::Result<()> = SetEvent(HANDLE(0)).ok();
+        let result: windows::runtime::Result<()> = SetEvent(HANDLE(0)).ok();
         assert!(result.is_err());
 
-        let error: windows::Error = result.unwrap_err();
-        assert_eq!(error.code(), windows::HRESULT(0x8007_0006));
+        let error: windows::runtime::Error = result.unwrap_err();
+        assert_eq!(error.code(), windows::runtime::HRESULT(0x8007_0006));
         assert_eq!(error.message(), "The handle is invalid.");
     }
 }
 
 #[test]
-fn com() -> windows::Result<()> {
+fn com() -> windows::runtime::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
         let values = vec![1, 20, 300, 4000];
@@ -154,10 +154,10 @@ fn com() -> windows::Result<()> {
 
         let copied = stream.Write(
             &UIAnimationTransitionLibrary as *const _ as _,
-            std::mem::size_of::<windows::Guid>() as u32,
+            std::mem::size_of::<windows::runtime::Guid>() as u32,
         )?;
 
-        assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
+        assert!(copied == std::mem::size_of::<windows::runtime::Guid>() as u32);
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
 
         assert!(position == 0);
@@ -172,16 +172,16 @@ fn com() -> windows::Result<()> {
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
-        let mut value: windows::Guid = windows::Guid::default();
+        let mut value: windows::runtime::Guid = windows::runtime::Guid::default();
         let mut copied = 0;
 
         stream.Read(
             &mut value as *mut _ as _,
-            std::mem::size_of::<windows::Guid>() as u32,
+            std::mem::size_of::<windows::runtime::Guid>() as u32,
             &mut copied,
         )?;
 
-        assert!(copied == std::mem::size_of::<windows::Guid>() as u32);
+        assert!(copied == std::mem::size_of::<windows::runtime::Guid>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
     }
 
@@ -218,7 +218,7 @@ fn com_inheritance() {
 
 // Tests for https://github.com/microsoft/windows-rs/issues/463
 #[test]
-fn onecore_imports() -> windows::Result<()> {
+fn onecore_imports() -> windows::runtime::Result<()> {
     unsafe {
         HasExpandedResources()?;
 
@@ -253,7 +253,7 @@ fn onecore_imports() -> windows::Result<()> {
 }
 
 #[test]
-fn interface() -> windows::Result<()> {
+fn interface() -> windows::runtime::Result<()> {
     unsafe {
         let uri = CreateUri("http://kennykerr.ca", Default::default(), 0)?;
 

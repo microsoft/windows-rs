@@ -2,7 +2,7 @@
 #![cfg(all(windows, target_pointer_width = "64"))]
 
 use test_win32_static_simple::*;
-use windows::*;
+use windows::runtime::*;
 use StaticComponent::Win32::Simple::*;
 
 #[test]

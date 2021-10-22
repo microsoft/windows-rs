@@ -2,7 +2,7 @@ use std::convert::TryInto;
 use test_winrt::Windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]
-fn class() -> windows::Result<()> {
+fn class() -> windows::runtime::Result<()> {
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
 
     // All WinRT classes are convertible to windows::IInspectable.
@@ -14,7 +14,7 @@ fn class() -> windows::Result<()> {
 }
 
 #[test]
-fn interface() -> windows::Result<()> {
+fn interface() -> windows::runtime::Result<()> {
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
     let stringable: IStringable = uri.try_into().unwrap();
 
@@ -27,7 +27,7 @@ fn interface() -> windows::Result<()> {
 }
 
 #[test]
-fn boxing() -> windows::Result<()> {
+fn boxing() -> windows::runtime::Result<()> {
     let object = PropertyValue::CreateString("hello")?;
 
     assert!(object.type_name()? == "Windows.Foundation.IReference`1<String>");

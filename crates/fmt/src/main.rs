@@ -57,7 +57,7 @@ fn update_dir(dir: &std::path::Path) -> std::io::Result<()> {
             if path.is_dir() {
                 update_dir(&path)?;
             } else if path.file_name() == Some(std::ffi::OsStr::new("build.rs")) {
-                update_file(&path, "windows::build! ")?;
+                update_file(&path, "windows::runtime::build! ")?;
             }
         }
     }

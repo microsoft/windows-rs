@@ -1,5 +1,5 @@
 use test_implement_null_result::*;
-use windows::*;
+use windows::runtime::*;
 use Windows::Win32::Foundation::S_OK;
 use Windows::UI::Xaml::Markup::{IXamlType, IXamlType2};
 
