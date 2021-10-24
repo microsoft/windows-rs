@@ -27,6 +27,12 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
     };
 
+    let arch = if let Some(arch) = def.supported_arch() {
+        quote! { #[cfg(target_arch = #arch)] }
+    } else {
+        quote! {}
+    };
+
     let features = method_features(&signature, gen);
 
     match signature.kind() {
@@ -36,6 +42,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
+                #arch
                 #features
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(#params) -> ::windows::runtime::Result<T> {
                     #[cfg(windows)]
@@ -58,6 +65,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
+                #arch
                 #features
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(#params result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
                     #[cfg(windows)]
@@ -80,6 +88,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let return_type_tokens = gen_win32_result_type(&signature, gen);
 
             quote! {
+                #arch
                 #features
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::runtime::Result<#return_type_tokens> {
                     #[cfg(windows)]
@@ -101,6 +110,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
+                #arch
                 #features
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::runtime::Result<()> {
                     #[cfg(windows)]
@@ -121,6 +131,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
+                #arch
                 #features
                 pub unsafe fn #name<#constraints>(#params) #abi_return_type {
                     #[cfg(windows)]
