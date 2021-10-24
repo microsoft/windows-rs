@@ -21,6 +21,8 @@ pub mod Gaming;
 pub mod Globalization;
 #[cfg(feature = "Win32_Graphics")]
 pub mod Graphics;
+#[cfg(feature = "Win32_Interop")]
+pub mod Interop;
 #[cfg(feature = "Win32_Management")]
 pub mod Management;
 #[cfg(feature = "Win32_Media")]
