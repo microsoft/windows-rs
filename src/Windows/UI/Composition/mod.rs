@@ -29779,21 +29779,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAnimationObject> for &CompositionSha
             .unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<CompositionShapeCollection> for CompositionObject {
     fn from(value: CompositionShapeCollection) -> Self {
         ::std::convert::Into::<CompositionObject>::into(&value)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&CompositionShapeCollection> for CompositionObject {
     fn from(value: &CompositionShapeCollection) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, CompositionObject> for CompositionShapeCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<CompositionObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, CompositionObject> for &CompositionShapeCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<CompositionObject>::into(
@@ -31307,21 +31311,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAnimationObject> for &CompositionStr
             .unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<CompositionStrokeDashArray> for CompositionObject {
     fn from(value: CompositionStrokeDashArray) -> Self {
         ::std::convert::Into::<CompositionObject>::into(&value)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&CompositionStrokeDashArray> for CompositionObject {
     fn from(value: &CompositionStrokeDashArray) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, CompositionObject> for CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::runtime::Param<'a, CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<CompositionObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, CompositionObject> for &CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::runtime::Param<'a, CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<CompositionObject>::into(
@@ -53610,21 +53618,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAnimationObject> for &InitialValueEx
             .unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<InitialValueExpressionCollection> for CompositionObject {
     fn from(value: InitialValueExpressionCollection) -> Self {
         ::std::convert::Into::<CompositionObject>::into(&value)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&InitialValueExpressionCollection> for CompositionObject {
     fn from(value: &InitialValueExpressionCollection) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, CompositionObject> for InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<CompositionObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, CompositionObject>
     for &InitialValueExpressionCollection
 {
