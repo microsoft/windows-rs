@@ -5944,21 +5944,25 @@ impl<'a>
         :: std :: convert :: TryInto :: < super::super::Foundation::Collections:: IVector :: < DependencyObject > > :: try_into ( self ) . map ( :: windows :: runtime :: Param :: Owned ) . unwrap_or ( :: windows :: runtime :: Param :: None )
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<DependencyObjectCollection> for DependencyObject {
     fn from(value: DependencyObjectCollection) -> Self {
         ::std::convert::Into::<DependencyObject>::into(&value)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&DependencyObjectCollection> for DependencyObject {
     fn from(value: &DependencyObjectCollection) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, DependencyObject> for DependencyObjectCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, DependencyObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<DependencyObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, DependencyObject> for &DependencyObjectCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, DependencyObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<DependencyObject>::into(

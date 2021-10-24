@@ -3195,21 +3195,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IAnimationObject> for &SceneCo
             .unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<SceneComponentCollection> for SceneObject {
     fn from(value: SceneComponentCollection) -> Self {
         ::std::convert::Into::<SceneObject>::into(&value)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&SceneComponentCollection> for SceneObject {
     fn from(value: &SceneComponentCollection) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, SceneObject> for SceneComponentCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, SceneObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<SceneObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, SceneObject> for &SceneComponentCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, SceneObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<SceneObject>::into(
@@ -3217,16 +3221,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, SceneObject> for &SceneComponentColle
         ))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<SceneComponentCollection> for super::CompositionObject {
     fn from(value: SceneComponentCollection) -> Self {
         ::std::convert::Into::<super::CompositionObject>::into(&value)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&SceneComponentCollection> for super::CompositionObject {
     fn from(value: &SceneComponentCollection) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::CompositionObject> for SceneComponentCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<super::CompositionObject>::into(
@@ -3234,6 +3241,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::CompositionObject> for SceneCo
         ))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::CompositionObject> for &SceneComponentCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<super::CompositionObject>::into(
@@ -8415,21 +8423,25 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::IAnimationObject> for &SceneNo
             .unwrap_or(::windows::runtime::Param::None)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<SceneNodeCollection> for SceneObject {
     fn from(value: SceneNodeCollection) -> Self {
         ::std::convert::Into::<SceneObject>::into(&value)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&SceneNodeCollection> for SceneObject {
     fn from(value: &SceneNodeCollection) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, SceneObject> for SceneNodeCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, SceneObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<SceneObject>::into(self))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, SceneObject> for &SceneNodeCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, SceneObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<SceneObject>::into(
@@ -8437,16 +8449,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, SceneObject> for &SceneNodeCollection
         ))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<SceneNodeCollection> for super::CompositionObject {
     fn from(value: SceneNodeCollection) -> Self {
         ::std::convert::Into::<super::CompositionObject>::into(&value)
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl ::std::convert::From<&SceneNodeCollection> for super::CompositionObject {
     fn from(value: &SceneNodeCollection) -> Self {
         ::windows::runtime::Interface::cast(value).unwrap()
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::CompositionObject> for SceneNodeCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<super::CompositionObject>::into(
@@ -8454,6 +8469,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::CompositionObject> for SceneNo
         ))
     }
 }
+#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::CompositionObject> for &SceneNodeCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::CompositionObject> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<super::CompositionObject>::into(

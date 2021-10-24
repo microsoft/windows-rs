@@ -246,8 +246,17 @@ impl Class {
     ) -> impl Iterator<Item = TokenStream> + 'a {
         self.0.bases().map(move |base| {
             let into = gen_type_name(&base, gen);
+
             let mut features = BTreeSet::new();
-            features.insert(base.namespace());
+
+            if let Some(def) = self.0.default_interface() {
+                features.insert(def.namespace());
+            }
+
+            if let Some(def) = base.default_interface() {
+                features.insert(def.namespace());
+            }
+
             let cfg = gen.gen_cfg(&features);
 
             quote! {
