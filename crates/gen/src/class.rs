@@ -246,13 +246,18 @@ impl Class {
     ) -> impl Iterator<Item = TokenStream> + 'a {
         self.0.bases().map(move |base| {
             let into = gen_type_name(&base, gen);
+            let mut features = BTreeSet::new();
+            features.insert(base.namespace());
+            let cfg = gen.gen_cfg(&features);
 
             quote! {
+                #cfg
                 impl ::std::convert::From<#from> for #into {
                     fn from(value: #from) -> Self {
                         ::std::convert::Into::<#into>::into(&value)
                     }
                 }
+                #cfg
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
                         // This unwrap is legitimate because conversion to base can never fail because 
@@ -260,11 +265,13 @@ impl Class {
                         ::windows::runtime::Interface::cast(value).unwrap()
                     }
                 }
+                #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for #from {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
                         ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
                     }
                 }
+                #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#from {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
                         ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
