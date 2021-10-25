@@ -214,7 +214,7 @@ impl TryFrom<HSTRING> for String {
 const REFERENCE_FLAG: u32 = 1;
 
 #[repr(C)]
-pub struct Header {
+struct Header {
     flags: u32,
     len: u32,
     _0: u32,
