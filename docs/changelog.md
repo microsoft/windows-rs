@@ -1,3 +1,15 @@
+# 0.22
+
+- Pre-packaged APIs
+- Pre-packaged libs for MSVC targets
+- Updated Win32 and WinRT metadata for Windows 11
+- Many other small improvements and fixes
+
+# 0.21
+
+- Improved support for COM calls
+- Many other small improvements and fixes
+
 # 0.20
 
 - Improved support for Win32 handle types
