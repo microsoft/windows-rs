@@ -8,6 +8,7 @@ where you can call them as if they were just another Rust module.
 Learn more here: <https://github.com/microsoft/windows-rs>
 */
 
+#![doc(html_no_source)]
 extern crate self as windows;
 mod Windows;
 pub mod runtime;
