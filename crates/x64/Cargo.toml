@@ -1,7 +1,0 @@
-[package]
-name = "windows_x64"
-version = "0.22.0"
-authors = ["Microsoft"]
-edition = "2018"
-license = "MIT OR Apache-2.0"
-description = "Code gen support for the windows crate"

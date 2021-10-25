@@ -1,0 +1,8 @@
+[package]
+name = "windows_fmt"
+version = "0.0.0"
+edition = "2018"
+publish = false
+
+[dependencies]
+windows_reader = { path = "../../deps/reader", version = "0.22.0" }

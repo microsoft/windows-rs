@@ -1,0 +1,8 @@
+[package]
+name = "test_metadata_imports"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+reader = { package = "windows_reader", path = "../../../../crates/deps/reader" }
