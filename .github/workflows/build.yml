@@ -26,10 +26,10 @@ jobs:
       run: dotnet tool install -g ClangSharpPInvokeGenerator --version 11.0.0-beta3
 
     - name: Restore NuGet Packages (${{ matrix.platform }})
-      run: msbuild tests\components\components.sln /t:Restore /p:Platform=${{ matrix.platform }} /p:RestorePackagesConfig=true /m
+      run: msbuild crates\tests\components\components.sln /t:Restore /p:Platform=${{ matrix.platform }} /p:RestorePackagesConfig=true /m
 
     - name: Build components (${{ matrix.platform }})
-      run: msbuild tests\components\components.sln /t:Build /p:Platform=${{ matrix.platform }} /p:Configuration=Release /m
+      run: msbuild crates\tests\components\components.sln /t:Build /p:Platform=${{ matrix.platform }} /p:Configuration=Release /m
 
   test:
     name: Build and test crate
