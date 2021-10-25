@@ -60,14 +60,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         };
     }
 
-    if let Some(guid) = GUID::from_attributes(def.attributes()) {
-        let guid = gen_guid(&guid);
-
-        return quote! {
-            pub const #name: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(#guid);
-        };
-    }
-
     let features = struct_features(def, gen);
 
     let fields: Vec<(Field, Signature, TokenStream)> = def
@@ -84,11 +76,19 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         .collect();
 
     if fields.is_empty() {
-        return quote! {
-            #[repr(C)]
-            #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy)]
-            pub struct #name(pub u8);
-        };
+        if let Some(guid) = GUID::from_attributes(def.attributes()) {
+            let guid = gen_guid(&guid);
+
+            return quote! {
+                pub const #name: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(#guid);
+            };
+        } else {
+            return quote! {
+                #[repr(C)]
+                #[derive(::std::clone::Clone, ::std::default::Default, ::std::fmt::Debug, ::std::cmp::PartialEq, ::std::cmp::Eq, ::std::marker::Copy)]
+                pub struct #name(pub u8);
+            };
+        }
     }
 
     let is_winrt = def.is_winrt();

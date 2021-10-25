@@ -914,12 +914,43 @@ pub const CLSID_WamAdmin: ::windows::runtime::GUID = ::windows::runtime::GUID::f
     4560,
     [153, 83, 0, 192, 79, 217, 25, 193],
 );
-pub const CONFIGURATION_ENTRY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2651071087,
-    58252,
-    16798,
-    [164, 72, 98, 222, 59, 58, 143, 67],
-);
+#[derive(:: std :: clone :: Clone)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CONFIGURATION_ENTRY {
+    pub bstrKey: super::super::Foundation::BSTR,
+    pub bstrValue: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl CONFIGURATION_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for CONFIGURATION_ENTRY {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for CONFIGURATION_ENTRY {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("CONFIGURATION_ENTRY")
+            .field("bstrKey", &self.bstrKey)
+            .field("bstrValue", &self.bstrValue)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for CONFIGURATION_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        self.bstrKey == other.bstrKey && self.bstrValue == other.bstrValue
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for CONFIGURATION_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for CONFIGURATION_ENTRY {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+    type DefaultType = Self;
+}
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
 pub const DISPID_HTTPREQUEST_BASE: u32 = 1u32;
 pub const DISPID_HTTPREQUEST_GETALLRESPONSEHEADERS: u32 = 4u32;
@@ -6473,12 +6504,92 @@ pub const LIBID_WAMREGLib: ::windows::runtime::GUID = ::windows::runtime::GUID::
     4560,
     [153, 83, 0, 192, 79, 217, 25, 193],
 );
-pub const LOGGING_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1818722914,
-    64567,
-    16494,
-    [132, 232, 233, 198, 165, 117, 124, 220],
-);
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LOGGING_PARAMETERS {
+    pub pszSessionId: super::super::Foundation::PWSTR,
+    pub pszSiteName: super::super::Foundation::PWSTR,
+    pub pszUserName: super::super::Foundation::PWSTR,
+    pub pszHostName: super::super::Foundation::PWSTR,
+    pub pszRemoteIpAddress: super::super::Foundation::PWSTR,
+    pub dwRemoteIpPort: u32,
+    pub pszLocalIpAddress: super::super::Foundation::PWSTR,
+    pub dwLocalIpPort: u32,
+    pub BytesSent: u64,
+    pub BytesReceived: u64,
+    pub pszCommand: super::super::Foundation::PWSTR,
+    pub pszCommandParameters: super::super::Foundation::PWSTR,
+    pub pszFullPath: super::super::Foundation::PWSTR,
+    pub dwElapsedMilliseconds: u32,
+    pub FtpStatus: u32,
+    pub FtpSubStatus: u32,
+    pub hrStatus: ::windows::runtime::HRESULT,
+    pub pszInformation: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl LOGGING_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for LOGGING_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for LOGGING_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("LOGGING_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("BytesSent", &self.BytesSent)
+            .field("BytesReceived", &self.BytesReceived)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("pszFullPath", &self.pszFullPath)
+            .field("dwElapsedMilliseconds", &self.dwElapsedMilliseconds)
+            .field("FtpStatus", &self.FtpStatus)
+            .field("FtpSubStatus", &self.FtpSubStatus)
+            .field("hrStatus", &self.hrStatus)
+            .field("pszInformation", &self.pszInformation)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for LOGGING_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        self.pszSessionId == other.pszSessionId
+            && self.pszSiteName == other.pszSiteName
+            && self.pszUserName == other.pszUserName
+            && self.pszHostName == other.pszHostName
+            && self.pszRemoteIpAddress == other.pszRemoteIpAddress
+            && self.dwRemoteIpPort == other.dwRemoteIpPort
+            && self.pszLocalIpAddress == other.pszLocalIpAddress
+            && self.dwLocalIpPort == other.dwLocalIpPort
+            && self.BytesSent == other.BytesSent
+            && self.BytesReceived == other.BytesReceived
+            && self.pszCommand == other.pszCommand
+            && self.pszCommandParameters == other.pszCommandParameters
+            && self.pszFullPath == other.pszFullPath
+            && self.dwElapsedMilliseconds == other.dwElapsedMilliseconds
+            && self.FtpStatus == other.FtpStatus
+            && self.FtpSubStatus == other.FtpSubStatus
+            && self.hrStatus == other.hrStatus
+            && self.pszInformation == other.pszInformation
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for LOGGING_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for LOGGING_PARAMETERS {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
 pub const MD_ACCESS_EXECUTE: u32 = 4u32;
 pub const MD_ACCESS_MAP_CERT: u32 = 128u32;
@@ -7419,18 +7530,169 @@ pub type PFN_WEB_CORE_SHUTDOWN =
     unsafe extern "system" fn(fimmediate: u32) -> ::windows::runtime::HRESULT;
 pub const POP3_MD_ID_BEGIN_RESERVED: u32 = 40960u32;
 pub const POP3_MD_ID_END_RESERVED: u32 = 45055u32;
-pub const POST_PROCESS_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1395881365,
-    37221,
-    19083,
-    [162, 2, 125, 93, 191, 126, 75, 139],
-);
-pub const PRE_PROCESS_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    130274705,
-    52909,
-    18178,
-    [171, 171, 167, 8, 134, 175, 56, 163],
-);
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct POST_PROCESS_PARAMETERS {
+    pub pszSessionId: super::super::Foundation::PWSTR,
+    pub pszSiteName: super::super::Foundation::PWSTR,
+    pub pszUserName: super::super::Foundation::PWSTR,
+    pub pszHostName: super::super::Foundation::PWSTR,
+    pub pszRemoteIpAddress: super::super::Foundation::PWSTR,
+    pub dwRemoteIpPort: u32,
+    pub pszLocalIpAddress: super::super::Foundation::PWSTR,
+    pub dwLocalIpPort: u32,
+    pub BytesSent: u64,
+    pub BytesReceived: u64,
+    pub pszCommand: super::super::Foundation::PWSTR,
+    pub pszCommandParameters: super::super::Foundation::PWSTR,
+    pub pszFullPath: super::super::Foundation::PWSTR,
+    pub pszPhysicalPath: super::super::Foundation::PWSTR,
+    pub FtpStatus: u32,
+    pub FtpSubStatus: u32,
+    pub hrStatus: ::windows::runtime::HRESULT,
+    pub SessionStartTime: super::super::Foundation::FILETIME,
+    pub BytesSentPerSession: u64,
+    pub BytesReceivedPerSession: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl POST_PROCESS_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for POST_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for POST_PROCESS_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("POST_PROCESS_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("BytesSent", &self.BytesSent)
+            .field("BytesReceived", &self.BytesReceived)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("pszFullPath", &self.pszFullPath)
+            .field("pszPhysicalPath", &self.pszPhysicalPath)
+            .field("FtpStatus", &self.FtpStatus)
+            .field("FtpSubStatus", &self.FtpSubStatus)
+            .field("hrStatus", &self.hrStatus)
+            .field("SessionStartTime", &self.SessionStartTime)
+            .field("BytesSentPerSession", &self.BytesSentPerSession)
+            .field("BytesReceivedPerSession", &self.BytesReceivedPerSession)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for POST_PROCESS_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        self.pszSessionId == other.pszSessionId
+            && self.pszSiteName == other.pszSiteName
+            && self.pszUserName == other.pszUserName
+            && self.pszHostName == other.pszHostName
+            && self.pszRemoteIpAddress == other.pszRemoteIpAddress
+            && self.dwRemoteIpPort == other.dwRemoteIpPort
+            && self.pszLocalIpAddress == other.pszLocalIpAddress
+            && self.dwLocalIpPort == other.dwLocalIpPort
+            && self.BytesSent == other.BytesSent
+            && self.BytesReceived == other.BytesReceived
+            && self.pszCommand == other.pszCommand
+            && self.pszCommandParameters == other.pszCommandParameters
+            && self.pszFullPath == other.pszFullPath
+            && self.pszPhysicalPath == other.pszPhysicalPath
+            && self.FtpStatus == other.FtpStatus
+            && self.FtpSubStatus == other.FtpSubStatus
+            && self.hrStatus == other.hrStatus
+            && self.SessionStartTime == other.SessionStartTime
+            && self.BytesSentPerSession == other.BytesSentPerSession
+            && self.BytesReceivedPerSession == other.BytesReceivedPerSession
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for POST_PROCESS_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for POST_PROCESS_PARAMETERS {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRE_PROCESS_PARAMETERS {
+    pub pszSessionId: super::super::Foundation::PWSTR,
+    pub pszSiteName: super::super::Foundation::PWSTR,
+    pub pszUserName: super::super::Foundation::PWSTR,
+    pub pszHostName: super::super::Foundation::PWSTR,
+    pub pszRemoteIpAddress: super::super::Foundation::PWSTR,
+    pub dwRemoteIpPort: u32,
+    pub pszLocalIpAddress: super::super::Foundation::PWSTR,
+    pub dwLocalIpPort: u32,
+    pub pszCommand: super::super::Foundation::PWSTR,
+    pub pszCommandParameters: super::super::Foundation::PWSTR,
+    pub SessionStartTime: super::super::Foundation::FILETIME,
+    pub BytesSentPerSession: u64,
+    pub BytesReceivedPerSession: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl PRE_PROCESS_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for PRE_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for PRE_PROCESS_PARAMETERS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("PRE_PROCESS_PARAMETERS")
+            .field("pszSessionId", &self.pszSessionId)
+            .field("pszSiteName", &self.pszSiteName)
+            .field("pszUserName", &self.pszUserName)
+            .field("pszHostName", &self.pszHostName)
+            .field("pszRemoteIpAddress", &self.pszRemoteIpAddress)
+            .field("dwRemoteIpPort", &self.dwRemoteIpPort)
+            .field("pszLocalIpAddress", &self.pszLocalIpAddress)
+            .field("dwLocalIpPort", &self.dwLocalIpPort)
+            .field("pszCommand", &self.pszCommand)
+            .field("pszCommandParameters", &self.pszCommandParameters)
+            .field("SessionStartTime", &self.SessionStartTime)
+            .field("BytesSentPerSession", &self.BytesSentPerSession)
+            .field("BytesReceivedPerSession", &self.BytesReceivedPerSession)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for PRE_PROCESS_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        self.pszSessionId == other.pszSessionId
+            && self.pszSiteName == other.pszSiteName
+            && self.pszUserName == other.pszUserName
+            && self.pszHostName == other.pszHostName
+            && self.pszRemoteIpAddress == other.pszRemoteIpAddress
+            && self.dwRemoteIpPort == other.dwRemoteIpPort
+            && self.pszLocalIpAddress == other.pszLocalIpAddress
+            && self.dwLocalIpPort == other.dwLocalIpPort
+            && self.pszCommand == other.pszCommand
+            && self.pszCommandParameters == other.pszCommandParameters
+            && self.SessionStartTime == other.SessionStartTime
+            && self.BytesSentPerSession == other.BytesSentPerSession
+            && self.BytesReceivedPerSession == other.BytesReceivedPerSession
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for PRE_PROCESS_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for PRE_PROCESS_PARAMETERS {
+    type Abi = Self;
+    type DefaultType = Self;
+}
 pub const SF_DENIED_APPLICATION: u32 = 8u32;
 pub const SF_DENIED_BY_CONFIG: u32 = 65536u32;
 pub const SF_DENIED_FILTER: u32 = 4u32;
