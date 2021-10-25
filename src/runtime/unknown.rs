@@ -7,6 +7,7 @@ use super::*;
 #[repr(transparent)]
 pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
 
+#[doc(hidden)]
 #[repr(C)]
 pub struct IUnknown_abi(
     pub unsafe extern "system" fn(this: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT,

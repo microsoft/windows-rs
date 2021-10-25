@@ -123,7 +123,7 @@ impl<T> std::convert::From<Result<T>> for HRESULT {
     }
 }
 
-pub struct HeapString(*mut u16);
+struct HeapString(*mut u16);
 
 impl Drop for HeapString {
     fn drop(&mut self) {
