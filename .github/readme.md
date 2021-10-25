@@ -6,46 +6,31 @@
 
 The `windows` crate lets you call any Windows API past, present, and future using code generated on the fly directly from the metadata describing the API and right into your Rust package where you can call them as if they were just another Rust module. The Rust language projection follows in the tradition established by [C++/WinRT](https://github.com/microsoft/cppwinrt) of building language projections for Windows using standard languages and compilers, providing a natural and idiomatic way for Rust developers to call Windows APIs.
 
-Watch the [Getting Started](https://www.youtube.com/watch?v=-oZrsCPKsn4) video! Microsoft Docs also has content on [developing with Rust on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/rust/). Check out the [FAQ](../docs/faq.md) for answers to frequently asked questions.
-
-Looking for specific APIs? The default set of [APIs are searchable and documented here](https://microsoft.github.io/windows-docs-rs/). 
-
-## Getting started
+Looking for specific APIs? The default set of APIs are searchable and [documented here](https://microsoft.github.io/windows-docs-rs/). More examples [can be found here](https://github.com/microsoft/windows-samples-rs).
 
 Start by adding the following to your Cargo.toml file:
 
 ```toml
-[dependencies]
-windows = "0.21.1"
-
-[build-dependencies]
-windows = "0.21.1"
+[dependencies.windows]
+git = "https://github.com/microsoft/windows-rs"
+features = [
+    "Data_Xml_Dom",
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_System_Threading",
+    "Win32_UI_WindowsAndMessaging",
+]
 ```
 
-This will allow Cargo to download, build, and cache Windows support as a package. Next, specify which types you need inside of a `build.rs` build script and the `windows` crate will generate the necessary bindings:
+Make use of any Windows APIs as needed.
 
 ```rust
-fn main() {
-    windows::runtime::build! {
-        Windows::Data::Xml::Dom::*,
-        Windows::Win32::Foundation::CloseHandle,
-        Windows::Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
-        Windows::Win32::UI::WindowsAndMessaging::MessageBoxA,
-    };
-}
-```
+use windows::{
+    runtime::*, Data::Xml::Dom::*, Win32::Foundation::*, Win32::System::Threading::*,
+    Win32::UI::WindowsAndMessaging::*,
+};
 
-Finally, make use of any Windows APIs as needed.
-
-```rust
-windows::runtime::include_bindings!();
-
-use Windows::Data::Xml::Dom::*;
-use Windows::Win32::Foundation::*;
-use Windows::Win32::System::Threading::*;
-use Windows::Win32::UI::WindowsAndMessaging::*;
-
-fn main() -> windows::runtime::Result<()> {
+fn main() -> Result<()> {
     let doc = XmlDocument::new()?;
     doc.LoadXml("<html>hello world</html>")?;
 
@@ -65,7 +50,3 @@ fn main() -> windows::runtime::Result<()> {
     Ok(())
 }
 ```
-
-To reduce build time, use a dedicated `bindings` crate. This will allow Cargo to cache the results and build your project far more quickly. More examples [can be found here](https://github.com/microsoft/windows-samples-rs). Robert Mikhayelyan's [Minesweeper](https://github.com/robmikh/minesweeper-rs) is also a great example.
-
-A more in-depth getting started guide can also be found [here](../docs/getting-started.md).
