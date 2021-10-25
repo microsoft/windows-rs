@@ -11,23 +11,30 @@ readme = ".github/readme.md"
 exclude = [".github", ".windows", "docs", "tests"]
 
 [workspace]
-members = ["crates/*", "tests/legacy/*", "tests/metadata/*", "tests/winrt/*", "tests/win32/*"]
-exclude = ["tests/component"]
+members = [
+    "crates/deps/*", 
+    "crates/targets/*", 
+    "crates/tools/*", 
+    "crates/tests/legacy/*", 
+    "crates/tests/metadata/*", 
+    "crates/tests/winrt/*", 
+    "crates/tests/win32/*"]
+exclude = ["crates/tests/component"]
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = ["x86_64-pc-windows-msvc"]
 
 [dependencies]
-windows_macros = { path = "crates/macros",  version = "0.22.0", optional = true }
-windows_reader = { path = "crates/reader", version = "0.22.0", optional = true }
-windows_gen = { path = "crates/gen",  version = "0.22.0", optional = true }
+windows_macros = { path = "crates/deps/macros",  version = "0.22.0", optional = true }
+windows_reader = { path = "crates/deps/reader", version = "0.22.0", optional = true }
+windows_gen = { path = "crates/deps/gen",  version = "0.22.0", optional = true }
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_x86 = { path = "crates/x86", version = "0.22.0" }
+windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.22.0" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x64 = { path = "crates/x64", version = "0.22.0" }
+windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.22.0" }
 
 # TODO: add deprecated feature
 [features]
