@@ -13,7 +13,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
             let mut t = t.clone();
             t.pointers += 1;
             let tokens = gen_abi_sig(&t, gen);
-            (quote! { result__: #tokens }, quote! {})
+            (quote! { , result__: #tokens }, quote! {})
         } else {
             let tokens = gen_abi_sig(t, gen);
             (quote! {}, quote! { -> #tokens })
@@ -23,7 +23,7 @@ pub fn gen_win32_abi(sig: &MethodSignature, gen: &Gen) -> TokenStream {
     };
 
     quote! {
-        (this: ::windows::runtime::RawPtr, #(#params,)* #udt_return_type) #return_sig
+        (this: ::windows::runtime::RawPtr #udt_return_type #(,#params)*) #return_sig
     }
 }
 

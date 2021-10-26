@@ -253,7 +253,7 @@ fn gen_method(
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = ::std::default::Default::default();
-                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), #(#args,)* &mut result__);
+                    (::windows::runtime::Interface::vtable(self).#vtable_offset)(::std::mem::transmute_copy(self), &mut result__ #(,#args)*);
                     result__
                 }
             }
