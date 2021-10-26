@@ -66,8 +66,9 @@ members = [
 exclude = ["crates/tests/component"]
 
 [package.metadata.docs.rs]
+all-features = true
 default-target = "x86_64-pc-windows-msvc"
-targets = ["x86_64-pc-windows-msvc"]
+targets = []
 
 [dependencies]
 windows_macros = { path = "crates/deps/macros",  version = "0.22.0", optional = true }
