@@ -110,6 +110,27 @@ EXPORTS
     cmd.arg(format!("i686_gnu\\lib\\lib{}.a", library));
     cmd.output().unwrap();
 
+    let mut def = std::fs::File::create(&def_path).unwrap();
+
+    def.write_all(
+        format!(
+            r#"
+LIBRARY {}
+EXPORTS
+"#,
+            library
+        )
+        .as_bytes(),
+    )
+    .unwrap();
+
+    for (function, _) in functions {
+        def.write_all(format!("{}\n", function).as_bytes())
+            .unwrap();
+    }
+
+    drop(def);
+
     let mut cmd = std::process::Command::new("dlltool");
     cmd.current_dir(&output);
     cmd.arg("-m");
