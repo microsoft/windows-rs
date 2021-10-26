@@ -5,7 +5,7 @@ use std::io::prelude::*;
 fn main() {
     let mut cmd = std::process::Command::new("where");
     cmd.arg("dlltool.exe");
-    
+
     if !cmd.output().unwrap().status.success() {
         println!("dlltool.exe not found");
         return;
@@ -94,7 +94,8 @@ EXPORTS
     .unwrap();
 
     for (function, params) in functions {
-        def.write_all(format!("{}@{}\n", function, params).as_bytes()).unwrap();
+        def.write_all(format!("{}@{}\n", function, params).as_bytes())
+            .unwrap();
     }
 
     drop(def);
