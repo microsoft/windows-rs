@@ -115,10 +115,8 @@
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>build.cmd $(Configuration) $(Platform) x86</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
       <Message>Copy to Rust</Message>
+      <Command>build.cmd $(Configuration) $(Platform) x86</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -167,10 +165,8 @@
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>build.cmd $(Configuration) $(Platform) x64</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
       <Message>Copy to Rust</Message>
+      <Command>build.cmd $(Configuration) $(Platform) x64</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

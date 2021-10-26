@@ -21680,10 +21680,10 @@ impl ID3D12Device {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -21695,9 +21695,9 @@ impl ID3D12Device {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -22201,17 +22201,17 @@ pub struct ID3D12Device_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -22700,10 +22700,10 @@ impl ID3D12Device1 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -22715,9 +22715,9 @@ impl ID3D12Device1 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -23294,17 +23294,17 @@ pub struct ID3D12Device1_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -23816,10 +23816,10 @@ impl ID3D12Device2 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -23831,9 +23831,9 @@ impl ID3D12Device2 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -24445,17 +24445,17 @@ pub struct ID3D12Device2_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -24973,10 +24973,10 @@ impl ID3D12Device3 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -24988,9 +24988,9 @@ impl ID3D12Device3 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -25676,17 +25676,17 @@ pub struct ID3D12Device3_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -26226,10 +26226,10 @@ impl ID3D12Device4 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -26241,9 +26241,9 @@ impl ID3D12Device4 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -26761,11 +26761,11 @@ impl ID3D12Device4 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
             ::std::mem::transmute(presourceallocationinfo1),
-            &mut result__,
         );
         result__
     }
@@ -27071,17 +27071,17 @@ pub struct ID3D12Device4_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -27314,11 +27314,11 @@ pub struct ID3D12Device4_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
         presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
@@ -27676,10 +27676,10 @@ impl ID3D12Device5 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -27691,9 +27691,9 @@ impl ID3D12Device5 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -28211,11 +28211,11 @@ impl ID3D12Device5 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
             ::std::mem::transmute(presourceallocationinfo1),
-            &mut result__,
         );
         result__
     }
@@ -28652,17 +28652,17 @@ pub struct ID3D12Device5_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -28895,11 +28895,11 @@ pub struct ID3D12Device5_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
         presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
@@ -29308,10 +29308,10 @@ impl ID3D12Device6 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -29323,9 +29323,9 @@ impl ID3D12Device6 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -29843,11 +29843,11 @@ impl ID3D12Device6 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
             ::std::mem::transmute(presourceallocationinfo1),
-            &mut result__,
         );
         result__
     }
@@ -30327,17 +30327,17 @@ pub struct ID3D12Device6_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -30570,11 +30570,11 @@ pub struct ID3D12Device6_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
         presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
@@ -30992,10 +30992,10 @@ impl ID3D12Device7 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -31007,9 +31007,9 @@ impl ID3D12Device7 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -31527,11 +31527,11 @@ impl ID3D12Device7 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
             ::std::mem::transmute(presourceallocationinfo1),
-            &mut result__,
         );
         result__
     }
@@ -32065,17 +32065,17 @@ pub struct ID3D12Device7_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -32308,11 +32308,11 @@ pub struct ID3D12Device7_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
         presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
@@ -32743,10 +32743,10 @@ impl ID3D12Device8 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -32758,9 +32758,9 @@ impl ID3D12Device8 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -33278,11 +33278,11 @@ impl ID3D12Device8 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
             ::std::mem::transmute(presourceallocationinfo1),
-            &mut result__,
         );
         result__
     }
@@ -33459,11 +33459,11 @@ impl ID3D12Device8 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).68)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
             ::std::mem::transmute(presourceallocationinfo1),
-            &mut result__,
         );
         result__
     }
@@ -33953,17 +33953,17 @@ pub struct ID3D12Device8_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -34196,11 +34196,11 @@ pub struct ID3D12Device8_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
         presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
@@ -34279,11 +34279,11 @@ pub struct ID3D12Device8_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC1,
         presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -34685,10 +34685,10 @@ impl ID3D12Device9 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).25)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
-            &mut result__,
         );
         result__
     }
@@ -34700,9 +34700,9 @@ impl ID3D12Device9 {
         let mut result__: D3D12_HEAP_PROPERTIES = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).26)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(nodemask),
             ::std::mem::transmute(heaptype),
-            &mut result__,
         );
         result__
     }
@@ -35220,11 +35220,11 @@ impl ID3D12Device9 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).56)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
             ::std::mem::transmute(presourceallocationinfo1),
-            &mut result__,
         );
         result__
     }
@@ -35401,11 +35401,11 @@ impl ID3D12Device9 {
         let mut result__: D3D12_RESOURCE_ALLOCATION_INFO = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).68)(
             ::std::mem::transmute_copy(self),
+            &mut result__,
             ::std::mem::transmute(visiblemask),
             ::std::mem::transmute(numresourcedescs),
             ::std::mem::transmute(presourcedescs),
             ::std::mem::transmute(presourceallocationinfo1),
-            &mut result__,
         );
         result__
     }
@@ -35957,17 +35957,17 @@ pub struct ID3D12Device9_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_HEAP_PROPERTIES,
         nodemask: u32,
         heaptype: D3D12_HEAP_TYPE,
-        result__: *mut D3D12_HEAP_PROPERTIES,
     ),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
@@ -36200,11 +36200,11 @@ pub struct ID3D12Device9_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC,
         presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub  unsafe extern "system" fn(
@@ -36283,11 +36283,11 @@ pub struct ID3D12Device9_abi(
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
+        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
         visiblemask: u32,
         numresourcedescs: u32,
         presourcedescs: *const D3D12_RESOURCE_DESC1,
         presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1,
-        result__: *mut D3D12_RESOURCE_ALLOCATION_INFO,
     ),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
