@@ -28,9 +28,9 @@ fn main() {
     let _ = std::fs::remove_dir_all(&lib);
     std::fs::create_dir_all(&lib).unwrap();
 
-    // for (library, functions) in &libraries {
-    //     build_library(&output, library, functions);
-    // }
+    for (library, functions) in &libraries {
+        build_library(&output, library, functions);
+    }
 }
 
 fn load_functions(
@@ -100,24 +100,24 @@ EXPORTS
     drop(def);
 
     let mut cmd = std::process::Command::new("dlltool");
-    cmd.current_dir(output.join("i686_gnu\\lib"));
+    cmd.current_dir(&output);
     cmd.arg("-m");
     cmd.arg("i386");
     cmd.arg("-d");
     cmd.arg(format!("{}.def", library));
     cmd.arg("-l");
-    cmd.arg(format!("{}.a", library));
+    cmd.arg(format!("i686_gnu\\lib\\{}.a", library));
     cmd.output().unwrap();
 
     let mut cmd = std::process::Command::new("dlltool");
-    cmd.current_dir(output.join("x86_64_gnu\\lib"));
+    cmd.current_dir(&output);
     cmd.arg("-m");
     cmd.arg("i386:x86-64");
     cmd.arg("-d");
     cmd.arg(format!("{}.def", library));
     cmd.arg("-l");
-    cmd.arg(format!("{}.a", library));
+    cmd.arg(format!("x86_64_gnu\\lib\\{}.a", library));
     cmd.output().unwrap();
 
-    std::fs::remove_file(output.join(format!("x86_64_gnu\\lib\\{}.def", library))).unwrap();
+    std::fs::remove_file(output.join(format!("{}.def", library))).unwrap();
 }
