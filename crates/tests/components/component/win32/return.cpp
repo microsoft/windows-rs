@@ -20,6 +20,32 @@ namespace
             };
         }
 
+        ReturnType __stdcall ReturnStructWithParams(int32_t a, int32_t b) noexcept
+        {
+            return
+            {
+                123,
+                456,
+                789
+            };
+        }
+
+        SmallStruct __stdcall ReturnSmallStruct() noexcept
+        {
+            return
+            {
+                123
+            };
+        }
+
+        SmallStruct __stdcall ReturnSmallStructWithParams(int32_t a, int32_t b) noexcept
+        {
+            return
+            {
+                123
+            };
+        }
+
         void __stdcall ReturnVoid(int64_t* check) noexcept
         {
             *check = 123;
@@ -55,6 +81,32 @@ ReturnType __stdcall ReturnStruct() noexcept
         123,
         456,
         789
+    };
+}
+
+ReturnType __stdcall ReturnStructWithParams(int32_t a, int32_t b) noexcept
+{
+    return
+    {
+        123,
+        456,
+        789
+    };
+}
+
+SmallStruct __stdcall ReturnSmallStruct() noexcept
+{
+    return
+    {
+        123
+    };
+}
+
+SmallStruct __stdcall ReturnSmallStructWithParams(int32_t a, int32_t b) noexcept
+{
+    return
+    {
+        123
     };
 }
 
