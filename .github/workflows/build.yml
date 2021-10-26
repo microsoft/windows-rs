@@ -54,6 +54,22 @@ jobs:
           rust: nightly
           other: i686-pc-windows-msvc
           platform: x86
+        - os: windows-latest
+          rust: stable
+          other: x86_64-pc-windows-gnu
+          platform: x64
+        - os: windows-latest
+          rust: nightly
+          other: x86_64-pc-windows-gnu
+          platform: x64
+        - os: windows-latest
+          rust: stable
+          other: i686-pc-windows-gnu
+          platform: x86
+        - os: windows-latest
+          rust: nightly
+          other: i686-pc-windows-gnu
+          platform: x86          
         - os: ubuntu-latest
           rust: stable
           other: i686-unknown-linux-gnu
