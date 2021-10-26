@@ -3,19 +3,13 @@ use std::collections::BTreeMap;
 use std::io::prelude::*;
 
 fn main() {
-    let platform = if let Some(platform) = option_env!("Platform") {
-        match platform {
-            "x86" => "i686_msvc",
-            "x64" => "x86_64_msvc",
-            _ => {
-                println!("Unknown platform");
-                return;
-            }
-        }
-    } else {
-        println!("Please run this tool from a Visual Studio command prompt");
+    let mut cmd = std::process::Command::new("where");
+    cmd.arg("dlltool.exe");
+    
+    if !cmd.output().unwrap().status.success() {
+        println!("dlltool.exe not found");
         return;
-    };
+    }
 
     let reader = TypeReader::get_mut();
 
@@ -25,14 +19,18 @@ fn main() {
 
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
     output.push("crates\\targets");
-    output.push(platform);
-    output.push("lib");
-    let _ = std::fs::remove_dir_all(&output);
+
+    let lib = output.join("i686_gnu\\lib");
+    let _ = std::fs::remove_dir_all(&lib);
     std::fs::create_dir_all(&output).unwrap();
 
-    for (library, functions) in &libraries {
-        build_library(&output, library, functions);
-    }
+    let lib = output.join("x86_64_gnu\\lib");
+    let _ = std::fs::remove_dir_all(&lib);
+    std::fs::create_dir_all(&output).unwrap();
+
+    // for (library, functions) in &libraries {
+    //     build_library(&output, library, functions);
+    // }
 }
 
 fn load_functions(
