@@ -107,7 +107,7 @@ EXPORTS
     cmd.arg("-d");
     cmd.arg(format!("{}.def", library));
     cmd.arg("-l");
-    cmd.arg(format!("i686_gnu\\lib\\{}.a", library));
+    cmd.arg(format!("i686_gnu\\lib\\lib{}.a", library));
     cmd.output().unwrap();
 
     let mut cmd = std::process::Command::new("dlltool");
@@ -117,7 +117,7 @@ EXPORTS
     cmd.arg("-d");
     cmd.arg(format!("{}.def", library));
     cmd.arg("-l");
-    cmd.arg(format!("x86_64_gnu\\lib\\{}.a", library));
+    cmd.arg(format!("x86_64_gnu\\lib\\lib{}.a", library));
     cmd.output().unwrap();
 
     std::fs::remove_file(output.join(format!("{}.def", library))).unwrap();
