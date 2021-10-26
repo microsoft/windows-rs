@@ -20,7 +20,7 @@ namespace
             };
         }
 
-        ReturnType __stdcall ReturnStructWithParams(int32_t a, int32_t b) noexcept
+        ReturnType __stdcall ReturnStructWithParams(int32_t, int32_t) noexcept
         {
             return
             {
@@ -38,7 +38,7 @@ namespace
             };
         }
 
-        SmallStruct __stdcall ReturnSmallStructWithParams(int32_t a, int32_t b) noexcept
+        SmallStruct __stdcall ReturnSmallStructWithParams(int32_t, int32_t) noexcept
         {
             return
             {
@@ -84,7 +84,7 @@ ReturnType __stdcall ReturnStruct() noexcept
     };
 }
 
-ReturnType __stdcall ReturnStructWithParams(int32_t a, int32_t b) noexcept
+ReturnType __stdcall ReturnStructWithParams(int32_t, int32_t) noexcept
 {
     return
     {
@@ -102,7 +102,7 @@ SmallStruct __stdcall ReturnSmallStruct() noexcept
     };
 }
 
-SmallStruct __stdcall ReturnSmallStructWithParams(int32_t a, int32_t b) noexcept
+SmallStruct __stdcall ReturnSmallStructWithParams(int32_t, int32_t) noexcept
 {
     return
     {
