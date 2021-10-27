@@ -5,4 +5,4 @@ edition = "2018"
 publish = false
 
 [dependencies]
-reader = { package = "windows_reader", path = "../../deps/reader", version = "0.22.0" }
+reader = { package = "windows_reader", path = "../../deps/reader", version = "0.22.1" }
